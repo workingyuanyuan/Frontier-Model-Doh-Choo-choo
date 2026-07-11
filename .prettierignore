@@ -1,0 +1,6 @@
+reference-table-data/
+pnpm-lock.yaml
+.next/
+dist/
+coverage/
+artifacts/
