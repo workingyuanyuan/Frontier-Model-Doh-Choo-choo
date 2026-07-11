@@ -1,0 +1,103 @@
+export const dimensionSeed = [
+  {
+    id: 'reasoning',
+    displayOrder: 0,
+    nameZhTw: '科學推理',
+    nameEn: 'Reasoning',
+    descriptionZhTw: '科學、邏輯與複合問題的推理能力。',
+    descriptionEn: 'Scientific, logical, and multi-step problem solving.',
+  },
+  {
+    id: 'math',
+    displayOrder: 1,
+    nameZhTw: '數學',
+    nameEn: 'Mathematics',
+    descriptionZhTw: '數學理解、計算與證明能力。',
+    descriptionEn: 'Mathematical understanding, calculation, and proof.',
+  },
+  {
+    id: 'knowledge',
+    displayOrder: 2,
+    nameZhTw: '知識',
+    nameEn: 'Knowledge',
+    descriptionZhTw: '跨領域知識的準確性與涵蓋度。',
+    descriptionEn: 'Accuracy and breadth of cross-domain knowledge.',
+  },
+  {
+    id: 'language',
+    displayOrder: 3,
+    nameZhTw: '長文本推理',
+    nameEn: 'Long-context Language',
+    descriptionZhTw: '長文本理解、整合與一致性。',
+    descriptionEn: 'Long-context comprehension, synthesis, and consistency.',
+  },
+  {
+    id: 'instruction',
+    displayOrder: 4,
+    nameZhTw: '指令遵循',
+    nameEn: 'Instruction Following',
+    descriptionZhTw: '遵循限制、格式與使用者意圖的能力。',
+    descriptionEn: 'Ability to follow constraints, formats, and user intent.',
+  },
+  {
+    id: 'coding',
+    displayOrder: 5,
+    nameZhTw: '程式設計',
+    nameEn: 'Coding',
+    descriptionZhTw: '程式生成、理解、除錯與軟體工程能力。',
+    descriptionEn:
+      'Code generation, comprehension, debugging, and engineering.',
+  },
+  {
+    id: 'agentic',
+    displayOrder: 6,
+    nameZhTw: '工具調用',
+    nameEn: 'Agentic Tool Use',
+    descriptionZhTw: '規劃並可靠運用工具完成任務的能力。',
+    descriptionEn: 'Planning and reliable tool use to complete tasks.',
+  },
+  {
+    id: 'context',
+    displayOrder: 7,
+    nameZhTw: '事實可靠性',
+    nameEn: 'Factual Reliability',
+    descriptionZhTw: '回答可查證、校準與避免幻覺的程度。',
+    descriptionEn:
+      'Verifiability, calibration, and resistance to hallucination.',
+  },
+] as const;
+
+export const themePresetSeed = [
+  {
+    slug: 'editorial-light',
+    displayNameZhTw: '編輯室亮色',
+    displayNameEn: 'Editorial Light',
+    geometryVersion: 'radar-v1',
+    tokens: {
+      colorScheme: 'light',
+      canvas: '#eef2f5',
+      surface: '#ffffff',
+      ink: '#17212b',
+      muted: '#687684',
+      accent: '#287fb8',
+      comparison: '#d36b45',
+      grid: '#cbd6de',
+    },
+  },
+  {
+    slug: 'studio-light',
+    displayNameZhTw: '影像棚亮色',
+    displayNameEn: 'Studio Light',
+    geometryVersion: 'radar-v1',
+    tokens: {
+      colorScheme: 'light',
+      canvas: '#e9eef2',
+      surface: '#ffffff',
+      ink: '#111820',
+      muted: '#6e7781',
+      accent: '#376aa5',
+      comparison: '#d15c38',
+      grid: '#c5d0d8',
+    },
+  },
+] as const;
