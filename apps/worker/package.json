@@ -1,0 +1,23 @@
+{
+  "name": "@llm-bench/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "ingest:livebench": "tsx src/cli.ts",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@llm-bench/connectors": "workspace:*",
+    "@llm-bench/db": "workspace:*",
+    "drizzle-orm": "catalog:"
+  },
+  "devDependencies": {
+    "tsx": "4.23.0",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

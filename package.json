@@ -18,6 +18,7 @@
     "dev": "turbo run dev --parallel",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
+    "ingest:livebench": "pnpm --filter @llm-bench/worker ingest:livebench",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "test:run": "turbo run test:run",

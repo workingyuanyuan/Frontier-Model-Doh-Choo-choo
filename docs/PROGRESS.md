@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 1 — evidence database and first source connector.
+Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## Completed
 
@@ -14,10 +14,14 @@ Phase 1 — evidence database and first source connector.
 - Implemented 27 PostgreSQL/Drizzle entities for model identity, evidence, scoring, publishing and audit history.
 - Generated and applied the initial SQL migration to PostgreSQL 18.
 - Seeded and verified the canonical eight-axis order and two shared-geometry light themes.
+- Implemented the LiveBench rows connector with strict Zod validation, fixed HTTPS origin, manual redirect rejection and response byte limits.
+- Implemented immutable content-addressed raw storage with SHA-256 deduplication and collision/tamper detection.
+- Implemented the worker staging transaction across source, snapshot, ingestion run and staged result entities.
+- Completed a real official LiveBench ingestion: 100/100 rows accepted from 60,372 available, with one successful auditable run.
 
 ## In Progress
 
-- LiveBench ingestion vertical slice: fetch, immutable snapshot, validation and staging.
+- LiveBench full pagination, Hub revision capture, canonical model aliases and category aggregation.
 
 ## Decisions Made
 
@@ -33,10 +37,13 @@ Phase 1 — evidence database and first source connector.
 - Database schema and seed compile under strict TypeScript.
 - PostgreSQL 18 accepted the migration and reports exactly 27 application tables.
 - PostgreSQL returned all eight ordered dimensions and both `radar-v1` light themes.
+- LiveBench connector/storage tests and worker staging tests pass.
+- The real connector response passed the production parser and was written under its verified SHA-256 path.
+- PostgreSQL reports one successful LiveBench run and 100 validated unresolved staged rows.
 
 ## Data Sources Status
 
-- LiveBench: official public data and Apache-2.0 license identified; connector implementation next.
+- LiveBench: official public data and Apache-2.0 license identified; single-page staging connector READY, publication disabled.
 - Scale Labs: local 2026-07 snapshots preserved; license/terms and parser verification pending.
 - All other requested sources: registry research pending.
 
@@ -46,6 +53,6 @@ Phase 1 — evidence database and first source connector.
 
 ## Next Actions
 
-- Implement and test the LiveBench connector and content-addressed raw storage.
-- Add repository queries that publish a validated ranking snapshot.
+- Complete LiveBench pagination, Hub revision capture and canonical alias mapping.
+- Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
 - Build the bilingual Next.js vertical slice against the published snapshot contract.
