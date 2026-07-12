@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@llm-bench/contracts": "workspace:*",
+    "@llm-bench/presentation": "workspace:*",
     "@llm-bench/radar": "workspace:*",
     "next": "catalog:",
     "react": "catalog:",
@@ -21,7 +22,7 @@
     "@types/node": "26.1.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "typescript": "5.9.3",
+    "typescript": "catalog:",
     "vitest": "catalog:"
   }
 }

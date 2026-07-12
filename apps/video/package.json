@@ -1,0 +1,31 @@
+{
+  "name": "@llm-bench/video",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "render": "remotion render src/index.ts LlmBenchWeekly ../../output/llm-bench-weekly.mp4",
+    "still": "remotion still src/index.ts LlmBenchWeekly ../../artifacts/llm-bench-weekly.png --frame=240",
+    "studio": "remotion studio src/index.ts",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@llm-bench/contracts": "workspace:*",
+    "@llm-bench/presentation": "workspace:*",
+    "@llm-bench/radar": "workspace:*",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "remotion": "catalog:",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.487",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

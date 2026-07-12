@@ -32,7 +32,17 @@ pnpm test:run
 pnpm build
 ```
 
-Application, ingestion, scoring and video commands will be added with their corresponding vertical slices rather than exposed before they work.
+## Working applications
+
+```bash
+pnpm --filter @llm-bench/web dev
+pnpm ingest:livebench
+pnpm video:studio
+pnpm video:still
+pnpm video:render
+```
+
+`video:render` writes a 1920×1080 H.264 MP4 to `output/llm-bench-weekly.mp4`. The Web and video defaults intentionally use the same clearly labeled fictional preview snapshot. Preview values must never be promoted to a published edition.
 
 ## Documentation
 

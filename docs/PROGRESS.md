@@ -21,6 +21,9 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Built statically generated `/zh-TW` and `/en` Next.js routes with URL-visible locale fallback, shared preview snapshot data and clear non-production labeling.
 - Built selectable model rankings, an accessible shared-geometry SVG radar, two all-light semantic themes, evidence/pipeline/methodology cards and responsive layouts.
 - Added a project-owned SVG icon without third-party brand assets.
+- Extracted the fictional, clearly labeled preview snapshot into a shared presentation package consumed by both Web and video.
+- Built a bilingual four-scene Remotion composition at 1920×1080, 30 fps and 600 frames with validated snapshot, locale, theme and selected-model props.
+- Rendered and visually inspected four representative stills, then completed a 20-second H.264 MP4 render with Remotion's managed media toolchain.
 
 ## In Progress
 
@@ -48,6 +51,10 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Chrome verified no horizontal overflow at 390px and 1440px, correct English document metadata and a clean runtime console.
 - Mobile Lighthouse passes 55/55 audits with Accessibility, Best Practices, SEO and Agentic Browsing all at 100.
 - Local Chrome performance trace measured 191 ms LCP and 0.00 CLS without throttling.
+- Video timeline and prop-validation tests pass, including full-frame coverage and intentional scene overlaps.
+- Remotion rendered all 600 frames to a 3.11 MiB H.264 MP4.
+- Chrome decoded the MP4 at 1920×1080 and approximately 20.05 seconds, sought successfully across all four scenes and reported no console warnings or errors.
+- `pnpm audit --audit-level high` passes; two moderate transitive advisories are recorded with bounded, currently unreachable application paths and a review date.
 
 ## Data Sources Status
 
@@ -57,10 +64,11 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## Risks / Blockers
 
-- No blocking issue. FFmpeg is not installed globally; Remotion renderer feasibility will be tested before video completion.
+- No blocking issue. A global FFmpeg installation is unnecessary for the verified local path because Remotion's managed renderer completed the H.264 encode.
 
 ## Next Actions
 
 - Complete LiveBench pagination, Hub revision capture and canonical alias mapping.
 - Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
-- Build the Remotion composition from the same snapshot, locale and theme contracts.
+- Add the deterministic video artifact manifest and CI smoke render.
+- Add weekly dry-run/publish/rollback orchestration with explicit publication gates.

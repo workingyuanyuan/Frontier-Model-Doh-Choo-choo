@@ -32,6 +32,6 @@ Implement LiveBench as the first automated source because its official repositor
 
 pnpm 11 lifecycle scripts remain denied by default. Only reviewed packages are added to `allowBuilds`; the allowlist contains `esbuild` for the TypeScript test toolchain and `sharp` for Next.js image processing.
 
-## DEC-009 — Web TypeScript compatibility boundary
+## DEC-009 — TypeScript compatibility boundary
 
-The workspace default is TypeScript 7.0.2. The Next.js 16.2.10 app pins TypeScript 5.9.3 because Next's build-time dependency verifier resolves `typescript/lib/typescript.js`, a package subpath no longer exported by TypeScript 7. This local compatibility boundary preserves production type checking without downgrading other packages or disabling Next checks.
+The workspace pins TypeScript 5.9.3. Next.js 16.2.10 resolves `typescript/lib/typescript.js`, while Remotion 4.0.487 loads TypeScript through its monorepo-root bundler; the package subpath/API shape is not compatible with TypeScript 7. A single compatible workspace version keeps production type checking and rendering enabled without loader shims.
