@@ -19,7 +19,7 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "ingest:livebench": "pnpm --filter @llm-bench/worker ingest:livebench",
-    "lint": "turbo run lint",
+    "lint": "eslint . --max-warnings 0",
     "test": "turbo run test",
     "test:run": "turbo run test:run",
     "typecheck": "turbo run typecheck",
@@ -28,11 +28,14 @@
     "video:studio": "pnpm --filter @llm-bench/video studio"
   },
   "devDependencies": {
+    "@eslint/js": "10.0.1",
     "@types/node": "26.1.1",
+    "eslint": "10.7.0",
     "prettier": "3.9.5",
     "tsx": "4.23.0",
     "turbo": "2.10.4",
     "typescript": "catalog:",
+    "typescript-eslint": "8.63.0",
     "vitest": "4.1.10"
   }
 }

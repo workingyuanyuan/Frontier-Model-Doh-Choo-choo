@@ -53,6 +53,7 @@ pnpm video:render
 - [Source registry](docs/SOURCE_REGISTRY.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Video spec](docs/VIDEO_SPEC.md)
+- [Operations and CI](docs/OPERATIONS.md)
 - [Decisions](docs/DECISIONS.md)
 - [Risks](docs/RISKS.md)
 - [Progress](docs/PROGRESS.md)

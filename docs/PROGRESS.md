@@ -55,6 +55,9 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Remotion rendered all 600 frames to a 3.11 MiB H.264 MP4.
 - Chrome decoded the MP4 at 1920×1080 and approximately 20.05 seconds, sought successfully across all four scenes and reported no console warnings or errors.
 - `pnpm audit --audit-level high` passes; two moderate transitive advisories are recorded with bounded, currently unreachable application paths and a review date.
+- Added SHA-pinned CI gates for formatting, types, tests, PostgreSQL migration/seed, production build, high-severity audit and Remotion frame rendering.
+- Added a least-privilege Monday 09:15 Asia/Taipei weekly dry run that stages one bounded official LiveBench page and uploads short-lived immutable evidence without publishing.
+- Replayed the complete CI chain locally: Prettier, ESLint with zero warnings, 9-package type checking, 55 tests, PostgreSQL migration/seed, 9-package production build, high-severity audit and Remotion still render all pass.
 
 ## Data Sources Status
 
@@ -70,5 +73,5 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 - Complete LiveBench pagination, Hub revision capture and canonical alias mapping.
 - Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
-- Add the deterministic video artifact manifest and CI smoke render.
+- Add the deterministic video artifact manifest; the CI smoke render is complete.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.

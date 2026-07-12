@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -32,5 +32,26 @@ describe('content-addressed raw storage', () => {
         '../outside',
       ),
     ).rejects.toThrow('extension');
+  });
+
+  it('preserves the filesystem cause when an existing artifact was tampered with', async () => {
+    const root = join(tmpdir(), `llm-bench-storage-${crypto.randomUUID()}`);
+    const body = new TextEncoder().encode('{"source":"livebench"}');
+    const stored = await writeContentAddressedArtifact(root, body, 'json');
+    await writeFile(stored.storagePath, Buffer.alloc(body.byteLength, 0x78));
+
+    const failure = await writeContentAddressedArtifact(
+      root,
+      body,
+      'json',
+    ).then(
+      () => undefined,
+      (error: unknown) => error,
+    );
+
+    expect(failure).toBeInstanceOf(Error);
+    expect((failure as Error & { cause?: unknown }).cause).toMatchObject({
+      code: 'EEXIST',
+    });
   });
 });

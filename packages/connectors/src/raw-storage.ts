@@ -55,6 +55,7 @@ export async function writeContentAddressedArtifact(
     ) {
       throw new Error(
         'Content-addressed artifact does not match its SHA-256 path',
+        { cause: error },
       );
     }
   }

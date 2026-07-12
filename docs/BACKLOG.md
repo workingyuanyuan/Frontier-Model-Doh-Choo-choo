@@ -4,7 +4,7 @@
 
 - [x] Repository audit, Git, pinned monorepo and core decisions.
 - [x] Product, architecture, methodology, source, video, design and risk documents.
-- [ ] README, local environment and CI baseline.
+- [x] README, local environment and CI baseline.
 
 ## Phase 1 — Domain core
 
@@ -28,5 +28,5 @@
 ## Phase 4 — Video and automation
 
 - [ ] Shared snapshot-driven Remotion preview and deterministic artifact manifest (preview complete; manifest pending).
-- [ ] Weekly dry-run/publish/rollback pipeline and scheduled CI.
+- [ ] Weekly dry-run/publish/rollback pipeline and scheduled CI (dry-run and CI complete; publish/rollback pending).
 - [ ] Full unit, integration, E2E, visual, accessibility, security and performance gates.
