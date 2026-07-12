@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 
 import {
+  type FetchedLiveBenchDatasetRevision,
   type LiveBenchJudgment,
   type LiveBenchPageRequest,
   fetchLiveBenchPage,
@@ -28,6 +29,7 @@ export interface StagedLiveBenchRecord {
 
 export interface LiveBenchIngestionOptions extends LiveBenchPageRequest {
   readonly rawStorageRoot: string;
+  readonly datasetRevision: FetchedLiveBenchDatasetRevision;
 }
 
 export interface LiveBenchIngestionSummary {
@@ -39,6 +41,22 @@ export interface LiveBenchIngestionSummary {
   readonly recordsSeen: number;
   readonly recordsAccepted: number;
   readonly totalAvailable: number;
+}
+
+export function createLiveBenchEvidenceMetadata(
+  options: LiveBenchIngestionOptions,
+  totalAvailable: number,
+) {
+  return {
+    offset: options.offset,
+    length: options.length,
+    totalAvailable,
+    datasetId: options.datasetRevision.datasetId,
+    datasetRevision: options.datasetRevision.revision,
+    datasetLastModified: options.datasetRevision.lastModified,
+    revisionFetchedAt: options.datasetRevision.fetchedAt,
+    revisionRequestUrl: options.datasetRevision.requestUrl,
+  };
 }
 
 export function toStagedLiveBenchRecord(
@@ -79,6 +97,10 @@ export async function ingestLiveBenchPage(
   );
   const staged = fetched.page.rows.map(({ row }) =>
     toStagedLiveBenchRecord(row),
+  );
+  const evidenceMetadata = createLiveBenchEvidenceMetadata(
+    options,
+    fetched.page.num_rows_total,
   );
 
   return db.transaction(async (transaction) => {
@@ -131,11 +153,7 @@ export async function ingestLiveBenchPage(
         contentType: fetched.contentType,
         storagePath: stored.storagePath,
         byteLength: stored.byteLength,
-        metadata: {
-          offset: options.offset,
-          length: options.length,
-          totalAvailable: fetched.page.num_rows_total,
-        },
+        metadata: evidenceMetadata,
       })
       .onConflictDoNothing({
         target: [sourceSnapshots.sourceId, sourceSnapshots.contentSha256],
@@ -167,7 +185,7 @@ export async function ingestLiveBenchPage(
         connectorVersion: LIVEBENCH_CONNECTOR_VERSION,
         recordsSeen: staged.length,
         recordsAccepted: 0,
-        metadata: { offset: options.offset, length: options.length },
+        metadata: evidenceMetadata,
       })
       .returning({ id: ingestionRuns.id });
 

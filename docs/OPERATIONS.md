@@ -12,7 +12,7 @@ All reusable actions are pinned to immutable full commit SHAs. The workflow toke
 
 1. creates a disposable PostgreSQL database;
 2. applies committed migrations and canonical seeds;
-3. fetches one bounded page from the allowlisted official LiveBench dataset;
+3. captures the official LiveBench Hub commit SHA and fetches one bounded page;
 4. preserves the content-addressed raw response;
 5. runs validation tests;
 6. renders a representative poster;

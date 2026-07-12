@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'node:url';
 
+import { fetchLiveBenchDatasetRevision } from '@llm-bench/connectors';
 import { createDatabase } from '@llm-bench/db';
 
 import { ingestLiveBenchPage } from './livebench-ingestion.js';
@@ -15,10 +16,12 @@ const rawStorageRoot =
 const { db, pool } = createDatabase();
 
 try {
+  const datasetRevision = await fetchLiveBenchDatasetRevision();
   const summary = await ingestLiveBenchPage(db, {
     offset: integerEnvironmentValue('LIVEBENCH_OFFSET', 0),
     length: integerEnvironmentValue('LIVEBENCH_LENGTH', 100),
     rawStorageRoot,
+    datasetRevision,
   });
   console.info(JSON.stringify(summary, null, 2));
 } finally {

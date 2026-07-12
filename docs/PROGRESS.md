@@ -27,7 +27,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## In Progress
 
-- LiveBench full pagination, Hub revision capture, canonical model aliases and category aggregation.
+- LiveBench canonical model aliases and category aggregation.
 
 ## Decisions Made
 
@@ -61,6 +61,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added deterministic video metadata JSON and ranking CSV bound to the input snapshot ID and SHA-256; the preview bundle was generated successfully.
 - Added a tested deterministic LiveBench pagination planner that covers every declared row exactly once and enforces the official 100-row request ceiling.
 - Added sequential full-dataset LiveBench orchestration with aggregate run summaries, total-row drift rejection and a dedicated CLI; publication remains disabled.
+- Added fixed-origin Hub revision capture and bound the immutable dataset commit SHA to every LiveBench source snapshot and ingestion run.
 
 ## Data Sources Status
 
@@ -74,7 +75,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## Next Actions
 
-- Complete LiveBench pagination, Hub revision capture and canonical alias mapping.
+- Complete LiveBench canonical alias mapping.
 - Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.
