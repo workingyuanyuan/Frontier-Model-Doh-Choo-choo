@@ -59,6 +59,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added a least-privilege Monday 09:15 Asia/Taipei weekly dry run that stages one bounded official LiveBench page and uploads short-lived immutable evidence without publishing.
 - Replayed the complete CI chain locally: Prettier, ESLint with zero warnings, 9-package type checking, 57 tests, PostgreSQL migration/seed, 9-package production build, high-severity audit and Remotion still render all pass.
 - Added deterministic video metadata JSON and ranking CSV bound to the input snapshot ID and SHA-256; the preview bundle was generated successfully.
+- Added a tested deterministic LiveBench pagination planner that covers every declared row exactly once and enforces the official 100-row request ceiling.
 
 ## Data Sources Status
 

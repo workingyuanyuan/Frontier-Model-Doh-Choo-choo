@@ -60,6 +60,33 @@ export interface FetchedLiveBenchPage {
   readonly page: LiveBenchPage;
 }
 
+export function planLiveBenchPages(
+  totalRows: number,
+  pageLength = LIVEBENCH_MAX_PAGE_LENGTH,
+): LiveBenchPageRequest[] {
+  if (!Number.isInteger(totalRows) || totalRows < 0) {
+    throw new Error('LiveBench total rows must be a non-negative integer');
+  }
+  if (
+    !Number.isInteger(pageLength) ||
+    pageLength < 1 ||
+    pageLength > LIVEBENCH_MAX_PAGE_LENGTH
+  ) {
+    throw new Error(
+      `LiveBench page length must be between 1 and ${LIVEBENCH_MAX_PAGE_LENGTH}`,
+    );
+  }
+
+  const requests: LiveBenchPageRequest[] = [];
+  for (let offset = 0; offset < totalRows; offset += pageLength) {
+    requests.push({
+      offset,
+      length: Math.min(pageLength, totalRows - offset),
+    });
+  }
+  return requests;
+}
+
 export function parseLiveBenchPage(input: string): LiveBenchPage {
   if (Buffer.byteLength(input, 'utf8') > LIVEBENCH_MAX_RESPONSE_BYTES) {
     throw new Error('LiveBench response exceeds the maximum byte length');

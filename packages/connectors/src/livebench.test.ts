@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   LIVEBENCH_ROWS_ORIGIN,
   fetchLiveBenchPage,
+  planLiveBenchPages,
   parseLiveBenchPage,
 } from './livebench.js';
 
@@ -117,4 +118,25 @@ describe('LiveBench fetch boundary', () => {
     ).rejects.toThrow();
     expect(fetchImplementation).not.toHaveBeenCalled();
   });
+});
+
+describe('LiveBench pagination plan', () => {
+  it('covers every row exactly once and shortens the final page', () => {
+    expect(planLiveBenchPages(201)).toEqual([
+      { offset: 0, length: 100 },
+      { offset: 100, length: 100 },
+      { offset: 200, length: 1 },
+    ]);
+  });
+
+  it('returns no requests for an empty dataset', () => {
+    expect(planLiveBenchPages(0)).toEqual([]);
+  });
+
+  it.each([-1, 1.5, Number.NaN])(
+    'rejects invalid total row count %s',
+    (totalRows) => {
+      expect(() => planLiveBenchPages(totalRows)).toThrow('total rows');
+    },
+  );
 });

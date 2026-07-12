@@ -26,7 +26,7 @@ Every connector record stores `source_id`, type, publisher, base/leaderboard/met
 - Judgment rows: `https://datasets-server.huggingface.co/rows`, fixed dataset `livebench/model_judgment`, config `default`, split `leaderboard`.
 - Validated fields: `question_id`, `task`, `model`, `score`, `turn`, `tstamp`, and `category`.
 - The rows API allows at most 100 records per request. The connector validates pagination before network access, uses manual redirect handling, enforces HTTPS origin/content type/byte limits, and stores the exact response by SHA-256.
-- Current implementation state: one-page CLI ingestion into immutable raw storage and unresolved staged rows. Full pagination, Hub revision capture, alias resolution, aggregation and publication remain gated work.
+- Current implementation state: one-page CLI ingestion into immutable raw storage and unresolved staged rows. A tested deterministic planner now covers any declared dataset size in non-overlapping requests of at most 100 rows and shortens the final page. Multi-page orchestration, Hub revision capture, alias resolution, aggregation and publication remain gated work.
 - First verified local run on 2026-07-11 accepted 100 of 100 rows from 60,372 available rows. Raw artifact SHA-256: `f42c1e187fa6c1c3870d4ce193ccdd6aaecfc06eb83ff288af023f6291fac1f5`.
 
 ## Connector states
