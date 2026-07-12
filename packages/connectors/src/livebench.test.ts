@@ -1,11 +1,20 @@
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  LIVEBENCH_HUB_ORIGIN,
   LIVEBENCH_ROWS_ORIGIN,
+  fetchLiveBenchDatasetRevision,
   fetchLiveBenchPage,
   planLiveBenchPages,
   parseLiveBenchPage,
 } from './livebench.js';
+
+const validRevisionPayload = {
+  id: 'livebench/model_judgment',
+  sha: '9704e5da7bfbefe75ac1482a13de827127295993',
+  lastModified: '2025-04-07T20:34:22.000Z',
+  siblings: [],
+};
 
 const validPayload = {
   features: [],
@@ -117,6 +126,60 @@ describe('LiveBench fetch boundary', () => {
       fetchLiveBenchPage({ offset: -1, length: 101 }, fetchImplementation),
     ).rejects.toThrow();
     expect(fetchImplementation).not.toHaveBeenCalled();
+  });
+});
+
+describe('LiveBench dataset revision boundary', () => {
+  it('reads the immutable revision from the fixed Hub API origin', async () => {
+    const fetchImplementation = vi.fn<typeof fetch>().mockResolvedValue(
+      new Response(JSON.stringify(validRevisionPayload), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      }),
+    );
+
+    const result = await fetchLiveBenchDatasetRevision(fetchImplementation);
+
+    const [requestUrl, requestInit] = fetchImplementation.mock.calls[0]!;
+    expect(new URL(String(requestUrl)).origin).toBe(LIVEBENCH_HUB_ORIGIN);
+    expect(requestInit).toMatchObject({ redirect: 'manual' });
+    expect(result).toMatchObject({
+      datasetId: 'livebench/model_judgment',
+      revision: validRevisionPayload.sha,
+      lastModified: validRevisionPayload.lastModified,
+    });
+    expect(result.requestUrl).toBe(
+      `${LIVEBENCH_HUB_ORIGIN}/api/datasets/livebench/model_judgment`,
+    );
+  });
+
+  it('rejects redirects instead of following them', async () => {
+    const fetchImplementation = vi
+      .fn<typeof fetch>()
+      .mockResolvedValue(new Response(null, { status: 302 }));
+
+    await expect(
+      fetchLiveBenchDatasetRevision(fetchImplementation),
+    ).rejects.toThrow('redirect');
+  });
+
+  it.each([
+    ['a mutable branch name', { sha: 'main' }],
+    ['a SHA with the wrong length', { sha: 'a'.repeat(39) }],
+    ['the wrong dataset', { id: 'someone/else' }],
+    ['an invalid modification timestamp', { lastModified: 'yesterday' }],
+  ])('rejects %s', async (_name, replacement) => {
+    const payload = { ...validRevisionPayload, ...replacement };
+    const fetchImplementation = vi.fn<typeof fetch>().mockResolvedValue(
+      new Response(JSON.stringify(payload), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      }),
+    );
+
+    await expect(
+      fetchLiveBenchDatasetRevision(fetchImplementation),
+    ).rejects.toThrow();
   });
 });
 

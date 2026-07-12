@@ -3,9 +3,17 @@ import { createHash } from 'node:crypto';
 import * as z from 'zod';
 
 export const LIVEBENCH_ROWS_ORIGIN = 'https://datasets-server.huggingface.co';
+export const LIVEBENCH_HUB_ORIGIN = 'https://huggingface.co';
 export const LIVEBENCH_DATASET_ID = 'livebench/model_judgment';
 export const LIVEBENCH_MAX_PAGE_LENGTH = 100;
 export const LIVEBENCH_MAX_RESPONSE_BYTES = 5 * 1024 * 1024;
+export const LIVEBENCH_MAX_HUB_RESPONSE_BYTES = 1024 * 1024;
+
+const LiveBenchDatasetRevisionSchema = z.object({
+  id: z.literal(LIVEBENCH_DATASET_ID),
+  sha: z.string().regex(/^[a-f0-9]{40}$/),
+  lastModified: z.iso.datetime(),
+});
 
 const LiveBenchCategorySchema = z.enum([
   'reasoning',
@@ -60,6 +68,14 @@ export interface FetchedLiveBenchPage {
   readonly page: LiveBenchPage;
 }
 
+export interface FetchedLiveBenchDatasetRevision {
+  readonly datasetId: typeof LIVEBENCH_DATASET_ID;
+  readonly revision: string;
+  readonly lastModified: string;
+  readonly requestUrl: string;
+  readonly fetchedAt: string;
+}
+
 export function planLiveBenchPages(
   totalRows: number,
   pageLength = LIVEBENCH_MAX_PAGE_LENGTH,
@@ -110,6 +126,90 @@ function createLiveBenchRowsUrl(request: LiveBenchPageRequest): URL {
   url.searchParams.set('offset', String(request.offset));
   url.searchParams.set('length', String(request.length));
   return url;
+}
+
+function createLiveBenchDatasetRevisionUrl(): URL {
+  return new URL(`/api/datasets/${LIVEBENCH_DATASET_ID}`, LIVEBENCH_HUB_ORIGIN);
+}
+
+export async function fetchLiveBenchDatasetRevision(
+  fetchImplementation: typeof fetch = fetch,
+): Promise<FetchedLiveBenchDatasetRevision> {
+  const url = createLiveBenchDatasetRevisionUrl();
+
+  if (url.protocol !== 'https:' || url.origin !== LIVEBENCH_HUB_ORIGIN) {
+    throw new Error(
+      'LiveBench Hub request URL is outside the approved HTTPS origin',
+    );
+  }
+
+  const response = await fetchImplementation(url, {
+    method: 'GET',
+    redirect: 'manual',
+    headers: {
+      accept: 'application/json',
+      'user-agent': 'llm-bench-radar/0.0.0',
+    },
+    signal: AbortSignal.timeout(30_000),
+  });
+
+  if (response.status >= 300 && response.status < 400) {
+    throw new Error(
+      `LiveBench Hub redirect rejected with status ${response.status}`,
+    );
+  }
+  if (!response.ok) {
+    throw new Error(
+      `LiveBench Hub request failed with status ${response.status}`,
+    );
+  }
+
+  const contentType = response.headers.get('content-type') ?? '';
+  if (!/^application\/json(?:\s*;|$)/i.test(contentType)) {
+    throw new Error(
+      `Unexpected LiveBench Hub content type: ${contentType || 'missing'}`,
+    );
+  }
+
+  const declaredLength = Number(response.headers.get('content-length'));
+  if (
+    Number.isFinite(declaredLength) &&
+    declaredLength > LIVEBENCH_MAX_HUB_RESPONSE_BYTES
+  ) {
+    throw new Error('LiveBench Hub response exceeds the maximum byte length');
+  }
+
+  const body = new Uint8Array(await response.arrayBuffer());
+  if (body.byteLength > LIVEBENCH_MAX_HUB_RESPONSE_BYTES) {
+    throw new Error('LiveBench Hub response exceeds the maximum byte length');
+  }
+
+  let text: string;
+  try {
+    text = new TextDecoder('utf-8', { fatal: true }).decode(body);
+  } catch (error) {
+    throw new Error('LiveBench Hub response is not valid UTF-8', {
+      cause: error,
+    });
+  }
+
+  let decoded: unknown;
+  try {
+    decoded = JSON.parse(text);
+  } catch (error) {
+    throw new Error('LiveBench Hub response is not valid JSON', {
+      cause: error,
+    });
+  }
+
+  const revision = LiveBenchDatasetRevisionSchema.parse(decoded);
+  return {
+    datasetId: revision.id,
+    revision: revision.sha,
+    lastModified: revision.lastModified,
+    requestUrl: url.href,
+    fetchedAt: new Date().toISOString(),
+  };
 }
 
 export async function fetchLiveBenchPage(
