@@ -62,6 +62,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added a tested deterministic LiveBench pagination planner that covers every declared row exactly once and enforces the official 100-row request ceiling.
 - Added sequential full-dataset LiveBench orchestration with aggregate run summaries, total-row drift rejection and a dedicated CLI; publication remains disabled.
 - Added fixed-origin Hub revision capture and bound the immutable dataset commit SHA to every LiveBench source snapshot and ingestion run.
+- Added a deterministic source-scoped model alias resolver that permits only exact safe-normalized matches and surfaces cross-variant collisions for manual review.
 
 ## Data Sources Status
 
