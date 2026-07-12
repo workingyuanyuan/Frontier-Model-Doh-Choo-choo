@@ -57,7 +57,8 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - `pnpm audit --audit-level high` passes; two moderate transitive advisories are recorded with bounded, currently unreachable application paths and a review date.
 - Added SHA-pinned CI gates for formatting, types, tests, PostgreSQL migration/seed, production build, high-severity audit and Remotion frame rendering.
 - Added a least-privilege Monday 09:15 Asia/Taipei weekly dry run that stages one bounded official LiveBench page and uploads short-lived immutable evidence without publishing.
-- Replayed the complete CI chain locally: Prettier, ESLint with zero warnings, 9-package type checking, 55 tests, PostgreSQL migration/seed, 9-package production build, high-severity audit and Remotion still render all pass.
+- Replayed the complete CI chain locally: Prettier, ESLint with zero warnings, 9-package type checking, 57 tests, PostgreSQL migration/seed, 9-package production build, high-severity audit and Remotion still render all pass.
+- Added deterministic video metadata JSON and ranking CSV bound to the input snapshot ID and SHA-256; the preview bundle was generated successfully.
 
 ## Data Sources Status
 
@@ -73,5 +74,5 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 - Complete LiveBench pagination, Hub revision capture and canonical alias mapping.
 - Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
-- Add the deterministic video artifact manifest; the CI smoke render is complete.
+- Connect the deterministic artifact manifest to future published-edition video job records.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.

@@ -15,8 +15,9 @@ All reusable actions are pinned to immutable full commit SHAs. The workflow toke
 3. fetches one bounded page from the allowlisted official LiveBench dataset;
 4. preserves the content-addressed raw response;
 5. runs validation tests;
-6. renders a representative poster; and
-7. uploads the log, poster and raw evidence as a short-lived immutable artifact.
+6. renders a representative poster;
+7. exports snapshot-bound metadata JSON and ranking CSV; and
+8. uploads the log, poster, metadata and raw evidence as a short-lived immutable artifact.
 
 The scheduled workflow is deliberately dry-run only. It has no write permission, production secret or publish command, so a source failure cannot replace the current edition.
 
@@ -45,4 +46,5 @@ pnpm ingest:livebench
 pnpm test:run
 pnpm build
 pnpm video:still
+pnpm video:artifacts
 ```

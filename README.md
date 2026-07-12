@@ -40,9 +40,10 @@ pnpm ingest:livebench
 pnpm video:studio
 pnpm video:still
 pnpm video:render
+pnpm video:artifacts
 ```
 
-`video:render` writes a 1920×1080 H.264 MP4 to `output/llm-bench-weekly.mp4`. The Web and video defaults intentionally use the same clearly labeled fictional preview snapshot. Preview values must never be promoted to a published edition.
+`video:render` writes a 1920×1080 H.264 MP4 to `output/llm-bench-weekly.mp4`. `video:artifacts` writes deterministic metadata JSON and ranking CSV with the input snapshot ID and SHA-256. The Web and video defaults intentionally use the same clearly labeled fictional preview snapshot. Preview values must never be promoted to a published edition.
 
 ## Documentation
 

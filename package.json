@@ -24,6 +24,7 @@
     "test:run": "turbo run test:run",
     "typecheck": "turbo run typecheck",
     "video:render": "pnpm --filter @llm-bench/video render",
+    "video:artifacts": "pnpm --filter @llm-bench/video artifacts",
     "video:still": "pnpm --filter @llm-bench/video still",
     "video:studio": "pnpm --filter @llm-bench/video studio"
   },

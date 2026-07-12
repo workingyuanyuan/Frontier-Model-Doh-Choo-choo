@@ -32,4 +32,4 @@ pnpm video:still
 pnpm video:render
 ```
 
-The current smoke workflow emits `artifacts/llm-bench-weekly.png` and `output/llm-bench-weekly.mp4`. The verified demo render is 1920×1080, H.264, 600 frames, approximately 20.05 seconds and 3.11 MiB. A later publication slice will add the deterministic artifact manifest, ranking CSV, snapshot ID and structured render log.
+The current workflow emits `artifacts/llm-bench-weekly.png`, `output/llm-bench-weekly.mp4`, deterministic metadata JSON and ranking CSV. The metadata binds the output to a snapshot ID and SHA-256. The verified demo render is 1920×1080, H.264, 600 frames, approximately 20.05 seconds and 3.11 MiB. A later publication slice will add a structured render log and published-edition video job record.

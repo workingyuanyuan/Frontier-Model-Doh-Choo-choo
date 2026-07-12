@@ -75,6 +75,9 @@ jobs:
       - name: Render dry-run poster
         run: pnpm video:still
 
+      - name: Export snapshot-bound video metadata
+        run: pnpm video:artifacts
+
       - name: Upload immutable dry-run evidence
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
@@ -82,6 +85,8 @@ jobs:
           path: |
             artifacts/livebench-ingestion.log
             artifacts/llm-bench-weekly.png
+            output/llm-bench-weekly.metadata.json
+            output/llm-bench-weekly.ranking.csv
             ${{ runner.temp }}/llm-bench-raw
           if-no-files-found: error
           retention-days: 14
