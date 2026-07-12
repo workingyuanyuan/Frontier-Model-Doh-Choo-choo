@@ -19,6 +19,7 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "ingest:livebench": "pnpm --filter @llm-bench/worker ingest:livebench",
+    "ingest:livebench:all": "pnpm --filter @llm-bench/worker ingest:livebench:all",
     "lint": "eslint . --max-warnings 0",
     "test": "turbo run test",
     "test:run": "turbo run test:run",

@@ -37,6 +37,7 @@ pnpm build
 ```bash
 pnpm --filter @llm-bench/web dev
 pnpm ingest:livebench
+pnpm ingest:livebench:all
 pnpm video:studio
 pnpm video:still
 pnpm video:render
