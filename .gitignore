@@ -17,6 +17,7 @@ artifacts/
 output/
 tmp/
 *.log
+*.tsbuildinfo
 
 .DS_Store
 Thumbs.db

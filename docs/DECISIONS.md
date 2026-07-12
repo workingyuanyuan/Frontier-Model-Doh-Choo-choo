@@ -30,4 +30,8 @@ Implement LiveBench as the first automated source because its official repositor
 
 ## DEC-008 — Dependency script allowlist
 
-pnpm 11 lifecycle scripts remain denied by default. Only reviewed packages are added to `allowBuilds`; initial allowlist contains `esbuild` required by the TypeScript test toolchain.
+pnpm 11 lifecycle scripts remain denied by default. Only reviewed packages are added to `allowBuilds`; the allowlist contains `esbuild` for the TypeScript test toolchain and `sharp` for Next.js image processing.
+
+## DEC-009 — Web TypeScript compatibility boundary
+
+The workspace default is TypeScript 7.0.2. The Next.js 16.2.10 app pins TypeScript 5.9.3 because Next's build-time dependency verifier resolves `typescript/lib/typescript.js`, a package subpath no longer exported by TypeScript 7. This local compatibility boundary preserves production type checking without downgrading other packages or disabling Next checks.

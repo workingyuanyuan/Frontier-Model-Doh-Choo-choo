@@ -18,6 +18,9 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Implemented immutable content-addressed raw storage with SHA-256 deduplication and collision/tamper detection.
 - Implemented the worker staging transaction across source, snapshot, ingestion run and staged result entities.
 - Completed a real official LiveBench ingestion: 100/100 rows accepted from 60,372 available, with one successful auditable run.
+- Built statically generated `/zh-TW` and `/en` Next.js routes with URL-visible locale fallback, shared preview snapshot data and clear non-production labeling.
+- Built selectable model rankings, an accessible shared-geometry SVG radar, two all-light semantic themes, evidence/pipeline/methodology cards and responsive layouts.
+- Added a project-owned SVG icon without third-party brand assets.
 
 ## In Progress
 
@@ -40,6 +43,11 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - LiveBench connector/storage tests and worker staging tests pass.
 - The real connector response passed the production parser and was written under its verified SHA-256 path.
 - PostgreSQL reports one successful LiveBench run and 100 validated unresolved staged rows.
+- Web preview snapshot and locale contract tests pass; Next.js production build prerenders both locale routes.
+- Chrome DevTools verified model switching and identical radar path geometry across both themes.
+- Chrome verified no horizontal overflow at 390px and 1440px, correct English document metadata and a clean runtime console.
+- Mobile Lighthouse passes 55/55 audits with Accessibility, Best Practices, SEO and Agentic Browsing all at 100.
+- Local Chrome performance trace measured 191 ms LCP and 0.00 CLS without throttling.
 
 ## Data Sources Status
 
@@ -55,4 +63,4 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 - Complete LiveBench pagination, Hub revision capture and canonical alias mapping.
 - Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
-- Build the bilingual Next.js vertical slice against the published snapshot contract.
+- Build the Remotion composition from the same snapshot, locale and theme contracts.
