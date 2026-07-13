@@ -78,18 +78,22 @@ describe('LiveBench alias manifest validation', () => {
       'o1-mini-2024-09-12',
       'command-r-08-2024',
       'command-r-plus-08-2024',
+      'command-a-03-2025',
       'gemini-1-5-pro-002',
+      'amazon-nova-micro-v1-0',
+      'amazon-nova-lite-v1-0',
+      'amazon-nova-pro-v1-0',
     ]);
   });
 
   it('summarizes deduplicated canonical identities before a transaction', () => {
     expect(summarizeLiveBenchAliasManifest(liveBenchAliasManifest)).toEqual({
-      entriesSeen: 10,
-      providersEnsured: 4,
-      familiesEnsured: 5,
-      modelsEnsured: 9,
-      variantsEnsured: 10,
-      aliasesEnsured: 10,
+      entriesSeen: 14,
+      providersEnsured: 5,
+      familiesEnsured: 7,
+      modelsEnsured: 13,
+      variantsEnsured: 14,
+      aliasesEnsured: 14,
     });
   });
 });

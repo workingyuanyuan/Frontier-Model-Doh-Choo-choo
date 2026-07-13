@@ -128,8 +128,11 @@ const openAiGpt4oMiniEvidenceUrl =
 const openAiO1MiniEvidenceUrl =
   'https://developers.openai.com/api/docs/models/o1-mini';
 const cohereModelEvidenceUrl = 'https://docs.cohere.com/docs/models';
+const cohereCommandAEvidenceUrl = 'https://docs.cohere.com/changelog/command-a';
 const geminiModelEvidenceUrl =
   'https://ai.google.dev/gemini-api/docs/changelog';
+const amazonNovaEvidenceUrl =
+  'https://docs.aws.amazon.com/nova/latest/userguide/additional-resources.html';
 
 export const liveBenchAliasManifest = [
   {
@@ -250,6 +253,19 @@ export const liveBenchAliasManifest = [
     evidenceUrls: [cohereModelEvidenceUrl],
   },
   {
+    provider: { slug: 'cohere', displayName: 'Cohere' },
+    family: { slug: 'command-a', displayName: 'Command A' },
+    model: { slug: 'command-a', displayName: 'Command A' },
+    variant: {
+      slug: 'command-a-03-2025',
+      displayName: 'Command A (03-2025)',
+      releaseDate: '2025-03-13',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['command-a-03-2025'],
+    evidenceUrls: [cohereCommandAEvidenceUrl, cohereModelEvidenceUrl],
+  },
+  {
     provider: { slug: 'google', displayName: 'Google' },
     family: { slug: 'gemini-1-5', displayName: 'Gemini 1.5' },
     model: { slug: 'gemini-1-5-pro', displayName: 'Gemini 1.5 Pro' },
@@ -261,5 +277,44 @@ export const liveBenchAliasManifest = [
     },
     aliases: ['gemini-1.5-pro-002'],
     evidenceUrls: [geminiModelEvidenceUrl],
+  },
+  {
+    provider: { slug: 'amazon', displayName: 'Amazon' },
+    family: { slug: 'nova-1', displayName: 'Amazon Nova 1' },
+    model: { slug: 'nova-micro', displayName: 'Amazon Nova Micro' },
+    variant: {
+      slug: 'amazon-nova-micro-v1-0',
+      displayName: 'Amazon Nova Micro v1.0',
+      releaseDate: '2024-12-02',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['amazon.nova-micro-v1:0'],
+    evidenceUrls: [amazonNovaEvidenceUrl],
+  },
+  {
+    provider: { slug: 'amazon', displayName: 'Amazon' },
+    family: { slug: 'nova-1', displayName: 'Amazon Nova 1' },
+    model: { slug: 'nova-lite', displayName: 'Amazon Nova Lite' },
+    variant: {
+      slug: 'amazon-nova-lite-v1-0',
+      displayName: 'Amazon Nova Lite v1.0',
+      releaseDate: '2024-12-02',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['amazon.nova-lite-v1:0'],
+    evidenceUrls: [amazonNovaEvidenceUrl],
+  },
+  {
+    provider: { slug: 'amazon', displayName: 'Amazon' },
+    family: { slug: 'nova-1', displayName: 'Amazon Nova 1' },
+    model: { slug: 'nova-pro', displayName: 'Amazon Nova Pro' },
+    variant: {
+      slug: 'amazon-nova-pro-v1-0',
+      displayName: 'Amazon Nova Pro v1.0',
+      releaseDate: '2024-12-02',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['amazon.nova-pro-v1:0'],
+    evidenceUrls: [amazonNovaEvidenceUrl],
   },
 ] as const satisfies readonly LiveBenchAliasManifestEntry[];
