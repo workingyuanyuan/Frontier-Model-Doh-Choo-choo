@@ -27,7 +27,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## In Progress
 
-- LiveBench canonical model alias expansion and category aggregation. The first 3 of 166 normalized aliases are evidence-backed and resolved; publication remains disabled until coverage gates pass.
+- LiveBench canonical model alias expansion and category aggregation. The first 10 of 166 normalized aliases are evidence-backed and resolved; publication remains disabled until coverage gates pass.
 
 ## Decisions Made
 
@@ -71,6 +71,8 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Switched full LiveBench ingestion to one Parquet snapshot and one transactional run with 1,000-row staging batches; the verified run accepted all 60,372 rows across 195 raw model names.
 - Added a versioned, HTTPS-evidence-backed LiveBench alias manifest with normalized collision rejection and an idempotent PostgreSQL sync transaction.
 - Synced the first three reviewed Anthropic aliases twice with stable counts, then resolved the full run to 1,482 validated rows (494 per variant), 58,890 review-required rows and zero ambiguous rows.
+- Added seven official dated IDs from OpenAI, Cohere and Google, including current lifecycle states from vendor documentation; idempotent sync now ensures 10 aliases across 4 providers.
+- Re-resolved the full run to 5,067 validated rows (8.39%), 55,305 review-required rows and zero ambiguous rows. The remaining 156 normalized aliases stay excluded from publication.
 
 ## Data Sources Status
 

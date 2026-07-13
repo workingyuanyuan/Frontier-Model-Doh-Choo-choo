@@ -64,7 +64,7 @@ describe('LiveBench alias manifest validation', () => {
     ).toThrow('HTTPS evidence URL');
   });
 
-  it('ships a validated first reviewed batch of exact LiveBench aliases', () => {
+  it('ships validated reviewed batches of exact LiveBench aliases', () => {
     expect(() =>
       validateLiveBenchAliasManifest(liveBenchAliasManifest),
     ).not.toThrow();
@@ -72,17 +72,24 @@ describe('LiveBench alias manifest validation', () => {
       'claude-3-5-haiku-20241022',
       'claude-3-5-sonnet-20241022',
       'claude-3-opus-20240229',
+      'gpt-4o-2024-08-06',
+      'gpt-4o-2024-11-20',
+      'gpt-4o-mini-2024-07-18',
+      'o1-mini-2024-09-12',
+      'command-r-08-2024',
+      'command-r-plus-08-2024',
+      'gemini-1-5-pro-002',
     ]);
   });
 
   it('summarizes deduplicated canonical identities before a transaction', () => {
     expect(summarizeLiveBenchAliasManifest(liveBenchAliasManifest)).toEqual({
-      entriesSeen: 3,
-      providersEnsured: 1,
-      familiesEnsured: 1,
-      modelsEnsured: 3,
-      variantsEnsured: 3,
-      aliasesEnsured: 3,
+      entriesSeen: 10,
+      providersEnsured: 4,
+      familiesEnsured: 5,
+      modelsEnsured: 9,
+      variantsEnsured: 10,
+      aliasesEnsured: 10,
     });
   });
 });

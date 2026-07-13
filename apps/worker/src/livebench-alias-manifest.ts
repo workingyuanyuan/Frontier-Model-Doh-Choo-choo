@@ -121,6 +121,15 @@ export function summarizeLiveBenchAliasManifest(
 
 const anthropicModelEvidenceUrl =
   'https://docs.anthropic.com/en/api/claude-on-vertex-ai';
+const openAiGpt4oEvidenceUrl =
+  'https://developers.openai.com/api/docs/models/gpt-4o';
+const openAiGpt4oMiniEvidenceUrl =
+  'https://developers.openai.com/api/docs/models/gpt-4o-mini';
+const openAiO1MiniEvidenceUrl =
+  'https://developers.openai.com/api/docs/models/o1-mini';
+const cohereModelEvidenceUrl = 'https://docs.cohere.com/docs/models';
+const geminiModelEvidenceUrl =
+  'https://ai.google.dev/gemini-api/docs/changelog';
 
 export const liveBenchAliasManifest = [
   {
@@ -161,5 +170,96 @@ export const liveBenchAliasManifest = [
     },
     aliases: ['claude-3-opus-20240229'],
     evidenceUrls: [anthropicModelEvidenceUrl],
+  },
+  {
+    provider: { slug: 'openai', displayName: 'OpenAI' },
+    family: { slug: 'gpt-4o', displayName: 'GPT-4o' },
+    model: { slug: 'gpt-4o', displayName: 'GPT-4o' },
+    variant: {
+      slug: 'gpt-4o-2024-08-06',
+      displayName: 'GPT-4o (2024-08-06)',
+      releaseDate: '2024-08-06',
+      lifecycleStatus: 'DEPRECATED',
+    },
+    aliases: ['gpt-4o-2024-08-06'],
+    evidenceUrls: [openAiGpt4oEvidenceUrl],
+  },
+  {
+    provider: { slug: 'openai', displayName: 'OpenAI' },
+    family: { slug: 'gpt-4o', displayName: 'GPT-4o' },
+    model: { slug: 'gpt-4o', displayName: 'GPT-4o' },
+    variant: {
+      slug: 'gpt-4o-2024-11-20',
+      displayName: 'GPT-4o (2024-11-20)',
+      releaseDate: '2024-11-20',
+      lifecycleStatus: 'DEPRECATED',
+    },
+    aliases: ['gpt-4o-2024-11-20'],
+    evidenceUrls: [openAiGpt4oEvidenceUrl],
+  },
+  {
+    provider: { slug: 'openai', displayName: 'OpenAI' },
+    family: { slug: 'gpt-4o', displayName: 'GPT-4o' },
+    model: { slug: 'gpt-4o-mini', displayName: 'GPT-4o mini' },
+    variant: {
+      slug: 'gpt-4o-mini-2024-07-18',
+      displayName: 'GPT-4o mini (2024-07-18)',
+      releaseDate: '2024-07-18',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['gpt-4o-mini-2024-07-18'],
+    evidenceUrls: [openAiGpt4oMiniEvidenceUrl],
+  },
+  {
+    provider: { slug: 'openai', displayName: 'OpenAI' },
+    family: { slug: 'o1', displayName: 'o1' },
+    model: { slug: 'o1-mini', displayName: 'o1-mini' },
+    variant: {
+      slug: 'o1-mini-2024-09-12',
+      displayName: 'o1-mini (2024-09-12)',
+      releaseDate: '2024-09-12',
+      lifecycleStatus: 'DEPRECATED',
+    },
+    aliases: ['o1-mini-2024-09-12'],
+    evidenceUrls: [openAiO1MiniEvidenceUrl],
+  },
+  {
+    provider: { slug: 'cohere', displayName: 'Cohere' },
+    family: { slug: 'command-r', displayName: 'Command R' },
+    model: { slug: 'command-r', displayName: 'Command R' },
+    variant: {
+      slug: 'command-r-08-2024',
+      displayName: 'Command R (08-2024)',
+      releaseDate: '2024-08-30',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['command-r-08-2024'],
+    evidenceUrls: [cohereModelEvidenceUrl],
+  },
+  {
+    provider: { slug: 'cohere', displayName: 'Cohere' },
+    family: { slug: 'command-r', displayName: 'Command R' },
+    model: { slug: 'command-r-plus', displayName: 'Command R+' },
+    variant: {
+      slug: 'command-r-plus-08-2024',
+      displayName: 'Command R+ (08-2024)',
+      releaseDate: '2024-08-30',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['command-r-plus-08-2024'],
+    evidenceUrls: [cohereModelEvidenceUrl],
+  },
+  {
+    provider: { slug: 'google', displayName: 'Google' },
+    family: { slug: 'gemini-1-5', displayName: 'Gemini 1.5' },
+    model: { slug: 'gemini-1-5-pro', displayName: 'Gemini 1.5 Pro' },
+    variant: {
+      slug: 'gemini-1-5-pro-002',
+      displayName: 'Gemini 1.5 Pro 002',
+      releaseDate: '2024-09-24',
+      lifecycleStatus: 'DEPRECATED',
+    },
+    aliases: ['gemini-1.5-pro-002'],
+    evidenceUrls: [geminiModelEvidenceUrl],
   },
 ] as const satisfies readonly LiveBenchAliasManifestEntry[];
