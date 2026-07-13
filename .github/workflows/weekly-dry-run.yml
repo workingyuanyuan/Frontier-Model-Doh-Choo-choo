@@ -38,7 +38,6 @@ jobs:
       DATABASE_URL: postgresql://llm_bench:ci-only-password@localhost:5432/llm_bench
       LIVEBENCH_LENGTH: '100'
       LIVEBENCH_OFFSET: '0'
-      RAW_STORAGE_DIR: ${{ runner.temp }}/llm-bench-raw
 
     steps:
       - name: Check out repository
@@ -67,6 +66,8 @@ jobs:
         run: pnpm db:seed
 
       - name: Ingest one official LiveBench page
+        env:
+          RAW_STORAGE_DIR: ${{ runner.temp }}/llm-bench-raw
         run: pnpm ingest:livebench | tee artifacts/livebench-ingestion.log
 
       - name: Run validation tests
