@@ -24,11 +24,11 @@ Review all 166 safe-normalized aliases in the pinned 60,372-row LiveBench ingest
 
 - [x] TDD RED/GREEN cycle proves exclusions cannot accidentally validate rows.
 - [x] Worker tests and type checking pass.
-- [ ] Foundation commit is pushed and GitHub CI passes.
+- [x] Foundation commit is pushed and GitHub CI passes.
 
 ### Phase 2: Complete Adjudication
 
-- [ ] Export the exact 166-alias inventory from the pinned ingestion run.
+- [x] Export the exact 166-alias inventory from the pinned ingestion run.
 - [ ] Add evidence-backed canonical mappings in provider-sized batches.
 - [ ] Add evidence-backed exclusions for benchmark-private or invalid identities.
 - [ ] Validate that the decision manifest covers every normalized source alias exactly once.
