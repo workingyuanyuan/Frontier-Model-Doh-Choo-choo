@@ -66,6 +66,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added a deterministic source-scoped model alias resolver that permits only exact safe-normalized matches and surfaces cross-variant collisions for manual review.
 - Added transactional LiveBench staged-row alias decisions with explicit resolved, unresolved and ambiguous outcomes; no unreviewed aliases are auto-created.
 - Added a read-only repeatable-read LiveBench alias review report that groups raw spellings, counts rows and prioritizes ambiguous/unresolved names deterministically.
+- Reproduced a rows-API HTTP 429 after 45 pages/4,500 rows, then added a revision-pinned single-Parquet connector with strict Hub/CDN redirect, size, hash, magic and row-schema validation.
 
 ## Data Sources Status
 
