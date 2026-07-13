@@ -31,6 +31,7 @@ A canonical result is unique by model variant, benchmark version, metric, evalua
 - A lower-tier row never replaces a higher-tier published row automatically.
 - LiveBench question scores are averaged within task, then complete task scores are equally averaged within category, matching the official result script. Identical repeated canonical observations collapse with an audit count; different scores for one canonical observation key remain a blocking conflict until a source-backed evaluation-run selection policy exists.
 - Expected coverage is derived from the complete staged question inventory, including explicitly excluded model aliases. Exclusions can never reduce the denominator, and incomplete task/category scores remain null.
+- The formal LiveBench denominator must come from all six official question datasets for one explicit release, not from whichever categories happen to exist in `model_judgment`. Release selection includes the chosen release and earlier configured releases, excludes questions whose removal date is on or before the chosen release, rejects duplicate question IDs and expands each retained question into its declared turns. The first version targets the documented public `2024-11-25` release; acquisition remains disabled until every category dataset revision is pinned.
 
 ## Quality flags
 

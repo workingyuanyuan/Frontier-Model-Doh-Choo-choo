@@ -15,7 +15,7 @@ const LiveBenchDatasetRevisionSchema = z.object({
   lastModified: z.iso.datetime(),
 });
 
-const LiveBenchCategorySchema = z.enum([
+export const LiveBenchCategorySchema = z.enum([
   'reasoning',
   'math',
   'coding',

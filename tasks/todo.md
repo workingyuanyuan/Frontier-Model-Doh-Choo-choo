@@ -1,11 +1,11 @@
-# LiveBench Aggregation Readiness Tasks
+# LiveBench Release Inventory Tasks
 
-- [x] Inspect the current schema and official LiveBench aggregation code.
-- [x] Measure the pinned run's task/category inventory and repeated observations.
-- [x] Add failing pure aggregation and readiness tests.
-- [x] Implement deterministic conflict-aware task/category aggregation.
-- [x] Add a read-only fixed-run repository and CLI.
-- [x] Verify the report against PostgreSQL without publication writes.
-- [x] Update methodology/progress documentation.
-- [x] Complete five-axis review and the full local quality gate.
+- [x] Diagnose the three-category judgment artifact and repeated-score history.
+- [x] Verify the official question release/removal selection semantics.
+- [x] Record a phased implementation plan and explicit non-publication scope.
+- [x] Add failing pure release-inventory tests.
+- [x] Implement the minimum validated deterministic selector.
+- [x] Run focused quality checks and five-axis review.
+- [x] Update durable methodology/source/progress documentation.
+- [x] Run the full local CI-equivalent gate.
 - [x] Commit, push and verify GitHub CI.

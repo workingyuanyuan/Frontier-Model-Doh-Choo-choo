@@ -1,112 +1,105 @@
-# Implementation Plan: LiveBench Aggregation Readiness
+# Implementation Plan: LiveBench Release Inventory
 
 ## Overview
 
-Turn the fully adjudicated LiveBench staged rows into deterministic task and
-category aggregates without bypassing publication safety. The first deliverable
-is a read-only readiness report for the pinned 60,372-row ingestion run. It must
-make incomplete category coverage and repeated/conflicting observations
-explicit; it must not write `benchmark_results`, scores, ranking snapshots or
-weekly editions.
+Replace the judgment-derived three-category denominator with a source-backed
+question inventory for one explicit LiveBench release. The first increment
+implements and verifies the deterministic selection contract used by the
+official LiveBench loader. It does not choose among conflicting judgments and
+does not write any publication table.
 
 ## Verified Source Rules
 
-- LiveBench's official result script averages question scores within each task,
-  then averages task scores within each category.
-- LiveBench requires complete judgments before including a model in its task and
-  category tables.
-- The project keeps missing values null and blocks publication when coverage or
-  identity/configuration gates are incomplete.
+- LiveBench stores the six benchmark categories in separate official Hugging
+  Face question datasets.
+- The official result path selects the configured release and all earlier
+  releases, then excludes a question when its removal date is on or before the
+  selected release.
+- The official loader rejects duplicate question IDs.
+- LiveBench documents `2024-11-25` as the most recent public release that
+  covers every category in the April 2025 data generation.
 
 Sources:
 
+- https://github.com/LiveBench/LiveBench/blob/main/livebench/common.py
 - https://github.com/LiveBench/LiveBench/blob/main/livebench/show_livebench_result.py
 - https://github.com/LiveBench/LiveBench
+- https://huggingface.co/livebench
 
 ## Architecture Decisions
 
-- Keep LiveBench-specific parsing, inventory and readiness logic in the worker;
-  the shared scoring package remains source-agnostic.
-- Treat the database JSON payload as an explicit typed boundary before using it
-  in aggregation.
-- Use canonical `(model variant, category, task, question, turn)` keys.
-- Collapse identical repeated observations deterministically, but record their
-  multiplicity. A key with different scores is a blocking conflict and cannot
-  contribute to a category score.
-- Emit a category score only when every expected task/question observation for
-  that category is present and conflict-free. Missing data remains null.
-- Do not emit an overall LiveBench score or persist published results in this
-  slice. Benchmark-to-dimension mapping and publication remain separate gates.
+- Put source row validation and release selection in the connectors package;
+  keep database and aggregation concerns out of the source boundary.
+- Accept only the six known categories, 64-character canonical question IDs,
+  bounded turn arrays and ISO calendar dates.
+- Treat the configured release list as an explicit versioned input. Do not
+  infer a release from timestamps or from the judgment artifact.
+- Produce stable category/task/question ordering and one inventory observation
+  per turn.
+- Reject duplicate question IDs even when the duplicate rows are identical.
+- Keep conflicting judgment observations blocked; release filtering is not a
+  judgment winner-selection policy.
 
 ## Task List
 
-### Phase 1: Aggregation Contract
+### Phase 1: Pure Release Contract
 
-- [x] Add RED tests for task means, equal-weight category means, stable ordering,
-      missing observations and conflicting repeated observations.
-- [x] Implement the smallest pure aggregation/readiness module that passes the
-      tests.
-- [x] Document the contract so downstream repository code cannot interpret
-      incomplete category values as formal scores.
+- [x] Add RED tests for inclusive release selection, removal boundaries,
+      multi-turn expansion, stable ordering and duplicate rejection.
+- [x] Implement strict source-row parsing and deterministic selection.
+- [x] Export the contract from the connectors package.
 
 ### Checkpoint: Pure Logic
 
-- [x] Worker tests pass, including deterministic repeat execution.
-- [x] Worker type checking and lint pass.
-- [x] Five-axis review finds no unhandled correctness, architecture, security or
-      performance blocker.
+- [x] Focused tests pass and demonstrate RED-to-GREEN behavior.
+- [x] Connector type checking and lint pass.
+- [x] Five-axis review finds no correctness, architecture, security,
+      performance or maintainability blocker.
 
-### Phase 2: Read-only Repository and CLI
+### Phase 2: Source Acquisition (next increment)
 
-- [x] Query one explicit ingestion run and accept only `VALIDATED` rows with a
-      canonical model variant.
-- [x] Build the expected task/question inventory from the complete staged run,
-      including excluded aliases, so exclusions cannot shrink coverage.
-- [x] Emit JSON with run identity, inventory coverage, duplicate/conflict counts
-      and per-model task/category aggregates.
-- [x] Reject a missing, non-succeeded or non-full-run ingestion run.
+- [ ] Pin the revision of each of the six official question datasets.
+- [ ] Fetch only the inventory fields under explicit byte/row/origin limits.
+- [ ] Persist immutable evidence and bind all six revisions to one inventory.
+- [ ] Measure the real `2024-11-25` category/task/question denominator.
 
-### Checkpoint: Real Data
+### Phase 3: Judgment Readiness (after source acquisition)
 
-- [x] The pinned run reports 60,372 staged rows, 58,233 validated rows and 2,139
-      excluded rows.
-- [x] The report reproduces the observed seven-task, three-category inventory.
-- [x] Publication readiness is false while required categories or conflict gates
-      remain unresolved.
-- [x] The command is read-only and leaves published/scoring tables unchanged.
+- [ ] Filter staged judgments by the pinned release inventory.
+- [ ] Report missing observations against all six categories.
+- [ ] Keep repeated conflicting judgment keys as publication blockers.
 
-### Phase 3: Delivery
+### Delivery
 
-- [x] Update progress and operations documentation with measured results.
+- [x] Update methodology, source registry and progress documentation.
 - [x] Run the complete local CI-equivalent quality gate.
-- [x] Commit and push all tracked changes while leaving
+- [x] Commit and push tracked changes while leaving
       `reference-table-data/` untracked.
 - [x] Wait for the pushed GitHub Actions CI run to pass.
 
 ## Acceptance Criteria
 
-- No excluded or unresolved row contributes to aggregation.
-- Identical inputs always produce byte-stable ordering and values.
-- A category score is null when any required observation is missing or
-  conflicting.
-- Task scores are arithmetic means of canonical question observations; category
-  scores are equal-weight means of complete task scores.
-- No published result, dimension score, ranking snapshot or weekly edition is
-  created.
-- `main` and `origin/main` match after a green CI run.
+- Selection matches the official release/removal boundary semantics.
+- Unknown releases, malformed dates, duplicate IDs and invalid rows fail
+  closed.
+- Identical logical inputs produce byte-stable output ordering.
+- No timestamp-based judgment preference is introduced.
+- No published result, score, snapshot or weekly edition is created.
 
 ## Risks and Mitigations
 
-| Risk                                                     | Impact | Mitigation                                                               |
-| -------------------------------------------------------- | ------ | ------------------------------------------------------------------------ |
-| Historical reruns silently double-weight questions       | High   | Canonical observation keys, duplicate counts and conflict blocking.      |
-| Alias exclusions shrink the benchmark inventory          | High   | Derive expected questions from all staged rows, not validated rows only. |
-| Partial categories look like formal scores               | High   | Null incomplete category scores and explicit readiness status.           |
-| LiveBench categories are mistaken for project dimensions | High   | Keep source aggregation separate from benchmark-dimension mapping.       |
-| Readiness query mutates publication state                | High   | Read-only repository/CLI plus before/after table-count verification.     |
+| Risk                                                              | Impact | Mitigation                                                       |
+| ----------------------------------------------------------------- | ------ | ---------------------------------------------------------------- |
+| Current question data is mistaken for the pinned April 2025 state | High   | Pin all six Hub revisions before real-data ingestion.            |
+| Coding rows carry very large test payloads                        | High   | Design field-minimal acquisition with strict response limits.    |
+| Removed questions remain in the denominator                       | High   | Test the removal date equality boundary explicitly.              |
+| Duplicate IDs silently shrink coverage                            | High   | Reject duplicates instead of Map-based collapsing.               |
+| Release filtering is mistaken for conflict resolution             | High   | Preserve the existing conflict gate and document the separation. |
 
 ## Open Questions
 
-- Repeated judgments with different timestamps need a source-backed selection
-  policy (for example, an official evaluation-run identifier) before formal
-  publication. Until then they remain blocking conflicts.
+- The official Hub datasets expose different physical schemas and the coding
+  artifact is large. Phase 2 must prove a revision-bound, field-minimal access
+  path before any network parser is marked ready.
+- The 201 conflicting judgment keys still require an official run/version key
+  or another source-backed selection rule. Until then they remain blocked.

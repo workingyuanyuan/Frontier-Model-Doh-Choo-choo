@@ -87,6 +87,8 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - Measured 2,674 repeated canonical observations, including 201 keys with different scores. The run also lacks reasoning, math and data-analysis rows, so publication readiness correctly remains false.
 - Proved the readiness command is non-publishing: benchmark results, dimension scores, overall scores, ranking snapshots, ranking entries and weekly editions all remained at zero before and after execution.
 - Replayed the complete CI-equivalent gate after aggregation readiness: formatting, zero-warning lint, 9-package type checking, 115 tests, migration, seed, production build, high-severity audit and Remotion still all pass. The audit reports only the two previously bounded moderate transitive advisories.
+- Confirmed from the official Hub organization that `model_judgment` is a three-category artifact while six separate question datasets define the benchmark inventory. Added a strict deterministic selector for the public `2024-11-25` release that follows official release/removal boundaries, rejects duplicate IDs and emits stable per-turn observations; real acquisition remains gated on six pinned dataset revisions.
+- Replayed the complete CI-equivalent gate after the release-inventory contract: formatting, zero-warning lint, 9-package type checking, 118 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. The audit still reports only the two previously bounded moderate transitive advisories.
 
 ## Data Sources Status
 
@@ -102,7 +104,8 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 
 ## Next Actions
 
-- Resolve repeated LiveBench judgments with a source-backed evaluation-run policy and acquire the missing official category inventory.
+- Pin and acquire the six official LiveBench question inventories through a bounded field-minimal path, then measure the real `2024-11-25` denominator.
+- Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Seed versioned LiveBench benchmark/metric/dimension mappings, then persist only complete conflict-free results before creating a ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.
