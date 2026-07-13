@@ -131,7 +131,7 @@ Verified readiness measurement:
 - [x] Run the real six-category readiness report twice with stable output.
 - [x] Complete five-axis and security review.
 - [x] Run the complete local CI-equivalent quality gate.
-- [ ] Commit, push and wait for GitHub Actions CI.
+- [x] Commit, push and wait for GitHub Actions CI.
 
 ## Acceptance Criteria
 
