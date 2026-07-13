@@ -1,61 +1,112 @@
-# Implementation Plan: Complete LiveBench Alias Adjudication
+# Implementation Plan: LiveBench Aggregation Readiness
 
 ## Overview
 
-Review all 166 safe-normalized aliases in the pinned 60,372-row LiveBench ingestion run. Every alias must end with an evidence-backed canonical mapping or an explicit exclusion decision. Excluded rows remain unpublished and carry a machine-readable reason instead of being silently guessed or left pending.
+Turn the fully adjudicated LiveBench staged rows into deterministic task and
+category aggregates without bypassing publication safety. The first deliverable
+is a read-only readiness report for the pinned 60,372-row ingestion run. It must
+make incomplete category coverage and repeated/conflicting observations
+explicit; it must not write `benchmark_results`, scores, ranking snapshots or
+weekly editions.
+
+## Verified Source Rules
+
+- LiveBench's official result script averages question scores within each task,
+  then averages task scores within each category.
+- LiveBench requires complete judgments before including a model in its task and
+  category tables.
+- The project keeps missing values null and blocks publication when coverage or
+  identity/configuration gates are incomplete.
+
+Sources:
+
+- https://github.com/LiveBench/LiveBench/blob/main/livebench/show_livebench_result.py
+- https://github.com/LiveBench/LiveBench
 
 ## Architecture Decisions
 
-- Keep canonical mappings and exclusions as versioned source-controlled manifests.
-- Resolve exact safe-normalized aliases only; never use fuzzy matching.
-- Treat vendor model documentation, vendor model cards and the pinned LiveBench source as evidence. Vendor identity takes precedence over benchmark spelling.
-- Exclude unverifiable benchmark-private checkpoints, impossible model names and non-model aggregate aliases from publication.
-- Split large static manifests into focused modules before the existing manifest approaches the 1,000-line review threshold.
+- Keep LiveBench-specific parsing, inventory and readiness logic in the worker;
+  the shared scoring package remains source-agnostic.
+- Treat the database JSON payload as an explicit typed boundary before using it
+  in aggregation.
+- Use canonical `(model variant, category, task, question, turn)` keys.
+- Collapse identical repeated observations deterministically, but record their
+  multiplicity. A key with different scores is a blocking conflict and cannot
+  contribute to a category score.
+- Emit a category score only when every expected task/question observation for
+  that category is present and conflict-free. Missing data remains null.
+- Do not emit an overall LiveBench score or persist published results in this
+  slice. Benchmark-to-dimension mapping and publication remain separate gates.
 
 ## Task List
 
-### Phase 1: Foundation
+### Phase 1: Aggregation Contract
 
-- [x] Add an exclusion decision type, validation and deterministic summary.
-- [x] Apply exclusions during full-run resolution with explicit `EXCLUDED` status and reason metadata.
-- [x] Extend review reporting and summaries so mapped, excluded, ambiguous and pending counts are independently visible.
+- [x] Add RED tests for task means, equal-weight category means, stable ordering,
+      missing observations and conflicting repeated observations.
+- [x] Implement the smallest pure aggregation/readiness module that passes the
+      tests.
+- [x] Document the contract so downstream repository code cannot interpret
+      incomplete category values as formal scores.
 
-### Checkpoint: Foundation
+### Checkpoint: Pure Logic
 
-- [x] TDD RED/GREEN cycle proves exclusions cannot accidentally validate rows.
-- [x] Worker tests and type checking pass.
-- [x] Foundation commit is pushed and GitHub CI passes.
+- [x] Worker tests pass, including deterministic repeat execution.
+- [x] Worker type checking and lint pass.
+- [x] Five-axis review finds no unhandled correctness, architecture, security or
+      performance blocker.
 
-### Phase 2: Complete Adjudication
+### Phase 2: Read-only Repository and CLI
 
-- [x] Export the exact 166-alias inventory from the pinned ingestion run.
-- [x] Add evidence-backed canonical mappings in provider-sized batches.
-- [x] Add evidence-backed exclusions for benchmark-private or invalid identities.
-- [x] Validate that the decision manifest covers every normalized source alias exactly once.
+- [ ] Query one explicit ingestion run and accept only `VALIDATED` rows with a
+      canonical model variant.
+- [ ] Build the expected task/question inventory from the complete staged run,
+      including excluded aliases, so exclusions cannot shrink coverage.
+- [ ] Emit JSON with run identity, inventory coverage, duplicate/conflict counts
+      and per-model task/category aggregates.
+- [ ] Reject a missing, non-succeeded or non-full-run ingestion run.
 
-### Checkpoint: Adjudication
+### Checkpoint: Real Data
 
-- [x] Manifest validation rejects duplicate, missing and conflicting decisions.
-- [x] Database sync is idempotent.
-- [x] Full-run resolution reports zero pending and zero ambiguous aliases.
+- [ ] The pinned run reports 60,372 staged rows, 58,233 validated rows and 2,139
+      excluded rows.
+- [ ] The report reproduces the observed seven-task, three-category inventory.
+- [ ] Publication readiness is false while required categories or conflict gates
+      remain unresolved.
+- [ ] The command is read-only and leaves published/scoring tables unchanged.
 
 ### Phase 3: Delivery
 
-- [x] Update progress and data methodology documentation with final counts.
-- [x] Complete correctness, readability, architecture, security and performance review.
-- [x] Run the complete local CI-equivalent quality gate.
-- [ ] Push all commits and wait for the final GitHub CI run to pass.
+- [ ] Update progress and operations documentation with measured results.
+- [ ] Run the complete local CI-equivalent quality gate.
+- [ ] Commit and push all tracked changes while leaving
+      `reference-table-data/` untracked.
+- [ ] Wait for the pushed GitHub Actions CI run to pass.
+
+## Acceptance Criteria
+
+- No excluded or unresolved row contributes to aggregation.
+- Identical inputs always produce byte-stable ordering and values.
+- A category score is null when any required observation is missing or
+  conflicting.
+- Task scores are arithmetic means of canonical question observations; category
+  scores are equal-weight means of complete task scores.
+- No published result, dimension score, ranking snapshot or weekly edition is
+  created.
+- `main` and `origin/main` match after a green CI run.
 
 ## Risks and Mitigations
 
-| Risk                                   | Impact | Mitigation                                                                     |
-| -------------------------------------- | ------ | ------------------------------------------------------------------------------ |
-| Guessing a private checkpoint identity | High   | Exclude unless a first-party source proves the canonical identity.             |
-| Large, unreviewable static manifest    | Medium | Split by decision type/provider and use typed compact definitions.             |
-| Duplicate normalized aliases           | High   | Enforce one decision owner per normalized alias before DB writes.              |
-| Excluded rows entering rankings        | High   | Store `EXCLUDED`, keep `resolved_model_variant_id` null and test the boundary. |
-| Vendor lifecycle drift                 | Medium | Preserve evidence URLs and current review date in progress documentation.      |
+| Risk                                                     | Impact | Mitigation                                                               |
+| -------------------------------------------------------- | ------ | ------------------------------------------------------------------------ |
+| Historical reruns silently double-weight questions       | High   | Canonical observation keys, duplicate counts and conflict blocking.      |
+| Alias exclusions shrink the benchmark inventory          | High   | Derive expected questions from all staged rows, not validated rows only. |
+| Partial categories look like formal scores               | High   | Null incomplete category scores and explicit readiness status.           |
+| LiveBench categories are mistaken for project dimensions | High   | Keep source aggregation separate from benchmark-dimension mapping.       |
+| Readiness query mutates publication state                | High   | Read-only repository/CLI plus before/after table-count verification.     |
 
 ## Open Questions
 
-- None. The user explicitly authorized continuous execution until all aliases are adjudicated.
+- Repeated judgments with different timestamps need a source-backed selection
+  policy (for example, an official evaluation-run identifier) before formal
+  publication. Until then they remain blocking conflicts.
