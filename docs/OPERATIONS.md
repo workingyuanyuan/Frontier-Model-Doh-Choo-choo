@@ -8,7 +8,7 @@ All reusable actions are pinned to immutable full commit SHAs. The workflow toke
 
 ## Weekly dry run
 
-`.github/workflows/weekly-dry-run.yml` runs every Monday at 09:15 in `Asia/Taipei` and can also be started manually with `workflow_dispatch`. It:
+`.github/workflows/weekly-dry-run.yml` runs every Monday at 09:15 in `Asia/Taipei` (`01:15 UTC`) and can also be started manually with `workflow_dispatch`. It:
 
 1. creates a disposable PostgreSQL database;
 2. applies committed migrations and canonical seeds;

@@ -2,8 +2,8 @@ name: Weekly benchmark dry run
 
 on:
   schedule:
-    - cron: '15 9 * * 1'
-      timezone: Asia/Taipei
+    # 09:15 Monday in Asia/Taipei (UTC+8, no daylight saving time).
+    - cron: '15 1 * * 1'
   workflow_dispatch:
 
 permissions:
