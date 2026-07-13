@@ -47,6 +47,7 @@ pnpm review:livebench-aliases
 pnpm sync:livebench-aliases
 pnpm resolve:livebench-aliases
 pnpm verify:livebench-aliases
+pnpm report:livebench-aggregation -- --summary-only
 pnpm test:run
 pnpm build
 pnpm video:still
@@ -60,3 +61,11 @@ transactionally ensures the versioned evidence-backed canonical manifest.
 Resolve applies exact mapping or exclusion decisions to staged rows. Verify is
 read-only and rejects any status other than `VALIDATED` or `EXCLUDED`, any
 validated row without a model variant, and any excluded row with one.
+
+The aggregation report requires a succeeded full-Parquet run. It validates every
+staged payload, derives the expected question inventory from all staged rows and
+allows only canonical `VALIDATED` rows to contribute scores. Exact repeated
+observations are counted and collapsed; repeated keys with different scores are
+blocking conflicts. The report is read-only and returns
+`isReadyForPublication: false` while a required category, complete model or
+conflict gate fails. Omit `--summary-only` for per-model task/category details.

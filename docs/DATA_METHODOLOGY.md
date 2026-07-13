@@ -29,6 +29,8 @@ A canonical result is unique by model variant, benchmark version, metric, evalua
 - Conflicting values for the same canonical key block automatic publication.
 - Precedence is benchmark official, independent evaluator, vendor reported, secondary aggregator, unverified.
 - A lower-tier row never replaces a higher-tier published row automatically.
+- LiveBench question scores are averaged within task, then complete task scores are equally averaged within category, matching the official result script. Identical repeated canonical observations collapse with an audit count; different scores for one canonical observation key remain a blocking conflict until a source-backed evaluation-run selection policy exists.
+- Expected coverage is derived from the complete staged question inventory, including explicitly excluded model aliases. Exclusions can never reduce the denominator, and incomplete task/category scores remain null.
 
 ## Quality flags
 

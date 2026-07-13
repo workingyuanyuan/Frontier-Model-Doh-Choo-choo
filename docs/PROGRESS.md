@@ -81,6 +81,12 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - Re-resolved the fixed full run twice with identical results: 58,233 validated rows, 2,139 explicitly excluded rows, zero unresolved rows and zero ambiguous rows.
 - Added a read-only persistence verifier; PostgreSQL confirms every validated row has a resolved model variant ID and every excluded row keeps that ID null.
 - Replayed the final CI-equivalent gate after full alias adjudication: formatting, zero-warning lint, 9-package type checking, 103 tests, migration, seed, production build, high-severity audit and Remotion still all pass.
+- Added a deterministic conflict-aware LiveBench aggregation contract that follows the official question → task → equal-weight category formula while keeping incomplete values null.
+- Added a repeatable-read, read-only aggregation repository and CLI. It validates the full-Parquet run and every staged payload, uses all staged rows for expected coverage and permits only canonical validated rows to contribute scores.
+- Verified the pinned run contains 494 expected observations across 7 tasks and 3 categories, 157 canonical models and 11 models complete within those available categories.
+- Measured 2,674 repeated canonical observations, including 201 keys with different scores. The run also lacks reasoning, math and data-analysis rows, so publication readiness correctly remains false.
+- Proved the readiness command is non-publishing: benchmark results, dimension scores, overall scores, ranking snapshots, ranking entries and weekly editions all remained at zero before and after execution.
+- Replayed the complete CI-equivalent gate after aggregation readiness: formatting, zero-warning lint, 9-package type checking, 115 tests, migration, seed, production build, high-severity audit and Remotion still all pass. The audit reports only the two previously bounded moderate transitive advisories.
 
 ## Data Sources Status
 
@@ -90,10 +96,13 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 
 ## Risks / Blockers
 
-- No blocking issue. A global FFmpeg installation is unnecessary for the verified local path because Remotion's managed renderer completed the H.264 encode.
+- Formal LiveBench publication is blocked by 201 repeated canonical question keys with conflicting scores until a source-backed evaluation-run selection policy is defined.
+- The pinned judgment inventory contains only coding, instruction-following and language; reasoning, math and data-analysis coverage is absent.
+- A global FFmpeg installation is unnecessary for the verified local path because Remotion's managed renderer completed the H.264 encode.
 
 ## Next Actions
 
-- Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
+- Resolve repeated LiveBench judgments with a source-backed evaluation-run policy and acquire the missing official category inventory.
+- Seed versioned LiveBench benchmark/metric/dimension mappings, then persist only complete conflict-free results before creating a ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.

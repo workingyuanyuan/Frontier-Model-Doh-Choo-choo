@@ -21,6 +21,7 @@
     "ingest:livebench": "pnpm --filter @llm-bench/worker ingest:livebench",
     "ingest:livebench:all": "pnpm --filter @llm-bench/worker ingest:livebench:all",
     "lint": "eslint . --max-warnings 0",
+    "report:livebench-aggregation": "pnpm --filter @llm-bench/worker report:livebench-aggregation",
     "test": "turbo run test",
     "test:run": "turbo run test:run",
     "typecheck": "turbo run typecheck",

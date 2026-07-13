@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "report:livebench-aggregation": "tsx src/aggregation-report-cli.ts",
     "ingest:livebench": "tsx src/cli.ts",
     "ingest:livebench:all": "tsx src/full-cli.ts",
     "review:livebench-aliases": "tsx src/aliases-review-cli.ts",

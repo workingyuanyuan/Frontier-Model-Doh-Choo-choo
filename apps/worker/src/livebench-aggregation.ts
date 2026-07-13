@@ -52,6 +52,15 @@ export interface LiveBenchModelAggregate {
 }
 
 export interface LiveBenchAggregationReport {
+  readonly inventory: {
+    readonly categories: readonly {
+      readonly category: LiveBenchAggregationCategory;
+      readonly tasks: readonly {
+        readonly task: string;
+        readonly expectedObservations: number;
+      }[];
+    }[];
+  };
   readonly summary: {
     readonly inventoryObservationCount: number;
     readonly modelCount: number;
@@ -169,6 +178,21 @@ export function aggregateLiveBenchJudgments({
   }
 
   const categories = [...inventoryCategories].sort(compareText);
+  const inventorySummary = categories.map((category) => {
+    const categoryRows = inventoryRows.filter(
+      (row) => row.category === category,
+    );
+    return {
+      category,
+      tasks: [...new Set(categoryRows.map(({ task }) => task))]
+        .sort(compareText)
+        .map((task) => ({
+          task,
+          expectedObservations: categoryRows.filter((row) => row.task === task)
+            .length,
+        })),
+    };
+  });
   const models = [...modelVariantIds]
     .sort(compareText)
     .map((modelVariantId) => ({
@@ -269,6 +293,7 @@ export function aggregateLiveBenchJudgments({
   ).length;
 
   return {
+    inventory: { categories: inventorySummary },
     summary: {
       inventoryObservationCount: inventoryByKey.size,
       modelCount: models.length,

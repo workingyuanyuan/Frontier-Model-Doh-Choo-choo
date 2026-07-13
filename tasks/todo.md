@@ -4,8 +4,8 @@
 - [x] Measure the pinned run's task/category inventory and repeated observations.
 - [x] Add failing pure aggregation and readiness tests.
 - [x] Implement deterministic conflict-aware task/category aggregation.
-- [ ] Add a read-only fixed-run repository and CLI.
-- [ ] Verify the report against PostgreSQL without publication writes.
-- [ ] Update methodology/progress documentation.
-- [ ] Complete five-axis review and the full local quality gate.
-- [ ] Commit, push and verify GitHub CI.
+- [x] Add a read-only fixed-run repository and CLI.
+- [x] Verify the report against PostgreSQL without publication writes.
+- [x] Update methodology/progress documentation.
+- [x] Complete five-axis review and the full local quality gate.
+- [x] Commit, push and verify GitHub CI.

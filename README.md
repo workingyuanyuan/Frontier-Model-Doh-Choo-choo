@@ -42,6 +42,7 @@ pnpm review:livebench-aliases
 pnpm sync:livebench-aliases
 pnpm resolve:livebench-aliases
 pnpm verify:livebench-aliases
+pnpm report:livebench-aggregation -- --summary-only
 pnpm video:studio
 pnpm video:still
 pnpm video:render
@@ -59,6 +60,11 @@ applies exact manifest-backed mapping or exclusion decisions to that run.
 `verify:livebench-aliases` is read-only and proves that resolved rows have a
 canonical variant while explicitly excluded rows do not. Publication remains
 disabled until the remaining benchmark and coverage gates are complete.
+`report:livebench-aggregation` requires the same ingestion-run variable and
+builds a repeatable-read, read-only task/category readiness report. Omit
+`--summary-only` to include deterministic per-model aggregates. Incomplete or
+conflicting task/category scores remain null and the command never writes
+published results or ranking snapshots.
 
 `video:render` writes a 1920×1080 H.264 MP4 to `output/llm-bench-weekly.mp4`. `video:artifacts` writes deterministic metadata JSON and ranking CSV with the input snapshot ID and SHA-256. The Web and video defaults intentionally use the same clearly labeled fictional preview snapshot. Preview values must never be promoted to a published edition.
 

@@ -58,30 +58,30 @@ Sources:
 
 ### Phase 2: Read-only Repository and CLI
 
-- [ ] Query one explicit ingestion run and accept only `VALIDATED` rows with a
+- [x] Query one explicit ingestion run and accept only `VALIDATED` rows with a
       canonical model variant.
-- [ ] Build the expected task/question inventory from the complete staged run,
+- [x] Build the expected task/question inventory from the complete staged run,
       including excluded aliases, so exclusions cannot shrink coverage.
-- [ ] Emit JSON with run identity, inventory coverage, duplicate/conflict counts
+- [x] Emit JSON with run identity, inventory coverage, duplicate/conflict counts
       and per-model task/category aggregates.
-- [ ] Reject a missing, non-succeeded or non-full-run ingestion run.
+- [x] Reject a missing, non-succeeded or non-full-run ingestion run.
 
 ### Checkpoint: Real Data
 
-- [ ] The pinned run reports 60,372 staged rows, 58,233 validated rows and 2,139
+- [x] The pinned run reports 60,372 staged rows, 58,233 validated rows and 2,139
       excluded rows.
-- [ ] The report reproduces the observed seven-task, three-category inventory.
-- [ ] Publication readiness is false while required categories or conflict gates
+- [x] The report reproduces the observed seven-task, three-category inventory.
+- [x] Publication readiness is false while required categories or conflict gates
       remain unresolved.
-- [ ] The command is read-only and leaves published/scoring tables unchanged.
+- [x] The command is read-only and leaves published/scoring tables unchanged.
 
 ### Phase 3: Delivery
 
-- [ ] Update progress and operations documentation with measured results.
-- [ ] Run the complete local CI-equivalent quality gate.
-- [ ] Commit and push all tracked changes while leaving
+- [x] Update progress and operations documentation with measured results.
+- [x] Run the complete local CI-equivalent quality gate.
+- [x] Commit and push all tracked changes while leaving
       `reference-table-data/` untracked.
-- [ ] Wait for the pushed GitHub Actions CI run to pass.
+- [x] Wait for the pushed GitHub Actions CI run to pass.
 
 ## Acceptance Criteria
 
