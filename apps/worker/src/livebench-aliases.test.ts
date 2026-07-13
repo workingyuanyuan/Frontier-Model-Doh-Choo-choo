@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { planLiveBenchAliasDecisions } from './livebench-aliases.js';
+import {
+  parseIngestionRunId,
+  planLiveBenchAliasDecisions,
+} from './livebench-aliases.js';
 
 const candidates = [
   {
@@ -72,5 +75,19 @@ describe('LiveBench staged alias decisions', () => {
 
   it('returns no updates for an ingestion run without staged rows', () => {
     expect(planLiveBenchAliasDecisions([], candidates)).toEqual([]);
+  });
+});
+
+describe('LiveBench alias review input', () => {
+  it('accepts a UUID ingestion run ID and rejects missing or unsafe input', () => {
+    expect(parseIngestionRunId('019f513a-b30e-75b7-8027-a16db6820da5')).toBe(
+      '019f513a-b30e-75b7-8027-a16db6820da5',
+    );
+    expect(() => parseIngestionRunId(undefined)).toThrow(
+      'LIVEBENCH_INGESTION_RUN_ID',
+    );
+    expect(() => parseIngestionRunId("' OR true --")).toThrow(
+      'LIVEBENCH_INGESTION_RUN_ID',
+    );
   });
 });

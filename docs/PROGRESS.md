@@ -46,6 +46,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - LiveBench connector/storage tests and worker staging tests pass.
 - The real connector response passed the production parser and was written under its verified SHA-256 path.
 - PostgreSQL reports one successful LiveBench run and 100 validated unresolved staged rows.
+- The read-only alias review CLI verified that the run contains 100 rows grouped into 69 normalized aliases; all 69 remain unresolved because no aliases have been reviewed and registered yet.
 - Web preview snapshot and locale contract tests pass; Next.js production build prerenders both locale routes.
 - Chrome DevTools verified model switching and identical radar path geometry across both themes.
 - Chrome verified no horizontal overflow at 390px and 1440px, correct English document metadata and a clean runtime console.
@@ -64,6 +65,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added fixed-origin Hub revision capture and bound the immutable dataset commit SHA to every LiveBench source snapshot and ingestion run.
 - Added a deterministic source-scoped model alias resolver that permits only exact safe-normalized matches and surfaces cross-variant collisions for manual review.
 - Added transactional LiveBench staged-row alias decisions with explicit resolved, unresolved and ambiguous outcomes; no unreviewed aliases are auto-created.
+- Added a read-only repeatable-read LiveBench alias review report that groups raw spellings, counts rows and prioritizes ambiguous/unresolved names deterministically.
 
 ## Data Sources Status
 

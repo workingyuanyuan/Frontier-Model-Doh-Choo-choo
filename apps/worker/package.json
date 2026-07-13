@@ -7,6 +7,7 @@
     "build": "tsc -p tsconfig.build.json",
     "ingest:livebench": "tsx src/cli.ts",
     "ingest:livebench:all": "tsx src/full-cli.ts",
+    "review:livebench-aliases": "tsx src/aliases-review-cli.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json"

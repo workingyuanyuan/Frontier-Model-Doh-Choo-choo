@@ -1,8 +1,16 @@
-import { type Database, modelAliases, stagedResults } from '@llm-bench/db';
+import {
+  type Database,
+  ingestionRuns,
+  modelAliases,
+  sources,
+  stagedResults,
+} from '@llm-bench/db';
 import { and, eq } from 'drizzle-orm';
 
 import {
+  buildModelAliasReviewQueue,
   type ModelAliasCandidate,
+  type ModelAliasReviewQueueItem,
   resolveExactModelAlias,
 } from './model-alias-resolution.js';
 
@@ -38,6 +46,24 @@ export interface LiveBenchAliasResolutionSummary {
   readonly recordsResolved: number;
   readonly recordsUnresolved: number;
   readonly recordsAmbiguous: number;
+}
+
+export interface LiveBenchAliasReviewReport {
+  readonly ingestionRunId: string;
+  readonly recordsSeen: number;
+  readonly aliases: readonly ModelAliasReviewQueueItem[];
+}
+
+export function parseIngestionRunId(value: string | undefined): string {
+  if (
+    value === undefined ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iu.test(
+      value,
+    )
+  ) {
+    throw new Error('LIVEBENCH_INGESTION_RUN_ID must be a UUIDv7');
+  }
+  return value;
 }
 
 export function planLiveBenchAliasDecisions(
@@ -144,4 +170,53 @@ export async function resolveLiveBenchAliases(
       ).length,
     };
   });
+}
+
+export async function getLiveBenchAliasReviewReport(
+  db: Database,
+  ingestionRunId: string,
+): Promise<LiveBenchAliasReviewReport> {
+  return db.transaction(
+    async (transaction) => {
+      const [run] = await transaction
+        .select({ id: ingestionRuns.id })
+        .from(ingestionRuns)
+        .innerJoin(sources, eq(ingestionRuns.sourceId, sources.id))
+        .where(
+          and(
+            eq(ingestionRuns.id, ingestionRunId),
+            eq(sources.slug, 'livebench-model-judgment'),
+          ),
+        )
+        .limit(1);
+      if (!run) {
+        throw new Error('LiveBench ingestion run was not found');
+      }
+
+      const candidates = await transaction
+        .select({
+          namespace: modelAliases.namespace,
+          alias: modelAliases.alias,
+          modelVariantId: modelAliases.modelVariantId,
+          priority: modelAliases.priority,
+        })
+        .from(modelAliases)
+        .where(eq(modelAliases.namespace, LIVEBENCH_ALIAS_NAMESPACE));
+      const records = await transaction
+        .select({ rawModelName: stagedResults.rawModelName })
+        .from(stagedResults)
+        .where(eq(stagedResults.ingestionRunId, run.id));
+
+      return {
+        ingestionRunId: run.id,
+        recordsSeen: records.length,
+        aliases: buildModelAliasReviewQueue(
+          LIVEBENCH_ALIAS_NAMESPACE,
+          records,
+          candidates,
+        ),
+      };
+    },
+    { isolationLevel: 'repeatable read', accessMode: 'read only' },
+  );
 }

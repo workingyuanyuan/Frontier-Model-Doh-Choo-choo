@@ -43,8 +43,13 @@ pnpm db:up
 pnpm db:migrate
 pnpm db:seed
 pnpm ingest:livebench
+pnpm review:livebench-aliases
 pnpm test:run
 pnpm build
 pnpm video:still
 pnpm video:artifacts
 ```
+
+Set `LIVEBENCH_INGESTION_RUN_ID` to a UUIDv7 before running the alias review
+command. It reads the run and `livebench` alias namespace in a repeatable-read,
+read-only transaction, then prints deterministic JSON. It performs no updates.

@@ -38,6 +38,7 @@ pnpm build
 pnpm --filter @llm-bench/web dev
 pnpm ingest:livebench
 pnpm ingest:livebench:all
+pnpm review:livebench-aliases
 pnpm video:studio
 pnpm video:still
 pnpm video:render
@@ -46,6 +47,8 @@ pnpm video:artifacts
 
 Both LiveBench ingestion commands capture the official Hub commit SHA before
 fetching rows and bind that immutable revision to every staged evidence record.
+`review:livebench-aliases` requires `LIVEBENCH_INGESTION_RUN_ID` and emits a
+read-only deterministic JSON review queue; it never creates aliases.
 
 `video:render` writes a 1920×1080 H.264 MP4 to `output/llm-bench-weekly.mp4`. `video:artifacts` writes deterministic metadata JSON and ranking CSV with the input snapshot ID and SHA-256. The Web and video defaults intentionally use the same clearly labeled fictional preview snapshot. Preview values must never be promoted to a published edition.
 

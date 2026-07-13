@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  buildModelAliasReviewQueue,
   normalizeModelAlias,
   resolveExactModelAlias,
   type ModelAliasCandidate,
@@ -96,5 +97,68 @@ describe('exact model alias resolution', () => {
       normalizedAlias: 'gpt 4o',
       candidateModelVariantIds: ['variant-a', 'variant-z'],
     });
+  });
+});
+
+describe('model alias review queue', () => {
+  it('groups safe-normalized spellings and prioritizes ambiguous review', () => {
+    const queue = buildModelAliasReviewQueue(
+      'livebench',
+      [
+        { rawModelName: ' GPT 4O ' },
+        { rawModelName: 'gpt 4o' },
+        { rawModelName: 'unknown-model' },
+        { rawModelName: 'unknown-model' },
+        { rawModelName: 'Claude 3.5 Sonnet' },
+      ],
+      [
+        ...liveBenchCandidates,
+        {
+          namespace: 'livebench',
+          alias: 'GPT 4o',
+          modelVariantId: 'variant-gpt-a',
+        },
+        {
+          namespace: 'livebench',
+          alias: 'gpt 4O',
+          modelVariantId: 'variant-gpt-b',
+        },
+      ],
+    );
+
+    expect(queue).toEqual([
+      {
+        normalizedAlias: 'gpt 4o',
+        totalRows: 2,
+        rawAliases: [
+          { alias: ' GPT 4O ', rows: 1 },
+          { alias: 'gpt 4o', rows: 1 },
+        ],
+        resolution: {
+          status: 'AMBIGUOUS',
+          normalizedAlias: 'gpt 4o',
+          candidateModelVariantIds: ['variant-gpt-a', 'variant-gpt-b'],
+        },
+      },
+      {
+        normalizedAlias: 'unknown-model',
+        totalRows: 2,
+        rawAliases: [{ alias: 'unknown-model', rows: 2 }],
+        resolution: {
+          status: 'UNRESOLVED',
+          normalizedAlias: 'unknown-model',
+        },
+      },
+      {
+        normalizedAlias: 'claude 3.5 sonnet',
+        totalRows: 1,
+        rawAliases: [{ alias: 'Claude 3.5 Sonnet', rows: 1 }],
+        resolution: {
+          status: 'RESOLVED',
+          normalizedAlias: 'claude 3.5 sonnet',
+          modelVariantId: 'variant-claude-sonnet',
+        },
+      },
+    ]);
   });
 });
