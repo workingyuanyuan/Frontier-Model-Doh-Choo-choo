@@ -17,6 +17,15 @@ export interface LiveBenchAliasManifestEntry {
   readonly evidenceUrls: readonly string[];
 }
 
+export interface LiveBenchAliasManifestSummary {
+  readonly entriesSeen: number;
+  readonly providersEnsured: number;
+  readonly familiesEnsured: number;
+  readonly modelsEnsured: number;
+  readonly variantsEnsured: number;
+  readonly aliasesEnsured: number;
+}
+
 const stableSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/u;
 
 function validateIdentity(
@@ -83,6 +92,31 @@ export function validateLiveBenchAliasManifest(
       }
     }
   }
+}
+
+export function summarizeLiveBenchAliasManifest(
+  entries: readonly LiveBenchAliasManifestEntry[],
+): LiveBenchAliasManifestSummary {
+  validateLiveBenchAliasManifest(entries);
+
+  return {
+    entriesSeen: entries.length,
+    providersEnsured: new Set(entries.map((entry) => entry.provider.slug)).size,
+    familiesEnsured: new Set(
+      entries.map((entry) => `${entry.provider.slug}/${entry.family.slug}`),
+    ).size,
+    modelsEnsured: new Set(
+      entries.map(
+        (entry) =>
+          `${entry.provider.slug}/${entry.family.slug}/${entry.model.slug}`,
+      ),
+    ).size,
+    variantsEnsured: new Set(entries.map((entry) => entry.variant.slug)).size,
+    aliasesEnsured: entries.reduce(
+      (total, entry) => total + entry.aliases.length,
+      0,
+    ),
+  };
 }
 
 const anthropicModelEvidenceUrl =

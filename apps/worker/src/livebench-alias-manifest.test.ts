@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  summarizeLiveBenchAliasManifest,
   liveBenchAliasManifest,
   validateLiveBenchAliasManifest,
   type LiveBenchAliasManifestEntry,
@@ -72,5 +73,16 @@ describe('LiveBench alias manifest validation', () => {
       'claude-3-5-sonnet-20241022',
       'claude-3-opus-20240229',
     ]);
+  });
+
+  it('summarizes deduplicated canonical identities before a transaction', () => {
+    expect(summarizeLiveBenchAliasManifest(liveBenchAliasManifest)).toEqual({
+      entriesSeen: 3,
+      providersEnsured: 1,
+      familiesEnsured: 1,
+      modelsEnsured: 3,
+      variantsEnsured: 3,
+      aliasesEnsured: 3,
+    });
   });
 });
