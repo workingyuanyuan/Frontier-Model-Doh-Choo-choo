@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  liveBenchAliasManifest,
   validateLiveBenchAliasManifest,
   type LiveBenchAliasManifestEntry,
 } from './livebench-alias-manifest.js';
@@ -12,8 +13,11 @@ const claudeSonnet: LiveBenchAliasManifestEntry = {
   variant: {
     slug: 'claude-3-5-sonnet-20241022',
     displayName: 'Claude 3.5 Sonnet (2024-10-22)',
+    releaseDate: '2024-10-22',
+    lifecycleStatus: 'DEPRECATED',
   },
   aliases: ['claude-3-5-sonnet-20241022'],
+  evidenceUrls: ['https://docs.anthropic.com/en/api/claude-on-vertex-ai'],
 };
 
 describe('LiveBench alias manifest validation', () => {
@@ -49,5 +53,24 @@ describe('LiveBench alias manifest validation', () => {
     expect(() =>
       validateLiveBenchAliasManifest([{ ...claudeSonnet, aliases: ['  '] }]),
     ).toThrow('non-empty alias');
+  });
+
+  it('requires HTTPS evidence for every reviewed mapping', () => {
+    expect(() =>
+      validateLiveBenchAliasManifest([
+        { ...claudeSonnet, evidenceUrls: ['http://example.com/model'] },
+      ]),
+    ).toThrow('HTTPS evidence URL');
+  });
+
+  it('ships a validated first reviewed batch of exact LiveBench aliases', () => {
+    expect(() =>
+      validateLiveBenchAliasManifest(liveBenchAliasManifest),
+    ).not.toThrow();
+    expect(liveBenchAliasManifest.map((entry) => entry.variant.slug)).toEqual([
+      'claude-3-5-haiku-20241022',
+      'claude-3-5-sonnet-20241022',
+      'claude-3-opus-20240229',
+    ]);
   });
 });

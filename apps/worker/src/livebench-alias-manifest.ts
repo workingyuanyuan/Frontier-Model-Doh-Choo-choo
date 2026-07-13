@@ -9,8 +9,12 @@ export interface LiveBenchAliasManifestEntry {
   readonly provider: CanonicalIdentity;
   readonly family: CanonicalIdentity;
   readonly model: CanonicalIdentity;
-  readonly variant: CanonicalIdentity;
+  readonly variant: CanonicalIdentity & {
+    readonly releaseDate?: string;
+    readonly lifecycleStatus?: 'ACTIVE' | 'DEPRECATED';
+  };
   readonly aliases: readonly string[];
+  readonly evidenceUrls: readonly string[];
 }
 
 const stableSlugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/u;
@@ -61,5 +65,67 @@ export function validateLiveBenchAliasManifest(
       }
       aliasOwners.set(normalizedAlias, entry.variant.slug);
     }
+
+    if (entry.evidenceUrls.length === 0) {
+      throw new Error(
+        `${entry.variant.slug} must declare an HTTPS evidence URL`,
+      );
+    }
+    for (const evidenceUrl of entry.evidenceUrls) {
+      let parsedUrl: URL;
+      try {
+        parsedUrl = new URL(evidenceUrl);
+      } catch {
+        throw new Error(`Invalid HTTPS evidence URL: ${evidenceUrl}`);
+      }
+      if (parsedUrl.protocol !== 'https:') {
+        throw new Error(`Invalid HTTPS evidence URL: ${evidenceUrl}`);
+      }
+    }
   }
 }
+
+const anthropicModelEvidenceUrl =
+  'https://docs.anthropic.com/en/api/claude-on-vertex-ai';
+
+export const liveBenchAliasManifest = [
+  {
+    provider: { slug: 'anthropic', displayName: 'Anthropic' },
+    family: { slug: 'claude-3', displayName: 'Claude 3' },
+    model: { slug: 'claude-3-5-haiku', displayName: 'Claude 3.5 Haiku' },
+    variant: {
+      slug: 'claude-3-5-haiku-20241022',
+      displayName: 'Claude 3.5 Haiku (2024-10-22)',
+      releaseDate: '2024-10-22',
+      lifecycleStatus: 'ACTIVE',
+    },
+    aliases: ['claude-3-5-haiku-20241022'],
+    evidenceUrls: [anthropicModelEvidenceUrl],
+  },
+  {
+    provider: { slug: 'anthropic', displayName: 'Anthropic' },
+    family: { slug: 'claude-3', displayName: 'Claude 3' },
+    model: { slug: 'claude-3-5-sonnet', displayName: 'Claude 3.5 Sonnet' },
+    variant: {
+      slug: 'claude-3-5-sonnet-20241022',
+      displayName: 'Claude 3.5 Sonnet (2024-10-22)',
+      releaseDate: '2024-10-22',
+      lifecycleStatus: 'DEPRECATED',
+    },
+    aliases: ['claude-3-5-sonnet-20241022'],
+    evidenceUrls: [anthropicModelEvidenceUrl],
+  },
+  {
+    provider: { slug: 'anthropic', displayName: 'Anthropic' },
+    family: { slug: 'claude-3', displayName: 'Claude 3' },
+    model: { slug: 'claude-3-opus', displayName: 'Claude 3 Opus' },
+    variant: {
+      slug: 'claude-3-opus-20240229',
+      displayName: 'Claude 3 Opus (2024-02-29)',
+      releaseDate: '2024-02-29',
+      lifecycleStatus: 'DEPRECATED',
+    },
+    aliases: ['claude-3-opus-20240229'],
+    evidenceUrls: [anthropicModelEvidenceUrl],
+  },
+] as const satisfies readonly LiveBenchAliasManifestEntry[];
