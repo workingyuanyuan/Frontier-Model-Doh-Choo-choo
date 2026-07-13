@@ -21,3 +21,8 @@
 - [x] Filter the 60,372 staged judgments against release `2024-11-25`.
 - [x] Report six-category judgment coverage and preserve conflict blockers.
 - [x] Commit, push and verify GitHub CI after the completed Phase 3 gate.
+- [ ] Add failing fixed-revision and composite coverage tests.
+- [ ] Implement bounded two-revision judgment acquisition and evidence.
+- [ ] Run the real acquisition and record the 800/1,000 union coverage.
+- [ ] Document the 64 same-raw and 137 alias-merge-only conflict split.
+- [ ] Commit, push and verify GitHub CI after the completed Phase 4 gate.

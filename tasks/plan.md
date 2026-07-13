@@ -109,6 +109,36 @@ Verified readiness measurement:
 - The report reads the evidence and PostgreSQL in bounded, validated,
   read-only paths; it does not write scoring or publication tables.
 
+### Phase 4: Revision-Bound Judgment Recovery
+
+- [ ] Pin the current three-category judgment revision and the latest earlier
+      six-category judgment revision.
+- [ ] Fetch both immutable Parquet artifacts under the existing origin, size,
+      redirect, schema and row limits.
+- [ ] Produce prompt-free coverage evidence against the pinned `2024-11-25`
+      question inventory without selecting a score winner.
+- [ ] Preserve missing observations and repeated-score conflicts as separate
+      publication blockers.
+
+Verified revision history:
+
+- Current revision `9704e5da7bfbefe75ac1482a13de827127295993`, committed
+  2025-04-07, contains 60,372 rows but only coding, language and
+  instruction-following. It covers 318/1,000 target observations.
+- Revision `5896e3b11081702c7f93f4733605fa4f5a072a11`, committed
+  2024-10-22, contains 93,624 rows and all six categories. It covers 700/1,000
+  target observations.
+- Their question-key union covers 800/1,000 observations. The remaining 200
+  are instruction-following 150 and reasoning 50; they stay missing rather
+  than becoming zero-valued.
+- The official judgment generator de-duplicates a task JSONL by
+  `(question_id, model)` and keeps the last file occurrence. It does not sort
+  by `tstamp`. The current artifact still produces 201 conflicts after our
+  reviewed canonical alias mapping: 64 already conflict within one raw model
+  spelling and 137 appear only after multiple official spellings map to one
+  canonical model. Phase 4 records this evidence but does not invent an alias
+  or timestamp precedence rule.
+
 ### Delivery
 
 - [x] Update methodology, source registry and progress documentation.
@@ -133,6 +163,15 @@ Verified readiness measurement:
 - [x] Run the complete local CI-equivalent quality gate.
 - [x] Commit, push and wait for GitHub Actions CI.
 
+### Phase 4 Delivery
+
+- [ ] Add RED pin, artifact-integrity, metadata-drift and union-coverage tests.
+- [ ] Run the real bounded two-revision acquisition and persist immutable
+      content-addressed evidence.
+- [ ] Complete five-axis and security review.
+- [ ] Run the complete local CI-equivalent quality gate.
+- [ ] Commit, push and wait for GitHub Actions CI.
+
 ## Acceptance Criteria
 
 - Selection matches the official release/removal boundary semantics.
@@ -155,7 +194,7 @@ Verified readiness measurement:
 ## Open Questions
 
 - The pinned judgment artifact supplies only 318 of the 1,000 release
-  observation keys. Additional official judgment evidence, if it exists, must
-  be revision-bound before it can change this coverage report.
+  observation keys. The pinned historical revision raises source-evidence
+  coverage to 800/1,000 but cannot supply the remaining 200 observations.
 - The 201 conflicting judgment keys still require an official run/version key
   or another source-backed selection rule. Until then they remain blocked.
