@@ -4,6 +4,7 @@ import {
   parseIngestionRunId,
   planLiveBenchAliasDecisions,
 } from './livebench-aliases.js';
+import type { ModelAliasExclusionCandidate } from './model-alias-resolution.js';
 
 const candidates = [
   {
@@ -23,18 +24,29 @@ const candidates = [
   },
 ];
 
+const exclusions: readonly ModelAliasExclusionCandidate[] = [
+  {
+    namespace: 'livebench',
+    alias: 'private-checkpoint',
+    reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+    evidenceUrls: ['https://github.com/LiveBench/LiveBench'],
+  },
+];
+
 describe('LiveBench staged alias decisions', () => {
-  it('creates explicit resolved, unresolved, and ambiguous updates', () => {
+  it('creates explicit resolved, excluded, unresolved, and ambiguous updates', () => {
     const decisions = planLiveBenchAliasDecisions(
       [
         {
           id: 'staged-resolved',
           rawModelName: 'Claude-3-5-Sonnet-20241022',
         },
+        { id: 'staged-excluded', rawModelName: 'PRIVATE-CHECKPOINT' },
         { id: 'staged-unresolved', rawModelName: 'unknown-model' },
         { id: 'staged-ambiguous', rawModelName: 'GPT 4O' },
       ],
       candidates,
+      exclusions,
     );
 
     expect(decisions).toEqual([
@@ -44,6 +56,20 @@ describe('LiveBench staged alias decisions', () => {
         resolvedModelVariantId: 'variant-claude',
         validationStatus: 'VALIDATED',
         validationErrors: [],
+      },
+      {
+        stagedResultId: 'staged-excluded',
+        resolutionStatus: 'EXCLUDED',
+        resolvedModelVariantId: null,
+        validationStatus: 'EXCLUDED',
+        validationErrors: [
+          {
+            code: 'MODEL_ALIAS_EXCLUDED',
+            normalizedAlias: 'private-checkpoint',
+            reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+            evidenceUrls: ['https://github.com/LiveBench/LiveBench'],
+          },
+        ],
       },
       {
         stagedResultId: 'staged-unresolved',
@@ -74,7 +100,24 @@ describe('LiveBench staged alias decisions', () => {
   });
 
   it('returns no updates for an ingestion run without staged rows', () => {
-    expect(planLiveBenchAliasDecisions([], candidates)).toEqual([]);
+    expect(planLiveBenchAliasDecisions([], candidates, exclusions)).toEqual([]);
+  });
+
+  it('rejects an alias that is both mapped and excluded', () => {
+    expect(() =>
+      planLiveBenchAliasDecisions(
+        [{ id: 'staged-conflict', rawModelName: 'private-checkpoint' }],
+        [
+          ...candidates,
+          {
+            namespace: 'livebench',
+            alias: 'private-checkpoint',
+            modelVariantId: 'variant-private',
+          },
+        ],
+        exclusions,
+      ),
+    ).toThrow('both mapped and excluded');
   });
 });
 

@@ -5,6 +5,13 @@ export interface ModelAliasCandidate {
   readonly priority?: number;
 }
 
+export interface ModelAliasExclusionCandidate {
+  readonly namespace: string;
+  readonly alias: string;
+  readonly reason: string;
+  readonly evidenceUrls: readonly string[];
+}
+
 export type ModelAliasResolution =
   | {
       readonly status: 'RESOLVED';
@@ -14,6 +21,12 @@ export type ModelAliasResolution =
   | {
       readonly status: 'UNRESOLVED';
       readonly normalizedAlias: string;
+    }
+  | {
+      readonly status: 'EXCLUDED';
+      readonly normalizedAlias: string;
+      readonly reason: string;
+      readonly evidenceUrls: readonly string[];
     }
   | {
       readonly status: 'AMBIGUOUS';
@@ -48,6 +61,7 @@ export function resolveExactModelAlias(
   namespace: string,
   rawAlias: string,
   candidates: readonly ModelAliasCandidate[],
+  exclusions: readonly ModelAliasExclusionCandidate[] = [],
 ): ModelAliasResolution {
   const normalizedAlias = normalizeModelAlias(rawAlias);
   const matchingVariantIds = [
@@ -61,6 +75,27 @@ export function resolveExactModelAlias(
         .map((candidate) => candidate.modelVariantId),
     ),
   ].sort();
+  const matchingExclusions = exclusions.filter(
+    (exclusion) =>
+      exclusion.namespace === namespace &&
+      normalizeModelAlias(exclusion.alias) === normalizedAlias,
+  );
+
+  if (matchingVariantIds.length > 0 && matchingExclusions.length > 0) {
+    throw new Error(`Alias is both mapped and excluded: ${normalizedAlias}`);
+  }
+  if (matchingExclusions.length > 1) {
+    throw new Error(`Duplicate exclusion alias: ${normalizedAlias}`);
+  }
+  if (matchingExclusions.length === 1) {
+    const exclusion = matchingExclusions[0]!;
+    return {
+      status: 'EXCLUDED',
+      normalizedAlias,
+      reason: exclusion.reason,
+      evidenceUrls: exclusion.evidenceUrls,
+    };
+  }
 
   if (matchingVariantIds.length === 0) {
     return { status: 'UNRESOLVED', normalizedAlias };
@@ -85,7 +120,8 @@ const resolutionReviewOrder: Readonly<
 > = {
   AMBIGUOUS: 0,
   UNRESOLVED: 1,
-  RESOLVED: 2,
+  EXCLUDED: 2,
+  RESOLVED: 3,
 };
 
 function compareText(left: string, right: string): number {
@@ -96,6 +132,7 @@ export function buildModelAliasReviewQueue(
   namespace: string,
   records: readonly ModelAliasReviewRecord[],
   candidates: readonly ModelAliasCandidate[],
+  exclusions: readonly ModelAliasExclusionCandidate[] = [],
 ): ModelAliasReviewQueueItem[] {
   const groups = new Map<string, Map<string, number>>();
 
@@ -123,6 +160,7 @@ export function buildModelAliasReviewQueue(
           namespace,
           normalizedAlias,
           candidates,
+          exclusions,
         ),
       };
     })

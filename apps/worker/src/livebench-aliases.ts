@@ -8,8 +8,14 @@ import {
 import { and, eq } from 'drizzle-orm';
 
 import {
+  liveBenchAliasExclusionManifest,
+  validateLiveBenchAliasExclusionManifest,
+} from './livebench-alias-exclusions.js';
+import { liveBenchAliasManifest } from './livebench-alias-manifest.js';
+import {
   buildModelAliasReviewQueue,
   type ModelAliasCandidate,
+  type ModelAliasExclusionCandidate,
   type ModelAliasReviewQueueItem,
   resolveExactModelAlias,
 } from './model-alias-resolution.js';
@@ -30,13 +36,20 @@ export type ModelAliasValidationError =
       readonly code: 'MODEL_ALIAS_AMBIGUOUS';
       readonly normalizedAlias: string;
       readonly candidateModelVariantIds: readonly string[];
+    }
+  | {
+      readonly code: 'MODEL_ALIAS_EXCLUDED';
+      readonly normalizedAlias: string;
+      readonly reason: string;
+      readonly evidenceUrls: readonly string[];
     };
 
 export interface LiveBenchAliasDecision {
   readonly stagedResultId: string;
-  readonly resolutionStatus: 'RESOLVED' | 'UNRESOLVED' | 'AMBIGUOUS';
+  readonly resolutionStatus:
+    'RESOLVED' | 'EXCLUDED' | 'UNRESOLVED' | 'AMBIGUOUS';
   readonly resolvedModelVariantId: string | null;
-  readonly validationStatus: 'VALIDATED' | 'REVIEW_REQUIRED';
+  readonly validationStatus: 'VALIDATED' | 'EXCLUDED' | 'REVIEW_REQUIRED';
   readonly validationErrors: readonly ModelAliasValidationError[];
 }
 
@@ -44,6 +57,7 @@ export interface LiveBenchAliasResolutionSummary {
   readonly ingestionRunId: string;
   readonly recordsSeen: number;
   readonly recordsResolved: number;
+  readonly recordsExcluded: number;
   readonly recordsUnresolved: number;
   readonly recordsAmbiguous: number;
 }
@@ -53,6 +67,17 @@ export interface LiveBenchAliasReviewReport {
   readonly recordsSeen: number;
   readonly aliases: readonly ModelAliasReviewQueueItem[];
 }
+
+validateLiveBenchAliasExclusionManifest(
+  liveBenchAliasExclusionManifest,
+  liveBenchAliasManifest,
+);
+
+const defaultExclusions: readonly ModelAliasExclusionCandidate[] =
+  liveBenchAliasExclusionManifest.map((exclusion) => ({
+    namespace: LIVEBENCH_ALIAS_NAMESPACE,
+    ...exclusion,
+  }));
 
 export function parseIngestionRunId(value: string | undefined): string {
   if (
@@ -69,12 +94,14 @@ export function parseIngestionRunId(value: string | undefined): string {
 export function planLiveBenchAliasDecisions(
   records: readonly StagedAliasRecord[],
   candidates: readonly ModelAliasCandidate[],
+  exclusions: readonly ModelAliasExclusionCandidate[] = defaultExclusions,
 ): LiveBenchAliasDecision[] {
   return records.map((record) => {
     const resolution = resolveExactModelAlias(
       LIVEBENCH_ALIAS_NAMESPACE,
       record.rawModelName,
       candidates,
+      exclusions,
     );
 
     switch (resolution.status) {
@@ -96,6 +123,21 @@ export function planLiveBenchAliasDecisions(
             {
               code: 'MODEL_ALIAS_UNRESOLVED',
               normalizedAlias: resolution.normalizedAlias,
+            },
+          ],
+        };
+      case 'EXCLUDED':
+        return {
+          stagedResultId: record.id,
+          resolutionStatus: resolution.status,
+          resolvedModelVariantId: null,
+          validationStatus: 'EXCLUDED',
+          validationErrors: [
+            {
+              code: 'MODEL_ALIAS_EXCLUDED',
+              normalizedAlias: resolution.normalizedAlias,
+              reason: resolution.reason,
+              evidenceUrls: resolution.evidenceUrls,
             },
           ],
         };
@@ -138,7 +180,11 @@ export async function resolveLiveBenchAliases(
       })
       .from(stagedResults)
       .where(eq(stagedResults.ingestionRunId, ingestionRunId));
-    const decisions = planLiveBenchAliasDecisions(records, candidates);
+    const decisions = planLiveBenchAliasDecisions(
+      records,
+      candidates,
+      defaultExclusions,
+    );
 
     for (const decision of decisions) {
       await transaction
@@ -161,6 +207,9 @@ export async function resolveLiveBenchAliases(
       recordsSeen: decisions.length,
       recordsResolved: decisions.filter(
         (decision) => decision.resolutionStatus === 'RESOLVED',
+      ).length,
+      recordsExcluded: decisions.filter(
+        (decision) => decision.resolutionStatus === 'EXCLUDED',
       ).length,
       recordsUnresolved: decisions.filter(
         (decision) => decision.resolutionStatus === 'UNRESOLVED',
@@ -214,6 +263,7 @@ export async function getLiveBenchAliasReviewReport(
           LIVEBENCH_ALIAS_NAMESPACE,
           records,
           candidates,
+          defaultExclusions,
         ),
       };
     },
