@@ -27,7 +27,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## In Progress
 
-- LiveBench canonical model aliases and category aggregation.
+- LiveBench canonical model alias expansion and category aggregation. The first 3 of 166 normalized aliases are evidence-backed and resolved; publication remains disabled until coverage gates pass.
 
 ## Decisions Made
 
@@ -69,6 +69,8 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added a read-only repeatable-read LiveBench alias review report that groups raw spellings, counts rows and prioritizes ambiguous/unresolved names deterministically.
 - Reproduced a rows-API HTTP 429 after 45 pages/4,500 rows, then added a revision-pinned single-Parquet connector with strict Hub/CDN redirect, size, hash, magic and row-schema validation.
 - Switched full LiveBench ingestion to one Parquet snapshot and one transactional run with 1,000-row staging batches; the verified run accepted all 60,372 rows across 195 raw model names.
+- Added a versioned, HTTPS-evidence-backed LiveBench alias manifest with normalized collision rejection and an idempotent PostgreSQL sync transaction.
+- Synced the first three reviewed Anthropic aliases twice with stable counts, then resolved the full run to 1,482 validated rows (494 per variant), 58,890 review-required rows and zero ambiguous rows.
 
 ## Data Sources Status
 
