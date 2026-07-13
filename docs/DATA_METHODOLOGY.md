@@ -16,6 +16,8 @@
 - An effort or reasoning setting is a distinct model variant when it changes evaluation behavior.
 - Aliases are scoped to source. Safe normalization is limited to Unicode normalization, trim, case-folding and whitespace collapse.
 - String similarity may suggest candidates but can never permanently merge identities.
+- Every alias in a pinned ingestion inventory must have exactly one source-controlled decision: an HTTPS-evidence-backed canonical mapping or an explicit exclusion.
+- Benchmark-private checkpoints, invalid model identities and unverifiable source-local aliases are excluded rather than guessed. Their staged rows remain auditable with `EXCLUDED` status, a machine-readable reason and a null canonical variant ID.
 
 ## Result identity
 

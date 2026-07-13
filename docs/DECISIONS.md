@@ -35,3 +35,7 @@ pnpm 11 lifecycle scripts remain denied by default. Only reviewed packages are a
 ## DEC-009 — TypeScript compatibility boundary
 
 The workspace pins TypeScript 5.9.3. Next.js 16.2.10 resolves `typescript/lib/typescript.js`, while Remotion 4.0.487 loads TypeScript through its monorepo-root bundler; the package subpath/API shape is not compatible with TypeScript 7. A single compatible workspace version keeps production type checking and rendering enabled without loader shims.
+
+## DEC-010 — Exact and exhaustive source alias adjudication
+
+Each pinned source alias receives exactly one version-controlled canonical mapping or explicit exclusion. Mappings require HTTPS evidence and use only safe normalization (Unicode normalization, trim, case-folding and whitespace collapse). Fuzzy matching never publishes an identity. Private checkpoints, impossible identities and unverifiable source-local aliases remain staged as `EXCLUDED` with reasons and no canonical variant ID.

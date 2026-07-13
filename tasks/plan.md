@@ -36,14 +36,14 @@ Review all 166 safe-normalized aliases in the pinned 60,372-row LiveBench ingest
 ### Checkpoint: Adjudication
 
 - [x] Manifest validation rejects duplicate, missing and conflicting decisions.
-- [ ] Database sync is idempotent.
-- [ ] Full-run resolution reports zero pending and zero ambiguous aliases.
+- [x] Database sync is idempotent.
+- [x] Full-run resolution reports zero pending and zero ambiguous aliases.
 
 ### Phase 3: Delivery
 
-- [ ] Update progress and data methodology documentation with final counts.
-- [ ] Complete correctness, readability, architecture, security and performance review.
-- [ ] Run the complete local CI-equivalent quality gate.
+- [x] Update progress and data methodology documentation with final counts.
+- [x] Complete correctness, readability, architecture, security and performance review.
+- [x] Run the complete local CI-equivalent quality gate.
 - [ ] Push all commits and wait for the final GitHub CI run to pass.
 
 ## Risks and Mitigations

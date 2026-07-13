@@ -6,7 +6,7 @@
 - [x] Extract the complete pinned-run alias inventory.
 - [x] Map all evidence-backed vendor and open-model aliases.
 - [x] Exclude every remaining unverifiable or invalid alias with a reason.
-- [ ] Prove 166/166 decisions, zero pending and zero ambiguous aliases.
-- [ ] Update documentation and complete five-axis review.
-- [ ] Run the full local quality gate.
+- [x] Prove 166/166 decisions, zero pending and zero ambiguous aliases.
+- [x] Update documentation and complete five-axis review.
+- [x] Run the full local quality gate.
 - [ ] Push final changes and verify GitHub CI.

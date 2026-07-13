@@ -44,12 +44,19 @@ pnpm db:migrate
 pnpm db:seed
 pnpm ingest:livebench
 pnpm review:livebench-aliases
+pnpm sync:livebench-aliases
+pnpm resolve:livebench-aliases
+pnpm verify:livebench-aliases
 pnpm test:run
 pnpm build
 pnpm video:still
 pnpm video:artifacts
 ```
 
-Set `LIVEBENCH_INGESTION_RUN_ID` to a UUIDv7 before running the alias review
-command. It reads the run and `livebench` alias namespace in a repeatable-read,
-read-only transaction, then prints deterministic JSON. It performs no updates.
+Set `LIVEBENCH_INGESTION_RUN_ID` to a UUIDv7 before running the alias review,
+resolution or persistence-verification commands. Review reads the run and
+`livebench` alias namespace in a repeatable-read, read-only transaction. Sync
+transactionally ensures the versioned evidence-backed canonical manifest.
+Resolve applies exact mapping or exclusion decisions to staged rows. Verify is
+read-only and rejects any status other than `VALIDATED` or `EXCLUDED`, any
+validated row without a model variant, and any excluded row with one.

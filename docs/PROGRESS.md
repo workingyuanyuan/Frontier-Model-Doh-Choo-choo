@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 1 — source ingestion, canonical identity and first publishable snapshot.
+Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical identity coverage is complete.
 
 ## Completed
 
@@ -27,7 +27,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## In Progress
 
-- LiveBench canonical model alias expansion and category aggregation. The first 14 of 166 normalized aliases are evidence-backed and resolved; publication remains disabled until coverage gates pass.
+- LiveBench category aggregation and benchmark mapping. All 166 normalized model aliases now have exactly one audited mapping or exclusion decision; publication remains disabled until the remaining non-alias coverage gates pass.
 
 ## Decisions Made
 
@@ -75,6 +75,12 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Re-resolved the full run to 5,067 validated rows (8.39%), 55,305 review-required rows and zero ambiguous rows. The remaining 156 normalized aliases stay excluded from publication.
 - Added the three active Amazon Nova 1 Bedrock IDs and active Cohere Command A 03-2025 ID with vendor release dates; idempotent sync now ensures 14 aliases across 5 providers.
 - Re-resolved the full run to 6,471 validated rows (10.72%), 53,901 review-required rows and zero ambiguous rows. The remaining 152 normalized aliases stay excluded from publication.
+- Pinned the complete 166-alias, 60,372-row inventory and added an exact completeness oracle that rejects missing, extra or conflicting decisions.
+- Completed first-party/vendor/model-card research for every alias: 157 aliases map to canonical identities and 9 unverifiable, invalid or benchmark-private aliases have explicit evidence-backed exclusion decisions.
+- Synced the 157-entry canonical manifest twice with identical summaries, proving idempotent provider/family/model/variant/alias creation.
+- Re-resolved the fixed full run twice with identical results: 58,233 validated rows, 2,139 explicitly excluded rows, zero unresolved rows and zero ambiguous rows.
+- Added a read-only persistence verifier; PostgreSQL confirms every validated row has a resolved model variant ID and every excluded row keeps that ID null.
+- Replayed the final CI-equivalent gate after full alias adjudication: formatting, zero-warning lint, 9-package type checking, 103 tests, migration, seed, production build, high-severity audit and Remotion still all pass.
 
 ## Data Sources Status
 
@@ -88,7 +94,6 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 
 ## Next Actions
 
-- Complete LiveBench canonical alias mapping.
 - Aggregate reviewed LiveBench rows and add repository queries that publish a validated ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.

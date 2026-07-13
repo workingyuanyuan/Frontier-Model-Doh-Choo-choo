@@ -10,6 +10,7 @@
     "review:livebench-aliases": "tsx src/aliases-review-cli.ts",
     "resolve:livebench-aliases": "tsx src/aliases-resolve-cli.ts",
     "sync:livebench-aliases": "tsx src/aliases-sync-cli.ts",
+    "verify:livebench-aliases": "tsx src/aliases-verify-cli.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json"

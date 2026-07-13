@@ -27,6 +27,7 @@
     "review:livebench-aliases": "pnpm --filter @llm-bench/worker review:livebench-aliases",
     "resolve:livebench-aliases": "pnpm --filter @llm-bench/worker resolve:livebench-aliases",
     "sync:livebench-aliases": "pnpm --filter @llm-bench/worker sync:livebench-aliases",
+    "verify:livebench-aliases": "pnpm --filter @llm-bench/worker verify:livebench-aliases",
     "video:render": "pnpm --filter @llm-bench/video render",
     "video:artifacts": "pnpm --filter @llm-bench/video artifacts",
     "video:still": "pnpm --filter @llm-bench/video still",

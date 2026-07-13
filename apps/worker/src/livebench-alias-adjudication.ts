@@ -19,6 +19,55 @@ export interface LiveBenchAliasAdjudicationSummary {
   readonly aliasesPending: number;
 }
 
+export interface LiveBenchAliasPersistenceRow {
+  readonly validationStatus: string;
+  readonly records: number;
+  readonly resolvedRecords: number;
+}
+
+export interface LiveBenchAliasPersistenceSummary {
+  readonly recordsSeen: number;
+  readonly recordsValidated: number;
+  readonly recordsExcluded: number;
+}
+
+export function validateLiveBenchAliasPersistence(
+  rows: readonly LiveBenchAliasPersistenceRow[],
+): LiveBenchAliasPersistenceSummary {
+  if (rows.length === 0) {
+    throw new Error('Persistence verification returned no records');
+  }
+
+  let recordsValidated = 0;
+  let recordsExcluded = 0;
+
+  for (const row of rows) {
+    if (row.validationStatus === 'VALIDATED') {
+      if (row.records !== row.resolvedRecords) {
+        throw new Error('VALIDATED status must resolve every record');
+      }
+      recordsValidated += row.records;
+      continue;
+    }
+    if (row.validationStatus === 'EXCLUDED') {
+      if (row.resolvedRecords !== 0) {
+        throw new Error('EXCLUDED status must not resolve records');
+      }
+      recordsExcluded += row.records;
+      continue;
+    }
+    throw new Error(
+      `Unexpected persisted validation status: ${row.validationStatus}`,
+    );
+  }
+
+  return {
+    recordsSeen: recordsValidated + recordsExcluded,
+    recordsValidated,
+    recordsExcluded,
+  };
+}
+
 export function summarizeLiveBenchAliasAdjudication(
   inventory: readonly LiveBenchAliasInventoryEntry[] = liveBenchAliasInventory,
   mappings: readonly LiveBenchAliasManifestEntry[] = liveBenchAliasManifest,
