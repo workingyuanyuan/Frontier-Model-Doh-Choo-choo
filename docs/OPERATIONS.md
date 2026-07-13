@@ -63,13 +63,21 @@ Resolve applies exact mapping or exclusion decisions to staged rows. Verify is
 read-only and rejects any status other than `VALIDATED` or `EXCLUDED`, any
 validated row without a model variant, and any excluded row with one.
 
-The aggregation report requires a succeeded full-Parquet run. It validates every
-staged payload, derives the expected question inventory from all staged rows and
-allows only canonical `VALIDATED` rows to contribute scores. Exact repeated
-observations are counted and collapsed; repeated keys with different scores are
-blocking conflicts. The report is read-only and returns
-`isReadyForPublication: false` while a required category, complete model or
-conflict gate fails. Omit `--summary-only` for per-model task/category details.
+The aggregation report requires a succeeded full-Parquet run and the exact
+content-addressed question evidence under `data/raw/` (or `RAW_STORAGE_DIR`). It
+verifies the 180,278-byte body and SHA-256 before parsing all six pinned sources,
+then validates at most 100,000 staged payloads in a repeatable-read, read-only
+transaction. Judgments outside release `2024-11-25` are counted but excluded;
+metadata drift for a known question/turn fails closed. Only canonical
+`VALIDATED` rows contribute scores. Exact repeats collapse, conflicting repeats
+remain blockers, and missing observations remain null. Omit `--summary-only`
+for per-model task/category details.
+
+The verified 60,372-row run reports 46,118 rows inside the release, 14,254
+outside, and 318/1,000 distinct inventory keys covered. Coding and language are
+complete at the artifact level, instruction-following is 50/200, and reasoning,
+math and data-analysis have no judgments. No model is complete and all 201
+conflicting canonical keys remain blocked, so `isReadyForPublication` is false.
 
 The question-inventory command does not connect to PostgreSQL. It reads only six
 allowlisted columns from six revision-pinned official Parquet artifacts through

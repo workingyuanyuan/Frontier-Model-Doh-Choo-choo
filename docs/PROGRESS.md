@@ -92,6 +92,10 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - Added a revision-pinned, range-bounded connector for all six official LiveBench question datasets. It allows only fixed Hub IDs/commits and approved CDN redirects, rejects whole-artifact fallbacks and validates every range, byte budget, projected row and source category.
 - Ran the real connector twice with identical output: 1,436 decoded source rows, 2,816,787 transferred bytes over 42 ranges, and a 1,000-observation/18-task/six-category `2024-11-25` inventory. The prompt-free 180,278-byte evidence artifact is stored under SHA-256 `b8a90d2f2308b774fbee982178d433412fd6f349429be2a41def4331b0ee4027`.
 - Replayed the complete CI-equivalent gate after bounded inventory acquisition: formatting, zero-warning lint, 9-package type checking, 123 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. The six scoring/publication tables remain empty, and the audit still reports only the two previously bounded moderate transitive advisories.
+- Bound aggregation readiness to the exact 180,278-byte question inventory evidence. The loader verifies the SHA-256, all six source pins, complete category set, unique question/turn keys and a bounded file read before any database query.
+- Filtered the 60,372-row judgment run against release `2024-11-25`: 46,118 rows match the inventory and 14,254 are outside it. The artifact covers 318/1,000 keys—coding 128/128, language 140/140, instruction-following 50/200, and zero reasoning, math or data-analysis keys.
+- Recomputed conflict-aware readiness over the six-category denominator: 155 canonical models have at least one in-release validated row, none is complete, 2,674 repeated observations include the same 201 conflicting keys, and publication remains disabled.
+- Replayed the complete CI-equivalent gate after pinned judgment filtering: formatting, zero-warning lint, 9-package type checking, 131 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. The audit still reports only the two previously bounded moderate transitive advisories.
 
 ## Data Sources Status
 
@@ -107,7 +111,7 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 
 ## Next Actions
 
-- Filter staged judgments against the pinned 1,000-observation LiveBench question inventory and report six-category coverage without treating missing judgments as zero.
+- Determine whether revision-bound official judgment evidence exists for the 682 missing release observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Seed versioned LiveBench benchmark/metric/dimension mappings, then persist only complete conflict-free results before creating a ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.

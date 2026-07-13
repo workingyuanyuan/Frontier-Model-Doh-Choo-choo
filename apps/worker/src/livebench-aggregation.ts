@@ -87,7 +87,9 @@ function compareText(left: string, right: string): number {
   return left < right ? -1 : left > right ? 1 : 0;
 }
 
-function inventoryKey(row: LiveBenchAggregationInventoryRow): string {
+export function liveBenchAggregationInventoryKey(
+  row: LiveBenchAggregationInventoryRow,
+): string {
   return JSON.stringify([row.category, row.task, row.questionId, row.turn]);
 }
 
@@ -97,10 +99,7 @@ function observationKey(
 ): string {
   return JSON.stringify([
     modelVariantId,
-    row.category,
-    row.task,
-    row.questionId,
-    row.turn,
+    liveBenchAggregationInventoryKey(row),
   ]);
 }
 
@@ -137,7 +136,11 @@ export function aggregateLiveBenchJudgments({
   const inventoryByKey = new Map<string, LiveBenchAggregationInventoryRow>();
   for (const row of inventory) {
     validateInventoryRow(row);
-    inventoryByKey.set(inventoryKey(row), row);
+    const key = liveBenchAggregationInventoryKey(row);
+    if (inventoryByKey.has(key)) {
+      throw new Error('Duplicate LiveBench aggregation inventory observation');
+    }
+    inventoryByKey.set(key, row);
   }
   if (inventoryByKey.size === 0) {
     throw new Error('LiveBench aggregation inventory must not be empty');
@@ -155,7 +158,7 @@ export function aggregateLiveBenchJudgments({
   const modelVariantIds = new Set<string>();
   for (const row of observations) {
     validateObservation(row);
-    if (!inventoryByKey.has(inventoryKey(row))) {
+    if (!inventoryByKey.has(liveBenchAggregationInventoryKey(row))) {
       throw new Error('LiveBench observation is not present in the inventory');
     }
     modelVariantIds.add(row.modelVariantId);

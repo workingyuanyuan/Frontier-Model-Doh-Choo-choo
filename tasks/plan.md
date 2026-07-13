@@ -92,9 +92,22 @@ Threat controls:
 
 ### Phase 3: Judgment Readiness (after source acquisition)
 
-- [ ] Filter staged judgments by the pinned release inventory.
-- [ ] Report missing observations against all six categories.
-- [ ] Keep repeated conflicting judgment keys as publication blockers.
+- [x] Filter staged judgments by the pinned release inventory.
+- [x] Report missing observations against all six categories.
+- [x] Keep repeated conflicting judgment keys as publication blockers.
+
+Verified readiness measurement:
+
+- The fixed 60,372-row run has 46,118 rows inside release `2024-11-25` and
+  14,254 rows outside it.
+- The judgment artifact covers 318 of 1,000 pinned observation keys: coding
+  128/128, language 140/140, instruction-following 50/200, reasoning 0/150,
+  math 0/232 and data-analysis 0/150.
+- No model is complete against the six-category denominator. The existing
+  2,674 repeated observations and 201 conflicting canonical keys remain
+  publication blockers.
+- The report reads the evidence and PostgreSQL in bounded, validated,
+  read-only paths; it does not write scoring or publication tables.
 
 ### Delivery
 
@@ -111,6 +124,14 @@ Threat controls:
 - [x] Complete five-axis and security review.
 - [x] Run the complete local CI-equivalent quality gate.
 - [x] Commit, push and wait for GitHub Actions CI.
+
+### Phase 3 Delivery
+
+- [x] Add RED evidence, filtering, duplicate and boundary tests.
+- [x] Run the real six-category readiness report twice with stable output.
+- [x] Complete five-axis and security review.
+- [x] Run the complete local CI-equivalent quality gate.
+- [ ] Commit, push and wait for GitHub Actions CI.
 
 ## Acceptance Criteria
 
@@ -133,8 +154,8 @@ Threat controls:
 
 ## Open Questions
 
-- The official Hub datasets expose different physical schemas and the coding
-  artifact is large. Phase 2 must prove a revision-bound, field-minimal access
-  path before any network parser is marked ready.
+- The pinned judgment artifact supplies only 318 of the 1,000 release
+  observation keys. Additional official judgment evidence, if it exists, must
+  be revision-bound before it can change this coverage report.
 - The 201 conflicting judgment keys still require an official run/version key
   or another source-backed selection rule. Until then they remain blocked.

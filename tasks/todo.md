@@ -16,3 +16,8 @@
 - [x] Add a non-publishing content-addressed inventory CLI.
 - [x] Verify the real six-category `2024-11-25` inventory.
 - [x] Commit, push and verify GitHub CI after the completed review and full gate.
+- [x] Add failing content-addressed evidence and six-category filtering tests.
+- [x] Load and validate the pinned question inventory before aggregation.
+- [x] Filter the 60,372 staged judgments against release `2024-11-25`.
+- [x] Report six-category judgment coverage and preserve conflict blockers.
+- [ ] Commit, push and verify GitHub CI after the completed Phase 3 gate.

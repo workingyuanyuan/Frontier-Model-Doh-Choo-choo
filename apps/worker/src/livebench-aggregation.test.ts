@@ -214,4 +214,14 @@ describe('aggregateLiveBenchJudgments', () => {
     ]);
     expect(report.summary.isReadyForPublication).toBe(false);
   });
+
+  it('rejects duplicate inventory observation keys instead of silently collapsing them', () => {
+    expect(() =>
+      aggregateLiveBenchJudgments({
+        inventory: [inventory[0]!, inventory[0]!],
+        requiredCategories: ['language'],
+        observations: [observation()],
+      }),
+    ).toThrow('Duplicate');
+  });
 });

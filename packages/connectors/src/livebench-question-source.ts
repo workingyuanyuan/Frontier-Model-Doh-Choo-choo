@@ -7,6 +7,7 @@ import * as z from 'zod';
 
 import { isApprovedHuggingFaceCdnUrl } from './livebench-parquet.js';
 import {
+  LIVEBENCH_MAX_QUESTION_ROWS,
   LIVEBENCH_PUBLIC_RELEASE,
   parseLiveBenchQuestionRows,
   selectLiveBenchQuestionInventory,
@@ -14,7 +15,7 @@ import {
   type LiveBenchQuestionInventoryObservation,
   type LiveBenchQuestionSourceRow,
 } from './livebench-question-inventory.js';
-import { LIVEBENCH_HUB_ORIGIN } from './livebench.js';
+import { LIVEBENCH_HUB_ORIGIN, LiveBenchCategorySchema } from './livebench.js';
 
 export const LIVEBENCH_QUESTION_ARTIFACT_PATH =
   'data/test-00000-of-00001.parquet';
@@ -144,6 +145,77 @@ export interface LiveBenchQuestionInventoryEvidence {
     readonly linkedEtag: string;
   }[];
   readonly inventory: readonly LiveBenchQuestionInventoryObservation[];
+}
+
+const LiveBenchQuestionEvidenceSourceSchema = z.strictObject({
+  category: LiveBenchCategorySchema,
+  datasetId: z.string().regex(/^livebench\/[a-z_]+$/u),
+  revision: RevisionSchema,
+  lastModified: z.iso.datetime(),
+  artifactPath: z.literal(LIVEBENCH_QUESTION_ARTIFACT_PATH),
+  artifactByteLength: z.int().positive(),
+  linkedEtag: z.string().min(1).max(200),
+});
+
+const LiveBenchQuestionEvidenceObservationSchema = z.strictObject({
+  category: LiveBenchCategorySchema,
+  task: z.string().trim().min(1).max(120),
+  questionId: z.string().regex(/^[a-f0-9]{64}$/u),
+  turn: z.int().min(1).max(10),
+});
+
+const LiveBenchQuestionInventoryEvidenceSchema = z.strictObject({
+  schemaVersion: z.literal('livebench-question-inventory-v1'),
+  release: z.literal(LIVEBENCH_PUBLIC_RELEASE),
+  sources: z
+    .array(LiveBenchQuestionEvidenceSourceSchema)
+    .length(LIVEBENCH_QUESTION_DATASET_PINS.length),
+  inventory: z
+    .array(LiveBenchQuestionEvidenceObservationSchema)
+    .min(1)
+    .max(LIVEBENCH_MAX_QUESTION_ROWS),
+});
+
+export function parseLiveBenchQuestionInventoryEvidence(
+  input: unknown,
+): LiveBenchQuestionInventoryEvidence {
+  const evidence = LiveBenchQuestionInventoryEvidenceSchema.parse(input);
+  evidence.sources.forEach((source, index) => {
+    const pin = LIVEBENCH_QUESTION_DATASET_PINS[index];
+    if (
+      !pin ||
+      source.category !== pin.category ||
+      source.datasetId !== pin.datasetId ||
+      source.revision !== pin.revision ||
+      source.lastModified !== pin.lastModified ||
+      source.artifactPath !== pin.artifactPath ||
+      source.artifactByteLength !== pin.artifactByteLength ||
+      source.linkedEtag !== pin.linkedEtag
+    ) {
+      throw new Error('LiveBench question evidence source does not match pin');
+    }
+  });
+
+  const questionTurns = evidence.inventory.map(({ questionId, turn }) =>
+    JSON.stringify([questionId, turn]),
+  );
+  if (new Set(questionTurns).size !== questionTurns.length) {
+    throw new Error('Duplicate LiveBench question evidence observation');
+  }
+  const inventoryCategories = new Set(
+    evidence.inventory.map(({ category }) => category),
+  );
+  if (
+    inventoryCategories.size !== LIVEBENCH_QUESTION_DATASET_PINS.length ||
+    LIVEBENCH_QUESTION_DATASET_PINS.some(
+      ({ category }) => !inventoryCategories.has(category),
+    )
+  ) {
+    throw new Error(
+      'LiveBench question evidence must include all pinned categories',
+    );
+  }
+  return evidence;
 }
 
 export interface FetchedLiveBenchQuestionInventory {
