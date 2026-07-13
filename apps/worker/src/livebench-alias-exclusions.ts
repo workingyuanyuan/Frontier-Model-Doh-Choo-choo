@@ -76,5 +76,55 @@ export function summarizeLiveBenchAliasExclusionManifest(
   };
 }
 
-export const liveBenchAliasExclusionManifest: readonly LiveBenchAliasExclusionManifestEntry[] =
-  [];
+const liveBenchSourceEvidenceUrl = 'https://github.com/LiveBench/LiveBench';
+
+export const liveBenchAliasExclusionManifest = [
+  {
+    alias: 'codegen3_5k-qwen2.5-72b-instruct-2-chk-50',
+    reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'coding-meta-llama-3.1-70b-instruct-chk-50',
+    reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias:
+      'coding2-amcfull-apifull-mmlu12k-meta-llama-3.1-70b-instruct-chk-150',
+    reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'lcb-math-qwen2-72b-instructv3-merged-50',
+    reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'acm_rewrite_qwen2-72b-chat',
+    reason: 'BENCHMARK_PRIVATE_CHECKPOINT',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'deepseek-r1-local',
+    reason: 'UNVERIFIED_SOURCE_ALIAS',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'deepseek-r1-local-2',
+    reason: 'UNVERIFIED_SOURCE_ALIAS',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'wbot-4:347b_no_s',
+    reason: 'UNVERIFIED_SOURCE_ALIAS',
+    evidenceUrls: [liveBenchSourceEvidenceUrl],
+  },
+  {
+    alias: 'claude-3-5-opus-20240229',
+    reason: 'INVALID_MODEL_IDENTITY',
+    evidenceUrls: [
+      'https://docs.anthropic.com/en/docs/about-claude/models/overview',
+    ],
+  },
+] as const satisfies readonly LiveBenchAliasExclusionManifestEntry[];

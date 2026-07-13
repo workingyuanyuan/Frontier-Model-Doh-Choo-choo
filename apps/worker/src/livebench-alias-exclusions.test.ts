@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  liveBenchAliasExclusionManifest,
   summarizeLiveBenchAliasExclusionManifest,
   validateLiveBenchAliasExclusionManifest,
   type LiveBenchAliasExclusionManifestEntry,
@@ -67,5 +68,14 @@ describe('LiveBench alias exclusion manifest', () => {
         [],
       ),
     ).toThrow('HTTPS evidence URL');
+  });
+
+  it('ships all reviewed exclusions without mapping conflicts', () => {
+    expect(() =>
+      validateLiveBenchAliasExclusionManifest(liveBenchAliasExclusionManifest),
+    ).not.toThrow();
+    expect(
+      summarizeLiveBenchAliasExclusionManifest(liveBenchAliasExclusionManifest),
+    ).toEqual({ exclusionsSeen: 9, aliasesExcluded: 9 });
   });
 });

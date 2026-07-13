@@ -68,7 +68,9 @@ describe('LiveBench alias manifest validation', () => {
     expect(() =>
       validateLiveBenchAliasManifest(liveBenchAliasManifest),
     ).not.toThrow();
-    expect(liveBenchAliasManifest.map((entry) => entry.variant.slug)).toEqual([
+    expect(
+      liveBenchAliasManifest.map((entry) => entry.variant.slug).slice(0, 14),
+    ).toEqual([
       'claude-3-5-haiku-20241022',
       'claude-3-5-sonnet-20241022',
       'claude-3-opus-20240229',
@@ -84,16 +86,17 @@ describe('LiveBench alias manifest validation', () => {
       'amazon-nova-lite-v1-0',
       'amazon-nova-pro-v1-0',
     ]);
+    expect(liveBenchAliasManifest).toHaveLength(157);
   });
 
   it('summarizes deduplicated canonical identities before a transaction', () => {
     expect(summarizeLiveBenchAliasManifest(liveBenchAliasManifest)).toEqual({
-      entriesSeen: 14,
-      providersEnsured: 5,
-      familiesEnsured: 7,
-      modelsEnsured: 13,
-      variantsEnsured: 14,
-      aliasesEnsured: 14,
+      entriesSeen: 157,
+      providersEnsured: 26,
+      familiesEnsured: 58,
+      modelsEnsured: 77,
+      variantsEnsured: 157,
+      aliasesEnsured: 157,
     });
   });
 });

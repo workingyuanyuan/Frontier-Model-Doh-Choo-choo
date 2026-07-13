@@ -29,13 +29,13 @@ Review all 166 safe-normalized aliases in the pinned 60,372-row LiveBench ingest
 ### Phase 2: Complete Adjudication
 
 - [x] Export the exact 166-alias inventory from the pinned ingestion run.
-- [ ] Add evidence-backed canonical mappings in provider-sized batches.
-- [ ] Add evidence-backed exclusions for benchmark-private or invalid identities.
-- [ ] Validate that the decision manifest covers every normalized source alias exactly once.
+- [x] Add evidence-backed canonical mappings in provider-sized batches.
+- [x] Add evidence-backed exclusions for benchmark-private or invalid identities.
+- [x] Validate that the decision manifest covers every normalized source alias exactly once.
 
 ### Checkpoint: Adjudication
 
-- [ ] Manifest validation rejects duplicate, missing and conflicting decisions.
+- [x] Manifest validation rejects duplicate, missing and conflicting decisions.
 - [ ] Database sync is idempotent.
 - [ ] Full-run resolution reports zero pending and zero ambiguous aliases.
 

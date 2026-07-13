@@ -4,8 +4,8 @@
 - [x] Integrate exclusions into resolution and review reporting.
 - [x] Push the foundation increment and verify CI.
 - [x] Extract the complete pinned-run alias inventory.
-- [ ] Map all evidence-backed vendor and open-model aliases.
-- [ ] Exclude every remaining unverifiable or invalid alias with a reason.
+- [x] Map all evidence-backed vendor and open-model aliases.
+- [x] Exclude every remaining unverifiable or invalid alias with a reason.
 - [ ] Prove 166/166 decisions, zero pending and zero ambiguous aliases.
 - [ ] Update documentation and complete five-axis review.
 - [ ] Run the full local quality gate.

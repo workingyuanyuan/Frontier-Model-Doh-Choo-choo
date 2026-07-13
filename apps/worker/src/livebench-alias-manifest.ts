@@ -1,4 +1,5 @@
 import { normalizeModelAlias } from './model-alias-resolution.js';
+import { reviewedLiveBenchAliasManifestEntries } from './livebench-reviewed-aliases.js';
 
 interface CanonicalIdentity {
   readonly slug: string;
@@ -317,4 +318,5 @@ export const liveBenchAliasManifest = [
     aliases: ['amazon.nova-pro-v1:0'],
     evidenceUrls: [amazonNovaEvidenceUrl],
   },
+  ...reviewedLiveBenchAliasManifestEntries,
 ] as const satisfies readonly LiveBenchAliasManifestEntry[];
