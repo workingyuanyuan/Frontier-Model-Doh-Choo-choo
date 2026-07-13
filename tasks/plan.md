@@ -110,7 +110,7 @@ Threat controls:
 - [x] Run the real bounded acquisition and persist its content-addressed JSON.
 - [x] Complete five-axis and security review.
 - [x] Run the complete local CI-equivalent quality gate.
-- [ ] Commit, push and wait for GitHub Actions CI.
+- [x] Commit, push and wait for GitHub Actions CI.
 
 ## Acceptance Criteria
 

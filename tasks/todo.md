@@ -15,4 +15,4 @@
 - [x] Implement bounded revision-pinned acquisition.
 - [x] Add a non-publishing content-addressed inventory CLI.
 - [x] Verify the real six-category `2024-11-25` inventory.
-- [ ] Commit, push and verify GitHub CI after the completed review and full gate.
+- [x] Commit, push and verify GitHub CI after the completed review and full gate.
