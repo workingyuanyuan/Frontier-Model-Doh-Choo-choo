@@ -89,6 +89,9 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - Replayed the complete CI-equivalent gate after aggregation readiness: formatting, zero-warning lint, 9-package type checking, 115 tests, migration, seed, production build, high-severity audit and Remotion still all pass. The audit reports only the two previously bounded moderate transitive advisories.
 - Confirmed from the official Hub organization that `model_judgment` is a three-category artifact while six separate question datasets define the benchmark inventory. Added a strict deterministic selector for the public `2024-11-25` release that follows official release/removal boundaries, rejects duplicate IDs and emits stable per-turn observations; real acquisition remains gated on six pinned dataset revisions.
 - Replayed the complete CI-equivalent gate after the release-inventory contract: formatting, zero-warning lint, 9-package type checking, 118 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. The audit still reports only the two previously bounded moderate transitive advisories.
+- Added a revision-pinned, range-bounded connector for all six official LiveBench question datasets. It allows only fixed Hub IDs/commits and approved CDN redirects, rejects whole-artifact fallbacks and validates every range, byte budget, projected row and source category.
+- Ran the real connector twice with identical output: 1,436 decoded source rows, 2,816,787 transferred bytes over 42 ranges, and a 1,000-observation/18-task/six-category `2024-11-25` inventory. The prompt-free 180,278-byte evidence artifact is stored under SHA-256 `b8a90d2f2308b774fbee982178d433412fd6f349429be2a41def4331b0ee4027`.
+- Replayed the complete CI-equivalent gate after bounded inventory acquisition: formatting, zero-warning lint, 9-package type checking, 123 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. The six scoring/publication tables remain empty, and the audit still reports only the two previously bounded moderate transitive advisories.
 
 ## Data Sources Status
 
@@ -99,12 +102,12 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 ## Risks / Blockers
 
 - Formal LiveBench publication is blocked by 201 repeated canonical question keys with conflicting scores until a source-backed evaluation-run selection policy is defined.
-- The pinned judgment inventory contains only coding, instruction-following and language; reasoning, math and data-analysis coverage is absent.
+- The pinned judgment artifact contains only coding, instruction-following and language. The full six-category question denominator is now available, but reasoning, math and data-analysis judgment observations remain absent.
 - A global FFmpeg installation is unnecessary for the verified local path because Remotion's managed renderer completed the H.264 encode.
 
 ## Next Actions
 
-- Pin and acquire the six official LiveBench question inventories through a bounded field-minimal path, then measure the real `2024-11-25` denominator.
+- Filter staged judgments against the pinned 1,000-observation LiveBench question inventory and report six-category coverage without treating missing judgments as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Seed versioned LiveBench benchmark/metric/dimension mappings, then persist only complete conflict-free results before creating a ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.

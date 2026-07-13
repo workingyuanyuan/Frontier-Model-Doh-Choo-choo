@@ -42,7 +42,7 @@ function createLiveBenchParquetUrl(revision: string): URL {
   return url;
 }
 
-function isApprovedHuggingFaceCdn(url: URL): boolean {
+export function isApprovedHuggingFaceCdnUrl(url: URL): boolean {
   return (
     url.protocol === 'https:' &&
     (url.hostname === 'cdn-lfs.hf.co' ||
@@ -104,7 +104,7 @@ export async function fetchLiveBenchParquet(
       cause: error,
     });
   }
-  if (!isApprovedHuggingFaceCdn(downloadUrl)) {
+  if (!isApprovedHuggingFaceCdnUrl(downloadUrl)) {
     throw new Error('LiveBench resolver returned an unapproved CDN URL');
   }
 

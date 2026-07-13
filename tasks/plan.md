@@ -58,10 +58,37 @@ Sources:
 
 ### Phase 2: Source Acquisition (next increment)
 
-- [ ] Pin the revision of each of the six official question datasets.
-- [ ] Fetch only the inventory fields under explicit byte/row/origin limits.
-- [ ] Persist immutable evidence and bind all six revisions to one inventory.
-- [ ] Measure the real `2024-11-25` category/task/question denominator.
+- [x] Pin the revision and test-split Parquet path of each of the six official
+      question datasets.
+- [x] Fetch only the inventory fields under explicit byte/row/origin limits.
+- [x] Persist immutable evidence and bind all six revisions to one inventory.
+- [x] Measure the real `2024-11-25` category/task/question denominator.
+
+Verified acquisition design:
+
+- The Hub `/rows` and `/filter` APIs do not accept a revision or column
+  projection, so they cannot satisfy both provenance and payload-minimization.
+- Revision-pinned Hub resolver URLs return the exact commit, linked artifact
+  size and linked ETag before a manual CDN redirect.
+- The largest coding Parquet is 244,785,858 bytes, but its approved CDN supports
+  byte ranges. `hyparquet` 1.26.2 projected the six inventory columns in seven
+  range requests and 633,632 transferred bytes.
+- A six-dataset diagnostic transferred 2,816,787 bytes, decoded 1,436 source
+  rows and selected 1,000 observations across 18 tasks and all six categories
+  for release `2024-11-25`.
+
+Threat controls:
+
+- Dataset IDs, categories, revisions and artifact paths are a versioned
+  allowlist; callers cannot supply a URL.
+- Resolver and CDN requests use HTTPS, manual redirects, fixed/approved hosts,
+  timeouts and exact commit/ETag/Content-Range checks.
+- Each dataset has limits for linked artifact size, range request count,
+  individual range size, cumulative downloaded bytes, decoded rows and turns.
+- Range status `200` is rejected so a server cannot silently return an entire
+  244 MB artifact.
+- The stored evidence contains only canonical inventory observations and
+  revision metadata, not question prompts or signed CDN URLs.
 
 ### Phase 3: Judgment Readiness (after source acquisition)
 
@@ -76,6 +103,14 @@ Sources:
 - [x] Commit and push tracked changes while leaving
       `reference-table-data/` untracked.
 - [x] Wait for the pushed GitHub Actions CI run to pass.
+
+### Phase 2 Delivery
+
+- [x] Add RED boundary and deterministic evidence tests.
+- [x] Run the real bounded acquisition and persist its content-addressed JSON.
+- [x] Complete five-axis and security review.
+- [x] Run the complete local CI-equivalent quality gate.
+- [ ] Commit, push and wait for GitHub Actions CI.
 
 ## Acceptance Criteria
 

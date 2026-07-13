@@ -4,7 +4,7 @@ import { LiveBenchCategorySchema } from './livebench.js';
 
 export const LIVEBENCH_PUBLIC_RELEASE = '2024-11-25';
 
-const LIVEBENCH_MAX_QUESTION_ROWS = 10_000;
+export const LIVEBENCH_MAX_QUESTION_ROWS = 10_000;
 const LIVEBENCH_MAX_TURNS_PER_QUESTION = 10;
 
 const DateInputSchema = z.union([z.date(), z.string()]);
@@ -21,6 +21,9 @@ const LiveBenchQuestionRowSchema = z.object({
 const ReleaseDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/u);
 
 export type LiveBenchQuestionCategory = z.infer<typeof LiveBenchCategorySchema>;
+export type LiveBenchQuestionSourceRow = z.infer<
+  typeof LiveBenchQuestionRowSchema
+>;
 
 export interface LiveBenchQuestionInventoryObservation {
   readonly category: LiveBenchQuestionCategory;
@@ -33,6 +36,30 @@ export interface SelectLiveBenchQuestionInventoryInput {
   readonly release: string;
   readonly availableReleases: readonly string[];
   readonly rows: readonly unknown[];
+}
+
+export function parseLiveBenchQuestionRows(
+  inputRows: readonly unknown[],
+  expectedCategory?: LiveBenchQuestionCategory,
+): LiveBenchQuestionSourceRow[] {
+  if (inputRows.length > LIVEBENCH_MAX_QUESTION_ROWS) {
+    throw new Error('LiveBench question inventory exceeds the row limit');
+  }
+
+  const rows = inputRows.map((row) => LiveBenchQuestionRowSchema.parse(row));
+  if (
+    expectedCategory !== undefined &&
+    rows.some(({ category }) => category !== expectedCategory)
+  ) {
+    throw new Error(
+      'LiveBench question row category does not match its source',
+    );
+  }
+  const questionIds = rows.map(({ question_id: questionId }) => questionId);
+  if (new Set(questionIds).size !== questionIds.length) {
+    throw new Error('Duplicate LiveBench question IDs found');
+  }
+  return rows;
 }
 
 function normalizeCalendarDate(input: Date | string, field: string): string {
@@ -89,15 +116,7 @@ export function selectLiveBenchQuestionInventory({
   if (!availableReleases.includes(release)) {
     throw new Error('LiveBench selected release is not available');
   }
-  if (inputRows.length > LIVEBENCH_MAX_QUESTION_ROWS) {
-    throw new Error('LiveBench question inventory exceeds the row limit');
-  }
-
-  const rows = inputRows.map((row) => LiveBenchQuestionRowSchema.parse(row));
-  const questionIds = rows.map(({ question_id: questionId }) => questionId);
-  if (new Set(questionIds).size !== questionIds.length) {
-    throw new Error('Duplicate LiveBench question IDs found');
-  }
+  const rows = parseLiveBenchQuestionRows(inputRows);
 
   const selectedReleaseDates = new Set(
     availableReleases.filter((candidate) => candidate <= release),

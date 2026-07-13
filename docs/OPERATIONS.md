@@ -42,6 +42,7 @@ pnpm install --frozen-lockfile
 pnpm db:up
 pnpm db:migrate
 pnpm db:seed
+pnpm fetch:livebench-inventory
 pnpm ingest:livebench
 pnpm review:livebench-aliases
 pnpm sync:livebench-aliases
@@ -69,3 +70,11 @@ observations are counted and collapsed; repeated keys with different scores are
 blocking conflicts. The report is read-only and returns
 `isReadyForPublication: false` while a required category, complete model or
 conflict gate fails. Omit `--summary-only` for per-model task/category details.
+
+The question-inventory command does not connect to PostgreSQL. It reads only six
+allowlisted columns from six revision-pinned official Parquet artifacts through
+validated byte ranges, applies the public `2024-11-25` release/removal policy and
+writes a prompt-free content-addressed JSON under `data/raw/`. A normal run
+reports 1,436 source rows, 1,000 selected observations, 18 tasks, six categories,
+42 range requests and SHA-256
+`b8a90d2f2308b774fbee982178d433412fd6f349429be2a41def4331b0ee4027`.

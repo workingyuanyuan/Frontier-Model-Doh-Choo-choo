@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "fetch:livebench-inventory": "tsx src/question-inventory-cli.ts",
     "report:livebench-aggregation": "tsx src/aggregation-report-cli.ts",
     "ingest:livebench": "tsx src/cli.ts",
     "ingest:livebench:all": "tsx src/full-cli.ts",
