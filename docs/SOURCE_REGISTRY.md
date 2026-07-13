@@ -27,8 +27,9 @@ Every connector record stores `source_id`, type, publisher, base/leaderboard/met
 - Full dataset artifact: revision-pinned Hub resolver path `data/leaderboard-00000-of-00001.parquet`. The connector manually validates the Hub commit response, linked size/ETag and a single approved Hugging Face CDN redirect before parsing.
 - Validated fields: `question_id`, `task`, `model`, `score`, `turn`, `tstamp`, and `category`.
 - The rows API allows at most 100 records per request. The connector validates pagination before network access, uses manual redirect handling, enforces HTTPS origin/content type/byte limits, and stores the exact response by SHA-256.
-- Current implementation state: the bounded rows CLI remains available for smoke tests. Full ingestion is migrating to the revision-pinned Parquet artifact after the rows API rate-limited a 604-request run. Both paths capture the official Hub commit SHA through a fixed HTTPS origin and bind it to evidence metadata. Alias resolution, aggregation and publication remain gated work.
+- Current implementation state: the bounded rows CLI remains available for smoke tests. Full ingestion uses the revision-pinned Parquet artifact after the rows API rate-limited a 604-request run. Both paths capture the official Hub commit SHA through a fixed HTTPS origin and bind it to evidence metadata. Alias resolution, aggregation and publication remain gated work.
 - First verified local run on 2026-07-11 accepted 100 of 100 rows from 60,372 available rows. Raw artifact SHA-256: `f42c1e187fa6c1c3870d4ce193ccdd6aaecfc06eb83ff288af023f6291fac1f5`.
+- First verified full Parquet run on 2026-07-13 accepted 60,372 of 60,372 rows and preserved 195 raw model names. Revision: `9704e5da7bfbefe75ac1482a13de827127295993`; artifact SHA-256: `35ad896970151776145c96b31c5ddb3a2749ea9a1d91e6b7f1a4c4c04735182a`.
 
 ## Connector states
 

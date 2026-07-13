@@ -67,10 +67,11 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - Added transactional LiveBench staged-row alias decisions with explicit resolved, unresolved and ambiguous outcomes; no unreviewed aliases are auto-created.
 - Added a read-only repeatable-read LiveBench alias review report that groups raw spellings, counts rows and prioritizes ambiguous/unresolved names deterministically.
 - Reproduced a rows-API HTTP 429 after 45 pages/4,500 rows, then added a revision-pinned single-Parquet connector with strict Hub/CDN redirect, size, hash, magic and row-schema validation.
+- Switched full LiveBench ingestion to one Parquet snapshot and one transactional run with 1,000-row staging batches; the verified run accepted all 60,372 rows across 195 raw model names.
 
 ## Data Sources Status
 
-- LiveBench: official public data and Apache-2.0 license identified; single-page staging connector READY, publication disabled.
+- LiveBench: official public data and Apache-2.0 license identified; full revision-pinned staging connector READY, publication disabled.
 - Scale Labs: local 2026-07 snapshots preserved; license/terms and parser verification pending.
 - All other requested sources: registry research pending.
 
