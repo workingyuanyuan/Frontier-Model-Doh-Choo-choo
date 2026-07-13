@@ -47,6 +47,7 @@ Phase 1 — source ingestion, canonical identity and first publishable snapshot.
 - The real connector response passed the production parser and was written under its verified SHA-256 path.
 - PostgreSQL reports one successful LiveBench run and 100 validated unresolved staged rows.
 - The read-only alias review CLI verified that the run contains 100 rows grouped into 69 normalized aliases; all 69 remain unresolved because no aliases have been reviewed and registered yet.
+- The full-run review report groups 195 raw model spellings into 166 safe-normalized aliases; all 166 remain unresolved pending canonical provider/model/effort review.
 - Web preview snapshot and locale contract tests pass; Next.js production build prerenders both locale routes.
 - Chrome DevTools verified model switching and identical radar path geometry across both themes.
 - Chrome verified no horizontal overflow at 390px and 1440px, correct English document metadata and a clean runtime console.
