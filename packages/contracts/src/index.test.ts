@@ -9,7 +9,9 @@ import {
   DIMENSION_IDS,
   DimensionScoreSchema,
   HttpUrlSchema,
+  PipelineStatusSchema,
   RankingSnapshotSchema,
+  SourceRegistryEntrySchema,
 } from './index.js';
 
 describe('detail route contracts', () => {
@@ -217,5 +219,54 @@ describe('v1 API contracts', () => {
         },
       }).error.code,
     ).toBe('ACTIVE_EDITION_NOT_FOUND');
+  });
+});
+
+describe('source and pipeline contracts', () => {
+  const latestRun = {
+    sourceSlug: 'livebench',
+    status: 'SUCCEEDED',
+    connectorVersion: 'livebench-parquet-v1',
+    startedAt: '2026-07-13T00:00:00.000Z',
+    completedAt: '2026-07-13T00:05:00.000Z',
+    recordsSeen: 60372,
+    recordsAccepted: 60372,
+  };
+
+  it('validates source provenance and live run totals', () => {
+    expect(
+      SourceRegistryEntrySchema.parse({
+        slug: 'livebench',
+        displayName: 'LiveBench',
+        sourceType: 'benchmark_official',
+        baseUrl: 'https://github.com/LiveBench/LiveBench',
+        trustTier: 'OFFICIAL',
+        licenseSpdx: 'Apache-2.0',
+        termsUrl: null,
+        isEnabled: true,
+        snapshotCount: 2,
+        latestFetchedAt: '2026-07-13T00:00:00.000Z',
+        latestRun,
+      }).latestRun?.recordsAccepted,
+    ).toBe(60372);
+  });
+
+  it('keeps active-edition readiness inside pipeline status', () => {
+    expect(
+      PipelineStatusSchema.parse({
+        data: {
+          status: 'READY',
+          activeEdition: null,
+          publishedResultCount: 737,
+        },
+        sourceCount: 1,
+        snapshotCount: 2,
+        ingestionRunCount: 1,
+        stagedRowCount: 60372,
+        rankingSnapshotCount: 2,
+        editionCount: 2,
+        latestRun,
+      }).data.publishedResultCount,
+    ).toBe(737);
   });
 });

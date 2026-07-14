@@ -71,3 +71,7 @@ Model and benchmark detail pages bind stable lowercase route slugs to canonical 
 ## DEC-018 — Comparison state is ordered, bounded and URL-owned
 
 The comparison URL stores two to five repeated canonical `models` query parameters in display order. A shared Zod boundary rejects malformed, duplicate and excessive selections before rendering; resolution against the current snapshot rejects unknown IDs rather than silently dropping or substituting them. Locale changes preserve the ordered query. The comparison table reuses the snapshot's fixed eight-axis order, values, status and quality flags, so null scores stay N/A and the share link cannot alter scoring semantics.
+
+## DEC-019 — Methodology is durable; operational status is live
+
+Methodology pages render reviewed bilingual rules from version-controlled code because evidence, missing-data, conflict and publication policy changes require review and a commit. Source and pipeline pages instead assemble Zod-validated summaries from PostgreSQL: registered sources, immutable snapshots, ingestion runs, staged rows, published results, ranking snapshots, editions and the active pointer. A database failure reaches the shared retryable unavailable UI and never falls back to hard-coded healthy counts. Candidate sources still under research stay in documentation and do not appear as connected until a source record exists.

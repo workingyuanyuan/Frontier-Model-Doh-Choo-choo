@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 6 — data-backed Web product; active home, status, model and benchmark vertical pages are complete.
+Phase 6 — data-backed Web product complete; preparing the shared Web/video radar slice.
 
 ## Completed
 
@@ -27,7 +27,7 @@ Phase 6 — data-backed Web product; active home, status, model and benchmark ve
 
 ## In Progress
 
-- Shareable comparison, methodology, source registry and pipeline status routes.
+- Shared accessible radar renderer used by Web and video.
 
 ## Decisions Made
 
@@ -112,6 +112,7 @@ Phase 6 — data-backed Web product; active home, status, model and benchmark ve
 - Replaced the hard-coded homepage input with the active database edition and added process health plus non-cacheable data-status endpoints. Production/Chrome tests proved all three states: real PREVIEW data uses the immutable 2026-07-13 snapshot, a reachable empty database uses the explicitly fictional design fixture, and an unavailable database returns 503/retry UI without masquerading as preview. Real missing axes remain N/A with no NaN SVG, and fabricated weekly-change/hash values were removed.
 - Added canonical-slug model and benchmark repositories plus bilingual dynamic detail routes. The model page exposes identity, active status, two-edition history, six task results and all six primary evidence links for the real Amazon Nova Lite fixture; the LiveBench page exposes 18 metric definitions and direction-aware top-10 rows. Production Chrome verified both locales, homepage navigation, null labels, 404 boundaries, mobile table scrolling, and clean console/network behavior.
 - Added a bilingual two-to-five-model comparison route whose ordered selection is encoded as repeated canonical URL parameters. Production Chrome verified real active-snapshot cards, eight-axis N/A/status values, a third-model interaction, locale-preserving share state, mobile containment and clean console/network behavior; unit boundaries reject missing, duplicate, unknown and excessive model IDs.
+- Added bilingual methodology, source registry and pipeline status routes. Methodology exposes six reviewed principles and the seven-stage evidence flow; source/pipeline repositories validate live PostgreSQL summaries. Production Chrome verified 46 raw snapshots, the latest 60,372-row successful LiveBench run, 64,972 staged rows, 737 published results, two ranking snapshots, two editions and the active 152-model PREVIEW pointer, plus fail-closed retry UI when PostgreSQL is unavailable.
 
 ## Data Sources Status
 
@@ -127,7 +128,7 @@ Phase 6 — data-backed Web product; active home, status, model and benchmark ve
 
 ## Next Actions
 
-- Add bilingual methodology, sources and pipeline status routes backed by documented rules and live repository summaries.
+- Consolidate Web/video radar rendering behind shared contracts and verify multi-model, null/extreme and reduced-motion behavior.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.

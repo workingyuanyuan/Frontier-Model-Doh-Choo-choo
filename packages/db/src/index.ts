@@ -3,6 +3,7 @@ export * from './seed-data.js';
 export * from './ranking-repository.js';
 export * from './data-status-repository.js';
 export * from './detail-repository.js';
+export * from './source-status-repository.js';
 export { createDatabase, type Database } from './client.js';
 export { getDatabaseUrl } from './database-url.js';
 

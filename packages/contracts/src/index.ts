@@ -266,3 +266,42 @@ export const BenchmarkDetailSchema = z.object({
   leaderboard: z.array(BenchmarkLeaderboardRowSchema),
 });
 export type BenchmarkDetail = z.infer<typeof BenchmarkDetailSchema>;
+
+export const IngestionRunSummarySchema = z.object({
+  sourceSlug: DetailSlugSchema,
+  status: z.string().min(1).max(80),
+  connectorVersion: z.string().min(1).max(120),
+  startedAt: z.iso.datetime(),
+  completedAt: z.iso.datetime().nullable(),
+  recordsSeen: z.int().nonnegative(),
+  recordsAccepted: z.int().nonnegative(),
+});
+
+export const SourceRegistryEntrySchema = z.object({
+  slug: DetailSlugSchema,
+  displayName: z.string().min(1).max(200),
+  sourceType: z.string().min(1).max(80),
+  baseUrl: HttpUrlSchema.nullable(),
+  trustTier: z.string().min(1).max(80),
+  licenseSpdx: z.string().min(1).max(120).nullable(),
+  termsUrl: HttpUrlSchema.nullable(),
+  isEnabled: z.boolean(),
+  snapshotCount: z.int().nonnegative(),
+  latestFetchedAt: z.iso.datetime().nullable(),
+  latestRun: IngestionRunSummarySchema.nullable(),
+});
+export type SourceRegistryEntry = z.infer<typeof SourceRegistryEntrySchema>;
+
+export const SourceRegistrySchema = z.array(SourceRegistryEntrySchema);
+
+export const PipelineStatusSchema = z.object({
+  data: DataStatusSchema,
+  sourceCount: z.int().nonnegative(),
+  snapshotCount: z.int().nonnegative(),
+  ingestionRunCount: z.int().nonnegative(),
+  stagedRowCount: z.int().nonnegative(),
+  rankingSnapshotCount: z.int().nonnegative(),
+  editionCount: z.int().nonnegative(),
+  latestRun: IngestionRunSummarySchema.nullable(),
+});
+export type PipelineStatus = z.infer<typeof PipelineStatusSchema>;

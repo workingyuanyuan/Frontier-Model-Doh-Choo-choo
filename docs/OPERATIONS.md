@@ -28,6 +28,8 @@ The response always includes `apiVersion: "v1"`. Preview editions remain explici
 
 The homepage uses the active database edition when available. If PostgreSQL is reachable but has no active pointer, it uses the visibly labelled fictional design fixture. If PostgreSQL is unavailable, the homepage returns an error state with retry rather than silently serving that fixture. Liveness therefore remains useful during a dependency outage while data status and the homepage correctly fail readiness.
 
+The bilingual read routes are `/{locale}/models/{slug}`, `/{locale}/benchmarks/{slug}`, `/{locale}/compare`, `/{locale}/methodology`, `/{locale}/sources` and `/{locale}/pipeline`. Source and pipeline routes require PostgreSQL and share the retryable unavailable boundary; methodology is version-controlled static policy. Comparison accepts two to five repeated `models` parameters, rejects duplicates and unknown IDs, and preserves their order across locale changes.
+
 ## Weekly dry run
 
 `.github/workflows/weekly-dry-run.yml` runs every Monday at 09:15 in `Asia/Taipei` (`01:15 UTC`) and can also be started manually with `workflow_dispatch`. It:

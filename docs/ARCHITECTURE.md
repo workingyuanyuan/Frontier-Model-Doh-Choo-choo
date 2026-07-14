@@ -57,6 +57,7 @@ allowlisted HTTPS source
 - `GET /api/v1/health` is process liveness and has no database dependency. `GET /api/v1/status/data` is non-cacheable readiness/data state and reports the active pointer plus published-result count, or a stable 503 when PostgreSQL is unavailable.
 - `/{locale}/models/{variant-slug}` reads canonical identity, the active ranking row, edition history and task-level benchmark evidence through a validated detail DTO. `/{locale}/benchmarks/{benchmark-slug}` reads the newest benchmark version, metric definitions and direction-aware deterministic leaderboards. Route slugs are lowercase canonical identifiers; unknown or malformed identifiers return 404.
 - `/{locale}/compare?models={slug}&models={slug}` resolves two to five unique canonical entries from the same active snapshot used by the homepage. Query order is presentation order and survives locale switching. Missing, duplicate, malformed, unknown or excessive identifiers fail at the route boundary; the empty-database design fixture remains explicitly separated from data-backed model detail links.
+- `/{locale}/methodology` is a bilingual durable statement of versioned evidence, null, conflict and publication policy. `/{locale}/sources` validates live source/snapshot/latest-run summaries from PostgreSQL, while `/{locale}/pipeline` validates persisted source, ingestion, staged, result, ranking and edition counts plus the active pointer. Repository failures propagate to the shared unavailable boundary; neither page substitutes static success data.
 
 ## Local and automated operation
 
