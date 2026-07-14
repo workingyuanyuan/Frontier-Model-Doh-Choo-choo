@@ -24,10 +24,12 @@ describe.runIf(runDatabaseTests)(
     it('activates one preview edition and appends its audit entry atomically', async () => {
       const { db, pool } = createDatabase();
       const rollbackMarker = 'ROLLBACK_EDITION_INTEGRATION_FIXTURE';
+      let reachedRollback = false;
+      let rollbackError: unknown;
 
       try {
-        await expect(
-          db.transaction(async (transaction) => {
+        try {
+          await db.transaction(async (transaction) => {
             await transaction.insert(providers).values({
               id: '019f513f-132a-7dc0-805d-0b036ea0d500',
               slug: 'edition-integration-provider',
@@ -109,9 +111,14 @@ describe.runIf(runDatabaseTests)(
               .where(eq(auditLogs.resourceId, summary.editionId!));
             expect(auditRows).toEqual([{ entryHash: summary.auditEntryHash }]);
 
+            reachedRollback = true;
             throw new Error(rollbackMarker);
-          }),
-        ).rejects.toThrow(rollbackMarker);
+          });
+        } catch (error) {
+          rollbackError = error;
+        }
+        expect(reachedRollback).toBe(true);
+        expect(rollbackError).toBeInstanceOf(Error);
       } finally {
         await pool.end();
       }
