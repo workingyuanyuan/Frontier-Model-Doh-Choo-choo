@@ -19,10 +19,15 @@ export interface Dictionary {
     title: string;
     body: string;
     previewBadge: string;
+    dataPreviewBadge: string;
+    formalBadge: string;
     previewNotice: string;
+    dataPreviewNotice: string;
+    formalNotice: string;
   };
   edition: string;
   dataCutoff: string;
+  dataCutoffLabel: string;
   ranking: string;
   selectedModel: string;
   fieldAverage: string;
@@ -30,6 +35,7 @@ export interface Dictionary {
   coverage: string;
   confidence: string;
   weeklyChange: string;
+  noPriorEdition: string;
   capabilityProfile: string;
   capabilityDescription: string;
   modelListHint: string;
@@ -67,11 +73,18 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: '看懂模型實力，\n不只看一個總分。',
       body: '把公開評測轉成可追溯的八維能力圖；每個分數都保留版本、覆蓋率與原始證據。',
       previewBadge: '設計預覽',
+      dataPreviewBadge: '資料預覽',
+      formalBadge: '正式資料',
       previewNotice:
         '下列模型與分數為介面測試資料，不是 LiveBench 正式結果。正式發布會由審核後的 ranking snapshot 自動取代。',
+      dataPreviewNotice:
+        '目前顯示可追溯的資料庫快照；因覆蓋率未達正式門檻，本 edition 明確標示為 PREVIEW，缺值維持 N/A。',
+      formalNotice:
+        '目前顯示已通過發布閘門的正式 edition；所有分數均綁定不可變快照與來源證據。',
     },
     edition: '2026 第 28 週',
     dataCutoff: '資料截止 07.11 · 20:30',
+    dataCutoffLabel: '資料截止',
     ranking: '本週能力排行',
     selectedModel: '目前模型',
     fieldAverage: '本輪平均',
@@ -79,6 +92,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     coverage: '資料覆蓋',
     confidence: '可信度',
     weeklyChange: '週變動',
+    noPriorEdition: '尚無可比前期',
     capabilityProfile: '八維能力剖面',
     capabilityDescription: '固定軸序與 0–100 絕對尺度；切換主題不改變幾何。',
     modelListHint: '選擇模型以更新雷達與指標',
@@ -86,11 +100,11 @@ const dictionaries: Record<Locale, Dictionary> = {
     evidenceBody:
       '原始回應以 SHA-256 保存，通過欄位驗證、模型別名解析與人工審核後，才會進入正式分數。',
     pipelineTitle: '本週資料管線',
-    pipelineSteps: ['官方來源', '不可變快照', '欄位驗證', '待模型解析'],
+    pipelineSteps: ['官方來源', '不可變證據', '計分快照', 'Edition 已啟用'],
     sourceStatus: 'LiveBench connector',
     sourceReady: '單頁 staging 就緒',
-    stagedRows: '已驗證暫存',
-    publishedRows: '正式發布',
+    stagedRows: '快照模型',
+    publishedRows: '已排名模型',
     methodologyTitle: '缺資料，不補零',
     methodologyBody:
       '缺失維度會顯示 N/A 並斷開雷達線段。只有達到覆蓋率與獨立證據門檻的模型才能進入正式排名。',
@@ -126,11 +140,18 @@ const dictionaries: Record<Locale, Dictionary> = {
       title: 'See model capability,\nnot just one score.',
       body: 'Public evaluations become an auditable eight-axis profile, with version, coverage, and raw evidence attached to every score.',
       previewBadge: 'Design preview',
+      dataPreviewBadge: 'Data preview',
+      formalBadge: 'Verified edition',
       previewNotice:
         'The models and scores below are interface test data, not official LiveBench results. A reviewed ranking snapshot will replace them at publication.',
+      dataPreviewNotice:
+        'This is a traceable database snapshot. Coverage is below the formal threshold, so the edition is explicitly PREVIEW and missing values remain N/A.',
+      formalNotice:
+        'This edition passed the publication gate. Every score is bound to an immutable snapshot and source evidence.',
     },
     edition: 'Week 28 · 2026',
     dataCutoff: 'Data cutoff Jul 11 · 20:30',
+    dataCutoffLabel: 'Data cutoff',
     ranking: 'Capability ranking',
     selectedModel: 'Selected model',
     fieldAverage: 'Field average',
@@ -138,6 +159,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     coverage: 'Coverage',
     confidence: 'Confidence',
     weeklyChange: 'Weekly change',
+    noPriorEdition: 'No comparable prior edition',
     capabilityProfile: 'Eight-axis capability profile',
     capabilityDescription:
       'Fixed axis order on an absolute 0–100 scale; themes never change geometry.',
@@ -148,14 +170,14 @@ const dictionaries: Record<Locale, Dictionary> = {
     pipelineTitle: 'This week’s data pipeline',
     pipelineSteps: [
       'Official source',
-      'Immutable snapshot',
-      'Schema validated',
-      'Alias review',
+      'Immutable evidence',
+      'Scoring snapshot',
+      'Edition active',
     ],
     sourceStatus: 'LiveBench connector',
     sourceReady: 'Single-page staging ready',
-    stagedRows: 'Validated staged',
-    publishedRows: 'Formally published',
+    stagedRows: 'Snapshot models',
+    publishedRows: 'Ranked models',
     methodologyTitle: 'Missing is never zero',
     methodologyBody:
       'Missing axes show N/A and break the radar path. Only models meeting coverage and independent-evidence thresholds enter verified rankings.',

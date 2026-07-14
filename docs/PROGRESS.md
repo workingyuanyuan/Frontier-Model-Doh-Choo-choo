@@ -109,6 +109,7 @@ Phase 6 — data-backed Web product; active-edition contracts, repository and la
 - Null-safe scoring created 1,216 ordered dimension rows and 152 overall eligibility rows from those results. The immutable 2026-07-13 snapshot contains 152 entries and SHA-256 `f806b8b4e654180958099a528c1e06379ce55cf224f8e03f3b807d323d54ad7a`; all entries correctly remain unranked with null overall scores because only partial dimensions are covered. Re-running apply reused the same snapshot ID and hash.
 - Added serializable edition activation and rollback with a database-enforced single active row, explicit FORMAL/PREVIEW modes and chained audit hashes. The real local drill rejected formal activation, activated two preview snapshots in sequence, rolled back to 2026-07-13, and verified one active row, two immutable editions, three audit entries and zero broken hash links. The integration test performs the same write path inside an outer PostgreSQL transaction and rolls back all fixtures.
 - Added versioned active-edition API contracts, a fail-closed deterministic database repository and `GET /api/v1/rankings/latest`. The production endpoint returns the active 2026-07-13 PREVIEW snapshot with all 152 entries, stable cache/error semantics and no mutation path; Web unit/type/build gates and real Chrome console/network checks pass.
+- Replaced the hard-coded homepage input with the active database edition and added process health plus non-cacheable data-status endpoints. Production/Chrome tests proved all three states: real PREVIEW data uses the immutable 2026-07-13 snapshot, a reachable empty database uses the explicitly fictional design fixture, and an unavailable database returns 503/retry UI without masquerading as preview. Real missing axes remain N/A with no NaN SVG, and fabricated weekly-change/hash values were removed.
 
 ## Data Sources Status
 
@@ -124,7 +125,7 @@ Phase 6 — data-backed Web product; active-edition contracts, repository and la
 
 ## Next Actions
 
-- Drive the homepage and pipeline status from the active-edition repository while preserving an explicit, visibly labelled preview fallback only when no database edition exists.
+- Add bilingual model and benchmark detail routes backed by stable repository identifiers and null-safe evidence tables.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.

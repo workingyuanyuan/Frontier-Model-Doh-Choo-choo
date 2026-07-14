@@ -12,6 +12,8 @@ const edition: ActiveEdition = {
   summaryZhTw: null,
   summaryEn: null,
   activatedAt: '2026-07-14T00:00:00.000Z',
+  snapshotSha256:
+    'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
   snapshot: {
     id: '019f513f-132a-7dc0-805d-0b036ea0d521',
     editionDate: '2026-07-14',

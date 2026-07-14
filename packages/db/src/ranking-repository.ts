@@ -23,6 +23,7 @@ export interface ActiveEditionHeaderRow {
   readonly summaryZhTw: string | null;
   readonly summaryEn: string | null;
   readonly activatedAt: Date | null;
+  readonly snapshotSha256: string;
   readonly snapshotId: string;
   readonly editionDate: string;
   readonly dataCutoffAt: Date;
@@ -78,6 +79,7 @@ export function assembleActiveEdition(
     summaryZhTw: header.summaryZhTw,
     summaryEn: header.summaryEn,
     activatedAt: header.activatedAt.toISOString(),
+    snapshotSha256: header.snapshotSha256,
     snapshot: {
       id: header.snapshotId,
       editionDate: header.editionDate,
@@ -114,6 +116,7 @@ export async function getActiveEdition(
       summaryZhTw: weeklyEditions.summaryZhTw,
       summaryEn: weeklyEditions.summaryEn,
       activatedAt: weeklyEditions.activatedAt,
+      snapshotSha256: rankingSnapshots.contentSha256,
       snapshotId: rankingSnapshots.id,
       editionDate: rankingSnapshots.editionDate,
       dataCutoffAt: rankingSnapshots.dataCutoffAt,

@@ -59,3 +59,7 @@ One partial unique index permits exactly one active weekly edition. Activation a
 ## DEC-015 — The active edition is the only latest-ranking read pointer
 
 `GET /api/v1/rankings/latest` reads the one database-enforced active weekly edition and its immutable snapshot; recency, edition date or preview fixtures never override that pointer. Shared Zod contracts validate repository assembly and the versioned HTTP envelope. Rows sort by rank and then stable model slug/ID, entry-count drift fails closed, and configuration/query failures return a generic non-cacheable 503 without exposing database details. A process-local lazy pool avoids connection creation per request while keeping initialization inside the request error boundary.
+
+## DEC-016 — Empty data and unavailable data are different product states
+
+The fictional Web preview is a deliberate fallback only when the database query succeeds and returns no active edition. Database initialization, connection, validation and query failures propagate to a retryable unavailable page; they never select preview. Process liveness is independent of PostgreSQL, while the data-status endpoint reports database readiness, the active pointer and published-result count without caching. This prevents a production outage from looking like a valid preview publication.

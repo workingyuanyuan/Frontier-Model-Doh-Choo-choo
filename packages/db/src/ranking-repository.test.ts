@@ -31,6 +31,8 @@ const header: ActiveEditionHeaderRow = {
   summaryZhTw: null,
   summaryEn: null,
   activatedAt: new Date('2026-07-14T00:00:00.000Z'),
+  snapshotSha256:
+    'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
   snapshotId: '019f5f2d-c3df-7c54-96e8-e1939d332c8e',
   editionDate: '2026-07-13',
   dataCutoffAt: new Date('2026-07-13T03:37:10.792Z'),

@@ -451,8 +451,12 @@ a {
 
 .rankingList {
   display: flex;
+  max-height: min(68vh, 900px);
   flex-direction: column;
   gap: 8px;
+  padding-right: 4px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .rankItem {
@@ -765,6 +769,45 @@ a {
 
 .hashSample code {
   color: var(--accent-strong);
+  overflow-wrap: anywhere;
+}
+
+.routeError {
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  gap: 18px;
+  padding: 32px;
+  background: #f3f6f8;
+  color: #111820;
+  text-align: center;
+}
+
+.routeError > * {
+  margin: 0;
+}
+
+.routeError > p:first-child {
+  color: #ad3f32;
+  font: 700 0.75rem/1.2 var(--font-mono);
+  letter-spacing: 0.14em;
+}
+
+.routeError h1 {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  letter-spacing: -0.05em;
+}
+
+.routeError button {
+  justify-self: center;
+  padding: 11px 18px;
+  border: 1px solid #111820;
+  border-radius: 999px;
+  background: #fff;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
 }
 
 .pipelineCard ol {

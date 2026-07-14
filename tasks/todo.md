@@ -31,7 +31,7 @@
 - [x] Persist null-safe scores and an immutable real/preview snapshot boundary.
 - [x] Implement transactional edition publish and rollback.
 - [x] Add validated API contracts and DB snapshot repositories.
-- [ ] Drive homepage and status endpoints from active DB data with preview fallback.
+- [x] Drive homepage and status endpoints from active DB data with preview fallback.
 - [ ] Add bilingual model and benchmark detail routes.
 - [ ] Add shareable compare, methodology, sources and pipeline status routes.
 - [ ] Consolidate Web/video radar rendering behind shared contracts.

@@ -17,9 +17,16 @@ GET /api/v1/rankings/latest
 200 ACTIVE EDITION  Cache-Control: public, max-age=60, stale-while-revalidate=300
 404 ACTIVE_EDITION_NOT_FOUND  Cache-Control: no-store
 503 ACTIVE_EDITION_UNAVAILABLE  Cache-Control: no-store
+GET /api/v1/health
+200 OK  Cache-Control: no-store
+GET /api/v1/status/data
+200 READY  Cache-Control: no-store
+503 DATA_STATUS_UNAVAILABLE  Cache-Control: no-store
 ```
 
 The response always includes `apiVersion: "v1"`. Preview editions remain explicitly labelled `publicationMode: "PREVIEW"`; this endpoint does not promote, activate or mutate data.
+
+The homepage uses the active database edition when available. If PostgreSQL is reachable but has no active pointer, it uses the visibly labelled fictional design fixture. If PostgreSQL is unavailable, the homepage returns an error state with retry rather than silently serving that fixture. Liveness therefore remains useful during a dependency outage while data status and the homepage correctly fail readiness.
 
 ## Weekly dry run
 

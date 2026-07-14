@@ -53,6 +53,8 @@ allowlisted HTTPS source
 - List resources use cursor pagination. Contract changes are additive within v1.
 - `GET /api/v1/rankings/latest` resolves only the database-enforced active edition, validates the complete response contract and returns deterministic rank/slug order. It returns non-cacheable stable `404`/`503` codes when the active pointer is absent or unavailable; successful responses use a 60-second public cache with 300-second stale revalidation.
 - Web database access is a process-local lazy pool so development hot reload and repeated requests do not create an unbounded connection pool. Connection configuration and repository failures stay inside the API error boundary.
+- Locale homepages are dynamic Server Components that read the repository directly. A reachable database with no active edition selects the project-owned fictional preview fixture; a connection or query failure renders a retryable unavailable state and never masquerades as preview data.
+- `GET /api/v1/health` is process liveness and has no database dependency. `GET /api/v1/status/data` is non-cacheable readiness/data state and reports the active pointer plus published-result count, or a stable 503 when PostgreSQL is unavailable.
 
 ## Local and automated operation
 

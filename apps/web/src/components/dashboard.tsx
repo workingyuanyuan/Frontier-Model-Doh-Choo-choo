@@ -3,42 +3,32 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 
-import {
-  DIMENSION_IDS,
-  type DimensionId,
-  type RankingSnapshot,
-} from '@llm-bench/contracts';
+import { type ActiveEdition, type RankingSnapshot } from '@llm-bench/contracts';
 
+import { calculateFieldAverage } from '../lib/homepage-data';
 import type { Dictionary, Locale } from '../lib/i18n';
 import { RadarChart } from './radar-chart';
 
 interface DashboardProps {
   dictionary: Dictionary;
+  edition: ActiveEdition | null;
   locale: Locale;
   snapshot: RankingSnapshot;
 }
 
 type ThemeId = 'editorial' | 'studio';
 
-export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
+export function Dashboard({
+  dictionary,
+  edition,
+  locale,
+  snapshot,
+}: DashboardProps) {
   const [theme, setTheme] = useState<ThemeId>('editorial');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selected = snapshot.entries[selectedIndex] ?? snapshot.entries[0];
   const fieldAverage = useMemo(
-    () =>
-      Object.fromEntries(
-        DIMENSION_IDS.map((dimension) => {
-          const scores = snapshot.entries.flatMap((entry) => {
-            const score = entry.dimensions.find(
-              (item) => item.dimension === dimension,
-            )?.score;
-            return score === null || score === undefined ? [] : [score];
-          });
-          const average =
-            scores.reduce((sum, score) => sum + score, 0) / scores.length;
-          return [dimension, Math.round(average * 10) / 10];
-        }),
-      ) as Record<DimensionId, number>,
+    () => calculateFieldAverage(snapshot.entries),
     [snapshot.entries],
   );
 
@@ -47,7 +37,33 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
   }
 
   const otherLocale = locale === 'zh-TW' ? 'en' : 'zh-TW';
-  const weeklyChange = [2.1, 0.8, 3.4, -0.6][selectedIndex] ?? 0;
+  const isFallback = edition === null;
+  const isFormal = edition?.publicationMode === 'FORMAL';
+  const editionTitle = edition
+    ? locale === 'zh-TW'
+      ? edition.titleZhTw
+      : edition.titleEn
+    : dictionary.edition;
+  const dataCutoff = edition
+    ? `${dictionary.dataCutoffLabel} ${new Intl.DateTimeFormat(locale, {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+        timeZone: 'Asia/Taipei',
+      }).format(new Date(snapshot.dataCutoffAt))}`
+    : dictionary.dataCutoff;
+  const badge = isFallback
+    ? dictionary.hero.previewBadge
+    : isFormal
+      ? dictionary.hero.formalBadge
+      : dictionary.hero.dataPreviewBadge;
+  const notice = isFallback
+    ? dictionary.hero.previewNotice
+    : isFormal
+      ? dictionary.hero.formalNotice
+      : dictionary.hero.dataPreviewNotice;
+  const rankedModels = snapshot.entries.filter(
+    (entry) => entry.rank !== null,
+  ).length;
 
   return (
     <div className="siteShell" data-theme={theme} lang={locale}>
@@ -100,9 +116,7 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
             <div className="eyebrowRow">
               <span className="liveDot" />
               <span>{dictionary.hero.eyebrow}</span>
-              <span className="previewPill">
-                {dictionary.hero.previewBadge}
-              </span>
+              <span className="previewPill">{badge}</span>
             </div>
             <h1>
               {dictionary.hero.title.split('\n').map((line, index) => (
@@ -114,8 +128,8 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
 
           <div className="editionCard">
             <span className="editionKicker">Edition</span>
-            <strong>{dictionary.edition}</strong>
-            <span>{dictionary.dataCutoff}</span>
+            <strong>{editionTitle}</strong>
+            <span>{dataCutoff}</span>
             <svg viewBox="0 0 72 72" aria-hidden="true">
               <circle cx="36" cy="36" r="30" />
               <path d="M36 14v22l15 9" />
@@ -125,7 +139,7 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
 
         <aside className="previewNotice" role="note">
           <span aria-hidden="true">i</span>
-          <p>{dictionary.hero.previewNotice}</p>
+          <p>{notice}</p>
         </aside>
 
         <section className="dashboardGrid" id="rankings">
@@ -150,7 +164,9 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
                   onClick={() => setSelectedIndex(index)}
                 >
                   <span className="rankNumber">
-                    {String(entry.rank ?? '—').padStart(2, '0')}
+                    {entry.rank === null
+                      ? '—'
+                      : String(entry.rank).padStart(2, '0')}
                   </span>
                   <span className="modelIdentity">
                     <strong>{entry.displayName}</strong>
@@ -165,7 +181,11 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
 
             <div className="rankingFootnote">
               <span className="statusDot" />
-              <span>{dictionary.missingDataRule}</span>
+              <span>
+                {isFallback
+                  ? dictionary.missingDataRule
+                  : `${selected.rankingStatus} · ${edition.publicationMode}`}
+              </span>
             </div>
           </aside>
 
@@ -216,11 +236,8 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
               </article>
               <article>
                 <span>{dictionary.weeklyChange}</span>
-                <strong className={weeklyChange >= 0 ? 'positive' : 'negative'}>
-                  {weeklyChange >= 0 ? '+' : ''}
-                  {weeklyChange.toFixed(1)}
-                </strong>
-                <small>pts</small>
+                <strong>N/A</strong>
+                <small>{dictionary.noPriorEdition}</small>
               </article>
             </div>
           </section>
@@ -232,8 +249,8 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
             <h2>{dictionary.evidenceTitle}</h2>
             <p>{dictionary.evidenceBody}</p>
             <div className="hashSample">
-              <span>SHA-256</span>
-              <code>f42c1e18…1fac1f5</code>
+              <span>Snapshot</span>
+              <code>{snapshot.id}</code>
             </div>
           </article>
 
@@ -251,15 +268,19 @@ export function Dashboard({ dictionary, locale, snapshot }: DashboardProps) {
             <dl>
               <div>
                 <dt>{dictionary.sourceStatus}</dt>
-                <dd>{dictionary.sourceReady}</dd>
+                <dd>
+                  {isFallback
+                    ? dictionary.sourceReady
+                    : snapshot.scoringMethodVersion}
+                </dd>
               </div>
               <div>
                 <dt>{dictionary.stagedRows}</dt>
-                <dd>100</dd>
+                <dd>{snapshot.entries.length}</dd>
               </div>
               <div>
                 <dt>{dictionary.publishedRows}</dt>
-                <dd>0</dd>
+                <dd>{rankedModels}</dd>
               </div>
             </dl>
           </article>

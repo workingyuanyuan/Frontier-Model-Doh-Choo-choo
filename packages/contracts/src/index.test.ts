@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   ActiveEditionResponseSchema,
   ApiErrorResponseSchema,
+  DataStatusResponseSchema,
   DIMENSION_IDS,
   DimensionScoreSchema,
   RankingSnapshotSchema,
@@ -145,10 +146,29 @@ describe('v1 API contracts', () => {
           summaryZhTw: null,
           summaryEn: null,
           activatedAt: '2026-07-11T01:00:00.000Z',
+          snapshotSha256:
+            'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
           snapshot,
         },
       }).data.publicationMode,
     ).toBe('PREVIEW');
+  });
+
+  it('represents a reachable database with or without an active edition', () => {
+    expect(
+      DataStatusResponseSchema.parse({
+        apiVersion: 'v1',
+        data: {
+          status: 'READY',
+          activeEdition: null,
+          publishedResultCount: 737,
+        },
+      }).data,
+    ).toEqual({
+      status: 'READY',
+      activeEdition: null,
+      publishedResultCount: 737,
+    });
   });
 
   it('uses a stable machine-readable not-found error envelope', () => {

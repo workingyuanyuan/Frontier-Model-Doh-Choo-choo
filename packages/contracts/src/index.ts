@@ -96,6 +96,10 @@ export type RankingSnapshot = z.infer<typeof RankingSnapshotSchema>;
 export const PublicationModeSchema = z.enum(['FORMAL', 'PREVIEW']);
 export type PublicationMode = z.infer<typeof PublicationModeSchema>;
 
+export const Sha256Schema = z
+  .string()
+  .regex(/^[a-f0-9]{64}$/u, 'Expected a lowercase SHA-256 digest');
+
 export const ActiveEditionSchema = z.object({
   id: z.uuidv7(),
   publicationMode: PublicationModeSchema,
@@ -104,6 +108,7 @@ export const ActiveEditionSchema = z.object({
   summaryZhTw: z.string().max(2_000).nullable(),
   summaryEn: z.string().max(2_000).nullable(),
   activatedAt: z.iso.datetime(),
+  snapshotSha256: Sha256Schema,
   snapshot: RankingSnapshotSchema,
 });
 export type ActiveEdition = z.infer<typeof ActiveEditionSchema>;
@@ -127,3 +132,31 @@ export const ApiErrorResponseSchema = z.object({
   }),
 });
 export type ApiErrorResponse = z.infer<typeof ApiErrorResponseSchema>;
+
+export const DataStatusSchema = z.object({
+  status: z.literal('READY'),
+  activeEdition: z
+    .object({
+      id: z.uuidv7(),
+      editionDate: z.iso.date(),
+      publicationMode: PublicationModeSchema,
+      activatedAt: z.iso.datetime(),
+      snapshotId: z.uuidv7(),
+      entryCount: z.int().nonnegative(),
+    })
+    .nullable(),
+  publishedResultCount: z.int().nonnegative(),
+});
+export type DataStatus = z.infer<typeof DataStatusSchema>;
+
+export const DataStatusResponseSchema = z.object({
+  apiVersion: z.literal('v1'),
+  data: DataStatusSchema,
+});
+export type DataStatusResponse = z.infer<typeof DataStatusResponseSchema>;
+
+export const HealthResponseSchema = z.object({
+  apiVersion: z.literal('v1'),
+  data: z.object({ status: z.literal('OK') }),
+});
+export type HealthResponse = z.infer<typeof HealthResponseSchema>;

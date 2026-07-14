@@ -9,7 +9,7 @@ import type { Dictionary } from '../lib/i18n';
 
 interface RadarChartProps {
   entry: RankingEntry;
-  fieldAverage: Record<DimensionId, number>;
+  fieldAverage: Record<DimensionId, number | null>;
   dictionary: Dictionary;
 }
 
@@ -17,6 +17,11 @@ const toValues = (entry: RankingEntry): Record<DimensionId, number | null> =>
   Object.fromEntries(
     entry.dimensions.map(({ dimension, score }) => [dimension, score]),
   ) as Record<DimensionId, number | null>;
+
+const formatScore = (score: number | null | undefined): string =>
+  score === null || score === undefined
+    ? 'N/A'
+    : (Math.round(score * 10) / 10).toString();
 
 export function RadarChart({
   entry,
@@ -124,7 +129,7 @@ export function RadarChart({
                   {dictionary.dimensions[axis.dimension]}
                 </tspan>
                 <tspan className="radarLabelScore" x={axis.x} dy="1.4em">
-                  {score ?? 'N/A'}
+                  {formatScore(score)}
                 </tspan>
               </text>
             );
@@ -138,7 +143,7 @@ export function RadarChart({
           {entry.dimensions.map(({ dimension, score }) => (
             <tr key={dimension}>
               <th>{dictionary.dimensions[dimension]}</th>
-              <td>{score ?? 'N/A'}</td>
+              <td>{formatScore(score)}</td>
             </tr>
           ))}
         </tbody>

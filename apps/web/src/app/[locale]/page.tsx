@@ -1,8 +1,13 @@
 import { redirect } from 'next/navigation';
 
+import { getActiveEdition } from '@llm-bench/db';
+
 import { Dashboard } from '../../components/dashboard';
+import { getWebDatabase } from '../../lib/database';
+import { resolveHomepageData } from '../../lib/homepage-data';
 import { getDictionary, isLocale } from '../../lib/i18n';
-import { previewSnapshot } from '../../lib/preview';
+
+export const dynamic = 'force-dynamic';
 
 interface LocalePageProps {
   params: Promise<{ locale: string }>;
@@ -14,11 +19,16 @@ export default async function LocalePage({ params }: LocalePageProps) {
     redirect('/zh-TW');
   }
 
+  const homepage = resolveHomepageData(
+    await getActiveEdition(getWebDatabase().db),
+  );
+
   return (
     <Dashboard
       dictionary={getDictionary(locale)}
+      edition={homepage.edition}
       locale={locale}
-      snapshot={previewSnapshot}
+      snapshot={homepage.snapshot}
     />
   );
 }
