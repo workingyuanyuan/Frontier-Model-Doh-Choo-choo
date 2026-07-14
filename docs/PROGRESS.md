@@ -96,6 +96,11 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - Filtered the 60,372-row judgment run against release `2024-11-25`: 46,118 rows match the inventory and 14,254 are outside it. The artifact covers 318/1,000 keys—coding 128/128, language 140/140, instruction-following 50/200, and zero reasoning, math or data-analysis keys.
 - Recomputed conflict-aware readiness over the six-category denominator: 155 canonical models have at least one in-release validated row, none is complete, 2,674 repeated observations include the same 201 conflicting keys, and publication remains disabled.
 - Replayed the complete CI-equivalent gate after pinned judgment filtering: formatting, zero-warning lint, 9-package type checking, 131 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. The audit still reports only the two previously bounded moderate transitive advisories.
+- Audited all 13 official `model_judgment` commits and pinned the newest earlier six-category artifact: revision `5896e3b11081702c7f93f4733605fa4f5a072a11`, 93,624 rows, six categories and SHA-256 `8f490d557d86b5dab0da9db1169142f69ebe69907fbaba361b4f00e4fe4f171d`.
+- Added a fixed-revision connector contract that verifies commit, byte length, body SHA-256, schema, row count, exact category set and question metadata before producing coverage evidence. No caller-supplied URL, score selection or publication write is available.
+- Ran the two-revision acquisition twice with identical output. The source-level union covers 800/1,000 observations: coding 128/128, data-analysis 150/150, instruction-following 50/200, language 140/140, math 232/232 and reasoning 100/150. The 3,018-byte prompt/model/score-free manifest is stored at SHA-256 `c80ea84bba3be46ac2a9c6bf5203422a76f5ab0181f0a04c908c0e942125dda5`.
+- Classified the 201 current canonical conflicts: 64 conflict within one exact official raw model spelling; 137 arise only after multiple reviewed spellings map to one canonical model. Artifact-aligned official code already had last-JSONL-occurrence de-duplication, but the Parquet schema has no answer/run/version lineage, so timestamp, row order and alias spelling remain unsafe precedence rules.
+- Replayed the complete CI-equivalent gate after revision-bound acquisition: formatting, zero-warning lint, 9-package type checking, 136 tests, migration, seed, production build, high-severity audit, Remotion still and snapshot-bound artifacts all pass. All six publication tables remain empty; the audit still reports only the two previously bounded moderate transitive advisories.
 
 ## Data Sources Status
 
@@ -106,12 +111,13 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 ## Risks / Blockers
 
 - Formal LiveBench publication is blocked by 201 repeated canonical question keys with conflicting scores until a source-backed evaluation-run selection policy is defined.
-- The pinned judgment artifact contains only coding, instruction-following and language. The full six-category question denominator is now available, but reasoning, math and data-analysis judgment observations remain absent.
+- The current staged judgment run contains only coding, instruction-following and language. Historical source evidence fills data-analysis, math and 100 reasoning keys, but it is not yet staged/adjudicated for per-model aggregation; 200 question observations remain absent from every pinned revision.
 - A global FFmpeg installation is unnecessary for the verified local path because Remotion's managed renderer completed the H.264 encode.
 
 ## Next Actions
 
-- Determine whether revision-bound official judgment evidence exists for the 682 missing release observations; never infer them or treat them as zero.
+- Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
+- Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Seed versioned LiveBench benchmark/metric/dimension mappings, then persist only complete conflict-free results before creating a ranking snapshot.
 - Connect the deterministic artifact manifest to future published-edition video job records.

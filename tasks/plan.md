@@ -111,13 +111,13 @@ Verified readiness measurement:
 
 ### Phase 4: Revision-Bound Judgment Recovery
 
-- [ ] Pin the current three-category judgment revision and the latest earlier
+- [x] Pin the current three-category judgment revision and the latest earlier
       six-category judgment revision.
-- [ ] Fetch both immutable Parquet artifacts under the existing origin, size,
+- [x] Fetch both immutable Parquet artifacts under the existing origin, size,
       redirect, schema and row limits.
-- [ ] Produce prompt-free coverage evidence against the pinned `2024-11-25`
+- [x] Produce prompt-free coverage evidence against the pinned `2024-11-25`
       question inventory without selecting a score winner.
-- [ ] Preserve missing observations and repeated-score conflicts as separate
+- [x] Preserve missing observations and repeated-score conflicts as separate
       publication blockers.
 
 Verified revision history:
@@ -165,11 +165,11 @@ Verified revision history:
 
 ### Phase 4 Delivery
 
-- [ ] Add RED pin, artifact-integrity, metadata-drift and union-coverage tests.
-- [ ] Run the real bounded two-revision acquisition and persist immutable
+- [x] Add RED pin, artifact-integrity, metadata-drift and union-coverage tests.
+- [x] Run the real bounded two-revision acquisition and persist immutable
       content-addressed evidence.
-- [ ] Complete five-axis and security review.
-- [ ] Run the complete local CI-equivalent quality gate.
+- [x] Complete five-axis and security review.
+- [x] Run the complete local CI-equivalent quality gate.
 - [ ] Commit, push and wait for GitHub Actions CI.
 
 ## Acceptance Criteria

@@ -43,6 +43,7 @@ pnpm db:up
 pnpm db:migrate
 pnpm db:seed
 pnpm fetch:livebench-inventory
+pnpm fetch:livebench-judgments
 pnpm ingest:livebench
 pnpm review:livebench-aliases
 pnpm sync:livebench-aliases
@@ -86,3 +87,13 @@ writes a prompt-free content-addressed JSON under `data/raw/`. A normal run
 reports 1,436 source rows, 1,000 selected observations, 18 tasks, six categories,
 42 range requests and SHA-256
 `b8a90d2f2308b774fbee982178d433412fd6f349429be2a41def4331b0ee4027`.
+
+The judgment-evidence command also does not connect to PostgreSQL. It fetches
+only two fixed official revisions through the existing manual-redirect,
+approved-CDN and 2 MiB artifact boundary; each body must match its pinned
+revision, byte length, SHA-256, row count and category set. It stores both raw
+Parquets and a prompt/model/score-free coverage manifest under `data/raw/`.
+Two verified runs produced the same 3,018-byte manifest at SHA-256
+`c80ea84bba3be46ac2a9c6bf5203422a76f5ab0181f0a04c908c0e942125dda5`
+and reported 800/1,000 covered observations. This command measures evidence
+availability only; it does not stage rows, select among conflicts or publish.

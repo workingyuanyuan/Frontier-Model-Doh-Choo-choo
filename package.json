@@ -19,6 +19,7 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "fetch:livebench-inventory": "pnpm --filter @llm-bench/worker fetch:livebench-inventory",
+    "fetch:livebench-judgments": "pnpm --filter @llm-bench/worker fetch:livebench-judgments",
     "ingest:livebench": "pnpm --filter @llm-bench/worker ingest:livebench",
     "ingest:livebench:all": "pnpm --filter @llm-bench/worker ingest:livebench:all",
     "lint": "eslint . --max-warnings 0",
