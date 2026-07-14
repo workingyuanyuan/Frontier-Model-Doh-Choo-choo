@@ -44,6 +44,7 @@ allowlisted HTTPS source
 - Connector URLs are registry-owned, HTTPS-only and host-allowlisted; redirects to unapproved hosts fail.
 - Website reads through repositories/services; it does not parse external source data.
 - Video receives a serialized ranking snapshot contract and never maintains separate hand-authored scores.
+- Web comparison charts and Remotion scenes consume the same framework-neutral radar presentation contract. It validates one to five series, preserves null axes, fixes the scale at 0–100 and emits rings, axes, label positions, line/polygon geometry and equivalent table rows from one input. Animation progress is an input to that contract; reduced motion resolves directly to final geometry.
 
 ## Public interfaces
 

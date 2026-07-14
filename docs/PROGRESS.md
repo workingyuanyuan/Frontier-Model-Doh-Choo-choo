@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 6 — data-backed Web product complete; preparing the shared Web/video radar slice.
+Phase 7 — shared radar presentation complete; building the edition-bound video pipeline.
 
 ## Completed
 
@@ -27,7 +27,7 @@ Phase 6 — data-backed Web product complete; preparing the shared Web/video rad
 
 ## In Progress
 
-- Shared accessible radar renderer used by Web and video.
+- Edition-bound video CLI, artifact render log and persisted video job lifecycle.
 
 ## Decisions Made
 
@@ -113,6 +113,7 @@ Phase 6 — data-backed Web product complete; preparing the shared Web/video rad
 - Added canonical-slug model and benchmark repositories plus bilingual dynamic detail routes. The model page exposes identity, active status, two-edition history, six task results and all six primary evidence links for the real Amazon Nova Lite fixture; the LiveBench page exposes 18 metric definitions and direction-aware top-10 rows. Production Chrome verified both locales, homepage navigation, null labels, 404 boundaries, mobile table scrolling, and clean console/network behavior.
 - Added a bilingual two-to-five-model comparison route whose ordered selection is encoded as repeated canonical URL parameters. Production Chrome verified real active-snapshot cards, eight-axis N/A/status values, a third-model interaction, locale-preserving share state, mobile containment and clean console/network behavior; unit boundaries reject missing, duplicate, unknown and excessive model IDs.
 - Added bilingual methodology, source registry and pipeline status routes. Methodology exposes six reviewed principles and the seven-stage evidence flow; source/pipeline repositories validate live PostgreSQL summaries. Production Chrome verified 46 raw snapshots, the latest 60,372-row successful LiveBench run, 64,972 staged rows, 737 published results, two ranking snapshots, two editions and the active 152-model PREVIEW pointer, plus fail-closed retry UI when PostgreSQL is unavailable.
+- Consolidated Web and Remotion radar rendering behind one validated presentation contract. Ten package tests cover multi-model output, null and extreme values, reduced motion, animation progress and selection bounds; the real three-model comparison exposes the same eight-axis values through an accessible table and renders without horizontal overflow or browser errors.
 
 ## Data Sources Status
 
@@ -128,7 +129,7 @@ Phase 6 — data-backed Web product complete; preparing the shared Web/video rad
 
 ## Next Actions
 
-- Consolidate Web/video radar rendering behind shared contracts and verify multi-model, null/extreme and reduced-motion behavior.
+- Bind video input and artifacts to a persisted edition/snapshot, locale, theme and Top-N selection with a structured render log and video job lifecycle.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.

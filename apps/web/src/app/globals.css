@@ -1565,6 +1565,54 @@ a {
   display: block;
 }
 
+.comparisonRadar {
+  margin: 0;
+}
+
+.comparisonRadar svg {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+}
+
+.comparisonRadarGrid path,
+.comparisonRadarGrid line {
+  fill: none;
+  stroke: var(--detail-line);
+  stroke-width: 1;
+}
+
+.comparisonRadarLabels {
+  fill: var(--detail-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.comparisonRadarLegend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--detail-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.comparisonRadarLegend li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.comparisonRadarLegend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
 .infoNav {
   display: flex;
   flex-wrap: wrap;

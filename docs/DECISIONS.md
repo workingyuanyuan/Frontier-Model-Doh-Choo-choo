@@ -75,3 +75,7 @@ The comparison URL stores two to five repeated canonical `models` query paramete
 ## DEC-019 — Methodology is durable; operational status is live
 
 Methodology pages render reviewed bilingual rules from version-controlled code because evidence, missing-data, conflict and publication policy changes require review and a commit. Source and pipeline pages instead assemble Zod-validated summaries from PostgreSQL: registered sources, immutable snapshots, ingestion runs, staged rows, published results, ranking snapshots, editions and the active pointer. A database failure reaches the shared retryable unavailable UI and never falls back to hard-coded healthy counts. Candidate sources still under research stay in documentation and do not appear as connected until a source record exists.
+
+## DEC-020 — Radar presentation is shared, bounded and null-preserving
+
+Web and Remotion convert model series through one framework-neutral radar presentation contract rather than independently assembling SVG geometry. The boundary accepts one to five uniquely identified series, a fixed 0–100 scale and explicit animation progress. It emits the same rings, axes, label positions, complete polygons, incomplete line segments and equivalent table rows for every renderer. Missing values remain null and produce open geometry plus N/A table cells; they never collapse to the origin. Reduced-motion presentation resolves to final geometry without changing the underlying values.

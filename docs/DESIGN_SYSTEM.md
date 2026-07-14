@@ -25,7 +25,8 @@ Components consume only semantic tokens. Model/provider colors are validated met
 - Complete series render a filled polygon; missing axes render explicit N/A markers and broken/dashed segments, never implicit zero.
 - Theme switching changes paint only; geometry snapshots must be byte-identical.
 - Web supports keyboard-readable legend, SVG title/description, visible focus, reduced motion and an equivalent data table.
-- Static SVG/PNG and Remotion consume the same points/path generator.
+- Single-model Web, two-to-five-model comparison, static SVG/PNG and Remotion consume the same validated presentation output, including rings, axes, labels, series geometry and equivalent table rows.
+- Animation progress is deterministic and renderer-independent. Reduced-motion Web output selects the final state without changing score or null semantics.
 
 ## Motion
 

@@ -1,9 +1,5 @@
-import {
-  DIMENSION_IDS,
-  type DimensionId,
-  type RankingEntry,
-} from '@llm-bench/contracts';
-import { createRadarGeometry } from '@llm-bench/radar';
+import { type DimensionId, type RankingEntry } from '@llm-bench/contracts';
+import { createRadarPresentation } from '@llm-bench/radar';
 
 import type { Dictionary } from '../lib/i18n';
 
@@ -28,26 +24,20 @@ export function RadarChart({
   fieldAverage,
   dictionary,
 }: RadarChartProps) {
-  const chart = createRadarGeometry(toValues(entry), {
-    centerX: 280,
-    centerY: 250,
-    radius: 158,
-  });
-  const average = createRadarGeometry(fieldAverage, {
-    centerX: 280,
-    centerY: 250,
-    radius: 158,
-  });
-  const labelGeometry = createRadarGeometry(
-    Object.fromEntries(DIMENSION_IDS.map((dimension) => [dimension, 100])),
-    { centerX: 280, centerY: 250, radius: 207 },
+  const presentation = createRadarPresentation(
+    [
+      { id: 'average', label: dictionary.fieldAverage, values: fieldAverage },
+      { id: 'model', label: entry.displayName, values: toValues(entry) },
+    ],
+    {
+      centerX: 280,
+      centerY: 250,
+      radius: 158,
+      labelRadius: 207,
+    },
   );
-  const rings = [25, 50, 75, 100].map((level) =>
-    createRadarGeometry(
-      Object.fromEntries(DIMENSION_IDS.map((dimension) => [dimension, level])),
-      { centerX: 280, centerY: 250, radius: 158 },
-    ),
-  );
+  const average = presentation.series[0]!.geometry;
+  const chart = presentation.series[1]!.geometry;
 
   return (
     <div className="radarWrap">
@@ -71,10 +61,10 @@ export function RadarChart({
         </defs>
 
         <g className="radarGrid">
-          {rings.map((ring, index) => (
+          {presentation.rings.map((ring, index) => (
             <path key={index} d={ring.fillPath ?? undefined} />
           ))}
-          {chart.axes.map((axis) => (
+          {presentation.axes.map((axis) => (
             <line
               key={axis.dimension}
               x1="280"
@@ -110,7 +100,7 @@ export function RadarChart({
         )}
 
         <g className="radarLabels">
-          {labelGeometry.axes.map((axis) => {
+          {presentation.labelAxes.map((axis) => {
             const score = entry.dimensions.find(
               ({ dimension }) => dimension === axis.dimension,
             )?.score;
@@ -140,10 +130,10 @@ export function RadarChart({
       <table className="srOnly">
         <caption>{`${entry.displayName} · ${dictionary.capabilityProfile}`}</caption>
         <tbody>
-          {entry.dimensions.map(({ dimension, score }) => (
+          {presentation.tableRows.map(({ dimension, values }) => (
             <tr key={dimension}>
               <th>{dictionary.dimensions[dimension]}</th>
-              <td>{formatScore(score)}</td>
+              <td>{formatScore(values.model)}</td>
             </tr>
           ))}
         </tbody>

@@ -35,7 +35,7 @@
 - [x] Add bilingual model and benchmark detail routes.
 - [x] Add shareable 2–5 model comparison with strict URL selection bounds.
 - [x] Add bilingual methodology, sources and pipeline status routes.
-- [ ] Consolidate Web/video radar rendering behind shared contracts.
+- [x] Consolidate Web/video radar rendering behind shared contracts.
 - [ ] Add edition-bound video CLI, render logs and video job persistence.
 - [ ] Render and inspect the complete deterministic demo video.
 - [ ] Implement idempotent weekly orchestration with dry-run default.

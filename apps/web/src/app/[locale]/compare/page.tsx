@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getActiveEdition } from '@llm-bench/db';
 
 import { CompareSelector } from '../../../components/compare-selector';
+import { ComparisonRadar } from '../../../components/comparison-radar';
 import { getCompareCopy } from '../../../lib/compare-copy';
 import {
   InvalidComparisonSelectionError,
@@ -78,6 +79,15 @@ export default async function ComparePage({
           providerName: entry.providerName,
         }))}
       />
+
+      <section className="detailSection">
+        <h2>{copy.capabilityTable}</h2>
+        <ComparisonRadar
+          dictionary={dictionary}
+          entries={selected}
+          title={copy.capabilityTable}
+        />
+      </section>
 
       <section className="compareCards" aria-label={copy.selection}>
         {selected.map((entry) => (

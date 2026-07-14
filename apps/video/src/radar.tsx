@@ -1,6 +1,5 @@
 import type { DimensionId, RankingEntry } from '@llm-bench/contracts';
-import { DIMENSION_IDS } from '@llm-bench/contracts';
-import { createRadarGeometry } from '@llm-bench/radar';
+import { createRadarPresentation } from '@llm-bench/radar';
 
 import type { VideoCopy } from './copy';
 import type { VideoThemeTokens } from './theme';
@@ -21,42 +20,28 @@ export const VideoRadar = ({
   tokens,
 }: VideoRadarProps) => {
   const values = Object.fromEntries(
-    entry.dimensions.map(({ dimension, score }) => [
-      dimension,
-      score === null ? null : score * progress,
-    ]),
+    entry.dimensions.map(({ dimension, score }) => [dimension, score]),
   ) as Record<DimensionId, number | null>;
-  const animatedAverage = Object.fromEntries(
-    DIMENSION_IDS.map((dimension) => [
-      dimension,
-      fieldAverage[dimension] * progress,
-    ]),
-  ) as Record<DimensionId, number>;
-  const chart = createRadarGeometry(values, {
-    centerX: 500,
-    centerY: 390,
-    radius: 255,
-  });
-  const average = createRadarGeometry(animatedAverage, {
-    centerX: 500,
-    centerY: 390,
-    radius: 255,
-  });
-  const labels = createRadarGeometry(
-    Object.fromEntries(DIMENSION_IDS.map((dimension) => [dimension, 100])),
-    { centerX: 500, centerY: 390, radius: 335 },
+  const presentation = createRadarPresentation(
+    [
+      { id: 'average', label: 'Field average', values: fieldAverage },
+      { id: 'model', label: entry.displayName, values },
+    ],
+    {
+      centerX: 500,
+      centerY: 390,
+      radius: 255,
+      labelRadius: 335,
+      progress,
+    },
   );
-  const rings = [25, 50, 75, 100].map((level) =>
-    createRadarGeometry(
-      Object.fromEntries(DIMENSION_IDS.map((dimension) => [dimension, level])),
-      { centerX: 500, centerY: 390, radius: 255 },
-    ),
-  );
+  const average = presentation.series[0]!.geometry;
+  const chart = presentation.series[1]!.geometry;
 
   return (
     <svg viewBox="0 0 1000 780" style={{ width: '100%', height: '100%' }}>
       <g>
-        {rings.map((ring, index) => (
+        {presentation.rings.map((ring, index) => (
           <path
             key={index}
             d={ring.fillPath ?? undefined}
@@ -65,7 +50,7 @@ export const VideoRadar = ({
             strokeWidth={2}
           />
         ))}
-        {chart.axes.map((axis) => (
+        {presentation.axes.map((axis) => (
           <line
             key={axis.dimension}
             x1={500}
@@ -89,15 +74,18 @@ export const VideoRadar = ({
         />
       ) : null}
       {chart.fillPath ? (
+        <path d={chart.fillPath} fill={tokens.accent} fillOpacity={0.27} />
+      ) : null}
+      {chart.linePaths.map((path) => (
         <path
-          d={chart.fillPath}
-          fill={tokens.accent}
-          fillOpacity={0.27}
+          key={path}
+          d={path}
+          fill="none"
           stroke={tokens.accentStrong}
           strokeLinejoin="round"
           strokeWidth={7}
         />
-      ) : null}
+      ))}
 
       {chart.points.map((point) =>
         point ? (
@@ -113,7 +101,7 @@ export const VideoRadar = ({
         ) : null,
       )}
 
-      {labels.axes.map((axis) => {
+      {presentation.labelAxes.map((axis) => {
         const score = entry.dimensions.find(
           ({ dimension }) => dimension === axis.dimension,
         )?.score;
