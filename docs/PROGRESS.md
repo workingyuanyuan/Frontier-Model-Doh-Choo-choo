@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 6 — data-backed Web product; active-edition contracts, repository and latest-ranking API are complete.
+Phase 6 — data-backed Web product; active home, status, model and benchmark vertical pages are complete.
 
 ## Completed
 
@@ -27,7 +27,7 @@ Phase 6 — data-backed Web product; active-edition contracts, repository and la
 
 ## In Progress
 
-- LiveBench category aggregation and benchmark mapping. All 166 normalized model aliases now have exactly one audited mapping or exclusion decision; publication remains disabled until the remaining non-alias coverage gates pass.
+- Shareable comparison, methodology, source registry and pipeline status routes.
 
 ## Decisions Made
 
@@ -110,6 +110,7 @@ Phase 6 — data-backed Web product; active-edition contracts, repository and la
 - Added serializable edition activation and rollback with a database-enforced single active row, explicit FORMAL/PREVIEW modes and chained audit hashes. The real local drill rejected formal activation, activated two preview snapshots in sequence, rolled back to 2026-07-13, and verified one active row, two immutable editions, three audit entries and zero broken hash links. The integration test performs the same write path inside an outer PostgreSQL transaction and rolls back all fixtures.
 - Added versioned active-edition API contracts, a fail-closed deterministic database repository and `GET /api/v1/rankings/latest`. The production endpoint returns the active 2026-07-13 PREVIEW snapshot with all 152 entries, stable cache/error semantics and no mutation path; Web unit/type/build gates and real Chrome console/network checks pass.
 - Replaced the hard-coded homepage input with the active database edition and added process health plus non-cacheable data-status endpoints. Production/Chrome tests proved all three states: real PREVIEW data uses the immutable 2026-07-13 snapshot, a reachable empty database uses the explicitly fictional design fixture, and an unavailable database returns 503/retry UI without masquerading as preview. Real missing axes remain N/A with no NaN SVG, and fabricated weekly-change/hash values were removed.
+- Added canonical-slug model and benchmark repositories plus bilingual dynamic detail routes. The model page exposes identity, active status, two-edition history, six task results and all six primary evidence links for the real Amazon Nova Lite fixture; the LiveBench page exposes 18 metric definitions and direction-aware top-10 rows. Production Chrome verified both locales, homepage navigation, null labels, 404 boundaries, mobile table scrolling, and clean console/network behavior.
 
 ## Data Sources Status
 
@@ -125,7 +126,7 @@ Phase 6 — data-backed Web product; active-edition contracts, repository and la
 
 ## Next Actions
 
-- Add bilingual model and benchmark detail routes backed by stable repository identifiers and null-safe evidence tables.
+- Add shareable 2–5 model comparison plus bilingual methodology, sources and pipeline status routes.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.

@@ -1239,3 +1239,194 @@ a {
     animation-iteration-count: 1 !important;
   }
 }
+
+.detailPage {
+  --detail-ink: #17232d;
+  --detail-muted: #586a76;
+  --detail-line: #d8e1e7;
+  --detail-accent: #195d86;
+  width: min(1180px, calc(100% - 40px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 44px 0 80px;
+  color: var(--detail-ink);
+}
+
+.detailBack,
+.detailLink {
+  color: var(--detail-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.detailLink {
+  display: inline-flex;
+  margin: 18px 0 0;
+  font-size: 0.88rem;
+}
+
+.detailBack:focus-visible,
+.detailLink:focus-visible,
+.detailTable a:focus-visible {
+  outline: 3px solid rgba(39, 124, 171, 0.3);
+  outline-offset: 4px;
+}
+
+.detailHero,
+.detailFacts,
+.detailSection {
+  border: 1px solid var(--detail-line);
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 18px 60px rgba(31, 55, 70, 0.07);
+}
+
+.detailHero {
+  margin-top: 24px;
+  padding: clamp(32px, 6vw, 72px);
+}
+
+.detailHero > p:first-child {
+  margin: 0 0 10px;
+  color: var(--detail-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.detailHero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-family: Georgia, 'Noto Serif TC', serif;
+  font-size: clamp(2.5rem, 7vw, 5.6rem);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  overflow-wrap: anywhere;
+}
+
+.detailHero span,
+.detailHero > p:last-child {
+  display: block;
+  max-width: 760px;
+  margin-top: 22px;
+  color: var(--detail-muted);
+  line-height: 1.7;
+}
+
+.detailFacts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  margin: 22px 0;
+  overflow: hidden;
+  background: var(--detail-line);
+}
+
+.detailFacts div {
+  min-width: 0;
+  padding: 22px 24px;
+  background: #fff;
+}
+
+.detailFacts dt {
+  color: var(--detail-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.detailFacts dd {
+  margin: 8px 0 0;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.detailFacts a,
+.detailTable a {
+  color: var(--detail-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.detailSection {
+  margin-top: 22px;
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.detailSection h2 {
+  margin: 0 0 24px;
+  font-family: Georgia, 'Noto Serif TC', serif;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  font-weight: 500;
+}
+
+.detailScoreCard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 22px;
+}
+
+.detailScoreCard strong {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+}
+
+.detailScoreCard span {
+  color: var(--detail-muted);
+  font-weight: 700;
+}
+
+.tableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.detailTable {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.detailTable th,
+.detailTable td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--detail-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.detailTable th {
+  color: var(--detail-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.detailTable tbody tr:hover {
+  background: #f5f8fa;
+}
+
+@media (max-width: 600px) {
+  .detailPage {
+    width: calc(100% - 24px);
+    padding-top: 24px;
+  }
+
+  .detailHero,
+  .detailSection {
+    border-radius: 20px;
+  }
+
+  .detailFacts {
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+  }
+}

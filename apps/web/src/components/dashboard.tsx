@@ -208,6 +208,15 @@ export function Dashboard({
               </div>
             </div>
 
+            {!isFallback && (
+              <Link
+                className="detailLink"
+                href={`/${locale}/models/${selected.slug}`}
+              >
+                {dictionary.viewModelDetails} →
+              </Link>
+            )}
+
             <div className="radarStage">
               <RadarChart
                 dictionary={dictionary}

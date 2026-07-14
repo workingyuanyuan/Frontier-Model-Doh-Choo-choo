@@ -63,3 +63,7 @@ One partial unique index permits exactly one active weekly edition. Activation a
 ## DEC-016 — Empty data and unavailable data are different product states
 
 The fictional Web preview is a deliberate fallback only when the database query succeeds and returns no active edition. Database initialization, connection, validation and query failures propagate to a retryable unavailable page; they never select preview. Process liveness is independent of PostgreSQL, while the data-status endpoint reports database readiness, the active pointer and published-result count without caching. This prevents a production outage from looking like a valid preview publication.
+
+## DEC-017 — Detail URLs use canonical slugs and expose evidence without reinterpretation
+
+Model and benchmark detail pages bind stable lowercase route slugs to canonical database identities and validate assembled DTOs before rendering. Model history follows immutable edition records, task results retain source values and units, and the primary evidence link exposes its source snapshot hash rather than inventing a UI provenance label. Benchmark leaderboards respect each metric's higher/lower direction and use canonical model slug as the final deterministic tie-breaker. Missing identity facts, scores, samples and evidence remain explicit unknown/N/A values; malformed and unknown slugs fail with 404 instead of fuzzy resolution.

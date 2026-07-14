@@ -39,6 +39,7 @@ export interface Dictionary {
   capabilityProfile: string;
   capabilityDescription: string;
   modelListHint: string;
+  viewModelDetails: string;
   evidenceTitle: string;
   evidenceBody: string;
   pipelineTitle: string;
@@ -96,6 +97,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     capabilityProfile: '八維能力剖面',
     capabilityDescription: '固定軸序與 0–100 絕對尺度；切換主題不改變幾何。',
     modelListHint: '選擇模型以更新雷達與指標',
+    viewModelDetails: '查看模型資料與證據',
     evidenceTitle: '證據先於排名',
     evidenceBody:
       '原始回應以 SHA-256 保存，通過欄位驗證、模型別名解析與人工審核後，才會進入正式分數。',
@@ -164,6 +166,7 @@ const dictionaries: Record<Locale, Dictionary> = {
     capabilityDescription:
       'Fixed axis order on an absolute 0–100 scale; themes never change geometry.',
     modelListHint: 'Choose a model to update the radar and metrics',
+    viewModelDetails: 'View model data and evidence',
     evidenceTitle: 'Evidence before rank',
     evidenceBody:
       'Raw responses are stored by SHA-256. Results enter formal scoring only after schema validation, model alias resolution, and review.',

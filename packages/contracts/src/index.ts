@@ -160,3 +160,95 @@ export const HealthResponseSchema = z.object({
   data: z.object({ status: z.literal('OK') }),
 });
 export type HealthResponse = z.infer<typeof HealthResponseSchema>;
+
+export const DetailSlugSchema = z
+  .string()
+  .min(1)
+  .max(120)
+  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/u);
+
+export const HttpUrlSchema = z.url().refine(
+  (value) => {
+    const protocol = new URL(value).protocol;
+    return protocol === 'https:' || protocol === 'http:';
+  },
+  { message: 'URL must use HTTP or HTTPS' },
+);
+
+export const ModelHistoryPointSchema = z.object({
+  editionDate: z.iso.date(),
+  publicationMode: PublicationModeSchema,
+  rank: z.int().positive().nullable(),
+  overallScore: z.number().min(0).max(100).nullable(),
+  rankingStatus: RankingStatusSchema,
+});
+
+export const ModelBenchmarkResultSchema = z.object({
+  benchmarkSlug: DetailSlugSchema,
+  benchmarkName: z.string().min(1),
+  benchmarkVersion: z.string().min(1),
+  metricSlug: DetailSlugSchema,
+  metricName: z.string().min(1),
+  value: z.number(),
+  unit: z.string().min(1),
+  sampleSize: z.int().nonnegative().nullable(),
+  qualityFlags: z.array(QualityFlagSchema),
+  evidence: z
+    .object({
+      sourceName: z.string().min(1),
+      sourceSnapshotId: z.uuidv7(),
+      contentSha256: Sha256Schema,
+      requestUrl: HttpUrlSchema,
+    })
+    .nullable(),
+});
+
+export const ModelDetailSchema = z.object({
+  slug: DetailSlugSchema,
+  displayName: z.string().min(1),
+  providerName: z.string().min(1),
+  providerUrl: HttpUrlSchema.nullable(),
+  familyName: z.string().min(1),
+  releaseDate: z.iso.date().nullable(),
+  lifecycleStatus: z.string().min(1),
+  contextWindowTokens: z.int().positive().nullable(),
+  parameterCountMillions: z.int().positive().nullable(),
+  isOpenWeights: z.boolean(),
+  activeRanking: RankingEntrySchema.nullable(),
+  history: z.array(ModelHistoryPointSchema),
+  benchmarkResults: z.array(ModelBenchmarkResultSchema),
+});
+export type ModelDetail = z.infer<typeof ModelDetailSchema>;
+
+export const BenchmarkMetricDetailSchema = z.object({
+  slug: DetailSlugSchema,
+  displayName: z.string().min(1),
+  unit: z.string().min(1),
+  higherIsBetter: z.boolean(),
+  theoreticalMin: z.number().nullable(),
+  theoreticalMax: z.number().nullable(),
+});
+
+export const BenchmarkLeaderboardRowSchema = z.object({
+  metricSlug: DetailSlugSchema,
+  modelSlug: DetailSlugSchema,
+  modelName: z.string().min(1),
+  providerName: z.string().min(1),
+  value: z.number(),
+  sampleSize: z.int().nonnegative().nullable(),
+  qualityFlags: z.array(QualityFlagSchema),
+});
+
+export const BenchmarkDetailSchema = z.object({
+  slug: DetailSlugSchema,
+  displayName: z.string().min(1),
+  description: z.string().nullable(),
+  homepageUrl: HttpUrlSchema.nullable(),
+  licenseSpdx: z.string().nullable(),
+  version: z.string().min(1),
+  releasedAt: z.iso.datetime().nullable(),
+  methodologyUrl: HttpUrlSchema.nullable(),
+  metrics: z.array(BenchmarkMetricDetailSchema),
+  leaderboard: z.array(BenchmarkLeaderboardRowSchema),
+});
+export type BenchmarkDetail = z.infer<typeof BenchmarkDetailSchema>;

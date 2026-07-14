@@ -4,10 +4,32 @@ import {
   ActiveEditionResponseSchema,
   ApiErrorResponseSchema,
   DataStatusResponseSchema,
+  DetailSlugSchema,
   DIMENSION_IDS,
   DimensionScoreSchema,
+  HttpUrlSchema,
   RankingSnapshotSchema,
 } from './index.js';
+
+describe('detail route contracts', () => {
+  it('accepts stable lowercase slugs used by model and benchmark routes', () => {
+    expect(DetailSlugSchema.parse('amazon-nova-lite-v1-0')).toBe(
+      'amazon-nova-lite-v1-0',
+    );
+  });
+
+  it('rejects path traversal and non-canonical route identifiers', () => {
+    expect(DetailSlugSchema.safeParse('../models').success).toBe(false);
+    expect(DetailSlugSchema.safeParse('LiveBench').success).toBe(false);
+  });
+
+  it('permits only HTTP(S) external links in detail DTOs', () => {
+    expect(HttpUrlSchema.parse('https://example.com/evidence')).toBe(
+      'https://example.com/evidence',
+    );
+    expect(HttpUrlSchema.safeParse('javascript:alert(1)').success).toBe(false);
+  });
+});
 
 const completeDimensions = [
   'reasoning',

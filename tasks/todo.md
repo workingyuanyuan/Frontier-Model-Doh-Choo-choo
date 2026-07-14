@@ -32,7 +32,7 @@
 - [x] Implement transactional edition publish and rollback.
 - [x] Add validated API contracts and DB snapshot repositories.
 - [x] Drive homepage and status endpoints from active DB data with preview fallback.
-- [ ] Add bilingual model and benchmark detail routes.
+- [x] Add bilingual model and benchmark detail routes.
 - [ ] Add shareable compare, methodology, sources and pipeline status routes.
 - [ ] Consolidate Web/video radar rendering behind shared contracts.
 - [ ] Add edition-bound video CLI, render logs and video job persistence.
