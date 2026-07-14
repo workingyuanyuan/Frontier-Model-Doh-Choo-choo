@@ -1,5 +1,8 @@
 import {
+  PublicationModeSchema,
   RankingSnapshotSchema,
+  Sha256Schema,
+  type PublicationMode,
   type RankingSnapshot,
 } from '@llm-bench/contracts';
 
@@ -10,6 +13,8 @@ export type LlmBenchVideoProps = {
   snapshot: RankingSnapshot;
   locale: VideoLocale;
   theme: VideoTheme;
+  publicationMode: PublicationMode;
+  snapshotContentSha256: string;
   selectedModelIndex: number;
 };
 
@@ -22,6 +27,12 @@ export function validateVideoProps(input: unknown): LlmBenchVideoProps {
   const snapshot = RankingSnapshotSchema.parse(candidate.snapshot);
   const locale = candidate.locale;
   const theme = candidate.theme;
+  const publicationMode = PublicationModeSchema.parse(
+    candidate.publicationMode,
+  );
+  const snapshotContentSha256 = Sha256Schema.parse(
+    candidate.snapshotContentSha256,
+  );
   const selectedModelIndex = candidate.selectedModelIndex;
 
   if (locale !== 'zh-TW' && locale !== 'en') {
@@ -44,6 +55,8 @@ export function validateVideoProps(input: unknown): LlmBenchVideoProps {
     snapshot,
     locale,
     theme,
+    publicationMode,
+    snapshotContentSha256,
     selectedModelIndex: selectedModelIndex as number,
   };
 }

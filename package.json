@@ -36,6 +36,7 @@
     "verify:livebench-aliases": "pnpm --filter @llm-bench/worker verify:livebench-aliases",
     "video:render": "pnpm --filter @llm-bench/video render",
     "video:artifacts": "pnpm --filter @llm-bench/video artifacts",
+    "video:edition": "pnpm --filter @llm-bench/video edition",
     "video:still": "pnpm --filter @llm-bench/video still",
     "video:studio": "pnpm --filter @llm-bench/video studio"
   },

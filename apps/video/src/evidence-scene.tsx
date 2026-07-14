@@ -15,9 +15,19 @@ import type { VideoThemeTokens } from './theme';
 export const EvidenceScene = ({
   copy,
   tokens,
+  isPreview,
+  snapshotSha256,
+  modelCount,
+  sourceCount,
+  editionDate,
 }: {
   copy: VideoCopy;
   tokens: VideoThemeTokens;
+  isPreview: boolean;
+  snapshotSha256: string;
+  modelCount: number;
+  sourceCount: number;
+  editionDate: string;
 }) => {
   const frame = useCurrentFrame();
   const duration = sceneDuration('evidence');
@@ -29,7 +39,12 @@ export const EvidenceScene = ({
 
   return (
     <SceneBase tokens={tokens} opacity={sceneOpacity(frame, duration)}>
-      <Header copy={copy} tokens={tokens} section={copy.evidence} />
+      <Header
+        copy={copy}
+        tokens={tokens}
+        section={copy.evidence}
+        editionLabel={editionDate}
+      />
       <div
         style={{
           position: 'absolute',
@@ -168,7 +183,7 @@ export const EvidenceScene = ({
                   fontSize: 19,
                 }}
               >
-                f42c1e18…1fac1f5
+                {snapshotSha256.slice(0, 8)}…{snapshotSha256.slice(-7)}
               </code>
             </div>
             <div
@@ -180,7 +195,7 @@ export const EvidenceScene = ({
               <span
                 style={{ color: tokens.muted, fontFamily: sans, fontSize: 16 }}
               >
-                {copy.staged}
+                {copy.models}
               </span>
               <strong
                 style={{
@@ -191,7 +206,7 @@ export const EvidenceScene = ({
                   fontSize: 38,
                 }}
               >
-                100
+                {modelCount}
               </strong>
             </div>
             <div
@@ -203,7 +218,7 @@ export const EvidenceScene = ({
               <span
                 style={{ color: tokens.muted, fontFamily: sans, fontSize: 16 }}
               >
-                {copy.published}
+                {copy.sources}
               </span>
               <strong
                 style={{
@@ -214,7 +229,7 @@ export const EvidenceScene = ({
                   fontSize: 38,
                 }}
               >
-                0
+                {sourceCount}
               </strong>
             </div>
           </div>
@@ -328,7 +343,7 @@ export const EvidenceScene = ({
                 fontSize: 18,
               }}
             >
-              {copy.disclaimer}
+              {isPreview ? copy.disclaimer : copy.formal}
             </span>
           </div>
         </Surface>

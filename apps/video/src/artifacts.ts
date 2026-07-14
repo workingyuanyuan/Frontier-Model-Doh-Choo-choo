@@ -1,6 +1,13 @@
 import { createHash } from 'node:crypto';
 
-import { DIMENSION_IDS, type RankingEntry } from '@llm-bench/contracts';
+import {
+  DIMENSION_IDS,
+  PublicationModeSchema,
+  Sha256Schema,
+  type PublicationMode,
+  type RankingEntry,
+} from '@llm-bench/contracts';
+import * as z from 'zod';
 
 import { validateVideoProps, type LlmBenchVideoProps } from './props';
 import {
@@ -13,10 +20,13 @@ import {
 const COMPOSITION_ID = 'LlmBenchWeekly';
 
 export interface VideoArtifactManifest {
-  readonly schemaVersion: 1;
+  readonly schemaVersion: 2;
   readonly compositionId: typeof COMPOSITION_ID;
+  readonly weeklyEditionId: string | null;
+  readonly publicationMode: PublicationMode;
   readonly snapshotId: string;
   readonly snapshotSha256: string;
+  readonly inputPropsSha256: string;
   readonly editionDate: string;
   readonly dataCutoffAt: string;
   readonly scoringMethodVersion: string;
@@ -24,11 +34,19 @@ export interface VideoArtifactManifest {
   readonly locale: LlmBenchVideoProps['locale'];
   readonly theme: LlmBenchVideoProps['theme'];
   readonly selectedModelId: string;
+  readonly topN: number;
   readonly isPreview: boolean;
   readonly width: number;
   readonly height: number;
   readonly fps: number;
   readonly durationInFrames: number;
+}
+
+export interface VideoArtifactContext {
+  readonly weeklyEditionId: string;
+  readonly publicationMode: PublicationMode;
+  readonly snapshotContentSha256: string;
+  readonly topN: number;
 }
 
 export interface VideoArtifactBundle {
@@ -61,19 +79,41 @@ function rankingRow(entry: RankingEntry): string {
 
 export function createVideoArtifactBundle(
   input: LlmBenchVideoProps,
+  context?: VideoArtifactContext,
 ): VideoArtifactBundle {
   const props = validateVideoProps(input);
-  const serializedSnapshot = JSON.stringify(props.snapshot);
+  const inputPropsSha256 = createHash('sha256')
+    .update(JSON.stringify(props))
+    .digest('hex');
+  const normalizedContext = context
+    ? {
+        weeklyEditionId: z.uuidv7().parse(context.weeklyEditionId),
+        publicationMode: PublicationModeSchema.parse(context.publicationMode),
+        snapshotContentSha256: Sha256Schema.parse(
+          context.snapshotContentSha256,
+        ),
+        topN: z.int().min(1).max(5).parse(context.topN),
+      }
+    : null;
+  if (
+    normalizedContext &&
+    (normalizedContext.publicationMode !== props.publicationMode ||
+      normalizedContext.snapshotContentSha256 !== props.snapshotContentSha256)
+  ) {
+    throw new Error('Video artifact context does not match validated props');
+  }
   const selected = props.snapshot.entries[props.selectedModelIndex];
   if (!selected) throw new Error('Selected model is missing from the snapshot');
 
   const manifest: VideoArtifactManifest = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     compositionId: COMPOSITION_ID,
+    weeklyEditionId: normalizedContext?.weeklyEditionId ?? null,
+    publicationMode: props.publicationMode,
     snapshotId: props.snapshot.id,
-    snapshotSha256: createHash('sha256')
-      .update(serializedSnapshot)
-      .digest('hex'),
+    snapshotSha256:
+      normalizedContext?.snapshotContentSha256 ?? props.snapshotContentSha256,
+    inputPropsSha256,
     editionDate: props.snapshot.editionDate,
     dataCutoffAt: props.snapshot.dataCutoffAt,
     scoringMethodVersion: props.snapshot.scoringMethodVersion,
@@ -81,7 +121,8 @@ export function createVideoArtifactBundle(
     locale: props.locale,
     theme: props.theme,
     selectedModelId: selected.modelVariantId,
-    isPreview: props.snapshot.scoringMethodVersion.startsWith('preview-'),
+    topN: normalizedContext?.topN ?? props.snapshot.entries.length,
+    isPreview: props.publicationMode === 'PREVIEW',
     width: VIDEO_WIDTH,
     height: VIDEO_HEIGHT,
     fps: VIDEO_FPS,

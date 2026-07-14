@@ -110,3 +110,6 @@ export const previewSnapshot = RankingSnapshotSchema.parse({
     },
   ],
 });
+
+export const previewSnapshotContentSha256 =
+  '9f7f1abb198a1eff14c8c55cfb9d35a13b703acbfb8779164703ec2416180fcf';

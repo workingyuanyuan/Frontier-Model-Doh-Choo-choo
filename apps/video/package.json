@@ -6,6 +6,7 @@
   "scripts": {
     "artifacts": "tsx src/write-artifacts.ts",
     "build": "tsc -p tsconfig.build.json",
+    "edition": "pnpm --filter @llm-bench/db build && tsx src/edition-render-cli.ts",
     "render": "remotion render src/index.ts LlmBenchWeekly ../../output/llm-bench-weekly.mp4",
     "still": "remotion still src/index.ts LlmBenchWeekly ../../artifacts/llm-bench-weekly.png --frame=240",
     "studio": "remotion studio src/index.ts",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@llm-bench/contracts": "workspace:*",
+    "@llm-bench/db": "workspace:*",
     "@llm-bench/presentation": "workspace:*",
     "@llm-bench/radar": "workspace:*",
     "react": "catalog:",

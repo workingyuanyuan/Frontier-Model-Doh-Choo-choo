@@ -45,6 +45,7 @@ allowlisted HTTPS source
 - Website reads through repositories/services; it does not parse external source data.
 - Video receives a serialized ranking snapshot contract and never maintains separate hand-authored scores.
 - Web comparison charts and Remotion scenes consume the same framework-neutral radar presentation contract. It validates one to five series, preserves null axes, fixes the scale at 0–100 and emits rings, axes, label positions, line/polygon geometry and equivalent table rows from one input. Animation progress is an input to that contract; reduced motion resolves directly to final geometry.
+- Edition video rendering resolves exactly one persisted edition or attached snapshot through the same validated ranking assembly as Web. The CLI bounds locale, theme, Top-N, selected canonical model and media type before writing props. Artifact directories include every presentation selector; metadata binds the database snapshot hash and serialized props hash. PREVIEW renders remain visibly labeled and never create `video_jobs`; FORMAL renders transition one job through `QUEUED → RUNNING → SUCCEEDED|FAILED`.
 
 ## Public interfaces
 

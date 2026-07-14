@@ -1,8 +1,7 @@
-import {
-  DIMENSION_IDS,
-  type DimensionId,
-  type RankingEntry,
-  type RankingSnapshot,
+import type {
+  DimensionId,
+  RankingEntry,
+  RankingSnapshot,
 } from '@llm-bench/contracts';
 import {
   AbsoluteFill,
@@ -16,8 +15,9 @@ import {
 
 import { getVideoCopy, type VideoCopy } from './copy';
 import { EvidenceScene } from './evidence-scene';
+import { formatVideoScore } from './format';
 import { validateVideoProps, type LlmBenchVideoProps } from './props';
-import { VideoRadar } from './radar';
+import { createFieldAverage, VideoRadar } from './radar';
 import {
   Brand,
   Header,
@@ -35,9 +35,13 @@ import { getVideoTheme, type VideoThemeTokens } from './theme';
 const IntroScene = ({
   copy,
   tokens,
+  isPreview,
+  editionDate,
 }: {
   copy: VideoCopy;
   tokens: VideoThemeTokens;
+  isPreview: boolean;
+  editionDate: string;
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -89,7 +93,7 @@ const IntroScene = ({
             }}
           />
           <span>{copy.eyebrow}</span>
-          <PreviewBadge copy={copy} tokens={tokens} />
+          {isPreview ? <PreviewBadge copy={copy} tokens={tokens} /> : null}
         </div>
         <h1
           style={{
@@ -149,7 +153,7 @@ const IntroScene = ({
             fontSize: 42,
           }}
         >
-          {copy.edition}
+          {editionDate}
         </strong>
         <span
           style={{
@@ -177,7 +181,7 @@ const IntroScene = ({
           fontSize: 19,
         }}
       >
-        {copy.disclaimer}
+        {isPreview ? copy.disclaimer : copy.formal}
       </div>
     </SceneBase>
   );
@@ -239,11 +243,15 @@ const ProfileScene = ({
   tokens,
   entry,
   fieldAverage,
+  isPreview,
+  editionDate,
 }: {
   copy: VideoCopy;
   tokens: VideoThemeTokens;
   entry: RankingEntry;
-  fieldAverage: Record<DimensionId, number>;
+  fieldAverage: Record<DimensionId, number | null>;
+  isPreview: boolean;
+  editionDate: string;
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -259,7 +267,12 @@ const ProfileScene = ({
 
   return (
     <SceneBase tokens={tokens} opacity={sceneOpacity(frame, duration)}>
-      <Header copy={copy} tokens={tokens} section={copy.profile} />
+      <Header
+        copy={copy}
+        tokens={tokens}
+        section={copy.profile}
+        editionLabel={editionDate}
+      />
       <Surface
         tokens={tokens}
         style={{
@@ -280,7 +293,8 @@ const ProfileScene = ({
             letterSpacing: 2,
           }}
         >
-          #{entry.rank} · {copy.preview}
+          {entry.rank === null ? 'N/A' : `#${entry.rank}`} ·{' '}
+          {isPreview ? copy.preview : copy.formal}
         </span>
         <h2
           style={{
@@ -304,11 +318,15 @@ const ProfileScene = ({
           }}
         >
           <strong style={{ fontFamily: serif, fontSize: 112, fontWeight: 500 }}>
-            {score.toFixed(1)}
+            {formatVideoScore(entry.overallScore === null ? null : score)}
           </strong>
-          <span style={{ color: tokens.muted, fontFamily: sans, fontSize: 21 }}>
-            / 100
-          </span>
+          {entry.overallScore !== null ? (
+            <span
+              style={{ color: tokens.muted, fontFamily: sans, fontSize: 21 }}
+            >
+              / 100
+            </span>
+          ) : null}
         </div>
         <Metric
           label={copy.coverage}
@@ -321,13 +339,7 @@ const ProfileScene = ({
           suffix="/ 100"
           tokens={tokens}
         />
-        <Metric
-          label={copy.weeklyChange}
-          value="+2.1"
-          suffix="pts"
-          tokens={tokens}
-          accent
-        />
+        <Metric label={copy.weeklyChange} value="N/A" tokens={tokens} />
       </Surface>
 
       <Surface
@@ -412,11 +424,15 @@ const RankingScene = ({
   tokens,
   snapshot,
   selected,
+  isPreview,
+  editionDate,
 }: {
   copy: VideoCopy;
   tokens: VideoThemeTokens;
   snapshot: RankingSnapshot;
   selected: RankingEntry;
+  isPreview: boolean;
+  editionDate: string;
 }) => {
   const frame = useCurrentFrame();
   const duration = sceneDuration('ranking');
@@ -428,7 +444,12 @@ const RankingScene = ({
 
   return (
     <SceneBase tokens={tokens} opacity={sceneOpacity(frame, duration)}>
-      <Header copy={copy} tokens={tokens} section={copy.ranking} />
+      <Header
+        copy={copy}
+        tokens={tokens}
+        section={copy.ranking}
+        editionLabel={editionDate}
+      />
       <div
         style={{
           position: 'absolute',
@@ -515,7 +536,7 @@ const RankingScene = ({
                   <strong
                     style={{ fontFamily: serif, fontSize: 43, fontWeight: 500 }}
                   >
-                    {entry.overallScore?.toFixed(1)}
+                    {formatVideoScore(entry.overallScore)}
                   </strong>
                 </div>
               );
@@ -586,7 +607,7 @@ const RankingScene = ({
                         fontSize: 25,
                       }}
                     >
-                      {score ?? 'N/A'}
+                      {formatVideoScore(score)}
                     </strong>
                   </div>
                   <div
@@ -621,11 +642,11 @@ const RankingScene = ({
               fontFamily: sans,
             }}
           >
-            <PreviewBadge copy={copy} tokens={tokens} />
+            {isPreview ? <PreviewBadge copy={copy} tokens={tokens} /> : null}
             <span
               style={{ alignSelf: 'center', color: tokens.muted, fontSize: 17 }}
             >
-              {copy.disclaimer}
+              {isPreview ? copy.disclaimer : copy.formal}
             </span>
           </div>
         </Surface>
@@ -641,20 +662,8 @@ export const LlmBenchWeeklyVideo = (inputProps: LlmBenchVideoProps) => {
   const selected = props.snapshot.entries[props.selectedModelIndex];
   if (!selected) throw new Error('Selected model is missing from the snapshot');
 
-  const fieldAverage = Object.fromEntries(
-    DIMENSION_IDS.map((dimension) => {
-      const scores = props.snapshot.entries.flatMap((entry) => {
-        const score = entry.dimensions.find(
-          (item) => item.dimension === dimension,
-        )?.score;
-        return score === null || score === undefined ? [] : [score];
-      });
-      return [
-        dimension,
-        scores.reduce((sum, score) => sum + score, 0) / scores.length,
-      ];
-    }),
-  ) as Record<DimensionId, number>;
+  const fieldAverage = createFieldAverage(props.snapshot.entries);
+  const isPreview = props.publicationMode === 'PREVIEW';
 
   return (
     <AbsoluteFill style={{ background: tokens.canvas }}>
@@ -666,7 +675,12 @@ export const LlmBenchWeeklyVideo = (inputProps: LlmBenchVideoProps) => {
           durationInFrames={scene.to - scene.from + 1}
         >
           {scene.id === 'intro' ? (
-            <IntroScene copy={copy} tokens={tokens} />
+            <IntroScene
+              copy={copy}
+              tokens={tokens}
+              isPreview={isPreview}
+              editionDate={props.snapshot.editionDate}
+            />
           ) : null}
           {scene.id === 'profile' ? (
             <ProfileScene
@@ -674,6 +688,8 @@ export const LlmBenchWeeklyVideo = (inputProps: LlmBenchVideoProps) => {
               tokens={tokens}
               entry={selected}
               fieldAverage={fieldAverage}
+              isPreview={isPreview}
+              editionDate={props.snapshot.editionDate}
             />
           ) : null}
           {scene.id === 'ranking' ? (
@@ -682,10 +698,20 @@ export const LlmBenchWeeklyVideo = (inputProps: LlmBenchVideoProps) => {
               tokens={tokens}
               snapshot={props.snapshot}
               selected={selected}
+              isPreview={isPreview}
+              editionDate={props.snapshot.editionDate}
             />
           ) : null}
           {scene.id === 'evidence' ? (
-            <EvidenceScene copy={copy} tokens={tokens} />
+            <EvidenceScene
+              copy={copy}
+              tokens={tokens}
+              isPreview={isPreview}
+              snapshotSha256={props.snapshotContentSha256}
+              modelCount={props.snapshot.entries.length}
+              sourceCount={props.snapshot.sourceSnapshotIds.length}
+              editionDate={props.snapshot.editionDate}
+            />
           ) : null}
         </Sequence>
       ))}

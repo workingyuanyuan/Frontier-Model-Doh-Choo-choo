@@ -1,16 +1,42 @@
-import type { DimensionId, RankingEntry } from '@llm-bench/contracts';
+import {
+  DIMENSION_IDS,
+  type DimensionId,
+  type RankingEntry,
+} from '@llm-bench/contracts';
 import { createRadarPresentation } from '@llm-bench/radar';
 
 import type { VideoCopy } from './copy';
+import { formatVideoScore } from './format';
 import type { VideoThemeTokens } from './theme';
 
 type VideoRadarProps = {
   entry: RankingEntry;
-  fieldAverage: Record<DimensionId, number>;
+  fieldAverage: Record<DimensionId, number | null>;
   progress: number;
   copy: VideoCopy;
   tokens: VideoThemeTokens;
 };
+
+export function createFieldAverage(
+  entries: readonly RankingEntry[],
+): Record<DimensionId, number | null> {
+  return Object.fromEntries(
+    DIMENSION_IDS.map((dimension) => {
+      const scores = entries.flatMap((entry) => {
+        const score = entry.dimensions.find(
+          (item) => item.dimension === dimension,
+        )?.score;
+        return score === null || score === undefined ? [] : [score];
+      });
+      return [
+        dimension,
+        scores.length === 0
+          ? null
+          : scores.reduce((sum, score) => sum + score, 0) / scores.length,
+      ];
+    }),
+  ) as Record<DimensionId, number | null>;
+}
 
 export const VideoRadar = ({
   entry,
@@ -73,6 +99,18 @@ export const VideoRadar = ({
           strokeDasharray="12 10"
         />
       ) : null}
+      {!average.fillPath
+        ? average.linePaths.map((path) => (
+            <path
+              key={path}
+              d={path}
+              fill="none"
+              stroke={tokens.comparison}
+              strokeDasharray="12 10"
+              strokeWidth={4}
+            />
+          ))
+        : null}
       {chart.fillPath ? (
         <path d={chart.fillPath} fill={tokens.accent} fillOpacity={0.27} />
       ) : null}
@@ -126,7 +164,7 @@ export const VideoRadar = ({
               fontSize={28}
               fontWeight={700}
             >
-              {score ?? 'N/A'}
+              {formatVideoScore(score)}
             </tspan>
           </text>
         );

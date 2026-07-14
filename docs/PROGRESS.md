@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 7 — shared radar presentation complete; building the edition-bound video pipeline.
+Phase 7 — edition-bound video pipeline complete; rendering and inspecting the deterministic full video.
 
 ## Completed
 
@@ -27,7 +27,7 @@ Phase 7 — shared radar presentation complete; building the edition-bound video
 
 ## In Progress
 
-- Edition-bound video CLI, artifact render log and persisted video job lifecycle.
+- Complete deterministic edition-bound MP4 render and cross-scene inspection.
 
 ## Decisions Made
 
@@ -114,6 +114,8 @@ Phase 7 — shared radar presentation complete; building the edition-bound video
 - Added a bilingual two-to-five-model comparison route whose ordered selection is encoded as repeated canonical URL parameters. Production Chrome verified real active-snapshot cards, eight-axis N/A/status values, a third-model interaction, locale-preserving share state, mobile containment and clean console/network behavior; unit boundaries reject missing, duplicate, unknown and excessive model IDs.
 - Added bilingual methodology, source registry and pipeline status routes. Methodology exposes six reviewed principles and the seven-stage evidence flow; source/pipeline repositories validate live PostgreSQL summaries. Production Chrome verified 46 raw snapshots, the latest 60,372-row successful LiveBench run, 64,972 staged rows, 737 published results, two ranking snapshots, two editions and the active 152-model PREVIEW pointer, plus fail-closed retry UI when PostgreSQL is unavailable.
 - Consolidated Web and Remotion radar rendering behind one validated presentation contract. Ten package tests cover multi-model output, null and extreme values, reduced motion, animation progress and selection bounds; the real three-model comparison exposes the same eight-axis values through an accessible table and renders without horizontal overflow or browser errors.
+- Added an edition-bound video CLI with strict UUID selector, locale, all-light theme, Top-N, canonical model and poster/video validation. Artifact-v2 metadata records both the database snapshot and serialized-props hashes; isolated outputs include props, RFC 4180 CSV, media and a structured render log. PREVIEW output is visibly labeled and creates no job, while a rollback integration test proves FORMAL `QUEUED → RUNNING → SUCCEEDED` persistence and preview rejection.
+- Rendered the real 2026-07-13 PREVIEW Top-5 poster twice through edition and snapshot selectors with identical SHA-256 `a0bc69935eadd21906e9fcaf13fa5705f9643bc7fc72abe6e7b8fe3a1d4ccfb2`. Visual review caught and fixed null-as-zero, unrounded floating labels, fixed edition text, all-null field-average NaN and selected-model output collisions.
 
 ## Data Sources Status
 
@@ -129,7 +131,7 @@ Phase 7 — shared radar presentation complete; building the edition-bound video
 
 ## Next Actions
 
-- Bind video input and artifacts to a persisted edition/snapshot, locale, theme and Top-N selection with a structured render log and video job lifecycle.
+- Render the complete 600-frame edition-bound PREVIEW MP4, inspect all four scenes and verify deterministic media/hash/log output.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.

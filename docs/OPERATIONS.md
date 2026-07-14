@@ -81,7 +81,17 @@ pnpm test:run
 pnpm build
 pnpm video:still
 pnpm video:artifacts
+pnpm video:edition -- --edition <uuidv7> --locale zh-TW --theme editorial --top 5 --model <canonical-slug> --media poster
 ```
+
+`video:edition` accepts exactly one of `--edition` or `--snapshot`. Locale is
+`zh-TW` or `en`, theme is `editorial` or `studio`, Top-N is 1–5 and media is
+`poster` or `video`. `--model` is optional and must resolve within Top-N; the
+first entry is selected when omitted. Remotion receives an on-disk JSON props
+file through a shell-free process invocation. Outputs are isolated under
+`output/video/` and include props, artifact-v2 metadata, ranking CSV, media and
+a structured render log. PREVIEW renders never insert `video_jobs`; FORMAL
+renders persist the guarded job lifecycle and output SHA-256.
 
 Set `LIVEBENCH_INGESTION_RUN_ID` to a UUIDv7 before running the alias review,
 resolution or persistence-verification commands. Review reads the run and

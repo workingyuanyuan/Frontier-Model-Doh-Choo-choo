@@ -1,7 +1,10 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-import { previewSnapshot } from '@llm-bench/presentation';
+import {
+  previewSnapshot,
+  previewSnapshotContentSha256,
+} from '@llm-bench/presentation';
 
 import { createVideoArtifactBundle } from './artifacts';
 
@@ -10,6 +13,8 @@ const bundle = createVideoArtifactBundle({
   snapshot: previewSnapshot,
   locale: 'zh-TW',
   theme: 'editorial',
+  publicationMode: 'PREVIEW',
+  snapshotContentSha256: previewSnapshotContentSha256,
   selectedModelIndex: 0,
 });
 

@@ -1,4 +1,7 @@
-import { previewSnapshot } from '@llm-bench/presentation';
+import {
+  previewSnapshot,
+  previewSnapshotContentSha256,
+} from '@llm-bench/presentation';
 import { Composition } from 'remotion';
 
 import { LlmBenchWeeklyVideo } from './composition';
@@ -14,6 +17,8 @@ const defaultProps: LlmBenchVideoProps = {
   snapshot: previewSnapshot,
   locale: 'zh-TW',
   theme: 'editorial',
+  publicationMode: 'PREVIEW',
+  snapshotContentSha256: previewSnapshotContentSha256,
   selectedModelIndex: 0,
 };
 

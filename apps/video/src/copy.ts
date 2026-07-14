@@ -8,6 +8,7 @@ export type VideoCopy = {
   title: string;
   subtitle: string;
   preview: string;
+  formal: string;
   disclaimer: string;
   edition: string;
   profile: string;
@@ -23,6 +24,8 @@ export type VideoCopy = {
   pipeline: readonly string[];
   staged: string;
   published: string;
+  models: string;
+  sources: string;
   missingTitle: string;
   missingBody: string;
   outro: string;
@@ -36,6 +39,7 @@ const copy: Record<VideoLocale, VideoCopy> = {
     title: '看懂模型實力，\n不只看一個總分。',
     subtitle: '八維能力 · 覆蓋率 · 可追溯證據',
     preview: '設計預覽資料',
+    formal: '正式發布資料',
     disclaimer: '介面測試資料，不是 LiveBench 正式結果',
     edition: '2026 第 28 週',
     profile: '八維能力剖面',
@@ -51,6 +55,8 @@ const copy: Record<VideoLocale, VideoCopy> = {
     pipeline: ['官方來源', '不可變快照', '欄位驗證', '待模型解析'],
     staged: '已驗證暫存',
     published: '正式發布',
+    models: '模型數',
+    sources: '來源快照',
     missingTitle: '缺資料，不補零',
     missingBody: '缺失維度顯示 N/A 並斷開雷達線段。',
     outro: '方法透明 · 來源可追溯',
@@ -71,6 +77,7 @@ const copy: Record<VideoLocale, VideoCopy> = {
     title: 'See model capability,\nnot just one score.',
     subtitle: 'Eight capabilities · Coverage · Traceable evidence',
     preview: 'Design preview data',
+    formal: 'Formal published data',
     disclaimer: 'Interface test data — not official LiveBench results',
     edition: 'Week 28 · 2026',
     profile: 'Eight-axis capability profile',
@@ -92,6 +99,8 @@ const copy: Record<VideoLocale, VideoCopy> = {
     ],
     staged: 'Validated staged',
     published: 'Formally published',
+    models: 'Models',
+    sources: 'Source snapshots',
     missingTitle: 'Missing is never zero',
     missingBody: 'Missing axes show N/A and break the radar path.',
     outro: 'Transparent methods · Traceable sources',

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { RankingSnapshotSchema } from '@llm-bench/contracts';
 
-import { previewSnapshot } from './index.js';
+import { previewSnapshot, previewSnapshotContentSha256 } from './index.js';
 
 describe('shared presentation snapshot', () => {
   it('is valid and explicitly provisional', () => {
@@ -17,4 +17,13 @@ describe('shared presentation snapshot', () => {
     ).toBe(true);
     expect(previewSnapshot.scoringMethodVersion).toMatch(/^preview-/u);
   });
+
+  it('keeps the exported preview content hash synchronized', () => {
+    expect(
+      createHash('sha256')
+        .update(JSON.stringify(previewSnapshot))
+        .digest('hex'),
+    ).toBe(previewSnapshotContentSha256);
+  });
 });
+import { createHash } from 'node:crypto';

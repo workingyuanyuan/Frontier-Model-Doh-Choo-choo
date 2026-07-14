@@ -92,10 +92,12 @@ export const Header = ({
   copy,
   tokens,
   section,
+  editionLabel,
 }: {
   copy: VideoCopy;
   tokens: VideoThemeTokens;
   section: string;
+  editionLabel: string;
 }) => (
   <div
     style={{
@@ -128,7 +130,7 @@ export const Header = ({
           background: tokens.positive,
         }}
       />
-      <span>{copy.edition}</span>
+      <span>{editionLabel}</span>
     </div>
   </div>
 );
