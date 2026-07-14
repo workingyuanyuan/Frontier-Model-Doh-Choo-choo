@@ -117,7 +117,12 @@ describe.runIf(runDatabaseTests)(
         } catch (error) {
           rollbackError = error;
         }
-        expect(reachedRollback).toBe(true);
+        expect(
+          reachedRollback,
+          rollbackError instanceof Error
+            ? `Edition fixture failed before rollback: ${rollbackError.message}`
+            : 'Edition fixture failed before rollback without an Error object',
+        ).toBe(true);
         expect(rollbackError).toBeInstanceOf(Error);
       } finally {
         await pool.end();
