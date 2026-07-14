@@ -269,7 +269,7 @@ drill.
 
 ### Checkpoint: Data vertical slice
 
-- [ ] A real LiveBench row traces raw → staged → published result → evidence.
+- [x] A real LiveBench row traces raw → staged → published result → evidence.
 - [ ] Scoring and snapshot generation preserve nulls and blockers.
 - [ ] Publish/rollback is repeatable and leaves an immutable audit trail.
 

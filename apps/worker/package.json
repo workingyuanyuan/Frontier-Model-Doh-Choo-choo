@@ -7,6 +7,7 @@
     "build": "tsc -p tsconfig.build.json",
     "fetch:livebench-inventory": "tsx src/question-inventory-cli.ts",
     "fetch:livebench-judgments": "tsx src/judgment-evidence-cli.ts",
+    "promote:livebench-results": "tsx src/promotion-cli.ts",
     "report:livebench-aggregation": "tsx src/aggregation-report-cli.ts",
     "ingest:livebench": "tsx src/cli.ts",
     "ingest:livebench:all": "tsx src/full-cli.ts",

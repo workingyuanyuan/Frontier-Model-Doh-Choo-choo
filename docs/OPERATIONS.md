@@ -50,6 +50,7 @@ pnpm sync:livebench-aliases
 pnpm resolve:livebench-aliases
 pnpm verify:livebench-aliases
 pnpm report:livebench-aggregation -- --summary-only
+pnpm promote:livebench-results
 pnpm test:run
 pnpm build
 pnpm video:still
@@ -97,3 +98,15 @@ Two verified runs produced the same 3,018-byte manifest at SHA-256
 `c80ea84bba3be46ac2a9c6bf5203422a76f5ab0181f0a04c908c0e942125dda5`
 and reported 800/1,000 covered observations. This command measures evidence
 availability only; it does not stage rows, select among conflicts or publish.
+
+`promote:livebench-results` requires `LIVEBENCH_INGESTION_RUN_ID` and defaults
+to a serializable, read-only dry run. It accepts only the exact full-Parquet,
+alias-resolved run and pinned question inventory used by the readiness report.
+Use `pnpm promote:livebench-results -- --apply` to insert complete,
+conflict-free task aggregates and their primary evidence in one transaction.
+The first verified apply promoted 737 task results across 152 models and six
+currently supported task metrics; 2,014 incomplete and 39 conflicting task
+aggregates remained blocked. Repeating the same apply inserted zero rows, and a
+subsequent dry run reported all 737 as existing. This command publishes
+reviewed benchmark results only; it does not create scores, a ranking snapshot
+or a weekly edition.

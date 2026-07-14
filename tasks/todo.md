@@ -27,7 +27,7 @@
 - [x] Document the 64 same-raw and 137 alias-merge-only conflict split.
 - [x] Commit, push and verify GitHub CI after the completed Phase 4 gate.
 - [x] Seed versioned LiveBench benchmark, metric, config and dimension mappings.
-- [ ] Promote only complete conflict-free real task aggregates with evidence.
+- [x] Promote only complete conflict-free real task aggregates with evidence.
 - [ ] Persist null-safe scores and an immutable real/preview snapshot boundary.
 - [ ] Implement transactional edition publish and rollback.
 - [ ] Add validated API contracts and DB snapshot repositories.

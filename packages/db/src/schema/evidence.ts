@@ -201,6 +201,7 @@ export const benchmarkResults = pgTable(
   'benchmark_results',
   {
     id: id(),
+    publicationKey: text('publication_key').notNull(),
     modelVariantId: uuid('model_variant_id')
       .notNull()
       .references(() => modelVariants.id, { onDelete: 'restrict' }),
@@ -221,6 +222,9 @@ export const benchmarkResults = pgTable(
     createdAt: createdAt(),
   },
   (table) => [
+    uniqueIndex('benchmark_results_publication_key_uidx').on(
+      table.publicationKey,
+    ),
     index('benchmark_results_variant_metric_idx').on(
       table.modelVariantId,
       table.benchmarkMetricId,

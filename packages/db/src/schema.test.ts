@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { getTableColumns } from 'drizzle-orm';
 
-import { schemaTables } from './index.js';
+import { benchmarkResults, schemaTables } from './index.js';
 
 describe('database schema', () => {
   it('contains every core entity required by the product spec', () => {
@@ -33,5 +34,11 @@ describe('database schema', () => {
       'review_events',
       'audit_logs',
     ]);
+  });
+
+  it('gives promoted benchmark results a deterministic idempotency key', () => {
+    const columns = getTableColumns(benchmarkResults);
+
+    expect(Object.keys(columns)).toContain('publicationKey');
   });
 });

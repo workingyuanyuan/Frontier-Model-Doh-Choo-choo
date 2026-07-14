@@ -1,4 +1,5 @@
 export * from './schema/index.js';
+export * from './seed-data.js';
 export { createDatabase, type Database } from './client.js';
 export { getDatabaseUrl } from './database-url.js';
 
