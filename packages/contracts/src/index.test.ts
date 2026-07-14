@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   ActiveEditionResponseSchema,
   ApiErrorResponseSchema,
+  ComparisonSelectionSchema,
   DataStatusResponseSchema,
   DetailSlugSchema,
   DIMENSION_IDS,
@@ -28,6 +29,19 @@ describe('detail route contracts', () => {
       'https://example.com/evidence',
     );
     expect(HttpUrlSchema.safeParse('javascript:alert(1)').success).toBe(false);
+  });
+
+  it('accepts two to five unique canonical comparison IDs', () => {
+    expect(
+      ComparisonSelectionSchema.parse(['model-a', 'model-b', 'model-c']),
+    ).toEqual(['model-a', 'model-b', 'model-c']);
+    expect(
+      ComparisonSelectionSchema.safeParse(['model-a', 'model-a']).success,
+    ).toBe(false);
+    expect(
+      ComparisonSelectionSchema.safeParse(['a', 'b', 'c', 'd', 'e', 'f'])
+        .success,
+    ).toBe(false);
   });
 });
 

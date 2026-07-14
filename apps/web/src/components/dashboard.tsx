@@ -83,7 +83,7 @@ export function Dashboard({
 
         <nav className="primaryNav" aria-label="Primary navigation">
           <a href="#rankings">{dictionary.nav.rankings}</a>
-          <a href="#compare">{dictionary.nav.compare}</a>
+          <Link href={`/${locale}/compare`}>{dictionary.nav.compare}</Link>
           <a href="#methodology">{dictionary.nav.methodology}</a>
         </nav>
 

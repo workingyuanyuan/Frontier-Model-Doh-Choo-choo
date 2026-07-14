@@ -175,6 +175,20 @@ export const HttpUrlSchema = z.url().refine(
   { message: 'URL must use HTTP or HTTPS' },
 );
 
+export const ComparisonSelectionSchema = z
+  .array(DetailSlugSchema)
+  .min(2)
+  .max(5)
+  .superRefine((slugs, context) => {
+    if (new Set(slugs).size !== slugs.length) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Comparison model slugs must be unique',
+      });
+    }
+  });
+export type ComparisonSelection = z.infer<typeof ComparisonSelectionSchema>;
+
 export const ModelHistoryPointSchema = z.object({
   editionDate: z.iso.date(),
   publicationMode: PublicationModeSchema,

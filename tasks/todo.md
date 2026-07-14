@@ -33,7 +33,8 @@
 - [x] Add validated API contracts and DB snapshot repositories.
 - [x] Drive homepage and status endpoints from active DB data with preview fallback.
 - [x] Add bilingual model and benchmark detail routes.
-- [ ] Add shareable compare, methodology, sources and pipeline status routes.
+- [x] Add shareable 2–5 model comparison with strict URL selection bounds.
+- [ ] Add bilingual methodology, sources and pipeline status routes.
 - [ ] Consolidate Web/video radar rendering behind shared contracts.
 - [ ] Add edition-bound video CLI, render logs and video job persistence.
 - [ ] Render and inspect the complete deterministic demo video.

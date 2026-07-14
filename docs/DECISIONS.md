@@ -67,3 +67,7 @@ The fictional Web preview is a deliberate fallback only when the database query 
 ## DEC-017 — Detail URLs use canonical slugs and expose evidence without reinterpretation
 
 Model and benchmark detail pages bind stable lowercase route slugs to canonical database identities and validate assembled DTOs before rendering. Model history follows immutable edition records, task results retain source values and units, and the primary evidence link exposes its source snapshot hash rather than inventing a UI provenance label. Benchmark leaderboards respect each metric's higher/lower direction and use canonical model slug as the final deterministic tie-breaker. Missing identity facts, scores, samples and evidence remain explicit unknown/N/A values; malformed and unknown slugs fail with 404 instead of fuzzy resolution.
+
+## DEC-018 — Comparison state is ordered, bounded and URL-owned
+
+The comparison URL stores two to five repeated canonical `models` query parameters in display order. A shared Zod boundary rejects malformed, duplicate and excessive selections before rendering; resolution against the current snapshot rejects unknown IDs rather than silently dropping or substituting them. Locale changes preserve the ordered query. The comparison table reuses the snapshot's fixed eight-axis order, values, status and quality flags, so null scores stay N/A and the share link cannot alter scoring semantics.
