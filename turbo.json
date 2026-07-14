@@ -18,7 +18,7 @@
     },
     "test:run": {
       "dependsOn": ["^build"],
-      "env": ["RUN_DB_INTEGRATION_TESTS"]
+      "env": ["DATABASE_URL", "RUN_DB_INTEGRATION_TESTS"]
     },
     "typecheck": {
       "dependsOn": ["^build"]
