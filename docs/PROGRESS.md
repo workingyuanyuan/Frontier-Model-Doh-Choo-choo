@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 7 — edition-bound video pipeline complete; rendering and inspecting the deterministic full video.
+Phase 8 — weekly orchestration, final quality gates and clean-environment acceptance.
 
 ## Completed
 
@@ -24,10 +24,11 @@ Phase 7 — edition-bound video pipeline complete; rendering and inspecting the 
 - Extracted the fictional, clearly labeled preview snapshot into a shared presentation package consumed by both Web and video.
 - Built a bilingual four-scene Remotion composition at 1920×1080, 30 fps and 600 frames with validated snapshot, locale, theme and selected-model props.
 - Rendered and visually inspected four representative stills, then completed a 20-second H.264 MP4 render with Remotion's managed media toolchain.
+- Completed the edition-bound 600-frame PREVIEW video acceptance render, fixed null-rank, cutoff-time and Top-5 layout defects, and reproduced the final MP4 byte-for-byte across three renders.
 
 ## In Progress
 
-- Complete deterministic edition-bound MP4 render and cross-scene inspection.
+- Implement idempotent weekly dry-run orchestration and complete final release acceptance.
 
 ## Decisions Made
 
@@ -116,6 +117,7 @@ Phase 7 — edition-bound video pipeline complete; rendering and inspecting the 
 - Consolidated Web and Remotion radar rendering behind one validated presentation contract. Ten package tests cover multi-model output, null and extreme values, reduced motion, animation progress and selection bounds; the real three-model comparison exposes the same eight-axis values through an accessible table and renders without horizontal overflow or browser errors.
 - Added an edition-bound video CLI with strict UUID selector, locale, all-light theme, Top-N, canonical model and poster/video validation. Artifact-v2 metadata records both the database snapshot and serialized-props hashes; isolated outputs include props, RFC 4180 CSV, media and a structured render log. PREVIEW output is visibly labeled and creates no job, while a rollback integration test proves FORMAL `QUEUED → RUNNING → SUCCEEDED` persistence and preview rejection.
 - Rendered the real 2026-07-13 PREVIEW Top-5 poster twice through edition and snapshot selectors with identical SHA-256 `a0bc69935eadd21906e9fcaf13fa5705f9643bc7fc72abe6e7b8fe3a1d4ccfb2`. Visual review caught and fixed null-as-zero, unrounded floating labels, fixed edition text, all-null field-average NaN and selected-model output collisions.
+- Rendered the corresponding 600-frame edition-bound H.264 MP4 three times with identical SHA-256 `6cb81af1f1d7fa9d54fbf2887d76bf7f36cc0b89d8383b946400c3ff4f2db1e6`. Chrome decoded it at 1920×1080 and 20.053333 seconds, sought across the final ranking scene, loaded the local media request with HTTP-style status 200 and reported no console warnings or errors. Visual acceptance confirmed the real UTC cutoff, `N/A` null ranks and five fully visible ranking rows.
 
 ## Data Sources Status
 
@@ -131,10 +133,9 @@ Phase 7 — edition-bound video pipeline complete; rendering and inspecting the 
 
 ## Next Actions
 
-- Render the complete 600-frame edition-bound PREVIEW MP4, inspect all four scenes and verify deterministic media/hash/log output.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Keep the fictional `preview-ui-v1` fixture isolated from data-backed snapshots and reject it at the formal publication guard.
 - Connect the deterministic artifact manifest to future published-edition video job records.
-- Add weekly dry-run orchestration around the completed guarded publish/rollback primitives.
+- Add weekly dry-run orchestration around the completed guarded publish/rollback primitives, then run the final browser, accessibility, performance, security and clean-environment acceptance gates.

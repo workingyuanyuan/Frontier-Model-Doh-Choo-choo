@@ -15,7 +15,11 @@ import {
 
 import { getVideoCopy, type VideoCopy } from './copy';
 import { EvidenceScene } from './evidence-scene';
-import { formatVideoScore } from './format';
+import {
+  formatVideoRank,
+  formatVideoScore,
+  formatVideoTimestamp,
+} from './format';
 import { validateVideoProps, type LlmBenchVideoProps } from './props';
 import { createFieldAverage, VideoRadar } from './radar';
 import {
@@ -37,11 +41,13 @@ const IntroScene = ({
   tokens,
   isPreview,
   editionDate,
+  dataCutoffAt,
 }: {
   copy: VideoCopy;
   tokens: VideoThemeTokens;
   isPreview: boolean;
   editionDate: string;
+  dataCutoffAt: string;
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -164,7 +170,7 @@ const IntroScene = ({
             fontSize: 18,
           }}
         >
-          2026.07.11 · 20:30
+          {formatVideoTimestamp(dataCutoffAt)}
         </span>
       </Surface>
 
@@ -471,7 +477,7 @@ const RankingScene = ({
               marginTop: 28,
               display: 'flex',
               flexDirection: 'column',
-              gap: 14,
+              gap: 10,
             }}
           >
             {snapshot.entries.map((entry, index) => {
@@ -488,8 +494,8 @@ const RankingScene = ({
                 <div
                   key={entry.modelVariantId}
                   style={{
-                    minHeight: 137,
-                    padding: '26px 28px',
+                    minHeight: 112,
+                    padding: '18px 24px',
                     display: 'grid',
                     gridTemplateColumns: '62px 1fr auto',
                     alignItems: 'center',
@@ -509,7 +515,7 @@ const RankingScene = ({
                       fontSize: 28,
                     }}
                   >
-                    {String(entry.rank).padStart(2, '0')}
+                    {formatVideoRank(entry.rank)}
                   </span>
                   <span>
                     <strong
@@ -680,6 +686,7 @@ export const LlmBenchWeeklyVideo = (inputProps: LlmBenchVideoProps) => {
               tokens={tokens}
               isPreview={isPreview}
               editionDate={props.snapshot.editionDate}
+              dataCutoffAt={props.snapshot.dataCutoffAt}
             />
           ) : null}
           {scene.id === 'profile' ? (
