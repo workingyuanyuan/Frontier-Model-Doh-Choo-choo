@@ -170,7 +170,7 @@ Verified revision history:
       content-addressed evidence.
 - [x] Complete five-axis and security review.
 - [x] Run the complete local CI-equivalent quality gate.
-- [ ] Commit, push and wait for GitHub Actions CI.
+- [x] Commit, push and wait for GitHub Actions CI.
 
 ## Acceptance Criteria
 
@@ -198,3 +198,167 @@ Verified revision history:
   coverage to 800/1,000 but cannot supply the remaining 200 observations.
 - The 201 conflicting judgment keys still require an official run/version key
   or another source-backed selection rule. Until then they remain blocked.
+
+## Project Completion Roadmap
+
+The remaining work follows the product prompt's local-delivery boundary. A
+formal verified edition stays gated by source evidence; the complete product
+may ship with an explicitly labelled preview edition while real LiveBench rows
+continue through every safe layer that their coverage supports.
+
+### Phase 5: Database-backed publication slice
+
+#### Task 5.1 — Versioned LiveBench benchmark configuration
+
+**Acceptance criteria:**
+
+- Seed the public `2024-11-25` benchmark/version/metric/config and primary
+  dimension mappings with documented fixed normalization anchors.
+- Re-running seed is idempotent and never changes generated identities.
+- Mapping rationale and missing Knowledge/Agentic/Context coverage are explicit.
+
+**Verification:** focused seed/schema tests, two consecutive seeds, migration,
+type-check and build.
+
+**Dependencies:** Phase 4 evidence. **Estimated scope:** M (3–5 files).
+
+#### Task 5.2 — Conflict-safe result promotion
+
+**Acceptance criteria:**
+
+- Promote only complete, conflict-free task aggregates from one immutable
+  resolved ingestion run into benchmark results plus row-level evidence.
+- Incomplete/conflicting aggregates remain staged and the command is
+  transactionally idempotent.
+- A dry run reports the exact insert/skip/block counts without writing.
+
+**Verification:** RED/GREEN repository and service tests, real-run dry run,
+publication-table reconciliation and full quality gate.
+
+**Dependencies:** 5.1. **Estimated scope:** M (3–5 files).
+
+#### Task 5.3 — Scoring and immutable snapshot repository
+
+**Acceptance criteria:**
+
+- Compute eight ordered dimensions, coverage/confidence and eligibility from
+  published results without imputing missing values.
+- Persist deterministic dimension/overall records and an immutable snapshot;
+  insufficient real models remain unranked.
+- A separate preview seed is unmistakably fictional and cannot pass the formal
+  publication guard.
+
+**Verification:** scoring/repository tests, hash reproducibility, PostgreSQL
+integration test and full quality gate.
+
+**Dependencies:** 5.2. **Estimated scope:** M (3–5 files).
+
+#### Task 5.4 — Edition publish and rollback transactions
+
+**Acceptance criteria:**
+
+- Publish activates one eligible immutable edition atomically and writes an
+  audit event; rollback reactivates a prior edition without rewriting it.
+- Preview snapshots can be demo-active but cannot be marked formally verified.
+- Failed validation leaves the previously active edition unchanged.
+
+**Verification:** transaction integration tests and real local publish/rollback
+drill.
+
+**Dependencies:** 5.3. **Estimated scope:** M (3–5 files).
+
+### Checkpoint: Data vertical slice
+
+- [ ] A real LiveBench row traces raw → staged → published result → evidence.
+- [ ] Scoring and snapshot generation preserve nulls and blockers.
+- [ ] Publish/rollback is repeatable and leaves an immutable audit trail.
+
+### Phase 6: Database-backed Web product
+
+#### Task 6.1 — Read contracts and snapshot repository
+
+Define additive `/api/v1` DTOs and server repositories for latest edition,
+rankings, models, benchmarks, comparisons, sources and methodology. Verify
+boundary validation, deterministic ordering, not-found behavior and cursor
+limits. **Dependencies:** 5.3. **Estimated scope:** M (3–5 files).
+
+#### Task 6.2 — Latest homepage and status API
+
+Replace the hard-coded homepage input with the latest active DB snapshot,
+retain an explicit preview fallback for an empty database, and add health/data
+status endpoints. Verify server rendering, cache semantics and unavailable DB
+behavior. **Dependencies:** 6.1. **Estimated scope:** M (3–5 files).
+
+#### Task 6.3 — Model and benchmark vertical pages
+
+Add bilingual model detail/history/evidence and benchmark
+definition/methodology/leaderboard pages with stable URLs and null-safe tables.
+Verify source links, flags and missing-data labels. **Dependencies:** 6.1.
+**Estimated scope:** M per page slice (3–5 files).
+
+#### Task 6.4 — Compare, methodology and source pages
+
+Add 2–5 model comparison with shareable URL state plus bilingual methodology,
+source registry and pipeline status pages. Reject unknown/duplicate/excess
+model IDs at the boundary. **Dependencies:** 6.1. **Estimated scope:** M per
+page slice (3–5 files).
+
+### Checkpoint: Web product
+
+- [ ] All routes render from validated repository data or explicit preview.
+- [ ] Theme/locale/share URL behavior passes real-browser checks.
+- [ ] Desktop/mobile keyboard and screen-reader equivalents are verified.
+
+### Phase 7: Shared radar and snapshot-driven video
+
+#### Task 7.1 — Shared accessible radar renderer
+
+Move shared radar geometry/presentation contracts into a reusable package used
+by Web and video, including multi-model, missing/extreme values, reduced motion
+and equivalent data table cases. **Dependencies:** 6.2. **Estimated scope:** M
+(3–5 files per migration slice).
+
+#### Task 7.2 — Edition-bound video commands
+
+Accept edition/snapshot, locale, theme and Top-N through validated CLI input;
+load the same snapshot repository as Web and emit poster, metadata, CSV and a
+structured render log. Persist video job lifecycle for non-preview editions.
+**Dependencies:** 5.4, 7.1. **Estimated scope:** M per command slice (3–5
+files).
+
+#### Task 7.3 — Deterministic demo render
+
+Render and inspect one complete 1920×1080 H.264 demo video, prove snapshot and
+content hashes, verify long-name/missing-logo/missing-axis fallbacks and record
+artifact locations. **Dependencies:** 7.2. **Estimated scope:** S (1–2 files).
+
+### Phase 8: Weekly automation and final validation
+
+#### Task 8.1 — Idempotent weekly orchestrator
+
+Implement fetch/stage/review/report/score/snapshot/render orchestration with
+source-level timeout/retry, partial-failure isolation, structured summary,
+diffs and dry-run default. Formal publish remains an explicit protected action.
+**Dependencies:** 5.4, 7.2. **Estimated scope:** M per orchestration slice.
+
+#### Task 8.2 — CI, browser, accessibility, performance and security gates
+
+Add E2E coverage for required Web routes and theme/compare flows; verify a11y,
+responsive layouts, health endpoints, dependency/security boundaries and
+representative performance budgets. Scheduled workflow must not publish or
+spam on ordinary pushes. **Dependencies:** 6.4, 8.1. **Estimated scope:** M per
+gate slice.
+
+#### Task 8.3 — Final operations and delivery audit
+
+Update README from clean-environment setup through ingestion, scoring,
+publish/rollback and video; reconcile every prompt acceptance criterion, source
+status, known blocker, command and artifact; run the full local and GitHub gate.
+**Dependencies:** all prior tasks. **Estimated scope:** M (documentation plus
+verification).
+
+### Checkpoint: Complete local product
+
+- [ ] Prompt minimum-delivery checklist and 15 acceptance criteria reconciled.
+- [ ] Full clean-database E2E flow, production build and demo video pass.
+- [ ] Every complete tested batch is committed, pushed and green in CI.

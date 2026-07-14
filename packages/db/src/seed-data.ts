@@ -1,3 +1,7 @@
+import { createHash } from 'node:crypto';
+
+import type { DimensionId } from '@llm-bench/contracts';
+
 export const dimensionSeed = [
   {
     id: 'reasoning',
@@ -66,6 +70,334 @@ export const dimensionSeed = [
       'Verifiability, calibration, and resistance to hallucination.',
   },
 ] as const;
+
+export const liveBenchBenchmarkSeed = {
+  slug: 'livebench',
+  displayName: 'LiveBench',
+  homepageUrl: 'https://livebench.ai/',
+  licenseSpdx: 'Apache-2.0',
+  description:
+    'Contamination-limited benchmark with date-versioned questions and official model judgments.',
+  version: '2024-11-25',
+  releasedAt: '2024-11-25T00:00:00.000Z',
+  methodologyUrl: 'https://github.com/LiveBench/LiveBench',
+  inventoryContentSha256:
+    'b8a90d2f2308b774fbee982178d433412fd6f349429be2a41def4331b0ee4027',
+  inventoryObservationCount: 1_000,
+} as const;
+
+type LiveBenchCategory =
+  | 'reasoning'
+  | 'math'
+  | 'coding'
+  | 'language'
+  | 'data_analysis'
+  | 'instruction_following';
+
+interface LiveBenchMetricSeed {
+  readonly slug: string;
+  readonly displayName: string;
+  readonly sourceTask: string;
+  readonly category: LiveBenchCategory;
+  readonly expectedObservations: number;
+  readonly unit: 'PERCENT';
+  readonly higherIsBetter: true;
+  readonly theoreticalMin: '0';
+  readonly theoreticalMax: '100';
+  readonly taskType: string;
+  readonly atomicCapabilities: readonly string[];
+}
+
+const metric = (
+  input: Omit<
+    LiveBenchMetricSeed,
+    'unit' | 'higherIsBetter' | 'theoreticalMin' | 'theoreticalMax'
+  >,
+): LiveBenchMetricSeed => ({
+  ...input,
+  unit: 'PERCENT',
+  higherIsBetter: true,
+  theoreticalMin: '0',
+  theoreticalMax: '100',
+});
+
+export const liveBenchMetricSeeds = [
+  metric({
+    slug: 'coding-completion',
+    displayName: 'Coding Completion',
+    sourceTask: 'coding_completion',
+    category: 'coding',
+    expectedObservations: 50,
+    taskType: 'code_completion',
+    atomicCapabilities: ['code_generation', 'program_correctness'],
+  }),
+  metric({
+    slug: 'lcb-generation',
+    displayName: 'LiveCodeBench Generation',
+    sourceTask: 'LCB_generation',
+    category: 'coding',
+    expectedObservations: 78,
+    taskType: 'code_generation',
+    atomicCapabilities: ['algorithms', 'program_correctness'],
+  }),
+  metric({
+    slug: 'cta',
+    displayName: 'Call Type Annotation',
+    sourceTask: 'cta',
+    category: 'data_analysis',
+    expectedObservations: 50,
+    taskType: 'structured_data_reasoning',
+    atomicCapabilities: ['table_understanding', 'schema_reasoning'],
+  }),
+  metric({
+    slug: 'tablejoin',
+    displayName: 'Table Join',
+    sourceTask: 'tablejoin',
+    category: 'data_analysis',
+    expectedObservations: 50,
+    taskType: 'structured_data_reasoning',
+    atomicCapabilities: ['relational_reasoning', 'table_understanding'],
+  }),
+  metric({
+    slug: 'tablereformat',
+    displayName: 'Table Reformat',
+    sourceTask: 'tablereformat',
+    category: 'data_analysis',
+    expectedObservations: 50,
+    taskType: 'structured_data_transformation',
+    atomicCapabilities: ['format_conversion', 'table_understanding'],
+  }),
+  metric({
+    slug: 'paraphrase',
+    displayName: 'Paraphrase',
+    sourceTask: 'paraphrase',
+    category: 'instruction_following',
+    expectedObservations: 50,
+    taskType: 'constraint_following',
+    atomicCapabilities: ['instruction_following', 'meaning_preservation'],
+  }),
+  metric({
+    slug: 'simplify',
+    displayName: 'Simplify',
+    sourceTask: 'simplify',
+    category: 'instruction_following',
+    expectedObservations: 50,
+    taskType: 'constraint_following',
+    atomicCapabilities: ['instruction_following', 'controlled_generation'],
+  }),
+  metric({
+    slug: 'story-generation',
+    displayName: 'Story Generation',
+    sourceTask: 'story_generation',
+    category: 'instruction_following',
+    expectedObservations: 50,
+    taskType: 'constraint_following',
+    atomicCapabilities: ['instruction_following', 'creative_constraints'],
+  }),
+  metric({
+    slug: 'summarize',
+    displayName: 'Summarize',
+    sourceTask: 'summarize',
+    category: 'instruction_following',
+    expectedObservations: 50,
+    taskType: 'constraint_following',
+    atomicCapabilities: ['instruction_following', 'summarization'],
+  }),
+  metric({
+    slug: 'connections',
+    displayName: 'Connections',
+    sourceTask: 'connections',
+    category: 'language',
+    expectedObservations: 50,
+    taskType: 'language_understanding',
+    atomicCapabilities: ['semantic_association', 'lexical_reasoning'],
+  }),
+  metric({
+    slug: 'plot-unscrambling',
+    displayName: 'Plot Unscrambling',
+    sourceTask: 'plot_unscrambling',
+    category: 'language',
+    expectedObservations: 40,
+    taskType: 'discourse_understanding',
+    atomicCapabilities: ['narrative_coherence', 'text_ordering'],
+  }),
+  metric({
+    slug: 'typos',
+    displayName: 'Typos',
+    sourceTask: 'typos',
+    category: 'language',
+    expectedObservations: 50,
+    taskType: 'language_understanding',
+    atomicCapabilities: ['error_detection', 'text_correction'],
+  }),
+  metric({
+    slug: 'amps-hard',
+    displayName: 'AMPS Hard',
+    sourceTask: 'AMPS_Hard',
+    category: 'math',
+    expectedObservations: 100,
+    taskType: 'mathematical_problem_solving',
+    atomicCapabilities: ['algebra', 'multi_step_math'],
+  }),
+  metric({
+    slug: 'math-comp',
+    displayName: 'Math Competition',
+    sourceTask: 'math_comp',
+    category: 'math',
+    expectedObservations: 96,
+    taskType: 'mathematical_problem_solving',
+    atomicCapabilities: ['competition_math', 'multi_step_math'],
+  }),
+  metric({
+    slug: 'olympiad',
+    displayName: 'Olympiad',
+    sourceTask: 'olympiad',
+    category: 'math',
+    expectedObservations: 36,
+    taskType: 'mathematical_proof',
+    atomicCapabilities: ['olympiad_math', 'proof_reasoning'],
+  }),
+  metric({
+    slug: 'spatial',
+    displayName: 'Spatial',
+    sourceTask: 'spatial',
+    category: 'reasoning',
+    expectedObservations: 50,
+    taskType: 'abstract_reasoning',
+    atomicCapabilities: ['spatial_reasoning', 'constraint_solving'],
+  }),
+  metric({
+    slug: 'web-of-lies-v2',
+    displayName: 'Web of Lies v2',
+    sourceTask: 'web_of_lies_v2',
+    category: 'reasoning',
+    expectedObservations: 50,
+    taskType: 'logical_reasoning',
+    atomicCapabilities: ['deduction', 'consistency_reasoning'],
+  }),
+  metric({
+    slug: 'zebra-puzzle',
+    displayName: 'Zebra Puzzle',
+    sourceTask: 'zebra_puzzle',
+    category: 'reasoning',
+    expectedObservations: 50,
+    taskType: 'logical_reasoning',
+    atomicCapabilities: ['constraint_satisfaction', 'deduction'],
+  }),
+] as const satisfies readonly LiveBenchMetricSeed[];
+
+const liveBenchEvaluationConfig = {
+  release: liveBenchBenchmarkSeed.version,
+  inventoryContentSha256: liveBenchBenchmarkSeed.inventoryContentSha256,
+  judge: 'official_livebench_ground_truth',
+  harness: 'LiveBench',
+  toolAccess: false,
+  internetAccess: false,
+  scoreScale: '0_to_1_per_observation_then_task_mean_percent',
+} as const;
+
+export const liveBenchEvaluationConfigSeed = {
+  configHash: createHash('sha256')
+    .update(JSON.stringify(liveBenchEvaluationConfig))
+    .digest('hex'),
+  displayName: 'LiveBench official judgments — 2024-11-25 release',
+  evaluator: 'LiveBench',
+  config: liveBenchEvaluationConfig,
+} as const;
+
+const categoryDimension: Record<LiveBenchCategory, DimensionId> = {
+  reasoning: 'reasoning',
+  math: 'math',
+  coding: 'coding',
+  language: 'language',
+  data_analysis: 'reasoning',
+  instruction_following: 'instruction',
+};
+
+const mappingRationale: Record<LiveBenchCategory, string> = {
+  reasoning:
+    'LiveBench reasoning tasks directly measure deduction, constraints and abstract multi-step reasoning.',
+  math: 'LiveBench math tasks directly measure mathematical problem solving and proof-oriented reasoning.',
+  coding:
+    'LiveBench coding tasks directly measure generated program correctness and algorithmic implementation.',
+  language:
+    'LiveBench language tasks directly measure semantic, lexical and discourse-level text understanding.',
+  data_analysis:
+    'LiveBench data-analysis tasks primarily require multi-step relational and structured-data reasoning.',
+  instruction_following:
+    'LiveBench instruction-following tasks directly measure compliance with transformation and generation constraints.',
+};
+
+const mappedMetricCounts = liveBenchMetricSeeds.reduce(
+  (counts, metricSeed) => {
+    const dimensionId = categoryDimension[metricSeed.category];
+    counts[dimensionId] = (counts[dimensionId] ?? 0) + 1;
+    return counts;
+  },
+  {} as Partial<Record<DimensionId, number>>,
+);
+const mappedMetricOrdinals: Partial<Record<DimensionId, number>> = {};
+
+export const liveBenchDimensionMappingSeeds = liveBenchMetricSeeds.map(
+  (metricSeed) => {
+    const dimensionId = categoryDimension[metricSeed.category];
+    const metricCount = mappedMetricCounts[dimensionId];
+    if (!metricCount) throw new Error('LiveBench mapping weight is undefined');
+    const ordinal = mappedMetricOrdinals[dimensionId] ?? 0;
+    mappedMetricOrdinals[dimensionId] = ordinal + 1;
+    const baseWeightUnits = Math.floor(1_000_000 / metricCount);
+    const finalRemainderUnits = 1_000_000 - baseWeightUnits * metricCount;
+    const weightUnits =
+      baseWeightUnits + (ordinal === metricCount - 1 ? finalRemainderUnits : 0);
+
+    return {
+      metricSlug: metricSeed.slug,
+      dimensionId,
+      weight: weightUnits / 1_000_000,
+      normalization: {
+        method: 'FIXED_PERCENTAGE_V1',
+        direction: 'HIGHER_IS_BETTER',
+        lowerAnchor: 0,
+        upperAnchor: 100,
+        clippingRule: 'CLAMP_0_100',
+      },
+      mapping: {
+        primaryDimension: true,
+        sourceCategory: metricSeed.category,
+        secondaryDimensions: [],
+        atomicCapabilities: metricSeed.atomicCapabilities,
+        taskType: metricSeed.taskType,
+        inputModality: ['text'],
+        outputType: 'text',
+        toolRequirement: 'none',
+        judgeType: 'ground_truth',
+        contaminationRisk: 'date_versioned',
+        saturationStatus: 'unknown',
+        freshnessStatus: 'pinned_release',
+        rationale: mappingRationale[metricSeed.category],
+      },
+    } as const;
+  },
+);
+
+export const scoringMethodSeed = {
+  version: 'absolute-capability-v1',
+  status: 'DRAFT',
+  config: {
+    dimensionWeights: Object.fromEntries(
+      dimensionSeed.map(({ id }) => [id, 0.125]),
+    ) as Record<DimensionId, number>,
+    minimumFormalDimensionCoverage: 0.5,
+    verifiedMinimumOverallCoverage: 0.65,
+    verifiedMinimumIndependentSourceShare: 0.5,
+    provisionalMinimumFormalDimensions: 6,
+    provisionalMinimumOverallCoverage: 0.5,
+    missingValuePolicy: 'NULL_NO_IMPUTATION',
+    formalPublicationEnabled: false,
+  },
+  methodologyMarkdown:
+    'Fixed-anchor task scores aggregate into eight equally weighted dimensions. Missing dimensions remain null; verified publication requires all eight formal dimensions and the configured coverage and independence gates.',
+} as const;
 
 export const themePresetSeed = [
   {

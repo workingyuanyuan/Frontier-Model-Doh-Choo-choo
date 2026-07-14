@@ -12,6 +12,8 @@ Every benchmark metric has a versioned transform and fixed anchors. No transform
 
 The stored audit tuple is raw value/unit, normalized value, method/version, anchors and clipping rule.
 
+The first committed mapping pins LiveBench release `2024-11-25` to its 1,000-observation inventory hash and 18 task metrics. Each official task mean is already expressed as a percentage and uses `FIXED_PERCENTAGE_V1` with anchors 0 and 100. The mapping supplies Reasoning (including the three structured data-analysis tasks), Math, Language, Instruction and Coding. It intentionally supplies no Knowledge, Agentic or Context weight; those dimensions remain null until an appropriate independent source is admitted.
+
 ## Benchmark and dimension aggregation
 
 1. Select one reviewed result per canonical key using source precedence; conflicts are excluded.
@@ -35,3 +37,5 @@ For each included family, evidence quality is source tier × freshness: benchmar
 - Verified and provisional rankings never share a rank sequence.
 
 Ties compare unrounded overall score, then confidence, coverage and stable model-variant ID. Every publish stores the scoring method version and a sensitivity report.
+
+`absolute-capability-v1` is seeded as `DRAFT` with formal publication disabled. Its eight overall dimension weights are 0.125 each, while per-dimension LiveBench task weights sum to one. Changing mappings or thresholds requires a new scoring-method version rather than mutating the existing seed.

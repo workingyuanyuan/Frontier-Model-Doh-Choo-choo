@@ -25,4 +25,18 @@
 - [x] Implement bounded two-revision judgment acquisition and evidence.
 - [x] Run the real acquisition and record the 800/1,000 union coverage.
 - [x] Document the 64 same-raw and 137 alias-merge-only conflict split.
-- [ ] Commit, push and verify GitHub CI after the completed Phase 4 gate.
+- [x] Commit, push and verify GitHub CI after the completed Phase 4 gate.
+- [x] Seed versioned LiveBench benchmark, metric, config and dimension mappings.
+- [ ] Promote only complete conflict-free real task aggregates with evidence.
+- [ ] Persist null-safe scores and an immutable real/preview snapshot boundary.
+- [ ] Implement transactional edition publish and rollback.
+- [ ] Add validated API contracts and DB snapshot repositories.
+- [ ] Drive homepage and status endpoints from active DB data with preview fallback.
+- [ ] Add bilingual model and benchmark detail routes.
+- [ ] Add shareable compare, methodology, sources and pipeline status routes.
+- [ ] Consolidate Web/video radar rendering behind shared contracts.
+- [ ] Add edition-bound video CLI, render logs and video job persistence.
+- [ ] Render and inspect the complete deterministic demo video.
+- [ ] Implement idempotent weekly orchestration with dry-run default.
+- [ ] Complete browser, accessibility, performance and security gates.
+- [ ] Reconcile final documentation, acceptance criteria and clean-environment run.

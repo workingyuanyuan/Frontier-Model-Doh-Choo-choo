@@ -39,3 +39,7 @@ The workspace pins TypeScript 5.9.3. Next.js 16.2.10 resolves `typescript/lib/ty
 ## DEC-010 — Exact and exhaustive source alias adjudication
 
 Each pinned source alias receives exactly one version-controlled canonical mapping or explicit exclusion. Mappings require HTTPS evidence and use only safe normalization (Unicode normalization, trim, case-folding and whitespace collapse). Fuzzy matching never publishes an identity. Private checkpoints, impossible identities and unverifiable source-local aliases remain staged as `EXCLUDED` with reasons and no canonical variant ID.
+
+## DEC-011 — LiveBench release mapping stays source-bounded
+
+Release `2024-11-25` is seeded as one immutable LiveBench benchmark version with 18 task metrics and the prompt-free question-inventory hash. Official task means are percentage metrics with fixed 0 and 100 anchors. Reasoning, math, coding, language and instruction-following map only to their supported primary dimensions; structured data-analysis tasks map to Reasoning because they measure relational and multi-step table reasoning. Knowledge, Agentic and Context receive no LiveBench weight. This preserves nulls instead of stretching one source across unsupported axes. Each supported dimension normalizes its task weights to one, and formal publication remains disabled in scoring method `absolute-capability-v1` until all independent coverage gates pass.
