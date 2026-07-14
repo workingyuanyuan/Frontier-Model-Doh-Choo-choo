@@ -51,6 +51,7 @@ pnpm resolve:livebench-aliases
 pnpm verify:livebench-aliases
 pnpm report:livebench-aggregation -- --summary-only
 pnpm promote:livebench-results
+pnpm score:livebench
 pnpm test:run
 pnpm build
 pnpm video:still
@@ -110,3 +111,14 @@ aggregates remained blocked. Repeating the same apply inserted zero rows, and a
 subsequent dry run reported all 737 as existing. This command publishes
 reviewed benchmark results only; it does not create scores, a ranking snapshot
 or a weekly edition.
+
+`score:livebench` defaults to a serializable, read-only dry run and accepts an
+optional `--edition YYYY-MM-DD`; otherwise the UTC date of the newest bound
+source snapshot is used. `pnpm score:livebench -- --apply` writes eight ordered
+dimension rows and one eligibility row per model, then creates one immutable
+ranking snapshot. A retry reuses only an identical content hash and rejects a
+changed snapshot for the same edition/method. The verified local run created
+1,216 dimension rows and 152 overall rows from 737 promoted task results. All
+152 models remain `UNRANKED` with null overall score and rank because the
+source does not cover enough dimensions. This snapshot is data-backed but is
+not an active or formally published weekly edition.

@@ -9,8 +9,12 @@ describe('shared presentation snapshot', () => {
     expect(() => RankingSnapshotSchema.parse(previewSnapshot)).not.toThrow();
     expect(
       previewSnapshot.entries.every(
-        ({ rankingStatus }) => rankingStatus === 'PROVISIONAL',
+        ({ providerName, qualityFlags, rankingStatus }) =>
+          rankingStatus === 'PROVISIONAL' &&
+          providerName.endsWith(' Preview') &&
+          qualityFlags.includes('PROVISIONAL'),
       ),
     ).toBe(true);
+    expect(previewSnapshot.scoringMethodVersion).toMatch(/^preview-/u);
   });
 });

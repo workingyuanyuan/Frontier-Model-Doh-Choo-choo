@@ -151,9 +151,15 @@ importers:
       '@llm-bench/connectors':
         specifier: workspace:*
         version: link:../../packages/connectors
+      '@llm-bench/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
       '@llm-bench/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@llm-bench/scoring':
+        specifier: workspace:*
+        version: link:../../packages/scoring
       drizzle-orm:
         specifier: 'catalog:'
         version: 0.45.2(@types/pg@8.20.0)(pg@8.22.0)

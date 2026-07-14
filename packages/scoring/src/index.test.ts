@@ -4,6 +4,7 @@ import type { DimensionScore } from '@llm-bench/contracts';
 
 import {
   aggregateDimension,
+  assertFormalPublicationEligible,
   calculateOverallScore,
   normalizeScore,
 } from './index.js';
@@ -187,5 +188,56 @@ describe('calculateOverallScore', () => {
         independentSourceShare: 1,
       }),
     ).toMatchObject({ rankingStatus: 'UNRANKED', overallScore: null });
+  });
+});
+
+describe('formal publication eligibility', () => {
+  const verifiedEntry = {
+    rankingStatus: 'VERIFIED' as const,
+    rank: 1,
+    overallScore: 90,
+  };
+
+  it('rejects preview methods even if their rows claim to be verified', () => {
+    expect(() =>
+      assertFormalPublicationEligible({
+        scoringMethodVersion: 'preview-ui-v1',
+        scoringMethodStatus: 'PUBLISHED',
+        formalPublicationEnabled: true,
+        entries: [verifiedEntry],
+      }),
+    ).toThrow('Preview');
+  });
+
+  it('rejects draft methods and incomplete ranking rows', () => {
+    expect(() =>
+      assertFormalPublicationEligible({
+        scoringMethodVersion: 'absolute-capability-v1',
+        scoringMethodStatus: 'DRAFT',
+        formalPublicationEnabled: false,
+        entries: [verifiedEntry],
+      }),
+    ).toThrow('not enabled');
+    expect(() =>
+      assertFormalPublicationEligible({
+        scoringMethodVersion: 'absolute-capability-v1',
+        scoringMethodStatus: 'PUBLISHED',
+        formalPublicationEnabled: true,
+        entries: [
+          { rankingStatus: 'UNRANKED', rank: null, overallScore: null },
+        ],
+      }),
+    ).toThrow('verified');
+  });
+
+  it('accepts only an enabled published method with verified ranked rows', () => {
+    expect(() =>
+      assertFormalPublicationEligible({
+        scoringMethodVersion: 'absolute-capability-v1',
+        scoringMethodStatus: 'PUBLISHED',
+        formalPublicationEnabled: true,
+        entries: [verifiedEntry],
+      }),
+    ).not.toThrow();
   });
 });

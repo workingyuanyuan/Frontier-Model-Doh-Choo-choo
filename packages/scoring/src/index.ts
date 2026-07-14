@@ -197,3 +197,39 @@ export function calculateOverallScore({
     rankingStatus,
   };
 }
+
+export interface FormalPublicationEligibilityInput {
+  scoringMethodVersion: string;
+  scoringMethodStatus: string;
+  formalPublicationEnabled: boolean;
+  entries: readonly {
+    rankingStatus: RankingStatus;
+    rank: number | null;
+    overallScore: number | null;
+  }[];
+}
+
+export function assertFormalPublicationEligible({
+  scoringMethodVersion,
+  scoringMethodStatus,
+  formalPublicationEnabled,
+  entries,
+}: FormalPublicationEligibilityInput): void {
+  if (scoringMethodVersion.startsWith('preview-')) {
+    throw new Error('Preview scoring methods cannot be formally published');
+  }
+  if (scoringMethodStatus !== 'PUBLISHED' || !formalPublicationEnabled) {
+    throw new Error(
+      'Formal publication is not enabled for this scoring method',
+    );
+  }
+  if (
+    entries.length === 0 ||
+    entries.some(
+      ({ rankingStatus, rank, overallScore }) =>
+        rankingStatus !== 'VERIFIED' || rank === null || overallScore === null,
+    )
+  ) {
+    throw new Error('Formal publication requires verified ranked entries');
+  }
+}

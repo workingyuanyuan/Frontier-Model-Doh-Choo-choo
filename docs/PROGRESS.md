@@ -106,10 +106,11 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - Verified seed idempotency against PostgreSQL by running it twice: benchmark/version/metric/mapping counts remained 1/1/18/18 and the sorted metric UUID identity hash remained `9f08932798229f9e6c8a5f89acba7a3b`.
 - Added a deterministic result publication key and migration, a strict dry-run-by-default promotion CLI and a serializable promotion transaction. Only complete, conflict-free LiveBench task aggregates can cross from staged data into published benchmark results.
 - The real 60,372-row run produced 737 promotion candidates while retaining 2,014 incomplete and 39 conflicting task aggregates as blockers. Apply inserted 737 results plus 737 primary evidence rows across 152 canonical models and six task metrics; an immediate retry inserted zero, a following dry run reported all 737 as existing, and the orphan-evidence count is zero.
+- Null-safe scoring created 1,216 ordered dimension rows and 152 overall eligibility rows from those results. The immutable 2026-07-13 snapshot contains 152 entries and SHA-256 `f806b8b4e654180958099a528c1e06379ce55cf224f8e03f3b807d323d54ad7a`; all entries correctly remain unranked with null overall scores because only partial dimensions are covered. Re-running apply reused the same snapshot ID and hash.
 
 ## Data Sources Status
 
-- LiveBench: official public data and Apache-2.0 license identified; full revision-pinned staging connector READY, publication disabled.
+- LiveBench: official public data and Apache-2.0 license identified; revision-pinned staging, task-result promotion and null-safe snapshot generation READY; formal edition publication remains disabled.
 - Scale Labs: local 2026-07 snapshots preserved; license/terms and parser verification pending.
 - All other requested sources: registry research pending.
 
@@ -121,10 +122,10 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 
 ## Next Actions
 
-- Compute source-bounded dimension and overall eligibility records from the 737 published task results; Knowledge, Agentic, Context and incomplete task weights must remain null/missing.
+- Implement guarded edition activation and rollback over immutable snapshots; the partial real snapshot must remain ineligible for formal publication.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
-- Create a ranking snapshot only after null-safe scoring records and immutable content hashing pass.
+- Keep the fictional `preview-ui-v1` fixture isolated from data-backed snapshots and reject it at the formal publication guard.
 - Connect the deterministic artifact manifest to future published-edition video job records.
 - Add weekly dry-run/publish/rollback orchestration with explicit publication gates.
