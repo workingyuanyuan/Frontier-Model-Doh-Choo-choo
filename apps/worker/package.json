@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "edition": "tsx src/edition-cli.ts",
     "fetch:livebench-inventory": "tsx src/question-inventory-cli.ts",
     "fetch:livebench-judgments": "tsx src/judgment-evidence-cli.ts",
     "promote:livebench-results": "tsx src/promotion-cli.ts",

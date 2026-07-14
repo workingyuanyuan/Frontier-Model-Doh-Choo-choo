@@ -15,6 +15,7 @@
     "db:migrate": "pnpm --filter @llm-bench/db db:migrate",
     "db:seed": "pnpm --filter @llm-bench/db db:seed",
     "db:up": "docker compose up -d --wait postgres",
+    "edition": "pnpm --filter @llm-bench/worker edition",
     "dev": "turbo run dev --parallel",
     "format": "prettier --check .",
     "format:write": "prettier --write .",

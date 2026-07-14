@@ -1,5 +1,6 @@
 import { sql } from 'drizzle-orm';
 import {
+  boolean,
   check,
   date,
   index,
@@ -241,12 +242,21 @@ export const weeklyEditions = pgTable(
       .notNull()
       .references(() => rankingSnapshots.id, { onDelete: 'restrict' }),
     status: text('status').notNull().default('DRAFT'),
+    publicationMode: text('publication_mode').notNull().default('PREVIEW'),
+    isActive: boolean('is_active').notNull().default(false),
     titleZhTw: text('title_zh_tw').notNull(),
     titleEn: text('title_en').notNull(),
     summaryZhTw: text('summary_zh_tw'),
     summaryEn: text('summary_en'),
     publishedAt: timestamp('published_at', { withTimezone: true }),
+    activatedAt: timestamp('activated_at', { withTimezone: true }),
+    deactivatedAt: timestamp('deactivated_at', { withTimezone: true }),
     createdAt: createdAt(),
   },
-  (table) => [uniqueIndex('weekly_editions_date_uidx').on(table.editionDate)],
+  (table) => [
+    uniqueIndex('weekly_editions_date_uidx').on(table.editionDate),
+    uniqueIndex('weekly_editions_single_active_uidx')
+      .on(table.isActive)
+      .where(sql`${table.isActive} = true`),
+  ],
 );

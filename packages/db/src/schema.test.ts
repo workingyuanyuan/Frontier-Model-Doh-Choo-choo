@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getTableColumns } from 'drizzle-orm';
 
-import { benchmarkResults, schemaTables } from './index.js';
+import { benchmarkResults, schemaTables, weeklyEditions } from './index.js';
 
 describe('database schema', () => {
   it('contains every core entity required by the product spec', () => {
@@ -40,5 +40,18 @@ describe('database schema', () => {
     const columns = getTableColumns(benchmarkResults);
 
     expect(Object.keys(columns)).toContain('publicationKey');
+  });
+
+  it('tracks one explicitly active weekly edition and its publication mode', () => {
+    const columns = getTableColumns(weeklyEditions);
+
+    expect(Object.keys(columns)).toEqual(
+      expect.arrayContaining([
+        'publicationMode',
+        'isActive',
+        'activatedAt',
+        'deactivatedAt',
+      ]),
+    );
   });
 });

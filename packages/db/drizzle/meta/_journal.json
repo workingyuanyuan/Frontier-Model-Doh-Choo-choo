@@ -15,6 +15,13 @@
       "when": 1784006743516,
       "tag": "0001_small_kylun",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784010036913,
+      "tag": "0002_cute_newton_destine",
+      "breakpoints": true
     }
   ]
 }

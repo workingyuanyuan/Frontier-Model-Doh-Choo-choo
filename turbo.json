@@ -17,7 +17,8 @@
       "persistent": true
     },
     "test:run": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "env": ["RUN_DB_INTEGRATION_TESTS"]
     },
     "typecheck": {
       "dependsOn": ["^build"]

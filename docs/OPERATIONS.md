@@ -52,6 +52,7 @@ pnpm verify:livebench-aliases
 pnpm report:livebench-aggregation -- --summary-only
 pnpm promote:livebench-results
 pnpm score:livebench
+pnpm edition -- --activate-snapshot <uuidv7> --mode preview
 pnpm test:run
 pnpm build
 pnpm video:still
@@ -122,3 +123,16 @@ changed snapshot for the same edition/method. The verified local run created
 152 models remain `UNRANKED` with null overall score and rank because the
 source does not cover enough dimensions. This snapshot is data-backed but is
 not an active or formally published weekly edition.
+
+`edition` also defaults to a serializable read-only dry run. Activate an
+eligible snapshot with `--activate-snapshot <uuidv7> --mode formal|preview`;
+append `--apply` only after reviewing the plan. Formal mode re-runs the scoring
+method and verified-entry guard, while preview mode remains visibly labelled
+and never sets `published_at`. Roll back with
+`pnpm edition -- --rollback-edition YYYY-MM-DD --actor <name> --apply`.
+Activation and rollback serialize on a transaction lock, preserve one active
+edition, and append a chained audit hash. Repeating an already-active command
+returns `NOOP` without another audit row. The verified drill activated
+2026-07-13 preview, switched to 2026-07-14, rolled back to 2026-07-13, and
+left one active edition plus three unbroken audit links. Formal activation of
+the same incomplete snapshot was rejected before any write.

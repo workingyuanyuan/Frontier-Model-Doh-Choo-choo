@@ -271,7 +271,7 @@ drill.
 
 - [x] A real LiveBench row traces raw → staged → published result → evidence.
 - [x] Scoring and snapshot generation preserve nulls and blockers.
-- [ ] Publish/rollback is repeatable and leaves an immutable audit trail.
+- [x] Publish/rollback is repeatable and leaves an immutable audit trail.
 
 ### Phase 6: Database-backed Web product
 
