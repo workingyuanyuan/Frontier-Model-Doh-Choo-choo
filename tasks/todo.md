@@ -30,7 +30,7 @@
 - [x] Promote only complete conflict-free real task aggregates with evidence.
 - [x] Persist null-safe scores and an immutable real/preview snapshot boundary.
 - [x] Implement transactional edition publish and rollback.
-- [ ] Add validated API contracts and DB snapshot repositories.
+- [x] Add validated API contracts and DB snapshot repositories.
 - [ ] Drive homepage and status endpoints from active DB data with preview fallback.
 - [ ] Add bilingual model and benchmark detail routes.
 - [ ] Add shareable compare, methodology, sources and pipeline status routes.

@@ -6,6 +6,21 @@
 
 All reusable actions are pinned to immutable full commit SHAs. The workflow token has only `contents: read`, and the PostgreSQL credentials exist solely inside the disposable runner service.
 
+Complete, test-passing change batches are committed and pushed together, then their GitHub Actions run is followed to completion. Partial edits are not pushed merely because a file changed; a failed CI batch is diagnosed locally where possible, corrected in a new tested batch and re-run.
+
+## Web read API
+
+Production Web startup requires `DATABASE_URL`; the development-only fallback points to the Docker Compose database. The active edition endpoint is:
+
+```text
+GET /api/v1/rankings/latest
+200 ACTIVE EDITION  Cache-Control: public, max-age=60, stale-while-revalidate=300
+404 ACTIVE_EDITION_NOT_FOUND  Cache-Control: no-store
+503 ACTIVE_EDITION_UNAVAILABLE  Cache-Control: no-store
+```
+
+The response always includes `apiVersion: "v1"`. Preview editions remain explicitly labelled `publicationMode: "PREVIEW"`; this endpoint does not promote, activate or mutate data.
+
 ## Weekly dry run
 
 `.github/workflows/weekly-dry-run.yml` runs every Monday at 09:15 in `Asia/Taipei` (`01:15 UTC`) and can also be started manually with `workflow_dispatch`. It:

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@llm-bench/contracts": "workspace:*",
+    "@llm-bench/db": "workspace:*",
     "@llm-bench/presentation": "workspace:*",
     "@llm-bench/radar": "workspace:*",
     "next": "catalog:",

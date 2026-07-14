@@ -92,3 +92,38 @@ export const RankingSnapshotSchema = z.object({
   entries: z.array(RankingEntrySchema),
 });
 export type RankingSnapshot = z.infer<typeof RankingSnapshotSchema>;
+
+export const PublicationModeSchema = z.enum(['FORMAL', 'PREVIEW']);
+export type PublicationMode = z.infer<typeof PublicationModeSchema>;
+
+export const ActiveEditionSchema = z.object({
+  id: z.uuidv7(),
+  publicationMode: PublicationModeSchema,
+  titleZhTw: z.string().min(1).max(240),
+  titleEn: z.string().min(1).max(240),
+  summaryZhTw: z.string().max(2_000).nullable(),
+  summaryEn: z.string().max(2_000).nullable(),
+  activatedAt: z.iso.datetime(),
+  snapshot: RankingSnapshotSchema,
+});
+export type ActiveEdition = z.infer<typeof ActiveEditionSchema>;
+
+export const ActiveEditionResponseSchema = z.object({
+  apiVersion: z.literal('v1'),
+  data: ActiveEditionSchema,
+});
+export type ActiveEditionResponse = z.infer<typeof ActiveEditionResponseSchema>;
+
+export const ApiErrorResponseSchema = z.object({
+  apiVersion: z.literal('v1'),
+  error: z.object({
+    code: z
+      .string()
+      .min(1)
+      .max(80)
+      .regex(/^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)*$/u),
+    message: z.string().min(1).max(500),
+    details: z.record(z.string(), z.unknown()).optional(),
+  }),
+});
+export type ApiErrorResponse = z.infer<typeof ApiErrorResponseSchema>;

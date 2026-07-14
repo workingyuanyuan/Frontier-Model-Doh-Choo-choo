@@ -114,6 +114,9 @@ importers:
       '@llm-bench/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
+      '@llm-bench/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@llm-bench/presentation':
         specifier: workspace:*
         version: link:../../packages/presentation

@@ -49,8 +49,10 @@ allowlisted HTTPS source
 
 - Read API prefix: `/api/v1`.
 - Resources: editions, rankings, models, benchmarks, comparisons, sources and methodology.
-- Success envelope: `{ data, meta? }`; error envelope: `{ error: { code, message, details? } }`.
+- Every response carries `apiVersion: "v1"`. Success envelope: `{ apiVersion, data, meta? }`; error envelope: `{ apiVersion, error: { code, message, details? } }`.
 - List resources use cursor pagination. Contract changes are additive within v1.
+- `GET /api/v1/rankings/latest` resolves only the database-enforced active edition, validates the complete response contract and returns deterministic rank/slug order. It returns non-cacheable stable `404`/`503` codes when the active pointer is absent or unavailable; successful responses use a 60-second public cache with 300-second stale revalidation.
+- Web database access is a process-local lazy pool so development hot reload and repeated requests do not create an unbounded connection pool. Connection configuration and repository failures stay inside the API error boundary.
 
 ## Local and automated operation
 

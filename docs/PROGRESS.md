@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical identity coverage is complete.
+Phase 6 — data-backed Web product; active-edition contracts, repository and latest-ranking API are complete.
 
 ## Completed
 
@@ -108,6 +108,7 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 - The real 60,372-row run produced 737 promotion candidates while retaining 2,014 incomplete and 39 conflicting task aggregates as blockers. Apply inserted 737 results plus 737 primary evidence rows across 152 canonical models and six task metrics; an immediate retry inserted zero, a following dry run reported all 737 as existing, and the orphan-evidence count is zero.
 - Null-safe scoring created 1,216 ordered dimension rows and 152 overall eligibility rows from those results. The immutable 2026-07-13 snapshot contains 152 entries and SHA-256 `f806b8b4e654180958099a528c1e06379ce55cf224f8e03f3b807d323d54ad7a`; all entries correctly remain unranked with null overall scores because only partial dimensions are covered. Re-running apply reused the same snapshot ID and hash.
 - Added serializable edition activation and rollback with a database-enforced single active row, explicit FORMAL/PREVIEW modes and chained audit hashes. The real local drill rejected formal activation, activated two preview snapshots in sequence, rolled back to 2026-07-13, and verified one active row, two immutable editions, three audit entries and zero broken hash links. The integration test performs the same write path inside an outer PostgreSQL transaction and rolls back all fixtures.
+- Added versioned active-edition API contracts, a fail-closed deterministic database repository and `GET /api/v1/rankings/latest`. The production endpoint returns the active 2026-07-13 PREVIEW snapshot with all 152 entries, stable cache/error semantics and no mutation path; Web unit/type/build gates and real Chrome console/network checks pass.
 
 ## Data Sources Status
 
@@ -123,7 +124,7 @@ Phase 1 — source ingestion and first publishable snapshot; LiveBench canonical
 
 ## Next Actions
 
-- Build validated Web read contracts and repositories over the active edition while preserving explicit preview fallback when the database is empty.
+- Drive the homepage and pipeline status from the active-edition repository while preserving an explicit, visibly labelled preview fallback only when no database edition exists.
 - Stage the pinned historical judgment revision as a separate auditable run, resolve it through the completed alias manifest and define a revision-composition report without treating coverage union as score precedence.
 - Locate official answer/judgment evidence for the remaining 150 instruction-following and 50 reasoning observations; never infer them or treat them as zero.
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.

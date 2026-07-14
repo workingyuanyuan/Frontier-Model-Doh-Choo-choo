@@ -55,3 +55,7 @@ Scoring materializes all eight dimensions for every model with published evidenc
 ## DEC-014 — Editions switch pointers; snapshots never roll back
 
 One partial unique index permits exactly one active weekly edition. Activation and rollback acquire the same PostgreSQL transaction-scoped advisory lock, revalidate the target, deactivate the prior pointer and activate the target atomically. Formal mode requires a published, formal-enabled scoring method and verified ranked entries; incomplete data may be active only under explicit PREVIEW mode. Every successful change appends a SHA-256 audit record whose input includes the previous audit hash, actor, action, edition, snapshot and publication mode. A retry of the already-active target is a no-op. Rollback therefore reactivates an older immutable snapshot rather than altering history.
+
+## DEC-015 — The active edition is the only latest-ranking read pointer
+
+`GET /api/v1/rankings/latest` reads the one database-enforced active weekly edition and its immutable snapshot; recency, edition date or preview fixtures never override that pointer. Shared Zod contracts validate repository assembly and the versioned HTTP envelope. Rows sort by rank and then stable model slug/ID, entry-count drift fails closed, and configuration/query failures return a generic non-cacheable 503 without exposing database details. A process-local lazy pool avoids connection creation per request while keeping initialization inside the request error boundary.

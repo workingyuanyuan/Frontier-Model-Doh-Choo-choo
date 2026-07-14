@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  ActiveEditionResponseSchema,
+  ApiErrorResponseSchema,
   DIMENSION_IDS,
   DimensionScoreSchema,
   RankingSnapshotSchema,
@@ -118,5 +120,46 @@ describe('ranking snapshot contract', () => {
     });
 
     expect(result.success).toBe(false);
+  });
+});
+
+describe('v1 API contracts', () => {
+  it('wraps one active edition with an explicit publication mode', () => {
+    const snapshot = RankingSnapshotSchema.parse({
+      id: '019d1234-5678-7abc-8def-0123456789ab',
+      editionDate: '2026-07-11',
+      dataCutoffAt: '2026-07-11T00:00:00.000Z',
+      scoringMethodVersion: 'absolute-v1',
+      sourceSnapshotIds: ['019d1234-5678-7abc-8def-0123456789ac'],
+      entries: [],
+    });
+
+    expect(
+      ActiveEditionResponseSchema.parse({
+        apiVersion: 'v1',
+        data: {
+          id: '019d1234-5678-7abc-8def-0123456789ae',
+          publicationMode: 'PREVIEW',
+          titleZhTw: '2026-07-11 LLM 基準週報（預覽）',
+          titleEn: '2026-07-11 LLM benchmark weekly (Preview)',
+          summaryZhTw: null,
+          summaryEn: null,
+          activatedAt: '2026-07-11T01:00:00.000Z',
+          snapshot,
+        },
+      }).data.publicationMode,
+    ).toBe('PREVIEW');
+  });
+
+  it('uses a stable machine-readable not-found error envelope', () => {
+    expect(
+      ApiErrorResponseSchema.parse({
+        apiVersion: 'v1',
+        error: {
+          code: 'ACTIVE_EDITION_NOT_FOUND',
+          message: 'No active edition is available.',
+        },
+      }).error.code,
+    ).toBe('ACTIVE_EDITION_NOT_FOUND');
   });
 });

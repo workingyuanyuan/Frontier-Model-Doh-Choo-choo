@@ -21,7 +21,7 @@
 
 ## Phase 3 — Product vertical slice
 
-- [ ] Latest ranking API and server repository.
+- [x] Latest ranking API and server repository.
 - [ ] Bilingual homepage, ranking, model, benchmark, compare, methodology/source/status pages (homepage vertical slice complete).
 - [x] Google/Apple tokens and accessible responsive RadarChart.
 
