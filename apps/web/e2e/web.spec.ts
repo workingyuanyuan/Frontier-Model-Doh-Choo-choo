@@ -107,6 +107,12 @@ test.describe('accessibility and responsive layout', () => {
           () => document.documentElement.scrollWidth - window.innerWidth,
         );
         expect(overflow).toBeLessThanOrEqual(1);
+        if (route === routes[4]) {
+          const hiddenRadarTableWidth = await page
+            .locator('table.srOnly')
+            .evaluate((table) => table.getBoundingClientRect().width);
+          expect(hiddenRadarTableWidth).toBeLessThanOrEqual(1);
+        }
       }
     });
   }

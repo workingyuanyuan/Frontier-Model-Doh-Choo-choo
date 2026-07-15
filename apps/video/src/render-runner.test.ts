@@ -46,6 +46,7 @@ describe('edition render runner contracts', () => {
     expect(invocation.options).toMatchObject({
       cwd: 'N:/project/apps/video',
       shell: false,
+      stdio: ['inherit', 'pipe', 'inherit'],
     });
     expect(invocation.arguments).toContain(
       '--props=N:/project/output/input props.json',

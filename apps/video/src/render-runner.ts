@@ -90,7 +90,7 @@ export interface RemotionInvocation {
   readonly options: {
     readonly cwd: string;
     readonly shell: false;
-    readonly stdio: 'inherit';
+    readonly stdio: ['inherit', 'pipe', 'inherit'];
   };
 }
 
@@ -116,7 +116,7 @@ export function createRemotionInvocation(
     options: {
       cwd: input.packageDirectory,
       shell: false,
-      stdio: 'inherit',
+      stdio: ['inherit', 'pipe', 'inherit'],
     },
   };
 }
@@ -130,6 +130,7 @@ export async function runRemotionInvocation(
       invocation.arguments,
       invocation.options,
     );
+    child.stdout.pipe(process.stderr, { end: false });
     child.once('error', reject);
     child.once('exit', (code, signal) => {
       if (code === 0) {
