@@ -25,6 +25,8 @@
     "fetch:livebench-judgments": "pnpm --filter @llm-bench/worker fetch:livebench-judgments",
     "ingest:livebench": "pnpm --filter @llm-bench/worker ingest:livebench",
     "ingest:livebench:all": "pnpm --filter @llm-bench/worker ingest:livebench:all",
+    "local:prepare": "pnpm db:up && pnpm db:migrate && pnpm db:seed && pnpm --filter @llm-bench/worker build",
+    "local:up": "pnpm local:prepare && pnpm dev",
     "lint": "eslint . --max-warnings 0",
     "promote:livebench-results": "pnpm --filter @llm-bench/worker promote:livebench-results",
     "score:livebench": "pnpm --filter @llm-bench/worker score:livebench",

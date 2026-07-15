@@ -101,9 +101,22 @@ Rollback must reactivate a prior immutable edition; it must never rewrite its ra
 
 ```bash
 pnpm install --frozen-lockfile
+pnpm local:up
+```
+
+`local:up` is the one-command development entry point. It starts and health
+checks PostgreSQL, applies migrations and the idempotent canonical seed, builds
+the worker, then keeps Next.js and the worker compiler running in watch mode.
+The worker is intentionally command-driven rather than an idle queue consumer;
+run bounded data jobs from another terminal. The equivalent expanded commands
+are:
+
+```bash
 pnpm db:up
 pnpm db:migrate
 pnpm db:seed
+pnpm --filter @llm-bench/worker build
+pnpm dev
 pnpm fetch:livebench-inventory
 pnpm fetch:livebench-judgments
 pnpm ingest:livebench

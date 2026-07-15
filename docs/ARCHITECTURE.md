@@ -13,7 +13,7 @@ packages/
   connectors/source-specific fetch/parse/validate adapters
   scoring/   normalization, coverage, confidence and ranking
   radar/     framework-neutral geometry and shared React SVG
-  ui/        semantic tokens and shared presentation components
+  presentation/ validated view models shared by Web and video
 ```
 
 ## Data flow
@@ -65,5 +65,9 @@ allowlisted HTTPS source
 
 - Node 24 + pnpm workspace + Turborepo.
 - PostgreSQL runs in Docker Compose with a persistent named volume.
+- `pnpm local:up` waits for PostgreSQL, migrates and seeds it, builds the worker,
+  then starts the Web server and the command-driven worker's compile watcher.
+  The worker has no idle queue consumer; ingestion, scoring, edition and video
+  jobs are explicit bounded CLIs locally and scheduled GitHub Actions in CI.
 - GitHub Actions runs frozen installs, migrations, unit/integration/E2E tests, build and scheduled dry-run ingestion.
 - Publishing is transactional; a failed source or validation run leaves the previous edition active.
