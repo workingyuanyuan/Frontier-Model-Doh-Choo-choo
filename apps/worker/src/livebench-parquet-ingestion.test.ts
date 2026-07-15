@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   batchLiveBenchStagedRecords,
   createLiveBenchParquetEvidenceMetadata,
+  selectReusableLiveBenchIngestionRun,
 } from './livebench-parquet-ingestion.js';
 import type { StagedLiveBenchRecord } from './livebench-ingestion.js';
 
@@ -31,6 +32,47 @@ const fetched = {
 };
 
 describe('LiveBench Parquet ingestion evidence', () => {
+  it('selects one complete reusable run deterministically', () => {
+    expect(
+      selectReusableLiveBenchIngestionRun(
+        [
+          {
+            id: '019f5f2d-c3df-7c54-96e8-e1939d332c8f',
+            recordsSeen: 60_372,
+            recordsAccepted: 60_372,
+            stagedRecordCount: 60_372,
+            matchingSnapshotRecordCount: 60_372,
+          },
+          {
+            id: '019f5f2d-c3df-7c54-96e8-e1939d332c8e',
+            recordsSeen: 60_372,
+            recordsAccepted: 60_372,
+            stagedRecordCount: 60_372,
+            matchingSnapshotRecordCount: 60_372,
+          },
+        ],
+        60_372,
+      ),
+    ).toBe('019f5f2d-c3df-7c54-96e8-e1939d332c8e');
+  });
+
+  it('rejects incomplete reuse candidates', () => {
+    expect(
+      selectReusableLiveBenchIngestionRun(
+        [
+          {
+            id: '019f5f2d-c3df-7c54-96e8-e1939d332c8e',
+            recordsSeen: 60_372,
+            recordsAccepted: 60_372,
+            stagedRecordCount: 60_372,
+            matchingSnapshotRecordCount: 60_371,
+          },
+        ],
+        60_372,
+      ),
+    ).toBeNull();
+  });
+
   it('binds the immutable revision and artifact metadata', () => {
     expect(
       createLiveBenchParquetEvidenceMetadata(datasetRevision, fetched, 60_372),

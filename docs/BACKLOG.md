@@ -28,5 +28,5 @@
 ## Phase 4 — Video and automation
 
 - [ ] Shared snapshot-driven Remotion preview and deterministic artifact manifest (preview complete; manifest pending).
-- [ ] Weekly dry-run/publish/rollback pipeline and scheduled CI (dry-run and CI complete; publish/rollback pending).
+- [x] Weekly dry-run/preview/rollback pipeline and scheduled CI; formal publication remains intentionally blocked by source evidence policy.
 - [ ] Full unit, integration, E2E, visual, accessibility, security and performance gates.

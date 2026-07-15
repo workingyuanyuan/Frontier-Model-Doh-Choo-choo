@@ -5,7 +5,10 @@ import {
 } from 'hyparquet';
 import * as z from 'zod';
 
-import { isApprovedHuggingFaceCdnUrl } from './livebench-parquet.js';
+import {
+  isApprovedHuggingFaceArtifactContentType,
+  isApprovedHuggingFaceCdnUrl,
+} from './livebench-parquet.js';
 import {
   LIVEBENCH_MAX_QUESTION_ROWS,
   LIVEBENCH_PUBLIC_RELEASE,
@@ -304,11 +307,7 @@ function createBoundedRangeFetch(
       throw new Error('LiveBench question CDN did not return partial content');
     }
     const contentType = response.headers.get('content-type') ?? '';
-    if (
-      !/^(?:application|binary)\/(?:octet-stream|vnd\.apache\.parquet)(?:\s*;|$)/iu.test(
-        contentType,
-      )
-    ) {
+    if (!isApprovedHuggingFaceArtifactContentType(downloadUrl, contentType)) {
       throw new Error('LiveBench question range content type is invalid');
     }
     const expectedContentRange = `bytes ${start}-${end}/${artifactByteLength}`;

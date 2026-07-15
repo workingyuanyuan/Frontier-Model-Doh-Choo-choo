@@ -17,6 +17,7 @@
     "resolve:livebench-aliases": "tsx src/aliases-resolve-cli.ts",
     "sync:livebench-aliases": "tsx src/aliases-sync-cli.ts",
     "verify:livebench-aliases": "tsx src/aliases-verify-cli.ts",
+    "weekly": "tsx src/weekly-cli.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json"

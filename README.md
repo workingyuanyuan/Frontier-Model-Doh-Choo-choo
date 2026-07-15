@@ -43,6 +43,7 @@ pnpm sync:livebench-aliases
 pnpm resolve:livebench-aliases
 pnpm verify:livebench-aliases
 pnpm report:livebench-aggregation -- --summary-only
+pnpm weekly:dry-run
 pnpm video:studio
 pnpm video:still
 pnpm video:render
@@ -65,6 +66,14 @@ builds a repeatable-read, read-only task/category readiness report. Omit
 `--summary-only` to include deterministic per-model aggregates. Incomplete or
 conflicting task/category scores remain null and the command never writes
 published results or ranking snapshots.
+
+`weekly:dry-run` is the one-command, non-formal weekly path. It builds required
+workspace packages, reacquires pinned source evidence with bounded retries,
+reuses an identical complete ingestion run, revalidates all aliases, reports
+promotion/scoring diffs and renders deterministic preview artifacts. Its
+versioned summary is `artifacts/weekly-orchestration.json`. Only the explicit
+`pnpm weekly:apply-preview` variant can apply guarded result/snapshot changes
+and activate a PREVIEW edition; neither command can request FORMAL publication.
 
 `video:render` writes a 1920×1080 H.264 MP4 to `output/llm-bench-weekly.mp4`. `video:artifacts` writes deterministic metadata JSON and ranking CSV with the input snapshot ID and SHA-256. The Web and video defaults intentionally use the same clearly labeled fictional preview snapshot. Preview values must never be promoted to a published edition.
 

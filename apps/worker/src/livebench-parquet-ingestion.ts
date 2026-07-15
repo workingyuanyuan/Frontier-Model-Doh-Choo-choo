@@ -14,7 +14,7 @@ import {
   sources,
   stagedResults,
 } from '@llm-bench/db';
-import { and, eq } from 'drizzle-orm';
+import { and, eq, sql } from 'drizzle-orm';
 
 import {
   type StagedLiveBenchRecord,
@@ -29,6 +29,7 @@ export interface LiveBenchParquetIngestionOptions {
 }
 
 export interface LiveBenchParquetIngestionSummary {
+  readonly action: 'CREATE' | 'REUSE';
   readonly sourceId: string;
   readonly sourceSnapshotId: string;
   readonly ingestionRunId: string;
@@ -37,6 +38,35 @@ export interface LiveBenchParquetIngestionSummary {
   readonly storagePath: string;
   readonly recordsSeen: number;
   readonly recordsAccepted: number;
+}
+
+export interface ReusableLiveBenchIngestionRun {
+  readonly id: string;
+  readonly recordsSeen: number;
+  readonly recordsAccepted: number;
+  readonly stagedRecordCount: number;
+  readonly matchingSnapshotRecordCount: number;
+}
+
+export function selectReusableLiveBenchIngestionRun(
+  runs: readonly ReusableLiveBenchIngestionRun[],
+  expectedRecords: number,
+): string | null {
+  if (!Number.isSafeInteger(expectedRecords) || expectedRecords < 1) {
+    throw new Error('Expected LiveBench ingestion record count is invalid');
+  }
+  const complete = runs
+    .filter(
+      (run) =>
+        run.recordsSeen === expectedRecords &&
+        run.recordsAccepted === expectedRecords &&
+        run.stagedRecordCount === expectedRecords &&
+        run.matchingSnapshotRecordCount === expectedRecords,
+    )
+    .sort((left, right) =>
+      left.id < right.id ? -1 : left.id > right.id ? 1 : 0,
+    );
+  return complete[0]?.id ?? null;
 }
 
 export function createLiveBenchParquetEvidenceMetadata(
@@ -163,6 +193,59 @@ export async function ingestLiveBenchParquetDataset(
       throw new Error('Failed to resolve the LiveBench source snapshot');
     }
 
+    await transaction.execute(
+      sql`select pg_advisory_xact_lock(hashtextextended(${'livebench-parquet-v1:' + snapshot.id}, 0))`,
+    );
+    const reusableRuns = await transaction
+      .select({
+        id: ingestionRuns.id,
+        recordsSeen: ingestionRuns.recordsSeen,
+        recordsAccepted: ingestionRuns.recordsAccepted,
+        stagedRecordCount:
+          sql<number>`count(${stagedResults.id})::integer`.mapWith(Number),
+        matchingSnapshotRecordCount:
+          sql<number>`count(${stagedResults.id}) filter (where ${stagedResults.sourceSnapshotId} = ${snapshot.id})::integer`.mapWith(
+            Number,
+          ),
+      })
+      .from(ingestionRuns)
+      .innerJoin(
+        stagedResults,
+        eq(stagedResults.ingestionRunId, ingestionRuns.id),
+      )
+      .where(
+        and(
+          eq(ingestionRuns.sourceId, source.id),
+          eq(ingestionRuns.status, 'SUCCEEDED'),
+          eq(
+            ingestionRuns.connectorVersion,
+            LIVEBENCH_PARQUET_CONNECTOR_VERSION,
+          ),
+        ),
+      )
+      .groupBy(
+        ingestionRuns.id,
+        ingestionRuns.recordsSeen,
+        ingestionRuns.recordsAccepted,
+      );
+    const reusableRunId = selectReusableLiveBenchIngestionRun(
+      reusableRuns,
+      staged.length,
+    );
+    if (reusableRunId) {
+      return {
+        action: 'REUSE',
+        sourceId: source.id,
+        sourceSnapshotId: snapshot.id,
+        ingestionRunId: reusableRunId,
+        datasetRevision: datasetRevision.revision,
+        contentSha256: stored.contentSha256,
+        storagePath: stored.storagePath,
+        recordsSeen: staged.length,
+        recordsAccepted: staged.length,
+      };
+    }
+
     const [run] = await transaction
       .insert(ingestionRuns)
       .values({
@@ -203,6 +286,7 @@ export async function ingestLiveBenchParquetDataset(
       .where(eq(ingestionRuns.id, run.id));
 
     return {
+      action: 'CREATE',
       sourceId: source.id,
       sourceSnapshotId: snapshot.id,
       ingestionRunId: run.id,

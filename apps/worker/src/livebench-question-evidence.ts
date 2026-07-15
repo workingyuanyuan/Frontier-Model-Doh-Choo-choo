@@ -3,7 +3,9 @@ import { open } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
 import {
+  fetchLiveBenchQuestionInventory,
   parseLiveBenchQuestionInventoryEvidence,
+  writeContentAddressedArtifact,
   type LIVEBENCH_PUBLIC_RELEASE,
   type LiveBenchQuestionInventoryObservation,
 } from '@llm-bench/connectors';
@@ -26,6 +28,52 @@ export interface LoadedLiveBenchQuestionInventory {
   readonly byteLength: number;
   readonly release: typeof LIVEBENCH_PUBLIC_RELEASE;
   readonly observations: readonly LiveBenchQuestionInventoryObservation[];
+}
+
+export interface AcquiredLiveBenchQuestionInventory {
+  readonly schemaVersion: 'livebench-question-inventory-v1';
+  readonly release: typeof LIVEBENCH_PUBLIC_RELEASE;
+  readonly sourceRowCount: number;
+  readonly inventoryObservationCount: number;
+  readonly taskCount: number;
+  readonly downloadedByteLength: number;
+  readonly rangeRequestCount: number;
+  readonly contentSha256: string;
+  readonly byteLength: number;
+  readonly storagePath: string;
+}
+
+export async function acquireLiveBenchQuestionInventoryEvidence(
+  storageRoot: string,
+): Promise<AcquiredLiveBenchQuestionInventory> {
+  const fetched = await fetchLiveBenchQuestionInventory();
+  const body = new TextEncoder().encode(
+    `${JSON.stringify(fetched.evidence, null, 2)}\n`,
+  );
+  const stored = await writeContentAddressedArtifact(storageRoot, body, 'json');
+  return {
+    schemaVersion: fetched.evidence.schemaVersion,
+    release: fetched.evidence.release,
+    sourceRowCount: fetched.datasets.reduce(
+      (sum, dataset) => sum + dataset.rows.length,
+      0,
+    ),
+    inventoryObservationCount: fetched.evidence.inventory.length,
+    taskCount: new Set(
+      fetched.evidence.inventory.map(
+        ({ category, task }) => `${category}/${task}`,
+      ),
+    ).size,
+    downloadedByteLength: fetched.datasets.reduce(
+      (sum, dataset) => sum + dataset.downloadedByteLength,
+      0,
+    ),
+    rangeRequestCount: fetched.datasets.reduce(
+      (sum, dataset) => sum + dataset.rangeRequestCount,
+      0,
+    ),
+    ...stored,
+  };
 }
 
 export async function loadLiveBenchQuestionInventoryEvidence(

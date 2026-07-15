@@ -28,7 +28,7 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 
 ## In Progress
 
-- Implement idempotent weekly dry-run orchestration and complete final release acceptance.
+- Complete browser, accessibility, performance, security and clean-environment release acceptance.
 
 ## Decisions Made
 
@@ -118,6 +118,8 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 - Added an edition-bound video CLI with strict UUID selector, locale, all-light theme, Top-N, canonical model and poster/video validation. Artifact-v2 metadata records both the database snapshot and serialized-props hashes; isolated outputs include props, RFC 4180 CSV, media and a structured render log. PREVIEW output is visibly labeled and creates no job, while a rollback integration test proves FORMAL `QUEUED → RUNNING → SUCCEEDED` persistence and preview rejection.
 - Rendered the real 2026-07-13 PREVIEW Top-5 poster twice through edition and snapshot selectors with identical SHA-256 `a0bc69935eadd21906e9fcaf13fa5705f9643bc7fc72abe6e7b8fe3a1d4ccfb2`. Visual review caught and fixed null-as-zero, unrounded floating labels, fixed edition text, all-null field-average NaN and selected-model output collisions.
 - Rendered the corresponding 600-frame edition-bound H.264 MP4 three times with identical SHA-256 `6cb81af1f1d7fa9d54fbf2887d76bf7f36cc0b89d8383b946400c3ff4f2db1e6`. Chrome decoded it at 1920×1080 and 20.053333 seconds, sought across the final ranking scene, loaded the local media request with HTTP-style status 200 and reported no console warnings or errors. Visual acceptance confirmed the real UTC cutoff, `N/A` null ranks and five fully visible ranking rows.
+- Added a single weekly CLI with three-attempt transient source retry, partial-failure isolation, concise versioned summaries, shell-free preview rendering and explicit dry-run versus apply-preview boundaries. Two successful real runs reacquired the pinned 1,000-observation inventory, reused ingestion run `019f598c-da20-7da0-8692-616d56699d81` instead of duplicating 60,372 rows, revalidated 58,233 resolved plus 2,139 excluded rows, reported zero unapplied promotion diffs and reused snapshot `019f5f2d-c3df-7c54-96e8-e1939d332c8e` without formal publication.
+- Adapted the exact Hugging Face Xet CAS bridge hostname and missing-content-type behavior after a real fail-closed drift detection. Only `cas-bridge.xethub.hf.co` receives the narrow exception; revision, ETag, byte length/range, download budgets, hash and Parquet validation remain enforced.
 
 ## Data Sources Status
 
@@ -138,4 +140,4 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Keep the fictional `preview-ui-v1` fixture isolated from data-backed snapshots and reject it at the formal publication guard.
 - Connect the deterministic artifact manifest to future published-edition video job records.
-- Add weekly dry-run orchestration around the completed guarded publish/rollback primitives, then run the final browser, accessibility, performance, security and clean-environment acceptance gates.
+- Run the final browser, accessibility, performance, security and clean-environment acceptance gates.

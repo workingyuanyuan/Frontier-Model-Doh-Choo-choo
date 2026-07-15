@@ -36,14 +36,23 @@ The bilingual read routes are `/{locale}/models/{slug}`, `/{locale}/benchmarks/{
 
 1. creates a disposable PostgreSQL database;
 2. applies committed migrations and canonical seeds;
-3. captures the official LiveBench Hub commit SHA and fetches one bounded page;
-4. preserves the content-addressed raw response;
-5. runs validation tests;
-6. renders a representative poster;
-7. exports snapshot-bound metadata JSON and ranking CSV; and
-8. uploads the log, poster, metadata and raw evidence as a short-lived immutable artifact.
+3. reacquires the pinned six-category question inventory and full official LiveBench judgment artifact with bounded source retries;
+4. reuses a complete ingestion run when source snapshot, connector and all 60,372 staged rows match exactly;
+5. revalidates the reviewed alias manifest, persistence and aggregation readiness;
+6. reports promotion and score-snapshot diffs without applying them;
+7. renders a deterministic fictional preview poster plus metadata/CSV; and
+8. uploads the versioned orchestration summary, poster, metadata and raw evidence as a short-lived immutable artifact even when a source step fails.
 
 The scheduled workflow is deliberately dry-run only. It has no write permission, production secret or publish command, so a source failure cannot replace the current edition.
+
+`pnpm weekly:dry-run` is the local equivalent. Source acquisition steps use the
+connector's 30/60-second abort limits and retry transient network, timeout,
+408/425/429 and 5xx failures at most three times. Independent source failures
+are recorded as `FAILED`; dependent steps become `SKIPPED`, while the safe
+preview render is still attempted. A partial run exits nonzero after writing
+`artifacts/weekly-orchestration.json`. `pnpm weekly:apply-preview` is explicit
+and may apply guarded result/snapshot changes plus a PREVIEW pointer only;
+FORMAL publication is not an accepted weekly-orchestrator argument.
 
 ## Publication and rollback gate
 

@@ -46,7 +46,31 @@ export function isApprovedHuggingFaceCdnUrl(url: URL): boolean {
   return (
     url.protocol === 'https:' &&
     (url.hostname === 'cdn-lfs.hf.co' ||
+      // Hugging Face Hub serves Xet-backed repositories through its exact CAS
+      // bridge host. See https://huggingface.co/docs/hub/en/storage-backends
+      url.hostname === 'cas-bridge.xethub.hf.co' ||
       /^[a-z0-9-]+\.aws\.cdn\.hf\.co$/u.test(url.hostname))
+  );
+}
+
+export function isApprovedHuggingFaceArtifactContentType(
+  url: URL,
+  contentType: string,
+): boolean {
+  if (
+    /^(?:application|binary)\/(?:octet-stream|vnd\.apache\.parquet)(?:\s*;|$)/iu.test(
+      contentType,
+    )
+  ) {
+    return true;
+  }
+  // The exact Xet CAS bridge omits Content-Type while retaining the resolver's
+  // pinned length/ETag and byte-range contract. Other hosts must send a known
+  // binary type, and all callers still validate length plus Parquet structure.
+  return (
+    contentType === '' &&
+    url.protocol === 'https:' &&
+    url.hostname === 'cas-bridge.xethub.hf.co'
   );
 }
 
@@ -124,11 +148,7 @@ export async function fetchLiveBenchParquet(
   }
 
   const contentType = response.headers.get('content-type') ?? '';
-  if (
-    !/^(?:application|binary)\/(?:octet-stream|vnd\.apache\.parquet)(?:\s*;|$)/iu.test(
-      contentType,
-    )
-  ) {
+  if (!isApprovedHuggingFaceArtifactContentType(downloadUrl, contentType)) {
     throw new Error(
       `Unexpected LiveBench Parquet content type: ${contentType || 'missing'}`,
     );

@@ -3,6 +3,8 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   LIVEBENCH_PARQUET_PATH,
   fetchLiveBenchParquet,
+  isApprovedHuggingFaceArtifactContentType,
+  isApprovedHuggingFaceCdnUrl,
   parseLiveBenchParquet,
 } from './livebench-parquet.js';
 
@@ -25,6 +27,46 @@ function resolverResponse(overrides: Record<string, string> = {}) {
 }
 
 describe('LiveBench revision-pinned Parquet fetch', () => {
+  it('allows the exact Hugging Face Xet bridge host without allowing suffix tricks', () => {
+    expect(
+      isApprovedHuggingFaceCdnUrl(
+        new URL('https://cas-bridge.xethub.hf.co/object'),
+      ),
+    ).toBe(true);
+    expect(
+      isApprovedHuggingFaceCdnUrl(
+        new URL('https://cas-bridge.xethub.hf.co.attacker.example/object'),
+      ),
+    ).toBe(false);
+  });
+
+  it('accepts a missing content type only from the exact Xet bridge', () => {
+    expect(
+      isApprovedHuggingFaceArtifactContentType(
+        new URL('https://cas-bridge.xethub.hf.co/object'),
+        '',
+      ),
+    ).toBe(true);
+    expect(
+      isApprovedHuggingFaceArtifactContentType(
+        new URL('https://us.aws.cdn.hf.co/object'),
+        '',
+      ),
+    ).toBe(false);
+    expect(
+      isApprovedHuggingFaceArtifactContentType(
+        new URL('http://cas-bridge.xethub.hf.co/object'),
+        '',
+      ),
+    ).toBe(false);
+    expect(
+      isApprovedHuggingFaceArtifactContentType(
+        new URL('https://cas-bridge.xethub.hf.co/object'),
+        'text/html',
+      ),
+    ).toBe(false);
+  });
+
   it('manually validates the Hub resolver and one approved CDN redirect', async () => {
     const fetchImplementation = vi
       .fn<typeof fetch>()

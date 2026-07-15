@@ -38,6 +38,6 @@
 - [x] Consolidate Web/video radar rendering behind shared contracts.
 - [x] Add edition-bound video CLI, render logs and video job persistence.
 - [x] Render and inspect the complete deterministic demo video.
-- [ ] Implement idempotent weekly orchestration with dry-run default.
+- [x] Implement idempotent weekly orchestration with dry-run default.
 - [ ] Complete browser, accessibility, performance and security gates.
 - [ ] Reconcile final documentation, acceptance criteria and clean-environment run.
