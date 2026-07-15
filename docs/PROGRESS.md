@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Phase 8 — weekly orchestration, final quality gates and clean-environment acceptance.
+Phase 8 complete — local v1 delivery accepted; formal publication remains source-gated.
 
 ## Completed
 
@@ -27,10 +27,15 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 - Completed the edition-bound 600-frame PREVIEW video acceptance render, fixed null-rank, cutoff-time and Top-5 layout defects, and reproduced the final MP4 byte-for-byte across three renders.
 - Added a guarded deterministic PostgreSQL browser fixture and 25 production-Chromium gates covering all required routes, bilingual/shareable theme-comparison state, 390/1440 px containment, WCAG A/AA, API health/cache behavior, performance budgets, crawler guidance and strict security headers.
 - Chrome DevTools independently measured mobile LCP 76 ms and CLS 0.00. Lighthouse reached 100 for accessibility, SEO and agentic browsing; its strong-CSP audit passes, while Best Practices remains 96 because Lighthouse records its own CSP inspection as one empty DevTools issue.
+- Added `pnpm local:up` and verified one-command PostgreSQL migration/seed, Web health and worker watch startup.
+- Completed a from-zero acceptance database run: 60,372 official judgments, exhaustive alias adjudication, 737 promoted task results, 1,216 dimension rows, an immutable 152-model PREVIEW snapshot, Web pages, poster and deterministic MP4.
+- Diagnosed and fixed Remotion progress contaminating weekly machine-readable stdout; the complete retry succeeded and reused ingestion, results, snapshot and edition idempotently.
+- Real-data Chrome found and verified the hidden accessible-table containment fix; the English comparison page now has no document overflow, a clean console, 52 ms LCP and 0.00 CLS.
+- Replayed the full local gate with 248 unit/integration tests and 25 Chromium tests; production build, high-severity audit, Remotion still and artifact export pass.
 
 ## In Progress
 
-- Complete the final clean-environment delivery audit and acceptance reconciliation.
+- None for the local v1 completion boundary.
 
 ## Decisions Made
 
@@ -142,4 +147,4 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Keep the fictional `preview-ui-v1` fixture isolated from data-backed snapshots and reject it at the formal publication guard.
 - Connect the deterministic artifact manifest to future published-edition video job records.
-- Run the final clean-environment acceptance and reconcile every prompt criterion.
+- Add further official sources only after access, methodology and license review; keep formal publication fail-closed until evidence gates pass.

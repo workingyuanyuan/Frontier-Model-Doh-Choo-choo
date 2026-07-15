@@ -305,9 +305,9 @@ page slice (3–5 files).
 
 ### Checkpoint: Web product
 
-- [ ] All routes render from validated repository data or explicit preview.
-- [ ] Theme/locale/share URL behavior passes real-browser checks.
-- [ ] Desktop/mobile keyboard and screen-reader equivalents are verified.
+- [x] All routes render from validated repository data or explicit preview.
+- [x] Theme/locale/share URL behavior passes real-browser checks.
+- [x] Desktop/mobile keyboard and screen-reader equivalents are verified.
 
 ### Phase 7: Shared radar and snapshot-driven video
 
@@ -359,6 +359,6 @@ verification).
 
 ### Checkpoint: Complete local product
 
-- [ ] Prompt minimum-delivery checklist and 15 acceptance criteria reconciled.
-- [ ] Full clean-database E2E flow, production build and demo video pass.
-- [ ] Every complete tested batch is committed, pushed and green in CI.
+- [x] Prompt minimum-delivery checklist and 15 acceptance criteria reconciled.
+- [x] Full clean-database E2E flow, production build and demo video pass.
+- [x] Every complete tested batch is committed, pushed and green in CI.

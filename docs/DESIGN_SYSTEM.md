@@ -4,7 +4,7 @@
 
 The four supplied references use a pale gray canvas, high-information white cards, strong model/rank numerals, restrained shadows, colored benchmark strokes and a dominant radar chart. The implementation keeps that hierarchy without copying layout, logos, typography or pixels.
 
-The user selected an all-light baseline. Google-inspired uses clearer elevation and brighter multicolor accents; Apple-inspired uses quieter neutrals, more whitespace and subtle translucent surfaces. Both meet WCAG AA contrast.
+The user selected an all-light baseline. The `editorial` URL theme is the Google-inspired treatment with clearer elevation and brighter multicolor accents; `studio` is the Apple-inspired treatment with quieter neutrals, more whitespace and subtle translucent surfaces. Both meet WCAG AA contrast and preserve identical radar geometry.
 
 ## Semantic tokens
 

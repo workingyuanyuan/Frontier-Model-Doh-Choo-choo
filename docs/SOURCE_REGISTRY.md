@@ -15,7 +15,7 @@ Every connector record stores `source_id`, type, publisher, base/leaderboard/met
 | Vals AI             | independent_evaluator | Public result access and terms research pending                                                           | Disabled by default                                                                               |
 | Agents' Last Exam   | benchmark_official    | Official leaderboard/data access research pending                                                         | Disabled by default                                                                               |
 | DeepSWE             | benchmark_official    | Official leaderboard/data access research pending                                                         | Disabled by default                                                                               |
-| Manual Import       | unverified            | Local Zod-validated CSV/JSON with mandatory source URL and evidence                                       | Always provisional until review                                                                   |
+| Manual Import       | unverified            | Contract/backlog only; validated CSV/JSON implementation pending                                          | Always provisional until review                                                                   |
 | BenchLM             | secondary_aggregator  | Information architecture reference only                                                                   | Never ingest data or scoring                                                                      |
 
 ## LiveBench sources

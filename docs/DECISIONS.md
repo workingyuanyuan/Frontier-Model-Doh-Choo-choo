@@ -95,3 +95,7 @@ Browser gates run the production Next.js build against reserved, deterministic E
 ## DEC-024 — Local worker operation is command-driven
 
 The worker has no continuously polled queue: ingestion, scoring, edition and video work is explicitly bounded by CLI arguments, source timeouts, transaction guards and scheduled GitHub Actions. `pnpm local:up` still supplies the required single local entry point by starting and health-checking PostgreSQL, migrating and seeding it, building the worker, then running Next.js alongside the worker TypeScript watcher. Data-changing jobs run from a second terminal and never occur merely because the development environment started. This intentionally avoids an idle process with implicit writes while keeping the Web, database and worker code live in one command.
+
+## DEC-025 — Native accessible controls and semantic CSS replace UI framework defaults
+
+The Web app uses React/Next.js with native buttons, selects, links, tables and semantic regions plus version-controlled CSS instead of adding Tailwind and a headless component dependency. The product requires two tightly bounded themes and a shared geometry contract, not a general component framework. Native controls reduce bundle and supply-chain surface while retaining keyboard/screen-reader behavior; axe WCAG A/AA scans, 390/1440 containment tests and production Chrome verification are the acceptance authority. Theme tokens and component classes remain documented in `DESIGN_SYSTEM.md`.

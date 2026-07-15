@@ -40,4 +40,4 @@
 - [x] Render and inspect the complete deterministic demo video.
 - [x] Implement idempotent weekly orchestration with dry-run default.
 - [x] Complete browser, accessibility, performance and security gates.
-- [ ] Reconcile final documentation, acceptance criteria and clean-environment run.
+- [x] Reconcile final documentation, acceptance criteria and clean-environment run.

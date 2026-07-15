@@ -139,6 +139,7 @@ input snapshot ID and SHA-256. Fixture values never enter the publication path.
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Video spec](docs/VIDEO_SPEC.md)
 - [Operations and CI](docs/OPERATIONS.md)
+- [Delivery acceptance and final report](docs/DELIVERY_AUDIT.md)
 - [Decisions](docs/DECISIONS.md)
 - [Risks](docs/RISKS.md)
 - [Progress](docs/PROGRESS.md)
