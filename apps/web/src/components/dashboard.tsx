@@ -2,29 +2,37 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { type ActiveEdition, type RankingSnapshot } from '@llm-bench/contracts';
 
 import { calculateFieldAverage } from '../lib/homepage-data';
 import type { Dictionary, Locale } from '../lib/i18n';
+import {
+  buildPresentationQuery,
+  type WebTheme,
+} from '../lib/presentation-query';
 import { RadarChart } from './radar-chart';
 
 interface DashboardProps {
   dictionary: Dictionary;
   edition: ActiveEdition | null;
+  editionId: string | null;
+  initialTheme: WebTheme;
   locale: Locale;
   snapshot: RankingSnapshot;
 }
 
-type ThemeId = 'editorial' | 'studio';
-
 export function Dashboard({
   dictionary,
   edition,
+  editionId,
+  initialTheme,
   locale,
   snapshot,
 }: DashboardProps) {
-  const [theme, setTheme] = useState<ThemeId>('editorial');
+  const router = useRouter();
+  const [theme, setTheme] = useState<WebTheme>(initialTheme);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selected = snapshot.entries[selectedIndex] ?? snapshot.entries[0];
   const fieldAverage = useMemo(
@@ -64,13 +72,21 @@ export function Dashboard({
   const rankedModels = snapshot.entries.filter(
     (entry) => entry.rank !== null,
   ).length;
+  const presentationQuery = buildPresentationQuery({ editionId, theme });
+  const setPresentationTheme = (nextTheme: WebTheme) => {
+    setTheme(nextTheme);
+    router.replace(
+      `/${locale}?${buildPresentationQuery({ editionId, theme: nextTheme })}`,
+      { scroll: false },
+    );
+  };
 
   return (
     <div className="siteShell" data-theme={theme} lang={locale}>
       <header className="siteHeader">
         <Link
           className="brand"
-          href={`/${locale}`}
+          href={`/${locale}?${presentationQuery}`}
           aria-label={dictionary.brand}
         >
           <span className="brandMark" aria-hidden="true">
@@ -83,7 +99,9 @@ export function Dashboard({
 
         <nav className="primaryNav" aria-label="Primary navigation">
           <a href="#rankings">{dictionary.nav.rankings}</a>
-          <Link href={`/${locale}/compare`}>{dictionary.nav.compare}</Link>
+          <Link href={`/${locale}/compare?${presentationQuery}`}>
+            {dictionary.nav.compare}
+          </Link>
           <Link href={`/${locale}/methodology`}>
             {dictionary.nav.methodology}
           </Link>
@@ -94,19 +112,22 @@ export function Dashboard({
             <button
               type="button"
               aria-pressed={theme === 'editorial'}
-              onClick={() => setTheme('editorial')}
+              onClick={() => setPresentationTheme('editorial')}
             >
               {dictionary.theme.editorial}
             </button>
             <button
               type="button"
               aria-pressed={theme === 'studio'}
-              onClick={() => setTheme('studio')}
+              onClick={() => setPresentationTheme('studio')}
             >
               {dictionary.theme.studio}
             </button>
           </div>
-          <Link className="languageLink" href={`/${otherLocale}`}>
+          <Link
+            className="languageLink"
+            href={`/${otherLocale}?${presentationQuery}`}
+          >
             {dictionary.language}
           </Link>
         </div>
@@ -236,9 +257,12 @@ export function Dashboard({
               <article>
                 <span>{dictionary.coverage}</span>
                 <strong>{Math.round(selected.overallCoverage * 100)}%</strong>
-                <div className="meter">
-                  <i style={{ width: `${selected.overallCoverage * 100}%` }} />
-                </div>
+                <progress
+                  aria-label={dictionary.coverage}
+                  className="meter"
+                  max="1"
+                  value={selected.overallCoverage}
+                />
               </article>
               <article>
                 <span>{dictionary.confidence}</span>

@@ -29,4 +29,4 @@
 
 - [ ] Shared snapshot-driven Remotion preview and deterministic artifact manifest (preview complete; manifest pending).
 - [x] Weekly dry-run/preview/rollback pipeline and scheduled CI; formal publication remains intentionally blocked by source evidence policy.
-- [ ] Full unit, integration, E2E, visual, accessibility, security and performance gates.
+- [x] Full unit, integration, E2E, visual, accessibility, security and performance gates.

@@ -1,17 +1,14 @@
 import type { Metadata } from 'next';
+import { connection } from 'next/server';
 import type { ReactNode } from 'react';
 import { redirect } from 'next/navigation';
 
-import { getDictionary, isLocale, locales } from '../../lib/i18n';
+import { getDictionary, isLocale } from '../../lib/i18n';
 import '../globals.css';
 
 interface LocaleLayoutProps {
   children: ReactNode;
   params: Promise<{ locale: string }>;
-}
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
@@ -30,6 +27,7 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
+  await connection();
   const { locale } = await params;
   if (!isLocale(locale)) {
     redirect('/zh-TW');

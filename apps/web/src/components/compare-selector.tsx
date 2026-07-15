@@ -5,6 +5,10 @@ import { useRouter } from 'next/navigation';
 
 import type { CompareCopy } from '../lib/compare-copy';
 import type { Locale } from '../lib/i18n';
+import {
+  buildPresentationQuery,
+  type WebTheme,
+} from '../lib/presentation-query';
 
 interface ModelOption {
   slug: string;
@@ -14,16 +18,20 @@ interface ModelOption {
 
 interface CompareSelectorProps {
   copy: CompareCopy;
+  editionId: string | null;
   initialSlugs: string[];
   locale: Locale;
   options: ModelOption[];
+  theme: WebTheme;
 }
 
 export function CompareSelector({
   copy,
+  editionId,
   initialSlugs,
   locale,
   options,
+  theme,
 }: CompareSelectorProps) {
   const router = useRouter();
   const [selected, setSelected] = useState(initialSlugs);
@@ -46,9 +54,12 @@ export function CompareSelector({
   };
 
   const apply = () => {
-    const query = new URLSearchParams();
-    for (const slug of selected) query.append('models', slug);
-    router.push(`/${locale}/compare?${query.toString()}`);
+    const query = buildPresentationQuery({
+      editionId,
+      theme,
+      models: selected,
+    });
+    router.push(`/${locale}/compare?${query}`);
   };
 
   return (

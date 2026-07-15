@@ -30,7 +30,13 @@ pnpm format
 pnpm typecheck
 pnpm test:run
 pnpm build
+pnpm e2e
 ```
+
+`pnpm e2e` runs the production build through Chromium. CI prepares its
+disposable fixture with `E2E_FIXTURE=1 pnpm e2e:seed`; the fixture refuses to
+replace a non-E2E active edition. Repository changes are pushed as complete,
+test-passing batches rather than once per edited file.
 
 ## Working applications
 

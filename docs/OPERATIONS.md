@@ -2,7 +2,7 @@
 
 ## Continuous integration
 
-`.github/workflows/ci.yml` runs on pull requests and pushes to `main`. It uses Node 24.18.0, pnpm 11.7.0, PostgreSQL 18.4 and a frozen lockfile. The required gates are formatting, ESLint with zero warnings, strict type checking, tests, migration, seed, production build, high-severity dependency audit and one Remotion frame render.
+`.github/workflows/ci.yml` runs on pull requests and pushes to `main`. It uses Node 24.18.0, pnpm 11.7.0, PostgreSQL 18.4 and a frozen lockfile. The required gates are formatting, ESLint with zero warnings, strict type checking, tests, migration, seed, production build, Chromium E2E/axe/responsive/performance/security checks, high-severity dependency audit and one Remotion frame render.
 
 All reusable actions are pinned to immutable full commit SHAs. The workflow token has only `contents: read`, and the PostgreSQL credentials exist solely inside the disposable runner service.
 
@@ -28,7 +28,36 @@ The response always includes `apiVersion: "v1"`. Preview editions remain explici
 
 The homepage uses the active database edition when available. If PostgreSQL is reachable but has no active pointer, it uses the visibly labelled fictional design fixture. If PostgreSQL is unavailable, the homepage returns an error state with retry rather than silently serving that fixture. Liveness therefore remains useful during a dependency outage while data status and the homepage correctly fail readiness.
 
-The bilingual read routes are `/{locale}/models/{slug}`, `/{locale}/benchmarks/{slug}`, `/{locale}/compare`, `/{locale}/methodology`, `/{locale}/sources` and `/{locale}/pipeline`. Source and pipeline routes require PostgreSQL and share the retryable unavailable boundary; methodology is version-controlled static policy. Comparison accepts two to five repeated `models` parameters, rejects duplicates and unknown IDs, and preserves their order across locale changes.
+The bilingual read routes are `/{locale}/models/{slug}`, `/{locale}/benchmarks/{slug}`, `/{locale}/compare`, `/{locale}/methodology`, `/{locale}/sources` and `/{locale}/pipeline`. Source and pipeline routes require PostgreSQL and share the retryable unavailable boundary; methodology is version-controlled policy. Comparison accepts two to five repeated `models` parameters, rejects duplicates and unknown IDs, and preserves their order, active `edition`, light `theme` and locale in its shareable URL.
+
+## Browser and security gates
+
+CI seeds three deterministic model variants and one PREVIEW edition only after
+the canonical database seed. `apps/web/e2e/seed.ts` requires
+`E2E_FIXTURE=1`, is idempotent for its reserved UUIDs and refuses to replace a
+non-E2E active edition. The production server is then tested at desktop and
+390 px mobile widths across both homepages, model, benchmark, comparison,
+methodology, source and pipeline routes. The suite also covers URL-owned theme
+and 2–5 model state, API status/cache contracts, invalid-selector 404s, WCAG
+A/AA axe scans, response/payload budgets and security headers.
+
+Page responses use a request-unique Next.js nonce with `strict-dynamic` for
+scripts, deny framing and unused browser capabilities, and omit arbitrary
+inline script/style permission. `robots.txt` and `llms.txt` expose the public
+human/API surfaces. The browser report is uploaded for every non-cancelled CI
+run; local failure screenshots, videos and traces remain ignored under
+`test-results/` and `playwright-report/`.
+
+For a disposable database that has no non-E2E active edition:
+
+```bash
+pnpm db:migrate
+pnpm db:seed
+E2E_FIXTURE=1 pnpm e2e:seed
+pnpm build
+pnpm exec playwright install chromium
+pnpm e2e
+```
 
 ## Weekly dry run
 

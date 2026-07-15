@@ -14,12 +14,23 @@ import {
 import { getWebDatabase } from '../../../lib/database';
 import { resolveHomepageData } from '../../../lib/homepage-data';
 import { getDictionary, isLocale } from '../../../lib/i18n';
+import {
+  buildPresentationQuery,
+  InvalidPresentationQueryError,
+  resolveWebTheme,
+  type QueryValue,
+  validateEditionQuery,
+} from '../../../lib/presentation-query';
 
 export const dynamic = 'force-dynamic';
 
 interface ComparePageProps {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ models?: ComparisonQueryValue }>;
+  searchParams: Promise<{
+    edition?: QueryValue;
+    models?: ComparisonQueryValue;
+    theme?: QueryValue;
+  }>;
 }
 
 export default async function ComparePage({
@@ -33,31 +44,48 @@ export default async function ComparePage({
     await getActiveEdition(getWebDatabase().db),
   );
   let selected;
+  let editionId: string | null;
+  let theme;
   try {
+    editionId = validateEditionQuery(
+      query.edition,
+      homepage.edition?.id ?? null,
+    );
+    theme = resolveWebTheme(query.theme);
     selected = resolveComparisonEntries(
       homepage.snapshot.entries,
       query.models,
     );
   } catch (error) {
-    if (error instanceof InvalidComparisonSelectionError) notFound();
+    if (
+      error instanceof InvalidComparisonSelectionError ||
+      error instanceof InvalidPresentationQueryError
+    )
+      notFound();
     throw error;
   }
 
   const dictionary = getDictionary(locale);
   const copy = getCompareCopy(locale);
   const otherLocale = locale === 'zh-TW' ? 'en' : 'zh-TW';
-  const shareQuery = new URLSearchParams();
-  for (const entry of selected) shareQuery.append('models', entry.slug);
+  const shareQuery = buildPresentationQuery({
+    editionId,
+    theme,
+    models: selected.map((entry) => entry.slug),
+  });
 
   return (
-    <main className="detailPage comparePage">
+    <main className="detailPage comparePage" data-theme={theme}>
       <div className="detailPageNav">
-        <Link className="detailBack" href={`/${locale}`}>
+        <Link
+          className="detailBack"
+          href={`/${locale}?${buildPresentationQuery({ editionId, theme })}`}
+        >
           ← {copy.back}
         </Link>
         <Link
           className="detailLink"
-          href={`/${otherLocale}/compare?${shareQuery.toString()}`}
+          href={`/${otherLocale}/compare?${shareQuery}`}
         >
           {dictionary.language}
         </Link>
@@ -71,6 +99,7 @@ export default async function ComparePage({
 
       <CompareSelector
         copy={copy}
+        editionId={editionId}
         initialSlugs={selected.map((entry) => entry.slug)}
         locale={locale}
         options={homepage.snapshot.entries.map((entry) => ({
@@ -78,6 +107,7 @@ export default async function ComparePage({
           displayName: entry.displayName,
           providerName: entry.providerName,
         }))}
+        theme={theme}
       />
 
       <section className="detailSection">

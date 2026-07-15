@@ -117,7 +117,7 @@ export function ComparisonRadar({
         <ul className="comparisonRadarLegend">
           {entries.map((entry, index) => (
             <li key={entry.slug}>
-              <i style={{ background: colors[index] }} />
+              <i className={`seriesColor${index}`} />
               {entry.displayName}
             </li>
           ))}

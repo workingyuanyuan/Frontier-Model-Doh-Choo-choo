@@ -25,10 +25,12 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 - Built a bilingual four-scene Remotion composition at 1920×1080, 30 fps and 600 frames with validated snapshot, locale, theme and selected-model props.
 - Rendered and visually inspected four representative stills, then completed a 20-second H.264 MP4 render with Remotion's managed media toolchain.
 - Completed the edition-bound 600-frame PREVIEW video acceptance render, fixed null-rank, cutoff-time and Top-5 layout defects, and reproduced the final MP4 byte-for-byte across three renders.
+- Added a guarded deterministic PostgreSQL browser fixture and 25 production-Chromium gates covering all required routes, bilingual/shareable theme-comparison state, 390/1440 px containment, WCAG A/AA, API health/cache behavior, performance budgets, crawler guidance and strict security headers.
+- Chrome DevTools independently measured mobile LCP 76 ms and CLS 0.00. Lighthouse reached 100 for accessibility, SEO and agentic browsing; its strong-CSP audit passes, while Best Practices remains 96 because Lighthouse records its own CSP inspection as one empty DevTools issue.
 
 ## In Progress
 
-- Complete browser, accessibility, performance, security and clean-environment release acceptance.
+- Complete the final clean-environment delivery audit and acceptance reconciliation.
 
 ## Decisions Made
 
@@ -140,4 +142,4 @@ Phase 8 — weekly orchestration, final quality gates and clean-environment acce
 - Resolve repeated LiveBench judgments with a source-backed evaluation-run policy; release filtering alone does not select a winning conflicting judgment.
 - Keep the fictional `preview-ui-v1` fixture isolated from data-backed snapshots and reject it at the formal publication guard.
 - Connect the deterministic artifact manifest to future published-edition video job records.
-- Run the final browser, accessibility, performance, security and clean-environment acceptance gates.
+- Run the final clean-environment acceptance and reconcile every prompt criterion.

@@ -1,0 +1,11 @@
+# LLM Bench Radar
+
+> A bilingual, evidence-first LLM capability benchmark with immutable weekly snapshots, explicit preview/formal publication states, and fixed-geometry eight-axis radar charts.
+
+- [Traditional Chinese homepage](/zh-TW)
+- [English homepage](/en)
+- [Methodology](/en/methodology)
+- [Data sources](/en/sources)
+- [Pipeline status](/en/pipeline)
+- [Latest ranking API](/api/v1/rankings/latest)
+- [Data status API](/api/v1/status/data)
