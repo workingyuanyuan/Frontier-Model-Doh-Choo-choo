@@ -1,0 +1,38 @@
+[
+  {
+    "schemaVersion": "evidence-record-v1",
+    "id": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+    "sourceId": "vals-ai",
+    "retrievedAt": "2026-07-16T13:11:54.923Z",
+    "requestUrl": "https://www.vals.ai/home",
+    "finalUrl": "https://www.vals.ai/home",
+    "mediaType": "text/html; charset=utf-8",
+    "byteLength": 554108,
+    "sha256": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+    "artifactPath": "artifacts-v2/sha256/a9/a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09.html",
+    "method": "DOM",
+    "metadata": {
+      "httpStatus": 200,
+      "captureScope": "complete response HTML",
+      "modelUpdateDate": "2026-07-09"
+    }
+  },
+  {
+    "schemaVersion": "evidence-record-v1",
+    "id": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+    "sourceId": "vals-ai",
+    "retrievedAt": "2026-07-16T13:11:54.923Z",
+    "requestUrl": "https://www.vals.ai/models/openai_gpt-5.6-sol",
+    "finalUrl": "https://www.vals.ai/models/openai_gpt-5.6-sol",
+    "mediaType": "text/html; charset=utf-8",
+    "byteLength": 198809,
+    "sha256": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+    "artifactPath": "artifacts-v2/sha256/5f/5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871.html",
+    "method": "DOM",
+    "metadata": {
+      "httpStatus": 200,
+      "captureScope": "complete response HTML",
+      "reasoningEffort": "max"
+    }
+  }
+]

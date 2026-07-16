@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "epoch-ai",
+  "displayName": "Epoch AI Benchmarking Hub — internal runs",
+  "role": "INDEPENDENT",
+  "baseUrl": "https://epoch.ai",
+  "targetUrls": [
+    "https://epoch.ai/benchmarks/use-this-data",
+    "https://epoch.ai/data/benchmark_data.zip"
+  ],
+  "benchmarkIds": [
+    "epoch-capabilities-index",
+    "chess-puzzles",
+    "simpleqa-verified",
+    "gpqa-diamond",
+    "aime"
+  ],
+  "accessMethods": ["EXPORT", "DOM"],
+  "completeness": {
+    "expectedCountMethod": "Inspect all ZIP entries and separate nine internal CSVs (no _external suffix) from 64 external-source CSVs.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "fieldMapping": {
+    "Model version": "model/profile identity",
+    "mean_score": "rawScore / 100",
+    "ECI Score": "rawScore",
+    "Started at": "sourcePublishedAt",
+    "Release date": "model release metadata"
+  },
+  "fallbackMethods": ["OFFICIAL_API", "DOM"],
+  "lastVerifiedAt": "2026-07-16T13:05:53.306Z",
+  "notes": [
+    "Only files without the _external suffix are treated as Epoch-run evidence.",
+    "The ECI contributes a dynamic Top 20 selection set, deduplicated by base model and retained as excluded, selection-only evidence.",
+    "When a base model has tied ECI scores, the profile with the highest declared reasoning effort is retained deterministically.",
+    "This bounded fixture includes current GPT-5.6 profiles on four mapped internal benchmarks; other internal rows remain in the indexed ZIP artifact."
+  ]
+}

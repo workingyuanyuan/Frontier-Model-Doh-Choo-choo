@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "livebench",
+  "displayName": "LiveBench",
+  "role": "ORGANIZER",
+  "baseUrl": "https://livebench.ai",
+  "targetUrls": [
+    "https://livebench.ai/#/",
+    "https://livebench.ai/table_2026_06_25.csv?v=1784029070",
+    "https://livebench.ai/categories_2026_06_25.json?v=1784029070"
+  ],
+  "benchmarkIds": [
+    "livebench-reasoning",
+    "livebench-mathematics",
+    "livebench-language",
+    "livebench-instruction-following"
+  ],
+  "accessMethods": ["EXPORT", "API_RESPONSE", "DOM"],
+  "completeness": {
+    "expectedCountMethod": "Read the release list from the official JS bundle, count all 38 rows in the latest release CSV, and validate category membership from the release JSON.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "fieldMapping": {
+    "table CSV model": "model.rawName/profile",
+    "table CSV task columns": "raw subtask scores",
+    "categories JSON": "category-to-task membership",
+    "arithmetic mean of category tasks": "rawScore"
+  },
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "lastVerifiedAt": "2026-07-16T13:05:53.306Z",
+  "notes": [
+    "The official app bundle declares 2026-06-25 as the latest release and loads table, categories and cost files by release.",
+    "The complete CSV has 38 profiles. This bounded fixture includes four frontier max profiles.",
+    "Only four categories already represented in the eight-dimension mapping are emitted here; Coding, Agentic Coding and Data Analysis remain in evidence."
+  ]
+}

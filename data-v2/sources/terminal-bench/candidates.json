@@ -1,0 +1,869 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:anthropic-claude-fable-5-claude-code-xhigh",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Claude Fable 5",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-claude-code-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": true,
+      "harness": "Claude Code",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 83.82,
+    "normalizedScore": 83.82,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-07T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[0].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[0].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:openai-gpt-5-5-codex-xhigh",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GPT-5.5",
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-codex-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": true,
+      "harness": "Codex",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 83.15,
+    "normalizedScore": 83.15,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[1].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[1].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:anthropic-claude-fable-5-terminus-2-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Claude Fable 5",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-terminus-2-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Terminus 2",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 80.45,
+    "normalizedScore": 80.45,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[2].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[2].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:xai-grok-4-5-cursor-cli-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Grok 4.5",
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-cursor-cli-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Cursor CLI",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 79.33,
+    "normalizedScore": 79.33,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[3].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[3].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:anthropic-claude-opus-4-8-claude-code-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Claude Opus 4.8",
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-claude-code-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Claude Code",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 78.88,
+    "normalizedScore": 78.88,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[4].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[4].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:openai-gpt-5-6-terra-codex-max",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GPT-5.6 Terra",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-codex-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": true,
+      "harness": "Codex",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 78.43,
+    "normalizedScore": 78.43,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-11T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[5].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[5].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:openai-gpt-5-5-terminus-2-xhigh",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GPT-5.5",
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-terminus-2-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": true,
+      "harness": "Terminus 2",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 77.98,
+    "normalizedScore": 77.98,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[6].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[6].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:meta-muse-spark-1-1-mini-swe-agent-xhigh",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Muse Spark 1.1",
+      "canonicalModelId": "meta-muse-spark-1-1",
+      "profileId": "meta-muse-spark-1-1-mini-swe-agent-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": true,
+      "harness": "mini-SWE-agent",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 76.18,
+    "normalizedScore": 76.18,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[7].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[7].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:openai-gpt-5-6-luna-codex-max",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GPT-5.6 Luna",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-codex-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": true,
+      "harness": "Codex",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 75.73,
+    "normalizedScore": 75.73,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-11T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[8].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[8].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:anthropic-claude-sonnet-5-claude-code-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Claude Sonnet 5",
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-claude-code-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Claude Code",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 74.61,
+    "normalizedScore": 74.61,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[9].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[9].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:google-gemini-3-pro-terminus-2-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Gemini 3 Pro",
+      "canonicalModelId": "google-gemini-3-pro",
+      "profileId": "google-gemini-3-pro-terminus-2-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Terminus 2",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 73.93,
+    "normalizedScore": 73.93,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[10].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[10].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:anthropic-claude-opus-4-7-claude-code-max",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Claude Opus 4.7",
+      "canonicalModelId": "anthropic-claude-opus-4-7",
+      "profileId": "anthropic-claude-opus-4-7-claude-code-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": true,
+      "harness": "Claude Code",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 68.9,
+    "normalizedScore": 68.9,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[11].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[11].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:anthropic-claude-opus-4-7-terminus-2-max",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Claude Opus 4.7",
+      "canonicalModelId": "anthropic-claude-opus-4-7",
+      "profileId": "anthropic-claude-opus-4-7-terminus-2-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": true,
+      "harness": "Terminus 2",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 66.07,
+    "normalizedScore": 66.07,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[12].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[12].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:google-gemini-3-pro-gemini-cli-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Gemini 3 Pro",
+      "canonicalModelId": "google-gemini-3-pro",
+      "profileId": "google-gemini-3-pro-gemini-cli-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Gemini CLI",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 65.84,
+    "normalizedScore": 65.84,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[13].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[13].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:google-gemini-3-1-pro-gemini-cli-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Gemini 3.1 Pro",
+      "canonicalModelId": "google-gemini-3-1-pro",
+      "profileId": "google-gemini-3-1-pro-gemini-cli-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Gemini CLI",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 65.84,
+    "normalizedScore": 65.84,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[14].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[14].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:google-gemini-3-1-pro-terminus-2-high",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "Gemini 3.1 Pro",
+      "canonicalModelId": "google-gemini-3-1-pro",
+      "profileId": "google-gemini-3-1-pro-terminus-2-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": true,
+      "harness": "Terminus 2",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 65.62,
+    "normalizedScore": 65.62,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[15].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[15].metadata"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "terminal-bench-2-1:zai-glm-5-1-claude-code-max",
+    "sourceId": "terminal-bench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GLM-5.1",
+      "canonicalModelId": "zai-glm-5-1",
+      "profileId": "zai-glm-5-1-claude-code-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": true,
+      "harness": "Claude Code",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 5
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 58.65,
+    "normalizedScore": 58.65,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.tbench.ai/leaderboard/terminal-bench/2.1",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-01T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[16].metrics.accuracy"
+      },
+      "profile": {
+        "evidenceId": "sha256:e30fb66c521591771c43e51774347f11e408c90c864ba4bfc23a147c765629cc",
+        "method": "NEXT_RSC",
+        "locator": "leaderboard.rows[16].metadata"
+      }
+    }
+  }
+]

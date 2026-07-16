@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "terminal-bench",
+  "displayName": "Terminal-Bench",
+  "role": "ORGANIZER",
+  "baseUrl": "https://www.tbench.ai",
+  "targetUrls": ["https://www.tbench.ai/leaderboard/terminal-bench/2.1"],
+  "benchmarkIds": ["terminal-bench-2-1"],
+  "accessMethods": ["NEXT_RSC", "DOM"],
+  "completeness": {
+    "expectedCountMethod": "Compare the embedded leaderboard row array with both visible \"Showing 17 entries\" and \"Displaying 17 of 17 available entries\".",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "fieldMapping": {
+    "rows[].metadata.model_display.label": "model.rawName",
+    "rows[].metadata.reasoning_effort": "profile.effort",
+    "rows[].metadata.agent_display.label": "profile.harness",
+    "rows[].metrics.accuracy": "rawScore",
+    "rows[].metadata.date": "sourcePublishedAt"
+  },
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "lastVerifiedAt": "2026-07-16T13:05:53.306Z",
+  "notes": [
+    "Terminal-Bench 2.1 is the current live version; 1.0 is legacy and 2.0 is not used by this fixture.",
+    "The page states that a Terminal-Bench team member ran and verified every displayed result.",
+    "Harness and reasoning effort are part of profile identity."
+  ]
+}

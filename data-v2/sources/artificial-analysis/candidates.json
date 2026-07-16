@@ -1,0 +1,1190 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:anthropic-claude-fable-5-with-fallback:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Claude Fable 5 (with fallback)",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-with-fallback"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 59.8606463217303,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 1, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 1, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-6-sol-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 58.889831189723,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 2, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 2, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:anthropic-claude-opus-4-8-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Claude Opus 4.8 (max)",
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 55.6920406995495,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 3, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 3, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-6-terra-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 54.9528567569231,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 4, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 4, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-5-xhigh:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "GPT-5.5 (xhigh)",
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 54.8375984166433,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 5, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 5, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:xai-grok-4-5-high:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Grok 4.5 (high)",
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 53.8265951657731,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 6, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 6, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:anthropic-claude-sonnet-5-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Claude Sonnet 5 (max)",
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 53.3500026989169,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 7, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 7, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-6-luna-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 51.2359331798034,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 8, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 8, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:zai-glm-5-2-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "GLM-5.2 (max)",
+      "canonicalModelId": "zai-glm-5-2",
+      "profileId": "zai-glm-5-2-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 51.0858347714416,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 9, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 9, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:meta-muse-spark-1-1-xhigh:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Muse Spark 1.1 (xhigh)",
+      "canonicalModelId": "meta-muse-spark-1-1",
+      "profileId": "meta-muse-spark-1-1-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 50.6229899483333,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 10, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 10, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:google-gemini-3-5-flash:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Gemini 3.5 Flash",
+      "canonicalModelId": "google-gemini-3-5-flash",
+      "profileId": "google-gemini-3-5-flash"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 50.2034858842254,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 11, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 11, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:google-gemini-3-1-pro-preview:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Gemini 3.1 Pro Preview",
+      "canonicalModelId": "google-gemini-3-1-pro-preview",
+      "profileId": "google-gemini-3-1-pro-preview"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 46.4594206066426,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 12, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 12, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:alibaba-qwen3-7-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Qwen3.7 Max",
+      "canonicalModelId": "alibaba-qwen3-7-max",
+      "profileId": "alibaba-qwen3-7-max"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 45.9937184770221,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 13, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 13, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:minimax-minimax-m3:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "MiniMax-M3",
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 44.4372686326056,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 14, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 14, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:deepseek-deepseek-v4-pro-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "DeepSeek V4 Pro (max)",
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 44.2735554261611,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 15, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 15, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:moonshot-kimi-k2-6:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Kimi K2.6",
+      "canonicalModelId": "moonshot-kimi-k2-6",
+      "profileId": "moonshot-kimi-k2-6"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 44.2196682298639,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 16, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 16, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:xiaomi-mimo-v2-5-pro:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "MiMo-V2.5-Pro",
+      "canonicalModelId": "xiaomi-mimo-v2-5-pro",
+      "profileId": "xiaomi-mimo-v2-5-pro"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 42.2394366693508,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 17, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 17, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:thinking-machines-inkling:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Inkling",
+      "canonicalModelId": "thinking-machines-inkling",
+      "profileId": "thinking-machines-inkling"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 40.736927521956,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 18, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 18, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:deepseek-deepseek-v4-flash-max:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "DeepSeek V4 Flash (max)",
+      "canonicalModelId": "deepseek-deepseek-v4-flash",
+      "profileId": "deepseek-deepseek-v4-flash-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 40.2825017625236,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 19, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 19, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:nvidia-nemotron-3-ultra:intelligence-index-v4-1",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.1",
+    "model": {
+      "rawName": "Nemotron 3 Ultra",
+      "canonicalModelId": "nvidia-nemotron-3-ultra",
+      "profileId": "nvidia-nemotron-3-ultra"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 37.7619546243905,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": null,
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 20, label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "method": "EMBEDDED_JSON",
+        "locator": "Intelligence Index embedded array row 20, intelligenceIndex"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-6-sol-max-codex:coding-agent-index",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "artificial-analysis-coding-agent-index",
+    "benchmarkVersion": "2026-07",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max) in Codex",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max-codex"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": true,
+      "harness": "Codex",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "index-score",
+      "name": "Artificial Analysis Coding Agent Index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 80,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; constituent evaluations must be ingested separately.",
+    "sourceUrl": "https://artificialanalysis.ai/articles/openai-gpt-5-6-has-landed",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "Coding Agent Index key-takeaway paragraph"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "explicit phrase 'in Codex'"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "Coding Agent Index score 80"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-6-sol-max:aa-briefcase:rubric-score",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "aa-briefcase",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "rubric-score",
+      "name": "Rubric Score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 42,
+    "normalizedScore": 42,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://artificialanalysis.ai/articles/openai-gpt-5-6-has-landed",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "AA-Briefcase key-takeaway paragraph"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "AA-Briefcase heading text"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "explicit 'Rubric Score of 56% vs 42%' comparison"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "artificial-analysis:openai-gpt-5-6-sol-max:aa-briefcase:analytical-quality-elo",
+    "sourceId": "artificial-analysis",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "aa-briefcase",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "analytical-quality-elo",
+      "name": "Analytical Quality Elo",
+      "unit": "Elo",
+      "higherIsBetter": true
+    },
+    "rawScore": 1592,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "No approved v1 normalization exists for this Elo scale; retain as display-only evidence.",
+    "sourceUrl": "https://artificialanalysis.ai/articles/openai-gpt-5-6-has-landed",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "AA-Briefcase key-takeaway paragraph"
+      },
+      "metric.id": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "explicit 'Analytical Quality Elo' label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+        "method": "DOM",
+        "locator": "explicit 'GPT-5.6 Sol (max) at 1592'"
+      }
+    }
+  }
+]

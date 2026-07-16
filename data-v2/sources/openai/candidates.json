@@ -1,0 +1,619 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:agents-last-exam",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "agents-last-exam",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "score",
+      "name": "Score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 52.7,
+    "normalizedScore": 52.7,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "agents table header, GPT-5.6 Sol column"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "Agents' Last Exam row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "Agents' Last Exam × GPT-5.6 Sol cell: 52.7%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:gdpval-aa-v2",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "gdpval-aa",
+    "benchmarkVersion": "v2",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "elo",
+      "name": "Elo",
+      "unit": "Elo",
+      "higherIsBetter": true
+    },
+    "rawScore": 1747.8,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "No approved v1 normalization exists for the GDPval-AA v2 Elo scale; retain as display-only vendor evidence.",
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "GDPval-AA v2 row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "GDPval-AA v2 × GPT-5.6 Sol cell: 1,747.8 Elo"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:swe-bench-pro",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "swe-bench-pro",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "resolved",
+      "name": "Resolved rate",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 64.6,
+    "normalizedScore": 64.6,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "coding table / SWE-Bench Pro row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "SWE-Bench Pro × GPT-5.6 Sol cell: 64.6%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:deepswe-1-1",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "resolved",
+      "name": "Resolved rate",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 72.7,
+    "normalizedScore": 72.7,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "coding table / DeepSWE v1.1 row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "DeepSWE v1.1 × GPT-5.6 Sol cell: 72.7%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:terminal-bench-2-1",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 88.8,
+    "normalizedScore": 88.8,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "coding table / Terminal-Bench 2.1 row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "Terminal-Bench 2.1 × GPT-5.6 Sol cell: 88.8%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:osworld-2-0",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "2.0",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "success-rate",
+      "name": "Success rate",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 62.6,
+    "normalizedScore": 62.6,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "computer use table / OSWorld 2.0 row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "OSWorld 2.0 × GPT-5.6 Sol cell: 62.6%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:gpqa-diamond",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "gpqa-diamond",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 94.6,
+    "normalizedScore": 94.6,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "academic table / GPQA Diamond row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "GPQA Diamond × GPT-5.6 Sol cell: 94.6%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:frontiermath-v2-tier-1-3",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "frontiermath",
+    "benchmarkVersion": "v2-tier-1-3",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy-tier-1-3",
+      "name": "Tier 1-3 accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 89,
+    "normalizedScore": 89,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "academic table / FrontierMath Tier 1-3 (v2) row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "FrontierMath Tier 1-3 (v2) × GPT-5.6 Sol cell: 89%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:frontiermath-v2-tier-4",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "frontiermath",
+    "benchmarkVersion": "v2-tier-4",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy-tier-4",
+      "name": "Tier 4 accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 83,
+    "normalizedScore": 83,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "academic table / FrontierMath Tier 4 (v2) row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "FrontierMath Tier 4 (v2) × GPT-5.6 Sol cell: 83%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:automationbench",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "success-rate",
+      "name": "Success rate",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 18.1,
+    "normalizedScore": 18.1,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "tool use table / AutomationBench row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "AutomationBench × GPT-5.6 Sol cell: 18.1%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:mrcr-v2-8-needle-256k-512k",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "mrcr-v2",
+    "benchmarkVersion": "v2-8-needle-256k-512k",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy-8-needle-256k-512k",
+      "name": "8-needle accuracy, 256K-512K",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 91.5,
+    "normalizedScore": 91.5,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "long context table / OpenAI MRCR v2 8-needle 256K-512K row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "OpenAI MRCR v2 8-needle 256K-512K × GPT-5.6 Sol cell: 91.5%"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "openai:openai-gpt-5-6-sol:mrcr-v2-8-needle-512k-1m",
+    "sourceId": "openai",
+    "sourceRole": "VENDOR",
+    "benchmarkId": "mrcr-v2",
+    "benchmarkVersion": "v2-8-needle-512k-1m",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-unspecified"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy-8-needle-512k-1m",
+      "name": "8-needle accuracy, 512K-1M",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 73.8,
+    "normalizedScore": 73.8,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://openai.com/index/gpt-5-6/",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "long context table / OpenAI MRCR v2 8-needle 512K-1M row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c83cf1ba130d9e95426c8b98c83fd06e4ccc11ccf05c36e3901cbafee2e5726d",
+        "method": "DOM",
+        "locator": "OpenAI MRCR v2 8-needle 512K-1M × GPT-5.6 Sol cell: 73.8%"
+      }
+    }
+  }
+]

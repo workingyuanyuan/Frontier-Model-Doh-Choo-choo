@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "llm-stats",
+  "displayName": "LLM Stats",
+  "role": "AGGREGATOR",
+  "baseUrl": "https://llm-stats.com/",
+  "targetUrls": ["https://llm-stats.com/leaderboards/best-ai-for-coding"],
+  "benchmarkIds": ["llm-stats-coding-index"],
+  "accessMethods": ["DOM", "EMBEDDED_JSON"],
+  "completeness": {
+    "expectedCountMethod": "Use the page's stated model count and visually compare the ranked table; this fixture captures the exact top-three score statements only.",
+    "pagination": "The live page reports 165 reviewed models and may render additional rows progressively.",
+    "visibleComparisonRequired": true
+  },
+  "fieldMapping": {
+    "ranked model name": "model.rawName",
+    "coding index score": "rawScore",
+    "research update date": "sourcePublishedAt"
+  },
+  "fallbackMethods": ["VISUAL", "MANUAL"],
+  "lastVerifiedAt": "2026-07-16T13:11:54.923Z",
+  "notes": [
+    "INDEX ONLY source: all results must remain EXCLUDED until traced to an upstream organizer, independent evaluator, or vendor page.",
+    "The coding index mixes arena signals and benchmark data and must not enter eight-dimension scoring."
+  ]
+}

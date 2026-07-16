@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "openai",
+  "displayName": "OpenAI",
+  "role": "VENDOR",
+  "baseUrl": "https://openai.com/",
+  "targetUrls": ["https://openai.com/index/gpt-5-6/"],
+  "benchmarkIds": [
+    "agents-last-exam",
+    "gdpval-aa",
+    "swe-bench-pro",
+    "deepswe-1-1",
+    "terminal-bench-2-1",
+    "osworld",
+    "gpqa-diamond",
+    "frontiermath",
+    "automationbench",
+    "mrcr-v2"
+  ],
+  "accessMethods": ["DOM", "VISUAL"],
+  "completeness": {
+    "expectedCountMethod": "Compare every selected current benchmark row against the release-page tables and preserve the column header defining GPT-5.6 Sol.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "fieldMapping": {
+    "release date": "sourcePublishedAt",
+    "table model column": "model.rawName",
+    "evaluation row label": "benchmarkId and benchmarkVersion",
+    "cell value": "rawScore"
+  },
+  "fallbackMethods": ["VISUAL", "MANUAL"],
+  "lastVerifiedAt": "2026-07-16T12:51:48.181Z",
+  "notes": [
+    "Vendor self-reported results remain Estimated and can be superseded by a matching organizer or independent evaluation.",
+    "The release page returned HTTP 403 to direct PowerShell retrieval; values were captured from the accessible semantic DOM and hashed as a normalized excerpt.",
+    "No benchmark-specific reasoning effort is inferred when the release table does not state it."
+  ]
+}

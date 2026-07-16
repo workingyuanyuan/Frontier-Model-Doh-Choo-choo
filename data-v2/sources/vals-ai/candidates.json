@@ -1,0 +1,1052 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:anthropic-claude-fable-5:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Claude Fable 5",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 75.14,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 1, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 1, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-sol-max:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": 1000000,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 72.63,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+      "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 2, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 2, score"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+        "method": "DOM",
+        "locator": "Hyperparameter settings / Reasoning Effort: max"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:anthropic-claude-opus-4-8:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Claude Opus 4.8",
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 70.36,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 3, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 3, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-luna:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "GPT-5.6 Luna",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 69.88,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 4, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 4, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:anthropic-claude-sonnet-5:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Claude Sonnet 5",
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 68.61,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 5, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 5, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:meta-muse-spark-1-1:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Muse Spark 1.1",
+      "canonicalModelId": "meta-muse-spark-1-1",
+      "profileId": "meta-muse-spark-1-1"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 68.41,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 6, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 6, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-5:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "GPT 5.5",
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 67.95,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 7, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 7, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:anthropic-claude-opus-4-7:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Claude Opus 4.7",
+      "canonicalModelId": "anthropic-claude-opus-4-7",
+      "profileId": "anthropic-claude-opus-4-7"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 66.1,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 8, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 8, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:xai-grok-4-5:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Grok 4.5",
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 65.3,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 9, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 9, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-terra:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "GPT-5.6 Terra",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 65.14,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 10, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 10, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:zai-glm-5-2:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "GLM 5.2",
+      "canonicalModelId": "zai-glm-5-2",
+      "profileId": "zai-glm-5-2"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 65.02,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 11, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 11, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:google-gemini-3-5-flash:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Gemini 3.5 Flash",
+      "canonicalModelId": "google-gemini-3-5-flash",
+      "profileId": "google-gemini-3-5-flash"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 62.75,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 12, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 12, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:anthropic-claude-sonnet-4-6:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Claude Sonnet 4.6",
+      "canonicalModelId": "anthropic-claude-sonnet-4-6",
+      "profileId": "anthropic-claude-sonnet-4-6"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 60.06,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 13, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 13, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:minimax-minimax-m3:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "MiniMax-M3",
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 58.94,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 14, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 14, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:alibaba-qwen-3-7-max:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "Qwen 3.7 Max",
+      "canonicalModelId": "alibaba-qwen-3-7-max",
+      "profileId": "alibaba-qwen-3-7-max"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 57.49,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 15, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 15, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:deepseek-deepseek-v4:vals-index:2026-07-13",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "vals-index",
+    "benchmarkVersion": "2026-07-13",
+    "model": {
+      "rawName": "DeepSeek V4",
+      "canonicalModelId": "deepseek-deepseek-v4",
+      "profileId": "deepseek-deepseek-v4"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Vals Index score",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 55.62,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "sourcePublishedAt": "2026-07-13T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 16, model label"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "Vals Index ranked list row 16, score"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-sol-max:swe-bench-verified",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "swe-bench",
+    "benchmarkVersion": "Verified",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": true,
+      "harness": null,
+      "contextWindowTokens": 1000000,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "resolved",
+      "name": "Resolved rate",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 96.2,
+    "normalizedScore": 96.2,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+      "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "GPT-5.6 update bullet naming SWE-bench Verified"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "same bullet, 96.20%"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+        "method": "DOM",
+        "locator": "Hyperparameter settings / Reasoning Effort: max"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-sol-max:terminal-bench-2-1",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "terminal-bench-2-1",
+    "benchmarkVersion": "2.1",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": true,
+      "harness": null,
+      "contextWindowTokens": 1000000,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 85.77,
+    "normalizedScore": 85.77,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+      "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "GPT-5.6 update bullet naming Terminal-Bench 2.1"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "same bullet, 85.77%"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+        "method": "DOM",
+        "locator": "Hyperparameter settings / Reasoning Effort: max"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-sol-max:proofbench",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "proofbench",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": 1000000,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 77,
+    "normalizedScore": 77,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+      "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "GPT-5.6 update bullet naming ProofBench"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "same bullet, 77.00%"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+        "method": "DOM",
+        "locator": "Hyperparameter settings / Reasoning Effort: max"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "vals-ai:openai-gpt-5-6-sol-max:gpqa-diamond",
+    "sourceId": "vals-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "gpqa-diamond",
+    "benchmarkVersion": null,
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "reasoning",
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": 1000000,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 95.2,
+    "normalizedScore": 95.2,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://www.vals.ai/home",
+    "observedAt": "2026-07-16T12:51:48.181Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+      "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871"
+    ],
+    "provenance": {
+      "benchmarkId": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "dated GPT-5.6 update benchmark table, GPQA Diamond row"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a905ab27b4c4efc554e0c62ff8e501e9710d8e7474c3834c124b0dac50c80a09",
+        "method": "DOM",
+        "locator": "same row, 95.20%"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:5facdfe0c6d90ff4b224aae0ac6d5884b2e536dcaad23de47ed437b59f677871",
+        "method": "DOM",
+        "locator": "Hyperparameter settings / Reasoning Effort: max"
+      }
+    }
+  }
+]

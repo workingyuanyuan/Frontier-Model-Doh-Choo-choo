@@ -1,0 +1,1685 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-6-sol-pro-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.6 Sol (pro, max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-pro-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "pro",
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 161.77,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.6-sol_promax\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-5-pro-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.5 Pro (xhigh)",
+      "canonicalModelId": "openai-gpt-5-5-pro",
+      "profileId": "openai-gpt-5-5-pro-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 160.73,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-04-23T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.5-pro_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Fable 5 (max)",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 160.44,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"claude-fable-5_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-5-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.5 (xhigh)",
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 158.33,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-04-23T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.5_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-6-terra-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 158.25,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.6-terra_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-8-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Opus 4.8",
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 157.85,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-28T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"claude-opus-4-8_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-4-pro-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.4 Pro (xhigh)",
+      "canonicalModelId": "openai-gpt-5-4-pro",
+      "profileId": "openai-gpt-5-4-pro-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 157.83,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-03-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.4-pro-2026-03-05_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-4-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.4 (xhigh)",
+      "canonicalModelId": "openai-gpt-5-4",
+      "profileId": "openai-gpt-5-4-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 156.03,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-03-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.4-2026-03-05_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-7-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Opus 4.7 (max)",
+      "canonicalModelId": "anthropic-claude-opus-4-7",
+      "profileId": "anthropic-claude-opus-4-7-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 156.01,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-04-16T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"claude-opus-4-7_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-6-luna-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 155.62,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.6-luna_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-3-codex-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.3 Codex (xhigh)",
+      "canonicalModelId": "openai-gpt-5-3-codex",
+      "profileId": "openai-gpt-5-3-codex-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 155.49,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-02-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.3-codex_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-6-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Opus 4.6 (max)",
+      "canonicalModelId": "anthropic-claude-opus-4-6",
+      "profileId": "anthropic-claude-opus-4-6-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 155.31,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-02-05T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"claude-opus-4-6_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:google-gemini-3-1-pro-preview-default",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Gemini 3.1 Pro Preview",
+      "canonicalModelId": "google-gemini-3-1-pro-preview",
+      "profileId": "google-gemini-3-1-pro-preview-default"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 154.84,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-02-19T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gemini-3.1-pro-preview\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-2-pro-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.2 Pro",
+      "canonicalModelId": "openai-gpt-5-2-pro",
+      "profileId": "openai-gpt-5-2-pro-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 154.65,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2025-12-11T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.2-pro-2025-12-11_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:google-gemini-3-5-flash-high",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Gemini 3.5 Flash (high)",
+      "canonicalModelId": "google-gemini-3-5-flash",
+      "profileId": "google-gemini-3-5-flash-high"
+    },
+    "profile": {
+      "effort": "high",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 154.58,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-05-19T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gemini-3.5-flash_high\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:meta-muse-spark-default",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Muse Spark",
+      "canonicalModelId": "meta-muse-spark",
+      "profileId": "meta-muse-spark-default"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 154.27,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-04-08T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"muse-spark\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:openai-gpt-5-2-xhigh",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.2 (xhigh)",
+      "canonicalModelId": "openai-gpt-5-2",
+      "profileId": "openai-gpt-5-2-xhigh"
+    },
+    "profile": {
+      "effort": "xhigh",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 153.7,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2025-12-11T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gpt-5.2-2025-12-11_xhigh\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:google-gemini-3-pro-preview-default",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Gemini 3 Pro Preview",
+      "canonicalModelId": "google-gemini-3-pro-preview",
+      "profileId": "google-gemini-3-pro-preview-default"
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 153.24,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2025-11-18T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"gemini-3-pro-preview\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-5-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Sonnet 5 (max)",
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 153.2,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-30T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"claude-sonnet-5_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-4-6-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "epoch-capabilities-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Sonnet 4.6 (max)",
+      "canonicalModelId": "anthropic-claude-sonnet-4-6",
+      "profileId": "anthropic-claude-sonnet-4-6-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "eci-score",
+      "name": "ECI Score",
+      "unit": "eci-points",
+      "higherIsBetter": true
+    },
+    "rawScore": 153.18,
+    "normalizedScore": null,
+    "acquisitionStatus": "FULL",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "Composite index is selection-only and must not be double-counted in eight-dimension scoring.",
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-02-17T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv[Model version=\"claude-sonnet-4-6_max\"].ECI Score"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "epoch_capabilities_index.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:chess-puzzles:openai-gpt-5-6-sol-pro-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "chess-puzzles",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Sol (pro, max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-pro-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": "pro",
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 64,
+    "normalizedScore": 64,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-10T01:23:05.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv[Model version=\"gpt-5.6-sol_promax\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:chess-puzzles:openai-gpt-5-6-sol-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "chess-puzzles",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 55,
+    "normalizedScore": 55,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T02:07:13.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv[Model version=\"gpt-5.6-sol_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:chess-puzzles:openai-gpt-5-6-terra-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "chess-puzzles",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 54,
+    "normalizedScore": 54,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T17:07:54.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv[Model version=\"gpt-5.6-terra_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:chess-puzzles:openai-gpt-5-6-luna-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "chess-puzzles",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 40,
+    "normalizedScore": 40,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T13:36:49.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv[Model version=\"gpt-5.6-luna_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "chess_puzzles.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:simpleqa-verified:openai-gpt-5-6-sol-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "simpleqa-verified",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 71.6,
+    "normalizedScore": 71.6,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T02:07:13.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "simpleqa_verified.csv[Model version=\"gpt-5.6-sol_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "simpleqa_verified.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:simpleqa-verified:openai-gpt-5-6-terra-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "simpleqa-verified",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 43.1,
+    "normalizedScore": 43.1,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T17:07:54.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "simpleqa_verified.csv[Model version=\"gpt-5.6-terra_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "simpleqa_verified.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:simpleqa-verified:openai-gpt-5-6-luna-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "simpleqa-verified",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 41.7,
+    "normalizedScore": 41.7,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T13:36:49.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "simpleqa_verified.csv[Model version=\"gpt-5.6-luna_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "simpleqa_verified.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:gpqa-diamond:openai-gpt-5-6-sol-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "gpqa-diamond",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 93.49747474747475,
+    "normalizedScore": 93.49747474747475,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T02:07:13.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "gpqa_diamond.csv[Model version=\"gpt-5.6-sol_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "gpqa_diamond.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:gpqa-diamond:openai-gpt-5-6-terra-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "gpqa-diamond",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 93.30808080808082,
+    "normalizedScore": 93.30808080808082,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T17:07:54.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "gpqa_diamond.csv[Model version=\"gpt-5.6-terra_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "gpqa_diamond.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:gpqa-diamond:openai-gpt-5-6-luna-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "gpqa-diamond",
+    "benchmarkVersion": "current",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 91.60353535353535,
+    "normalizedScore": 91.60353535353535,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T13:36:49.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "gpqa_diamond.csv[Model version=\"gpt-5.6-luna_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "gpqa_diamond.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:aime:openai-gpt-5-6-sol-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "aime",
+    "benchmarkVersion": "OTIS Mock AIME 2024-2025",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 100,
+    "normalizedScore": 100,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T02:07:13.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "otis_mock_aime_2024_2025.csv[Model version=\"gpt-5.6-sol_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "otis_mock_aime_2024_2025.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:aime:openai-gpt-5-6-terra-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "aime",
+    "benchmarkVersion": "OTIS Mock AIME 2024-2025",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 99.72222222222221,
+    "normalizedScore": 99.72222222222221,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T17:07:54.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "otis_mock_aime_2024_2025.csv[Model version=\"gpt-5.6-terra_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "otis_mock_aime_2024_2025.csv (filename has no _external suffix)"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "epoch-ai:aime:openai-gpt-5-6-luna-max",
+    "sourceId": "epoch-ai",
+    "sourceRole": "INDEPENDENT",
+    "benchmarkId": "aime",
+    "benchmarkVersion": "OTIS Mock AIME 2024-2025",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": null,
+      "harness": "Epoch AI Inspect",
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "accuracy",
+      "name": "Accuracy",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 98.33333333333333,
+    "normalizedScore": 98.33333333333333,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://epoch.ai/benchmarks/use-this-data",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-07-09T13:36:49.000Z",
+    "evidenceIds": [
+      "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "otis_mock_aime_2024_2025.csv[Model version=\"gpt-5.6-luna_max\"]"
+      },
+      "sourceRole": {
+        "evidenceId": "sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9",
+        "method": "EXPORT",
+        "locator": "otis_mock_aime_2024_2025.csv (filename has no _external suffix)"
+      }
+    }
+  }
+]

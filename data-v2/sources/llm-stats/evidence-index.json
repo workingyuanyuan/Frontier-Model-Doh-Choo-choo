@@ -1,0 +1,21 @@
+[
+  {
+    "schemaVersion": "evidence-record-v1",
+    "id": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+    "sourceId": "llm-stats",
+    "retrievedAt": "2026-07-16T13:11:54.923Z",
+    "requestUrl": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+    "finalUrl": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+    "mediaType": "text/html; charset=utf-8",
+    "byteLength": 240663,
+    "sha256": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+    "artifactPath": "artifacts-v2/sha256/82/82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3.html",
+    "method": "DOM",
+    "metadata": {
+      "httpStatus": 200,
+      "captureScope": "complete response HTML",
+      "pageUpdatedDate": "2026-07-16",
+      "statedModelsReviewed": 165
+    }
+  }
+]

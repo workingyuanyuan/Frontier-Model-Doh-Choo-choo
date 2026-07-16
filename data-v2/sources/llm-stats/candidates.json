@@ -1,0 +1,170 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "llm-stats:anthropic-claude-mythos-preview:coding-index:2026-07-16",
+    "sourceId": "llm-stats",
+    "sourceRole": "AGGREGATOR",
+    "benchmarkId": "llm-stats-coding-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Mythos Preview",
+      "canonicalModelId": "anthropic-claude-mythos-preview",
+      "profileId": null
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "coding-index-score",
+      "name": "LLM Stats coding index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 56.5,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "INDEX ONLY: mixed composite without a single authoritative execution source; trace constituent scores upstream before scoring.",
+    "sourceUrl": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+    "observedAt": "2026-07-16T13:11:54.923Z",
+    "sourcePublishedAt": "2026-07-16T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "Current Best AI Models for Coding narrative, first-ranked model"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "same narrative, coding index score 56.5"
+      },
+      "sourcePublishedAt": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "page header 'Updated July 16, 2026'"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "llm-stats:anthropic-claude-fable-5:coding-index:2026-07-16",
+    "sourceId": "llm-stats",
+    "sourceRole": "AGGREGATOR",
+    "benchmarkId": "llm-stats-coding-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "Claude Fable 5",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": null
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "coding-index-score",
+      "name": "LLM Stats coding index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 56,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "INDEX ONLY: mixed composite without a single authoritative execution source; trace constituent scores upstream before scoring.",
+    "sourceUrl": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+    "observedAt": "2026-07-16T13:11:54.923Z",
+    "sourcePublishedAt": "2026-07-16T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "Current Best AI Models for Coding narrative, second-ranked model"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "same narrative, coding index score 56.0"
+      },
+      "sourcePublishedAt": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "page header 'Updated July 16, 2026'"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "llm-stats:openai-gpt-5-6-sol:coding-index:2026-07-16",
+    "sourceId": "llm-stats",
+    "sourceRole": "AGGREGATOR",
+    "benchmarkId": "llm-stats-coding-index",
+    "benchmarkVersion": "2026-07-16",
+    "model": {
+      "rawName": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": null
+    },
+    "profile": {
+      "effort": null,
+      "thinking": null,
+      "tools": null,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": null
+    },
+    "metric": {
+      "id": "coding-index-score",
+      "name": "LLM Stats coding index",
+      "unit": "index points",
+      "higherIsBetter": true
+    },
+    "rawScore": 55.6,
+    "normalizedScore": null,
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "inclusion": "EXCLUDED",
+    "exclusionReason": "INDEX ONLY: mixed composite without a single authoritative execution source; trace constituent scores upstream before scoring.",
+    "sourceUrl": "https://llm-stats.com/leaderboards/best-ai-for-coding",
+    "observedAt": "2026-07-16T13:11:54.923Z",
+    "sourcePublishedAt": "2026-07-16T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3"
+    ],
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "Current Best AI Models for Coding narrative, third-ranked model"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "same narrative, coding index score 55.6"
+      },
+      "sourcePublishedAt": {
+        "evidenceId": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
+        "method": "DOM",
+        "locator": "page header 'Updated July 16, 2026'"
+      }
+    }
+  }
+]

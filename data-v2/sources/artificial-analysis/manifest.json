@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "artificial-analysis",
+  "displayName": "Artificial Analysis",
+  "role": "INDEPENDENT",
+  "baseUrl": "https://artificialanalysis.ai/",
+  "targetUrls": [
+    "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
+    "https://artificialanalysis.ai/models",
+    "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
+  ],
+  "benchmarkIds": [
+    "artificial-analysis-intelligence-index",
+    "artificial-analysis-coding-agent-index",
+    "aa-briefcase"
+  ],
+  "accessMethods": ["DOM", "EMBEDDED_JSON"],
+  "completeness": {
+    "expectedCountMethod": "Extract the complete 20-row Intelligence Index embedded array from the official models page, then compare GPT-5.6 release-specific benchmark statements against the dated article.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "fieldMapping": {
+    "article heading": "sourcePublishedAt",
+    "named model/profile": "model.rawName and profile.effort",
+    "named evaluation": "benchmarkId",
+    "stated score": "rawScore"
+  },
+  "fallbackMethods": ["VISUAL", "MANUAL"],
+  "lastVerifiedAt": "2026-07-16T13:18:08.712Z",
+  "notes": [
+    "Artificial Analysis states that it runs standardized independent evaluations.",
+    "External composite indices are retained for frontier selection and display but excluded from LLM Bench eight-dimension scoring.",
+    "The current Intelligence Index methodology version is v4.1."
+  ]
+}

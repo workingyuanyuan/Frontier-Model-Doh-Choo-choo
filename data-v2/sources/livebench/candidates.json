@@ -1,0 +1,834 @@
+[
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-reasoning:openai-gpt-5-6-sol-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-reasoning",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Reasoning category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 91.65,
+    "normalizedScore": 91.65,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-sol-max\"] averaged over Reasoning task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Reasoning"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-mathematics:openai-gpt-5-6-sol-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-mathematics",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Mathematics category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 96.2,
+    "normalizedScore": 96.2,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-sol-max\"] averaged over Mathematics task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Mathematics"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-language:openai-gpt-5-6-sol-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-language",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Language category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 87.68,
+    "normalizedScore": 87.68,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-sol-max\"] averaged over Language task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Language"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-instruction-following:openai-gpt-5-6-sol-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-instruction-following",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Sol (max)",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Instruction Following category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 71.85,
+    "normalizedScore": 71.85,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-sol-max\"] averaged over Instruction Following task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.IF"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-reasoning:openai-gpt-5-6-terra-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-reasoning",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Reasoning category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 90.63,
+    "normalizedScore": 90.63,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-terra-max\"] averaged over Reasoning task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Reasoning"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-mathematics:openai-gpt-5-6-terra-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-mathematics",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Mathematics category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 94.91,
+    "normalizedScore": 94.91,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-terra-max\"] averaged over Mathematics task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Mathematics"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-language:openai-gpt-5-6-terra-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-language",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Language category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 82.89,
+    "normalizedScore": 82.89,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-terra-max\"] averaged over Language task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Language"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-instruction-following:openai-gpt-5-6-terra-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-instruction-following",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Terra (max)",
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Instruction Following category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 64.62,
+    "normalizedScore": 64.62,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-terra-max\"] averaged over Instruction Following task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.IF"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-reasoning:openai-gpt-5-6-luna-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-reasoning",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Reasoning category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 85.64,
+    "normalizedScore": 85.64,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-luna-max\"] averaged over Reasoning task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Reasoning"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-mathematics:openai-gpt-5-6-luna-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-mathematics",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Mathematics category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 87.2,
+    "normalizedScore": 87.2,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-luna-max\"] averaged over Mathematics task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Mathematics"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-language:openai-gpt-5-6-luna-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-language",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Language category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 72.57,
+    "normalizedScore": 72.57,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-luna-max\"] averaged over Language task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Language"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-instruction-following:openai-gpt-5-6-luna-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-instruction-following",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "GPT-5.6 Luna (max)",
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Instruction Following category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 60.12,
+    "normalizedScore": 60.12,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"gpt-5.6-luna-max\"] averaged over Instruction Following task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.IF"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-reasoning:anthropic-claude-fable-5-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-reasoning",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "Claude Fable 5 (max)",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Reasoning category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 89.65,
+    "normalizedScore": 89.65,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"claude-fable-5-max-effort\"] averaged over Reasoning task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Reasoning"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-mathematics:anthropic-claude-fable-5-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-mathematics",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "Claude Fable 5 (max)",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Mathematics category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 95.99,
+    "normalizedScore": 95.99,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"claude-fable-5-max-effort\"] averaged over Mathematics task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Mathematics"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-language:anthropic-claude-fable-5-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-language",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "Claude Fable 5 (max)",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Language category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 90.68,
+    "normalizedScore": 90.68,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"claude-fable-5-max-effort\"] averaged over Language task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.Language"
+      }
+    }
+  },
+  {
+    "schemaVersion": "candidate-result-v1",
+    "id": "livebench-2026-06-25:livebench-instruction-following:anthropic-claude-fable-5-max",
+    "sourceId": "livebench",
+    "sourceRole": "ORGANIZER",
+    "benchmarkId": "livebench-instruction-following",
+    "benchmarkVersion": "2026-06-25",
+    "model": {
+      "rawName": "Claude Fable 5 (max)",
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max"
+    },
+    "profile": {
+      "effort": "max",
+      "thinking": null,
+      "tools": false,
+      "harness": null,
+      "contextWindowTokens": null,
+      "quantization": null,
+      "attempts": 1
+    },
+    "metric": {
+      "id": "category-average",
+      "name": "Instruction Following category average",
+      "unit": "percent",
+      "higherIsBetter": true
+    },
+    "rawScore": 75.77,
+    "normalizedScore": 75.77,
+    "acquisitionStatus": "FULL",
+    "inclusion": "INCLUDED",
+    "exclusionReason": null,
+    "sourceUrl": "https://livebench.ai/#/",
+    "observedAt": "2026-07-16T13:05:53.306Z",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "evidenceIds": [
+      "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+      "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
+    ],
+    "provenance": {
+      "rawScore": {
+        "evidenceId": "sha256:f3d1a4b62a22cdcf7f9c5b012134f94ed6b09d5b6c39ae83f97f35e783a87ce1",
+        "method": "EXPORT",
+        "locator": "row[model=\"claude-fable-5-max-effort\"] averaged over Instruction Following task columns"
+      },
+      "benchmarkId": {
+        "evidenceId": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
+        "method": "EXPORT",
+        "locator": "$.IF"
+      }
+    }
+  }
+]
