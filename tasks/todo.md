@@ -1,43 +1,69 @@
-# LiveBench Release Inventory Tasks
+# LLM Bench Rebuild Tasks
 
-- [x] Diagnose the three-category judgment artifact and repeated-score history.
-- [x] Verify the official question release/removal selection semantics.
-- [x] Record a phased implementation plan and explicit non-publication scope.
-- [x] Add failing pure release-inventory tests.
-- [x] Implement the minimum validated deterministic selector.
-- [x] Run focused quality checks and five-axis review.
-- [x] Update durable methodology/source/progress documentation.
-- [x] Run the full local CI-equivalent gate.
-- [x] Commit, push and verify GitHub CI.
-- [x] Prove pinned CDN byte ranges and six-column Parquet projection against all
-      six official datasets.
-- [x] Add failing resolver/range/evidence tests.
-- [x] Implement bounded revision-pinned acquisition.
-- [x] Add a non-publishing content-addressed inventory CLI.
-- [x] Verify the real six-category `2024-11-25` inventory.
-- [x] Commit, push and verify GitHub CI after the completed review and full gate.
-- [x] Add failing content-addressed evidence and six-category filtering tests.
-- [x] Load and validate the pinned question inventory before aggregation.
-- [x] Filter the 60,372 staged judgments against release `2024-11-25`.
-- [x] Report six-category judgment coverage and preserve conflict blockers.
-- [x] Commit, push and verify GitHub CI after the completed Phase 3 gate.
-- [x] Add failing fixed-revision and composite coverage tests.
-- [x] Implement bounded two-revision judgment acquisition and evidence.
-- [x] Run the real acquisition and record the 800/1,000 union coverage.
-- [x] Document the 64 same-raw and 137 alias-merge-only conflict split.
-- [x] Commit, push and verify GitHub CI after the completed Phase 4 gate.
-- [x] Seed versioned LiveBench benchmark, metric, config and dimension mappings.
-- [x] Promote only complete conflict-free real task aggregates with evidence.
-- [x] Persist null-safe scores and an immutable real/preview snapshot boundary.
-- [x] Implement transactional edition publish and rollback.
-- [x] Add validated API contracts and DB snapshot repositories.
-- [x] Drive homepage and status endpoints from active DB data with preview fallback.
-- [x] Add bilingual model and benchmark detail routes.
-- [x] Add shareable 2–5 model comparison with strict URL selection bounds.
-- [x] Add bilingual methodology, sources and pipeline status routes.
-- [x] Consolidate Web/video radar rendering behind shared contracts.
-- [x] Add edition-bound video CLI, render logs and video job persistence.
-- [x] Render and inspect the complete deterministic demo video.
-- [x] Implement idempotent weekly orchestration with dry-run default.
-- [x] Complete browser, accessibility, performance and security gates.
-- [x] Reconcile final documentation, acceptance criteria and clean-environment run.
+## Phase 1 — Shared foundation
+
+- [ ] Create `docs/BENCHMARK_DIMENSION_MAPPING.md` and machine-readable primary mappings.
+- [ ] Define versioned evidence, Candidate Result, Model Profile and product-data schemas.
+- [ ] Establish immutable `data-v2` paths and content-addressed `artifacts-v2` rules.
+- [ ] Checkpoint: user reviews the frozen contract and mapping baseline.
+
+## Phase 2 — Parallel acquisition and frontend
+
+- [ ] Build shared acquisition, provenance and completeness-report utilities.
+- [ ] Acquire and validate Artificial Analysis plus LLM Stats.
+- [ ] Acquire and validate Terminal-Bench plus DeepSWE.
+- [ ] Acquire and validate Epoch AI plus LiveBench.
+- [ ] Acquire and validate Vals AI plus OpenAI.
+- [ ] Route and delegate the clean new Next.js App shell according to `AGENTS.md`.
+- [ ] Implement the representative-Profile Leaderboard.
+- [ ] Implement standardized API cost and measured-task-cost views.
+- [ ] Implement eight-axis radar plus Included/Excluded evidence detail.
+- [ ] Checkpoint: eight source attempts and the new frontend build independently of legacy code.
+
+## Phase 3 — First real Draft
+
+- [ ] Resolve base-model identities and explicit Profiles.
+- [ ] Build the dynamic composite Top-20 union plus manually specified new models.
+- [ ] Normalize eligible Benchmark rows and apply source precedence.
+- [ ] Generate dimension scores, Estimated overall scores and typed cost points.
+- [ ] Build the first immutable Draft product JSON.
+- [ ] Render the real Draft in the new Preview.
+- [ ] Checkpoint: user reviews source counts, rankings, curve, radar and evidence.
+
+## Phase 4 — Empirical correction
+
+- [ ] Audit each source page against raw evidence, Candidate Results and the Draft UI.
+- [ ] Correct acquisition, Manifest, identity and Benchmark mapping defects.
+- [ ] Correct misleading UI, responsive and accessibility defects.
+- [ ] Produce a new immutable Draft after every accepted correction set.
+- [ ] Checkpoint: user confirms one Draft is sufficient to publish.
+
+## Phase 5 — Publication
+
+- [ ] Implement explicit Draft → Published and rollback commands.
+- [ ] Configure restricted/noindex Draft Preview using the same App and schema.
+- [ ] Replace DB/video CI requirements with static-data, build and browser gates.
+- [ ] Demonstrate publish and rollback without re-fetching or recalculating.
+- [ ] Checkpoint: user approves the exact Draft hash as Published.
+
+## Phase 6 — Compulsory legacy removal
+
+- [ ] Prove the new path has zero dependency on legacy packages.
+- [ ] Remove old `apps/web`.
+- [ ] Remove old `apps/worker` and LiveBench publication flow.
+- [ ] Remove `packages/db`, migrations, DB commands and `compose.yaml`.
+- [ ] Remove obsolete LiveBench connectors and old scoring/presentation contracts.
+- [ ] Remove `apps/video` and Remotion paths unless explicitly re-scoped before cutover.
+- [ ] Remove PostgreSQL/Docker services and obsolete steps from CI.
+- [ ] Rewrite README, architecture, methodology, operations and decision status.
+- [ ] Run clean install, lint, typecheck, tests, production build and browser checks.
+- [ ] Verify Published renders without network, artifacts, PostgreSQL or Docker.
+
+## Deferred until real-data evidence
+
+- [ ] Define the final Supported threshold.
+- [ ] Tune Benchmark and source-quality weights.
+- [ ] Tune standardized API task-cost assumptions.
+- [ ] Refine representative-Profile selection.
+- [ ] Consider per-source scheduling and advanced conflict/confidence policy.
+- [ ] Consider a management UI only if actual operation demonstrates the need.

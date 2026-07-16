@@ -186,6 +186,32 @@ importers:
         specifier: 'catalog:'
         version: 4.1.10(@types/node@26.1.1)(vite@8.1.4(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.0))
 
+  packages/acquisition:
+    dependencies:
+      '@llm-bench/benchmark-data':
+        specifier: workspace:*
+        version: link:../benchmark-data
+    devDependencies:
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.10(@types/node@26.1.1)(vite@8.1.4(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.0))
+
+  packages/benchmark-data:
+    dependencies:
+      zod:
+        specifier: 'catalog:'
+        version: 4.4.3
+    devDependencies:
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+      vitest:
+        specifier: 'catalog:'
+        version: 4.1.10(@types/node@26.1.1)(vite@8.1.4(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.0))
+
   packages/connectors:
     dependencies:
       hyparquet:

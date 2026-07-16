@@ -16,6 +16,7 @@ test-results/
 
 data/raw/
 artifacts/
+artifacts-v2/
 output/
 tmp/
 *.log

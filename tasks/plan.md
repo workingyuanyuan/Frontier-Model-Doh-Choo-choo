@@ -1,364 +1,743 @@
-# Implementation Plan: LiveBench Release Inventory
+# Implementation Plan: LLM Bench Rebuild
 
-## Overview
+> Status: Proposed for user review
+> Date: 2026-07-16
+> Requirements: `docs/REFACTOR_SPEC.md`
+> Removal scope: `docs/REFACTOR_DISCARD_LIST.md`
 
-Replace the judgment-derived three-category denominator with a source-backed
-question inventory for one explicit LiveBench release. The first increment
-implements and verifies the deterministic selection contract used by the
-official LiveBench loader. It does not choose among conflicting judgments and
-does not write any publication table.
+## 1. Outcome
 
-## Verified Source Rules
+Build a new static-data product path inside the existing monorepo:
 
-- LiveBench stores the six benchmark categories in separate official Hugging
-  Face question datasets.
-- The official result path selects the configured release and all earlier
-  releases, then excludes a question when its removal date is on or before the
-  selected release.
-- The official loader rejects duplicate question IDs.
-- LiveBench documents `2024-11-25` as the most recent public release that
-  covers every category in the April 2025 data generation.
+```text
+eight real sources
+→ source evidence and Candidate Results
+→ frontier model resolution
+→ simple eight-dimension scoring and cost data
+→ immutable Draft product JSON
+→ one responsive Dashboard Preview
+→ human Published switch and rollback
+```
 
-Sources:
+The new path must not depend on PostgreSQL, Docker, the existing Worker, the old Web contracts, LiveBench-specific publication logic, or the old Edition system.
 
-- https://github.com/LiveBench/LiveBench/blob/main/livebench/common.py
-- https://github.com/LiveBench/LiveBench/blob/main/livebench/show_livebench_result.py
-- https://github.com/LiveBench/LiveBench
-- https://huggingface.co/livebench
+Data acquisition and the new frontend proceed in parallel after the shared JSON contract is fixed. Old code remains untouched until the new Published version is approved.
 
-## Architecture Decisions
+## 2. Proposed workspace boundaries
 
-- Put source row validation and release selection in the connectors package;
-  keep database and aggregation concerns out of the source boundary.
-- Accept only the six known categories, 64-character canonical question IDs,
-  bounded turn arrays and ISO calendar dates.
-- Treat the configured release list as an explicit versioned input. Do not
-  infer a release from timestamps or from the judgment artifact.
-- Produce stable category/task/question ordering and one inventory observation
-  per turn.
-- Reject duplicate question IDs even when the duplicate rows are identical.
-- Keep conflicting judgment observations blocked; release filtering is not a
-  judgment winner-selection policy.
+These names are planning defaults and may be adjusted before Task 1.1 without changing the architecture:
 
-## Task List
+```text
+apps/
+  bench/                         new Next.js Dashboard
+packages/
+  benchmark-data/                schemas, identity, normalization, scoring, version builder
+  acquisition/                   shared evidence and validation utilities
+data-v2/
+  sources/<source-id>/           source-owned manifests and parsed candidates
+  mappings/                      versioned benchmark and display configuration
+  versions/draft/                immutable Draft product JSON
+  versions/published/            immutable Published product JSON
+  pointers/                      draft and published version identifiers
+artifacts-v2/                    Git-ignored content-addressed raw evidence
+```
 
-### Phase 1: Pure Release Contract
+Each first-batch source owns a disjoint directory so acquisition work can run in parallel. Shared schemas, model identity, benchmark mappings, product-data generation and version pointers are orchestrator-owned and must be changed serially.
 
-- [x] Add RED tests for inclusive release selection, removal boundaries,
-      multi-turn expansion, stable ordering and duplicate rejection.
-- [x] Implement strict source-row parsing and deterministic selection.
-- [x] Export the contract from the connectors package.
+## 3. Dependency graph
 
-### Checkpoint: Pure Logic
+```text
+Refactor spec and discard list
+        │
+        ├── Benchmark mapping knowledge base
+        │
+        └── Shared JSON contracts and filesystem layout
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+  Acquisition foundation   New Web shell
+          │                   │
+  ┌───────┼────────┐          ├── Leaderboard
+  │       │        │          ├── Cost curve
+  │       │        │          ├── Radar
+ AA/LLM  TBench/  Epoch/      └── Evidence detail
+ Stats   DeepSWE  LiveBench
+          │
+       Vals/OpenAI
+          │
+          └──────┬─────────────┘
+                 │
+       identity + Frontier Set
+                 │
+       scoring + product Draft
+                 │
+        browser and human review
+                 │
+       corrections and new Draft
+                 │
+      protected publish + rollback
+                 │
+       human Published approval
+                 │
+         old architecture removal
+```
 
-- [x] Focused tests pass and demonstrate RED-to-GREEN behavior.
-- [x] Connector type checking and lint pass.
-- [x] Five-axis review finds no correctness, architecture, security,
-      performance or maintainability blocker.
+## 4. Delegation and ownership
 
-### Phase 2: Source Acquisition (next increment)
+- The orchestrating Codex agent owns shared schemas, architecture, integration, source-role policy, scoring boundaries and final acceptance.
+- Before frontend implementation, route each bounded UI task according to the current `AGENTS.md`. The current default is Gemini 3.5 Flash for user-facing frontend work, subject to capability and acceptance-bar review.
+- A frontend worker receives one isolated, self-contained contract and may only modify its assigned new-App paths.
+- First-batch source investigations can run in parallel only after shared source schemas are fixed. Each worker owns different `data-v2/sources/<source-id>/` paths.
+- Workers must not edit shared mappings, schemas, dependency manifests, root configuration or version pointers.
+- The orchestrator reviews every diff and validates output against source-visible data.
 
-- [x] Pin the revision and test-split Parquet path of each of the six official
-      question datasets.
-- [x] Fetch only the inventory fields under explicit byte/row/origin limits.
-- [x] Persist immutable evidence and bind all six revisions to one inventory.
-- [x] Measure the real `2024-11-25` category/task/question denominator.
+## 5. Phase 1 — Shared foundation
 
-Verified acquisition design:
+### Task 1.1 — Create the Benchmark-to-dimension knowledge base
 
-- The Hub `/rows` and `/filter` APIs do not accept a revision or column
-  projection, so they cannot satisfy both provenance and payload-minimization.
-- Revision-pinned Hub resolver URLs return the exact commit, linked artifact
-  size and linked ETag before a manual CDN redirect.
-- The largest coding Parquet is 244,785,858 bytes, but its approved CDN supports
-  byte ranges. `hyparquet` 1.26.2 projected the six inventory columns in seven
-  range requests and 633,632 transferred bytes.
-- A six-dataset diagnostic transferred 2,816,787 bytes, decoded 1,436 source
-  rows and selected 1,000 observations across 18 tasks and all six categories
-  for release `2024-11-25`.
-
-Threat controls:
-
-- Dataset IDs, categories, revisions and artifact paths are a versioned
-  allowlist; callers cannot supply a URL.
-- Resolver and CDN requests use HTTPS, manual redirects, fixed/approved hosts,
-  timeouts and exact commit/ETag/Content-Range checks.
-- Each dataset has limits for linked artifact size, range request count,
-  individual range size, cumulative downloaded bytes, decoded rows and turns.
-- Range status `200` is rejected so a server cannot silently return an entire
-  244 MB artifact.
-- The stored evidence contains only canonical inventory observations and
-  revision metadata, not question prompts or signed CDN URLs.
-
-### Phase 3: Judgment Readiness (after source acquisition)
-
-- [x] Filter staged judgments by the pinned release inventory.
-- [x] Report missing observations against all six categories.
-- [x] Keep repeated conflicting judgment keys as publication blockers.
-
-Verified readiness measurement:
-
-- The fixed 60,372-row run has 46,118 rows inside release `2024-11-25` and
-  14,254 rows outside it.
-- The judgment artifact covers 318 of 1,000 pinned observation keys: coding
-  128/128, language 140/140, instruction-following 50/200, reasoning 0/150,
-  math 0/232 and data-analysis 0/150.
-- No model is complete against the six-category denominator. The existing
-  2,674 repeated observations and 201 conflicting canonical keys remain
-  publication blockers.
-- The report reads the evidence and PostgreSQL in bounded, validated,
-  read-only paths; it does not write scoring or publication tables.
-
-### Phase 4: Revision-Bound Judgment Recovery
-
-- [x] Pin the current three-category judgment revision and the latest earlier
-      six-category judgment revision.
-- [x] Fetch both immutable Parquet artifacts under the existing origin, size,
-      redirect, schema and row limits.
-- [x] Produce prompt-free coverage evidence against the pinned `2024-11-25`
-      question inventory without selecting a score winner.
-- [x] Preserve missing observations and repeated-score conflicts as separate
-      publication blockers.
-
-Verified revision history:
-
-- Current revision `9704e5da7bfbefe75ac1482a13de827127295993`, committed
-  2025-04-07, contains 60,372 rows but only coding, language and
-  instruction-following. It covers 318/1,000 target observations.
-- Revision `5896e3b11081702c7f93f4733605fa4f5a072a11`, committed
-  2024-10-22, contains 93,624 rows and all six categories. It covers 700/1,000
-  target observations.
-- Their question-key union covers 800/1,000 observations. The remaining 200
-  are instruction-following 150 and reasoning 50; they stay missing rather
-  than becoming zero-valued.
-- The official judgment generator de-duplicates a task JSONL by
-  `(question_id, model)` and keeps the last file occurrence. It does not sort
-  by `tstamp`. The current artifact still produces 201 conflicts after our
-  reviewed canonical alias mapping: 64 already conflict within one raw model
-  spelling and 137 appear only after multiple official spellings map to one
-  canonical model. Phase 4 records this evidence but does not invent an alias
-  or timestamp precedence rule.
-
-### Delivery
-
-- [x] Update methodology, source registry and progress documentation.
-- [x] Run the complete local CI-equivalent quality gate.
-- [x] Commit and push tracked changes while leaving
-      `reference-table-data/` untracked.
-- [x] Wait for the pushed GitHub Actions CI run to pass.
-
-### Phase 2 Delivery
-
-- [x] Add RED boundary and deterministic evidence tests.
-- [x] Run the real bounded acquisition and persist its content-addressed JSON.
-- [x] Complete five-axis and security review.
-- [x] Run the complete local CI-equivalent quality gate.
-- [x] Commit, push and wait for GitHub Actions CI.
-
-### Phase 3 Delivery
-
-- [x] Add RED evidence, filtering, duplicate and boundary tests.
-- [x] Run the real six-category readiness report twice with stable output.
-- [x] Complete five-axis and security review.
-- [x] Run the complete local CI-equivalent quality gate.
-- [x] Commit, push and wait for GitHub Actions CI.
-
-### Phase 4 Delivery
-
-- [x] Add RED pin, artifact-integrity, metadata-drift and union-coverage tests.
-- [x] Run the real bounded two-revision acquisition and persist immutable
-      content-addressed evidence.
-- [x] Complete five-axis and security review.
-- [x] Run the complete local CI-equivalent quality gate.
-- [x] Commit, push and wait for GitHub Actions CI.
-
-## Acceptance Criteria
-
-- Selection matches the official release/removal boundary semantics.
-- Unknown releases, malformed dates, duplicate IDs and invalid rows fail
-  closed.
-- Identical logical inputs produce byte-stable output ordering.
-- No timestamp-based judgment preference is introduced.
-- No published result, score, snapshot or weekly edition is created.
-
-## Risks and Mitigations
-
-| Risk                                                              | Impact | Mitigation                                                       |
-| ----------------------------------------------------------------- | ------ | ---------------------------------------------------------------- |
-| Current question data is mistaken for the pinned April 2025 state | High   | Pin all six Hub revisions before real-data ingestion.            |
-| Coding rows carry very large test payloads                        | High   | Design field-minimal acquisition with strict response limits.    |
-| Removed questions remain in the denominator                       | High   | Test the removal date equality boundary explicitly.              |
-| Duplicate IDs silently shrink coverage                            | High   | Reject duplicates instead of Map-based collapsing.               |
-| Release filtering is mistaken for conflict resolution             | High   | Preserve the existing conflict gate and document the separation. |
-
-## Open Questions
-
-- The pinned judgment artifact supplies only 318 of the 1,000 release
-  observation keys. The pinned historical revision raises source-evidence
-  coverage to 800/1,000 but cannot supply the remaining 200 observations.
-- The 201 conflicting judgment keys still require an official run/version key
-  or another source-backed selection rule. Until then they remain blocked.
-
-## Project Completion Roadmap
-
-The remaining work follows the product prompt's local-delivery boundary. A
-formal verified edition stays gated by source evidence; the complete product
-may ship with an explicitly labelled preview edition while real LiveBench rows
-continue through every safe layer that their coverage supports.
-
-### Phase 5: Database-backed publication slice
-
-#### Task 5.1 — Versioned LiveBench benchmark configuration
+**Description:** Reassess current representative Benchmarks against their actual capability boundary and create the single-purpose mapping document required by the specification.
 
 **Acceptance criteria:**
 
-- Seed the public `2024-11-25` benchmark/version/metric/config and primary
-  dimension mappings with documented fixed normalization anchors.
-- Re-running seed is idempotent and never changes generated identities.
-- Mapping rationale and missing Knowledge/Agentic/Context coverage are explicit.
+- `docs/BENCHMARK_DIMENSION_MAPPING.md` records one primary dimension, secondary relationships, rationale, limitations and common misclassification risks for each included current Benchmark.
+- Deprecated, replaced or unclear legacy evaluations are excluded.
+- The machine-readable mapping references the same canonical Benchmark IDs and assigns only one scoring dimension in v1.
 
-**Verification:** focused seed/schema tests, two consecutive seeds, migration,
-type-check and build.
+**Verification:**
 
-**Dependencies:** Phase 4 evidence. **Estimated scope:** M (3–5 files).
+- Cross-check every first-batch source Benchmark against the document.
+- Validate that all eight dimension identifiers are present and ordered correctly.
+- Confirm the document contains no source status, acquisition state or weights.
 
-#### Task 5.2 — Conflict-safe result promotion
+**Dependencies:** None
+**Likely paths:** `docs/BENCHMARK_DIMENSION_MAPPING.md`, `data-v2/mappings/benchmarks.json`
+**Scope:** S
 
-**Acceptance criteria:**
+### Task 1.2 — Define versioned static-data contracts
 
-- Promote only complete, conflict-free task aggregates from one immutable
-  resolved ingestion run into benchmark results plus row-level evidence.
-- Incomplete/conflicting aggregates remain staged and the command is
-  transactionally idempotent.
-- A dry run reports the exact insert/skip/block counts without writing.
-
-**Verification:** RED/GREEN repository and service tests, real-run dry run,
-publication-table reconciliation and full quality gate.
-
-**Dependencies:** 5.1. **Estimated scope:** M (3–5 files).
-
-#### Task 5.3 — Scoring and immutable snapshot repository
+**Description:** Create the schemas that separate source evidence, Candidate Results, normalized evidence, Model Profiles, Draft/Published product data and version pointers.
 
 **Acceptance criteria:**
 
-- Compute eight ordered dimensions, coverage/confidence and eligibility from
-  published results without imputing missing values.
-- Persist deterministic dimension/overall records and an immutable snapshot;
-  insufficient real models remain unranked.
-- A separate preview seed is unmistakably fictional and cannot pass the formal
-  publication guard.
+- Schemas cover field-level provenance, `FULL`/`PARTIAL_SOURCE`, Included/Excluded, source role, raw and normalized score, price type and evidence locator.
+- Product data supports one representative Profile per model while retaining alternative Profiles.
+- Unknown source fields may remain in raw evidence; unpublished fields remain `null`, never guessed.
 
-**Verification:** scoring/repository tests, hash reproducibility, PostgreSQL
-integration test and full quality gate.
+**Verification:**
 
-**Dependencies:** 5.2. **Estimated scope:** M (3–5 files).
+- RED/GREEN schema tests for valid full rows, valid partial-source rows, invalid missing-score rows and invalid cross-version pointers.
+- Deterministic JSON serialization test.
+- Package typecheck succeeds without importing old DB or Worker packages.
 
-#### Task 5.4 — Edition publish and rollback transactions
+**Dependencies:** Task 1.1 for canonical dimensions and Benchmark IDs
+**Likely paths:** `packages/benchmark-data/src/schema.ts`, `packages/benchmark-data/src/schema.test.ts`, package manifests
+**Scope:** M
+
+### Task 1.3 — Establish the new filesystem and artifact contract
+
+**Description:** Implement path ownership, immutable version IDs, content hashes and the Git/Git-external evidence split.
 
 **Acceptance criteria:**
 
-- Publish activates one eligible immutable edition atomically and writes an
-  audit event; rollback reactivates a prior edition without rewriting it.
-- Preview snapshots can be demo-active but cannot be marked formally verified.
-- Failed validation leaves the previously active edition unchanged.
+- Small manifests/results live under `data-v2`; large raw evidence resolves through a content-addressed `artifacts-v2` index.
+- A snapshot cannot reference missing evidence hashes when it is proposed for Draft.
+- Existing files are never overwritten in place; identical content is reusable.
 
-**Verification:** transaction integration tests and real local publish/rollback
-drill.
+**Verification:**
 
-**Dependencies:** 5.3. **Estimated scope:** M (3–5 files).
+- Unit tests cover path traversal rejection, missing artifact rejection, stable hashes and idempotent writes.
+- `.gitignore` excludes large artifacts without excluding committed manifests/results.
 
-### Checkpoint: Data vertical slice
+**Dependencies:** Task 1.2
+**Likely paths:** `packages/acquisition/src/artifacts.ts`, tests, `.gitignore`
+**Scope:** M
 
-- [x] A real LiveBench row traces raw → staged → published result → evidence.
-- [x] Scoring and snapshot generation preserve nulls and blockers.
-- [x] Publish/rollback is repeatable and leaves an immutable audit trail.
+### Checkpoint 1 — Contract freeze
 
-### Phase 6: Database-backed Web product
+- [ ] Benchmark mapping baseline is reviewable.
+- [ ] JSON contracts and version paths are stable enough for parallel work.
+- [ ] No new code imports PostgreSQL, Drizzle, Docker or old Worker modules.
+- [ ] User reviews contract-level output before source/UI integration expands.
 
-#### Task 6.1 — Read contracts and snapshot repository
+## 6. Phase 2 — Parallel acquisition and frontend skeleton
 
-Define additive `/api/v1` DTOs and server repositories for latest edition,
-rankings, models, benchmarks, comparisons, sources and methodology. Verify
-boundary validation, deterministic ordering, not-found behavior and cursor
-limits. **Dependencies:** 5.3. **Estimated scope:** M (3–5 files).
+### Task 2.1 — Build acquisition validation utilities
 
-#### Task 6.2 — Latest homepage and status API
+**Description:** Provide shared utilities for manifests, raw evidence indexing, Candidate Result output and visible-data completeness reports without implementing source-specific policy.
 
-Replace the hard-coded homepage input with the latest active DB snapshot,
-retain an explicit preview fallback for an empty database, and add health/data
-status endpoints. Verify server rendering, cache semantics and unavailable DB
-behavior. **Dependencies:** 6.1. **Estimated scope:** M (3–5 files).
+**Acceptance criteria:**
 
-#### Task 6.3 — Model and benchmark vertical pages
+- A source run emits raw evidence locators, parsed Candidate Results and a validation report.
+- The report distinguishes structured-only rows, visible-only rows, value conflicts and display rounding.
+- A run can be marked complete, partial or failed without changing Published data.
 
-Add bilingual model detail/history/evidence and benchmark
-definition/methodology/leaderboard pages with stable URLs and null-safe tables.
-Verify source links, flags and missing-data labels. **Dependencies:** 6.1.
-**Estimated scope:** M per page slice (3–5 files).
+**Verification:**
 
-#### Task 6.4 — Compare, methodology and source pages
+- Fixture tests cover API JSON, embedded payload, DOM fallback and visual-field provenance.
+- Reports are deterministic and schema-valid.
 
-Add 2–5 model comparison with shareable URL state plus bilingual methodology,
-source registry and pipeline status pages. Reject unknown/duplicate/excess
-model IDs at the boundary. **Dependencies:** 6.1. **Estimated scope:** M per
-page slice (3–5 files).
+**Dependencies:** Tasks 1.2–1.3
+**Likely paths:** `packages/acquisition/src/run.ts`, `validation.ts`, tests
+**Scope:** M
 
-### Checkpoint: Web product
+### Task 2.2 — Acquire Artificial Analysis and LLM Stats
 
-- [x] All routes render from validated repository data or explicit preview.
-- [x] Theme/locale/share URL behavior passes real-browser checks.
-- [x] Desktop/mobile keyboard and screen-reader equivalents are verified.
+**Description:** Use Artificial Analysis for its current composite ranking and underlying independently measured evaluations; use LLM Stats only to discover frontier models and upstream evidence.
 
-### Phase 7: Shared radar and snapshot-driven video
+**Acceptance criteria:**
 
-#### Task 7.1 — Shared accessible radar renderer
+- Source manifests document the verified structured/DOM access path and completeness method.
+- Artificial Analysis candidate data preserves composite index rows separately from underlying Benchmark rows.
+- LLM Stats results are marked display/index-only and never become eight-dimension inputs.
 
-Move shared radar geometry/presentation contracts into a reusable package used
-by Web and video, including multi-model, missing/extreme values, reduced motion
-and equivalent data table cases. **Dependencies:** 6.2. **Estimated scope:** M
-(3–5 files per migration slice).
+**Verification:**
 
-#### Task 7.2 — Edition-bound video commands
+- Compare extracted Top-N model count and visible leaders with the live pages.
+- Produce a human-review report with raw evidence locators and any missing visible rows.
 
-Accept edition/snapshot, locale, theme and Top-N through validated CLI input;
-load the same snapshot repository as Web and emit poster, metadata, CSV and a
-structured render log. Persist video job lifecycle for non-preview editions.
-**Dependencies:** 5.4, 7.1. **Estimated scope:** M per command slice (3–5
-files).
+**Dependencies:** Tasks 1.2–2.1
+**Owned paths:** `data-v2/sources/artificial-analysis/`, `data-v2/sources/llm-stats/`
+**Scope:** M
 
-#### Task 7.3 — Deterministic demo render
+### Task 2.3 — Acquire Terminal-Bench and DeepSWE
 
-Render and inspect one complete 1920×1080 H.264 demo video, prove snapshot and
-content hashes, verify long-name/missing-logo/missing-axis fallbacks and record
-artifact locations. **Dependencies:** 7.2. **Estimated scope:** S (1–2 files).
+**Description:** Capture current official coding/agentic leaderboard rows, Profiles, harnesses, dates and source evidence.
 
-### Phase 8: Weekly automation and final validation
+**Acceptance criteria:**
 
-#### Task 8.1 — Idempotent weekly orchestrator
+- Terminal-Bench 2.1 is distinct from legacy versions and retains agent, model, effort, date and cost fields when published.
+- DeepSWE 1.1 is distinct from earlier versions and preserves its model Profile.
+- Selected leaderboards are complete or explicitly emitted as partial without replacing a prior full snapshot.
 
-Implement fetch/stage/review/report/score/snapshot/render orchestration with
-source-level timeout/retry, partial-failure isolation, structured summary,
-diffs and dry-run default. Formal publish remains an explicit protected action.
-**Dependencies:** 5.4, 7.2. **Estimated scope:** M per orchestration slice.
+**Verification:**
 
-#### Task 8.2 — CI, browser, accessibility, performance and security gates
+- Extracted row count and visible leaders match the pages.
+- Candidate Results validate and link to exact evidence.
 
-Add E2E coverage for required Web routes and theme/compare flows; verify a11y,
-responsive layouts, health endpoints, dependency/security boundaries and
-representative performance budgets. Scheduled workflow must not publish or
-spam on ordinary pushes. **Dependencies:** 6.4, 8.1. **Estimated scope:** M per
-gate slice.
+**Dependencies:** Tasks 1.2–2.1
+**Owned paths:** `data-v2/sources/terminal-bench/`, `data-v2/sources/deepswe/`
+**Scope:** M
 
-#### Task 8.3 — Final operations and delivery audit
+### Task 2.4 — Acquire Epoch AI and LiveBench
 
-Update README from clean-environment setup through ingestion, scoring,
-publish/rollback and video; reconcile every prompt acceptance criterion, source
-status, known blocker, command and artifact; run the full local and GitHub gate.
-**Dependencies:** all prior tasks. **Estimated scope:** M (documentation plus
-verification).
+**Description:** Capture current frontier-relevant Epoch internal runs and the current LiveBench release without rebuilding the old judgment pipeline.
 
-### Checkpoint: Complete local product
+**Acceptance criteria:**
 
-- [x] Prompt minimum-delivery checklist and 15 acceptance criteria reconciled.
-- [x] Full clean-database E2E flow, production build and demo video pass.
-- [x] Every complete tested batch is committed, pushed and green in CI.
+- Epoch rows distinguish internal runs from benchmark-creator, vendor or reposted results.
+- LiveBench uses the current displayed release and categories, not the pinned historical judgment inventory.
+- Current and legacy Benchmark versions are not merged.
+
+**Verification:**
+
+- Compare extracted current models/categories with the visible sites.
+- Confirm no imports from old LiveBench connectors or Worker code.
+
+**Dependencies:** Tasks 1.2–2.1
+**Owned paths:** `data-v2/sources/epoch-ai/`, `data-v2/sources/livebench/`
+**Scope:** M
+
+### Task 2.5 — Acquire Vals AI and OpenAI
+
+**Description:** Capture Vals independently run Benchmarks and OpenAI vendor-reported GPT-5.6 results plus official identity and pricing data.
+
+**Acceptance criteria:**
+
+- Vals proprietary Benchmarks and third-party implementations retain the correct per-result role.
+- OpenAI rows include only OpenAI model values; third-party-run values link back to the actual evaluator.
+- GPT-5.6 Sol/Terra/Luna Profiles and pricing are not merged.
+
+**Verification:**
+
+- Compare visible current model/date values and Benchmark names with the source pages.
+- Produce a report of fields available only in visual/PDF evidence.
+
+**Dependencies:** Tasks 1.2–2.1
+**Owned paths:** `data-v2/sources/vals-ai/`, `data-v2/sources/openai/`
+**Scope:** M
+
+### Task 2.6 — Create the new Web App shell
+
+**Description:** Delegate a clean Next.js App skeleton that reads versioned static product data and implements the single-page responsive layout without importing old Web modules.
+
+**Acceptance criteria:**
+
+- New App builds from an empty schema-valid product data file and later accepts the first real Draft unchanged.
+- The page contains defined regions for Leaderboard, cost curve, radar and evidence detail.
+- Draft mode is visibly labelled and carries noindex metadata; Published mode uses the same UI.
+
+**Verification:**
+
+- Production build succeeds.
+- Browser checks at representative desktop and mobile widths show no overflow.
+- Diff review confirms no dependency on `@llm-bench/db`, old Web repositories or old Edition contracts.
+
+**Dependencies:** Task 1.2
+**Likely paths:** new `apps/bench/` only, plus its package manifest
+**Scope:** M per delegated slice
+
+### Task 2.7 — Implement the Leaderboard interaction
+
+**Description:** Add representative-Profile rows, search/selection, Estimated state and eight-dimension columns using only the new product contract.
+
+**Acceptance criteria:**
+
+- Each base model occupies one default row; alternative Profiles remain accessible.
+- Models with at least one dimension score can appear as Estimated.
+- Missing dimensions display N/A and never become zero.
+
+**Verification:**
+
+- Component tests cover full, sparse and partial-source models.
+- Keyboard selection and mobile table behavior pass browser checks.
+
+**Dependencies:** Task 2.6
+**Owned paths:** bounded Leaderboard component paths inside `apps/bench/`
+**Scope:** M
+
+### Task 2.8 — Implement Quality vs. Cost
+
+**Description:** Add a responsive chart that separates standardized API cost from measured task cost and does not fabricate incomparable prices.
+
+**Acceptance criteria:**
+
+- The main series contains only comparable standardized API task costs.
+- Measured task cost is a separate view/series with an explicit cost type.
+- Profile selection is shared with the Leaderboard.
+
+**Verification:**
+
+- Tests cover missing price, multiple Profiles and non-API Agent products.
+- Chart has a table/text equivalent and responsive containment.
+
+**Dependencies:** Task 2.6 and cost fields from Task 1.2
+**Owned paths:** bounded cost-chart component paths inside `apps/bench/`
+**Scope:** M
+
+### Task 2.9 — Implement radar and evidence detail
+
+**Description:** Add the eight-dimension Category Profile and the Included/Excluded evidence table used for data QA.
+
+**Acceptance criteria:**
+
+- Radar preserves the fixed dimension order and represents missing values without plotting them as zero.
+- Evidence rows show Benchmark/version, raw/normalized score, role, Profile, URL, status, weight and exclusion reason.
+- Selecting a model or dimension updates both views consistently.
+
+**Verification:**
+
+- Tests cover sparse axes, long names, Included/Excluded and `PARTIAL_SOURCE`.
+- Keyboard, screen-reader and mobile equivalents pass.
+
+**Dependencies:** Tasks 2.6–2.7
+**Owned paths:** bounded radar/evidence component paths inside `apps/bench/`
+**Scope:** M
+
+### Checkpoint 2 — Parallel outputs ready
+
+- [ ] Eight source attempts have evidence and validation reports.
+- [ ] New frontend shell and three views build independently of the old system.
+- [ ] Source workers have not edited shared contracts or each other's paths.
+- [ ] No source result is Published.
+
+## 7. Phase 3 — Integration into the first real Draft
+
+### Task 3.1 — Resolve model identities and Profiles
+
+**Description:** Normalize source-local identities into base models and explicit Profiles without fuzzy automatic merges.
+
+**Acceptance criteria:**
+
+- Source aliases map to one reviewed model/Profile or remain unresolved.
+- Effort, tools, harness, context and provider endpoint differences remain separate.
+- Agent products are not collapsed into their underlying model.
+
+**Verification:**
+
+- Tests cover GPT-5.6 Profiles, vendor/API aliases and Agent systems.
+- Unresolved identities do not disappear from validation reports.
+
+**Dependencies:** Tasks 2.2–2.5
+**Likely paths:** `packages/benchmark-data/src/identity.ts`, tests, `data-v2/mappings/models.json`
+**Scope:** M
+
+### Task 3.2 — Build the dynamic Frontier Set
+
+**Description:** Merge each credible composite ranking's available Top 20 after base-model deduplication, then add manually specified new models.
+
+**Acceptance criteria:**
+
+- Sources with fewer than 20 eligible models contribute only their actual count.
+- Multiple Profiles consume one frontier slot per base model.
+- Composite scores remain selection/display data and do not enter dimension scoring.
+
+**Verification:**
+
+- Deterministic union tests cover overlapping rankings and short leaderboards.
+- Report lists every included model and its inclusion reason.
+
+**Dependencies:** Tasks 2.2, 2.5 and 3.1
+**Likely paths:** `packages/benchmark-data/src/frontier.ts`, tests, generated report
+**Scope:** M
+
+### Task 3.3 — Normalize Benchmark results and source precedence
+
+**Description:** Convert eligible current Benchmark rows to 0–100 where a documented transform exists and select the current result using source precedence.
+
+**Acceptance criteria:**
+
+- Raw score and transform metadata remain available.
+- Main-dimension-only mapping is enforced.
+- Higher-priority complete values replace lower-priority or partial values; prior evidence remains visible.
+
+**Verification:**
+
+- Tests cover percentage metrics, display-only non-comparable metrics, vendor-to-independent replacement and complete-over-partial replacement.
+- No current-cohort percentile or dynamic min-max transform exists.
+
+**Dependencies:** Tasks 1.1, 3.1–3.2
+**Likely paths:** `packages/benchmark-data/src/normalize.ts`, `select.ts`, tests
+**Scope:** M
+
+### Task 3.4 — Generate dimension, overall and cost outputs
+
+**Description:** Produce simple configurable dimension weighted means, Estimated overall scores and comparable cost points for the Frontier Set.
+
+**Acceptance criteria:**
+
+- Missing Benchmarks renormalize available weight and never count as zero.
+- At least one mapped dimension permits an Estimated overall score.
+- Cost outputs preserve distinct cost types and public assumptions.
+
+**Verification:**
+
+- Tests cover one-axis new models, sparse eight-axis data, missing prices and multiple Profiles.
+- Sensitivity/output report shows components and weights used for each result.
+
+**Dependencies:** Task 3.3 and acquired pricing data
+**Likely paths:** `packages/benchmark-data/src/score.ts`, `cost.ts`, tests
+**Scope:** M
+
+### Task 3.5 — Build the first immutable Draft product version
+
+**Description:** Assemble source summaries, models, Profiles, rankings, cost points, radar values and evidence rows into one static product data version.
+
+**Acceptance criteria:**
+
+- Draft content hash binds exact Candidate Results, mappings and builder version.
+- Every displayed score traces to evidence and Included/Excluded components.
+- The version is immutable and the Draft pointer can switch without changing content.
+
+**Verification:**
+
+- Two identical builds are byte-stable.
+- Schema and evidence-reference validation pass.
+- New `apps/bench` renders the real Draft without hand edits.
+
+**Dependencies:** Tasks 3.1–3.4 and 2.7–2.9
+**Likely paths:** product builder, `data-v2/versions/draft/<id>.json`, pointer file
+**Scope:** M
+
+### Checkpoint 3 — First real Preview
+
+- [ ] Preview uses the real Draft, not fictional model scores.
+- [ ] Leaderboard, curve, radar and evidence table agree on selected Profiles.
+- [ ] Human-visible source row counts and extracted counts are available for review.
+- [ ] User reviews the Preview and reports data/UI mismatches.
+
+## 8. Phase 4 — Empirical correction loop
+
+### Task 4.1 — Perform source-to-UI visual audit
+
+**Description:** Compare each source page and its raw evidence with the Draft UI, prioritizing missing rows, incorrect Profiles, stale Benchmarks and unexpected rankings.
+
+**Acceptance criteria:**
+
+- Each first-batch source has an explicit pass/fail and visible-vs-extracted comparison.
+- Every suspicious UI value links to its Candidate Result and raw evidence.
+- Findings distinguish acquisition, identity, mapping, normalization and presentation defects.
+
+**Verification:**
+
+- Browser screenshots and validation reports are attached to the Draft review artifact.
+- No issue is closed solely because schema validation passed.
+
+**Dependencies:** Checkpoint 3
+**Scope:** M
+
+### Task 4.2 — Correct acquisition and mapping defects
+
+**Description:** Repair source methods, manifests, model identities or Benchmark mappings identified by real-page review; Agent may merge acquisition-rule fixes.
+
+**Acceptance criteria:**
+
+- Corrected runs produce new immutable snapshots and a new Draft.
+- New values directly replace prior current values while history remains traceable.
+- Fixes do not modify Published data.
+
+**Verification:**
+
+- Before/after row and field diffs are recorded.
+- Source-visible leaders and relevant target models match after correction.
+
+**Dependencies:** Task 4.1
+**Scope:** M per source defect
+
+### Task 4.3 — Correct UI interpretation and responsive defects
+
+**Description:** Repair misleading labels, profile presentation, chart scaling, evidence navigation and mobile/desktop issues found during human review.
+
+**Acceptance criteria:**
+
+- Estimated, partial, cost type and missing data cannot be mistaken for supported complete values.
+- The same Draft data produces consistent values across all three views.
+- Desktop and mobile remain usable with the real model/Benchmark volume.
+
+**Verification:**
+
+- Production browser tests, accessibility scan and manual responsive review pass.
+- Frontend worker changes receive orchestrator diff review.
+
+**Dependencies:** Task 4.1
+**Scope:** M per bounded UI defect
+
+### Checkpoint 4 — Publish candidate
+
+- [ ] User confirms the corrected Draft numbers are sufficient to publish.
+- [ ] Known deviations are visible rather than hidden.
+- [ ] No unresolved defect is capable of switching the wrong data version.
+
+## 9. Phase 5 — Protected publication
+
+### Task 5.1 — Implement Draft, Published and rollback commands
+
+**Description:** Add a simple CLI or protected workflow that switches immutable version pointers without re-fetching or recalculating.
+
+**Acceptance criteria:**
+
+- Only an explicit human action can switch Published.
+- Publish records actor, timestamp, prior version and target version.
+- Rollback restores a prior Published version atomically.
+
+**Verification:**
+
+- Integration test performs Draft → Published A → Published B → rollback A.
+- Failed validation leaves the Published pointer unchanged.
+
+**Dependencies:** Task 3.5
+**Likely paths:** bounded CLI/pointer implementation and tests
+**Scope:** M
+
+### Task 5.2 — Configure restricted Draft Preview
+
+**Description:** Ensure Draft is available at a restricted/noindex Preview while Published remains the public build input.
+
+**Acceptance criteria:**
+
+- Draft pages are visibly labelled and cannot be indexed.
+- Published and Draft render through the same App and product schema.
+- Production cannot select Draft implicitly.
+
+**Verification:**
+
+- Browser checks inspect labels, metadata and selected version IDs.
+- Build commands demonstrate explicit Draft and Published inputs.
+
+**Dependencies:** Tasks 2.6 and 5.1
+**Scope:** M
+
+### Task 5.3 — Replace CI with the new static-data gate
+
+**Description:** Remove DB/video requirements from the new-path CI and validate schemas, data builder, new frontend, browser behavior and dependency security.
+
+**Acceptance criteria:**
+
+- CI does not start PostgreSQL or use Docker.
+- CI validates committed Candidate Results, mappings, Draft/Published pointers and production build.
+- Browser gates cover the real static fixture/version without DB seeding.
+
+**Verification:**
+
+- The new CI-equivalent chain passes locally.
+- GitHub workflow succeeds without `DATABASE_URL`.
+
+**Dependencies:** Tasks 3.5, 5.1–5.2
+**Scope:** M per CI slice
+
+### Checkpoint 5 — Human Published approval
+
+- [ ] User performs or explicitly approves the Published switch.
+- [ ] The public build shows the exact reviewed Draft hash.
+- [ ] Rollback is demonstrated.
+- [ ] This checkpoint authorizes old-system removal.
+
+## 10. Phase 6 — Cutover and removal
+
+### Task 6.1 — Prove zero new-path dependency on legacy packages
+
+**Description:** Run import, command, route and build analysis before deleting anything.
+
+**Acceptance criteria:**
+
+- New App and data workspace do not import old Web, Worker, DB or LiveBench-specific modules.
+- Root commands needed by the new path are identified.
+- Any reusable code is already extracted into new-owned paths.
+
+**Verification:**
+
+- Dependency graph and `rg` report are attached.
+- New production build succeeds with legacy packages temporarily excluded from the workspace graph.
+
+**Dependencies:** Checkpoint 5
+**Scope:** S
+
+### Task 6.2 — Remove old Web
+
+**Description:** Delete `apps/web`, its DB fixture, routes and old browser tests after the new App owns production.
+
+**Acceptance criteria:**
+
+- Workspace and root E2E commands target the new App.
+- No old locale, Edition, pipeline, source or API routes remain.
+- The new App production build and browser tests still pass.
+
+**Verification:**
+
+- Workspace package discovery no longer includes the old Web package.
+- New App build and browser suite pass after deletion.
+
+**Dependencies:** Task 6.1
+**Scope:** Mechanical M
+
+### Task 6.3 — Remove old Worker and LiveBench publication path
+
+**Description:** Delete `apps/worker` and the old alias, revision, aggregation, promotion, scoring and Edition orchestration.
+
+**Acceptance criteria:**
+
+- No root command references the old Worker.
+- LiveBench remains represented only through the new source path.
+- New acquisition and Draft generation tests pass.
+
+**Verification:**
+
+- `rg` finds no root or package reference to `@llm-bench/worker`.
+- A fresh source run and Draft build pass without the old Worker.
+
+**Dependencies:** Task 6.1
+**Scope:** Mechanical M
+
+### Task 6.4 — Remove PostgreSQL, Drizzle and Docker
+
+**Description:** Delete `packages/db`, migrations, Compose, DB scripts and environment assumptions.
+
+**Acceptance criteria:**
+
+- Repository contains no product dependency on PostgreSQL, Drizzle, Docker, Compose or `DATABASE_URL`.
+- `pnpm install`, development, build and tests work without Docker.
+- Lockfile no longer retains dependencies used only by the removed DB package.
+
+**Verification:**
+
+- Dependency and text scans show no supported-path DB/Docker reference.
+- Clean install, tests and production build pass on a host without Docker.
+
+**Dependencies:** Tasks 6.2–6.3
+**Scope:** Mechanical M
+
+### Task 6.5 — Remove obsolete Connector, scoring and presentation code
+
+**Description:** Delete old LiveBench Connector code and any old shared package code not explicitly reused by the new path.
+
+**Acceptance criteria:**
+
+- `packages/connectors` no longer contains the historical LiveBench pipeline.
+- Old formal coverage/confidence and Edition DTOs are absent.
+- Any retained radar/artifact utility is owned and tested by the new architecture.
+
+**Verification:**
+
+- Package graph contains only new-path shared packages.
+- Focused scoring, artifact and acquisition tests pass after cleanup.
+
+**Dependencies:** Tasks 6.1, 6.3–6.4
+**Scope:** Mechanical M per package
+
+### Task 6.6 — Remove or re-scope video
+
+**Description:** Since video is outside the MVP and tied to the old Edition system, remove it unless the user explicitly reintroduces it before cutover.
+
+**Acceptance criteria:**
+
+- Default action: delete `apps/video`, Remotion-only dependencies, commands, CI steps and docs.
+- No new contract retains Edition/video compatibility.
+- If retained by explicit user decision, it must consume Published static JSON through a separately approved plan.
+
+**Verification:**
+
+- Default path: workspace and lockfile contain no Remotion-only package or command.
+- Full production build and CI pass without video artifacts.
+
+**Dependencies:** Checkpoint 5
+**Scope:** Mechanical M
+
+### Task 6.7 — Rewrite authoritative documentation
+
+**Description:** Make README, architecture, data methodology, scoring methodology, operations and decisions reflect the shipped new system.
+
+**Acceptance criteria:**
+
+- Old PostgreSQL, Docker, Worker, Edition, bilingual and dual-theme instructions are removed.
+- Historical decisions are marked superseded rather than silently rewritten.
+- Clean setup, acquisition, Draft preview, publish and rollback commands are documented.
+
+**Verification:**
+
+- Documentation link and command checks pass.
+- A clean-environment walkthrough follows only documented supported commands.
+
+**Dependencies:** Tasks 6.2–6.6
+**Scope:** M per document group
+
+### Checkpoint 6 — Final cutover
+
+- [ ] No legacy application path remains active.
+- [ ] Full install, lint, typecheck, tests, build and browser gates pass.
+- [ ] Published static data renders without network, artifact, DB or Docker availability.
+- [ ] Documentation and commands describe only the supported system.
+
+## 11. Risks and mitigations
+
+| Risk                                                        | Impact | Mitigation                                                                         |
+| ----------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------- |
+| Agent extracts fewer rows than a human can see              | High   | Mandatory visible-vs-extracted reports and Draft UI review                         |
+| Shared schema changes while source/UI work runs in parallel | High   | Freeze Task 1.2 before delegation; orchestrator owns shared contracts              |
+| Composite scores are double-counted                         | High   | Keep composite metrics selection/display-only                                      |
+| Profile aliases inflate or merge rankings incorrectly       | High   | Explicit Profile identity; unresolved aliases remain visible                       |
+| Early sparse data creates misleading ranks                  | Medium | Estimated, evidence detail and missing-value display; human Draft gate             |
+| Frontend uses a convenient but wrong fixture contract       | High   | Empty contract fixture only until first real Draft in the same phase               |
+| Legacy deletion removes needed utility code                 | Medium | Extract and test reusable pure code before Task 6.1 zero-dependency gate           |
+| Old architecture lingers indefinitely                       | High   | Published approval explicitly triggers compulsory removal tasks                    |
+| Source site changes during implementation                   | Medium | Agent may repair and merge manifests/connectors; data remains Draft                |
+| Planning drifts into premature automation                   | Medium | Uniform schedule and simple rules; postpone empirical questions listed in the spec |
+
+## 12. Open questions reserved for empirical iteration
+
+These are not blockers for implementation planning:
+
+- Exact Supported threshold
+- Final Benchmark weights
+- Final standardized token-use assumption
+- Best representative-Profile selection
+- Per-source schedule optimization
+- Advanced conflict/confidence policy
+- Need for a future management UI
+
+## 13. Plan acceptance
+
+Implementation must not begin until the user reviews this plan and confirms:
+
+- workspace boundaries are acceptable;
+- the parallel source/UI split matches expectations;
+- first real Draft and human Published checkpoints are correctly placed;
+- old-system deletion remains after Published approval.
