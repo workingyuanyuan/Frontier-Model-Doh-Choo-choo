@@ -1,4 +1,7 @@
-# Product Spec
+# Product Spec — Superseded v1
+
+> 本文件描述舊雙語、多頁、資料庫與影片產品。新版產品規格以
+> [重構規格](REFACTOR_SPEC.md) 為準。
 
 ## Product
 

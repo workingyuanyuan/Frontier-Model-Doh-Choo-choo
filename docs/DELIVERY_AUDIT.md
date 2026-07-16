@@ -1,4 +1,7 @@
-# Delivery Audit
+# Delivery Audit — Superseded v1 acceptance
+
+> 本文件只保留舊系統驗收歷史。新版驗收以不可變 Draft／Published pointer、
+> 八站實證資料與 `apps/bench` 為準。
 
 Audit date: 2026-07-15
 

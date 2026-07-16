@@ -1,41 +1,67 @@
-# Scoring Methodology v1
+# 計分方法
 
-## Metric normalization
+## 八維
 
-Every benchmark metric has a versioned transform and fixed anchors. No transform uses the current model cohort.
+固定順序：
 
-- Percentage/accuracy/solve rate: `100 × (raw - lower) / (upper - lower)`, clamped to 0–100.
-- Lower-is-better: `100 × (upper - raw) / (upper - lower)`, clamped to 0–100.
-- Human/random anchors replace generic 0/100 bounds when the benchmark documents them.
-- Rank is display-only. Elo is eligible only within an explicitly comparable pool/version. Different pass@k values never mix.
-- Custom/reward metrics require documented bounds; otherwise they remain display-only.
+1. Reasoning
+2. Math
+3. Knowledge
+4. Language
+5. Instruction
+6. Coding
+7. Agentic
+8. Context
 
-The stored audit tuple is raw value/unit, normalized value, method/version, anchors and clipping rule.
+Benchmark 映射由 `data-v2/mappings/benchmarks.json` 控制，完整理由與限制見 [Benchmark 八維映射](BENCHMARK_DIMENSION_MAPPING.md)。
 
-The first committed mapping pins LiveBench release `2024-11-25` to its 1,000-observation inventory hash and 18 task metrics. Each official task mean is already expressed as a percentage and uses `FIXED_PERCENTAGE_V1` with anchors 0 and 100. The mapping supplies Reasoning (including the three structured data-analysis tasks), Math, Language, Instruction and Coding. It intentionally supplies no Knowledge, Agentic or Context weight; those dimensions remain null until an appropriate independent source is admitted.
+## Benchmark 規則
 
-## Benchmark and dimension aggregation
+- 第一版每個 Benchmark 只投入一個主要維度。
+- 次要關聯只作文件與未來調整依據，不重複加權。
+- 百分比或可靠 accuracy 類指標直接標準化到 0–100。
+- 沒有核准轉換的 Elo、ECI、Intelligence Index 等只展示原始值。
+- 缺失值為 `null`，永不當成零。
 
-1. Select one reviewed result per canonical key using source precedence; conflicts are excluded.
-2. Aggregate related subtests inside a benchmark family before dimension weighting.
-3. Count only the versioned primary-dimension mapping in v1; secondary dimensions are descriptive.
-4. Dimension score is the configured weighted mean of available, eligible benchmark-family scores.
-5. Dimension coverage is available configured weight divided by total eligible configured weight. Missing rows stay null.
+## Profile 分數
 
-A dimension is formal when coverage is at least 50% and includes at least one benchmark-official or independent-evaluator row. Otherwise its status is provisional/insufficient.
+對一個 Profile：
 
-## Confidence
+1. 先依來源角色、完整性與時間選出當前有效結果。
+2. 同一維度內，對已映射的 normalized score 取算術平均。
+3. Overall Score 對有資料的維度重新正規化後取平均。
+4. 沒有資料的維度保持 N/A。
+5. 至少一筆已映射 normalized score 即可產生 Estimated 分數與排名。
 
-For each included family, evidence quality is source tier × freshness: benchmark official 1.00, independent 0.90, vendor 0.50, secondary 0.25, unverified 0; freshness is 1.00 fresh, 0.80 aging, 0.50 stale. Dimension confidence is `100 × coverage × weighted mean(evidence quality)`, clamped 0–100. These constants and freshness windows are versioned configuration, not hidden code.
+因此稀疏新品會立刻顯示，但 Coverage 必須與分數一起閱讀。
 
-## Overall score and eligibility
+## Estimated 與 Supported
 
-- Absolute Capability Score is the equal-weight mean of the eight dimension scores (12.5% each), calculated on unrounded values.
-- Verified ranking requires all eight formal dimensions, overall coverage ≥65%, independent-source share ≥50%, and no blocking quality flag.
-- A model with at least six formal dimensions and overall coverage ≥50% may receive a separately labelled provisional score over available dimensions; weights renormalize only inside the provisional cohort.
-- Models below that threshold remain visible but unranked. Missing data is never penalized or rewarded as a fabricated score.
-- Verified and provisional rankings never share a rank sequence.
+- 第一版所有實際資料均為 `ESTIMATED`。
+- 只有廠商自報的模型仍可顯示分數。
+- Supported 門檻尚未以理論值硬編碼，待真實資料、人眼審查與產品使用後再設定。
+- `PARTIAL_SOURCE` 可參與 Estimated，不因時間自動失效。
 
-Ties compare unrounded overall score, then confidence, coverage and stable model-variant ID. Every publish stores the scoring method version and a sensitivity report.
+## 綜合榜
 
-`absolute-capability-v1` is seeded as `DRAFT` with formal publication disabled. Its eight overall dimension weights are 0.125 each, while per-dimension LiveBench task weights sum to one. Changing mappings or thresholds requires a new scoring-method version rather than mutating the existing seed.
+Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 用於：
+
+- 找出前沿模型。
+- 顯示外部核心排名指標。
+
+它們不投入八維 Overall Score，避免把同一組底層 Benchmark 重複計分。
+
+## 成本
+
+成本序列分開展示：
+
+- `API_STANDARDIZED`：目前採 3:1 input/output token 的可修改混合假設。
+- `MEASURED_TASK`／`AGENT_TASK`：來源實際公布的每任務成本。
+
+兩種成本不可混為同一語義。API 曲線的 cost 是比較單位，不宣稱等於實際每任務支出。
+
+目前 GPT-5.6 定價與 Artificial Analysis 每任務成本在 `data-v2/mappings/models.json`；權重與成本假設未來可直接改設定並生成新 Draft，不修改舊版本。
+
+## 可重現性
+
+ProductVersion 的 versionId 是移除 versionId 欄位後，對 canonical deterministic JSON 計算 SHA-256。來源順序、維度順序、Profile、Evidence 與 cost point 均排序，固定輸入與 generatedAt 會得到相同版本。

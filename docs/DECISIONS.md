@@ -1,4 +1,8 @@
-# Decisions
+# Decisions — Superseded v1 history
+
+> 本文件記錄舊 PostgreSQL／Worker／Edition 架構，已由
+> [重構規格](REFACTOR_SPEC.md) 與 [新版架構](ARCHITECTURE.md) 取代。
+> 除非條目已被新版文件重新確認，以下決策不得作為目前實作依據。
 
 ## DEC-001 — TypeScript monorepo
 

@@ -1,73 +1,72 @@
-# Architecture
+# 新版架構
 
-## Monorepo
+## 邊界
 
-```text
-apps/
-  web/       Next.js App Router, server-first data access, REST read API
-  worker/    ingestion, review, scoring, publishing and weekly CLI
-  video/     Remotion preview and deterministic renders
-packages/
-  contracts/ shared Zod schemas, branded IDs and API DTOs
-  db/        Drizzle schema, SQL migrations and repositories
-  connectors/source-specific fetch/parse/validate adapters
-  scoring/   normalization, coverage, confidence and ranking
-  radar/     framework-neutral geometry and shared React SVG
-  presentation/ validated view models shared by Web and video
-```
-
-## Data flow
+新版由靜態資料工作區、純資料套件與單頁 Next.js Dashboard 組成。PostgreSQL、Docker、舊 Worker、Edition 與 LiveBench 專用流程不在目標架構內。
 
 ```text
-allowlisted HTTPS source
-→ immutable raw artifact + SHA-256 + HTTP metadata
-→ source-specific parser
-→ boundary schema validation
-→ staged rows and quality issues
-→ exact alias/config resolution
-→ reviewed published result
-→ versioned normalization and dimension aggregation
-→ immutable ranking snapshot
-→ website API/server components + Remotion composition
+來源頁/API/匯出
+      │
+      ▼
+Git 外 artifacts-v2/sha256
+      │
+      ▼
+data-v2/sources/<source>/
+  manifest + evidence-index + candidates + validation
+      │
+      ▼
+packages/benchmark-data
+  身份選擇 → Frontier 聯集 → 八維計分 → ProductVersion
+      │
+      ▼
+data-v2/product/versions/<sha256>.json
+      │
+      ├── pointers/draft.json
+      └── pointers/published.json
+             │
+             ▼
+         apps/bench
 ```
 
-## Storage layers
+## 工作區責任
 
-- Raw bodies use content-addressed files under a configurable storage adapter; PostgreSQL stores URI, hash, headers and provenance.
-- Staged results preserve source names and parse issues without requiring canonical aliases.
-- Published results are canonical, reviewed rows; lower-priority sources cannot silently overwrite them.
-- Ranking snapshots and entries are append-only and contain scoring version plus all source snapshot IDs.
+### `packages/benchmark-data`
 
-## Runtime boundaries
+- 版本化 Zod Schema。
+- 來源角色與同配置結果取代規則。
+- 動態綜合榜 Top 20 聯集與人工新品設定。
+- 缺失值安全的八維計分。
+- ProductVersion deterministic JSON 與內容雜湊。
+- Draft、Published 與 rollback 的原子 pointer 操作。
 
-- External responses, manual imports, URL parameters and environment variables are untrusted and Zod-validated.
-- Connector URLs are registry-owned, HTTPS-only and host-allowlisted; redirects to unapproved hosts fail.
-- Website reads through repositories/services; it does not parse external source data.
-- Video receives a serialized ranking snapshot contract and never maintains separate hand-authored scores.
-- Web comparison charts and Remotion scenes consume the same framework-neutral radar presentation contract. It validates one to five series, preserves null axes, fixes the scale at 0–100 and emits rings, axes, label positions, line/polygon geometry and equivalent table rows from one input. Animation progress is an input to that contract; reduced motion resolves directly to final geometry.
-- Edition video rendering resolves exactly one persisted edition or attached snapshot through the same validated ranking assembly as Web. The CLI bounds locale, theme, Top-N, selected canonical model and media type before writing props. Artifact directories include every presentation selector; metadata binds the database snapshot hash and serialized props hash. PREVIEW renders remain visibly labeled and never create `video_jobs`; FORMAL renders transition one job through `QUEUED → RUNNING → SUCCEEDED|FAILED`.
+### `packages/acquisition`
 
-## Public interfaces
+- 內容定址 artifact 寫入與 hash 驗證。
+- 人眼可見列數、分頁與結構化／畫面衝突報告。
+- Candidate 對 Evidence 的引用完整性檢查。
 
-- Read API prefix: `/api/v1`.
-- Resources: editions, rankings, models, benchmarks, comparisons, sources and methodology.
-- Every response carries `apiVersion: "v1"`. Success envelope: `{ apiVersion, data, meta? }`; error envelope: `{ apiVersion, error: { code, message, details? } }`.
-- List resources use cursor pagination. Contract changes are additive within v1.
-- `GET /api/v1/rankings/latest` resolves only the database-enforced active edition, validates the complete response contract and returns deterministic rank/slug order. It returns non-cacheable stable `404`/`503` codes when the active pointer is absent or unavailable; successful responses use a 60-second public cache with 300-second stale revalidation.
-- Web database access is a process-local lazy pool so development hot reload and repeated requests do not create an unbounded connection pool. Connection configuration and repository failures stay inside the API error boundary.
-- Locale homepages are dynamic Server Components that read the repository directly. A reachable database with no active edition selects the project-owned fictional preview fixture; a connection or query failure renders a retryable unavailable state and never masquerades as preview data.
-- `GET /api/v1/health` is process liveness and has no database dependency. `GET /api/v1/status/data` is non-cacheable readiness/data state and reports the active pointer plus published-result count, or a stable 503 when PostgreSQL is unavailable.
-- `/{locale}/models/{variant-slug}` reads canonical identity, the active ranking row, edition history and task-level benchmark evidence through a validated detail DTO. `/{locale}/benchmarks/{benchmark-slug}` reads the newest benchmark version, metric definitions and direction-aware deterministic leaderboards. Route slugs are lowercase canonical identifiers; unknown or malformed identifiers return 404.
-- `/{locale}/compare?models={slug}&models={slug}` resolves two to five unique canonical entries from the same active snapshot used by the homepage. Query order is presentation order and survives locale switching. Missing, duplicate, malformed, unknown or excessive identifiers fail at the route boundary; the empty-database design fixture remains explicitly separated from data-backed model detail links.
-- `/{locale}/methodology` is a bilingual durable statement of versioned evidence, null, conflict and publication policy. `/{locale}/sources` validates live source/snapshot/latest-run summaries from PostgreSQL, while `/{locale}/pipeline` validates persisted source, ingestion, staged, result, ranking and edition counts plus the active pointer. Repository failures propagate to the shared unavailable boundary; neither page substitutes static success data.
+### `data-v2`
 
-## Local and automated operation
+- `mappings/` 是可修改設定，不把八維或 Frontier 規則寫死在 UI。
+- `sources/` 保存可審查的結構化輸出；原始大檔只保存 locator、hash 與 byte length。
+- `product/versions/` 只能新增，不得覆寫。
+- `product/pointers/` 是唯一可變發布狀態。
 
-- Node 24 + pnpm workspace + Turborepo.
-- PostgreSQL runs in Docker Compose with a persistent named volume.
-- `pnpm local:up` waits for PostgreSQL, migrates and seeds it, builds the worker,
-  then starts the Web server and the command-driven worker's compile watcher.
-  The worker has no idle queue consumer; ingestion, scoring, edition and video
-  jobs are explicit bounded CLIs locally and scheduled GitHub Actions in CI.
-- GitHub Actions runs frozen installs, migrations, unit/integration/E2E tests, build and scheduled dry-run ingestion.
-- Publishing is transactional; a failed source or validation run leaves the previous edition active.
+### `apps/bench`
+
+- 靜態建置時讀取指定 channel pointer 與 ProductVersion。
+- Draft Preview 與 Published 使用同一套 UI。
+- 不連接資料庫、Worker、artifact store 或來源網站。
+- 即使無網路、來源失效或 artifact store 暫時不可用，既有版本仍能建置。
+
+## 失敗安全
+
+- 擷取失敗不會改動既有 Draft 或 Published。
+- Draft 生成失敗不寫 pointer。
+- Published 切換前驗證目標版本存在且內容 hash 正確。
+- Published 失敗時舊 pointer 不變。
+- rollback 指向上一個不可變版本，不修改歷史資料。
+
+## 移轉狀態
+
+舊 `apps/web`、`apps/worker`、`packages/db` 與相關 CI 尚未移除，原因是首次 Published 與 rollback 仍需人工驗收。完成該閘門後，依 [可捨棄項目](REFACTOR_DISCARD_LIST.md) 一次移除，不保留相容層。
