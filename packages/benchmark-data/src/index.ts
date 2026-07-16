@@ -537,6 +537,129 @@ export const scoreProfiles = (
   }));
 };
 
+export interface CompositeSource {
+  sourceId: string;
+  benchmarkId: string;
+}
+
+export interface DraftProductInput {
+  generatedAt: string;
+  sourceSnapshotIds: string[];
+  candidates: CandidateResult[];
+  profiles: ModelProfile[];
+  benchmarkDimensions: ReadonlyMap<string, DimensionId>;
+  compositeSources: CompositeSource[];
+  manualModels: ManualFrontierModel[];
+}
+
+export const buildDraftProduct = (input: DraftProductInput): ProductVersion => {
+  const compositeRows = input.compositeSources.flatMap(
+    ({ sourceId, benchmarkId }) => {
+      const rows = input.candidates
+        .filter(
+          (candidate) =>
+            candidate.sourceId === sourceId &&
+            candidate.benchmarkId === benchmarkId &&
+            candidate.model.canonicalModelId !== null,
+        )
+        .toSorted((left, right) => {
+          const scoreOrder = left.metric.higherIsBetter
+            ? right.rawScore - left.rawScore
+            : left.rawScore - right.rawScore;
+          return (
+            scoreOrder ||
+            (left.model.canonicalModelId ?? '').localeCompare(
+              right.model.canonicalModelId ?? '',
+            )
+          );
+        });
+
+      return rows.map((candidate, index): CompositeRankingRow => ({
+        sourceId,
+        rank: index + 1,
+        modelId: candidate.model.canonicalModelId as string,
+        profileId:
+          candidate.model.profileId ??
+          `${candidate.model.canonicalModelId as string}-unspecified`,
+        score: candidate.rawScore,
+      }));
+    },
+  );
+  const frontier = buildFrontierSet(compositeRows, input.manualModels).toSorted(
+    (left, right) => left.modelId.localeCompare(right.modelId),
+  );
+  const frontierModelIds = new Set(frontier.map(({ modelId }) => modelId));
+  const evidence = input.candidates
+    .filter(
+      ({ model }) =>
+        model.canonicalModelId !== null &&
+        frontierModelIds.has(model.canonicalModelId),
+    )
+    .toSorted((left, right) => left.id.localeCompare(right.id));
+  const leaderboard = scoreProfiles(evidence, input.benchmarkDimensions);
+  const leaderboardProfileIds = new Set(
+    leaderboard.map(({ profileId }) => profileId),
+  );
+  const profiles = input.profiles
+    .filter(({ id }) => leaderboardProfileIds.has(id))
+    .toSorted((left, right) => left.id.localeCompare(right.id));
+  const catalogProfileIds = new Set(profiles.map(({ id }) => id));
+  const missingProfiles = [...leaderboardProfileIds].filter(
+    (profileId) => !catalogProfileIds.has(profileId),
+  );
+  if (missingProfiles.length > 0) {
+    throw new Error(
+      `model catalog is missing profiles: ${missingProfiles.join(', ')}`,
+    );
+  }
+
+  const leaderboardByProfile = new Map(
+    leaderboard.map((entry) => [entry.profileId, entry]),
+  );
+  const costs = profiles
+    .flatMap((profile) => {
+      const performance = leaderboardByProfile.get(profile.id)?.overallScore;
+      if (performance === null || performance === undefined) return [];
+
+      return profile.pricing.flatMap((pricing) => {
+        const cost =
+          pricing.costPerTask ??
+          (pricing.inputPerMillionTokens !== null &&
+          pricing.outputPerMillionTokens !== null &&
+          pricing.assumptionId !== null
+            ? (pricing.inputPerMillionTokens * 3 +
+                pricing.outputPerMillionTokens) /
+              4
+            : null);
+        if (cost === null) return [];
+        return [
+          {
+            modelId: profile.modelId,
+            profileId: profile.id,
+            costType: pricing.type,
+            cost,
+            performance,
+            assumptionId: pricing.assumptionId,
+          },
+        ];
+      });
+    })
+    .toSorted(
+      (left, right) =>
+        left.cost - right.cost || left.profileId.localeCompare(right.profileId),
+    );
+
+  return buildProductVersion({
+    generatedAt: input.generatedAt,
+    sourceSnapshotIds: input.sourceSnapshotIds.toSorted(),
+    frontier,
+    profiles,
+    leaderboard,
+    costs,
+    evidence,
+  });
+};
+
 type ProductVersionInput = Omit<ProductVersion, 'schemaVersion' | 'versionId'>;
 
 export const buildProductVersion = (

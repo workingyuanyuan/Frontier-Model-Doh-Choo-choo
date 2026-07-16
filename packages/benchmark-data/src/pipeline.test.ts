@@ -2,10 +2,12 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildFrontierSet,
+  buildDraftProduct,
   buildProductVersion,
   scoreProfiles,
   selectCurrentResults,
   type CandidateResult,
+  type ModelProfile,
 } from './index.js';
 
 const evidenceId =
@@ -225,5 +227,114 @@ describe('buildProductVersion', () => {
 
     expect(version).toEqual(buildProductVersion(input));
     expect(version).not.toHaveProperty('state');
+  });
+});
+
+describe('buildDraftProduct', () => {
+  it('uses composite rankings only for selection and scores the frontier from direct evidence', () => {
+    const composite = makeCandidate({
+      id: 'composite',
+      sourceId: 'artificial-analysis',
+      sourceRole: 'INDEPENDENT',
+      benchmarkId: 'artificial-analysis-intelligence-index',
+      benchmarkVersion: 'v4.1',
+      rawScore: 59,
+      normalizedScore: null,
+      inclusion: 'EXCLUDED',
+      exclusionReason: 'Selection only',
+    });
+    const direct = makeCandidate({
+      id: 'direct',
+      sourceId: 'livebench',
+      sourceRole: 'ORGANIZER',
+      benchmarkId: 'livebench-reasoning',
+      benchmarkVersion: '2026-06-25',
+      rawScore: 91,
+      normalizedScore: 91,
+    });
+    const profile: ModelProfile = {
+      id: 'openai-gpt-5-6-sol-max',
+      modelId: 'openai-gpt-5-6-sol',
+      providerId: 'openai',
+      displayName: 'GPT-5.6 Sol (max)',
+      baseModelName: 'GPT-5.6 Sol',
+      releaseDate: '2026-07-09',
+      attributes: direct.profile,
+      pricing: [
+        {
+          type: 'API_STANDARDIZED',
+          currency: 'USD',
+          inputPerMillionTokens: 5,
+          outputPerMillionTokens: 30,
+          costPerTask: null,
+          assumptionId: 'api-blend-3-to-1',
+          sourceUrl: 'https://openai.com/index/gpt-5-6/',
+        },
+      ],
+    };
+
+    const product = buildDraftProduct({
+      generatedAt: '2026-07-16T00:00:00.000Z',
+      sourceSnapshotIds: ['livebench:2026-06-25'],
+      candidates: [
+        {
+          ...composite,
+          model: {
+            ...composite.model,
+            canonicalModelId: 'openai-gpt-5-6-sol',
+            profileId: 'openai-gpt-5-6-sol-max',
+          },
+        },
+        {
+          ...direct,
+          model: {
+            ...direct.model,
+            canonicalModelId: 'openai-gpt-5-6-sol',
+            profileId: 'openai-gpt-5-6-sol-max',
+          },
+        },
+      ],
+      profiles: [profile],
+      benchmarkDimensions: new Map([['livebench-reasoning', 'reasoning']]),
+      compositeSources: [
+        {
+          sourceId: 'artificial-analysis',
+          benchmarkId: 'artificial-analysis-intelligence-index',
+        },
+      ],
+      manualModels: [],
+    });
+
+    expect(product.frontier).toHaveLength(1);
+    expect(product.leaderboard[0]?.overallScore).toBe(91);
+    expect(product.evidence.map(({ id }) => id)).toEqual([
+      'composite',
+      'direct',
+    ]);
+    expect(product.costs[0]).toMatchObject({
+      cost: 11.25,
+      performance: 91,
+      assumptionId: 'api-blend-3-to-1',
+    });
+  });
+
+  it('rejects a scored profile that is absent from the model catalog', () => {
+    expect(() =>
+      buildDraftProduct({
+        generatedAt: '2026-07-16T00:00:00.000Z',
+        sourceSnapshotIds: [],
+        candidates: [makeCandidate()],
+        profiles: [],
+        benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
+        compositeSources: [],
+        manualModels: [
+          {
+            modelId: 'openai-gpt-5-6-sol',
+            profileId: 'openai-gpt-5-6-sol-max',
+            reason: 'New release',
+          },
+        ],
+      }),
+    ).toThrow('model catalog');
   });
 });
