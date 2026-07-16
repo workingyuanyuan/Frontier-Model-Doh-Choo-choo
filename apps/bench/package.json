@@ -1,0 +1,26 @@
+{
+  "name": "@llm-bench/bench",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "pnpm --filter @llm-bench/benchmark-data build && next build",
+    "dev": "next dev",
+    "start": "next start",
+    "test": "vitest",
+    "test:run": "pnpm --filter @llm-bench/benchmark-data build && vitest run",
+    "typecheck": "pnpm --filter @llm-bench/benchmark-data build && tsc --noEmit"
+  },
+  "dependencies": {
+    "@llm-bench/benchmark-data": "workspace:*",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

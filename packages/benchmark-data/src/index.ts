@@ -839,19 +839,20 @@ const pointerPath = (
   channel: ProductVersionPointer['channel'],
 ): string => join(root, 'pointers', `${channel.toLowerCase()}.json`);
 
-const verifyProductVersionId = (version: ProductVersion): void => {
+export const verifyProductVersion = (input: ProductVersion): ProductVersion => {
+  const version = ProductVersionSchema.parse(input);
   const { versionId, ...content } = version;
   if (sha256(deterministicJson(content)) !== versionId) {
     throw new Error('product version content does not match its versionId');
   }
+  return version;
 };
 
 export const writeImmutableProductVersion = async (
   root: string,
   version: ProductVersion,
 ): Promise<string> => {
-  const parsed = ProductVersionSchema.parse(version);
-  verifyProductVersionId(parsed);
+  const parsed = verifyProductVersion(version);
   const path = productVersionPath(root, parsed.versionId);
   const bytes = deterministicJson(parsed);
   await mkdir(join(root, 'versions'), { recursive: true });
@@ -884,10 +885,9 @@ export const readProductVersion = async (
   } catch {
     throw new Error(`product version ${versionId} does not exist`);
   }
-  const parsed = ProductVersionSchema.parse(
-    JSON.parse(await readFile(path, 'utf8')),
+  const parsed = verifyProductVersion(
+    ProductVersionSchema.parse(JSON.parse(await readFile(path, 'utf8'))),
   );
-  verifyProductVersionId(parsed);
   if (parsed.versionId !== versionId) {
     throw new Error('product version filename does not match its versionId');
   }
