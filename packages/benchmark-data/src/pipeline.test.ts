@@ -4,6 +4,7 @@ import {
   buildFrontierSet,
   buildDraftProduct,
   buildProductVersion,
+  deriveModelProfiles,
   scoreProfiles,
   selectCurrentResults,
   type CandidateResult,
@@ -336,5 +337,65 @@ describe('buildDraftProduct', () => {
         ],
       }),
     ).toThrow('model catalog');
+  });
+});
+
+describe('deriveModelProfiles', () => {
+  it('merges shared model facts conservatively while retaining profile identity', () => {
+    const first = makeCandidate({
+      profile: {
+        effort: 'max',
+        thinking: 'reasoning',
+        tools: null,
+        harness: null,
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: null,
+      },
+    });
+    const second = makeCandidate({
+      id: 'second',
+      sourceId: 'vals-ai',
+      sourceRole: 'INDEPENDENT',
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: true,
+        harness: 'benchmark-specific',
+        contextWindowTokens: 1_000_000,
+        quantization: null,
+        attempts: 1,
+      },
+    });
+
+    expect(
+      deriveModelProfiles([first, second], {
+        schemaVersion: 'model-catalog-v1',
+        models: [
+          {
+            modelId: 'openai-gpt-5-6-sol',
+            providerId: 'openai',
+            displayName: 'GPT-5.6 Sol',
+            releaseDate: '2026-07-09',
+            pricing: [],
+            profilePricing: {},
+          },
+        ],
+      }),
+    ).toEqual([
+      expect.objectContaining({
+        id: 'openai-gpt-5-6-sol-max',
+        displayName: 'GPT-5.6 Sol · max',
+        attributes: {
+          effort: 'max',
+          thinking: 'reasoning',
+          tools: null,
+          harness: null,
+          contextWindowTokens: 1_000_000,
+          quantization: null,
+          attempts: null,
+        },
+      }),
+    ]);
   });
 });

@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "model-catalog-v1",
+  "models": [
+    {
+      "modelId": "anthropic-claude-fable-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Fable 5",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-opus-4-7",
+      "providerId": "anthropic",
+      "displayName": "Claude Opus 4.7",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-opus-4-8",
+      "providerId": "anthropic",
+      "displayName": "Claude Opus 4.8",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-sonnet-4-6",
+      "providerId": "anthropic",
+      "displayName": "Claude Sonnet 4.6",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-sonnet-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Sonnet 5",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "google-gemini-3-1-pro-preview",
+      "providerId": "google",
+      "displayName": "Gemini 3.1 Pro Preview",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "google-gemini-3-5-flash",
+      "providerId": "google",
+      "displayName": "Gemini 3.5 Flash",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "meta-muse-spark-1-1",
+      "providerId": "meta",
+      "displayName": "Muse Spark 1.1",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-4",
+      "providerId": "openai",
+      "displayName": "GPT-5.4",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-5",
+      "providerId": "openai",
+      "displayName": "GPT-5.5",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-6-sol",
+      "providerId": "openai",
+      "displayName": "GPT-5.6 Sol",
+      "releaseDate": "2026-07-09",
+      "pricing": [
+        {
+          "type": "API_STANDARDIZED",
+          "currency": "USD",
+          "inputPerMillionTokens": 5,
+          "outputPerMillionTokens": 30,
+          "costPerTask": null,
+          "assumptionId": "api-blend-3-to-1",
+          "sourceUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+        }
+      ],
+      "profilePricing": {
+        "openai-gpt-5-6-sol-max": [
+          {
+            "type": "MEASURED_TASK",
+            "currency": "USD",
+            "inputPerMillionTokens": null,
+            "outputPerMillionTokens": null,
+            "costPerTask": 1.04,
+            "assumptionId": null,
+            "sourceUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "openai-gpt-5-6-terra",
+      "providerId": "openai",
+      "displayName": "GPT-5.6 Terra",
+      "releaseDate": "2026-07-09",
+      "pricing": [
+        {
+          "type": "API_STANDARDIZED",
+          "currency": "USD",
+          "inputPerMillionTokens": 2.5,
+          "outputPerMillionTokens": 15,
+          "costPerTask": null,
+          "assumptionId": "api-blend-3-to-1",
+          "sourceUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+        }
+      ],
+      "profilePricing": {
+        "openai-gpt-5-6-terra-max": [
+          {
+            "type": "MEASURED_TASK",
+            "currency": "USD",
+            "inputPerMillionTokens": null,
+            "outputPerMillionTokens": null,
+            "costPerTask": 0.55,
+            "assumptionId": null,
+            "sourceUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "openai-gpt-5-6-luna",
+      "providerId": "openai",
+      "displayName": "GPT-5.6 Luna",
+      "releaseDate": "2026-07-09",
+      "pricing": [
+        {
+          "type": "API_STANDARDIZED",
+          "currency": "USD",
+          "inputPerMillionTokens": 1,
+          "outputPerMillionTokens": 6,
+          "costPerTask": null,
+          "assumptionId": "api-blend-3-to-1",
+          "sourceUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+        }
+      ],
+      "profilePricing": {
+        "openai-gpt-5-6-luna-max": [
+          {
+            "type": "MEASURED_TASK",
+            "currency": "USD",
+            "inputPerMillionTokens": null,
+            "outputPerMillionTokens": null,
+            "costPerTask": 0.21,
+            "assumptionId": null,
+            "sourceUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed"
+          }
+        ]
+      }
+    },
+    {
+      "modelId": "xai-grok-4-5",
+      "providerId": "xai",
+      "displayName": "Grok 4.5",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "zai-glm-5-2",
+      "providerId": "zai",
+      "displayName": "GLM-5.2",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    }
+  ]
+}

@@ -212,6 +212,21 @@ export const ModelProfileSchema = z.object({
 });
 export type ModelProfile = z.infer<typeof ModelProfileSchema>;
 
+export const ModelCatalogSchema = z.object({
+  schemaVersion: z.literal('model-catalog-v1'),
+  models: z.array(
+    z.object({
+      modelId: SlugSchema,
+      providerId: SlugSchema,
+      displayName: z.string().min(1),
+      releaseDate: z.iso.date().nullable(),
+      pricing: z.array(PricingSchema),
+      profilePricing: z.record(SlugSchema, z.array(PricingSchema)),
+    }),
+  ),
+});
+export type ModelCatalog = z.infer<typeof ModelCatalogSchema>;
+
 export const OrderedDimensionScoresSchema = z
   .array(
     z.object({
@@ -542,6 +557,144 @@ export interface CompositeSource {
   benchmarkId: string;
 }
 
+export const FrontierConfigSchema = z.object({
+  schemaVersion: z.literal('frontier-config-v1'),
+  perSourceLimit: z.int().positive().max(20),
+  compositeSources: z.array(
+    z.object({
+      sourceId: SlugSchema,
+      benchmarkId: SlugSchema,
+    }),
+  ),
+  manualModels: z.array(
+    z.object({
+      modelId: SlugSchema,
+      profileId: SlugSchema,
+      reason: z.string().min(1),
+    }),
+  ),
+});
+export type FrontierConfig = z.infer<typeof FrontierConfigSchema>;
+
+const knownConsensus = <Value>(values: Array<Value | null>): Value | null => {
+  const known = [...new Set(values.filter((value) => value !== null))];
+  return known.length === 1 ? (known[0] as Value) : null;
+};
+
+const exactConsensus = <Value>(values: Array<Value | null>): Value | null => {
+  const unique = [...new Set(values)];
+  return unique.length === 1 ? (unique[0] as Value | null) : null;
+};
+
+const readableModelName = (rawName: string): string => {
+  const withoutProfile = rawName.replace(/\s*\([^)]*\)\s*$/u, '').trim();
+  if (!withoutProfile.includes('-')) return withoutProfile;
+  return withoutProfile
+    .split('-')
+    .map((word) =>
+      /^(ai|gpt|glm|k2|swe)$/iu.test(word)
+        ? word.toUpperCase()
+        : `${word.charAt(0).toUpperCase()}${word.slice(1)}`,
+    )
+    .join(' ');
+};
+
+const bestRawName = (results: CandidateResult[]): string =>
+  results
+    .map(({ model }) => model.rawName)
+    .toSorted((left, right) => {
+      const score = (value: string) =>
+        (value.match(/\s/gu)?.length ?? 0) * 4 +
+        (value.match(/[A-Z]/gu)?.length ?? 0) -
+        (value.match(/-/gu)?.length ?? 0) * 3;
+      return score(right) - score(left) || left.length - right.length;
+    })[0] as string;
+
+export const deriveModelProfiles = (
+  candidates: CandidateResult[],
+  catalogInput: ModelCatalog,
+): ModelProfile[] => {
+  const catalog = ModelCatalogSchema.parse(catalogInput);
+  const metadataByModel = new Map(
+    catalog.models.map((metadata) => [metadata.modelId, metadata]),
+  );
+  const byProfile = groupBy(
+    candidates.filter(
+      (
+        candidate,
+      ): candidate is CandidateResult & {
+        model: CandidateResult['model'] & {
+          canonicalModelId: string;
+          profileId: string;
+        };
+      } =>
+        candidate.model.canonicalModelId !== null &&
+        candidate.model.profileId !== null,
+    ),
+    ({ model }) => model.profileId,
+  );
+
+  return [...byProfile.entries()]
+    .map(([profileId, results]): ModelProfile => {
+      const modelIds = [
+        ...new Set(results.map(({ model }) => model.canonicalModelId)),
+      ];
+      if (modelIds.length !== 1) {
+        throw new Error(
+          `profile ${profileId} resolves to multiple canonical models`,
+        );
+      }
+      const modelId = modelIds[0] as string;
+      const metadata = metadataByModel.get(modelId);
+      const attributes = {
+        effort: knownConsensus(results.map(({ profile }) => profile.effort)),
+        thinking: knownConsensus(
+          results.map(({ profile }) => profile.thinking),
+        ),
+        tools: exactConsensus(results.map(({ profile }) => profile.tools)),
+        harness: exactConsensus(results.map(({ profile }) => profile.harness)),
+        contextWindowTokens: knownConsensus(
+          results.map(({ profile }) => profile.contextWindowTokens),
+        ),
+        quantization: knownConsensus(
+          results.map(({ profile }) => profile.quantization),
+        ),
+        attempts: exactConsensus(
+          results.map(({ profile }) => profile.attempts),
+        ),
+      };
+      const baseModelName =
+        metadata?.displayName ?? readableModelName(bestRawName(results));
+      const qualifiers = [
+        attributes.effort,
+        attributes.harness,
+        attributes.tools === true
+          ? 'tools'
+          : attributes.tools === false
+            ? 'no tools'
+            : null,
+      ].filter((value): value is string => value !== null);
+
+      return ModelProfileSchema.parse({
+        id: profileId,
+        modelId,
+        providerId: metadata?.providerId ?? modelId.split('-')[0],
+        displayName:
+          qualifiers.length > 0
+            ? `${baseModelName} · ${qualifiers.join(' · ')}`
+            : baseModelName,
+        baseModelName,
+        releaseDate: metadata?.releaseDate ?? null,
+        attributes,
+        pricing: [
+          ...(metadata?.pricing ?? []),
+          ...(metadata?.profilePricing[profileId] ?? []),
+        ],
+      });
+    })
+    .toSorted((left, right) => left.id.localeCompare(right.id));
+};
+
 export interface DraftProductInput {
   generatedAt: string;
   sourceSnapshotIds: string[];
@@ -550,6 +703,7 @@ export interface DraftProductInput {
   benchmarkDimensions: ReadonlyMap<string, DimensionId>;
   compositeSources: CompositeSource[];
   manualModels: ManualFrontierModel[];
+  perSourceLimit?: number;
 }
 
 export const buildDraftProduct = (input: DraftProductInput): ProductVersion => {
@@ -585,9 +739,11 @@ export const buildDraftProduct = (input: DraftProductInput): ProductVersion => {
       }));
     },
   );
-  const frontier = buildFrontierSet(compositeRows, input.manualModels).toSorted(
-    (left, right) => left.modelId.localeCompare(right.modelId),
-  );
+  const frontier = buildFrontierSet(
+    compositeRows,
+    input.manualModels,
+    input.perSourceLimit ?? 20,
+  ).toSorted((left, right) => left.modelId.localeCompare(right.modelId));
   const frontierModelIds = new Set(frontier.map(({ modelId }) => modelId));
   const evidence = input.candidates
     .filter(

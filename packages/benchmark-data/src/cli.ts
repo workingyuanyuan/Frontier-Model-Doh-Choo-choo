@@ -9,9 +9,11 @@ import {
   setDraftPointer,
   writeImmutableProductVersion,
 } from './index.js';
+import { writeWorkspaceDraft } from './workspace.js';
 
 const usage = [
   'Usage:',
+  '  product-version build-workspace [repository-root]',
   '  product-version write-draft <version.json> [product-root]',
   '  product-version publish [product-root]',
   '  product-version rollback [product-root]',
@@ -22,6 +24,12 @@ export const runProductVersionCli = async (
   now = new Date().toISOString(),
 ): Promise<string> => {
   const [command, first, second] = args;
+
+  if (command === 'build-workspace') {
+    const root = resolve(first ?? '.');
+    const product = await writeWorkspaceDraft(root, now);
+    return `Draft ${product.versionId} built from verified workspace sources`;
+  }
 
   if (command === 'write-draft') {
     if (!first) throw new Error(usage);
