@@ -309,3 +309,263 @@ export const deterministicJson = (value: unknown): string =>
 
 export const sha256 = (value: Uint8Array | string): string =>
   `sha256:${createHash('sha256').update(value).digest('hex')}`;
+
+const SOURCE_ROLE_WEIGHT: Record<
+  z.infer<typeof SourceRoleSchema>,
+  number
+> = {
+  ORGANIZER: 4,
+  INDEPENDENT: 3,
+  VENDOR: 2,
+  AGGREGATOR: 1,
+};
+
+const resultIdentityKey = (result: CandidateResult): string =>
+  [
+    result.benchmarkId,
+    result.benchmarkVersion ?? '',
+    result.model.profileId ?? '',
+    result.metric.id,
+    result.profile.effort ?? '',
+    result.profile.thinking ?? '',
+    String(result.profile.tools),
+    result.profile.harness ?? '',
+    String(result.profile.contextWindowTokens),
+    result.profile.quantization ?? '',
+    String(result.profile.attempts),
+  ].join('\u001f');
+
+export const selectCurrentResults = (
+  results: CandidateResult[],
+): CandidateResult[] => {
+  const selected = new Map<string, CandidateResult>();
+  for (const result of results) {
+    if (
+      result.inclusion !== 'INCLUDED' ||
+      result.model.canonicalModelId === null ||
+      result.model.profileId === null
+    ) {
+      continue;
+    }
+
+    const key = resultIdentityKey(result);
+    const current = selected.get(key);
+    if (!current) {
+      selected.set(key, result);
+      continue;
+    }
+
+    const roleDifference =
+      SOURCE_ROLE_WEIGHT[result.sourceRole] -
+      SOURCE_ROLE_WEIGHT[current.sourceRole];
+    const completenessDifference =
+      Number(result.acquisitionStatus === 'FULL') -
+      Number(current.acquisitionStatus === 'FULL');
+    const publishedDifference =
+      (result.sourcePublishedAt ?? result.observedAt).localeCompare(
+        current.sourcePublishedAt ?? current.observedAt,
+      );
+
+    if (
+      roleDifference > 0 ||
+      (roleDifference === 0 && completenessDifference > 0) ||
+      (roleDifference === 0 &&
+        completenessDifference === 0 &&
+        publishedDifference > 0)
+    ) {
+      selected.set(key, result);
+    }
+  }
+
+  return [...selected.values()].sort((left, right) =>
+    resultIdentityKey(left).localeCompare(resultIdentityKey(right)),
+  );
+};
+
+export interface CompositeRankingRow {
+  sourceId: string;
+  rank: number;
+  modelId: string;
+  profileId: string;
+  score: number;
+}
+
+export interface ManualFrontierModel {
+  modelId: string;
+  profileId: string;
+  reason: string;
+}
+
+export interface FrontierModel {
+  modelId: string;
+  profileId: string;
+  reasons: string[];
+  externalCompositeScores: Record<string, number>;
+}
+
+const groupBy = <Item, Key>(
+  items: Iterable<Item>,
+  getKey: (item: Item) => Key,
+): Map<Key, Item[]> => {
+  const groups = new Map<Key, Item[]>();
+  for (const item of items) {
+    const key = getKey(item);
+    const group = groups.get(key) ?? [];
+    group.push(item);
+    groups.set(key, group);
+  }
+  return groups;
+};
+
+export const buildFrontierSet = (
+  rows: CompositeRankingRow[],
+  manualModels: ManualFrontierModel[],
+  perSourceLimit = 20,
+): FrontierModel[] => {
+  const bySource = groupBy(rows, ({ sourceId }) => sourceId);
+  const frontier = new Map<string, FrontierModel>();
+
+  [...bySource.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .forEach(([sourceId, sourceRows]) => {
+      const seenModels = new Set<string>();
+      sourceRows
+        .toSorted(
+          (left, right) =>
+            left.rank - right.rank ||
+            right.score - left.score ||
+            left.modelId.localeCompare(right.modelId),
+        )
+        .filter(({ modelId }) => {
+          if (seenModels.has(modelId)) return false;
+          seenModels.add(modelId);
+          return true;
+        })
+        .slice(0, perSourceLimit)
+        .forEach((row) => {
+          const current = frontier.get(row.modelId);
+          if (current) {
+            current.reasons.push(`${sourceId} composite Top ${perSourceLimit}`);
+            current.externalCompositeScores[sourceId] = row.score;
+            return;
+          }
+          frontier.set(row.modelId, {
+            modelId: row.modelId,
+            profileId: row.profileId,
+            reasons: [`${sourceId} composite Top ${perSourceLimit}`],
+            externalCompositeScores: { [sourceId]: row.score },
+          });
+        });
+    });
+
+  manualModels.forEach((manual) => {
+    const current = frontier.get(manual.modelId);
+    if (current) {
+      current.reasons.push(manual.reason);
+      return;
+    }
+    frontier.set(manual.modelId, {
+      modelId: manual.modelId,
+      profileId: manual.profileId,
+      reasons: [manual.reason],
+      externalCompositeScores: {},
+    });
+  });
+
+  return [...frontier.values()];
+};
+
+type LeaderboardEntry = z.infer<
+  typeof ProductVersionSchema
+>['leaderboard'][number];
+
+export const scoreProfiles = (
+  results: CandidateResult[],
+  benchmarkDimensions: ReadonlyMap<string, DimensionId>,
+): LeaderboardEntry[] => {
+  const selected = selectCurrentResults(results);
+  const byProfile = groupBy(selected, ({ model }) => model.profileId as string);
+
+  const entries = [...byProfile.entries()].map(
+    ([profileId, profileResults]): LeaderboardEntry => {
+      const modelId = profileResults[0]?.model.canonicalModelId;
+      if (!modelId) {
+        throw new Error(`profile ${profileId} has no canonical model`);
+      }
+
+      const dimensionComponents = new Map<DimensionId, number[]>();
+      profileResults.forEach((result) => {
+        const dimension = benchmarkDimensions.get(result.benchmarkId);
+        if (dimension && result.normalizedScore !== null) {
+          const components = dimensionComponents.get(dimension) ?? [];
+          components.push(result.normalizedScore);
+          dimensionComponents.set(dimension, components);
+        }
+      });
+
+      const dimensions = DIMENSION_IDS.map((dimension) => {
+        const components = dimensionComponents.get(dimension) ?? [];
+        return {
+          dimension,
+          score:
+            components.length === 0
+              ? null
+              : components.reduce((sum, score) => sum + score, 0) /
+                components.length,
+          componentCount: components.length,
+        };
+      });
+      const available = dimensions.flatMap(({ score }) =>
+        score === null ? [] : [score],
+      );
+
+      return {
+        modelId,
+        profileId,
+        rank: null,
+        overallScore:
+          available.length === 0
+            ? null
+            : available.reduce((sum, score) => sum + score, 0) /
+              available.length,
+        status: 'ESTIMATED',
+        dimensions,
+        evidenceResultIds: profileResults.map(({ id }) => id).toSorted(),
+      };
+    },
+  );
+
+  const ranked = entries.toSorted((left, right) => {
+    if (left.overallScore === null) return 1;
+    if (right.overallScore === null) return -1;
+    return (
+      right.overallScore - left.overallScore ||
+      left.modelId.localeCompare(right.modelId)
+    );
+  });
+  let rank = 0;
+  return ranked.map((entry) => ({
+    ...entry,
+    rank: entry.overallScore === null ? null : ++rank,
+  }));
+};
+
+type ProductVersionInput = Omit<
+  ProductVersion,
+  'schemaVersion' | 'versionId' | 'state'
+>;
+
+export const buildProductVersion = (
+  input: ProductVersionInput,
+  state: ProductVersion['state'] = 'DRAFT',
+): ProductVersion => {
+  const versionContent = {
+    schemaVersion: 'product-version-v1' as const,
+    state,
+    ...input,
+  };
+  return ProductVersionSchema.parse({
+    ...versionContent,
+    versionId: sha256(deterministicJson(versionContent)),
+  });
+};
