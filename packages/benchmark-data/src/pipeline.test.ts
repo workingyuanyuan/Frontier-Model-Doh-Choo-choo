@@ -224,6 +224,9 @@ describe('buildProductVersion', () => {
       evidence: [makeCandidate()],
     };
 
-    expect(buildProductVersion(input)).toEqual(buildProductVersion(input));
+    const version = buildProductVersion(input);
+
+    expect(version).toEqual(buildProductVersion(input));
+    expect(version).not.toHaveProperty('state');
   });
 });

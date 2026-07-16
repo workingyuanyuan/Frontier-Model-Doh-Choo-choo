@@ -232,7 +232,6 @@ export const OrderedDimensionScoresSchema = z
 export const ProductVersionSchema = z.object({
   schemaVersion: z.literal('product-version-v1'),
   versionId: Sha256Schema,
-  state: z.enum(['DRAFT', 'PUBLISHED']),
   generatedAt: z.iso.datetime(),
   sourceSnapshotIds: z.array(z.string().min(1)),
   frontier: z.array(
@@ -269,23 +268,12 @@ export const ProductVersionSchema = z.object({
 });
 export type ProductVersion = z.infer<typeof ProductVersionSchema>;
 
-export const ProductVersionPointerSchema = z
-  .object({
-    schemaVersion: z.literal('product-pointer-v1'),
-    channel: z.enum(['DRAFT', 'PUBLISHED']),
-    versionId: Sha256Schema,
-    versionState: z.enum(['DRAFT', 'PUBLISHED']),
-    updatedAt: z.iso.datetime(),
-  })
-  .superRefine((value, context) => {
-    if (value.channel !== value.versionState) {
-      context.addIssue({
-        code: 'custom',
-        message: 'versionState must match the pointer channel',
-        path: ['versionState'],
-      });
-    }
-  });
+export const ProductVersionPointerSchema = z.object({
+  schemaVersion: z.literal('product-pointer-v1'),
+  channel: z.enum(['DRAFT', 'PUBLISHED']),
+  versionId: Sha256Schema,
+  updatedAt: z.iso.datetime(),
+});
 export type ProductVersionPointer = z.infer<
   typeof ProductVersionPointerSchema
 >;
@@ -552,16 +540,14 @@ export const scoreProfiles = (
 
 type ProductVersionInput = Omit<
   ProductVersion,
-  'schemaVersion' | 'versionId' | 'state'
+  'schemaVersion' | 'versionId'
 >;
 
 export const buildProductVersion = (
   input: ProductVersionInput,
-  state: ProductVersion['state'] = 'DRAFT',
 ): ProductVersion => {
   const versionContent = {
     schemaVersion: 'product-version-v1' as const,
-    state,
     ...input,
   };
   return ProductVersionSchema.parse({

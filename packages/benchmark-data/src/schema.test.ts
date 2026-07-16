@@ -114,7 +114,6 @@ describe('ProductVersionSchema', () => {
       schemaVersion: 'product-version-v1',
       versionId:
         'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
-      state: 'DRAFT',
       generatedAt: '2026-07-16T00:00:00.000Z',
       sourceSnapshotIds: ['terminal-bench:2026-07-16'],
       frontier: [],
@@ -158,17 +157,26 @@ describe('ProductVersionSchema', () => {
 });
 
 describe('ProductVersionPointerSchema', () => {
-  it('rejects a pointer whose state does not match its channel', () => {
-    expect(() =>
+  it('allows Draft and Published to point at the same immutable version', () => {
+    const versionId =
+      'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+
+    expect(
+      ProductVersionPointerSchema.parse({
+        schemaVersion: 'product-pointer-v1',
+        channel: 'DRAFT',
+        versionId,
+        updatedAt: '2026-07-16T00:00:00.000Z',
+      }).versionId,
+    ).toBe(versionId);
+    expect(
       ProductVersionPointerSchema.parse({
         schemaVersion: 'product-pointer-v1',
         channel: 'PUBLISHED',
-        versionId:
-          'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
-        versionState: 'DRAFT',
+        versionId,
         updatedAt: '2026-07-16T00:00:00.000Z',
-      }),
-    ).toThrow('versionState');
+      }).versionId,
+    ).toBe(versionId);
   });
 });
 
