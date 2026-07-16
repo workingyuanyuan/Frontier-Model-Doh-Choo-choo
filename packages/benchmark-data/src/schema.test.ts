@@ -44,7 +44,9 @@ const candidate = {
   sourceUrl: 'https://www.tbench.ai/leaderboard/terminal-bench/2.1',
   observedAt: '2026-07-16T00:00:00.000Z',
   sourcePublishedAt: '2026-07-11T00:00:00.000Z',
-  evidenceIds: ['sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
+  evidenceIds: [
+    'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+  ],
   provenance: {
     rawScore: {
       evidenceId:
@@ -92,19 +94,22 @@ describe('BenchmarkDimensionMappingSchema', () => {
     const ids = parsed.benchmarks.map(({ id }) => id);
 
     expect(new Set(ids).size).toBe(ids.length);
-    expect(new Set(parsed.benchmarks.map(({ primaryDimension }) => primaryDimension)))
-      .toEqual(
-        new Set([
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ]),
-      );
+    expect(
+      new Set(
+        parsed.benchmarks.map(({ primaryDimension }) => primaryDimension),
+      ),
+    ).toEqual(
+      new Set([
+        'reasoning',
+        'math',
+        'knowledge',
+        'language',
+        'instruction',
+        'coding',
+        'agentic',
+        'context',
+      ]),
+    );
   });
 });
 
@@ -142,17 +147,18 @@ describe('ProductVersionSchema', () => {
       evidence: [candidate],
     });
 
-    expect(product.leaderboard[0]?.dimensions.map(({ dimension }) => dimension))
-      .toEqual([
-        'reasoning',
-        'math',
-        'knowledge',
-        'language',
-        'instruction',
-        'coding',
-        'agentic',
-        'context',
-      ]);
+    expect(
+      product.leaderboard[0]?.dimensions.map(({ dimension }) => dimension),
+    ).toEqual([
+      'reasoning',
+      'math',
+      'knowledge',
+      'language',
+      'instruction',
+      'coding',
+      'agentic',
+      'context',
+    ]);
   });
 });
 
@@ -190,8 +196,6 @@ describe('deterministicJson', () => {
         nested: { b: 2, a: 1 },
         list: [{ d: 4, c: 3 }, 2],
       }),
-    ).toBe(
-      '{"list":[{"c":3,"d":4},2],"nested":{"a":1,"b":2},"z":1}\n',
-    );
+    ).toBe('{"list":[{"c":3,"d":4},2],"nested":{"a":1,"b":2},"z":1}\n');
   });
 });

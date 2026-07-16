@@ -1,11 +1,5 @@
 import { createHash, randomUUID } from 'node:crypto';
-import {
-  access,
-  mkdir,
-  readFile,
-  rename,
-  writeFile,
-} from 'node:fs/promises';
+import { access, mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import * as z from 'zod';
@@ -58,10 +52,12 @@ export const SlugSchema = z
   .max(160)
   .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/u);
 
-export const HttpUrlSchema = z.url().refine(
-  (value) => ['http:', 'https:'].includes(new URL(value).protocol),
-  'Expected an HTTP(S) URL',
-);
+export const HttpUrlSchema = z
+  .url()
+  .refine(
+    (value) => ['http:', 'https:'].includes(new URL(value).protocol),
+    'Expected an HTTP(S) URL',
+  );
 
 export const Sha256Schema = z
   .string()
@@ -283,9 +279,7 @@ export const ProductVersionPointerSchema = z.object({
   previousVersionId: Sha256Schema.nullable(),
   updatedAt: z.iso.datetime(),
 });
-export type ProductVersionPointer = z.infer<
-  typeof ProductVersionPointerSchema
->;
+export type ProductVersionPointer = z.infer<typeof ProductVersionPointerSchema>;
 
 const sortJson = (value: unknown): unknown => {
   if (Array.isArray(value)) {
@@ -307,10 +301,7 @@ export const deterministicJson = (value: unknown): string =>
 export const sha256 = (value: Uint8Array | string): string =>
   `sha256:${createHash('sha256').update(value).digest('hex')}`;
 
-const SOURCE_ROLE_WEIGHT: Record<
-  z.infer<typeof SourceRoleSchema>,
-  number
-> = {
+const SOURCE_ROLE_WEIGHT: Record<z.infer<typeof SourceRoleSchema>, number> = {
   ORGANIZER: 4,
   INDEPENDENT: 3,
   VENDOR: 2,
@@ -358,10 +349,9 @@ export const selectCurrentResults = (
     const completenessDifference =
       Number(result.acquisitionStatus === 'FULL') -
       Number(current.acquisitionStatus === 'FULL');
-    const publishedDifference =
-      (result.sourcePublishedAt ?? result.observedAt).localeCompare(
-        current.sourcePublishedAt ?? current.observedAt,
-      );
+    const publishedDifference = (
+      result.sourcePublishedAt ?? result.observedAt
+    ).localeCompare(current.sourcePublishedAt ?? current.observedAt);
 
     if (
       roleDifference > 0 ||
@@ -547,10 +537,7 @@ export const scoreProfiles = (
   }));
 };
 
-type ProductVersionInput = Omit<
-  ProductVersion,
-  'schemaVersion' | 'versionId'
->;
+type ProductVersionInput = Omit<ProductVersion, 'schemaVersion' | 'versionId'>;
 
 export const buildProductVersion = (
   input: ProductVersionInput,
@@ -593,7 +580,9 @@ export const writeImmutableProductVersion = async (
   try {
     const existing = await readFile(path, 'utf8');
     if (existing !== bytes) {
-      throw new Error('immutable product version already exists with new bytes');
+      throw new Error(
+        'immutable product version already exists with new bytes',
+      );
     }
   } catch (error) {
     if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
@@ -606,7 +595,7 @@ export const writeImmutableProductVersion = async (
   return path;
 };
 
-const readProductVersion = async (
+export const readProductVersion = async (
   root: string,
   versionId: string,
 ): Promise<ProductVersion> => {

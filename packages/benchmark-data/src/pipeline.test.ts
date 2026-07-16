@@ -86,10 +86,7 @@ describe('selectCurrentResults', () => {
     });
 
     expect(
-      selectCurrentResults([
-        { ...partial, sourceRole: 'INDEPENDENT' },
-        full,
-      ]),
+      selectCurrentResults([{ ...partial, sourceRole: 'INDEPENDENT' }, full]),
     ).toEqual([full]);
   });
 
@@ -140,9 +137,9 @@ describe('buildFrontierSet', () => {
     ]);
 
     expect(frontier).toHaveLength(21);
-    expect(frontier.filter(({ modelId }) => modelId === 'model-a')).toHaveLength(
-      1,
-    );
+    expect(
+      frontier.filter(({ modelId }) => modelId === 'model-a'),
+    ).toHaveLength(1);
     expect(frontier.at(-1)?.modelId).toBe('manual-new-model');
   });
 

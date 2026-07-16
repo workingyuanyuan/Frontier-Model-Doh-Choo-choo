@@ -11,6 +11,9 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "data:draft": "tsx src/cli.ts write-draft",
+    "data:publish": "tsx src/cli.ts publish",
+    "data:rollback": "tsx src/cli.ts rollback",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json"
@@ -19,6 +22,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "tsx": "4.23.0",
     "typescript": "catalog:",
     "vitest": "catalog:"
   }
