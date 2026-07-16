@@ -166,6 +166,7 @@ describe('ProductVersionPointerSchema', () => {
         schemaVersion: 'product-pointer-v1',
         channel: 'DRAFT',
         versionId,
+        previousVersionId: null,
         updatedAt: '2026-07-16T00:00:00.000Z',
       }).versionId,
     ).toBe(versionId);
@@ -174,6 +175,7 @@ describe('ProductVersionPointerSchema', () => {
         schemaVersion: 'product-pointer-v1',
         channel: 'PUBLISHED',
         versionId,
+        previousVersionId: null,
         updatedAt: '2026-07-16T00:00:00.000Z',
       }).versionId,
     ).toBe(versionId);

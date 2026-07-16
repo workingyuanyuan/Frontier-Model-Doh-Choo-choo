@@ -1,4 +1,12 @@
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
+import {
+  access,
+  mkdir,
+  readFile,
+  rename,
+  writeFile,
+} from 'node:fs/promises';
+import { join } from 'node:path';
 
 import * as z from 'zod';
 
@@ -272,6 +280,7 @@ export const ProductVersionPointerSchema = z.object({
   schemaVersion: z.literal('product-pointer-v1'),
   channel: z.enum(['DRAFT', 'PUBLISHED']),
   versionId: Sha256Schema,
+  previousVersionId: Sha256Schema.nullable(),
   updatedAt: z.iso.datetime(),
 });
 export type ProductVersionPointer = z.infer<
@@ -554,4 +563,161 @@ export const buildProductVersion = (
     ...versionContent,
     versionId: sha256(deterministicJson(versionContent)),
   });
+};
+
+const productVersionPath = (root: string, versionId: string): string =>
+  join(root, 'versions', `${Sha256Schema.parse(versionId).slice(7)}.json`);
+
+const pointerPath = (
+  root: string,
+  channel: ProductVersionPointer['channel'],
+): string => join(root, 'pointers', `${channel.toLowerCase()}.json`);
+
+const verifyProductVersionId = (version: ProductVersion): void => {
+  const { versionId, ...content } = version;
+  if (sha256(deterministicJson(content)) !== versionId) {
+    throw new Error('product version content does not match its versionId');
+  }
+};
+
+export const writeImmutableProductVersion = async (
+  root: string,
+  version: ProductVersion,
+): Promise<string> => {
+  const parsed = ProductVersionSchema.parse(version);
+  verifyProductVersionId(parsed);
+  const path = productVersionPath(root, parsed.versionId);
+  const bytes = deterministicJson(parsed);
+  await mkdir(join(root, 'versions'), { recursive: true });
+
+  try {
+    const existing = await readFile(path, 'utf8');
+    if (existing !== bytes) {
+      throw new Error('immutable product version already exists with new bytes');
+    }
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      await writeFile(path, bytes, { flag: 'wx' });
+    } else {
+      throw error;
+    }
+  }
+
+  return path;
+};
+
+const readProductVersion = async (
+  root: string,
+  versionId: string,
+): Promise<ProductVersion> => {
+  const path = productVersionPath(root, versionId);
+  try {
+    await access(path);
+  } catch {
+    throw new Error(`product version ${versionId} does not exist`);
+  }
+  const parsed = ProductVersionSchema.parse(
+    JSON.parse(await readFile(path, 'utf8')),
+  );
+  verifyProductVersionId(parsed);
+  if (parsed.versionId !== versionId) {
+    throw new Error('product version filename does not match its versionId');
+  }
+  return parsed;
+};
+
+export const readProductPointer = async (
+  root: string,
+  channel: ProductVersionPointer['channel'],
+): Promise<ProductVersionPointer | null> => {
+  try {
+    return ProductVersionPointerSchema.parse(
+      JSON.parse(await readFile(pointerPath(root, channel), 'utf8')),
+    );
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      return null;
+    }
+    throw error;
+  }
+};
+
+const writeProductPointer = async (
+  root: string,
+  pointer: ProductVersionPointer,
+): Promise<void> => {
+  const parsed = ProductVersionPointerSchema.parse(pointer);
+  const directory = join(root, 'pointers');
+  const target = pointerPath(root, parsed.channel);
+  const temporary = join(
+    directory,
+    `.${parsed.channel.toLowerCase()}.${process.pid}.${randomUUID()}.tmp`,
+  );
+  await mkdir(directory, { recursive: true });
+  await writeFile(temporary, deterministicJson(parsed), { flag: 'wx' });
+  await rename(temporary, target);
+};
+
+export const setDraftPointer = async (
+  root: string,
+  versionId: string,
+  updatedAt: string,
+): Promise<ProductVersionPointer> => {
+  await readProductVersion(root, versionId);
+  const pointer = ProductVersionPointerSchema.parse({
+    schemaVersion: 'product-pointer-v1',
+    channel: 'DRAFT',
+    versionId,
+    previousVersionId: null,
+    updatedAt,
+  });
+  await writeProductPointer(root, pointer);
+  return pointer;
+};
+
+export const publishDraft = async (
+  root: string,
+  updatedAt: string,
+): Promise<ProductVersionPointer> => {
+  const draft = await readProductPointer(root, 'DRAFT');
+  if (!draft) {
+    throw new Error('Draft pointer does not exist');
+  }
+  await readProductVersion(root, draft.versionId);
+  const current = await readProductPointer(root, 'PUBLISHED');
+  const pointer = ProductVersionPointerSchema.parse({
+    schemaVersion: 'product-pointer-v1',
+    channel: 'PUBLISHED',
+    versionId: draft.versionId,
+    previousVersionId:
+      current?.versionId === draft.versionId
+        ? current.previousVersionId
+        : (current?.versionId ?? null),
+    updatedAt,
+  });
+  await writeProductPointer(root, pointer);
+  return pointer;
+};
+
+export const rollbackPublished = async (
+  root: string,
+  updatedAt: string,
+): Promise<ProductVersionPointer> => {
+  const current = await readProductPointer(root, 'PUBLISHED');
+  if (!current) {
+    throw new Error('Published pointer does not exist');
+  }
+  if (!current.previousVersionId) {
+    throw new Error('Published pointer has no previous version');
+  }
+  await readProductVersion(root, current.previousVersionId);
+  const pointer = ProductVersionPointerSchema.parse({
+    schemaVersion: 'product-pointer-v1',
+    channel: 'PUBLISHED',
+    versionId: current.previousVersionId,
+    previousVersionId: current.versionId,
+    updatedAt,
+  });
+  await writeProductPointer(root, pointer);
+  return pointer;
 };
