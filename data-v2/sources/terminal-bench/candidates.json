@@ -358,7 +358,7 @@
   },
   {
     "schemaVersion": "candidate-result-v1",
-    "id": "terminal-bench-2-1:meta-muse-spark-1-1-mini-swe-agent-xhigh",
+    "id": "terminal-bench-2-1:meta-muse-spark-1-1-mini-swe-agent-xhigh-terminal-bench-5-attempts",
     "sourceId": "terminal-bench",
     "sourceRole": "ORGANIZER",
     "benchmarkId": "terminal-bench-2-1",
@@ -366,7 +366,7 @@
     "model": {
       "rawName": "Muse Spark 1.1",
       "canonicalModelId": "meta-muse-spark-1-1",
-      "profileId": "meta-muse-spark-1-1-mini-swe-agent-xhigh"
+      "profileId": "meta-muse-spark-1-1-mini-swe-agent-xhigh-terminal-bench-5-attempts"
     },
     "profile": {
       "effort": "xhigh",

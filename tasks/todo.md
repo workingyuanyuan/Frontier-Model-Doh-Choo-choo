@@ -1,69 +1,41 @@
-# LLM Bench Rebuild Tasks
+# LLM Bench Tasks
 
-## Phase 1 — Shared foundation
+## Completed — Stage 5 cutover
 
-- [ ] Create `docs/BENCHMARK_DIMENSION_MAPPING.md` and machine-readable primary mappings.
-- [ ] Define versioned evidence, Candidate Result, Model Profile and product-data schemas.
-- [ ] Establish immutable `data-v2` paths and content-addressed `artifacts-v2` rules.
-- [ ] Checkpoint: user reviews the frozen contract and mapping baseline.
+- [x] Workspace 只保留 `apps/bench`、`packages/benchmark-data`、`packages/acquisition`。
+- [x] Root scripts 只保留新資料、測試、build 與 browser 操作。
+- [x] 移除舊 Web、Worker、video、DB、Connector 及 Edition-bound package。
+- [x] 移除 PostgreSQL、Drizzle、Docker／Compose、migration、seed 與 `DATABASE_URL`。
+- [x] 移除 LiveBench 專用 ingest／score／promote／publication／weekly path。
+- [x] 移除舊雙語、雙主題、多頁、PREVIEW／FORMAL 與 Edition 契約。
+- [x] CI 改為 schema、acquisition、benchmark-data、bench、static build 與 browser gates。
+- [x] 重寫權威文件並將舊架構標記 Superseded。
+- [x] 跑 clean install、format、lint、typecheck、tests、build 與 browser review。
+- [x] 驗證 Published static build 不需要網路、artifact、PostgreSQL 或 Docker。
+- [x] 確認沒有自行建立或切換 Published pointer。
 
-## Phase 2 — Parallel acquisition and frontend
+## Existing product requirements
 
-- [ ] Build shared acquisition, provenance and completeness-report utilities.
-- [ ] Acquire and validate Artificial Analysis plus LLM Stats.
-- [ ] Acquire and validate Terminal-Bench plus DeepSWE.
-- [ ] Acquire and validate Epoch AI plus LiveBench.
-- [ ] Acquire and validate Vals AI plus OpenAI.
-- [ ] Route and delegate the clean new Next.js App shell according to `AGENTS.md`.
-- [ ] Implement the representative-Profile Leaderboard.
-- [ ] Implement standardized API cost and measured-task-cost views.
-- [ ] Implement eight-axis radar plus Included/Excluded evidence detail.
-- [ ] Checkpoint: eight source attempts and the new frontend build independently of legacy code.
+- [x] 八維 mapping、Candidate/Evidence/Cost schema 與 immutable ProductVersion。
+- [x] Artificial Analysis、LiveBench、Epoch、DeepSWE 等來源物化與 Draft。
+- [x] reasoning-effort-only Product Profile 與 deterministic Representative Profile。
+- [x] Leaderboard、單一 Quality vs. Cost、Eight Dimensions 與 Evidence UI。
+- [x] 預設只顯示 8/8；Developer mode 顯示 1–7/8 已計分模型。
+- [x] Agent-first Draft review；人工只處理無法裁決問題與 Published pointer。
 
-## Phase 3 — First real Draft
+## Human-only publication
 
-- [ ] Resolve base-model identities and explicit Profiles.
-- [ ] Build the dynamic composite Top-20 union plus manually specified new models.
-- [ ] Normalize eligible Benchmark rows and apply source precedence.
-- [ ] Generate dimension scores, Estimated overall scores and typed cost points.
-- [ ] Build the first immutable Draft product JSON.
-- [ ] Render the real Draft in the new Preview.
-- [ ] Checkpoint: user reviews source counts, rankings, curve, radar and evidence.
+- [ ] 人工核准明確 Draft version ID。
+- [ ] 人工執行 Draft → Published。
+- [ ] 人工完成 Published A → B → rollback A 驗證。
 
-## Phase 4 — Empirical correction
+Agent 不得把 Stage 5 cutover 或測試通過視為發布授權。
 
-- [ ] Audit each source page against raw evidence, Candidate Results and the Draft UI.
-- [ ] Correct acquisition, Manifest, identity and Benchmark mapping defects.
-- [ ] Correct misleading UI, responsive and accessibility defects.
-- [ ] Produce a new immutable Draft after every accepted correction set.
-- [ ] Checkpoint: user confirms one Draft is sufficient to publish.
+## Deferred empirical decisions
 
-## Phase 5 — Publication
-
-- [ ] Implement explicit Draft → Published and rollback commands.
-- [ ] Configure restricted/noindex Draft Preview using the same App and schema.
-- [ ] Replace DB/video CI requirements with static-data, build and browser gates.
-- [ ] Demonstrate publish and rollback without re-fetching or recalculating.
-- [ ] Checkpoint: user approves the exact Draft hash as Published.
-
-## Phase 6 — Compulsory legacy removal
-
-- [ ] Prove the new path has zero dependency on legacy packages.
-- [ ] Remove old `apps/web`.
-- [ ] Remove old `apps/worker` and LiveBench publication flow.
-- [ ] Remove `packages/db`, migrations, DB commands and `compose.yaml`.
-- [ ] Remove obsolete LiveBench connectors and old scoring/presentation contracts.
-- [ ] Remove `apps/video` and Remotion paths unless explicitly re-scoped before cutover.
-- [ ] Remove PostgreSQL/Docker services and obsolete steps from CI.
-- [ ] Rewrite README, architecture, methodology, operations and decision status.
-- [ ] Run clean install, lint, typecheck, tests, production build and browser checks.
-- [ ] Verify Published renders without network, artifacts, PostgreSQL or Docker.
-
-## Deferred until real-data evidence
-
-- [ ] Define the final Supported threshold.
-- [ ] Tune Benchmark and source-quality weights.
-- [ ] Tune standardized API task-cost assumptions.
-- [ ] Refine representative-Profile selection.
-- [ ] Consider per-source scheduling and advanced conflict/confidence policy.
-- [ ] Consider a management UI only if actual operation demonstrates the need.
+- [ ] Supported 最終門檻。
+- [ ] Benchmark 與來源品質最終權重。
+- [ ] 每來源排程最佳化。
+- [ ] Representative Profile 未來演算法。
+- [ ] 進階衝突／confidence policy。
+- [ ] 只有實際操作證明需要時才考慮管理 UI。

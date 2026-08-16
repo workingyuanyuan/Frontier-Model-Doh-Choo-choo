@@ -1,38 +1,74 @@
 [
   {
-    "schemaVersion": "evidence-record-v1",
-    "id": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
-    "sourceId": "artificial-analysis",
-    "retrievedAt": "2026-07-16T13:11:54.923Z",
-    "requestUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
-    "finalUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
-    "mediaType": "text/html; charset=utf-8",
-    "byteLength": 386099,
-    "sha256": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
     "artifactPath": "artifacts-v2/sha256/1b/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html",
-    "method": "DOM",
+    "byteLength": 386099,
+    "finalUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
+    "id": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+    "mediaType": "text/html; charset=utf-8",
     "metadata": {
-      "httpStatus": 200,
       "captureScope": "complete response HTML",
+      "httpStatus": 200,
       "publishedDate": "2026-07-09"
-    }
+    },
+    "method": "DOM",
+    "requestUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
+    "retrievedAt": "2026-07-16T13:11:54.923Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
+    "sourceId": "artificial-analysis"
   },
   {
-    "schemaVersion": "evidence-record-v1",
-    "id": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
-    "sourceId": "artificial-analysis",
-    "retrievedAt": "2026-07-16T13:18:08.712Z",
-    "requestUrl": "https://artificialanalysis.ai/models",
-    "finalUrl": "https://artificialanalysis.ai/models",
-    "mediaType": "text/html; charset=utf-8",
-    "byteLength": 1353178,
-    "sha256": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
     "artifactPath": "artifacts-v2/sha256/b7/b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a.html",
-    "method": "EMBEDDED_JSON",
+    "byteLength": 1353178,
+    "finalUrl": "https://artificialanalysis.ai/models",
+    "id": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+    "mediaType": "text/html; charset=utf-8",
     "metadata": {
-      "httpStatus": 200,
       "captureScope": "complete response HTML containing a 20-row Intelligence Index embedded array",
+      "httpStatus": 200,
       "visibleRankedCount": 20
-    }
+    },
+    "method": "EMBEDDED_JSON",
+    "requestUrl": "https://artificialanalysis.ai/models",
+    "retrievedAt": "2026-07-16T13:18:08.712Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/43/43562599310ea745cffb2ffb337762f40e2e66b03419630c464f6eaa5801eafa.html",
+    "byteLength": 314126,
+    "finalUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
+    "id": "sha256:43562599310ea745cffb2ffb337762f40e2e66b03419630c464f6eaa5801eafa",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete response",
+      "httpStatus": 200,
+      "verifiedAt": "2026-08-12T16:40:13.196Z"
+    },
+    "method": "DOM",
+    "requestUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
+    "retrievedAt": "2026-08-12T16:40:13.196Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:43562599310ea745cffb2ffb337762f40e2e66b03419630c464f6eaa5801eafa",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/cd/cd27e99dbd4ca8b6f59c35be534a91f5da06895dc3c655b8658a126f0a963883.html",
+    "byteLength": 1291363,
+    "finalUrl": "https://artificialanalysis.ai/models",
+    "id": "sha256:cd27e99dbd4ca8b6f59c35be534a91f5da06895dc3c655b8658a126f0a963883",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete response",
+      "httpStatus": 200,
+      "verifiedAt": "2026-08-12T16:40:13.196Z"
+    },
+    "method": "EMBEDDED_JSON",
+    "requestUrl": "https://artificialanalysis.ai/models",
+    "retrievedAt": "2026-08-12T16:40:13.196Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:cd27e99dbd4ca8b6f59c35be534a91f5da06895dc3c655b8658a126f0a963883",
+    "sourceId": "artificial-analysis"
   }
 ]

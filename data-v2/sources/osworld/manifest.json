@@ -1,0 +1,28 @@
+{
+  "accessMethods": ["DOM", "API_RESPONSE"],
+  "baseUrl": "https://osworld-v2.xlang.ai",
+  "benchmarkIds": ["osworld"],
+  "completeness": {
+    "expectedCountMethod": "Use leaderboard.js to locate official-results.json, then count official rows at the default step budget.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "XLANG Lab OSWorld 2.0 official leaderboard",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "binaryAccuracy": "official-results.json results.binaryAccuracy",
+    "estimatedCostUsd": "official-results.json results.estimatedCostUsd",
+    "model": "official-results.json results.model",
+    "reasoning": "official-results.json results.reasoning",
+    "toolSetting": "official-results.json results.toolSetting"
+  },
+  "lastVerifiedAt": "2026-08-13T03:22:43.317Z",
+  "notes": [
+    "Only official rows at the payload default step budget enter the candidate set.",
+    "Original tool setting is retained in evidence provenance and does not create a Product Profile."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "osworld",
+  "targetUrls": ["https://osworld-v2.xlang.ai/"]
+}

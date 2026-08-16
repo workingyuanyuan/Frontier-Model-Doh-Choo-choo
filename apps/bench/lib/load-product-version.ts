@@ -2,9 +2,11 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import {
+  BenchmarkDimensionMappingSchema,
   ProductVersionPointerSchema,
   ProductVersionSchema,
   verifyProductVersion,
+  type DimensionId,
   type ProductVersion,
   type ProductVersionPointer,
 } from '@llm-bench/benchmark-data';
@@ -12,6 +14,7 @@ import {
 import type { ProductChannel } from './ui-contract';
 
 export interface LoadedProductVersion {
+  benchmarkDimensions: Record<string, DimensionId>;
   channel: ProductChannel;
   pointer: ProductVersionPointer;
   product: ProductVersion;
@@ -79,5 +82,19 @@ export const loadProductVersion = (): LoadedProductVersion => {
     throw new Error('Product pointer and immutable version do not match');
   }
 
-  return { channel, pointer, product };
+  const benchmarkDimensions: Record<string, DimensionId> = {};
+  try {
+    const mappingPath = resolve(root, '..', 'mappings', 'benchmarks.json');
+    const mapping = BenchmarkDimensionMappingSchema.parse(
+      JSON.parse(readFileSync(mappingPath, 'utf8')),
+    );
+    mapping.benchmarks.forEach(({ id, primaryDimension }) => {
+      benchmarkDimensions[id] = primaryDimension;
+    });
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+    // Temporary product-loader fixtures do not include the workspace mapping.
+  }
+
+  return { benchmarkDimensions, channel, pointer, product };
 };

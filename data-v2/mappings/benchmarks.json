@@ -11,56 +11,275 @@
     "context"
   ],
   "benchmarks": [
-    {"id":"arc-agi","primaryDimension":"reasoning","secondaryDimensions":["context"]},
-    {"id":"simplebench","primaryDimension":"reasoning","secondaryDimensions":["knowledge","language"]},
-    {"id":"chess-puzzles","primaryDimension":"reasoning","secondaryDimensions":["knowledge"]},
-    {"id":"livebench-reasoning","primaryDimension":"reasoning","secondaryDimensions":["knowledge","context"]},
-    {"id":"critpt","primaryDimension":"reasoning","secondaryDimensions":["math"]},
-    {"id":"gpqa-diamond","primaryDimension":"reasoning","secondaryDimensions":["knowledge"]},
-    {"id":"drop","primaryDimension":"reasoning","secondaryDimensions":["language","context"]},
-    {"id":"graphwalks","primaryDimension":"reasoning","secondaryDimensions":["context"]},
-    {"id":"frontiermath","primaryDimension":"math","secondaryDimensions":["reasoning","knowledge"]},
-    {"id":"aime","primaryDimension":"math","secondaryDimensions":["reasoning"]},
-    {"id":"math-level-5","primaryDimension":"math","secondaryDimensions":["reasoning"]},
-    {"id":"livebench-mathematics","primaryDimension":"math","secondaryDimensions":["reasoning"]},
-    {"id":"hmmt","primaryDimension":"math","secondaryDimensions":["reasoning"]},
-    {"id":"imo-answer-bench","primaryDimension":"math","secondaryDimensions":["reasoning","language"]},
-    {"id":"proofbench","primaryDimension":"math","secondaryDimensions":["reasoning","coding"]},
-    {"id":"simpleqa-verified","primaryDimension":"knowledge","secondaryDimensions":["language"]},
-    {"id":"aa-omniscience","primaryDimension":"knowledge","secondaryDimensions":["reasoning"]},
-    {"id":"humanitys-last-exam","primaryDimension":"knowledge","secondaryDimensions":["reasoning"]},
-    {"id":"mmlu-pro","primaryDimension":"knowledge","secondaryDimensions":["reasoning"]},
-    {"id":"supergpqa","primaryDimension":"knowledge","secondaryDimensions":["reasoning"]},
-    {"id":"livebench-language","primaryDimension":"language","secondaryDimensions":["instruction"]},
-    {"id":"lech-mazur-writing","primaryDimension":"language","secondaryDimensions":["instruction"]},
-    {"id":"wmt24-plus-plus","primaryDimension":"language","secondaryDimensions":["knowledge"]},
-    {"id":"ifbench","primaryDimension":"instruction","secondaryDimensions":["language"]},
-    {"id":"ifeval","primaryDimension":"instruction","secondaryDimensions":["language"]},
-    {"id":"livebench-instruction-following","primaryDimension":"instruction","secondaryDimensions":["language"]},
-    {"id":"tasteful-solve-rate","primaryDimension":"instruction","secondaryDimensions":["coding"]},
-    {"id":"swe-bench","primaryDimension":"coding","secondaryDimensions":["agentic","context"]},
-    {"id":"swe-bench-pro","primaryDimension":"coding","secondaryDimensions":["agentic","context"]},
-    {"id":"scicode","primaryDimension":"coding","secondaryDimensions":["reasoning","knowledge"]},
-    {"id":"frontierswe","primaryDimension":"coding","secondaryDimensions":["agentic","context"]},
-    {"id":"terminal-bench-2-1","primaryDimension":"coding","secondaryDimensions":["agentic"]},
-    {"id":"deepswe-1-1","primaryDimension":"coding","secondaryDimensions":["agentic","context"]},
-    {"id":"algotune","primaryDimension":"coding","secondaryDimensions":["reasoning"]},
-    {"id":"livecodebench","primaryDimension":"coding","secondaryDimensions":["reasoning"]},
-    {"id":"programbench","primaryDimension":"coding","secondaryDimensions":["agentic","context"]},
-    {"id":"osworld","primaryDimension":"agentic","secondaryDimensions":["context","reasoning"]},
-    {"id":"gdpval","primaryDimension":"agentic","secondaryDimensions":["knowledge","coding","context"]},
-    {"id":"gdpval-aa","primaryDimension":"agentic","secondaryDimensions":["knowledge","coding","context"]},
-    {"id":"apex-agents","primaryDimension":"agentic","secondaryDimensions":["knowledge","coding"]},
-    {"id":"aa-briefcase","primaryDimension":"agentic","secondaryDimensions":["knowledge","context"]},
-    {"id":"automationbench","primaryDimension":"agentic","secondaryDimensions":["instruction","context"]},
-    {"id":"agents-last-exam","primaryDimension":"agentic","secondaryDimensions":["reasoning","knowledge","context"]},
-    {"id":"tau3-banking","primaryDimension":"agentic","secondaryDimensions":["instruction","context"]},
-    {"id":"aa-lcr","primaryDimension":"context","secondaryDimensions":["reasoning"]},
-    {"id":"cl-bench","primaryDimension":"context","secondaryDimensions":["language","reasoning"]},
-    {"id":"mrcr-v2","primaryDimension":"context","secondaryDimensions":["reasoning"]},
-    {"id":"longbench-v2","primaryDimension":"context","secondaryDimensions":["language","reasoning"]},
-    {"id":"deepresearchbench","primaryDimension":"context","secondaryDimensions":["agentic","knowledge"]},
-    {"id":"fiction-livebench","primaryDimension":"context","secondaryDimensions":["language","reasoning"]},
-    {"id":"ruler-1m","primaryDimension":"context","secondaryDimensions":["reasoning"]}
+    {
+      "id": "arc-agi",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["context"]
+    },
+    {
+      "id": "simplebench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge", "language"]
+    },
+    {
+      "id": "chess-puzzles",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "livebench-reasoning",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge", "context"]
+    },
+    {
+      "id": "critpt",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["math"]
+    },
+    {
+      "id": "gpqa-diamond",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "drop",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["language", "context"]
+    },
+    {
+      "id": "graphwalks",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["context"]
+    },
+    {
+      "id": "frontiermath",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "aime",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "math-level-5",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "livebench-mathematics",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "hmmt",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "imo-answer-bench",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "proofbench",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning", "coding"]
+    },
+    {
+      "id": "simpleqa-verified",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "aa-omniscience",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "humanitys-last-exam",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "mmlu-pro",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "supergpqa",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "livebench-language",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["instruction"]
+    },
+    {
+      "id": "lech-mazur-writing",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["instruction"]
+    },
+    {
+      "id": "wmt24-plus-plus",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "ifbench",
+      "primaryDimension": "instruction",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "ifeval",
+      "primaryDimension": "instruction",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "livebench-instruction-following",
+      "primaryDimension": "instruction",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "tasteful-solve-rate",
+      "primaryDimension": "instruction",
+      "secondaryDimensions": ["coding"]
+    },
+    {
+      "id": "swe-bench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
+      "id": "swe-bench-pro",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
+      "id": "scicode",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "frontierswe",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
+      "id": "terminal-bench-2-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic"]
+    },
+    {
+      "id": "deepswe-1-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
+      "id": "algotune",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "livecodebench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "programbench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
+      "id": "osworld",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["context", "reasoning"]
+    },
+    {
+      "id": "gdpval",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding", "context"]
+    },
+    {
+      "id": "finance-agent-v2",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding", "context"]
+    },
+    {
+      "id": "gdpval-aa",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding", "context"]
+    },
+    {
+      "id": "apex-agents",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding"]
+    },
+    {
+      "id": "aa-briefcase",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "context"]
+    },
+    {
+      "id": "automationbench",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["instruction", "context"]
+    },
+    {
+      "id": "agents-last-exam",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge", "context"]
+    },
+    {
+      "id": "tau3-banking",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["instruction", "context"]
+    },
+    {
+      "id": "aa-lcr",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "cl-bench",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["language", "reasoning"]
+    },
+    {
+      "id": "mrcr-v2",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "longbench-v2",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["language", "reasoning"]
+    },
+    {
+      "id": "deepresearchbench",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["agentic", "knowledge"]
+    },
+    {
+      "id": "fiction-livebench",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["language", "reasoning"]
+    },
+    {
+      "id": "ruler-1m",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "corpfin",
+      "primaryDimension": "context",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "vibe-code-bench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    }
   ]
 }

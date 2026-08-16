@@ -14,10 +14,11 @@ test-results/
 *.key
 *.pem
 
-data/raw/
+data/
 artifacts/
 artifacts-v2/
 output/
+reference-table-data/
 tmp/
 *.log
 *.tsbuildinfo

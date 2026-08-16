@@ -1,0 +1,44 @@
+[
+  {
+    "artifactPath": "artifacts-v2/sha256/e5/e5d575d07a0751c06c07455f3f485055532c3329d67025e50714f64ff6bcafe2.html",
+    "byteLength": 45927,
+    "finalUrl": "https://arcprize.org/leaderboard",
+    "id": "sha256:e5d575d07a0751c06c07455f3f485055532c3329d67025e50714f64ff6bcafe2",
+    "mediaType": "text/html",
+    "metadata": { "httpStatus": 200 },
+    "method": "DOM",
+    "requestUrl": "https://arcprize.org/leaderboard",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:e5d575d07a0751c06c07455f3f485055532c3329d67025e50714f64ff6bcafe2",
+    "sourceId": "arc-prize"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/d5/d584804cfb912ee5a3858a32709b32af11efcceb35c36290045cf171ac9b980a.json",
+    "byteLength": 155597,
+    "finalUrl": "https://arcprize.org/media/data/evaluations.json",
+    "id": "sha256:d584804cfb912ee5a3858a32709b32af11efcceb35c36290045cf171ac9b980a",
+    "mediaType": "application/json",
+    "metadata": { "httpStatus": 200 },
+    "method": "API_RESPONSE",
+    "requestUrl": "https://arcprize.org/media/data/evaluations.json",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:d584804cfb912ee5a3858a32709b32af11efcceb35c36290045cf171ac9b980a",
+    "sourceId": "arc-prize"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/f7/f7bd069db5178816325ab1b180fb7f0cc8ddc04ac9f11fdc955db51285eff3b2.json",
+    "byteLength": 100816,
+    "finalUrl": "https://arcprize.org/media/data/models.json",
+    "id": "sha256:f7bd069db5178816325ab1b180fb7f0cc8ddc04ac9f11fdc955db51285eff3b2",
+    "mediaType": "application/json",
+    "metadata": { "httpStatus": 200 },
+    "method": "API_RESPONSE",
+    "requestUrl": "https://arcprize.org/media/data/models.json",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f7bd069db5178816325ab1b180fb7f0cc8ddc04ac9f11fdc955db51285eff3b2",
+    "sourceId": "arc-prize"
+  }
+]

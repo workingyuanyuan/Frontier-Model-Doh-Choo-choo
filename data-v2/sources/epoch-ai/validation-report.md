@@ -1,20 +1,40 @@
 # Epoch AI acquisition validation
 
-- Verified: 2026-07-16
-- Official export: https://epoch.ai/data/benchmark_data.zip
-- Export page date: **Updated Jul. 16, 2026**
-- Completeness: **73 CSVs** inspected: **9 internal** and **64 external**.
+- Refreshed: **2026-08-12T16:40:13.196Z**
+- Official page: <https://epoch.ai/benchmarks/use-this-data>
+- Official export: <https://epoch.ai/data/benchmark_data.zip>
+- Source-declared ZIP update: **2026-07-27**
+- Raw evidence: complete page HTML and ZIP stored content-addressably; every Candidate provenance reference points to the new ZIP hash.
 
-## Role boundary
+## Before / after
 
-Only the nine files without an `_external.csv` suffix are eligible as Epoch AI independent runs. External files are mirrors and are deliberately absent from this source fixture. ECI rows are retained as `EXCLUDED` because the composite is used for frontier selection, not eight-dimension scoring.
+| Check | 2026-07-16 snapshot | 2026-07-27 export |
+|---|---:|---:|
+| ZIP files / CSV files | 75 / 74 | 77 / 76 |
+| ECI finite-score rows | 460 | 521 |
+| ECI metadata rows without score | 259 | 294 |
+| Materialized direct scored rows | 771 | 1,031 |
+| CandidateResults | 1,231 | 1,552 |
+| Distinct raw model names | 370 | 411 |
+| Canonically unresolved candidates | 931 | 1,130 |
 
-## Bounded candidate set
+All 521 ECI rows are Epoch-owned composite evidence and remain `EXCLUDED`, selection-only data. The 1,031 materialized direct rows cover GPQA Diamond, MATH Level 5, SWE-bench Verified, OTIS Mock AIME 2024-2025, FrontierMath Tiers 1-3, FrontierMath Tier 4, SimpleQA Verified, and Chess Puzzles. The 64 `_external.csv` mirrors are not represented as Epoch-run CandidateResults.
 
-The ECI selection set contains the current Top 20 unique base models. Rows are sorted by numeric `ECI Score`; duplicate base models are collapsed, with ties resolved by retaining the highest declared reasoning-effort profile. All 20 ECI rows are `EXCLUDED` from eight-dimension scoring and retain exact export profile identities and field-level provenance.
+FrontierMath and ECI use `ORGANIZER`; Epoch reruns of externally created benchmarks use `INDEPENDENT`. Raw Epoch Inspect harness and run fields stay in provenance and do not create Product Profiles.
 
-The scoring candidate set includes GPT-5.6 profiles from Chess Puzzles, SimpleQA Verified, GPQA Diamond and OTIS Mock AIME 2024-2025. FrontierMath and SWE-bench Verified remain available in the complete ZIP but had no matching GPT-5.6 rows in this export.
+## Preserved but not promoted
 
-## Limitations
+The refreshed ZIP adds two Epoch-hosted result files beyond the existing shared mapping:
 
-Some newest Epoch rows do not yet expose public log-viewer links. Missing logs are not inferred.
+| Raw file | Rows | Status |
+|---|---:|---|
+| `mystery_game_puzzles.csv` (Earthborne Rangers / EBR-bench) | 47 | Preserved in ZIP; not materialized pending shared benchmark ID and dimension mapping |
+| `mirrorcode.csv` | 6 | Preserved in ZIP; not materialized pending shared benchmark ID and dimension mapping |
+
+This bounded refresh does not modify the shared benchmark mapping or schema. These 53 rows are therefore excluded from the 1,031 direct Candidate count rather than being assigned an unapproved dimension.
+
+## Risks and unresolved
+
+- 1,130 candidates retain null canonical identity; no fuzzy matching was applied.
+- The source page and download describe the export as updated July 27, while several MirrorCode rows inside the ZIP have August timestamps. The immutable ZIP hash is authoritative for this capture, and the temporal discrepancy is recorded for review.
+- ECI missing scores remain null and are never converted to zero.

@@ -1,32 +1,33 @@
 {
-  "schemaVersion": "source-manifest-v1",
-  "sourceId": "deepswe",
-  "displayName": "DeepSWE",
-  "role": "ORGANIZER",
-  "baseUrl": "https://deepswe.datacurve.ai",
-  "targetUrls": [
-    "https://deepswe.datacurve.ai/",
-    "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
-  ],
-  "benchmarkIds": ["deepswe-1-1"],
   "accessMethods": ["API_RESPONSE", "DOM"],
+  "baseUrl": "https://deepswe.datacurve.ai",
+  "benchmarkIds": ["deepswe-1-1"],
   "completeness": {
-    "expectedCountMethod": "Confirm 42 configuration rows and 14 distinct models in leaderboard-live.json, then compare the selected best profile per model with visible \"Models (14/14)\".",
+    "expectedCountMethod": "Confirm 53 configurations and 21 models, selecting one highest-Pass@1 row per model.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
-  "fieldMapping": {
-    "rows[].model": "model.rawName",
-    "rows[].reasoning_effort": "profile.effort",
-    "rows[].harness": "profile.harness",
-    "rows[].pass_rate": "rawScore / 100",
-    "generated_at": "sourcePublishedAt"
-  },
+  "displayName": "DeepSWE",
   "fallbackMethods": ["EMBEDDED_JSON", "DOM", "VISUAL"],
-  "lastVerifiedAt": "2026-07-16T13:05:53.306Z",
+  "fieldMapping": {
+    "generated_at": "sourcePublishedAt",
+    "rows[].harness": "profile.harness",
+    "rows[].model": "model.rawName",
+    "rows[].pass_rate": "rawScore / 100",
+    "rows[].reasoning_effort": "profile.effort"
+  },
+  "lastVerifiedAt": "2026-08-12T16:44:09.579Z",
   "notes": [
-    "The structured artifact contains all effort configurations; this bounded fixture mirrors the visible Best view by selecting one top-scoring profile for each of 14 models.",
-    "All models use mini-swe-agent for consistency.",
-    "v1.1 is current; v1 is not imported."
+    "53 configurations / 21 models; deterministic best row per model.",
+    "Exact identities 15; unresolved 6; no fuzzy matching.",
+    "All configs and extended metrics remain in raw artifact.",
+    "Harness and n_runs remain provenance, not separate Product Profiles."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "deepswe",
+  "targetUrls": [
+    "https://deepswe.datacurve.ai/",
+    "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
   ]
 }

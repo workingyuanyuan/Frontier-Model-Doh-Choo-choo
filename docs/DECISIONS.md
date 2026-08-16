@@ -103,3 +103,7 @@ The worker has no continuously polled queue: ingestion, scoring, edition and vid
 ## DEC-025 — Native accessible controls and semantic CSS replace UI framework defaults
 
 The Web app uses React/Next.js with native buttons, selects, links, tables and semantic regions plus version-controlled CSS instead of adding Tailwind and a headless component dependency. The product requires two tightly bounded themes and a shared geometry contract, not a general component framework. Native controls reduce bundle and supply-chain surface while retaining keyboard/screen-reader behavior; axe WCAG A/AA scans, 390/1440 containment tests and production Chrome verification are the acceptance authority. Theme tokens and component classes remain documented in `DESIGN_SYSTEM.md`.
+
+# Superseded historical decisions
+
+This document describes the removed PostgreSQL, Edition, legacy Web, Worker and video architecture. It is retained only as historical context. None of these decisions govern the current static-data product; see `ARCHITECTURE.md`, `DATA_METHODOLOGY.md`, `SCORING_METHODOLOGY.md` and `OPERATIONS.md`.

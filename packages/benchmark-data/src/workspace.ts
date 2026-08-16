@@ -1,17 +1,23 @@
 import { readFile, readdir } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 import {
   BenchmarkDimensionMappingSchema,
   CandidateResultSchema,
+  CostRecordSchema,
+  EvidenceRecordSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
+  ProfilePolicySchema,
   SourceManifestSchema,
+  applyProductProfilePolicy,
   buildDraftProduct,
   deriveModelProfiles,
   setDraftPointer,
   writeImmutableProductVersion,
   type CandidateResult,
+  type CostRecord,
   type ProductVersion,
 } from './index.js';
 
@@ -28,18 +34,42 @@ export const buildWorkspaceProduct = async (
     .filter((entry) => entry.isDirectory())
     .map(({ name }) => name)
     .sort();
-  const candidates: CandidateResult[] = [];
+  const sourceCandidates: CandidateResult[] = [];
   const sourceSnapshotIds: string[] = [];
+  const sourceCosts: CostRecord[] = [];
 
   for (const source of sourceDirectories) {
     const directory = join(sourceRoot, source);
     const manifest = SourceManifestSchema.parse(
       await readJson(join(directory, 'manifest.json')),
     );
-    const sourceCandidates = CandidateResultSchema.array().parse(
+    const parsedCandidates = CandidateResultSchema.array().parse(
       await readJson(join(directory, 'candidates.json')),
     );
-    candidates.push(...sourceCandidates);
+    sourceCandidates.push(...parsedCandidates);
+    const costsPath = join(directory, 'costs.json');
+    if (existsSync(costsPath)) {
+      const parsedCosts = CostRecordSchema.array().parse(
+        await readJson(costsPath),
+      );
+      const evidence = EvidenceRecordSchema.array().parse(
+        await readJson(join(directory, 'evidence-index.json')),
+      );
+      const evidenceIds = new Set(evidence.map(({ id }) => id));
+      const missingCostEvidence = [
+        ...new Set(
+          parsedCosts.flatMap(({ evidenceIds: ids }) =>
+            ids.filter((id) => !evidenceIds.has(id)),
+          ),
+        ),
+      ];
+      if (missingCostEvidence.length > 0) {
+        throw new Error(
+          `${source} costs reference missing Evidence: ${missingCostEvidence.join(', ')}`,
+        );
+      }
+      sourceCosts.push(...parsedCosts);
+    }
     sourceSnapshotIds.push(`${manifest.sourceId}:${manifest.lastVerifiedAt}`);
   }
 
@@ -51,6 +81,17 @@ export const buildWorkspaceProduct = async (
       id,
       primaryDimension,
     ]),
+  );
+  const catalog = ModelCatalogSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'models.json')),
+  );
+  const profilePolicy = ProfilePolicySchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'profile-policy.json')),
+  );
+  const candidates = applyProductProfilePolicy(
+    sourceCandidates,
+    catalog,
+    profilePolicy,
   );
   const missingMappings = [
     ...new Set(
@@ -69,9 +110,6 @@ export const buildWorkspaceProduct = async (
     );
   }
 
-  const catalog = ModelCatalogSchema.parse(
-    await readJson(join(dataRoot, 'mappings', 'models.json')),
-  );
   const frontierConfig = FrontierConfigSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'frontier.json')),
   );
@@ -85,6 +123,7 @@ export const buildWorkspaceProduct = async (
     compositeSources: frontierConfig.compositeSources,
     manualModels: frontierConfig.manualModels,
     perSourceLimit: frontierConfig.perSourceLimit,
+    costRecords: sourceCosts,
   });
 };
 

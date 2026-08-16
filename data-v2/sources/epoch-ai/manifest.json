@@ -13,11 +13,14 @@
     "chess-puzzles",
     "simpleqa-verified",
     "gpqa-diamond",
-    "aime"
+    "aime",
+    "math-level-5",
+    "swe-bench",
+    "frontiermath"
   ],
   "accessMethods": ["EXPORT", "DOM"],
   "completeness": {
-    "expectedCountMethod": "Inspect all ZIP entries and separate nine internal CSVs (no _external suffix) from 64 external-source CSVs.",
+    "expectedCountMethod": "Inspect all 77 ZIP files and 76 CSV files, separating 75 root benchmark-result CSVs into eleven Epoch-hosted files (ECI plus ten direct files) and 64 external-source mirrors, while identifying the supplemental ECI parameter CSV.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
@@ -29,11 +32,13 @@
     "Release date": "model release metadata"
   },
   "fallbackMethods": ["OFFICIAL_API", "DOM"],
-  "lastVerifiedAt": "2026-07-16T13:05:53.306Z",
+  "lastVerifiedAt": "2026-08-12T16:40:13.196Z",
   "notes": [
     "Only files without the _external suffix are treated as Epoch-run evidence.",
-    "The ECI contributes a dynamic Top 20 selection set, deduplicated by base model and retained as excluded, selection-only evidence.",
+    "ECI is an Epoch-owned ORGANIZER composite. It contributes a dynamic Top 20 selection set, deduplicated by base model and retained as excluded, selection-only evidence.",
     "When a base model has tied ECI scores, the profile with the highest declared reasoning effort is retained deterministically.",
-    "This bounded fixture includes current GPT-5.6 profiles on four mapped internal benchmarks; other internal rows remain in the indexed ZIP artifact."
+    "The materializer enumerates every finite-score row from the eight previously mapped direct result files plus ECI; rows without a canonical product identity remain reviewable CandidateResults.",
+    "The refreshed ZIP also contains 47 Earthborne Rangers rows and 6 MirrorCode rows. They remain preserved in the raw artifact but are not promoted until shared benchmark IDs and dimension mappings are approved.",
+    "Epoch Inspect harness and attempt metadata remain in raw Profile provenance but do not create Product Profiles."
   ]
 }

@@ -1,2 +1,0 @@
-ALTER TABLE "benchmark_results" ADD COLUMN "publication_key" text NOT NULL;--> statement-breakpoint
-CREATE UNIQUE INDEX "benchmark_results_publication_key_uidx" ON "benchmark_results" USING btree ("publication_key");

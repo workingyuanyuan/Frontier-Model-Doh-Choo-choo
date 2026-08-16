@@ -1,0 +1,16 @@
+[
+  {
+    "artifactPath": "artifacts-v2/sha256/9c/9cdff9a09e09e1b354dc131ae2f2945bba1465a9f03f1029b2969294b062caf6.html",
+    "byteLength": 212000,
+    "finalUrl": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "id": "sha256:9cdff9a09e09e1b354dc131ae2f2945bba1465a9f03f1029b2969294b062caf6",
+    "mediaType": "text/html",
+    "metadata": { "httpStatus": 200 },
+    "method": "DOM",
+    "requestUrl": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:9cdff9a09e09e1b354dc131ae2f2945bba1465a9f03f1029b2969294b062caf6",
+    "sourceId": "scale-hle"
+  }
+]

@@ -26,6 +26,15 @@
       "profilePricing": {}
     },
     {
+      "modelId": "anthropic-claude-opus-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Opus 5",
+      "aliases": ["Opus 5", "claude-opus-5"],
+      "releaseDate": "2026-07-24",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "anthropic-claude-sonnet-4-6",
       "providerId": "anthropic",
       "displayName": "Claude Sonnet 4.6",
@@ -53,6 +62,15 @@
       "modelId": "google-gemini-3-5-flash",
       "providerId": "google",
       "displayName": "Gemini 3.5 Flash",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "google-gemini-3-6-flash",
+      "providerId": "google",
+      "displayName": "Gemini 3.6 Flash",
+      "aliases": ["gemini-3.6-flash"],
       "releaseDate": null,
       "pricing": [],
       "profilePricing": {}
@@ -170,6 +188,189 @@
           }
         ]
       }
+    },
+    {
+      "modelId": "alibaba-qwen3-7-max",
+      "providerId": "alibaba",
+      "displayName": "Qwen 3.7 Max",
+      "aliases": ["Qwen3.7 Max", "Qwen3.7-Max", "alibaba/qwen3.7-max"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-mythos-preview",
+      "providerId": "anthropic",
+      "displayName": "Claude Mythos Preview",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-opus-4-6",
+      "providerId": "anthropic",
+      "displayName": "Claude Opus 4.6",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "deepseek-deepseek-v4",
+      "providerId": "deepseek",
+      "displayName": "DeepSeek V4",
+      "aliases": ["deepseek/deepseek-v4"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "deepseek-deepseek-v4-pro",
+      "providerId": "deepseek",
+      "displayName": "DeepSeek V4 Pro",
+      "aliases": ["DeepSeek-v4-pro"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "deepseek-deepseek-v4-flash",
+      "providerId": "deepseek",
+      "displayName": "DeepSeek V4 Flash",
+      "aliases": ["DeepSeek-v4-flash"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "google-gemini-3-pro-preview",
+      "providerId": "google",
+      "displayName": "Gemini 3 Pro Preview",
+      "aliases": ["google/gemini-3-pro-preview"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "meta-muse-spark",
+      "providerId": "meta",
+      "displayName": "Muse Spark",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "minimax-minimax-m3",
+      "providerId": "minimax",
+      "displayName": "MiniMax M3",
+      "aliases": ["MiniMax-M3"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "moonshot-kimi-k2-6",
+      "providerId": "moonshot",
+      "displayName": "Kimi K2.6",
+      "aliases": ["kimi/kimi-k2.6"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "moonshot-kimi-k3",
+      "providerId": "moonshot",
+      "displayName": "Kimi K3",
+      "aliases": ["kimi-k3"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "nvidia-nemotron-3-ultra",
+      "providerId": "nvidia",
+      "displayName": "Nemotron 3 Ultra",
+      "aliases": [
+        "Nemotron 3 Ultra 550B A55B",
+        "nvidia/nemotron-3-ultra-550b-a55b"
+      ],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-2",
+      "providerId": "openai",
+      "displayName": "GPT-5.2",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-2-pro",
+      "providerId": "openai",
+      "displayName": "GPT-5.2 Pro",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-3-codex",
+      "providerId": "openai",
+      "displayName": "GPT-5.3 Codex",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-4-mini",
+      "providerId": "openai",
+      "displayName": "GPT-5.4 mini",
+      "aliases": ["openai/gpt-5.4-mini-2026-03-17"],
+      "releaseDate": "2026-03-17",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-4-pro",
+      "providerId": "openai",
+      "displayName": "GPT-5.4 Pro",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-5-pro",
+      "providerId": "openai",
+      "displayName": "GPT-5.5 Pro",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "thinking-machines-inkling",
+      "providerId": "thinking-machines",
+      "displayName": "Inkling",
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "xiaomi-mimo-v2-5-pro",
+      "providerId": "xiaomi",
+      "displayName": "MiMo V2.5 Pro",
+      "aliases": ["MiMo-V2.5-Pro", "xiaomi/mimo-v2.5-pro"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "zai-glm-5-1",
+      "providerId": "zai",
+      "displayName": "GLM-5.1",
+      "aliases": ["GLM 5.1", "zai/glm-5.1"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
     },
     {
       "modelId": "xai-grok-4-5",

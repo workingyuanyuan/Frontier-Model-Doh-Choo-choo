@@ -1,71 +1,107 @@
 # 資料方法
 
+## 原則
+
+資料先成為可追溯 Candidate，再經身份、Profile、映射與衝突規則產生不可變 Draft。來源刷新、Draft 建立與 Published 切換是三個分離步驟；任何擷取結果都不能直接改變公開網站。
+
 ## 來源角色
 
-- `ORGANIZER`：Benchmark 主辦方或官方排行榜。
-- `INDEPENDENT`：自行執行評測的獨立評測者。
-- `VENDOR`：受測模型廠商自行公布。
-- `AGGREGATOR`：混合來源索引，只作發現與選模。
+| 角色          | 定義                         | 使用方式                             |
+| ------------- | ---------------------------- | ------------------------------------ |
+| `ORGANIZER`   | Benchmark 主辦方或官方排行榜 | 可直接採用其執行或正式收錄的結果     |
+| `INDEPENDENT` | 自行執行測試的獨立評測者     | 保留其版本、模型配置與執行環境       |
+| `VENDOR`      | 受測模型廠商自報             | 新模型上市時可先顯示為 Estimated     |
+| `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入八維計分 |
 
-同一 Benchmark、版本、Profile 與配置下，優先順序為主辦方、獨立評測、廠商自報、聚合站。相同角色下完整快照優先於 `PARTIAL_SOURCE`，再以較新的公開時間為準。
+同一 Benchmark、版本、模型、effort 與 metric 的可比較結果，先依既有來源角色優先級，再依 `FULL` 優先於 `PARTIAL_SOURCE`、較新快照優先。Harness 歸併造成的同配置重複結果取較高可比較分數，但每筆 Evidence 最多只貢獻一次。
 
-## 首批實證來源
+來源網站、角色、Benchmark 與最近更新狀態由 [可採用成績來源](BENCHMARK_SCORE_SOURCES.md) 維護。
 
-| 來源                | 角色        | 主要取得方法            |
-| ------------------- | ----------- | ----------------------- |
-| Terminal-Bench      | ORGANIZER   | Next/RSC、DOM           |
-| DeepSWE             | ORGANIZER   | 官方 JSON、DOM          |
-| LiveBench           | ORGANIZER   | CSV、JSON、SPA bundle   |
-| Epoch AI            | INDEPENDENT | 官方 ZIP export、DOM    |
-| Artificial Analysis | INDEPENDENT | HTML、內嵌結構化資料    |
-| Vals AI             | INDEPENDENT | HTML、模型設定頁        |
-| OpenAI              | VENDOR      | semantic DOM／可視表格  |
-| LLM Stats           | AGGREGATOR  | HTML 索引，永不直接計分 |
+## 來源資料單位
 
-每站必須提交：
+每個 `data-v2/sources/<source>/` 目錄包含：
 
-- `manifest.json`
-- `evidence-index.json`
-- `candidates.json`
-- `validation-report.md`
-- `artifacts-v2/sha256/...` 的真實 bytes
+- `manifest.json`：來源角色、URL、快照狀態、取得方法與驗證時間。
+- `evidence-index.json`：artifact hash、byte length、locator、方法與來源 URL。
+- `candidates.json`：原始值、標準化值、Profile、Included／Excluded 與欄位級 provenance。
+- `costs.json`：來源有公開成本資料時保存獨立 CostRecord。
+- `validation-report.md`：母體列數、取得列數、分頁、衝突及已知限制。
 
-## 擷取順序
+原始 bytes 寫入根目錄 `artifacts-v2/sha256/...`。Git 只保存可審查 metadata 與產品輸出；原始大檔不進 Git。
 
-依來源能力混合使用：
+## 擷取與刷新
 
-1. 官方 API 或表格匯出。
-2. 網站內嵌 JSON 或 API response。
+可混合使用下列方法，不假設每站都有相同資料入口：
+
+1. 官方 API、CSV／JSON／ZIP 或表格匯出。
+2. 網站內嵌 JSON 或實際 API response。
 3. Next/RSC payload。
-4. DOM。
+4. semantic DOM 與表格。
 5. PDF。
 6. 視覺讀取與人工轉錄。
 
-較低層 fallback 不會自動覆蓋結構化資料；若畫面與結構化內容衝突，驗證報告必須標記人工複核。例如 OpenAI GPT-5.6 頁面的 Agents’ Last Exam 敘述值與表格值不同，Draft 保留表格值並明確記錄衝突。
+優先選擇可完整重現的結構化資料，但畫面與結構化 payload 都必須納入列數對照。兩者衝突時不得靜默取值，需在 validation report 保留差異；公開證據無法裁決時才交給人工。
 
-## 完整性
+支援來源的物化命令：
 
-- `FULL`：目標快照的可見列、分頁或官方結構化母體已對齊。
-- `PARTIAL_SOURCE`：候選列本身可驗證，但來源快照有界或未完整取得。
-- `PARTIAL_SOURCE` 不設期限，仍可參與 Estimated 排名。
-- 聚合指標、無可靠正規化的 Elo 或來源衝突列可保留為 `EXCLUDED`。
+```bash
+pnpm --filter @llm-bench/acquisition materialize:snapshots
+pnpm --filter @llm-bench/acquisition materialize:costs
+```
 
-## Model 與 Profile
+正常排程採統一頻率。新模型推出時，人工可額外觸發一次相同資料收集流程；不建立永久的「自動發現模型」旁路。
 
-基礎模型使用 provider-prefixed canonical ID。Profile 保留 reasoning effort、thinking、tools、harness、context、quantization 與 attempts。
+## 完整性與缺失值
 
-跨來源共用 Profile 時，只合併一致或唯一已知的模型屬性；來源特定 tools、harness 或 attempts 若互相不同，ModelProfile 顯示未知，CandidateResult 仍保存每筆精確配置。代表 Profile 演算法仍是實證迭代項目。
+- `FULL`：官方結構化母體、可見列與分頁已對齊。
+- `PARTIAL_SOURCE`：候選列可驗證，但來源快照有界或未完整取得。
+- `PARTIAL_SOURCE` 不設期限，可參與 Estimated 計分。
+- 來源未測、canonical identity 未解析或缺乏該維 Benchmark 都保留為 N/A；不填零、不模糊猜測。
+- Composite index、無核准正規化或來源衝突列可保存為 `EXCLUDED`，但不投入分數。
+
+## Model identity 與 Product Profile
+
+基礎模型使用 provider-prefixed canonical ID；來源 raw name 與 alias 留在 Evidence。無法精確映射的 Candidate 不投入 ProductVersion，但原始分數和來源配置不得刪除。
+
+Product Profile 只按 reasoning effort（例如 max、xHigh、high、medium、low）分離：
+
+- 來源未標 effort 時，歸入該模型可判定的最高 effort；沒有任何明示 effort 時使用 `profile-policy.json` 的最高 fallback。
+- UI 和產品計分不建立 `unspecified` effort。
+- Harness／No Harness、tools、attempt、thinking、context、quantization 等均不建立 Product Profile。
+- 原始 Harness 名稱與配置仍保留在 Candidate／Evidence provenance。
+
+`data-v2/mappings/models.json` 與 `profile-policy.json` 是可修改設定；變更後必須生成新 Draft，不能改寫歷史版本。
 
 ## Frontier 選模
 
-每個設定中的綜合榜最多取 Top 20，來源不足 20 筆時不補齊；按基礎模型去重後取聯集，再加入人工新品。外部綜合分數只用於選模與展示，不投入八維計分。
+從每個設定的綜合榜動態取最多 Top 20；來源不足 20 筆時不補齊。按基礎模型去重後取聯集，再加入人工指定新品。
 
-目前設定位於 `data-v2/mappings/frontier.json`，採用 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index。
+Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於選模與展示，不投入八維 Overall，避免底層 Benchmark 被重複計分。設定位於 `data-v2/mappings/frontier.json`。
 
-## 保存邊界
+## 成本資料
 
-- Git：Schema、mapping、manifest、Evidence metadata、Candidate、驗證報告、ProductVersion 與 pointer。
-- Git 外：原始 HTML、JSON、CSV、ZIP、PDF、JS 或視覺轉錄 artifact。
-- EvidenceRecord 必須包含 SHA-256、byte length、URL、時間、方法與實際 artifact path。
+成本必須是帶 Evidence 的 CostRecord，不得只手工塞入模型 catalog：
 
-`artifacts-v2/` 目前是本機 Git-ignored store；部署前需複製到耐久儲存，但網站建置不依賴它。
+- Artificial Analysis：來源定義的 Intelligence Index task cost。
+- LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。
+- DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
+
+主 Quality vs. Cost 圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。第一版權重為 Artificial Analysis 40%、LiveBench 40%、DeepSWE 20%。缺站時只在現有來源上重新正規化權重，不把缺值當零。
+
+圖中的 frontier 是非支配集合：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
+
+## ProductVersion 與可重現性
+
+建置流程驗證所有來源 schema、Evidence 引用、Included mapping 與 identity 後，產生排序固定的 canonical JSON。移除 `versionId` 欄位後計算 SHA-256，形成不可變 `ProductVersion.versionId`。
+
+```text
+固定來源 bytes + mapping + generatedAt
+  → 相同 deterministic JSON
+  → 相同 versionId
+```
+
+版本檔只能新增。Draft／Published pointer 是唯一可變狀態，且不包含重新擷取或重新計分的副作用。
+
+## Dashboard 資料邊界
+
+預設產品視圖只顯示 Representative Profile Coverage 為 8/8 的模型。Developer mode switch 開啟後，才納入已有至少一維分數但未達 8/8 的模型；沒有任何可計分結果的 Frontier model 仍不成為排名列。這是呈現篩選，不改變 ProductVersion、分數或 Evidence。

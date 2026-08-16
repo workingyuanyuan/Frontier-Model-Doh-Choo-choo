@@ -1,0 +1,28 @@
+{
+  "accessMethods": ["DOM", "EMBEDDED_JSON"],
+  "baseUrl": "https://zapier.com",
+  "benchmarkIds": ["automationbench"],
+  "completeness": {
+    "expectedCountMethod": "Read the route module embedded in the official Framer page and compare all displayed rank values with the largest rank in the module table.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Zapier AutomationBench official leaderboard",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "cost": "route module API-mode cost per task",
+    "model": "route module leaderboard model",
+    "rank": "route module leaderboard rank",
+    "successRate": "route module task_completed_correctly percentage",
+    "version": "route module z value"
+  },
+  "lastVerifiedAt": "2026-08-13T03:22:43.317Z",
+  "notes": [
+    "The source is a Framer page; the materializer follows script_main to the /benchmarks route module before parsing its embedded table.",
+    "API mode scores are the primary AutomationBench metric; missing costs remain null."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "zapier-automationbench",
+  "targetUrls": ["https://zapier.com/benchmarks"]
+}

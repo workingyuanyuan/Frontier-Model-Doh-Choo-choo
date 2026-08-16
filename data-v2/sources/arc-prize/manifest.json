@@ -1,0 +1,27 @@
+{
+  "accessMethods": ["DOM", "API_RESPONSE"],
+  "baseUrl": "https://arcprize.org",
+  "benchmarkIds": ["arc-agi"],
+  "completeness": {
+    "expectedCountMethod": "Enumerate every display=true row in the official evaluations.json for the semi-private ARC-AGI split and join model metadata from models.json.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "ARC Prize official leaderboard",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "displayName": "models.json displayName",
+    "modelId": "models.json id",
+    "modelReleaseDate": "models.json modelReleaseDate",
+    "score": "evaluations.json score"
+  },
+  "lastVerifiedAt": "2026-08-13T03:22:43.317Z",
+  "notes": [
+    "Only official display=true rows are promoted; hidden and preview rows remain outside the materialized candidate set.",
+    "ARC-AGI versions and evaluation splits must not be mixed in a later refresh."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "arc-prize",
+  "targetUrls": ["https://arcprize.org/leaderboard"]
+}

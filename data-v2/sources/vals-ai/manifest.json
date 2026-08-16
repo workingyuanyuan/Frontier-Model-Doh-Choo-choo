@@ -14,11 +14,14 @@
     "swe-bench",
     "terminal-bench-2-1",
     "proofbench",
-    "gpqa-diamond"
+    "gpqa-diamond",
+    "finance-agent-v2",
+    "corpfin",
+    "vibe-code-bench"
   ],
   "accessMethods": ["DOM", "EMBEDDED_JSON"],
   "completeness": {
-    "expectedCountMethod": "Capture all models in the currently visible Vals Index ranked set (16 when verified), then compare the dated GPT-5.6 benchmark update card and model detail settings.",
+    "expectedCountMethod": "Enumerate all six structured benchmarkView tasks and all 36 non-null model scores per task, then compare the dated GPT-5.6 benchmark update card and model detail settings.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
@@ -29,10 +32,11 @@
     "model detail reasoning effort": "profile.effort"
   },
   "fallbackMethods": ["VISUAL", "MANUAL"],
-  "lastVerifiedAt": "2026-07-16T13:18:08.712Z",
+  "lastVerifiedAt": "2026-07-16T17:23:35.770Z",
   "notes": [
-    "Vals AI states that it runs all of its own evaluations.",
+    "Role is assigned per result: Vals Index and ProofBench are ORGANIZER; reruns of external benchmarks are INDEPENDENT.",
     "The GPT-5.6 Sol model detail page specifies max reasoning effort.",
-    "The composite Vals Index is retained only for frontier selection and display."
+    "The composite Vals Index is retained only for frontier selection and display.",
+    "Tools, context, and source harness metadata remain in raw Profile provenance but do not create Product Profiles."
   ]
 }

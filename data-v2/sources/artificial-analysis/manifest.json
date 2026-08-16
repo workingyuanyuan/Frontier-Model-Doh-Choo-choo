@@ -2,7 +2,7 @@
   "schemaVersion": "source-manifest-v1",
   "sourceId": "artificial-analysis",
   "displayName": "Artificial Analysis",
-  "role": "INDEPENDENT",
+  "role": "ORGANIZER",
   "baseUrl": "https://artificialanalysis.ai/",
   "targetUrls": [
     "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
@@ -11,12 +11,23 @@
   ],
   "benchmarkIds": [
     "artificial-analysis-intelligence-index",
-    "artificial-analysis-coding-agent-index",
-    "aa-briefcase"
+    "aa-briefcase",
+    "aa-omniscience",
+    "aa-lcr",
+    "humanitys-last-exam",
+    "gpqa-diamond",
+    "scicode",
+    "critpt",
+    "apex-agents",
+    "terminal-bench-2-1",
+    "tau3-banking",
+    "livecodebench",
+    "gdpval-aa",
+    "ifbench"
   ],
   "accessMethods": ["DOM", "EMBEDDED_JSON"],
   "completeness": {
-    "expectedCountMethod": "Extract the complete 20-row Intelligence Index embedded array from the official models page, then compare GPT-5.6 release-specific benchmark statements against the dated article.",
+    "expectedCountMethod": "Enumerate every model object and non-null evaluation field in the captured official models payload, then compare GPT-5.6 release-specific benchmark statements against the dated article. Apply the Top 20 limit only during downstream Frontier selection.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
@@ -27,10 +38,12 @@
     "stated score": "rawScore"
   },
   "fallbackMethods": ["VISUAL", "MANUAL"],
-  "lastVerifiedAt": "2026-07-16T13:18:08.712Z",
+  "lastVerifiedAt": "2026-08-12T16:40:13.196Z",
   "notes": [
-    "Artificial Analysis states that it runs standardized independent evaluations.",
+    "Role is assigned per result: Artificial Analysis-owned indices and AA-Briefcase are ORGANIZER; reruns of external benchmarks are INDEPENDENT.",
     "External composite indices are retained for frontier selection and display but excluded from LLM Bench eight-dimension scoring.",
-    "The current Intelligence Index methodology version is v4.1."
+    "The current Intelligence Index methodology version is v4.1.1.",
+    "The 2026-08-12 capture exposes 27 model objects from the wider 598-model catalog; every non-null supported benchmark field is materialized, while downstream Frontier selection retains at most the per-source Top 20.",
+    "The current payload no longer exposes the former Coding Agent Index field, so that stale composite is not emitted."
   ]
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "artifactPath": "artifacts-v2/sha256/15/15980944db774d2780a134a3dcc4149c89c97deb421a328b084f3cbb084cf6d4.txt",
+    "byteLength": 8628,
+    "finalUrl": "https://raw.githubusercontent.com/lechmazur/writing/main/README.md",
+    "id": "sha256:15980944db774d2780a134a3dcc4149c89c97deb421a328b084f3cbb084cf6d4",
+    "mediaType": "text/plain",
+    "metadata": { "httpStatus": 200 },
+    "method": "EXPORT",
+    "requestUrl": "https://raw.githubusercontent.com/lechmazur/writing/main/README.md",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:15980944db774d2780a134a3dcc4149c89c97deb421a328b084f3cbb084cf6d4",
+    "sourceId": "lech-writing"
+  }
+]

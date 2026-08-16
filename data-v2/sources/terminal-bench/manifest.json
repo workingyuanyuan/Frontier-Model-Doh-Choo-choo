@@ -20,10 +20,10 @@
     "rows[].metadata.date": "sourcePublishedAt"
   },
   "fallbackMethods": ["DOM", "VISUAL"],
-  "lastVerifiedAt": "2026-07-16T13:05:53.306Z",
+  "lastVerifiedAt": "2026-07-16T17:23:35.770Z",
   "notes": [
     "Terminal-Bench 2.1 is the current live version; 1.0 is legacy and 2.0 is not used by this fixture.",
     "The page states that a Terminal-Bench team member ran and verified every displayed result.",
-    "Harness and reasoning effort are part of profile identity."
+    "Harness, reasoning effort and attempt count are part of Profile identity; the five-attempt Muse Spark run is not merged with DeepSWE."
   ]
 }

@@ -1,83 +1,175 @@
 'use client';
 
-import type { ProductVersion } from '@llm-bench/benchmark-data';
-import { useMemo, useState } from 'react';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
 import { EvidenceDetail } from './evidence-detail';
 import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
-import { UI_DIMENSION_IDS, type ProductChannel } from '../lib/ui-contract';
+import type { ProductChannel } from '../lib/ui-contract';
 import {
-  filterLeaderboard,
+  getDataScopeSummary,
   getEvidenceForProfile,
-  getProfilesForModel,
+  getCoverageCount,
   getRepresentativeRows,
-  profileById,
+  resolveActiveProfile,
 } from '../lib/view-model';
 
 export function Dashboard({
+  benchmarkDimensions,
   product,
   channel,
 }: {
+  benchmarkDimensions: Record<string, DimensionId>;
   product: ProductVersion;
   channel: ProductChannel;
 }) {
-  const representatives = getRepresentativeRows(product);
+  const [developerMode, setDeveloperMode] = useState(false);
+  const allRepresentatives = useMemo(
+    () => getRepresentativeRows(product),
+    [product],
+  );
+  const visibleModelIds = useMemo(
+    () =>
+      new Set(
+        allRepresentatives
+          .filter((row) => developerMode || getCoverageCount(row) === 8)
+          .map((row) => row.modelId),
+      ),
+    [allRepresentatives, developerMode],
+  );
+  const visibleProfileIds = useMemo(
+    () =>
+      new Set(
+        product.profiles
+          .filter(({ modelId }) => visibleModelIds.has(modelId))
+          .map(({ id }) => id),
+      ),
+    [product.profiles, visibleModelIds],
+  );
+  const visibleProduct = useMemo<ProductVersion>(
+    () => ({
+      ...product,
+      frontier: product.frontier.filter(({ modelId }) =>
+        visibleModelIds.has(modelId),
+      ),
+      profiles: product.profiles.filter(({ modelId }) =>
+        visibleModelIds.has(modelId),
+      ),
+      leaderboard: product.leaderboard.filter(({ modelId }) =>
+        visibleModelIds.has(modelId),
+      ),
+      costs: product.costs.filter(({ profileId }) =>
+        visibleProfileIds.has(profileId),
+      ),
+    }),
+    [product, visibleModelIds, visibleProfileIds],
+  );
+  const representatives = useMemo(
+    () => getRepresentativeRows(visibleProduct),
+    [visibleProduct],
+  );
   const initialRow = representatives[0];
-  const [query, setQuery] = useState('');
+
+  const defaultCheckedIds = useMemo(
+    () => representatives.map((r) => r.modelId),
+    [representatives],
+  );
+  const [checkedModelIds, setCheckedModelIds] =
+    useState<string[]>(defaultCheckedIds);
+
   const [selectedModelId, setSelectedModelId] = useState(
     initialRow?.modelId ?? '',
   );
-  const [selectedProfileId, setSelectedProfileId] = useState(
-    initialRow?.profileId ?? '',
+
+  const [modelProfiles, setModelProfiles] = useState<Record<string, string>>(
+    () => {
+      const initialProfiles: Record<string, string> = {};
+      allRepresentatives.forEach((row) => {
+        initialProfiles[row.modelId] = row.profileId;
+      });
+      product.leaderboard.forEach((row) => {
+        if (!initialProfiles[row.modelId]) {
+          initialProfiles[row.modelId] = row.profileId;
+        }
+      });
+      return initialProfiles;
+    },
   );
 
-  const rows = useMemo(
-    () => filterLeaderboard(product, query),
-    [product, query],
+  const selectedProfileId = modelProfiles[selectedModelId] ?? '';
+
+  const [comparisonProfileIds, setComparisonProfileIds] = useState<string[]>(
+    [],
   );
+
   const representativeRow = representatives.find(
     ({ modelId }) => modelId === selectedModelId,
   );
-  const profiles = representativeRow
-    ? getProfilesForModel(product, selectedModelId, representativeRow.profileId)
-    : [];
-  const selectedProfile =
-    profileById(product, selectedProfileId) ?? profiles[0];
-  const selectedResult = product.leaderboard.find(
+
+  const selectedProfile = resolveActiveProfile(
+    visibleProduct,
+    selectedModelId,
+    selectedProfileId,
+    representativeRow?.profileId ?? '',
+  );
+
+  useEffect(() => {
+    if (selectedProfile && comparisonProfileIds.includes(selectedProfile.id)) {
+      setComparisonProfileIds((prev) =>
+        prev.filter((id) => id !== selectedProfile.id),
+      );
+    }
+  }, [selectedProfile, comparisonProfileIds]);
+
+  const selectedResult = visibleProduct.leaderboard.find(
     ({ profileId }) => profileId === selectedProfile?.id,
   );
-  const dimensions =
-    selectedResult?.dimensions ??
-    UI_DIMENSION_IDS.map((dimension) => ({
-      dimension,
-      score: null,
-      componentCount: 0,
-    }));
+
+  const rows = useMemo(() => {
+    return representatives.filter((row) =>
+      checkedModelIds.includes(row.modelId),
+    );
+  }, [representatives, checkedModelIds]);
+
   const evidence = selectedProfile
-    ? getEvidenceForProfile(product, selectedProfile.id)
+    ? getEvidenceForProfile(visibleProduct, selectedProfile.id)
     : [];
+  const dataScope = getDataScopeSummary(visibleProduct);
+
+  useEffect(() => {
+    setCheckedModelIds(defaultCheckedIds);
+    if (!visibleModelIds.has(selectedModelId)) {
+      setSelectedModelId(representatives[0]?.modelId ?? '');
+    }
+  }, [defaultCheckedIds, representatives, selectedModelId, visibleModelIds]);
 
   const selectModel = (modelId: string, profileId: string) => {
     setSelectedModelId(modelId);
-    setSelectedProfileId(profileId);
+    setModelProfiles((prev) => ({ ...prev, [modelId]: profileId }));
+  };
+
+  const clearSelection = () => {
+    setSelectedModelId('');
+    setComparisonProfileIds([]);
   };
 
   return (
     <div id="top">
-      <VersionHeader product={product} channel={channel} />
+      <VersionHeader
+        product={product}
+        channel={channel}
+        developerMode={developerMode}
+        onDeveloperModeChange={setDeveloperMode}
+      />
       <main className="page-shell">
         <section className="intro" aria-labelledby="page-title">
           <div>
             <p className="eyebrow">Current frontier snapshot</p>
             <h1 id="page-title">Compare capability, cost, and evidence.</h1>
-            <p>
-              A source-backed view of frontier model profiles across eight
-              capabilities. Scores with incomplete or vendor-only evidence stay
-              visibly Estimated.
-            </p>
+            <p>Eight capability scores, cost, and evidence.</p>
           </div>
           {channel === 'DRAFT' ? (
             <aside className="draft-notice" aria-label="Draft dataset notice">
@@ -90,80 +182,68 @@ export function Dashboard({
           ) : null}
         </section>
 
+        <section className="panel scope-panel" aria-labelledby="scope-title">
+          <div>
+            <p className="eyebrow">Dataset scope</p>
+            <h2 id="scope-title">Coverage at a glance.</h2>
+          </div>
+          <dl className="scope-metrics">
+            <div data-scope-metric="frontier">
+              <dt>Frontier models</dt>
+              <dd>{dataScope.frontierModels}</dd>
+            </div>
+            <div data-scope-metric="ranked">
+              <dt>Ranked models</dt>
+              <dd>{dataScope.rankedModels}</dd>
+            </div>
+            <div data-scope-metric="profiles">
+              <dt>Scored Profiles</dt>
+              <dd>{dataScope.scoredProfiles}</dd>
+            </div>
+            <div data-scope-metric="pending">
+              <dt>Awaiting direct evidence</dt>
+              <dd>{dataScope.awaitingDirectEvidence}</dd>
+            </div>
+          </dl>
+        </section>
+
         <Leaderboard
-          product={product}
+          product={visibleProduct}
           rows={rows}
-          query={query}
+          representatives={representatives}
+          checkedModelIds={checkedModelIds}
+          setCheckedModelIds={setCheckedModelIds}
+          modelProfiles={modelProfiles}
           selectedModelId={selectedModelId}
-          onQueryChange={setQuery}
           onSelect={selectModel}
         />
 
         {selectedProfile ? (
-          <section
-            className="profile-toolbar"
-            aria-labelledby="profile-focus-title"
-          >
-            <div>
-              <p className="eyebrow">Selected model</p>
-              <h2 id="profile-focus-title">{selectedProfile.baseModelName}</h2>
-            </div>
-            <label>
-              <span>Profile in focus</span>
-              <select
-                value={selectedProfile.id}
-                onChange={(event) => setSelectedProfileId(event.target.value)}
-              >
-                {profiles.map((profile) => (
-                  <option key={profile.id} value={profile.id}>
-                    {profile.displayName}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <dl className="profile-facts">
-              <div>
-                <dt>Effort</dt>
-                <dd>{selectedProfile.attributes.effort ?? 'Not published'}</dd>
-              </div>
-              <div>
-                <dt>Tools</dt>
-                <dd>
-                  {selectedProfile.attributes.tools === null
-                    ? 'Not published'
-                    : selectedProfile.attributes.tools
-                      ? 'Enabled'
-                      : 'Disabled'}
-                </dd>
-              </div>
-              <div>
-                <dt>Context</dt>
-                <dd>
-                  {selectedProfile.attributes.contextWindowTokens
-                    ? `${(selectedProfile.attributes.contextWindowTokens / 1000).toLocaleString()}k`
-                    : 'Not published'}
-                </dd>
-              </div>
-            </dl>
-          </section>
+          <RadarChart
+            product={visibleProduct}
+            activeProfile={selectedProfile}
+            selectedResult={selectedResult}
+            comparisonProfileIds={comparisonProfileIds}
+            setComparisonProfileIds={setComparisonProfileIds}
+            onClearActiveProfile={clearSelection}
+          />
         ) : null}
 
-        <div className="analysis-grid">
-          <RadarChart
-            dimensions={dimensions}
-            modelName={selectedProfile?.displayName ?? 'No model selected'}
-          />
-          <CostChart
-            product={product}
-            selectedProfileId={selectedProfile?.id ?? ''}
-          />
-        </div>
+        <CostChart
+          product={visibleProduct}
+          selectedProfileId={selectedProfile?.id ?? ''}
+        />
 
         {selectedProfile ? (
-          <EvidenceDetail profile={selectedProfile} evidence={evidence} />
+          <EvidenceDetail
+            profile={selectedProfile}
+            evidence={evidence}
+            benchmarkDimensions={benchmarkDimensions}
+            selectedResult={selectedResult}
+          />
         ) : (
           <div className="panel empty-state" role="status">
-            No model profile is available in this dataset.
+            Select a model to view its profile and evidence.
           </div>
         )}
       </main>

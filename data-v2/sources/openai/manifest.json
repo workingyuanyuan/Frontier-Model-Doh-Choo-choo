@@ -30,7 +30,7 @@
     "cell value": "rawScore"
   },
   "fallbackMethods": ["VISUAL", "MANUAL"],
-  "lastVerifiedAt": "2026-07-16T12:51:48.181Z",
+  "lastVerifiedAt": "2026-07-16T17:23:35.770Z",
   "notes": [
     "Vendor self-reported results remain Estimated and can be superseded by a matching organizer or independent evaluation.",
     "The release page returned HTTP 403 to direct PowerShell retrieval; values were captured from the accessible semantic DOM and hashed as a normalized excerpt.",

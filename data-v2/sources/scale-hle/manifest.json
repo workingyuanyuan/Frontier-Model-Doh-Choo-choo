@@ -1,0 +1,26 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://labs.scale.com",
+  "benchmarkIds": ["humanitys-last-exam"],
+  "completeness": {
+    "expectedCountMethod": "Count every row between the official Performance Comparison and Legend boundaries.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Scale AI / CAIS Humanity's Last Exam leaderboard",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    "accuracy": "Performance Comparison accuracy",
+    "model": "Performance Comparison model label",
+    "rank": "Performance Comparison rank"
+  },
+  "lastVerifiedAt": "2026-08-13T03:22:43.317Z",
+  "notes": [
+    "The 2025 dataset date is not treated as the model update date; this source stores the retrieved leaderboard evidence date.",
+    "HLE preview and final 2,500 results remain separate benchmark versions."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "scale-hle",
+  "targetUrls": ["https://labs.scale.com/leaderboard/humanitys_last_exam"]
+}

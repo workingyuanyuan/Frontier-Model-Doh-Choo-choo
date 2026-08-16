@@ -1,15 +1,16 @@
 # DeepSWE acquisition validation
 
-- Verified: 2026-07-16
-- Official source: https://deepswe.datacurve.ai/
-- Structured source: https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json
-- Method: official JSON, checked against server-rendered Best leaderboard.
-- Completeness: **42 configuration rows**, **14 distinct models**, and **14/14 visible Best rows**.
+- Verified: 2026-08-12
+- Structured source: <https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json>
+- generated_at: **2026-08-07T19:41:58.007998+00:00**
 
-## Selection
+| Check | Before | Current |
+|---|---:|---:|
+| Configurations | 42 | 53 |
+| Models | 14 | 21 |
+| CandidateResults | 14 | 21 |
+| Exact identities | 14 | 15 |
+| Unresolved | 0 | 6 |
+| CostRecords | 41 | 43 |
 
-The evidence snapshot is complete. Candidate output is intentionally bounded to the single highest Pass@1 profile for each visible model, matching the site's Best view. Other effort levels remain recoverable from the evidence artifact.
-
-## Limitations
-
-CandidateResultSchema does not carry confidence intervals, mean task cost, output tokens or agent steps. Those fields remain in the evidence artifact.
+Fetched official HTML and v1.1 JSON. All configurations remain raw evidence; candidates choose Pass@1 descending then config ascending. Exact aliases only. 15 rows can later contribute to Coding; no ProductVersion was rebuilt.

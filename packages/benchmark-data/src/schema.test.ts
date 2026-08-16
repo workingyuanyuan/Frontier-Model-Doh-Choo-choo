@@ -4,10 +4,35 @@ import benchmarkMappings from '../../../data-v2/mappings/benchmarks.json';
 import {
   BenchmarkDimensionMappingSchema,
   CandidateResultSchema,
+  ModelCatalogSchema,
   ProductVersionPointerSchema,
   ProductVersionSchema,
   deterministicJson,
 } from './index.js';
+
+describe('ModelCatalogSchema', () => {
+  it('preserves reviewed exact source aliases as catalog data', () => {
+    const catalog = ModelCatalogSchema.parse({
+      schemaVersion: 'model-catalog-v1',
+      models: [
+        {
+          modelId: 'openai-gpt-5-3-codex',
+          providerId: 'openai',
+          displayName: 'GPT-5.3 Codex',
+          releaseDate: null,
+          aliases: ['GPT-5.3 Codex (high)', 'openai/gpt-5.3-codex'],
+          pricing: [],
+          profilePricing: {},
+        },
+      ],
+    });
+
+    expect(catalog.models[0]?.aliases).toEqual([
+      'GPT-5.3 Codex (high)',
+      'openai/gpt-5.3-codex',
+    ]);
+  });
+});
 
 const candidate = {
   schemaVersion: 'candidate-result-v1',

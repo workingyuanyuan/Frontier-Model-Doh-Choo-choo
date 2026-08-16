@@ -4,4 +4,12 @@ pnpm-lock.yaml
 dist/
 coverage/
 artifacts/
-apps/web/next-env.d.ts
+apps/bench/next-env.d.ts
+
+# Canonical machine-generated snapshots and their generated validation reports.
+# Their writers guarantee deterministic serialization; Prettier must not rewrite
+# immutable artifacts or create a format-only Draft version.
+data-v2/product/pointers/
+data-v2/product/versions/
+data-v2/sources/*/candidates.json
+data-v2/sources/*/validation-report.md

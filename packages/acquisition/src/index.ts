@@ -10,9 +10,15 @@ import {
 
 const EXTENSIONS: Record<string, string> = {
   'application/json': '.json',
+  'application/javascript': '.js',
+  'text/javascript': '.js',
+  'application/zip': '.zip',
+  'application/octet-stream': '.bin',
   'application/pdf': '.pdf',
   'text/html': '.html',
+  'text/csv': '.csv',
   'text/plain': '.txt',
+  'text/markdown': '.md',
 };
 
 const extensionForMediaType = (mediaType: string): string => {
@@ -96,11 +102,7 @@ export const writeContentAddressedArtifact = async (
       throw new Error('existing content-addressed artifact is corrupt');
     }
   } catch (error) {
-    if (
-      error instanceof Error &&
-      'code' in error &&
-      error.code === 'ENOENT'
-    ) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
       await writeFile(path, bytes, { flag: 'wx' });
     } else {
       throw error;
@@ -243,3 +245,16 @@ export const renderCompletenessMarkdown = (
     '',
   ].join('\n');
 };
+
+export {
+  materializeEpoch,
+  materializeVals,
+  materializeArtificialAnalysis,
+} from './materializers.js';
+export {
+  materializeArtificialAnalysisCosts,
+  materializeDeepSweCosts,
+  materializeLiveBenchCosts,
+} from './pricing-materializers.js';
+export { materializeOrganizers } from './materialize-organizers.js';
+export type { OrganizerMaterializerOptions } from './materialize-organizers.js';

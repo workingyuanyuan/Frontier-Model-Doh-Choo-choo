@@ -1,0 +1,44 @@
+[
+  {
+    "artifactPath": "artifacts-v2/sha256/c1/c175664d4239e5468bb3eea03aa254ecdcf8ce440e96743fc0929377bd43a5aa.html",
+    "byteLength": 211696,
+    "finalUrl": "https://zapier.com/benchmarks",
+    "id": "sha256:c175664d4239e5468bb3eea03aa254ecdcf8ce440e96743fc0929377bd43a5aa",
+    "mediaType": "text/html",
+    "metadata": { "httpStatus": 200 },
+    "method": "DOM",
+    "requestUrl": "https://zapier.com/benchmarks",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:c175664d4239e5468bb3eea03aa254ecdcf8ce440e96743fc0929377bd43a5aa",
+    "sourceId": "zapier-automationbench"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/5e/5e7a3e8058d76edac043c6744933b2b64158fee5a8878fd1eb2b95dfdb7508dc.js",
+    "byteLength": 246645,
+    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/script_main.D6sGHD0W.mjs",
+    "id": "sha256:5e7a3e8058d76edac043c6744933b2b64158fee5a8878fd1eb2b95dfdb7508dc",
+    "mediaType": "text/javascript",
+    "metadata": { "httpStatus": 200 },
+    "method": "EMBEDDED_JSON",
+    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/script_main.D6sGHD0W.mjs",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5e7a3e8058d76edac043c6744933b2b64158fee5a8878fd1eb2b95dfdb7508dc",
+    "sourceId": "zapier-automationbench"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/89/89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c.js",
+    "byteLength": 57371,
+    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "id": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
+    "mediaType": "text/javascript",
+    "metadata": { "httpStatus": 200 },
+    "method": "EMBEDDED_JSON",
+    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
+    "sourceId": "zapier-automationbench"
+  }
+]

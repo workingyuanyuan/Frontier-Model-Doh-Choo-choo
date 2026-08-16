@@ -1,35 +1,27 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const port = Number(process.env.E2E_PORT ?? 3100);
-const baseURL = `http://127.0.0.1:${port}`;
-
 export default defineConfig({
-  testDir: './apps/web/e2e',
-  testIgnore: '**/seed.ts',
+  testDir: './apps/bench/e2e',
+  outputDir: './test-results/bench',
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
-  retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : undefined,
-  reporter: [['list'], ['html', { open: 'never' }]],
-  outputDir: 'test-results',
+  retries: process.env.CI ? 2 : 0,
+  reporter: process.env.CI
+    ? [['html', { outputFolder: 'playwright-report', open: 'never' }]]
+    : 'list',
   use: {
-    baseURL,
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    baseURL: 'http://127.0.0.1:3910',
+    trace: 'retain-on-failure',
   },
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: `pnpm --filter @llm-bench/web start --hostname 127.0.0.1 --port ${port}`,
-    url: `${baseURL}/api/v1/health`,
+    command: 'pnpm --filter @llm-bench/bench start --port 3910',
+    env: { LLM_BENCH_CHANNEL: 'DRAFT' },
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-    stdout: 'pipe',
-    stderr: 'pipe',
+    url: 'http://127.0.0.1:3910',
   },
 });

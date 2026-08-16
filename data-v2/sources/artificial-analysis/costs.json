@@ -1,0 +1,398 @@
+[
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.044843733471261124,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:deepseek-deepseek-v4-pro-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max",
+      "rawName": "DeepSeek V4 Pro (max)"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for DeepSeek V4 Pro (max)",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.12455059919140353,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:minimax-minimax-m3-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3-max",
+      "rawName": "MiniMax-M3"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for MiniMax-M3",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.2339604134365895,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:nvidia-nemotron-3-ultra-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "nvidia-nemotron-3-ultra",
+      "profileId": "nvidia-nemotron-3-ultra-max",
+      "rawName": "Nemotron 3 Ultra"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for Nemotron 3 Ultra",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.2610220700233032,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:meta-muse-spark-1-1-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "meta-muse-spark-1-1",
+      "profileId": "meta-muse-spark-1-1-xhigh",
+      "rawName": "Muse Spark 1.1 (xhigh)"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for Muse Spark 1.1 (xhigh)",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.3122688040758518,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:xai-grok-4-5-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
+      "rawName": "Grok 4.5 (high)"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for Grok 4.5 (high)",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.46828242379214147,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:zai-glm-5-2-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "zai-glm-5-2",
+      "profileId": "zai-glm-5-2-max",
+      "rawName": "GLM-5.2 (max)"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for GLM-5.2 (max)",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 0.585545242207561,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:google-gemini-3-5-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "google-gemini-3-5-flash",
+      "profileId": "google-gemini-3-5-flash-high",
+      "rawName": "Gemini 3.5 Flash"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for Gemini 3.5 Flash",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 1.0373301565994435,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:openai-gpt-5-6-sol-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "GPT-5.6 Sol (max)"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for GPT-5.6 Sol (max)",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": null,
+    "cost": 2.7498239008825984,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a"
+    ],
+    "exclusionReason": null,
+    "id": "artificial-analysis:cost-per-intelligence-index-task:anthropic-claude-fable-5-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-intelligence-index-task",
+    "metricName": "Cost per Intelligence Index task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max",
+      "rawName": "Claude Fable 5 (with fallback)"
+    },
+    "observedAt": "2026-07-16T13:18:08.712Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a",
+        "locator": "JSON-LD Cost per Task row for Claude Fable 5 (with fallback)",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://artificialanalysis.ai/models",
+    "unit": "USD_PER_TASK"
+  }
+]

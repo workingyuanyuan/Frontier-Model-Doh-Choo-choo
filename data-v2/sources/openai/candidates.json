@@ -59,7 +59,7 @@
     "schemaVersion": "candidate-result-v1",
     "id": "openai:openai-gpt-5-6-sol:gdpval-aa-v2",
     "sourceId": "openai",
-    "sourceRole": "VENDOR",
+    "sourceRole": "INDEPENDENT",
     "benchmarkId": "gdpval-aa",
     "benchmarkVersion": "v2",
     "model": {
@@ -86,7 +86,7 @@
     "normalizedScore": null,
     "acquisitionStatus": "PARTIAL_SOURCE",
     "inclusion": "EXCLUDED",
-    "exclusionReason": "No approved v1 normalization exists for the GDPval-AA v2 Elo scale; retain as display-only vendor evidence.",
+    "exclusionReason": "OpenAI republishes an Artificial Analysis-run result, but the Artificial Analysis source and exact configuration are not captured here and no approved v1 Elo normalization exists; retain as excluded display-only evidence.",
     "sourceUrl": "https://openai.com/index/gpt-5-6/",
     "observedAt": "2026-07-16T12:51:48.181Z",
     "sourcePublishedAt": "2026-07-09T00:00:00.000Z",

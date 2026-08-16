@@ -1,67 +1,76 @@
 # 計分方法
 
-## 八維
+## 八維定義
 
-固定順序：
+| 維度        | UI 縮寫 | 最小能力邊界                                 |
+| ----------- | ------- | -------------------------------------------- |
+| Agentic     | AGT     | 工具使用、環境操作、規劃、狀態與錯誤恢復     |
+| Coding      | COD     | 生成、補全、除錯、修復、重構與軟體工程       |
+| Reasoning   | RSN     | 抽象、演繹、歸納、因果、空間、時間與規劃推理 |
+| Math        | MAT     | 計算、代數、形式推導、證明、競賽數學與最佳化 |
+| Knowledge   | KNG     | 事實、專業與世界知識、校準及幻覺抑制         |
+| Language    | LNG     | 語意、篇章、文字品質、摘要、敘事與風格控制   |
+| Context     | CTX     | 長輸入檢索、跨文件整合、追蹤與長時程狀態維持 |
+| Instruction | IF      | 顯式要求、格式／內容限制與任務規格遵循       |
 
-1. Reasoning
-2. Math
-3. Knowledge
-4. Language
-5. Instruction
-6. Coding
-7. Agentic
-8. Context
+Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `data-v2/mappings/benchmarks.json` 控制；主要維度、跨維關聯、理由與限制見 [Benchmark 八維映射](BENCHMARK_DIMENSION_MAPPING.md)。
 
-Benchmark 映射由 `data-v2/mappings/benchmarks.json` 控制，完整理由與限制見 [Benchmark 八維映射](BENCHMARK_DIMENSION_MAPPING.md)。
+## Benchmark 納入規則
 
-## Benchmark 規則
+- 每個 Benchmark 第一版只投入一個主要維度。
+- 次要關聯只供文件與未來調整，不重複計分。
+- 百分比、accuracy 或具核准轉換的值標準化至 0–100。
+- 沒有可靠轉換的 Elo、ECI、Intelligence Index 等只展示原始值或用於選模。
+- `EXCLUDED`、identity 未解析或 `normalizedScore: null` 的結果不投入維度。
+- 缺失值保持 `null`／N/A，永不當零。
 
-- 第一版每個 Benchmark 只投入一個主要維度。
-- 次要關聯只作文件與未來調整依據，不重複加權。
-- 百分比或可靠 accuracy 類指標直接標準化到 0–100。
-- 沒有核准轉換的 Elo、ECI、Intelligence Index 等只展示原始值。
-- 缺失值為 `null`，永不當成零。
+## 有效結果與衝突
 
-## Profile 分數
+同一 Benchmark、版本、模型、effort、metric 與歸屬 Profile 只能有一筆有效結果：
 
-對一個 Profile：
+1. 套用來源角色優先級。
+2. `FULL` 優先於 `PARTIAL_SOURCE`。
+3. 完整新快照直接取代舊值；同條件以較新公開時間為準。
+4. Harness／No Harness 可比較且前述條件相同時取較高分，但不建立 Harness Profile。
+5. 每筆 Evidence 最多貢獻一次；未採用結果仍留在審計軌跡。
 
-1. 先依來源角色、完整性與時間選出當前有效結果。
-2. 同一維度內，對已映射的 normalized score 取算術平均。
-3. Overall Score 對有資料的維度重新正規化後取平均。
-4. 沒有資料的維度保持 N/A。
-5. 至少一筆已映射 normalized score 即可產生 Estimated 分數與排名。
+## Profile、維度與 Overall
 
-因此稀疏新品會立刻顯示，但 Coverage 必須與分數一起閱讀。
+對每個 reasoning-effort Product Profile：
 
-## Estimated 與 Supported
+1. 選出每個 Benchmark 的有效 normalized result。
+2. 同一維度內，對已納入 Benchmark 分數取算術平均。
+3. Coverage 是非 null 維度數量除以 8。
+4. Overall 對實際有資料的維度取算術平均；缺失維度不進分母。
+5. 至少一筆已映射 normalized result 即可產生 Estimated 分數。
 
-- 第一版所有實際資料均為 `ESTIMATED`。
-- 只有廠商自報的模型仍可顯示分數。
-- Supported 門檻尚未以理論值硬編碼，待真實資料、人眼審查與產品使用後再設定。
-- `PARTIAL_SOURCE` 可參與 Estimated，不因時間自動失效。
+因此 1/8 新品可以快速顯示，但不能與 8/8 模型的 Overall 脫離 Coverage 解讀。
 
-## 綜合榜
+## Representative Profile
 
-Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 用於：
+同一基礎模型有多個 effort Profile 時，Leaderboard 依序選擇：
 
-- 找出前沿模型。
-- 顯示外部核心排名指標。
+1. Coverage 較高者。
+2. Coverage 相同時，有效 Benchmark Results 較多者。
+3. 前兩者相同時，Overall Score 較高者。
+4. 全部相同時，`profileId` 字典序升序。
 
-它們不投入八維 Overall Score，避免把同一組底層 Benchmark 重複計分。
+Leaderboard 預設排序先依 Coverage 8、7……1，再以 Overall 由高至低，最後使用 deterministic `profileId` tie-break。使用者切換 effort 時，該列分數、Coverage、明細與雷達圖都切至所選 Profile。
 
-## 成本
+## Estimated、Supported 與顯示模式
 
-成本序列分開展示：
+- 第一版有分數結果均標為 `ESTIMATED`，包括只含廠商自報資料的模型。
+- `PARTIAL_SOURCE` 可參與 Estimated，沒有期限。
+- Supported 門檻尚未由真實資料確定，不硬編碼理論門檻。
+- 預設 UI 只顯示 Representative Profile 為 8/8 的模型。
+- Developer mode 只解除 8/8 顯示篩選，納入 1–7/8 的已計分模型；它不改分數、不補缺值、不發布資料。
 
-- `API_STANDARDIZED`：目前採 3:1 input/output token 的可修改混合假設。
-- `MEASURED_TASK`／`AGENT_TASK`：來源實際公布的每任務成本。
+## 綜合榜與成本不進八維
 
-兩種成本不可混為同一語義。API 曲線的 cost 是比較單位，不宣稱等於實際每任務支出。
+Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於 Frontier 選模和外部指標展示，不投入八維 Overall。
 
-目前 GPT-5.6 定價與 Artificial Analysis 每任務成本在 `data-v2/mappings/models.json`；權重與成本假設未來可直接改設定並生成新 Draft，不修改舊版本。
+Quality vs. Cost 使用八維 Overall 作 Y 軸，但成本正規化與 Pareto frontier 都不是第九個能力分數，也不回饋至 Leaderboard。成本算法詳見 [資料方法](DATA_METHODOLOGY.md)。
 
 ## 可重現性
 
-ProductVersion 的 versionId 是移除 versionId 欄位後，對 canonical deterministic JSON 計算 SHA-256。來源順序、維度順序、Profile、Evidence 與 cost point 均排序，固定輸入與 generatedAt 會得到相同版本。
+所有來源、Profile、Evidence、維度與 cost point 以固定次序序列化。固定輸入與 `generatedAt` 產生相同 canonical JSON 和 SHA-256 `versionId`；任何 mapping 或資料修正都建立新版本，而非覆寫既有分數。

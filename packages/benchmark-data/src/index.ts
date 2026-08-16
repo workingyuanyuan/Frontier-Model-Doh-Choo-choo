@@ -125,7 +125,7 @@ export const FieldProvenanceSchema = z.object({
   locator: z.string().min(1),
 });
 
-export const ModelProfileAttributesSchema = z.object({
+export const CandidateProfileAttributesSchema = z.object({
   effort: z.string().nullable(),
   thinking: z.string().nullable(),
   tools: z.boolean().nullable(),
@@ -133,6 +133,11 @@ export const ModelProfileAttributesSchema = z.object({
   contextWindowTokens: z.int().positive().nullable(),
   quantization: z.string().nullable(),
   attempts: z.int().positive().nullable(),
+});
+
+export const ModelProfileAttributesSchema = z.object({
+  effort: z.string().nullable(),
+  harness: z.string().nullable(),
 });
 
 export const CandidateResultSchema = z
@@ -148,7 +153,8 @@ export const CandidateResultSchema = z
       canonicalModelId: SlugSchema.nullable(),
       profileId: SlugSchema.nullable(),
     }),
-    profile: ModelProfileAttributesSchema,
+    profile: CandidateProfileAttributesSchema,
+    productProfile: ModelProfileAttributesSchema.optional(),
     metric: z.object({
       id: SlugSchema,
       name: z.string().min(1),
@@ -199,6 +205,37 @@ export const PricingSchema = z.object({
   assumptionId: SlugSchema.nullable(),
   sourceUrl: HttpUrlSchema,
 });
+export type Pricing = z.infer<typeof PricingSchema>;
+
+export const CostRecordSchema = z.object({
+  schemaVersion: z.literal('cost-record-v1'),
+  id: z.string().min(1).max(300),
+  sourceId: SlugSchema,
+  model: z.object({
+    rawName: z.string().min(1),
+    canonicalModelId: SlugSchema.nullable(),
+    profileId: SlugSchema.nullable(),
+  }),
+  profile: CandidateProfileAttributesSchema,
+  costType: PricingSchema.shape.type,
+  metricId: SlugSchema,
+  metricName: z.string().min(1),
+  unit: z.enum(['USD_PER_MILLION_TOKENS', 'USD_PER_TASK']),
+  inputPerMillionTokens: z.number().nonnegative().nullable(),
+  outputPerMillionTokens: z.number().nonnegative().nullable(),
+  cost: z.number().nonnegative().nullable(),
+  assumptionId: SlugSchema.nullable(),
+  benchmarkId: SlugSchema.nullable(),
+  benchmarkVersion: z.string().min(1).nullable(),
+  inclusion: z.enum(['INCLUDED', 'EXCLUDED']),
+  exclusionReason: z.string().min(1).nullable(),
+  sourceUrl: HttpUrlSchema,
+  observedAt: z.iso.datetime(),
+  sourcePublishedAt: z.iso.datetime().nullable(),
+  evidenceIds: z.array(Sha256Schema).min(1),
+  provenance: z.record(z.string(), FieldProvenanceSchema),
+});
+export type CostRecord = z.infer<typeof CostRecordSchema>;
 
 export const ModelProfileSchema = z.object({
   id: SlugSchema,
@@ -219,6 +256,7 @@ export const ModelCatalogSchema = z.object({
       modelId: SlugSchema,
       providerId: SlugSchema,
       displayName: z.string().min(1),
+      aliases: z.array(z.string().min(1)).optional(),
       releaseDate: z.iso.date().nullable(),
       pricing: z.array(PricingSchema),
       profilePricing: z.record(SlugSchema, z.array(PricingSchema)),
@@ -226,6 +264,90 @@ export const ModelCatalogSchema = z.object({
   ),
 });
 export type ModelCatalog = z.infer<typeof ModelCatalogSchema>;
+
+export const ProfilePolicySchema = z
+  .object({
+    schemaVersion: z.literal('profile-policy-v2'),
+    effortOrder: z.array(z.string().min(1)).min(1),
+    defaultEffort: z.string().min(1),
+  })
+  .superRefine((policy, context) => {
+    const normalizedOrder = policy.effortOrder.map(normalizedLabelKey);
+    if (new Set(normalizedOrder).size !== normalizedOrder.length) {
+      context.addIssue({
+        code: 'custom',
+        message: 'effortOrder cannot contain duplicate labels',
+        path: ['effortOrder'],
+      });
+    }
+    if (!normalizedOrder.includes(normalizedLabelKey(policy.defaultEffort))) {
+      context.addIssue({
+        code: 'custom',
+        message: 'defaultEffort must be present in effortOrder',
+        path: ['defaultEffort'],
+      });
+    }
+  });
+export type ProfilePolicy = z.infer<typeof ProfilePolicySchema>;
+
+const normalizedLabelKey = (value: string): string =>
+  value.trim().toLocaleLowerCase().replace(/\s+/gu, ' ');
+
+const profileIdSegment = (value: string): string =>
+  value
+    .normalize('NFKD')
+    .toLocaleLowerCase()
+    .replace(/[^a-z0-9]+/gu, '-')
+    .replace(/^-+|-+$/gu, '');
+
+export const applyProductProfilePolicy = (
+  candidates: CandidateResult[],
+  catalogInput: ModelCatalog,
+  policyInput: ProfilePolicy,
+): CandidateResult[] => {
+  ModelCatalogSchema.parse(catalogInput);
+  const policy = ProfilePolicySchema.parse(policyInput);
+  const effortOrder = policy.effortOrder.map((effort) =>
+    normalizedLabelKey(effort).replace(/\s+/gu, '-'),
+  );
+  const effortRank = new Map(
+    effortOrder.map((effort, index) => [effort, index]),
+  );
+  const normalizeEffort = (effort: string): string =>
+    normalizedLabelKey(effort).replace(/\s+/gu, '-');
+  const highestEffortByModel = new Map<string, string>();
+
+  candidates.forEach((candidate) => {
+    const modelId = candidate.model.canonicalModelId;
+    if (modelId === null || candidate.profile.effort === null) return;
+    const effort = normalizeEffort(candidate.profile.effort);
+    const current = highestEffortByModel.get(modelId);
+    if (
+      current === undefined ||
+      (effortRank.get(effort) ?? Number.POSITIVE_INFINITY) <
+        (effortRank.get(current) ?? Number.POSITIVE_INFINITY)
+    ) {
+      highestEffortByModel.set(modelId, effort);
+    }
+  });
+
+  const defaultEffort = normalizeEffort(policy.defaultEffort);
+
+  return candidates.map((candidate) => {
+    const modelId = candidate.model.canonicalModelId;
+    if (modelId === null) return candidate;
+
+    const effort = candidate.profile.effort
+      ? normalizeEffort(candidate.profile.effort)
+      : (highestEffortByModel.get(modelId) ?? defaultEffort);
+    const profileId = [modelId, profileIdSegment(effort)].join('-');
+    return CandidateResultSchema.parse({
+      ...candidate,
+      model: { ...candidate.model, profileId },
+      productProfile: { effort, harness: null },
+    });
+  });
+};
 
 export const OrderedDimensionScoresSchema = z
   .array(
@@ -281,6 +403,14 @@ export const ProductVersionSchema = z.object({
       cost: z.number().nonnegative(),
       performance: z.number().min(0).max(100),
       assumptionId: SlugSchema.nullable(),
+      sourceUrl: HttpUrlSchema,
+      sourceId: SlugSchema,
+      metricId: SlugSchema,
+      metricName: z.string().min(1),
+      unit: z.enum(['USD_PER_MILLION_TOKENS', 'USD_PER_TASK']),
+      benchmarkId: SlugSchema.nullable(),
+      benchmarkVersion: z.string().min(1).nullable(),
+      evidenceIds: z.array(Sha256Schema),
     }),
   ),
   evidence: z.array(CandidateResultSchema),
@@ -329,14 +459,14 @@ const resultIdentityKey = (result: CandidateResult): string =>
     result.benchmarkVersion ?? '',
     result.model.profileId ?? '',
     result.metric.id,
-    result.profile.effort ?? '',
-    result.profile.thinking ?? '',
-    String(result.profile.tools),
-    result.profile.harness ?? '',
-    String(result.profile.contextWindowTokens),
-    result.profile.quantization ?? '',
-    String(result.profile.attempts),
   ].join('\u001f');
+
+const sourceHarnessKey = (result: CandidateResult): string =>
+  normalizedLabelKey(result.profile.harness ?? '');
+
+const comparableScore = (result: CandidateResult): number =>
+  result.normalizedScore ??
+  (result.metric.higherIsBetter ? result.rawScore : -result.rawScore);
 
 export const selectCurrentResults = (
   results: CandidateResult[],
@@ -356,6 +486,15 @@ export const selectCurrentResults = (
     if (!current) {
       selected.set(key, result);
       continue;
+    }
+
+    if (sourceHarnessKey(result) !== sourceHarnessKey(current)) {
+      const scoreDifference =
+        comparableScore(result) - comparableScore(current);
+      if (scoreDifference > 0) {
+        selected.set(key, result);
+      }
+      if (scoreDifference !== 0) continue;
     }
 
     const roleDifference =
@@ -581,11 +720,6 @@ const knownConsensus = <Value>(values: Array<Value | null>): Value | null => {
   return known.length === 1 ? (known[0] as Value) : null;
 };
 
-const exactConsensus = <Value>(values: Array<Value | null>): Value | null => {
-  const unique = [...new Set(values)];
-  return unique.length === 1 ? (unique[0] as Value | null) : null;
-};
-
 const readableModelName = (rawName: string): string => {
   const withoutProfile = rawName.replace(/\s*\([^)]*\)\s*$/u, '').trim();
   if (!withoutProfile.includes('-')) return withoutProfile;
@@ -628,6 +762,7 @@ export const deriveModelProfiles = (
           profileId: string;
         };
       } =>
+        candidate.inclusion === 'INCLUDED' &&
         candidate.model.canonicalModelId !== null &&
         candidate.model.profileId !== null,
     ),
@@ -647,33 +782,18 @@ export const deriveModelProfiles = (
       const modelId = modelIds[0] as string;
       const metadata = metadataByModel.get(modelId);
       const attributes = {
-        effort: knownConsensus(results.map(({ profile }) => profile.effort)),
-        thinking: knownConsensus(
-          results.map(({ profile }) => profile.thinking),
+        effort: knownConsensus(
+          results.map(({ productProfile, profile }) =>
+            productProfile ? productProfile.effort : profile.effort,
+          ),
         ),
-        tools: exactConsensus(results.map(({ profile }) => profile.tools)),
-        harness: exactConsensus(results.map(({ profile }) => profile.harness)),
-        contextWindowTokens: knownConsensus(
-          results.map(({ profile }) => profile.contextWindowTokens),
-        ),
-        quantization: knownConsensus(
-          results.map(({ profile }) => profile.quantization),
-        ),
-        attempts: exactConsensus(
-          results.map(({ profile }) => profile.attempts),
-        ),
+        harness: null,
       };
       const baseModelName =
         metadata?.displayName ?? readableModelName(bestRawName(results));
-      const qualifiers = [
-        attributes.effort,
-        attributes.harness,
-        attributes.tools === true
-          ? 'tools'
-          : attributes.tools === false
-            ? 'no tools'
-            : null,
-      ].filter((value): value is string => value !== null);
+      const qualifiers = [attributes.effort].filter(
+        (value): value is string => value !== null,
+      );
 
       return ModelProfileSchema.parse({
         id: profileId,
@@ -704,6 +824,7 @@ export interface DraftProductInput {
   compositeSources: CompositeSource[];
   manualModels: ManualFrontierModel[];
   perSourceLimit?: number;
+  costRecords?: CostRecord[];
 }
 
 export const buildDraftProduct = (input: DraftProductInput): ProductVersion => {
@@ -772,38 +893,96 @@ export const buildDraftProduct = (input: DraftProductInput): ProductVersion => {
   const leaderboardByProfile = new Map(
     leaderboard.map((entry) => [entry.profileId, entry]),
   );
-  const costs = profiles
-    .flatMap((profile) => {
-      const performance = leaderboardByProfile.get(profile.id)?.overallScore;
-      if (performance === null || performance === undefined) return [];
+  const catalogCosts = profiles.flatMap((profile) => {
+    const performance = leaderboardByProfile.get(profile.id)?.overallScore;
+    if (performance === null || performance === undefined) return [];
 
-      return profile.pricing.flatMap((pricing) => {
-        const cost =
-          pricing.costPerTask ??
-          (pricing.inputPerMillionTokens !== null &&
-          pricing.outputPerMillionTokens !== null &&
-          pricing.assumptionId !== null
-            ? (pricing.inputPerMillionTokens * 3 +
-                pricing.outputPerMillionTokens) /
-              4
-            : null);
-        if (cost === null) return [];
-        return [
-          {
-            modelId: profile.modelId,
-            profileId: profile.id,
-            costType: pricing.type,
-            cost,
-            performance,
-            assumptionId: pricing.assumptionId,
-          },
-        ];
-      });
-    })
-    .toSorted(
-      (left, right) =>
-        left.cost - right.cost || left.profileId.localeCompare(right.profileId),
-    );
+    return profile.pricing.flatMap((pricing) => {
+      const cost =
+        pricing.costPerTask ??
+        (pricing.inputPerMillionTokens !== null &&
+        pricing.outputPerMillionTokens !== null &&
+        pricing.assumptionId !== null
+          ? (pricing.inputPerMillionTokens * 3 +
+              pricing.outputPerMillionTokens) /
+            4
+          : null);
+      if (cost === null) return [];
+      return [
+        {
+          modelId: profile.modelId,
+          profileId: profile.id,
+          costType: pricing.type,
+          cost,
+          performance,
+          assumptionId: pricing.assumptionId,
+          sourceUrl: pricing.sourceUrl,
+          sourceId: 'model-catalog',
+          metricId:
+            pricing.type === 'API_STANDARDIZED'
+              ? 'blended-token-price'
+              : 'cost-per-task',
+          metricName:
+            pricing.type === 'API_STANDARDIZED'
+              ? 'Blended token price'
+              : 'Cost per task',
+          unit:
+            pricing.type === 'API_STANDARDIZED'
+              ? ('USD_PER_MILLION_TOKENS' as const)
+              : ('USD_PER_TASK' as const),
+          benchmarkId: null,
+          benchmarkVersion: null,
+          evidenceIds: [],
+        },
+      ];
+    });
+  });
+  const materializedCosts = (input.costRecords ?? []).flatMap((record) => {
+    if (
+      record.inclusion !== 'INCLUDED' ||
+      record.model.canonicalModelId === null ||
+      record.model.profileId === null
+    ) {
+      return [];
+    }
+    const performance = leaderboardByProfile.get(
+      record.model.profileId,
+    )?.overallScore;
+    if (performance === null || performance === undefined) return [];
+    const cost =
+      record.cost ??
+      (record.inputPerMillionTokens !== null &&
+      record.outputPerMillionTokens !== null &&
+      record.assumptionId !== null
+        ? (record.inputPerMillionTokens * 3 + record.outputPerMillionTokens) / 4
+        : null);
+    if (cost === null) return [];
+    return [
+      {
+        modelId: record.model.canonicalModelId,
+        profileId: record.model.profileId,
+        costType: record.costType,
+        cost,
+        performance,
+        assumptionId: record.assumptionId,
+        sourceUrl: record.sourceUrl,
+        sourceId: record.sourceId,
+        metricId: record.metricId,
+        metricName: record.metricName,
+        unit: record.unit,
+        benchmarkId: record.benchmarkId,
+        benchmarkVersion: record.benchmarkVersion,
+        evidenceIds: record.evidenceIds,
+      },
+    ];
+  });
+  const costs = [...catalogCosts, ...materializedCosts].toSorted(
+    (left, right) =>
+      left.cost - right.cost ||
+      left.profileId.localeCompare(right.profileId) ||
+      left.sourceId.localeCompare(right.sourceId) ||
+      left.metricId.localeCompare(right.metricId),
+  );
 
   return buildProductVersion({
     generatedAt: input.generatedAt,

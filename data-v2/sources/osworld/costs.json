@@ -1,0 +1,345 @@
+[
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 3870,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:claude-opus-4-7:osworld-2-0-v2026-06-24-steps-500:standard:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-4-7",
+      "profileId": "anthropic-claude-opus-4-7-max-osworld",
+      "rawName": "Claude Opus 4.7"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "standard",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 4 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 4 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 1550,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:claude-sonnet-4-6:osworld-2-0-v2026-06-24-steps-500:standard:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-4-6",
+      "profileId": "anthropic-claude-sonnet-4-6-medium-osworld",
+      "rawName": "Claude Sonnet 4.6"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "standard",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 5 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 5 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 2410,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:claude-sonnet-4-6:osworld-2-0-v2026-06-24-steps-500:standard:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-4-6",
+      "profileId": "anthropic-claude-sonnet-4-6-max-osworld",
+      "rawName": "Claude Sonnet 4.6"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "standard",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 6 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 6 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 2750,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:gpt-5-5:osworld-2-0-v2026-06-24-steps-500:batch-tool:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-xhigh-osworld",
+      "rawName": "GPT-5.5"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "batch tool",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 7 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 7 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 708,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:kimi-2-6:osworld-2-0-v2026-06-24-steps-500:standard:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Kimi 2.6"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "enabled",
+      "harness": "standard",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 10 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 10 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 258.78,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:minimax-m3:osworld-2-0-v2026-06-24-steps-500:standard:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3-enabled-osworld",
+      "rawName": "MiniMax M3"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "enabled",
+      "harness": "standard",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 9 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 9 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "osworld",
+    "benchmarkVersion": "OSWorld 2.0-v2026.06.24-steps-500",
+    "cost": 411.56,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf"
+    ],
+    "exclusionReason": null,
+    "id": "osworld:qwen-3-7-plus:osworld-2-0-v2026-06-24-steps-500:standard:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Qwen 3.7-Plus"
+    },
+    "observedAt": "2026-08-13T03:22:43.317Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "thinking",
+      "harness": "standard",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 8 cost per task",
+        "method": "API_RESPONSE"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
+        "locator": "official-results.json default-step row 8 original approach/tool setting",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "osworld",
+    "sourcePublishedAt": "2026-06-25T00:00:00.000Z",
+    "sourceUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
+    "unit": "USD_PER_TASK"
+  }
+]

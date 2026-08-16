@@ -1,39 +1,163 @@
 import type { ProductVersion } from '@llm-bench/benchmark-data';
+import { useMemo } from 'react';
 
 import {
   buildRadarPoints,
   pointsAttribute,
   polarPoint,
 } from '../lib/visualization';
-import { UI_DIMENSION_IDS } from '../lib/ui-contract';
+import {
+  UI_DIMENSION_IDS,
+  UI_DIMENSION_ABBREVIATIONS,
+} from '../lib/ui-contract';
+import {
+  getProfileDisplayName,
+  getRepresentativeRows,
+} from '../lib/view-model';
 
-type Dimensions = ProductVersion['leaderboard'][number]['dimensions'];
-
-const label = (dimension: string) =>
-  dimension.charAt(0).toUpperCase() + dimension.slice(1);
+type LeaderboardRow = ProductVersion['leaderboard'][number];
+type Profile = ProductVersion['profiles'][number];
 
 export function RadarChart({
-  dimensions,
-  modelName,
+  product,
+  activeProfile,
+  selectedResult,
+  comparisonProfileIds,
+  setComparisonProfileIds,
+  onClearActiveProfile,
 }: {
-  dimensions: Dimensions;
-  modelName: string;
+  product: ProductVersion;
+  activeProfile: Profile;
+  selectedResult: LeaderboardRow | undefined;
+  comparisonProfileIds: string[];
+  setComparisonProfileIds: (ids: string[]) => void;
+  onClearActiveProfile: () => void;
 }) {
   const center = 140;
   const radius = 92;
-  const values = buildRadarPoints(dimensions, center, center, radius);
-  const completePoints = values.filter(
-    (point): point is NonNullable<typeof point> => point !== null,
-  );
-  const isComplete = completePoints.length === UI_DIMENSION_IDS.length;
+
+  const getSeriesData = (profileId: string) => {
+    const profile = product.profiles.find((p) => p.id === profileId);
+    const result = product.leaderboard.find((l) => l.profileId === profileId);
+    if (!profile || !result) return null;
+    return {
+      profileId,
+      displayName: getProfileDisplayName(profile),
+      dimensions: result.dimensions,
+    };
+  };
+
+  const activeSeries = {
+    profileId: activeProfile.id,
+    displayName: getProfileDisplayName(activeProfile),
+    dimensions: selectedResult ? selectedResult.dimensions : [],
+  };
+
+  const seriesList = useMemo(() => {
+    const list = [activeSeries];
+    comparisonProfileIds.forEach((id) => {
+      const data = getSeriesData(id);
+      if (data) list.push(data);
+    });
+    return list;
+  }, [activeProfile, comparisonProfileIds, product, selectedResult]);
+
+  const handleRemoveSeries = (profileId: string) => {
+    setComparisonProfileIds(
+      comparisonProfileIds.filter((id) => id !== profileId),
+    );
+  };
+
+  const seriesModelIds = useMemo(() => {
+    return seriesList
+      .map((s) => {
+        const p = product.profiles.find((prof) => prof.id === s.profileId);
+        return p?.modelId ?? '';
+      })
+      .filter(Boolean);
+  }, [seriesList, product.profiles]);
+
+  const availableComparisonRows = useMemo(() => {
+    const reps = getRepresentativeRows(product);
+    return reps.filter((row) => !seriesModelIds.includes(row.modelId));
+  }, [product, seriesModelIds]);
+
+  const modelNames = seriesList.map((s) => s.displayName).join(' vs ');
 
   return (
-    <section className="panel chart-panel" aria-labelledby="profile-title">
+    <section
+      className="panel chart-panel"
+      data-max-series="3"
+      aria-labelledby="profile-title"
+    >
       <div className="section-heading compact">
         <div>
-          <p className="eyebrow">Eight dimensions</p>
-          <h2 id="profile-title">Category profile</h2>
-          <p>{modelName}</p>
+          <p className="eyebrow">Eight Dimensions</p>
+          <h2 id="profile-title">Eight Dimensions</h2>
+          <div className="series-controls">
+            {seriesList.length < 3 && availableComparisonRows.length > 0 && (
+              <div className="add-model-container">
+                <label htmlFor="add-model-select" className="sr-only">
+                  Add model for comparison
+                </label>
+                <select
+                  id="add-model-select"
+                  data-add-model
+                  data-max-series="3"
+                  className="add-model-select"
+                  value=""
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (val && !comparisonProfileIds.includes(val)) {
+                      setComparisonProfileIds([...comparisonProfileIds, val]);
+                    }
+                  }}
+                >
+                  <option value="" disabled>
+                    Add model...
+                  </option>
+                  {availableComparisonRows.map((row) => {
+                    const profile = product.profiles.find(
+                      (p) => p.id === row.profileId,
+                    );
+                    const displayName = profile
+                      ? getProfileDisplayName(profile)
+                      : row.modelId;
+                    return (
+                      <option key={row.modelId} value={row.profileId}>
+                        {displayName}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+            )}
+            <div className="series-legend">
+              {seriesList.map((series, sIndex) => (
+                <div
+                  key={series.profileId}
+                  className={`legend-chip series-tone-${sIndex + 1}`}
+                >
+                  <span
+                    className={`legend-chip-color series-tone-${sIndex + 1}`}
+                  />
+                  <span className="legend-chip-name">{series.displayName}</span>
+                  <button
+                    type="button"
+                    className="remove-series-btn"
+                    onClick={() =>
+                      sIndex === 0
+                        ? onClearActiveProfile()
+                        : handleRemoveSeries(series.profileId)
+                    }
+                    aria-label={`Remove ${series.displayName} from radar chart`}
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
@@ -43,7 +167,7 @@ export function RadarChart({
             className="radar-chart"
             viewBox="0 0 280 280"
             role="img"
-            aria-label={`Category profile for ${modelName}. Missing values are omitted rather than drawn at zero.`}
+            aria-label={`Eight Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`}
           >
             {[25, 50, 75, 100].map((level) => {
               const grid = UI_DIMENSION_IDS.map((_, index) =>
@@ -94,49 +218,94 @@ export function RadarChart({
                     textAnchor="middle"
                     dominantBaseline="middle"
                   >
-                    {label(dimension)}
+                    {UI_DIMENSION_ABBREVIATIONS[dimension]}
                   </text>
                 </g>
               );
             })}
-            {isComplete ? (
-              <polygon
-                className="radar-area"
-                points={pointsAttribute(completePoints)}
-              />
-            ) : null}
-            {values.map((point, index) =>
-              point ? (
-                <circle
-                  key={UI_DIMENSION_IDS[index]}
-                  className="radar-point"
-                  cx={point.x}
-                  cy={point.y}
-                  r="4"
-                  aria-label={`${label(UI_DIMENSION_IDS[index]!)} ${dimensions[index]?.score?.toFixed(1)}`}
+            {seriesList.map((series, sIndex) => {
+              const values = buildRadarPoints(
+                series.dimensions,
+                center,
+                center,
+                radius,
+              );
+              const completePoints = values.filter(
+                (point): point is NonNullable<typeof point> => point !== null,
+              );
+              const isComp = completePoints.length === UI_DIMENSION_IDS.length;
+              if (!isComp) return null;
+              return (
+                <polygon
+                  key={series.profileId}
+                  className={`radar-area series-tone-${sIndex + 1}`}
+                  points={pointsAttribute(completePoints)}
                 />
-              ) : null,
-            )}
+              );
+            })}
+            {seriesList.flatMap((series, sIndex) => {
+              const values = buildRadarPoints(
+                series.dimensions,
+                center,
+                center,
+                radius,
+              );
+              return values.map((point, index) =>
+                point ? (
+                  <circle
+                    key={`${series.profileId}-${UI_DIMENSION_IDS[index]}`}
+                    className={`radar-point series-tone-${sIndex + 1}`}
+                    cx={point.x}
+                    cy={point.y}
+                    r="4"
+                    aria-hidden="true"
+                  />
+                ) : null,
+              );
+            })}
           </svg>
-          {!isComplete ? (
-            <p className="chart-note">
-              Incomplete profile: missing axes are omitted, not plotted as zero.
-            </p>
-          ) : null}
         </div>
 
-        <table className="compact-data-table">
-          <caption>Category score table</caption>
-          <tbody>
-            {dimensions.map(({ dimension, score, componentCount }) => (
-              <tr key={dimension}>
-                <th scope="row">{label(dimension)}</th>
-                <td>{score === null ? 'N/A' : score.toFixed(1)}</td>
-                <td>{componentCount} sources</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="horizontal-score-bars">
+          {UI_DIMENSION_IDS.map((dimensionId) => {
+            return (
+              <div className="dimension-bar-row" key={dimensionId}>
+                <span className="dimension-bar-label">
+                  {UI_DIMENSION_ABBREVIATIONS[dimensionId]}
+                </span>
+                <div className="dimension-bars-container">
+                  {seriesList.map((series, sIndex) => {
+                    const dimData = series.dimensions.find(
+                      (d) => d.dimension === dimensionId,
+                    );
+                    const scoreVal = dimData?.score ?? null;
+                    const srcCount = dimData?.componentCount ?? 0;
+                    return (
+                      <div className="series-bar-item" key={series.profileId}>
+                        {scoreVal !== null ? (
+                          <progress
+                            max="100"
+                            value={scoreVal}
+                            className={`series-tone-${sIndex + 1}`}
+                            aria-label={`${series.displayName} - ${dimensionId}: ${scoreVal.toFixed(1)}`}
+                          />
+                        ) : (
+                          <div className="bar-track">
+                            <span className="bar-na">N/A</span>
+                          </div>
+                        )}
+                        <span className="bar-score-label">
+                          {scoreVal !== null ? scoreVal.toFixed(1) : 'N/A'}{' '}
+                          <span className="bar-src">({srcCount} src)</span>
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

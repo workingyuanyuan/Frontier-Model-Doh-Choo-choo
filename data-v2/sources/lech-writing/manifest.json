@@ -1,0 +1,28 @@
+{
+  "accessMethods": ["EXPORT"],
+  "baseUrl": "https://github.com",
+  "benchmarkIds": ["lech-mazur-writing"],
+  "completeness": {
+    "expectedCountMethod": "Compare parsed markdown table rows with the rated-model count in the Current Results note.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Lech Mazur LLM Creative Story-Writing Benchmark",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "estimatedWinChance": "Current Results Estimated win chance",
+    "model": "Current Results Model",
+    "rank": "Current Results Leaderboard Rank"
+  },
+  "lastVerifiedAt": "2026-08-13T03:22:43.317Z",
+  "notes": [
+    "Current pairwise comparison results are separate from archived absolute ratings.",
+    "Reasoning labels are retained as effort metadata and do not create a harness-specific Product Profile."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "lech-writing",
+  "targetUrls": [
+    "https://raw.githubusercontent.com/lechmazur/writing/main/README.md"
+  ]
+}

@@ -11,14 +11,19 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
+    "materialize:organizers": "tsx src/materialize-organizers.ts",
+    "materialize:snapshots": "tsx src/materialize-snapshots.ts",
+    "materialize:costs": "tsx src/materialize-costs.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "@llm-bench/benchmark-data": "workspace:*"
+    "@llm-bench/benchmark-data": "workspace:*",
+    "adm-zip": "^0.6.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
     "typescript": "catalog:",
     "vitest": "catalog:"
   }

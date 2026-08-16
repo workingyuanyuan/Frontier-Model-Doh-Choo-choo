@@ -13,12 +13,7 @@
       "dependsOn": ["^lint"]
     },
     "test": {
-      "cache": false,
-      "persistent": true
-    },
-    "test:run": {
-      "dependsOn": ["^build"],
-      "env": ["DATABASE_URL", "RUN_DB_INTEGRATION_TESTS"]
+      "cache": false
     },
     "typecheck": {
       "dependsOn": ["^build"]

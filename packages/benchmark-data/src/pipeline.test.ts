@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  applyProductProfilePolicy,
   buildFrontierSet,
   buildDraftProduct,
   buildProductVersion,
@@ -9,10 +10,17 @@ import {
   selectCurrentResults,
   type CandidateResult,
   type ModelProfile,
+  type ProfilePolicy,
 } from './index.js';
 
 const evidenceId =
   'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' as const;
+
+const profilePolicy: ProfilePolicy = {
+  schemaVersion: 'profile-policy-v2',
+  effortOrder: ['max', 'xhigh', 'high', 'medium', 'low'],
+  defaultEffort: 'max',
+};
 
 const makeCandidate = (
   overrides: Partial<CandidateResult> = {},
@@ -64,7 +72,17 @@ const makeCandidate = (
 
 describe('selectCurrentResults', () => {
   it('uses organizer evidence over a vendor value for the same profile/config', () => {
-    const vendor = makeCandidate();
+    const vendor = makeCandidate({
+      profile: {
+        effort: 'max',
+        thinking: 'reasoning',
+        tools: true,
+        harness: null,
+        contextWindowTokens: 1_000_000,
+        quantization: null,
+        attempts: 5,
+      },
+    });
     const organizer = makeCandidate({
       id: 'result-organizer',
       sourceId: 'terminal-bench',
@@ -72,6 +90,15 @@ describe('selectCurrentResults', () => {
       sourceUrl: 'https://www.tbench.ai/leaderboard/terminal-bench/2.1',
       rawScore: 85.8,
       normalizedScore: 85.8,
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: false,
+        harness: null,
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 1,
+      },
     });
 
     expect(selectCurrentResults([vendor, organizer])).toEqual([organizer]);
@@ -341,7 +368,7 @@ describe('buildDraftProduct', () => {
 });
 
 describe('deriveModelProfiles', () => {
-  it('merges shared model facts conservatively while retaining profile identity', () => {
+  it('uses only effort in the user-facing identity', () => {
     const first = makeCandidate({
       profile: {
         effort: 'max',
@@ -369,7 +396,153 @@ describe('deriveModelProfiles', () => {
     });
 
     expect(
-      deriveModelProfiles([first, second], {
+      deriveModelProfiles(
+        applyProductProfilePolicy(
+          [first, second],
+          {
+            schemaVersion: 'model-catalog-v1',
+            models: [
+              {
+                modelId: 'openai-gpt-5-6-sol',
+                providerId: 'openai',
+                displayName: 'GPT-5.6 Sol',
+                releaseDate: '2026-07-09',
+                pricing: [],
+                profilePricing: {},
+              },
+            ],
+          },
+          profilePolicy,
+        ),
+        {
+          schemaVersion: 'model-catalog-v1',
+          models: [
+            {
+              modelId: 'openai-gpt-5-6-sol',
+              providerId: 'openai',
+              displayName: 'GPT-5.6 Sol',
+              releaseDate: '2026-07-09',
+              pricing: [],
+              profilePricing: {},
+            },
+          ],
+        },
+      ),
+    ).toEqual([
+      expect.objectContaining({
+        id: 'openai-gpt-5-6-sol-max',
+        displayName: 'GPT-5.6 Sol · max',
+        attributes: expect.objectContaining({
+          effort: 'max',
+          harness: null,
+        }),
+      }),
+    ]);
+  });
+
+  it('merges tools and attempt differences into one Profile', () => {
+    const toolsEnabled = makeCandidate({
+      profile: {
+        effort: 'max',
+        thinking: 'reasoning',
+        tools: true,
+        harness: null,
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 1,
+      },
+    });
+    const toolsDisabled = makeCandidate({
+      id: 'tools-disabled',
+      sourceId: 'livebench',
+      sourceRole: 'ORGANIZER',
+      profile: {
+        effort: 'max',
+        thinking: 'reasoning',
+        tools: false,
+        harness: null,
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 1,
+      },
+    });
+
+    const candidates = applyProductProfilePolicy(
+      [toolsEnabled, toolsDisabled],
+      {
+        schemaVersion: 'model-catalog-v1',
+        models: [],
+      },
+      profilePolicy,
+    );
+    const profiles = deriveModelProfiles(candidates, {
+      schemaVersion: 'model-catalog-v1',
+      models: [
+        {
+          modelId: 'openai-gpt-5-6-sol',
+          providerId: 'openai',
+          displayName: 'GPT-5.6 Sol',
+          releaseDate: '2026-07-09',
+          pricing: [],
+          profilePricing: {},
+        },
+      ],
+    });
+
+    expect(new Set(candidates.map(({ model }) => model.profileId))).toEqual(
+      new Set(['openai-gpt-5-6-sol-max']),
+    );
+    expect(profiles).toHaveLength(1);
+    expect(profiles[0]).toMatchObject({
+      id: 'openai-gpt-5-6-sol-max',
+      displayName: 'GPT-5.6 Sol · max',
+      attributes: { effort: 'max', harness: null },
+    });
+  });
+
+  it('merges every Harness into the effort-only Product Profile', () => {
+    const bare = makeCandidate({
+      id: 'bare',
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: false,
+        harness: null,
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 1,
+      },
+    });
+    const official = makeCandidate({
+      id: 'official',
+      benchmarkId: 'swe-bench',
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: true,
+        harness: 'Codex',
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 5,
+      },
+    });
+    const thirdParty = makeCandidate({
+      id: 'third-party',
+      benchmarkId: 'deepswe-1-1',
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: true,
+        harness: 'mini-SWE-agent',
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 4,
+      },
+    });
+
+    const resolved = applyProductProfilePolicy(
+      [bare, official, thirdParty],
+      {
         schemaVersion: 'model-catalog-v1',
         models: [
           {
@@ -381,21 +554,152 @@ describe('deriveModelProfiles', () => {
             profilePricing: {},
           },
         ],
-      }),
-    ).toEqual([
-      expect.objectContaining({
-        id: 'openai-gpt-5-6-sol-max',
-        displayName: 'GPT-5.6 Sol · max',
-        attributes: {
-          effort: 'max',
-          thinking: 'reasoning',
-          tools: null,
-          harness: null,
-          contextWindowTokens: 1_000_000,
-          quantization: null,
-          attempts: null,
+      },
+      profilePolicy,
+    );
+
+    expect(resolved.find(({ id }) => id === 'bare')?.model.profileId).toBe(
+      'openai-gpt-5-6-sol-max',
+    );
+    expect(resolved.find(({ id }) => id === 'official')).toMatchObject({
+      inclusion: 'INCLUDED',
+      model: { profileId: 'openai-gpt-5-6-sol-max' },
+      productProfile: { effort: 'max', harness: null },
+      profile: { harness: 'Codex', attempts: 5 },
+    });
+    expect(resolved.find(({ id }) => id === 'third-party')).toMatchObject({
+      inclusion: 'INCLUDED',
+      model: { profileId: 'openai-gpt-5-6-sol-max' },
+      productProfile: { effort: 'max', harness: null },
+      profile: { harness: 'mini-SWE-agent', attempts: 4 },
+    });
+  });
+
+  it('deduplicates merged Harness results without deleting source evidence', () => {
+    const organizer = makeCandidate({
+      id: 'organizer-bare',
+      sourceId: 'livebench',
+      sourceRole: 'ORGANIZER',
+      rawScore: 91,
+      normalizedScore: 91,
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: false,
+        harness: null,
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 1,
+      },
+    });
+    const independentHarness = makeCandidate({
+      id: 'independent-epoch',
+      sourceId: 'epoch-ai',
+      sourceRole: 'INDEPENDENT',
+      rawScore: 95,
+      normalizedScore: 95,
+      profile: {
+        effort: 'max',
+        thinking: null,
+        tools: true,
+        harness: 'Epoch AI Inspect',
+        contextWindowTokens: null,
+        quantization: null,
+        attempts: 3,
+      },
+    });
+    const catalog = {
+      schemaVersion: 'model-catalog-v1' as const,
+      models: [
+        {
+          modelId: 'openai-gpt-5-6-sol',
+          providerId: 'openai',
+          displayName: 'GPT-5.6 Sol',
+          releaseDate: '2026-07-09',
+          pricing: [],
+          profilePricing: {},
         },
-      }),
+      ],
+    };
+    const candidates = applyProductProfilePolicy(
+      [independentHarness, organizer],
+      catalog,
+      profilePolicy,
+    );
+    const product = buildDraftProduct({
+      generatedAt: '2026-07-16T00:00:00.000Z',
+      sourceSnapshotIds: ['epoch-ai:test', 'livebench:test'],
+      candidates,
+      profiles: deriveModelProfiles(candidates, catalog),
+      benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
+      compositeSources: [],
+      manualModels: [
+        {
+          modelId: 'openai-gpt-5-6-sol',
+          profileId: 'openai-gpt-5-6-sol-max',
+          reason: 'test frontier',
+        },
+      ],
+    });
+
+    expect(product.evidence.map(({ id }) => id)).toEqual([
+      'independent-epoch',
+      'organizer-bare',
     ]);
+    expect(product.leaderboard).toHaveLength(1);
+    expect(product.leaderboard[0]).toMatchObject({
+      overallScore: 95,
+      dimensions: expect.arrayContaining([
+        expect.objectContaining({
+          dimension: 'coding',
+          componentCount: 1,
+          score: 95,
+        }),
+      ]),
+    });
+  });
+
+  it('assigns missing effort to the highest effort observed for the model', () => {
+    const explicitHigh = makeCandidate({
+      id: 'explicit-high',
+      profile: { ...makeCandidate().profile, effort: 'high' },
+    });
+    const explicitMax = makeCandidate({
+      id: 'explicit-max',
+      profile: { ...makeCandidate().profile, effort: 'max' },
+    });
+    const missing = makeCandidate({
+      id: 'missing',
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+
+    const resolved = applyProductProfilePolicy(
+      [explicitHigh, explicitMax, missing],
+      { schemaVersion: 'model-catalog-v1', models: [] },
+      profilePolicy,
+    );
+
+    expect(resolved.find(({ id }) => id === 'missing')).toMatchObject({
+      model: { profileId: 'openai-gpt-5-6-sol-max' },
+      productProfile: { effort: 'max', harness: null },
+      profile: { effort: null },
+    });
+  });
+
+  it('uses the configured highest fallback when a model has no effort labels', () => {
+    const missing = makeCandidate({
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+
+    const [resolved] = applyProductProfilePolicy(
+      [missing],
+      { schemaVersion: 'model-catalog-v1', models: [] },
+      profilePolicy,
+    );
+
+    expect(resolved).toMatchObject({
+      model: { profileId: 'openai-gpt-5-6-sol-max' },
+      productProfile: { effort: 'max', harness: null },
+    });
   });
 });
