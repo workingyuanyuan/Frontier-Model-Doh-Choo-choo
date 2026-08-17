@@ -1,0 +1,4 @@
+{
+  "schemaVersion": "sources-config-v1",
+  "whitelist": ["artificial-analysis", "livebench", "deepswe", "frontier-code"]
+}

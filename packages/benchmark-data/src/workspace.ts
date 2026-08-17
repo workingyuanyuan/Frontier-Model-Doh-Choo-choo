@@ -6,16 +6,18 @@ import {
   BenchmarkDimensionMappingSchema,
   CandidateResultSchema,
   CostRecordSchema,
+  DisplaySetSchema,
   EvidenceRecordSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
   ProfilePolicySchema,
   SourceManifestSchema,
+  SourcesConfigSchema,
   applyProductProfilePolicy,
-  buildDraftProduct,
+  buildProduct,
   deriveModelProfiles,
-  setDraftPointer,
-  writeImmutableProductVersion,
+  validateDisplaySet,
+  writeCurrentProductVersion,
   type CandidateResult,
   type CostRecord,
   type ProductVersion,
@@ -29,9 +31,13 @@ export const buildWorkspaceProduct = async (
   generatedAt: string,
 ): Promise<ProductVersion> => {
   const dataRoot = join(resolve(repositoryRoot), 'data-v2');
+  const sourcesConfig = SourcesConfigSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'sources.json')),
+  );
+  const whitelist = new Set(sourcesConfig.whitelist);
   const sourceRoot = join(dataRoot, 'sources');
   const sourceDirectories = (await readdir(sourceRoot, { withFileTypes: true }))
-    .filter((entry) => entry.isDirectory())
+    .filter((entry) => entry.isDirectory() && whitelist.has(entry.name))
     .map(({ name }) => name)
     .sort();
   const sourceCandidates: CandidateResult[] = [];
@@ -76,6 +82,10 @@ export const buildWorkspaceProduct = async (
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'benchmarks.json')),
   );
+  const displaySet = DisplaySetSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'display-set.json')),
+  );
+  validateDisplaySet(displaySet, benchmarkMapping);
   const benchmarkDimensions = new Map(
     benchmarkMapping.benchmarks.map(({ id, primaryDimension }) => [
       id,
@@ -114,27 +124,26 @@ export const buildWorkspaceProduct = async (
     await readJson(join(dataRoot, 'mappings', 'frontier.json')),
   );
 
-  return buildDraftProduct({
+  return buildProduct({
     generatedAt,
     sourceSnapshotIds,
     candidates,
     profiles: deriveModelProfiles(candidates, catalog),
     benchmarkDimensions,
-    compositeSources: frontierConfig.compositeSources,
+    catalog,
     manualModels: frontierConfig.manualModels,
-    perSourceLimit: frontierConfig.perSourceLimit,
+    qualificationWindowMonths: frontierConfig.qualificationWindowMonths,
     costRecords: sourceCosts,
   });
 };
 
-export const writeWorkspaceDraft = async (
+export const writeWorkspaceCurrent = async (
   repositoryRoot: string,
   generatedAt: string,
 ): Promise<ProductVersion> => {
   const root = resolve(repositoryRoot);
   const product = await buildWorkspaceProduct(root, generatedAt);
   const productRoot = join(root, 'data-v2', 'product');
-  await writeImmutableProductVersion(productRoot, product);
-  await setDraftPointer(productRoot, product.versionId, generatedAt);
+  await writeCurrentProductVersion(productRoot, product);
   return product;
 };
