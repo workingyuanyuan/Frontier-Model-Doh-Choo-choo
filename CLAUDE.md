@@ -42,7 +42,7 @@ pnpm test
 pnpm e2e
 ```
 
-production build（`REFACTOR_SPEC_V2.md` §11 的 B5 完成後不再需要 `LLM_BENCH_CHANNEL`）：
+production build（B0 完成前預期失敗；B0 完成後不再需要 `LLM_BENCH_CHANNEL`，見 `REFACTOR_SPEC_V2.md` §11）：
 
 ```bash
 pnpm --filter @llm-bench/bench build

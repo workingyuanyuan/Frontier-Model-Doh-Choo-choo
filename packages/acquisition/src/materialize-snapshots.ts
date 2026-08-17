@@ -1,9 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
-import {
-  materializeEpoch,
-  materializeArtificialAnalysis,
-} from './materializers.js';
+import { materializeEpoch } from './epoch-materializer.js';
+import { materializeArtificialAnalysis } from './artificial-analysis-materializer.js';
 import {
   CandidateResultSchema,
   deterministicJson,

@@ -246,10 +246,8 @@ export const renderCompletenessMarkdown = (
   ].join('\n');
 };
 
-export {
-  materializeEpoch,
-  materializeArtificialAnalysis,
-} from './materializers.js';
+export { materializeEpoch } from './epoch-materializer.js';
+export { materializeArtificialAnalysis } from './artificial-analysis-materializer.js';
 export {
   materializeArtificialAnalysisCosts,
   materializeDeepSweCosts,

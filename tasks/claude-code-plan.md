@@ -11,6 +11,10 @@
 
 **一次只做一個 task。** 每個 task 必須可獨立驗收。
 
+**每個 task 完成即 commit，一個 task 一個 commit。** commit 前先確認 `git status` 只剩本 task 的變更，且索引沒有殘留的部分 staged 檔案。這是不同 harness 之間唯一可靠的邊界：沒有 commit，就無法單獨回退某一個 task，也無法辨識某段變更由誰產生。commit 訊息開頭用 `<type>(<task id>):`，內文最後一行註明 `Executed by: <模型／harness>`。
+
+**若某個 task 讓 repository 進入不可 build 或測試失敗的狀態，必須寫進該 task 的 `risks`，並在 commit 訊息中說明何時會被修復。** 不得因為「後面的 task 會修」而略過不提。
+
 **狀態欄位**：每個 task 標題下有一行 `狀態：`。開始動程式前先改成 `進行中`，完成並通過驗證後改成 `完成`。合法值只有 `未開始`／`進行中`／`完成`／`封鎖（原因）`。不要新增其他欄位或格式。
 
 **每個 task 完成時回報**：`summary`、`changed_files`、`validation`、`risks`、`unresolved`。
@@ -26,7 +30,7 @@ pnpm test
 pnpm e2e
 ```
 
-production build（B5 完成後不再需要 `LLM_BENCH_CHANNEL`）：
+production build（B0 完成後不再需要 `LLM_BENCH_CHANNEL`，且在 B0 完成前預期失敗）：
 
 ```bash
 pnpm --filter @llm-bench/bench build
@@ -49,7 +53,10 @@ A 清理  ──┐
 
 **兩個審核關卡都由使用者人工執行，代理不得自行通過。**
 
-一個重要的順序陷阱：`display-set.json` 的**內容**要等 coverage-matrix 報告跑出來、使用者判讀後才能決定。所以 B3 只建立設定檔的**機制與 schema**，內容在審核關卡 2 才填。
+兩個順序陷阱：
+
+1. **A1 之後 repository 不可 build。** A1 刪掉了 `data-v2/product/pointers/`，但把建置改讀 `current.json` 的是 B0。因此 **B0 必須是 Phase B 的第一個 task**，把不可 build 的窗口壓到最短。
+2. **`display-set.json` 的內容不能提前決定。** 它要等 coverage-matrix 報告跑出來、使用者判讀後才能填。所以 B3 只建立設定檔的**機制與 schema**，內容在審核關卡 2 才填。
 
 ---
 
@@ -66,7 +73,7 @@ A 清理  ──┐
 **刪除**：
 
 - `data-v2/product/versions/*.json`（21 個，14 MB）
-- `data-v2/product/pointers/`（整個目錄，B5 會移除 pointer 機制）
+- `data-v2/product/pointers/`（整個目錄，B0 會移除 pointer 機制）
 - `packages/connectors`、`packages/contracts`、`packages/db`、`packages/presentation`、`packages/radar`、`packages/scoring`（Git 未追蹤，內容只有建置產物）
 
 **不得刪除**：`data-v2/sources/` 底下任何目錄；倉庫外的 `codex-gemini-orchestrator` 工作目錄。
@@ -122,6 +129,28 @@ A 清理  ──┐
 ---
 
 # B. 資料契約
+
+**執行順序：B0 → B1 → B2 → B3 → B4。** B0 必須最先做。
+
+## B0 — 發布機制簡化（Phase B 第一個執行）
+
+狀態：未開始
+
+**為什麼排在最前面**：A1 已刪除 `data-v2/product/pointers/`，`pnpm --filter @llm-bench/bench build` 目前失敗。本 task 完成前 repository 不可 build。
+
+**目標**：實作規格 §11。移除三段式 Draft／Published／rollback 狀態機，改成單一當前版本。
+
+**要求**：
+
+- 建置只讀 `data-v2/product/current.json` 這一個固定路徑。
+- **移除**：`data-v2/product/pointers/` 目錄、`LLM_BENCH_CHANNEL` 環境變數、DRAFT／PUBLISHED 雙軌、publish／rollback 指令與其狀態機、對應測試與 CI 步驟、以及 README／ARCHITECTURE／OPERATIONS 中描述這套流程的段落。
+- **保留 `versionId`**（內容的 SHA-256），顯示在頁尾。
+- `docs/OPERATIONS.md` 改寫成新流程，並明確寫出 **rollback = `git revert` 資料 commit 後重新部署**。不要做 rollback 指令。
+- Draft／Preview 相關的 `noindex` 邏輯一併移除（不再有 Draft 這個狀態）。
+
+**禁止**：不得保留任何「未來也許會用」的 channel 切換相容層。
+
+**完成條件**：negative search 證明 `LLM_BENCH_CHANNEL`、`pointers`、`publish`、`rollback` 在程式、script、CI、測試與現行文件中都不存在；`pnpm --filter @llm-bench/bench build` 在沒有任何環境變數的情況下成功；頁尾顯示正確的 `versionId`。
 
 ## B1 — 出處記錄收斂
 
@@ -191,24 +220,6 @@ A 清理  ──┐
 - 12 個月是設定值，不是硬編碼常數。
 
 **完成條件**：邊界情況有測試（剛好 12 個月、缺 `release_date`、已 deprecated 但在窗內）；`frontier.json` 中不再有任何綜合指數的 Top-N 選模邏輯。
-
-## B5 — 發布機制簡化
-
-狀態：未開始
-
-**目標**：實作規格 §11。移除三段式 Draft／Published／rollback 狀態機，改成單一當前版本。
-
-**要求**：
-
-- 建置只讀 `data-v2/product/current.json` 這一個固定路徑。
-- **移除**：`data-v2/product/pointers/` 目錄、`LLM_BENCH_CHANNEL` 環境變數、DRAFT／PUBLISHED 雙軌、publish／rollback 指令與其狀態機、對應測試與 CI 步驟、以及 README／ARCHITECTURE／OPERATIONS 中描述這套流程的段落。
-- **保留 `versionId`**（內容的 SHA-256），顯示在頁尾。
-- `docs/OPERATIONS.md` 改寫成新流程，並明確寫出 **rollback = `git revert` 資料 commit 後重新部署**。不要做 rollback 指令。
-- Draft／Preview 相關的 `noindex` 邏輯一併移除（不再有 Draft 這個狀態）。
-
-**禁止**：不得保留任何「未來也許會用」的 channel 切換相容層。
-
-**完成條件**：negative search 證明 `LLM_BENCH_CHANNEL`、`pointers`、`publish`、`rollback` 在程式、script、CI、測試與現行文件中都不存在；`pnpm --filter @llm-bench/bench build` 在沒有任何環境變數的情況下成功；頁尾顯示正確的 `versionId`。
 
 ---
 
