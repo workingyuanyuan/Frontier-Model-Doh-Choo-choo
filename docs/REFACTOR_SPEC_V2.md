@@ -18,11 +18,11 @@
 
 ## 2. 分期
 
-| 期別 | 內容 | 完成條件 |
-| --- | --- | --- |
+| 期別 | 內容                                                   | 完成條件               |
+| ---- | ------------------------------------------------------ | ---------------------- |
 | 期一 | Artificial Analysis、LiveBench、DeepSWE、Frontier Code | 使用者人工審核資料無誤 |
-| 期二 | 加入 Epoch.AI | 同上 |
-| 期三 | 加入 Vals，以及其他依實際需求追加的來源 | 同上 |
+| 期二 | 加入 Epoch.AI                                          | 同上                   |
+| 期三 | 加入 Vals，以及其他依實際需求追加的來源                | 同上                   |
 
 **每一期都必須由使用者人工審核資料才算完成。** 代理不得自行判定某一期已完成。
 
@@ -32,12 +32,12 @@
 
 ### 3.1 保留（期一）
 
-| 來源 ID | 網站 | 角色 |
-| --- | --- | --- |
-| `artificial-analysis` | https://artificialanalysis.ai/ | ORGANIZER |
-| `livebench` | https://livebench.ai/ | ORGANIZER |
-| `deepswe` | https://deepswe.datacurve.ai/ | ORGANIZER |
-| `frontier-code` | https://cognition.com/frontiercode | ORGANIZER（新建） |
+| 來源 ID               | 網站                               | 角色              |
+| --------------------- | ---------------------------------- | ----------------- |
+| `artificial-analysis` | https://artificialanalysis.ai/     | ORGANIZER         |
+| `livebench`           | https://livebench.ai/              | ORGANIZER         |
+| `deepswe`             | https://deepswe.datacurve.ai/      | ORGANIZER         |
+| `frontier-code`       | https://cognition.com/frontiercode | ORGANIZER（新建） |
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
@@ -54,11 +54,11 @@ osworld    scale-hle terminal-bench vals-ai   zapier-automationbench
 
 ### 3.3 擷取程式碼的去留
 
-| 保留 | 刪除 |
-| --- | --- |
-| `materializeArtificialAnalysis`（期一要重寫） | `materializeVals`（約 406 行） |
-| `materializeEpoch`（期二要用，約 284 行） | `organizer-materializers.ts` 中的 arc-prize、scale-hle、zapier、osworld、lech-writing（約 613 行） |
-| | `materialize-organizers.ts` 的整個擷取層（約 733 行） |
+| 保留                                          | 刪除                                                                                               |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `materializeArtificialAnalysis`（期一要重寫） | `materializeVals`（約 406 行）                                                                     |
+| `materializeEpoch`（期二要用，約 284 行）     | `organizer-materializers.ts` 中的 arc-prize、scale-hle、zapier、osworld、lech-writing（約 613 行） |
+|                                               | `materialize-organizers.ts` 的整個擷取層（約 733 行）                                              |
 
 刪除的程式碼在 Git 歷史中可取回，期三需要時再恢復。
 
@@ -200,16 +200,16 @@ Language    71.0
 
 ## 8. 刪除清單
 
-| 對象 | 數量 | 說明 |
-| --- | --- | --- |
-| `data-v2/product/versions/*.json` | 21 個，14 MB | 舊格式，改版後讀不出來。它們是**算出來的結果**不是原始資料，且 Git 有紀錄可取回 |
+| 對象                                                            | 數量             | 說明                                                                                          |
+| --------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------- |
+| `data-v2/product/versions/*.json`                               | 21 個，14 MB     | 舊格式，改版後讀不出來。它們是**算出來的結果**不是原始資料，且 Git 有紀錄可取回               |
 | `packages/{connectors,contracts,db,presentation,radar,scoring}` | 6 個目錄，1.3 MB | Git 未追蹤，內容只有 `dist`／`.turbo`／`node_modules`，原始碼在 Git 歷史（各 3–11 個 commit） |
-| Vals 與 5 個 organizer 的擷取程式 | 約 1,346 行 | 見 §3.3 |
-| Coverage／ESTIMATED 相關程式 | 約 100 處 | 見 §5.2 |
-| `evidence-detail.tsx` | 282 行 | 功能併入模型明細面板 |
-| `data-v2/product/pointers/` | 整個目錄 | 發布機制簡化，見 §11 |
-| `LLM_BENCH_CHANNEL` 環境變數與 DRAFT／PUBLISHED 雙軌 | — | 同上 |
-| publish／rollback 指令與其狀態機、測試、CI 步驟 | — | 同上 |
+| Vals 與 5 個 organizer 的擷取程式                               | 約 1,346 行      | 見 §3.3                                                                                       |
+| Coverage／ESTIMATED 相關程式                                    | 約 100 處        | 見 §5.2                                                                                       |
+| `evidence-detail.tsx`                                           | 282 行           | 功能併入模型明細面板                                                                          |
+| `data-v2/product/pointers/`                                     | 整個目錄         | 發布機制簡化，見 §11                                                                          |
+| `LLM_BENCH_CHANNEL` 環境變數與 DRAFT／PUBLISHED 雙軌            | —                | 同上                                                                                          |
+| publish／rollback 指令與其狀態機、測試、CI 步驟                 | —                | 同上                                                                                          |
 
 **不刪除**：
 
@@ -226,12 +226,12 @@ Language    71.0
 
 全自動，完全結構化。目前分數是手工維護的，要改成自動擷取。
 
-| 用途 | 端點 |
-| --- | --- |
-| 分數表 | `https://livebench.ai/table_<release>.csv?v=<cacheVersion>` — 實測 40 列 × 23 個 task 欄 |
-| 成本 | `https://livebench.ai/cost_<release>.csv?v=<cacheVersion>` |
-| 類別歸屬 | `https://livebench.ai/categories_<release>.json?v=<cacheVersion>` — 7 個類別 |
-| release 清單與 cacheVersion | `https://livebench.ai/static/js/main.<hash>.js` |
+| 用途                        | 端點                                                                                     |
+| --------------------------- | ---------------------------------------------------------------------------------------- |
+| 分數表                      | `https://livebench.ai/table_<release>.csv?v=<cacheVersion>` — 實測 40 列 × 23 個 task 欄 |
+| 成本                        | `https://livebench.ai/cost_<release>.csv?v=<cacheVersion>`                               |
+| 類別歸屬                    | `https://livebench.ai/categories_<release>.json?v=<cacheVersion>` — 7 個類別             |
+| release 清單與 cacheVersion | `https://livebench.ai/static/js/main.<hash>.js`                                          |
 
 - 網站首頁是 JavaScript SPA（HTML 僅約 1 KB），不要用 DOM 擷取。
 - `cost_*.csv` 同時含 token 單價欄位與 `cost_per_successful_task`。兩者必須分開保存：前者是 `API_STANDARDIZED`，後者是 `MEASURED_TASK`。
@@ -241,8 +241,8 @@ Language    71.0
 
 全自動，完全結構化。目前分數是手工維護的，要改成自動擷取。
 
-| 用途 | 端點 |
-| --- | --- |
+| 用途   | 端點                                                                                                         |
+| ------ | ------------------------------------------------------------------------------------------------------------ |
 | 排行榜 | `https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json` — 實測 53 個 configuration 列、21 個模型 |
 
 - 這份 JSON **本身就含完整的思考強度階梯**，是進階圖的主要資料來源。實測有 7 個模型具備 2 個以上的思考強度，其中 6 個為完整五階（low／medium／high／xhigh／max）。
@@ -273,21 +273,21 @@ Language    71.0
 
 **Artificial Analysis 目前實際跑的 benchmark（限 2026 年、未 deprecated 的 154 個 profile 列）**
 
-| 覆蓋率 | 欄位 |
-| --- | --- |
-| 154/154 | `gpqa`、`critpt`、`omniscience`、`hle`、`lcr`、`scicode` |
-| 部分 | `terminalbench_v2_1` 118、`gdpval`／`gdpval_v2` 114、`ifbench` 104、`tau2` 103、`tau_banking` 96、`mmmu_pro` 91、`briefcase` 35、`apex_agents` 11 |
-| 已停跑 | `multilingual_aa` 9、`mmlu_pro` 2、`livecodebench` 1、`aime25` 1 |
+| 覆蓋率  | 欄位                                                                                                                                              |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 154/154 | `gpqa`、`critpt`、`omniscience`、`hle`、`lcr`、`scicode`                                                                                          |
+| 部分    | `terminalbench_v2_1` 118、`gdpval`／`gdpval_v2` 114、`ifbench` 104、`tau2` 103、`tau_banking` 96、`mmmu_pro` 91、`briefcase` 35、`apex_agents` 11 |
+| 已停跑  | `multilingual_aa` 9、`mmlu_pro` 2、`livecodebench` 1、`aime25` 1                                                                                  |
 
 **結論：Artificial Analysis 現行套件不提供 Math 與 Language。** 這兩個維度只能由 LiveBench 的 `livebench-mathematics` 與 `livebench-language` 提供。不要因為 AA 資料豐富就假設它能撐滿八維。
 
 ### 9.4 Frontier Code（新建，風險最高）
 
-| 已確認 | 未確認 |
-| --- | --- |
-| 頁面含 JSON-LD `Dataset`（name = `FrontierCode`）與 `ItemList`（name = `FrontierCode 1.1 Leaderboard (Main)`），10 筆，格式為 `{"position": N, "name": "<模型>", "description": "Score NN.N%"}` | **成本資料**是否可取得 |
-| 站台為 Next.js，內容由 Sanity CMS 供應 | **思考強度變體**是否存在及如何取得 |
-| 榜上有 Claude Opus 5、Grok 4.6、Kimi K3、Gemini 3.7 Flash 等目前資料中沒有的新模型 | 完整榜有多少列 |
+| 已確認                                                                                                                                                                                          | 未確認                             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| 頁面含 JSON-LD `Dataset`（name = `FrontierCode`）與 `ItemList`（name = `FrontierCode 1.1 Leaderboard (Main)`），10 筆，格式為 `{"position": N, "name": "<模型>", "description": "Score NN.N%"}` | **成本資料**是否可取得             |
+| 站台為 Next.js，內容由 Sanity CMS 供應                                                                                                                                                          | **思考強度變體**是否存在及如何取得 |
+| 榜上有 Claude Opus 5、Grok 4.6、Kimi K3、Gemini 3.7 Flash 等目前資料中沒有的新模型                                                                                                              | 完整榜有多少列                     |
 
 - JSON-LD 只有 Top 10 的分數百分比，**不含成本、不含思考強度**。
 - 進階圖（§6.3）需要 Frontier Code 的成本與思考強度資料。若實作後確認取不到，**進階圖退化為 Artificial Analysis + DeepSWE 兩個來源**，並在文件中明確記錄退化原因。這是可接受的結果，不是失敗。

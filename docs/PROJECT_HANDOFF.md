@@ -1,8 +1,8 @@
 # LLM Bench 專案交接
 
 > 盤點日期：2026-08-17（Asia/Taipei）  
-> 接手對象：Claude Code agent  
-> 本文件的目標：讓接手者不用從 Git 歷史猜測目前狀態、產品範圍或已淘汰項目。
+> 接手對象：Claude Code / Codex agent  
+> 本文件記錄第一次重構（Stage 5）完成後的交接歷史。**第二次重構的現行唯一權威規格為 [`REFACTOR_SPEC_V2.md`](REFACTOR_SPEC_V2.md)**，§8 待決事項已全部定案；本文件只供歷史考證。
 
 ## 1. 一句話狀態
 
@@ -10,9 +10,8 @@
 
 ## 2. Git 與工作目錄狀態
 
-- 盤點時有兩個本地分支：`main` 與 `codex/static-data-rebuild`。
-- `codex/static-data-rebuild` 原本線性領先 `main` 11 個 commits；沒有分叉或 merge conflict。完成交接提交後已 fast-forward 合併並刪除功能分支，現行本地主線只保留 `main`。
-- `origin/main` 仍停在舊 v1 commit `9ab96b2`。除非使用者明確要求，本次交接不 push、不開 PR。
+- 盤點時有兩個本地分支：`main` 與 `codex/static-data-rebuild`。完成交接提交後已 fast-forward 合併並刪除功能分支，現行本地主線只保留單一 `main`。
+- `origin/main` 仍停在舊 v1 commit `9ab96b2`。除非使用者明確要求，本次交接與重構不 push、不開 PR、不 release。
 - repository 因擁有者曾是 `CodexSandboxOffline`，部分環境需對單次 Git 指令使用 `-c safe.directory=<repo>`；不要擅自修改全域 Git 設定。
 - 額外存在 detached worktree `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend`，基於 `85e87db`，含未追蹤的較早 `apps/bench` 與 `.next`／`node_modules` 產物。它不是有效分支，也不是現行來源；未經使用者確認不要刪除。
 
@@ -79,16 +78,18 @@
 
 這些大檔是下一輪重構可處理的結構性問題，但拆檔本身不能改變資料／計分／發布語義。
 
-## 5. 最新資料與產品狀態
+## 5. 最新資料與產品狀態（歷史 Draft 盤點與第二次重構收斂）
 
-最新 Draft pointer：
+> **第二次重構狀態更新**：舊的 21 個 `data-v2/product/versions/*.json` 與 `data-v2/product/pointers/` 已依 `REFACTOR_SPEC_V2.md` §8 刪除（Task A1）。發布機制簡化為單一 `data-v2/product/current.json`。以下為上一次重構（Stage 5）結束時的歷史盤點：
+
+歷史 Draft pointer：
 
 ```text
 sha256:8adb32f9b2600c9215a80f4deeaa4e67c9f9a024e5cfc62c05ebb039c6917c21
 generatedAt: 2026-08-13T03:24:50.252Z
 ```
 
-對應產品內容：
+歷史對應產品內容：
 
 | 指標                                        | 數量 |
 | ------------------------------------------- | ---: |
@@ -101,15 +102,7 @@ generatedAt: 2026-08-13T03:24:50.252Z
 | Developer mode scored representative models |   30 |
 | 無直接分數的 Frontier model                 |    1 |
 
-最近審核見 `DRAFT_REVIEW_2026-08-13.md`。該 Draft 可供 preview，但沒有 `data-v2/product/pointers/published.json`，不可把「代理審核通過」解讀成發布核准。
-
-已知且刻意保留的資料缺口：
-
-- Artificial Analysis 187、Epoch 1,130、LiveBench 64、DeepSWE 6 個來源 identity 尚未解析；多數是歷史／非 Frontier 列。
-- 五個 organizer 來源合計保留 66 個 unresolved raw rows。
-- Epoch EBR、MirrorCode 尚未建立核准 Benchmark ID／八維 mapping。
-- LiveBench Coding、Agentic Coding、Data Analysis 仍在 raw artifact，未核准進計分。
-- Poolside Laguna XS 2.1 的圖表值仍需人工視覺覆核，禁止匯入先前錯誤抽取的 `0.0`。
+第二次重構將來源從 13 個收斂至 4 個（`artificial-analysis`、`livebench`、`deepswe`、`frontier-code`），其餘來源目錄保留於 `data-v2/sources/` 凍結。舊 Draft 評測紀錄見歷史文件 `DRAFT_REVIEW_2026-08-13.md`。
 
 ## 6. 上次重構已明確說「不要留」的項目
 
@@ -146,22 +139,20 @@ generatedAt: 2026-08-13T03:24:50.252Z
 - Published A → B → rollback A 的人工操作驗證尚未做。
 - 尚未決定下一輪「功能再次收斂」要砍到哪一層，見下一節。
 
-## 8. 待使用者決定的再次收斂邊界
+## 8. 再次收斂邊界（已於 2026-08-17 全部定案）
 
-Claude Code 不得替使用者回答：
+本節原本列出三個待決問題，**使用者已全部決定**，答案與詳細規格寫在 [`REFACTOR_SPEC_V2.md`](REFACTOR_SPEC_V2.md)：
 
-1. `packages/acquisition` 要保留自動來源擷取，還是改成只接受人工維護的靜態 JSON？
-2. `Quality vs. Cost` 與 Evidence 明細是否保留；或只留 Leaderboard＋八維雷達？
-3. Draft／Published／rollback pointer 是否保留；或改成單一當前版本、由部署 commit 決定？
-
-答案會改變 package ownership、schema、UI、操作文件和測試，因此在決定前只允許無語義的整理、測試補強與文件修正。
+1. **來源擷取**：保留自動來源擷取，期一收斂至 4 個來源（Artificial Analysis、LiveBench、DeepSWE、Frontier Code）；其餘凍結來源不刪除但建立來源白名單排除（`REFACTOR_SPEC_V2.md` §3）。
+2. **介面區塊**：移除獨立 Evidence 區塊，改為點擊展開的「模型明細面板」；保留排行榜、八維雷達圖、以及兩張性價比圖表（預設圖與進階思考強度圖）（`REFACTOR_SPEC_V2.md` §6）。
+3. **發布機制**：Draft／Published／rollback pointer 狀態機整套移除，改為單一 `data-v2/product/current.json`，由部署 commit 決定；Rollback 即為 `git revert` 資料 commit（`REFACTOR_SPEC_V2.md` §11）。
 
 ## 9. 風險與接手提醒
 
 - 目前支援的 runtime 很小，但 acquisition 與 schema 實作仍集中於超大檔，容易讓局部修改造成跨來源回歸。
 - `pnpm-workspace.yaml` 使用 `apps/*`／`packages/*` glob；舊目錄若被重新建立會自動進 workspace，需以測試／CI 防止。
 - ProductVersion 是單行 canonical JSON，檔案很大；不要手工格式化或改內容。
-- 有多個舊不可變 Draft 是正常審計歷史，不要為「整理」而刪除。
+- 舊的 21 個不可變版本檔案已在第二次重構 Task A1 刪除（`REFACTOR_SPEC_V2.md` §8），發布改為單一 `current.json`，歷史由 Git 自身保管。
 - `origin/main` 尚未包含重構；push 是外部狀態改變，必須由使用者另行授權。
 - detached 舊 worktree 尚有未追蹤內容；它不影響主 repository，但是否刪除需使用者決定。
 

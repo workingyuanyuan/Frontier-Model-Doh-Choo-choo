@@ -96,14 +96,15 @@ pnpm --filter @llm-bench/bench build
 ## 權威文件
 
 - [文件索引與閱讀順序](docs/README.md)
-- [專案現況與 Claude Code 交接](docs/PROJECT_HANDOFF.md)
-- [Claude Code 下一階段任務](tasks/claude-code-plan.md)
+- [第二次重構規格（現行唯一權威）](docs/REFACTOR_SPEC_V2.md)
+- [第二次重構任務計畫](tasks/claude-code-plan.md)
+- [專案現況與歷史交接](docs/PROJECT_HANDOFF.md)
 - [架構](docs/ARCHITECTURE.md)
 - [資料方法](docs/DATA_METHODOLOGY.md)
 - [計分方法](docs/SCORING_METHODOLOGY.md)
 - [操作與發布](docs/OPERATIONS.md)
-- [重構規格](docs/REFACTOR_SPEC.md)
 - [已捨棄項目](docs/REFACTOR_DISCARD_LIST.md)
+- [第一次重構規格（歷史考證）](docs/REFACTOR_SPEC.md)
 - [Benchmark 八維映射](docs/BENCHMARK_DIMENSION_MAPPING.md)
 - [可採用成績來源](docs/BENCHMARK_SCORE_SOURCES.md)
 
