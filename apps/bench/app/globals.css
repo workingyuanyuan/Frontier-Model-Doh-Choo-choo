@@ -13,8 +13,8 @@
   --accent-soft: rgba(47, 84, 235, 0.1);
   --cobalt: #2f54eb;
   --mint: #18b98b;
-  --draft: #d97706;
-  --draft-soft: #fef3c7;
+  --highlight: #d97706;
+  --highlight-soft: #fef3c7;
   --excluded: #64748b;
   --excluded-soft: #f1f5f9;
   --radius-sm: 4px;
@@ -207,7 +207,6 @@ summary:focus-visible {
   margin: 0.125rem 0 0;
 }
 
-.state-badge,
 .status-badge {
   border: 0.0625rem solid transparent;
   border-radius: 999rem;
@@ -221,15 +220,13 @@ summary:focus-visible {
   white-space: nowrap;
 }
 
-.state-draft,
 .status-estimated,
 .acquisition-partial_source {
-  background: var(--draft-soft);
+  background: var(--highlight-soft);
   border-color: #e7bd76;
   color: #704005;
 }
 
-.state-published,
 .status-supported,
 .inclusion-included,
 .acquisition-full {
@@ -280,27 +277,6 @@ summary:focus-visible {
   letter-spacing: 0.11em;
   margin: 0;
   text-transform: uppercase;
-}
-
-.draft-notice {
-  background: var(--draft-soft);
-  border: 0.0625rem solid #e7bd76;
-  border-left: 0.25rem solid var(--draft);
-  border-radius: var(--radius-sm);
-  display: grid;
-  gap: 0.25rem;
-  padding: 0.875rem 1rem;
-}
-
-.draft-notice strong {
-  color: #704005;
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-}
-
-.draft-notice span {
-  color: #755d37;
-  font-size: 0.8125rem;
 }
 
 .panel {
@@ -649,7 +625,7 @@ tbody tr {
 }
 
 .scatter-point.is-selected {
-  fill: var(--draft);
+  fill: var(--highlight);
 }
 
 .radar-label,
@@ -666,7 +642,7 @@ tbody tr {
 }
 
 .chart-note {
-  color: var(--draft);
+  color: var(--highlight);
   font-size: 0.75rem;
   margin: 0.5rem 0 0;
   text-align: center;
@@ -943,10 +919,6 @@ details[open] > .evidence-group-summary::before {
 
   .header-controls {
     gap: 0.75rem;
-  }
-
-  .version-meta div:nth-child(2) {
-    display: none;
   }
 
   .intro {
@@ -1623,7 +1595,7 @@ details[open] > .evidence-group-summary::before {
 }
 
 .cost-point.is-selected {
-  stroke: var(--draft);
+  stroke: var(--highlight);
   stroke-width: 4;
 }
 

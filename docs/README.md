@@ -14,10 +14,10 @@
 | 文件                                                             | 管轄範圍                                           |
 | ---------------------------------------------------------------- | -------------------------------------------------- |
 | [REFACTOR_SPEC_V2.md](REFACTOR_SPEC_V2.md)                       | 第二次重構唯一權威規格                             |
-| [ARCHITECTURE.md](ARCHITECTURE.md)                               | runtime、workspace、資料流與發布狀態機             |
+| [ARCHITECTURE.md](ARCHITECTURE.md)                               | runtime、workspace 與資料流                        |
 | [DATA_METHODOLOGY.md](DATA_METHODOLOGY.md)                       | 來源、Evidence、identity、Profile、Frontier 與成本 |
 | [SCORING_METHODOLOGY.md](SCORING_METHODOLOGY.md)                 | 八維、缺值、衝突、Overall 與排序                   |
-| [OPERATIONS.md](OPERATIONS.md)                                   | 安裝、來源刷新、Draft、人工 Published 與 rollback  |
+| [OPERATIONS.md](OPERATIONS.md)                                   | 安裝、來源刷新、目前版本、審核與 Git 回復          |
 | [BENCHMARK_DIMENSION_MAPPING.md](BENCHMARK_DIMENSION_MAPPING.md) | Benchmark 到單一主要維度的映射                     |
 | [BENCHMARK_SCORE_SOURCES.md](BENCHMARK_SCORE_SOURCES.md)         | 可採用來源與人工覆核事項                           |
 

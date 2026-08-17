@@ -8,7 +8,6 @@ import { EvidenceDetail } from './evidence-detail';
 import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
-import type { ProductChannel } from '../lib/ui-contract';
 import {
   getDataScopeSummary,
   getEvidenceForProfile,
@@ -20,11 +19,9 @@ import {
 export function Dashboard({
   benchmarkDimensions,
   product,
-  channel,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
   product: ProductVersion;
-  channel: ProductChannel;
 }) {
   const [developerMode, setDeveloperMode] = useState(false);
   const allRepresentatives = useMemo(
@@ -160,7 +157,6 @@ export function Dashboard({
     <div id="top">
       <VersionHeader
         product={product}
-        channel={channel}
         developerMode={developerMode}
         onDeveloperModeChange={setDeveloperMode}
       />
@@ -171,15 +167,6 @@ export function Dashboard({
             <h1 id="page-title">Compare capability, cost, and evidence.</h1>
             <p>Eight capability scores, cost, and evidence.</p>
           </div>
-          {channel === 'DRAFT' ? (
-            <aside className="draft-notice" aria-label="Draft dataset notice">
-              <strong>DRAFT — review data</strong>
-              <span>
-                This preview is not published. Inspect profiles and evidence
-                before approval.
-              </span>
-            </aside>
-          ) : null}
         </section>
 
         <section className="panel scope-panel" aria-labelledby="scope-title">
@@ -249,6 +236,7 @@ export function Dashboard({
       </main>
       <footer className="site-footer">
         <span>LLM Bench</span>
+        <span>Version {product.versionId}</span>
         <span>Static, reviewable, source-backed.</span>
       </footer>
     </div>

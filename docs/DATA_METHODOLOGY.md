@@ -2,7 +2,7 @@
 
 ## 原則
 
-資料先成為可追溯 Candidate，再經身份、Profile、映射與衝突規則產生不可變 Draft。來源刷新、Draft 建立與 Published 切換是三個分離步驟；任何擷取結果都不能直接改變公開網站。
+資料先成為可追溯 Candidate，再經身份、Profile、映射與衝突規則產生 deterministic ProductVersion。來源刷新與目前版本建立是分離步驟；任何擷取結果都不能直接改變已部署網站。
 
 ## 來源角色
 
@@ -70,7 +70,7 @@ Product Profile 只按 reasoning effort（例如 max、xHigh、high、medium、l
 - Harness／No Harness、tools、attempt、thinking、context、quantization 等均不建立 Product Profile。
 - 原始 Harness 名稱與配置仍保留在 Candidate／Evidence provenance。
 
-`data-v2/mappings/models.json` 與 `profile-policy.json` 是可修改設定；變更後必須生成新 Draft，不能改寫歷史版本。
+`data-v2/mappings/models.json` 與 `profile-policy.json` 是可修改設定；變更後必須重新生成 `data-v2/product/current.json`，不能在未審核下提交資料。
 
 ## Frontier 選模
 
@@ -92,7 +92,9 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
 
 ## ProductVersion 與可重現性
 
-建置流程驗證所有來源 schema、Evidence 引用、Included mapping 與 identity 後，產生排序固定的 canonical JSON。移除 `versionId` 欄位後計算 SHA-256，形成不可變 `ProductVersion.versionId`。
+建置流程驗證所有來源 schema、Evidence 引用、Included mapping 與 identity 後，產生排序固定的 canonical JSON。移除 `versionId` 欄位後計算 SHA-256，形成 `ProductVersion.versionId`。
+
+`data-v2/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v2` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts-v2` 的內容定址 bytes。
 
 ```text
 固定來源 bytes + mapping + generatedAt
@@ -100,7 +102,7 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
   → 相同 versionId
 ```
 
-版本檔只能新增。Draft／Published pointer 是唯一可變狀態，且不包含重新擷取或重新計分的副作用。
+`data-v2/product/current.json` 是唯一產品輸出；其內容可由新的 verified sources 重建，Git 資料 commit 保存已部署版本。
 
 ## Dashboard 資料邊界
 

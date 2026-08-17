@@ -4,12 +4,8 @@ import { loadProductVersion } from '../lib/load-product-version';
 export const dynamic = 'force-static';
 
 export default function Page() {
-  const { benchmarkDimensions, channel, product } = loadProductVersion();
+  const { benchmarkDimensions, product } = loadProductVersion();
   return (
-    <Dashboard
-      benchmarkDimensions={benchmarkDimensions}
-      product={product}
-      channel={channel}
-    />
+    <Dashboard benchmarkDimensions={benchmarkDimensions} product={product} />
   );
 }

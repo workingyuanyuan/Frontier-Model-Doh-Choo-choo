@@ -1,18 +1,14 @@
 import type { ProductVersion } from '@llm-bench/benchmark-data';
 
-import type { ProductChannel } from '../lib/ui-contract';
-
 const shortVersion = (versionId: string) =>
   `${versionId.slice(7, 15)}…${versionId.slice(-6)}`;
 
 export function VersionHeader({
   product,
-  channel,
   developerMode,
   onDeveloperModeChange,
 }: {
   product: ProductVersion;
-  channel: ProductChannel;
   developerMode: boolean;
   onDeveloperModeChange: (enabled: boolean) => void;
 }) {
@@ -37,14 +33,6 @@ export function VersionHeader({
       </div>
       <div className="header-controls">
         <dl className="version-meta" aria-label="Dataset version">
-          <div>
-            <dt>Channel</dt>
-            <dd>
-              <span className={`state-badge state-${channel.toLowerCase()}`}>
-                {channel}
-              </span>
-            </dd>
-          </div>
           <div>
             <dt>Version</dt>
             <dd title={product.versionId}>{shortVersion(product.versionId)}</dd>

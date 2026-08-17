@@ -21,7 +21,6 @@ jobs:
 
     env:
       CI: true
-      LLM_BENCH_CHANNEL: DRAFT
 
     steps:
       - name: Check out repository

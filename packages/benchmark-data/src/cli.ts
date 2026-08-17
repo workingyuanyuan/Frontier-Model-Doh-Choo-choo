@@ -2,21 +2,13 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 
-import {
-  ProductVersionSchema,
-  publishDraft,
-  rollbackPublished,
-  setDraftPointer,
-  writeImmutableProductVersion,
-} from './index.js';
-import { writeWorkspaceDraft } from './workspace.js';
+import { ProductVersionSchema, writeCurrentProductVersion } from './index.js';
+import { writeWorkspaceCurrent } from './workspace.js';
 
 const usage = [
   'Usage:',
   '  product-version build-workspace [repository-root]',
-  '  product-version write-draft <version.json> [product-root]',
-  '  product-version publish [product-root]',
-  '  product-version rollback [product-root]',
+  '  product-version write-current <version.json> [product-root]',
 ].join('\n');
 
 export const runProductVersionCli = async (
@@ -27,35 +19,18 @@ export const runProductVersionCli = async (
 
   if (command === 'build-workspace') {
     const root = resolve(first ?? '.');
-    const product = await writeWorkspaceDraft(root, now);
-    return `Draft ${product.versionId} built from verified workspace sources`;
+    const product = await writeWorkspaceCurrent(root, now);
+    return `Current product ${product.versionId} built from verified workspace sources`;
   }
 
-  if (command === 'write-draft') {
+  if (command === 'write-current') {
     if (!first) throw new Error(usage);
     const root = resolve(second ?? 'data-v2/product');
     const version = ProductVersionSchema.parse(
       JSON.parse(await readFile(resolve(first), 'utf8')),
     );
-    await writeImmutableProductVersion(root, version);
-    const pointer = await setDraftPointer(root, version.versionId, now);
-    return `Draft now points to ${pointer.versionId}`;
-  }
-
-  if (command === 'publish') {
-    const pointer = await publishDraft(
-      resolve(first ?? 'data-v2/product'),
-      now,
-    );
-    return `Published now points to ${pointer.versionId}`;
-  }
-
-  if (command === 'rollback') {
-    const pointer = await rollbackPublished(
-      resolve(first ?? 'data-v2/product'),
-      now,
-    );
-    return `Published rolled back to ${pointer.versionId}`;
+    await writeCurrentProductVersion(root, version);
+    return `Current product written: ${version.versionId}`;
   }
 
   throw new Error(usage);

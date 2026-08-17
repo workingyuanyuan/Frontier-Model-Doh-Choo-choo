@@ -9,12 +9,9 @@
   },
   "scripts": {
     "build": "turbo run build",
-    "data:v2:build-draft": "pnpm --filter @llm-bench/benchmark-data data:build-draft",
-    "data:v2:draft": "pnpm --filter @llm-bench/benchmark-data data:draft",
+    "data:v2:build-current": "pnpm --filter @llm-bench/benchmark-data data:build-current",
     "data:v2:materialize-costs": "pnpm --filter @llm-bench/acquisition materialize:costs",
     "data:v2:materialize-snapshots": "pnpm --filter @llm-bench/acquisition materialize:snapshots",
-    "data:v2:publish": "pnpm --filter @llm-bench/benchmark-data data:publish",
-    "data:v2:rollback": "pnpm --filter @llm-bench/benchmark-data data:rollback",
     "dev": "turbo run dev --parallel",
     "e2e": "playwright test",
     "format": "prettier --check .",

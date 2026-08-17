@@ -32,7 +32,7 @@ test('switching effort updates the selected model scores', async ({ page }) => {
   });
   test.skip(
     (await select.count()) === 0,
-    'Current Draft has no alternative Fable profile',
+    'Current product has no alternative Fable profile',
   );
 
   const row = page.getByRole('row', { name: /Claude Fable 5/ });

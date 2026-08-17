@@ -134,7 +134,7 @@ A 清理  ──┐
 
 ## B0 — 發布機制簡化（Phase B 第一個執行）
 
-狀態：未開始
+狀態：完成
 
 **為什麼排在最前面**：A1 已刪除 `data-v2/product/pointers/`，`pnpm --filter @llm-bench/bench build` 目前失敗。本 task 完成前 repository 不可 build。
 

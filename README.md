@@ -1,6 +1,6 @@
 # LLM Bench
 
-LLM Bench 是一個以可追溯靜態資料為核心的前沿模型 Dashboard。產品使用同一份不可變 `ProductVersion` 提供三個主要視圖：
+LLM Bench 是一個以可追溯靜態資料為核心的前沿模型 Dashboard。產品使用單一目前的 `ProductVersion` 提供三個主要視圖：
 
 - Leaderboard：綜合分數、八維能力與 Coverage。
 - Quality vs. Cost：跨來源正規化成本與效能曲線。
@@ -10,11 +10,11 @@ LLM Bench 是一個以可追溯靜態資料為核心的前沿模型 Dashboard。
 
 ```text
 apps/bench/                  Next.js 單頁 Dashboard
-packages/benchmark-data/     Schema、身份、Profile、計分、版本與 pointer CLI
+packages/benchmark-data/     Schema、身份、Profile、計分與產品資料 CLI
 packages/acquisition/        來源快照、成本物化、artifact 與完整性驗證
 data-v2/mappings/            Benchmark、模型、Frontier 與 Profile 設定
 data-v2/sources/             manifest、evidence、candidate、cost 與驗證報告
-data-v2/product/             不可變 ProductVersion 與 Draft/Published pointer
+data-v2/product/current.json 單一目前 ProductVersion
 artifacts-v2/                Git 外、內容定址的原始來源 bytes
 ```
 
@@ -31,7 +31,7 @@ pnpm install --frozen-lockfile
 
 不需要 Docker Desktop、資料庫或來源網站連線即可測試、建置及顯示已存在的 ProductVersion。
 
-## 資料刷新與 Draft
+## 資料刷新與目前版本
 
 刷新支援來源的結構化快照與成本：
 
@@ -40,38 +40,22 @@ pnpm --filter @llm-bench/acquisition materialize:snapshots
 pnpm --filter @llm-bench/acquisition materialize:costs
 ```
 
-刷新不會直接改變網站版本。驗證來源後，另行建立不可變 Draft：
+驗證來源後，建立單一 `data-v2/product/current.json`：
 
 ```bash
-pnpm data:v2:build-draft
+pnpm data:v2:build-current
 ```
 
-預覽 Draft：
+這個檔案包含由內容 SHA-256 計算的 `versionId`，Dashboard 建置固定讀取它；頁尾會顯示完整 ID。刷新與建立目前版本不會自動代表發布，必須由使用者審核變更後再提交資料 commit。
 
-```powershell
-$env:LLM_BENCH_CHANNEL = "DRAFT"
+使用目前資料開發或建置：
+
+```bash
 pnpm --filter @llm-bench/bench dev
-```
-
-Draft 有明顯狀態標示並設為 `noindex`。Agent 必須先審核來源、身份、映射、計分、UI 與版本 hash；只有公開證據無法裁決的問題才交給人工。
-
-## Published 與回退
-
-Published 永遠需要人工明確操作，Agent 不得因資料或程式測試通過而自行發布：
-
-```bash
-pnpm data:v2:publish
-pnpm data:v2:rollback
-```
-
-`publish` 只把 Published pointer 原子切至已存在且已驗證的 Draft，不重新擷取或計分。`rollback` 只切回 pointer 記錄的前一個不可變版本。
-
-Published 建置必須明確指定通道：
-
-```powershell
-$env:LLM_BENCH_CHANNEL = "PUBLISHED"
 pnpm --filter @llm-bench/bench build
 ```
+
+若要回復已部署資料，請 `git revert` 對應的資料 commit，然後重新部署；不要以指令改寫版本狀態。
 
 ## Dashboard 顯示規則
 
@@ -102,7 +86,7 @@ pnpm --filter @llm-bench/bench build
 - [架構](docs/ARCHITECTURE.md)
 - [資料方法](docs/DATA_METHODOLOGY.md)
 - [計分方法](docs/SCORING_METHODOLOGY.md)
-- [操作與發布](docs/OPERATIONS.md)
+- [操作與資料流程](docs/OPERATIONS.md)
 - [已捨棄項目](docs/REFACTOR_DISCARD_LIST.md)
 - [第一次重構規格（歷史考證）](docs/REFACTOR_SPEC.md)
 - [Benchmark 八維映射](docs/BENCHMARK_DIMENSION_MAPPING.md)

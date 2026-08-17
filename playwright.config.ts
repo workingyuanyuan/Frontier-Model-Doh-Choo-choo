@@ -19,7 +19,6 @@ export default defineConfig({
   ],
   webServer: {
     command: 'pnpm --filter @llm-bench/bench start --port 3910',
-    env: { LLM_BENCH_CHANNEL: 'DRAFT' },
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     url: 'http://127.0.0.1:3910',

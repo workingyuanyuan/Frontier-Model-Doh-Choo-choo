@@ -13,15 +13,14 @@ const benchmarkDimensions = {
 const dashboard = () =>
   createElement(Dashboard, {
     product: productFixture,
-    channel: 'DRAFT',
     benchmarkDimensions,
   });
 
 describe('Dashboard Redesign', () => {
-  it('renders the separate review channel and all required product views', () => {
+  it('renders the current product version and all required product views', () => {
     const html = renderToStaticMarkup(dashboard());
 
-    expect(html).toContain('DRAFT');
+    expect(html).toContain(`Version ${productFixture.versionId}`);
     expect(html).toContain('Leaderboard');
     expect(html).toContain('Quality vs. Cost');
     expect(html).toContain('Eight Dimensions');
@@ -159,6 +158,8 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Agentic');
     expect(html).toContain('Instruction');
     expect(html).toContain('Other evidence');
+    expect(html).toContain('$.leaderboard.score');
+    expect(html).toContain('2026-07-16T12:00:00.000Z');
   });
 
   it('makes every Leaderboard and evidence column a sort control', () => {
