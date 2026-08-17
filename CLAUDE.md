@@ -18,7 +18,7 @@
 - 不得恢復舊 Web、Worker、DB、PostgreSQL、Drizzle、Docker／Compose、Edition、PREVIEW／FORMAL、Remotion/video、雙語、雙主題或多頁架構。
 - 缺失 Benchmark 分數保持 `null`／N/A，不能填零、推測 identity 或用 composite index 代替八維成績。
 - Agent 不得 push、deploy 或 release。
-- Agent 不得 commit `data-v2/product/current.json`；那是發布動作，需使用者審核後明確指示（`REFACTOR_SPEC_V2.md` §11.2）。程式碼變更的 commit 不受此限。
+- Agent 不得 commit `data-v2/product/current.json`；那是發布動作，需使用者審核後明確指示（`REFACTOR_SPEC_V2.md` §11.2）。**這條規則只針對這一個檔案，不是不要 commit 的意思**：每個 task 完成時仍必須 commit 其餘檔案，做法見 `tasks/claude-code-plan.md` 共同契約。用 `git add` 逐一列出檔案，不要用 `git add -A`。
 - 規格未涵蓋的情況不得自行決定；先向使用者確認，再把決定寫回文件與測試。
 - 不要把 `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend` 當成工作來源。那是 detached 的舊代理 worktree，含未追蹤的較早 UI 與建置產物。
 
