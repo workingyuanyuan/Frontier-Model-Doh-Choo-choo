@@ -1,26 +1,33 @@
 # Claude Code 接手入口
 
-這個 repository 已完成一次大幅靜態化重構。開始工作前，依序完整閱讀：
+這個 repository 已完成一次大幅靜態化重構，目前正在執行第二次重構。開始工作前，依序完整閱讀：
 
-1. `docs/PROJECT_HANDOFF.md`：目前進度、確認需求、風險與未決產品邊界。
-2. `tasks/claude-code-plan.md`：下一階段任務契約與驗收條件。
+1. `docs/REFACTOR_SPEC_V2.md`：**第二次重構的權威規格**。與其他文件衝突時以本文件為準。
+2. `tasks/claude-code-plan.md`：任務契約、相依順序與驗收條件。
 3. `docs/REFACTOR_DISCARD_LIST.md`：明確禁止恢復的舊架構。
-4. `docs/ARCHITECTURE.md`、`docs/DATA_METHODOLOGY.md`、`docs/SCORING_METHODOLOGY.md`、`docs/OPERATIONS.md`：現行系統契約。
+4. `docs/PROJECT_HANDOFF.md`：上一次重構的進度與風險盤點。其 §8「待使用者決定」已全部決定，答案在 `REFACTOR_SPEC_V2.md`。
+5. `docs/ARCHITECTURE.md`、`docs/DATA_METHODOLOGY.md`、`docs/SCORING_METHODOLOGY.md`、`docs/OPERATIONS.md`：上一次重構後的系統契約，正由第二次重構逐項改寫。
+
+`docs/REFACTOR_SPEC.md` 是上一次重構的規格（狀態 Implemented），只供考證，不是現行依據。
+
+**文件權威順序**：`docs/REFACTOR_SPEC_V2.md` > `tasks/claude-code-plan.md` > `CLAUDE.md` > 其他文件。
 
 ## 不可自行改變的邊界
 
 - 唯一支援中的 runtime app 是 `apps/bench`；現行資料／程式 workspace 只有 `apps/bench`、`packages/benchmark-data`、`packages/acquisition`。
 - 不得恢復舊 Web、Worker、DB、PostgreSQL、Drizzle、Docker／Compose、Edition、PREVIEW／FORMAL、Remotion/video、雙語、雙主題或多頁架構。
 - 缺失 Benchmark 分數保持 `null`／N/A，不能填零、推測 identity 或用 composite index 代替八維成績。
-- Agent 可以審核和建立 Draft，但不得自行建立／切換 Published pointer、執行 publish／rollback、push、deploy 或 release。
-- `docs/PROJECT_HANDOFF.md` 中仍標為「待使用者決定」的產品範圍，不得自行選擇；先向使用者確認，再把決定寫回文件與測試。
+- Agent 不得 push、deploy 或 release。
+- Agent 不得 commit `data-v2/product/current.json`；那是發布動作，需使用者審核後明確指示（`REFACTOR_SPEC_V2.md` §11.2）。程式碼變更的 commit 不受此限。
+- 規格未涵蓋的情況不得自行決定；先向使用者確認，再把決定寫回文件與測試。
 - 不要把 `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend` 當成工作來源。那是 detached 的舊代理 worktree，含未追蹤的較早 UI 與建置產物。
 
 ## 工作方式
 
 - 只在目前 repository 的 `main` 主線工作，不另建長期功能分支，除非使用者明確要求。
-- 先更新 `tasks/claude-code-plan.md` 的狀態，再做程式變更；每個 task 要保持單一目的且可獨立驗收。
-- 不重寫或刪除不可變 `data-v2/product/versions/*.json`；資料修正要生成新版本。
+- 動程式前先把 `tasks/claude-code-plan.md` 中該 task 的**狀態欄位**改成 `進行中`，完成後改成 `完成`。每個 task 要保持單一目的且可獨立驗收。
+- 不得刪除或修改 `data-v2/sources/` 底下任何目錄。
+- 產品版本檔的處置依 `REFACTOR_SPEC_V2.md` §8 與 §11：舊的 `data-v2/product/versions/*.json` 要刪除，改為單一 `data-v2/product/current.json`。
 - 不要把歷史文件 `docs/DECISIONS.md` 或舊 Draft review 當成現行架構權威。
 - 保留使用者現有變更；不要用 reset、checkout 或清理指令丟棄未知內容。
 
@@ -35,10 +42,9 @@ pnpm test
 pnpm e2e
 ```
 
-Draft production build：
+production build（`REFACTOR_SPEC_V2.md` §11 的 B5 完成後不再需要 `LLM_BENCH_CHANNEL`）：
 
-```powershell
-$env:LLM_BENCH_CHANNEL = "DRAFT"
+```bash
 pnpm --filter @llm-bench/bench build
 ```
 

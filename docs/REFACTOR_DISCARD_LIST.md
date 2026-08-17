@@ -1,6 +1,15 @@
 # Stage 5 已捨棄項目
 
-本文件是重構後的負面架構清單：下列項目已移除或 Superseded，不是備援、可選安裝或未來相容承諾。若歷史文件仍提及它們，以 [架構](ARCHITECTURE.md) 和 [重構規格](REFACTOR_SPEC.md) 為準。
+本文件是重構後的負面架構清單：下列項目已移除或 Superseded，不是備援、可選安裝或未來相容承諾。若歷史文件仍提及它們，以 [第二次重構規格](REFACTOR_SPEC_V2.md) 為準；該規格未涵蓋的部分再參照 [架構](ARCHITECTURE.md)。
+
+> **本清單的負面範圍全部仍然有效**，第二次重構只增加項目、不解除任何一項。
+>
+> 但本文件寫於 Stage 5，其中被描述為「現行」的機制已被第二次重構取代：
+>
+> - **DRAFT／PUBLISHED pointer 已整套移除**，改為單一 `data-v2/product/current.json`，由部署 commit 決定。見 `REFACTOR_SPEC_V2.md` §11。
+> - **不可變 `data-v2/product/versions/*.json` 已刪除**。見 `REFACTOR_SPEC_V2.md` §8。
+>
+> 遇到本文件描述現行機制的段落，一律以 `REFACTOR_SPEC_V2.md` 為準。
 
 ## 應用
 
@@ -19,7 +28,7 @@
 | Docker／Compose | `compose.yaml`、DB lifecycle、CI service                | Node.js + pnpm 本機／CI 命令              |
 | `packages/db`   | 所有 DB tables、fixtures、integration paths             | `packages/benchmark-data`                 |
 
-專案不保留「將來重新導入 Docker」方案。需要的新資料能力必須遵守靜態資料與 pointer 邊界。
+專案不保留「將來重新導入 Docker」方案。需要的新資料能力必須遵守靜態資料邊界。
 
 ## LiveBench 舊專用流程
 
@@ -36,7 +45,7 @@
 - 將 Composite index 直接投入八維的舊計分假設。
 - Edition-bound video DTO、metadata、ranking CSV 與 render artifact。
 
-現行狀態只有不可變 ProductVersion，以及人工控制的 DRAFT／PUBLISHED pointer。
+~~現行狀態只有不可變 ProductVersion，以及人工控制的 DRAFT／PUBLISHED pointer。~~ **Superseded by REFACTOR_SPEC_V2 §11**：改為單一 `data-v2/product/current.json`，pointer 機制整套移除。
 
 ## Package 與依賴
 
@@ -52,7 +61,7 @@
 - video still、render、artifact upload。
 - 任何需要 Docker 或 `DATABASE_URL` 的 setup/runbook。
 
-現行 CI 只驗證 acquisition、benchmark-data、bench、靜態 ProductVersion、pointer、production build、瀏覽器／無障礙與 dependency security。
+現行 CI 只驗證 acquisition、benchmark-data、bench、靜態產品版本、production build、瀏覽器／無障礙與 dependency security。（`pointer` gate 已隨 `REFACTOR_SPEC_V2.md` §11 移除。）
 
 ## 文件狀態
 
@@ -66,6 +75,6 @@ Stage 5 的機械移除只有在以下搜尋與建置證據同時成立時完成
 - root scripts、CI、lockfile、imports 無舊 app／package 或 DB／video 指令。
 - repository 無 Compose、migration、舊 Worker、Edition 或 video source。
 - 新三個 workspace 的 test、typecheck、build 通過。
-- Published build 不需要網路、artifact、PostgreSQL 或 Docker。
+- production build 不需要網路、artifact、PostgreSQL 或 Docker。
 
 文件中為說明「已捨棄」而出現的歷史名稱，不代表執行期依賴。
