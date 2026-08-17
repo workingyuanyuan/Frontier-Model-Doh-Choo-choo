@@ -92,7 +92,7 @@ A 清理  ──┐
 
 ## A3 — 拆分 `materializers.ts`
 
-狀態：未開始
+狀態：完成
 
 **目標**：`materializers.ts` 目前 1,929 行，按來源拆成獨立模組。
 
