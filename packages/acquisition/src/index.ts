@@ -248,7 +248,6 @@ export const renderCompletenessMarkdown = (
 
 export {
   materializeEpoch,
-  materializeVals,
   materializeArtificialAnalysis,
 } from './materializers.js';
 export {
@@ -256,5 +255,3 @@ export {
   materializeDeepSweCosts,
   materializeLiveBenchCosts,
 } from './pricing-materializers.js';
-export { materializeOrganizers } from './materialize-organizers.js';
-export type { OrganizerMaterializerOptions } from './materialize-organizers.js';

@@ -86,7 +86,7 @@ describe('renderCompletenessMarkdown', () => {
   it('renders counts and issues for human review', () => {
     const markdown = renderCompletenessMarkdown(
       buildCompletenessReport({
-        sourceId: 'vals-ai',
+        sourceId: 'livebench',
         expectedVisibleRows: null,
         extractedRows: 7,
         candidateRows: 7,
@@ -96,7 +96,7 @@ describe('renderCompletenessMarkdown', () => {
       }),
     );
 
-    expect(markdown).toContain('# vals-ai acquisition validation');
+    expect(markdown).toContain('# livebench acquisition validation');
     expect(markdown).toContain('| Status | PARTIAL_SOURCE |');
     expect(markdown).toContain('VISIBLE_COUNT_UNKNOWN');
   });

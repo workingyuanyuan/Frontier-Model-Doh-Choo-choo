@@ -108,7 +108,7 @@ describe('selectCurrentResults', () => {
     const partial = makeCandidate({ acquisitionStatus: 'PARTIAL_SOURCE' });
     const full = makeCandidate({
       id: 'full',
-      sourceId: 'vals-ai',
+      sourceId: 'artificial-analysis',
       sourceRole: 'INDEPENDENT',
       acquisitionStatus: 'FULL',
       rawScore: 84,
@@ -382,7 +382,7 @@ describe('deriveModelProfiles', () => {
     });
     const second = makeCandidate({
       id: 'second',
-      sourceId: 'vals-ai',
+      sourceId: 'artificial-analysis',
       sourceRole: 'INDEPENDENT',
       profile: {
         effort: 'max',

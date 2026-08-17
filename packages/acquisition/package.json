@@ -11,7 +11,6 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "materialize:organizers": "tsx src/materialize-organizers.ts",
     "materialize:snapshots": "tsx src/materialize-snapshots.ts",
     "materialize:costs": "tsx src/materialize-costs.ts",
     "test": "vitest",

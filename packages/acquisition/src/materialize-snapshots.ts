@@ -2,7 +2,6 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import {
   materializeEpoch,
-  materializeVals,
   materializeArtificialAnalysis,
 } from './materializers.js';
 import {
@@ -57,40 +56,6 @@ The export includes ${unresolvedCount} historical or alias-specific rows not yet
 `;
 }
 
-function getValsReport(
-  extractedCount: number,
-  candidateCount: number,
-  unresolvedCount: number,
-): string {
-  return `# Vals AI acquisition validation
-
-- Evidence: captured Vals home \`benchmarkView\` plus the GPT-5.6 Sol detail response.
-
-## Exact counts
-
-| Check | Count |
-|---|---:|
-| Structured tasks | 6 |
-| Models per structured task | 36 |
-| Structured score objects | 216 |
-| Reviewed non-matrix Sol rows | 2 |
-| Extracted rows | ${extractedCount} |
-| Generated candidates | ${candidateCount} |
-| Canonically unresolved candidates | ${unresolvedCount} |
-
-The structured matrix materializes Vals Index, Finance Agent v2, CorpFin v2, SWE-bench, Terminal-Bench 2.1, and Vibe Code Bench. Vals Index is organizer-owned composite evidence and remains \`EXCLUDED\`; the other 180 matrix constituents are direct Included results. The two retained non-matrix rows are GPT-5.6 Sol ProofBench and GPQA.
-
-## Role boundary
-
-Vals-owned Finance Agent v2, CorpFin v2, Vibe Code Bench, Vals Index, and ProofBench use \`ORGANIZER\`. Vals reruns of SWE-bench, Terminal-Bench, and GPQA use \`INDEPENDENT\`.
-
-## Risks and limitations
-
-- The detail response contains server-rendered \`0.0%\` placeholders; these are not ingested. No additional hidden-style values are promoted beyond the two previously reviewed Sol rows.
-- ${unresolvedCount} rows retain null canonical identity. Benchmark-specific pages remain necessary before expanding beyond the captured matrix.
-`;
-}
-
 function getAAReport(
   extractedCount: number,
   candidateCount: number,
@@ -142,7 +107,6 @@ function main() {
 
   const sources = [
     { id: 'epoch-ai', reportFn: getEpochReport },
-    { id: 'vals-ai', reportFn: getValsReport },
     { id: 'artificial-analysis', reportFn: getAAReport },
   ];
 
@@ -168,34 +132,6 @@ function main() {
         evidenceId: zipRecord.id,
         sourceUrl: zipRecord.requestUrl,
       });
-    } else if (src.id === 'vals-ai') {
-      const homeRecord = evidenceList.find(
-        (e) => e.requestUrl === 'https://www.vals.ai/home',
-      );
-      const detailRecord = evidenceList.find(
-        (e) => e.requestUrl === 'https://www.vals.ai/models/openai_gpt-5.6-sol',
-      );
-      if (!homeRecord || !detailRecord)
-        throw new Error('Home/Detail HTML evidence not found for vals-ai');
-      const homeHtml = readFileSync(
-        join(repoRoot, homeRecord.artifactPath),
-        'utf8',
-      );
-      const detailHtml = readFileSync(
-        join(repoRoot, detailRecord.artifactPath),
-        'utf8',
-      );
-      candidates = materializeVals(
-        homeHtml,
-        detailHtml,
-        homeRecord.retrievedAt,
-        {
-          homeEvidenceId: homeRecord.id,
-          detailEvidenceId: detailRecord.id,
-          homeUrl: homeRecord.requestUrl,
-          detailUrl: detailRecord.requestUrl,
-        },
-      );
     } else if (src.id === 'artificial-analysis') {
       const modelsRecord = evidenceList.find(
         (e) => e.requestUrl === 'https://artificialanalysis.ai/models',
