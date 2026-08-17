@@ -1,23 +1,5 @@
 {
-  "schemaVersion": "frontier-config-v1",
-  "perSourceLimit": 20,
-  "compositeSources": [
-    {
-      "sourceId": "artificial-analysis",
-      "benchmarkId": "artificial-analysis-intelligence-index"
-    },
-    {
-      "sourceId": "epoch-ai",
-      "benchmarkId": "epoch-capabilities-index"
-    },
-    {
-      "sourceId": "llm-stats",
-      "benchmarkId": "llm-stats-coding-index"
-    },
-    {
-      "sourceId": "vals-ai",
-      "benchmarkId": "vals-index"
-    }
-  ],
+  "schemaVersion": "frontier-config-v2",
+  "qualificationWindowMonths": 12,
   "manualModels": []
 }
