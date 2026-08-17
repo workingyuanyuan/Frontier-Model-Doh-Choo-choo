@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { materializeEpoch } from './epoch-materializer.js';
 import { materializeArtificialAnalysis } from './artificial-analysis-materializer.js';
+import { materializeLiveBench } from './livebench-materializer.js';
 import {
   CandidateResultSchema,
   deterministicJson,
@@ -106,6 +107,7 @@ function main() {
   const sources = [
     { id: 'epoch-ai', reportFn: getEpochReport },
     { id: 'artificial-analysis', reportFn: getAAReport },
+    { id: 'livebench', reportFn: null },
   ];
 
   for (const src of sources) {
@@ -118,6 +120,7 @@ function main() {
     ) as EvidenceRecord[];
 
     let candidates: CandidateResult[] = [];
+    let customReportText: string | null = null;
 
     if (src.id === 'epoch-ai') {
       const zipRecord = evidenceList.find(
@@ -162,6 +165,51 @@ function main() {
           articleUrl: articleRecord.requestUrl,
         },
       );
+    } else if (src.id === 'livebench') {
+      const jsRecord = evidenceList.find(
+        (e) =>
+          e.mediaType === 'text/javascript' ||
+          e.requestUrl.includes('static/js/main.'),
+      );
+      const tableRecord = evidenceList.find((e) =>
+        e.requestUrl.includes('/table_'),
+      );
+      const categoriesRecord = evidenceList.find((e) =>
+        e.requestUrl.includes('/categories_'),
+      );
+      if (!jsRecord || !tableRecord || !categoriesRecord) {
+        throw new Error(
+          'Required evidence (main.js, table.csv, categories.json) not found for livebench',
+        );
+      }
+      const jsText = readFileSync(
+        join(repoRoot, jsRecord.artifactPath),
+        'utf8',
+      );
+      const tableCsv = readFileSync(
+        join(repoRoot, tableRecord.artifactPath),
+        'utf8',
+      );
+      const categoriesJson = readFileSync(
+        join(repoRoot, categoriesRecord.artifactPath),
+        'utf8',
+      );
+      const result = materializeLiveBench(
+        jsText,
+        tableCsv,
+        categoriesJson,
+        tableRecord.retrievedAt,
+        {
+          tableEvidenceId: tableRecord.id,
+          categoriesEvidenceId: categoriesRecord.id,
+          jsEvidenceId: jsRecord.id,
+          tableUrl: tableRecord.requestUrl,
+          categoriesUrl: categoriesRecord.requestUrl,
+          jsUrl: jsRecord.requestUrl,
+        },
+      );
+      candidates = result.candidates;
+      customReportText = result.validationReport;
     }
 
     // Unique-ID check
@@ -204,11 +252,11 @@ function main() {
     const validationReportPath = join(sourceDir, 'validation-report.md');
 
     // Write validation-report.md
-    const reportText = src.reportFn(
-      candidates.length,
-      candidates.length,
-      unresolvedCount,
-    );
+    const reportText =
+      customReportText ??
+      (src.reportFn
+        ? src.reportFn(candidates.length, candidates.length, unresolvedCount)
+        : '');
     writeFileSync(validationReportPath, reportText, 'utf8');
 
     console.log(

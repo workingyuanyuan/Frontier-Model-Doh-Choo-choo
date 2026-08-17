@@ -249,6 +249,10 @@ export const renderCompletenessMarkdown = (
 export { materializeEpoch } from './epoch-materializer.js';
 export { materializeArtificialAnalysis } from './artificial-analysis-materializer.js';
 export {
+  extractLiveBenchMetadata,
+  materializeLiveBench,
+} from './livebench-materializer.js';
+export {
   materializeArtificialAnalysisCosts,
   materializeDeepSweCosts,
   materializeLiveBenchCosts,
