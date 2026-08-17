@@ -45,7 +45,13 @@ describe('buildWorkspaceProduct', () => {
         .filter(({ modelId }) => modelId === 'openai-gpt-5-6-sol')
         .map(({ displayName }) => displayName)
         .toSorted(),
-    ).toEqual(['GPT-5.6 Sol · max']);
+    ).toEqual([
+      'GPT-5.6 Sol · high',
+      'GPT-5.6 Sol · low',
+      'GPT-5.6 Sol · max',
+      'GPT-5.6 Sol · medium',
+      'GPT-5.6 Sol · xhigh',
+    ]);
     expect(
       product.evidence
         .filter(

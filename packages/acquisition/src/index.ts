@@ -252,6 +252,7 @@ export {
   extractLiveBenchMetadata,
   materializeLiveBench,
 } from './livebench-materializer.js';
+export { materializeDeepSwe } from './deepswe-materializer.js';
 export {
   materializeArtificialAnalysisCosts,
   materializeDeepSweCosts,

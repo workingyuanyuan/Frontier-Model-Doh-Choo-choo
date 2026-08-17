@@ -3,6 +3,7 @@ import { resolve, join, dirname } from 'node:path';
 import { materializeEpoch } from './epoch-materializer.js';
 import { materializeArtificialAnalysis } from './artificial-analysis-materializer.js';
 import { materializeLiveBench } from './livebench-materializer.js';
+import { materializeDeepSwe } from './deepswe-materializer.js';
 import {
   CandidateResultSchema,
   deterministicJson,
@@ -108,6 +109,7 @@ function main() {
     { id: 'epoch-ai', reportFn: getEpochReport },
     { id: 'artificial-analysis', reportFn: getAAReport },
     { id: 'livebench', reportFn: null },
+    { id: 'deepswe', reportFn: null },
   ];
 
   for (const src of sources) {
@@ -208,6 +210,25 @@ function main() {
           jsUrl: jsRecord.requestUrl,
         },
       );
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'deepswe') {
+      const jsonRecord = evidenceList.find(
+        (e) =>
+          e.mediaType === 'application/json' ||
+          e.requestUrl.includes('leaderboard-live.json'),
+      );
+      if (!jsonRecord) {
+        throw new Error('leaderboard-live.json evidence not found for deepswe');
+      }
+      const jsonText = readFileSync(
+        join(repoRoot, jsonRecord.artifactPath),
+        'utf8',
+      );
+      const result = materializeDeepSwe(jsonText, jsonRecord.retrievedAt, {
+        evidenceId: jsonRecord.id,
+        sourceUrl: jsonRecord.requestUrl,
+      });
       candidates = result.candidates;
       customReportText = result.validationReport;
     }
