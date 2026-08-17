@@ -1,0 +1,343 @@
+# 第二次重構規格
+
+> 狀態：使用者已確認（2026-08-17）
+> 本文件是這次重構的唯一權威規格。與 `docs/PROJECT_HANDOFF.md` §8「待使用者決定」衝突時，以本文件為準。
+> 執行者：外部代理（Codex）。本文件假設執行者沒有讀過產生它的對話，所有必要事實都寫在裡面。
+
+## 0. 一句話
+
+把資料來源從 13 個收斂到 4 個，把「有幾維算幾維」的顯示規則換成「固定 benchmark 清單、每格都要有資料才顯示」，並讓每個模型的維度明細可以點開逐筆檢視。
+
+## 1. 名詞
+
+本文件避免縮寫。以下是會反覆出現的三個詞：
+
+- **來源（source）**：一個公開的 benchmark 網站，例如 LiveBench。
+- **維度（dimension）**：八個能力軸之一，例如 Coding。
+- **顯示清單（display set）**：一組固定的 benchmark ID。模型必須在這組清單的**每一項**上都有分數，才會出現在主畫面。
+
+## 2. 分期
+
+| 期別 | 內容 | 完成條件 |
+| --- | --- | --- |
+| 期一 | Artificial Analysis、LiveBench、DeepSWE、Frontier Code | 使用者人工審核資料無誤 |
+| 期二 | 加入 Epoch.AI | 同上 |
+| 期三 | 加入 Vals，以及其他依實際需求追加的來源 | 同上 |
+
+**每一期都必須由使用者人工審核資料才算完成。** 代理不得自行判定某一期已完成。
+
+期一未通過審核前，不得開始期二的擷取工作。
+
+## 3. 來源
+
+### 3.1 保留（期一）
+
+| 來源 ID | 網站 | 角色 |
+| --- | --- | --- |
+| `artificial-analysis` | https://artificialanalysis.ai/ | ORGANIZER |
+| `livebench` | https://livebench.ai/ | ORGANIZER |
+| `deepswe` | https://deepswe.datacurve.ai/ | ORGANIZER |
+| `frontier-code` | https://cognition.com/frontiercode | ORGANIZER（新建） |
+
+### 3.2 凍結（不刪除，但不參與建置）
+
+`data-v2/sources/` 底下這些目錄**原地保留、內容不得修改**：
+
+```
+arc-prize  epoch-ai  lech-writing  llm-stats  openai
+osworld    scale-hle terminal-bench vals-ai   zapier-automationbench
+```
+
+理由：原始快照是某個時間點的實況，重抓不回來。目錄總共約 3.7 MB，凍結成本為零。
+
+**建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
+
+### 3.3 擷取程式碼的去留
+
+| 保留 | 刪除 |
+| --- | --- |
+| `materializeArtificialAnalysis`（期一要重寫） | `materializeVals`（約 406 行） |
+| `materializeEpoch`（期二要用，約 284 行） | `organizer-materializers.ts` 中的 arc-prize、scale-hle、zapier、osworld、lech-writing（約 613 行） |
+| | `materialize-organizers.ts` 的整個擷取層（約 733 行） |
+
+刪除的程式碼在 Git 歷史中可取回，期三需要時再恢復。
+
+`materializers.ts` 目前 1,929 行，必須按來源拆成獨立模組，每個模組有自己的測試。
+
+## 4. 八維與計分
+
+### 4.1 不變的部分
+
+- 八個維度不變：Agentic、Coding、Reasoning、Math、Knowledge、Language、Context、Instruction。
+- `data-v2/mappings/benchmarks.json` 的 benchmark 對維度的歸屬**完全不動**。特別是 DeepSWE、Frontier Code（`frontierswe`）、Terminal-Bench 都留在 `coding`。
+- 總分 = 八個維度分數的算術平均。
+- **不建立權重系統。** 某個 benchmark 影響力過大的問題，靠期二期三加來源稀釋，不靠權重調整。
+
+### 4.2 `frontierswe` 已存在
+
+`data-v2/mappings/benchmarks.json` 中已有 `frontierswe`，primary dimension = `coding`，secondary = `agentic, context`。Frontier Code 來源建立時**直接沿用**，不要新增 benchmark 定義。
+
+### 4.3 代表 profile 的選法
+
+同一個模型有多個思考強度的 profile 時，取**該來源測出分數最高**的那一個。
+
+- 不判斷 effort 標籤，不假設「max 一定最好」。
+- 排行榜、雷達圖、兩張圖表**全部使用同一個選法**，不得出現同一模型在不同畫面顯示不同 profile 的情況。
+- 這取代現行 `SCORING_METHODOLOGY.md` 的「Coverage 高 → 有效結果數多 → Overall 高」規則。
+
+## 5. 顯示規則
+
+### 5.1 模型資格
+
+一個模型要被納入考慮，必須同時滿足：
+
+1. 未標記為 deprecated。
+2. `release_date` 在**今天往前 12 個月**之內。
+
+`data-v2/mappings/frontier.json` 的 `compositeSources`（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index 的 Top-N 選模）**全部移除**。`manualModels` 保留，作為新品尚未被任何綜合榜收錄時的逃生口。
+
+### 5.2 顯示清單與完整矩陣
+
+新增設定檔 `data-v2/mappings/display-set.json`，內容是一組固定的 benchmark ID。
+
+- 模型必須在顯示清單的**每一項**上都有分數，才會出現在主畫面。
+- 缺任何一項 → 不進主畫面，進開發者模式。
+- 主畫面因此**不會出現 N/A**。
+- 顯示清單是**人工維護的設定**。建置流程只驗證，不自動選擇。
+
+移除的舊機制：Coverage 比例、`ESTIMATED` 狀態、「至少一維有分數就顯示」、「Developer mode 放寬到 1–7/8」。這些散落在約 100 處（`view-model.ts`、`leaderboard.tsx`、`table-sort.ts`、`dashboard.tsx`、`globals.css`），必須從程式、schema、測試、文件一併移除，不能只從畫面隱藏。
+
+### 5.3 coverage-matrix 報告指令
+
+新增一個報告指令（建議 `pnpm report:coverage-matrix`），輸出兩份內容：
+
+1. **模型 × benchmark 的有無矩陣**。
+2. **取捨曲線**：對每個「保留 N 個 benchmark」的規模，列出能讓最多模型完整的組合、該組合下的完整模型數、以及涵蓋幾個維度。
+
+演算法：對 benchmark 集合窮舉子集（用 bitmask，模型的資料有無壓成 bitmask 後先做去重計數，速度足夠），對每個規模取完整模型數最大者。
+
+**這份報告必須套用與 5.1 完全相同的資格條件。** 若在全體資料上計算，最佳化會自動選中已停跑的 benchmark 與已淘汰的模型——實測結果是產生一組 103 列、8/8 維度、看起來很漂亮、但**一個 2026 年模型都沒有、其中 63 個已 deprecated** 的答案。這是靜默失效，畫面上看不出來。
+
+報告供使用者在每期審核時判讀，決定是否調整 `display-set.json`。**代理不得自行調整顯示清單。**
+
+### 5.4 開發者模式
+
+只負責一件事：顯示被排除的模型缺哪些格子。
+
+- 顯示模型 × benchmark 矩陣，每格顯示該 benchmark 的**原始 normalized 分數**（有資料時）。
+- **不做任何加總**：不算維度分數、不算總分。缺格的模型與主畫面模型的分母不同，聚合出來的數字會被誤用。
+
+## 6. 介面
+
+### 6.1 保留的區塊
+
+1. **排行榜**：總分、八維分數、排序、搜尋、思考強度選擇。
+2. **八維雷達圖**。
+3. **性價比圖表**（兩張，見 6.3）。
+
+### 6.2 模型明細面板（新增，取代 Evidence 區塊）
+
+參考 LiveBench 的做法：點擊排行榜的模型列，展開該模型的詳細資料，**按維度列出組成該維度的每一筆 benchmark 分數**。
+
+```
+Claude Fable 5 · max                        Overall 73.0
+
+Coding      68.2
+  ├ SciCode              (AA)        54.3
+  ├ Terminal-Bench 2.1   (AA)        87.6
+  └ DeepSWE 1.1          (DeepSWE)   62.7
+
+Context     76.3
+  └ AA-LCR               (AA)        76.3
+
+Language    71.0
+  └ LiveBench Language   (LiveBench) 71.0
+```
+
+- **雷達圖上不加任何 benchmark 數量標記。** 軸厚不厚從明細裡自然看得出來。
+- **同一個元件同時服務兩種情境**：從排行榜點進來顯示完整明細；從開發者模式點進來，缺的格子顯示為空。不要做兩個元件。
+- 每一格可以點開看出處，內容見 §7。
+- 現行 `evidence-detail.tsx`（282 行）的獨立 Evidence 區塊移除，功能併入本面板。
+
+### 6.3 兩張性價比圖表
+
+**預設圖**
+
+- 四個來源加權合併。
+- 每個模型每個來源取**最佳表現**那一筆（與 §4.3 同一套選法）。
+- 未來新增來源時可直接擴充。
+
+**進階圖**（按鈕開啟）
+
+- 顯示各模型**多種思考強度**的性價比曲線，同一模型的各強度點要連成線，讓思考強度的邊際效應看得出來。
+- 只用 **Artificial Analysis、DeepSWE、Frontier Code** 三個來源。LiveBench 沒有測量不同思考強度，排除。
+- **缺任一來源資料的模型不顯示**；缺了什麼由開發者模式揭露。
+
+**成本語意規則（重要）**
+
+- Artificial Analysis 的 **token 單價**（`pricing.price_1m_*`）**不進成本圖**。它與 LiveBench 的 `cost_per_successful_task`、DeepSWE 的 `mean_cost_usd` 是不同的東西，混在同一根軸上會導致錯誤的選模決定，而且看不出來錯在哪。
+- Artificial Analysis 進成本圖的是它自己的**任務成本**（`intelligenceIndexCostPerTask`），從 `/models` 或 `/models/<slug>` 頁面取得。
+
+## 7. 出處記錄
+
+每一筆分數目前存了 8 組出處記錄（`model.rawName`、`rawScore`、`sourcePublishedAt`、`sourceRole`、`metric.id`、`benchmarkId`、`profile`、`profile.harness`），佔 ProductVersion 檔案的 26.1%。這 8 組在四來源架構下永遠指向同一個地方——LiveBench 一列就是 CSV 的一行，DeepSWE 一列就是 JSON 的一個物件，Artificial Analysis 一列就是 payload 的一個模型物件。
+
+**改成每筆分數存 1 組**：
+
+```json
+{
+  "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=...",
+  "locator": "table_2026_06_25.csv row 12 column reasoning",
+  "method": "EXPORT",
+  "retrievedAt": "2026-08-17T…Z",
+  "evidenceId": "sha256:…"
+}
+```
+
+- `evidenceId` **必須保留**。它指向 `artifacts-v2` 的內容定址存檔，是「這個版本的數字沒有被改過」的憑據，也是不可變版本設計的地基。
+- 介面上點開一格時顯示：來源網址（可點）、`rawScore`（擷取到的原始值）、`locator`、`retrievedAt`。使用者的實際審查動作就是打開來源網址、比對分數是否一致，介面只需支援這件事。
+- 這是 breaking change，`schemaVersion` 要升版。
+
+## 8. 刪除清單
+
+| 對象 | 數量 | 說明 |
+| --- | --- | --- |
+| `data-v2/product/versions/*.json` | 21 個，14 MB | 舊格式，改版後讀不出來。它們是**算出來的結果**不是原始資料，且 Git 有紀錄可取回 |
+| `packages/{connectors,contracts,db,presentation,radar,scoring}` | 6 個目錄，1.3 MB | Git 未追蹤，內容只有 `dist`／`.turbo`／`node_modules`，原始碼在 Git 歷史（各 3–11 個 commit） |
+| Vals 與 5 個 organizer 的擷取程式 | 約 1,346 行 | 見 §3.3 |
+| Coverage／ESTIMATED 相關程式 | 約 100 處 | 見 §5.2 |
+| `evidence-detail.tsx` | 282 行 | 功能併入模型明細面板 |
+| `data-v2/product/pointers/` | 整個目錄 | 發布機制簡化，見 §11 |
+| `LLM_BENCH_CHANNEL` 環境變數與 DRAFT／PUBLISHED 雙軌 | — | 同上 |
+| publish／rollback 指令與其狀態機、測試、CI 步驟 | — | 同上 |
+
+**不刪除**：
+
+- `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend`（在倉庫外，內容未經檢視）。
+- §3.2 的凍結來源目錄。
+
+**文件修正**：`docs/PROJECT_HANDOFF.md` 目前寫著「有多個舊不可變 Draft 是正常審計歷史，不要為『整理』而刪除」。那句話寫在「舊版本還讀得出來」的前提下，改版後失效，必須一併修正，不要留下互相矛盾的文件。
+
+## 9. 各來源的擷取契約
+
+以下端點與欄位名稱都是 2026-08-17 實測確認的。**開工前必須重新驗證一次**，網站會變。
+
+### 9.1 LiveBench
+
+全自動，完全結構化。目前分數是手工維護的，要改成自動擷取。
+
+| 用途 | 端點 |
+| --- | --- |
+| 分數表 | `https://livebench.ai/table_<release>.csv?v=<cacheVersion>` — 實測 40 列 × 23 個 task 欄 |
+| 成本 | `https://livebench.ai/cost_<release>.csv?v=<cacheVersion>` |
+| 類別歸屬 | `https://livebench.ai/categories_<release>.json?v=<cacheVersion>` — 7 個類別 |
+| release 清單與 cacheVersion | `https://livebench.ai/static/js/main.<hash>.js` |
+
+- 網站首頁是 JavaScript SPA（HTML 僅約 1 KB），不要用 DOM 擷取。
+- `cost_*.csv` 同時含 token 單價欄位與 `cost_per_successful_task`。兩者必須分開保存：前者是 `API_STANDARDIZED`，後者是 `MEASURED_TASK`。
+- 目前核准進計分的只有四個類別：`livebench-reasoning`、`livebench-mathematics`、`livebench-language`、`livebench-instruction-following`。**LiveBench Coding、Agentic Coding、Data Analysis 未核准，不得自行納入。**
+
+### 9.2 DeepSWE
+
+全自動，完全結構化。目前分數是手工維護的，要改成自動擷取。
+
+| 用途 | 端點 |
+| --- | --- |
+| 排行榜 | `https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json` — 實測 53 個 configuration 列、21 個模型 |
+
+- 這份 JSON **本身就含完整的思考強度階梯**，是進階圖的主要資料來源。實測有 7 個模型具備 2 個以上的思考強度，其中 6 個為完整五階（low／medium／high／xhigh／max）。
+- `mean_cost_usd` 保存為 `AGENT_TASK` 成本，harness 資訊留在出處記錄中。
+
+### 9.3 Artificial Analysis
+
+需要兩種管道。這是四個來源中最複雜的一個。
+
+**管道一：頁面內嵌資料（主要資料來源）**
+
+- `https://artificialanalysis.ai/evaluations/<slug>` 每個頁面嵌有 Next.js RSC payload，內含模型列，**每列 134 個欄位**。
+- 解析方式：先把 HTML 中的 `\"` 還原成 `"`，再以 `"model_creator_id":` 定位每個模型物件，向外展開至括號平衡。
+- **`"$undefined"` 是空值哨符，是字串不是 null。** 判斷欄位有無資料時必須同時排除 `null` 與 `"$undefined"`，否則覆蓋率會被大幅高估（實測 `briefcase` 真實覆蓋 58 列，誤判為 479 列）。
+- 已知的 evaluation slug：`omniscience`、`gdpval-aa`、`apex-agents-aa`、`aa-briefcase`、`critpt`、`tau3-banking`、`gpqa-diamond`、`humanitys-last-exam`、`ifbench`、`scicode`、`terminalbench-v2-1`、`artificial-analysis-long-context-reasoning`、`mmmu-pro`、`aa-analyst-agent`、`automationbench-aa`、`enterprise-ops-gym-aa`、`harvey-lab-aa`、`itbench-aa`。
+- 任務成本欄位 `intelligenceIndexCostPerTask` 在 `/models` 與 `/models/<slug>` 頁面上，是一個物件，含 `cost.total` 與 `evaluations[].weightedCostPerTask`（每個 benchmark 各自的加權成本）。**在 `/evaluations/omniscience` 頁面上，這個欄位只有舊模型有值。** 開工時必須確認要組合哪幾個頁面才能取得完整的現役模型集。
+
+**管道二：官方 API（交叉驗證用）**
+
+- `GET https://artificialanalysis.ai/api/v2/data/llms/models`，header `x-api-key`。實測回傳 608 列。
+- 金鑰以環境變數 `ARTIFICIAL_ANALYSIS_API_KEY` 提供，寫在 gitignored 的 `.env.local`。**絕不進入 Git、artifact 或 ProductVersion。**
+- 已探測確認**只有這一個端點存在**；`endpoints`、`intelligence-index`、`costs`、`v2/data`、media 相關端點皆回傳 404。
+- API 的 `evaluations` 有 17 個欄位：`artificial_analysis_intelligence_index`、`artificial_analysis_coding_index`、`artificial_analysis_math_index`、`mmlu_pro`、`gpqa`、`hle`、`livecodebench`、`scicode`、`math_500`、`aime`、`aime_25`、`ifbench`、`lcr`、`terminalbench_hard`、`terminalbench_v2_1`、`tau2`、`tau_banking`。
+- API 的成本只有 token 單價（`pricing.price_1m_*`），**沒有任務成本**。
+- **用途是交叉驗證**：每次刷新時比對兩個管道的重疊欄位（`gpqa`、`hle`、`scicode`、`lcr`、`ifbench` 等），差異寫進 validation report。管道一是未公開的內部結構，改版時不會通知任何人，失效方式是靜默的（欄位改名後解析器仍能跑，只是全部變空）。API 是有版本號的公開契約，用來當煙霧偵測器。
+- 金鑰失效時，刷新應視為 warning 而非 error，管道一仍可單獨進行。
+- 兩個管道的母體不同（API 608 列 vs 頁面 479 列），比對只在交集上做。
+
+**Artificial Analysis 目前實際跑的 benchmark（限 2026 年、未 deprecated 的 154 個 profile 列）**
+
+| 覆蓋率 | 欄位 |
+| --- | --- |
+| 154/154 | `gpqa`、`critpt`、`omniscience`、`hle`、`lcr`、`scicode` |
+| 部分 | `terminalbench_v2_1` 118、`gdpval`／`gdpval_v2` 114、`ifbench` 104、`tau2` 103、`tau_banking` 96、`mmmu_pro` 91、`briefcase` 35、`apex_agents` 11 |
+| 已停跑 | `multilingual_aa` 9、`mmlu_pro` 2、`livecodebench` 1、`aime25` 1 |
+
+**結論：Artificial Analysis 現行套件不提供 Math 與 Language。** 這兩個維度只能由 LiveBench 的 `livebench-mathematics` 與 `livebench-language` 提供。不要因為 AA 資料豐富就假設它能撐滿八維。
+
+### 9.4 Frontier Code（新建，風險最高）
+
+| 已確認 | 未確認 |
+| --- | --- |
+| 頁面含 JSON-LD `Dataset`（name = `FrontierCode`）與 `ItemList`（name = `FrontierCode 1.1 Leaderboard (Main)`），10 筆，格式為 `{"position": N, "name": "<模型>", "description": "Score NN.N%"}` | **成本資料**是否可取得 |
+| 站台為 Next.js，內容由 Sanity CMS 供應 | **思考強度變體**是否存在及如何取得 |
+| 榜上有 Claude Opus 5、Grok 4.6、Kimi K3、Gemini 3.7 Flash 等目前資料中沒有的新模型 | 完整榜有多少列 |
+
+- JSON-LD 只有 Top 10 的分數百分比，**不含成本、不含思考強度**。
+- 進階圖（§6.3）需要 Frontier Code 的成本與思考強度資料。若實作後確認取不到，**進階圖退化為 Artificial Analysis + DeepSWE 兩個來源**，並在文件中明確記錄退化原因。這是可接受的結果，不是失敗。
+- 完整資料需要解析 RSC payload 或 Sanity 端點。這是四個來源中最脆弱的一段，必須有 DOM 或人工視覺對照作為驗證手段。
+
+## 10. 不可跨越的邊界
+
+以下規則沿用自 `CLAUDE.md` 與 `docs/REFACTOR_DISCARD_LIST.md`，這次重構不改變它們：
+
+- 唯一支援的 runtime app 是 `apps/bench`。
+- 不得恢復舊 Web、Worker、DB、PostgreSQL、Drizzle、Docker／Compose、Edition、PREVIEW／FORMAL、Remotion/video、雙語、雙主題或多頁架構。
+- 缺失分數保持 `null`／N/A，不得填零、不得推測 identity、不得用綜合指數代替八維成績。
+- Model identity 只允許 canonical catalog 與精確審核過的 alias，不得 fuzzy match，不得把舊型號猜成新版。
+- 綜合指數（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index）不投入八維總分。
+- 不重寫或刪除凍結的來源資料。
+- 代理不得 push、deploy、release。commit 的規則見 §11。
+- production build 不需要網路、artifact store、資料庫、Docker 或背景程序。
+
+## 11. 發布機制
+
+三段式的 Draft／Published／rollback pointer 狀態機**整個移除**。改成單一當前版本，由部署的 commit 決定。
+
+### 11.1 機制
+
+- 建置只讀 **`data-v2/product/current.json`** 這一個固定路徑。沒有 channel、沒有 pointer、沒有環境變數切換。
+- **`versionId`（內容的 SHA-256）保留**。它不是 pointer 機制的一部分，是「這個檔案沒被改過」的指紋，計算成本為零，顯示在頁尾。
+- **Rollback = `git revert` 那個資料 commit，然後重新部署。** 不另外做 rollback 指令。這一點必須寫進 `docs/OPERATIONS.md`。
+
+### 11.2 審核閘門
+
+因為「部署 = commit」，commit 本身就是發布動作，所以它必須是審核閘門：
+
+1. 代理刷新資料，把新的 `current.json` **寫進工作目錄，不 commit**。
+2. 使用者人工審核。
+3. 使用者審核通過後**明確指示**代理 commit。
+4. 代理才執行 commit。
+
+**代理不得在未獲得使用者明確指示的情況下 commit `current.json`。** 未經審核的資料因此不可能存在於 `main` 上，`main` 永遠處於「已審核、可部署」狀態。
+
+這取代了原本「三段式流程 + 人工切 pointer」所提供的保護。把發布壓縮成一個 commit 的同時，閘門必須跟著移到 commit 上，否則保護就消失了。
+
+### 11.3 為什麼可以這樣簡化
+
+`versionId` 的不可變性原本靠「內容定址檔名 + 只新增不覆寫」保證。改成單一檔案後，這個保證由 **Git 本身**提供：每次資料變更是一個 commit，歷史完整、可 diff、可 revert。原本那套 pointer 狀態機是在重複 Git 已經做好的事。
+
+## 12. 已知風險與待查項目
+
+1. **Frontier Code 的成本與思考強度資料未經驗證**，可能取不到。進階圖的完整形態依賴它。
+2. **最終顯示的模型數是估計值（10–15 個）**，取決於 Frontier Code 榜的長度，未經驗證。
+3. **Artificial Analysis 各 evaluation 頁面包含的模型範圍不一致**，且任務成本欄位在不同頁面的覆蓋不同。要在開工時確認頁面組合。
+4. **一筆待查的資料異常**：Claude Opus 4.6 的 max 強度總分 53.7，high 強度 81.1，相差 27.4 分。「思考強度調高、總分掉 27 分」不合常理，可能是 profile 歸屬錯誤或稀疏證據所致。列入期一人工審核的必查項。
+5. **Artificial Analysis 的金鑰曾出現在對話記錄中**，MVP 穩定後建議使用者輪換。
+6. **Artificial Analysis 有兩套 Intelligence Index 欄位並存**（`intelligence_index` 與 `intelligence_index_v4_1`）。取錯欄位會排出完全不同的名單。本規格的模型資格條件（§5.1）刻意不依賴任何指數版本，正是為了避開這個坑。
