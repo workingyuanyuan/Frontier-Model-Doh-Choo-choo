@@ -194,7 +194,7 @@ A 清理  ──┐
 
 ## B3 — 顯示清單機制
 
-狀態：未開始
+狀態：完成
 
 **目標**：建立 `data-v2/mappings/display-set.json` 的 schema、載入與驗證機制。
 

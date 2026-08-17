@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "display-set-v1",
+  "notes": "TENTATIVE: Placeholder display set for mechanism validation. Final benchmark IDs will be chosen by user at Gate 2.",
+  "benchmarkIds": [
+    "livebench-reasoning",
+    "livebench-mathematics",
+    "livebench-language",
+    "livebench-instruction-following",
+    "deepswe-1-1"
+  ]
+}
