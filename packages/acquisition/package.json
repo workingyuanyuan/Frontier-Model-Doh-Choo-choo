@@ -13,6 +13,7 @@
     "build": "tsc -p tsconfig.build.json",
     "materialize:snapshots": "tsx src/materialize-snapshots.ts",
     "materialize:costs": "tsx src/materialize-costs.ts",
+    "materialize:frontier-code": "tsx src/refresh-frontier-code.ts",
     "materialize:artificial-analysis": "node --env-file=../../.env.local --import tsx/esm src/refresh-artificial-analysis.ts",
     "test": "vitest",
     "test:run": "vitest run",

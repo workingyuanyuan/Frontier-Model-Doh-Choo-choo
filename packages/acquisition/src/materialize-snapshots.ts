@@ -1,6 +1,5 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
-import { materializeEpoch } from './epoch-materializer.js';
 import {
   extractArtificialAnalysisRscRows,
   materializeArtificialAnalysisRsc,
@@ -8,6 +7,11 @@ import {
 } from './artificial-analysis-rsc.js';
 import { materializeLiveBench } from './livebench-materializer.js';
 import { materializeDeepSwe } from './deepswe-materializer.js';
+import {
+  FRONTIER_CODE_DATA_URL,
+  FRONTIER_CODE_PAGE_URL,
+  materializeFrontierCode,
+} from './frontier-code-materializer.js';
 import {
   CandidateResultSchema,
   deterministicJson,
@@ -29,38 +33,6 @@ function getWorkspaceRoot(): string {
     }
     dir = parent;
   }
-}
-
-function getEpochReport(
-  extractedCount: number,
-  candidateCount: number,
-  unresolvedCount: number,
-): string {
-  return `# Epoch AI acquisition validation
-
-- Official export: <https://epoch.ai/data/benchmark_data.zip>
-- Captured scope: 75 ZIP entries, 74 CSV files, nine internal result files, 64 external mirrors, and one supplemental ECI parameter file.
-
-## Exact counts
-
-| Check | Count |
-|---|---:|
-| Raw internal result rows | 1490 |
-| ECI rows with a finite score | 460 |
-| ECI metadata rows without a score | 259 |
-| Direct scored rows | 771 |
-| Extracted scored rows | ${extractedCount} |
-| Generated candidates | ${candidateCount} |
-| Canonically unresolved candidates | ${unresolvedCount} |
-
-## Role boundary
-
-All 460 scored ECI rows are organizer-owned composite evidence and remain \`EXCLUDED\`; downstream Frontier selection applies the dynamic Top 20 rule. The 771 direct rows cover GPQA, MATH Level 5, SWE-bench Verified, AIME, FrontierMath, FrontierMath Tier 4, SimpleQA Verified, and Chess Puzzles. FrontierMath rows are organizer evidence; reruns of external Benchmarks are independent evidence. The 64 \`_external.csv\` mirrors are never materialized as Epoch results.
-
-## Limitations
-
-The export includes ${unresolvedCount} historical or alias-specific rows not yet mapped to a canonical product model. They remain reviewable CandidateResults but cannot enter ranking until identity resolution. Missing ECI scores are preserved as an explicit completeness count and never converted to zero.
-`;
 }
 
 function getAAReport(
@@ -105,6 +77,7 @@ interface EvidenceRecord {
   mediaType: string;
   requestUrl: string;
   method: string;
+  metadata?: Record<string, unknown>;
 }
 
 function main() {
@@ -114,10 +87,10 @@ function main() {
   );
 
   const sources = [
-    { id: 'epoch-ai', reportFn: getEpochReport },
     { id: 'artificial-analysis', reportFn: getAAReport },
     { id: 'livebench', reportFn: null },
     { id: 'deepswe', reportFn: null },
+    { id: 'frontier-code', reportFn: null },
   ];
 
   for (const src of sources) {
@@ -133,18 +106,7 @@ function main() {
     let customReportText: string | null = null;
     let materializedCosts: unknown[] | null = null;
 
-    if (src.id === 'epoch-ai') {
-      const zipRecord = evidenceList.find(
-        (e) => e.mediaType === 'application/zip',
-      );
-      if (!zipRecord)
-        throw new Error('application/zip evidence not found for epoch-ai');
-      const zipBuffer = readFileSync(join(repoRoot, zipRecord.artifactPath));
-      candidates = materializeEpoch(zipBuffer, zipRecord.retrievedAt, {
-        evidenceId: zipRecord.id,
-        sourceUrl: zipRecord.requestUrl,
-      });
-    } else if (src.id === 'artificial-analysis') {
+    if (src.id === 'artificial-analysis') {
       const aaPageRecords = evidenceList.filter(
         ({ requestUrl }) =>
           requestUrl === 'https://artificialanalysis.ai/models' ||
@@ -256,6 +218,41 @@ function main() {
         sourceUrl: jsonRecord.requestUrl,
       });
       candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'frontier-code') {
+      const dataRecord = evidenceList.find(
+        ({ requestUrl }) => requestUrl === FRONTIER_CODE_DATA_URL,
+      );
+      const pageRecord = evidenceList.find(
+        ({ requestUrl }) => requestUrl === FRONTIER_CODE_PAGE_URL,
+      );
+      if (!dataRecord || !pageRecord) {
+        throw new Error('Frontier Code export/page evidence not found');
+      }
+      const visualRowCount = Number(pageRecord.metadata?.renderedRows);
+      const visualTopTenMatched =
+        pageRecord.metadata?.renderedTopTenMatched === true;
+      if (!Number.isInteger(visualRowCount) || !visualTopTenMatched) {
+        throw new Error(
+          'Frontier Code evidence has no completed rendered-DOM validation',
+        );
+      }
+      const result = materializeFrontierCode(
+        readFileSync(join(repoRoot, dataRecord.artifactPath), 'utf8'),
+        readFileSync(join(repoRoot, pageRecord.artifactPath), 'utf8'),
+        {
+          dataEvidenceId: dataRecord.id,
+          pageEvidenceId: pageRecord.id,
+          observedAt: dataRecord.retrievedAt,
+          visualRowCount,
+          visualTopTenMatched,
+        },
+      );
+      if (result.topTenMismatches.length > 0) {
+        throw new Error(result.topTenMismatches.join('; '));
+      }
+      candidates = result.candidates;
+      materializedCosts = result.costs;
       customReportText = result.validationReport;
     }
 

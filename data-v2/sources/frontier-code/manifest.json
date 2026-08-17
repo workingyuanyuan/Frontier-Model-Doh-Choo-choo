@@ -1,0 +1,34 @@
+{
+  "accessMethods": ["EXPORT", "EMBEDDED_JSON", "DOM"],
+  "baseUrl": "https://cognition.com",
+  "benchmarkIds": ["frontierswe"],
+  "completeness": {
+    "expectedCountMethod": "Compare all v1_1 models/efforts in the official static export with the rendered Main leaderboard and JSON-LD Top 10.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "FrontierCode",
+  "fallbackMethods": ["NEXT_RSC", "VISUAL"],
+  "fieldMapping": {
+    "v1_1.data[model][effort].main.cost": "CostRecord.cost",
+    "v1_1.data[model][effort].main.new_score": "rawScore; normalizedScore = rawScore * 100",
+    "v1_1.efforts[model]": "profile.effort",
+    "v1_1.harness[model]": "profile.harness",
+    "v1_1.models[]": "model.rawName"
+  },
+  "lastVerifiedAt": "2026-08-17T11:47:29.267Z",
+  "notes": [
+    "28 models and 77 Main effort configurations; all have scores and costs.",
+    "15 models have multiple efforts; 8 have five efforts.",
+    "JSON-LD Top 10 matches the export 10/10; rendered DOM showed 28 rows and the same Top 10.",
+    "Extended data is retained in the raw artifact but not materialized into the Main benchmark.",
+    "Exact identities only; unresolved models and source effort none remain null."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "frontier-code",
+  "targetUrls": [
+    "https://cognition.com/frontiercode",
+    "https://cognition.com/data/frontiercode-leaderboard/data.json"
+  ]
+}

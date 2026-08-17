@@ -281,17 +281,21 @@ Language    71.0
 
 **結論：Artificial Analysis 現行套件不提供 Math 與 Language。** 這兩個維度只能由 LiveBench 的 `livebench-mathematics` 與 `livebench-language` 提供。不要因為 AA 資料豐富就假設它能撐滿八維。
 
-### 9.4 Frontier Code（新建，風險最高）
+### 9.4 Frontier Code（新建，已驗證）
 
-| 已確認                                                                                                                                                                                          | 未確認                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| 頁面含 JSON-LD `Dataset`（name = `FrontierCode`）與 `ItemList`（name = `FrontierCode 1.1 Leaderboard (Main)`），10 筆，格式為 `{"position": N, "name": "<模型>", "description": "Score NN.N%"}` | **成本資料**是否可取得             |
-| 站台為 Next.js，內容由 Sanity CMS 供應                                                                                                                                                          | **思考強度變體**是否存在及如何取得 |
-| 榜上有 Claude Opus 5、Grok 4.6、Kimi K3、Gemini 3.7 Flash 等目前資料中沒有的新模型                                                                                                              | 完整榜有多少列                     |
+| 項目                  | 2026-08-17 實測結論                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------------- |
+| 完整結構化入口        | `https://cognition.com/data/frontiercode-leaderboard/data.json`（頁面前端使用的官方靜態 JSON） |
+| FrontierCode 1.1 Main | 28 個模型、77 組模型 × effort 設定；77 組都有 `new_score` 與 `cost`                            |
+| 思考強度              | 15 個模型有多個 effort，8 個有五級 effort；來源值 `none` 保持 null，不推測為 max/default       |
+| JSON-LD 對照          | `FrontierCode 1.1 Leaderboard (Main)` Top 10 的排名、模型名與一位小數分數和完整資料 10/10 一致 |
+| DOM 對照              | 渲染後 Main 榜顯示 28 列；可見 Top 10 與 JSON-LD／靜態 JSON 一致                               |
+| 成本語意              | UI 定義為每次 rollout 的平均美元成本；保存為 `AGENT_TASK`／`USD_PER_TASK`                      |
 
-- JSON-LD 只有 Top 10 的分數百分比，**不含成本、不含思考強度**。
-- 進階圖（§6.3）需要 Frontier Code 的成本與思考強度資料。若實作後確認取不到，**進階圖退化為 Artificial Analysis + DeepSWE 兩個來源**，並在文件中明確記錄退化原因。這是可接受的結果，不是失敗。
-- 完整資料需要解析 RSC payload 或 Sanity 端點。這是四個來源中最脆弱的一段，必須有 DOM 或人工視覺對照作為驗證手段。
+- JSON-LD 仍只有 Top 10 的分數百分比，不含成本與 effort；它只作獨立對照基準。
+- 靜態 JSON 同時包含 `main` 與 `extended`。本來源只物化目前預設的 `v1_1` Main；Extended 保留在內容定址 artifact，不混入 `frontierswe`。
+- 19/28 個模型可由 catalog 名稱或精確 alias 解析；其餘 9 個保持 null identity，不做模糊匹配。
+- 成本與思考強度皆已取得，因此 §6.3 的進階圖不需要退化成兩來源。
 
 ## 10. 不可跨越的邊界
 
@@ -335,8 +339,8 @@ Language    71.0
 
 ## 12. 已知風險與待查項目
 
-1. **Frontier Code 的成本與思考強度資料未經驗證**，可能取不到。進階圖的完整形態依賴它。
-2. **最終顯示的模型數是估計值（10–15 個）**，取決於 Frontier Code 榜的長度，未經驗證。
+1. **Frontier Code 的成本與思考強度已驗證可取得**：FrontierCode 1.1 Main 有 28 個模型、77 組設定，全部有分數與成本；15 個模型有多 effort。進階圖可維持三來源形態。
+2. **Frontier Code 完整榜長度已確認為 28 個模型**；目前 9 個名稱尚無可精確解析的 catalog identity，保持 null，不影響原始 Candidate／CostRecord 的保存。
 3. **Artificial Analysis 各 evaluation 頁面包含的模型範圍不一致**，且任務成本欄位在不同頁面的覆蓋不同。要在開工時確認頁面組合。
 4. **一筆待查的資料異常**：Claude Opus 4.6 的 max 強度總分 53.7，high 強度 81.1，相差 27.4 分。「思考強度調高、總分掉 27 分」不合常理，可能是 profile 歸屬錯誤或稀疏證據所致。列入期一人工審核的必查項。
 5. **Artificial Analysis 的金鑰曾出現在對話記錄中**，MVP 穩定後建議使用者輪換。

@@ -18,6 +18,11 @@ import {
   materializeArtificialAnalysisRsc,
   type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
+import {
+  FRONTIER_CODE_DATA_URL,
+  FRONTIER_CODE_PAGE_URL,
+  materializeFrontierCode,
+} from './frontier-code-materializer.js';
 
 const readJson = async <T>(path: string): Promise<T> =>
   JSON.parse(await readFile(path, 'utf8')) as T;
@@ -171,12 +176,53 @@ async function main() {
     prettyDeterministicJson(liveCosts),
   );
 
+  const frontierIndexPath = join(
+    sourcesRoot,
+    'frontier-code',
+    'evidence-index.json',
+  );
+  const frontierEvidence = EvidenceRecordSchema.array().parse(
+    await readJson<unknown>(frontierIndexPath),
+  );
+  const frontierDataRecord = findEvidence(
+    frontierEvidence,
+    FRONTIER_CODE_DATA_URL,
+  );
+  const frontierPageRecord = findEvidence(
+    frontierEvidence,
+    FRONTIER_CODE_PAGE_URL,
+  );
+  const visualRowCount = Number(frontierPageRecord.metadata.renderedRows);
+  const visualTopTenMatched =
+    frontierPageRecord.metadata.renderedTopTenMatched === true;
+  if (!Number.isInteger(visualRowCount) || !visualTopTenMatched) {
+    throw new Error(
+      'Frontier Code evidence has no completed rendered-DOM validation',
+    );
+  }
+  const frontierResult = materializeFrontierCode(
+    await readFile(join(root, frontierDataRecord.artifactPath), 'utf8'),
+    await readFile(join(root, frontierPageRecord.artifactPath), 'utf8'),
+    {
+      dataEvidenceId: frontierDataRecord.id,
+      pageEvidenceId: frontierPageRecord.id,
+      observedAt: frontierDataRecord.retrievedAt,
+      visualRowCount,
+      visualTopTenMatched,
+    },
+  );
+  await writeFile(
+    join(sourcesRoot, 'frontier-code', 'costs.json'),
+    prettyDeterministicJson(frontierResult.costs),
+  );
+
   console.log(
     JSON.stringify({
       artificialAnalysis: aaCosts.length,
       deepSwe: deepCosts.length,
       liveBench: liveCosts.length,
       liveBenchArtifact: liveRecord.id,
+      frontierCode: frontierResult.costs.length,
     }),
   );
 }

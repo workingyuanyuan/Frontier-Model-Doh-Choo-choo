@@ -254,6 +254,12 @@ export {
 } from './livebench-materializer.js';
 export { materializeDeepSwe } from './deepswe-materializer.js';
 export {
+  FRONTIER_CODE_DATA_URL,
+  FRONTIER_CODE_PAGE_URL,
+  extractFrontierCodeTopTen,
+  materializeFrontierCode,
+} from './frontier-code-materializer.js';
+export {
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
   compareArtificialAnalysisApi,
   decodeArtificialAnalysisRsc,

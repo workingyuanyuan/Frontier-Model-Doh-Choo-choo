@@ -46,6 +46,7 @@
 
 ```bash
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
+pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
 pnpm --filter @llm-bench/acquisition materialize:snapshots
 pnpm --filter @llm-bench/acquisition materialize:costs
 ```
@@ -53,6 +54,11 @@ pnpm --filter @llm-bench/acquisition materialize:costs
 Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models` 與現役
 `/models/<slug>` detail 頁面補齊任務成本與 token 單價。`null` 與字串
 `$undefined` 都表示缺值；API 只做交叉驗證，失效時保留 warning 並繼續使用頁面管道。
+
+Frontier Code 以頁面使用的官方靜態 JSON 取得 FrontierCode 1.1 Main 全部
+模型 × effort 設定、`new_score` 與平均 rollout `cost`，並以頁面 JSON-LD
+Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，不混入 Main；
+來源 effort `none`、缺值與未解析 identity 都保持 null。
 
 正常排程採統一頻率。新模型推出時，人工可額外觸發一次相同資料收集流程；不建立永久的「自動發現模型」旁路。
 
@@ -90,6 +96,7 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
 - Artificial Analysis：來源定義的 Intelligence Index task cost。
 - LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。
 - DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
+- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本，保存為 `AGENT_TASK`；每個明示 effort 各自保留，`none` 不推測。
 
 主 Quality vs. Cost 圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。第一版權重為 Artificial Analysis 40%、LiveBench 40%、DeepSWE 20%。缺站時只在現有來源上重新正規化權重，不把缺值當零。
 

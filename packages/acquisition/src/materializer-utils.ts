@@ -366,6 +366,18 @@ export function resolveModel(
   };
 }
 
+export function resolveCatalogModel(rawName: string): {
+  canonicalModelId: string | null;
+  rawName: string;
+} {
+  loadModelsCatalog();
+  const model = modelAliasIndex.get(slugify(rawName));
+  return {
+    canonicalModelId: model?.modelId ?? null,
+    rawName,
+  };
+}
+
 export function parseCsv(text: string): string[][] {
   const rows: string[][] = [];
   let row: string[] = [];
