@@ -75,12 +75,23 @@ describe('buildWorkspaceProduct', () => {
       false,
     );
     expect(product.costs.length).toBeGreaterThanOrEqual(10);
+    // Lower bound rather than an exact count: the number of qualifying models
+    // moves whenever the catalog or the eligibility window changes, and pinning
+    // it here previously encoded the bug where a missing releaseDate silently
+    // dropped a model. What matters is that LiveBench task costs exist and stay
+    // separate from its token pricing.
     expect(
       product.costs.filter(
         ({ sourceId, costType }) =>
           sourceId === 'livebench' && costType === 'MEASURED_TASK',
+      ).length,
+    ).toBeGreaterThanOrEqual(4);
+    expect(
+      product.costs.some(
+        ({ sourceId, costType }) =>
+          sourceId === 'livebench' && costType === 'API_STANDARDIZED',
       ),
-    ).toHaveLength(4);
+    ).toBe(true);
     expect(
       product.costs.filter(({ sourceId }) => sourceId === 'artificial-analysis')
         .length,

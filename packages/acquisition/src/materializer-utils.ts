@@ -272,6 +272,20 @@ function stripTrailingConfiguration(rawName: string): string {
   return current;
 }
 
+/**
+ * The only reasoning-effort values that may become a product profile. Kept in
+ * sync with `effortOrder` in data-v2/mappings/profile-policy.json; the test
+ * suite asserts the two stay identical. Source values outside this set are
+ * treated as unlabelled rather than inventing a new effort tier.
+ */
+export const LEGAL_SOURCE_EFFORTS: ReadonlySet<string> = new Set([
+  'max',
+  'xhigh',
+  'high',
+  'medium',
+  'low',
+]);
+
 export function parseEffort(rawName: string): string | null {
   const match = rawName.match(/\b(xhigh|max|high|medium|low)\b/iu);
   return match?.[1]?.toLowerCase() ?? null;

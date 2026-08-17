@@ -15,9 +15,9 @@
 | Main configurations with costs | 77 |
 | Models with multiple efforts | 15 |
 | Models with five efforts | 8 |
-| Canonically unresolved models | 9 |
+| Canonically unresolved models | 7 |
 
-The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontierswe`.
+The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontier-code-1-1`.
 
 ## Cross-checks
 
@@ -28,10 +28,10 @@ The official export contains both `main` and `extended` results. This source mat
 
 ## Identity and missing-value policy
 
-Exact catalog resolution succeeded for 19/28 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, DeepSeek V4 Flash 0731, Gemini 3.7 Flash, Grok 4.6, Kimi K2.7, Mistral 3.5 Medium, Qwen 3.7 Plus, SWE-1.6, SWE-1.7.
+Exact catalog resolution succeeded for 21/28 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, DeepSeek V4 Flash 0731, Kimi K2.7, Mistral 3.5 Medium, Qwen 3.7 Plus, SWE-1.6, SWE-1.7.
 
 Source effort `none` is preserved as null effort and null profile ID. It is not guessed as max/default. Missing costs would be omitted rather than written as zero; this snapshot has a finite cost for every Main configuration.
 
 ## Known documentation conflict
 
-`REFACTOR_SPEC_V2.md` is authoritative and requires Cognition FrontierCode 1.1 percentage scores under the existing `frontierswe` benchmark ID. `BENCHMARK_SCORE_SOURCES.md` and `BENCHMARK_DIMENSION_MAPPING.md` still describe that ID as Proximal FrontierSWE rank/dominance. Those lower-authority documents remain unresolved and must not be used to reinterpret these source values.
+Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `REFACTOR_SPEC_V2.md` §4.2.

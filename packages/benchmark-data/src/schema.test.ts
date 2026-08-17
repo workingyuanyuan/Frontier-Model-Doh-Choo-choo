@@ -392,13 +392,31 @@ describe('FrontierConfigSchema and model qualification', () => {
       ).toBe(true);
     });
 
-    it('disqualifies a model with missing releaseDate', () => {
+    it('qualifies a model with no releaseDate at all', () => {
+      // REFACTOR_SPEC_V2.md section 5.1: the window only removes models known
+      // to be old. A missing date must never silently drop a model, because
+      // frontier status is decided by measured coverage, not by whether the
+      // catalog row happens to carry a date.
       expect(
         isModelQualified(
           {
             modelId: 'test-model',
             releaseDate: null,
             deprecated: false,
+          },
+          referenceDate,
+          12,
+        ),
+      ).toBe(true);
+    });
+
+    it('disqualifies a deprecated model with no releaseDate', () => {
+      expect(
+        isModelQualified(
+          {
+            modelId: 'test-model',
+            releaseDate: null,
+            deprecated: true,
           },
           referenceDate,
           12,
@@ -489,8 +507,9 @@ describe('FrontierConfigSchema and model qualification', () => {
         qualificationWindowMonths: 12,
       });
 
-      expect(frontier.map(({ modelId }) => modelId)).toEqual([
+      expect(frontier.map(({ modelId }) => modelId).toSorted()).toEqual([
         'manual-model',
+        'nodate-model',
         'qualified-model',
       ]);
       expect(
@@ -499,6 +518,19 @@ describe('FrontierConfigSchema and model qualification', () => {
       expect(
         frontier.find(({ modelId }) => modelId === 'qualified-model')?.reasons,
       ).toEqual(['Active model within 12 month qualification window']);
+      expect(
+        frontier.find(({ modelId }) => modelId === 'nodate-model')?.reasons,
+      ).toEqual([
+        'Active model with no known release date; not excluded by the release-date window',
+      ]);
+      // The window still removes models that are known to be old, and
+      // deprecation still wins regardless of date.
+      expect(frontier.map(({ modelId }) => modelId)).not.toContain(
+        'expired-model',
+      );
+      expect(frontier.map(({ modelId }) => modelId)).not.toContain(
+        'deprecated-model',
+      );
     });
   });
 });

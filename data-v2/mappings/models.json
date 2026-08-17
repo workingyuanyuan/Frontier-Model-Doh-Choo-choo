@@ -5,7 +5,7 @@
       "modelId": "anthropic-claude-fable-5",
       "providerId": "anthropic",
       "displayName": "Claude Fable 5",
-      "releaseDate": null,
+      "releaseDate": "2026-06-09",
       "pricing": [],
       "profilePricing": {}
     },
@@ -13,7 +13,7 @@
       "modelId": "anthropic-claude-opus-4-7",
       "providerId": "anthropic",
       "displayName": "Claude Opus 4.7",
-      "releaseDate": null,
+      "releaseDate": "2026-04-16",
       "pricing": [],
       "profilePricing": {}
     },
@@ -21,7 +21,7 @@
       "modelId": "anthropic-claude-opus-4-8",
       "providerId": "anthropic",
       "displayName": "Claude Opus 4.8",
-      "releaseDate": null,
+      "releaseDate": "2026-05-28",
       "pricing": [],
       "profilePricing": {}
     },
@@ -38,7 +38,7 @@
       "modelId": "anthropic-claude-sonnet-4-6",
       "providerId": "anthropic",
       "displayName": "Claude Sonnet 4.6",
-      "releaseDate": null,
+      "releaseDate": "2026-02-17",
       "pricing": [],
       "profilePricing": {}
     },
@@ -46,7 +46,7 @@
       "modelId": "anthropic-claude-sonnet-5",
       "providerId": "anthropic",
       "displayName": "Claude Sonnet 5",
-      "releaseDate": null,
+      "releaseDate": "2026-06-30",
       "pricing": [],
       "profilePricing": {}
     },
@@ -54,7 +54,7 @@
       "modelId": "google-gemini-3-1-pro-preview",
       "providerId": "google",
       "displayName": "Gemini 3.1 Pro Preview",
-      "releaseDate": null,
+      "releaseDate": "2026-02-19",
       "pricing": [],
       "profilePricing": {}
     },
@@ -62,7 +62,7 @@
       "modelId": "google-gemini-3-5-flash",
       "providerId": "google",
       "displayName": "Gemini 3.5 Flash",
-      "releaseDate": null,
+      "releaseDate": "2026-05-19",
       "pricing": [],
       "profilePricing": {}
     },
@@ -71,7 +71,7 @@
       "providerId": "google",
       "displayName": "Gemini 3.6 Flash",
       "aliases": ["gemini-3.6-flash"],
-      "releaseDate": null,
+      "releaseDate": "2026-07-21",
       "pricing": [],
       "profilePricing": {}
     },
@@ -79,7 +79,7 @@
       "modelId": "meta-muse-spark-1-1",
       "providerId": "meta",
       "displayName": "Muse Spark 1.1",
-      "releaseDate": null,
+      "releaseDate": "2026-07-09",
       "pricing": [],
       "profilePricing": {}
     },
@@ -87,7 +87,7 @@
       "modelId": "openai-gpt-5-4",
       "providerId": "openai",
       "displayName": "GPT-5.4",
-      "releaseDate": null,
+      "releaseDate": "2026-03-05",
       "pricing": [],
       "profilePricing": {}
     },
@@ -95,7 +95,7 @@
       "modelId": "openai-gpt-5-5",
       "providerId": "openai",
       "displayName": "GPT-5.5",
-      "releaseDate": null,
+      "releaseDate": "2026-04-23",
       "pricing": [],
       "profilePricing": {}
     },
@@ -194,7 +194,7 @@
       "providerId": "alibaba",
       "displayName": "Qwen 3.7 Max",
       "aliases": ["Qwen3.7 Max", "Qwen3.7-Max", "alibaba/qwen3.7-max"],
-      "releaseDate": null,
+      "releaseDate": "2026-05-19",
       "pricing": [],
       "profilePricing": {}
     },
@@ -210,7 +210,7 @@
       "modelId": "anthropic-claude-opus-4-6",
       "providerId": "anthropic",
       "displayName": "Claude Opus 4.6",
-      "releaseDate": null,
+      "releaseDate": "2026-02-05",
       "pricing": [],
       "profilePricing": {}
     },
@@ -228,7 +228,7 @@
       "providerId": "deepseek",
       "displayName": "DeepSeek V4 Pro",
       "aliases": ["DeepSeek-v4-pro"],
-      "releaseDate": null,
+      "releaseDate": "2026-08-13",
       "pricing": [],
       "profilePricing": {}
     },
@@ -237,7 +237,7 @@
       "providerId": "deepseek",
       "displayName": "DeepSeek V4 Flash",
       "aliases": ["DeepSeek-v4-flash"],
-      "releaseDate": null,
+      "releaseDate": "2026-07-31",
       "pricing": [],
       "profilePricing": {}
     },
@@ -254,7 +254,7 @@
       "modelId": "meta-muse-spark",
       "providerId": "meta",
       "displayName": "Muse Spark",
-      "releaseDate": null,
+      "releaseDate": "2026-04-08",
       "pricing": [],
       "profilePricing": {}
     },
@@ -263,7 +263,7 @@
       "providerId": "minimax",
       "displayName": "MiniMax M3",
       "aliases": ["MiniMax-M3"],
-      "releaseDate": null,
+      "releaseDate": "2026-06-01",
       "pricing": [],
       "profilePricing": {}
     },
@@ -272,7 +272,7 @@
       "providerId": "moonshot",
       "displayName": "Kimi K2.6",
       "aliases": ["kimi/kimi-k2.6"],
-      "releaseDate": null,
+      "releaseDate": "2026-04-20",
       "pricing": [],
       "profilePricing": {}
     },
@@ -281,7 +281,7 @@
       "providerId": "moonshot",
       "displayName": "Kimi K3",
       "aliases": ["kimi-k3"],
-      "releaseDate": null,
+      "releaseDate": "2026-07-16",
       "pricing": [],
       "profilePricing": {}
     },
@@ -301,7 +301,7 @@
       "modelId": "openai-gpt-5-2",
       "providerId": "openai",
       "displayName": "GPT-5.2",
-      "releaseDate": null,
+      "releaseDate": "2025-12-11",
       "pricing": [],
       "profilePricing": {}
     },
@@ -317,7 +317,7 @@
       "modelId": "openai-gpt-5-3-codex",
       "providerId": "openai",
       "displayName": "GPT-5.3 Codex",
-      "releaseDate": null,
+      "releaseDate": "2026-02-05",
       "pricing": [],
       "profilePricing": {}
     },
@@ -334,7 +334,7 @@
       "modelId": "openai-gpt-5-4-pro",
       "providerId": "openai",
       "displayName": "GPT-5.4 Pro",
-      "releaseDate": null,
+      "releaseDate": "2026-03-05",
       "pricing": [],
       "profilePricing": {}
     },
@@ -342,7 +342,7 @@
       "modelId": "openai-gpt-5-5-pro",
       "providerId": "openai",
       "displayName": "GPT-5.5 Pro",
-      "releaseDate": null,
+      "releaseDate": "2026-04-23",
       "pricing": [],
       "profilePricing": {}
     },
@@ -359,7 +359,7 @@
       "providerId": "xiaomi",
       "displayName": "MiMo V2.5 Pro",
       "aliases": ["MiMo-V2.5-Pro", "xiaomi/mimo-v2.5-pro"],
-      "releaseDate": null,
+      "releaseDate": "2026-04-22",
       "pricing": [],
       "profilePricing": {}
     },
@@ -368,7 +368,7 @@
       "providerId": "zai",
       "displayName": "GLM-5.1",
       "aliases": ["GLM 5.1", "zai/glm-5.1"],
-      "releaseDate": null,
+      "releaseDate": "2026-04-07",
       "pricing": [],
       "profilePricing": {}
     },
@@ -376,7 +376,7 @@
       "modelId": "xai-grok-4-5",
       "providerId": "xai",
       "displayName": "Grok 4.5",
-      "releaseDate": null,
+      "releaseDate": "2026-07-08",
       "pricing": [],
       "profilePricing": {}
     },
@@ -384,7 +384,23 @@
       "modelId": "zai-glm-5-2",
       "providerId": "zai",
       "displayName": "GLM-5.2",
-      "releaseDate": null,
+      "releaseDate": "2026-06-16",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "google-gemini-3-7-flash",
+      "providerId": "google",
+      "displayName": "Gemini 3.7 Flash",
+      "releaseDate": "2026-08-13",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "xai-grok-4-6",
+      "providerId": "xai",
+      "displayName": "Grok 4.6",
+      "releaseDate": "2026-08-12",
       "pricing": [],
       "profilePricing": {}
     }

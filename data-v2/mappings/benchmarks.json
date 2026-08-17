@@ -167,6 +167,11 @@
       "secondaryDimensions": ["agentic", "context"]
     },
     {
+      "id": "frontier-code-1-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
       "id": "terminal-bench-2-1",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic"]

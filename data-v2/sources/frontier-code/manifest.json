@@ -1,7 +1,7 @@
 {
   "accessMethods": ["EXPORT", "EMBEDDED_JSON", "DOM"],
   "baseUrl": "https://cognition.com",
-  "benchmarkIds": ["frontierswe"],
+  "benchmarkIds": ["frontier-code-1-1"],
   "completeness": {
     "expectedCountMethod": "Compare all v1_1 models/efforts in the official static export with the rendered Main leaderboard and JSON-LD Top 10.",
     "pagination": null,

@@ -115,6 +115,80 @@ describe('Frontier Code materializer', () => {
     });
   });
 
+  it('scores under frontier-code-1-1, never the Proximal frontierswe id', () => {
+    const result = materializeFrontierCode(
+      payload,
+      htmlFor(names.map((name, index) => [name, 100 - index])),
+      {
+        dataEvidenceId: evidenceId,
+        pageEvidenceId,
+        observedAt: '2026-08-17T00:00:00.000Z',
+        visualRowCount: 10,
+        visualTopTenMatched: true,
+      },
+    );
+
+    // frontierswe belongs to Proximal FrontierSWE, a different organiser
+    // scoring model+harness rank and dominance. See REFACTOR_SPEC_V2.md 4.2.
+    expect(
+      result.candidates.every(
+        ({ benchmarkId }) => benchmarkId === 'frontier-code-1-1',
+      ),
+    ).toBe(true);
+    expect(
+      result.costs.every(
+        ({ benchmarkId }) => benchmarkId === 'frontier-code-1-1',
+      ),
+    ).toBe(true);
+    expect(result.candidates.some(({ id }) => id.includes('frontierswe'))).toBe(
+      false,
+    );
+  });
+
+  it('treats an effort outside the policy tiers as unlabelled', () => {
+    // FrontierCode keys one configuration by a sampling parameter ("0.99"),
+    // which must not become a product profile such as `<model>-0-99`.
+    const withIllegalEffort = JSON.parse(payload) as {
+      v1_1: {
+        efforts: Record<string, string[]>;
+        data: Record<string, Record<string, unknown>>;
+      };
+    };
+    const subject = names[0]!;
+    withIllegalEffort.v1_1.efforts[subject] = ['0.99'];
+    withIllegalEffort.v1_1.data[subject] = {
+      '0.99': {
+        main: { new_score: 0.14, correct: 0.5, cost: 1.5 },
+        extended: { new_score: 0.99, cost: 99 },
+      },
+    };
+
+    const result = materializeFrontierCode(
+      JSON.stringify(withIllegalEffort),
+      htmlFor(names.map((name, index) => [name, 100 - index])),
+      {
+        dataEvidenceId: evidenceId,
+        pageEvidenceId,
+        observedAt: '2026-08-17T00:00:00.000Z',
+        visualRowCount: 10,
+        visualTopTenMatched: true,
+      },
+    );
+
+    const row = result.candidates.find(
+      ({ model }) => model.rawName === subject,
+    );
+    expect(row?.profile.effort).toBeNull();
+    expect(row?.model.profileId).toBeNull();
+    expect(
+      result.candidates.every(
+        ({ model }) => !model.profileId?.includes('0-99'),
+      ),
+    ).toBe(true);
+    // The raw key is still recoverable from provenance.
+    expect(JSON.stringify(row?.provenance)).toContain('0.99');
+  });
+
   it('reports a structured-export versus JSON-LD mismatch', () => {
     const mismatched = names.map((name, index) => [name, 100 - index] as const);
     mismatched[0] = [names[0]!, 12.3];

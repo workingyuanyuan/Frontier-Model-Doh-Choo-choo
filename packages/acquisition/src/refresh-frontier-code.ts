@@ -188,7 +188,7 @@ async function main() {
     role: 'ORGANIZER',
     baseUrl: 'https://cognition.com',
     targetUrls: [FRONTIER_CODE_PAGE_URL, FRONTIER_CODE_DATA_URL],
-    benchmarkIds: ['frontierswe'],
+    benchmarkIds: ['frontier-code-1-1'],
     accessMethods: ['EXPORT', 'EMBEDDED_JSON', 'DOM'],
     completeness: {
       expectedCountMethod:

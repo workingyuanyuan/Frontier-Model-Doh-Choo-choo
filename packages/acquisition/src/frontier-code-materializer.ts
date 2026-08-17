@@ -5,7 +5,11 @@ import {
   type CostRecord,
 } from '@llm-bench/benchmark-data';
 
-import { resolveCatalogModel, slugify } from './materializer-utils.js';
+import {
+  LEGAL_SOURCE_EFFORTS,
+  resolveCatalogModel,
+  slugify,
+} from './materializer-utils.js';
 
 export const FRONTIER_CODE_PAGE_URL = 'https://cognition.com/frontiercode';
 export const FRONTIER_CODE_DATA_URL =
@@ -135,8 +139,12 @@ export function extractFrontierCodeTopTen(
   throw new Error('FrontierCode 1.1 Main JSON-LD ItemList was not found');
 }
 
+// FrontierCode keys some configurations by a sampling parameter rather than a
+// reasoning effort (Inkling is keyed "0.99"). Only the efforts declared in
+// data-v2/mappings/profile-policy.json may become a product profile; anything
+// else is treated as unlabelled. The raw key stays in the provenance locator.
 const sourceEffort = (rawEffort: string): string | null =>
-  rawEffort === 'none' ? null : rawEffort;
+  LEGAL_SOURCE_EFFORTS.has(rawEffort) ? rawEffort : null;
 
 const profileIdFor = (
   canonicalModelId: string | null,
@@ -209,10 +217,10 @@ export function materializeFrontierCode(
       candidates.push(
         CandidateResultSchema.parse({
           schemaVersion: 'candidate-result-v1',
-          id: `frontier-code:frontierswe-1-1:${suffix}`,
+          id: `frontier-code:frontier-code-1-1:${suffix}`,
           sourceId: 'frontier-code',
           sourceRole: 'ORGANIZER',
-          benchmarkId: 'frontierswe',
+          benchmarkId: 'frontier-code-1-1',
           benchmarkVersion: '1.1',
           model: commonModel,
           profile: commonProfile,
@@ -267,7 +275,7 @@ export function materializeFrontierCode(
             outputPerMillionTokens: null,
             cost: metrics.cost,
             assumptionId: null,
-            benchmarkId: 'frontierswe',
+            benchmarkId: 'frontier-code-1-1',
             benchmarkVersion: '1.1',
             inclusion: 'INCLUDED',
             exclusionReason: null,
@@ -346,7 +354,7 @@ export function materializeFrontierCode(
     `| Models with five efforts | ${modelsWithFiveEfforts} |`,
     `| Canonically unresolved models | ${unresolved.length} |`,
     '',
-    'The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontierswe`.',
+    'The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontier-code-1-1`.',
     '',
     '## Cross-checks',
     '',
@@ -363,7 +371,7 @@ export function materializeFrontierCode(
     '',
     '## Known documentation conflict',
     '',
-    '`REFACTOR_SPEC_V2.md` is authoritative and requires Cognition FrontierCode 1.1 percentage scores under the existing `frontierswe` benchmark ID. `BENCHMARK_SCORE_SOURCES.md` and `BENCHMARK_DIMENSION_MAPPING.md` still describe that ID as Proximal FrontierSWE rank/dominance. Those lower-authority documents remain unresolved and must not be used to reinterpret these source values.',
+    'Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `REFACTOR_SPEC_V2.md` §4.2.',
     '',
   ].join('\n');
 

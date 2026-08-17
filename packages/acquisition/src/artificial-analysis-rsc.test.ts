@@ -67,6 +67,39 @@ describe('Artificial Analysis API cross-validation', () => {
     expect(result.pageOnlyRows).toEqual(['page-only']);
     expect(result.apiOnlyRows).toEqual(['api-only']);
   });
+
+  it('counts API rounding as a precision difference, not a disagreement', () => {
+    // The API rounds to three decimals while the page payload is full
+    // precision. Without a tolerance this reports a difference on roughly two
+    // thirds of all comparisons and buries real drift in the noise.
+    const result = compareArtificialAnalysisApi(
+      [
+        { slug: 'rounded', name: 'Rounded', gpqa: 0.856565656565657 },
+        { slug: 'exact', name: 'Exact', gpqa: 0.5 },
+      ],
+      {
+        data: [
+          { slug: 'rounded', evaluations: { gpqa: 0.857 } },
+          { slug: 'exact', evaluations: { gpqa: 0.5 } },
+        ],
+      },
+    );
+
+    expect(result.comparedValues).toBe(2);
+    expect(result.precisionDifferences).toBe(1);
+    expect(result.mismatches).toEqual([]);
+  });
+
+  it('still reports a difference that exceeds the rounding tolerance', () => {
+    const result = compareArtificialAnalysisApi(
+      [{ slug: 'drifted', name: 'Drifted', gpqa: 0.8 }],
+      { data: [{ slug: 'drifted', evaluations: { gpqa: 0.81 } }] },
+    );
+
+    expect(result.precisionDifferences).toBe(0);
+    expect(result.mismatches).toHaveLength(1);
+    expect(result.mismatches[0]).toMatchObject({ field: 'gpqa' });
+  });
 });
 
 describe('Artificial Analysis RSC materializer', () => {

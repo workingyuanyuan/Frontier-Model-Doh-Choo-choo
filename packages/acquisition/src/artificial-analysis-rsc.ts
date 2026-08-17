@@ -57,10 +57,22 @@ export interface ArtificialAnalysisDiscrepancy {
   apiValue: number;
 }
 
+/**
+ * The API rounds every evaluation value to three decimals while the embedded
+ * page payload carries full precision, so a direct equality check reports a
+ * difference on roughly two thirds of all comparisons and drowns out real
+ * structural drift. Anything within half of the API's last digit is a
+ * representation difference, not a disagreement.
+ */
+export const API_COMPARISON_TOLERANCE = 5e-4;
+
 export interface ArtificialAnalysisApiComparison {
   matchedRows: number;
   comparedValues: number;
+  /** Values differing by more than API_COMPARISON_TOLERANCE: real drift. */
   mismatches: ArtificialAnalysisDiscrepancy[];
+  /** Values differing only because the API rounds to three decimals. */
+  precisionDifferences: number;
   pageOnlyRows: string[];
   apiOnlyRows: string[];
 }
@@ -712,6 +724,7 @@ export const compareArtificialAnalysisApi = (
   }
   const mismatches: ArtificialAnalysisDiscrepancy[] = [];
   let comparedValues = 0;
+  let precisionDifferences = 0;
   for (const [key, pageRow] of pagesByKey) {
     const apiRow = apiByKey.get(key);
     if (!apiRow) continue;
@@ -720,14 +733,18 @@ export const compareArtificialAnalysisApi = (
       const apiValue = apiFieldValue(apiRow, field);
       if (pageValue === null || apiValue === null) continue;
       comparedValues += 1;
-      if (Math.abs(pageValue - apiValue) > 1e-9) {
-        mismatches.push({
-          key,
-          field: field.field,
-          pageValue,
-          apiValue,
-        });
+      const delta = Math.abs(pageValue - apiValue);
+      if (delta <= 1e-9) continue;
+      if (delta <= API_COMPARISON_TOLERANCE) {
+        precisionDifferences += 1;
+        continue;
       }
+      mismatches.push({
+        key,
+        field: field.field,
+        pageValue,
+        apiValue,
+      });
     }
   }
   return {
@@ -735,6 +752,7 @@ export const compareArtificialAnalysisApi = (
       .length,
     comparedValues,
     mismatches,
+    precisionDifferences,
     pageOnlyRows: [...pagesByKey.keys()]
       .filter((key) => !apiByKey.has(key))
       .toSorted(),
@@ -1008,7 +1026,7 @@ export const materializeArtificialAnalysisRsc = (
   if (!api) warnings.push('API cross-validation was not attempted.');
   if (api && apiComparison && apiComparison.mismatches.length > 0) {
     warnings.push(
-      `API cross-validation found ${apiComparison.mismatches.length} mismatched overlapping values.`,
+      `API cross-validation found ${apiComparison.mismatches.length} overlapping values differing beyond rounding tolerance.`,
     );
   }
 
@@ -1043,16 +1061,22 @@ export const materializeArtificialAnalysisRsc = (
     '## API cross-validation',
     '',
     api && apiComparison
-      ? `- API source: \`${api.sourceUrl}\`; matched rows ${apiComparison.matchedRows}, compared values ${apiComparison.comparedValues}, mismatches ${apiComparison.mismatches.length}.`
+      ? `- API source: \`${api.sourceUrl}\`; matched rows ${apiComparison.matchedRows}, compared values ${apiComparison.comparedValues}.`
       : '- API source unavailable; page pipeline remains authoritative.',
+    ...(api && apiComparison
+      ? [
+          `- Precision-only differences (API rounds to three decimals, within ${API_COMPARISON_TOLERANCE}): ${apiComparison.precisionDifferences}. These are representation differences, not disagreements.`,
+          `- Real differences (beyond ${API_COMPARISON_TOLERANCE}): ${apiComparison.mismatches.length}.`,
+        ]
+      : []),
     ...(apiComparison && apiComparison.mismatches.length > 0
       ? apiComparison.mismatches
           .slice(0, 50)
           .map(
             ({ key, field, pageValue, apiValue }) =>
-              `- Mismatch ${key} / ${field}: page=${pageValue}, api=${apiValue}`,
+              `- Real difference ${key} / ${field}: page=${pageValue}, api=${apiValue}`,
           )
-      : ['- No overlapping API mismatches recorded.']),
+      : ['- No real API differences recorded beyond rounding.']),
     ...warnings.map((warning) => `- Warning: ${warning}`),
     '',
     '## Scope and semantics',

@@ -657,6 +657,13 @@ export const isReleaseDateQualified = (
   return releaseDate.getTime() >= cutoffDate.getTime();
 };
 
+/**
+ * The release-date window is a negative filter only: it removes models that are
+ * known to be old. A missing release date never disqualifies a model, because
+ * frontier status is decided by measured benchmark coverage (the display-set
+ * complete-matrix gate), not by whether a catalog row happens to carry a date.
+ * See REFACTOR_SPEC_V2.md section 5.1.
+ */
 export const isModelQualified = (
   model: {
     modelId: string;
@@ -667,7 +674,7 @@ export const isModelQualified = (
   windowMonths = 12,
 ): boolean => {
   if (model.deprecated) return false;
-  if (!model.releaseDate) return false;
+  if (!model.releaseDate) return true;
   return isReleaseDateQualified(model.releaseDate, referenceDate, windowMonths);
 };
 
@@ -692,7 +699,9 @@ export const buildFrontierSet = ({
           modelId: model.modelId,
           profileId: `${model.modelId}-unspecified`,
           reasons: [
-            `Active model within ${windowMonths} month qualification window`,
+            model.releaseDate
+              ? `Active model within ${windowMonths} month qualification window`
+              : 'Active model with no known release date; not excluded by the release-date window',
           ],
           externalCompositeScores: {},
         });
