@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
 
 import {
   EvidenceRecordSchema,
@@ -9,13 +10,30 @@ import {
 
 import { writeContentAddressedArtifact } from './index.js';
 import {
-  materializeArtificialAnalysisCosts,
   materializeDeepSweCosts,
   materializeLiveBenchCosts,
 } from './pricing-materializers.js';
+import {
+  extractArtificialAnalysisRscRows,
+  materializeArtificialAnalysisRsc,
+  type ArtificialAnalysisPage,
+} from './artificial-analysis-rsc.js';
 
 const readJson = async <T>(path: string): Promise<T> =>
   JSON.parse(await readFile(path, 'utf8')) as T;
+
+const prettyDeterministicJson = (value: unknown): string =>
+  `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
+
+const getWorkspaceRoot = (): string => {
+  let directory = process.cwd();
+  while (true) {
+    if (existsSync(join(directory, 'data-v2'))) return directory;
+    const parent = dirname(directory);
+    if (parent === directory) throw new Error('Workspace root not found');
+    directory = parent;
+  }
+};
 
 const findEvidence = (
   records: EvidenceRecord[],
@@ -27,7 +45,7 @@ const findEvidence = (
 };
 
 async function main() {
-  const root = resolve(process.argv[2] ?? process.cwd());
+  const root = resolve(process.argv[2] ?? getWorkspaceRoot());
   const sourcesRoot = join(root, 'data-v2', 'sources');
 
   const aaIndexPath = join(
@@ -38,20 +56,50 @@ async function main() {
   const aaEvidence = EvidenceRecordSchema.array().parse(
     await readJson<unknown>(aaIndexPath),
   );
-  const aaRecord = findEvidence(
-    aaEvidence,
-    'https://artificialanalysis.ai/models',
+  const aaPageEvidence = aaEvidence.filter(
+    ({ requestUrl }) =>
+      requestUrl === 'https://artificialanalysis.ai/models' ||
+      requestUrl.startsWith('https://artificialanalysis.ai/models/') ||
+      requestUrl.startsWith('https://artificialanalysis.ai/evaluations/'),
   );
-  const aaHtml = await readFile(join(root, aaRecord.artifactPath), 'utf8');
-  const aaCosts = materializeArtificialAnalysisCosts(aaHtml, {
-    sourceUrl: aaRecord.requestUrl,
-    evidenceId: aaRecord.id,
-    observedAt: aaRecord.retrievedAt,
-    method: aaRecord.method,
-  });
+  const aaPages: ArtificialAnalysisPage[] = await Promise.all(
+    aaPageEvidence.map(async (record) => {
+      const isModels =
+        record.requestUrl === 'https://artificialanalysis.ai/models';
+      const isDetail = record.requestUrl.startsWith(
+        'https://artificialanalysis.ai/models/',
+      );
+      return {
+        kind: isModels ? 'models' : isDetail ? 'model-detail' : 'evaluation',
+        slug: isModels
+          ? 'models'
+          : (record.requestUrl.split('/').at(-1) ?? record.requestUrl),
+        sourceUrl: record.requestUrl,
+        evidenceId: record.id,
+        retrievedAt: record.retrievedAt,
+        rows: extractArtificialAnalysisRscRows(
+          await readFile(join(root, record.artifactPath), 'utf8'),
+        ),
+      };
+    }),
+  );
+  const aaApiRecord = aaEvidence.find(
+    ({ requestUrl, method }) =>
+      requestUrl === 'https://artificialanalysis.ai/api/v2/data/llms/models' &&
+      method === 'API_RESPONSE',
+  );
+  const aaApi = aaApiRecord
+    ? {
+        sourceUrl: aaApiRecord.requestUrl,
+        evidenceId: aaApiRecord.id,
+        retrievedAt: aaApiRecord.retrievedAt,
+        payload: await readJson<unknown>(join(root, aaApiRecord.artifactPath)),
+      }
+    : null;
+  const aaCosts = materializeArtificialAnalysisRsc(aaPages, aaApi).costs;
   await writeFile(
     join(sourcesRoot, 'artificial-analysis', 'costs.json'),
-    deterministicJson(aaCosts),
+    prettyDeterministicJson(aaCosts),
   );
 
   const deepIndexPath = join(sourcesRoot, 'deepswe', 'evidence-index.json');
@@ -71,7 +119,7 @@ async function main() {
   });
   await writeFile(
     join(sourcesRoot, 'deepswe', 'costs.json'),
-    deterministicJson(deepCosts),
+    prettyDeterministicJson(deepCosts),
   );
 
   const liveUrl = 'https://livebench.ai/cost_2026_06_25.csv?v=1784029070';
@@ -111,7 +159,7 @@ async function main() {
   updatedLiveEvidence.sort((left, right) =>
     left.requestUrl.localeCompare(right.requestUrl),
   );
-  await writeFile(liveIndexPath, deterministicJson(updatedLiveEvidence));
+  await writeFile(liveIndexPath, prettyDeterministicJson(updatedLiveEvidence));
   const liveCosts = materializeLiveBenchCosts(new TextDecoder().decode(bytes), {
     sourceUrl: liveUrl,
     evidenceId: liveRecord.id,
@@ -120,7 +168,7 @@ async function main() {
   });
   await writeFile(
     join(sourcesRoot, 'livebench', 'costs.json'),
-    deterministicJson(liveCosts),
+    prettyDeterministicJson(liveCosts),
   );
 
   console.log(

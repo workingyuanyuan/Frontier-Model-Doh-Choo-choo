@@ -20,9 +20,14 @@ pnpm install --frozen-lockfile
 來源快照與成本使用相同 materializer：
 
 ```bash
+pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
 pnpm --filter @llm-bench/acquisition materialize:snapshots
 pnpm --filter @llm-bench/acquisition materialize:costs
 ```
+
+Artificial Analysis 的命令會組合 evaluation RSC、`/models` 與現役 profile 的
+`/models/<slug>` detail payload；`ARTIFICIAL_ANALYSIS_API_KEY` 僅從 gitignored
+`.env.local` 讀取，官方 API 失效時記錄 warning，不阻斷頁面管道。
 
 刷新完成後逐站檢查：
 

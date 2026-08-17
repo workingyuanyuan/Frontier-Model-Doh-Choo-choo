@@ -1,7 +1,11 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { materializeEpoch } from './epoch-materializer.js';
-import { materializeArtificialAnalysis } from './artificial-analysis-materializer.js';
+import {
+  extractArtificialAnalysisRscRows,
+  materializeArtificialAnalysisRsc,
+  type ArtificialAnalysisPage,
+} from './artificial-analysis-rsc.js';
 import { materializeLiveBench } from './livebench-materializer.js';
 import { materializeDeepSwe } from './deepswe-materializer.js';
 import {
@@ -9,6 +13,9 @@ import {
   deterministicJson,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
+
+const prettyDeterministicJson = (value: unknown): string =>
+  `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
 
 function getWorkspaceRoot(): string {
   let dir = process.cwd();
@@ -97,6 +104,7 @@ interface EvidenceRecord {
   artifactPath: string;
   mediaType: string;
   requestUrl: string;
+  method: string;
 }
 
 function main() {
@@ -123,6 +131,7 @@ function main() {
 
     let candidates: CandidateResult[] = [];
     let customReportText: string | null = null;
+    let materializedCosts: unknown[] | null = null;
 
     if (src.id === 'epoch-ai') {
       const zipRecord = evidenceList.find(
@@ -136,37 +145,54 @@ function main() {
         sourceUrl: zipRecord.requestUrl,
       });
     } else if (src.id === 'artificial-analysis') {
-      const modelsRecord = evidenceList.find(
-        (e) => e.requestUrl === 'https://artificialanalysis.ai/models',
+      const aaPageRecords = evidenceList.filter(
+        ({ requestUrl }) =>
+          requestUrl === 'https://artificialanalysis.ai/models' ||
+          requestUrl.startsWith('https://artificialanalysis.ai/models/') ||
+          requestUrl.startsWith('https://artificialanalysis.ai/evaluations/'),
       );
-      const articleRecord = evidenceList.find(
-        (e) =>
-          e.requestUrl ===
-          'https://artificialanalysis.ai/articles/gpt-5-6-has-landed',
-      );
-      if (!modelsRecord || !articleRecord)
-        throw new Error(
-          'Models/Article HTML evidence not found for artificial-analysis',
+      if (aaPageRecords.length === 0) {
+        throw new Error('Artificial Analysis RSC page evidence not found');
+      }
+      const pages: ArtificialAnalysisPage[] = aaPageRecords.map((record) => {
+        const isModels =
+          record.requestUrl === 'https://artificialanalysis.ai/models';
+        const isDetail = record.requestUrl.startsWith(
+          'https://artificialanalysis.ai/models/',
         );
-      const modelsHtml = readFileSync(
-        join(repoRoot, modelsRecord.artifactPath),
-        'utf8',
+        const slug = isModels
+          ? 'models'
+          : (record.requestUrl.split('/').at(-1) ?? record.requestUrl);
+        const html = readFileSync(join(repoRoot, record.artifactPath), 'utf8');
+        return {
+          kind: isModels ? 'models' : isDetail ? 'model-detail' : 'evaluation',
+          slug,
+          sourceUrl: record.requestUrl,
+          evidenceId: record.id,
+          retrievedAt: record.retrievedAt,
+          rows: extractArtificialAnalysisRscRows(html),
+        };
+      });
+      const apiRecord = evidenceList.find(
+        ({ requestUrl, method }) =>
+          requestUrl ===
+            'https://artificialanalysis.ai/api/v2/data/llms/models' &&
+          method === 'API_RESPONSE',
       );
-      const articleHtml = readFileSync(
-        join(repoRoot, articleRecord.artifactPath),
-        'utf8',
-      );
-      candidates = materializeArtificialAnalysis(
-        modelsHtml,
-        articleHtml,
-        modelsRecord.retrievedAt,
-        {
-          modelsEvidenceId: modelsRecord.id,
-          articleEvidenceId: articleRecord.id,
-          modelsUrl: modelsRecord.requestUrl,
-          articleUrl: articleRecord.requestUrl,
-        },
-      );
+      const api = apiRecord
+        ? {
+            sourceUrl: apiRecord.requestUrl,
+            evidenceId: apiRecord.id,
+            retrievedAt: apiRecord.retrievedAt,
+            payload: JSON.parse(
+              readFileSync(join(repoRoot, apiRecord.artifactPath), 'utf8'),
+            ) as unknown,
+          }
+        : null;
+      const result = materializeArtificialAnalysisRsc(pages, api);
+      candidates = result.candidates;
+      materializedCosts = result.costs;
+      customReportText = result.validationReport;
     } else if (src.id === 'livebench') {
       const jsRecord = evidenceList.find(
         (e) =>
@@ -265,6 +291,13 @@ function main() {
     // Write candidates.json using deterministicJson
     const candidatesPath = join(sourceDir, 'candidates.json');
     writeFileSync(candidatesPath, deterministicJson(candidates), 'utf8');
+    if (materializedCosts !== null) {
+      writeFileSync(
+        join(sourceDir, 'costs.json'),
+        prettyDeterministicJson(materializedCosts),
+        'utf8',
+      );
+    }
 
     // Counts
     const unresolvedCount = candidates.filter(

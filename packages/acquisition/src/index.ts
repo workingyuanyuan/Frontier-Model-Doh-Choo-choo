@@ -254,6 +254,15 @@ export {
 } from './livebench-materializer.js';
 export { materializeDeepSwe } from './deepswe-materializer.js';
 export {
+  ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
+  compareArtificialAnalysisApi,
+  decodeArtificialAnalysisRsc,
+  extractArtificialAnalysisRscRows,
+  isArtificialAnalysisActiveRow,
+  isArtificialAnalysisValuePresent,
+  materializeArtificialAnalysisRsc,
+} from './artificial-analysis-rsc.js';
+export {
   materializeArtificialAnalysisCosts,
   materializeDeepSweCosts,
   materializeLiveBenchCosts,

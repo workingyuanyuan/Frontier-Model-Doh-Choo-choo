@@ -6,6 +6,7 @@ import {
   resolveModel,
   slugify,
 } from './materializer-utils.js';
+import { isArtificialAnalysisValuePresent } from './artificial-analysis-rsc.js';
 
 export function materializeArtificialAnalysis(
   modelsHtml: string,
@@ -235,10 +236,7 @@ export function materializeArtificialAnalysis(
     const modelPart = profileId || slugify(rawName);
 
     // 1. Intelligence Index (organizer, excluded)
-    if (
-      model.intelligenceIndex !== undefined &&
-      model.intelligenceIndex !== null
-    ) {
+    if (isArtificialAnalysisValuePresent(model.intelligenceIndex)) {
       candidates.push({
         schemaVersion: 'candidate-result-v1',
         id: `${sourceId}:${modelPart}:intelligence-index-v4-1`,
@@ -292,7 +290,7 @@ export function materializeArtificialAnalysis(
     }
 
     // 2. Coding Index (organizer, excluded)
-    if (model.codingIndex !== undefined && model.codingIndex !== null) {
+    if (isArtificialAnalysisValuePresent(model.codingIndex)) {
       candidates.push({
         schemaVersion: 'candidate-result-v1',
         id: `${sourceId}:${modelPart}:coding-agent-index`,
@@ -346,7 +344,7 @@ export function materializeArtificialAnalysis(
     }
 
     // 2.1. Omniscience Index (Excluded, display only)
-    if (model.omniscience !== undefined && model.omniscience !== null) {
+    if (isArtificialAnalysisValuePresent(model.omniscience)) {
       candidates.push({
         schemaVersion: 'candidate-result-v1',
         id: `${sourceId}:${modelPart}:aa-omniscience:index`,
@@ -404,8 +402,7 @@ export function materializeArtificialAnalysis(
     if (
       breakdown &&
       typeof breakdown === 'object' &&
-      breakdown.accuracy !== undefined &&
-      breakdown.accuracy !== null
+      isArtificialAnalysisValuePresent(breakdown.accuracy)
     ) {
       const acc = breakdown.accuracy;
       candidates.push({
@@ -467,7 +464,7 @@ export function materializeArtificialAnalysis(
     // 3. Direct constituents
     for (const m of matrixMappings) {
       const val = model[m.key];
-      if (val !== undefined && val !== null) {
+      if (isArtificialAnalysisValuePresent(val)) {
         const rawScore = val;
         const normalizedScore = m.normalize ? val * 100 : val;
 

@@ -1,14 +1,6 @@
 {
-  "schemaVersion": "source-manifest-v1",
-  "sourceId": "artificial-analysis",
-  "displayName": "Artificial Analysis",
-  "role": "ORGANIZER",
+  "accessMethods": ["NEXT_RSC", "API_RESPONSE", "DOM"],
   "baseUrl": "https://artificialanalysis.ai/",
-  "targetUrls": [
-    "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
-    "https://artificialanalysis.ai/models",
-    "https://artificialanalysis.ai/methodology/intelligence-benchmarking"
-  ],
   "benchmarkIds": [
     "artificial-analysis-intelligence-index",
     "aa-briefcase",
@@ -25,25 +17,50 @@
     "gdpval-aa",
     "ifbench"
   ],
-  "accessMethods": ["DOM", "EMBEDDED_JSON"],
   "completeness": {
-    "expectedCountMethod": "Enumerate every model object and non-null evaluation field in the captured official models payload, then compare GPT-5.6 release-specific benchmark statements against the dated article. Apply the Top 20 limit only during downstream Frontier selection.",
+    "expectedCountMethod": "Union every listed evaluation page by profile slug, filter active non-deprecated profiles, then compare score coverage and detail-page task costs; $undefined and null are missing.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
+  "displayName": "Artificial Analysis",
+  "fallbackMethods": ["VISUAL", "MANUAL"],
   "fieldMapping": {
     "article heading": "sourcePublishedAt",
-    "named model/profile": "model.rawName and profile.effort",
     "named evaluation": "benchmarkId",
+    "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "fallbackMethods": ["VISUAL", "MANUAL"],
-  "lastVerifiedAt": "2026-08-12T16:40:13.196Z",
+  "lastVerifiedAt": "2026-08-17T11:06:46.670Z",
   "notes": [
-    "Role is assigned per result: Artificial Analysis-owned indices and AA-Briefcase are ORGANIZER; reruns of external benchmarks are INDEPENDENT.",
-    "External composite indices are retained for frontier selection and display but excluded from LLM Bench eight-dimension scoring.",
-    "The current Intelligence Index methodology version is v4.1.1.",
-    "The 2026-08-12 capture exposes 27 model objects from the wider 598-model catalog; every non-null supported benchmark field is materialized, while downstream Frontier selection retains at most the per-source Top 20.",
-    "The current payload no longer exposes the former Coding Agent Index field, so that stale composite is not emitted."
+    "Evaluation pages are unioned by profile slug; detail pages are fetched for every active profile to obtain intelligenceIndexCostPerTask and token prices.",
+    "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
+    "`$undefined` and null are both treated as missing values.",
+    "Capture observed 608 unique profiles, 228 active profiles, 96 task-cost rows, and 223 token-price rows."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "artificial-analysis",
+  "targetUrls": [
+    "https://artificialanalysis.ai/api/v2/data/llms/models",
+    "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
+    "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+    "https://artificialanalysis.ai/evaluations/aa-briefcase",
+    "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+    "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+    "https://artificialanalysis.ai/evaluations/automationbench-aa",
+    "https://artificialanalysis.ai/evaluations/critpt",
+    "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
+    "https://artificialanalysis.ai/evaluations/gdpval-aa",
+    "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+    "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+    "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+    "https://artificialanalysis.ai/evaluations/ifbench",
+    "https://artificialanalysis.ai/evaluations/itbench-aa",
+    "https://artificialanalysis.ai/evaluations/mmmu-pro",
+    "https://artificialanalysis.ai/evaluations/omniscience",
+    "https://artificialanalysis.ai/evaluations/scicode",
+    "https://artificialanalysis.ai/evaluations/tau3-banking",
+    "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
+    "https://artificialanalysis.ai/models"
   ]
 }

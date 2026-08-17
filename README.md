@@ -36,9 +36,13 @@ pnpm install --frozen-lockfile
 刷新支援來源的結構化快照與成本：
 
 ```bash
+pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
 pnpm --filter @llm-bench/acquisition materialize:snapshots
 pnpm --filter @llm-bench/acquisition materialize:costs
 ```
+
+Artificial Analysis 擷取會讀取 gitignored 的 `.env.local` 中的
+`ARTIFICIAL_ANALYSIS_API_KEY` 做交叉驗證；頁面 RSC 管道在金鑰失效時仍可單獨完成。
 
 驗證來源後，建立單一 `data-v2/product/current.json`：
 

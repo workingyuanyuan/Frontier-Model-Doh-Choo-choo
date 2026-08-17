@@ -45,9 +45,14 @@
 支援來源的物化命令：
 
 ```bash
+pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
 pnpm --filter @llm-bench/acquisition materialize:snapshots
 pnpm --filter @llm-bench/acquisition materialize:costs
 ```
+
+Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models` 與現役
+`/models/<slug>` detail 頁面補齊任務成本與 token 單價。`null` 與字串
+`$undefined` 都表示缺值；API 只做交叉驗證，失效時保留 warning 並繼續使用頁面管道。
 
 正常排程採統一頻率。新模型推出時，人工可額外觸發一次相同資料收集流程；不建立永久的「自動發現模型」旁路。
 
