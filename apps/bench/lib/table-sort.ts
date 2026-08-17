@@ -1,6 +1,6 @@
 import type {
-  CandidateResult,
   DimensionId,
+  ProductEvidence,
   ProductVersion,
 } from '@llm-bench/benchmark-data';
 
@@ -92,9 +92,9 @@ export const sortLeaderboardRows = (
 };
 
 export const sortEvidenceRows = (
-  rows: CandidateResult[],
+  rows: ProductEvidence[],
   sort: { key: EvidenceSortKey; direction: SortDirection },
-): CandidateResult[] => {
+): ProductEvidence[] => {
   const sign = sort.direction === 'ascending' ? 1 : -1;
   return rows
     .map((row, index) => ({ row, index }))
@@ -135,12 +135,12 @@ export const sortEvidenceRows = (
 };
 
 export interface EvidenceGroups {
-  groups: Array<{ dimension: DimensionId; rows: CandidateResult[] }>;
-  unmapped: CandidateResult[];
+  groups: Array<{ dimension: DimensionId; rows: ProductEvidence[] }>;
+  unmapped: ProductEvidence[];
 }
 
 export const groupEvidenceByDimension = (
-  rows: CandidateResult[],
+  rows: ProductEvidence[],
   benchmarkDimensions:
     ReadonlyMap<string, DimensionId> | Readonly<Record<string, DimensionId>>,
 ): EvidenceGroups => {
@@ -148,10 +148,10 @@ export const groupEvidenceByDimension = (
     benchmarkDimensions instanceof Map
       ? benchmarkDimensions
       : new Map(Object.entries(benchmarkDimensions));
-  const grouped = new Map<DimensionId, CandidateResult[]>(
+  const grouped = new Map<DimensionId, ProductEvidence[]>(
     UI_DIMENSION_IDS.map((dimension) => [dimension, []]),
   );
-  const unmapped: CandidateResult[] = [];
+  const unmapped: ProductEvidence[] = [];
   rows.forEach((row) => {
     const dimension = lookup.get(row.benchmarkId);
     if (!dimension || !grouped.has(dimension)) unmapped.push(row);

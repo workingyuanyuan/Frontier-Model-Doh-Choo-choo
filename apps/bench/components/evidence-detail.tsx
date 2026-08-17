@@ -1,7 +1,7 @@
 import type {
-  CandidateResult,
   DimensionId,
   ModelProfile,
+  ProductEvidence,
 } from '@llm-bench/benchmark-data';
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ import {
 
 type EvidenceDetailProps = {
   profile: ModelProfile;
-  evidence: CandidateResult[];
+  evidence: ProductEvidence[];
   benchmarkDimensions: Record<string, DimensionId>;
   selectedResult?:
     | {
@@ -31,7 +31,7 @@ type EvidenceDetailProps = {
 const displayScore = (value: number | null) =>
   value === null ? 'N/A' : value.toFixed(1);
 
-const evidenceProfile = (result: CandidateResult) =>
+const evidenceProfile = (result: ProductEvidence) =>
   result.profile.harness ?? '';
 
 const DIMENSION_LABELS: Record<DimensionId, string> = {
@@ -45,10 +45,10 @@ const DIMENSION_LABELS: Record<DimensionId, string> = {
   instruction: 'Instruction',
 };
 
-const EvidenceRow = ({ result }: { result: CandidateResult }) => (
+const EvidenceRow = ({ result }: { result: ProductEvidence }) => (
   <tr>
     <th scope="row" data-label="Benchmark">
-      <a href={result.sourceUrl} target="_blank" rel="noreferrer">
+      <a href={result.provenance.sourceUrl} target="_blank" rel="noreferrer">
         {result.benchmarkId}
       </a>
       <span>Version {result.benchmarkVersion ?? 'not published'}</span>
@@ -72,6 +72,8 @@ const EvidenceRow = ({ result }: { result: CandidateResult }) => (
       >
         {result.acquisitionStatus}
       </span>
+      <span>{result.provenance.locator}</span>
+      <span>{result.provenance.retrievedAt}</span>
     </td>
     <td data-label="Decision">
       <span

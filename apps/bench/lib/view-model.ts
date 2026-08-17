@@ -1,6 +1,6 @@
 import type {
-  CandidateResult,
   ModelProfile,
+  ProductEvidence,
   ProductVersion,
 } from '@llm-bench/benchmark-data';
 
@@ -144,7 +144,7 @@ export const getProfilesForModel = (
 export const getEvidenceForProfile = (
   product: ProductVersion,
   profileId: string,
-): CandidateResult[] => {
+): ProductEvidence[] => {
   const profile = profileById(product, profileId);
   if (!profile) return [];
 

@@ -3,12 +3,14 @@ import { describe, expect, it } from 'vitest';
 import {
   applyProductProfilePolicy,
   buildFrontierSet,
-  buildDraftProduct,
+  buildProduct,
   buildProductVersion,
   deriveModelProfiles,
   scoreProfiles,
   selectCurrentResults,
+  toProductEvidence,
   type CandidateResult,
+  type ModelCatalog,
   type ModelProfile,
   type ProfilePolicy,
 } from './index.js';
@@ -133,61 +135,47 @@ describe('selectCurrentResults', () => {
 });
 
 describe('buildFrontierSet', () => {
-  it('takes at most twenty base models per source and keeps one profile slot', () => {
-    const rows = [
-      {
-        sourceId: 'aa',
-        rank: 1,
-        modelId: 'model-a',
-        profileId: 'model-a-max',
-        score: 60,
-      },
-      {
-        sourceId: 'aa',
-        rank: 2,
-        modelId: 'model-a',
-        profileId: 'model-a-high',
-        score: 58,
-      },
-      ...Array.from({ length: 24 }, (_, index) => ({
-        sourceId: 'aa',
-        rank: index + 3,
-        modelId: `model-${index + 2}`,
-        profileId: `model-${index + 2}-default`,
-        score: 50 - index,
-      })),
-    ];
+  it('selects active models within qualification window and manual models', () => {
+    const catalog: ModelCatalog = {
+      schemaVersion: 'model-catalog-v1',
+      models: [
+        {
+          modelId: 'openai-gpt-5-6-sol',
+          providerId: 'openai',
+          displayName: 'GPT-5.6 Sol',
+          releaseDate: '2026-07-09',
+          pricing: [],
+          profilePricing: {},
+        },
+        {
+          modelId: 'legacy-model',
+          providerId: 'openai',
+          displayName: 'Legacy Model',
+          releaseDate: '2023-01-01',
+          pricing: [],
+          profilePricing: {},
+        },
+      ],
+    };
 
-    const frontier = buildFrontierSet(rows, [
-      {
-        modelId: 'manual-new-model',
-        profileId: 'manual-new-model-default',
-        reason: 'Manually specified new release',
-      },
+    const frontier = buildFrontierSet({
+      catalog,
+      manualModels: [
+        {
+          modelId: 'manual-new-model',
+          profileId: 'manual-new-model-default',
+          reason: 'Manually specified new release',
+        },
+      ],
+      referenceDate: '2026-07-16T00:00:00.000Z',
+      qualificationWindowMonths: 12,
+    });
+
+    expect(frontier).toHaveLength(2);
+    expect(frontier.map(({ modelId }) => modelId)).toEqual([
+      'manual-new-model',
+      'openai-gpt-5-6-sol',
     ]);
-
-    expect(frontier).toHaveLength(21);
-    expect(
-      frontier.filter(({ modelId }) => modelId === 'model-a'),
-    ).toHaveLength(1);
-    expect(frontier.at(-1)?.modelId).toBe('manual-new-model');
-  });
-
-  it('does not pad a source that has fewer than twenty models', () => {
-    expect(
-      buildFrontierSet(
-        [
-          {
-            sourceId: 'short',
-            rank: 1,
-            modelId: 'only-model',
-            profileId: 'only-model-default',
-            score: 10,
-          },
-        ],
-        [],
-      ),
-    ).toHaveLength(1);
   });
 });
 
@@ -248,7 +236,7 @@ describe('buildProductVersion', () => {
         new Map([['terminal-bench-2-1', 'coding']]),
       ),
       costs: [],
-      evidence: [makeCandidate()],
+      evidence: [toProductEvidence(makeCandidate())],
     };
 
     const version = buildProductVersion(input);
@@ -258,19 +246,31 @@ describe('buildProductVersion', () => {
   });
 });
 
-describe('buildDraftProduct', () => {
-  it('uses composite rankings only for selection and scores the frontier from direct evidence', () => {
-    const composite = makeCandidate({
-      id: 'composite',
-      sourceId: 'artificial-analysis',
-      sourceRole: 'INDEPENDENT',
-      benchmarkId: 'artificial-analysis-intelligence-index',
-      benchmarkVersion: 'v4.1',
-      rawScore: 59,
-      normalizedScore: null,
-      inclusion: 'EXCLUDED',
-      exclusionReason: 'Selection only',
-    });
+describe('buildProduct', () => {
+  it('selects the frontier from qualified models in catalog and scores from direct evidence', () => {
+    const catalog: ModelCatalog = {
+      schemaVersion: 'model-catalog-v1',
+      models: [
+        {
+          modelId: 'openai-gpt-5-6-sol',
+          providerId: 'openai',
+          displayName: 'GPT-5.6 Sol',
+          releaseDate: '2026-07-09',
+          pricing: [
+            {
+              type: 'API_STANDARDIZED',
+              currency: 'USD',
+              inputPerMillionTokens: 5,
+              outputPerMillionTokens: 30,
+              costPerTask: null,
+              assumptionId: 'api-blend-3-to-1',
+              sourceUrl: 'https://openai.com/index/gpt-5-6/',
+            },
+          ],
+          profilePricing: {},
+        },
+      ],
+    };
     const direct = makeCandidate({
       id: 'direct',
       sourceId: 'livebench',
@@ -301,18 +301,10 @@ describe('buildDraftProduct', () => {
       ],
     };
 
-    const product = buildDraftProduct({
+    const product = buildProduct({
       generatedAt: '2026-07-16T00:00:00.000Z',
       sourceSnapshotIds: ['livebench:2026-06-25'],
       candidates: [
-        {
-          ...composite,
-          model: {
-            ...composite.model,
-            canonicalModelId: 'openai-gpt-5-6-sol',
-            profileId: 'openai-gpt-5-6-sol-max',
-          },
-        },
         {
           ...direct,
           model: {
@@ -324,21 +316,13 @@ describe('buildDraftProduct', () => {
       ],
       profiles: [profile],
       benchmarkDimensions: new Map([['livebench-reasoning', 'reasoning']]),
-      compositeSources: [
-        {
-          sourceId: 'artificial-analysis',
-          benchmarkId: 'artificial-analysis-intelligence-index',
-        },
-      ],
+      catalog,
       manualModels: [],
     });
 
     expect(product.frontier).toHaveLength(1);
     expect(product.leaderboard[0]?.overallScore).toBe(91);
-    expect(product.evidence.map(({ id }) => id)).toEqual([
-      'composite',
-      'direct',
-    ]);
+    expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
     expect(product.costs[0]).toMatchObject({
       cost: 11.25,
       performance: 91,
@@ -348,13 +332,12 @@ describe('buildDraftProduct', () => {
 
   it('rejects a scored profile that is absent from the model catalog', () => {
     expect(() =>
-      buildDraftProduct({
+      buildProduct({
         generatedAt: '2026-07-16T00:00:00.000Z',
         sourceSnapshotIds: [],
         candidates: [makeCandidate()],
         profiles: [],
         benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
-        compositeSources: [],
         manualModels: [
           {
             modelId: 'openai-gpt-5-6-sol',
@@ -363,7 +346,7 @@ describe('buildDraftProduct', () => {
           },
         ],
       }),
-    ).toThrow('model catalog');
+    ).toThrow('model catalog is missing profiles');
   });
 });
 
@@ -626,13 +609,13 @@ describe('deriveModelProfiles', () => {
       catalog,
       profilePolicy,
     );
-    const product = buildDraftProduct({
+    const product = buildProduct({
       generatedAt: '2026-07-16T00:00:00.000Z',
       sourceSnapshotIds: ['epoch-ai:test', 'livebench:test'],
       candidates,
       profiles: deriveModelProfiles(candidates, catalog),
       benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
-      compositeSources: [],
+      catalog,
       manualModels: [
         {
           modelId: 'openai-gpt-5-6-sol',

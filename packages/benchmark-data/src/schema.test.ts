@@ -1,13 +1,25 @@
 import { describe, expect, it } from 'vitest';
 import benchmarkMappings from '../../../data-v2/mappings/benchmarks.json';
+import displaySetConfig from '../../../data-v2/mappings/display-set.json';
+import frontierConfig from '../../../data-v2/mappings/frontier.json';
+import sourcesConfig from '../../../data-v2/mappings/sources.json';
 
 import {
   BenchmarkDimensionMappingSchema,
   CandidateResultSchema,
+  DisplaySetSchema,
+  FrontierConfigSchema,
   ModelCatalogSchema,
-  ProductVersionPointerSchema,
+  ProductEvidenceSchema,
   ProductVersionSchema,
+  SourcesConfigSchema,
+  buildFrontierSet,
+  buildProductVersion,
   deterministicJson,
+  isModelQualified,
+  isReleaseDateQualified,
+  toProductEvidence,
+  validateDisplaySet,
 } from './index.js';
 
 describe('ModelCatalogSchema', () => {
@@ -113,6 +125,35 @@ describe('CandidateResultSchema', () => {
   });
 });
 
+describe('ProductEvidenceSchema', () => {
+  it('collapses field provenance to one strict score provenance record', () => {
+    const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
+
+    expect(evidence.provenance).toEqual({
+      sourceUrl: candidate.sourceUrl,
+      locator: candidate.provenance.rawScore.locator,
+      method: candidate.provenance.rawScore.method,
+      retrievedAt: candidate.observedAt,
+      evidenceId: candidate.provenance.rawScore.evidenceId,
+    });
+    expect(evidence).not.toHaveProperty('evidenceIds');
+    expect(evidence).not.toHaveProperty('observedAt');
+    expect(evidence).not.toHaveProperty('sourcePublishedAt');
+    expect(evidence).not.toHaveProperty('sourceUrl');
+  });
+
+  it('rejects the old field-level provenance map', () => {
+    const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
+
+    expect(() =>
+      ProductEvidenceSchema.parse({
+        ...evidence,
+        provenance: candidate.provenance,
+      }),
+    ).toThrow();
+  });
+});
+
 describe('BenchmarkDimensionMappingSchema', () => {
   it('validates the committed mapping and keeps benchmark IDs unique', () => {
     const parsed = BenchmarkDimensionMappingSchema.parse(benchmarkMappings);
@@ -140,8 +181,9 @@ describe('BenchmarkDimensionMappingSchema', () => {
 
 describe('ProductVersionSchema', () => {
   it('keeps all eight dimensions in canonical order', () => {
+    const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const product = ProductVersionSchema.parse({
-      schemaVersion: 'product-version-v1',
+      schemaVersion: 'product-version-v2',
       versionId:
         'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       generatedAt: '2026-07-16T00:00:00.000Z',
@@ -169,7 +211,7 @@ describe('ProductVersionSchema', () => {
         },
       ],
       costs: [],
-      evidence: [candidate],
+      evidence: [evidence],
     });
 
     expect(
@@ -185,31 +227,22 @@ describe('ProductVersionSchema', () => {
       'context',
     ]);
   });
-});
 
-describe('ProductVersionPointerSchema', () => {
-  it('allows Draft and Published to point at the same immutable version', () => {
-    const versionId =
-      'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+  it('keeps the version hash deterministic for identical v2 input', () => {
+    const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
+    const input = {
+      generatedAt: '2026-07-16T00:00:00.000Z',
+      sourceSnapshotIds: ['terminal-bench:2026-07-16'],
+      frontier: [],
+      profiles: [],
+      leaderboard: [],
+      costs: [],
+      evidence: [evidence],
+    };
 
-    expect(
-      ProductVersionPointerSchema.parse({
-        schemaVersion: 'product-pointer-v1',
-        channel: 'DRAFT',
-        versionId,
-        previousVersionId: null,
-        updatedAt: '2026-07-16T00:00:00.000Z',
-      }).versionId,
-    ).toBe(versionId);
-    expect(
-      ProductVersionPointerSchema.parse({
-        schemaVersion: 'product-pointer-v1',
-        channel: 'PUBLISHED',
-        versionId,
-        previousVersionId: null,
-        updatedAt: '2026-07-16T00:00:00.000Z',
-      }).versionId,
-    ).toBe(versionId);
+    expect(buildProductVersion(input).versionId).toBe(
+      buildProductVersion(input).versionId,
+    );
   });
 });
 
@@ -222,5 +255,250 @@ describe('deterministicJson', () => {
         list: [{ d: 4, c: 3 }, 2],
       }),
     ).toBe('{"list":[{"c":3,"d":4},2],"nested":{"a":1,"b":2},"z":1}\n');
+  });
+});
+
+describe('SourcesConfigSchema', () => {
+  it('validates the committed sources.json whitelist', () => {
+    const parsed = SourcesConfigSchema.parse(sourcesConfig);
+    expect(parsed.schemaVersion).toBe('sources-config-v1');
+    expect(parsed.whitelist).toEqual([
+      'artificial-analysis',
+      'livebench',
+      'deepswe',
+      'frontier-code',
+    ]);
+  });
+
+  it('rejects an empty whitelist or invalid source slug', () => {
+    expect(() =>
+      SourcesConfigSchema.parse({
+        schemaVersion: 'sources-config-v1',
+        whitelist: [],
+      }),
+    ).toThrow();
+
+    expect(() =>
+      SourcesConfigSchema.parse({
+        schemaVersion: 'sources-config-v1',
+        whitelist: ['INVALID_SLUG!'],
+      }),
+    ).toThrow();
+  });
+});
+
+describe('DisplaySetSchema and validateDisplaySet', () => {
+  it('validates the committed display-set.json mapping', () => {
+    const parsed = DisplaySetSchema.parse(displaySetConfig);
+    expect(parsed.schemaVersion).toBe('display-set-v1');
+    expect(parsed.benchmarkIds.length).toBeGreaterThan(0);
+    expect(() =>
+      validateDisplaySet(
+        parsed,
+        BenchmarkDimensionMappingSchema.parse(benchmarkMappings),
+      ),
+    ).not.toThrow();
+  });
+
+  it('rejects display set with empty benchmark list or invalid slug', () => {
+    expect(() =>
+      DisplaySetSchema.parse({
+        schemaVersion: 'display-set-v1',
+        benchmarkIds: [],
+      }),
+    ).toThrow();
+
+    expect(() =>
+      DisplaySetSchema.parse({
+        schemaVersion: 'display-set-v1',
+        benchmarkIds: ['NOT_A_VALID_SLUG!'],
+      }),
+    ).toThrow();
+  });
+
+  it('throws an explicit error identifying unknown benchmark IDs', () => {
+    const mapping = BenchmarkDimensionMappingSchema.parse(benchmarkMappings);
+    expect(() =>
+      validateDisplaySet(
+        {
+          schemaVersion: 'display-set-v1',
+          benchmarkIds: [
+            'livebench-reasoning',
+            'non-existent-bench-foo',
+            'another-missing-bench-bar',
+          ],
+        },
+        mapping,
+      ),
+    ).toThrowError(
+      'Display set contains unknown benchmark IDs: non-existent-bench-foo, another-missing-bench-bar',
+    );
+  });
+});
+
+describe('FrontierConfigSchema and model qualification', () => {
+  it('validates the committed frontier-config-v2 configuration without compositeSources', () => {
+    const parsed = FrontierConfigSchema.parse(frontierConfig);
+    expect(parsed.schemaVersion).toBe('frontier-config-v2');
+    expect(parsed.qualificationWindowMonths).toBe(12);
+    expect(parsed.manualModels).toEqual([]);
+    expect(parsed).not.toHaveProperty('compositeSources');
+    expect(parsed).not.toHaveProperty('perSourceLimit');
+  });
+
+  describe('isReleaseDateQualified boundary tests', () => {
+    const referenceDate = '2026-07-16T14:00:00.000Z';
+
+    it('qualifies a model released exactly 12 months ago', () => {
+      expect(isReleaseDateQualified('2025-07-16', referenceDate, 12)).toBe(
+        true,
+      );
+    });
+
+    it('disqualifies a model released 12 months and 1 day ago', () => {
+      expect(isReleaseDateQualified('2025-07-15', referenceDate, 12)).toBe(
+        false,
+      );
+    });
+
+    it('qualifies a model released recently within 12 months', () => {
+      expect(isReleaseDateQualified('2026-03-01', referenceDate, 12)).toBe(
+        true,
+      );
+    });
+
+    it('respects a custom qualification window in months', () => {
+      expect(isReleaseDateQualified('2026-01-01', referenceDate, 6)).toBe(
+        false,
+      );
+      expect(isReleaseDateQualified('2026-02-01', referenceDate, 6)).toBe(true);
+    });
+  });
+
+  describe('isModelQualified', () => {
+    const referenceDate = '2026-07-16T14:00:00.000Z';
+
+    it('qualifies an active model with a valid releaseDate within window', () => {
+      expect(
+        isModelQualified(
+          {
+            modelId: 'test-model',
+            releaseDate: '2026-05-01',
+            deprecated: false,
+          },
+          referenceDate,
+          12,
+        ),
+      ).toBe(true);
+    });
+
+    it('disqualifies a model with missing releaseDate', () => {
+      expect(
+        isModelQualified(
+          {
+            modelId: 'test-model',
+            releaseDate: null,
+            deprecated: false,
+          },
+          referenceDate,
+          12,
+        ),
+      ).toBe(false);
+    });
+
+    it('disqualifies a deprecated model even if released within window', () => {
+      expect(
+        isModelQualified(
+          {
+            modelId: 'test-model',
+            releaseDate: '2026-05-01',
+            deprecated: true,
+          },
+          referenceDate,
+          12,
+        ),
+      ).toBe(false);
+    });
+
+    it('disqualifies an active model released before the window', () => {
+      expect(
+        isModelQualified(
+          {
+            modelId: 'test-model',
+            releaseDate: '2024-01-01',
+            deprecated: false,
+          },
+          referenceDate,
+          12,
+        ),
+      ).toBe(false);
+    });
+  });
+
+  describe('buildFrontierSet', () => {
+    it('populates frontier models from qualified catalog models and manualModels', () => {
+      const catalog = ModelCatalogSchema.parse({
+        schemaVersion: 'model-catalog-v1',
+        models: [
+          {
+            modelId: 'qualified-model',
+            providerId: 'provider-a',
+            displayName: 'Qualified Model',
+            releaseDate: '2026-01-01',
+            pricing: [],
+            profilePricing: {},
+          },
+          {
+            modelId: 'expired-model',
+            providerId: 'provider-b',
+            displayName: 'Expired Model',
+            releaseDate: '2024-01-01',
+            pricing: [],
+            profilePricing: {},
+          },
+          {
+            modelId: 'deprecated-model',
+            providerId: 'provider-c',
+            displayName: 'Deprecated Model',
+            releaseDate: '2026-05-01',
+            deprecated: true,
+            pricing: [],
+            profilePricing: {},
+          },
+          {
+            modelId: 'nodate-model',
+            providerId: 'provider-d',
+            displayName: 'No Date Model',
+            releaseDate: null,
+            pricing: [],
+            profilePricing: {},
+          },
+        ],
+      });
+
+      const frontier = buildFrontierSet({
+        catalog,
+        manualModels: [
+          {
+            modelId: 'manual-model',
+            profileId: 'manual-model-default',
+            reason: 'Manual inclusion for early preview',
+          },
+        ],
+        referenceDate: '2026-07-16T14:00:00.000Z',
+        qualificationWindowMonths: 12,
+      });
+
+      expect(frontier.map(({ modelId }) => modelId)).toEqual([
+        'manual-model',
+        'qualified-model',
+      ]);
+      expect(
+        frontier.find(({ modelId }) => modelId === 'manual-model')?.reasons,
+      ).toEqual(['Manual inclusion for early preview']);
+      expect(
+        frontier.find(({ modelId }) => modelId === 'qualified-model')?.reasons,
+      ).toEqual(['Active model within 12 month qualification window']);
+    });
   });
 });

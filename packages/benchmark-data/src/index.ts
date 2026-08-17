@@ -1,5 +1,5 @@
-import { createHash, randomUUID } from 'node:crypto';
-import { access, mkdir, readFile, rename, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import * as z from 'zod';
@@ -45,6 +45,9 @@ export const BenchmarkDimensionMappingSchema = z.object({
     }),
   ),
 });
+export type BenchmarkDimensionMapping = z.infer<
+  typeof BenchmarkDimensionMappingSchema
+>;
 
 export const SlugSchema = z
   .string()
@@ -125,6 +128,24 @@ export const FieldProvenanceSchema = z.object({
   locator: z.string().min(1),
 });
 
+export const ScoreProvenanceMethodSchema = z.enum([
+  'EXPORT',
+  'API_RESPONSE',
+  'EMBEDDED_JSON',
+  'NEXT_RSC',
+  'DOM',
+  'VISUAL',
+]);
+
+export const ScoreProvenanceSchema = z.strictObject({
+  sourceUrl: HttpUrlSchema,
+  locator: z.string().min(1),
+  method: ScoreProvenanceMethodSchema,
+  retrievedAt: z.iso.datetime(),
+  evidenceId: Sha256Schema,
+});
+export type ScoreProvenance = z.infer<typeof ScoreProvenanceSchema>;
+
 export const CandidateProfileAttributesSchema = z.object({
   effort: z.string().nullable(),
   thinking: z.string().nullable(),
@@ -140,38 +161,68 @@ export const ModelProfileAttributesSchema = z.object({
   harness: z.string().nullable(),
 });
 
-export const CandidateResultSchema = z
-  .object({
-    schemaVersion: z.literal('candidate-result-v1'),
-    id: z.string().min(1).max(300),
-    sourceId: SlugSchema,
-    sourceRole: SourceRoleSchema,
-    benchmarkId: SlugSchema,
-    benchmarkVersion: z.string().min(1).nullable(),
-    model: z.object({
-      rawName: z.string().min(1),
-      canonicalModelId: SlugSchema.nullable(),
-      profileId: SlugSchema.nullable(),
-    }),
-    profile: CandidateProfileAttributesSchema,
-    productProfile: ModelProfileAttributesSchema.optional(),
-    metric: z.object({
-      id: SlugSchema,
-      name: z.string().min(1),
-      unit: z.string().min(1),
-      higherIsBetter: z.boolean(),
-    }),
-    rawScore: z.number().finite(),
-    normalizedScore: z.number().min(0).max(100).nullable(),
-    acquisitionStatus: z.enum(['FULL', 'PARTIAL_SOURCE']),
-    inclusion: z.enum(['INCLUDED', 'EXCLUDED']),
-    exclusionReason: z.string().min(1).nullable(),
-    sourceUrl: HttpUrlSchema,
-    observedAt: z.iso.datetime(),
-    sourcePublishedAt: z.iso.datetime().nullable(),
-    evidenceIds: z.array(Sha256Schema).min(1),
-    provenance: z.record(z.string(), FieldProvenanceSchema),
-  })
+const CandidateResultBaseSchema = z.object({
+  schemaVersion: z.literal('candidate-result-v1'),
+  id: z.string().min(1).max(300),
+  sourceId: SlugSchema,
+  sourceRole: SourceRoleSchema,
+  benchmarkId: SlugSchema,
+  benchmarkVersion: z.string().min(1).nullable(),
+  model: z.object({
+    rawName: z.string().min(1),
+    canonicalModelId: SlugSchema.nullable(),
+    profileId: SlugSchema.nullable(),
+  }),
+  profile: CandidateProfileAttributesSchema,
+  productProfile: ModelProfileAttributesSchema.optional(),
+  metric: z.object({
+    id: SlugSchema,
+    name: z.string().min(1),
+    unit: z.string().min(1),
+    higherIsBetter: z.boolean(),
+  }),
+  rawScore: z.number().finite(),
+  normalizedScore: z.number().min(0).max(100).nullable(),
+  acquisitionStatus: z.enum(['FULL', 'PARTIAL_SOURCE']),
+  inclusion: z.enum(['INCLUDED', 'EXCLUDED']),
+  exclusionReason: z.string().min(1).nullable(),
+  sourceUrl: HttpUrlSchema,
+  observedAt: z.iso.datetime(),
+  sourcePublishedAt: z.iso.datetime().nullable(),
+  evidenceIds: z.array(Sha256Schema).min(1),
+  provenance: z.record(z.string(), FieldProvenanceSchema),
+});
+
+export const CandidateResultSchema = CandidateResultBaseSchema.superRefine(
+  (value, context) => {
+    if (value.inclusion === 'EXCLUDED' && value.exclusionReason === null) {
+      context.addIssue({
+        code: 'custom',
+        message: 'exclusionReason is required for excluded results',
+        path: ['exclusionReason'],
+      });
+    }
+    if (value.inclusion === 'INCLUDED' && value.exclusionReason !== null) {
+      context.addIssue({
+        code: 'custom',
+        message: 'included results cannot have an exclusionReason',
+        path: ['exclusionReason'],
+      });
+    }
+  },
+);
+export type CandidateResult = z.infer<typeof CandidateResultSchema>;
+
+export const ProductEvidenceSchema = CandidateResultBaseSchema.omit({
+  schemaVersion: true,
+  sourceUrl: true,
+  observedAt: true,
+  sourcePublishedAt: true,
+  evidenceIds: true,
+  provenance: true,
+})
+  .extend({ provenance: ScoreProvenanceSchema })
+  .strict()
   .superRefine((value, context) => {
     if (value.inclusion === 'EXCLUDED' && value.exclusionReason === null) {
       context.addIssue({
@@ -188,7 +239,7 @@ export const CandidateResultSchema = z
       });
     }
   });
-export type CandidateResult = z.infer<typeof CandidateResultSchema>;
+export type ProductEvidence = z.infer<typeof ProductEvidenceSchema>;
 
 export const PricingSchema = z.object({
   type: z.enum([
@@ -258,6 +309,7 @@ export const ModelCatalogSchema = z.object({
       displayName: z.string().min(1),
       aliases: z.array(z.string().min(1)).optional(),
       releaseDate: z.iso.date().nullable(),
+      deprecated: z.boolean().optional(),
       pricing: z.array(PricingSchema),
       profilePricing: z.record(SlugSchema, z.array(PricingSchema)),
     }),
@@ -289,6 +341,40 @@ export const ProfilePolicySchema = z
     }
   });
 export type ProfilePolicy = z.infer<typeof ProfilePolicySchema>;
+
+export const SourcesConfigSchema = z.object({
+  schemaVersion: z.literal('sources-config-v1'),
+  whitelist: z.array(SlugSchema).min(1),
+});
+export type SourcesConfig = z.infer<typeof SourcesConfigSchema>;
+
+export const DisplaySetSchema = z.object({
+  schemaVersion: z.literal('display-set-v1'),
+  notes: z.string().optional(),
+  benchmarkIds: z.array(SlugSchema).min(1),
+});
+export type DisplaySet = z.infer<typeof DisplaySetSchema>;
+
+export const validateDisplaySet = (
+  displaySetInput: DisplaySet,
+  benchmarkMappingInput: BenchmarkDimensionMapping,
+): void => {
+  const displaySet = DisplaySetSchema.parse(displaySetInput);
+  const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
+    benchmarkMappingInput,
+  );
+  const knownBenchmarkIds = new Set(
+    benchmarkMapping.benchmarks.map(({ id }) => id),
+  );
+  const missing = displaySet.benchmarkIds.filter(
+    (id) => !knownBenchmarkIds.has(id),
+  );
+  if (missing.length > 0) {
+    throw new Error(
+      `Display set contains unknown benchmark IDs: ${missing.join(', ')}`,
+    );
+  }
+};
 
 const normalizedLabelKey = (value: string): string =>
   value.trim().toLocaleLowerCase().replace(/\s+/gu, ' ');
@@ -371,7 +457,7 @@ export const OrderedDimensionScoresSchema = z
   });
 
 export const ProductVersionSchema = z.object({
-  schemaVersion: z.literal('product-version-v1'),
+  schemaVersion: z.literal('product-version-v2'),
   versionId: Sha256Schema,
   generatedAt: z.iso.datetime(),
   sourceSnapshotIds: z.array(z.string().min(1)),
@@ -413,18 +499,9 @@ export const ProductVersionSchema = z.object({
       evidenceIds: z.array(Sha256Schema),
     }),
   ),
-  evidence: z.array(CandidateResultSchema),
+  evidence: z.array(ProductEvidenceSchema),
 });
 export type ProductVersion = z.infer<typeof ProductVersionSchema>;
-
-export const ProductVersionPointerSchema = z.object({
-  schemaVersion: z.literal('product-pointer-v1'),
-  channel: z.enum(['DRAFT', 'PUBLISHED']),
-  versionId: Sha256Schema,
-  previousVersionId: Sha256Schema.nullable(),
-  updatedAt: z.iso.datetime(),
-});
-export type ProductVersionPointer = z.infer<typeof ProductVersionPointerSchema>;
 
 const sortJson = (value: unknown): unknown => {
   if (Array.isArray(value)) {
@@ -558,48 +635,72 @@ const groupBy = <Item, Key>(
   return groups;
 };
 
-export const buildFrontierSet = (
-  rows: CompositeRankingRow[],
-  manualModels: ManualFrontierModel[],
-  perSourceLimit = 20,
-): FrontierModel[] => {
-  const bySource = groupBy(rows, ({ sourceId }) => sourceId);
+export const isReleaseDateQualified = (
+  releaseDateStr: string,
+  referenceDateStr: string,
+  windowMonths: number,
+): boolean => {
+  const ref = new Date(referenceDateStr);
+  const cutoffYear = ref.getUTCFullYear();
+  const cutoffMonth = ref.getUTCMonth() - windowMonths;
+  const cutoffDay = ref.getUTCDate();
+  const cutoffDate = new Date(
+    Date.UTC(cutoffYear, cutoffMonth, cutoffDay, 0, 0, 0, 0),
+  );
+
+  const releaseDate = new Date(
+    releaseDateStr.includes('T')
+      ? releaseDateStr
+      : `${releaseDateStr}T00:00:00.000Z`,
+  );
+
+  return releaseDate.getTime() >= cutoffDate.getTime();
+};
+
+export const isModelQualified = (
+  model: {
+    modelId: string;
+    releaseDate: string | null;
+    deprecated?: boolean | undefined;
+  },
+  referenceDate: string,
+  windowMonths = 12,
+): boolean => {
+  if (model.deprecated) return false;
+  if (!model.releaseDate) return false;
+  return isReleaseDateQualified(model.releaseDate, referenceDate, windowMonths);
+};
+
+export const buildFrontierSet = ({
+  catalog,
+  manualModels,
+  referenceDate,
+  qualificationWindowMonths,
+}: {
+  catalog?: ModelCatalog | undefined;
+  manualModels?: ManualFrontierModel[] | undefined;
+  referenceDate: string;
+  qualificationWindowMonths?: number | undefined;
+}): FrontierModel[] => {
   const frontier = new Map<string, FrontierModel>();
+  const windowMonths = qualificationWindowMonths ?? 12;
 
-  [...bySource.entries()]
-    .sort(([left], [right]) => left.localeCompare(right))
-    .forEach(([sourceId, sourceRows]) => {
-      const seenModels = new Set<string>();
-      sourceRows
-        .toSorted(
-          (left, right) =>
-            left.rank - right.rank ||
-            right.score - left.score ||
-            left.modelId.localeCompare(right.modelId),
-        )
-        .filter(({ modelId }) => {
-          if (seenModels.has(modelId)) return false;
-          seenModels.add(modelId);
-          return true;
-        })
-        .slice(0, perSourceLimit)
-        .forEach((row) => {
-          const current = frontier.get(row.modelId);
-          if (current) {
-            current.reasons.push(`${sourceId} composite Top ${perSourceLimit}`);
-            current.externalCompositeScores[sourceId] = row.score;
-            return;
-          }
-          frontier.set(row.modelId, {
-            modelId: row.modelId,
-            profileId: row.profileId,
-            reasons: [`${sourceId} composite Top ${perSourceLimit}`],
-            externalCompositeScores: { [sourceId]: row.score },
-          });
+  if (catalog) {
+    catalog.models.forEach((model) => {
+      if (isModelQualified(model, referenceDate, windowMonths)) {
+        frontier.set(model.modelId, {
+          modelId: model.modelId,
+          profileId: `${model.modelId}-unspecified`,
+          reasons: [
+            `Active model within ${windowMonths} month qualification window`,
+          ],
+          externalCompositeScores: {},
         });
+      }
     });
+  }
 
-  manualModels.forEach((manual) => {
+  (manualModels ?? []).forEach((manual) => {
     const current = frontier.get(manual.modelId);
     if (current) {
       current.reasons.push(manual.reason);
@@ -613,7 +714,9 @@ export const buildFrontierSet = (
     });
   });
 
-  return [...frontier.values()];
+  return [...frontier.values()].toSorted((left, right) =>
+    left.modelId.localeCompare(right.modelId),
+  );
 };
 
 type LeaderboardEntry = z.infer<
@@ -691,27 +794,18 @@ export const scoreProfiles = (
   }));
 };
 
-export interface CompositeSource {
-  sourceId: string;
-  benchmarkId: string;
-}
-
 export const FrontierConfigSchema = z.object({
-  schemaVersion: z.literal('frontier-config-v1'),
-  perSourceLimit: z.int().positive().max(20),
-  compositeSources: z.array(
-    z.object({
-      sourceId: SlugSchema,
-      benchmarkId: SlugSchema,
-    }),
-  ),
-  manualModels: z.array(
-    z.object({
-      modelId: SlugSchema,
-      profileId: SlugSchema,
-      reason: z.string().min(1),
-    }),
-  ),
+  schemaVersion: z.literal('frontier-config-v2'),
+  qualificationWindowMonths: z.number().int().positive().default(12),
+  manualModels: z
+    .array(
+      z.object({
+        modelId: SlugSchema,
+        profileId: SlugSchema,
+        reason: z.string().min(1),
+      }),
+    )
+    .default([]),
 });
 export type FrontierConfig = z.infer<typeof FrontierConfigSchema>;
 
@@ -815,65 +909,69 @@ export const deriveModelProfiles = (
     .toSorted((left, right) => left.id.localeCompare(right.id));
 };
 
-export interface DraftProductInput {
+export interface ProductInput {
   generatedAt: string;
   sourceSnapshotIds: string[];
   candidates: CandidateResult[];
   profiles: ModelProfile[];
   benchmarkDimensions: ReadonlyMap<string, DimensionId>;
-  compositeSources: CompositeSource[];
-  manualModels: ManualFrontierModel[];
-  perSourceLimit?: number;
-  costRecords?: CostRecord[];
+  catalog?: ModelCatalog | undefined;
+  manualModels?: ManualFrontierModel[] | undefined;
+  qualificationWindowMonths?: number | undefined;
+  costRecords?: CostRecord[] | undefined;
 }
 
-export const buildDraftProduct = (input: DraftProductInput): ProductVersion => {
-  const compositeRows = input.compositeSources.flatMap(
-    ({ sourceId, benchmarkId }) => {
-      const rows = input.candidates
-        .filter(
-          (candidate) =>
-            candidate.sourceId === sourceId &&
-            candidate.benchmarkId === benchmarkId &&
-            candidate.model.canonicalModelId !== null,
-        )
-        .toSorted((left, right) => {
-          const scoreOrder = left.metric.higherIsBetter
-            ? right.rawScore - left.rawScore
-            : left.rawScore - right.rawScore;
-          return (
-            scoreOrder ||
-            (left.model.canonicalModelId ?? '').localeCompare(
-              right.model.canonicalModelId ?? '',
-            )
-          );
-        });
+export const toProductEvidence = (
+  candidate: CandidateResult,
+): ProductEvidence => {
+  const {
+    schemaVersion: _schemaVersion,
+    sourceUrl,
+    observedAt,
+    sourcePublishedAt: _sourcePublishedAt,
+    evidenceIds,
+    provenance: fieldProvenance,
+    ...score
+  } = candidate;
+  const rawScoreProvenance = fieldProvenance.rawScore;
+  if (!rawScoreProvenance) {
+    throw new Error(`candidate ${candidate.id} has no rawScore provenance`);
+  }
+  if (!evidenceIds.includes(rawScoreProvenance.evidenceId)) {
+    throw new Error(
+      `candidate ${candidate.id} rawScore evidence is not in evidenceIds`,
+    );
+  }
 
-      return rows.map((candidate, index): CompositeRankingRow => ({
-        sourceId,
-        rank: index + 1,
-        modelId: candidate.model.canonicalModelId as string,
-        profileId:
-          candidate.model.profileId ??
-          `${candidate.model.canonicalModelId as string}-unspecified`,
-        score: candidate.rawScore,
-      }));
+  return ProductEvidenceSchema.parse({
+    ...score,
+    provenance: {
+      sourceUrl,
+      locator: rawScoreProvenance.locator,
+      method: rawScoreProvenance.method,
+      retrievedAt: observedAt,
+      evidenceId: rawScoreProvenance.evidenceId,
     },
-  );
-  const frontier = buildFrontierSet(
-    compositeRows,
-    input.manualModels,
-    input.perSourceLimit ?? 20,
-  ).toSorted((left, right) => left.modelId.localeCompare(right.modelId));
+  });
+};
+
+export const buildProduct = (input: ProductInput): ProductVersion => {
+  const frontier = buildFrontierSet({
+    catalog: input.catalog,
+    manualModels: input.manualModels ?? [],
+    referenceDate: input.generatedAt,
+    qualificationWindowMonths: input.qualificationWindowMonths ?? 12,
+  });
   const frontierModelIds = new Set(frontier.map(({ modelId }) => modelId));
-  const evidence = input.candidates
+  const scoringEvidence = input.candidates
     .filter(
       ({ model }) =>
         model.canonicalModelId !== null &&
         frontierModelIds.has(model.canonicalModelId),
     )
     .toSorted((left, right) => left.id.localeCompare(right.id));
-  const leaderboard = scoreProfiles(evidence, input.benchmarkDimensions);
+  const leaderboard = scoreProfiles(scoringEvidence, input.benchmarkDimensions);
+  const evidence = scoringEvidence.map(toProductEvidence);
   const leaderboardProfileIds = new Set(
     leaderboard.map(({ profileId }) => profileId),
   );
@@ -1001,7 +1099,7 @@ export const buildProductVersion = (
   input: ProductVersionInput,
 ): ProductVersion => {
   const versionContent = {
-    schemaVersion: 'product-version-v1' as const,
+    schemaVersion: 'product-version-v2' as const,
     ...input,
   };
   return ProductVersionSchema.parse({
@@ -1010,13 +1108,7 @@ export const buildProductVersion = (
   });
 };
 
-const productVersionPath = (root: string, versionId: string): string =>
-  join(root, 'versions', `${Sha256Schema.parse(versionId).slice(7)}.json`);
-
-const pointerPath = (
-  root: string,
-  channel: ProductVersionPointer['channel'],
-): string => join(root, 'pointers', `${channel.toLowerCase()}.json`);
+const currentProductPath = (root: string): string => join(root, 'current.json');
 
 export const verifyProductVersion = (input: ProductVersion): ProductVersion => {
   const version = ProductVersionSchema.parse(input);
@@ -1027,144 +1119,46 @@ export const verifyProductVersion = (input: ProductVersion): ProductVersion => {
   return version;
 };
 
-export const writeImmutableProductVersion = async (
+export const writeCurrentProductVersion = async (
   root: string,
   version: ProductVersion,
 ): Promise<string> => {
   const parsed = verifyProductVersion(version);
-  const path = productVersionPath(root, parsed.versionId);
+  const path = currentProductPath(root);
   const bytes = deterministicJson(parsed);
-  await mkdir(join(root, 'versions'), { recursive: true });
+  await mkdir(root, { recursive: true });
 
   try {
     const existing = await readFile(path, 'utf8');
-    if (existing !== bytes) {
-      throw new Error(
-        'immutable product version already exists with new bytes',
-      );
-    }
+    if (existing === bytes) return path;
   } catch (error) {
-    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-      await writeFile(path, bytes, { flag: 'wx' });
-    } else {
+    if (!(
+      error instanceof Error &&
+      'code' in error &&
+      error.code === 'ENOENT'
+    )) {
       throw error;
     }
   }
 
+  await writeFile(path, bytes);
   return path;
 };
 
-export const readProductVersion = async (
+export const readCurrentProductVersion = async (
   root: string,
-  versionId: string,
 ): Promise<ProductVersion> => {
-  const path = productVersionPath(root, versionId);
+  const path = currentProductPath(root);
   try {
-    await access(path);
-  } catch {
-    throw new Error(`product version ${versionId} does not exist`);
-  }
-  const parsed = verifyProductVersion(
-    ProductVersionSchema.parse(JSON.parse(await readFile(path, 'utf8'))),
-  );
-  if (parsed.versionId !== versionId) {
-    throw new Error('product version filename does not match its versionId');
-  }
-  return parsed;
-};
-
-export const readProductPointer = async (
-  root: string,
-  channel: ProductVersionPointer['channel'],
-): Promise<ProductVersionPointer | null> => {
-  try {
-    return ProductVersionPointerSchema.parse(
-      JSON.parse(await readFile(pointerPath(root, channel), 'utf8')),
+    return verifyProductVersion(
+      ProductVersionSchema.parse(JSON.parse(await readFile(path, 'utf8'))),
     );
   } catch (error) {
     if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
-      return null;
+      throw new Error('current product version does not exist', {
+        cause: error,
+      });
     }
     throw error;
   }
-};
-
-const writeProductPointer = async (
-  root: string,
-  pointer: ProductVersionPointer,
-): Promise<void> => {
-  const parsed = ProductVersionPointerSchema.parse(pointer);
-  const directory = join(root, 'pointers');
-  const target = pointerPath(root, parsed.channel);
-  const temporary = join(
-    directory,
-    `.${parsed.channel.toLowerCase()}.${process.pid}.${randomUUID()}.tmp`,
-  );
-  await mkdir(directory, { recursive: true });
-  await writeFile(temporary, deterministicJson(parsed), { flag: 'wx' });
-  await rename(temporary, target);
-};
-
-export const setDraftPointer = async (
-  root: string,
-  versionId: string,
-  updatedAt: string,
-): Promise<ProductVersionPointer> => {
-  await readProductVersion(root, versionId);
-  const pointer = ProductVersionPointerSchema.parse({
-    schemaVersion: 'product-pointer-v1',
-    channel: 'DRAFT',
-    versionId,
-    previousVersionId: null,
-    updatedAt,
-  });
-  await writeProductPointer(root, pointer);
-  return pointer;
-};
-
-export const publishDraft = async (
-  root: string,
-  updatedAt: string,
-): Promise<ProductVersionPointer> => {
-  const draft = await readProductPointer(root, 'DRAFT');
-  if (!draft) {
-    throw new Error('Draft pointer does not exist');
-  }
-  await readProductVersion(root, draft.versionId);
-  const current = await readProductPointer(root, 'PUBLISHED');
-  const pointer = ProductVersionPointerSchema.parse({
-    schemaVersion: 'product-pointer-v1',
-    channel: 'PUBLISHED',
-    versionId: draft.versionId,
-    previousVersionId:
-      current?.versionId === draft.versionId
-        ? current.previousVersionId
-        : (current?.versionId ?? null),
-    updatedAt,
-  });
-  await writeProductPointer(root, pointer);
-  return pointer;
-};
-
-export const rollbackPublished = async (
-  root: string,
-  updatedAt: string,
-): Promise<ProductVersionPointer> => {
-  const current = await readProductPointer(root, 'PUBLISHED');
-  if (!current) {
-    throw new Error('Published pointer does not exist');
-  }
-  if (!current.previousVersionId) {
-    throw new Error('Published pointer has no previous version');
-  }
-  await readProductVersion(root, current.previousVersionId);
-  const pointer = ProductVersionPointerSchema.parse({
-    schemaVersion: 'product-pointer-v1',
-    channel: 'PUBLISHED',
-    versionId: current.previousVersionId,
-    previousVersionId: current.versionId,
-    updatedAt,
-  });
-  await writeProductPointer(root, pointer);
-  return pointer;
 };

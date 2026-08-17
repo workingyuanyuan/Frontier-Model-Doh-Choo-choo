@@ -1,4 +1,9 @@
-import { buildProductVersion } from '@llm-bench/benchmark-data';
+import {
+  buildProductVersion,
+  toProductEvidence,
+  type CandidateResult,
+  type ProductEvidence,
+} from '@llm-bench/benchmark-data';
 
 const dimensions = (
   values: Array<number | null>,
@@ -53,7 +58,7 @@ const profile = (
   pricing: [],
 });
 
-const evidence = (
+const makeCandidateEvidence = (
   id: string,
   profileId: string,
   modelId: string,
@@ -61,7 +66,7 @@ const evidence = (
   inclusion: 'INCLUDED' | 'EXCLUDED',
   acquisitionStatus: 'FULL' | 'PARTIAL_SOURCE',
   score: number,
-) => ({
+): CandidateResult => ({
   schemaVersion: 'candidate-result-v1' as const,
   id,
   sourceId: 'terminal-bench',
@@ -112,6 +117,27 @@ const evidence = (
     },
   },
 });
+
+const evidence = (
+  id: string,
+  profileId: string,
+  modelId: string,
+  benchmarkId: string,
+  inclusion: 'INCLUDED' | 'EXCLUDED',
+  acquisitionStatus: 'FULL' | 'PARTIAL_SOURCE',
+  score: number,
+): ProductEvidence =>
+  toProductEvidence(
+    makeCandidateEvidence(
+      id,
+      profileId,
+      modelId,
+      benchmarkId,
+      inclusion,
+      acquisitionStatus,
+      score,
+    ),
+  );
 
 export const productFixture = buildProductVersion({
   generatedAt: '2026-07-16T12:00:00.000Z',
@@ -293,8 +319,8 @@ export const productFixture = buildProductVersion({
       'PARTIAL_SOURCE',
       94.7,
     ),
-    {
-      ...evidence(
+    toProductEvidence({
+      ...makeCandidateEvidence(
         'aggregate:max',
         'openai-gpt-5-6-sol-max-mini-swe-agent',
         'openai-gpt-5-6-sol',
@@ -312,7 +338,7 @@ export const productFixture = buildProductVersion({
         quantization: null,
         attempts: 1,
       },
-    },
+    }),
     evidence(
       'terminal:high',
       'openai-gpt-5-6-sol-high',
