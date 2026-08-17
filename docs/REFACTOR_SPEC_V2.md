@@ -73,9 +73,17 @@ osworld    scale-hle terminal-bench vals-ai   zapier-automationbench
 - 總分 = 八個維度分數的算術平均。
 - **不建立權重系統。** 某個 benchmark 影響力過大的問題，靠期二期三加來源稀釋，不靠權重調整。
 
-### 4.2 `frontierswe` 已存在
+### 4.2 Frontier Code 用新的 benchmark ID
 
-`data-v2/mappings/benchmarks.json` 中已有 `frontierswe`，primary dimension = `coding`，secondary = `agentic, context`。Frontier Code 來源建立時**直接沿用**，不要新增 benchmark 定義。
+**本節於 2026-08-17 修正。原本寫「直接沿用既有的 `frontierswe`，不要新增 benchmark 定義」，那是錯的。**
+
+`benchmarks.json` 中既有的 `frontierswe` 指的是 **Proximal 的 FrontierSWE**（https://www.frontierswe.com/），與 Cognition 的 Frontier Code 是不同主辦方、不同網站、不同指標——前者是 model+harness 的 avg rank／dominance，後者是加權 rubric 百分比。兩者不可共用識別碼。
+
+因此：
+
+- **新增 benchmark `frontier-code-1-1`**，primary dimension = `coding`，secondary = `agentic, context`。Cognition 的分數全部歸到這個 ID。
+- **`frontierswe` 保留給 Proximal**，期一不擷取，留待期三。
+- `docs/BENCHMARK_DIMENSION_MAPPING.md` 與 `docs/BENCHMARK_SCORE_SOURCES.md` 要同時反映這兩個是不同的 benchmark。
 
 ### 4.3 代表 profile 的選法
 
@@ -89,10 +97,21 @@ osworld    scale-hle terminal-bench vals-ai   zapier-automationbench
 
 ### 5.1 模型資格
 
+**本節於 2026-08-17 放寬。** 原本要求「`release_date` 在 12 個月內」，實作後發現 `models.json` 38 筆中有 33 筆 `releaseDate` 為 null，於是整個產品母體被壓縮到只剩 5 個模型——決定誰上榜的是「哪筆 catalog 剛好填了日期」，而不是模型實際有多少成績。這與本專案的原始構想相反：**前沿與否應該由實際性能資料決定，不是由推出日期決定。**
+
 一個模型要被納入考慮，必須同時滿足：
 
 1. 未標記為 deprecated。
-2. `release_date` 在**今天往前 12 個月**之內。
+2. **不存在**「已知且早於時間窗」的 `releaseDate`。也就是說：
+   - `releaseDate` 為 null → **通過**（缺欄位不構成淘汰理由）
+   - `releaseDate` 在時間窗內 → 通過
+   - `releaseDate` 已知且早於時間窗 → 淘汰
+
+時間窗是設定值，預設 12 個月。它只用來**排除已知的舊模型**，不用來挑選前沿模型。
+
+真正決定誰上主畫面的是 §5.2 的完整矩陣門檻——模型必須在顯示清單的每一項上都有分數。那本身就是以實際性能資料為準的篩選器，不需要再疊一層日期條件。
+
+`releaseDate` 仍應盡量回填（Artificial Analysis payload 的 `release_date` 與 Frontier Code export 都有此欄位），但那是資料品質工作，不是上榜的前提。
 
 `data-v2/mappings/frontier.json` 的 `compositeSources`（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index 的 Top-N 選模）**全部移除**。`manualModels` 保留，作為新品尚未被任何綜合榜收錄時的逃生口。
 
@@ -293,7 +312,7 @@ Language    71.0
 | 成本語意              | UI 定義為每次 rollout 的平均美元成本；保存為 `AGENT_TASK`／`USD_PER_TASK`                      |
 
 - JSON-LD 仍只有 Top 10 的分數百分比，不含成本與 effort；它只作獨立對照基準。
-- 靜態 JSON 同時包含 `main` 與 `extended`。本來源只物化目前預設的 `v1_1` Main；Extended 保留在內容定址 artifact，不混入 `frontierswe`。
+- 靜態 JSON 同時包含 `main` 與 `extended`。本來源只物化目前預設的 `v1_1` Main；Extended 保留在內容定址 artifact，不混入 `frontier-code-1-1`。
 - 19/28 個模型可由 catalog 名稱或精確 alias 解析；其餘 9 個保持 null identity，不做模糊匹配。
 - 成本與思考強度皆已取得，因此 §6.3 的進階圖不需要退化成兩來源。
 
@@ -341,7 +360,11 @@ Language    71.0
 
 1. **Frontier Code 的成本與思考強度已驗證可取得**：FrontierCode 1.1 Main 有 28 個模型、77 組設定，全部有分數與成本；15 個模型有多 effort。進階圖可維持三來源形態。
 2. **Frontier Code 完整榜長度已確認為 28 個模型**；目前 9 個名稱尚無可精確解析的 catalog identity，保持 null，不影響原始 Candidate／CostRecord 的保存。
-3. **Artificial Analysis 各 evaluation 頁面包含的模型範圍不一致**，且任務成本欄位在不同頁面的覆蓋不同。要在開工時確認頁面組合。
-4. **一筆待查的資料異常**：Claude Opus 4.6 的 max 強度總分 53.7，high 強度 81.1，相差 27.4 分。「思考強度調高、總分掉 27 分」不合常理，可能是 profile 歸屬錯誤或稀疏證據所致。列入期一人工審核的必查項。
-5. **Artificial Analysis 的金鑰曾出現在對話記錄中**，MVP 穩定後建議使用者輪換。
-6. **Artificial Analysis 有兩套 Intelligence Index 欄位並存**（`intelligence_index` 與 `intelligence_index_v4_1`）。取錯欄位會排出完全不同的名單。本規格的模型資格條件（§5.1）刻意不依賴任何指數版本，正是為了避開這個坑。
+3. **Artificial Analysis 的頁面組合已於 C3 確認**：18 個 evaluation 頁面聯集取得完整現役 profile 母體，任務成本則必須另外抓 `/models/<slug>` 明細頁；`/evaluations/omniscience` 的成本欄位對現役模型是稀疏的。
+4. **Artificial Analysis 的 API 交叉驗證目前無效**：3,680 次比對報出 2,335 次不一致，全部是精度差（頁面全精度 vs API 三位小數）。63% 的比對都在報警，真正的結構漂移會被雜訊淹沒。必須加容差後才具備煙霧偵測器的作用。
+5. **`models.json` 的 `releaseDate` 大量缺漏**（38 筆中 33 筆為 null）。§5.1 已放寬成「缺欄位不淘汰」，但回填仍是資料品質工作。
+6. **Frontier Code 的 export 會產生非法 effort 值**：Inkling 一列的 effort 被解析成 `"0.99"`，造出 `thinking-machines-inkling-0-99` 這個不存在的思考強度 profile。`profile-policy.json` 的合法值只有 `max/xhigh/high/medium/low`。
+7. **Frontier Code 有 10 列 `effort` 為 null**（單一未標示設定的模型）。產品層的 fallback 會替它們推導出一個 effort，§6.3 的進階圖不得把這種推導值呈現成來源原生的思考強度階梯。
+8. **一筆待查的資料異常**：Claude Opus 4.6 的 max 強度總分 53.7，high 強度 81.1，相差 27.4 分。「思考強度調高、總分掉 27 分」不合常理，可能是 profile 歸屬錯誤或稀疏證據所致。列入期一人工審核的必查項。
+9. **Artificial Analysis 的金鑰曾出現在對話記錄中**，MVP 穩定後建議使用者輪換。
+10. **Artificial Analysis 有兩套 Intelligence Index 欄位並存**（`intelligence_index` 與 `intelligence_index_v4_1`）。取錯欄位會排出完全不同的名單。本規格的模型資格條件（§5.1）刻意不依賴任何指數版本，正是為了避開這個坑。

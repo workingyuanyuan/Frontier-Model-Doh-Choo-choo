@@ -61,7 +61,7 @@ pnpm --filter @llm-bench/bench build
 
 ```
 A 清理  ──┐
-          ├──> B 資料契約 ──> C 擷取 ──> 審核關卡 1 ──┐
+          ├──> B 資料契約 ──> C 擷取 ──> C5 補正 ──> 審核關卡 1 ──┐
           │                                          ├──> D 計分與報告 ──> 審核關卡 2 ──> E 介面 ──> F 驗收
           └──────────────────────────────────────────┘
 ```
@@ -288,7 +288,7 @@ A 清理  ──┐
 
 **完成條件**：交叉驗證機制有測試（含「兩管道值不一致」的情況）；`.env.local` 在 `.gitignore` 中；全域搜尋金鑰字串在版控內容中無命中。
 
-## C4 — Frontier Code 擷取（新建，風險最高）
+## C4 — Frontier Code 擷取（新建）
 
 狀態：完成
 
@@ -306,6 +306,67 @@ A 清理  ──┐
 **完成條件**：可取得的資料範圍有明確結論並寫入文件；取得的分數與 JSON-LD 的 Top 10 對照一致。
 
 **完成結果（2026-08-17）**：官方靜態 JSON 提供 28 個模型、77 組 Main effort 設定，全部有分數與平均 rollout 成本；15 個模型有多 effort。JSON-LD Top 10 與完整資料 10/10 一致，渲染 DOM 顯示 28 列且 Top 10 一致。Extended 只保留於原始 artifact；`none` effort 與 9 個未解析模型維持 null。
+
+## C5 — Phase C 補正（審核關卡 1 的前置條件）
+
+狀態：未開始
+
+**為什麼存在**：Phase C 的四個擷取 task 各自都做對了，但整合起來後有五個問題會讓使用者在錯的資料上做審核。**本 task 完成並重新產生 `current.json` 之前，不得進入審核關卡 1。**
+
+依序處理，前兩項會改變資料內容，後三項是修正與回填。
+
+### C5-1 Frontier Code 改用自己的 benchmark ID
+
+規格 §4.2 已於 2026-08-17 修正：既有的 `frontierswe` 是 **Proximal 的 FrontierSWE**，與 Cognition 的 Frontier Code 是不同主辦方、不同指標（avg rank／dominance vs 加權 rubric 百分比），C4 把後者灌進了前者的 ID。
+
+- 在 `benchmarks.json` 新增 `frontier-code-1-1`，primary = `coding`，secondary = `agentic, context`。
+- `frontier-code` 來源的全部 candidate 與 CostRecord 改指向新 ID。
+- `frontierswe` 保留給 Proximal，期一不擷取。
+- `docs/BENCHMARK_DIMENSION_MAPPING.md` 與 `docs/BENCHMARK_SCORE_SOURCES.md` 明確區分這兩個 benchmark。
+
+**完成條件**：全域搜尋 `frontierswe` 在 `data-v2/sources/frontier-code/` 底下沒有命中；兩份文件各有一列描述正確的主辦方與指標。
+
+### C5-2 放寬模型資格條件
+
+規格 §5.1 已於 2026-08-17 放寬。目前的實作把「缺 `releaseDate`」當成淘汰，`models.json` 38 筆中 33 筆為 null，導致整個產品母體只剩 5 個模型——決定誰上榜的是「哪筆 catalog 剛好填了日期」，不是模型實際有多少成績。
+
+- 資格改為：未 deprecated **且不存在**「已知且早於時間窗」的 `releaseDate`。`releaseDate` 為 null **通過**。
+- 時間窗維持設定值、預設 12 個月，但語義改為「只排除已知的舊模型」，不再用來挑選前沿模型。
+- 邊界測試要涵蓋：null 通過、窗內通過、窗外淘汰、deprecated 淘汰。
+
+**完成條件**：上述四種情況各有測試；`current.json` 的模型母體不再等於「有 `releaseDate` 的 catalog 筆數」。
+
+### C5-3 修正 Frontier Code 的非法 effort 值
+
+Frontier Code export 中 Inkling 一列的 effort 被解析成 `"0.99"`，造出 `thinking-machines-inkling-0-99` 這個 profile。`profile-policy.json` 的合法值只有 `max`／`xhigh`／`high`／`medium`／`low`。
+
+- effort 只接受合法值；不合法的值視為未標示（null），原始值保留在出處記錄。
+- 加一個測試，輸入含非法 effort 的 fixture，斷言不會產生非法 profile id。
+
+**完成條件**：全部 product profile 的 effort 都是合法值或 null。
+
+### C5-4 讓 Artificial Analysis 的交叉驗證真正可用
+
+目前 3,680 次比對報出 2,335 次不一致，**全部是精度差**（頁面全精度 vs API 三位小數）。63% 的比對都在報警，等於沒有警報。
+
+- 比對時加容差：在 API 的精度上比較，或 `|page − api| ≤ 0.0005`。
+- validation report 只列出**超出容差**的差異，並分開統計「精度差」與「真實差異」兩個數字。
+
+**完成條件**：真實差異為 0 時 report 明確說明；人為改動一筆 fixture 值時該差異會被列出。
+
+### C5-5 回填 `models.json` 並補上可解析的 alias
+
+- 從 Artificial Analysis payload 的 `release_date` 與 Frontier Code export 自動回填 `models.json` 的 `releaseDate`，**回填結果列成表交使用者核對**，不要自行認定正確。
+- 補上 alias：`Gemini 3.7 Flash` 與 `Grok 4.6` 在 Artificial Analysis 的資料中存在，屬於 alias 缺漏而非未知模型。
+- 其餘未解析名稱（Composer 2.5、SWE-1.6／1.7、Kimi K2.7、Mistral 3.5 Medium、Qwen 3.7 Plus、DeepSeek V4 Flash 0731）**保持 null**，不得模糊匹配。
+
+**完成條件**：回填表已產出；新增的 alias 是精確比對；未解析數量下降且沒有任何模糊匹配。
+
+### C5 整體完成條件
+
+- 重新產生 `data-v2/product/current.json`，並在 `validation` 中回報新的 `versionId`、來源數、模型數與各 benchmark 的 evidence 數。
+- 回報修正前後的模型母體對照（修正前：3 個 profile 通過完整矩陣，全部是 `openai-gpt-5-6-*-max`）。
+- 基準驗證通過。
 
 ---
 
