@@ -472,6 +472,29 @@ C 階段完成後產生第一個新格式的 `data-v2/product/current.json`（**
 
 **使用者未通過審核前，不得進入 D 階段。**
 
+### 狀態：已通過（2026-08-18）
+
+使用者審核通過並指示提交，`data-v2/product/current.json` 已 commit：
+
+```
+sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
+46 個模型 · 113 列排行榜 · 909 筆 evidence · 252 筆成本 · 15 個模型四來源齊全
+```
+
+審核證據：[docs/GATE1_AUDIT_ROUND2_2026-08-18.md](../docs/GATE1_AUDIT_ROUND2_2026-08-18.md)——18 個 benchmark 各抽三列共 54 筆，全部屬於會出現在主畫面的模型；52 筆逐位相符、0 筆不符，另 2 筆是出處指錯頁面（已修）。
+
+審核過程中修掉的缺陷（都已 commit）：
+
+- Frontier Code 的分數原本掛在 Proximal 的 `frontierswe` ID 上 → 新增 `frontier-code-1-1`
+- `releaseDate` 缺漏導致產品母體只剩 5 個模型 → 日期改為負向過濾器
+- `(Non-reasoning, X Effort)` 解析失敗後被推測成 `max` → 逐段解析，推理開關優先
+- 跨來源推測把 `non-reasoning` 帶到別的來源 → 推測只在具名檔位之間進行
+- 「取最高檔位」讓掃過完整階梯的單一來源替所有人決定 → 改為每來源一票的眾數
+- AA 的 DeepSeek 舊版（0424 Pro、0424 Flash）以新版身份進榜 → 依 `release_date` 只保留最新建置
+- 202 筆 evidence 的來源連結指向不相干的模型頁 → 每列指向自己的模型頁
+
+**Phase D 起交由其他 harness 執行。**
+
 ---
 
 # D. 計分與報告
