@@ -501,6 +501,19 @@ const INFERABLE_TIERS: ReadonlySet<EffortTier> = new Set(
   EFFORT_TIERS.filter((tier) => tier !== 'non-reasoning'),
 );
 
+/**
+ * Each source votes once, with the highest tier it published for the model, and
+ * the most common vote wins; ties go to the higher tier.
+ *
+ * Taking the single highest tier across all sources let one source decide for
+ * everyone. Grok 4.6 showed it: DeepSWE swept low through xhigh while
+ * Artificial Analysis and Frontier Code both ran only high, so LiveBench's
+ * unlabelled row was handed `xhigh` on the strength of a sweep the other two
+ * sources never performed. A vote per source gives `high`, which is what the
+ * labelled sources actually agree on.
+ *
+ * See REFACTOR_SPEC_V2.md section 4.5.
+ */
 const higherEffortEvidence = (
   candidates: readonly EffortResolutionInput[],
 ): { candidate: EffortResolutionInput; effort: EffortTier } | null => {
@@ -510,14 +523,42 @@ const higherEffortEvidence = (
       ? []
       : [{ candidate, effort: resolved.effort }];
   });
-  direct.sort(
-    (left, right) =>
-      (EFFORT_TIER_RANK.get(right.effort) ?? -1) -
-        (EFFORT_TIER_RANK.get(left.effort) ?? -1) ||
-      left.candidate.sourceId.localeCompare(right.candidate.sourceId) ||
-      left.candidate.id.localeCompare(right.candidate.id),
+  if (direct.length === 0) return null;
+
+  const byRank = (effort: EffortTier) => EFFORT_TIER_RANK.get(effort) ?? -1;
+  const perSource = new Map<
+    string,
+    { candidate: EffortResolutionInput; effort: EffortTier }
+  >();
+  for (const entry of direct) {
+    const current = perSource.get(entry.candidate.sourceId);
+    if (
+      current === undefined ||
+      byRank(entry.effort) > byRank(current.effort) ||
+      (byRank(entry.effort) === byRank(current.effort) &&
+        entry.candidate.id.localeCompare(current.candidate.id) < 0)
+    ) {
+      perSource.set(entry.candidate.sourceId, entry);
+    }
+  }
+
+  const votes = new Map<EffortTier, number>();
+  for (const { effort } of perSource.values()) {
+    votes.set(effort, (votes.get(effort) ?? 0) + 1);
+  }
+  const winner = [...votes.entries()].toSorted(
+    (left, right) => right[1] - left[1] || byRank(right[0]) - byRank(left[0]),
+  )[0]![0];
+
+  return (
+    [...perSource.values()]
+      .filter(({ effort }) => effort === winner)
+      .toSorted(
+        (left, right) =>
+          left.candidate.sourceId.localeCompare(right.candidate.sourceId) ||
+          left.candidate.id.localeCompare(right.candidate.id),
+      )[0] ?? null
   );
-  return direct[0] ?? null;
 };
 
 /**

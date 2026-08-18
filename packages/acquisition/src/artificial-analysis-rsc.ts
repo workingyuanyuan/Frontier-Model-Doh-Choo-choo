@@ -6,6 +6,7 @@ import {
 } from '@llm-bench/benchmark-data';
 
 import {
+  isSupersededBuild,
   normalizeSourceEffort,
   parseEffort,
   resolveModel,
@@ -537,7 +538,16 @@ export const isArtificialAnalysisActiveRow = (
 const modelIdentity = (row: ArtificialAnalysisRow) => {
   const rawName = readRowField(row, ['name', 'shortName']);
   if (typeof rawName !== 'string' || rawName.length === 0) return null;
-  const resolved = resolveModel(rawName, 'artificial-analysis');
+  // Artificial Analysis identifies the superseded DeepSeek builds by slug, not
+  // by display name: `DeepSeek V4 Pro (Reasoning, Max Effort)` carries slug
+  // `deepseek-v4-pro-0424` while the current release is `DeepSeek V4 Pro 0813`.
+  // Resolving on the display name alone bound the canonical id to the April
+  // build. See SUPERSEDED_BUILDS in materializer-utils.
+  const slug = readRowField(row, ['slug']);
+  const resolved =
+    typeof slug === 'string' && isSupersededBuild('artificial-analysis', slug)
+      ? { canonicalModelId: null, profileId: null, rawName }
+      : resolveModel(rawName, 'artificial-analysis');
   const effortValue = readRowField(row, ['effort']);
   const effort =
     typeof effortValue === 'string'

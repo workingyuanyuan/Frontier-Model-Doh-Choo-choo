@@ -371,6 +371,60 @@ export function slugify(s: string): string {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * DeepSeek is the one family whose Artificial Analysis display name and slug
+ * disagree: the current release carries the bare slug while the superseded
+ * April build is `-0424`.
+ *
+ *   display "DeepSeek V4 Pro (Reasoning, Max Effort)"       slug deepseek-v4-pro-0424   superseded
+ *   display "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)"  slug deepseek-v4-pro        current
+ *
+ * Alias resolution keys off the display name, so the canonical id had bound to
+ * the April build while the current model resolved to null and its scores were
+ * discarded. The user decided on 2026-08-18 to keep only the current release,
+ * so superseded builds resolve to null rather than being merged.
+ *
+ * These are exact, reviewed entries per source. Never widen them into a
+ * pattern: a bare name is the current model on DeepSWE and Frontier Code,
+ * where no dated sibling exists, and the superseded build on LiveBench, where
+ * one does.
+ */
+const SUPERSEDED_BUILDS: Readonly<Record<string, ReadonlySet<string>>> = {
+  'artificial-analysis': new Set(['deepseek-v4-pro-0424']),
+  livebench: new Set(['deepseek-v4-pro', 'deepseek-v4-flash']),
+};
+
+const CURRENT_BUILD_ALIASES: Readonly<Record<string, string>> = {
+  'deepseek-v4-pro-0813': 'deepseek-deepseek-v4-pro',
+  'deepseek-v4-flash-0731': 'deepseek-deepseek-v4-flash',
+};
+
+/**
+ * True when this source publishes the row as a superseded build.
+ *
+ * Matches on prefix because Artificial Analysis appends the configuration to
+ * the slug: the April build appears as `deepseek-v4-pro-0424`,
+ * `deepseek-v4-pro-0424-high` and `deepseek-v4-pro-0424-non-reasoning`.
+ */
+export function isSupersededBuild(sourceId: string, key: string): boolean {
+  const slug = slugify(key);
+  // An explicitly approved current-release name is never superseded, even
+  // though it shares a prefix with the bare superseded name on this source
+  // (`deepseek-v4-flash-0731` starts with `deepseek-v4-flash`).
+  if (currentBuildCanonicalId(slug) !== null) return false;
+  const superseded = SUPERSEDED_BUILDS[sourceId];
+  if (!superseded) return false;
+  for (const entry of superseded) {
+    if (slug === entry || slug.startsWith(`${entry}-`)) return true;
+  }
+  return false;
+}
+
+/** Canonical id for a dated current-release name, or null when not one. */
+export function currentBuildCanonicalId(key: string): string | null {
+  return CURRENT_BUILD_ALIASES[slugify(key)] ?? null;
+}
+
 export function resolveModel(
   rawName: string,
   sourceId: 'epoch-ai' | 'artificial-analysis',
@@ -396,6 +450,19 @@ export function resolveModel(
 
   // 2. Normalize and check against models.json
   const clean = stripTrailingConfiguration(rawName);
+  // A dated current-release name resolves before the alias index, whose bare
+  // display name still belongs to the superseded build.
+  const dated =
+    currentBuildCanonicalId(rawName) ?? currentBuildCanonicalId(clean);
+  if (dated !== null) {
+    const datedEffort = parseEffort(rawName);
+    const datedSuffix = sourceId === 'epoch-ai' ? 'epoch-inspect' : 'aa-index';
+    return {
+      canonicalModelId: dated,
+      profileId: `${dated}${datedEffort ? `-${datedEffort}` : ''}-${datedSuffix}`,
+      rawName,
+    };
+  }
   const model =
     modelAliasIndex.get(slugify(rawName)) ??
     modelAliasIndex.get(slugify(clean));
@@ -424,11 +491,19 @@ export function resolveModel(
   };
 }
 
-export function resolveCatalogModel(rawName: string): {
+export function resolveCatalogModel(
+  rawName: string,
+  sourceId?: string,
+): {
   canonicalModelId: string | null;
   rawName: string;
 } {
   loadModelsCatalog();
+  if (sourceId !== undefined && isSupersededBuild(sourceId, rawName)) {
+    return { canonicalModelId: null, rawName };
+  }
+  const dated = currentBuildCanonicalId(rawName);
+  if (dated !== null) return { canonicalModelId: dated, rawName };
   const model = modelAliasIndex.get(slugify(rawName));
   return {
     canonicalModelId: model?.modelId ?? null,

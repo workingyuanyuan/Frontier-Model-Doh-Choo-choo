@@ -11,14 +11,16 @@
 | Approved scoring categories | 4 (Reasoning, Mathematics, Language, IF) |
 | Excluded/Unapproved categories | 3 (Coding, Agentic Coding, Data Analysis) |
 | Generated CandidateResults | 176 |
-| Canonically resolved candidates | 172 |
-| Canonically unresolved candidates | 4 |
-| Distinct unresolved raw model names | 1 |
+| Canonically resolved candidates | 164 |
+| Canonically unresolved candidates | 12 |
+| Distinct unresolved raw model names | 3 |
 
 ## Model identity resolution
 
 Full raw-name catalog matches are attempted first. Remaining names use only exact effort-suffix, Claude thinking/date, dated-effort, thinking-marker, or dated-model-alias transforms; no fuzzy matching is performed.
 
+- `deepseek-v4-flash`: full slug "deepseek-v4-flash" has no documented exact LiveBench transform to a catalog slug
+- `deepseek-v4-pro`: full slug "deepseek-v4-pro" has no documented exact LiveBench transform to a catalog slug
 - `smaug-agentic`: full slug "smaug-agentic" has no documented exact LiveBench transform to a catalog slug
 
 ## Category scope boundary
@@ -29,23 +31,6 @@ Per REFACTOR_SPEC_V2.md §9.1 and §5.2, only the 4 approved categories (Reasoni
 
 - None. All 44 model rows have complete task coverage across the 4 approved categories.
 
-## Visible comparison
-
-- Fresh rendered page profile count: 44
-- Complete table export profile count: 44
-- Result: matched
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Raw model profiles | 40 | 44 | +4 |
-| Candidate results | 160 | 176 | +16 |
-| Cost export profiles | 40 | 44 | +4 |
-| Materialized costs | 48 | 48 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
@@ -55,22 +40,14 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-language:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
 | deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
 | deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-language:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
 | deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
 | deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-language:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
 | glm-5.2 | `livebench-2026-06-25:livebench-instruction-following:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
@@ -83,10 +60,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | grok-4.5 | `livebench-2026-06-25:livebench-language:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
 | grok-4.5 | `livebench-2026-06-25:livebench-mathematics:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
 | grok-4.5 | `livebench-2026-06-25:livebench-reasoning:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
-| grok-4.6 | `livebench-2026-06-25:livebench-instruction-following:grok-4-6` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-grok-4-6-xhigh |
-| grok-4.6 | `livebench-2026-06-25:livebench-language:grok-4-6` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-grok-4-6-xhigh |
-| grok-4.6 | `livebench-2026-06-25:livebench-mathematics:grok-4-6` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-grok-4-6-xhigh |
-| grok-4.6 | `livebench-2026-06-25:livebench-reasoning:grok-4-6` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-grok-4-6-xhigh |
+| grok-4.6 | `livebench-2026-06-25:livebench-instruction-following:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
+| grok-4.6 | `livebench-2026-06-25:livebench-language:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
+| grok-4.6 | `livebench-2026-06-25:livebench-mathematics:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
+| grok-4.6 | `livebench-2026-06-25:livebench-reasoning:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
 | kimi-k3 | `livebench-2026-06-25:livebench-instruction-following:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
 | kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
 | kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |

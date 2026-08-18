@@ -518,8 +518,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -2915,8 +2915,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -2966,8 +2966,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -3017,8 +3017,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -3068,8 +3068,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -15203,8 +15203,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -15254,8 +15254,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -15305,8 +15305,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -15356,8 +15356,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -15402,8 +15402,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -15453,8 +15453,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -15499,8 +15499,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -15545,8 +15545,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -34700,8 +34700,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -36332,8 +36332,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -36383,8 +36383,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -36434,8 +36434,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -36485,8 +36485,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -47042,8 +47042,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -47093,8 +47093,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -53111,8 +53111,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -53162,8 +53162,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -53213,8 +53213,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -53264,8 +53264,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -64433,8 +64433,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -64484,8 +64484,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -64535,8 +64535,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -64586,8 +64586,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -75143,8 +75143,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -75194,8 +75194,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -75245,8 +75245,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -90137,8 +90137,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -90188,8 +90188,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -90239,8 +90239,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -90290,8 +90290,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -101102,8 +101102,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -101153,8 +101153,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -101204,8 +101204,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -106610,8 +106610,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
     },
     "profile": {
       "effort": "max",
@@ -106661,8 +106661,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -106712,8 +106712,8 @@
     "benchmarkVersion": null,
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high-aa-index"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",

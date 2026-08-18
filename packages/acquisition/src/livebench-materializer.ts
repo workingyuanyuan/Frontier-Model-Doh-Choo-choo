@@ -63,7 +63,7 @@ const EFFORT_PATTERN = '(xhigh|max|high|medium|low)';
 const DATE_PATTERN = '(?:\\d{8}|\\d{4}-\\d{2}-\\d{2}|\\d{4})';
 
 function catalogMatch(modelSlug: string): string | null {
-  return resolveCatalogModel(modelSlug).canonicalModelId;
+  return resolveCatalogModel(modelSlug, 'livebench').canonicalModelId;
 }
 
 function resolved(

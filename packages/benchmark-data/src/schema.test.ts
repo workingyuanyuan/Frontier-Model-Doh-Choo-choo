@@ -584,6 +584,32 @@ describe('decideProductEffort non-reasoning exclusion', () => {
     expect(decision.basis).toBe('CROSS_SOURCE');
   });
 
+  it('lets each source vote once instead of letting one sweep decide', () => {
+    // Grok 4.6: DeepSWE swept low..xhigh, AA and Frontier Code both ran only
+    // high. Taking the single highest tier handed LiveBench `xhigh`.
+    const all = [
+      row('aa:high', 'artificial-analysis', 'Model (high)', 'high'),
+      row('ds:low', 'deepswe', 'Model (low)', 'low'),
+      row('ds:medium', 'deepswe', 'Model (medium)', 'medium'),
+      row('ds:high', 'deepswe', 'Model (high)', 'high'),
+      row('ds:xhigh', 'deepswe', 'Model (xhigh)', 'xhigh'),
+      row('fc:high', 'frontier-code', 'Model (high)', 'high'),
+      row('lb:bare', 'livebench', 'model', null),
+    ];
+    const decision = decideProductEffort(all[6]!, all);
+    expect(decision.effort).toBe('high');
+    expect(decision.basis).toBe('CROSS_SOURCE');
+  });
+
+  it('breaks a tied vote toward the higher tier', () => {
+    const all = [
+      row('aa:max', 'artificial-analysis', 'Model (max)', 'max'),
+      row('ds:high', 'deepswe', 'Model (high)', 'high'),
+      row('lb:bare', 'livebench', 'model', null),
+    ];
+    expect(decideProductEffort(all[2]!, all).effort).toBe('max');
+  });
+
   it('keeps a row the source already described as non-reasoning', () => {
     const all = [
       row('aa:max', 'artificial-analysis', 'Model (max)', 'max'),

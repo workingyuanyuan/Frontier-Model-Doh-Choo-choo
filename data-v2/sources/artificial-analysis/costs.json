@@ -885,8 +885,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max"
     },
     "profile": {
       "effort": "max",
@@ -929,8 +929,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -973,8 +973,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",
@@ -1017,8 +1017,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-non-reasoning"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "non-reasoning",
@@ -10081,8 +10081,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max"
     },
     "profile": {
       "effort": "max",
@@ -10125,8 +10125,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-max"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "max",
@@ -10169,8 +10169,8 @@
     "sourceId": "artificial-analysis",
     "model": {
       "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": "deepseek-deepseek-v4-pro",
-      "profileId": "deepseek-deepseek-v4-pro-high"
+      "canonicalModelId": null,
+      "profileId": null
     },
     "profile": {
       "effort": "high",

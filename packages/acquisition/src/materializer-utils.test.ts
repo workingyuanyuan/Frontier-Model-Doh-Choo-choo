@@ -4,6 +4,9 @@ import profilePolicy from '../../../data-v2/mappings/profile-policy.json';
 
 import {
   LEGAL_SOURCE_EFFORTS,
+  currentBuildCanonicalId,
+  isSupersededBuild,
+  resolveCatalogModel,
   normalizeSourceEffort,
   parseCsv,
   parseEffort,
@@ -71,5 +74,47 @@ describe('parseEffort on comma-separated parentheticals', () => {
     expect(parseEffort('Gemini 3.5 Flash (minimal)')).toBe('low');
     expect(parseEffort('MiniMax-M3')).toBeNull();
     expect(parseEffort('Gemini 3.1 Pro Preview')).toBeNull();
+  });
+});
+
+describe('superseded DeepSeek builds', () => {
+  it('keeps only the current release and drops the superseded build', () => {
+    // The user decided on 2026-08-18 to keep only the current release rather
+    // than merging it with the April build under one identity.
+    expect(
+      isSupersededBuild('artificial-analysis', 'deepseek-v4-pro-0424'),
+    ).toBe(true);
+    expect(isSupersededBuild('livebench', 'deepseek-v4-pro')).toBe(true);
+    expect(isSupersededBuild('livebench', 'deepseek-v4-flash')).toBe(true);
+  });
+
+  it('leaves a bare name alone on sources with no dated sibling', () => {
+    // DeepSWE and Frontier Code publish one DeepSeek row each, so the bare name
+    // is the current model there. Widening the rule to all sources would drop
+    // it from both.
+    expect(isSupersededBuild('deepswe', 'deepseek-v4-pro')).toBe(false);
+    expect(isSupersededBuild('frontier-code', 'deepseek-v4-pro')).toBe(false);
+  });
+
+  it('maps the dated current-release names onto the canonical id', () => {
+    expect(currentBuildCanonicalId('deepseek-v4-pro-0813')).toBe(
+      'deepseek-deepseek-v4-pro',
+    );
+    expect(currentBuildCanonicalId('DeepSeek V4 Flash 0731')).toBe(
+      'deepseek-deepseek-v4-flash',
+    );
+    expect(currentBuildCanonicalId('deepseek-v4-pro')).toBeNull();
+  });
+
+  it('routes livebench rows through the source-aware resolver', () => {
+    expect(
+      resolveCatalogModel('deepseek-v4-pro', 'livebench').canonicalModelId,
+    ).toBeNull();
+    expect(
+      resolveCatalogModel('deepseek-v4-pro-0813', 'livebench').canonicalModelId,
+    ).toBe('deepseek-deepseek-v4-pro');
+    expect(
+      resolveCatalogModel('deepseek-v4-pro', 'deepswe').canonicalModelId,
+    ).toBe('deepseek-deepseek-v4-pro');
   });
 });
