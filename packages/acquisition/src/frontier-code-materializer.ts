@@ -6,7 +6,7 @@ import {
 } from '@llm-bench/benchmark-data';
 
 import {
-  LEGAL_SOURCE_EFFORTS,
+  normalizeSourceEffort,
   resolveCatalogModel,
   slugify,
 } from './materializer-utils.js';
@@ -144,7 +144,7 @@ export function extractFrontierCodeTopTen(
 // data-v2/mappings/profile-policy.json may become a product profile; anything
 // else is treated as unlabelled. The raw key stays in the provenance locator.
 const sourceEffort = (rawEffort: string): string | null =>
-  LEGAL_SOURCE_EFFORTS.has(rawEffort) ? rawEffort : null;
+  normalizeSourceEffort(rawEffort);
 
 const profileIdFor = (
   canonicalModelId: string | null,

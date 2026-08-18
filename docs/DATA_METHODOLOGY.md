@@ -74,9 +74,13 @@ Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，�
 
 基礎模型使用 provider-prefixed canonical ID；來源 raw name 與 alias 留在 Evidence。無法精確映射的 Candidate 不投入 ProductVersion，但原始分數和來源配置不得刪除。
 
-Product Profile 只按 reasoning effort（例如 max、xHigh、high、medium、low）分離：
+Product Profile 只按 reasoning effort 分離；推理強度階梯為
+`non-reasoning < low < medium < high < xHigh < max`，`default` 位於階梯之外：
 
-- 來源未標 effort 時，歸入該模型可判定的最高 effort；沒有任何明示 effort 時使用 `profile-policy.json` 的最高 fallback。
+- 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。
+- 來源未標 effort 時，只能從其他來源對同一 canonical model 的明示／名稱可判定 effort 取最高檔，且不得覆寫來源或名稱明示值。
+- 其他來源也沒有可用依據時使用 `default`；不再把缺值歸入 `max`。
+- 每次跨來源推測都列入各來源 validation report，保持 `PENDING USER REVIEW`，並記錄 target row 與 basis source/row。
 - UI 和產品計分不建立 `unspecified` effort。
 - Harness／No Harness、tools、attempt、thinking、context、quantization 等均不建立 Product Profile。
 - 原始 Harness 名稱與配置仍保留在 Candidate／Evidence provenance。
@@ -96,7 +100,7 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
 - Artificial Analysis：來源定義的 Intelligence Index task cost。
 - LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。
 - DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
-- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本，保存為 `AGENT_TASK`；每個明示 effort 各自保留，`none` 不推測。
+- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本，保存為 `AGENT_TASK`；raw `none` 保持 null，產品層只依上述跨來源規則建立可稽核的 effort 決策。
 
 主 Quality vs. Cost 圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。第一版權重為 Artificial Analysis 40%、LiveBench 40%、DeepSWE 20%。缺站時只在現有來源上重新正規化權重，不把缺值當零。
 

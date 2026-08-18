@@ -90,6 +90,16 @@ describe('Artificial Analysis API cross-validation', () => {
     expect(result.mismatches).toEqual([]);
   });
 
+  it('accepts the exact half-step rounding boundary despite float noise', () => {
+    const result = compareArtificialAnalysisApi(
+      [{ slug: 'boundary', name: 'Boundary', gpqa: 0.3125 }],
+      { data: [{ slug: 'boundary', evaluations: { gpqa: 0.313 } }] },
+    );
+
+    expect(result.precisionDifferences).toBe(1);
+    expect(result.mismatches).toEqual([]);
+  });
+
   it('still reports a difference that exceeds the rounding tolerance', () => {
     const result = compareArtificialAnalysisApi(
       [{ slug: 'drifted', name: 'Drifted', gpqa: 0.8 }],

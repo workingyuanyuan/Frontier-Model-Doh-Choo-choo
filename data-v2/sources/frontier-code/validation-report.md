@@ -15,7 +15,7 @@
 | Main configurations with costs | 77 |
 | Models with multiple efforts | 15 |
 | Models with five efforts | 8 |
-| Canonically unresolved models | 7 |
+| Canonically unresolved models | 5 |
 
 The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontier-code-1-1`.
 
@@ -28,10 +28,43 @@ The official export contains both `main` and `extended` results. This source mat
 
 ## Identity and missing-value policy
 
-Exact catalog resolution succeeded for 21/28 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, DeepSeek V4 Flash 0731, Kimi K2.7, Mistral 3.5 Medium, Qwen 3.7 Plus, SWE-1.6, SWE-1.7.
+Exact catalog resolution succeeded for 23/28 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, Kimi K2.7, Mistral 3.5 Medium, SWE-1.6, SWE-1.7.
 
 Source effort `none` is preserved as null effort and null profile ID. It is not guessed as max/default. Missing costs would be omitted rather than written as zero; this snapshot has a finite cost for every Main configuration.
 
 ## Known documentation conflict
 
 Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `REFACTOR_SPEC_V2.md` §4.2.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Distinct models | 28 | 28 | +0 |
+| Main configurations | 77 | 77 | +0 |
+| Materialized costs | 77 | 77 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
+<!-- C6-EFFORT-INFERENCE:START -->
+## C6 effort inference — PENDING USER REVIEW
+
+This tagged section is generated deterministically for `frontier-code`. Raw `profile.effort` remains unchanged; `productProfile.effort` is the transient product decision. Policy default: `default`.
+
+### Cross-source inferences — PENDING USER REVIEW
+
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| DeepSeek V4 Pro | `frontier-code:frontier-code-1-1:deepseek-v4-pro-none` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
+| GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
+| Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
+
+### Unlabelled rows assigned the outside-the-ladder default
+
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `default` | — | — |
+| Qwen 3.7 Plus | `frontier-code:frontier-code-1-1:qwen-3-7-plus-none` | — | `default` | — | — |
+
+<!-- C6-EFFORT-INFERENCE:END -->

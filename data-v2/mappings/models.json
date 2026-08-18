@@ -236,7 +236,7 @@
       "modelId": "deepseek-deepseek-v4-flash",
       "providerId": "deepseek",
       "displayName": "DeepSeek V4 Flash",
-      "aliases": ["DeepSeek-v4-flash"],
+      "aliases": ["DeepSeek-v4-flash", "DeepSeek V4 Flash 0731"],
       "releaseDate": "2026-07-31",
       "pricing": [],
       "profilePricing": {}
@@ -401,6 +401,123 @@
       "providerId": "xai",
       "displayName": "Grok 4.6",
       "releaseDate": "2026-08-12",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "anthropic-claude-opus-4-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Opus 4.5",
+      "aliases": ["claude-opus-4-5"],
+      "releaseDate": "2025-11-24",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "google-gemini-3-5-flash-lite",
+      "providerId": "google",
+      "displayName": "Gemini 3.5 Flash-Lite",
+      "aliases": ["gemini-3.5-flash-lite"],
+      "releaseDate": "2026-07-21",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-2-codex",
+      "providerId": "openai",
+      "displayName": "GPT-5.2 Codex",
+      "aliases": ["gpt-5.2-codex"],
+      "releaseDate": "2025-12-11",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-5-4-nano",
+      "providerId": "openai",
+      "displayName": "GPT-5.4 nano",
+      "aliases": ["gpt-5.4-nano"],
+      "releaseDate": "2026-03-17",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "xai-grok-4-3",
+      "providerId": "xai",
+      "displayName": "Grok 4.3",
+      "aliases": ["grok-4.3"],
+      "releaseDate": "2026-04-30",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "xai-grok-build-0-1",
+      "providerId": "xai",
+      "displayName": "Grok Build 0.1",
+      "aliases": ["grok-build-0.1"],
+      "releaseDate": "2026-06-16",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "moonshot-kimi-k2-7-code",
+      "providerId": "moonshot",
+      "displayName": "Kimi K2.7 Code",
+      "aliases": ["kimi-k2.7-code"],
+      "releaseDate": "2026-06-12",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "meta-muse-spark-1-2",
+      "providerId": "meta",
+      "displayName": "Muse Spark 1.2",
+      "aliases": ["muse-spark-1.2"],
+      "releaseDate": "2026-08-05",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "alibaba-qwen3-6-27b",
+      "providerId": "alibaba",
+      "displayName": "Qwen3.6 27B",
+      "aliases": ["qwen3.6-27b"],
+      "releaseDate": "2026-04-22",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "alibaba-qwen3-6-plus",
+      "providerId": "alibaba",
+      "displayName": "Qwen3.6 Plus",
+      "aliases": ["qwen3.6-plus"],
+      "releaseDate": "2026-04-02",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "alibaba-qwen3-7-plus",
+      "providerId": "alibaba",
+      "displayName": "Qwen3.7 Plus",
+      "aliases": ["qwen3.7-plus", "Qwen 3.7 Plus"],
+      "releaseDate": "2026-06-01",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "alibaba-qwen3-8-27b",
+      "providerId": "alibaba",
+      "displayName": "Qwen3.8 27B",
+      "aliases": ["qwen3.8-27b"],
+      "releaseDate": "2026-08-14",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "alibaba-qwen3-8-max",
+      "providerId": "alibaba",
+      "displayName": "Qwen3.8 Max",
+      "aliases": ["qwen3.8-max"],
+      "releaseDate": "2026-08-03",
       "pricing": [],
       "profilePricing": {}
     }

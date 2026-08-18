@@ -3,7 +3,7 @@
   "baseUrl": "https://deepswe.datacurve.ai",
   "benchmarkIds": ["deepswe-1-1"],
   "completeness": {
-    "expectedCountMethod": "Confirm 53 configurations and 21 models, selecting one highest-Pass@1 row per model.",
+    "expectedCountMethod": "Count every configuration and distinct model in the complete official v1.1 leaderboard export, then compare the visible leaderboard.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
@@ -12,15 +12,16 @@
   "fieldMapping": {
     "generated_at": "sourcePublishedAt",
     "rows[].harness": "profile.harness",
+    "rows[].mean_cost_usd": "CostRecord.cost",
     "rows[].model": "model.rawName",
-    "rows[].pass_rate": "rawScore / 100",
+    "rows[].pass_rate": "normalizedScore",
     "rows[].reasoning_effort": "profile.effort"
   },
-  "lastVerifiedAt": "2026-08-12T16:44:09.579Z",
+  "lastVerifiedAt": "2026-08-18T13:27:24.031Z",
   "notes": [
-    "53 configurations / 21 models; deterministic best row per model.",
-    "Exact identities 15; unresolved 6; no fuzzy matching.",
-    "All configs and extended metrics remain in raw artifact.",
+    "61 configurations / 24 models; every configuration is retained.",
+    "11 models expose multi-effort ladders.",
+    "Exact catalog identities only; 0 configuration rows remain unresolved.",
     "Harness and n_runs remain provenance, not separate Product Profiles."
   ],
   "role": "ORGANIZER",

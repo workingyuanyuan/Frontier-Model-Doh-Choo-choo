@@ -20,19 +20,23 @@ pnpm install --frozen-lockfile
 來源快照與成本使用相同 materializer：
 
 ```bash
-pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
+pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
-pnpm --filter @llm-bench/acquisition materialize:snapshots
-pnpm --filter @llm-bench/acquisition materialize:costs
+pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
-Artificial Analysis 的命令會組合 evaluation RSC、`/models` 與現役 profile 的
+四個刷新命令都必須先核對渲染後頁面的可見母體數，並把實測值傳入。Artificial Analysis 的命令會組合 evaluation RSC、`/models` 與現役 profile 的
 `/models/<slug>` detail payload；`ARTIFICIAL_ANALYSIS_API_KEY` 僅從 gitignored
 `.env.local` 讀取，官方 API 失效時記錄 warning，不阻斷頁面管道。
 
 Frontier Code 必須先開啟渲染後頁面，核對 Main 列數與 Top 10，再執行帶有
 `--visual-row-count` 與 `--visual-top-ten-matched` 的刷新命令。腳本會擷取頁面
 JSON-LD 與官方靜態 JSON；未提供 DOM 核對結果時會拒絕標記完成。
+
+四站完成後執行 `materialize:effort-reports`；它只替換 validation report 中
+標記過的推測區段，保留每站刷新產生的可見母體核對與前後 delta。
 
 刷新完成後逐站檢查：
 

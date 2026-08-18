@@ -332,15 +332,59 @@ export const ProfilePolicySchema = z
         path: ['effortOrder'],
       });
     }
-    if (!normalizedOrder.includes(normalizedLabelKey(policy.defaultEffort))) {
+    if (normalizedLabelKey(policy.defaultEffort) !== 'default') {
       context.addIssue({
         code: 'custom',
-        message: 'defaultEffort must be present in effortOrder',
+        message: 'defaultEffort must be the outside-the-ladder "default" tier',
         path: ['defaultEffort'],
+      });
+    }
+    if (normalizedOrder.includes('default')) {
+      context.addIssue({
+        code: 'custom',
+        message: 'default must not be included in effortOrder',
+        path: ['effortOrder'],
       });
     }
   });
 export type ProfilePolicy = z.infer<typeof ProfilePolicySchema>;
+
+export const EFFORT_TIERS = [
+  'non-reasoning',
+  'low',
+  'medium',
+  'high',
+  'xhigh',
+  'max',
+] as const;
+export type EffortTier = (typeof EFFORT_TIERS)[number];
+export type ProductEffort = EffortTier | 'default';
+
+const EFFORT_TIER_RANK: ReadonlyMap<EffortTier, number> = new Map(
+  EFFORT_TIERS.map((effort, index) => [effort, index]),
+);
+
+export type EffortDecisionBasis =
+  'SOURCE_FIELD' | 'NAME_DERIVED' | 'CROSS_SOURCE' | 'DEFAULT';
+
+export interface EffortResolutionInput {
+  id: string;
+  sourceId: string;
+  model: {
+    rawName: string;
+    canonicalModelId: string | null;
+  };
+  profile: {
+    effort: string | null;
+  };
+}
+
+export interface EffortDecision {
+  effort: ProductEffort;
+  basis: EffortDecisionBasis;
+  basisSourceId: string | null;
+  basisCandidateId: string | null;
+}
 
 export const SourcesConfigSchema = z.object({
   schemaVersion: z.literal('sources-config-v1'),
@@ -386,6 +430,128 @@ const profileIdSegment = (value: string): string =>
     .replace(/[^a-z0-9]+/gu, '-')
     .replace(/^-+|-+$/gu, '');
 
+const normalizedEffortKey = (value: string): string =>
+  normalizedLabelKey(value)
+    .replace(/[()]/gu, '')
+    .replace(/[_\s]+/gu, '-')
+    .replace(/-+effort$/u, '')
+    .replace(/^-+|-+$/gu, '');
+
+export const normalizeProductEffort = (
+  value: string | null | undefined,
+): EffortTier | null => {
+  if (typeof value !== 'string' || value.trim().length === 0) return null;
+  const key = normalizedEffortKey(value);
+  if (key === 'nonreasoning' || key === 'non-reasoning') {
+    return 'non-reasoning';
+  }
+  if (key === 'minimal') return 'low';
+  return EFFORT_TIER_RANK.has(key as EffortTier) ? (key as EffortTier) : null;
+};
+
+export const deriveNameEffort = (rawName: string): EffortTier | null => {
+  // The explicit non-reasoning marker must win if a source includes more than
+  // one parenthetical qualifier in a display name.
+  if (/\(\s*non[\s_-]*reasoning\s*\)/iu.test(rawName)) {
+    return 'non-reasoning';
+  }
+  if (/\(\s*minimal\s*\)/iu.test(rawName)) return 'low';
+
+  const parentheticals = rawName.match(/\([^()]+\)/gu) ?? [];
+  for (const parenthetical of parentheticals) {
+    const effort = normalizeProductEffort(parenthetical);
+    if (effort !== null) return effort;
+  }
+  return null;
+};
+
+const directEffort = (
+  candidate: EffortResolutionInput,
+): { effort: EffortTier; basis: 'SOURCE_FIELD' | 'NAME_DERIVED' } | null => {
+  if (candidate.profile.effort !== null) {
+    const sourceEffort = normalizeProductEffort(candidate.profile.effort);
+    // A present but invalid source field is not permission to fall back to a
+    // qualifier in the display name. The source explicitly supplied a value;
+    // it remains unlabelled (and can only use the §4.5/default paths).
+    return sourceEffort === null
+      ? null
+      : { effort: sourceEffort, basis: 'SOURCE_FIELD' };
+  }
+  const nameEffort = deriveNameEffort(candidate.model.rawName);
+  return nameEffort === null
+    ? null
+    : { effort: nameEffort, basis: 'NAME_DERIVED' };
+};
+
+const higherEffortEvidence = (
+  candidates: readonly EffortResolutionInput[],
+): { candidate: EffortResolutionInput; effort: EffortTier } | null => {
+  const direct = candidates.flatMap((candidate) => {
+    const resolved = directEffort(candidate);
+    return resolved === null ? [] : [{ candidate, effort: resolved.effort }];
+  });
+  direct.sort(
+    (left, right) =>
+      (EFFORT_TIER_RANK.get(right.effort) ?? -1) -
+        (EFFORT_TIER_RANK.get(left.effort) ?? -1) ||
+      left.candidate.sourceId.localeCompare(right.candidate.sourceId) ||
+      left.candidate.id.localeCompare(right.candidate.id),
+  );
+  return direct[0] ?? null;
+};
+
+/**
+ * Resolve the product-facing effort without mutating source-facing fields.
+ *
+ * This is intentionally pure: every caller passes the complete source set,
+ * and cross-source inference filters out the target source before looking for
+ * direct evidence. Inferred/default values are therefore never fed back as
+ * evidence for another candidate.
+ */
+export const decideProductEffort = (
+  candidate: EffortResolutionInput,
+  allCandidates: readonly EffortResolutionInput[],
+): EffortDecision => {
+  const direct = directEffort(candidate);
+  if (direct !== null) {
+    return {
+      effort: direct.effort,
+      basis: direct.basis,
+      basisSourceId: candidate.sourceId,
+      basisCandidateId: candidate.id,
+    };
+  }
+
+  if (candidate.model.canonicalModelId !== null) {
+    const crossSource = higherEffortEvidence(
+      allCandidates.filter(
+        (other) =>
+          other.id !== candidate.id &&
+          other.sourceId !== candidate.sourceId &&
+          other.model.canonicalModelId === candidate.model.canonicalModelId,
+      ),
+    );
+    if (crossSource !== null) {
+      return {
+        effort: crossSource.effort,
+        basis: 'CROSS_SOURCE',
+        basisSourceId: crossSource.candidate.sourceId,
+        basisCandidateId: crossSource.candidate.id,
+      };
+    }
+  }
+
+  return {
+    effort: 'default',
+    basis: 'DEFAULT',
+    basisSourceId: null,
+    basisCandidateId: null,
+  };
+};
+
+const productProfileId = (modelId: string, effort: ProductEffort): string =>
+  `${modelId}-${profileIdSegment(effort)}`;
+
 export const applyProductProfilePolicy = (
   candidates: CandidateResult[],
   catalogInput: ModelCatalog,
@@ -393,44 +559,80 @@ export const applyProductProfilePolicy = (
 ): CandidateResult[] => {
   ModelCatalogSchema.parse(catalogInput);
   const policy = ProfilePolicySchema.parse(policyInput);
-  const effortOrder = policy.effortOrder.map((effort) =>
-    normalizedLabelKey(effort).replace(/\s+/gu, '-'),
-  );
-  const effortRank = new Map(
-    effortOrder.map((effort, index) => [effort, index]),
-  );
-  const normalizeEffort = (effort: string): string =>
-    normalizedLabelKey(effort).replace(/\s+/gu, '-');
-  const highestEffortByModel = new Map<string, string>();
-
-  candidates.forEach((candidate) => {
-    const modelId = candidate.model.canonicalModelId;
-    if (modelId === null || candidate.profile.effort === null) return;
-    const effort = normalizeEffort(candidate.profile.effort);
-    const current = highestEffortByModel.get(modelId);
-    if (
-      current === undefined ||
-      (effortRank.get(effort) ?? Number.POSITIVE_INFINITY) <
-        (effortRank.get(current) ?? Number.POSITIVE_INFINITY)
-    ) {
-      highestEffortByModel.set(modelId, effort);
-    }
-  });
-
-  const defaultEffort = normalizeEffort(policy.defaultEffort);
+  // Parsing the policy here documents that the configured ladder is part of
+  // the input contract. The canonical ladder/ranks are fixed by §4.4 so a
+  // highest-tier decision remains correct if the JSON is presented in the
+  // older highest-first order.
+  void policy;
+  const evidence: readonly EffortResolutionInput[] = candidates;
 
   return candidates.map((candidate) => {
     const modelId = candidate.model.canonicalModelId;
     if (modelId === null) return candidate;
 
-    const effort = candidate.profile.effort
-      ? normalizeEffort(candidate.profile.effort)
-      : (highestEffortByModel.get(modelId) ?? defaultEffort);
-    const profileId = [modelId, profileIdSegment(effort)].join('-');
+    const decision = decideProductEffort(candidate, evidence);
     return CandidateResultSchema.parse({
       ...candidate,
-      model: { ...candidate.model, profileId },
-      productProfile: { effort, harness: null },
+      model: {
+        ...candidate.model,
+        profileId: productProfileId(modelId, decision.effort),
+      },
+      productProfile: { effort: decision.effort, harness: null },
+    });
+  });
+};
+
+/**
+ * Align cost records with the product profile chosen for their corresponding
+ * CandidateResult while leaving CostRecord.profile untouched. Cost rows often
+ * carry a source-specific profile ID (or an old fallback ID); the product
+ * projection must use the same effort decision as the score evidence.
+ */
+export const applyProductProfilePolicyToCosts = (
+  costs: CostRecord[],
+  candidates: readonly CandidateResult[],
+  catalogInput: ModelCatalog,
+  policyInput: ProfilePolicy,
+): CostRecord[] => {
+  ModelCatalogSchema.parse(catalogInput);
+  const policy = ProfilePolicySchema.parse(policyInput);
+  void policy;
+  const evidence: readonly EffortResolutionInput[] = candidates;
+  const decisionByCandidate = new Map(
+    candidates.map((candidate) => [
+      candidate.id,
+      decideProductEffort(candidate, evidence),
+    ]),
+  );
+
+  return costs.map((cost) => {
+    const modelId = cost.model.canonicalModelId;
+    if (modelId === null) return cost;
+
+    const matching = candidates
+      .filter(
+        (candidate) =>
+          candidate.sourceId === cost.sourceId &&
+          candidate.model.canonicalModelId === modelId &&
+          candidate.model.rawName === cost.model.rawName,
+      )
+      .toSorted((left, right) => left.id.localeCompare(right.id));
+    const costEffort = normalizeProductEffort(cost.profile.effort);
+    const matchingEffort = matching.find(
+      (candidate) =>
+        normalizeProductEffort(candidate.profile.effort) === costEffort,
+    );
+    const matchingCandidate = matchingEffort ?? matching[0];
+    const decision = matchingCandidate
+      ? (decisionByCandidate.get(matchingCandidate.id) as EffortDecision)
+      : decideProductEffort(cost, evidence);
+
+    return CostRecordSchema.parse({
+      ...cost,
+      model: {
+        ...cost.model,
+        profileId: productProfileId(modelId, decision.effort),
+      },
     });
   });
 };

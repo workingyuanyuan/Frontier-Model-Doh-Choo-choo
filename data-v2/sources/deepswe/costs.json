@@ -1,1467 +1,147 @@
 [
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 9.177638214788733,
+    "cost": 11.837583271396396,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-fable-5-high:anthropic-claude-fable-5-high",
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_max:anthropic-claude-opus-5-max",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-high",
-      "rawName": "claude-fable-5"
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-max",
+      "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_fable_5_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 3.757873125874126,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-fable-5-low:anthropic-claude-fable-5-low",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-low",
-      "rawName": "claude-fable-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_fable_5_low\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 21.634702092592594,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-fable-5-max:anthropic-claude-fable-5-max",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-max",
-      "rawName": "claude-fable-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "max",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_fable_5_max\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_5_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 6.088186528935186,
+    "cost": 9.07220232326622,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-fable-5-medium:anthropic-claude-fable-5-medium",
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_xhigh:anthropic-claude-opus-5-xhigh",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-medium",
-      "rawName": "claude-fable-5"
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-xhigh",
+      "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_fable_5_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 13.414521495535714,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-fable-5-xhigh:anthropic-claude-fable-5-xhigh",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-xhigh",
-      "rawName": "claude-fable-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "xhigh",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_fable_5_xhigh\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_5_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 4.281940017699115,
+    "cost": 6.076084489977728,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-opus-4-8-high:anthropic-claude-opus-4-8-high",
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_high:anthropic-claude-opus-5-high",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-high",
-      "rawName": "claude-opus-4-8"
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-high",
+      "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "high",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_opus_4_8_high\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_5_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 2.293369216740577,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-opus-4-8-low:anthropic-claude-opus-4-8-low",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-low",
-      "rawName": "claude-opus-4-8"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_opus_4_8_low\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 13.222583593240094,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-opus-4-8-max:anthropic-claude-opus-4-8-max",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-max",
-      "rawName": "claude-opus-4-8"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_opus_4_8_max\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 3.4438571028761062,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-opus-4-8-medium:anthropic-claude-opus-4-8-medium",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-medium",
-      "rawName": "claude-opus-4-8"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_opus_4_8_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 8.006355704138702,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-opus-4-8-xhigh:anthropic-claude-opus-4-8-xhigh",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-xhigh",
-      "rawName": "claude-opus-4-8"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_opus_4_8_xhigh\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 5.5223517987804875,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-sonnet-4-6-high:anthropic-claude-sonnet-4-6-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-4-6",
-      "profileId": "anthropic-claude-sonnet-4-6-high",
-      "rawName": "claude-sonnet-4-6"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_sonnet_4_6_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 7.425560161197339,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-sonnet-5-high:anthropic-claude-sonnet-5-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-high",
-      "rawName": "claude-sonnet-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_sonnet_5_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 2.1865550832962137,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-sonnet-5-low:anthropic-claude-sonnet-5-low",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-low",
-      "rawName": "claude-sonnet-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_sonnet_5_low\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 26.399858950791852,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-sonnet-5-max:anthropic-claude-sonnet-5-max",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-max",
-      "rawName": "claude-sonnet-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_sonnet_5_max\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 4.079036229,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-sonnet-5-medium:anthropic-claude-sonnet-5-medium",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-medium",
-      "rawName": "claude-sonnet-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_sonnet_5_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 11.890634540022173,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-claude-sonnet-5-xhigh:anthropic-claude-sonnet-5-xhigh",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-xhigh",
-      "rawName": "claude-sonnet-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_claude_sonnet_5_xhigh\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 0.10023560370265487,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-deepseek-v4-flash-max:deepseek-deepseek-v4-flash-max",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "deepseek-deepseek-v4-flash",
-      "profileId": "deepseek-deepseek-v4-flash-max",
-      "rawName": "deepseek-v4-flash"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_deepseek_v4_flash_max\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 9.48151874855876,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gemini-3-1-pro-preview-high:google-gemini-3-1-pro-preview-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "google-gemini-3-1-pro-preview",
-      "profileId": "google-gemini-3-1-pro-preview-high",
-      "rawName": "gemini-3-1-pro-preview"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gemini_3_1_pro_preview_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 7.341823985508849,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gemini-3-5-flash-medium:google-gemini-3-5-flash-medium",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-medium",
-      "rawName": "gemini-3-5-flash"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gemini_3_5_flash_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 2.8355164725663715,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-glm-5-2-high:zai-glm-5-2-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "zai-glm-5-2",
-      "profileId": "zai-glm-5-2-high",
-      "rawName": "glm-5-2"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_glm_5_2_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 3.9199075743111114,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-glm-5-2-max:zai-glm-5-2-max",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "zai-glm-5-2",
-      "profileId": "zai-glm-5-2-max",
-      "rawName": "glm-5-2"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_glm_5_2_max\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 5.6524577245575225,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-4-xhigh:openai-gpt-5-4-xhigh",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-xhigh",
-      "rawName": "gpt-5-4"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_4_xhigh\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 5.100437004424779,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-5-high:openai-gpt-5-5-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-high",
-      "rawName": "gpt-5-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_5_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 1.2002025442477877,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-5-low:openai-gpt-5-5-low",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-low",
-      "rawName": "gpt-5-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_5_low\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 2.749342734513274,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-5-medium:openai-gpt-5-5-medium",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-medium",
-      "rawName": "gpt-5-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_5_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 7.226236674778761,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-5-xhigh:openai-gpt-5-5-xhigh",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-xhigh",
-      "rawName": "gpt-5-5"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_5_xhigh\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 0.7779007499999999,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-luna-high:openai-gpt-5-6-luna-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-high",
-      "rawName": "gpt-5-6-luna"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_luna_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 0.07240623938053097,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-luna-low:openai-gpt-5-6-luna-low",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-low",
-      "rawName": "gpt-5-6-luna"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_luna_low\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 3.028116810267857,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-luna-max:openai-gpt-5-6-luna-max",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-max",
-      "rawName": "gpt-5-6-luna"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_luna_max\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 0.21630978982300886,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-luna-medium:openai-gpt-5-6-luna-medium",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-medium",
-      "rawName": "gpt-5-6-luna"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_luna_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 1.5356192685840708,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-luna-xhigh:openai-gpt-5-6-luna-xhigh",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-xhigh",
-      "rawName": "gpt-5-6-luna"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_luna_xhigh\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 3.4698331108647453,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-sol-high:openai-gpt-5-6-sol-high",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-high",
-      "rawName": "gpt-5-6-sol"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_sol_high\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 1.0742664646017699,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-sol-low:openai-gpt-5-6-sol-low",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-low",
-      "rawName": "gpt-5-6-sol"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_sol_low\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
     "cost": 8.386436346666667,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-sol-max:openai-gpt-5-6-sol-max",
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_max:openai-gpt-5-6-sol-max",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
@@ -1471,85 +151,41 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "max",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_sol_max\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
-    "benchmarkVersion": "1.1",
-    "cost": 1.8620318075221238,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
-    ],
-    "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-sol-medium:openai-gpt-5-6-sol-medium",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "mean-cost-usd",
-    "metricName": "Mean DeepSWE agent task cost",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-medium",
-      "rawName": "gpt-5-6-sol"
-    },
-    "observedAt": "2026-08-12T16:44:09.579Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": 4,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "mini-swe-agent",
-      "quantization": null,
-      "thinking": null,
-      "tools": true
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_sol_medium\"].mean_cost_usd",
-        "method": "API_RESPONSE"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
-    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
     "cost": 4.703663860310422,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-sol-xhigh:openai-gpt-5-6-sol-xhigh",
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_xhigh:openai-gpt-5-6-sol-xhigh",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
@@ -1559,129 +195,129 @@
       "profileId": "openai-gpt-5-6-sol-xhigh",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "xhigh",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_sol_xhigh\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 1.1343762765486725,
+    "cost": 13.414521495535714,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-terra-high:openai-gpt-5-6-terra-high",
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_xhigh:anthropic-claude-fable-5-xhigh",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-high",
-      "rawName": "gpt-5-6-terra"
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-xhigh",
+      "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
-      "effort": "high",
+      "effort": "xhigh",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_terra_high\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_fable_5_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 0.4277452605790646,
+    "cost": 21.634702092592594,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-terra-low:openai-gpt-5-6-terra-low",
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_max:anthropic-claude-fable-5-max",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-low",
-      "rawName": "gpt-5-6-terra"
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max",
+      "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
-      "effort": "low",
+      "effort": "max",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_terra_low\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_fable_5_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
     "cost": 4.945847263858093,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-terra-max:openai-gpt-5-6-terra-max",
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_max:openai-gpt-5-6-terra-max",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
@@ -1691,85 +327,613 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "max",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_terra_max\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 0.5832493688888889,
+    "cost": 3.4698331108647453,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-terra-medium:openai-gpt-5-6-terra-medium",
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_high:openai-gpt-5-6-sol-high",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-medium",
-      "rawName": "gpt-5-6-terra"
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-high",
+      "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
-      "effort": "medium",
+      "effort": "high",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_terra_medium\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.28978764541387,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_medium:anthropic-claude-opus-5-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-medium",
+      "rawName": "claude-opus-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_5_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 9.177638214788733,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_high:anthropic-claude-fable-5-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-high",
+      "rawName": "claude-fable-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_fable_5_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 4.654682129933482,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_kimi_k3_max:moonshot-kimi-k3-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3",
+      "profileId": "moonshot-kimi-k3-max",
+      "rawName": "kimi-k3"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_kimi_k3_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.4489837522123894,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_medium:xai-grok-4-6-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-medium",
+      "rawName": "grok-4-6"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_grok_4_6_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.028116810267857,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_max:openai-gpt-5-6-luna-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max",
+      "rawName": "gpt-5-6-luna"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 7.226236674778761,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_xhigh:openai-gpt-5-5-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-xhigh",
+      "rawName": "gpt-5-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_5_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 5.497668745011087,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_xhigh:xai-grok-4-6-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-xhigh",
+      "rawName": "grok-4-6"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_grok_4_6_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 6.088186528935186,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_medium:anthropic-claude-fable-5-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-medium",
+      "rawName": "claude-fable-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_fable_5_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 4.3848732239467845,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_high:xai-grok-4-6-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
+      "rawName": "grok-4-6"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_grok_4_6_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 5.100437004424779,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_high:openai-gpt-5-5-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-high",
+      "rawName": "gpt-5-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_5_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.24138687892256638,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_deepseek_v4_pro_max:deepseek-deepseek-v4-pro-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-max",
+      "rawName": "deepseek-v4-pro"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_deepseek_v4_pro_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.8620318075221238,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_medium:openai-gpt-5-6-sol-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-medium",
+      "rawName": "gpt-5-6-sol"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
     "cost": 2.127191725663717,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-gpt-5-6-terra-xhigh:openai-gpt-5-6-terra-xhigh",
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_xhigh:openai-gpt-5-6-terra-xhigh",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
@@ -1779,85 +943,569 @@
       "profileId": "openai-gpt-5-6-terra-xhigh",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "xhigh",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_gpt_5_6_terra_xhigh\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 2.815536243274336,
+    "cost": 3.757873125874126,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-kimi-k2-7-code-default:moonshot-kimi-k2-7-code-max",
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_low:anthropic-claude-fable-5-low",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
     "metricName": "Mean DeepSWE agent task cost",
     "model": {
-      "canonicalModelId": "moonshot-kimi-k2-7-code",
-      "profileId": "moonshot-kimi-k2-7-code-max",
-      "rawName": "kimi-k2-7-code"
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-low",
+      "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
-      "effort": "max",
+      "effort": "low",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_kimi_k2_7_code_default\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_fable_5_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
-    "benchmarkId": "deepswe-1-1",
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 13.222583593240094,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_max:anthropic-claude-opus-4-8-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-max",
+      "rawName": "claude-opus-4-8"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_4_8_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.6626223919821828,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_low:anthropic-claude-opus-5-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-low",
+      "rawName": "claude-opus-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_5_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.7290646500445437,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_qwen3_8_max_xhigh:alibaba-qwen3-8-max-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "alibaba-qwen3-8-max",
+      "profileId": "alibaba-qwen3-8-max-xhigh",
+      "rawName": "qwen3-8-max"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_qwen3_8_max_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.5356192685840708,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_xhigh:openai-gpt-5-6-luna-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-xhigh",
+      "rawName": "gpt-5-6-luna"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.6955048180309733,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_muse_spark_1_2_xhigh:meta-muse-spark-1-2-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "meta-muse-spark-1-2",
+      "profileId": "meta-muse-spark-1-2-xhigh",
+      "rawName": "muse-spark-1-2"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_muse_spark_1_2_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 8.006355704138702,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_xhigh:anthropic-claude-opus-4-8-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-xhigh",
+      "rawName": "claude-opus-4-8"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_4_8_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.749342734513274,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_medium:openai-gpt-5-5-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-medium",
+      "rawName": "gpt-5-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_5_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 26.399858950791852,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_max:anthropic-claude-sonnet-5-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-max",
+      "rawName": "claude-sonnet-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_sonnet_5_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.1343762765486725,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_high:openai-gpt-5-6-terra-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-high",
+      "rawName": "gpt-5-6-terra"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.4157481725663716,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_grok_4_5_high:xai-grok-4-5-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
+      "rawName": "grok-4-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_grok_4_5_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.10023560370265487,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_deepseek_v4_flash_max:deepseek-deepseek-v4-flash-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-flash",
+      "profileId": "deepseek-deepseek-v4-flash-max",
+      "rawName": "deepseek-v4-flash"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_deepseek_v4_flash_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
     "cost": 2.361142644469026,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f"
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
     ],
     "exclusionReason": null,
-    "id": "deepswe:mean-cost-mini-swe-agent-muse-spark-1-1-xhigh:meta-muse-spark-1-1-xhigh",
+    "id": "deepswe:mean-cost-mini_swe_agent_muse_spark_1_1_xhigh:meta-muse-spark-1-1-xhigh",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "mean-cost-usd",
@@ -1867,27 +1515,1171 @@
       "profileId": "meta-muse-spark-1-1-xhigh",
       "rawName": "muse-spark-1-1"
     },
-    "observedAt": "2026-08-12T16:44:09.579Z",
+    "observedAt": "2026-08-18T13:27:24.031Z",
     "outputPerMillionTokens": null,
     "profile": {
-      "attempts": 4,
+      "attempts": null,
       "contextWindowTokens": null,
       "effort": "xhigh",
       "harness": "mini-swe-agent",
       "quantization": null,
       "thinking": null,
-      "tools": true
+      "tools": null
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f",
-        "locator": "$.rows[config=\"mini_swe_agent_muse_spark_1_1_xhigh\"].mean_cost_usd",
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_muse_spark_1_1_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "deepswe",
-    "sourcePublishedAt": "2026-08-07T19:41:58.007Z",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 4.281940017699115,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_high:anthropic-claude-opus-4-8-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-high",
+      "rawName": "claude-opus-4-8"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_4_8_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 5.6524577245575225,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_4_xhigh:openai-gpt-5-4-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-4",
+      "profileId": "openai-gpt-5-4-xhigh",
+      "rawName": "gpt-5-4"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_4_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 11.890634540022173,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_xhigh:anthropic-claude-sonnet-5-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-xhigh",
+      "rawName": "claude-sonnet-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_sonnet_5_xhigh].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.4438571028761062,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_medium:anthropic-claude-opus-4-8-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-medium",
+      "rawName": "claude-opus-4-8"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_4_8_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 7.425560161197339,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_high:anthropic-claude-sonnet-5-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-high",
+      "rawName": "claude-sonnet-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_sonnet_5_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 4.419013277333334,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_6_flash_high:google-gemini-3-6-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-6-flash",
+      "profileId": "google-gemini-3-6-flash-high",
+      "rawName": "gemini-3-6-flash"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gemini_3_6_flash_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.0742664646017699,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_low:openai-gpt-5-6-sol-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-low",
+      "rawName": "gpt-5-6-sol"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.7779007499999999,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_high:openai-gpt-5-6-luna-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-high",
+      "rawName": "gpt-5-6-luna"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.9199075743111114,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_glm_5_2_max:zai-glm-5-2-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "zai-glm-5-2",
+      "profileId": "zai-glm-5-2-max",
+      "rawName": "glm-5-2"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_glm_5_2_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.0423604231625836,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_low:xai-grok-4-6-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-low",
+      "rawName": "grok-4-6"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_grok_4_6_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.293369216740577,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_low:anthropic-claude-opus-4-8-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-4-8",
+      "profileId": "anthropic-claude-opus-4-8-low",
+      "rawName": "claude-opus-4-8"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_opus_4_8_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 4.079036229,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_medium:anthropic-claude-sonnet-5-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-medium",
+      "rawName": "claude-sonnet-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_sonnet_5_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.8355164725663715,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_glm_5_2_high:zai-glm-5-2-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "zai-glm-5-2",
+      "profileId": "zai-glm-5-2-high",
+      "rawName": "glm-5-2"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_glm_5_2_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 3.4467114588691796,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_5_flash_high:google-gemini-3-5-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-5-flash",
+      "profileId": "google-gemini-3-5-flash-high",
+      "rawName": "gemini-3-5-flash"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gemini_3_5_flash_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.5832493688888889,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_medium:openai-gpt-5-6-terra-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-medium",
+      "rawName": "gpt-5-6-terra"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.815536243274336,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_kimi_k2_7_code_default:moonshot-kimi-k2-7-code-unlabelled",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k2-7-code",
+      "profileId": null,
+      "rawName": "kimi-k2-7-code"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_kimi_k2_7_code_default].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.1865550832962137,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_low:anthropic-claude-sonnet-5-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5",
+      "profileId": "anthropic-claude-sonnet-5-low",
+      "rawName": "claude-sonnet-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_sonnet_5_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 5.5223517987804875,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_4_6_high:anthropic-claude-sonnet-4-6-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-4-6",
+      "profileId": "anthropic-claude-sonnet-4-6-high",
+      "rawName": "claude-sonnet-4-6"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_claude_sonnet_4_6_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.2002025442477877,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_low:openai-gpt-5-5-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-low",
+      "rawName": "gpt-5-5"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_5_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.4277452605790646,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_low:openai-gpt-5-6-terra-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-low",
+      "rawName": "gpt-5-6-terra"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.1434045568888886,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_1_pro_preview_high:google-gemini-3-1-pro-preview-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-1-pro-preview",
+      "profileId": "google-gemini-3-1-pro-preview-high",
+      "rawName": "gemini-3-1-pro-preview"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gemini_3_1_pro_preview_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.21630978982300886,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_medium:openai-gpt-5-6-luna-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-medium",
+      "rawName": "gpt-5-6-luna"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 0.07240623938053097,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_low:openai-gpt-5-6-luna-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-low",
+      "rawName": "gpt-5-6-luna"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.0251351826880533,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_7_flash_medium:google-gemini-3-7-flash-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-7-flash",
+      "profileId": "google-gemini-3-7-flash-medium",
+      "rawName": "gemini-3-7-flash"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gemini_3_7_flash_medium].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 2.1762860351216813,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_7_flash_high:google-gemini-3-7-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-7-flash",
+      "profileId": "google-gemini-3-7-flash-high",
+      "rawName": "gemini-3-7-flash"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gemini_3_7_flash_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.8322645629424779,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_7_flash_low:google-gemini-3-7-flash-low",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-7-flash",
+      "profileId": "google-gemini-3-7-flash-low",
+      "rawName": "gemini-3-7-flash"
+    },
+    "observedAt": "2026-08-18T13:27:24.031Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+        "locator": "rows[config=mini_swe_agent_gemini_3_7_flash_low].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
     "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "unit": "USD_PER_TASK"
   }

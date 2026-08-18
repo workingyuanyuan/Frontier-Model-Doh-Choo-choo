@@ -30,12 +30,12 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-08-17T11:06:46.670Z",
+  "lastVerifiedAt": "2026-08-18T13:27:23.929Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; detail pages are fetched for every active profile to obtain intelligenceIndexCostPerTask and token prices.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
     "`$undefined` and null are both treated as missing values.",
-    "Capture observed 608 unique profiles, 228 active profiles, 96 task-cost rows, and 223 token-price rows."
+    "Capture observed 482 unique profiles, 223 active profiles, 96 task-cost rows, and 217 token-price rows."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",

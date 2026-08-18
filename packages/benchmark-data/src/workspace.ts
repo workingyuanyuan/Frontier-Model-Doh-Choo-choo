@@ -14,6 +14,7 @@ import {
   SourceManifestSchema,
   SourcesConfigSchema,
   applyProductProfilePolicy,
+  applyProductProfilePolicyToCosts,
   buildProduct,
   deriveModelProfiles,
   validateDisplaySet,
@@ -103,6 +104,12 @@ export const buildWorkspaceProduct = async (
     catalog,
     profilePolicy,
   );
+  const costRecords = applyProductProfilePolicyToCosts(
+    sourceCosts,
+    sourceCandidates,
+    catalog,
+    profilePolicy,
+  );
   const missingMappings = [
     ...new Set(
       candidates
@@ -133,7 +140,7 @@ export const buildWorkspaceProduct = async (
     catalog,
     manualModels: frontierConfig.manualModels,
     qualificationWindowMonths: frontierConfig.qualificationWindowMonths,
-    costRecords: sourceCosts,
+    costRecords,
   });
 };
 

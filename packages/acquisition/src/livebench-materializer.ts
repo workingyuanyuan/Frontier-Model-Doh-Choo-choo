@@ -2,7 +2,11 @@ import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { parseCsv, parseEffort, slugify } from './materializer-utils.js';
+import {
+  parseCsv,
+  resolveCatalogModel,
+  slugify,
+} from './materializer-utils.js';
 
 export interface LiveBenchMetadata {
   latestRelease: string;
@@ -37,59 +41,185 @@ export const UNAPPROVED_LIVEBENCH_CATEGORIES = [
   'Data Analysis',
 ] as const;
 
-export const LIVEBENCH_MODEL_IDENTITIES: Record<
-  string,
-  { modelId: string; effort: string }
-> = {
-  'deepseek-v4-flash': { modelId: 'deepseek-deepseek-v4-flash', effort: 'max' },
-  'deepseek-v4-pro': { modelId: 'deepseek-deepseek-v4-pro', effort: 'max' },
-  'minimax-m3': { modelId: 'minimax-minimax-m3', effort: 'max' },
-  'kimi-k2.6-thinking': { modelId: 'moonshot-kimi-k2-6', effort: 'max' },
-  'qwen3.7-max': { modelId: 'alibaba-qwen3-7-max', effort: 'max' },
-  'glm-5.2': { modelId: 'zai-glm-5-2', effort: 'max' },
-  'gpt-5.2-2025-12-11-high': { modelId: 'openai-gpt-5-2', effort: 'high' },
-  'gemini-3.5-flash-high': {
-    modelId: 'google-gemini-3-5-flash',
-    effort: 'high',
-  },
-  'gemini-3.1-pro-preview-high': {
-    modelId: 'google-gemini-3-1-pro-preview',
-    effort: 'high',
-  },
-  'claude-sonnet-4-6-thinking-auto-medium-effort': {
-    modelId: 'anthropic-claude-sonnet-4-6',
-    effort: 'medium',
-  },
-  'gpt-5.4-mini-xhigh': { modelId: 'openai-gpt-5-4-mini', effort: 'xhigh' },
-  'claude-opus-4-6-thinking-auto-high-effort': {
-    modelId: 'anthropic-claude-opus-4-6',
-    effort: 'high',
-  },
-  'claude-opus-4-7-xhigh-effort': {
-    modelId: 'anthropic-claude-opus-4-7',
-    effort: 'xhigh',
-  },
-  'claude-sonnet-5-xhigh-effort': {
-    modelId: 'anthropic-claude-sonnet-5',
-    effort: 'xhigh',
-  },
-  'gpt-5.4-xhigh': { modelId: 'openai-gpt-5-4', effort: 'xhigh' },
-  'gpt-5.5-xhigh': { modelId: 'openai-gpt-5-5', effort: 'xhigh' },
-  'gpt-5.6-sol-max': { modelId: 'openai-gpt-5-6-sol', effort: 'max' },
-  'gpt-5.6-terra-max': { modelId: 'openai-gpt-5-6-terra', effort: 'max' },
-  'gpt-5.6-luna-max': { modelId: 'openai-gpt-5-6-luna', effort: 'max' },
-  'grok-4.5': { modelId: 'xai-grok-4-5', effort: 'high' },
-  'claude-fable-5-max-effort': {
-    modelId: 'anthropic-claude-fable-5',
-    effort: 'max',
-  },
-  'muse-spark-1.1-xhigh': { modelId: 'meta-muse-spark-1-1', effort: 'xhigh' },
-  'inkling-xhigh': { modelId: 'thinking-machines-inkling', effort: 'xhigh' },
-  'claude-opus-4-8-max-effort': {
-    modelId: 'anthropic-claude-opus-4-8',
-    effort: 'max',
-  },
-};
+export type LiveBenchResolutionRule =
+  | 'exact-catalog'
+  | 'effort-suffix'
+  | 'claude-thinking-effort'
+  | 'dated-effort'
+  | 'dated-model-alias'
+  | 'thinking-marker'
+  | 'unresolved';
+
+export interface LiveBenchModelResolution {
+  canonicalModelId: string | null;
+  effort: string | null;
+  rule: LiveBenchResolutionRule;
+  reason: string;
+}
+
+type Effort = 'xhigh' | 'max' | 'high' | 'medium' | 'low';
+
+const EFFORT_PATTERN = '(xhigh|max|high|medium|low)';
+const DATE_PATTERN = '(?:\\d{8}|\\d{4}-\\d{2}-\\d{2}|\\d{4})';
+
+function catalogMatch(modelSlug: string): string | null {
+  return resolveCatalogModel(modelSlug).canonicalModelId;
+}
+
+function resolved(
+  canonicalModelId: string,
+  effort: string | null,
+  rule: LiveBenchResolutionRule,
+  reason: string,
+): LiveBenchModelResolution {
+  return { canonicalModelId, effort, rule, reason };
+}
+
+/**
+ * Resolve LiveBench's model slugs without fuzzy matching.
+ *
+ * The complete slug is always tried first. This is important for catalog
+ * models whose names end in `max` (for example `qwen3.7-max`): that token is
+ * part of the model name unless a documented effort suffix is present.
+ */
+export function resolveLiveBenchModel(
+  rawName: string,
+): LiveBenchModelResolution {
+  const trimmed = rawName.trim();
+  const fullSlug = slugify(trimmed);
+  const exactModelId = catalogMatch(trimmed);
+  if (exactModelId) {
+    return resolved(
+      exactModelId,
+      null,
+      'exact-catalog',
+      `full slug "${fullSlug}" exactly matches a catalog display name or alias`,
+    );
+  }
+
+  const attempts: string[] = [];
+
+  // Claude's published thinking configuration includes an optional release
+  // date and a context marker before the explicit effort tier.
+  const claudeThinkingMatch = fullSlug.match(
+    new RegExp(
+      `^(claude-.+?)(?:-${DATE_PATTERN})?-thinking-(?:64k|auto)-${EFFORT_PATTERN}-effort$`,
+      'u',
+    ),
+  );
+  if (claudeThinkingMatch) {
+    const modelSlug = claudeThinkingMatch[1]!;
+    const effort = claudeThinkingMatch[2]! as Effort;
+    const modelId = catalogMatch(modelSlug);
+    if (modelId) {
+      return resolved(
+        modelId,
+        effort,
+        'claude-thinking-effort',
+        `removed Claude thinking/date configuration from "${fullSlug}" and exactly matched catalog slug "${modelSlug}"`,
+      );
+    }
+    attempts.push(
+      `Claude thinking/date transform produced "${modelSlug}", which is not an exact catalog slug`,
+    );
+  }
+
+  // Some LiveBench rows use a date between the model and an explicit effort,
+  // e.g. gpt-5.2-2025-12-11-high. Keep this transform exact and bounded.
+  const datedEffortMatch = fullSlug.match(
+    new RegExp(`^(.+)-${DATE_PATTERN}-${EFFORT_PATTERN}(?:-effort)?$`, 'u'),
+  );
+  if (datedEffortMatch) {
+    const modelSlug = datedEffortMatch[1]!;
+    const effort = datedEffortMatch[2]! as Effort;
+    const modelId = catalogMatch(modelSlug);
+    if (modelId) {
+      return resolved(
+        modelId,
+        effort,
+        'dated-effort',
+        `removed release date and explicit effort from "${fullSlug}" and exactly matched catalog slug "${modelSlug}"`,
+      );
+    }
+    attempts.push(
+      `dated-effort transform produced "${modelSlug}", which is not an exact catalog slug`,
+    );
+  }
+
+  // Standard LiveBench effort suffixes. The explicit `-effort` spelling is
+  // checked first, then the shorter `<model>-<effort>` form.
+  for (const suffix of ['-effort', ''] as const) {
+    const match = fullSlug.match(
+      new RegExp(`^(.+)-${EFFORT_PATTERN}${suffix}$`, 'u'),
+    );
+    if (!match) continue;
+    const modelSlug = match[1]!;
+    const effort = match[2]! as Effort;
+    const modelId = catalogMatch(modelSlug);
+    if (modelId) {
+      return resolved(
+        modelId,
+        effort,
+        'effort-suffix',
+        `removed explicit effort suffix from "${fullSlug}" and exactly matched catalog slug "${modelSlug}"`,
+      );
+    }
+    attempts.push(
+      `effort-suffix transform produced "${modelSlug}", which is not an exact catalog slug`,
+    );
+    break;
+  }
+
+  // `thinking` is a source configuration marker, not one of the legal
+  // product effort tiers. It can still be removed when the remaining model
+  // slug is an exact catalog name.
+  if (fullSlug.endsWith('-thinking')) {
+    const modelSlug = fullSlug.slice(0, -'-thinking'.length);
+    const modelId = catalogMatch(modelSlug);
+    if (modelId) {
+      return resolved(
+        modelId,
+        null,
+        'thinking-marker',
+        `removed the non-tier thinking marker from "${fullSlug}" and exactly matched catalog slug "${modelSlug}"`,
+      );
+    }
+    attempts.push(
+      `thinking-marker transform produced "${modelSlug}", which is not an exact catalog slug`,
+    );
+  }
+
+  // A small number of rows carry only a release suffix (not an effort), such
+  // as deepseek-v4-flash-0731. The base model must still exact-match catalog.
+  const datedAliasMatch = fullSlug.match(
+    new RegExp(`^(.+)-${DATE_PATTERN}$`, 'u'),
+  );
+  if (datedAliasMatch) {
+    const modelSlug = datedAliasMatch[1]!;
+    const modelId = catalogMatch(modelSlug);
+    if (modelId) {
+      return resolved(
+        modelId,
+        null,
+        'dated-model-alias',
+        `removed release date suffix from "${fullSlug}" and exactly matched catalog slug "${modelSlug}"`,
+      );
+    }
+    attempts.push(
+      `dated-model-alias transform produced "${modelSlug}", which is not an exact catalog slug`,
+    );
+  }
+
+  return {
+    canonicalModelId: null,
+    effort: null,
+    rule: 'unresolved',
+    reason:
+      attempts.length > 0
+        ? `no exact catalog match; ${attempts.join('; ')}`
+        : `full slug "${fullSlug}" has no documented exact LiveBench transform to a catalog slug`,
+  };
+}
 
 export function extractLiveBenchMetadata(mainJs: string): LiveBenchMetadata {
   const releasesMatch = mainJs.match(
@@ -135,6 +265,7 @@ export interface MaterializeLiveBenchResult {
   extractedCandidates: number;
   unresolvedCount: number;
   discrepancies: string[];
+  unresolvedModels: Array<{ rawName: string; reason: string }>;
 }
 
 export function materializeLiveBench(
@@ -166,6 +297,7 @@ export function materializeLiveBench(
   });
 
   const discrepancies: string[] = [];
+  const resolutions = new Map<string, LiveBenchModelResolution>();
 
   // Check category task column mapping against CSV header
   for (const [catName, tasks] of Object.entries(categories)) {
@@ -186,9 +318,9 @@ export function materializeLiveBench(
     const rawName = row[modelColIndex]?.trim();
     if (!rawName) continue;
 
-    const identity = LIVEBENCH_MODEL_IDENTITIES[rawName];
-    const canonicalModelId = identity?.modelId ?? null;
-    const effort = identity?.effort ?? parseEffort(rawName) ?? null;
+    const resolution = resolveLiveBenchModel(rawName);
+    resolutions.set(rawName, resolution);
+    const { canonicalModelId, effort } = resolution;
     const profileId = canonicalModelId
       ? `${canonicalModelId}-${effort ?? 'default'}-livebench-no-tools`
       : null;
@@ -292,6 +424,13 @@ export function materializeLiveBench(
   const unresolvedCount = candidates.filter(
     (c) => c.model.canonicalModelId === null,
   ).length;
+  const unresolvedModels = [...resolutions.entries()]
+    .filter(([, resolution]) => resolution.canonicalModelId === null)
+    .map(([rawName, resolution]) => ({
+      rawName,
+      reason: resolution.reason,
+    }))
+    .sort((a, b) => a.rawName.localeCompare(b.rawName));
 
   const approvedCatNames = Object.keys(APPROVED_LIVEBENCH_CATEGORIES);
   const unapprovedCatNames = UNAPPROVED_LIVEBENCH_CATEGORIES;
@@ -312,6 +451,17 @@ export function materializeLiveBench(
     `| Generated CandidateResults | ${candidates.length} |`,
     `| Canonically resolved candidates | ${candidates.length - unresolvedCount} |`,
     `| Canonically unresolved candidates | ${unresolvedCount} |`,
+    `| Distinct unresolved raw model names | ${unresolvedModels.length} |`,
+    ``,
+    `## Model identity resolution`,
+    ``,
+    `Full raw-name catalog matches are attempted first. Remaining names use only exact effort-suffix, Claude thinking/date, dated-effort, thinking-marker, or dated-model-alias transforms; no fuzzy matching is performed.`,
+    ``,
+    unresolvedModels.length === 0
+      ? `- All distinct raw model names resolved through the catalog or a documented exact transform.`
+      : unresolvedModels
+          .map(({ rawName, reason }) => `- \`${rawName}\`: ${reason}`)
+          .join('\n'),
     ``,
     `## Category scope boundary`,
     ``,
@@ -334,5 +484,6 @@ export function materializeLiveBench(
     extractedCandidates: candidates.length,
     unresolvedCount,
     discrepancies,
+    unresolvedModels,
   };
 }

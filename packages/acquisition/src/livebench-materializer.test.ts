@@ -6,6 +6,7 @@ import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 import {
   extractLiveBenchMetadata,
   materializeLiveBench,
+  resolveLiveBenchModel,
 } from './livebench-materializer.js';
 
 describe('LiveBench materializer', () => {
@@ -22,6 +23,64 @@ describe('LiveBench materializer', () => {
   const jsText = readFileSync(jsPath, 'utf8');
   const tableCsv = readFileSync(tablePath, 'utf8');
   const categoriesJson = readFileSync(categoriesPath, 'utf8');
+
+  describe('deterministic model-name resolution', () => {
+    it('matches a full catalog alias before interpreting max as effort', () => {
+      expect(resolveLiveBenchModel('kimi-k3')).toMatchObject({
+        canonicalModelId: 'moonshot-kimi-k3',
+        effort: null,
+        rule: 'exact-catalog',
+      });
+
+      // The max token is part of this model family name, not an effort
+      // suffix. Full-name-first protects the catalog identity.
+      expect(resolveLiveBenchModel('qwen3.7-max')).toMatchObject({
+        canonicalModelId: 'alibaba-qwen3-7-max',
+        effort: null,
+        rule: 'exact-catalog',
+      });
+    });
+
+    it('parses model-effort and model-effort-effort suffixes', () => {
+      expect(resolveLiveBenchModel('claude-opus-5-max-effort')).toMatchObject({
+        canonicalModelId: 'anthropic-claude-opus-5',
+        effort: 'max',
+        rule: 'effort-suffix',
+      });
+      expect(resolveLiveBenchModel('gemini-3.6-flash-high')).toMatchObject({
+        canonicalModelId: 'google-gemini-3-6-flash',
+        effort: 'high',
+        rule: 'effort-suffix',
+      });
+    });
+
+    it('prefers an approved full release alias before dated transforms', () => {
+      expect(resolveLiveBenchModel('deepseek-v4-flash-0731')).toMatchObject({
+        canonicalModelId: 'deepseek-deepseek-v4-flash',
+        effort: null,
+        rule: 'exact-catalog',
+      });
+      expect(
+        resolveLiveBenchModel(
+          'claude-sonnet-4-6-20260217-thinking-auto-medium-effort',
+        ),
+      ).toMatchObject({
+        canonicalModelId: 'anthropic-claude-sonnet-4-6',
+        effort: 'medium',
+        rule: 'claude-thinking-effort',
+      });
+    });
+
+    it('returns an explicit unresolved reason without fuzzy matching', () => {
+      const result = resolveLiveBenchModel('smaug-agentic');
+      expect(result).toMatchObject({
+        canonicalModelId: null,
+        effort: null,
+        rule: 'unresolved',
+      });
+      expect(result.reason).toContain('no documented exact');
+    });
+  });
 
   it('dynamically extracts the latest release and cacheVersion without hardcoding', () => {
     const meta = extractLiveBenchMetadata(jsText);
@@ -106,5 +165,17 @@ describe('LiveBench materializer', () => {
     expect(result.validationReport).toContain('Raw model rows in table CSV');
     expect(result.validationReport).toContain('40');
     expect(result.validationReport).toContain('Approved scoring categories');
+    expect(result.validationReport).toContain(
+      'Distinct unresolved raw model names',
+    );
+    expect(result.validationReport).toContain('smaug-agentic');
+    expect(result.validationReport).toContain('no documented exact');
+
+    const claudeMax = result.candidates.find(
+      (candidate) =>
+        candidate.model.rawName === 'claude-opus-4-8-max-effort' &&
+        candidate.benchmarkId === 'livebench-reasoning',
+    );
+    expect(claudeMax?.profile.effort).toBe('max');
   });
 });

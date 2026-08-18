@@ -50,6 +50,7 @@ describe('buildWorkspaceProduct', () => {
       'GPT-5.6 Sol · low',
       'GPT-5.6 Sol · max',
       'GPT-5.6 Sol · medium',
+      'GPT-5.6 Sol · non-reasoning',
       'GPT-5.6 Sol · xhigh',
     ]);
     expect(

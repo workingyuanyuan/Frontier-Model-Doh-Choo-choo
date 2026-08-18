@@ -8,7 +8,7 @@
     "livebench-instruction-following"
   ],
   "completeness": {
-    "expectedCountMethod": "Read the release list from the official JS bundle, count all 38 rows in the latest release CSV, and validate category membership from the release JSON.",
+    "expectedCountMethod": "Read the latest release/cache version from the official bundle, then count every table, category and cost-export row.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
@@ -22,20 +22,21 @@
     "table CSV model": "model.rawName/profile",
     "table CSV task columns": "raw subtask scores"
   },
-  "lastVerifiedAt": "2026-08-12T16:44:09.579Z",
+  "lastVerifiedAt": "2026-08-18T13:27:24.082Z",
   "notes": [
-    "Current bundle declares 2026-06-25; refreshed export has 40 profiles and 7 categories.",
-    "All profiles retained; 24 exact identities, remainder unresolved without fuzzy matching.",
-    "Four approved category families materialized; Coding, Agentic Coding and Data Analysis stay raw pending shared mapping.",
-    "40 cost rows emit 48 CostRecords from exact identities."
+    "Bundle declares 2026-06-25; refreshed exports contain 44 profiles and 7 categories.",
+    "Exact identities only; 1 profile names remain unresolved without fuzzy matching.",
+    "Four approved category families are materialized; Coding, Agentic Coding and Data Analysis stay excluded.",
+    "44 cost rows emit 48 CostRecords from exact identities."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "livebench",
   "targetUrls": [
-    "https://livebench.ai/#/",
-    "https://livebench.ai/table_2026_06_25.csv?v=1786549038",
-    "https://livebench.ai/categories_2026_06_25.json?v=1786549038",
-    "https://livebench.ai/cost_2026_06_25.csv?v=1786549038"
+    "https://livebench.ai/",
+    "https://livebench.ai/static/js/main.d02aefd7.js",
+    "https://livebench.ai/table_2026_06_25.csv?v=1787033560",
+    "https://livebench.ai/categories_2026_06_25.json?v=1787033560",
+    "https://livebench.ai/cost_2026_06_25.csv?v=1787033560"
   ]
 }

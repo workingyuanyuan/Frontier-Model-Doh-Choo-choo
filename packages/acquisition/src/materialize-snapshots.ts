@@ -15,8 +15,13 @@ import {
 import {
   CandidateResultSchema,
   deterministicJson,
+  ProfilePolicySchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
+import {
+  renderEffortInferenceSection,
+  upsertEffortInferenceSection,
+} from './effort-inference-report.js';
 
 const prettyDeterministicJson = (value: unknown): string =>
   `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
@@ -68,6 +73,49 @@ Artificial Analysis-owned indices, AA-Omniscience, AA-LCR, and AA-Briefcase use 
 - Null fields are not converted to zero. Chart-only values without structured or explicit textual evidence are not transcribed.
 `;
 }
+
+const appendEffortInferenceReports = (
+  repoRoot: string,
+  sourceIds: readonly string[],
+): void => {
+  const sourceRoot = join(repoRoot, 'data-v2', 'sources');
+  const allCandidates = sourceIds.flatMap((sourceId) => {
+    const path = join(sourceRoot, sourceId, 'candidates.json');
+    return CandidateResultSchema.array().parse(
+      JSON.parse(readFileSync(path, 'utf8')),
+    );
+  });
+  const policy = ProfilePolicySchema.parse(
+    JSON.parse(
+      readFileSync(
+        join(repoRoot, 'data-v2', 'mappings', 'profile-policy.json'),
+        'utf8',
+      ),
+    ),
+  );
+
+  for (const sourceId of sourceIds) {
+    const sourceDirectory = join(sourceRoot, sourceId);
+    const candidates = CandidateResultSchema.array().parse(
+      JSON.parse(
+        readFileSync(join(sourceDirectory, 'candidates.json'), 'utf8'),
+      ),
+    );
+    const reportPath = join(sourceDirectory, 'validation-report.md');
+    const report = readFileSync(reportPath, 'utf8');
+    const section = renderEffortInferenceSection(
+      sourceId,
+      candidates,
+      allCandidates,
+      policy,
+    );
+    writeFileSync(
+      reportPath,
+      upsertEffortInferenceSection(report, section),
+      'utf8',
+    );
+  }
+};
 
 interface EvidenceRecord {
   id: string;
@@ -314,6 +362,11 @@ function main() {
       `Source ${src.id} done. Extracted/Candidates: ${candidates.length}, Unresolved: ${unresolvedCount}`,
     );
   }
+
+  appendEffortInferenceReports(
+    repoRoot,
+    sources.map(({ id }) => id),
+  );
 
   console.log('Regeneration complete!');
 }

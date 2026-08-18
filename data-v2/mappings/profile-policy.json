@@ -1,5 +1,5 @@
 {
   "schemaVersion": "profile-policy-v2",
-  "effortOrder": ["max", "xhigh", "high", "medium", "low"],
-  "defaultEffort": "max"
+  "effortOrder": ["non-reasoning", "low", "medium", "high", "xhigh", "max"],
+  "defaultEffort": "default"
 }

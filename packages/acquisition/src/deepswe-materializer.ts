@@ -2,7 +2,7 @@ import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { slugify } from './materializer-utils.js';
+import { normalizeSourceEffort, slugify } from './materializer-utils.js';
 
 export const DEEPSWE_MODELS: Record<string, string> = {
   'claude-fable-5': 'anthropic-claude-fable-5',
@@ -11,9 +11,11 @@ export const DEEPSWE_MODELS: Record<string, string> = {
   'claude-sonnet-4-6': 'anthropic-claude-sonnet-4-6',
   'claude-sonnet-5': 'anthropic-claude-sonnet-5',
   'deepseek-v4-flash': 'deepseek-deepseek-v4-flash',
+  'deepseek-v4-pro': 'deepseek-deepseek-v4-pro',
   'gemini-3-1-pro-preview': 'google-gemini-3-1-pro-preview',
   'gemini-3-5-flash': 'google-gemini-3-5-flash',
   'gemini-3-6-flash': 'google-gemini-3-6-flash',
+  'gemini-3-7-flash': 'google-gemini-3-7-flash',
   'glm-5-2': 'zai-glm-5-2',
   'gpt-5-4': 'openai-gpt-5-4',
   'gpt-5-5': 'openai-gpt-5-5',
@@ -21,6 +23,7 @@ export const DEEPSWE_MODELS: Record<string, string> = {
   'gpt-5-6-sol': 'openai-gpt-5-6-sol',
   'gpt-5-6-terra': 'openai-gpt-5-6-terra',
   'grok-4-5': 'xai-grok-4-5',
+  'grok-4-6': 'xai-grok-4-6',
   'kimi-k2-7-code': 'moonshot-kimi-k2-7-code',
   'kimi-k3': 'moonshot-kimi-k3',
   'muse-spark-1-1': 'meta-muse-spark-1-1',
@@ -95,16 +98,17 @@ export function materializeDeepSwe(
 
   for (const row of payload.rows) {
     distinctModelsSet.add(row.model);
-    const effort = row.reasoning_effort ?? 'max';
+    const effort = normalizeSourceEffort(row.reasoning_effort);
     const efforts = effortsByModel.get(row.model) ?? new Set();
-    efforts.add(effort);
+    efforts.add(effort ?? 'default');
     effortsByModel.set(row.model, efforts);
 
     const canonicalModelId = DEEPSWE_MODELS[row.model] ?? null;
     const harness = row.harness ?? 'mini-swe-agent';
-    const profileId = canonicalModelId
-      ? `${canonicalModelId}-${slugify(harness)}-${slugify(effort)}`
-      : null;
+    const profileId =
+      canonicalModelId && effort
+        ? `${canonicalModelId}-${slugify(harness)}-${slugify(effort)}`
+        : null;
 
     const rawScoreVal = row.pass_rate ?? row.pass_at_1;
     if (rawScoreVal === undefined || rawScoreVal === null) {
@@ -131,7 +135,7 @@ export function materializeDeepSwe(
         profileId,
       },
       profile: {
-        effort: row.reasoning_effort ?? null,
+        effort,
         thinking: null,
         tools: true,
         harness: row.harness ?? null,

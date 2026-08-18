@@ -61,7 +61,7 @@ export const profileById = (
   product.profiles.find((profile) => profile.id === profileId);
 
 export const getProfileIdentity = (profile: ModelProfile): string => {
-  const effort = profile.attributes.effort ?? 'max';
+  const effort = profile.attributes.effort ?? 'default';
   return effort.toLocaleLowerCase() === 'xhigh' ? 'xHigh' : effort;
 };
 

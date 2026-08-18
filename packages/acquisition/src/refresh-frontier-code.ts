@@ -6,6 +6,8 @@ import {
   EvidenceRecordSchema,
   SourceManifestSchema,
   deterministicJson,
+  type CandidateResult,
+  type CostRecord,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
@@ -15,6 +17,10 @@ import {
   materializeFrontierCode,
 } from './frontier-code-materializer.js';
 import { writeContentAddressedArtifact } from './index.js';
+import {
+  previousSnapshotValue,
+  snapshotDeltaMarkdown,
+} from './refresh-utils.js';
 
 const prettyDeterministicJson = (value: unknown): string =>
   `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
@@ -68,7 +74,7 @@ const fetchArtifact = async (
   url: string,
   mediaType: 'application/json' | 'text/html',
   method: 'EXPORT' | 'EMBEDDED_JSON',
-  existing: EvidenceRecord[],
+  retrievedAt: string,
   metadata: Record<string, unknown>,
 ): Promise<{ bytes: Uint8Array; evidence: EvidenceRecord }> => {
   const response = await fetch(url);
@@ -81,15 +87,12 @@ const fetchArtifact = async (
     bytes,
     mediaType,
   );
-  const prior = existing.find(
-    ({ requestUrl, id }) => requestUrl === url && id === stored.record.id,
-  );
   return {
     bytes,
     evidence: EvidenceRecordSchema.parse({
       ...stored.record,
       sourceId,
-      retrievedAt: prior?.retrievedAt ?? new Date().toISOString(),
+      retrievedAt,
       requestUrl: url,
       finalUrl: response.url || url,
       artifactPath: `artifacts-v2/sha256/${stored.record.artifactPath}`,
@@ -122,7 +125,21 @@ async function main() {
   const sourceDir = join(root, 'data-v2', 'sources', 'frontier-code');
   const evidencePath = join(sourceDir, 'evidence-index.json');
   await mkdir(sourceDir, { recursive: true });
-  const existing = await readExistingEvidence(evidencePath);
+  await readExistingEvidence(evidencePath);
+  const previousCandidates = JSON.parse(
+    await readFile(join(sourceDir, 'candidates.json'), 'utf8'),
+  ) as CandidateResult[];
+  const previousCosts = JSON.parse(
+    await readFile(join(sourceDir, 'costs.json'), 'utf8'),
+  ) as CostRecord[];
+  const previousReport = await readFile(
+    join(sourceDir, 'validation-report.md'),
+    'utf8',
+  );
+  const previousModels = new Set(
+    previousCandidates.map(({ model }) => model.rawName),
+  ).size;
+  const retrievedAt = new Date().toISOString();
 
   const [page, data] = await Promise.all([
     fetchArtifact(
@@ -131,7 +148,7 @@ async function main() {
       FRONTIER_CODE_PAGE_URL,
       'text/html',
       'EMBEDDED_JSON',
-      existing,
+      retrievedAt,
       { dataset: 'Main', jsonLdLeaderboardRows: 10, version: '1.1' },
     ),
     fetchArtifact(
@@ -140,17 +157,14 @@ async function main() {
       FRONTIER_CODE_DATA_URL,
       'application/json',
       'EXPORT',
-      existing,
+      retrievedAt,
       { dataset: 'Main', format: 'official-static-json', version: '1.1' },
     ),
   ]);
   const evidence = [data.evidence, page.evidence].toSorted((left, right) =>
     left.requestUrl.localeCompare(right.requestUrl),
   );
-  const observedAt = evidence
-    .map(({ retrievedAt }) => retrievedAt)
-    .toSorted()
-    .at(-1)!;
+  const observedAt = retrievedAt;
   const result = materializeFrontierCode(
     new TextDecoder().decode(data.bytes),
     new TextDecoder().decode(page.bytes),
@@ -220,13 +234,44 @@ async function main() {
     writeFile(evidencePath, prettyDeterministicJson(evidence)),
     writeFile(
       join(sourceDir, 'candidates.json'),
-      deterministicJson(result.candidates),
+      prettyDeterministicJson(result.candidates),
     ),
     writeFile(
       join(sourceDir, 'costs.json'),
       prettyDeterministicJson(result.costs),
     ),
-    writeFile(join(sourceDir, 'validation-report.md'), result.validationReport),
+    writeFile(
+      join(sourceDir, 'validation-report.md'),
+      `${result.validationReport.trimEnd()}\n\n${snapshotDeltaMarkdown([
+        {
+          label: 'Distinct models',
+          previous: previousSnapshotValue(
+            previousReport,
+            'Distinct models',
+            previousModels,
+          ),
+          refreshed: result.modelCount,
+        },
+        {
+          label: 'Main configurations',
+          previous: previousSnapshotValue(
+            previousReport,
+            'Main configurations',
+            previousCandidates.length,
+          ),
+          refreshed: result.configurationCount,
+        },
+        {
+          label: 'Materialized costs',
+          previous: previousSnapshotValue(
+            previousReport,
+            'Materialized costs',
+            previousCosts.length,
+          ),
+          refreshed: result.costCount,
+        },
+      ])}`,
+    ),
   ]);
 
   console.log(

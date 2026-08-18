@@ -8,7 +8,6 @@ import {
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
-import { writeContentAddressedArtifact } from './index.js';
 import {
   materializeDeepSweCosts,
   materializeLiveBenchCosts,
@@ -127,50 +126,23 @@ async function main() {
     prettyDeterministicJson(deepCosts),
   );
 
-  const liveUrl = 'https://livebench.ai/cost_2026_06_25.csv?v=1784029070';
-  const response = await fetch(liveUrl);
-  if (!response.ok) {
-    throw new Error(`LiveBench cost export returned ${response.status}`);
-  }
-  const bytes = new Uint8Array(await response.arrayBuffer());
-  const retrievedAt = new Date().toISOString();
-  const stored = await writeContentAddressedArtifact(
-    join(root, 'artifacts-v2', 'sha256'),
-    bytes,
-    'text/csv',
-  );
   const liveIndexPath = join(sourcesRoot, 'livebench', 'evidence-index.json');
   const liveEvidence = EvidenceRecordSchema.array().parse(
     await readJson<unknown>(liveIndexPath),
   );
-  const existingLiveRecord = liveEvidence.find(
-    ({ requestUrl, id }) => requestUrl === liveUrl && id === stored.record.id,
+  const liveRecord = liveEvidence.find(({ requestUrl }) =>
+    /\/cost_\d{4}_\d{2}_\d{2}\.csv\?v=\d+$/u.test(requestUrl),
   );
-  const stableRetrievedAt = existingLiveRecord?.retrievedAt ?? retrievedAt;
-  const liveRecord = EvidenceRecordSchema.parse({
-    ...stored.record,
-    sourceId: 'livebench',
-    retrievedAt: stableRetrievedAt,
-    requestUrl: liveUrl,
-    finalUrl: response.url || liveUrl,
-    artifactPath: `artifacts-v2/sha256/${stored.record.artifactPath}`,
-    method: 'EXPORT',
-    metadata: { release: '2026-06-25' },
-  });
-  const updatedLiveEvidence = liveEvidence.filter(
-    ({ requestUrl }) => requestUrl !== liveUrl,
+  if (!liveRecord) throw new Error('LiveBench cost evidence was not found');
+  const liveCosts = materializeLiveBenchCosts(
+    await readFile(join(root, liveRecord.artifactPath), 'utf8'),
+    {
+      sourceUrl: liveRecord.requestUrl,
+      evidenceId: liveRecord.id,
+      observedAt: liveRecord.retrievedAt,
+      method: liveRecord.method,
+    },
   );
-  updatedLiveEvidence.push(liveRecord);
-  updatedLiveEvidence.sort((left, right) =>
-    left.requestUrl.localeCompare(right.requestUrl),
-  );
-  await writeFile(liveIndexPath, prettyDeterministicJson(updatedLiveEvidence));
-  const liveCosts = materializeLiveBenchCosts(new TextDecoder().decode(bytes), {
-    sourceUrl: liveUrl,
-    evidenceId: liveRecord.id,
-    observedAt: stableRetrievedAt,
-    method: liveRecord.method,
-  });
   await writeFile(
     join(sourcesRoot, 'livebench', 'costs.json'),
     prettyDeterministicJson(liveCosts),

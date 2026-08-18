@@ -4,6 +4,7 @@ import profilePolicy from '../../../data-v2/mappings/profile-policy.json';
 
 import {
   LEGAL_SOURCE_EFFORTS,
+  normalizeSourceEffort,
   parseCsv,
   parseEffort,
   slugify,
@@ -26,6 +27,13 @@ describe('materializer utilities', () => {
   it('normalizes aliases and effort labels deterministically', () => {
     expect(slugify(' Claude Fable 5 (max) ')).toBe('claude-fable-5-max');
     expect(parseEffort('Claude Fable 5 (xhigh)')).toBe('xhigh');
+    expect(parseEffort('Gemini 3.5 Flash (Non-reasoning)')).toBe(
+      'non-reasoning',
+    );
+    expect(parseEffort('Gemini 3.5 Flash (minimal)')).toBe('low');
     expect(parseEffort('Claude Fable 5')).toBeNull();
+    expect(normalizeSourceEffort('minimal')).toBe('minimal');
+    expect(normalizeSourceEffort('0.99')).toBeNull();
+    expect(normalizeSourceEffort('none')).toBeNull();
   });
 });

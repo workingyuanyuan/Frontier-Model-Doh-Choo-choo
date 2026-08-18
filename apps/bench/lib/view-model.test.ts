@@ -256,7 +256,7 @@ describe('leaderboard view model', () => {
         ...profile,
         attributes: { effort: null, harness: null },
       }),
-    ).toBe('max');
+    ).toBe('default');
   });
 });
 

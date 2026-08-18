@@ -16,7 +16,7 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
-    "retrievedAt": "2026-08-17T11:47:29.254Z",
+    "retrievedAt": "2026-08-18T13:28:51.232Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
     "sourceId": "frontier-code"
@@ -36,7 +36,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://cognition.com/frontiercode",
-    "retrievedAt": "2026-08-17T11:47:29.267Z",
+    "retrievedAt": "2026-08-18T13:28:51.232Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf",
     "sourceId": "frontier-code"

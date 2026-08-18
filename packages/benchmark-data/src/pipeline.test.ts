@@ -2,14 +2,17 @@ import { describe, expect, it } from 'vitest';
 
 import {
   applyProductProfilePolicy,
+  applyProductProfilePolicyToCosts,
   buildFrontierSet,
   buildProduct,
   buildProductVersion,
   deriveModelProfiles,
+  decideProductEffort,
   scoreProfiles,
   selectCurrentResults,
   toProductEvidence,
   type CandidateResult,
+  type CostRecord,
   type ModelCatalog,
   type ModelProfile,
   type ProfilePolicy,
@@ -20,8 +23,8 @@ const evidenceId =
 
 const profilePolicy: ProfilePolicy = {
   schemaVersion: 'profile-policy-v2',
-  effortOrder: ['max', 'xhigh', 'high', 'medium', 'low'],
-  defaultEffort: 'max',
+  effortOrder: ['non-reasoning', 'low', 'medium', 'high', 'xhigh', 'max'],
+  defaultEffort: 'default',
 };
 
 const makeCandidate = (
@@ -67,6 +70,50 @@ const makeCandidate = (
       evidenceId,
       method: 'DOM',
       locator: 'Terminal-Bench 2.1 table',
+    },
+  },
+  ...overrides,
+});
+
+const makeCost = (overrides: Partial<CostRecord> = {}): CostRecord => ({
+  schemaVersion: 'cost-record-v1',
+  id: 'cost-vendor',
+  sourceId: 'openai',
+  model: {
+    rawName: 'GPT-5.6 Sol',
+    canonicalModelId: 'openai-gpt-5-6-sol',
+    profileId: 'openai-gpt-5-6-sol-max',
+  },
+  profile: {
+    effort: null,
+    thinking: null,
+    tools: null,
+    harness: null,
+    contextWindowTokens: null,
+    quantization: null,
+    attempts: null,
+  },
+  costType: 'AGENT_TASK',
+  metricId: 'mean-cost',
+  metricName: 'Mean cost',
+  unit: 'USD_PER_TASK',
+  inputPerMillionTokens: null,
+  outputPerMillionTokens: null,
+  cost: 1,
+  assumptionId: null,
+  benchmarkId: 'terminal-bench-2-1',
+  benchmarkVersion: '2.1',
+  inclusion: 'INCLUDED',
+  exclusionReason: null,
+  sourceUrl: 'https://example.test/cost',
+  observedAt: '2026-07-16T00:00:00.000Z',
+  sourcePublishedAt: null,
+  evidenceIds: [evidenceId],
+  provenance: {
+    cost: {
+      evidenceId,
+      method: 'MANUAL',
+      locator: '$.cost',
     },
   },
   ...overrides,
@@ -642,47 +689,166 @@ describe('deriveModelProfiles', () => {
     });
   });
 
-  it('assigns missing effort to the highest effort observed for the model', () => {
-    const explicitHigh = makeCandidate({
-      id: 'explicit-high',
-      profile: { ...makeCandidate().profile, effort: 'high' },
-    });
-    const explicitMax = makeCandidate({
-      id: 'explicit-max',
-      profile: { ...makeCandidate().profile, effort: 'max' },
-    });
-    const missing = makeCandidate({
-      id: 'missing',
+  it('keeps an explicit non-reasoning name out of cross-source inference', () => {
+    const nonReasoning = makeCandidate({
+      id: 'non-reasoning',
+      sourceId: 'frontier-code',
+      model: {
+        ...makeCandidate().model,
+        rawName: 'GPT-5.6 Sol (Non-reasoning)',
+      },
       profile: { ...makeCandidate().profile, effort: null },
     });
+    const otherSourceMax = makeCandidate({
+      id: 'other-max',
+      sourceId: 'artificial-analysis',
+      profile: { ...makeCandidate().profile, effort: 'max' },
+    });
 
-    const resolved = applyProductProfilePolicy(
-      [explicitHigh, explicitMax, missing],
+    const decision = decideProductEffort(nonReasoning, [
+      nonReasoning,
+      otherSourceMax,
+    ]);
+    expect(decision).toEqual({
+      effort: 'non-reasoning',
+      basis: 'NAME_DERIVED',
+      basisSourceId: 'frontier-code',
+      basisCandidateId: 'non-reasoning',
+    });
+
+    const [resolved] = applyProductProfilePolicy(
+      [nonReasoning, otherSourceMax],
       { schemaVersion: 'model-catalog-v1', models: [] },
       profilePolicy,
     );
-
-    expect(resolved.find(({ id }) => id === 'missing')).toMatchObject({
-      model: { profileId: 'openai-gpt-5-6-sol-max' },
-      productProfile: { effort: 'max', harness: null },
+    expect(resolved).toMatchObject({
+      model: { profileId: 'openai-gpt-5-6-sol-non-reasoning' },
+      productProfile: { effort: 'non-reasoning' },
       profile: { effort: null },
     });
   });
 
-  it('uses the configured highest fallback when a model has no effort labels', () => {
-    const missing = makeCandidate({
-      profile: { ...makeCandidate().profile, effort: null },
+  it('maps minimal to low while retaining the raw source value', () => {
+    const minimal = makeCandidate({
+      id: 'minimal',
+      profile: { ...makeCandidate().profile, effort: 'minimal' },
     });
-
     const [resolved] = applyProductProfilePolicy(
-      [missing],
+      [minimal],
       { schemaVersion: 'model-catalog-v1', models: [] },
       profilePolicy,
     );
 
     expect(resolved).toMatchObject({
-      model: { profileId: 'openai-gpt-5-6-sol-max' },
-      productProfile: { effort: 'max', harness: null },
+      model: { profileId: 'openai-gpt-5-6-sol-low' },
+      productProfile: { effort: 'low' },
+      profile: { effort: 'minimal' },
+    });
+  });
+
+  it('infers only from other sources and returns the highest direct tier with basis IDs', () => {
+    const missing = makeCandidate({
+      id: 'frontier-missing',
+      sourceId: 'frontier-code',
+      model: { ...makeCandidate().model, rawName: 'GPT-5.6 Sol' },
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+    const sameSourceMax = makeCandidate({
+      id: 'frontier-max',
+      sourceId: 'frontier-code',
+      profile: { ...makeCandidate().profile, effort: 'max' },
+    });
+    const otherSourceHigh = makeCandidate({
+      id: 'aa-high',
+      sourceId: 'artificial-analysis',
+      profile: { ...makeCandidate().profile, effort: 'high' },
+    });
+    const otherSourceXhigh = makeCandidate({
+      id: 'livebench-xhigh',
+      sourceId: 'livebench',
+      profile: { ...makeCandidate().profile, effort: 'xhigh' },
+    });
+    const decision = decideProductEffort(missing, [
+      missing,
+      sameSourceMax,
+      otherSourceHigh,
+      otherSourceXhigh,
+    ]);
+
+    expect(decision).toEqual({
+      effort: 'xhigh',
+      basis: 'CROSS_SOURCE',
+      basisSourceId: 'livebench',
+      basisCandidateId: 'livebench-xhigh',
+    });
+  });
+
+  it('uses default when no other source has direct effort evidence', () => {
+    const missing = makeCandidate({
+      id: 'missing',
+      sourceId: 'frontier-code',
+      model: { ...makeCandidate().model, rawName: 'GPT-5.6 Sol' },
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+    const sameSourceMax = makeCandidate({
+      id: 'same-source-max',
+      sourceId: 'frontier-code',
+      profile: { ...makeCandidate().profile, effort: 'max' },
+    });
+
+    const [resolved] = applyProductProfilePolicy(
+      [missing, sameSourceMax],
+      { schemaVersion: 'model-catalog-v1', models: [] },
+      profilePolicy,
+    );
+    expect(resolved).toMatchObject({
+      model: { profileId: 'openai-gpt-5-6-sol-default' },
+      productProfile: { effort: 'default' },
+      profile: { effort: null },
+    });
+  });
+
+  it('treats invalid source effort as unlabelled without changing the raw field', () => {
+    const invalid = makeCandidate({
+      id: 'invalid',
+      model: { ...makeCandidate().model, rawName: 'GPT-5.6 Sol (max)' },
+      profile: { ...makeCandidate().profile, effort: '0.99' },
+    });
+    const [resolved] = applyProductProfilePolicy(
+      [invalid],
+      { schemaVersion: 'model-catalog-v1', models: [] },
+      profilePolicy,
+    );
+    expect(resolved).toMatchObject({
+      model: { profileId: 'openai-gpt-5-6-sol-default' },
+      productProfile: { effort: 'default' },
+      profile: { effort: '0.99' },
+    });
+  });
+
+  it('aligns costs to the chosen product profile while preserving raw cost profile', () => {
+    const candidate = makeCandidate({
+      id: 'candidate-missing',
+      sourceId: 'frontier-code',
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+    const cost = makeCost({
+      sourceId: 'frontier-code',
+      model: {
+        ...makeCost().model,
+        profileId: 'openai-gpt-5-6-sol-old',
+      },
+      profile: { ...makeCost().profile, effort: null },
+    });
+    const [aligned] = applyProductProfilePolicyToCosts(
+      [cost],
+      [candidate],
+      { schemaVersion: 'model-catalog-v1', models: [] },
+      profilePolicy,
+    );
+    expect(aligned).toMatchObject({
+      model: { profileId: 'openai-gpt-5-6-sol-default' },
+      profile: { effort: null },
     });
   });
 });

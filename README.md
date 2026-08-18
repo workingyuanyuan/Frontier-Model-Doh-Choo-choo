@@ -36,16 +36,19 @@ pnpm install --frozen-lockfile
 刷新支援來源的結構化快照與成本：
 
 ```bash
-pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
+pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
-pnpm --filter @llm-bench/acquisition materialize:snapshots
-pnpm --filter @llm-bench/acquisition materialize:costs
+pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
-Artificial Analysis 擷取會讀取 gitignored 的 `.env.local` 中的
+四個刷新命令都要求先核對渲染後頁面的可見母體數。Artificial Analysis 擷取會讀取 gitignored 的 `.env.local` 中的
 `ARTIFICIAL_ANALYSIS_API_KEY` 做交叉驗證；頁面 RSC 管道在金鑰失效時仍可單獨完成。
 Frontier Code 刷新前需以渲染後 DOM 核對列數與 Top 10，再把實測列數傳入命令；
 腳本會將官方靜態 JSON 的完整 Main 設定與頁面 JSON-LD Top 10 交叉驗證。
+四站完成後執行 `materialize:effort-reports`，以同一 policy 產生不改寫來源
+`profile.effort` 的跨來源推測表；表格保持 `PENDING USER REVIEW`。
 
 驗證來源後，建立單一 `data-v2/product/current.json`：
 
@@ -71,6 +74,7 @@ pnpm --filter @llm-bench/bench build
 - 沒有任何可計分結果的模型不因 Developer mode 而成為排名列。
 - Representative Profile 先比 Coverage，再比有效 Benchmark Results 數、Overall Score，最後以 `profileId` 字典序決勝。
 - Profile selector 只區分 reasoning effort；Harness、tools、attempt、thinking 與 context 設定不建立 Product Profile。
+- Product effort 階梯為 `non-reasoning < low < medium < high < xHigh < max`；無其他來源依據的未標列使用階梯外的 `default`，不得當成 `max`。
 
 ## 驗證
 

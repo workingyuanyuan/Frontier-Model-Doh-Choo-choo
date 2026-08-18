@@ -18,6 +18,10 @@ import {
   type ArtificialAnalysisRow,
 } from './artificial-analysis-rsc.js';
 import { writeContentAddressedArtifact } from './index.js';
+import {
+  previousSnapshotValue,
+  snapshotDeltaMarkdown,
+} from './refresh-utils.js';
 
 const MODELS_URL = 'https://artificialanalysis.ai/models';
 const API_URL = 'https://artificialanalysis.ai/api/v2/data/llms/models';
@@ -232,9 +236,41 @@ const fetchApi = async (
 };
 
 const main = async () => {
-  const root = resolve(process.argv[2] ?? getWorkspaceRoot());
+  const rootArgument = process.argv
+    .slice(2)
+    .find((argument) => !argument.startsWith('--'));
+  const root = resolve(rootArgument ?? getWorkspaceRoot());
+  const visualProfileCountArgument = process.argv.find((argument) =>
+    argument.startsWith('--visual-profile-count='),
+  );
+  const visualProfileCount = visualProfileCountArgument
+    ? Number(visualProfileCountArgument.split('=', 2)[1])
+    : null;
+  if (!Number.isInteger(visualProfileCount) || visualProfileCount === null) {
+    throw new Error(
+      'A verified --visual-profile-count=<integer> is required for Artificial Analysis refresh',
+    );
+  }
   const retrievedAt = new Date().toISOString();
   const sourceDirectory = join(root, 'data-v2', 'sources', SOURCE_ID);
+  const previousManifest = await readJson<{ notes?: string[] }>(
+    join(sourceDirectory, 'manifest.json'),
+  );
+  const previousCandidates = await readJson<unknown[]>(
+    join(sourceDirectory, 'candidates.json'),
+  );
+  const previousCosts = await readJson<unknown[]>(
+    join(sourceDirectory, 'costs.json'),
+  );
+  const previousReport = await readFile(
+    join(sourceDirectory, 'validation-report.md'),
+    'utf8',
+  );
+  const priorScope = (previousManifest.notes ?? [])
+    .join(' ')
+    .match(
+      /Capture observed (\d+) unique profiles, (\d+) active profiles, (\d+) task-cost rows, and (\d+) token-price rows/u,
+    );
   const existingEvidence = await readJson<EvidenceRecord[]>(
     join(sourceDirectory, 'evidence-index.json'),
   );
@@ -291,6 +327,18 @@ const main = async () => {
   const api = await fetchApi(root, retrievedAt);
   if (api.record) records.push(api.record);
   const result = materializeArtificialAnalysisRsc(pages, api.page);
+  if (visualProfileCount < result.pageRows) {
+    throw new Error(
+      `Visible Artificial Analysis catalog count ${visualProfileCount} is smaller than the evaluation-page profile union ${result.pageRows}`,
+    );
+  }
+  modelsCapture.record.metadata = {
+    ...modelsCapture.record.metadata,
+    visibleCatalogModels: visualProfileCount,
+    materializedEvaluationProfiles: result.pageRows,
+    visibleComparisonCompleted: true,
+    visibleComparisonScopeComparable: false,
+  };
   const warnings = [...detail.warnings];
   if (api.warning) warnings.push(api.warning);
   let baseReport = result.validationReport.trimEnd();
@@ -306,6 +354,50 @@ const main = async () => {
       .filter((warning) => warning !== api.warning)
       .map((warning) => `- Warning: ${warning}`),
     '',
+    '## Visible comparison',
+    '',
+    `- Fresh rendered models page catalog total: ${visualProfileCount}`,
+    `- Complete evaluation-page union of score-bearing profiles: ${result.pageRows}`,
+    '- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.',
+    '',
+    snapshotDeltaMarkdown([
+      {
+        label: 'Unique source profiles',
+        previous: previousSnapshotValue(
+          previousReport,
+          'Unique source profiles',
+          Number(priorScope?.[1] ?? result.pageRows),
+        ),
+        refreshed: result.pageRows,
+      },
+      {
+        label: 'Active source profiles',
+        previous: previousSnapshotValue(
+          previousReport,
+          'Active source profiles',
+          Number(priorScope?.[2] ?? result.activeRows),
+        ),
+        refreshed: result.activeRows,
+      },
+      {
+        label: 'Candidate results',
+        previous: previousSnapshotValue(
+          previousReport,
+          'Candidate results',
+          previousCandidates.length,
+        ),
+        refreshed: result.candidates.length,
+      },
+      {
+        label: 'Materialized costs',
+        previous: previousSnapshotValue(
+          previousReport,
+          'Materialized costs',
+          previousCosts.length,
+        ),
+        refreshed: result.costs.length,
+      },
+    ]),
   ].join('\n');
 
   const legacyEvidence = existingEvidence.filter(
@@ -328,7 +420,7 @@ const main = async () => {
   );
   await writeFile(
     join(sourceDirectory, 'candidates.json'),
-    deterministicJson(result.candidates),
+    prettyDeterministicJson(result.candidates),
   );
   await writeFile(
     join(sourceDirectory, 'costs.json'),
@@ -336,9 +428,7 @@ const main = async () => {
   );
   await writeFile(join(sourceDirectory, 'validation-report.md'), report);
 
-  const manifest = await readJson<Record<string, unknown>>(
-    join(sourceDirectory, 'manifest.json'),
-  );
+  const manifest = previousManifest as Record<string, unknown>;
   const benchmarkIds = Array.isArray(manifest.benchmarkIds)
     ? manifest.benchmarkIds
     : [];

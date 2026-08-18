@@ -1,6 +1,8 @@
 import { CostRecordSchema, type CostRecord } from '@llm-bench/benchmark-data';
+import { DEEPSWE_MODELS } from './deepswe-materializer.js';
+import { normalizeSourceEffort } from './materializer-utils.js';
 
-type Identity = { modelId: string; effort: string };
+type Identity = { modelId: string; effort: string | null };
 
 const AA_MODELS: Record<string, Identity> = {
   'DeepSeek V4 Pro (max)': {
@@ -18,22 +20,6 @@ const AA_MODELS: Record<string, Identity> = {
     modelId: 'anthropic-claude-fable-5',
     effort: 'max',
   },
-};
-
-const DEEPSWE_MODELS: Record<string, string> = {
-  'claude-fable-5': 'anthropic-claude-fable-5',
-  'claude-opus-4-8': 'anthropic-claude-opus-4-8',
-  'claude-sonnet-4-6': 'anthropic-claude-sonnet-4-6',
-  'claude-sonnet-5': 'anthropic-claude-sonnet-5',
-  'gemini-3-1-pro-preview': 'google-gemini-3-1-pro-preview',
-  'gemini-3-5-flash': 'google-gemini-3-5-flash',
-  'glm-5-2': 'zai-glm-5-2',
-  'gpt-5-4': 'openai-gpt-5-4',
-  'gpt-5-5': 'openai-gpt-5-5',
-  'gpt-5-6-luna': 'openai-gpt-5-6-luna',
-  'gpt-5-6-sol': 'openai-gpt-5-6-sol',
-  'gpt-5-6-terra': 'openai-gpt-5-6-terra',
-  'muse-spark-1-1': 'meta-muse-spark-1-1',
 };
 
 const LIVEBENCH_MODELS: Record<string, Identity> = {
@@ -117,12 +103,15 @@ const makeRecord = (
 ): CostRecord =>
   CostRecordSchema.parse({
     schemaVersion: 'cost-record-v1',
-    id: `${context.sourceId}:${options.suffix}:${identity.modelId}-${identity.effort}`,
+    id: `${context.sourceId}:${options.suffix}:${identity.modelId}-${identity.effort ?? 'unlabelled'}`,
     sourceId: context.sourceId,
     model: {
       rawName,
       canonicalModelId: identity.modelId,
-      profileId: `${identity.modelId}-${identity.effort}`,
+      profileId:
+        identity.effort === null
+          ? null
+          : `${identity.modelId}-${identity.effort}`,
     },
     profile: {
       effort: identity.effort,
@@ -216,7 +205,10 @@ export function materializeDeepSweCosts(
       !Number.isFinite(row.mean_cost_usd)
     )
       return [];
-    const identity = { modelId, effort: row.reasoning_effort ?? 'max' };
+    const identity = {
+      modelId,
+      effort: normalizeSourceEffort(row.reasoning_effort),
+    };
     return [
       makeRecord(
         {

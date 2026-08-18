@@ -5,7 +5,12 @@ import {
   type CostRecord,
 } from '@llm-bench/benchmark-data';
 
-import { parseEffort, resolveModel, slugify } from './materializer-utils.js';
+import {
+  normalizeSourceEffort,
+  parseEffort,
+  resolveModel,
+  slugify,
+} from './materializer-utils.js';
 
 export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
   'omniscience',
@@ -65,6 +70,7 @@ export interface ArtificialAnalysisDiscrepancy {
  * representation difference, not a disagreement.
  */
 export const API_COMPARISON_TOLERANCE = 5e-4;
+const API_COMPARISON_FLOAT_EPSILON = 1e-12;
 
 export interface ArtificialAnalysisApiComparison {
   matchedRows: number;
@@ -534,7 +540,9 @@ const modelIdentity = (row: ArtificialAnalysisRow) => {
   const resolved = resolveModel(rawName, 'artificial-analysis');
   const effortValue = readRowField(row, ['effort']);
   const effort =
-    typeof effortValue === 'string' ? effortValue : parseEffort(rawName);
+    typeof effortValue === 'string'
+      ? normalizeSourceEffort(effortValue)
+      : parseEffort(rawName);
   return { rawName, resolved, effort };
 };
 
@@ -762,7 +770,7 @@ export const compareArtificialAnalysisApi = (
       comparedValues += 1;
       const delta = Math.abs(pageValue - apiValue);
       if (delta <= 1e-9) continue;
-      if (delta <= API_COMPARISON_TOLERANCE) {
+      if (delta <= API_COMPARISON_TOLERANCE + API_COMPARISON_FLOAT_EPSILON) {
         precisionDifferences += 1;
         continue;
       }

@@ -50,6 +50,30 @@ describe('pricing materializers', () => {
     });
   });
 
+  it('keeps an unlabelled DeepSWE cost null instead of defaulting to max', () => {
+    const rows = materializeDeepSweCosts(
+      JSON.stringify({
+        rows: [
+          {
+            model: 'deepseek-v4-pro',
+            reasoning_effort: null,
+            harness: 'mini-swe-agent',
+            config: 'deepseek_default',
+            mean_cost_usd: 0.24,
+          },
+        ],
+      }),
+      context,
+    );
+    expect(rows[0]).toMatchObject({
+      model: {
+        canonicalModelId: 'deepseek-deepseek-v4-pro',
+        profileId: null,
+      },
+      profile: { effort: null },
+    });
+  });
+
   it('emits separate LiveBench API and successful-task costs', () => {
     const rows = materializeLiveBenchCosts(
       'model,input_price_per_million,output_price_per_million,cost_per_successful_task\n' +

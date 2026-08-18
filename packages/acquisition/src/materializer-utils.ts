@@ -279,6 +279,7 @@ function stripTrailingConfiguration(rawName: string): string {
  * treated as unlabelled rather than inventing a new effort tier.
  */
 export const LEGAL_SOURCE_EFFORTS: ReadonlySet<string> = new Set([
+  'non-reasoning',
   'max',
   'xhigh',
   'high',
@@ -286,9 +287,42 @@ export const LEGAL_SOURCE_EFFORTS: ReadonlySet<string> = new Set([
   'low',
 ]);
 
+const sourceEffortKey = (value: string): string =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[()]/g, '')
+    .replace(/[_\s]+/g, '-')
+    .replace(/-+effort$/u, '')
+    .replace(/^-+|-+$/g, '');
+
+/**
+ * Keep source values only when they describe one of the agreed effort tiers.
+ * Invalid values such as Frontier Code's sampling key `0.99` become null;
+ * the original key remains available in provenance locators.
+ */
+export function normalizeSourceEffort(
+  raw: string | null | undefined,
+): string | null {
+  if (typeof raw !== 'string' || raw.trim().length === 0) return null;
+  const key = sourceEffortKey(raw);
+  if (key === 'nonreasoning') return 'non-reasoning';
+  if (key === 'minimal') return 'minimal';
+  return LEGAL_SOURCE_EFFORTS.has(key) ? key : null;
+}
+
 export function parseEffort(rawName: string): string | null {
-  const match = rawName.match(/\b(xhigh|max|high|medium|low)\b/iu);
-  return match?.[1]?.toLowerCase() ?? null;
+  if (/\(\s*non[\s_-]*reasoning\s*\)/iu.test(rawName)) {
+    return 'non-reasoning';
+  }
+  if (/\(\s*minimal\s*\)/iu.test(rawName)) return 'low';
+  const parentheticals = rawName.match(/\([^()]+\)/gu) ?? [];
+  for (const parenthetical of parentheticals) {
+    const normalized = normalizeSourceEffort(parenthetical);
+    if (normalized === 'minimal') return 'low';
+    if (normalized !== null) return normalized;
+  }
+  return null;
 }
 
 function registerModelAlias(alias: string, model: ModelCatalogItem): void {
