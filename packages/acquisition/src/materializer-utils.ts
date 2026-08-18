@@ -311,18 +311,28 @@ export function normalizeSourceEffort(
   return LEGAL_SOURCE_EFFORTS.has(key) ? key : null;
 }
 
+/**
+ * Anthropic and DeepSeek rows on Artificial Analysis put the reasoning mode and
+ * the tier in one comma-separated parenthetical, for example
+ * `Claude Sonnet 5 (Non-reasoning, High Effort)` or
+ * `Claude Fable 5 (Adaptive Reasoning, Max Effort, Opus 4.8 Fallback)`. Each
+ * segment is normalised on its own; segments that name neither a mode nor a
+ * tier, such as `Adaptive Reasoning` or `Opus 4.8 Fallback`, are ignored.
+ *
+ * Per REFACTOR_SPEC_V2.md section 4.4 the reasoning switch and the tier are one
+ * axis, so an explicit non-reasoning marker wins over any tier named alongside
+ * it: `(Non-reasoning, High Effort)` is `non-reasoning`, not `high`.
+ */
 export function parseEffort(rawName: string): string | null {
-  if (/\(\s*non[\s_-]*reasoning\s*\)/iu.test(rawName)) {
-    return 'non-reasoning';
-  }
-  if (/\(\s*minimal\s*\)/iu.test(rawName)) return 'low';
-  const parentheticals = rawName.match(/\([^()]+\)/gu) ?? [];
-  for (const parenthetical of parentheticals) {
-    const normalized = normalizeSourceEffort(parenthetical);
-    if (normalized === 'minimal') return 'low';
-    if (normalized !== null) return normalized;
-  }
-  return null;
+  const segments = (rawName.match(/\([^()]+\)/gu) ?? []).flatMap(
+    (parenthetical) => parenthetical.slice(1, -1).split(','),
+  );
+  const normalized = segments
+    .map((segment) => normalizeSourceEffort(segment))
+    .filter((value): value is string => value !== null)
+    .map((value) => (value === 'minimal' ? 'low' : value));
+  if (normalized.includes('non-reasoning')) return 'non-reasoning';
+  return normalized[0] ?? null;
 }
 
 function registerModelAlias(alias: string, model: ModelCatalogItem): void {
