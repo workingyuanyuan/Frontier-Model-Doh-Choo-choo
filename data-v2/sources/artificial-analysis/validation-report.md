@@ -8,12 +8,12 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across evaluation pages | 482 |
-| Active profile rows (2025-08-17 cutoff, not deprecated) | 223 |
-| Generated CandidateResults | 2235 |
-| Canonically unresolved candidates | 1614 |
-| MEASURED_TASK cost rows | 96 |
-| API_STANDARDIZED token-price rows | 217 |
+| Unique profile rows across evaluation pages | 476 |
+| Active profile rows (2025-08-17 cutoff, not deprecated) | 219 |
+| Generated CandidateResults | 2194 |
+| Canonically unresolved candidates | 1582 |
+| MEASURED_TASK cost rows | 94 |
+| API_STANDARDIZED token-price rows | 213 |
 
 ## Page composition finding
 

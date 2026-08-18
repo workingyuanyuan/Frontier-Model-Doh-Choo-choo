@@ -6,7 +6,6 @@ import {
 } from '@llm-bench/benchmark-data';
 
 import {
-  isSupersededBuild,
   normalizeSourceEffort,
   parseEffort,
   resolveModel,
@@ -487,11 +486,21 @@ const rowPriority = (
  * a row observed on a foreign detail payload points at that row's own model
  * page instead of the page it happened to be parsed from.
  */
+/**
+ * Where a human can verify this row.
+ *
+ * An evaluation page renders only the default variant of each model, so a
+ * low-effort row credited to `/evaluations/omniscience` sends the reviewer to a
+ * page where its number is not shown even though the payload contains it. A
+ * detail page likewise carries the whole catalog, not just its own model. In
+ * both cases the row's own `/models/<slug>` page is the one that displays this
+ * exact variant, so that is what gets credited.
+ */
 const observationSourceUrl = (observation: RowObservation): string => {
   const { page, row } = observation;
-  if (page.kind !== 'model-detail') return page.sourceUrl;
   const slug = pageRowKey(row);
-  if (!slug || slug === page.slug) return page.sourceUrl;
+  if (!slug) return page.sourceUrl;
+  if (page.kind === 'model-detail' && slug === page.slug) return page.sourceUrl;
   return `${ARTIFICIAL_ANALYSIS_MODELS_URL}/${encodeURIComponent(slug)}`;
 };
 
@@ -535,19 +544,56 @@ export const isArtificialAnalysisActiveRow = (
   );
 };
 
+/**
+ * Keep only the newest build of each model.
+ *
+ * Artificial Analysis lists superseded builds alongside the current one and its
+ * display names do not always say which is which: `DeepSeek V4 Pro` is the
+ * April build while the current release is `DeepSeek V4 Pro 0813`, and
+ * `DeepSeek V4 Flash (Non-reasoning)` carries an April `release_date` while
+ * `DeepSeek V4 Flash 0731` is current. Resolving on the display name merged
+ * them under one identity.
+ *
+ * `release_date` is published per row, so the newest build is selected from the
+ * source's own field rather than from a hand-maintained slug list. A list had
+ * to enumerate every configuration suffix and still missed the Flash rows.
+ */
+const newestBuildRows = (
+  rows: ReadonlyMap<string, RowObservation[]>,
+): Map<string, RowObservation[]> => {
+  const newestByModel = new Map<string, string>();
+  for (const observations of rows.values()) {
+    for (const { row } of observations) {
+      const identity = modelIdentity(row);
+      const canonical = identity?.resolved.canonicalModelId;
+      const released = readRowField(row, ['release_date', 'releaseDate']);
+      if (!canonical || typeof released !== 'string') continue;
+      const current = newestByModel.get(canonical);
+      if (current === undefined || released > current) {
+        newestByModel.set(canonical, released);
+      }
+    }
+  }
+  const kept = new Map<string, RowObservation[]>();
+  for (const [key, observations] of rows) {
+    const surviving = observations.filter(({ row }) => {
+      const identity = modelIdentity(row);
+      const canonical = identity?.resolved.canonicalModelId;
+      if (!canonical) return true;
+      const newest = newestByModel.get(canonical);
+      const released = readRowField(row, ['release_date', 'releaseDate']);
+      if (newest === undefined || typeof released !== 'string') return true;
+      return released === newest;
+    });
+    if (surviving.length > 0) kept.set(key, surviving);
+  }
+  return kept;
+};
+
 const modelIdentity = (row: ArtificialAnalysisRow) => {
   const rawName = readRowField(row, ['name', 'shortName']);
   if (typeof rawName !== 'string' || rawName.length === 0) return null;
-  // Artificial Analysis identifies the superseded DeepSeek builds by slug, not
-  // by display name: `DeepSeek V4 Pro (Reasoning, Max Effort)` carries slug
-  // `deepseek-v4-pro-0424` while the current release is `DeepSeek V4 Pro 0813`.
-  // Resolving on the display name alone bound the canonical id to the April
-  // build. See SUPERSEDED_BUILDS in materializer-utils.
-  const slug = readRowField(row, ['slug']);
-  const resolved =
-    typeof slug === 'string' && isSupersededBuild('artificial-analysis', slug)
-      ? { canonicalModelId: null, profileId: null, rawName }
-      : resolveModel(rawName, 'artificial-analysis');
+  const resolved = resolveModel(rawName, 'artificial-analysis');
   const effortValue = readRowField(row, ['effort']);
   const effort =
     typeof effortValue === 'string'
@@ -683,25 +729,46 @@ const makeOmniscienceIndexCandidate = (
   });
 };
 
-const readOmniscienceAccuracy = (row: ArtificialAnalysisRow): number | null => {
+/**
+ * Both readers accept either payload shape, so the locator has to name the path
+ * that actually produced the value. Hard-coding one shape sent reviewers to a
+ * field that does not exist on the page they were given.
+ */
+interface ReadWithPath {
+  value: number;
+  path: string;
+}
+
+const readOmniscienceAccuracy = (
+  row: ArtificialAnalysisRow,
+): ReadWithPath | null => {
   const breakdown = readRowField(row, [
     'omniscience_breakdown',
     'omniscienceBreakdown',
   ]);
   const direct = readNumber(readPath(breakdown, ['accuracy']));
-  if (direct !== null) return direct;
-  return readNumber(readPath(breakdown, ['total', 'accuracy']));
+  if (direct !== null)
+    return { value: direct, path: 'omniscienceBreakdown.accuracy' };
+  const nested = readNumber(readPath(breakdown, ['total', 'accuracy']));
+  return nested === null
+    ? null
+    : { value: nested, path: 'omniscience_breakdown.total.accuracy' };
 };
 
-const readBriefcaseRubric = (row: ArtificialAnalysisRow): number | null => {
+const readBriefcaseRubric = (
+  row: ArtificialAnalysisRow,
+): ReadWithPath | null => {
   const breakdown = readRowField(row, [
     'briefcase_breakdown',
     'briefcaseBreakdown',
   ]);
-  return (
-    readNumber(readPath(breakdown, ['rubricPassRate'])) ??
-    readNumber(readPath(breakdown, ['rubric', 'pass_rate']))
-  );
+  const flat = readNumber(readPath(breakdown, ['rubricPassRate']));
+  if (flat !== null)
+    return { value: flat, path: 'briefcaseBreakdown.rubricPassRate' };
+  const nested = readNumber(readPath(breakdown, ['rubric', 'pass_rate']));
+  return nested === null
+    ? null
+    : { value: nested, path: 'briefcase_breakdown.rubric.pass_rate' };
 };
 
 const extractApiRows = (payload: unknown): ArtificialAnalysisRow[] => {
@@ -927,7 +994,7 @@ export const materializeArtificialAnalysisRsc = (
 ): ArtificialAnalysisMaterializeResult => {
   if (pages.length === 0)
     throw new Error('Artificial Analysis pages are empty');
-  const rowsByKey = uniqueRows(pages);
+  const rowsByKey = newestBuildRows(uniqueRows(pages));
   const allRows = [...rowsByKey.values()]
     .map((observations) => chooseObservation(observations)?.row)
     .filter((row): row is ArtificialAnalysisRow => row !== undefined);
@@ -963,8 +1030,12 @@ export const materializeArtificialAnalysisRsc = (
         candidates.push(candidate);
       }
     }
-    const omniscienceObservation =
-      chooseObservation(observations, 'omniscience') ?? base;
+    // Read from the same page the provenance credits. The evaluations payload
+    // nests the value at `omniscience_breakdown.total.accuracy` while a model
+    // page exposes `omniscienceBreakdown.accuracy`; preferring the evaluations
+    // page here produced a locator naming a path that does not exist on the
+    // page the reviewer is sent to.
+    const omniscienceObservation = chooseObservation(observations) ?? base;
     const omniscienceIndex = makeOmniscienceIndexCandidate(
       omniscienceObservation,
       omniscienceObservation.row,
@@ -989,8 +1060,8 @@ export const materializeArtificialAnalysisRsc = (
           normalize: true,
           preferredPage: 'omniscience',
         },
-        accuracy,
-        `model slug=${pageRowKey(omniscienceObservation.row) ?? 'unknown'}; field=omniscience_breakdown.total.accuracy`,
+        accuracy.value,
+        `model slug=${pageRowKey(omniscienceObservation.row) ?? 'unknown'}; field=${accuracy.path}`,
       );
       if (candidate && !candidateIds.has(candidate.id)) {
         candidateIds.add(candidate.id);
@@ -1017,8 +1088,8 @@ export const materializeArtificialAnalysisRsc = (
           normalize: true,
           preferredPage: 'aa-briefcase',
         },
-        rubric,
-        `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=briefcase_breakdown.rubric`,
+        rubric.value,
+        `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=${rubric.path}`,
       );
       if (candidate && !candidateIds.has(candidate.id)) {
         candidateIds.add(candidate.id);

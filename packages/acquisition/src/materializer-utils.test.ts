@@ -80,12 +80,14 @@ describe('parseEffort on comma-separated parentheticals', () => {
 describe('superseded DeepSeek builds', () => {
   it('keeps only the current release and drops the superseded build', () => {
     // The user decided on 2026-08-18 to keep only the current release rather
-    // than merging it with the April build under one identity.
-    expect(
-      isSupersededBuild('artificial-analysis', 'deepseek-v4-pro-0424'),
-    ).toBe(true);
+    // than merging it with the April build under one identity. Artificial
+    // Analysis is filtered by its own release_date field instead of a slug
+    // list; LiveBench publishes no date, so its dated slugs remain the signal.
     expect(isSupersededBuild('livebench', 'deepseek-v4-pro')).toBe(true);
     expect(isSupersededBuild('livebench', 'deepseek-v4-flash')).toBe(true);
+    expect(
+      isSupersededBuild('artificial-analysis', 'deepseek-v4-pro-0424'),
+    ).toBe(false);
   });
 
   it('leaves a bare name alone on sources with no dated sibling', () => {

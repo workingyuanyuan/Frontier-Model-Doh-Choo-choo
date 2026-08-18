@@ -29,7 +29,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-alpha",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -73,7 +73,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/apertus-70b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -117,7 +117,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/apertus-8b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -161,7 +161,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/apriel-v1-6-15b-thinker",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -249,7 +249,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -601,7 +601,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -733,7 +733,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/cogito-v2-1-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -837,50 +837,6 @@
   },
   {
     "schemaVersion": "cost-record-v1",
-    "id": "artificial-analysis:api-token-price:deepseek-v4-flash-non-reasoning",
-    "sourceId": "artificial-analysis",
-    "model": {
-      "rawName": "DeepSeek V4 Flash (Non-reasoning)",
-      "canonicalModelId": "deepseek-deepseek-v4-flash",
-      "profileId": "deepseek-deepseek-v4-flash-non-reasoning"
-    },
-    "profile": {
-      "effort": "non-reasoning",
-      "thinking": null,
-      "tools": null,
-      "harness": null,
-      "contextWindowTokens": null,
-      "quantization": null,
-      "attempts": null
-    },
-    "costType": "API_STANDARDIZED",
-    "metricId": "token-price",
-    "metricName": "Artificial Analysis API token price",
-    "unit": "USD_PER_MILLION_TOKENS",
-    "inputPerMillionTokens": 0.0938,
-    "outputPerMillionTokens": 0.195,
-    "cost": null,
-    "assumptionId": null,
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": null,
-    "inclusion": "INCLUDED",
-    "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
-    "observedAt": "2026-08-18T13:27:23.929Z",
-    "sourcePublishedAt": null,
-    "evidenceIds": [
-      "sha256:4619fbfaddb1fce4da40e85516de018c1627eea78d4888090df47bd11a3aa3eb"
-    ],
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:4619fbfaddb1fce4da40e85516de018c1627eea78d4888090df47bd11a3aa3eb",
-        "method": "NEXT_RSC",
-        "locator": "model slug=deepseek-v4-flash-non-reasoning; fields=price1mInputTokens,price1mOutputTokens"
-      }
-    }
-  },
-  {
-    "schemaVersion": "cost-record-v1",
     "id": "artificial-analysis:api-token-price:deepseek-v4-pro",
     "sourceId": "artificial-analysis",
     "model": {
@@ -920,138 +876,6 @@
         "evidenceId": "sha256:d4ab0dafa5055f1be9c99db8d126ed7c1dce3d15d3568840232c003507543067",
         "method": "NEXT_RSC",
         "locator": "model slug=deepseek-v4-pro; fields=price1mInputTokens,price1mOutputTokens"
-      }
-    }
-  },
-  {
-    "schemaVersion": "cost-record-v1",
-    "id": "artificial-analysis:api-token-price:deepseek-v4-pro-0424",
-    "sourceId": "artificial-analysis",
-    "model": {
-      "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
-    },
-    "profile": {
-      "effort": "max",
-      "thinking": null,
-      "tools": null,
-      "harness": null,
-      "contextWindowTokens": null,
-      "quantization": null,
-      "attempts": null
-    },
-    "costType": "API_STANDARDIZED",
-    "metricId": "token-price",
-    "metricName": "Artificial Analysis API token price",
-    "unit": "USD_PER_MILLION_TOKENS",
-    "inputPerMillionTokens": 0.435,
-    "outputPerMillionTokens": 0.87,
-    "cost": null,
-    "assumptionId": null,
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": null,
-    "inclusion": "INCLUDED",
-    "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
-    "observedAt": "2026-08-18T13:27:23.929Z",
-    "sourcePublishedAt": null,
-    "evidenceIds": [
-      "sha256:ddf3db77d0b0f2febf2ef08a8615af7e4b9b90a2f9218e38b7f84348477fef61"
-    ],
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:ddf3db77d0b0f2febf2ef08a8615af7e4b9b90a2f9218e38b7f84348477fef61",
-        "method": "NEXT_RSC",
-        "locator": "model slug=deepseek-v4-pro-0424; fields=price1mInputTokens,price1mOutputTokens"
-      }
-    }
-  },
-  {
-    "schemaVersion": "cost-record-v1",
-    "id": "artificial-analysis:api-token-price:deepseek-v4-pro-0424-high",
-    "sourceId": "artificial-analysis",
-    "model": {
-      "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": null,
-      "profileId": null
-    },
-    "profile": {
-      "effort": "high",
-      "thinking": null,
-      "tools": null,
-      "harness": null,
-      "contextWindowTokens": null,
-      "quantization": null,
-      "attempts": null
-    },
-    "costType": "API_STANDARDIZED",
-    "metricId": "token-price",
-    "metricName": "Artificial Analysis API token price",
-    "unit": "USD_PER_MILLION_TOKENS",
-    "inputPerMillionTokens": 0.435,
-    "outputPerMillionTokens": 0.87,
-    "cost": null,
-    "assumptionId": null,
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": null,
-    "inclusion": "INCLUDED",
-    "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
-    "observedAt": "2026-08-18T13:27:23.929Z",
-    "sourcePublishedAt": null,
-    "evidenceIds": [
-      "sha256:c199a076bfcbdec7d01032f80aa81ca0145a8efdb5f6ce7daa2ffe27d3bdf168"
-    ],
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c199a076bfcbdec7d01032f80aa81ca0145a8efdb5f6ce7daa2ffe27d3bdf168",
-        "method": "NEXT_RSC",
-        "locator": "model slug=deepseek-v4-pro-0424-high; fields=price1mInputTokens,price1mOutputTokens"
-      }
-    }
-  },
-  {
-    "schemaVersion": "cost-record-v1",
-    "id": "artificial-analysis:api-token-price:deepseek-v4-pro-0424-non-reasoning",
-    "sourceId": "artificial-analysis",
-    "model": {
-      "rawName": "DeepSeek V4 Pro (Non-reasoning)",
-      "canonicalModelId": null,
-      "profileId": null
-    },
-    "profile": {
-      "effort": "non-reasoning",
-      "thinking": null,
-      "tools": null,
-      "harness": null,
-      "contextWindowTokens": null,
-      "quantization": null,
-      "attempts": null
-    },
-    "costType": "API_STANDARDIZED",
-    "metricId": "token-price",
-    "metricName": "Artificial Analysis API token price",
-    "unit": "USD_PER_MILLION_TOKENS",
-    "inputPerMillionTokens": 0.435,
-    "outputPerMillionTokens": 0.87,
-    "cost": null,
-    "assumptionId": null,
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": null,
-    "inclusion": "INCLUDED",
-    "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
-    "observedAt": "2026-08-18T13:27:23.929Z",
-    "sourcePublishedAt": null,
-    "evidenceIds": [
-      "sha256:4619fbfaddb1fce4da40e85516de018c1627eea78d4888090df47bd11a3aa3eb"
-    ],
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:4619fbfaddb1fce4da40e85516de018c1627eea78d4888090df47bd11a3aa3eb",
-        "method": "NEXT_RSC",
-        "locator": "model slug=deepseek-v4-pro-0424-non-reasoning; fields=price1mInputTokens,price1mOutputTokens"
       }
     }
   },
@@ -1173,7 +997,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/diffusiongemma-26b-a4b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1217,7 +1041,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/doubao-seed-code",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1261,7 +1085,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/ernie-5-0-thinking-preview",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1305,7 +1129,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/exaone-4-5-33b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1349,7 +1173,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/falcon-h1r-7b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1393,7 +1217,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/g9v3-39a5b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1437,7 +1261,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/g9v3-3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1569,7 +1393,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-medium",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1613,7 +1437,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-minimal",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1833,7 +1657,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-12b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1877,7 +1701,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-12b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -1965,7 +1789,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-26b-a4b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -2097,7 +1921,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-e2b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -2141,7 +1965,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-e2b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -2185,7 +2009,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-e4b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -2229,7 +2053,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemma-4-e4b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -2317,7 +2141,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/glm-5-2-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -2361,7 +2185,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/gpt-5-3-codex",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3241,7 +3065,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-0-350m",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3285,7 +3109,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-0-h-350m",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3329,7 +3153,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-0-h-nano-1b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3373,7 +3197,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-0-h-small",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3417,7 +3241,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-0-micro",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3461,7 +3285,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-0-nano-1b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3505,7 +3329,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-1-30b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3549,7 +3373,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-1-3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3593,7 +3417,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/granite-4-1-8b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3637,7 +3461,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/grok-4-3-low",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3681,7 +3505,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/ifbench",
+    "sourceUrl": "https://artificialanalysis.ai/models/grok-4-3-medium",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3857,7 +3681,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/hermes-4-llama-3-1-405b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3901,7 +3725,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/hermes-4-llama-3-1-405b-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3945,7 +3769,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/hermes-4-llama-3-1-70b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -3989,7 +3813,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/hermes-4-llama-3-1-70b-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4077,7 +3901,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/hyperclova-x-seed-think-32b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4121,7 +3945,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/hypernova-60b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4253,7 +4077,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/intellect-3",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4297,7 +4121,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/jamba-reasoning-3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4341,7 +4165,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/jt-35b-flash",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4385,7 +4209,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/jt-4-1-flash-236b-a21b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4429,7 +4253,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/jt-mini",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4473,7 +4297,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/k-exaone",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4517,7 +4341,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/k-exaone-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4561,7 +4385,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/k2-think-v2",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4605,7 +4429,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/k2-v2",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4649,7 +4473,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/k2-v2-low",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4693,7 +4517,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/k2-v2-medium",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4737,7 +4561,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/kat-coder-pro-v2",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4913,7 +4737,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-2-6b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -4957,7 +4781,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-24b-a2b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5001,7 +4825,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-5-1-2b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5045,7 +4869,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-5-1-2b-thinking",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5089,7 +4913,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-5-8b-a1b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5133,7 +4957,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-5-vl-1-6b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5177,7 +5001,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/lfm2-8b-a1b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5353,7 +5177,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/longcat-flash-lite",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5529,7 +5353,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mi-dm-k-2-5-pro-dec28",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5573,7 +5397,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-0206",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5705,7 +5529,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5749,7 +5573,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-flash",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5793,7 +5617,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-omni",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5837,7 +5661,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-omni-0327",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5881,7 +5705,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/minicpm-v4-6-1-3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5925,7 +5749,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/minicpm5-1b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -5969,7 +5793,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/minicpm5-1b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6321,7 +6145,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/mistral-small-4-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6365,7 +6189,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/molmo2-8b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6409,7 +6233,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/motif-0714",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6453,7 +6277,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/motif-2-12-7b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6585,7 +6409,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nanbeige4-1-3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6673,7 +6497,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nemotron-3-nano-omni-30b-a3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6717,7 +6541,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nemotron-cascade-2-30b-a3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6761,7 +6585,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nex-n2-pro",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6849,7 +6673,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-lite",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6893,7 +6717,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-lite-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6937,7 +6761,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-lite-reasoning-low",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -6981,7 +6805,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-lite-reasoning-medium",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7025,7 +6849,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-omni",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7069,7 +6893,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-omni-reasoning-low",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7113,7 +6937,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-omni-reasoning-medium",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7157,7 +6981,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-pro",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7201,7 +7025,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-low",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7245,7 +7069,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-medium",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7289,7 +7113,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-30b-a3b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7377,7 +7201,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-nano-4b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7509,7 +7333,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-12b-v2-vl",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7553,7 +7377,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-12b-v2-vl-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7597,7 +7421,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-9b-v2",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7641,7 +7465,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-nano-9b-v2-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7685,7 +7509,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/olmo-3-1-32b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7729,7 +7553,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/olmo-3-1-32b-think",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7773,7 +7597,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/olmo-3-7b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7817,7 +7641,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/olmo-3-7b-think",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7861,7 +7685,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-0-8b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -7905,7 +7729,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-0-8b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8037,7 +7861,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-2b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8081,7 +7905,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-2b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8213,7 +8037,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8257,7 +8081,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-4b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8301,7 +8125,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-4b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8389,7 +8213,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-9b-non-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8433,7 +8257,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-omni-flash",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8477,7 +8301,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-5-omni-plus",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8873,7 +8697,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-next-80b-a3b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -8961,7 +8785,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-omni-30b-a3b-instruct",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9005,7 +8829,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/qwen3-omni-30b-a3b-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9093,7 +8917,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/ring-flash-2-0",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9137,7 +8961,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/sarvam-105b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9181,7 +9005,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/sarvam-30b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9225,7 +9049,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/solar-open-100b-reasoning",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9401,7 +9225,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/step-3-vl-10b",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9445,7 +9269,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/tiny-aya-global",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -9489,7 +9313,7 @@
     "benchmarkVersion": null,
     "inclusion": "INCLUDED",
     "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/evaluations/omniscience",
+    "sourceUrl": "https://artificialanalysis.ai/models/tri-21b-think-v0-5",
     "observedAt": "2026-08-18T13:27:23.929Z",
     "sourcePublishedAt": null,
     "evidenceIds": [
@@ -10116,94 +9940,6 @@
         "evidenceId": "sha256:d4ab0dafa5055f1be9c99db8d126ed7c1dce3d15d3568840232c003507543067",
         "method": "NEXT_RSC",
         "locator": "model slug=deepseek-v4-pro; field=intelligenceIndexCostPerTask.cost.total"
-      }
-    }
-  },
-  {
-    "schemaVersion": "cost-record-v1",
-    "id": "artificial-analysis:cost-per-intelligence-index-task:deepseek-v4-pro-0424",
-    "sourceId": "artificial-analysis",
-    "model": {
-      "rawName": "DeepSeek V4 Pro (Reasoning, Max Effort)",
-      "canonicalModelId": null,
-      "profileId": null
-    },
-    "profile": {
-      "effort": "max",
-      "thinking": null,
-      "tools": null,
-      "harness": null,
-      "contextWindowTokens": null,
-      "quantization": null,
-      "attempts": null
-    },
-    "costType": "MEASURED_TASK",
-    "metricId": "cost-per-intelligence-index-task",
-    "metricName": "Cost per Intelligence Index task",
-    "unit": "USD_PER_TASK",
-    "inputPerMillionTokens": null,
-    "outputPerMillionTokens": null,
-    "cost": 0.04740253881573738,
-    "assumptionId": null,
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": null,
-    "inclusion": "INCLUDED",
-    "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
-    "observedAt": "2026-08-18T13:27:23.929Z",
-    "sourcePublishedAt": null,
-    "evidenceIds": [
-      "sha256:ddf3db77d0b0f2febf2ef08a8615af7e4b9b90a2f9218e38b7f84348477fef61"
-    ],
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:ddf3db77d0b0f2febf2ef08a8615af7e4b9b90a2f9218e38b7f84348477fef61",
-        "method": "NEXT_RSC",
-        "locator": "model slug=deepseek-v4-pro-0424; field=intelligenceIndexCostPerTask.cost.total"
-      }
-    }
-  },
-  {
-    "schemaVersion": "cost-record-v1",
-    "id": "artificial-analysis:cost-per-intelligence-index-task:deepseek-v4-pro-0424-high",
-    "sourceId": "artificial-analysis",
-    "model": {
-      "rawName": "DeepSeek V4 Pro (Reasoning, High Effort)",
-      "canonicalModelId": null,
-      "profileId": null
-    },
-    "profile": {
-      "effort": "high",
-      "thinking": null,
-      "tools": null,
-      "harness": null,
-      "contextWindowTokens": null,
-      "quantization": null,
-      "attempts": null
-    },
-    "costType": "MEASURED_TASK",
-    "metricId": "cost-per-intelligence-index-task",
-    "metricName": "Cost per Intelligence Index task",
-    "unit": "USD_PER_TASK",
-    "inputPerMillionTokens": null,
-    "outputPerMillionTokens": null,
-    "cost": 0.043202295785401766,
-    "assumptionId": null,
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": null,
-    "inclusion": "INCLUDED",
-    "exclusionReason": null,
-    "sourceUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
-    "observedAt": "2026-08-18T13:27:23.929Z",
-    "sourcePublishedAt": null,
-    "evidenceIds": [
-      "sha256:c199a076bfcbdec7d01032f80aa81ca0145a8efdb5f6ce7daa2ffe27d3bdf168"
-    ],
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:c199a076bfcbdec7d01032f80aa81ca0145a8efdb5f6ce7daa2ffe27d3bdf168",
-        "method": "NEXT_RSC",
-        "locator": "model slug=deepseek-v4-pro-0424-high; field=intelligenceIndexCostPerTask.cost.total"
       }
     }
   },

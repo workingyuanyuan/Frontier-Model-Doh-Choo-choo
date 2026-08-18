@@ -198,3 +198,42 @@ describe('Artificial Analysis provenance URLs', () => {
     expect(own?.sourceUrl).toBe('https://artificialanalysis.ai/models/a-x-k2');
   });
 });
+
+describe('Artificial Analysis superseded builds', () => {
+  it('keeps only the newest release_date for a model', () => {
+    // AA lists the April build beside the current one and the display names do
+    // not always say which is which, so the row's own release_date decides.
+    // Both names resolve to deepseek-deepseek-v4-pro, so without this filter
+    // the April scores would land under the current model's identity.
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'evaluation',
+        slug: 'omniscience',
+        sourceUrl: 'https://artificialanalysis.ai/evaluations/omniscience',
+        evidenceId: `sha256:${'d'.repeat(64)}`,
+        retrievedAt: '2026-08-18T00:00:00.000Z',
+        rows: [
+          {
+            slug: 'deepseek-v4-pro-0424',
+            name: 'DeepSeek V4 Pro (Reasoning, Max Effort)',
+            release_date: '2026-04-24',
+            deprecated: false,
+            gpqa: 0.1,
+          },
+          {
+            slug: 'deepseek-v4-pro',
+            name: 'DeepSeek V4 Pro 0813 (Reasoning, Max Effort)',
+            release_date: '2026-08-13',
+            deprecated: false,
+            gpqa: 0.9,
+          },
+        ],
+      },
+    ]);
+
+    const scores = result.candidates
+      .filter(({ benchmarkId }) => benchmarkId === 'gpqa-diamond')
+      .map(({ rawScore }) => rawScore);
+    expect(scores).toEqual([0.9]);
+  });
+});

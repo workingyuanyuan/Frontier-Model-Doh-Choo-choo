@@ -390,7 +390,12 @@ export function slugify(s: string): string {
  * one does.
  */
 const SUPERSEDED_BUILDS: Readonly<Record<string, ReadonlySet<string>>> = {
-  'artificial-analysis': new Set(['deepseek-v4-pro-0424']),
+  // Artificial Analysis is handled by release date instead: it publishes
+  // `release_date` per row, so the newest build of a model can be selected from
+  // the data rather than from a hand-maintained slug list. Listing slugs missed
+  // the April Flash rows, which reached the leaderboard under the current
+  // model's identity. LiveBench publishes no date, so its dated slugs remain
+  // the only signal there.
   livebench: new Set(['deepseek-v4-pro', 'deepseek-v4-flash']),
 };
 
