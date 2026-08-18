@@ -142,3 +142,49 @@ describe('Artificial Analysis RSC materializer', () => {
     );
   });
 });
+
+describe('Artificial Analysis provenance URLs', () => {
+  const detailPage = (slug: string, rows: Record<string, unknown>[]) => ({
+    kind: 'model-detail' as const,
+    slug,
+    sourceUrl: `https://artificialanalysis.ai/models/${slug}`,
+    evidenceId: `sha256:${'c'.repeat(64)}`,
+    retrievedAt: '2026-08-17T00:00:00.000Z',
+    rows,
+  });
+
+  it('points a row at its own model page, not the detail page it was parsed from', () => {
+    // A /models/<slug> payload carries the whole catalog. Attributing every row
+    // to the alphabetically-first detail page sent 202 rows across 11 models to
+    // https://artificialanalysis.ai/models/a-x-k2.
+    const result = materializeArtificialAnalysisRsc([
+      detailPage('a-x-k2', [
+        {
+          slug: 'a-x-k2',
+          name: 'A.X K2',
+          release_date: '2026-08-01',
+          deprecated: false,
+          gpqa: 0.5,
+        },
+        {
+          slug: 'claude-opus-5-high',
+          name: 'Claude Opus 5 (High)',
+          release_date: '2026-08-01',
+          deprecated: false,
+          gpqa: 0.9,
+        },
+      ]),
+    ]);
+
+    const foreign = result.candidates.find(
+      ({ model }) => model.rawName === 'Claude Opus 5 (High)',
+    );
+    const own = result.candidates.find(
+      ({ model }) => model.rawName === 'A.X K2',
+    );
+    expect(foreign?.sourceUrl).toBe(
+      'https://artificialanalysis.ai/models/claude-opus-5-high',
+    );
+    expect(own?.sourceUrl).toBe('https://artificialanalysis.ai/models/a-x-k2');
+  });
+});

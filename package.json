@@ -18,7 +18,8 @@
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings 0",
     "test": "turbo run test",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "web": "pnpm --filter @llm-bench/bench dev"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

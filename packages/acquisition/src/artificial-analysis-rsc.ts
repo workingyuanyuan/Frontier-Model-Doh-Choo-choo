@@ -455,10 +455,37 @@ interface RowObservation {
   row: ArtificialAnalysisRow;
 }
 
-const rowPriority = (page: ArtificialAnalysisPage): number => {
-  if (page.kind === 'model-detail') return 1;
+export const ARTIFICIAL_ANALYSIS_MODELS_URL =
+  'https://artificialanalysis.ai/models';
+
+/**
+ * A /models/<slug> detail payload carries rows for the whole catalog, not just
+ * its own model, so a detail page must only outrank other pages for its own
+ * row. Without this every model was attributed to whichever detail page sorted
+ * first alphabetically.
+ */
+const rowPriority = (
+  page: ArtificialAnalysisPage,
+  row: ArtificialAnalysisRow,
+): number => {
+  if (page.kind === 'model-detail') {
+    return pageRowKey(row) === page.slug ? 1 : 3;
+  }
   if (page.kind === 'models') return 2;
-  return 3 + (EVALUATION_PRIORITY.get(page.slug) ?? 100);
+  return 4 + (EVALUATION_PRIORITY.get(page.slug) ?? 100);
+};
+
+/**
+ * Where a human can verify this row. A detail page only shows its own model, so
+ * a row observed on a foreign detail payload points at that row's own model
+ * page instead of the page it happened to be parsed from.
+ */
+const observationSourceUrl = (observation: RowObservation): string => {
+  const { page, row } = observation;
+  if (page.kind !== 'model-detail') return page.sourceUrl;
+  const slug = pageRowKey(row);
+  if (!slug || slug === page.slug) return page.sourceUrl;
+  return `${ARTIFICIAL_ANALYSIS_MODELS_URL}/${encodeURIComponent(slug)}`;
 };
 
 const chooseObservation = (
@@ -472,7 +499,7 @@ const chooseObservation = (
     const rightPreferred = right.page.slug === preferredPage ? 0 : 1;
     return (
       leftPreferred - rightPreferred ||
-      rowPriority(left.page) - rowPriority(right.page) ||
+      rowPriority(left.page, left.row) - rowPriority(right.page, right.row) ||
       left.page.slug.localeCompare(right.page.slug)
     );
   })[0]!;
@@ -563,7 +590,7 @@ const makeScoreCandidate = (
     acquisitionStatus: 'PARTIAL_SOURCE' as const,
     inclusion: 'INCLUDED' as const,
     exclusionReason: null,
-    sourceUrl: observation.page.sourceUrl,
+    sourceUrl: observationSourceUrl(observation),
     observedAt: observation.page.retrievedAt,
     sourcePublishedAt: null,
     evidenceIds: [observation.page.evidenceId],
@@ -624,7 +651,7 @@ const makeOmniscienceIndexCandidate = (
     inclusion: 'EXCLUDED',
     exclusionReason:
       'Raw omniscience index is retained as display-only evidence and is not an eight-dimension score.',
-    sourceUrl: observation.page.sourceUrl,
+    sourceUrl: observationSourceUrl(observation),
     observedAt: observation.page.retrievedAt,
     sourcePublishedAt: null,
     evidenceIds: [observation.page.evidenceId],
@@ -794,7 +821,7 @@ const makeCostRecord = (
     },
     benchmarkId: TASK_COST_BENCHMARK_ID,
     benchmarkVersion: null,
-    sourceUrl: observation.page.sourceUrl,
+    sourceUrl: observationSourceUrl(observation),
     observedAt: observation.page.retrievedAt,
     sourcePublishedAt: null,
     evidenceIds: [observation.page.evidenceId],
