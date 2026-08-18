@@ -93,6 +93,42 @@ osworld    scale-hle terminal-bench vals-ai   zapier-automationbench
 - 排行榜、雷達圖、兩張圖表**全部使用同一個選法**，不得出現同一模型在不同畫面顯示不同 profile 的情況。
 - 這取代現行 `SCORING_METHODOLOGY.md` 的「Coverage 高 → 有效結果數多 → Overall 高」規則。
 
+### 4.4 思考強度檔位
+
+**本節於 2026-08-18 新增**，取代 `DATA_METHODOLOGY.md` 的「未標 effort 的結果歸入可判定的最高強度，不建立 `unspecified`」。那條規則寫在 Artificial Analysis 還沒有 non-reasoning 變體的年代；審核關卡 1 查出它把 110 筆明確標示 `(Non-reasoning)` 的列標成了 `max`，語義完全顛倒。
+
+推理開關與思考檔位是**同一根軸**，不分成兩個維度：
+
+```
+non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
+```
+
+加上 `default`：來源只提供一個未命名配置時使用。`default` **不進入階梯排序**，它是「來源沒說」的誠實標記。
+
+歸檔規則，依序套用：
+
+1. **來源明示檔位** → 直接採用。
+2. **來源名稱自報配置** → 依名稱歸檔，不需推測。
+   - `(Non-reasoning)` → `non-reasoning`
+   - `(minimal)` → `low`。Artificial Analysis 對 Gemini 3.5 Flash 用 `minimal`，對 Gemini 3.7 Flash 用 `low`，是同一檔的兩種寫法。
+3. **跨來源推測**（下方 §4.5）。
+4. 以上皆不適用 → `default`。
+
+### 4.5 跨來源檔位推測
+
+某來源未標檔位時，取該模型**在其他來源出現過的最高檔位**。
+
+依據：模型廠商送測時通常提供自家分數最高的配置；測試方若沒有掃過每個檔位，通常也只測最高的那一檔。
+
+**這是本規格唯一允許的推測，並附帶強制揭露義務：**
+
+- 每次刷新資料都必須產出**推測說明**，逐筆列出：模型、未標的來源、推測出的檔位、依據來源與依據列。
+- 說明必須寫進該來源的 validation report，**不能只出現在對話或回報訊息裡**——半年後要查得到當初的依據。
+- 推測結果由**使用者審核後才放行**。代理不得自行認定推測正確。
+- 推測只能填**檔位**。它不得用來補分數、成本或任何其他缺值。
+
+**不得對已依 §4.4 規則 2 歸檔的列套用推測。** `(Non-reasoning)` 就是 `non-reasoning`，不會因為別的來源標了 `max` 就被改寫。
+
 ## 5. 顯示規則
 
 ### 5.1 模型資格

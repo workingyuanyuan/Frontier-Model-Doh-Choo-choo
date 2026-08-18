@@ -61,7 +61,7 @@ pnpm --filter @llm-bench/bench build
 
 ```
 A 清理  ──┐
-          ├──> B 資料契約 ──> C 擷取 ──> C5 補正 ──> 審核關卡 1 ──┐
+          ├──> B 資料契約 ──> C 擷取 ──> C5／C6 補正 ──> 審核關卡 1 ──┐
           │                                          ├──> D 計分與報告 ──> 審核關卡 2 ──> E 介面 ──> F 驗收
           └──────────────────────────────────────────┘
 ```
@@ -367,6 +367,96 @@ Frontier Code export 中 Inkling 一列的 effort 被解析成 `"0.99"`，造出
 - 重新產生 `data-v2/product/current.json`，並在 `validation` 中回報新的 `versionId`、來源數、模型數與各 benchmark 的 evidence 數。
 - 回報修正前後的模型母體對照（修正前：3 個 profile 通過完整矩陣，全部是 `openai-gpt-5-6-*-max`）。
 - 基準驗證通過。
+
+## C6 — 身份解析、來源刷新與檔位階梯（審核關卡 1 的前置條件）
+
+狀態：未開始
+
+**為什麼存在**：審核關卡 1 的第一輪抽查（54 筆，53 MATCH）證實擷取到的**數值**是準的，但同時查出三類問題會讓產品少掉一批本來有資料的模型。**本 task 完成並重新產生 `current.json` 之前，不得進入審核關卡 1。**
+
+C5 已完成，不要重做。本 task 處理的是 C5 之後才發現的問題。
+
+### C6-1 重新擷取全部四個來源
+
+**建議代理：Gemini 3.7 Flash Medium**（有界、可客觀驗證，既有 refresh 腳本已存在）
+
+- DeepSWE 的快照落後：我們是 `2026-08-12`、53 列 / 21 個模型；來源現在是 `generated_at 2026-08-13T16:11:55Z`、**61 列 / 24 個模型**，新增 `deepseek-v4-pro`（`reasoning_effort: "max"`, `pass_rate 0.6283`）、`gemini-3-7-flash`、`grok-4-6`。
+- 其餘三個來源同時刷新，讓四個來源的快照時間一致。
+- **必須保留舊 artifact**，新舊都是內容定址存檔，不覆寫。
+- 在各來源 validation report 記錄新舊列數差異。
+
+**完成條件**：四個來源的 `lastVerifiedAt` 同日；DeepSWE 含 `deepseek-v4-pro`；差異寫進 report。
+
+### C6-2 修正 LiveBench 的模型名稱解析
+
+**建議代理：GPT-5.6 Luna Max**（需要探索命名格式、反覆試錯，不是照規格填空）
+
+LiveBench 把 effort 併進 slug，現行解析只吃了一部分格式，導致 **16 個名稱、64 列**未解析。其中**至少三個是 catalog 已經有的模型**：
+
+| LiveBench 原始名稱         | catalog 既有 ID           | 目前後果           |
+| -------------------------- | ------------------------- | ------------------ |
+| `kimi-k3`                  | `moonshot-kimi-k3`        | 該模型缺 LiveBench |
+| `claude-opus-5-max-effort` | `anthropic-claude-opus-5` | 同上               |
+| `gemini-3.6-flash-high`    | `google-gemini-3-6-flash` | 同上               |
+
+這三個都出現在「只缺一個來源」的名單上，缺的正是 LiveBench。它們不是沒有資料，是名字沒對上。
+
+已知需要處理的格式：`<model>-<effort>-effort`、`<model>-<effort>`、帶日期的 `claude-opus-4-5-20251101-thinking-64k-high-effort`、以及點號與連字號混用（`gemini-3.1-pro-preview-high` vs catalog 的 `google-gemini-3-1-pro-preview`）。
+
+**解析出的 effort 必須進 `profile.effort`**，不要只用來去掉後綴。
+
+**禁止模糊匹配。** 解析規則要能明確說出「這個 slug 依哪條規則對應到哪個 canonical ID」；對不上就保持 null。
+
+**完成條件**：上述三個模型解析成功；未解析清單縮短且每一筆都能說明為什麼對不上；有測試涵蓋四種格式。
+
+### C6-3 補齊 catalog 缺項
+
+**建議代理：Gemini 3.7 Flash Medium**（機械性補資料，但清單要人工核可）
+
+LiveBench 與 Frontier Code 仍有未解析名稱屬於 catalog 根本沒有的模型，例如 `kimi-k2.7-code`、`qwen3.8-max`、`muse-spark-1.2-xhigh`、`grok-4.3`、`gemini-3.5-flash-lite-high`、`gpt-5.2-codex`、`gpt-5.4-nano-xhigh`。
+
+- **先產出候選清單交使用者核對，核可後才寫入 `models.json`。** 不得自行決定哪些該進 catalog。
+- 新增條目的 `releaseDate` 從 Artificial Analysis payload 取，取不到就留 null（規格 §5.1 允許）。
+- Frontier Code 的 `Composer 2.5`、`SWE-1.6`、`SWE-1.7`、`Mistral 3.5 Medium` 等非前沿或小廠模型，**維持 null，不強行建立 canonical ID**。
+
+**完成條件**：候選清單已產出並經使用者核可；新增條目全部是精確比對，無模糊匹配。
+
+### C6-4 實作思考強度檔位階梯
+
+**建議代理：Gemini 3.7 Flash Medium**（規格 §4.4 已把規則寫死，照著實作即可）
+
+實作規格 §4.4：
+
+- 階梯 `non-reasoning < low < medium < high < xhigh < max`，加上不進階梯的 `default`。
+- `(Non-reasoning)` → `non-reasoning`；`(minimal)` → `low`。
+- 來源只給一個未命名配置 → `default`。
+- 移除舊的「未標就填 `max`」fallback，以及 `profile-policy.json` 的 `defaultEffort: "max"` 語義。
+
+**必須有測試**涵蓋：`(Non-reasoning)` 不會變成 `max`、`minimal` 併入 `low`、單一未命名配置得到 `default`、非法值（例如 Frontier Code 的 `"0.99"`）視為未標示。
+
+**完成條件**：全域搜尋不存在「未標 effort 就填最高檔」的邏輯；現行資料中 110 筆 `(Non-reasoning)` 全部歸到 `non-reasoning`。
+
+### C6-5 實作跨來源檔位推測與推測說明
+
+**建議代理：GPT-5.6 Luna Max**（跨來源狀態合併，錯了不會被測試抓到，需要較強的推理）
+
+實作規格 §4.5：
+
+- 某來源未標檔位時，取該模型在其他來源出現過的最高檔位。
+- **不得覆寫已依 §4.4 規則 2 歸檔的列。** `(Non-reasoning)` 不會因為別的來源標了 `max` 而被改成 `max`。
+- 產出**推測說明**，逐筆列出：模型、未標的來源、推測檔位、依據來源與依據列，寫進該來源的 validation report。
+- 已知會觸發推測的例子（供驗證）：`deepseek-v4-pro` 在 Frontier Code 未標，AA 與 LiveBench 為 `max`；`glm-5-2`、`kimi-k3` 同型態；`inkling` 在 Frontier Code 未標，AA 與 LiveBench 為 `xhigh`。
+
+**完成條件**：推測說明存在且可讀；有測試證明 `(Non-reasoning)` 不會被推測覆寫；有測試證明沒有任何其他來源標示時結果是 `default` 而非猜測值。
+
+### C6 整體完成條件
+
+- 重新產生 `data-v2/product/current.json`。
+- 回報：新 `versionId`、模型數、四來源齊全的模型數、以及**修正前後對照**（修正前：33 個模型，四來源齊全 8 個）。
+- 回報推測說明表，交使用者審核。
+- 基準驗證通過。
+
+**不要順手做的事**：不要調整 `display-set.json` 的內容（那是審核關卡 2）；不要改動維度 mapping；不要為了讓更多模型上榜而放寬任何規則。
 
 ---
 
