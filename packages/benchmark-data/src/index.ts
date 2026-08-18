@@ -483,12 +483,32 @@ const directEffort = (
     : { effort: nameEffort, basis: 'NAME_DERIVED' };
 };
 
+/**
+ * `non-reasoning` is never an inference result. It declares a mode rather than a
+ * degree of effort, so carrying it to another source would claim that source
+ * turned reasoning off — a much stronger assertion than picking a tier, and one
+ * the other source never made.
+ *
+ * Qwen3.6 27B showed why: Artificial Analysis lists both `(Reasoning)` and
+ * `(Non-reasoning)`, but the reasoning row names no tier and therefore resolves
+ * to `default`, which is not a tier. `non-reasoning` was then the only named
+ * tier left, so LiveBench's plain `qwen3.6-27b` row was filed as reasoning-off
+ * and the non-reasoning profile outscored the real reasoning one.
+ *
+ * See REFACTOR_SPEC_V2.md section 4.5.
+ */
+const INFERABLE_TIERS: ReadonlySet<EffortTier> = new Set(
+  EFFORT_TIERS.filter((tier) => tier !== 'non-reasoning'),
+);
+
 const higherEffortEvidence = (
   candidates: readonly EffortResolutionInput[],
 ): { candidate: EffortResolutionInput; effort: EffortTier } | null => {
   const direct = candidates.flatMap((candidate) => {
     const resolved = directEffort(candidate);
-    return resolved === null ? [] : [{ candidate, effort: resolved.effort }];
+    return resolved === null || !INFERABLE_TIERS.has(resolved.effort)
+      ? []
+      : [{ candidate, effort: resolved.effort }];
   });
   direct.sort(
     (left, right) =>

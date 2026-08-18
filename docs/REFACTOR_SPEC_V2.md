@@ -116,7 +116,11 @@ non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
 
 ### 4.5 跨來源檔位推測
 
-某來源未標檔位時，取該模型**在其他來源出現過的最高檔位**。
+某來源未標檔位時，取該模型**在其他來源出現過的最高具名檔位**。
+
+**`non-reasoning` 不得作為推測結果。** 推測只在 `low`／`medium`／`high`／`xhigh`／`max` 之間進行；若其他來源沒有任何具名檔位可依據，結果為 `default`。
+
+理由：`non-reasoning` 是**模式宣告**，不是強度高低。把它推測到另一個來源，等於替那個來源宣告「它關掉了推理」，這比推測檔位強得多。實例：Artificial Analysis 對 Qwen3.6 27B 同時有 `(Reasoning)` 與 `(Non-reasoning)`，但前者未標檔位而落在 `default`（`default` 不是檔位），於是 `non-reasoning` 成了唯一的具名檔位，LiveBench 的裸名列因此被判定為關閉推理，該 profile 的分數還反超了真正的推理 profile。
 
 依據：模型廠商送測時通常提供自家分數最高的配置；測試方若沒有掃過每個檔位，通常也只測最高的那一檔。
 

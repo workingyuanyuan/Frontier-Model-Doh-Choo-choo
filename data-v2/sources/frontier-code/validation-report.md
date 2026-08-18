@@ -55,7 +55,7 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| DeepSeek V4 Pro | `frontier-code:frontier-code-1-1:deepseek-v4-pro-none` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
+| DeepSeek V4 Pro | `frontier-code:frontier-code-1-1:deepseek-v4-pro-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |

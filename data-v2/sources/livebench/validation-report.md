@@ -55,22 +55,22 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-language:deepseek-v4-flash` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash-0731` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-language:deepseek-v4-flash-0731` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash-0731` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash-0731` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-flash-max |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-language:deepseek-v4-pro` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro-0813` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-deepseek-v4-pro-max |
+| deepseek-v4-flash | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash | `livebench-2026-06-25:livebench-language:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-language:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
+| deepseek-v4-pro | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro | `livebench-2026-06-25:livebench-language:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-pro-0424 |
 | glm-5.2 | `livebench-2026-06-25:livebench-instruction-following:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
@@ -91,10 +91,6 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
 | kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
 | kimi-k3 | `livebench-2026-06-25:livebench-reasoning:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
-| qwen3.6-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-6-27b` | — | `non-reasoning` | artificial-analysis | artificial-analysis:aa-lcr:qwen3-6-27b-non-reasoning |
-| qwen3.6-27b | `livebench-2026-06-25:livebench-language:qwen3-6-27b` | — | `non-reasoning` | artificial-analysis | artificial-analysis:aa-lcr:qwen3-6-27b-non-reasoning |
-| qwen3.6-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-6-27b` | — | `non-reasoning` | artificial-analysis | artificial-analysis:aa-lcr:qwen3-6-27b-non-reasoning |
-| qwen3.6-27b | `livebench-2026-06-25:livebench-reasoning:qwen3-6-27b` | — | `non-reasoning` | artificial-analysis | artificial-analysis:aa-lcr:qwen3-6-27b-non-reasoning |
 | qwen3.8-max | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-language:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-mathematics:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -124,6 +120,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `default` | — | — |
 | minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `default` | — | — |
 | minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `default` | — | — |
+| qwen3.6-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-6-27b` | — | `default` | — | — |
+| qwen3.6-27b | `livebench-2026-06-25:livebench-language:qwen3-6-27b` | — | `default` | — | — |
+| qwen3.6-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-6-27b` | — | `default` | — | — |
+| qwen3.6-27b | `livebench-2026-06-25:livebench-reasoning:qwen3-6-27b` | — | `default` | — | — |
 | qwen3.6-plus | `livebench-2026-06-25:livebench-instruction-following:qwen3-6-plus` | — | `default` | — | — |
 | qwen3.6-plus | `livebench-2026-06-25:livebench-language:qwen3-6-plus` | — | `default` | — | — |
 | qwen3.6-plus | `livebench-2026-06-25:livebench-mathematics:qwen3-6-plus` | — | `default` | — | — |

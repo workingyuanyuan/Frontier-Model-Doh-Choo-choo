@@ -16,6 +16,7 @@ import {
   buildFrontierSet,
   buildProductVersion,
   deterministicJson,
+  decideProductEffort,
   isModelQualified,
   isReleaseDateQualified,
   toProductEvidence,
@@ -532,5 +533,62 @@ describe('FrontierConfigSchema and model qualification', () => {
         'deprecated-model',
       );
     });
+  });
+});
+
+describe('decideProductEffort non-reasoning exclusion', () => {
+  const row = (
+    id: string,
+    sourceId: string,
+    rawName: string,
+    effort: string | null,
+  ) => ({
+    id,
+    sourceId,
+    model: { canonicalModelId: 'vendor-model', rawName },
+    profile: { effort },
+  });
+
+  it('never infers non-reasoning onto another source', () => {
+    // Qwen3.6 27B: AA lists (Reasoning) with no tier, which resolves to
+    // `default`, plus (Non-reasoning). Before this rule non-reasoning was the
+    // only named tier left, so LiveBench's plain row was filed as reasoning-off.
+    const all = [
+      row('aa:reasoning', 'artificial-analysis', 'Model (Reasoning)', null),
+      row(
+        'aa:non',
+        'artificial-analysis',
+        'Model (Non-reasoning)',
+        'non-reasoning',
+      ),
+      row('lb:bare', 'livebench', 'model', null),
+    ];
+    const decision = decideProductEffort(all[2]!, all);
+    expect(decision.effort).toBe('default');
+    expect(decision.basis).toBe('DEFAULT');
+  });
+
+  it('still infers a named tier across sources', () => {
+    const all = [
+      row('aa:max', 'artificial-analysis', 'Model (max)', 'max'),
+      row(
+        'aa:non',
+        'artificial-analysis',
+        'Model (Non-reasoning)',
+        'non-reasoning',
+      ),
+      row('fc:bare', 'frontier-code', 'Model', null),
+    ];
+    const decision = decideProductEffort(all[2]!, all);
+    expect(decision.effort).toBe('max');
+    expect(decision.basis).toBe('CROSS_SOURCE');
+  });
+
+  it('keeps a row the source already described as non-reasoning', () => {
+    const all = [
+      row('aa:max', 'artificial-analysis', 'Model (max)', 'max'),
+      row('lb:non', 'livebench', 'Model (Non-reasoning)', 'non-reasoning'),
+    ];
+    expect(decideProductEffort(all[1]!, all).effort).toBe('non-reasoning');
   });
 });
