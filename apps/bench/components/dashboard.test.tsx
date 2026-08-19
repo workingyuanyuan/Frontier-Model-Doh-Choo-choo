@@ -3,10 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { Dashboard } from './dashboard';
-import {
-  getProfileDisplayName,
-  getRepresentativeRows,
-} from '../lib/view-model';
+import { getRepresentativeRows } from '../lib/view-model';
 import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
@@ -14,10 +11,16 @@ const benchmarkDimensions = {
   frontiermath: 'math',
 } as const;
 
-const dashboard = () =>
+const displaySet = {
+  schemaVersion: 'display-set-v1' as const,
+  benchmarkIds: ['terminal-bench-2-1'],
+};
+
+const dashboard = (product = productFixture) =>
   createElement(Dashboard, {
-    product: productFixture,
+    product,
     benchmarkDimensions,
+    displaySet,
   });
 
 describe('Dashboard Redesign', () => {
@@ -87,13 +90,13 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
 
     expect(html).toContain(
-      'data-scope-metric="frontier"><dt>Frontier models</dt><dd>2</dd>',
+      'data-scope-metric="frontier"><dt>Frontier models</dt><dd>1</dd>',
     );
     expect(html).toContain(
-      'data-scope-metric="ranked"><dt>Ranked models</dt><dd>2</dd>',
+      'data-scope-metric="ranked"><dt>Ranked models</dt><dd>1</dd>',
     );
     expect(html).toContain(
-      'data-scope-metric="profiles"><dt>Scored Profiles</dt><dd>3</dd>',
+      'data-scope-metric="profiles"><dt>Scored Profiles</dt><dd>2</dd>',
     );
     expect(html).toContain(
       'data-scope-metric="pending"><dt>Awaiting direct evidence</dt><dd>0</dd>',
@@ -113,7 +116,6 @@ describe('Dashboard Redesign', () => {
       'LNG',
       'CTX',
       'IF',
-      'COV',
     ];
     headers.slice(0, -1).forEach((header, index) => {
       expect(html.indexOf(`Sort by ${header}`)).toBeLessThan(
@@ -122,10 +124,9 @@ describe('Dashboard Redesign', () => {
     });
   });
 
-  it('provides an Add model selection contract up to 3 total series with abbreviated dimension bars and src counts', () => {
+  it('keeps the radar series contract and abbreviated dimension bars', () => {
     const html = renderToStaticMarkup(dashboard());
     expect(html).toContain('data-max-series="3"');
-    expect(html).toContain('Add model');
 
     const abbreviations = [
       'AGT',
@@ -171,7 +172,7 @@ describe('Dashboard Redesign', () => {
     const leaderboardSorts = html.match(/data-leaderboard-sort/g) ?? [];
     const evidenceSorts = html.match(/data-evidence-sort/g) ?? [];
 
-    expect(leaderboardSorts.length).toBe(13);
+    expect(leaderboardSorts.length).toBe(11);
     expect(evidenceSorts.length).toBe(6);
     expect(html).toContain('aria-sort="descending"');
     expect(html).toContain('Sort by Model');
@@ -187,7 +188,7 @@ describe('Dashboard Redesign', () => {
   it('exposes alternative profiles without extra ranked rows', () => {
     const html = renderToStaticMarkup(dashboard());
     const rankedRows = html.match(/data-ranked-row/g) ?? [];
-    expect(rankedRows.length).toBe(2);
+    expect(rankedRows.length).toBe(1);
   });
 
   it('does not contain No Harness or unspecified effort text', () => {
@@ -202,7 +203,7 @@ describe('Dashboard Redesign', () => {
     expect(html).not.toContain('role="dialog"');
 
     const rankedRows = html.match(/data-ranked-row/g) ?? [];
-    expect(rankedRows.length).toBe(2);
+    expect(rankedRows.length).toBe(1);
   });
 
   it('renders profile select inside the Model cell for multi-profile models', () => {
@@ -210,6 +211,30 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('profile-table-select');
     expect(html).toContain('name="profile-');
     expect(html).toContain('GPT-5.6 Sol');
+  });
+
+  it('filters an incomplete alternative profile and keeps N/A out of main markup', () => {
+    const adversarialProduct = {
+      ...productFixture,
+      leaderboard: productFixture.leaderboard.map((row) =>
+        row.profileId === 'openai-gpt-5-6-sol-high'
+          ? {
+              ...row,
+              dimensions: row.dimensions.map((dimension, index) =>
+                index === 7
+                  ? { ...dimension, score: null, componentCount: 0 }
+                  : dimension,
+              ),
+            }
+          : row,
+      ),
+    };
+    const html = renderToStaticMarkup(dashboard(adversarialProduct));
+
+    expect(html).not.toContain('GPT-5.6 Sol · high');
+    expect(html).not.toContain('value="openai-gpt-5-6-sol-high"');
+    const mainMarkup = html.slice(0, html.indexOf('evidence-panel'));
+    expect(mainMarkup).not.toContain('N/A');
   });
 
   it('sources initial dashboard selection and radar comparison choices from getRepresentativeRows', () => {
@@ -227,14 +252,9 @@ describe('Dashboard Redesign', () => {
         .filter((r) => r.dimensions.every((d) => d.score !== null))
         .map((r) => r.modelId),
     );
-    const otherVisibleReps = reps.filter(
-      (r) => r.modelId !== firstRep.modelId && visibleModelIds.has(r.modelId),
+    expect(visibleModelIds).toEqual(
+      new Set(['openai-gpt-5-6-sol', 'google-gemini-3-1-pro']),
     );
-    otherVisibleReps.forEach((r) => {
-      const profile = productFixture.profiles.find((p) => p.id === r.profileId);
-      if (profile) {
-        expect(html).toContain(getProfileDisplayName(profile));
-      }
-    });
+    expect(html).not.toContain('Add model');
   });
 });

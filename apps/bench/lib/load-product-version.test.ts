@@ -47,6 +47,13 @@ describe('loadProductVersion', () => {
         ],
       }),
     );
+    writeFileSync(
+      join(mappingRoot, 'display-set.json'),
+      JSON.stringify({
+        schemaVersion: 'display-set-v1',
+        benchmarkIds: ['terminal-bench-2-1'],
+      }),
+    );
     mkdirSync(productRoot, { recursive: true });
     writeFileSync(
       join(productRoot, 'current.json'),
@@ -59,6 +66,10 @@ describe('loadProductVersion', () => {
     expect(loaded.product).toEqual(productFixture);
     expect(loaded.benchmarkDimensions).toEqual({
       'terminal-bench-2-1': 'coding',
+    });
+    expect(loaded.displaySet).toEqual({
+      schemaVersion: 'display-set-v1',
+      benchmarkIds: ['terminal-bench-2-1'],
     });
   });
 
@@ -77,6 +88,48 @@ describe('loadProductVersion', () => {
 
     expect(loaded.product.versionId).toBe(productFixture.versionId);
     expect(loaded.benchmarkDimensions).toEqual({});
+    expect(loaded.displaySet).toBeNull();
+  });
+
+  it('does not silently disable the complete-matrix gate when display-set is missing', () => {
+    const root = mkdtempSync(join(tmpdir(), 'llm-bench-missing-display-set-'));
+    temporaryRoots.push(root);
+    const productRoot = join(root, 'data-v2', 'product');
+    const mappingRoot = join(root, 'data-v2', 'mappings');
+    mkdirSync(mappingRoot, { recursive: true });
+    writeFileSync(
+      join(mappingRoot, 'benchmarks.json'),
+      JSON.stringify({
+        schemaVersion: 'benchmark-dimensions-v1',
+        dimensions: [
+          'reasoning',
+          'math',
+          'knowledge',
+          'language',
+          'instruction',
+          'coding',
+          'agentic',
+          'context',
+        ],
+        benchmarks: [
+          {
+            id: 'terminal-bench-2-1',
+            primaryDimension: 'coding',
+            secondaryDimensions: ['agentic'],
+          },
+        ],
+      }),
+    );
+    mkdirSync(productRoot, { recursive: true });
+    writeFileSync(
+      join(productRoot, 'current.json'),
+      JSON.stringify(productFixture),
+    );
+    process.chdir(root);
+
+    expect(() => loadProductVersion()).toThrow(
+      'display-set mapping does not exist',
+    );
   });
 
   it('rejects current content whose bytes no longer match its version hash', () => {

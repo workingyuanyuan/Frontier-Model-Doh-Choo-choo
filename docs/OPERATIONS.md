@@ -60,7 +60,7 @@ pnpm data:v2:build-current
 1. 驗證所有 manifest、Evidence、Candidate、CostRecord 與 mapping schema。
 2. 套用 canonical identity、effort-only Profile 與來源衝突規則。
 3. 建立綜合榜 Top-20 聯集與人工新品集合。
-4. 計算八維、Coverage、Estimated Overall 與 cost point。
+4. 計算八維、Overall 與 cost point；主畫面另依 display set 驗證完整矩陣。
 5. 產生 canonical deterministic JSON 及內容 `versionId`。
 6. 驗證內容 hash 後寫入 `data-v2/product/current.json`。
 
@@ -92,13 +92,13 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 - Harness、tools、attempt、thinking、context 沒有拆成 Product Profile。
 - Included Benchmark 皆有主要維度映射；Excluded 不計分。
 - 缺值不是零，Composite index 未重複投入八維。
-- Representative Profile、Coverage、Benchmark result count 與 Overall 規則正確。
+- Representative Profile 取最高 Overall，且 display set 的每個 benchmark 都有 INCLUDED、非 null 分數。
 
 ### UI
 
-- 預設只顯示 8/8，Developer mode 才顯示 partial scored models。
-- Profile selector 會同步更新列分數、Coverage、雷達與 Evidence。
-- Leaderboard／Evidence 排序、N/A、Estimated、Included／Excluded 正確。
+- 主畫面八個維度不出現 N/A；Developer mode 只列出缺格模型，不顯示聚合分數。
+- Profile selector 只提供仍通過完整矩陣與 no-N/A 門檻的 Profile，並同步更新雷達與 Evidence。
+- Leaderboard／Evidence 排序與 Included／Excluded 出處正確。
 - 桌面、行動、鍵盤與無障礙檢查通過。
 
 只有以下問題交給人工：公開證據互相衝突且無法由版本或配置裁決；來源未公開必要資訊而無法不靠猜測判定；以及是否接受已揭露的殘餘產品風險。

@@ -7,7 +7,10 @@ import {
   getProfileDisplayName,
   getProfileIdentity,
   getProfilesForModel,
+  getDeveloperModelRows,
+  getMissingDisplaySetBenchmarks,
   getRepresentativeRows,
+  isMainEligibleRow,
   resolveActiveProfile,
   splitCostSeries,
   buildWeightedCostCurve,
@@ -18,15 +21,19 @@ import { productFixture } from '../test/fixture';
 
 type FixtureLeaderboardRow = (typeof productFixture.leaderboard)[number];
 
+const displaySet = {
+  benchmarkIds: ['terminal-bench-2-1', 'frontiermath'],
+} as const;
+
 const representativeCandidate = ({
   profileId,
-  coverage,
+  nonNullDimensions,
   resultCount,
   overallScore,
   rank,
 }: {
   profileId: string;
-  coverage: number;
+  nonNullDimensions: number;
   resultCount: number;
   overallScore: number | null;
   rank: number;
@@ -35,12 +42,11 @@ const representativeCandidate = ({
   profileId,
   rank,
   overallScore,
-  status: 'ESTIMATED',
   dimensions: productFixture.leaderboard[0]!.dimensions.map(
     ({ dimension }, index) => ({
       dimension,
-      score: index < coverage ? 50 + index : null,
-      componentCount: index < coverage ? 1 : 0,
+      score: index < nonNullDimensions ? 50 + index : null,
+      componentCount: index < nonNullDimensions ? 1 : 0,
     }),
   ),
   evidenceResultIds: Array.from(
@@ -60,27 +66,27 @@ describe('leaderboard view model', () => {
 
     expect(rows.map(({ profileId }) => profileId)).toEqual([
       'openai-gpt-5-6-sol-max',
-      'google-gemini-3-1-pro-high',
       'anthropic-claude-fable-5-standard',
+      'google-gemini-3-1-pro-high',
     ]);
     expect(rows.map(({ rank }) => rank)).toEqual([1, 2, 3]);
   });
 
-  it('orders the leaderboard by coverage, then Overall Score', () => {
-    const moreComplete = {
+  it('orders the leaderboard by Overall Score', () => {
+    const lowerScore = {
       ...representativeCandidate({
-        profileId: 'model-complete',
-        coverage: 8,
+        profileId: 'model-lower-score',
+        nonNullDimensions: 8,
         resultCount: 8,
         overallScore: 40,
         rank: 3,
       }),
-      modelId: 'model-complete',
+      modelId: 'model-lower-score',
     };
     const higherScore = {
       ...representativeCandidate({
         profileId: 'model-higher-score',
-        coverage: 7,
+        nonNullDimensions: 7,
         resultCount: 7,
         overallScore: 99,
         rank: 1,
@@ -91,45 +97,45 @@ describe('leaderboard view model', () => {
     expect(
       getRepresentativeRows({
         ...productFixture,
-        leaderboard: [higherScore, moreComplete],
+        leaderboard: [higherScore, lowerScore],
       }).map(({ profileId }) => profileId),
-    ).toEqual(['model-complete', 'model-higher-score']);
+    ).toEqual(['model-higher-score', 'model-lower-score']);
   });
 
-  it('prefers the profile with higher measured overall score regardless of coverage or result count', () => {
+  it('prefers the profile with higher measured overall score regardless of completeness or result count', () => {
     expect(
       selectRepresentativeProfileId([
         representativeCandidate({
-          profileId: 'test-model-high-coverage-low-score',
-          coverage: 8,
+          profileId: 'test-model-more-complete-low-score',
+          nonNullDimensions: 8,
           resultCount: 20,
           overallScore: 50,
           rank: 2,
         }),
         representativeCandidate({
-          profileId: 'test-model-low-coverage-high-score',
-          coverage: 4,
+          profileId: 'test-model-less-complete-high-score',
+          nonNullDimensions: 4,
           resultCount: 4,
           overallScore: 99,
           rank: 1,
         }),
       ]),
-    ).toBe('test-model-low-coverage-high-score');
+    ).toBe('test-model-less-complete-high-score');
   });
 
-  it('prefers a measured overall score over a null overall score regardless of coverage', () => {
+  it('prefers a measured overall score over a null overall score regardless of completeness', () => {
     expect(
       selectRepresentativeProfileId([
         representativeCandidate({
           profileId: 'test-model-null-score',
-          coverage: 8,
+          nonNullDimensions: 8,
           resultCount: 20,
           overallScore: null,
           rank: 2,
         }),
         representativeCandidate({
           profileId: 'test-model-measured-score',
-          coverage: 2,
+          nonNullDimensions: 2,
           resultCount: 2,
           overallScore: 10,
           rank: 1,
@@ -143,14 +149,14 @@ describe('leaderboard view model', () => {
       selectRepresentativeProfileId([
         representativeCandidate({
           profileId: 'test-model-z',
-          coverage: 7,
+          nonNullDimensions: 7,
           resultCount: 8,
           overallScore: 60,
           rank: 1,
         }),
         representativeCandidate({
           profileId: 'test-model-a',
-          coverage: 3,
+          nonNullDimensions: 3,
           resultCount: 3,
           overallScore: 60,
           rank: 2,
@@ -164,14 +170,14 @@ describe('leaderboard view model', () => {
       selectRepresentativeProfileId([
         representativeCandidate({
           profileId: 'test-model-z',
-          coverage: 8,
+          nonNullDimensions: 8,
           resultCount: 10,
           overallScore: null,
           rank: 1,
         }),
         representativeCandidate({
           profileId: 'test-model-a',
-          coverage: 2,
+          nonNullDimensions: 2,
           resultCount: 2,
           overallScore: null,
           rank: 2,
@@ -218,6 +224,48 @@ describe('leaderboard view model', () => {
       'terminal:high',
       'aggregate:max',
     ]);
+  });
+
+  it('requires every explicit display-set benchmark and a complete rendered row', () => {
+    const complete = productFixture.leaderboard[0]!;
+    const missingCell = productFixture.leaderboard[2]!;
+    const incompleteDimension = productFixture.leaderboard[1]!;
+
+    expect(
+      getMissingDisplaySetBenchmarks(
+        productFixture,
+        complete.profileId,
+        displaySet,
+      ),
+    ).toEqual([]);
+    expect(
+      getMissingDisplaySetBenchmarks(
+        productFixture,
+        missingCell.profileId,
+        displaySet,
+      ),
+    ).toEqual(['frontiermath']);
+    expect(isMainEligibleRow(productFixture, complete, displaySet)).toBe(true);
+    expect(isMainEligibleRow(productFixture, missingCell, displaySet)).toBe(
+      false,
+    );
+    expect(
+      isMainEligibleRow(productFixture, incompleteDimension, displaySet),
+    ).toBe(false);
+  });
+
+  it('routes an excluded model to diagnostics without aggregate values', () => {
+    const rows = getDeveloperModelRows(productFixture, displaySet);
+    const excluded = rows.find(
+      ({ modelId }) => modelId === 'anthropic-claude-fable-5',
+    );
+
+    expect(excluded).toMatchObject({
+      modelId: 'anthropic-claude-fable-5',
+      missingBenchmarkIds: ['terminal-bench-2-1', 'frontiermath'],
+    });
+    expect(excluded).not.toHaveProperty('overallScore');
+    expect(excluded).not.toHaveProperty('dimensions');
   });
 
   it('never resolves a stale profile from another base model', () => {

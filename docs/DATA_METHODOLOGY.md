@@ -6,12 +6,12 @@
 
 ## 來源角色
 
-| 角色          | 定義                         | 使用方式                             |
-| ------------- | ---------------------------- | ------------------------------------ |
-| `ORGANIZER`   | Benchmark 主辦方或官方排行榜 | 可直接採用其執行或正式收錄的結果     |
-| `INDEPENDENT` | 自行執行測試的獨立評測者     | 保留其版本、模型配置與執行環境       |
-| `VENDOR`      | 受測模型廠商自報             | 新模型上市時可先顯示為 Estimated     |
-| `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入八維計分 |
+| 角色          | 定義                         | 使用方式                                 |
+| ------------- | ---------------------------- | ---------------------------------------- |
+| `ORGANIZER`   | Benchmark 主辦方或官方排行榜 | 可直接採用其執行或正式收錄的結果         |
+| `INDEPENDENT` | 自行執行測試的獨立評測者     | 保留其版本、模型配置與執行環境           |
+| `VENDOR`      | 受測模型廠商自報             | 保留來源角色與出處，仍須通過顯示清單門檻 |
+| `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入八維計分     |
 
 同一 Benchmark、版本、模型、effort 與 metric 的可比較結果，先依既有來源角色優先級，再依 `FULL` 優先於 `PARTIAL_SOURCE`、較新快照優先。Harness 歸併造成的同配置重複結果取較高可比較分數，但每筆 Evidence 最多只貢獻一次。
 
@@ -66,7 +66,7 @@ Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，�
 
 - `FULL`：官方結構化母體、可見列與分頁已對齊。
 - `PARTIAL_SOURCE`：候選列可驗證，但來源快照有界或未完整取得。
-- `PARTIAL_SOURCE` 不設期限，可參與 Estimated 計分。
+- `PARTIAL_SOURCE` 不設期限；只要該列本身是 INCLUDED 且有非 null normalized score，仍可作為來源證據。
 - 來源未測、canonical identity 未解析或缺乏該維 Benchmark 都保留為 N/A；不填零、不模糊猜測。
 - Composite index、無核准正規化或來源衝突列可保存為 `EXCLUDED`，但不投入分數。
 
@@ -110,7 +110,7 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
 
 建置流程驗證所有來源 schema、Evidence 引用、Included mapping 與 identity 後，產生排序固定的 canonical JSON。移除 `versionId` 欄位後計算 SHA-256，形成 `ProductVersion.versionId`。
 
-`data-v2/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v2` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts-v2` 的內容定址 bytes。
+`data-v2/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v3` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts-v2` 的內容定址 bytes。
 
 ```text
 固定來源 bytes + mapping + generatedAt
@@ -122,4 +122,4 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
 
 ## Dashboard 資料邊界
 
-預設產品視圖只顯示 Representative Profile Coverage 為 8/8 的模型。Developer mode switch 開啟後，才納入已有至少一維分數但未達 8/8 的模型；沒有任何可計分結果的 Frontier model 仍不成為排名列。這是呈現篩選，不改變 ProductVersion、分數或 Evidence。
+產品視圖由 `data-v2/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外八個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。

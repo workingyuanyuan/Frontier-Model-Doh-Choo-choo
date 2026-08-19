@@ -220,14 +220,12 @@ summary:focus-visible {
   white-space: nowrap;
 }
 
-.status-estimated,
 .acquisition-partial_source {
   background: var(--highlight-soft);
   border-color: #e7bd76;
   color: #704005;
 }
 
-.status-supported,
 .inclusion-included,
 .acquisition-full {
   background: var(--accent-soft);
@@ -480,11 +478,6 @@ tbody tr {
   font-variant-numeric: tabular-nums;
 }
 
-.coverage {
-  color: var(--ink-soft);
-  font-size: 0.8125rem;
-}
-
 .empty-state {
   align-items: center;
   color: var(--ink-soft);
@@ -495,6 +488,28 @@ tbody tr {
   min-height: 7rem;
   padding: 1.5rem;
   text-align: center;
+}
+
+.developer-model-list {
+  display: grid;
+  gap: 0.625rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.developer-model-list li {
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.75rem 1rem;
+}
+
+.developer-model-list li span {
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
 }
 
 .empty-state strong {
@@ -1003,20 +1018,6 @@ details[open] > .evidence-group-summary::before {
     grid-column: 5;
     grid-row: 1;
     padding-left: 0.75rem;
-  }
-
-  .leaderboard-table td[data-label='COV'] {
-    grid-column: 2 / 4;
-    grid-row: 2;
-    margin-top: 0.5rem;
-  }
-
-  .leaderboard-table td[data-label='Status'] {
-    grid-column: 4 / 6;
-    grid-row: 2;
-    margin-top: 0.5rem;
-    padding-left: 0.75rem;
-    text-align: right;
   }
 
   .leaderboard-table .dimension-cell {

@@ -1,7 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
-test('defaults to complete models and reveals partial models explicitly', async ({
+test('defaults to complete matrix models and exposes excluded cells explicitly', async ({
   page,
 }) => {
   await page.goto('/');
@@ -9,9 +9,9 @@ test('defaults to complete models and reveals partial models explicitly', async 
   const rows = page.locator('[data-ranked-row]');
   const defaultCount = await rows.count();
   expect(defaultCount).toBeGreaterThan(0);
-  await expect(rows.locator('td:nth-last-child(2)')).toHaveText(
-    Array(defaultCount).fill('8/8'),
-  );
+  expect(
+    (await rows.allTextContents()).every((text) => !text.includes('N/A')),
+  ).toBe(true);
 
   const developerMode = page.getByRole('switch', {
     name: 'Developer mode',
@@ -19,10 +19,14 @@ test('defaults to complete models and reveals partial models explicitly', async 
   await expect(developerMode).toHaveAttribute('aria-checked', 'false');
   await developerMode.click();
   await expect(developerMode).toHaveAttribute('aria-checked', 'true');
-  expect(await rows.count()).toBeGreaterThan(defaultCount);
-  await expect(
-    rows.locator('td:nth-last-child(2)').filter({ hasNotText: '8/8' }).first(),
-  ).toBeVisible();
+  expect(await rows.count()).toBe(defaultCount);
+  await expect(page.locator('[data-developer-models]')).toBeVisible();
+  expect(await page.locator('[data-developer-model]').count()).toBeGreaterThan(
+    0,
+  );
+  await expect(page.locator('[data-developer-models]')).not.toContainText(
+    'Overall',
+  );
 });
 
 test('switching effort updates the selected model scores', async ({ page }) => {

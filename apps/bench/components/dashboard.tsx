@@ -1,26 +1,34 @@
 'use client';
 
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import type {
+  DimensionId,
+  DisplaySet,
+  ProductVersion,
+} from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
+import { DeveloperModelList } from './developer-model-list';
 import { EvidenceDetail } from './evidence-detail';
 import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
 import {
   getDataScopeSummary,
+  getDeveloperModelRows,
   getEvidenceForProfile,
-  getCoverageCount,
   getRepresentativeRows,
+  isMainEligibleRow,
   resolveActiveProfile,
 } from '../lib/view-model';
 
 export function Dashboard({
   benchmarkDimensions,
+  displaySet,
   product,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
+  displaySet: DisplaySet | null;
   product: ProductVersion;
 }) {
   const [developerMode, setDeveloperMode] = useState(false);
@@ -28,23 +36,36 @@ export function Dashboard({
     () => getRepresentativeRows(product),
     [product],
   );
+  const developerRows = useMemo(
+    () => getDeveloperModelRows(product, displaySet),
+    [displaySet, product],
+  );
+  const mainProfileIds = useMemo(
+    () =>
+      new Set(
+        product.leaderboard
+          .filter((row) => isMainEligibleRow(product, row, displaySet))
+          .map(({ profileId }) => profileId),
+      ),
+    [displaySet, product],
+  );
   const visibleModelIds = useMemo(
     () =>
       new Set(
-        allRepresentatives
-          .filter((row) => developerMode || getCoverageCount(row) === 8)
+        product.leaderboard
+          .filter((row) => mainProfileIds.has(row.profileId))
           .map((row) => row.modelId),
       ),
-    [allRepresentatives, developerMode],
+    [mainProfileIds, product.leaderboard],
   );
   const visibleProfileIds = useMemo(
     () =>
       new Set(
         product.profiles
-          .filter(({ modelId }) => visibleModelIds.has(modelId))
+          .filter(({ id }) => mainProfileIds.has(id))
           .map(({ id }) => id),
       ),
-    [product.profiles, visibleModelIds],
+    [mainProfileIds, product.profiles],
   );
   const visibleProduct = useMemo<ProductVersion>(
     () => ({
@@ -52,17 +73,20 @@ export function Dashboard({
       frontier: product.frontier.filter(({ modelId }) =>
         visibleModelIds.has(modelId),
       ),
-      profiles: product.profiles.filter(({ modelId }) =>
-        visibleModelIds.has(modelId),
-      ),
-      leaderboard: product.leaderboard.filter(({ modelId }) =>
-        visibleModelIds.has(modelId),
+      profiles: product.profiles.filter(({ id }) => mainProfileIds.has(id)),
+      leaderboard: product.leaderboard.filter(({ profileId }) =>
+        mainProfileIds.has(profileId),
       ),
       costs: product.costs.filter(({ profileId }) =>
         visibleProfileIds.has(profileId),
       ),
+      evidence: product.evidence.filter(
+        ({ model }) =>
+          model.canonicalModelId !== null &&
+          visibleModelIds.has(model.canonicalModelId),
+      ),
     }),
-    [product, visibleModelIds, visibleProfileIds],
+    [mainProfileIds, product, visibleModelIds, visibleProfileIds],
   );
   const representatives = useMemo(
     () => getRepresentativeRows(visibleProduct),
@@ -172,7 +196,7 @@ export function Dashboard({
         <section className="panel scope-panel" aria-labelledby="scope-title">
           <div>
             <p className="eyebrow">Dataset scope</p>
-            <h2 id="scope-title">Coverage at a glance.</h2>
+            <h2 id="scope-title">Dataset at a glance.</h2>
           </div>
           <dl className="scope-metrics">
             <div data-scope-metric="frontier">
@@ -204,6 +228,8 @@ export function Dashboard({
           selectedModelId={selectedModelId}
           onSelect={selectModel}
         />
+
+        {developerMode ? <DeveloperModelList rows={developerRows} /> : null}
 
         {selectedProfile ? (
           <RadarChart

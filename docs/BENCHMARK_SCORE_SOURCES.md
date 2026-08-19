@@ -10,7 +10,7 @@
 ## 採用與覆蓋規則
 
 1. 同一 Benchmark、版本、資料切分、指標、模型 Profile 與評測配置完全一致時，來源優先序為：**主辦方實測 > 獨立評測 > 廠商自報**。
-2. 模型初上市可先顯示廠商自報分數；即使覆蓋達標，只要該模型仍僅有廠商自報資料，整體狀態仍標 **Estimated**。
+2. 模型初上市可先保留廠商自報分數與出處；是否進入產品主畫面仍由固定 display set 完整矩陣決定。
 3. 後續出現相同 Product Profile 與相同 Benchmark 的主辦方或獨立實測時，通常依來源優先級取代廠商自報值。Product Profile 只按 reasoning effort 分離；不同 Harness／No Harness 的同 Benchmark 候選合併後取可比較分數較高者。未標 effort 只可從其他來源同一 canonical model 的明示／名稱可判定 effort 取最高檔；沒有依據時使用階梯外的 `default`，不建立 unspecified，也不把缺值當 `max`。thinking、tools、harness、context、量化或 sampling 仍保存於原始來源配置，不得在 provenance 中遺失。
 4. 同一頁的競品欄不能自動視為該廠商自報；若註明取自 Artificial Analysis、Scale、DataCurve 或其他執行者，必須回溯並歸類到實際執行者。
 5. 網站只聚合或轉貼結果時，不是終端證據。必須保存原始 URL、Benchmark 版本、模型 Profile、指標、分數、執行者及來源日期。
@@ -135,7 +135,7 @@
 3. 超過 90 日轉 WATCH；超過 180 日或官網明示停止更新，移出活躍採集並標 FROZEN。
 4. 發現新版 Benchmark 時建立新 version，不覆寫舊版；確認 task set、metric、grader、harness 或分母是否改變。
 5. 聚合站的新數字必須追到上游；無法確認執行者、版本、Profile 或配置時不匯入。
-6. 廠商自報模型一旦出現完全相同配置的主辦方／獨立成績，執行來源取代並重新計算 Estimated 狀態。
+6. 廠商自報模型一旦出現完全相同配置的主辦方／獨立成績，依來源優先與衝突規則選取有效結果；產品不維護額外的估計狀態欄位。
 7. 每次更新本文件頂端的完整核驗日、下次核驗日，以及受影響列的日期與狀態。
 
 ## 已知待辦

@@ -13,7 +13,7 @@ const benchmarkDimensions = {
 } as const;
 
 describe('sortable product tables', () => {
-  it('sorts every leaderboard value deterministically and keeps N/A last', () => {
+  it('sorts every leaderboard value deterministically', () => {
     const byModel = sortLeaderboardRows(
       productFixture,
       productFixture.leaderboard,
@@ -56,21 +56,6 @@ describe('sortable product tables', () => {
     expect(byReasoning[0]?.profileId).toBe('openai-gpt-5-6-sol-max');
     expect(contextAscending.at(-1)?.modelId).toBe('anthropic-claude-fable-5');
     expect(contextDescending.at(-1)?.modelId).toBe('anthropic-claude-fable-5');
-  });
-
-  it('sorts coverage descending with Overall Score as its deterministic tie-break', () => {
-    const sorted = sortLeaderboardRows(
-      productFixture,
-      productFixture.leaderboard,
-      { key: 'coverage', direction: 'descending' },
-    );
-
-    expect(sorted.map(({ profileId }) => profileId)).toEqual([
-      'openai-gpt-5-6-sol-max',
-      'openai-gpt-5-6-sol-high',
-      'google-gemini-3-1-pro-high',
-      'anthropic-claude-fable-5-standard',
-    ]);
   });
 
   it('sorts evidence by each visible column value', () => {

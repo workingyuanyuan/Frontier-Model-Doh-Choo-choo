@@ -2,7 +2,7 @@
 
 LLM Bench 是一個以可追溯靜態資料為核心的前沿模型 Dashboard。產品使用單一目前的 `ProductVersion` 提供三個主要視圖：
 
-- Leaderboard：綜合分數、八維能力與 Coverage。
+- Leaderboard：完整顯示清單模型的綜合分數與八維能力。
 - Quality vs. Cost：跨來源正規化成本與效能曲線。
 - Eight Dimensions：八維雷達圖、Category score 與分數證據。
 
@@ -69,10 +69,11 @@ pnpm --filter @llm-bench/bench build
 
 ## Dashboard 顯示規則
 
-- 預設只顯示 Representative Profile 具有完整八維分數（8/8）的模型。
-- 右上角無文字 switch 是 Developer mode；開啟後才顯示已有分數但 Coverage 未達 8/8 的模型。
-- 沒有任何可計分結果的模型不因 Developer mode 而成為排名列。
-- Representative Profile 先比 Coverage，再比有效 Benchmark Results 數、Overall Score，最後以 `profileId` 字典序決勝。
+- 主畫面只顯示在 `data-v2/mappings/display-set.json` 每個 benchmark 都有
+  INCLUDED、非 null normalized score，且八個維度都可渲染的代表 Profile。
+- 右上角無文字 switch 是 Developer mode；開啟後顯示被完整矩陣門檻排除的模型及其缺少的 benchmark 格子。
+- Developer mode 不計算或顯示被排除模型的 Overall／維度聚合值。
+- Representative Profile 取該模型測得 Overall Score 最高者，分數相同時以 `profileId` 字典序決勝；主畫面只保留通過顯示清單的 Profile，避免切換 effort 重新引入缺格資料。
 - Profile selector 只區分 reasoning effort；Harness、tools、attempt、thinking 與 context 設定不建立 Product Profile。
 - Product effort 階梯為 `non-reasoning < low < medium < high < xHigh < max`；無其他來源依據的未標列使用階梯外的 `default`，不得當成 `max`。
 

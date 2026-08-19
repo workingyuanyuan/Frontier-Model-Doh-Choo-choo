@@ -5,15 +5,10 @@ import type {
 } from '@llm-bench/benchmark-data';
 
 import { UI_DIMENSION_IDS } from './ui-contract';
-import {
-  compareDefaultLeaderboardRows,
-  getCoverageCount,
-  type LeaderboardRow,
-} from './view-model';
+import { type LeaderboardRow } from './view-model';
 
 export type SortDirection = 'ascending' | 'descending';
-export type LeaderboardSortKey =
-  'rank' | 'model' | 'overall' | DimensionId | 'coverage' | 'status';
+export type LeaderboardSortKey = 'rank' | 'model' | 'overall' | DimensionId;
 export type EvidenceSortKey =
   'benchmark' | 'profile' | 'score' | 'source' | 'acquisition' | 'decision';
 
@@ -62,16 +57,6 @@ export const sortLeaderboardRows = (
         (x, y) => x - y,
         sign,
       );
-    } else if (sort.key === 'coverage') {
-      result =
-        sort.direction === 'descending'
-          ? compareDefaultLeaderboardRows(a, b)
-          : getCoverageCount(a) - getCoverageCount(b) ||
-            (a.overallScore ?? Number.POSITIVE_INFINITY) -
-              (b.overallScore ?? Number.POSITIVE_INFINITY) ||
-            a.profileId.localeCompare(b.profileId);
-    } else if (sort.key === 'status') {
-      result = compareText(a.status, b.status) * sign;
     } else {
       const dimension = a.dimensions.find(
         ({ dimension }) => dimension === sort.key,

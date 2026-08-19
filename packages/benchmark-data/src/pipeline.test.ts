@@ -251,7 +251,7 @@ describe('scoreProfiles', () => {
       ]),
     );
 
-    expect(scored[0]?.overallScore).toBe(86);
+    expect(scored[0]?.overallScore).toBeNull();
     expect(scored[0]?.dimensions).toEqual(
       expect.arrayContaining([
         { dimension: 'math', score: 90, componentCount: 1 },
@@ -368,13 +368,9 @@ describe('buildProduct', () => {
     });
 
     expect(product.frontier).toHaveLength(1);
-    expect(product.leaderboard[0]?.overallScore).toBe(91);
+    expect(product.leaderboard[0]?.overallScore).toBeNull();
     expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
-    expect(product.costs[0]).toMatchObject({
-      cost: 11.25,
-      performance: 91,
-      assumptionId: 'api-blend-3-to-1',
-    });
+    expect(product.costs).toEqual([]);
   });
 
   it('rejects a scored profile that is absent from the model catalog', () => {
@@ -678,7 +674,7 @@ describe('deriveModelProfiles', () => {
     ]);
     expect(product.leaderboard).toHaveLength(1);
     expect(product.leaderboard[0]).toMatchObject({
-      overallScore: 95,
+      overallScore: null,
       dimensions: expect.arrayContaining([
         expect.objectContaining({
           dimension: 'coding',

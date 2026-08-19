@@ -36,7 +36,7 @@ packages/benchmark-data
 - 英文、單一淺色主題、單頁 Dashboard。
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
 - Leaderboard、Quality vs. Cost、Eight Dimensions 與 Included／Excluded Evidence。
-- 預設顯示 8/8 模型；Developer mode switch 才顯示 1–7/8 的已計分模型。
+- 主畫面只顯示通過 `display-set.json` 完整矩陣且八個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
 - 靜態／standalone 建置不讀取 `data-v2/sources` 或 `artifacts-v2`。
 
 ### `packages/benchmark-data`

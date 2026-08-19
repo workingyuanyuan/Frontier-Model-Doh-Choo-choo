@@ -720,7 +720,7 @@ export const OrderedDimensionScoresSchema = z
   });
 
 export const ProductVersionSchema = z.object({
-  schemaVersion: z.literal('product-version-v2'),
+  schemaVersion: z.literal('product-version-v3'),
   versionId: Sha256Schema,
   generatedAt: z.iso.datetime(),
   sourceSnapshotIds: z.array(z.string().min(1)),
@@ -734,15 +734,16 @@ export const ProductVersionSchema = z.object({
   ),
   profiles: z.array(ModelProfileSchema),
   leaderboard: z.array(
-    z.object({
-      modelId: SlugSchema,
-      profileId: SlugSchema,
-      rank: z.int().positive().nullable(),
-      overallScore: z.number().min(0).max(100).nullable(),
-      status: z.enum(['ESTIMATED', 'SUPPORTED']),
-      dimensions: OrderedDimensionScoresSchema,
-      evidenceResultIds: z.array(z.string().min(1)),
-    }),
+    z
+      .object({
+        modelId: SlugSchema,
+        profileId: SlugSchema,
+        rank: z.int().positive().nullable(),
+        overallScore: z.number().min(0).max(100).nullable(),
+        dimensions: OrderedDimensionScoresSchema,
+        evidenceResultIds: z.array(z.string().min(1)),
+      })
+      .strict(),
   ),
   costs: z.array(
     z.object({
@@ -923,8 +924,9 @@ export const isReleaseDateQualified = (
 /**
  * The release-date window is a negative filter only: it removes models that are
  * known to be old. A missing release date never disqualifies a model, because
- * frontier status is decided by measured benchmark coverage (the display-set
- * complete-matrix gate), not by whether a catalog row happens to carry a date.
+ * frontier eligibility is decided by measured benchmark availability (the
+ * display-set complete-matrix gate), not by whether a catalog row happens to
+ * carry a date.
  * See REFACTOR_SPEC_V2.md section 5.1.
  */
 export const isModelQualified = (
@@ -1031,7 +1033,7 @@ export const scoreProfiles = (
           componentCount: components.length,
         };
       });
-      const available = dimensions.flatMap(({ score }) =>
+      const completeScores = dimensions.flatMap(({ score }) =>
         score === null ? [] : [score],
       );
 
@@ -1040,11 +1042,10 @@ export const scoreProfiles = (
         profileId,
         rank: null,
         overallScore:
-          available.length === 0
-            ? null
-            : available.reduce((sum, score) => sum + score, 0) /
-              available.length,
-        status: 'ESTIMATED',
+          completeScores.length === DIMENSION_IDS.length
+            ? completeScores.reduce((sum, score) => sum + score, 0) /
+              completeScores.length
+            : null,
         dimensions,
         evidenceResultIds: profileResults.map(({ id }) => id).toSorted(),
       };
@@ -1371,7 +1372,7 @@ export const buildProductVersion = (
   input: ProductVersionInput,
 ): ProductVersion => {
   const versionContent = {
-    schemaVersion: 'product-version-v2' as const,
+    schemaVersion: 'product-version-v3' as const,
     ...input,
   };
   return ProductVersionSchema.parse({

@@ -15,8 +15,9 @@ describe('buildWorkspaceProduct', () => {
 
     expect(product.frontier.length).toBeGreaterThanOrEqual(5);
     expect(product.leaderboard.length).toBeGreaterThan(0);
+    expect(product.schemaVersion).toBe('product-version-v3');
     expect(
-      product.leaderboard.every(({ status }) => status === 'ESTIMATED'),
+      product.leaderboard.every((row) => !Object.hasOwn(row, 'status')),
     ).toBe(true);
     expect(product.leaderboard[0]?.dimensions).toHaveLength(8);
     expect(

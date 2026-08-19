@@ -40,11 +40,11 @@ Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `d
 
 1. 選出每個 Benchmark 的有效 normalized result。
 2. 同一維度內，對已納入 Benchmark 分數取算術平均。
-3. Coverage 是非 null 維度數量除以 8。
-4. Overall 對實際有資料的維度取算術平均；缺失維度不進分母。
-5. 至少一筆已映射 normalized result 即可產生 Estimated 分數。
+3. 每個維度內的分數取算術平均；缺失維度保持 `null`。
+4. Overall 是八個維度分數的算術平均；缺失維度不會被填零。
+5. 產品主畫面只使用八個維度皆非 null 且通過顯示清單完整矩陣的 Profile。
 
-因此 1/8 新品可以快速顯示，但不能與 8/8 模型的 Overall 脫離 Coverage 解讀。
+缺格資料仍保留在 ProductVersion 供追溯，但不會以聚合數值呈現在主畫面或 Developer mode。
 
 ## Representative Profile
 
@@ -52,15 +52,13 @@ Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `d
 
 Leaderboard、雷達圖、性價比圖表與儀表板預設選取全部使用同一個選法。
 
-Leaderboard 預設排序先依 Coverage 8、7……1，再以 Overall 由高至低，最後使用 deterministic `profileId` tie-break。使用者切換 effort 時，該列分數、Coverage、明細與雷達圖都切至所選 Profile。
+Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profileId` tie-break。使用者切換 effort 時，只能切換仍通過顯示清單與八維 no-N/A 門檻的 Profile。
 
-## Estimated、Supported 與顯示模式
+## 顯示門檻與 Developer mode
 
-- 第一版有分數結果均標為 `ESTIMATED`，包括只含廠商自報資料的模型。
-- `PARTIAL_SOURCE` 可參與 Estimated，沒有期限。
-- Supported 門檻尚未由真實資料確定，不硬編碼理論門檻。
-- 預設 UI 只顯示 Representative Profile 為 8/8 的模型。
-- Developer mode 只解除 8/8 顯示篩選，納入 1–7/8 的已計分模型；它不改分數、不補缺值、不發布資料。
+- `data-v2/mappings/display-set.json` 是人工維護的 benchmark 清單；建置流程只驗證 ID，不自動選擇內容。
+- Profile 必須對清單每一個 benchmark 有 INCLUDED、非 null normalized score，且八個渲染維度都非 null，才能進主畫面。
+- Developer mode 只列出被排除模型缺少的 benchmark 格子；不計算或曝光 Overall／維度聚合，不補缺值、不發布資料。
 
 ## 綜合榜與成本不進八維
 

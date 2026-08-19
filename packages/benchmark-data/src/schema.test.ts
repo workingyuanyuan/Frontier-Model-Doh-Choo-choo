@@ -184,7 +184,7 @@ describe('ProductVersionSchema', () => {
   it('keeps all eight dimensions in canonical order', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const product = ProductVersionSchema.parse({
-      schemaVersion: 'product-version-v2',
+      schemaVersion: 'product-version-v3',
       versionId:
         'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       generatedAt: '2026-07-16T00:00:00.000Z',
@@ -197,7 +197,6 @@ describe('ProductVersionSchema', () => {
           profileId: 'openai-gpt-5-6-sol-max',
           rank: 1,
           overallScore: 85.8,
-          status: 'ESTIMATED',
           dimensions: [
             { dimension: 'reasoning', score: null, componentCount: 0 },
             { dimension: 'math', score: null, componentCount: 0 },
@@ -227,9 +226,19 @@ describe('ProductVersionSchema', () => {
       'agentic',
       'context',
     ]);
+
+    expect(() =>
+      ProductVersionSchema.parse({
+        ...product,
+        leaderboard: product.leaderboard.map((row) => ({
+          ...row,
+          status: 'ESTIMATED',
+        })),
+      }),
+    ).toThrow();
   });
 
-  it('keeps the version hash deterministic for identical v2 input', () => {
+  it('keeps the version hash deterministic for identical v3 input', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const input = {
       generatedAt: '2026-07-16T00:00:00.000Z',
@@ -396,7 +405,7 @@ describe('FrontierConfigSchema and model qualification', () => {
     it('qualifies a model with no releaseDate at all', () => {
       // REFACTOR_SPEC_V2.md section 5.1: the window only removes models known
       // to be old. A missing date must never silently drop a model, because
-      // frontier status is decided by measured coverage, not by whether the
+      // frontier eligibility is decided by measured availability, not by whether the
       // catalog row happens to carry a date.
       expect(
         isModelQualified(

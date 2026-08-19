@@ -48,7 +48,9 @@ export function VersionHeader({
           role="switch"
           aria-label="Developer mode"
           aria-checked={developerMode}
-          title={developerMode ? 'Hide partial models' : 'Show partial models'}
+          title={
+            developerMode ? 'Hide excluded models' : 'Show excluded models'
+          }
           onClick={() => onDeveloperModeChange(!developerMode)}
         >
           <span className="developer-mode-switch-knob" aria-hidden="true" />

@@ -2,7 +2,6 @@ import type { ProductVersion } from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import {
-  getCoverageCount,
   getProfileIdentity,
   profileById,
   getProfilesForModel,
@@ -73,7 +72,7 @@ export function Leaderboard({
   const [sort, setSort] = useState<{
     key: LeaderboardSortKey;
     direction: SortDirection;
-  }>({ key: 'coverage', direction: 'descending' });
+  }>({ key: 'overall', direction: 'descending' });
 
   const activeRows = useMemo(
     () =>
@@ -90,8 +89,7 @@ export function Leaderboard({
     [modelProfiles, product.leaderboard, rows],
   );
   const sortedRows = sortLeaderboardRows(product, activeRows, sort).map(
-    (row, index) =>
-      sort.key === 'coverage' ? { ...row, rank: index + 1 } : row,
+    (row) => row,
   );
   const onSort = (key: LeaderboardSortKey) =>
     setSort((current) => ({
@@ -354,30 +352,6 @@ export function Leaderboard({
                   />
                 </th>
               ))}
-              <th
-                scope="col"
-                aria-sort={sort.key === 'coverage' ? sort.direction : 'none'}
-              >
-                <SortHeader
-                  label="COV"
-                  sortKey="coverage"
-                  active={sort.key === 'coverage'}
-                  direction={sort.direction}
-                  onSort={onSort}
-                />
-              </th>
-              <th
-                scope="col"
-                aria-sort={sort.key === 'status' ? sort.direction : 'none'}
-              >
-                <SortHeader
-                  label="Status"
-                  sortKey="status"
-                  active={sort.key === 'status'}
-                  direction={sort.direction}
-                  onSort={onSort}
-                />
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -391,7 +365,6 @@ export function Leaderboard({
                 row.profileId,
               );
               const profileCount = profiles.length;
-              const available = getCoverageCount(row);
               const scoreByDimension = new Map(
                 row.dimensions.map(({ dimension, score: dimensionScore }) => [
                   dimension,
@@ -481,16 +454,6 @@ export function Leaderboard({
                       </td>
                     );
                   })}
-                  <td data-label="COV">
-                    <span className="coverage">{available}/8</span>
-                  </td>
-                  <td data-label="Status">
-                    <span
-                      className={`status-badge status-${row.status.toLowerCase()}`}
-                    >
-                      {row.status === 'ESTIMATED' ? 'Estimated' : 'Supported'}
-                    </span>
-                  </td>
                 </tr>
               );
             })}

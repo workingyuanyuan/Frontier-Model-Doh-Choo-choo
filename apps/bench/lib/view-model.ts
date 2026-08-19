@@ -32,14 +32,10 @@ export interface WeightedCostPoint {
   }>;
 }
 
-export const getCoverageCount = (row: LeaderboardRow): number =>
-  row.dimensions.filter(({ score }) => score !== null).length;
-
 export const compareDefaultLeaderboardRows = (
   left: LeaderboardRow,
   right: LeaderboardRow,
 ): number =>
-  getCoverageCount(right) - getCoverageCount(left) ||
   (right.overallScore ?? Number.NEGATIVE_INFINITY) -
     (left.overallScore ?? Number.NEGATIVE_INFINITY) ||
   left.profileId.localeCompare(right.profileId);
@@ -104,6 +100,113 @@ export const getRepresentativeRows = (
       ...row,
       rank: row.overallScore === null ? null : index + 1,
     }));
+};
+
+const includedEvidenceForProfile = (
+  product: ProductVersion,
+  profileId: string,
+): ProductEvidence[] =>
+  product.evidence.filter(
+    (result) =>
+      result.inclusion === 'INCLUDED' &&
+      result.model.profileId === profileId &&
+      result.normalizedScore !== null,
+  );
+
+/**
+ * Return the display-set cells that are absent for a product profile.
+ * Completeness is based on explicit included evidence, not on an aggregate
+ * dimension score, so a benchmark mapped to the same dimension as another
+ * benchmark cannot mask a missing cell.
+ */
+export const getMissingDisplaySetBenchmarks = (
+  product: ProductVersion,
+  profileId: string,
+  displaySet: { benchmarkIds: readonly string[] } | null,
+): string[] => {
+  if (!displaySet) return [];
+  const available = new Set(
+    includedEvidenceForProfile(product, profileId).map(
+      ({ benchmarkId }) => benchmarkId,
+    ),
+  );
+  return displaySet.benchmarkIds.filter(
+    (benchmarkId) => !available.has(benchmarkId),
+  );
+};
+
+export const hasCompleteDisplaySet = (
+  product: ProductVersion,
+  profileId: string,
+  displaySet: { benchmarkIds: readonly string[] } | null,
+): boolean =>
+  displaySet !== null &&
+  getMissingDisplaySetBenchmarks(product, profileId, displaySet).length === 0;
+
+export const hasCompleteDimensionScores = (row: LeaderboardRow): boolean =>
+  row.overallScore !== null &&
+  row.dimensions.every(({ score }) => score !== null);
+
+/**
+ * A main-screen profile must pass both the explicit benchmark matrix and the
+ * no-N/A rendered-dimension invariant. The latter is deliberately separate:
+ * display-set benchmarks do not necessarily span all eight dimensions.
+ */
+export const isMainEligibleRow = (
+  product: ProductVersion,
+  row: LeaderboardRow,
+  displaySet: { benchmarkIds: readonly string[] } | null,
+): boolean =>
+  hasCompleteDisplaySet(product, row.profileId, displaySet) &&
+  hasCompleteDimensionScores(row);
+
+export interface DeveloperModelRow {
+  modelId: string;
+  profileId: string;
+  displayName: string;
+  missingBenchmarkIds: string[];
+}
+
+/**
+ * Keep excluded models on a small, non-aggregated diagnostic route. The
+ * representative row is used only to identify the profile and its missing
+ * cells; no overall or dimension values are returned to the caller.
+ */
+export const getDeveloperModelRows = (
+  product: ProductVersion,
+  displaySet: { benchmarkIds: readonly string[] } | null,
+): DeveloperModelRow[] => {
+  const eligibleModelIds = new Set(
+    product.leaderboard
+      .filter((row) => isMainEligibleRow(product, row, displaySet))
+      .map(({ modelId }) => modelId),
+  );
+
+  const representatives = new Map(
+    getRepresentativeRows(product).map(({ modelId, profileId }) => [
+      modelId,
+      profileId,
+    ]),
+  );
+  product.frontier.forEach(({ modelId, profileId }) => {
+    if (!representatives.has(modelId)) representatives.set(modelId, profileId);
+  });
+
+  return [...representatives.entries()]
+    .filter(([modelId]) => !eligibleModelIds.has(modelId))
+    .map(([modelId, profileId]) => {
+      const profile = profileById(product, profileId);
+      return {
+        modelId,
+        profileId,
+        displayName: profile ? getProfileDisplayName(profile) : profileId,
+        missingBenchmarkIds: getMissingDisplaySetBenchmarks(
+          product,
+          profileId,
+          displaySet,
+        ),
+      };
+    });
 };
 
 export const filterLeaderboard = (

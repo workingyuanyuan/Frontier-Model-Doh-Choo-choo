@@ -18,12 +18,12 @@
 
 同一個 ProductVersion 驅動英文、單一淺色主題、完整響應式的單頁 Dashboard：
 
-1. Leaderboard：Overall、Coverage 與八維分數，可排序、搜尋、選 Profile。
+1. Leaderboard：Overall 與八維分數，可排序、搜尋、選擇完整矩陣 Profile。
 2. Eight Dimensions：所選 Profile 的雷達／比較視圖。
 3. Quality vs. Cost：合併任務成本、provider 圖例與 Pareto frontier。
 4. Evidence：按能力維度顯示 Included／Excluded、原始來源 Profile 與 provenance。
 
-預設只顯示 Representative Profile 達 8/8 Coverage 的模型；Developer mode 才顯示已有分數但只有 1–7/8 的模型。完全沒有分數的 Frontier 模型不能成為排名列。
+主畫面只顯示在 display set 每格都有 INCLUDED、非 null 分數且八維皆非 null 的 Profile。Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
 
 ## 4. 資料路徑
 
