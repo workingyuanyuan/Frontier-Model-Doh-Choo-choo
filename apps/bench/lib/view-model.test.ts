@@ -28,7 +28,7 @@ const representativeCandidate = ({
   profileId: string;
   coverage: number;
   resultCount: number;
-  overallScore: number;
+  overallScore: number | null;
   rank: number;
 }): FixtureLeaderboardRow => ({
   modelId: 'test-model',
@@ -96,70 +96,49 @@ describe('leaderboard view model', () => {
     ).toEqual(['model-complete', 'model-higher-score']);
   });
 
-  it('prefers the profile with greater dimension coverage', () => {
+  it('prefers the profile with higher measured overall score regardless of coverage or result count', () => {
     expect(
       selectRepresentativeProfileId([
         representativeCandidate({
-          profileId: 'test-model-high-score',
-          coverage: 6,
-          resultCount: 12,
+          profileId: 'test-model-high-coverage-low-score',
+          coverage: 8,
+          resultCount: 20,
+          overallScore: 50,
+          rank: 2,
+        }),
+        representativeCandidate({
+          profileId: 'test-model-low-coverage-high-score',
+          coverage: 4,
+          resultCount: 4,
           overallScore: 99,
           rank: 1,
         }),
-        representativeCandidate({
-          profileId: 'test-model-high-coverage',
-          coverage: 7,
-          resultCount: 7,
-          overallScore: 50,
-          rank: 2,
-        }),
       ]),
-    ).toBe('test-model-high-coverage');
+    ).toBe('test-model-low-coverage-high-score');
   });
 
-  it('prefers more effective Benchmark Results when coverage is equal', () => {
+  it('prefers a measured overall score over a null overall score regardless of coverage', () => {
     expect(
       selectRepresentativeProfileId([
         representativeCandidate({
-          profileId: 'test-model-high-score',
-          coverage: 7,
-          resultCount: 7,
-          overallScore: 99,
-          rank: 1,
-        }),
-        representativeCandidate({
-          profileId: 'test-model-more-results',
-          coverage: 7,
-          resultCount: 8,
-          overallScore: 50,
+          profileId: 'test-model-null-score',
+          coverage: 8,
+          resultCount: 20,
+          overallScore: null,
           rank: 2,
         }),
-      ]),
-    ).toBe('test-model-more-results');
-  });
-
-  it('prefers the higher Overall Score when coverage and result count are equal', () => {
-    expect(
-      selectRepresentativeProfileId([
         representativeCandidate({
-          profileId: 'test-model-lower-score',
-          coverage: 7,
-          resultCount: 8,
-          overallScore: 50,
+          profileId: 'test-model-measured-score',
+          coverage: 2,
+          resultCount: 2,
+          overallScore: 10,
           rank: 1,
         }),
-        representativeCandidate({
-          profileId: 'test-model-higher-score',
-          coverage: 7,
-          resultCount: 8,
-          overallScore: 60,
-          rank: 2,
-        }),
       ]),
-    ).toBe('test-model-higher-score');
+    ).toBe('test-model-measured-score');
   });
 
-  it('uses profileId ascending as the final deterministic tie-break', () => {
+  it('uses profileId ascending as the final deterministic tie-break for equal scores', () => {
     expect(
       selectRepresentativeProfileId([
         representativeCandidate({
@@ -171,9 +150,30 @@ describe('leaderboard view model', () => {
         }),
         representativeCandidate({
           profileId: 'test-model-a',
-          coverage: 7,
-          resultCount: 8,
+          coverage: 3,
+          resultCount: 3,
           overallScore: 60,
+          rank: 2,
+        }),
+      ]),
+    ).toBe('test-model-a');
+  });
+
+  it('uses profileId ascending as the final deterministic tie-break when both scores are null', () => {
+    expect(
+      selectRepresentativeProfileId([
+        representativeCandidate({
+          profileId: 'test-model-z',
+          coverage: 8,
+          resultCount: 10,
+          overallScore: null,
+          rank: 1,
+        }),
+        representativeCandidate({
+          profileId: 'test-model-a',
+          coverage: 2,
+          resultCount: 2,
+          overallScore: null,
           rank: 2,
         }),
       ]),
@@ -294,6 +294,99 @@ describe('cost chart view model', () => {
     expect(frontier.map(({ profileId }) => profileId)).toEqual([
       'openai-gpt-5-6-sol-max',
     ]);
+  });
+
+  it('selects the same profile ID as getRepresentativeRows for a multi-profile model in the weighted cost curve', () => {
+    const productWithMultiProfileCosts = {
+      ...productFixture,
+      leaderboard: productFixture.leaderboard.map((row) =>
+        row.profileId === 'openai-gpt-5-6-sol-high'
+          ? {
+              ...row,
+              overallScore: 99,
+              dimensions: row.dimensions.map((dimension, index) =>
+                index < 4
+                  ? dimension
+                  : { ...dimension, score: null, componentCount: 0 },
+              ),
+            }
+          : row,
+      ),
+      costs: [
+        ...productFixture.costs,
+        {
+          modelId: 'openai-gpt-5-6-sol',
+          profileId: 'openai-gpt-5-6-sol-high',
+          costType: 'MEASURED_TASK' as const,
+          cost: 0.85,
+          performance: 84.2,
+          assumptionId: null,
+          sourceUrl: 'https://artificialanalysis.ai/models',
+          sourceId: 'artificial-analysis',
+          metricId: 'cost-per-intelligence-index-task',
+          metricName: 'Cost per Intelligence Index task',
+          unit: 'USD_PER_TASK' as const,
+          benchmarkId: 'artificial-analysis-intelligence-index',
+          benchmarkVersion: null,
+          evidenceIds: [],
+        },
+      ],
+    };
+    const reps = getRepresentativeRows(productWithMultiProfileCosts);
+    const solRep = reps.find((r) => r.modelId === 'openai-gpt-5-6-sol');
+    expect(solRep?.profileId).toBe('openai-gpt-5-6-sol-high');
+
+    const points = buildWeightedCostCurve(productWithMultiProfileCosts);
+    const solPoints = points.filter((p) => p.modelId === 'openai-gpt-5-6-sol');
+
+    // Emits at most the selected representative profile
+    expect(solPoints).toHaveLength(1);
+    expect(solPoints[0]?.profileId).toBe(solRep?.profileId);
+    expect(solPoints[0]?.performance).toBe(solRep?.overallScore);
+    expect(solPoints[0]?.normalizedCost).toBe(50);
+  });
+
+  it('does not emit non-representative profile cost points even when representative has no cost data', () => {
+    const productWithoutRepCost = {
+      ...productFixture,
+      costs: productFixture.costs
+        .filter((c) => c.profileId !== 'openai-gpt-5-6-sol-max')
+        .concat([
+          {
+            modelId: 'openai-gpt-5-6-sol',
+            profileId: 'openai-gpt-5-6-sol-high',
+            costType: 'MEASURED_TASK' as const,
+            cost: 0.85,
+            performance: 84.2,
+            assumptionId: null,
+            sourceUrl: 'https://artificialanalysis.ai/models',
+            sourceId: 'artificial-analysis',
+            metricId: 'cost-per-intelligence-index-task',
+            metricName: 'Cost per Intelligence Index task',
+            unit: 'USD_PER_TASK' as const,
+            benchmarkId: 'artificial-analysis-intelligence-index',
+            benchmarkVersion: null,
+            evidenceIds: [],
+          },
+        ]),
+    };
+    const reps = getRepresentativeRows(productWithoutRepCost);
+    const solRep = reps.find((r) => r.modelId === 'openai-gpt-5-6-sol');
+    expect(solRep?.profileId).toBe('openai-gpt-5-6-sol-max');
+
+    const points = buildWeightedCostCurve(productWithoutRepCost);
+    const solPoints = points.filter((p) => p.modelId === 'openai-gpt-5-6-sol');
+    expect(solPoints).toHaveLength(0);
+  });
+
+  it('guarantees leaderboard and cost curve defaults cannot diverge from getRepresentativeRows', () => {
+    const reps = getRepresentativeRows(productFixture);
+    const repByModel = new Map(reps.map((r) => [r.modelId, r.profileId]));
+
+    const costPoints = buildWeightedCostCurve(productFixture);
+    costPoints.forEach((point) => {
+      expect(point.profileId).toBe(repByModel.get(point.modelId));
+    });
   });
 });
 

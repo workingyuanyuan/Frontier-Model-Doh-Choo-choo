@@ -3,6 +3,10 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { Dashboard } from './dashboard';
+import {
+  getProfileDisplayName,
+  getRepresentativeRows,
+} from '../lib/view-model';
 import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
@@ -206,5 +210,31 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('profile-table-select');
     expect(html).toContain('name="profile-');
     expect(html).toContain('GPT-5.6 Sol');
+  });
+
+  it('sources initial dashboard selection and radar comparison choices from getRepresentativeRows', () => {
+    const reps = getRepresentativeRows(productFixture);
+    const firstRep = reps[0]!;
+    const html = renderToStaticMarkup(dashboard());
+
+    // The initial selected profile is the highest-ranked representative
+    expect(firstRep.profileId).toBe('openai-gpt-5-6-sol-max');
+    expect(html).toContain('Remove GPT-5.6 Sol · max from radar chart');
+
+    // Available comparison options in radar come from getRepresentativeRows for visible models
+    const visibleModelIds = new Set(
+      reps
+        .filter((r) => r.dimensions.every((d) => d.score !== null))
+        .map((r) => r.modelId),
+    );
+    const otherVisibleReps = reps.filter(
+      (r) => r.modelId !== firstRep.modelId && visibleModelIds.has(r.modelId),
+    );
+    otherVisibleReps.forEach((r) => {
+      const profile = productFixture.profiles.find((p) => p.id === r.profileId);
+      if (profile) {
+        expect(html).toContain(getProfileDisplayName(profile));
+      }
+    });
   });
 });

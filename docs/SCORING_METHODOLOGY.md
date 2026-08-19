@@ -48,12 +48,9 @@ Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `d
 
 ## Representative Profile
 
-同一基礎模型有多個 effort Profile 時，Leaderboard 依序選擇：
+同一基礎模型有多個 effort Profile 時，取該來源測出分數最高（Overall Score 最高）的那一個。不判斷 effort 標籤，不假設 max 一定最好。Overall Score 為 null 者視為低於任何已測得的分數。分數相同時，以 `profileId` 字典序升序作為確定性平手判定。
 
-1. Coverage 較高者。
-2. Coverage 相同時，有效 Benchmark Results 較多者。
-3. 前兩者相同時，Overall Score 較高者。
-4. 全部相同時，`profileId` 字典序升序。
+Leaderboard、雷達圖、性價比圖表與儀表板預設選取全部使用同一個選法。
 
 Leaderboard 預設排序先依 Coverage 8、7……1，再以 Overall 由高至低，最後使用 deterministic `profileId` tie-break。使用者切換 effort 時，該列分數、Coverage、明細與雷達圖都切至所選 Profile。
 

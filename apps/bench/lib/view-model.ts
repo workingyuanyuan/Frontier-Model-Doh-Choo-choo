@@ -47,12 +47,14 @@ export const compareDefaultLeaderboardRows = (
 const compareRepresentativeCandidates = (
   left: LeaderboardRow,
   right: LeaderboardRow,
-): number =>
-  getCoverageCount(right) - getCoverageCount(left) ||
-  right.evidenceResultIds.length - left.evidenceResultIds.length ||
-  (right.overallScore ?? Number.NEGATIVE_INFINITY) -
-    (left.overallScore ?? Number.NEGATIVE_INFINITY) ||
-  left.profileId.localeCompare(right.profileId);
+): number => {
+  const leftScore = left.overallScore ?? Number.NEGATIVE_INFINITY;
+  const rightScore = right.overallScore ?? Number.NEGATIVE_INFINITY;
+  if (leftScore !== rightScore) {
+    return rightScore - leftScore;
+  }
+  return left.profileId.localeCompare(right.profileId);
+};
 
 export const profileById = (
   product: ProductVersion,
@@ -189,10 +191,16 @@ export const buildWeightedCostCurve = (
   product: ProductVersion,
   weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
 ): WeightedCostPoint[] => {
+  const representativeRows = getRepresentativeRows(product);
+  const representativeByProfileId = new Map(
+    representativeRows.map((row) => [row.profileId, row]),
+  );
+
   const taskCosts = product.costs.filter(
-    ({ costType, sourceId }) =>
+    ({ costType, sourceId, profileId }) =>
       ['MEASURED_TASK', 'AGENT_TASK'].includes(costType) &&
-      (weights[sourceId] ?? 0) > 0,
+      (weights[sourceId] ?? 0) > 0 &&
+      representativeByProfileId.has(profileId),
   );
   const sourceRanges = new Map<string, { min: number; max: number }>();
   Object.keys(weights).forEach((sourceId) => {
@@ -219,7 +227,8 @@ export const buildWeightedCostCurve = (
   return [...grouped.entries()]
     .flatMap(([profileId, bySource]) => {
       const profile = profileById(product, profileId);
-      if (!profile) return [];
+      const representativeRow = representativeByProfileId.get(profileId);
+      if (!profile || !representativeRow) return [];
       const sourceCosts = [...bySource.entries()].flatMap(
         ([sourceId, rows]) => {
           const range = sourceRanges.get(sourceId);
@@ -256,9 +265,7 @@ export const buildWeightedCostCurve = (
           profileId,
           providerId: profile.providerId,
           displayName: getProfileDisplayName(profile),
-          performance:
-            product.leaderboard.find((row) => row.profileId === profileId)
-              ?.overallScore ?? 0,
+          performance: representativeRow.overallScore ?? 0,
           normalizedCost:
             sourceCosts.reduce(
               (total, source) => total + source.normalizedCost * source.weight,
