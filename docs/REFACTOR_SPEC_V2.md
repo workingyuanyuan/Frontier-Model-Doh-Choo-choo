@@ -265,6 +265,22 @@ Language    71.0
 - 一個模型在一個來源上連成一條線，點依思考強度階梯排序（§4.4 的 `non-reasoning < low < medium < high < xhigh < max`，`default` 不上梯子、單獨標示）。
 - 不得為了湊出 Y 軸而回頭放寬 §5.2，也不得用跨來源 Overall 去配單一來源的成本。同一個點的成本與效能必須來自同一次量測。
 
+**DeepSWE 與 Frontier Code** 各自一個分數對一個成本，Y 軸直接用該來源的 normalized 分數。
+
+**Artificial Analysis 的 Y 軸＝AA 發布的 Intelligence Index 數值本身**（2026-08-20 決定）
+
+AA 同一個 profile 有 6–12 個 benchmark 分數，卻只有一筆 `intelligenceIndexCostPerTask`，因此「AA 自己的分數」不唯一。定為採用 AA 發布的 Index 值，理由：
+
+1. **與 X 軸同源。**成本 metric 就叫 `cost-per-intelligence-index-task`，它是跑完 Index 那幾項的成本。Y 用 Index 本身是「同一次量測的兩面」最字面的滿足。
+2. **不自行重算就不會偏離。**Intelligence Index v4.1.1 由 9 項組成（GDPval-AA v2、τ³-Banking、Terminal-Bench v2.1、SciCode、Humanity's Last Exam、GPQA Diamond、CritPt、AA-Omniscience、AA-LCR）。AA 改版換掉評測時，自行平均會安靜地與官方數字分岔，且不會有任何測試失敗。
+3. **既有邊界允許。**`REFACTOR_DISCARD_LIST.md` 的規則是 composite index「只選模和展示，不投入八維」。圖表軸屬於展示。materializer 已將它記為 `benchmarkId: 'artificial-analysis-intelligence-index'`、`inclusion: 'EXCLUDED'`，該標記保證它不會污染雷達圖或 Overall Score。
+
+**明確禁止**：以「該 profile 下所有 INCLUDED 的 AA benchmark 算術平均」作為 Y 軸。產品內 AA 的 INCLUDED benchmark 有 12 個，其中 `aa-briefcase`、`apex-agents`、`ifbench` **不在 Index 內**，成本並未涵蓋它們；且各 profile 的分母在 6–12 之間浮動，導致不同模型、甚至同一模型的不同 effort 落在不同座標系，線的斜率因而失去意義。實測兩種算法最大相差 2.93 分（`google-gemini-3-1-pro-preview-high`：Index 9 項為 52.24，全 AA 平均為 49.31）。
+
+**備案**（僅在 Index 值尚未取得時）：以**恰好那 9 項**的算術平均代替，且 **9 項必須全齊才出點**，缺一項不畫，絕不做部分平均。代價：目前 50 個帶成本的 AA profile 中只有 33 個 9 項齊全，僅 7 個模型保有兩個以上 AA effort 點。
+
+上述兩項擷取缺口（Index 值未擷取、`gdpval-aa` 缺 17 筆）由 §C7 處理。
+
 **LiveBench 的成本為何不能與分數配對**
 
 LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materializers.ts` 的 `materializeLiveBenchCosts`），有兩個性質使它無法用於進階圖：

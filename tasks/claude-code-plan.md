@@ -497,6 +497,40 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 ---
 
+## C7 — 補齊 Artificial Analysis 的 Intelligence Index 與 GDPval-AA
+
+狀態：未開始
+
+**這一項在 E3 進行中才被發現，因此編號屬 C 但排在 D 之後。E3 的 AA 曲線相依於它。**
+
+**目標**：讓 §6.3 進階圖的 AA Y 軸有資料可用。
+
+**背景**：規格 §6.3 定 AA 的 Y 軸採用 AA 發布的 Intelligence Index 值本身，而不是自行平均 benchmark 分數（理由見該節）。目前有兩個擷取缺口：
+
+**缺口一：Index 值沒有被擷取。**
+`packages/acquisition/src/artificial-analysis-materializer.ts:239` 已有讀取 `model.intelligenceIndex` 並產生 `benchmarkId: 'artificial-analysis-intelligence-index'` 候選的程式碼，但 C6 重整擷取路徑後該欄位不在現在抓的 RSC 列裡，實測源頭 `candidates.json` 有 **0 筆** Index 候選，`current.json` 亦為 0 筆。
+
+**缺口二：`gdpval-aa` 缺 17 筆。**
+50 個帶成本的 AA profile 中，33 個 9 項齊全，**17 個恰好只缺 `gdpval-aa`**。受影響的是主畫面前段班：GPT-5.6 Sol／Luna／Terra、Claude Opus 5、Claude Fable 5、Kimi K3、Grok 4.6、GLM-5.2、DeepSeek V4 Pro、Qwen3.8 Max、Muse Spark 1.2、Gemini 3.7 Flash、Gemini 3.5 Flash-Lite、MiniMax-M3、Nemotron 3 Ultra、Inkling。判斷是某個 evaluation 頁面沒有被聯集進來——C3 已確認 AA 必須聯集多個頁面才能取得完整母體，先從那裡查。
+
+**要求**：
+
+- 找出承載 `intelligenceIndex` 的頁面／欄位並恢復擷取。**必須維持 `inclusion: 'EXCLUDED'`**，理由字串不變——它只供選模與展示，投入八維會與構成它的 benchmark 重複計分。
+- 補齊 `gdpval-aa`，目標是那 17 個 profile 全數有值；若某些模型 AA 官方確實未測，逐一列出並保持 null，不得推估。
+- 出處記錄依 §7 的單一結構，`sourceUrl` 必須指向實際讀取的頁面（C6 已修過一次指錯頁的問題，不要重蹈）。
+- 更新該來源的 validation report，對照人眼可見列數。
+- 重跑 `pnpm data:v2:build-current`，回報新的 `versionId`、Index 候選筆數、`gdpval-aa` 筆數，以及 9 項齊全的 AA profile 數（目前 33 / 50）。
+
+**不得**：
+
+- 不得為了補齊而放寬 §5.2 或改動 `display-set.json`。
+- 不得把 Index 投入八維或 Overall Score。
+- 不得推估任何缺值。
+
+**完成條件**：`current.json` 內 `artificial-analysis-intelligence-index` 的 evidence 筆數大於 0 且全部 `inclusion: 'EXCLUDED'`；有測試證明該 benchmark 不會進入任何維度分數；`gdpval-aa` 的缺口有明確結論（補齊或逐一列出官方未測）。
+
+**注意**：`current.json` 會變更但**不得提交**，交由使用者審核。
+
 # D. 計分與報告
 
 ## D1 — 代表 profile 選法改為最佳表現
@@ -587,15 +621,31 @@ const performance = leaderboardByProfile.get(
 if (performance === null || performance === undefined) return [];
 ```
 
-原意是「這個 profile 至少有一維分數」，現在變成「必須八維全滿」。實測後果：
+原意是「這個 profile 至少有一維分數」，現在變成「必須八維全滿」。
 
-| 來源                | 源頭成本列 | 具多 effort 的模型 | 進到 `current.json` |
-| ------------------- | ---------: | -----------------: | ------------------: |
-| Artificial Analysis |        307 |                 12 |                  21 |
-| DeepSWE             |         61 |                 11 |                  17 |
-| Frontier Code       |         77 |                 15 |                  14 |
+**實測後果**（修好後在 `current.json` 上量測，可複現）：
 
-183 筆成本列被整列刪除。**具備兩個以上帶成本 effort profile 的模型從 21 個變成 0 個**，因此 §6.3 的進階圖沒有任何一條線可以畫。這是靜默失效：測試全綠，畫面上看不出來。
+| 指標                                     |  數值 |
+| ---------------------------------------- | ----: |
+| 成本列總數                               |   252 |
+| 其中 `performance` 為 null               |   172 |
+| 其中 `performance` 非 null               |    80 |
+| 任務成本列（四來源，排除 model-catalog） |   207 |
+| 具兩個以上帶成本 effort profile 的模型   |    20 |
+| 同上，若守衛存在                         | **0** |
+
+`performance` 為 null 的 172 列，就是舊守衛會整列刪除的資料。修正前 §6.3 的進階圖沒有任何一條線可以畫。這是靜默失效：測試全綠，畫面上看不出來。
+
+修好後各來源的任務成本列 / profile 數 / 模型數：
+
+| 來源                | 成本列 | profile | 模型 |
+| ------------------- | -----: | ------: | ---: |
+| Frontier Code       |     72 |      72 |   23 |
+| DeepSWE             |     61 |      61 |   24 |
+| Artificial Analysis |     50 |      50 |   26 |
+| LiveBench           |     24 |      24 |   24 |
+
+> **勘誤（2026-08-20）**：本節初稿曾記載「源頭 307／61／77 列，進到 current.json 只剩 21／17／14，183 筆被刪」。那組數字是用源頭 `costs.json` 的 `profileId` 直接比對 leaderboard 得到的，但建置過程中 `applyProductProfilePolicyToCosts` 會重寫該欄位，因此比對大量落空。結論（守衛在丟資料、進階圖無資料可畫）不變，數字已更正為上表。
 
 **要求**：
 
@@ -606,7 +656,7 @@ if (performance === null || performance === undefined) return [];
 - 重跑 `pnpm data:v2:build-current`，回報新的 `versionId`、成本列數、以及具兩個以上帶成本 effort profile 的模型數。
 - **不得**為了讓數字變好看而放寬 §5.2 的顯示門檻，或改動 `display-set.json`（那是審核關卡 2 的產物，已定案）。
 
-**完成條件**：有測試以「profile 的 `overallScore` 為 null 但有成本列」的 fixture 證明該成本列仍保存在 ProductVersion 中；重建後具兩個以上帶成本 effort profile 的模型數大於 0（預期 21 個左右）。
+**完成條件**：有測試以「profile 的 `overallScore` 為 null 但有成本列」的 fixture 證明該成本列仍保存在 ProductVersion 中；重建後具兩個以上帶成本 effort profile 的模型數大於 0（實測 20 個）。
 
 **注意**：`current.json` 會變更但**不得提交**，交由使用者審核。
 
@@ -644,7 +694,7 @@ if (performance === null || performance === undefined) return [];
 
 ## E3 — 兩張性價比圖表
 
-狀態：未開始（**相依：D4 必須先完成**）
+狀態：進行中（**相依：D4 必須先完成**）
 
 **目標**：實作規格 §6.3。
 
@@ -654,6 +704,9 @@ if (performance === null || performance === undefined) return [];
 - **權重為四來源各 25%。** 取代 `view-model.ts` 現行的 `COST_SOURCE_WEIGHTS`（AA 40／LiveBench 40／DeepSWE 20，三來源時代的遺留值）。理由見規格 §6.3，不要自行調整。
 - **進階圖**：按鈕開啟，顯示各模型多種思考強度的曲線，**同一模型的各強度點要連成線**。只用 Artificial Analysis、DeepSWE、Frontier Code。缺任一來源資料的模型不顯示。
 - **進階圖的軸：X 軸＝該來源自己的成本，Y 軸＝該來源自己的分數。** 一條曲線只屬於一個來源，不跨來源聚合。多 effort profile 多半不是 8/8 完整、沒有 Overall Score，**不得為了湊 Y 軸而放寬 §5.2，也不得拿跨來源 Overall 去配單一來源成本**。
+- **DeepSWE 與 Frontier Code** 一個分數對一個成本，Y 軸直接用該來源的 normalized 分數。
+- **Artificial Analysis 的 Y 軸＝AA 發布的 Intelligence Index 值本身**（規格 §6.3）。AA 同一 profile 有 6–12 個 benchmark 但只有一筆 `intelligenceIndexCostPerTask`，因此不唯一。**明確禁止**用「該 profile 所有 INCLUDED 的 AA benchmark 算術平均」當 Y 軸：其中 `aa-briefcase`、`apex-agents`、`ifbench` 不在 Index 內、成本未涵蓋，且分母在 6–12 間浮動會讓不同點落在不同座標系，實測最大差 2.93 分。
+- **AA 曲線相依於 C7**（Index 值目前尚未擷取，實測 0 筆）。C7 完成前不要實作 AA 曲線；若必須先出畫面，採用規格 §6.3 的備案（恰好 9 項、全齊才出點），並在畫面標示資料受限。
 - 曲線上的點依 §4.4 的思考強度階梯排序（`non-reasoning < low < medium < high < xhigh < max`）；`default` 不上梯子，單獨標示。
 - **Artificial Analysis 的 token 單價不得進入成本圖。** 進成本圖的是 `intelligenceIndexCostPerTask`。
 - C4 已確認 Frontier Code 的成本與思考強度皆可取得（28 個模型、15 個具多 effort），進階圖維持三來源，不需要退化路徑。
