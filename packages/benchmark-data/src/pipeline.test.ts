@@ -386,16 +386,21 @@ describe('buildProduct', () => {
     expect(product.costs).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
-          sourceId: 'model-catalog',
-          performance: null,
-        }),
-        expect.objectContaining({
           sourceId: 'artificial-analysis',
           cost: 0.42,
           performance: null,
         }),
       ]),
     );
+
+    // Manual catalog pricing carries no evidence, so it cannot be audited back
+    // to a source and must not reach the product. See REFACTOR_SPEC_V2 6.3.
+    expect(
+      product.costs.filter(({ sourceId }) => sourceId === 'model-catalog'),
+    ).toEqual([]);
+    product.costs.forEach((cost) => {
+      expect(cost.evidenceIds.length).toBeGreaterThan(0);
+    });
   });
 
   it('rejects a scored profile that is absent from the model catalog', () => {

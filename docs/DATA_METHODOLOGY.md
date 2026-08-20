@@ -98,7 +98,7 @@ Frontier 模型清單由 **`data-v2/mappings/models.json`（model catalog）** �
 
 ## 成本資料與性價比圖表
 
-成本必須是帶 Evidence 的 CostRecord，不得只手工塞入模型 catalog：
+成本必須是帶 Evidence 的 CostRecord，不得只手工塞入模型 catalog。**ProductVersion 內每一筆成本的 `evidenceIds` 皆非空**；model catalog 的手工定價不會投影進產品（G3，2026-08-21 起）：
 
 - Artificial Analysis：來源定義的 Intelligence Index task cost。
 - LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。

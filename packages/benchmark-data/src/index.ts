@@ -1265,50 +1265,10 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
   const leaderboardByProfile = new Map(
     leaderboard.map((entry) => [entry.profileId, entry]),
   );
-  const catalogCosts = profiles.flatMap((profile) => {
-    const performance =
-      leaderboardByProfile.get(profile.id)?.overallScore ?? null;
-
-    return profile.pricing.flatMap((pricing) => {
-      const cost =
-        pricing.costPerTask ??
-        (pricing.inputPerMillionTokens !== null &&
-        pricing.outputPerMillionTokens !== null &&
-        pricing.assumptionId !== null
-          ? (pricing.inputPerMillionTokens * 3 +
-              pricing.outputPerMillionTokens) /
-            4
-          : null);
-      if (cost === null) return [];
-      return [
-        {
-          modelId: profile.modelId,
-          profileId: profile.id,
-          costType: pricing.type,
-          cost,
-          performance,
-          assumptionId: pricing.assumptionId,
-          sourceUrl: pricing.sourceUrl,
-          sourceId: 'model-catalog',
-          metricId:
-            pricing.type === 'API_STANDARDIZED'
-              ? 'blended-token-price'
-              : 'cost-per-task',
-          metricName:
-            pricing.type === 'API_STANDARDIZED'
-              ? 'Blended token price'
-              : 'Cost per task',
-          unit:
-            pricing.type === 'API_STANDARDIZED'
-              ? ('USD_PER_MILLION_TOKENS' as const)
-              : ('USD_PER_TASK' as const),
-          benchmarkId: null,
-          benchmarkVersion: null,
-          evidenceIds: [],
-        },
-      ];
-    });
-  });
+  // The model catalog carries manual pricing, but a cost with no evidence
+  // cannot be audited back to a source, and DATA_METHODOLOGY forbids exactly
+  // that. Only materialized CostRecords - each one carrying evidenceIds -
+  // reach the product. See REFACTOR_SPEC_V2.md section 6.3.
   const materializedCosts = (input.costRecords ?? []).flatMap((record) => {
     if (
       record.inclusion !== 'INCLUDED' ||
@@ -1346,7 +1306,7 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
       },
     ];
   });
-  const costs = [...catalogCosts, ...materializedCosts].toSorted(
+  const costs = [...materializedCosts].toSorted(
     (left, right) =>
       left.cost - right.cost ||
       left.profileId.localeCompare(right.profileId) ||
