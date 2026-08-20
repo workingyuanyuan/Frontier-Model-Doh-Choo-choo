@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 import './globals.css';
+import './leaderboard.css';
 
 export const metadata: Metadata = {
   title: 'LLM Bench — Frontier model intelligence',

@@ -16,7 +16,7 @@ import {
   buildWeightedCostCurve,
   getCostParetoFrontier,
 } from './view-model';
-import { buildRadarPoints } from './visualization';
+import { buildRadarPoints, buildRadarSegments } from './visualization';
 import { productFixture } from '../test/fixture';
 
 type FixtureLeaderboardRow = (typeof productFixture.leaderboard)[number];
@@ -449,5 +449,18 @@ describe('radar geometry', () => {
 
     expect(points[7]).toBeNull();
     expect(points.filter(Boolean)).toHaveLength(7);
+  });
+
+  it('breaks partial radar data into open segments instead of closing a polygon across N/A', () => {
+    const segments = buildRadarSegments(
+      productFixture.leaderboard[1]!.dimensions,
+      100,
+      100,
+      80,
+    );
+
+    expect(segments).toHaveLength(1);
+    expect(segments[0]).toHaveLength(7);
+    expect(segments[0]?.[0]).not.toEqual({ x: 100, y: 100 });
   });
 });

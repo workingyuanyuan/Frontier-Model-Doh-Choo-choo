@@ -239,11 +239,12 @@ export function Dashboard({
           />
         ) : null}
 
-        {selectedProfile && visibleProfileIds.has(selectedProfile.id) ? (
+        {selectedProfile ? (
           <RadarChart
-            product={visibleProduct}
+            product={product}
             activeProfile={selectedProfile}
             selectedResult={selectedResult}
+            comparisonProduct={visibleProduct}
             comparisonProfileIds={comparisonProfileIds}
             setComparisonProfileIds={setComparisonProfileIds}
             onClearActiveProfile={clearSelection}

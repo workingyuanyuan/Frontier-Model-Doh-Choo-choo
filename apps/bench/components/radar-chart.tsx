@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 
 import {
   buildRadarPoints,
+  buildRadarSegments,
   pointsAttribute,
   polarPoint,
 } from '../lib/visualization';
@@ -22,6 +23,7 @@ export function RadarChart({
   product,
   activeProfile,
   selectedResult,
+  comparisonProduct,
   comparisonProfileIds,
   setComparisonProfileIds,
   onClearActiveProfile,
@@ -29,6 +31,7 @@ export function RadarChart({
   product: ProductVersion;
   activeProfile: Profile;
   selectedResult: LeaderboardRow | undefined;
+  comparisonProduct?: ProductVersion;
   comparisonProfileIds: string[];
   setComparisonProfileIds: (ids: string[]) => void;
   onClearActiveProfile: () => void;
@@ -78,11 +81,30 @@ export function RadarChart({
   }, [seriesList, product.profiles]);
 
   const availableComparisonRows = useMemo(() => {
-    const reps = getRepresentativeRows(product);
+    const reps = getRepresentativeRows(comparisonProduct ?? product);
     return reps.filter((row) => !seriesModelIds.includes(row.modelId));
-  }, [product, seriesModelIds]);
+  }, [comparisonProduct, product, seriesModelIds]);
 
   const modelNames = seriesList.map((s) => s.displayName).join(' vs ');
+  const textualSummary = seriesList
+    .map((series) => {
+      const values = UI_DIMENSION_IDS.map((dimensionId) => {
+        const value = series.dimensions.find(
+          (dimension) => dimension.dimension === dimensionId,
+        )?.score;
+        return `${UI_DIMENSION_ABBREVIATIONS[dimensionId]}: ${value === null || value === undefined ? 'N/A' : value.toFixed(1)}`;
+      }).join(', ');
+      return `${series.displayName}: ${values}`;
+    })
+    .join('. ');
+  const hasMissingValues = seriesList.some((series) =>
+    UI_DIMENSION_IDS.some(
+      (dimensionId) =>
+        series.dimensions.find(
+          (dimension) => dimension.dimension === dimensionId,
+        )?.score == null,
+    ),
+  );
 
   return (
     <section
@@ -168,7 +190,15 @@ export function RadarChart({
             viewBox="0 0 280 280"
             role="img"
             aria-label={`Eight Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`}
+            aria-describedby="radar-chart-description"
           >
+            <title id="radar-chart-title">{`Eight Dimensions radar chart for ${modelNames}`}</title>
+            <desc id="radar-chart-description">
+              {textualSummary}.{' '}
+              {hasMissingValues
+                ? 'Missing values are shown as N/A and omitted from the plotted shape.'
+                : 'All eight dimensions have available values.'}
+            </desc>
             {[25, 50, 75, 100].map((level) => {
               const grid = UI_DIMENSION_IDS.map((_, index) =>
                 polarPoint(
@@ -230,16 +260,31 @@ export function RadarChart({
                 center,
                 radius,
               );
-              const completePoints = values.filter(
-                (point): point is NonNullable<typeof point> => point !== null,
-              );
-              const isComp = completePoints.length === UI_DIMENSION_IDS.length;
-              if (!isComp) return null;
+              if (values.some((point) => point === null)) {
+                return buildRadarSegments(
+                  series.dimensions,
+                  center,
+                  center,
+                  radius,
+                ).map((segment, segmentIndex) => (
+                  <polyline
+                    key={`${series.profileId}-segment-${segmentIndex}`}
+                    className={`radar-area series-tone-${sIndex + 1}`}
+                    points={pointsAttribute(segment)}
+                    fill="none"
+                  />
+                ));
+              }
               return (
                 <polygon
                   key={series.profileId}
                   className={`radar-area series-tone-${sIndex + 1}`}
-                  points={pointsAttribute(completePoints)}
+                  points={pointsAttribute(
+                    values.filter(
+                      (point): point is NonNullable<typeof point> =>
+                        point !== null,
+                    ),
+                  )}
                 />
               );
             })}
@@ -279,7 +324,6 @@ export function RadarChart({
                       (d) => d.dimension === dimensionId,
                     );
                     const scoreVal = dimData?.score ?? null;
-                    const srcCount = dimData?.componentCount ?? 0;
                     return (
                       <div className="series-bar-item" key={series.profileId}>
                         {scoreVal !== null ? (
@@ -290,13 +334,16 @@ export function RadarChart({
                             aria-label={`${series.displayName} - ${dimensionId}: ${scoreVal.toFixed(1)}`}
                           />
                         ) : (
-                          <div className="bar-track">
+                          <div
+                            className="bar-track"
+                            role="img"
+                            aria-label={`${series.displayName} - ${dimensionId}: N/A`}
+                          >
                             <span className="bar-na">N/A</span>
                           </div>
                         )}
                         <span className="bar-score-label">
-                          {scoreVal !== null ? scoreVal.toFixed(1) : 'N/A'}{' '}
-                          <span className="bar-src">({srcCount} src)</span>
+                          {scoreVal !== null ? scoreVal.toFixed(1) : 'N/A'}
                         </span>
                       </div>
                     );

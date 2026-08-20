@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
 import { Dashboard } from './dashboard';
+import { RadarChart } from './radar-chart';
 import { getRepresentativeRows } from '../lib/view-model';
 import { productFixture } from '../test/fixture';
 
@@ -142,8 +143,8 @@ describe('Dashboard Redesign', () => {
       expect(html).toContain(abbr);
     });
 
-    expect(html).toContain('src');
-    expect(html).not.toContain('(1 sources)');
+    expect(html).not.toContain('bar-src');
+    expect(html).not.toContain('src)');
   });
 
   it('orders Quality vs. Cost below Eight Dimensions', () => {
@@ -177,6 +178,32 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
 
     expect(html).toContain('Remove GPT-5.6 Sol · max from radar chart');
+  });
+
+  it('keeps an explicit N/A textual equivalent for incomplete radar data', () => {
+    const profile = productFixture.profiles.find(
+      ({ id }) => id === 'anthropic-claude-fable-5-standard',
+    )!;
+    const selectedResult = productFixture.leaderboard.find(
+      ({ profileId }) => profileId === profile.id,
+    );
+    const html = renderToStaticMarkup(
+      createElement(RadarChart, {
+        product: productFixture,
+        activeProfile: profile,
+        selectedResult,
+        comparisonProduct: productFixture,
+        comparisonProfileIds: [],
+        setComparisonProfileIds: () => undefined,
+        onClearActiveProfile: () => undefined,
+      }),
+    );
+
+    expect(html).toContain('Missing values are shown as N/A');
+    expect(html).toContain('CTX: N/A');
+    expect(html).toContain('<polyline');
+    expect(html).not.toContain('<polygon class="radar-area');
+    expect(html).not.toContain('bar-src');
   });
 
   it('exposes alternative profiles without extra ranked rows', () => {

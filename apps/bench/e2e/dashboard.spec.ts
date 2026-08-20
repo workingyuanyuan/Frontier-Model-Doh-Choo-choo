@@ -27,6 +27,19 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
   await expect(page.locator('[data-developer-models]')).not.toContainText(
     'Overall',
   );
+
+  const developerModelButton = page
+    .locator('[data-developer-model] button')
+    .first();
+  await developerModelButton.click();
+  await expect(page.locator('.radar-chart')).toBeVisible();
+  await expect(page.locator('#radar-chart-description')).toBeAttached();
+  const developerAxe = await new AxeBuilder({ page }).analyze();
+  expect(
+    developerAxe.violations.filter(({ impact }) =>
+      ['critical', 'serious'].includes(impact ?? ''),
+    ),
+  ).toEqual([]);
 });
 
 test('switching effort updates the selected model scores', async ({ page }) => {
@@ -54,6 +67,9 @@ test('switching effort updates the selected model scores', async ({ page }) => {
 test('has no serious accessibility violations or page-level mobile overflow', async ({
   page,
 }, testInfo) => {
+  if (testInfo.project.name === 'mobile-chromium') {
+    await page.setViewportSize({ width: 390, height: 844 });
+  }
   await page.goto('/');
 
   const results = await new AxeBuilder({ page }).analyze();
@@ -68,5 +84,40 @@ test('has no serious accessibility violations or page-level mobile overflow', as
       () => document.documentElement.scrollWidth - window.innerWidth,
     );
     expect(overflow).toBeLessThanOrEqual(1);
+  }
+});
+
+test('keeps leaderboard sort, search, and effort controls keyboard reachable', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const sortButton = page.getByRole('button', { name: 'Sort by Overall' });
+  await sortButton.focus();
+  await expect(sortButton).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('th[aria-sort="ascending"]')).toHaveCount(1);
+
+  const pickerTrigger = page.getByRole('button', {
+    name: /Search models or profiles/,
+  });
+  await pickerTrigger.focus();
+  await expect(pickerTrigger).toBeFocused();
+  await page.keyboard.press('Enter');
+  const searchInput = page.getByRole('searchbox', {
+    name: 'Filter models in list',
+  });
+  await expect(searchInput).toBeFocused();
+  await searchInput.fill('GPT');
+  await expect(searchInput).toHaveValue('GPT');
+  await page.keyboard.press('Escape');
+  await expect(pickerTrigger).toBeFocused();
+
+  const effortSelector = page.locator('.profile-table-select').first();
+  if (await effortSelector.count()) {
+    await effortSelector.focus();
+    await expect(effortSelector).toBeFocused();
+    const options = await effortSelector.locator('option').count();
+    expect(options).toBeGreaterThan(0);
   }
 });
