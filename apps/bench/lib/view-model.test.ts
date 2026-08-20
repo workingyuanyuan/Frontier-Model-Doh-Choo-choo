@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  ADVANCED_COST_SOURCE_IDS,
+  COST_SOURCE_WEIGHTS,
   filterLeaderboard,
   getDataScopeSummary,
   getEvidenceForProfile,
@@ -13,6 +15,7 @@ import {
   isMainEligibleRow,
   resolveActiveProfile,
   splitCostSeries,
+  buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
 } from './view-model';
@@ -391,10 +394,10 @@ describe('cost chart view model', () => {
     expect(solPoints).toHaveLength(1);
     expect(solPoints[0]?.profileId).toBe(solRep?.profileId);
     expect(solPoints[0]?.performance).toBe(solRep?.overallScore);
-    expect(solPoints[0]?.normalizedCost).toBe(50);
+    expect(solPoints[0]?.normalizedCost).toBe(100);
   });
 
-  it('does not emit non-representative profile cost points even when representative has no cost data', () => {
+  it('uses the best available profile for a source when the global representative has no cost data', () => {
     const productWithoutRepCost = {
       ...productFixture,
       costs: productFixture.costs
@@ -424,7 +427,10 @@ describe('cost chart view model', () => {
 
     const points = buildWeightedCostCurve(productWithoutRepCost);
     const solPoints = points.filter((p) => p.modelId === 'openai-gpt-5-6-sol');
-    expect(solPoints).toHaveLength(0);
+    expect(solPoints).toHaveLength(1);
+    expect(solPoints[0]?.selectedProfileIds).toEqual([
+      'openai-gpt-5-6-sol-high',
+    ]);
   });
 
   it('excludes null-performance costs from the weighted cost curve', () => {
@@ -452,6 +458,273 @@ describe('cost chart view model', () => {
     costPoints.forEach((point) => {
       expect(point.profileId).toBe(repByModel.get(point.modelId));
     });
+  });
+
+  it('uses four equal source weights and excludes model-catalog costs', () => {
+    expect(COST_SOURCE_WEIGHTS).toEqual({
+      'artificial-analysis': 0.25,
+      livebench: 0.25,
+      deepswe: 0.25,
+      'frontier-code': 0.25,
+    });
+
+    const taskTemplate = productFixture.costs.find(
+      ({ costType }) => costType === 'MEASURED_TASK',
+    )!;
+    const product = {
+      ...productFixture,
+      costs: [
+        ...productFixture.costs,
+        ...(['livebench', 'frontier-code', 'model-catalog'] as const).map(
+          (sourceId, index) => ({
+            ...taskTemplate,
+            sourceId,
+            cost: 1.5 + index,
+            performance: 88.1,
+            unit: 'USD_PER_TASK' as const,
+          }),
+        ),
+      ],
+    };
+
+    const points = buildWeightedCostCurve(product);
+    const sol = points.find(({ modelId }) => modelId === 'openai-gpt-5-6-sol');
+    expect(sol?.sourceCount).toBe(3);
+    expect(
+      sol?.sourceCosts
+        .map(({ sourceId, weight }) => [sourceId, weight] as const)
+        .toSorted(([left], [right]) => left.localeCompare(right)),
+    ).toEqual([
+      ['artificial-analysis', 0.25],
+      ['frontier-code', 0.25],
+      ['livebench', 0.25],
+    ]);
+    expect(
+      sol?.sourceCosts.some(({ sourceId }) => sourceId === 'model-catalog'),
+    ).toBe(false);
+  });
+
+  it('never admits API-standardized token prices to either chart', () => {
+    const apiOnly = {
+      ...productFixture,
+      costs: productFixture.costs.map((cost) => ({
+        ...cost,
+        costType: 'API_STANDARDIZED' as const,
+        unit: 'USD_PER_MILLION_TOKENS' as const,
+      })),
+    };
+
+    expect(buildWeightedCostCurve(apiOnly)).toEqual([]);
+    expect(buildAdvancedCostSeries(apiOnly)).toEqual([]);
+  });
+
+  it('excludes advanced models missing one required source and keeps source IDs aligned', () => {
+    const baseEvidence = productFixture.evidence[0]!;
+    const profiles = [
+      {
+        ...productFixture.profiles[0]!,
+        id: 'openai-gpt-5-6-sol-low',
+        displayName: 'GPT-5.6 Sol · low',
+        attributes: { effort: 'low', harness: null },
+      },
+      {
+        ...productFixture.profiles[0]!,
+        id: 'openai-gpt-5-6-sol-default',
+        displayName: 'GPT-5.6 Sol · default',
+        attributes: { effort: 'default', harness: null },
+      },
+      {
+        ...productFixture.profiles[1]!,
+        id: 'anthropic-claude-fable-5-low',
+        displayName: 'Claude Fable 5 · low',
+        attributes: { effort: 'low', harness: null },
+      },
+    ];
+    const sourceEvidence = (
+      sourceId: string,
+      profileId: string,
+      modelId: string,
+      score: number,
+      index: number,
+    ) => {
+      const isAa = sourceId === 'artificial-analysis';
+      const benchmarkId =
+        sourceId === 'artificial-analysis'
+          ? 'artificial-analysis-intelligence-index'
+          : sourceId === 'deepswe'
+            ? 'deepswe-1-1'
+            : 'frontier-code-1-1';
+      const sourceEffort = profileId.endsWith('-non-reasoning')
+        ? 'non-reasoning'
+        : profileId.endsWith('-default')
+          ? null
+          : profileId.slice(profileId.lastIndexOf('-') + 1);
+      return {
+        ...baseEvidence,
+        id: `e3:${sourceId}:${profileId}:${index}`,
+        sourceId,
+        benchmarkId,
+        inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
+        exclusionReason: isAa
+          ? 'External composite is used for display only.'
+          : null,
+        model: {
+          ...baseEvidence.model,
+          canonicalModelId: modelId,
+          profileId,
+        },
+        profile: {
+          ...baseEvidence.profile,
+          effort: sourceEffort,
+        },
+        normalizedScore: isAa ? null : score,
+        rawScore: score,
+      };
+    };
+    const taskCost = (
+      sourceId: string,
+      profileId: string,
+      modelId: string,
+      cost: number,
+      index: number,
+    ) => ({
+      ...productFixture.costs.find(
+        ({ costType }) => costType === 'MEASURED_TASK',
+      )!,
+      sourceId,
+      profileId,
+      modelId,
+      cost,
+      costType:
+        sourceId === 'deepswe'
+          ? ('AGENT_TASK' as const)
+          : ('MEASURED_TASK' as const),
+      unit: 'USD_PER_TASK' as const,
+      benchmarkId:
+        sourceId === 'artificial-analysis'
+          ? 'artificial-analysis-intelligence-index'
+          : sourceId === 'deepswe'
+            ? 'deepswe-1-1'
+            : 'frontier-code-1-1',
+      evidenceIds: [`sha256:${String(index).padStart(64, '0')}`],
+    });
+    const modelId = 'openai-gpt-5-6-sol';
+    const advancedProfiles = [
+      ['openai-gpt-5-6-sol-low', 10],
+      ['openai-gpt-5-6-sol-max', 30],
+      ['openai-gpt-5-6-sol-default', 20],
+    ] as const;
+    const advancedCosts = advancedProfiles.flatMap(([profileId, cost]) =>
+      ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
+        taskCost(sourceId, profileId, modelId, cost + index, index + cost),
+      ),
+    );
+    const advancedEvidence = advancedProfiles.flatMap(([profileId, score]) =>
+      ADVANCED_COST_SOURCE_IDS.flatMap((sourceId, sourceIndex) => [
+        sourceEvidence(
+          sourceId,
+          profileId,
+          modelId,
+          score + sourceIndex,
+          sourceIndex,
+        ),
+        ...(sourceId === 'artificial-analysis'
+          ? [
+              {
+                ...sourceEvidence(
+                  sourceId,
+                  profileId,
+                  modelId,
+                  score + sourceIndex + 10,
+                  sourceIndex + 10,
+                ),
+                id: `e3:${sourceId}:${profileId}:unrelated`,
+                benchmarkId: 'aa-unrelated-benchmark',
+                inclusion: 'INCLUDED' as const,
+                exclusionReason: null,
+                normalizedScore: score + sourceIndex + 10,
+              },
+            ]
+          : []),
+      ]),
+    );
+    const missingModelId = 'anthropic-claude-fable-5';
+    const missingCosts = ['artificial-analysis', 'deepswe'].map(
+      (sourceId, index) =>
+        taskCost(
+          sourceId,
+          'anthropic-claude-fable-5-low',
+          missingModelId,
+          index + 1,
+          index + 100,
+        ),
+    );
+    const missingEvidence = missingCosts.map((cost, index) =>
+      sourceEvidence(
+        cost.sourceId,
+        cost.profileId,
+        missingModelId,
+        50 + index,
+        index + 100,
+      ),
+    );
+    const product = {
+      ...productFixture,
+      profiles: [...productFixture.profiles, ...profiles],
+      costs: [...productFixture.costs, ...advancedCosts, ...missingCosts],
+      evidence: [
+        ...productFixture.evidence,
+        ...advancedEvidence,
+        ...missingEvidence,
+      ],
+    };
+
+    const series = buildAdvancedCostSeries(product);
+    expect(new Set(series.map(({ modelId: id }) => id))).toEqual(
+      new Set([modelId]),
+    );
+    expect(series.map(({ sourceId }) => sourceId)).toEqual([
+      'artificial-analysis',
+      'deepswe',
+      'frontier-code',
+    ]);
+    series.forEach((line) => {
+      expect(
+        line.points.every(({ sourceId }) => sourceId === line.sourceId),
+      ).toBe(true);
+      expect(
+        line.points.every(
+          ({ scoreBasis, scoreBenchmarkId }) =>
+            scoreBasis ===
+              (line.sourceId === 'artificial-analysis'
+                ? 'AA_INTELLIGENCE_INDEX'
+                : line.sourceId === 'deepswe'
+                  ? 'DEEPSWE_1_1'
+                  : 'FRONTIER_CODE_1_1') &&
+            scoreBenchmarkId ===
+              (line.sourceId === 'artificial-analysis'
+                ? 'artificial-analysis-intelligence-index'
+                : line.sourceId === 'deepswe'
+                  ? 'deepswe-1-1'
+                  : 'frontier-code-1-1'),
+        ),
+      ).toBe(true);
+      expect(line.points.map(({ effort }) => effort)).toEqual([
+        'low',
+        'max',
+        'default',
+      ]);
+    });
+    expect(
+      series
+        .find(({ sourceId }) => sourceId === 'artificial-analysis')!
+        .points.find(({ effort }) => effort === 'default')?.isDefaultEffort,
+    ).toBe(true);
+    expect(
+      series
+        .find(({ sourceId }) => sourceId === 'artificial-analysis')!
+        .points.map(({ score }) => score),
+    ).toEqual([10, 30, 20]);
   });
 });
 

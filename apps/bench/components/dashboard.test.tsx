@@ -4,7 +4,11 @@ import { describe, expect, it } from 'vitest';
 
 import { Dashboard } from './dashboard';
 import { RadarChart } from './radar-chart';
-import { getRepresentativeRows } from '../lib/view-model';
+import {
+  buildAdvancedCostSeries,
+  buildWeightedCostCurve,
+  getRepresentativeRows,
+} from '../lib/view-model';
 import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
@@ -70,14 +74,133 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('GPT-5.6 Sol');
   });
 
-  it('renders one weighted task-cost chart with explicit axes and source weights', () => {
+  it('renders the default weighted task-cost chart with explicit axes and source weights', () => {
     const html = renderToStaticMarkup(dashboard());
 
     expect(html).toContain('Weighted normalized task cost index');
     expect(html).toContain('Overall Score (0–100, higher is better)');
-    expect(html).toContain('Artificial Analysis 40%');
-    expect(html).not.toContain('API standardized');
+    expect(html).toContain('Artificial Analysis 25%');
+    expect(html).toContain('LiveBench 25%');
+    expect(html).toContain('DeepSWE 25%');
+    expect(html).toContain('Frontier Code 25%');
+    expect(html).toContain('API standardized token prices are excluded');
     expect(html.match(/cost-curve-chart/g)).toHaveLength(1);
+    expect(html).toContain('Show advanced effort curves');
+    expect(html).toContain('aria-expanded="false"');
+  });
+
+  it('keeps default cost data scoped to the complete display-set projection', () => {
+    const html = renderToStaticMarkup(dashboard());
+
+    // Claude Fable 5 is present in the full fixture but lacks the display-set
+    // terminal-bench cell, so it belongs only in developer-mode diagnostics.
+    expect(html).not.toContain('Claude Fable 5');
+  });
+
+  it('keeps advanced curves on the full product while default costs stay scoped', () => {
+    const modelId = 'anthropic-claude-fable-5';
+    const profileId = 'anthropic-claude-fable-5-standard';
+    const baseEvidence = productFixture.evidence[0]!;
+    const baseCost = productFixture.costs.find(
+      ({ costType }) => costType === 'MEASURED_TASK',
+    )!;
+    const sourceRows = [
+      {
+        sourceId: 'artificial-analysis',
+        benchmarkId: 'artificial-analysis-intelligence-index',
+        costType: 'MEASURED_TASK' as const,
+        normalizedScore: null,
+        rawScore: 75,
+        inclusion: 'EXCLUDED' as const,
+        exclusionReason: 'External composite is used for display only.',
+      },
+      {
+        sourceId: 'deepswe',
+        benchmarkId: 'deepswe-1-1',
+        costType: 'AGENT_TASK' as const,
+        normalizedScore: 75,
+        rawScore: 75,
+        inclusion: 'INCLUDED' as const,
+        exclusionReason: null,
+      },
+      {
+        sourceId: 'frontier-code',
+        benchmarkId: 'frontier-code-1-1',
+        costType: 'AGENT_TASK' as const,
+        normalizedScore: 75,
+        rawScore: 75,
+        inclusion: 'INCLUDED' as const,
+        exclusionReason: null,
+      },
+    ] as const;
+    const fullProduct = {
+      ...productFixture,
+      costs: [
+        ...productFixture.costs,
+        ...sourceRows.map((row, index) => ({
+          ...baseCost,
+          modelId,
+          profileId,
+          sourceId: row.sourceId,
+          costType: row.costType,
+          cost: 1 + index,
+          performance: null,
+          benchmarkId: row.benchmarkId,
+          metricId: `e3-${row.sourceId}`,
+          metricName: `E3 ${row.sourceId} task cost`,
+          unit: 'USD_PER_TASK' as const,
+        })),
+      ],
+      evidence: [
+        ...productFixture.evidence,
+        ...sourceRows.map((row, index) => ({
+          ...baseEvidence,
+          id: `e3-dashboard:${row.sourceId}:${index}`,
+          sourceId: row.sourceId,
+          benchmarkId: row.benchmarkId,
+          inclusion: row.inclusion,
+          exclusionReason: row.exclusionReason,
+          model: {
+            ...baseEvidence.model,
+            canonicalModelId: modelId,
+            profileId,
+          },
+          profile: {
+            ...baseEvidence.profile,
+            effort: 'max',
+          },
+          normalizedScore: row.normalizedScore,
+          rawScore: row.rawScore,
+        })),
+      ],
+    };
+    const visibleProduct = {
+      ...fullProduct,
+      frontier: fullProduct.frontier.filter(
+        ({ modelId: frontierModelId }) => frontierModelId !== modelId,
+      ),
+      profiles: fullProduct.profiles.filter(({ id }) => id !== profileId),
+      leaderboard: fullProduct.leaderboard.filter(
+        ({ profileId: rowProfileId }) => rowProfileId !== profileId,
+      ),
+      costs: fullProduct.costs.filter(
+        ({ profileId: rowProfileId }) => rowProfileId !== profileId,
+      ),
+      evidence: fullProduct.evidence.filter(
+        ({ model }) => model.profileId !== profileId,
+      ),
+    };
+
+    expect(
+      buildWeightedCostCurve(visibleProduct).some(
+        ({ modelId: pointModelId }) => pointModelId === modelId,
+      ),
+    ).toBe(false);
+    expect(
+      buildAdvancedCostSeries(fullProduct).some(
+        ({ modelId: seriesModelId }) => seriesModelId === modelId,
+      ),
+    ).toBe(true);
   });
 
   it('provides textual equivalents for SVG charts', () => {

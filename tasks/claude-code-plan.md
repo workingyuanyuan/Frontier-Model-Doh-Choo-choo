@@ -694,7 +694,7 @@ if (performance === null || performance === undefined) return [];
 
 ## E3 — 兩張性價比圖表
 
-狀態：進行中（**相依：D4 必須先完成**）
+狀態：完成
 
 **目標**：實作規格 §6.3。
 

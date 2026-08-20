@@ -1310,6 +1310,34 @@ details[open] > .evidence-group-summary::before {
   padding: 0.5rem 0.75rem;
 }
 
+.cost-chart-actions {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cost-mode-toggle {
+  background: var(--surface);
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 750;
+  padding: 0.5rem 0.75rem;
+}
+
+.cost-mode-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cost-mode-toggle:focus-visible {
+  outline: 0.15rem solid var(--focus);
+  outline-offset: 0.15rem;
+}
+
 .cost-curve-layout {
   align-items: start;
   display: grid;
@@ -1398,6 +1426,46 @@ details[open] > .evidence-group-summary::before {
   stroke-width: 4;
 }
 
+.advanced-cost-layout {
+  align-items: start;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 3fr) minmax(15rem, 1fr);
+  padding: 0.75rem 1.25rem 1.25rem;
+}
+
+.advanced-cost-line {
+  fill: none;
+  opacity: 0.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.advanced-cost-point {
+  cursor: help;
+  opacity: 0.85;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.advanced-cost-point:hover,
+.advanced-cost-point:focus {
+  opacity: 1;
+  outline: none;
+  stroke: var(--ink);
+  stroke-width: 3;
+}
+
+.advanced-cost-point.is-default {
+  stroke-dasharray: 2 2;
+}
+
+.advanced-cost-point.is-selected {
+  stroke: var(--highlight);
+  stroke-width: 4;
+}
+
 .cost-frontier-caption {
   color: var(--ink-faint);
   font-size: 0.75rem;
@@ -1476,7 +1544,8 @@ details[open] > .evidence-group-summary::before {
 }
 
 @media (max-width: 64rem) {
-  .cost-curve-layout {
+  .cost-curve-layout,
+  .advanced-cost-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1494,6 +1563,15 @@ details[open] > .evidence-group-summary::before {
 }
 
 @media (max-width: 40rem) {
+  .cost-chart-actions {
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .cost-mode-toggle {
+    width: 100%;
+  }
+
   .cost-model-legend ul {
     grid-template-columns: 1fr;
   }

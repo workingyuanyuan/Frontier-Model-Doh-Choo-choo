@@ -64,6 +64,27 @@ test('switching effort updates the selected model scores', async ({ page }) => {
   await expect.poll(() => row.innerText()).not.toBe(before);
 });
 
+test('toggles the advanced source-local cost curves by keyboard', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const toggle = page.locator('.cost-mode-toggle');
+  await expect(toggle).toHaveText('Show advanced effort curves');
+  await toggle.focus();
+  await expect(toggle).toBeFocused();
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await page.keyboard.press('Enter');
+  await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('.advanced-cost-chart')).toBeVisible();
+  await expect(
+    page.getByText('LiveBench is excluded.', { exact: false }),
+  ).toBeVisible();
+  await toggle.press('Enter');
+  await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('.cost-curve-chart')).toBeVisible();
+});
+
 test('has no serious accessibility violations or page-level mobile overflow', async ({
   page,
 }, testInfo) => {

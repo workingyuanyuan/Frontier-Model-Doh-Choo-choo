@@ -252,7 +252,8 @@ export function Dashboard({
         ) : null}
 
         <CostChart
-          product={visibleProduct}
+          defaultProduct={visibleProduct}
+          advancedProduct={product}
           selectedProfileId={selectedProfile?.id ?? ''}
         />
 
