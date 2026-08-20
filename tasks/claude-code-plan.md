@@ -800,7 +800,7 @@ openai-gpt-5-4-pro-unspecified                zai-glm-5-1-unspecified
 
 ## F2 — 最終驗收
 
-狀態：未開始
+狀態：完成
 
 **要求**：
 
