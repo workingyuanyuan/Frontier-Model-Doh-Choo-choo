@@ -810,3 +810,78 @@ openai-gpt-5-4-pro-unspecified                zai-glm-5-1-unspecified
 - 所有保留功能有 unit／browser／build 證據；所有移除功能在程式、資料、依賴、script、CI、測試、文件都沒有半殘狀態。
 
 **最終回報必須明確列出**仍需使用者人工處理的項目：`current.json` 的審核與 commit 指示、首次部署、倉庫外 `codex-gemini-orchestrator` 舊工作目錄的處置、Artificial Analysis 金鑰輪換。
+
+---
+
+# G. 驗收缺陷修正
+
+F2 於 2026-08-21 判定**不通過**（[驗收報告](../docs/F2_ACCEPTANCE_2026-08-21.md)）。本階段清掉阻擋項，完成後**必須由未參與實作與審查的第三方重跑 F2**。
+
+已排除的兩項非缺陷：
+
+- `pnpm e2e` 在 build 前失敗是 `playwright.config.ts` 的 `webServer` 跑 `next start`、本來就需要先 build，屬文件命令順序問題，併入 G1。
+- `tmp/ci-clean-20260713/` 是 gitignore 內的本機殘留，Git graph 乾淨。已於 2026-08-21 依使用者指示整個 `tmp/` 清除。
+
+F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實測確認為 7 家（anthropic 2、openai 3、google 2、xai 2、deepseek 1、moonshot 1、zai 1），12 列與無 N/A 均正確。此為口頭誤述，非產品缺陷。
+
+## G1 — 修正文件與程式不一致
+
+狀態：未開始
+
+**目標**：清掉 F2 報告 A6 列出的八項不一致。每一項都要**實際對照程式或資料**驗證後再改，不要只改措辭。
+
+**要求**：
+
+1. `docs/DATA_METHODOLOGY.md:77-82` 與 `docs/BENCHMARK_SCORE_SOURCES.md:14`：未標 effort 的推測寫成「取最高檔」，與規格 §4.5 及 `packages/benchmark-data/src/index.ts` 的每來源一票眾數（平手取較高）矛盾。同處 `xHigh` 應為 `xhigh`。
+2. `docs/DATA_METHODOLOGY.md:134`：寫缺來源時只不顯示「該來源曲線」；規格 §6.3 與 `apps/bench/lib/view-model.ts` 是缺任一來源即整個模型不顯示。
+3. `docs/DATA_METHODOLOGY.md:45-52`：LiveBench／DeepSWE 操作仍列 replay 型 `materialize:snapshots` / `materialize:costs`，未列 `packages/acquisition/package.json` 的 live refresh 命令。README 與 OPERATIONS 已是正確版本，以它們為準。
+4. `docs/PROJECT_HANDOFF.md:60`：寫 Overall 只平均已有維度；實作為八維不齊即 `null`。另 `docs/README.md:9` 仍把 PROJECT_HANDOFF 標為 **Current**，應降為歷史文件。
+5. `docs/OPERATIONS.md:113-129`：刷新報告的強制欄位未完整抄入規格 §11.4——缺舊／新 `versionId` 與四項 delta、主畫面進出與原因、既有模型最大分數變動、逐筆檔位推測揭露表。
+6. `docs/OPERATIONS.md:76`：說頁首與頁尾都顯示完整 `versionId`；實際頁首是縮寫、完整值在 `title`，頁尾才直接顯示。
+7. `README.md:82-89` 與 `docs/OPERATIONS.md:140-148`：驗證命令順序在乾淨 checkout 不可執行，`pnpm e2e` 必須排在 `pnpm --filter @llm-bench/bench build` 之後。
+8. `docs/DATA_METHODOLOGY.md:100-105` 的成本 Evidence 宣稱由 G3 處理，G1 不動該段。
+
+**不得**修改 `docs/REFACTOR_SPEC_V2.md`；文件對齊規格，不是反過來。
+
+**完成條件**：上述八處逐一對照程式或資料確認一致；基準驗證全綠。
+
+## G2 — 讓乾淨 checkout 能跑 `pnpm test`
+
+狀態：未開始
+
+**目標**：`packages/acquisition` 的多個測試直接讀取 Git 外的 `artifacts-v2/`（見 `artificial-analysis-materializer.test.ts`、`livebench-materializer.test.ts`、`deepswe-materializer.test.ts`、`epoch-materializer.test.ts`、`artifacts.test.ts`），因此乾淨 clone 後 `pnpm test` 必然失敗，而 `pnpm test` 是 CLAUDE.md 的基準驗證項目。
+
+**使用者已決定的作法**：把測試實際讀取的 artifact **縮成精簡 fixture 進 Git**，`artifacts-v2/` 維持 Git 外。
+
+**要求**：
+
+- 只為測試實際斷言到的內容建立 fixture，不要整份 artifact 進 Git；注意原始 artifact 有數 MB 的 HTML 與 zip。
+- fixture 放在測試套件內的固定目錄，路徑不得再指向 `artifacts-v2/`。
+- 保持斷言的實質強度，**不得為了讓測試過而弱化斷言或改成 snapshot 比對**。
+- `data-v2/sources/` 底下任何目錄不得刪除或修改。
+- 不得改動 `artifacts-v2/` 既有內容。
+
+**完成條件**：在沒有 `artifacts-v2/` 的環境下 `pnpm test` 全綠；測試數量不低於現行 181 筆。
+
+## G3 — 移除無出處的 model-catalog 成本列
+
+狀態：未開始
+
+**目標**：`docs/DATA_METHODOLOGY.md:100` 寫「成本必須是帶 Evidence 的 CostRecord，不得只手工塞入模型 catalog」，但 `buildProduct` 的 `catalogCosts` 產生 21 筆 `sourceId: 'model-catalog'` 的成本列，`evidenceIds` 全為空。
+
+**使用者已決定**：文件是對的，移除 catalog 成本列。
+
+**要求**：
+
+- 移除 `catalogCosts` 的產生路徑，使 ProductVersion 只保留有出處的成本列。
+- 確認移除後預設圖與進階圖皆無變化——這 21 筆的 `sourceId` 權重為 0，本來就不進任何圖表。若有變化，停下來回報。
+- 重跑 `pnpm data:v2:build-current`，回報新 `versionId`、成本列數（現為 253）與各來源分佈。
+- **`current.json` 不得提交**，依規格 §11.4 交由使用者審核。因本次不涉及來源刷新、分數不變，刷新報告可精簡為變更摘要。
+
+**完成條件**：ProductVersion 內無 `sourceId: 'model-catalog'` 的成本列；有測試證明成本列的 `evidenceIds` 皆非空；兩張圖表的資料點數與 G3 前相同。
+
+## G4 — 重跑最終驗收
+
+狀態：未開始
+
+G1 至 G3 完成、使用者核准 `current.json` 之後，**由未參與本次實作與審查的第三方重跑 F2**。沿用 F2 的 prompt 與驗收項目，另加驗一項：G1 的八處修正是否真的與程式一致。
