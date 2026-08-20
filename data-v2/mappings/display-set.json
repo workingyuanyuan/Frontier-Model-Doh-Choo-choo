@@ -1,11 +1,20 @@
 {
   "schemaVersion": "display-set-v1",
-  "notes": "TENTATIVE: Placeholder display set for mechanism validation. Final benchmark IDs will be chosen by user at Gate 2.",
+  "notes": "Approved at review gate 2 on 2026-08-20. Chosen from docs/COVERAGE_MATRIX_REPORT.md: the N=15 optimum minus aa-briefcase, which alone excluded DeepSeek V4 Pro, GPT-5.6 Luna and GPT-5.6 Terra. Covers all four whitelisted sources and 8/8 dimensions. Twelve of these fourteen have zero marginal cost; only frontier-code-1-1 and deepswe-1-1 narrow the model set, which is the intended price of source diversity. Excluded on low Artificial Analysis coverage: aa-briefcase, apex-agents, gdpval-aa, ifbench.",
   "benchmarkIds": [
+    "aa-lcr",
+    "aa-omniscience",
+    "critpt",
+    "gpqa-diamond",
+    "humanitys-last-exam",
+    "scicode",
+    "tau3-banking",
+    "terminal-bench-2-1",
     "livebench-reasoning",
     "livebench-mathematics",
     "livebench-language",
     "livebench-instruction-following",
-    "deepswe-1-1"
+    "deepswe-1-1",
+    "frontier-code-1-1"
   ]
 }
