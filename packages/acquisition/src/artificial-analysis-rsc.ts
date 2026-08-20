@@ -89,6 +89,8 @@ export interface ArtificialAnalysisMaterializeResult {
   validationReport: string;
   pageRows: number;
   activeRows: number;
+  intelligenceIndexRows: number;
+  gdpvalRows: number;
   taskCostRows: number;
   tokenPriceRows: number;
   unresolvedCandidates: number;
@@ -100,6 +102,9 @@ const MISSING_SENTINEL = '$undefined';
 const SOURCE_ID = 'artificial-analysis';
 const TASK_COST_BENCHMARK_ID = 'artificial-analysis-intelligence-index';
 const ACTIVE_CUTOFF = '2025-08-17';
+const INTELLIGENCE_INDEX_ALIASES = ['intelligenceIndex'] as const;
+const INTELLIGENCE_INDEX_EXCLUSION_REASON =
+  'External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.';
 
 const EVALUATION_PRIORITY = new Map<string, number>([
   ['omniscience', 0],
@@ -496,11 +501,15 @@ const rowPriority = (
  * both cases the row's own `/models/<slug>` page is the one that displays this
  * exact variant, so that is what gets credited.
  */
-const observationSourceUrl = (observation: RowObservation): string => {
+const observationSourceUrl = (
+  observation: RowObservation,
+  useObservedPage = false,
+): string => {
   const { page, row } = observation;
   const slug = pageRowKey(row);
   if (!slug) return page.sourceUrl;
   if (page.kind === 'model-detail' && slug === page.slug) return page.sourceUrl;
+  if (useObservedPage) return page.sourceUrl;
   return `${ARTIFICIAL_ANALYSIS_MODELS_URL}/${encodeURIComponent(slug)}`;
 };
 
@@ -531,6 +540,37 @@ const readRowField = (
   }
   return null;
 };
+
+const readNumberField = (
+  row: ArtificialAnalysisRow,
+  aliases: readonly string[],
+): ReadWithPath | null => {
+  for (const alias of aliases) {
+    const value = readNumber(row[alias]);
+    if (value !== null) return { value, path: alias };
+  }
+  return null;
+};
+
+const chooseObservationWithField = (
+  observations: readonly RowObservation[],
+  aliases: readonly string[],
+  preferredPage?: string,
+  preferOwnDetail = false,
+): RowObservation | null =>
+  (() => {
+    const withField = observations.filter(({ row }) =>
+      aliases.some((alias) => isArtificialAnalysisValuePresent(row[alias])),
+    );
+    const ownDetails = withField.filter(
+      ({ page, row }) =>
+        page.kind === 'model-detail' && pageRowKey(row) === page.slug,
+    );
+    return chooseObservation(
+      preferOwnDetail && ownDetails.length > 0 ? ownDetails : withField,
+      preferredPage,
+    );
+  })();
 
 export const isArtificialAnalysisActiveRow = (
   row: ArtificialAnalysisRow,
@@ -654,7 +694,10 @@ const makeScoreCandidate = (
     acquisitionStatus: 'PARTIAL_SOURCE' as const,
     inclusion: 'INCLUDED' as const,
     exclusionReason: null,
-    sourceUrl: observationSourceUrl(observation),
+    sourceUrl: observationSourceUrl(
+      observation,
+      mapping.benchmarkId === 'gdpval-aa',
+    ),
     observedAt: observation.page.retrievedAt,
     sourcePublishedAt: null,
     evidenceIds: [observation.page.evidenceId],
@@ -672,6 +715,70 @@ const makeScoreCandidate = (
     },
   };
   return CandidateResultSchema.parse(candidate);
+};
+
+const makeIntelligenceIndexCandidate = (
+  observation: RowObservation,
+  row: ArtificialAnalysisRow,
+): CandidateResult | null => {
+  const identity = modelIdentity(row);
+  const key = pageRowKey(row);
+  const value = readNumberField(row, INTELLIGENCE_INDEX_ALIASES);
+  if (!identity || !key || value === null) return null;
+  const modelPart = identity.resolved.profileId ?? slugify(identity.rawName);
+  return CandidateResultSchema.parse({
+    schemaVersion: 'candidate-result-v1',
+    id: `${SOURCE_ID}:${modelPart}:intelligence-index-v4-1`,
+    sourceId: SOURCE_ID,
+    sourceRole: 'ORGANIZER',
+    benchmarkId: TASK_COST_BENCHMARK_ID,
+    benchmarkVersion: 'v4.1',
+    model: {
+      rawName: identity.rawName,
+      canonicalModelId: identity.resolved.canonicalModelId,
+      profileId: identity.resolved.profileId,
+    },
+    profile: {
+      effort: identity.effort,
+      thinking:
+        typeof row.reasoning_model === 'boolean' ||
+        typeof row.isReasoning === 'boolean'
+          ? 'reasoning'
+          : null,
+      tools: null,
+      harness: null,
+      contextWindowTokens: null,
+      quantization: null,
+      attempts: null,
+    },
+    metric: {
+      id: 'index-score',
+      name: 'Artificial Analysis Intelligence Index',
+      unit: 'index points',
+      higherIsBetter: true,
+    },
+    rawScore: value.value,
+    normalizedScore: null,
+    acquisitionStatus: 'PARTIAL_SOURCE',
+    inclusion: 'EXCLUDED',
+    exclusionReason: INTELLIGENCE_INDEX_EXCLUSION_REASON,
+    sourceUrl: observationSourceUrl(observation, true),
+    observedAt: observation.page.retrievedAt,
+    sourcePublishedAt: null,
+    evidenceIds: [observation.page.evidenceId],
+    provenance: {
+      'model.rawName': {
+        evidenceId: observation.page.evidenceId,
+        method: 'NEXT_RSC',
+        locator: `${value.path}; model.name`,
+      },
+      rawScore: {
+        evidenceId: observation.page.evidenceId,
+        method: 'NEXT_RSC',
+        locator: value.path,
+      },
+    },
+  });
 };
 
 const makeOmniscienceIndexCandidate = (
@@ -988,6 +1095,13 @@ const hasScore = (observations: readonly RowObservation[]): boolean =>
     ),
   );
 
+const hasIntelligenceIndex = (
+  observations: readonly RowObservation[],
+): boolean =>
+  observations.some(
+    ({ row }) => readNumberField(row, INTELLIGENCE_INDEX_ALIASES) !== null,
+  );
+
 export const materializeArtificialAnalysisRsc = (
   pages: readonly ArtificialAnalysisPage[],
   api: ArtificialAnalysisApiPage | null = null,
@@ -1003,7 +1117,7 @@ export const materializeArtificialAnalysisRsc = (
     return (
       observation !== null &&
       isArtificialAnalysisActiveRow(observation.row) &&
-      hasScore(observations)
+      (hasScore(observations) || hasIntelligenceIndex(observations))
     );
   });
 
@@ -1015,7 +1129,12 @@ export const materializeArtificialAnalysisRsc = (
     const row = base.row;
     for (const mapping of SCORE_MAPPING) {
       const observation =
-        chooseObservation(observations, mapping.preferredPage) ?? base;
+        chooseObservationWithField(
+          observations,
+          mapping.aliases,
+          mapping.preferredPage,
+          mapping.benchmarkId === 'gdpval-aa',
+        ) ?? base;
       const value = readNumber(readRowField(observation.row, mapping.aliases));
       if (value === null) continue;
       const candidate = makeScoreCandidate(
@@ -1029,6 +1148,21 @@ export const materializeArtificialAnalysisRsc = (
         candidateIds.add(candidate.id);
         candidates.push(candidate);
       }
+    }
+    const intelligenceIndexObservation =
+      chooseObservationWithField(
+        observations,
+        INTELLIGENCE_INDEX_ALIASES,
+        undefined,
+        true,
+      ) ?? base;
+    const intelligenceIndex = makeIntelligenceIndexCandidate(
+      intelligenceIndexObservation,
+      intelligenceIndexObservation.row,
+    );
+    if (intelligenceIndex && !candidateIds.has(intelligenceIndex.id)) {
+      candidateIds.add(intelligenceIndex.id);
+      candidates.push(intelligenceIndex);
     }
     // Read from the same page the provenance credits. The evaluations payload
     // nests the value at `omniscience_breakdown.total.accuracy` while a model
@@ -1132,6 +1266,33 @@ export const materializeArtificialAnalysisRsc = (
 
   const pageRows = rowsByKey.size;
   const activeRows = activeEntries.length;
+  const modelsPayloadRows = uniqueRows(
+    pages.filter(({ kind }) => kind === 'models'),
+  ).size;
+  const evaluationPayloadRows = uniqueRows(
+    pages.filter(({ kind }) => kind === 'evaluation'),
+  ).size;
+  const detailPayloadRows = uniqueRows(
+    pages.filter(({ kind }) => kind === 'model-detail'),
+  ).size;
+  const gdpvalEvaluationNormalizedRows = pages
+    .filter(({ kind, slug }) => kind === 'evaluation' && slug === 'gdpval-aa')
+    .flatMap(
+      ({ rows, html }) => rows ?? extractArtificialAnalysisRscRows(html ?? ''),
+    )
+    .filter(
+      (row) =>
+        readNumber(
+          readRowField(row, ['gdpval_normalized', 'gdpvalNormalized']),
+        ) !== null,
+    ).length;
+  const intelligenceIndexRows = candidates.filter(
+    ({ benchmarkId, inclusion }) =>
+      benchmarkId === TASK_COST_BENCHMARK_ID && inclusion === 'EXCLUDED',
+  ).length;
+  const gdpvalRows = candidates.filter(
+    ({ benchmarkId }) => benchmarkId === 'gdpval-aa',
+  ).length;
   const unresolvedCandidates = candidates.filter(
     ({ model }) => model.canonicalModelId === null,
   ).length;
@@ -1161,18 +1322,24 @@ export const materializeArtificialAnalysisRsc = (
     '',
     '| Check | Count |',
     '|---|---:|',
-    `| Unique profile rows across evaluation pages | ${pageRows} |`,
+    `| Unique profile rows across all captured page payloads | ${pageRows} |`,
+    `| Unique profile rows in evaluation-page payloads | ${evaluationPayloadRows} |`,
+    `| Unique profile rows in model-detail payloads | ${detailPayloadRows} |`,
+    `| Profile rows in the /models payload | ${modelsPayloadRows} |`,
     `| Active profile rows (2025-08-17 cutoff, not deprecated) | ${activeRows} |`,
     `| Generated CandidateResults | ${candidates.length} |`,
+    `| Intelligence Index candidates (EXCLUDED) | ${intelligenceIndexRows} |`,
+    `| GDPval-AA normalized candidates | ${gdpvalRows} |`,
     `| Canonically unresolved candidates | ${unresolvedCandidates} |`,
     `| MEASURED_TASK cost rows | ${taskCostRows} |`,
     `| API_STANDARDIZED token-price rows | ${tokenPriceRows} |`,
     '',
     '## Page composition finding',
     '',
-    '- `/evaluations/omniscience` exposes the broad 479-row model-object payload but its task-cost field is sparse for current profiles.',
-    '- The combined evaluation-page union contains the complete current profile population; `/models` alone exposes 28 rows and 23 task costs in this capture.',
-    '- Detail pages are therefore part of the acquisition contract for task costs. Missing task cost remains absent; it is not estimated or filled with zero.',
+    `- The rendered \`/models\` catalog total is checked separately by the refresh command; its RSC payload exposes ${modelsPayloadRows} selected profile rows in this capture.`,
+    `- The evaluation-page payload union exposes ${evaluationPayloadRows} profiles. \`/evaluations/gdpval-aa\` carries ${gdpvalEvaluationNormalizedRows} \`gdpvalNormalized\` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.`,
+    `- The model-detail payload union exposes ${detailPayloadRows} profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.`,
+    '- Missing Index, score, or cost remains absent; it is not estimated or filled with zero.',
     '',
     '## API cross-validation',
     '',
@@ -1209,6 +1376,8 @@ export const materializeArtificialAnalysisRsc = (
     validationReport,
     pageRows,
     activeRows,
+    intelligenceIndexRows,
+    gdpvalRows,
     taskCostRows,
     tokenPriceRows,
     unresolvedCandidates,

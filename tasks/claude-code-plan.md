@@ -499,7 +499,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 ## C7 — 補齊 Artificial Analysis 的 Intelligence Index 與 GDPval-AA
 
-狀態：未開始
+狀態：已完成
 
 **這一項在 E3 進行中才被發現，因此編號屬 C 但排在 D 之後。E3 的 AA 曲線相依於它。**
 

@@ -169,14 +169,20 @@ describe('selectCurrentResults', () => {
     ).toEqual([full]);
   });
 
-  it('does not score excluded or display-only rows', () => {
+  it('does not put the excluded Artificial Analysis Intelligence Index into any dimension', () => {
+    const intelligenceIndex = makeCandidate({
+      benchmarkId: 'artificial-analysis-intelligence-index',
+      inclusion: 'EXCLUDED',
+      exclusionReason:
+        'External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.',
+    });
+
+    expect(selectCurrentResults([intelligenceIndex])).toEqual([]);
     expect(
-      selectCurrentResults([
-        makeCandidate({
-          inclusion: 'EXCLUDED',
-          exclusionReason: 'Composite index is selection-only',
-        }),
-      ]),
+      scoreProfiles(
+        [intelligenceIndex],
+        new Map([['artificial-analysis-intelligence-index', 'reasoning']]),
+      ),
     ).toEqual([]);
   });
 });

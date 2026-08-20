@@ -153,6 +153,125 @@ describe('Artificial Analysis RSC materializer', () => {
   });
 });
 
+describe('Artificial Analysis Index and GDPval provenance', () => {
+  const page = (
+    kind: 'models' | 'evaluation' | 'model-detail',
+    slug: string,
+    evidenceId: string,
+    rows: Record<string, unknown>[],
+  ) => ({
+    kind,
+    slug,
+    sourceUrl:
+      kind === 'models'
+        ? 'https://artificialanalysis.ai/models'
+        : kind === 'evaluation'
+          ? `https://artificialanalysis.ai/evaluations/${slug}`
+          : `https://artificialanalysis.ai/models/${slug}`,
+    evidenceId,
+    retrievedAt: '2026-08-20T00:00:00.000Z',
+    rows,
+  });
+
+  it('restores the excluded Index and falls back to the page carrying GDPval', () => {
+    const model = {
+      slug: 'gpt-5-6-sol',
+      name: 'GPT-5.6 Sol (max)',
+      releaseDate: '2026-08-01',
+      deprecated: false,
+      gpqa: 0.9,
+      intelligenceIndex: 60.9,
+      gdpvalNormalized: 0.55,
+    };
+    const result = materializeArtificialAnalysisRsc([
+      page('models', 'models', `sha256:${'a'.repeat(64)}`, [model]),
+      page('evaluation', 'gdpval-aa', `sha256:${'b'.repeat(64)}`, [
+        {
+          ...model,
+          gdpvalNormalized: null,
+          gdpval: 1234.5,
+        },
+      ]),
+    ]);
+
+    const index = result.candidates.filter(
+      ({ benchmarkId }) =>
+        benchmarkId === 'artificial-analysis-intelligence-index',
+    );
+    expect(index).toHaveLength(1);
+    expect(index[0]).toMatchObject({
+      rawScore: 60.9,
+      inclusion: 'EXCLUDED',
+      exclusionReason:
+        'External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.',
+      sourceUrl: 'https://artificialanalysis.ai/models',
+      evidenceIds: [`sha256:${'a'.repeat(64)}`],
+    });
+
+    const gdpval = result.candidates.find(
+      ({ benchmarkId }) => benchmarkId === 'gdpval-aa',
+    );
+    expect(gdpval).toMatchObject({
+      rawScore: 0.55,
+      sourceUrl: 'https://artificialanalysis.ai/models',
+      evidenceIds: [`sha256:${'a'.repeat(64)}`],
+    });
+  });
+
+  it('prefers the model-detail observation when it carries both fields', () => {
+    const model = {
+      slug: 'gpt-5-6-sol',
+      name: 'GPT-5.6 Sol (max)',
+      releaseDate: '2026-08-01',
+      deprecated: false,
+      gpqa: 0.9,
+      intelligenceIndex: 60.9,
+      gdpvalNormalized: 0.55,
+    };
+    const detailEvidenceId = `sha256:${'c'.repeat(64)}`;
+    const result = materializeArtificialAnalysisRsc([
+      page('models', 'models', `sha256:${'a'.repeat(64)}`, [model]),
+      page('evaluation', 'gdpval-aa', `sha256:${'b'.repeat(64)}`, [model]),
+      page('model-detail', 'gpt-5-6-sol', detailEvidenceId, [model]),
+    ]);
+
+    for (const candidate of result.candidates.filter(
+      ({ benchmarkId }) =>
+        benchmarkId === 'artificial-analysis-intelligence-index' ||
+        benchmarkId === 'gdpval-aa',
+    )) {
+      expect(candidate.sourceUrl).toBe(
+        'https://artificialanalysis.ai/models/gpt-5-6-sol',
+      );
+      expect(candidate.evidenceIds).toEqual([detailEvidenceId]);
+    }
+  });
+
+  it('does not turn null or $undefined Index/GDPval fields into candidates', () => {
+    const result = materializeArtificialAnalysisRsc([
+      page('models', 'models', `sha256:${'a'.repeat(64)}`, [
+        {
+          slug: 'gpt-5-6-sol',
+          name: 'GPT-5.6 Sol (max)',
+          releaseDate: '2026-08-01',
+          deprecated: false,
+          gpqa: 0.9,
+          intelligenceIndex: '$undefined',
+          gdpvalNormalized: null,
+        },
+      ]),
+    ]);
+
+    expect(
+      result.candidates.filter(
+        ({ benchmarkId }) =>
+          benchmarkId === 'artificial-analysis-intelligence-index' ||
+          benchmarkId === 'gdpval-aa',
+      ),
+    ).toHaveLength(0);
+  });
+});
+
 describe('Artificial Analysis provenance URLs', () => {
   const detailPage = (slug: string, rows: Record<string, unknown>[]) => ({
     kind: 'model-detail' as const,

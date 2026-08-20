@@ -357,7 +357,7 @@ const main = async () => {
     '## Visible comparison',
     '',
     `- Fresh rendered models page catalog total: ${visualProfileCount}`,
-    `- Complete evaluation-page union of score-bearing profiles: ${result.pageRows}`,
+    `- Unique profiles across the captured models, evaluation, and model-detail payloads: ${result.pageRows}`,
     '- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.',
     '',
     snapshotDeltaMarkdown([
@@ -455,6 +455,7 @@ const main = async () => {
       'The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.',
       '`$undefined` and null are both treated as missing values.',
       `Capture observed ${result.pageRows} unique profiles, ${result.activeRows} active profiles, ${result.taskCostRows} task-cost rows, and ${result.tokenPriceRows} token-price rows.`,
+      `Materialized ${result.intelligenceIndexRows} Intelligence Index candidates (all EXCLUDED) and ${result.gdpvalRows} GDPval-AA normalized candidates.`,
     ],
   };
   await writeFile(
@@ -467,6 +468,8 @@ const main = async () => {
       pageRows: result.pageRows,
       activeRows: result.activeRows,
       candidates: result.candidates.length,
+      intelligenceIndexRows: result.intelligenceIndexRows,
+      gdpvalRows: result.gdpvalRows,
       taskCostRows: result.taskCostRows,
       tokenPriceRows: result.tokenPriceRows,
       apiWarning: api.warning,
