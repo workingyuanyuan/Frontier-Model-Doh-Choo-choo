@@ -87,13 +87,13 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 
 `data-v2/mappings/models.json` 與 `profile-policy.json` 是可修改設定；變更後必須重新生成 `data-v2/product/current.json`，不能在未審核下提交資料。
 
-## Frontier 選模
+## Frontier 模型
 
-從每個設定的綜合榜動態取最多 Top 20；來源不足 20 筆時不補齊。按基礎模型去重後取聯集，再加入人工指定新品。
+Frontier 模型清單由來源資料（如 `llm-stats` 快照）中於資格窗口（`qualificationWindowMonths`，預設 12 個月）內的有效模型，結合 `data-v2/mappings/frontier.json` 的 `manualModels`（作為新品尚未被來源收錄時的指定逃生口）共同構成。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
 
-Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於選模與展示，不投入八維 Overall，避免底層 Benchmark 被重複計分。設定位於 `data-v2/mappings/frontier.json`。
+外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入八維 Overall，避免底層 Benchmark 被重複計分。
 
-## 成本資料
+## 成本資料與性價比圖表
 
 成本必須是帶 Evidence 的 CostRecord，不得只手工塞入模型 catalog：
 
@@ -102,9 +102,34 @@ Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index �
 - DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
 - Frontier Code：Main 的 `cost` 是平均 rollout 美元成本，保存為 `AGENT_TASK`；raw `none` 保持 null，產品層只依上述跨來源規則建立可稽核的 effort 決策。
 
-主 Quality vs. Cost 圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。第一版權重為 Artificial Analysis 40%、LiveBench 40%、DeepSWE 20%。缺站時只在現有來源上重新正規化權重，不把缺值當零。
+### 預設圖（跨來源加權 Quality vs. Cost）
 
-圖中的 frontier 是非支配集合：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
+主 Quality vs. Cost 預設圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。
+
+權重為四個來源各 25%（Artificial Analysis 25%、LiveBench 25%、DeepSWE 25%、Frontier Code 25%）。採用等權的理由：
+
+1. 四個來源的任務成本語意一致（皆為單次任務美元成本）。
+2. min-max 正規化後混合的是各模型在各來源內的相對位置。
+3. 缺站時只在可用來源上重新正規化權重，不把缺值當零。
+
+X 軸為四來源加權正規化任務成本，Y 軸為八維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
+
+圖中的 frontier 是非支配集合（Pareto frontier）：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
+
+### 進階圖（來源內部多思考強度性價比曲線）
+
+透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）在單一來源內的分數與成本軌跡，同一模型的各強度點連成折線。
+
+進階圖設計原則：
+
+- **X 軸與 Y 軸皆來自同一個來源，不跨來源聚合**：X 軸＝該來源自己的任務成本，Y 軸＝該來源自己的分數。多 effort profile 往往非八維全齊、沒有八維 Overall Score，不得為了湊 Y 軸而放寬顯示門檻，也不得拿跨來源 Overall 配單一來源成本。
+- **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入八維 Overall）。
+- **DeepSWE 與 Frontier Code**：Y 軸使用該來源對應 benchmark 的 normalized 分數。
+- **排除 LiveBench 的三個理由**：
+  1. LiveBench 只有單一 default profile，沒有多 effort 階梯。
+  2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
+  3. LiveBench 的成本掛在整站 `livebench` benchmarkId，但分數拆成四個維度，無法一對一配對。
+- **缺任一來源資料的模型不顯示該來源曲線**。
 
 ## ProductVersion 與可重現性
 

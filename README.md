@@ -75,17 +75,17 @@ pnpm --filter @llm-bench/bench build
 - Developer mode 不計算或顯示被排除模型的 Overall／維度聚合值。
 - Representative Profile 取該模型測得 Overall Score 最高者，分數相同時以 `profileId` 字典序決勝；主畫面只保留通過顯示清單的 Profile，避免切換 effort 重新引入缺格資料。
 - Profile selector 只區分 reasoning effort；Harness、tools、attempt、thinking 與 context 設定不建立 Product Profile。
-- Product effort 階梯為 `non-reasoning < low < medium < high < xHigh < max`；無其他來源依據的未標列使用階梯外的 `default`，不得當成 `max`。
+- Product effort 階梯為 `non-reasoning < low < medium < high < xhigh < max`；無其他來源依據的未標列使用階梯外的 `default`，不得當成 `max`。
 
 ## 驗證
 
 ```bash
-pnpm --filter @llm-bench/benchmark-data test:run
-pnpm --filter @llm-bench/benchmark-data typecheck
-pnpm --filter @llm-bench/acquisition test:run
-pnpm --filter @llm-bench/acquisition typecheck
-pnpm --filter @llm-bench/bench test:run
-pnpm --filter @llm-bench/bench typecheck
+pnpm install --frozen-lockfile
+pnpm format
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm e2e
 pnpm --filter @llm-bench/bench build
 ```
 

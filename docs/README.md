@@ -9,7 +9,7 @@
 | [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)                     | **Current** | 專案現況、需求、資料狀態與歷史交接紀錄         |
 | [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)         | **Binding** | 明確禁止恢復的功能、程式與操作路徑             |
 
-## 現行權威規格
+## 現行權威規格與工具
 
 | 文件                                                             | 管轄範圍                                           |
 | ---------------------------------------------------------------- | -------------------------------------------------- |
@@ -20,6 +20,7 @@
 | [OPERATIONS.md](OPERATIONS.md)                                   | 安裝、來源刷新、目前版本、審核與 Git 回復          |
 | [BENCHMARK_DIMENSION_MAPPING.md](BENCHMARK_DIMENSION_MAPPING.md) | Benchmark 到單一主要維度的映射                     |
 | [BENCHMARK_SCORE_SOURCES.md](BENCHMARK_SCORE_SOURCES.md)         | 可採用來源與人工覆核事項                           |
+| [COVERAGE_MATRIX_REPORT.md](COVERAGE_MATRIX_REPORT.md)           | 審核關卡 2 矩陣分析與 display-set 取捨報告工具產出 |
 
 ## 歷史與審計紀錄
 
@@ -30,5 +31,10 @@
 - `DRAFT_REVIEW_2026-07-17.md`、`DRAFT_REVIEW_2026-07-18*.md`：舊 Draft 審核。
 - `N_A_IDENTITY_REMEDIATION_2026-07-19.md`：identity 修正紀錄。
 - `DRAFT_REVIEW_2026-08-13.md`：前次 Draft 的代理審核證據。
+- `GATE1_AUDIT_2026-08-17.md`、`GATE1_AUDIT_ROUND2_2026-08-18.md`：審核關卡 1 稽核記錄。
+- `MODELS_RELEASE_DATE_BACKFILL_2026-08-17.md`：模型發布日期回填紀錄。
+- `EFFORT_INFERENCE_REVIEW_2026-08-18.md`：跨來源 effort 推測人工審查記錄。
+- `C6_GATE_1_REVIEW.md`、`C6_MODEL_CANDIDATES.md`：審核關卡 1 審查總結與跨來源模型候選清單。
+- `REFRESH_2026-08-20.md`：常態刷新報告範本與 2026-08-20 刷新抽查紀錄。
 
 若文件互相衝突，優先順序為：`REFACTOR_SPEC_V2.md` > `../tasks/claude-code-plan.md` > `CLAUDE.md` / `REFACTOR_DISCARD_LIST.md` > `PROJECT_HANDOFF.md` > 其他文件 > 歷史文件。

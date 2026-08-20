@@ -43,7 +43,7 @@ packages/benchmark-data
 
 - 版本化 Zod Schema：SourceManifest、EvidenceRecord、CandidateResult、CostRecord、ModelProfile 與 ProductVersion。
 - canonical model identity、reasoning-effort Profile、來源優先與衝突取代。
-- Frontier Top-20 聯集、八維映射、稀疏安全計分及 Representative Profile 選擇。
+- Frontier 模型選取、八維映射、稀疏安全計分及 Representative Profile 選擇。
 - canonical deterministic JSON、內容 SHA-256 與目前資料檔寫入。
 
 ### `packages/acquisition`

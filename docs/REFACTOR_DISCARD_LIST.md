@@ -44,6 +44,11 @@
 - Harness、tools、attempt 等被誤當 Product Profile 的舊語義。
 - 將 Composite index 直接投入八維的舊計分假設。
 - Edition-bound video DTO、metadata、ranking CSV 與 render artifact。
+- **Coverage 比例與 8/8 顯示欄位**：覆蓋率百分比或維度計數欄位已移除；主榜改由 `display-set.json` 完整矩陣與八維無 N/A 門檻嚴格把關。
+- **ProductVersion 的 ESTIMATED 狀態**：ProductVersion schema 升級為 v3，已徹底刪除並拒絕 `status: "ESTIMATED"` / `ProductVersionStatus` 欄位。
+- **「至少一維有分數就顯示」與「Developer mode 放寬計算 1–7/8」**：已全數廢棄；Developer mode 只列出被排除模型缺少的 benchmark 格子，嚴禁在 Developer mode 產生任何維度或總分聚合數值。
+- **`frontier.json` 的 `compositeSources`**：舊有的 `compositeSources` 映射結構已整套移除，改為單一清單式配置。
+- **`evidence-detail.tsx` 獨立 Evidence 區塊**：已整套移除，改由統一的 Model Detail Panel 呈現維度分解與出處。
 
 ~~現行狀態只有不可變 ProductVersion，以及人工控制的 DRAFT／PUBLISHED pointer。~~ **Superseded by REFACTOR_SPEC_V2 §11**：改為單一 `data-v2/product/current.json`，pointer 機制整套移除。
 

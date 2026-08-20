@@ -62,9 +62,9 @@ Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profile
 
 ## 綜合榜與成本不進八維
 
-Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於 Frontier 選模和外部指標展示，不投入八維 Overall。
+Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於 Frontier 選模、外部指標展示，以及性價比進階圖中作為單一來源（AA）的 Y 軸使用。它們**絕不投入八維 Overall**（Evidence 維持 `inclusion: EXCLUDED`），避免底層 Benchmark 被重複計分或跨座標系混淆。
 
-Quality vs. Cost 使用八維 Overall 作 Y 軸，但成本正規化與 Pareto frontier 都不是第九個能力分數，也不回饋至 Leaderboard。成本算法詳見 [資料方法](DATA_METHODOLOGY.md)。
+Quality vs. Cost 的預設圖使用八維 Overall 作 Y 軸，進階圖則使用各來源各自的分數（AA 使用 Intelligence Index，DeepSWE 與 Frontier Code 使用各自 benchmark 的 normalized 分數）。成本正規化與 Pareto frontier 都不是第九個能力分數，也不回饋至 Leaderboard。成本與圖表算法詳見 [資料方法](DATA_METHODOLOGY.md)。
 
 ## 可重現性
 

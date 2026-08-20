@@ -59,7 +59,7 @@ pnpm data:v2:build-current
 
 1. 驗證所有 manifest、Evidence、Candidate、CostRecord 與 mapping schema。
 2. 套用 canonical identity、effort-only Profile 與來源衝突規則。
-3. 建立綜合榜 Top-20 聯集與人工新品集合。
+3. 依據來源資料與人工指定清單建立 Frontier 模型集合。
 4. 計算八維、Overall 與 cost point；主畫面另依 display set 驗證完整矩陣。
 5. 產生 canonical deterministic JSON 及內容 `versionId`。
 6. 驗證內容 hash 後寫入 `data-v2/product/current.json`。
@@ -107,23 +107,44 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 ## 6. 提交與部署
 
-使用者完成審核後，才可提交 `data-v2/product/current.json` 與必要的程式變更。部署由該 Git commit 決定；部署前核對建置顯示的 `versionId` 等於審核值。
+依據規格 §11.4，每次常態資料刷新必須遵守以下程序：
+
+1. 刷新來源並執行 `pnpm data:v2:build-current` 後，`data-v2/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
+2. 產出 `docs/REFRESH_<YYYY-MM-DD>.md` 刷新審核報告（格式參考 [REFRESH_2026-08-20.md](REFRESH_2026-08-20.md)），內容必須涵蓋：
+   - 每個來源的資料筆數變化（前後 delta）。
+   - 新增、更新、淘汰的模型與 Profile。
+   - 各來源 validation report 中的推測判定與警示（如 effort inference）。
+   - 排行榜排名變動與新進榜模型。
+   - 依風險排序的人眼可驗抽查清單（包含 Model、Source、Field、Expected vs Actual 四欄）。
+   - 新的 `versionId`。
+3. **主動提示使用者進行人工抽查，並明確指名抽查哪幾筆資料、如何核對**。
+4. 使用者完成審核並明確指示後，才可提交 `data-v2/product/current.json` 與相關報告。
+5. 部署由包含該資料的 Git commit 決定；部署前核對建置顯示的 `versionId` 等於審核值。
 
 若需要 rollback，請對包含資料的 Git commit 執行 `git revert`，再以還原後的工作樹重新建置與部署。不要新增版本切換指令，也不要重抓來源或重算未變更的資料。
 
-## 7. 驗證命令
+## 7. 驗證與報告命令
+
+### 基準驗證清單
 
 ```bash
-pnpm --filter @llm-bench/benchmark-data test:run
-pnpm --filter @llm-bench/benchmark-data typecheck
-pnpm --filter @llm-bench/acquisition test:run
-pnpm --filter @llm-bench/acquisition typecheck
-pnpm --filter @llm-bench/bench test:run
-pnpm --filter @llm-bench/bench typecheck
-pnpm --filter @llm-bench/bench build
-pnpm lint
-pnpm format
+pnpm install --frozen-lockfile
+pnpm format        # prettier --check，只檢查不自動修改
+pnpm format:write  # 需要自動修排版時使用
+pnpm lint          # eslint 語法與型別規則檢查
+pnpm typecheck     # turbo 跨套件型別檢查
+pnpm test          # vitest 單元測試
+pnpm e2e           # playwright 端對端測試
+pnpm --filter @llm-bench/bench build  # Next.js 靜態生產建置
 ```
+
+### Display-Set 取捨報告
+
+```bash
+pnpm report:coverage-matrix
+```
+
+此命令執行覆蓋率矩陣分析，輸出模型 × benchmark 的有無矩陣與各規模 display-set 取捨曲線，供審核關卡 2 人工判讀是否需調整 `data-v2/mappings/display-set.json`。代理不得自行調整顯示清單。
 
 CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜態 build、瀏覽器／無障礙與依賴安全檢查；不得啟動 DB service、Docker、舊 Web fixture、Worker 或影片 render。
 

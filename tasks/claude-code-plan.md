@@ -788,7 +788,7 @@ openai-gpt-5-4-pro-unspecified                zai-glm-5-1-unspecified
 
 ## F1 — 文件最終同步
 
-狀態：未開始
+狀態：完成
 
 **要求**：
 
