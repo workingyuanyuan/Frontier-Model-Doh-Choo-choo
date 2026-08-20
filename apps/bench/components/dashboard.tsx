@@ -9,14 +9,13 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
 import { DeveloperModelList } from './developer-model-list';
-import { EvidenceDetail } from './evidence-detail';
+import { ModelDetailPanel } from './model-detail-panel';
 import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
 import {
   getDataScopeSummary,
   getDeveloperModelRows,
-  getEvidenceForProfile,
   getRepresentativeRows,
   isMainEligibleRow,
   resolveActiveProfile,
@@ -131,7 +130,7 @@ export function Dashboard({
   );
 
   const selectedProfile = resolveActiveProfile(
-    visibleProduct,
+    product,
     selectedModelId,
     selectedProfileId,
     representativeRow?.profileId ?? '',
@@ -145,7 +144,7 @@ export function Dashboard({
     }
   }, [selectedProfile, comparisonProfileIds]);
 
-  const selectedResult = visibleProduct.leaderboard.find(
+  const selectedResult = product.leaderboard.find(
     ({ profileId }) => profileId === selectedProfile?.id,
   );
 
@@ -155,17 +154,20 @@ export function Dashboard({
     );
   }, [representatives, checkedModelIds]);
 
-  const evidence = selectedProfile
-    ? getEvidenceForProfile(visibleProduct, selectedProfile.id)
-    : [];
   const dataScope = getDataScopeSummary(visibleProduct);
 
   useEffect(() => {
     setCheckedModelIds(defaultCheckedIds);
-    if (!visibleModelIds.has(selectedModelId)) {
+    if (!developerMode && !visibleModelIds.has(selectedModelId)) {
       setSelectedModelId(representatives[0]?.modelId ?? '');
     }
-  }, [defaultCheckedIds, representatives, selectedModelId, visibleModelIds]);
+  }, [
+    defaultCheckedIds,
+    developerMode,
+    representatives,
+    selectedModelId,
+    visibleModelIds,
+  ]);
 
   const selectModel = (modelId: string, profileId: string) => {
     setSelectedModelId(modelId);
@@ -229,9 +231,15 @@ export function Dashboard({
           onSelect={selectModel}
         />
 
-        {developerMode ? <DeveloperModelList rows={developerRows} /> : null}
+        {developerMode ? (
+          <DeveloperModelList
+            rows={developerRows}
+            selectedProfileId={selectedProfile?.id}
+            onSelect={selectModel}
+          />
+        ) : null}
 
-        {selectedProfile ? (
+        {selectedProfile && visibleProfileIds.has(selectedProfile.id) ? (
           <RadarChart
             product={visibleProduct}
             activeProfile={selectedProfile}
@@ -248,15 +256,16 @@ export function Dashboard({
         />
 
         {selectedProfile ? (
-          <EvidenceDetail
+          <ModelDetailPanel
             profile={selectedProfile}
-            evidence={evidence}
+            product={product}
             benchmarkDimensions={benchmarkDimensions}
             selectedResult={selectedResult}
+            displaySet={displaySet}
           />
         ) : (
           <div className="panel empty-state" role="status">
-            Select a model to view its profile and evidence.
+            Select a model to view its profile and capability breakdown.
           </div>
         )}
       </main>

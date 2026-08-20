@@ -574,7 +574,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 ## E1 — 模型明細面板
 
-狀態：未開始
+狀態：完成
 
 **目標**：實作規格 §6.2。
 
@@ -636,10 +636,10 @@ D2 把 `overallScore` 改成「八維不齊即為 null」。D1 的代表 profile
 
 後果是開發者模式給出假的缺格清單。實例（2026-08-20 資料）：
 
-| profile | display-set 缺格 |
-| --- | --- |
-| `anthropic-claude-sonnet-5-high` ← 目前被選為代表 | 12 |
-| `anthropic-claude-sonnet-5-xhigh` | 8 |
+| profile                                           | display-set 缺格 |
+| ------------------------------------------------- | ---------------- |
+| `anthropic-claude-sonnet-5-high` ← 目前被選為代表 | 12               |
+| `anthropic-claude-sonnet-5-xhigh`                 | 8                |
 
 畫面因此宣稱 Claude Sonnet 5 缺 12 格，實際最好的配置只缺 8 格。§5.4 說開發者模式唯一的職責就是「顯示被排除的模型缺哪些格子」，這裡給的是最差答案。
 

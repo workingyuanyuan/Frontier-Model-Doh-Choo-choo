@@ -31,7 +31,7 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Leaderboard');
     expect(html).toContain('Quality vs. Cost');
     expect(html).toContain('Eight Dimensions');
-    expect(html).toContain('Benchmark details');
+    expect(html).toContain('Model capability breakdown');
     expect(html).toContain('role="switch"');
     expect(html).toContain('aria-label="Developer mode"');
     expect(html).toContain('aria-checked="false"');
@@ -154,29 +154,23 @@ describe('Dashboard Redesign', () => {
     expect(qualityVsCostIndex).toBeGreaterThan(eightDimensionsIndex);
   });
 
-  it('groups score evidence into eight expandable capability sections', () => {
+  it('groups model benchmarks into eight capability dimensions in the detail panel', () => {
     const html = renderToStaticMarkup(dashboard());
 
-    expect(html).toContain('Benchmark details');
-    expect(html.match(/data-evidence-dimension/g)).toHaveLength(8);
-    expect(html).toContain('<summary');
+    expect(html).toContain('Model capability breakdown');
+    expect(html.match(/data-dimension-group/g)).toHaveLength(8);
     expect(html).toContain('Agentic');
     expect(html).toContain('Instruction');
-    expect(html).toContain('Other evidence');
-    expect(html).toContain('$.leaderboard.score');
-    expect(html).toContain('2026-07-16T12:00:00.000Z');
+    expect(html).toContain('Terminal-Bench 2.1');
   });
 
-  it('makes every Leaderboard and evidence column a sort control', () => {
+  it('makes every Leaderboard column a sort control', () => {
     const html = renderToStaticMarkup(dashboard());
     const leaderboardSorts = html.match(/data-leaderboard-sort/g) ?? [];
-    const evidenceSorts = html.match(/data-evidence-sort/g) ?? [];
 
     expect(leaderboardSorts.length).toBe(11);
-    expect(evidenceSorts.length).toBe(6);
     expect(html).toContain('aria-sort="descending"');
     expect(html).toContain('Sort by Model');
-    expect(html).toContain('Sort by Decision');
   });
 
   it('allows the active radar model to be removed without hard-coding a model', () => {
@@ -233,7 +227,7 @@ describe('Dashboard Redesign', () => {
 
     expect(html).not.toContain('GPT-5.6 Sol · high');
     expect(html).not.toContain('value="openai-gpt-5-6-sol-high"');
-    const mainMarkup = html.slice(0, html.indexOf('evidence-panel'));
+    const mainMarkup = html.slice(0, html.indexOf('model-detail-panel'));
     expect(mainMarkup).not.toContain('N/A');
   });
 

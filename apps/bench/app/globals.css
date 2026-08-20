@@ -725,25 +725,229 @@ tbody tr {
   font-weight: 750;
 }
 
-.evidence-panel {
-  margin-top: 1rem;
+.model-detail-panel {
+  margin-top: 1.5rem;
 }
 
-.evidence-count {
+.model-detail-title-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.model-detail-overall-badge {
+  background: var(--accent-soft);
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+}
+
+.model-detail-dimensions-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  margin-top: 1.25rem;
+}
+
+.model-detail-dimension-card {
+  background: var(--surface);
+  border: 0.0625rem solid var(--line);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.dimension-card-header {
+  align-items: center;
+  border-bottom: 0.0625rem solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+}
+
+.dimension-card-title {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dimension-badge {
   background: var(--surface-subtle);
   border: 0.0625rem solid var(--line);
   border-radius: var(--radius-sm);
   color: var(--ink-soft);
-  font-size: 0.75rem;
-  font-weight: 750;
-  padding: 0.4rem 0.6rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.35rem;
 }
 
-.evidence-table th a {
-  display: inline-block;
-  font-weight: 750;
-  max-width: 18rem;
+.dimension-score-val {
+  color: var(--ink);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.dimension-benchmark-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0 0 0;
+}
+
+.dimension-benchmark-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8125rem;
+}
+
+.benchmark-row-main {
+  align-items: center;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.tree-branch {
+  color: var(--ink-faint);
+  font-family: var(--font-mono, monospace);
+  user-select: none;
+}
+
+.benchmark-name {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.provenance-toggle-btn {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 0.2rem;
+}
+
+.provenance-toggle-btn:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.provenance-toggle-btn:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: 0.125rem solid var(--focus);
+  outline-offset: 0.15rem;
+}
+
+.benchmark-source {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
+.benchmark-score {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+.dimension-benchmark-item.is-missing .benchmark-name,
+.dimension-benchmark-item.is-missing .benchmark-score {
+  color: var(--ink-faint);
+}
+
+.dimension-benchmark-empty {
+  color: var(--ink-faint);
+  font-size: 0.8125rem;
+  list-style: none;
+}
+
+.benchmark-provenance-popover {
+  background: var(--surface-subtle);
+  border: 0.0625rem solid var(--line);
+  border-radius: var(--radius-sm);
+  margin: 0.4rem 0 0.4rem 1.25rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.provenance-dl {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.provenance-dl div {
+  align-items: baseline;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 6.5rem 1fr;
+}
+
+.provenance-dl dt {
+  color: var(--ink-faint);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.provenance-dl dd {
+  color: var(--ink);
+  font-size: 0.75rem;
+  margin: 0;
   overflow-wrap: anywhere;
+}
+
+.provenance-dl a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.provenance-dl code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+}
+
+.developer-model-button {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: 0.75rem;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  width: 100%;
+}
+
+.developer-model-button:hover {
+  background: var(--surface-subtle);
+}
+
+.developer-model-button:focus-visible {
+  border-radius: var(--radius-sm);
+  outline: 0.125rem solid var(--focus);
+  outline-offset: 0.15rem;
+}
+
+.developer-model-list li.is-selected {
+  border-color: var(--accent);
 }
 
 .evidence-table td strong {

@@ -1,6 +1,14 @@
 import type { DeveloperModelRow } from '../lib/view-model';
 
-export function DeveloperModelList({ rows }: { rows: DeveloperModelRow[] }) {
+export function DeveloperModelList({
+  rows,
+  selectedProfileId,
+  onSelect,
+}: {
+  rows: DeveloperModelRow[];
+  selectedProfileId?: string | undefined;
+  onSelect?: ((modelId: string, profileId: string) => void) | undefined;
+}) {
   return (
     <section
       className="panel developer-model-panel"
@@ -19,16 +27,41 @@ export function DeveloperModelList({ rows }: { rows: DeveloperModelRow[] }) {
       </div>
       {rows.length > 0 ? (
         <ul className="developer-model-list">
-          {rows.map((row) => (
-            <li key={row.profileId} data-developer-model={row.modelId}>
-              <strong>{row.displayName}</strong>
-              <span>
-                {row.missingBenchmarkIds.length > 0
-                  ? `Missing: ${row.missingBenchmarkIds.join(', ')}`
-                  : 'Missing rendered dimension data'}
-              </span>
-            </li>
-          ))}
+          {rows.map((row) => {
+            const isSelected = row.profileId === selectedProfileId;
+            return (
+              <li
+                key={row.profileId}
+                data-developer-model={row.modelId}
+                className={isSelected ? 'is-selected' : undefined}
+              >
+                {onSelect ? (
+                  <button
+                    type="button"
+                    className="developer-model-button"
+                    onClick={() => onSelect(row.modelId, row.profileId)}
+                    aria-pressed={isSelected}
+                  >
+                    <strong>{row.displayName}</strong>
+                    <span>
+                      {row.missingBenchmarkIds.length > 0
+                        ? `Missing: ${row.missingBenchmarkIds.join(', ')}`
+                        : 'Missing rendered dimension data'}
+                    </span>
+                  </button>
+                ) : (
+                  <>
+                    <strong>{row.displayName}</strong>
+                    <span>
+                      {row.missingBenchmarkIds.length > 0
+                        ? `Missing: ${row.missingBenchmarkIds.join(', ')}`
+                        : 'Missing rendered dimension data'}
+                    </span>
+                  </>
+                )}
+              </li>
+            );
+          })}
         </ul>
       ) : (
         <p className="empty-state" role="status">
