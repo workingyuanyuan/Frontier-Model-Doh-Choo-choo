@@ -89,7 +89,9 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 
 ## Frontier 模型
 
-Frontier 模型清單由來源資料（如 `llm-stats` 快照）中於資格窗口（`qualificationWindowMonths`，預設 12 個月）內的有效模型，結合 `data-v2/mappings/frontier.json` 的 `manualModels`（作為新品尚未被來源收錄時的指定逃生口）共同構成。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
+Frontier 模型清單由 **`data-v2/mappings/models.json`（model catalog）** 中通過資格條件的模型，結合 `data-v2/mappings/frontier.json` 的 `manualModels`（作為新品尚未被 catalog 收錄時的指定逃生口）共同構成。資格條件見 [重構規格 §5.1](REFACTOR_SPEC_V2.md)：未標記 deprecated，且不存在「已知且早於資格窗口」的 `releaseDate`（`qualificationWindowMonths`，預設 12 個月）；`releaseDate` 為 null 者通過，缺欄位不構成淘汰理由。
+
+要調整 frontier 成員，改的是 `models.json` 或 `frontier.json`，**不是 `data-v2/sources/` 底下任何來源目錄**。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
 
 外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入八維 Overall，避免底層 Benchmark 被重複計分。
 
@@ -126,7 +128,7 @@ X 軸為四來源加權正規化任務成本，Y 軸為八維 Overall Score。�
 - **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入八維 Overall）。
 - **DeepSWE 與 Frontier Code**：Y 軸使用該來源對應 benchmark 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
-  1. LiveBench 只有單一 default profile，沒有多 effort 階梯。
+  1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
   3. LiveBench 的成本掛在整站 `livebench` benchmarkId，但分數拆成四個維度，無法一對一配對。
 - **缺任一來源資料的模型不顯示該來源曲線**。
