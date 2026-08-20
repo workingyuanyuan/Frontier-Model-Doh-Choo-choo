@@ -745,6 +745,45 @@ D2 把 `overallScore` 改成「八維不齊即為 null」。D1 的代表 profile
 
 ---
 
+## E5 — 修正開發者模式的無效候選列（e2e 紅燈）
+
+狀態：未開始
+
+**這一項是 E 階段驗收時發現的已提交破損，必須先修才能進 F。**
+
+**現象**：`pnpm e2e` 有兩個測試失敗（desktop 與 mobile 各一）：
+
+```
+dashboard.spec.ts:4 › defaults to complete matrix models and exposes excluded cells explicitly
+Error: locator('.radar-chart') — element(s) not found
+```
+
+測試在開發者模式點第一列，預期出現雷達圖，實際什麼都沒有。
+
+**根因**：`product.frontier` 的 53 筆記錄全部帶著 `<modelId>-unspecified` 形式的佔位 `profileId`，這些 ID 在 `product.profiles` 內並不存在（`profiles` 於 `buildProduct` 內被過濾為 `leaderboardProfileIds`）。`getDeveloperModelRows` 會把沒有任何 profile 的模型用 frontier 後備列補進來，因此產生 41 列中的 8 列無效候選：
+
+```
+anthropic-claude-mythos-preview-unspecified   deepseek-deepseek-v4-unspecified
+google-gemini-3-pro-preview-unspecified       meta-muse-spark-unspecified
+openai-gpt-5-2-pro-unspecified                openai-gpt-5-3-codex-unspecified
+openai-gpt-5-4-pro-unspecified                zai-glm-5-1-unspecified
+```
+
+這些列有三個問題：點擊後 `resolveActiveProfile` 解析不到 profile，明細面板與雷達圖都不渲染；`displayName` 掉回原始 slug；而模型本身在來源上一筆資料都沒有（例如 Claude Mythos Preview 在 coverage matrix 報告中是 0/18），把它列成「缺 14 格」沒有任何診斷價值。
+
+**為什麼現在才爆**：缺陷一直存在，但 E4 新增的 `rows.sort((a, b) => a.displayName.localeCompare(b.displayName))` 讓 slug 形式的顯示名稱排到第一位，正好是 e2e 點的 `.first()`。
+
+**要求**：
+
+- `getDeveloperModelRows` 必須排除 `profileId` 不在 `product.profiles` 內的候選。一個沒有任何可解析 profile 的模型不進開發者模式。
+- 保留 `displayName` 的後備分支，但它不應再被觸發；若被觸發代表過濾漏了。
+- 不得改動 `product.frontier` 的結構或 `-unspecified` 佔位機制本身（見下方待確認事項）。
+- 不得放寬 §5.2、不得改 `display-set.json`。
+
+**完成條件**：`pnpm e2e` 全綠；有單元測試以「frontier 指向不存在 profile 的模型」fixture 證明該模型不出現在開發者模式列表中；有測試證明開發者模式的每一列其 `profileId` 都能在 `product.profiles` 內解析。
+
+**待確認（不在 E5 範圍，回報即可）**：`frontier` 使用 `<modelId>-unspecified` 作為 profileId 是否合理。規格 §4.4 的檔位階梯中未標 effort 者歸為 `default`，並無 `unspecified`。這個佔位符若要保留，應在規格中明文定義它只是 frontier 的模型指標、不是 profile 身分；若要移除則是另一個任務。**執行者不得自行決定**，把觀察寫進回報。
+
 # F. 驗收
 
 ## F1 — 文件最終同步
