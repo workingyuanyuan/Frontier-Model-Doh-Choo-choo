@@ -42,13 +42,14 @@
 
 優先選擇可完整重現的結構化資料，但畫面與結構化 payload 都必須納入列數對照。兩者衝突時不得靜默取值，需在 validation report 保留差異；公開證據無法裁決時才交給人工。
 
-支援來源的物化命令：
+支援來源的刷新命令（每個命令都必須先核對渲染後頁面的可見母體數，並把實測值傳入）：
 
 ```bash
-pnpm --filter @llm-bench/acquisition materialize:artificial-analysis
+pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
-pnpm --filter @llm-bench/acquisition materialize:snapshots
-pnpm --filter @llm-bench/acquisition materialize:costs
+pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
 Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models` 與現役
@@ -75,10 +76,10 @@ Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，�
 基礎模型使用 provider-prefixed canonical ID；來源 raw name 與 alias 留在 Evidence。無法精確映射的 Candidate 不投入 ProductVersion，但原始分數和來源配置不得刪除。
 
 Product Profile 只按 reasoning effort 分離；推理強度階梯為
-`non-reasoning < low < medium < high < xHigh < max`，`default` 位於階梯之外：
+`non-reasoning < low < medium < high < xhigh < max`，`default` 位於階梯之外：
 
 - 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。
-- 來源未標 effort 時，只能從其他來源對同一 canonical model 的明示／名稱可判定 effort 取最高檔，且不得覆寫來源或名稱明示值。
+- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)：**每個來源各出一票（該來源自己的眾數），再對這些票取眾數，平手時才取較高檔位**。不是「取最高檔」——單一來源不得替所有來源決定檔位。`non-reasoning` 永遠不會是推測結果。
 - 其他來源也沒有可用依據時使用 `default`；不再把缺值歸入 `max`。
 - 每次跨來源推測都列入各來源 validation report，保持 `PENDING USER REVIEW`，並記錄 target row 與 basis source/row。
 - UI 和產品計分不建立 `unspecified` effort。
@@ -131,7 +132,7 @@ X 軸為四來源加權正規化任務成本，Y 軸為八維 Overall Score。�
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
   3. LiveBench 的成本掛在整站 `livebench` benchmarkId，但分數拆成四個維度，無法一對一配對。
-- **缺任一來源資料的模型不顯示該來源曲線**。
+- **缺任一來源資料的模型完全不顯示**，不是只少畫該來源的曲線。三個來源必須都有資料，該模型才會出現在進階圖上；缺了什麼由開發者模式揭露。
 
 ## ProductVersion 與可重現性
 

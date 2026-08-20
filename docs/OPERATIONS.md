@@ -73,7 +73,7 @@ pnpm --filter @llm-bench/bench dev
 pnpm --filter @llm-bench/bench build
 ```
 
-Dashboard 建置固定讀取 `data-v2/product/current.json`，不讀取來源、artifact、網路或資料庫。頁首與頁尾都能核對完整 `versionId`；目前資料沒有預覽通道，也不產生 noindex metadata。
+Dashboard 建置固定讀取 `data-v2/product/current.json`，不讀取來源、artifact、網路或資料庫。**頁尾直接顯示完整 `versionId`；頁首顯示的是縮寫，完整值在該元素的 `title` 屬性上**（見 `apps/bench/components/version-header.tsx`），核對時請以頁尾為準。目前資料沒有預覽通道，也不產生 noindex metadata。
 
 ## 5. 建置前代理審核
 
@@ -111,10 +111,11 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 1. 刷新來源並執行 `pnpm data:v2:build-current` 後，`data-v2/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
 2. 產出 `docs/REFRESH_<YYYY-MM-DD>.md` 刷新審核報告（格式參考 [REFRESH_2026-08-20.md](REFRESH_2026-08-20.md)），內容必須涵蓋：
-   - 每個來源的資料筆數變化（前後 delta）。
-   - 新增、更新、淘汰的模型與 Profile。
-   - 各來源 validation report 中的推測判定與警示（如 effort inference）。
-   - 排行榜排名變動與新進榜模型。
+   - **舊／新 `versionId`**，以及模型數、排行榜列數、evidence 筆數、成本筆數各自的增減。
+   - **主畫面的進出**：本次新進、退出主畫面的模型，各附原因（缺哪一格／補上哪一格）。
+   - **既有模型分數變化的絕對值前幾名**。
+   - **檔位推測揭露表（強制）**：本次有哪些 profile 的 effort 是推測出來的，依規格 §4.5 逐筆列出推測依據來源與依據列。缺這一項的報告不算完成。
+   - 已知未解：擷取失敗、來源改版、無法解析的名稱。
    - 依風險排序的人眼可驗抽查清單。排序為：本次新進主畫面的模型（每個至少一筆）→ 分數變動最大的幾筆 → 檔位為推測而非來源標示的 profile → 每個來源至少一筆。每一筆必須寫成規格 §11.4 定義的四欄：
 
      | 欄位     | 要求                                                         |
@@ -137,6 +138,8 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 ### 基準驗證清單
 
+**順序不可調換**：`pnpm e2e` 的 `webServer` 執行 `next start`，需要既有的 `.next` 產物，因此必須排在 production build 之後。乾淨 checkout 下先跑 e2e 會因缺少 `.next` 而失敗。
+
 ```bash
 pnpm install --frozen-lockfile
 pnpm format        # prettier --check，只檢查不自動修改
@@ -144,8 +147,8 @@ pnpm format:write  # 需要自動修排版時使用
 pnpm lint          # eslint 語法與型別規則檢查
 pnpm typecheck     # turbo 跨套件型別檢查
 pnpm test          # vitest 單元測試
-pnpm e2e           # playwright 端對端測試
 pnpm --filter @llm-bench/bench build  # Next.js 靜態生產建置
+pnpm e2e           # playwright 端對端測試（必須排在 build 之後）
 ```
 
 ### Display-Set 取捨報告

@@ -6,7 +6,7 @@
 | ------------------------------------------------------------ | ----------- | ---------------------------------------------- |
 | [REFACTOR_SPEC_V2.md](REFACTOR_SPEC_V2.md)                   | **Binding** | 第二次重構的唯一權威規格（狀態：使用者已確認） |
 | [../tasks/claude-code-plan.md](../tasks/claude-code-plan.md) | **Current** | 第二次重構任務計畫契約                         |
-| [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)                     | **Current** | 專案現況、需求、資料狀態與歷史交接紀錄         |
+| [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)                     | Historical  | 2026-08-17 的現況盤點；與規格衝突時以規格為準  |
 | [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)         | **Binding** | 明確禁止恢復的功能、程式與操作路徑             |
 
 ## 現行權威規格與工具

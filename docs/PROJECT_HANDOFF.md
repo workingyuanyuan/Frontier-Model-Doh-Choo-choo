@@ -2,7 +2,7 @@
 
 > 盤點日期：2026-08-17（Asia/Taipei）  
 > 接手對象：Claude Code / Codex agent  
-> 本文件是現況摘要；第二次重構的現行唯一權威規格為 [`REFACTOR_SPEC_V2.md`](REFACTOR_SPEC_V2.md)。
+> 本文件是 **2026-08-17 當下的**現況摘要，屬歷史盤點紀錄，不是現行契約。第二次重構的現行唯一權威規格為 [`REFACTOR_SPEC_V2.md`](REFACTOR_SPEC_V2.md)；本文與規格衝突時一律以規格為準。
 
 ## 1. 一句話狀態
 
@@ -57,7 +57,7 @@
 
 - 維度固定為 Agentic、Coding、Reasoning、Math、Knowledge、Language、Context、Instruction。
 - 每個 Benchmark 第一版只投入一個主要維度。
-- 缺失值保持 `null`／N/A，不填零；Overall 只平均已有資料的維度。
+- 缺失值保持 `null`／N/A，不填零。**Overall 只在八個維度全部有分數時才計算**（D2 之後的規則，見 [重構規格 §5.2](REFACTOR_SPEC_V2.md)）；任一維度缺值時 `overallScore` 為 `null`，不以已有維度取平均。
 - Composite index 只用於 Frontier 選模／展示，不投入八維。
 - Product Profile 只按 reasoning effort 分離；其他 harness 設定留在 provenance。
 - Identity 只允許 canonical catalog 與 exact reviewed alias；不得 fuzzy match 或猜測新版。

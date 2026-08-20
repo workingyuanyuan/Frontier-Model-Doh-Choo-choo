@@ -826,7 +826,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 ## G1 — 修正文件與程式不一致
 
-狀態：未開始
+狀態：完成
 
 **目標**：清掉 F2 報告 A6 列出的八項不一致。每一項都要**實際對照程式或資料**驗證後再改，不要只改措辭。
 
@@ -847,7 +847,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 ## G2 — 讓乾淨 checkout 能跑 `pnpm test`
 
-狀態：未開始
+狀態：進行中
 
 **目標**：`packages/acquisition` 的多個測試直接讀取 Git 外的 `artifacts-v2/`（見 `artificial-analysis-materializer.test.ts`、`livebench-materializer.test.ts`、`deepswe-materializer.test.ts`、`epoch-materializer.test.ts`、`artifacts.test.ts`），因此乾淨 clone 後 `pnpm test` 必然失敗，而 `pnpm test` 是 CLAUDE.md 的基準驗證項目。
 
