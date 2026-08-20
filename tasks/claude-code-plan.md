@@ -715,7 +715,7 @@ if (performance === null || performance === undefined) return [];
 
 ## E4 — 開發者模式
 
-狀態：未開始
+狀態：完成
 
 **目標**：實作規格 §5.4。
 

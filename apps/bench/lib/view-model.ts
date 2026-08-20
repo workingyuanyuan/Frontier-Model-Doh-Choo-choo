@@ -227,9 +227,10 @@ export interface DeveloperModelRow {
 }
 
 /**
- * Keep excluded models on a small, non-aggregated diagnostic route. The
- * representative row is used only to identify the profile and its missing
- * cells; no overall or dimension values are returned to the caller.
+ * Keep excluded models on a small, non-aggregated diagnostic route. For
+ * diagnostic clarity, select the candidate profile with the fewest missing
+ * display-set benchmarks, then highest overallScore, then profileId order.
+ * No overall or dimension values are returned to the caller.
  */
 export const getDeveloperModelRows = (
   product: ProductVersion,
@@ -241,31 +242,74 @@ export const getDeveloperModelRows = (
       .map(({ modelId }) => modelId),
   );
 
-  const representatives = new Map(
-    getRepresentativeRows(product).map(({ modelId, profileId }) => [
-      modelId,
-      profileId,
-    ]),
-  );
-  product.frontier.forEach(({ modelId, profileId }) => {
-    if (!representatives.has(modelId)) representatives.set(modelId, profileId);
+  const modelProfilesMap = new Map<string, string[]>();
+
+  product.profiles.forEach((p) => {
+    if (!eligibleModelIds.has(p.modelId)) {
+      const list = modelProfilesMap.get(p.modelId) ?? [];
+      list.push(p.id);
+      modelProfilesMap.set(p.modelId, list);
+    }
   });
 
-  return [...representatives.entries()]
-    .filter(([modelId]) => !eligibleModelIds.has(modelId))
-    .map(([modelId, profileId]) => {
-      const profile = profileById(product, profileId);
+  product.frontier.forEach((f) => {
+    if (!eligibleModelIds.has(f.modelId) && !modelProfilesMap.has(f.modelId)) {
+      modelProfilesMap.set(f.modelId, [f.profileId]);
+    }
+  });
+
+  product.leaderboard.forEach((r) => {
+    if (!eligibleModelIds.has(r.modelId)) {
+      const list = modelProfilesMap.get(r.modelId) ?? [];
+      if (!list.includes(r.profileId)) {
+        list.push(r.profileId);
+      }
+      modelProfilesMap.set(r.modelId, list);
+    }
+  });
+
+  const rows: DeveloperModelRow[] = [];
+
+  for (const [modelId, profileIds] of modelProfilesMap.entries()) {
+    const candidateRankings = profileIds.map((pId) => {
+      const missing = getMissingDisplaySetBenchmarks(product, pId, displaySet);
+      const score =
+        product.leaderboard.find((r) => r.profileId === pId)?.overallScore ??
+        null;
       return {
-        modelId,
-        profileId,
-        displayName: profile ? getProfileDisplayName(profile) : profileId,
-        missingBenchmarkIds: getMissingDisplaySetBenchmarks(
-          product,
-          profileId,
-          displaySet,
-        ),
+        profileId: pId,
+        missingBenchmarkIds: missing,
+        missingCount: missing.length,
+        overallScore: score,
       };
     });
+
+    candidateRankings.sort((a, b) => {
+      if (a.missingCount !== b.missingCount) {
+        return a.missingCount - b.missingCount;
+      }
+      const scoreA = a.overallScore ?? Number.NEGATIVE_INFINITY;
+      const scoreB = b.overallScore ?? Number.NEGATIVE_INFINITY;
+      if (scoreA !== scoreB) {
+        return scoreB - scoreA;
+      }
+      return a.profileId.localeCompare(b.profileId);
+    });
+
+    const best = candidateRankings[0];
+    if (best) {
+      const profile = profileById(product, best.profileId);
+      rows.push({
+        modelId,
+        profileId: best.profileId,
+        displayName: profile ? getProfileDisplayName(profile) : best.profileId,
+        missingBenchmarkIds: best.missingBenchmarkIds,
+      });
+    }
+  }
+
+  rows.sort((a, b) => a.displayName.localeCompare(b.displayName));
+  return rows;
 };
 
 export const filterLeaderboard = (

@@ -1,3 +1,4 @@
+import type { ProductVersion } from '@llm-bench/benchmark-data';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -269,6 +270,163 @@ describe('leaderboard view model', () => {
     });
     expect(excluded).not.toHaveProperty('overallScore');
     expect(excluded).not.toHaveProperty('dimensions');
+  });
+
+  it('selects the candidate profile with fewest missing display-set benchmarks for excluded models when overallScore is null', () => {
+    const testDisplaySet = {
+      schemaVersion: 'display-set-v1' as const,
+      benchmarkIds: ['bm-1', 'bm-2', 'bm-3', 'bm-4'],
+    };
+
+    const multiProfileExcludedProduct: ProductVersion = {
+      ...productFixture,
+      frontier: [],
+      profiles: [
+        {
+          id: 'model-x-alpha-high',
+          modelId: 'model-x',
+          providerId: 'provider-x',
+          displayName: 'Model X · high',
+          baseModelName: 'Model X',
+          releaseDate: '2026-07-01',
+          attributes: { effort: 'high', harness: null },
+          pricing: [],
+        },
+        {
+          id: 'model-x-beta-xhigh',
+          modelId: 'model-x',
+          providerId: 'provider-x',
+          displayName: 'Model X · xhigh',
+          baseModelName: 'Model X',
+          releaseDate: '2026-07-01',
+          attributes: { effort: 'xhigh', harness: null },
+          pricing: [],
+        },
+      ],
+      leaderboard: [
+        {
+          modelId: 'model-x',
+          profileId: 'model-x-alpha-high',
+          rank: 1,
+          overallScore: null,
+          dimensions: [],
+          evidenceResultIds: [],
+        },
+        {
+          modelId: 'model-x',
+          profileId: 'model-x-beta-xhigh',
+          rank: 2,
+          overallScore: null,
+          dimensions: [],
+          evidenceResultIds: [],
+        },
+      ],
+      evidence: [
+        // Alpha profile only has 1 benchmark (missing 3: bm-2, bm-3, bm-4)
+        {
+          id: 'ev-1',
+          sourceId: 'src-1',
+          sourceRole: 'ORGANIZER',
+          benchmarkId: 'bm-1',
+          benchmarkVersion: '1.0',
+          model: {
+            rawName: 'model-x',
+            canonicalModelId: 'model-x',
+            profileId: 'model-x-alpha-high',
+          },
+          profile: {
+            effort: 'high',
+            thinking: 'enabled',
+            tools: true,
+            harness: null,
+            contextWindowTokens: 100000,
+            quantization: null,
+            attempts: 1,
+          },
+          metric: {
+            id: 'score',
+            name: 'Score',
+            unit: 'percent',
+            higherIsBetter: true,
+          },
+          rawScore: 80,
+          normalizedScore: 80,
+          acquisitionStatus: 'FULL',
+          inclusion: 'INCLUDED',
+          exclusionReason: null,
+          sourceUrl: 'https://example.com',
+          observedAt: '2026-08-01T00:00:00.000Z',
+          sourcePublishedAt: '2026-08-01T00:00:00.000Z',
+          evidenceIds: ['ev-1'],
+          provenance: {
+            sourceUrl: 'https://example.com',
+            rawScore: 80,
+            locator: '$.score',
+            retrievedAt: '2026-08-01T00:00:00.000Z',
+            method: 'EMBEDDED_JSON',
+            evidenceId: 'ev-1',
+          },
+        },
+        // Beta profile has 3 benchmarks (missing only 1: bm-4)
+        ...['bm-1', 'bm-2', 'bm-3'].map((benchmarkId, idx) => ({
+          id: `ev-beta-${idx}`,
+          sourceId: 'src-1',
+          sourceRole: 'ORGANIZER' as const,
+          benchmarkId,
+          benchmarkVersion: '1.0',
+          model: {
+            rawName: 'model-x',
+            canonicalModelId: 'model-x',
+            profileId: 'model-x-beta-xhigh',
+          },
+          profile: {
+            effort: 'xhigh',
+            thinking: 'enabled',
+            tools: true,
+            harness: null,
+            contextWindowTokens: 100000,
+            quantization: null,
+            attempts: 1,
+          },
+          metric: {
+            id: 'score',
+            name: 'Score',
+            unit: 'percent',
+            higherIsBetter: true,
+          },
+          rawScore: 85,
+          normalizedScore: 85,
+          acquisitionStatus: 'FULL' as const,
+          inclusion: 'INCLUDED' as const,
+          exclusionReason: null,
+          sourceUrl: 'https://example.com',
+          observedAt: '2026-08-01T00:00:00.000Z',
+          sourcePublishedAt: '2026-08-01T00:00:00.000Z',
+          evidenceIds: [`ev-beta-${idx}`],
+          provenance: {
+            sourceUrl: 'https://example.com',
+            rawScore: 85,
+            locator: '$.score',
+            retrievedAt: '2026-08-01T00:00:00.000Z',
+            method: 'EMBEDDED_JSON' as const,
+            evidenceId: `ev-beta-${idx}`,
+          },
+        })),
+      ],
+    };
+
+    const rows = getDeveloperModelRows(
+      multiProfileExcludedProduct,
+      testDisplaySet,
+    );
+    expect(rows).toHaveLength(1);
+    const row = rows[0]!;
+
+    // Must pick beta-xhigh (1 missing) over alpha-high (3 missing), not alphabetical alpha
+    expect(row.profileId).toBe('model-x-beta-xhigh');
+    expect(row.missingBenchmarkIds).toEqual(['bm-4']);
+    expect(row).not.toHaveProperty('overallScore');
+    expect(row).not.toHaveProperty('dimensions');
   });
 
   it('never resolves a stale profile from another base model', () => {
