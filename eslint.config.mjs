@@ -10,6 +10,9 @@ export default tseslint.config(
       '**/node_modules/**',
       'apps/bench/next-env.d.ts',
       'artifacts-v2/**',
+      // Verbatim copies of artifacts-v2 entries; linting third-party bytes
+      // reports thousands of findings about code this repository does not own.
+      'packages/acquisition/test-fixtures/**',
       'reference-table-data/**',
     ],
   },

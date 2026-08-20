@@ -847,7 +847,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 ## G2 — 讓乾淨 checkout 能跑 `pnpm test`
 
-狀態：進行中
+狀態：完成
 
 **目標**：`packages/acquisition` 的多個測試直接讀取 Git 外的 `artifacts-v2/`（見 `artificial-analysis-materializer.test.ts`、`livebench-materializer.test.ts`、`deepswe-materializer.test.ts`、`epoch-materializer.test.ts`、`artifacts.test.ts`），因此乾淨 clone 後 `pnpm test` 必然失敗，而 `pnpm test` 是 CLAUDE.md 的基準驗證項目。
 
@@ -865,7 +865,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 ## G3 — 移除無出處的 model-catalog 成本列
 
-狀態：未開始
+狀態：進行中
 
 **目標**：`docs/DATA_METHODOLOGY.md:100` 寫「成本必須是帶 Evidence 的 CostRecord，不得只手工塞入模型 catalog」，但 `buildProduct` 的 `catalogCosts` 產生 21 筆 `sourceId: 'model-catalog'` 的成本列，`evidenceIds` 全為空。
 

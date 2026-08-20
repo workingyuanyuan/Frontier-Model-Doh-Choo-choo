@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
@@ -10,14 +10,23 @@ import {
 } from './livebench-materializer.js';
 
 describe('LiveBench materializer', () => {
-  const jsPath = resolve(
-    '../../artifacts-v2/sha256/7a/7ad013edfc9ccaec78ad4a25dfebd0c8a1fa7f54744fc0e0354a1ffcf88c97db.js',
+  const jsPath = fileURLToPath(
+    new URL(
+      '../test-fixtures/7ad013edfc9ccaec78ad4a25dfebd0c8a1fa7f54744fc0e0354a1ffcf88c97db.js',
+      import.meta.url,
+    ),
   );
-  const tablePath = resolve(
-    '../../artifacts-v2/sha256/15/1599f36a8888c62fc85ac6a5509b5041cec747844b38638f064aba4903297fe7.csv',
+  const tablePath = fileURLToPath(
+    new URL(
+      '../test-fixtures/1599f36a8888c62fc85ac6a5509b5041cec747844b38638f064aba4903297fe7.csv',
+      import.meta.url,
+    ),
   );
-  const categoriesPath = resolve(
-    '../../artifacts-v2/sha256/da/dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3.json',
+  const categoriesPath = fileURLToPath(
+    new URL(
+      '../test-fixtures/dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3.json',
+      import.meta.url,
+    ),
   );
 
   const jsText = readFileSync(jsPath, 'utf8');

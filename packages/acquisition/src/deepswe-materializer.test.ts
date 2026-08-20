@@ -1,13 +1,16 @@
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
 import { materializeDeepSwe } from './deepswe-materializer.js';
 
 describe('DeepSWE materializer', () => {
-  const jsonPath = resolve(
-    '../../artifacts-v2/sha256/c4/c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f.json',
+  const jsonPath = fileURLToPath(
+    new URL(
+      '../test-fixtures/c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f.json',
+      import.meta.url,
+    ),
   );
   const jsonStr = readFileSync(jsonPath, 'utf8');
 

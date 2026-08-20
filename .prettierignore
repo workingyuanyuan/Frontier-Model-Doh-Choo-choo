@@ -13,3 +13,12 @@ data-v2/product/current.json
 data-v2/product/versions/
 data-v2/sources/*/candidates.json
 data-v2/sources/*/validation-report.md
+
+# Byte-for-byte copies of artifacts-v2 entries used by the materializer tests.
+# Reformatting them would change the bytes the tests parse and break the link
+# back to the SHA-256 each filename records.
+packages/acquisition/test-fixtures/*.html
+packages/acquisition/test-fixtures/*.js
+packages/acquisition/test-fixtures/*.json
+packages/acquisition/test-fixtures/*.csv
+packages/acquisition/test-fixtures/*.zip

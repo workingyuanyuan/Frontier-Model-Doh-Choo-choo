@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
@@ -28,8 +28,11 @@ const topDistinctRows = (
 
 describe('Epoch AI materializer', () => {
   it('materializes all structured rows from zip', () => {
-    const zipPath = resolve(
-      '../../artifacts-v2/sha256/f8/f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9.zip',
+    const zipPath = fileURLToPath(
+      new URL(
+        '../test-fixtures/f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9.zip',
+        import.meta.url,
+      ),
     );
     const zipBuffer = readFileSync(zipPath);
 
@@ -78,8 +81,11 @@ describe('Epoch AI materializer', () => {
 
   it('resolves every available distinct ECI Top 20 model and its reviewed configuration variants', () => {
     const zipBuffer = readFileSync(
-      resolve(
-        '../../artifacts-v2/sha256/f8/f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9.zip',
+      fileURLToPath(
+        new URL(
+          '../test-fixtures/f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9.zip',
+          import.meta.url,
+        ),
       ),
     );
     const candidates = materializeEpoch(zipBuffer, '2026-07-16T13:05:53.306Z');

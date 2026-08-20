@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
@@ -29,14 +29,20 @@ const topDistinctRows = (
 describe('Artificial Analysis materializer', () => {
   it('materializes all structured rows from HTML', () => {
     const modelsHtml = readFileSync(
-      resolve(
-        '../../artifacts-v2/sha256/b7/b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a.html',
+      fileURLToPath(
+        new URL(
+          '../test-fixtures/b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a.html',
+          import.meta.url,
+        ),
       ),
       'utf8',
     );
     const articleHtml = readFileSync(
-      resolve(
-        '../../artifacts-v2/sha256/1b/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html',
+      fileURLToPath(
+        new URL(
+          '../test-fixtures/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html',
+          import.meta.url,
+        ),
       ),
       'utf8',
     );
@@ -80,14 +86,20 @@ describe('Artificial Analysis materializer', () => {
   it('resolves all Artificial Analysis Intelligence Index Top 20 configuration labels', () => {
     const candidates = materializeArtificialAnalysis(
       readFileSync(
-        resolve(
-          '../../artifacts-v2/sha256/b7/b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a.html',
+        fileURLToPath(
+          new URL(
+            '../test-fixtures/b7084dca03b345e5a1e1aab3729bee6fcd7577b744ad46f38e30e0143486768a.html',
+            import.meta.url,
+          ),
         ),
         'utf8',
       ),
       readFileSync(
-        resolve(
-          '../../artifacts-v2/sha256/1b/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html',
+        fileURLToPath(
+          new URL(
+            '../test-fixtures/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html',
+            import.meta.url,
+          ),
         ),
         'utf8',
       ),
