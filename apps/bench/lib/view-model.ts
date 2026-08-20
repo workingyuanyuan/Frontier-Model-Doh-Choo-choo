@@ -252,22 +252,6 @@ export const getDeveloperModelRows = (
     }
   });
 
-  product.frontier.forEach((f) => {
-    if (!eligibleModelIds.has(f.modelId) && !modelProfilesMap.has(f.modelId)) {
-      modelProfilesMap.set(f.modelId, [f.profileId]);
-    }
-  });
-
-  product.leaderboard.forEach((r) => {
-    if (!eligibleModelIds.has(r.modelId)) {
-      const list = modelProfilesMap.get(r.modelId) ?? [];
-      if (!list.includes(r.profileId)) {
-        list.push(r.profileId);
-      }
-      modelProfilesMap.set(r.modelId, list);
-    }
-  });
-
   const rows: DeveloperModelRow[] = [];
 
   for (const [modelId, profileIds] of modelProfilesMap.entries()) {

@@ -14,6 +14,7 @@ import {
   getMissingDisplaySetBenchmarks,
   getRepresentativeRows,
   isMainEligibleRow,
+  profileById,
   resolveActiveProfile,
   splitCostSeries,
   buildAdvancedCostSeries,
@@ -427,6 +428,37 @@ describe('leaderboard view model', () => {
     expect(row.missingBenchmarkIds).toEqual(['bm-4']);
     expect(row).not.toHaveProperty('overallScore');
     expect(row).not.toHaveProperty('dimensions');
+  });
+
+  it('excludes models from developer mode when frontier points to non-existent profiles not in product.profiles', () => {
+    const fixtureWithPhantomFrontier: ProductVersion = {
+      ...productFixture,
+      frontier: [
+        ...productFixture.frontier,
+        {
+          modelId: 'phantom-model-ghost',
+          profileId: 'phantom-model-ghost-unspecified',
+          reasons: ['External cohort only'],
+          externalCompositeScores: { intelligence: 99.9 },
+        },
+      ],
+    };
+
+    const rows = getDeveloperModelRows(fixtureWithPhantomFrontier, displaySet);
+    expect(rows.some((row) => row.modelId === 'phantom-model-ghost')).toBe(
+      false,
+    );
+  });
+
+  it('guarantees every row in developer mode resolves to a valid profile in product.profiles', () => {
+    const rows = getDeveloperModelRows(productFixture, displaySet);
+    expect(rows.length).toBeGreaterThan(0);
+    const validProfileIds = new Set(productFixture.profiles.map((p) => p.id));
+
+    rows.forEach((row) => {
+      expect(validProfileIds.has(row.profileId)).toBe(true);
+      expect(profileById(productFixture, row.profileId)).toBeDefined();
+    });
   });
 
   it('never resolves a stale profile from another base model', () => {
