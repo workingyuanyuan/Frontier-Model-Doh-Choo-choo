@@ -719,6 +719,24 @@ export const OrderedDimensionScoresSchema = z
     });
   });
 
+export const ProductCostSchema = z.object({
+  modelId: SlugSchema,
+  profileId: SlugSchema,
+  costType: PricingSchema.shape.type,
+  cost: z.number().nonnegative(),
+  performance: z.number().min(0).max(100).nullable(),
+  assumptionId: SlugSchema.nullable(),
+  sourceUrl: HttpUrlSchema,
+  sourceId: SlugSchema,
+  metricId: SlugSchema,
+  metricName: z.string().min(1),
+  unit: z.enum(['USD_PER_MILLION_TOKENS', 'USD_PER_TASK']),
+  benchmarkId: SlugSchema.nullable(),
+  benchmarkVersion: z.string().min(1).nullable(),
+  evidenceIds: z.array(Sha256Schema),
+});
+export type ProductCost = z.infer<typeof ProductCostSchema>;
+
 export const ProductVersionSchema = z.object({
   schemaVersion: z.literal('product-version-v3'),
   versionId: Sha256Schema,
@@ -745,24 +763,7 @@ export const ProductVersionSchema = z.object({
       })
       .strict(),
   ),
-  costs: z.array(
-    z.object({
-      modelId: SlugSchema,
-      profileId: SlugSchema,
-      costType: PricingSchema.shape.type,
-      cost: z.number().nonnegative(),
-      performance: z.number().min(0).max(100),
-      assumptionId: SlugSchema.nullable(),
-      sourceUrl: HttpUrlSchema,
-      sourceId: SlugSchema,
-      metricId: SlugSchema,
-      metricName: z.string().min(1),
-      unit: z.enum(['USD_PER_MILLION_TOKENS', 'USD_PER_TASK']),
-      benchmarkId: SlugSchema.nullable(),
-      benchmarkVersion: z.string().min(1).nullable(),
-      evidenceIds: z.array(Sha256Schema),
-    }),
-  ),
+  costs: z.array(ProductCostSchema),
   evidence: z.array(ProductEvidenceSchema),
 });
 export type ProductVersion = z.infer<typeof ProductVersionSchema>;
@@ -1265,8 +1266,8 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     leaderboard.map((entry) => [entry.profileId, entry]),
   );
   const catalogCosts = profiles.flatMap((profile) => {
-    const performance = leaderboardByProfile.get(profile.id)?.overallScore;
-    if (performance === null || performance === undefined) return [];
+    const performance =
+      leaderboardByProfile.get(profile.id)?.overallScore ?? null;
 
     return profile.pricing.flatMap((pricing) => {
       const cost =
@@ -1316,10 +1317,8 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     ) {
       return [];
     }
-    const performance = leaderboardByProfile.get(
-      record.model.profileId,
-    )?.overallScore;
-    if (performance === null || performance === undefined) return [];
+    const performance =
+      leaderboardByProfile.get(record.model.profileId)?.overallScore ?? null;
     const cost =
       record.cost ??
       (record.inputPerMillionTokens !== null &&

@@ -300,10 +300,11 @@ export const buildWeightedCostCurve = (
   );
 
   const taskCosts = product.costs.filter(
-    ({ costType, sourceId, profileId }) =>
+    ({ costType, sourceId, profileId, performance }) =>
       ['MEASURED_TASK', 'AGENT_TASK'].includes(costType) &&
       (weights[sourceId] ?? 0) > 0 &&
-      representativeByProfileId.has(profileId),
+      representativeByProfileId.has(profileId) &&
+      performance !== null,
   );
   const sourceRanges = new Map<string, { min: number; max: number }>();
   Object.keys(weights).forEach((sourceId) => {
@@ -331,7 +332,13 @@ export const buildWeightedCostCurve = (
     .flatMap(([profileId, bySource]) => {
       const profile = profileById(product, profileId);
       const representativeRow = representativeByProfileId.get(profileId);
-      if (!profile || !representativeRow) return [];
+      if (
+        !profile ||
+        !representativeRow ||
+        representativeRow.overallScore === null
+      ) {
+        return [];
+      }
       const sourceCosts = [...bySource.entries()].flatMap(
         ([sourceId, rows]) => {
           const range = sourceRanges.get(sourceId);
@@ -368,7 +375,7 @@ export const buildWeightedCostCurve = (
           profileId,
           providerId: profile.providerId,
           displayName: getProfileDisplayName(profile),
-          performance: representativeRow.overallScore ?? 0,
+          performance: representativeRow.overallScore,
           normalizedCost:
             sourceCosts.reduce(
               (total, source) => total + source.normalizedCost * source.weight,

@@ -361,6 +361,13 @@ describe('buildProduct', () => {
           },
         },
       ],
+      costRecords: [
+        makeCost({
+          sourceId: 'artificial-analysis',
+          costType: 'MEASURED_TASK',
+          cost: 0.42,
+        }),
+      ],
       profiles: [profile],
       benchmarkDimensions: new Map([['livebench-reasoning', 'reasoning']]),
       catalog,
@@ -370,7 +377,19 @@ describe('buildProduct', () => {
     expect(product.frontier).toHaveLength(1);
     expect(product.leaderboard[0]?.overallScore).toBeNull();
     expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
-    expect(product.costs).toEqual([]);
+    expect(product.costs).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          sourceId: 'model-catalog',
+          performance: null,
+        }),
+        expect.objectContaining({
+          sourceId: 'artificial-analysis',
+          cost: 0.42,
+          performance: null,
+        }),
+      ]),
+    );
   });
 
   it('rejects a scored profile that is absent from the model catalog', () => {

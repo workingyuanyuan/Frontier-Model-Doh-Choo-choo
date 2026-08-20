@@ -427,6 +427,23 @@ describe('cost chart view model', () => {
     expect(solPoints).toHaveLength(0);
   });
 
+  it('excludes null-performance costs from the weighted cost curve', () => {
+    const product = {
+      ...productFixture,
+      costs: productFixture.costs.map((cost) =>
+        cost.modelId === 'openai-gpt-5-6-sol'
+          ? { ...cost, performance: null }
+          : cost,
+      ),
+    };
+
+    expect(
+      buildWeightedCostCurve(product).find(
+        (point) => point.modelId === 'openai-gpt-5-6-sol',
+      ),
+    ).toBeUndefined();
+  });
+
   it('guarantees leaderboard and cost curve defaults cannot diverge from getRepresentativeRows', () => {
     const reps = getRepresentativeRows(productFixture);
     const repByModel = new Map(reps.map((r) => [r.modelId, r.profileId]));

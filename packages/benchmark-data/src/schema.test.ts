@@ -10,6 +10,7 @@ import {
   DisplaySetSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
+  ProductCostSchema,
   ProductEvidenceSchema,
   ProductVersionSchema,
   SourcesConfigSchema,
@@ -236,6 +237,27 @@ describe('ProductVersionSchema', () => {
         })),
       }),
     ).toThrow();
+  });
+
+  it('accepts product cost rows with null performance', () => {
+    expect(
+      ProductCostSchema.parse({
+        modelId: 'openai-gpt-5-6-sol',
+        profileId: 'openai-gpt-5-6-sol-high',
+        costType: 'MEASURED_TASK',
+        cost: 0.85,
+        performance: null,
+        assumptionId: null,
+        sourceUrl: 'https://artificialanalysis.ai/models',
+        sourceId: 'artificial-analysis',
+        metricId: 'cost-per-intelligence-index-task',
+        metricName: 'Cost per Intelligence Index task',
+        unit: 'USD_PER_TASK',
+        benchmarkId: 'artificial-analysis-intelligence-index',
+        benchmarkVersion: null,
+        evidenceIds: [],
+      }).performance,
+    ).toBeNull();
   });
 
   it('keeps the version hash deterministic for identical v3 input', () => {
