@@ -556,6 +556,18 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 **使用者填定 `display-set.json` 前，不得進入 E 階段。**
 
+### 狀態：已通過（2026-08-20）
+
+使用者判讀 [docs/COVERAGE_MATRIX_REPORT.md](../docs/COVERAGE_MATRIX_REPORT.md) 後，選定報告中 N=15 的最佳組合**減去 `aa-briefcase`**，共 14 項。`aa-briefcase` 一項就擋掉 DeepSeek V4 Pro、GPT-5.6 Luna 與 GPT-5.6 Terra；移除後完整模型數由 11 升到 14，維度仍為 8/8，四個來源全部保留。
+
+留一法顯示這 14 項中有 12 項邊際成本為零——真正篩掉模型的只有 `frontier-code-1-1`（4 個）與 `deepswe-1-1`（2 個），也就是「四個來源都要」這個要求的全部代價。落選的 `aa-briefcase`、`apex-agents`、`gdpval-aa`、`ifbench` 皆因 Artificial Analysis 覆蓋率偏低。
+
+產物：`sha256:73768465f61b638e58f65070e8f4054b94c38c738bf8e19b6b463983b673ff24`，主畫面 **12 列**、8 家廠商、無 N/A。
+
+**報告的 14 與主畫面的 12 差在哪：**報告的完整模型數是跨 profile 聯集的上界，§5.2 的門檻則要求**單一 profile** 同時滿足矩陣。Claude Sonnet 5（AA 測 `max`、LiveBench 測 `xhigh`）與 DeepSeek V4 Flash（`max` 只差 `frontier-code-1-1`，而 Frontier Code 測 `high`）兩者聯集完整、交集為空，因此落入開發者模式。
+
+**這是刻意不放寬的。** 改成跨 profile 聯集的話，一列裡的八個維度分數會來自不同思考強度，正是當初按 effort 拆 profile 要防止的事。此決定不修改 §5.2；待來源補測後會自行消失。
+
 ---
 
 # E. 介面
@@ -616,8 +628,24 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 - 顯示被排除模型的模型 × benchmark 矩陣，每格顯示原始 normalized 分數。
 - **不做任何加總**：不算維度分數、不算總分。
 - 沿用 E1 的明細面板元件。
+- **修正 D1／D2 交互產生的診斷缺陷（見下）。**
 
-**完成條件**：有測試證明開發者模式不會產生任何聚合數值。
+### 必修：開發者模式的代表 profile 退化成字母序
+
+D2 把 `overallScore` 改成「八維不齊即為 null」。D1 的代表 profile 比較器只看 `overallScore`，null 視為 `-Infinity`，於是**八維不齊的模型其所有 profile 都同分，代表 profile 實際由 `profileId` 字典序決定**。46 個模型中有 10 個落入此狀況。
+
+後果是開發者模式給出假的缺格清單。實例（2026-08-20 資料）：
+
+| profile | display-set 缺格 |
+| --- | --- |
+| `anthropic-claude-sonnet-5-high` ← 目前被選為代表 | 12 |
+| `anthropic-claude-sonnet-5-xhigh` | 8 |
+
+畫面因此宣稱 Claude Sonnet 5 缺 12 格，實際最好的配置只缺 8 格。§5.4 說開發者模式唯一的職責就是「顯示被排除的模型缺哪些格子」，這裡給的是最差答案。
+
+**修法**：不要改 `compareRepresentativeCandidates`。那會把 D2 剛移除的 coverage 式排序從後門放回來，且違反規格 §4.3「只看分數」。改在 `getDeveloperModelRows` 內為診斷用途另外挑 profile，順序為：display-set 缺格數最少 → `overallScore` 較高 → `profileId` 字典序。主畫面的資格判定不受影響（`isMainEligibleRow` 掃全部 leaderboard 列，不是只看代表列），不得更動。
+
+**完成條件**：有測試證明開發者模式不會產生任何聚合數值；另有測試以「同一模型多個 profile 缺格數不同且 `overallScore` 全為 null」的 fixture，證明選出的是缺格最少者而非字典序最前者。
 
 ---
 
