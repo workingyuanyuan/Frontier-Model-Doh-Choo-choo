@@ -531,7 +531,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 ## D3 — coverage-matrix 報告指令
 
-狀態：未開始
+狀態：完成
 
 **目標**：實作規格 §5.3。
 

@@ -17,6 +17,7 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings 0",
+    "report:coverage-matrix": "pnpm --filter @llm-bench/benchmark-data report:coverage-matrix",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "web": "pnpm --filter @llm-bench/bench dev"
