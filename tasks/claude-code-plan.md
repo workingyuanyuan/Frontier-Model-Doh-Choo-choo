@@ -529,7 +529,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 **完成條件**：`current.json` 內 `artificial-analysis-intelligence-index` 的 evidence 筆數大於 0 且全部 `inclusion: 'EXCLUDED'`；有測試證明該 benchmark 不會進入任何維度分數；`gdpval-aa` 的缺口有明確結論（補齊或逐一列出官方未測）。
 
-**注意**：`current.json` 會變更但**不得提交**，交由使用者審核。
+**注意**：`current.json` 會變更但**不得提交**。C7 屬於「會改動 `current.json` 的來源刷新」，必須走規格 §11.4 的常態程序：產出 `docs/REFRESH_<YYYY-MM-DD>.md`、主動提示使用者抽查、指名該查哪幾筆與怎麼查，等使用者明確指示後才 commit。
 
 # D. 計分與報告
 
