@@ -570,6 +570,46 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 ---
 
+## D4 — 修正成本投影被顯示門檻連坐刪除
+
+狀態：未開始
+
+**這一項在審核關卡 2 通過之後才被發現，因此編號屬 D 但排在關卡之後。它不影響關卡 2 的結論——`display-set.json` 與主畫面的 12 列都不受此缺陷影響，受影響的只有成本資料。**
+
+**目標**：實作規格 §5.2 新增的「完整矩陣門檻只作用於顯示，不得傳染到資料保存」。
+
+**背景**：D2 把 `overallScore` 改成「八維不齊即為 null」之後，`packages/benchmark-data/src/index.ts` 的 `materializedCosts` 守衛語意跟著變了：
+
+```js
+const performance = leaderboardByProfile.get(
+  record.model.profileId,
+)?.overallScore;
+if (performance === null || performance === undefined) return [];
+```
+
+原意是「這個 profile 至少有一維分數」，現在變成「必須八維全滿」。實測後果：
+
+| 來源                | 源頭成本列 | 具多 effort 的模型 | 進到 `current.json` |
+| ------------------- | ---------: | -----------------: | ------------------: |
+| Artificial Analysis |        307 |                 12 |                  21 |
+| DeepSWE             |         61 |                 11 |                  17 |
+| Frontier Code       |         77 |                 15 |                  14 |
+
+183 筆成本列被整列刪除。**具備兩個以上帶成本 effort profile 的模型從 21 個變成 0 個**，因此 §6.3 的進階圖沒有任何一條線可以畫。這是靜默失效：測試全綠，畫面上看不出來。
+
+**要求**：
+
+- `ProductCost.performance` 改為 nullable（schema、型別、測試一併改）。
+- 移除上述守衛。**所有 `INCLUDED` 且能解析出 `canonicalModelId` 與 `profileId` 的成本列都必須保存**，不論該 profile 是否通過顯示門檻。
+- `catalogCosts` 內同樣的 `performance === null` 守衛一併檢查，套用相同規則。
+- 由呼叫端決定是否濾掉 null：`buildWeightedCostCurve`（預設圖）必須濾，進階圖不濾。
+- 重跑 `pnpm data:v2:build-current`，回報新的 `versionId`、成本列數、以及具兩個以上帶成本 effort profile 的模型數。
+- **不得**為了讓數字變好看而放寬 §5.2 的顯示門檻，或改動 `display-set.json`（那是審核關卡 2 的產物，已定案）。
+
+**完成條件**：有測試以「profile 的 `overallScore` 為 null 但有成本列」的 fixture 證明該成本列仍保存在 ProductVersion 中；重建後具兩個以上帶成本 effort profile 的模型數大於 0（預期 21 個左右）。
+
+**注意**：`current.json` 會變更但**不得提交**，交由使用者審核。
+
 # E. 介面
 
 ## E1 — 模型明細面板
@@ -604,18 +644,21 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 ## E3 — 兩張性價比圖表
 
-狀態：未開始
+狀態：未開始（**相依：D4 必須先完成**）
 
 **目標**：實作規格 §6.3。
 
 **要求**：
 
-- **預設圖**：四來源加權，每個模型每個來源取最佳表現那一筆。
+- **預設圖**：四來源加權，X 軸為混合正規化成本、Y 軸為 Overall Score。每個模型每個來源取最佳表現那一筆。
+- **權重為四來源各 25%。** 取代 `view-model.ts` 現行的 `COST_SOURCE_WEIGHTS`（AA 40／LiveBench 40／DeepSWE 20，三來源時代的遺留值）。理由見規格 §6.3，不要自行調整。
 - **進階圖**：按鈕開啟，顯示各模型多種思考強度的曲線，**同一模型的各強度點要連成線**。只用 Artificial Analysis、DeepSWE、Frontier Code。缺任一來源資料的模型不顯示。
+- **進階圖的軸：X 軸＝該來源自己的成本，Y 軸＝該來源自己的分數。** 一條曲線只屬於一個來源，不跨來源聚合。多 effort profile 多半不是 8/8 完整、沒有 Overall Score，**不得為了湊 Y 軸而放寬 §5.2，也不得拿跨來源 Overall 去配單一來源成本**。
+- 曲線上的點依 §4.4 的思考強度階梯排序（`non-reasoning < low < medium < high < xhigh < max`）；`default` 不上梯子，單獨標示。
 - **Artificial Analysis 的 token 單價不得進入成本圖。** 進成本圖的是 `intelligenceIndexCostPerTask`。
-- 若 C4 確認 Frontier Code 取不到成本或思考強度，進階圖退化為兩來源，並在畫面上說明退化原因。
+- C4 已確認 Frontier Code 的成本與思考強度皆可取得（28 個模型、15 個具多 effort），進階圖維持三來源，不需要退化路徑。
 
-**完成條件**：有測試證明 `API_STANDARDIZED` 成本不會進入任何一張成本圖；進階圖的「缺任一來源即不顯示」有測試。
+**完成條件**：有測試證明 `API_STANDARDIZED` 成本不會進入任何一張成本圖；進階圖的「缺任一來源即不顯示」有測試；有測試證明進階圖的每個點其成本與分數來自同一個 `sourceId`。
 
 ## E4 — 開發者模式
 

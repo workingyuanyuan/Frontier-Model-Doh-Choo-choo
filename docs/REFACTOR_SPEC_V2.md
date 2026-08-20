@@ -168,6 +168,18 @@ non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
 
 移除的舊機制：Coverage 比例、`ESTIMATED` 狀態、「至少一維有分數就顯示」、「Developer mode 放寬到 1–7/8」。這些散落在約 100 處（`view-model.ts`、`leaderboard.tsx`、`table-sort.ts`、`dashboard.tsx`、`globals.css`），必須從程式、schema、測試、文件一併移除，不能只從畫面隱藏。
 
+**完整矩陣門檻只作用於顯示，不得傳染到資料保存。**（2026-08-20 補定）
+
+D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` 內的成本投影守衛（`index.ts` 的 `materializedCosts`）語意隨之改變：原本是「這個 profile 至少有一維分數」，變成「這個 profile 必須八維全滿」，導致 183 筆成本列被整列刪除，源頭的 445 筆多 effort 成本資料在 ProductVersion 中只剩 52 筆，具備兩個以上帶成本 effort profile 的模型從 21 個變成 0 個。
+
+規則：
+
+- **ProductVersion 必須保存所有 `INCLUDED` 且能解析出 profile 的成本列**，不論該 profile 是否通過顯示門檻。
+- `ProductCost.performance` 為 **nullable**。它是給預設圖用的便利欄位，不是保存成本的前提。
+- 由**各張圖表**決定要不要濾掉 `performance` 為 null 的點：預設圖以 Overall 為 Y 軸，必須濾；進階圖以來源自己的分數為 Y 軸，不濾。
+
+一般化的原則：**顯示規則不得決定資料保存範圍。**開發者模式與進階圖的存在意義就是呈現主畫面容納不下的資料；讓主畫面的門檻在管線階段就把資料刪掉，會讓這兩者永遠沒有東西可顯示，而且測試全綠。
+
 ### 5.3 coverage-matrix 報告指令
 
 新增一個報告指令（建議 `pnpm report:coverage-matrix`），輸出兩份內容：
@@ -224,15 +236,44 @@ Language    71.0
 
 **預設圖**
 
-- 四個來源加權合併。
+- 四個來源加權合併，X 軸為混合後的正規化成本，Y 軸為 Overall Score。
 - 每個模型每個來源取**最佳表現**那一筆（與 §4.3 同一套選法）。
 - 未來新增來源時可直接擴充。
+
+**權重：四個來源各 25%**（2026-08-20 決定）
+
+原本的 40／40／20 是三來源時代的遺留值，沒有任何依據，不是決策結果。改為等權重的理由：
+
+1. 四個來源的成本語意一致，全部是 `USD_PER_TASK`。量級差距（LiveBench ~0.016、AA ~0.047、DeepSWE ~0.10、Frontier Code ~0.36）來自任務大小不同，已由 per-source 的 log min-max 正規化吸收。
+2. 權重混合的是「模型在該來源內部的相對貴賤位置」，不是美元。沒有可辯護的證據能對四個來源的量測品質排序。
+3. `sourceWeight` 會對該模型**實際具備的來源**重新正規化，缺來源不受懲罰。因此權重只在同一模型有兩個以上來源且排名不一致時才起作用。
+4. 等權重讓擴充成為機械操作：Phase 2 加入 Epoch 為各 20%，Phase 3 加入 Vals 為各 16.7%，不需要重新談判。
+
+不在權重表內的來源（例如 `model-catalog`）權重視為 0，靜默排除，這是預期行為。
 
 **進階圖**（按鈕開啟）
 
 - 顯示各模型**多種思考強度**的性價比曲線，同一模型的各強度點要連成線，讓思考強度的邊際效應看得出來。
-- 只用 **Artificial Analysis、DeepSWE、Frontier Code** 三個來源。LiveBench 沒有測量不同思考強度，排除。
+- 只用 **Artificial Analysis、DeepSWE、Frontier Code** 三個來源。排除 LiveBench 的理由見下方「LiveBench 的成本為何不能與分數配對」。
 - **缺任一來源資料的模型不顯示**；缺了什麼由開發者模式揭露。
+
+**進階圖的軸定義**（2026-08-20 補定）
+
+進階圖的多 effort profile 多半不是 8/8 完整，因此**沒有 Overall Score 可用**。軸定義為：
+
+- **X 軸＝該來源自己的成本，Y 軸＝該來源自己的分數。**一條曲線只屬於一個來源，不跨來源聚合。
+- 一個模型在一個來源上連成一條線，點依思考強度階梯排序（§4.4 的 `non-reasoning < low < medium < high < xhigh < max`，`default` 不上梯子、單獨標示）。
+- 不得為了湊出 Y 軸而回頭放寬 §5.2，也不得用跨來源 Overall 去配單一來源的成本。同一個點的成本與效能必須來自同一次量測。
+
+**LiveBench 的成本為何不能與分數配對**
+
+LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materializers.ts` 的 `materializeLiveBenchCosts`），有兩個性質使它無法用於進階圖：
+
+1. **它沒有思考強度維度。**LiveBench 的成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本。沒有可連成線的點。
+2. **它的分母是成功次數，效能已經內含在成本裡。**表現差的模型會因為分母變小而顯得更貴。把它放上「效能 vs. 成本」的散布圖，等於讓 X 軸包含 Y 軸的資訊。AA 的 cost per Intelligence Index task、DeepSWE 的 mean agent task cost、Frontier Code 的 mean rollout cost 都是**每次嘗試**的平均成本，與成功率無關，不具這個性質。
+3. 另外，LiveBench 的成本掛在 `benchmarkId: 'livebench'`（整站一個值），但它的分數在本專案是拆成 `livebench-reasoning`、`-mathematics`、`-language`、`-instruction-following` 四個 benchmark 進入產品。**沒有一個「LiveBench 分數」可以和這個成本配對。**
+
+第 2 點對預設圖同樣成立，程度較輕（權重 25%、且經 log 正規化後只影響相對位置）。**這是一個已知且已揭露的偏誤：它會讓預設圖的品質—成本相關性看起來比實際更乾淨。**目前選擇保留四來源等權重；若日後判定失真不可接受，處置方式是把預設圖也改為三來源各 33.3%，不是調整權重去補償。
 
 **成本語意規則（重要）**
 
