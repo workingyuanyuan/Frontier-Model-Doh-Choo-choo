@@ -145,19 +145,16 @@ export const productFixture = buildProductVersion({
   frontier: [
     {
       modelId: 'openai-gpt-5-6-sol',
-      profileId: 'openai-gpt-5-6-sol-max',
       reasons: ['Composite top cohort'],
       externalCompositeScores: { intelligence: 78.4 },
     },
     {
       modelId: 'anthropic-claude-fable-5',
-      profileId: 'anthropic-claude-fable-5-standard',
       reasons: ['Composite top cohort'],
       externalCompositeScores: { intelligence: 76.9 },
     },
     {
       modelId: 'google-gemini-3-1-pro',
-      profileId: 'google-gemini-3-1-pro-high',
       reasons: ['Composite top cohort'],
       externalCompositeScores: { intelligence: 74.8 },
     },

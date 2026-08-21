@@ -216,7 +216,6 @@ describe('buildFrontierSet', () => {
       manualModels: [
         {
           modelId: 'manual-new-model',
-          profileId: 'manual-new-model-default',
           reason: 'Manually specified new release',
         },
       ],
@@ -381,6 +380,12 @@ describe('buildProduct', () => {
     });
 
     expect(product.frontier).toHaveLength(1);
+    // Frontier is a model-level set derived from the catalog. It must not
+    // invent a profile id: those placeholders resolved to nothing and broke
+    // the spec's own ban on an `unspecified` effort. See REFACTOR_SPEC_V2 5.4.
+    product.frontier.forEach((entry) => {
+      expect(entry).not.toHaveProperty('profileId');
+    });
     expect(product.leaderboard[0]?.overallScore).toBeNull();
     expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
     expect(product.costs).toEqual(
@@ -414,7 +419,6 @@ describe('buildProduct', () => {
         manualModels: [
           {
             modelId: 'openai-gpt-5-6-sol',
-            profileId: 'openai-gpt-5-6-sol-max',
             reason: 'New release',
           },
         ],
@@ -692,7 +696,6 @@ describe('deriveModelProfiles', () => {
       manualModels: [
         {
           modelId: 'openai-gpt-5-6-sol',
-          profileId: 'openai-gpt-5-6-sol-max',
           reason: 'test frontier',
         },
       ],

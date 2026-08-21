@@ -200,6 +200,25 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 - 顯示模型 × benchmark 矩陣，每格顯示該 benchmark 的**原始 normalized 分數**（有資料時）。
 - **不做任何加總**：不算維度分數、不算總分。缺格的模型與主畫面模型的分母不同，聚合出來的數字會被誤用。
 
+### 5.5 ProductVersion 的 `frontier` 是模型集合，不帶 profile
+
+**本節於 2026-08-21 新增。** 先前規格沒有定義 `frontier` 的結構，實作因此替每一列造了一個
+`<modelId>-unspecified` 的 `profileId`。那個值不指向任何真實 profile——53 列全部無法解析——
+而且正好違反 §4 的「UI 和產品計分不建立 `unspecified` effort」。
+
+`frontier` 回答的是**哪些模型還在追蹤範圍內**（`model-catalog` 中 12 個月資格窗內仍活躍者，
+加上 `frontier.json` 的 `manualModels` 逃生口），這是**模型層級**的問題，與思考強度無關。
+因此每一列只有：
+
+- `modelId`
+- `reasons`：入選理由，至少一條
+- `externalCompositeScores`：§8 移除 `compositeSources` 後恆為空物件，保留欄位以免 schema 再變
+
+**不得**有 `profileId`。同一理由適用於 `frontier.json` 的 `manualModels` 條目。
+
+`frontier` 的唯一消費者是主畫面「Dataset at a glance」的 **Frontier models** 與
+**Awaiting direct evidence** 兩個計數，兩者都只取 `modelId`。
+
 ## 6. 介面
 
 ### 6.1 保留的區塊

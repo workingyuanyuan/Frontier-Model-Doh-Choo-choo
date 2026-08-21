@@ -430,14 +430,13 @@ describe('leaderboard view model', () => {
     expect(row).not.toHaveProperty('dimensions');
   });
 
-  it('excludes models from developer mode when frontier points to non-existent profiles not in product.profiles', () => {
+  it('excludes frontier models that have no profile at all from developer mode', () => {
     const fixtureWithPhantomFrontier: ProductVersion = {
       ...productFixture,
       frontier: [
         ...productFixture.frontier,
         {
           modelId: 'phantom-model-ghost',
-          profileId: 'phantom-model-ghost-unspecified',
           reasons: ['External cohort only'],
           externalCompositeScores: { intelligence: 99.9 },
         },

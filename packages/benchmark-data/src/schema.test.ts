@@ -554,7 +554,6 @@ describe('FrontierConfigSchema and model qualification', () => {
         manualModels: [
           {
             modelId: 'manual-model',
-            profileId: 'manual-model-default',
             reason: 'Manual inclusion for early preview',
           },
         ],

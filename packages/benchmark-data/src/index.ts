@@ -746,7 +746,6 @@ export const ProductVersionSchema = z.object({
   frontier: z.array(
     z.object({
       modelId: SlugSchema,
-      profileId: SlugSchema,
       reasons: z.array(z.string().min(1)).min(1),
       externalCompositeScores: z.record(z.string(), z.number()),
     }),
@@ -876,13 +875,11 @@ export interface CompositeRankingRow {
 
 export interface ManualFrontierModel {
   modelId: string;
-  profileId: string;
   reason: string;
 }
 
 export interface FrontierModel {
   modelId: string;
-  profileId: string;
   reasons: string[];
   externalCompositeScores: Record<string, number>;
 }
@@ -964,7 +961,6 @@ export const buildFrontierSet = ({
       if (isModelQualified(model, referenceDate, windowMonths)) {
         frontier.set(model.modelId, {
           modelId: model.modelId,
-          profileId: `${model.modelId}-unspecified`,
           reasons: [
             model.releaseDate
               ? `Active model within ${windowMonths} month qualification window`
@@ -984,7 +980,6 @@ export const buildFrontierSet = ({
     }
     frontier.set(manual.modelId, {
       modelId: manual.modelId,
-      profileId: manual.profileId,
       reasons: [manual.reason],
       externalCompositeScores: {},
     });
@@ -1076,7 +1071,6 @@ export const FrontierConfigSchema = z.object({
     .array(
       z.object({
         modelId: SlugSchema,
-        profileId: SlugSchema,
         reason: z.string().min(1),
       }),
     )
