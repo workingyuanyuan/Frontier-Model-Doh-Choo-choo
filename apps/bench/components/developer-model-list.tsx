@@ -13,8 +13,6 @@ export interface DeveloperModelListProps {
   product?: ProductVersion | undefined;
   benchmarkDimensions?: Record<string, DimensionId> | undefined;
   displaySet?: DisplaySet | null | undefined;
-  selectedProfileId?: string | undefined;
-  onSelect?: ((modelId: string, profileId: string) => void) | undefined;
   initialExpandedModelIds?: string[] | undefined;
 }
 
@@ -23,8 +21,6 @@ export function DeveloperModelList({
   product,
   benchmarkDimensions,
   displaySet,
-  selectedProfileId,
-  onSelect,
   initialExpandedModelIds,
 }: DeveloperModelListProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
@@ -58,26 +54,19 @@ export function DeveloperModelList({
       {rows.length > 0 ? (
         <ul className="developer-model-list">
           {rows.map((row) => {
-            const isSelected = row.profileId === selectedProfileId;
             const isExpanded = expandedModelIds.includes(row.modelId);
             const profile = product
               ? profileById(product, row.profileId)
               : undefined;
 
             return (
-              <li
-                key={row.profileId}
-                data-developer-model={row.modelId}
-                className={isSelected ? 'is-selected' : undefined}
-              >
+              <li key={row.profileId} data-developer-model={row.modelId}>
                 <button
                   type="button"
                   className="developer-model-button"
                   onClick={() => {
                     toggleExpand(row.modelId);
-                    onSelect?.(row.modelId, row.profileId);
                   }}
-                  aria-pressed={isSelected}
                   aria-expanded={isExpanded}
                 >
                   <strong>{row.displayName}</strong>

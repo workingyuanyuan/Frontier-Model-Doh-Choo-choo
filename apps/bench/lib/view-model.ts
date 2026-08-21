@@ -125,24 +125,6 @@ export const getProfileIdentity = (profile: ModelProfile): string => {
 export const getProfileDisplayName = (profile: ModelProfile): string =>
   `${profile.baseModelName} · ${getProfileIdentity(profile)}`;
 
-export const resolveActiveProfile = (
-  product: ProductVersion,
-  modelId: string,
-  selectedProfileId: string,
-  representativeProfileId: string,
-): ModelProfile | undefined => {
-  const profiles = getProfilesForModel(
-    product,
-    modelId,
-    representativeProfileId,
-  );
-  return (
-    profiles.find(({ id }) => id === selectedProfileId) ??
-    profiles.find(({ id }) => id === representativeProfileId) ??
-    profiles[0]
-  );
-};
-
 export const getRepresentativeRows = (
   product: ProductVersion,
 ): LeaderboardRow[] => {

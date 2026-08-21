@@ -17,7 +17,6 @@ import {
   getDeveloperModelRows,
   getRepresentativeRows,
   isMainEligibleRow,
-  resolveActiveProfile,
 } from '../lib/view-model';
 
 export function Dashboard({
@@ -32,10 +31,6 @@ export function Dashboard({
   initialExpandedModelIds?: string[] | undefined;
 }) {
   const [developerMode, setDeveloperMode] = useState(false);
-  const allRepresentatives = useMemo(
-    () => getRepresentativeRows(product),
-    [product],
-  );
   const developerRows = useMemo(
     () => getDeveloperModelRows(product, displaySet),
     [displaySet, product],
@@ -92,7 +87,6 @@ export function Dashboard({
     () => getRepresentativeRows(visibleProduct),
     [visibleProduct],
   );
-  const initialRow = representatives[0];
 
   const defaultCheckedIds = useMemo(
     () => representatives.map((r) => r.modelId),
@@ -100,54 +94,6 @@ export function Dashboard({
   );
   const [checkedModelIds, setCheckedModelIds] =
     useState<string[]>(defaultCheckedIds);
-
-  const [selectedModelId, setSelectedModelId] = useState(
-    initialRow?.modelId ?? '',
-  );
-
-  const [modelProfiles, setModelProfiles] = useState<Record<string, string>>(
-    () => {
-      const initialProfiles: Record<string, string> = {};
-      allRepresentatives.forEach((row) => {
-        initialProfiles[row.modelId] = row.profileId;
-      });
-      product.leaderboard.forEach((row) => {
-        if (!initialProfiles[row.modelId]) {
-          initialProfiles[row.modelId] = row.profileId;
-        }
-      });
-      return initialProfiles;
-    },
-  );
-
-  const selectedProfileId = modelProfiles[selectedModelId] ?? '';
-
-  const [comparisonProfileIds, setComparisonProfileIds] = useState<string[]>(
-    [],
-  );
-
-  const representativeRow = representatives.find(
-    ({ modelId }) => modelId === selectedModelId,
-  );
-
-  const selectedProfile = resolveActiveProfile(
-    product,
-    selectedModelId,
-    selectedProfileId,
-    representativeRow?.profileId ?? '',
-  );
-
-  useEffect(() => {
-    if (selectedProfile && comparisonProfileIds.includes(selectedProfile.id)) {
-      setComparisonProfileIds((prev) =>
-        prev.filter((id) => id !== selectedProfile.id),
-      );
-    }
-  }, [selectedProfile, comparisonProfileIds]);
-
-  const selectedResult = product.leaderboard.find(
-    ({ profileId }) => profileId === selectedProfile?.id,
-  );
 
   const rows = useMemo(() => {
     return representatives.filter((row) =>
@@ -159,26 +105,7 @@ export function Dashboard({
 
   useEffect(() => {
     setCheckedModelIds(defaultCheckedIds);
-    if (!developerMode && !visibleModelIds.has(selectedModelId)) {
-      setSelectedModelId(representatives[0]?.modelId ?? '');
-    }
-  }, [
-    defaultCheckedIds,
-    developerMode,
-    representatives,
-    selectedModelId,
-    visibleModelIds,
-  ]);
-
-  const selectModel = (modelId: string, profileId: string) => {
-    setSelectedModelId(modelId);
-    setModelProfiles((prev) => ({ ...prev, [modelId]: profileId }));
-  };
-
-  const clearSelection = () => {
-    setSelectedModelId('');
-    setComparisonProfileIds([]);
-  };
+  }, [defaultCheckedIds]);
 
   return (
     <div id="top">
@@ -227,9 +154,6 @@ export function Dashboard({
           representatives={representatives}
           checkedModelIds={checkedModelIds}
           setCheckedModelIds={setCheckedModelIds}
-          modelProfiles={modelProfiles}
-          selectedModelId={selectedModelId}
-          onSelect={selectModel}
           benchmarkDimensions={benchmarkDimensions}
           displaySet={displaySet}
           initialExpandedModelIds={initialExpandedModelIds}
@@ -241,28 +165,12 @@ export function Dashboard({
             product={product}
             benchmarkDimensions={benchmarkDimensions}
             displaySet={displaySet}
-            selectedProfileId={selectedProfile?.id}
-            onSelect={selectModel}
           />
         ) : null}
 
-        {selectedProfile ? (
-          <RadarChart
-            product={product}
-            activeProfile={selectedProfile}
-            selectedResult={selectedResult}
-            comparisonProduct={visibleProduct}
-            comparisonProfileIds={comparisonProfileIds}
-            setComparisonProfileIds={setComparisonProfileIds}
-            onClearActiveProfile={clearSelection}
-          />
-        ) : null}
+        <RadarChart product={product} comparisonProduct={visibleProduct} />
 
-        <CostChart
-          defaultProduct={visibleProduct}
-          advancedProduct={product}
-          selectedProfileId={selectedProfile?.id ?? ''}
-        />
+        <CostChart defaultProduct={visibleProduct} advancedProduct={product} />
       </main>
       <footer className="site-footer">
         <span>LLM Bench</span>

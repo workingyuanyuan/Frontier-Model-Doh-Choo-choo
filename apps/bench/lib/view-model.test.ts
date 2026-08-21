@@ -15,7 +15,6 @@ import {
   getRepresentativeRows,
   isMainEligibleRow,
   profileById,
-  resolveActiveProfile,
   splitCostSeries,
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
@@ -458,17 +457,6 @@ describe('leaderboard view model', () => {
       expect(validProfileIds.has(row.profileId)).toBe(true);
       expect(profileById(productFixture, row.profileId)).toBeDefined();
     });
-  });
-
-  it('never resolves a stale profile from another base model', () => {
-    const profile = resolveActiveProfile(
-      productFixture,
-      'openai-gpt-5-6-sol',
-      'anthropic-claude-fable-5-standard',
-      'openai-gpt-5-6-sol-max',
-    );
-
-    expect(profile?.id).toBe('openai-gpt-5-6-sol-max');
   });
 
   it('derives frontier, ranked, scored-profile, and pending counts', () => {

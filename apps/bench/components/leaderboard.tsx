@@ -11,7 +11,7 @@ import {
   type LeaderboardSortKey,
   type SortDirection,
 } from '../lib/table-sort';
-import type { LeaderboardRow } from '../lib/view-model';
+import { getRepresentativeRows, type LeaderboardRow } from '../lib/view-model';
 import { ModelPicker } from './leaderboard-controls';
 import { LeaderboardTable } from './leaderboard-table';
 
@@ -23,9 +23,6 @@ export type LeaderboardProps = {
   representatives: LeaderboardRow[];
   checkedModelIds: string[];
   setCheckedModelIds: React.Dispatch<React.SetStateAction<string[]>>;
-  modelProfiles: Record<string, string>;
-  selectedModelId: string;
-  onSelect: (modelId: string, profileId: string) => void;
   benchmarkDimensions: Record<string, DimensionId>;
   displaySet: DisplaySet | null;
   initialExpandedModelIds?: string[] | undefined;
@@ -37,9 +34,6 @@ export function Leaderboard({
   representatives,
   checkedModelIds,
   setCheckedModelIds,
-  modelProfiles,
-  selectedModelId,
-  onSelect,
   benchmarkDimensions,
   displaySet,
   initialExpandedModelIds,
@@ -59,6 +53,26 @@ export function Leaderboard({
     key: LeaderboardSortKey;
     direction: SortDirection;
   }>({ key: 'overall', direction: 'descending' });
+
+  const [modelProfiles, setModelProfiles] = useState<Record<string, string>>(
+    () => {
+      const initialProfiles: Record<string, string> = {};
+      const allRepresentatives = getRepresentativeRows(product);
+      allRepresentatives.forEach((row) => {
+        initialProfiles[row.modelId] = row.profileId;
+      });
+      product.leaderboard.forEach((row) => {
+        if (!initialProfiles[row.modelId]) {
+          initialProfiles[row.modelId] = row.profileId;
+        }
+      });
+      return initialProfiles;
+    },
+  );
+
+  const handleProfileChange = (modelId: string, profileId: string) => {
+    setModelProfiles((prev) => ({ ...prev, [modelId]: profileId }));
+  };
 
   const activeRows = useMemo(
     () =>
@@ -137,8 +151,7 @@ export function Leaderboard({
         onSort={onSort}
         heatMap={heatMap}
         modelProfiles={modelProfiles}
-        selectedModelId={selectedModelId}
-        onSelect={onSelect}
+        onProfileChange={handleProfileChange}
         benchmarkDimensions={benchmarkDimensions}
         displaySet={displaySet}
         expandedModelIds={expandedModelIds}

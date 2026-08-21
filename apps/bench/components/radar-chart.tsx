@@ -1,5 +1,7 @@
+'use client';
+
 import type { ProductVersion } from '@llm-bench/benchmark-data';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import {
   buildRadarPoints,
@@ -16,28 +18,24 @@ import {
   getRepresentativeRows,
 } from '../lib/view-model';
 
-type LeaderboardRow = ProductVersion['leaderboard'][number];
-type Profile = ProductVersion['profiles'][number];
-
 export function RadarChart({
   product,
-  activeProfile,
-  selectedResult,
   comparisonProduct,
-  comparisonProfileIds,
-  setComparisonProfileIds,
-  onClearActiveProfile,
 }: {
   product: ProductVersion;
-  activeProfile: Profile;
-  selectedResult: LeaderboardRow | undefined;
   comparisonProduct?: ProductVersion;
-  comparisonProfileIds: string[];
-  setComparisonProfileIds: (ids: string[]) => void;
-  onClearActiveProfile: () => void;
 }) {
   const center = 140;
   const radius = 92;
+
+  const targetProduct = comparisonProduct ?? product;
+  const initialSeriesIds = useMemo(() => {
+    const reps = getRepresentativeRows(targetProduct);
+    return reps[0] ? [reps[0].profileId] : [];
+  }, [targetProduct]);
+
+  const [seriesProfileIds, setSeriesProfileIds] =
+    useState<string[]>(initialSeriesIds);
 
   const getSeriesData = (profileId: string) => {
     const profile = product.profiles.find((p) => p.id === profileId);
@@ -50,25 +48,14 @@ export function RadarChart({
     };
   };
 
-  const activeSeries = {
-    profileId: activeProfile.id,
-    displayName: getProfileDisplayName(activeProfile),
-    dimensions: selectedResult ? selectedResult.dimensions : [],
-  };
-
   const seriesList = useMemo(() => {
-    const list = [activeSeries];
-    comparisonProfileIds.forEach((id) => {
-      const data = getSeriesData(id);
-      if (data) list.push(data);
-    });
-    return list;
-  }, [activeProfile, comparisonProfileIds, product, selectedResult]);
+    return seriesProfileIds
+      .map((id) => getSeriesData(id))
+      .filter((data): data is NonNullable<typeof data> => data !== null);
+  }, [seriesProfileIds, product]);
 
   const handleRemoveSeries = (profileId: string) => {
-    setComparisonProfileIds(
-      comparisonProfileIds.filter((id) => id !== profileId),
-    );
+    setSeriesProfileIds((prev) => prev.filter((id) => id !== profileId));
   };
 
   const seriesModelIds = useMemo(() => {
@@ -81,9 +68,9 @@ export function RadarChart({
   }, [seriesList, product.profiles]);
 
   const availableComparisonRows = useMemo(() => {
-    const reps = getRepresentativeRows(comparisonProduct ?? product);
+    const reps = getRepresentativeRows(targetProduct);
     return reps.filter((row) => !seriesModelIds.includes(row.modelId));
-  }, [comparisonProduct, product, seriesModelIds]);
+  }, [targetProduct, seriesModelIds]);
 
   const modelNames = seriesList.map((s) => s.displayName).join(' vs ');
   const textualSummary = seriesList
@@ -130,8 +117,12 @@ export function RadarChart({
                   value=""
                   onChange={(e) => {
                     const val = e.target.value;
-                    if (val && !comparisonProfileIds.includes(val)) {
-                      setComparisonProfileIds([...comparisonProfileIds, val]);
+                    if (
+                      val &&
+                      !seriesProfileIds.includes(val) &&
+                      seriesProfileIds.length < 3
+                    ) {
+                      setSeriesProfileIds((prev) => [...prev, val]);
                     }
                   }}
                 >
@@ -167,11 +158,7 @@ export function RadarChart({
                   <button
                     type="button"
                     className="remove-series-btn"
-                    onClick={() =>
-                      sIndex === 0
-                        ? onClearActiveProfile()
-                        : handleRemoveSeries(series.profileId)
-                    }
+                    onClick={() => handleRemoveSeries(series.profileId)}
                     aria-label={`Remove ${series.displayName} from radar chart`}
                   >
                     ×
@@ -189,12 +176,20 @@ export function RadarChart({
             className="radar-chart"
             viewBox="0 0 280 280"
             role="img"
-            aria-label={`Eight Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`}
+            aria-label={
+              modelNames
+                ? `Eight Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`
+                : 'Eight Dimensions radar chart. Missing values are omitted rather than drawn at zero.'
+            }
             aria-describedby="radar-chart-description"
           >
-            <title id="radar-chart-title">{`Eight Dimensions radar chart for ${modelNames}`}</title>
+            <title id="radar-chart-title">
+              {modelNames
+                ? `Eight Dimensions radar chart for ${modelNames}`
+                : 'Eight Dimensions radar chart'}
+            </title>
             <desc id="radar-chart-description">
-              {textualSummary}.{' '}
+              {textualSummary ? `${textualSummary}. ` : ''}
               {hasMissingValues
                 ? 'Missing values are shown as N/A and omitted from the plotted shape.'
                 : 'All eight dimensions have available values.'}

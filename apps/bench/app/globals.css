@@ -1496,14 +1496,6 @@ details[open] > .evidence-group-summary::before {
   margin-bottom: 0.25rem;
 }
 
-.cost-hover-card .provider-dot {
-  border-radius: 999px;
-  display: inline-block;
-  flex: none;
-  height: 0.5rem;
-  width: 0.5rem;
-}
-
 .cost-hover-card-title {
   color: var(--ink);
   font-size: 0.8125rem;

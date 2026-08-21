@@ -207,7 +207,6 @@ describe('CostChart Hover Cards (Task J3)', () => {
         createElement(CostChart, {
           defaultProduct: productFixture,
           advancedProduct: productFixture,
-          selectedProfileId: 'openai-gpt-5-6-sol-max',
         }),
       );
 

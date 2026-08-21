@@ -55,10 +55,13 @@ const tickValues = [0, 25, 50, 75, 100] as const;
 
 const defaultPointIsSelected = (
   point: WeightedCostPoint,
-  selectedProfileId: string,
+  selectedProfileId: string | null | undefined,
 ): boolean =>
-  point.profileId === selectedProfileId ||
-  point.selectedProfileIds.includes(selectedProfileId);
+  Boolean(
+    selectedProfileId &&
+    (point.profileId === selectedProfileId ||
+      point.selectedProfileIds.includes(selectedProfileId)),
+  );
 
 function getCardTransform(x: number, y: number): string {
   const flipX = x > 340;
@@ -77,11 +80,13 @@ function getCardTransform(x: number, y: number): string {
 
 export function DefaultCostPlot({
   points,
-  selectedProfileId,
+  selectedProfileId = null,
+  onToggleSelect,
   initialActivePoint = null,
 }: {
   points: WeightedCostPoint[];
-  selectedProfileId: string;
+  selectedProfileId?: string | null;
+  onToggleSelect?: (profileId: string | null) => void;
   initialActivePoint?: WeightedCostPoint | null;
 }) {
   const [activePoint, setActivePoint] = useState<WeightedCostPoint | null>(
@@ -101,6 +106,14 @@ export function DefaultCostPlot({
         `${index === 0 ? 'M' : 'L'} ${x(point.normalizedCost).toFixed(2)} ${y(point.performance).toFixed(2)}`,
     )
     .join(' ');
+
+  const handleToggle = (point: WeightedCostPoint) => {
+    if (defaultPointIsSelected(point, selectedProfileId)) {
+      onToggleSelect?.(null);
+    } else {
+      onToggleSelect?.(point.profileId);
+    }
+  };
 
   return (
     <>
@@ -216,6 +229,13 @@ export function DefaultCostPlot({
                       tabIndex={0}
                       role="img"
                       aria-label={`${point.displayName}. Overall Score ${point.performance.toFixed(1)}. Weighted normalized task cost ${point.normalizedCost.toFixed(1)}. ${point.sourceCount} source${point.sourceCount === 1 ? '' : 's'}. ${onFrontier ? 'On the value frontier.' : ''}`}
+                      onClick={() => handleToggle(point)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleToggle(point);
+                        }
+                      }}
                       onPointerEnter={() => setActivePoint(point)}
                       onPointerLeave={() =>
                         setActivePoint((current) =>
@@ -326,6 +346,7 @@ export function DefaultCostPlot({
                         ? 'is-selected'
                         : undefined
                     }
+                    onClick={() => handleToggle(point)}
                   >
                     <span
                       className="provider-dot"
@@ -395,11 +416,13 @@ export function DefaultCostPlot({
 
 export function AdvancedCostPlot({
   series,
-  selectedProfileId,
+  selectedProfileId = null,
+  onToggleSelect,
   initialActivePoint = null,
 }: {
   series: AdvancedCostSeries[];
-  selectedProfileId: string;
+  selectedProfileId?: string | null;
+  onToggleSelect?: (profileId: string | null) => void;
   initialActivePoint?: {
     series: AdvancedCostSeries;
     point: AdvancedCostSeries['points'][number];
@@ -418,6 +441,14 @@ export function AdvancedCostPlot({
   const x = (cost: number) => left + (cost / maxCost) * (right - left);
   const y = (score: number) => bottom - (score / 100) * (bottom - top);
   const costTicks = [0, maxCost / 2, maxCost] as const;
+
+  const handleToggle = (pointProfileId: string) => {
+    if (selectedProfileId === pointProfileId) {
+      onToggleSelect?.(null);
+    } else {
+      onToggleSelect?.(pointProfileId);
+    }
+  };
 
   return series.length > 0 ? (
     <div className="advanced-cost-layout">
@@ -534,6 +565,13 @@ export function AdvancedCostPlot({
                         tabIndex={0}
                         role="img"
                         aria-label={`${line.displayName}, ${sourceName(line.sourceId)}, ${effortText}. Cost $${point.cost.toFixed(3)} per task. Source score ${point.score.toFixed(1)}.`}
+                        onClick={() => handleToggle(point.profileId)}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleToggle(point.profileId);
+                          }
+                        }}
                         onPointerEnter={() =>
                           setActivePoint({ series: line, point })
                         }
@@ -665,18 +703,23 @@ export function AdvancedCostPlot({
 export function CostChart({
   defaultProduct,
   advancedProduct,
-  selectedProfileId,
 }: {
   /** Main-screen projection: complete display-set profiles only. */
   defaultProduct: ProductVersion;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
   advancedProduct: ProductVersion;
-  selectedProfileId: string;
 }) {
   const [advanced, setAdvanced] = useState(false);
+  const [selectedProfileId, setSelectedProfileId] = useState<string | null>(
+    null,
+  );
   const points = buildWeightedCostCurve(defaultProduct);
   const series = buildAdvancedCostSeries(advancedProduct);
   const advancedPanelId = 'advanced-cost-chart-panel';
+
+  const handleToggleSelect = (profileId: string | null) => {
+    setSelectedProfileId(profileId);
+  };
 
   return (
     <section
@@ -725,11 +768,13 @@ export function CostChart({
           <AdvancedCostPlot
             series={series}
             selectedProfileId={selectedProfileId}
+            onToggleSelect={handleToggleSelect}
           />
         ) : (
           <DefaultCostPlot
             points={points}
             selectedProfileId={selectedProfileId}
+            onToggleSelect={handleToggleSelect}
           />
         )}
       </div>

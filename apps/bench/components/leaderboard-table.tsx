@@ -31,8 +31,7 @@ export function LeaderboardTable({
   onSort,
   heatMap,
   modelProfiles,
-  selectedModelId,
-  onSelect,
+  onProfileChange,
   benchmarkDimensions,
   displaySet,
   expandedModelIds,
@@ -44,8 +43,7 @@ export function LeaderboardTable({
   onSort: (key: LeaderboardSortKey) => void;
   heatMap: HeatMap;
   modelProfiles: Record<string, string>;
-  selectedModelId: string;
-  onSelect: (modelId: string, profileId: string) => void;
+  onProfileChange: (modelId: string, profileId: string) => void;
   benchmarkDimensions: Record<string, DimensionId>;
   displaySet: DisplaySet | null;
   expandedModelIds: string[];
@@ -124,7 +122,6 @@ export function LeaderboardTable({
               row.modelId,
               row.profileId,
             );
-            const selected = row.modelId === selectedModelId;
             const isExpanded = expandedModelIds.includes(row.modelId);
             const activeRow =
               product.leaderboard.find(
@@ -139,11 +136,7 @@ export function LeaderboardTable({
 
             return (
               <Fragment key={row.modelId}>
-                <tr
-                  className={selected ? 'is-selected' : undefined}
-                  data-ranked-row
-                  aria-selected={selected}
-                >
+                <tr data-ranked-row>
                   <td className="rank-cell" data-label="Rank">
                     {row.rank ?? '—'}
                   </td>
@@ -153,11 +146,9 @@ export function LeaderboardTable({
                         <button
                           className="model-button"
                           type="button"
-                          aria-pressed={selected}
                           aria-expanded={isExpanded}
                           onClick={() => {
                             onToggleExpand(row.modelId);
-                            onSelect(row.modelId, chosenProfileId);
                           }}
                         >
                           <strong>
@@ -173,7 +164,7 @@ export function LeaderboardTable({
                             name={`profile-${row.modelId}`}
                             value={chosenProfileId}
                             onChange={(event) =>
-                              onSelect(row.modelId, event.target.value)
+                              onProfileChange(row.modelId, event.target.value)
                             }
                           >
                             {profiles.map((candidate) => (
@@ -188,11 +179,9 @@ export function LeaderboardTable({
                       <button
                         className="model-button"
                         type="button"
-                        aria-pressed={selected}
                         aria-expanded={isExpanded}
                         onClick={() => {
                           onToggleExpand(row.modelId);
-                          onSelect(row.modelId, row.profileId);
                         }}
                       >
                         <strong>{profile?.baseModelName ?? row.modelId}</strong>

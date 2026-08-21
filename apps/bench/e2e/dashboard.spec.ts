@@ -13,6 +13,11 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
     (await rows.allTextContents()).every((text) => !text.includes('N/A')),
   ).toBe(true);
 
+  // Radar chart is always rendered by default
+  await expect(page.locator('.radar-chart')).toBeVisible();
+  await expect(page.locator('#radar-chart-description')).toBeAttached();
+  const initialRadarLegend = await page.locator('.series-legend').innerText();
+
   const developerMode = page.getByRole('switch', {
     name: 'Developer mode',
   });
@@ -37,8 +42,13 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
   await expect(
     page.locator('[data-developer-model] [data-model-detail]').first(),
   ).toBeVisible();
+
+  // Radar chart is unchanged after clicking developer model
   await expect(page.locator('.radar-chart')).toBeVisible();
-  await expect(page.locator('#radar-chart-description')).toBeAttached();
+  expect(await page.locator('.series-legend').innerText()).toBe(
+    initialRadarLegend,
+  );
+
   const developerAxe = await new AxeBuilder({ page }).analyze();
   expect(
     developerAxe.violations.filter(({ impact }) =>
@@ -83,6 +93,75 @@ test('supports in-row leaderboard expansion with multiple rows open simultaneous
     await expect(modelButtons.nth(1)).toHaveAttribute('aria-expanded', 'true');
     await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(1);
   }
+});
+
+test('expanding a leaderboard row does not change radar chart series or cost chart highlight', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  // Initial state: radar chart has exactly 1 series (Overall rank 1 model)
+  await expect(page.locator('.series-legend .legend-chip')).toHaveCount(1);
+  const initialRadarLegend = await page.locator('.series-legend').innerText();
+
+  // Cost chart has no selected point or legend highlight initially
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
+  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
+    0,
+  );
+
+  // Expand a leaderboard row
+  const modelButtons = page.locator('[data-ranked-row] .model-button');
+  const count = await modelButtons.count();
+  expect(count).toBeGreaterThan(0);
+  await modelButtons.first().click();
+  await expect(modelButtons.first()).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(1);
+
+  // Radar chart series list is NOT affected by leaderboard expansion
+  await expect(page.locator('.series-legend .legend-chip')).toHaveCount(1);
+  expect(await page.locator('.series-legend').innerText()).toBe(
+    initialRadarLegend,
+  );
+
+  // Cost chart selection is NOT affected by leaderboard expansion
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
+  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
+    0,
+  );
+
+  // Cost chart owns its highlight: clicking a point toggles highlight
+  const costPoint = page.locator('.cost-point').first();
+  await costPoint.click();
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(1);
+  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
+    1,
+  );
+
+  // Toggle off on re-click
+  await costPoint.click();
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
+  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
+    0,
+  );
+
+  // Clicking a legend entry in default plot toggles highlight
+  const legendItem = page.locator('.cost-model-legend li').first();
+  await legendItem.click();
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(1);
+  await expect(legendItem).toHaveClass(/is-selected/);
+
+  // Re-clicking the legend entry toggles it off
+  await legendItem.click();
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
+  await expect(legendItem).not.toHaveClass(/is-selected/);
+
+  // Keyboard toggling: Enter / Space on a focused point
+  await costPoint.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(1);
+  await page.keyboard.press('Space');
+  await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
 });
 
 test('shows the cost point hover card immediately on hover and on focus', async ({

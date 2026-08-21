@@ -348,21 +348,21 @@ describe('Dashboard Redesign', () => {
   });
 
   it('keeps an explicit N/A textual equivalent for incomplete radar data', () => {
-    const profile = productFixture.profiles.find(
-      ({ id }) => id === 'anthropic-claude-fable-5-standard',
-    )!;
-    const selectedResult = productFixture.leaderboard.find(
-      ({ profileId }) => profileId === profile.id,
-    );
+    const incompleteProduct = {
+      ...productFixture,
+      leaderboard: [
+        {
+          ...productFixture.leaderboard[0]!,
+          dimensions: productFixture.leaderboard[0]!.dimensions.map((d) =>
+            d.dimension === 'context' ? { ...d, score: null } : d,
+          ),
+        },
+      ],
+    };
     const html = renderToStaticMarkup(
       createElement(RadarChart, {
-        product: productFixture,
-        activeProfile: profile,
-        selectedResult,
-        comparisonProduct: productFixture,
-        comparisonProfileIds: [],
-        setComparisonProfileIds: () => undefined,
-        onClearActiveProfile: () => undefined,
+        product: incompleteProduct,
+        comparisonProduct: incompleteProduct,
       }),
     );
 
@@ -371,6 +371,17 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('<polyline');
     expect(html).not.toContain('<polygon class="radar-area');
     expect(html).not.toContain('bar-src');
+  });
+
+  it('renders exactly one series in radar chart by default and it is the Overall rank 1 model', () => {
+    const reps = getRepresentativeRows(productFixture);
+    const rank1Rep = reps[0]!;
+    expect(rank1Rep.profileId).toBe('openai-gpt-5-6-sol-max');
+
+    const html = renderToStaticMarkup(dashboard());
+    const chips = html.match(/class="legend-chip /g) ?? [];
+    expect(chips).toHaveLength(1);
+    expect(html).toContain('Remove GPT-5.6 Sol · max from radar chart');
   });
 
   it('exposes alternative profiles without extra ranked rows', () => {
