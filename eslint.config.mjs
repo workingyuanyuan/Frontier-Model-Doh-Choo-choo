@@ -5,6 +5,8 @@ export default tseslint.config(
   {
     ignores: [
       '**/.next/**',
+      // Static export output; the same generated bundles as .next/.
+      'apps/bench/out/**',
       '**/coverage/**',
       '**/dist/**',
       '**/node_modules/**',
@@ -18,6 +20,13 @@ export default tseslint.config(
   },
   eslint.configs.recommended,
   tseslint.configs.recommended,
+  {
+    // Node scripts run outside the browser and outside the TS program.
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: { console: 'readonly', process: 'readonly' },
+    },
+  },
   {
     files: ['**/*.{ts,tsx}'],
     rules: {

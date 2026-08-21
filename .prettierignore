@@ -1,6 +1,7 @@
 reference-table-data/
 pnpm-lock.yaml
 .next/
+apps/bench/out/
 dist/
 coverage/
 artifacts/

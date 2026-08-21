@@ -86,7 +86,7 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm --filter @llm-bench/bench build
-pnpm e2e  # 必須排在 build 之後：webServer 執行 next start，需要既有的 .next
+pnpm e2e  # 必須排在 build 之後：webServer 服務靜態匯出產物 apps/bench/out
 ```
 
 ## 權威文件

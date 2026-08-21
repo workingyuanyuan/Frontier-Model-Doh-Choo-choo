@@ -43,6 +43,6 @@ pnpm --filter @llm-bench/bench build
 pnpm e2e
 ```
 
-**順序不可調換**：`pnpm e2e` 的 `webServer` 執行 `next start`，需要既有的 `.next` 產物，因此必須排在 production build 之後。build 固定讀取 `data-v2/product/current.json`（見 `REFACTOR_SPEC_V2.md` §11）。
+**順序不可調換**：`pnpm e2e` 的 `webServer` 以 `scripts/serve-static.mjs` 服務靜態匯出產物 `apps/bench/out`，因此必須排在 production build 之後。build 固定讀取 `data-v2/product/current.json`（見 `REFACTOR_SPEC_V2.md` §11）。
 
 完成一個任務時回報：`summary`、`changed_files`、`validation`、`risks`、`unresolved`。

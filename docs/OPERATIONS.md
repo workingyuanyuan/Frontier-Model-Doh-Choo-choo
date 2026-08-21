@@ -138,7 +138,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 ### 基準驗證清單
 
-**順序不可調換**：`pnpm e2e` 的 `webServer` 執行 `next start`，需要既有的 `.next` 產物，因此必須排在 production build 之後。乾淨 checkout 下先跑 e2e 會因缺少 `.next` 而失敗。
+**順序不可調換**：`pnpm e2e` 的 `webServer` 以 `scripts/serve-static.mjs` 服務靜態匯出產物 `apps/bench/out`，因此必須排在 production build 之後。乾淨 checkout 下先跑 e2e 會因缺少該目錄而失敗。
 
 ```bash
 pnpm install --frozen-lockfile
@@ -149,6 +149,7 @@ pnpm typecheck     # turbo 跨套件型別檢查
 pnpm test          # vitest 單元測試
 pnpm --filter @llm-bench/bench build  # Next.js 靜態生產建置
 pnpm e2e           # playwright 端對端測試（必須排在 build 之後）
+pnpm audit --audit-level high  # CI 的相依套件公告門檻
 ```
 
 ### Display-Set 取捨報告

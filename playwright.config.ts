@@ -18,7 +18,7 @@ export default defineConfig({
     { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: 'pnpm --filter @llm-bench/bench start --port 3910',
+    command: 'node scripts/serve-static.mjs apps/bench/out 3910',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
     url: 'http://127.0.0.1:3910',
