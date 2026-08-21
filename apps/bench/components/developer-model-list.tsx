@@ -1,14 +1,44 @@
-import type { DeveloperModelRow } from '../lib/view-model';
+import type {
+  DimensionId,
+  DisplaySet,
+  ProductVersion,
+} from '@llm-bench/benchmark-data';
+import { useState } from 'react';
+
+import { profileById, type DeveloperModelRow } from '../lib/view-model';
+import { ModelDetailPanel } from './model-detail-panel';
+
+export interface DeveloperModelListProps {
+  rows: DeveloperModelRow[];
+  product?: ProductVersion | undefined;
+  benchmarkDimensions?: Record<string, DimensionId> | undefined;
+  displaySet?: DisplaySet | null | undefined;
+  selectedProfileId?: string | undefined;
+  onSelect?: ((modelId: string, profileId: string) => void) | undefined;
+  initialExpandedModelIds?: string[] | undefined;
+}
 
 export function DeveloperModelList({
   rows,
+  product,
+  benchmarkDimensions,
+  displaySet,
   selectedProfileId,
   onSelect,
-}: {
-  rows: DeveloperModelRow[];
-  selectedProfileId?: string | undefined;
-  onSelect?: ((modelId: string, profileId: string) => void) | undefined;
-}) {
+  initialExpandedModelIds,
+}: DeveloperModelListProps) {
+  const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
+    initialExpandedModelIds ?? [],
+  );
+
+  const toggleExpand = (modelId: string) => {
+    setExpandedModelIds((prev) =>
+      prev.includes(modelId)
+        ? prev.filter((id) => id !== modelId)
+        : [...prev, modelId],
+    );
+  };
+
   return (
     <section
       className="panel developer-model-panel"
@@ -29,36 +59,49 @@ export function DeveloperModelList({
         <ul className="developer-model-list">
           {rows.map((row) => {
             const isSelected = row.profileId === selectedProfileId;
+            const isExpanded = expandedModelIds.includes(row.modelId);
+            const profile = product
+              ? profileById(product, row.profileId)
+              : undefined;
+
             return (
               <li
                 key={row.profileId}
                 data-developer-model={row.modelId}
                 className={isSelected ? 'is-selected' : undefined}
               >
-                {onSelect ? (
-                  <button
-                    type="button"
-                    className="developer-model-button"
-                    onClick={() => onSelect(row.modelId, row.profileId)}
-                    aria-pressed={isSelected}
+                <button
+                  type="button"
+                  className="developer-model-button"
+                  onClick={() => {
+                    toggleExpand(row.modelId);
+                    onSelect?.(row.modelId, row.profileId);
+                  }}
+                  aria-pressed={isSelected}
+                  aria-expanded={isExpanded}
+                >
+                  <strong>{row.displayName}</strong>
+                  <span>
+                    {row.missingBenchmarkIds.length > 0
+                      ? `Missing: ${row.missingBenchmarkIds.join(', ')}`
+                      : 'Missing rendered dimension data'}
+                  </span>
+                </button>
+
+                {isExpanded && profile && product && benchmarkDimensions ? (
+                  <div
+                    className="developer-model-detail-wrapper"
+                    data-model-detail={row.modelId}
                   >
-                    <strong>{row.displayName}</strong>
-                    <span>
-                      {row.missingBenchmarkIds.length > 0
-                        ? `Missing: ${row.missingBenchmarkIds.join(', ')}`
-                        : 'Missing rendered dimension data'}
-                    </span>
-                  </button>
-                ) : (
-                  <>
-                    <strong>{row.displayName}</strong>
-                    <span>
-                      {row.missingBenchmarkIds.length > 0
-                        ? `Missing: ${row.missingBenchmarkIds.join(', ')}`
-                        : 'Missing rendered dimension data'}
-                    </span>
-                  </>
-                )}
+                    <ModelDetailPanel
+                      profile={profile}
+                      product={product}
+                      benchmarkDimensions={benchmarkDimensions}
+                      selectedResult={undefined}
+                      displaySet={displaySet}
+                    />
+                  </div>
+                ) : null}
               </li>
             );
           })}

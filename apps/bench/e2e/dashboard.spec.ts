@@ -31,7 +31,12 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
   const developerModelButton = page
     .locator('[data-developer-model] button')
     .first();
+  await expect(developerModelButton).toHaveAttribute('aria-expanded', 'false');
   await developerModelButton.click();
+  await expect(developerModelButton).toHaveAttribute('aria-expanded', 'true');
+  await expect(
+    page.locator('[data-developer-model] [data-model-detail]').first(),
+  ).toBeVisible();
   await expect(page.locator('.radar-chart')).toBeVisible();
   await expect(page.locator('#radar-chart-description')).toBeAttached();
   const developerAxe = await new AxeBuilder({ page }).analyze();
@@ -40,6 +45,44 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
       ['critical', 'serious'].includes(impact ?? ''),
     ),
   ).toEqual([]);
+});
+
+test('supports in-row leaderboard expansion with multiple rows open simultaneously', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const modelButtons = page.locator('[data-ranked-row] .model-button');
+  const count = await modelButtons.count();
+  expect(count).toBeGreaterThanOrEqual(1);
+
+  // Initially, no expansion rows
+  await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(0);
+  await expect(modelButtons.first()).toHaveAttribute('aria-expanded', 'false');
+
+  // Click first model row to expand
+  await modelButtons.first().click();
+  await expect(modelButtons.first()).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(1);
+  await expect(
+    page.locator('.leaderboard-expansion-row').first(),
+  ).toBeVisible();
+
+  if (count >= 2) {
+    // Click second model row to expand - first remains open
+    await modelButtons.nth(1).click();
+    await expect(modelButtons.nth(1)).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(2);
+
+    // Click first model row again to collapse it
+    await modelButtons.first().click();
+    await expect(modelButtons.first()).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
+    await expect(modelButtons.nth(1)).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(1);
+  }
 });
 
 test('switching effort updates the selected model scores', async ({ page }) => {

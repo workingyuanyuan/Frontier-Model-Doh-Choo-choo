@@ -179,17 +179,20 @@ export function ModelDetailPanel({
     setOpenProvenanceId((current) => (current === id ? null : id));
   };
 
+  const titleId = `model-detail-title-${profile.id}`;
+
   return (
-    <section
-      className="panel model-detail-panel"
-      aria-labelledby="model-detail-title"
+    <div
+      className="model-detail-panel"
+      role="group"
+      aria-labelledby={titleId}
       data-model-detail-panel
     >
       <div className="section-heading model-detail-heading">
         <div>
           <p className="eyebrow">Model capability breakdown</p>
           <div className="model-detail-title-row">
-            <h2 id="model-detail-title">{modelDisplayName}</h2>
+            <h2 id={titleId}>{modelDisplayName}</h2>
             <span className="model-detail-overall-badge">{overallText}</span>
           </div>
           <p>
@@ -331,6 +334,6 @@ export function ModelDetailPanel({
           );
         })}
       </div>
-    </section>
+    </div>
   );
 }

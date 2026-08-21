@@ -661,7 +661,7 @@ tbody tr {
 .model-detail-dimensions-grid {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
   margin-top: 1.25rem;
 }
 
@@ -671,6 +671,7 @@ tbody tr {
   border-radius: var(--radius-md);
   display: flex;
   flex-direction: column;
+  min-width: 0;
   padding: 1rem;
 }
 

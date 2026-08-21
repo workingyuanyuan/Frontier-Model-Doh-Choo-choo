@@ -36,7 +36,6 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Leaderboard');
     expect(html).toContain('Quality vs. Cost');
     expect(html).toContain('Eight Dimensions');
-    expect(html).toContain('Model capability breakdown');
     expect(html).toContain('role="switch"');
     expect(html).toContain('aria-label="Developer mode"');
     expect(html).toContain('aria-checked="false"');
@@ -278,14 +277,59 @@ describe('Dashboard Redesign', () => {
     expect(qualityVsCostIndex).toBeGreaterThan(eightDimensionsIndex);
   });
 
-  it('groups model benchmarks into eight capability dimensions in the detail panel', () => {
-    const html = renderToStaticMarkup(dashboard());
+  it('groups model benchmarks into eight capability dimensions in the detail panel when expanded', () => {
+    const html = renderToStaticMarkup(
+      createElement(Dashboard, {
+        product: productFixture,
+        benchmarkDimensions,
+        displaySet,
+        initialExpandedModelIds: ['openai-gpt-5-6-sol'],
+      }),
+    );
 
+    expect(html).toContain('data-model-detail="openai-gpt-5-6-sol"');
     expect(html).toContain('Model capability breakdown');
     expect(html.match(/data-dimension-group/g)).toHaveLength(8);
     expect(html).toContain('Agentic');
     expect(html).toContain('Instruction');
     expect(html).toContain('Terminal-Bench 2.1');
+  });
+
+  it('supports expanding TWO rows simultaneously with both breakdowns in the DOM at the same time', () => {
+    const multiModelProduct = {
+      ...productFixture,
+      evidence: [
+        ...productFixture.evidence,
+        {
+          ...productFixture.evidence[0]!,
+          id: 'terminal:gemini',
+          model: {
+            rawName: 'google-gemini-3-1-pro-high',
+            canonicalModelId: 'google-gemini-3-1-pro',
+            profileId: 'google-gemini-3-1-pro-high',
+          },
+        },
+      ],
+    };
+
+    const html = renderToStaticMarkup(
+      createElement(Dashboard, {
+        product: multiModelProduct,
+        benchmarkDimensions,
+        displaySet,
+        initialExpandedModelIds: [
+          'openai-gpt-5-6-sol',
+          'google-gemini-3-1-pro',
+        ],
+      }),
+    );
+
+    // Both expansion rows exist in DOM
+    expect(html).toContain('data-model-detail="openai-gpt-5-6-sol"');
+    expect(html).toContain('data-model-detail="google-gemini-3-1-pro"');
+    expect(html.match(/data-model-detail-panel/g)).toHaveLength(2);
+    expect(html).toContain('GPT-5.6 Sol · max');
+    expect(html).toContain('Gemini 3.1 Pro · high');
   });
 
   it('makes every Leaderboard column a sort control', () => {
@@ -377,7 +421,7 @@ describe('Dashboard Redesign', () => {
 
     expect(html).not.toContain('GPT-5.6 Sol · high');
     expect(html).not.toContain('value="openai-gpt-5-6-sol-high"');
-    const mainMarkup = html.slice(0, html.indexOf('model-detail-panel'));
+    const mainMarkup = html.slice(0, html.indexOf('Eight Dimensions'));
     expect(mainMarkup).not.toContain('N/A');
   });
 

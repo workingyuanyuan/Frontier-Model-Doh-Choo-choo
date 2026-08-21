@@ -9,7 +9,6 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
 import { DeveloperModelList } from './developer-model-list';
-import { ModelDetailPanel } from './model-detail-panel';
 import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
@@ -25,10 +24,12 @@ export function Dashboard({
   benchmarkDimensions,
   displaySet,
   product,
+  initialExpandedModelIds,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
   displaySet: DisplaySet | null;
   product: ProductVersion;
+  initialExpandedModelIds?: string[] | undefined;
 }) {
   const [developerMode, setDeveloperMode] = useState(false);
   const allRepresentatives = useMemo(
@@ -229,11 +230,17 @@ export function Dashboard({
           modelProfiles={modelProfiles}
           selectedModelId={selectedModelId}
           onSelect={selectModel}
+          benchmarkDimensions={benchmarkDimensions}
+          displaySet={displaySet}
+          initialExpandedModelIds={initialExpandedModelIds}
         />
 
         {developerMode ? (
           <DeveloperModelList
             rows={developerRows}
+            product={product}
+            benchmarkDimensions={benchmarkDimensions}
+            displaySet={displaySet}
             selectedProfileId={selectedProfile?.id}
             onSelect={selectModel}
           />
@@ -256,20 +263,6 @@ export function Dashboard({
           advancedProduct={product}
           selectedProfileId={selectedProfile?.id ?? ''}
         />
-
-        {selectedProfile ? (
-          <ModelDetailPanel
-            profile={selectedProfile}
-            product={product}
-            benchmarkDimensions={benchmarkDimensions}
-            selectedResult={selectedResult}
-            displaySet={displaySet}
-          />
-        ) : (
-          <div className="panel empty-state" role="status">
-            Select a model to view its profile and capability breakdown.
-          </div>
-        )}
       </main>
       <footer className="site-footer">
         <span>LLM Bench</span>

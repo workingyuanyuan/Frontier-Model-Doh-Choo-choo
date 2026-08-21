@@ -1,4 +1,8 @@
-import type { ProductVersion } from '@llm-bench/benchmark-data';
+import type {
+  DimensionId,
+  DisplaySet,
+  ProductVersion,
+} from '@llm-bench/benchmark-data';
 import { useMemo, useState } from 'react';
 
 import { UI_DIMENSION_IDS } from '../lib/ui-contract';
@@ -22,6 +26,9 @@ export type LeaderboardProps = {
   modelProfiles: Record<string, string>;
   selectedModelId: string;
   onSelect: (modelId: string, profileId: string) => void;
+  benchmarkDimensions: Record<string, DimensionId>;
+  displaySet: DisplaySet | null;
+  initialExpandedModelIds?: string[] | undefined;
 };
 
 export function Leaderboard({
@@ -33,7 +40,21 @@ export function Leaderboard({
   modelProfiles,
   selectedModelId,
   onSelect,
+  benchmarkDimensions,
+  displaySet,
+  initialExpandedModelIds,
 }: LeaderboardProps) {
+  const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
+    initialExpandedModelIds ?? [],
+  );
+
+  const toggleExpand = (modelId: string) => {
+    setExpandedModelIds((prev) =>
+      prev.includes(modelId)
+        ? prev.filter((id) => id !== modelId)
+        : [...prev, modelId],
+    );
+  };
   const [sort, setSort] = useState<{
     key: LeaderboardSortKey;
     direction: SortDirection;
@@ -118,6 +139,10 @@ export function Leaderboard({
         modelProfiles={modelProfiles}
         selectedModelId={selectedModelId}
         onSelect={onSelect}
+        benchmarkDimensions={benchmarkDimensions}
+        displaySet={displaySet}
+        expandedModelIds={expandedModelIds}
+        onToggleExpand={toggleExpand}
       />
 
       {rows.length === 0 ? (
