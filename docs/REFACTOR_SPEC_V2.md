@@ -30,25 +30,39 @@
 
 ## 3. 來源
 
-### 3.1 保留（期一）
+### 3.1 現行來源
 
-| 來源 ID               | 網站                               | 角色              |
-| --------------------- | ---------------------------------- | ----------------- |
-| `artificial-analysis` | https://artificialanalysis.ai/     | ORGANIZER         |
-| `livebench`           | https://livebench.ai/              | ORGANIZER         |
-| `deepswe`             | https://deepswe.datacurve.ai/      | ORGANIZER         |
-| `frontier-code`       | https://cognition.com/frontiercode | ORGANIZER（新建） |
+| 來源 ID               | 網站                               | 角色              | 進入期別 |
+| --------------------- | ---------------------------------- | ----------------- | -------- |
+| `artificial-analysis` | https://artificialanalysis.ai/     | ORGANIZER         | 期一     |
+| `livebench`           | https://livebench.ai/              | ORGANIZER         | 期一     |
+| `deepswe`             | https://deepswe.datacurve.ai/      | ORGANIZER         | 期一     |
+| `frontier-code`       | https://cognition.com/frontiercode | ORGANIZER（新建） | 期一     |
+| `epoch-ai`            | https://epoch.ai/                  | INDEPENDENT       | 期二     |
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
 `data-v2/sources/` 底下這些目錄**原地保留、內容不得修改**：
 
 ```
-arc-prize  epoch-ai  lech-writing  llm-stats  openai
-osworld    scale-hle terminal-bench vals-ai   zapier-automationbench
+arc-prize  lech-writing  llm-stats  openai   osworld
+scale-hle  terminal-bench  vals-ai  zapier-automationbench
 ```
 
-理由：原始快照是某個時間點的實況，重抓不回來。目錄總共約 3.7 MB，凍結成本為零。
+理由：原始快照是某個時間點的實況，重抓不回來。凍結成本為零。
+
+**`epoch-ai` 於 2026-08-21 移出凍結清單**（使用者裁決）。期二正式納入這個來源，因此它的
+`candidates.json`、`manifest.json`、`validation-report.md`、`evidence-index.json` 由
+`refresh-epoch.ts` 重新產生，**以新抓的快照為準**。
+
+舊快照沒有消失，也不需要另外複製一份：
+
+- 原始 ZIP 位元組留在內容定址 artifact store（`artifacts-v2/sha256/f8/f8ce9598….zip`），
+  §8 的保存規則已經涵蓋。
+- 舊的 `candidates.json` 留在 git 歷史。
+
+兩者的用途是讓後續執行代理**對照擷取結果**——確認新舊快照之間的差異是來源真的更新了，
+而不是擷取程式解析錯了。它們不是現行資料，不得再被讀進計分。
 
 **建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
@@ -119,6 +133,16 @@ non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
 某來源未標檔位時，**每個其他來源投一票（該來源對這個模型發布過的最高具名檔位），得票最多的檔位勝出**；平手時取較高的檔位。
 
 **本節於 2026-08-18 從「取最高」改成「每來源一票的眾數」。** 原本的寫法讓單一來源替所有人決定：Grok 4.6 在 DeepSWE 掃過 low 到 xhigh，而 Artificial Analysis 與 Frontier Code 都只跑 high，於是 LiveBench 的未標列被判成 `xhigh`——依據是另外兩個來源從未執行過的掃描。每來源一票會得到 `high`，那才是有標示的來源實際同意的結果。隨著會掃階梯的來源增加，這個偏差只會更常見。
+
+**2026-08-21 觀測：第五個來源讓平手規則翻轉了一個模型。** 加入 Epoch 之後，Grok 4.6 的
+投票從「AA=high、Frontier Code=high、DeepSWE=xhigh」變成「AA=high、Frontier Code=high、
+DeepSWE=xhigh、Epoch=xhigh」，2 比 2 平手，依「平手取較高」判給 `xhigh`。LiveBench 那筆未
+標檔位的列因此從 `xai-grok-4-6-high` 移到 `xai-grok-4-6-xhigh`，把原本八維齊全的 profile
+拆成兩半，Grok 4.6 掉出主畫面（完整模型數 22 → 21）。
+
+**顯示清單一格未動，掉的模型純粹來自這條平手規則。** 這是「加來源不會讓主畫面變差」這個
+直覺唯一的例外，記在這裡以免下次再花時間重查。規則本身沒有改動——是否改成「平手時取
+票數並列中較低者」或「平手時不推測、落回 `default`」，屬於使用者裁決，未裁決前維持現狀。
 
 **`non-reasoning` 不得作為推測結果。** 推測只在 `low`／`medium`／`high`／`xhigh`／`max` 之間進行；若其他來源沒有任何具名檔位可依據，結果為 `default`。
 
@@ -281,19 +305,66 @@ Language    71.0
 
 **進階圖**（按鈕開啟）
 
-- 顯示各模型**多種思考強度**的性價比曲線，同一模型的各強度點要連成線，讓思考強度的邊際效應看得出來。
-- 只用 **Artificial Analysis、DeepSWE、Frontier Code** 三個來源。排除 LiveBench 的理由見下方「LiveBench 的成本為何不能與分數配對」。
-- **缺任一來源資料的模型不顯示**；缺了什麼由開發者模式揭露。
+**2026-08-21 改定：進階圖從「三個來源的原始散點拼貼」改為「與預設圖同構的聚合圖」。**
+原本每個模型每個來源各畫一條線，一張圖上同時存在三套座標系，只能逐條讀、無法互相比較。
+現行定義是：進階圖與預設圖是**同一張圖的兩種聚合**，兩者都把各來源的成本與分數聚合成單一
+座標，差別只有兩點。
 
-**進階圖的軸定義**（2026-08-20 補定）
+1. **來源與權重**：預設圖用本節「預設圖」段落所定的全部來源等權重；進階圖只用
+   **Artificial Analysis、DeepSWE、Frontier Code 三個來源，各 1/3**。排除 LiveBench 的理由
+   見下方「LiveBench 的成本為何不能與分數配對」；該理由與來源總數無關，日後預設圖擴充到
+   五、六個來源時，進階圖仍是這三個，除非新來源同時提供可配對的成本與思考強度階梯。
+2. **思考強度**：預設圖每個模型只畫**一種**強度（§4.3 的代表 profile）；進階圖畫出**所有
+   具備三來源分數的強度**，同一模型的各強度點連成一條線，讓思考強度的邊際效應看得出來。
 
-進階圖的多 effort profile 多半不是 8/8 完整，因此**沒有 Overall Score 可用**。軸定義為：
+- **入選條件逐 profile 判定**：一個 (模型 × 思考強度) 必須在三個來源上**都**有可配對的分數
+  與成本才出點；缺任一來源的該強度不出點，缺了什麼由開發者模式揭露。這與預設圖的
+  `sourceWeight` 重正規化（缺來源不受懲罰）**不同**，是刻意的：進階圖一條線上的各點必須落在
+  同一個座標系，否則不同強度會因為來源組成不同而不可比，線的斜率隨即失去意義。
+- 一個模型只有一個合格強度時仍以**孤立的點**呈現，不因為連不成線而剔除——它在同一個座標系
+  上仍然可比。
+- 實測（2026-08-21，四來源產品檔）：合格 profile 31 個、模型 13 個，其中 5 個模型有兩個以上
+  強度可連線（Claude Opus 5、GPT-5.6 Luna／Sol／Terra 為完整五階，Gemini 3.7 Flash 為三階），
+  其餘 8 個為孤立點。
 
-- **X 軸＝該來源自己的成本，Y 軸＝該來源自己的分數。**一條曲線只屬於一個來源，不跨來源聚合。
-- 一個模型在一個來源上連成一條線，點依思考強度階梯排序（§4.4 的 `non-reasoning < low < medium < high < xhigh < max`，`default` 不上梯子、單獨標示）。
-- 不得為了湊出 Y 軸而回頭放寬 §5.2，也不得用跨來源 Overall 去配單一來源的成本。同一個點的成本與效能必須來自同一次量測。
+**進階圖的軸定義**（2026-08-21 改定，取代 2026-08-20 的 per-source 軸）
 
-**DeepSWE 與 Frontier Code** 各自一個分數對一個成本，Y 軸直接用該來源的 normalized 分數。
+- **X 軸＝三來源各 1/3 加權的正規化成本指數**，與預設圖同一套 per-source log min-max 正規化。
+  正規化的母體是該來源在產品檔內的全部任務成本，不是當前繪製的點，因此關閉序列不會讓既有
+  點的 X 值移動。
+- **Y 軸＝三來源各自分數的算術平均**（各 1/3）。各來源「自己的分數」的定義不變，見下方三段。
+- **聚合只發生在 per-source 配對之後。**AA 的分數配 AA 的成本、DeepSWE 配 DeepSWE、
+  Frontier Code 配 Frontier Code，三組各自成立之後才做 1/3 平均。任一來源內部的成本與效能
+  仍必須來自同一次量測——2026-08-20 的這條規則沒有放寬，只是套用層級從「一個點」下移到
+  「一個點的三個組成」。同樣不得為了湊出 Y 軸而回頭放寬 §5.2。
+- 點依思考強度階梯排序（§4.4 的 `non-reasoning < low < medium < high < xhigh < max`，
+  `default` 不上梯子、單獨標示）。
+
+**為何 Y 軸不能用 Overall Score**（2026-08-21 實測確認）
+
+31 個合格 profile 中只有 **11 個**有 Overall Score（八維全齊），而且每個模型**正好一個**——
+就是預設圖已經在畫的那一筆代表 profile。若 Y 改用 Overall Score，每條線都會塌成單一點，
+進階圖將退化成預設圖的子集，失去存在意義。這是 2026-08-20「多 effort profile 多半不是 8/8」
+判斷的量化證實。成因是排除 LiveBench：math 與 language 兩維只有 LiveBench 提供（§9.2），
+因此三來源組合永遠湊不滿八維，這一點不會隨資料補齊而改變。
+
+**為何採用原始分數平均，而非先正規化再平均**（2026-08-21 決定）
+
+Y 軸用三來源原始分數的算術平均。已知代價：三來源的離散度不同（實測於 31 個繪製點，
+DeepSWE sd 17.7、Frontier Code sd 9.2、AA 6.8），因此 **DeepSWE 對 Y 的變異貢獻大於名目上的
+1/3**。仍採用原始平均的理由：
+
+1. **Y 保持是一個「分數」。**軸標題寫得出實際範圍（實測約 34–62），符合下方「軸的縮放規則」
+   不另加圖下說明的決定。先正規化的版本會讓 Y 變成相對指數，最高者永遠貼近 100、最低者永遠
+   貼近 0，讀者無從得知絕對水準。
+2. **不隨母體變動。**先正規化的版本中，新增或移除一個模型會讓既有所有點的 Y 值移動；原始
+   平均不會。
+3. **實測顯示這個代價不改變結論。**兩種算法的排名幾乎一致：31 個點中只有 1 個位移 3 名以上。
+
+若日後判定離散度失衡不可接受，處置方式是改為「各來源先在**產品檔全母體**（非當前繪製集合）
+內正規化」，而不是調整權重去補償。
+
+**DeepSWE 與 Frontier Code** 各自一個分數對一個成本，該來源的分數直接用它的 normalized 分數。
 
 **Artificial Analysis 的 Y 軸＝AA 發布的 Intelligence Index 數值本身**（2026-08-20 決定）
 
@@ -484,6 +555,51 @@ nested-interactive，是已經實測過的 axe serious 違規。
 - 靜態 JSON 同時包含 `main` 與 `extended`。本來源只物化目前預設的 `v1_1` Main；Extended 保留在內容定址 artifact，不混入 `frontier-code-1-1`。
 - 19/28 個模型可由 catalog 名稱或精確 alias 解析；其餘 9 個保持 null identity，不做模糊匹配。
 - 成本與思考強度皆已取得，因此 §6.3 的進階圖不需要退化成兩來源。
+
+### 9.5 Epoch AI（期二，2026-08-21 實測）
+
+| 項目           | 結論                                                                                                    |
+| -------------- | ------------------------------------------------------------------------------------------------------- |
+| 完整結構化入口 | `https://epoch.ai/data/benchmark_data.zip`（77 個項目，其中 64 個是 `_external` 的外部榜單鏡像）        |
+| 可見比對管道   | `https://epoch.ai/data/benchmarks.csv`（渲染後的 benchmark 頁面就是讀這個檔算出「N models evaluated」） |
+| 角色           | INDEPENDENT——Epoch 自己用 Inspect harness 重跑外部 benchmark                                            |
+| 成本           | **沒有**。因此不進 §7 的成本權重表（權重視為 0），§6.3 的進階圖仍是三來源                               |
+| 思考強度       | 由 `Model version` 的後綴自報（`_low`／`_medium`／`_high`／`_xhigh`／`_max`／`_promax`）                |
+
+**只有不帶 `_external` 後綴的檔案才算 Epoch 自己跑的證據。** `_external` 是別人榜單的鏡像，
+納入等於把 LiveBench、DeepSWE 等來源重複計一次。
+
+**可見比對的做法與其他四個來源不同，理由要寫清楚。** Epoch 的 benchmark 頁面是
+client-rendered，伺服器回傳的 HTML 裡沒有任何可數的模型表格，因此無法比照 LiveBench 或
+Frontier Code 去數渲染後的列數。但那些頁面顯示的「N models evaluated」是從
+`benchmarks.csv` 算出來的，所以刷新改為**比對兩個管道**：ZIP 內每個被 promote 的檔案，
+其「有分數的相異 `Model version` 集合」必須與 `benchmarks.csv` 中同一個 task 的集合完全
+相同。不相符就讓刷新失敗。這比人工輸入一個數字更嚴格，且不需要人來數。
+
+**promote 的檔案與對應 benchmark ID**（唯一來源是 `EPOCH_DIRECT_FILES`）：
+
+| 檔案                           | benchmarkId              | `benchmarks.csv` 的 task               |
+| ------------------------------ | ------------------------ | -------------------------------------- |
+| `gpqa_diamond.csv`             | `gpqa-diamond`           | GPQA diamond                           |
+| `math_level_5.csv`             | `math-level-5`           | MATH level 5                           |
+| `swe_bench_verified.csv`       | `swe-bench`              | SWE-Bench verified                     |
+| `otis_mock_aime_2024_2025.csv` | `aime`                   | OTIS Mock AIME 2024-2025               |
+| `frontiermath.csv`             | `frontiermath`           | FrontierMath-2025-02-28-Private        |
+| `frontiermath_tier_4.csv`      | `frontiermath`（Tier 4） | FrontierMath-Tier-4-2025-07-01-Private |
+| `simpleqa_verified.csv`        | `simpleqa-verified`      | SimpleQA Verified                      |
+| `chess_puzzles.csv`            | `chess-puzzles`          | Chess Puzzles                          |
+
+- **Epoch Capabilities Index（ECI）恆為 `EXCLUDED`。** 它是綜合指數，納入計分等於把同一批
+  成績算兩次。它只作為選模的參考證據。
+- `mirrorcode.csv` 與 `mystery_game_puzzles.csv` 存在於匯出檔中，但**不 promote**：兩者都還
+  沒有核可的 benchmark ID 與維度對應。要納入必須先走 §5.3 的報告與使用者裁決。
+- ECI 有 553 列，涵蓋回溯到 2023 年的模型，多數不在 catalog 內；identity 解析不到的列保持
+  `canonicalModelId: null`，**不做模糊匹配**。
+
+**尚未裁決：`gpqa-diamond` 的跨來源重複。** Artificial Analysis 與 Epoch 都自己重跑 GPQA
+Diamond，兩者 `sourceRole` 都是 `INDEPENDENT`。現行 `selectCurrentResults` 的鍵不含
+`sourceId`，且兩者 harness 不同，因此實際行為是**跨來源取最高分**——這是鍵值設計的副作用，
+不是決策。逐模型分數對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`，待使用者裁決後補寫規則。
 
 ## 10. 不可跨越的邊界
 

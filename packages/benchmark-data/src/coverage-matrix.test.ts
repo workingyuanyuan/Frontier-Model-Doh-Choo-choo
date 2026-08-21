@@ -831,6 +831,7 @@ describe('coverage-matrix', () => {
       expect(data.whitelist).toEqual([
         'artificial-analysis',
         'deepswe',
+        'epoch-ai',
         'frontier-code',
         'livebench',
       ]);

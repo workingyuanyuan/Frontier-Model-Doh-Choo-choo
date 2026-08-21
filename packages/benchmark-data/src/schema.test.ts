@@ -322,6 +322,7 @@ describe('SourcesConfigSchema', () => {
       'livebench',
       'deepswe',
       'frontier-code',
+      'epoch-ai',
     ]);
   });
 

@@ -1,4 +1,10 @@
 {
   "schemaVersion": "sources-config-v1",
-  "whitelist": ["artificial-analysis", "livebench", "deepswe", "frontier-code"]
+  "whitelist": [
+    "artificial-analysis",
+    "livebench",
+    "deepswe",
+    "frontier-code",
+    "epoch-ai"
+  ]
 }

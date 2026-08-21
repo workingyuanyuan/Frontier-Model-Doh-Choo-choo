@@ -1,44 +1,44 @@
 {
-  "schemaVersion": "source-manifest-v1",
-  "sourceId": "epoch-ai",
-  "displayName": "Epoch AI Benchmarking Hub — internal runs",
-  "role": "INDEPENDENT",
-  "baseUrl": "https://epoch.ai",
-  "targetUrls": [
-    "https://epoch.ai/benchmarks/use-this-data",
-    "https://epoch.ai/data/benchmark_data.zip"
-  ],
-  "benchmarkIds": [
-    "epoch-capabilities-index",
-    "chess-puzzles",
-    "simpleqa-verified",
-    "gpqa-diamond",
-    "aime",
-    "math-level-5",
-    "swe-bench",
-    "frontiermath"
-  ],
   "accessMethods": ["EXPORT", "DOM"],
+  "baseUrl": "https://epoch.ai",
+  "benchmarkIds": [
+    "aime",
+    "chess-puzzles",
+    "epoch-capabilities-index",
+    "frontiermath",
+    "gpqa-diamond",
+    "math-level-5",
+    "simpleqa-verified",
+    "swe-bench"
+  ],
   "completeness": {
-    "expectedCountMethod": "Inspect all 77 ZIP files and 76 CSV files, separating 75 root benchmark-result CSVs into eleven Epoch-hosted files (ECI plus ten direct files) and 64 external-source mirrors, while identifying the supplemental ECI parameter CSV.",
+    "expectedCountMethod": "Enumerate every ZIP entry, separate the Epoch-run files from the _external mirrors, then compare each promoted file against the same task in the live benchmarks.csv the rendered pages read.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
-  "fieldMapping": {
-    "Model version": "model/profile identity",
-    "mean_score": "rawScore / 100",
-    "ECI Score": "rawScore",
-    "Started at": "sourcePublishedAt",
-    "Release date": "model release metadata"
-  },
+  "displayName": "Epoch AI Benchmarking Hub — internal runs",
   "fallbackMethods": ["OFFICIAL_API", "DOM"],
-  "lastVerifiedAt": "2026-08-12T16:40:13.196Z",
+  "fieldMapping": {
+    "ECI Score": "rawScore",
+    "mean_score": "rawScore / 100",
+    "Model version": "model/profile identity",
+    "Release date": "model release metadata",
+    "Started at": "sourcePublishedAt"
+  },
+  "lastVerifiedAt": "2026-08-21T15:23:11.828Z",
   "notes": [
     "Only files without the _external suffix are treated as Epoch-run evidence.",
-    "ECI is an Epoch-owned ORGANIZER composite. It contributes a dynamic Top 20 selection set, deduplicated by base model and retained as excluded, selection-only evidence.",
-    "When a base model has tied ECI scores, the profile with the highest declared reasoning effort is retained deterministically.",
-    "The materializer enumerates every finite-score row from the eight previously mapped direct result files plus ECI; rows without a canonical product identity remain reviewable CandidateResults.",
-    "The refreshed ZIP also contains 47 Earthborne Rangers rows and 6 MirrorCode rows. They remain preserved in the raw artifact but are not promoted until shared benchmark IDs and dimension mappings are approved.",
-    "Epoch Inspect harness and attempt metadata remain in raw Profile provenance but do not create Product Profiles."
+    "ECI is an Epoch-owned composite and stays EXCLUDED: selection-only evidence, never a ninth dimension.",
+    "8 promoted files matched the live benchmarks.csv model set exactly.",
+    "mirrorcode.csv and mystery_game_puzzles.csv stay in the raw artifact; neither has an approved benchmark ID or dimension mapping.",
+    "Epoch Inspect harness and attempt metadata remain raw Profile provenance and do not create Product Profiles."
+  ],
+  "role": "INDEPENDENT",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "epoch-ai",
+  "targetUrls": [
+    "https://epoch.ai/benchmarks/use-this-data",
+    "https://epoch.ai/data/benchmark_data.zip",
+    "https://epoch.ai/data/benchmarks.csv"
   ]
 }

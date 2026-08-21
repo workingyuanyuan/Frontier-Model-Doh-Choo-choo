@@ -33,6 +33,71 @@ function parseEciLine(line: string): string[] {
   return row;
 }
 
+/**
+ * Every Epoch-run result file the materializer promotes, paired with the task
+ * name the same rows carry in the live `benchmarks.csv` the rendered pages read.
+ * The refresh compares the two channels row for row; keeping both names in one
+ * table is what makes that comparison impossible to drift.
+ */
+export const EPOCH_DIRECT_FILES = [
+  {
+    name: 'gpqa_diamond.csv',
+    benchmarkId: 'gpqa-diamond',
+    isOrganizer: false,
+    version: null,
+    liveTaskName: 'GPQA diamond',
+  },
+  {
+    name: 'math_level_5.csv',
+    benchmarkId: 'math-level-5',
+    isOrganizer: false,
+    version: null,
+    liveTaskName: 'MATH level 5',
+  },
+  {
+    name: 'swe_bench_verified.csv',
+    benchmarkId: 'swe-bench',
+    isOrganizer: false,
+    version: null,
+    liveTaskName: 'SWE-Bench verified',
+  },
+  {
+    name: 'otis_mock_aime_2024_2025.csv',
+    benchmarkId: 'aime',
+    isOrganizer: false,
+    version: null,
+    liveTaskName: 'OTIS Mock AIME 2024-2025',
+  },
+  {
+    name: 'frontiermath.csv',
+    benchmarkId: 'frontiermath',
+    isOrganizer: true,
+    version: null,
+    liveTaskName: 'FrontierMath-2025-02-28-Private',
+  },
+  {
+    name: 'frontiermath_tier_4.csv',
+    benchmarkId: 'frontiermath',
+    isOrganizer: true,
+    version: 'Tier 4',
+    liveTaskName: 'FrontierMath-Tier-4-2025-07-01-Private',
+  },
+  {
+    name: 'simpleqa_verified.csv',
+    benchmarkId: 'simpleqa-verified',
+    isOrganizer: false,
+    version: null,
+    liveTaskName: 'SimpleQA Verified',
+  },
+  {
+    name: 'chess_puzzles.csv',
+    benchmarkId: 'chess-puzzles',
+    isOrganizer: false,
+    version: null,
+    liveTaskName: 'Chess Puzzles',
+  },
+] as const;
+
 export function materializeEpoch(
   zipBuffer: Buffer,
   observedAt: string,
@@ -165,52 +230,7 @@ export function materializeEpoch(
   }
 
   // 2. Parse direct benchmarks using the robust CSV parser
-  const directFiles = [
-    {
-      name: 'gpqa_diamond.csv',
-      benchmarkId: 'gpqa-diamond',
-      isOrganizer: false,
-    },
-    {
-      name: 'math_level_5.csv',
-      benchmarkId: 'math-level-5',
-      isOrganizer: false,
-    },
-    {
-      name: 'swe_bench_verified.csv',
-      benchmarkId: 'swe-bench',
-      isOrganizer: false,
-    },
-    {
-      name: 'otis_mock_aime_2024_2025.csv',
-      benchmarkId: 'aime',
-      isOrganizer: false,
-    },
-    {
-      name: 'frontiermath.csv',
-      benchmarkId: 'frontiermath',
-      isOrganizer: true,
-      version: null,
-    },
-    {
-      name: 'frontiermath_tier_4.csv',
-      benchmarkId: 'frontiermath',
-      isOrganizer: true,
-      version: 'Tier 4',
-    },
-    {
-      name: 'simpleqa_verified.csv',
-      benchmarkId: 'simpleqa-verified',
-      isOrganizer: false,
-    },
-    {
-      name: 'chess_puzzles.csv',
-      benchmarkId: 'chess-puzzles',
-      isOrganizer: false,
-    },
-  ];
-
-  for (const f of directFiles) {
+  for (const f of EPOCH_DIRECT_FILES) {
     const entry = zip.getEntry(f.name);
     if (!entry) continue;
     const text = entry.getData().toString('utf8');

@@ -1286,3 +1286,34 @@ PROFILES` 標題被切掉，頁尾的 `LLM Bench` 只剩 `M Bench`。也就是 r
    （若確實存在）不再無聲。
 
 **完成條件**：CI 兩個 project 皆綠。
+
+---
+
+# L. 期二：Epoch.AI
+
+規格 §2 的期二。**本階段不得改動 `data-v2/mappings/display-set.json`**——顯示清單是審核關卡的
+產物，由使用者判讀取捨曲線後決定（規格 §5.3）。
+
+## L1 — Epoch.AI 來源刷新與擴充後的取捨曲線
+
+狀態：完成
+
+**目標**：把 `epoch-ai` 從凍結來源改為現行來源，重新擷取，加入白名單，產出五來源的
+coverage-matrix 取捨曲線交使用者判讀。
+
+**使用者裁決（2026-08-21）**：
+
+1. `gpqa-diamond` 跨來源重複：先列出每個模型在 Artificial Analysis 與 Epoch 的分數對照，
+   交使用者審核後再決定合併規則。本 task 只做分析，不實作合併。
+2. 規格 §3.2 改寫：`epoch-ai` 移出凍結清單，**以新抓的快照為準**；舊快照保留供執行代理
+   對照擷取結果使用。
+
+**要求**：
+
+- 新增 `refresh-epoch.ts`，比照其他四個來源的刷新腳本：內容定址 artifact、evidence-index、
+  candidates、validation report、manifest、snapshot delta。
+- `data-v2/mappings/sources.json` 白名單加入 `epoch-ai`。
+- 重跑 `pnpm data:v2:build-current` 與 `pnpm report:coverage-matrix`。
+- 產出 AA × Epoch 的 `gpqa-diamond` 逐模型分數對照。
+
+**完成條件**：基準驗證全綠；取捨曲線報告更新為五來源；`display-set.json` 未被改動。

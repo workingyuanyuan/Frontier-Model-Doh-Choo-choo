@@ -1,40 +1,66 @@
 # Epoch AI acquisition validation
 
-- Refreshed: **2026-08-12T16:40:13.196Z**
-- Official page: <https://epoch.ai/benchmarks/use-this-data>
-- Official export: <https://epoch.ai/data/benchmark_data.zip>
-- Source-declared ZIP update: **2026-07-27**
-- Raw evidence: complete page HTML and ZIP stored content-addressably; every Candidate provenance reference points to the new ZIP hash.
+- Retrieved at: 2026-08-21T15:23:11.828Z
+- Export: https://epoch.ai/data/benchmark_data.zip
+- Live comparison channel: https://epoch.ai/data/benchmarks.csv
+- Page: https://epoch.ai/benchmarks/use-this-data
 
-## Before / after
+## Exact counts
 
-| Check | 2026-07-16 snapshot | 2026-07-27 export |
-|---|---:|---:|
-| ZIP files / CSV files | 75 / 74 | 77 / 76 |
-| ECI finite-score rows | 460 | 521 |
-| ECI metadata rows without score | 259 | 294 |
-| Materialized direct scored rows | 771 | 1,031 |
-| CandidateResults | 1,231 | 1,552 |
-| Distinct raw model names | 370 | 411 |
-| Canonically unresolved candidates | 931 | 1,130 |
+| Check | Count |
+|---|---:|
+| ZIP entries | 77 |
+| External-source mirrors (`_external`) | 64 |
+| Epoch Capabilities Index rows | 553 |
+| CandidateResults | 1612 |
+| Rows without a canonical identity | 1026 |
 
-All 521 ECI rows are Epoch-owned composite evidence and remain `EXCLUDED`, selection-only data. The 1,031 materialized direct rows cover GPQA Diamond, MATH Level 5, SWE-bench Verified, OTIS Mock AIME 2024-2025, FrontierMath Tiers 1-3, FrontierMath Tier 4, SimpleQA Verified, and Chess Puzzles. The 64 `_external.csv` mirrors are not represented as Epoch-run CandidateResults.
+## CandidateResults per benchmark
 
-FrontierMath and ECI use `ORGANIZER`; Epoch reruns of externally created benchmarks use `INDEPENDENT`. Raw Epoch Inspect harness and run fields stay in provenance and do not create Product Profiles.
+| Benchmark | Rows |
+|---|---:|
+| `aime` | 239 |
+| `chess-puzzles` | 162 |
+| `epoch-capabilities-index` | 553 |
+| `frontiermath` | 173 |
+| `gpqa-diamond` | 264 |
+| `math-level-5` | 108 |
+| `simpleqa-verified` | 78 |
+| `swe-bench` | 35 |
 
-## Preserved but not promoted
+## Visible comparison
 
-The refreshed ZIP adds two Epoch-hosted result files beyond the existing shared mapping:
+Epoch serves no countable model table in server-rendered HTML. The rendered
+benchmark pages derive their "N models evaluated" line from `benchmarks.csv`,
+so the export is compared against that file rather than against a typed count.
 
-| Raw file | Rows | Status |
-|---|---:|---|
-| `mystery_game_puzzles.csv` (Earthborne Rangers / EBR-bench) | 47 | Preserved in ZIP; not materialized pending shared benchmark ID and dimension mapping |
-| `mirrorcode.csv` | 6 | Preserved in ZIP; not materialized pending shared benchmark ID and dimension mapping |
+| Benchmark | Export models | Live models | Result |
+|---|---:|---:|---|
+| GPQA diamond | 264 | 264 | matched |
+| MATH level 5 | 108 | 108 | matched |
+| SWE-Bench verified | 33 | 33 | matched |
+| OTIS Mock AIME 2024-2025 | 239 | 239 | matched |
+| FrontierMath-2025-02-28-Private | 101 | 101 | matched |
+| FrontierMath-Tier-4-2025-07-01-Private | 72 | 72 | matched |
+| SimpleQA Verified | 78 | 78 | matched |
+| Chess Puzzles | 162 | 162 | matched |
 
-This bounded refresh does not modify the shared benchmark mapping or schema. These 53 rows are therefore excluded from the 1,031 direct Candidate count rather than being assigned an unapproved dimension.
+## Known unresolved
 
-## Risks and unresolved
+- The Epoch Capabilities Index is a composite and stays `EXCLUDED`; it is
+  selection-only evidence and must not be double-counted in eight-dimension
+  scoring.
+- `mirrorcode.csv` and `mystery_game_puzzles.csv` are present in the export but
+  are not promoted: neither has an approved benchmark ID or dimension mapping.
+- `gpqa-diamond` is also published by Artificial Analysis. The cross-source
+  merge rule is not yet decided; see `tasks/claude-code-plan.md` L1.
 
-- 1,130 candidates retain null canonical identity; no fuzzy matching was applied.
-- The source page and download describe the export as updated July 27, while several MirrorCode rows inside the ZIP have August timestamps. The immutable ZIP hash is authoritative for this capture, and the temporal discrepancy is recorded for review.
-- ECI missing scores remain null and are never converted to zero.
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| CandidateResults | 1552 | 1612 | +60 |
+| Epoch Capabilities Index rows | 521 | 553 | +32 |
+| Rows without a canonical identity | 1130 | 1026 | -104 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.

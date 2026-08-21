@@ -16,6 +16,7 @@
     "materialize:frontier-code": "tsx src/refresh-frontier-code.ts",
     "materialize:effort-reports": "tsx src/write-effort-inference-reports.ts",
     "materialize:deepswe": "tsx src/refresh-deepswe.ts",
+    "materialize:epoch": "tsx src/refresh-epoch.ts",
     "materialize:livebench": "tsx src/refresh-livebench.ts",
     "materialize:artificial-analysis": "node --env-file=../../.env.local --import tsx/esm src/refresh-artificial-analysis.ts",
     "test": "vitest",
