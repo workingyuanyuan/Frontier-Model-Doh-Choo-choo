@@ -733,7 +733,8 @@ export const ProductCostSchema = z.object({
   unit: z.enum(['USD_PER_MILLION_TOKENS', 'USD_PER_TASK']),
   benchmarkId: SlugSchema.nullable(),
   benchmarkVersion: z.string().min(1).nullable(),
-  evidenceIds: z.array(Sha256Schema),
+  /** Every product cost must carry provenance; see REFACTOR_SPEC_V2 section 4.4. */
+  evidenceIds: z.array(Sha256Schema).min(1),
 });
 export type ProductCost = z.infer<typeof ProductCostSchema>;
 

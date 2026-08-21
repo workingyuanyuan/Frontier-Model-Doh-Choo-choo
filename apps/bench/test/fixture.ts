@@ -245,7 +245,9 @@ export const productFixture = buildProductVersion({
       unit: 'USD_PER_MILLION_TOKENS',
       benchmarkId: null,
       benchmarkVersion: null,
-      evidenceIds: [],
+      evidenceIds: [
+        'sha256:ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc051',
+      ],
     },
     {
       modelId: 'anthropic-claude-fable-5',
@@ -261,7 +263,9 @@ export const productFixture = buildProductVersion({
       unit: 'USD_PER_MILLION_TOKENS',
       benchmarkId: null,
       benchmarkVersion: null,
-      evidenceIds: [],
+      evidenceIds: [
+        'sha256:ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc052',
+      ],
     },
     {
       modelId: 'openai-gpt-5-6-sol',
@@ -277,7 +281,9 @@ export const productFixture = buildProductVersion({
       unit: 'USD_PER_TASK',
       benchmarkId: 'artificial-analysis-intelligence-index',
       benchmarkVersion: null,
-      evidenceIds: [],
+      evidenceIds: [
+        'sha256:ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc053',
+      ],
     },
     {
       modelId: 'anthropic-claude-fable-5',
@@ -293,7 +299,9 @@ export const productFixture = buildProductVersion({
       unit: 'USD_PER_TASK',
       benchmarkId: 'deepswe',
       benchmarkVersion: '1.1',
-      evidenceIds: [],
+      evidenceIds: [
+        'sha256:ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc054',
+      ],
     },
   ],
   evidence: [

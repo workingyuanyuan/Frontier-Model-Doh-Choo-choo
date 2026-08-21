@@ -569,7 +569,9 @@ describe('cost chart view model', () => {
           unit: 'USD_PER_TASK' as const,
           benchmarkId: 'artificial-analysis-intelligence-index',
           benchmarkVersion: null,
-          evidenceIds: [],
+          evidenceIds: [
+            'sha256:ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccd051',
+          ],
         },
       ],
     };
@@ -607,7 +609,9 @@ describe('cost chart view model', () => {
             unit: 'USD_PER_TASK' as const,
             benchmarkId: 'artificial-analysis-intelligence-index',
             benchmarkVersion: null,
-            evidenceIds: [],
+            evidenceIds: [
+              'sha256:ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccd052',
+            ],
           },
         ]),
     };
