@@ -1267,8 +1267,22 @@ axe 與 390px 無溢出維持通過。
 Linux 字體度量下的列高也不同，中心點因此被推出可視／裁切範圍，命中測試回傳的是祖先
 （`aside`／`main`）或圖表 `svg`，這正是攔截者每次都不同的原因。
 
-**做法**：點擊前改用 `element.scrollIntoView({ block: 'center', behavior: 'instant' })`
-把該列捲到正中央（實測中心點回到 y=730），再點 label。斷言仍然檢查 `<input>` 的 checked
-狀態，覆蓋範圍沒有縮水，也沒有用 `force: true` 掩蓋問題。
+**第三次判斷仍不完整**：改成 `scrollIntoView({ block: 'center' })` 後 CI 第四次失敗，
+症狀完全相同。
+
+**取得實據**：CI 原本沒有上傳 Playwright 報告，e2e 在 runner 上掛掉時毫無可除錯的材料。
+先補上 `if: failure()` 的 artifact 上傳（見 `ci: upload Playwright traces` 這個 commit），
+再下載 trace 看失敗當下的截圖——**整個頁面被水平捲動**：左緣的 `SOURCES AND EFFORT
+PROFILES` 標題被切掉，頁尾的 `LLM Bench` 只剩 `M Bench`。也就是 runner 上該頁在行動版
+寬度會水平溢出，Playwright 解析出的點擊座標因此落在圖表 `svg`、`aside` 或鄰列上。
+
+**最終做法**（兩項）：
+
+1. 該測試改用鍵盤切換：`seriesCheckbox.focus()` + `keyboard.press('Space')`。這是真實使用
+   路徑、不需要任何座標命中測試、斷言的結果完全相同，並且順帶證明該控制項可鍵盤操作。
+   沒有使用 `force: true`。
+2. 「行動版無水平溢出」的斷言延伸到**進階圖模式**。原本只測預設模式，所以 trace 顯示的
+   水平捲動從未被攔下。本機 390px 下兩種模式都通過，這條斷言是為了讓 runner 上的溢出
+   （若確實存在）不再無聲。
 
 **完成條件**：CI 兩個 project 皆綠。

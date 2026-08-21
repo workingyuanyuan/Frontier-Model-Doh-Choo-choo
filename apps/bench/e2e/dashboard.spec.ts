@@ -316,15 +316,14 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   const seriesLabel = seriesRow.locator('label');
 
   await expect(seriesCheckbox).toBeChecked();
-  // scrollIntoViewIfNeeded() scrolls the minimum distance, which can leave the
-  // row flush against the edge of the legend's 16rem scroll box; its centre
-  // point then hit-tests to the clipping ancestor instead of the label. Row
-  // heights differ between platforms, so that only bit on CI. Centre the row
-  // explicitly, instantly, before clicking.
-  await seriesLabel.evaluate((element) =>
-    element.scrollIntoView({ block: 'center', behavior: 'instant' }),
-  );
-  await seriesLabel.click();
+  // Toggle it from the keyboard. A pointer click needs a hit test, and this
+  // checkbox sits in a 42-row scrolling list inside a page that scrolls
+  // horizontally at mobile widths on the CI runner, so the resolved point kept
+  // landing on the chart, the aside, or a neighbouring row. Space on a focused
+  // checkbox is a real user path, needs no coordinates, and asserts the same
+  // outcome — plus it proves the control is keyboard operable.
+  await seriesCheckbox.focus();
+  await page.keyboard.press('Space');
   await expect(seriesCheckbox).not.toBeChecked();
 
   // Assert the X axis title's upper bound decreased
@@ -370,6 +369,16 @@ test('has no serious accessibility violations or page-level mobile overflow', as
       () => document.documentElement.scrollWidth - window.innerWidth,
     );
     expect(overflow).toBeLessThanOrEqual(1);
+
+    // The advanced chart adds a second legend layout; it must not push the
+    // page sideways either. A CI trace showed the whole document scrolled
+    // horizontally in this mode, which the default-mode check above misses.
+    await page.locator('.cost-mode-toggle').click();
+    await expect(page.locator('.advanced-cost-chart')).toBeVisible();
+    const advancedOverflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(advancedOverflow).toBeLessThanOrEqual(1);
   }
 });
 
