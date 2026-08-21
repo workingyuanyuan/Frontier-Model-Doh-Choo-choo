@@ -1615,6 +1615,55 @@ details[open] > .evidence-group-summary::before {
   border-color: #bac8f6;
 }
 
+.advanced-cost-layout .cost-model-legend li {
+  display: block;
+  padding: 0;
+}
+
+.cost-legend-checkbox-label {
+  align-items: start;
+  border: 0.0625rem solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  padding: 0.35rem 0.4rem;
+  user-select: none;
+  width: 100%;
+}
+
+.cost-legend-checkbox-label:hover {
+  background: var(--surface-subtle);
+}
+
+.cost-series-checkbox {
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 0.875rem;
+  margin-top: 0.2rem;
+  width: 0.875rem;
+}
+
+.cost-plot-empty {
+  align-items: center;
+  background: rgb(255 255 255 / 85%);
+  backdrop-filter: blur(2px);
+  border-radius: var(--radius-md);
+  color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  inset: 2rem;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+}
+
+.cost-plot-empty strong {
+  color: var(--ink);
+}
+
 .provider-dot {
   border: 0.125rem solid white;
   border-radius: 50%;

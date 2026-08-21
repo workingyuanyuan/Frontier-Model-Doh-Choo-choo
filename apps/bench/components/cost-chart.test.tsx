@@ -262,6 +262,111 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain(`$${firstPoint.cost.toFixed(3)} per task`);
     });
 
+    it('renders native checkbox for each series in legend checked by default with accessible label', () => {
+      const html = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: sampleAdvancedSeries,
+        }),
+      );
+
+      expect(html).toContain('type="checkbox"');
+      expect(html).toContain('checked=""');
+      expect(html).toContain('class="cost-series-checkbox"');
+      expect(html).toContain('class="cost-legend-checkbox-label"');
+      expect(html).toContain(
+        'for="series-toggle-anthropic-claude-fable-5-deepswe"',
+      );
+      expect(html).toContain('Claude Fable 5 · DeepSWE');
+    });
+
+    it('recalculates X and Y domains and excludes points when a series is hidden', () => {
+      const multiSeries: AdvancedCostSeries[] = [
+        sampleAdvancedSeries[0]!,
+        {
+          seriesId: 'openai-gpt-5-6-sol:deepswe',
+          modelId: 'openai-gpt-5-6-sol',
+          providerId: 'openai',
+          displayName: 'GPT-5.6 Sol',
+          sourceId: 'deepswe',
+          points: [
+            {
+              profileId: 'openai-gpt-5-6-sol-high',
+              modelId: 'openai-gpt-5-6-sol',
+              providerId: 'openai',
+              displayName: 'GPT-5.6 Sol',
+              effort: 'high',
+              cost: 15.8,
+              score: 95.0,
+              sourceId: 'deepswe',
+              benchmarkId: 'deepswe',
+              isDefaultEffort: false,
+              scoreBasis: 'DEEPSWE_1_1',
+              scoreBenchmarkId: 'deepswe-1-1',
+              metricName: 'Mean agent task cost',
+              sourceUrl: 'https://deepswe.datacurve.ai/',
+              evidenceIds: [],
+            },
+          ],
+        },
+      ];
+
+      // With both series visible, domain includes the expensive GPT-5.6 Sol ($15.80)
+      const allVisibleHtml = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: multiSeries,
+        }),
+      );
+      expect(allVisibleHtml).toContain('GPT-5.6 Sol');
+      expect(allVisibleHtml).toContain(
+        'Source score (85–95, higher is better)',
+      );
+      // Domain with $15.80 max expands to 0-20
+      expect(allVisibleHtml).toContain(
+        'Source task cost ($0–$20, lower is better)',
+      );
+
+      // Hide the expensive GPT-5.6 Sol series
+      const filteredHtml = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: multiSeries,
+          initialHiddenSeriesIds: ['openai-gpt-5-6-sol:deepswe'],
+        }),
+      );
+
+      // Points from the hidden series are excluded from SVG
+      expect(filteredHtml).not.toContain('openai-gpt-5-6-sol-high');
+      // Domain pulls in to only the remaining series (costs 2.36 and 3.45 -> domain 2.25-3.5)
+      expect(filteredHtml).toContain(
+        'Source task cost ($2.25–$3.5, lower is better)',
+      );
+      expect(filteredHtml).toContain('Source score (85–90, higher is better)');
+    });
+
+    it('renders plot empty state and preserves valid axes when all series are hidden', () => {
+      const html = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: sampleAdvancedSeries,
+          initialHiddenSeriesIds: ['anthropic-claude-fable-5:deepswe'],
+        }),
+      );
+
+      // Plot area shows understandable empty state
+      expect(html).toContain('cost-plot-empty');
+      expect(html).toContain('All series hidden');
+      expect(html).toContain(
+        'Check at least one series in the legend to display its effort curve.',
+      );
+
+      // Axes stay valid without NaN or crash
+      expect(html).toContain('cost-axis-title');
+      expect(html).toContain('Source task cost ($0–$100, lower is better)');
+      expect(html).toContain('Source score (0–100, higher is better)');
+
+      // Legend checkboxes remain reachable
+      expect(html).toContain('cost-model-legend');
+      expect(html).toContain('type="checkbox"');
+    });
+
     it('disappears when advanced point is blurred or pointer leaves (active point is null)', () => {
       const html = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {

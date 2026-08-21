@@ -256,6 +256,88 @@ test('toggles the advanced source-local cost curves by keyboard', async ({
   await expect(page.locator('.cost-curve-chart')).toBeVisible();
 });
 
+test('allows toggling series visibility in advanced cost chart to rescale axes', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const toggle = page.locator('.cost-mode-toggle');
+  await toggle.click();
+  await expect(page.locator('.advanced-cost-chart')).toBeVisible();
+
+  const xAxisTitle = page
+    .locator('.advanced-cost-chart .cost-axis-title')
+    .first();
+  await expect(xAxisTitle).toBeVisible();
+
+  const initialXTitle = (await xAxisTitle.textContent()) ?? '';
+  expect(initialXTitle).toMatch(
+    /Source task cost \(\$?\d+(\.\d+)?–\$?(\d+(\.\d+)?), lower is better\)/,
+  );
+
+  const initialMatch = initialXTitle.match(/–\$?(\d+(?:\.\d+)?)/);
+  expect(initialMatch).not.toBeNull();
+  const initialMax = parseFloat(initialMatch![1]!);
+
+  // Find all points in the chart to identify the most expensive series
+  const points = page.locator('.advanced-cost-point');
+  const pointCount = await points.count();
+  expect(pointCount).toBeGreaterThan(0);
+
+  let maxCost = -1;
+  let mostExpensiveSeriesName = '';
+
+  for (let i = 0; i < pointCount; i++) {
+    const label = (await points.nth(i).getAttribute('aria-label')) ?? '';
+    const costMatch = label.match(/Cost \$(\d+(?:\.\d+)?)/);
+    if (costMatch) {
+      const cost = parseFloat(costMatch[1]!);
+      if (cost > maxCost) {
+        maxCost = cost;
+        const parts = label.split(',');
+        if (parts[0] && parts[1]) {
+          mostExpensiveSeriesName = `${parts[0].trim()} · ${parts[1].trim()}`;
+        }
+      }
+    }
+  }
+
+  expect(maxCost).toBeGreaterThan(0);
+  expect(mostExpensiveSeriesName).not.toBe('');
+
+  // Uncheck the most expensive series
+  const seriesCheckbox = page
+    .locator('.cost-model-legend li')
+    .filter({ hasText: mostExpensiveSeriesName })
+    .locator('input[type="checkbox"]');
+
+  await expect(seriesCheckbox).toBeChecked();
+  await seriesCheckbox.uncheck();
+  await expect(seriesCheckbox).not.toBeChecked();
+
+  // Assert the X axis title's upper bound decreased
+  const newXTitle = (await xAxisTitle.textContent()) ?? '';
+  const newMatch = newXTitle.match(/–\$?(\d+(?:\.\d+)?)/);
+  expect(newMatch).not.toBeNull();
+  const newMax = parseFloat(newMatch![1]!);
+  expect(newMax).toBeLessThan(initialMax);
+
+  // Assert that the most expensive series' points are gone
+  const remainingPoints = page.locator('.advanced-cost-point');
+  const remainingCount = await remainingPoints.count();
+  expect(remainingCount).toBeLessThan(pointCount);
+
+  for (let i = 0; i < remainingCount; i++) {
+    const label =
+      (await remainingPoints.nth(i).getAttribute('aria-label')) ?? '';
+    const costMatch = label.match(/Cost \$(\d+(?:\.\d+)?)/);
+    if (costMatch) {
+      const cost = parseFloat(costMatch[1]!);
+      expect(cost).toBeLessThan(maxCost);
+    }
+  }
+});
+
 test('has no serious accessibility violations or page-level mobile overflow', async ({
   page,
 }, testInfo) => {

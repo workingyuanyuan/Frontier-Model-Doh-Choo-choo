@@ -424,6 +424,7 @@ export function AdvancedCostPlot({
   selectedProfileId = null,
   onToggleSelect,
   initialActivePoint = null,
+  initialHiddenSeriesIds,
 }: {
   series: AdvancedCostSeries[];
   selectedProfileId?: string | null;
@@ -432,7 +433,11 @@ export function AdvancedCostPlot({
     series: AdvancedCostSeries;
     point: AdvancedCostSeries['points'][number];
   } | null;
+  initialHiddenSeriesIds?: Set<string> | readonly string[];
 }) {
+  const [hiddenSeriesIds, setHiddenSeriesIds] = useState<Set<string>>(
+    () => new Set(initialHiddenSeriesIds ?? []),
+  );
   const [activePoint, setActivePoint] = useState<{
     series: AdvancedCostSeries;
     point: AdvancedCostSeries['points'][number];
@@ -441,14 +446,31 @@ export function AdvancedCostPlot({
   const right = 610;
   const top = 28;
   const bottom = 350;
-  const allPoints = series.flatMap(({ points }) => points);
-  const maxCost = Math.max(...allPoints.map(({ cost }) => cost), 1);
-  const yDomain = getChartDomain(allPoints.map((point) => point.score));
-  const x = (cost: number) => left + (cost / maxCost) * (right - left);
+
+  const toggleSeriesVisibility = (seriesId: string) => {
+    setHiddenSeriesIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(seriesId)) {
+        next.delete(seriesId);
+      } else {
+        next.add(seriesId);
+      }
+      return next;
+    });
+  };
+
+  const visibleSeries = series.filter(
+    (line) => !hiddenSeriesIds.has(line.seriesId),
+  );
+  const visiblePoints = visibleSeries.flatMap(({ points }) => points);
+  const xDomain = getChartDomain(visiblePoints.map((point) => point.cost));
+  const yDomain = getChartDomain(visiblePoints.map((point) => point.score));
+  const x = (cost: number) =>
+    left +
+    ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left);
   const y = (score: number) =>
     bottom -
     ((score - yDomain.min) / (yDomain.max - yDomain.min)) * (bottom - top);
-  const costTicks = [0, maxCost / 2, maxCost] as const;
 
   const handleToggle = (pointProfileId: string) => {
     if (selectedProfileId === pointProfileId) {
@@ -466,7 +488,7 @@ export function AdvancedCostPlot({
             className="cost-curve-chart advanced-cost-chart"
             viewBox="0 0 660 405"
             role="img"
-            aria-label={`Source-local score (${yDomain.min}–${yDomain.max}) versus USD per task cost. Each line connects effort profiles for one model and source.`}
+            aria-label={`Source-local score (${yDomain.min}–${yDomain.max}) versus USD per task cost ($${xDomain.min}–$${xDomain.max}). Each line connects effort profiles for one model and source.`}
           >
             {yDomain.ticks.map((tick) => (
               <g key={`advanced-y-${tick}`}>
@@ -487,7 +509,7 @@ export function AdvancedCostPlot({
                 </text>
               </g>
             ))}
-            {costTicks.map((tick) => (
+            {xDomain.ticks.map((tick) => (
               <g key={`advanced-x-${tick}`}>
                 <line
                   className="cost-grid-line"
@@ -502,7 +524,7 @@ export function AdvancedCostPlot({
                   y={bottom + 22}
                   textAnchor="middle"
                 >
-                  ${tick.toFixed(2)}
+                  ${tick}
                 </text>
               </g>
             ))}
@@ -526,7 +548,7 @@ export function AdvancedCostPlot({
               y="397"
               textAnchor="middle"
             >
-              Source task cost (USD per task, lower is better)
+              {`Source task cost ($${xDomain.min}–$${xDomain.max}, lower is better)`}
             </text>
             <text
               className="cost-axis-title"
@@ -537,7 +559,7 @@ export function AdvancedCostPlot({
             >
               {`Source score (${yDomain.min}–${yDomain.max}, higher is better)`}
             </text>
-            {series.map((line) => {
+            {visibleSeries.map((line) => {
               const effortLadderPoints = line.points.filter(
                 (point) => !point.isDefaultEffort,
               );
@@ -605,7 +627,16 @@ export function AdvancedCostPlot({
               );
             })}
           </svg>
-          {activePoint ? (
+          {visibleSeries.length === 0 ? (
+            <div className="cost-plot-empty" role="status">
+              <strong>All series hidden</strong>
+              <span>
+                Check at least one series in the legend to display its effort
+                curve.
+              </span>
+            </div>
+          ) : null}
+          {activePoint && !hiddenSeriesIds.has(activePoint.series.seriesId) ? (
             <div
               className="cost-hover-card"
               role="tooltip"
@@ -671,26 +702,40 @@ export function AdvancedCostPlot({
             const defaultPoints = line.points.filter(
               (point) => point.isDefaultEffort,
             );
+            const checkboxId = `series-toggle-${line.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+            const isVisible = !hiddenSeriesIds.has(line.seriesId);
             return (
               <li key={line.seriesId}>
-                <span
-                  className="provider-dot"
-                  style={{ backgroundColor: sourceColor(line.sourceId) }}
-                  aria-hidden="true"
-                />
-                <span>
-                  <strong>
-                    {line.displayName} · {sourceName(line.sourceId)}
-                  </strong>
-                  <small>
-                    {ladderPoints.map(({ effort }) => effort).join(' → ')}
-                    {defaultPoints.length > 0
-                      ? ` · default: ${defaultPoints
-                          .map(({ effort }) => effort)
-                          .join(', ')}`
-                      : ''}
-                  </small>
-                </span>
+                <label
+                  htmlFor={checkboxId}
+                  className="cost-legend-checkbox-label"
+                >
+                  <input
+                    type="checkbox"
+                    id={checkboxId}
+                    checked={isVisible}
+                    onChange={() => toggleSeriesVisibility(line.seriesId)}
+                    className="cost-series-checkbox"
+                  />
+                  <span
+                    className="provider-dot"
+                    style={{ backgroundColor: sourceColor(line.sourceId) }}
+                    aria-hidden="true"
+                  />
+                  <span>
+                    <strong>
+                      {line.displayName} · {sourceName(line.sourceId)}
+                    </strong>
+                    <small>
+                      {ladderPoints.map(({ effort }) => effort).join(' → ')}
+                      {defaultPoints.length > 0
+                        ? ` · default: ${defaultPoints
+                            .map(({ effort }) => effort)
+                            .join(', ')}`
+                        : ''}
+                    </small>
+                  </span>
+                </label>
               </li>
             );
           })}
