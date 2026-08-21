@@ -1,9 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { CandidateResultSchema } from '@llm-bench/benchmark-data';
+import {
+  CandidateResultSchema,
+  normalizeProductEffort,
+} from '@llm-bench/benchmark-data';
 
-import { materializeEpoch } from './epoch-materializer.js';
+import { decodeVersionSuffix, materializeEpoch } from './epoch-materializer.js';
 
 const topDistinctRows = (
   candidates: ReturnType<typeof materializeEpoch>,
@@ -25,6 +28,45 @@ const topDistinctRows = (
     })
     .slice(0, limit);
 };
+
+describe('decodeVersionSuffix', () => {
+  it('files the tiers Epoch names and leaves the rest to inference', () => {
+    const effortOf = (version: string) => decodeVersionSuffix(version).effort;
+
+    // `_none` is reasoning off, declared by the source. Leaving it null had it
+    // inferred to `max`, so a reasoning-off Chess Puzzles run (7.00) replaced
+    // the real max run (55.00) for GPT-5.6 Sol.
+    expect(effortOf('gpt-5.6-sol_none')).toBe('non-reasoning');
+    // `_minimal` is the bottom tier, not an absent label. The raw source value
+    // is retained here and `normalizeProductEffort` maps it to `low` (spec 4.4);
+    // what matters is that it is no longer null, so it is filed rather than
+    // inferred -- it was being inferred to `high`.
+    expect(effortOf('gemini-3.6-flash_minimal')).toBe('minimal');
+    expect(normalizeProductEffort('minimal')).toBe('low');
+
+    expect(effortOf('gpt-5.6-sol_max')).toBe('max');
+    expect(effortOf('grok-4.6_xhigh')).toBe('xhigh');
+    expect(effortOf('gemini-3.7-flash_high')).toBe('high');
+    expect(effortOf('kimi-k3_medium')).toBe('medium');
+    expect(effortOf('glm-5.2_low')).toBe('low');
+
+    // Not effort tiers: token budgets, an explicit unknown, and a bare name.
+    expect(effortOf('gemini-3.1-pro-preview_32K')).toBeNull();
+    expect(effortOf('deepseek-v4-pro_unknown')).toBeNull();
+    expect(effortOf('muse-spark')).toBeNull();
+  });
+
+  it('reads the pro marker without letting it displace the tier', () => {
+    expect(decodeVersionSuffix('gpt-5.6-sol_promax')).toEqual({
+      effort: 'max',
+      thinking: 'pro',
+    });
+    expect(decodeVersionSuffix('gpt-5.5-pro_xhigh')).toEqual({
+      effort: 'xhigh',
+      thinking: 'pro',
+    });
+  });
+});
 
 describe('Epoch AI materializer', () => {
   it('materializes all structured rows from zip', () => {

@@ -1406,3 +1406,29 @@ coverage-matrix 取捨曲線交使用者判讀。
 **要求**：只改 `display-set.json` 的內容與 notes，重跑 build 與基準驗證。不改任何規則。
 
 **完成條件**：主畫面仍為 12 列且與裁決前同一批模型；基準驗證全綠。
+
+## L4 — 修正 Epoch 的思考強度後綴解析
+
+狀態：完成
+
+**問題（使用者於 2026-08-22 審查分數時發現）**：GPT-5.6 Sol 在四項 reasoning benchmark
+中贏 Gemini 3.7 Flash 三項、只輸 gpqa 1.33 分，Reasoning 維度分數卻低 4.7 分；Math 同樣異常。
+
+**根因**：`epoch-materializer.ts` 用一串手寫的 `endsWith` 判斷 `Model version` 後綴，只認得
+`_promax`／`_max`／`_xhigh`／`_high`／`_medium`／`_low`。其餘後綴一律留成 `effort: null`，
+於是走進 §4.5 跨來源推測。兩個後綴因此被誤判：
+
+- **`_none`（關閉推理）被推測成 `max`**。Epoch 另有 `_unknown` 表示「沒說」，所以 `_none`
+  是來源明確宣告的配置，依 §4.4 規則 2 應直接歸檔，不得推測。這些列的發布時間又最新，
+  於是在同來源的選取中以 `sourcePublishedAt` 勝出，蓋掉真正的 max 量測：GPT-5.6 Sol 的
+  Chess Puzzles 變成 7.00（實際 max 是 55.00），AIME 變成 68.89（實際 100.00）。
+- **`_minimal` 被推測成 `high`**。§4.4 明文 `minimal` 是 `low` 的另一種寫法。
+
+**影響**：主畫面 12 個模型中有 5 個受影響（GPT-5.6 Sol／Terra／Luna、GLM-5.2 走 `_none`，
+Gemini 3.6 Flash 走 `_minimal`），全部是被**低估**。
+
+**做法**：把兩處手寫後綴鏈換成單一 `decodeVersionSuffix`，`_none` → `non-reasoning`、
+其餘交給既有的 `normalizeSourceEffort`（`_minimal` 保留原始值，由 `normalizeProductEffort`
+映到 `low`）。token 預算後綴（`_32K` 等）與 `_unknown` 維持 null，那才是真的「來源沒說」。
+
+**完成條件**：`decodeVersionSuffix` 有單元測試；基準驗證全綠；主畫面仍為 12 列。

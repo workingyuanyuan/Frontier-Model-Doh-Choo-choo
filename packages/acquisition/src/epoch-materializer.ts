@@ -1,7 +1,12 @@
 import AdmZip from 'adm-zip';
 import { type CandidateResult } from '@llm-bench/benchmark-data';
 
-import { parseCsv, resolveModel, slugify } from './materializer-utils.js';
+import {
+  normalizeSourceEffort,
+  parseCsv,
+  resolveModel,
+  slugify,
+} from './materializer-utils.js';
 
 function parseEciLine(line: string): string[] {
   const row: string[] = [];
@@ -39,6 +44,48 @@ function parseEciLine(line: string): string[] {
  * The refresh compares the two channels row for row; keeping both names in one
  * table is what makes that comparison impossible to drift.
  */
+/**
+ * Epoch encodes the run configuration as a suffix on `Model version`, for
+ * example `gpt-5.6-sol_max` or `gemini-3.6-flash_minimal`. Only suffixes that
+ * name an effort tier become `profile.effort`; anything else stays null so that
+ * section 4.5 inference decides, which is the honest reading of "the source did
+ * not say".
+ *
+ * Two suffixes must not be left to inference, because the source did say:
+ *
+ * - `_none` is reasoning switched off. Left unlabelled it was inferred to
+ *   whatever tier the other sources ran, so a reasoning-off run was filed as the
+ *   model's max-effort result. GPT-5.6 Sol's Chess Puzzles score became 7.00
+ *   instead of 55.00 and its AIME score 68.89 instead of its real max run, which
+ *   is what made its Reasoning and Math dimensions look wrong on the main screen.
+ *   Section 4.4 rule 2 files a source-declared configuration; it never infers it.
+ * - `_minimal` is the bottom tier and section 4.4 maps it to `low`. It was being
+ *   inferred to `high`.
+ *
+ * Token-budget suffixes such as `_32K`, and the literal `_unknown`, are not
+ * effort tiers and stay null deliberately.
+ */
+export const decodeVersionSuffix = (
+  version: string,
+): { effort: string | null; thinking: string | null } => {
+  const lower = version.toLowerCase();
+  const suffix = lower.includes('_')
+    ? lower.slice(lower.lastIndexOf('_') + 1)
+    : '';
+  const pro = lower.includes('-pro') || lower.includes('_pro');
+  const thinking = pro
+    ? 'pro'
+    : lower.includes('_thinking')
+      ? 'reasoning'
+      : null;
+
+  if (suffix === 'promax' || suffix === 'pro_max') {
+    return { effort: 'max', thinking: 'pro' };
+  }
+  if (suffix === 'none') return { effort: 'non-reasoning', thinking };
+  return { effort: normalizeSourceEffort(suffix), thinking };
+};
+
 export const EPOCH_DIRECT_FILES = [
   {
     name: 'gpqa_diamond.csv',
@@ -150,29 +197,7 @@ export function materializeEpoch(
       'epoch-ai',
     );
 
-    // profile effort and thinking logic
-    let effort: string | null = null;
-    let thinking: string | null = null;
-    if (version.endsWith('_promax') || version.endsWith('_pro_max')) {
-      effort = 'max';
-      thinking = 'pro';
-    } else if (version.endsWith('_max')) {
-      effort = 'max';
-    } else if (version.endsWith('_xhigh')) {
-      effort = 'xhigh';
-    } else if (version.endsWith('_high')) {
-      effort = 'high';
-    } else if (version.endsWith('_medium')) {
-      effort = 'medium';
-    } else if (version.endsWith('_low')) {
-      effort = 'low';
-    }
-    if (version.includes('_thinking')) {
-      thinking = 'reasoning';
-    }
-    if (version.includes('-pro') || version.includes('_pro')) {
-      thinking = 'pro';
-    }
+    const { effort, thinking } = decodeVersionSuffix(version);
 
     const modelPart = profileId || slugify(rawName);
 
@@ -252,29 +277,7 @@ export function materializeEpoch(
         'epoch-ai',
       );
 
-      // profile effort and thinking logic
-      let effort: string | null = null;
-      let thinking: string | null = null;
-      if (version.endsWith('_promax') || version.endsWith('_pro_max')) {
-        effort = 'max';
-        thinking = 'pro';
-      } else if (version.endsWith('_max')) {
-        effort = 'max';
-      } else if (version.endsWith('_xhigh')) {
-        effort = 'xhigh';
-      } else if (version.endsWith('_high')) {
-        effort = 'high';
-      } else if (version.endsWith('_medium')) {
-        effort = 'medium';
-      } else if (version.endsWith('_low')) {
-        effort = 'low';
-      }
-      if (version.includes('_thinking')) {
-        thinking = 'reasoning';
-      }
-      if (version.includes('-pro') || version.includes('_pro')) {
-        thinking = 'pro';
-      }
+      const { effort, thinking } = decodeVersionSuffix(version);
 
       const modelPart = profileId || slugify(rawName);
       const versionPart = f.version ? `:${slugify(f.version)}` : '';
