@@ -160,6 +160,18 @@ pnpm report:coverage-matrix
 
 此命令執行覆蓋率矩陣分析，輸出模型 × benchmark 的有無矩陣與各規模 display-set 取捨曲線，供審核關卡 2 人工判讀是否需調整 `data-v2/mappings/display-set.json`。代理不得自行調整顯示清單。
 
+**`--require`：把必選 benchmark 釘死。**
+
+```bash
+pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
+```
+
+可重複 `--require <id>`，也可用逗號分隔。給定之後，曲線上**每一個**組合都會包含這些 benchmark，低於必選數量的規模不再產生列。
+
+沒有這個選項時，最佳化回答的是「挑哪些 benchmark 能讓完整模型數最多」，而那不一定是實際要問的問題。2026-08-22 的實例：未加約束的 N=17 之所以能到 15 個模型，是因為它把 `frontier-code-1-1` 整個拿掉——對它被問的問題來說是正確答案，對真正的問題來說是錯的，因為那等於讓一整個來源退出主畫面的資格判定。釘死必須繼續把關的來源之後，曲線回答的才是「在不掉模型的前提下門檻能拉多嚴」。
+
+不是現行 active benchmark 的 ID 會直接讓命令失敗，而不是被忽略——打錯字若被忽略，產出的會是未加約束的曲線，而且看不出來。
+
 CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜態 build、瀏覽器／無障礙與依賴安全檢查；不得啟動 DB service、Docker、舊 Web fixture、Worker 或影片 render。
 
 ## 8. Artifact 保存

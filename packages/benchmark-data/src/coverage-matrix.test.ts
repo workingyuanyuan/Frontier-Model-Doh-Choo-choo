@@ -8,6 +8,7 @@ import {
   type CoverageMatrixAnalysis,
 } from './coverage-matrix.js';
 import { parseReportArgs } from './report-coverage-matrix.js';
+import { DIMENSION_IDS } from './index.js';
 import type {
   BenchmarkDimensionMapping,
   CandidateResult,
@@ -712,6 +713,95 @@ describe('coverage-matrix', () => {
     });
   });
 
+  describe('required benchmarks', () => {
+    const build = (required?: string[]) => {
+      const catalog: ModelCatalog = {
+        schemaVersion: 'model-catalog-v1',
+        models: ['m1', 'm2', 'm3'].map((modelId) => ({
+          modelId,
+          providerId: 'p',
+          displayName: modelId.toUpperCase(),
+          releaseDate: '2026-01-01',
+          pricing: [],
+          profilePricing: {},
+        })),
+      };
+      // `pinned` is carried by only one model; `wide` by all three. Left free,
+      // the optimum at N=1 picks `wide` and reports three models. Pinning
+      // `pinned` forces the honest answer for the question actually being
+      // asked, which is one model.
+      const sourceCandidates = [
+        ['m1', 'pinned'],
+        ['m1', 'wide'],
+        ['m2', 'wide'],
+        ['m3', 'wide'],
+      ].map(([modelId, benchmarkId], index) =>
+        createMockCandidate({
+          id: `c${index}`,
+          sourceId: 'src-1',
+          modelId: modelId!,
+          rawName: modelId!.toUpperCase(),
+          benchmarkId: benchmarkId!,
+        }),
+      );
+      return analyzeCoverageMatrix({
+        catalog,
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2',
+          manualModels: [],
+          qualificationWindowMonths: 12,
+        },
+        benchmarkMapping: {
+          schemaVersion: 'benchmark-dimensions-v1',
+          dimensions: [...DIMENSION_IDS],
+          benchmarks: [
+            {
+              id: 'pinned',
+              primaryDimension: 'coding',
+              secondaryDimensions: [],
+            },
+            {
+              id: 'wide',
+              primaryDimension: 'reasoning',
+              secondaryDimensions: [],
+            },
+          ],
+        },
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['src-1'],
+        sourceCandidates,
+        referenceDate: '2026-08-20',
+        ...(required ? { requiredBenchmarkIds: required } : {}),
+      });
+    };
+
+    it('keeps a pinned benchmark in every combination and drops the scales below it', () => {
+      const free = build();
+      expect(free.requiredBenchmarkIds).toEqual([]);
+      expect(free.tradeoffs[0]?.benchmarkIds).toEqual(['wide']);
+      expect(free.tradeoffs[0]?.completeModelCount).toBe(3);
+
+      const pinned = build(['pinned']);
+      expect(pinned.requiredBenchmarkIds).toEqual(['pinned']);
+      expect(
+        pinned.tradeoffs.every(({ benchmarkIds }) =>
+          benchmarkIds.includes('pinned'),
+        ),
+      ).toBe(true);
+      // No combination of size 1 contains the pin plus anything else, so the
+      // curve starts at N=1 with the pin alone.
+      expect(pinned.tradeoffs[0]?.benchmarkIds).toEqual(['pinned']);
+      expect(pinned.tradeoffs[0]?.completeModelCount).toBe(1);
+    });
+
+    it('throws on a required benchmark that is not active rather than ignoring it', () => {
+      // A typo must not silently produce the unconstrained curve.
+      expect(() => build(['deepswe-1-1'])).toThrow(
+        /required benchmarks are not active: deepswe-1-1/u,
+      );
+    });
+  });
+
   describe('formatCoverageMatrixMarkdown', () => {
     it('produces valid markdown with required sections and model lists', () => {
       const mockAnalysis: CoverageMatrixAnalysis = {
@@ -719,6 +809,7 @@ describe('coverage-matrix', () => {
         qualificationWindowMonths: 12,
         whitelist: ['source-1'],
         activeBenchmarkIds: ['bench-x', 'bench-y'],
+        requiredBenchmarkIds: [],
         qualifiedModels: [
           { modelId: 'model-1', displayName: 'Model 1' },
           { modelId: 'model-2', displayName: 'Model 2' },
@@ -822,6 +913,16 @@ describe('coverage-matrix', () => {
       ]);
       expect(opts3.repositoryRoot).toBe('/positional/repo/root');
       expect(opts3.referenceDate).toBe('2026-05-15');
+
+      expect(parseReportArgs([]).requiredBenchmarkIds).toBeUndefined();
+      expect(
+        parseReportArgs(['--require=deepswe-1-1, frontier-code-1-1'])
+          .requiredBenchmarkIds,
+      ).toEqual(['deepswe-1-1', 'frontier-code-1-1']);
+      expect(
+        parseReportArgs(['--require', 'deepswe-1-1', '--require', 'bench-x'])
+          .requiredBenchmarkIds,
+      ).toEqual(['deepswe-1-1', 'bench-x']);
     });
 
     it('loads workspace data and runs report on current repo', async () => {

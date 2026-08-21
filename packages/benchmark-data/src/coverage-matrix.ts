@@ -59,6 +59,7 @@ export interface CoverageMatrixAnalysis {
   qualificationWindowMonths: number;
   whitelist: string[];
   activeBenchmarkIds: string[];
+  requiredBenchmarkIds: string[];
   qualifiedModels: QualifiedModel[];
   matrix: ModelBenchmarkPresence[];
   tradeoffs: TradeoffResult[];
@@ -74,6 +75,22 @@ export interface CoverageAnalysisInput {
   whitelist: readonly string[];
   sourceCandidates: readonly CandidateResult[];
   referenceDate: string;
+  /**
+   * Benchmarks every candidate combination must contain.
+   *
+   * The unconstrained optimum answers "which benchmarks maximise the model
+   * count", which is not always the question being asked. On 2026-08-22 the
+   * unconstrained N=17 reached its figure by dropping `frontier-code-1-1`
+   * altogether -- a real answer to the stated question, and the wrong answer to
+   * the actual one, because that removes a whole source from the main-screen
+   * gate. Pinning the sources that must keep gating turns the curve into "how
+   * strict can the matrix get before it costs models", which is what the review
+   * gate decides.
+   *
+   * An id that is not an active benchmark throws rather than being ignored: a
+   * typo would otherwise silently produce the unconstrained curve.
+   */
+  requiredBenchmarkIds?: readonly string[];
 }
 
 export interface WorkspaceCoverageData {
@@ -315,6 +332,22 @@ export const analyzeCoverageMatrix = (
   const M = activeBenchmarkIds.length;
   const tradeoffs: TradeoffResult[] = [];
 
+  const requiredBenchmarkIds = [
+    ...new Set(input.requiredBenchmarkIds ?? []),
+  ].toSorted((left, right) => left.localeCompare(right));
+  const unknownRequired = requiredBenchmarkIds.filter(
+    (id) => !activeBenchmarkIds.includes(id),
+  );
+  if (unknownRequired.length > 0) {
+    throw new Error(
+      `required benchmarks are not active: ${unknownRequired.join(', ')}`,
+    );
+  }
+  let requiredMask = 0;
+  for (const id of requiredBenchmarkIds) {
+    requiredMask |= 1 << activeBenchmarkIds.indexOf(id);
+  }
+
   if (M > 30) {
     throw new Error(
       `coverage-matrix supports at most 30 active benchmarks with 32-bit integer masks; received ${M}`,
@@ -356,6 +389,7 @@ export const analyzeCoverageMatrix = (
     const compressedList = maskFrequencies;
 
     for (let S = 1; S < totalSubsets; S++) {
+      if ((S & requiredMask) !== requiredMask) continue;
       const N = popcount(S);
 
       // Complete models count using frequency compression
@@ -425,7 +459,10 @@ export const analyzeCoverageMatrix = (
     }
 
     for (let N = 1; N <= M; N++) {
-      const best = bestByN[N]!;
+      // With required benchmarks pinned, no combination exists below their
+      // count, so those scales have no row rather than an empty one.
+      const best = bestByN[N];
+      if (!best) continue;
       const matchingModels: QualifiedModel[] = [];
       for (const row of matrix) {
         if ((row.mask & best.mask) === best.mask) {
@@ -450,6 +487,7 @@ export const analyzeCoverageMatrix = (
     qualificationWindowMonths,
     whitelist: [...whitelistSet].sort(),
     activeBenchmarkIds,
+    requiredBenchmarkIds,
     qualifiedModels,
     matrix,
     tradeoffs,
@@ -479,6 +517,13 @@ export const formatCoverageMatrixMarkdown = (
     `- **Qualified Canonical Base Models**: ${analysis.qualifiedModels.length}`,
   );
   lines.push(`- **Active Benchmarks**: ${analysis.activeBenchmarkIds.length}`);
+  lines.push(
+    `- **Required Benchmarks**: ${
+      analysis.requiredBenchmarkIds.length === 0
+        ? 'none (unconstrained)'
+        : analysis.requiredBenchmarkIds.map((id) => `\`${id}\``).join(', ')
+    }`,
+  );
   lines.push('');
   lines.push(
     '> [!NOTE]',
@@ -487,13 +532,19 @@ export const formatCoverageMatrixMarkdown = (
     '> It does not modify `display-set.json`.',
     "> Coverage is unioned across a canonical base model's product profiles, as required by the §5.3 model bitmask. D2 main-screen eligibility is stricter: one profile must pass the selected matrix and have all eight rendered dimensions. Complete-model counts here are therefore review upper bounds, not predicted main-screen row counts.",
   );
+  if (analysis.requiredBenchmarkIds.length > 0) {
+    lines.push(
+      '>',
+      `> Every combination below contains the required benchmarks, so the curve answers how strict the matrix can get while those keep gating the main screen. Without them the optimum is free to drop a source entirely, which reads as a better number and is a worse display set.`,
+    );
+  }
   lines.push('');
 
   // Section 1: Tradeoff Curve
   lines.push('## 1. Tradeoff Curve');
   lines.push('');
   lines.push(
-    'For each retained benchmark count $N$ from 1 to the active benchmark count, the table below lists the combination that maximizes the number of complete qualified base models. Deterministic tie-breaking favors higher covered dimension count, then lexicographically earlier benchmark ID lists.',
+    `For each retained benchmark count $N$${analysis.requiredBenchmarkIds.length > 0 ? ` from ${analysis.requiredBenchmarkIds.length}` : ' from 1'} to the active benchmark count, the table below lists the combination that maximizes the number of complete qualified base models. Deterministic tie-breaking favors higher covered dimension count, then lexicographically earlier benchmark ID lists.`,
   );
   lines.push('');
 

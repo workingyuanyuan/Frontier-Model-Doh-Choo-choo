@@ -5,40 +5,42 @@
 - **Active Sources (5)**: `artificial-analysis`, `deepswe`, `epoch-ai`, `frontier-code`, `livebench`
 - **Qualified Canonical Base Models**: 53
 - **Active Benchmarks**: 23
+- **Required Benchmarks**: `deepswe-1-1`, `frontier-code-1-1`
 
 > [!NOTE]
 > This report is Gate 2 review material (`docs/REFACTOR_SPEC_V2.md` §5.3, `tasks/claude-code-plan.md` D3).
 > It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data-v2/mappings/display-set.json`.
 > It does not modify `display-set.json`.
 > Coverage is unioned across a canonical base model's product profiles, as required by the §5.3 model bitmask. D2 main-screen eligibility is stricter: one profile must pass the selected matrix and have all eight rendered dimensions. Complete-model counts here are therefore review upper bounds, not predicted main-screen row counts.
+>
+> Every combination below contains the required benchmarks, so the curve answers how strict the matrix can get while those keep gating the main screen. Without them the optimum is free to drop a source entirely, which reads as a better number and is a worse display set.
 
 ## 1. Tradeoff Curve
 
-For each retained benchmark count $N$ from 1 to the active benchmark count, the table below lists the combination that maximizes the number of complete qualified base models. Deterministic tie-breaking favors higher covered dimension count, then lexicographically earlier benchmark ID lists.
+For each retained benchmark count $N$ from 2 to the active benchmark count, the table below lists the combination that maximizes the number of complete qualified base models. Deterministic tie-breaking favors higher covered dimension count, then lexicographically earlier benchmark ID lists.
 
 | $N$ | Complete Models |                                Covered Dimensions                                 | Chosen Benchmark IDs                                                                                                                                                                                                                                                                                                                                                                                        | Matching Model Count & Details               |
 | --: | --------------: | :-------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-|   1 |          **45** |                            2/8 (reasoning, knowledge)                             | `gpqa-diamond`                                                                                                                                                                                                                                                                                                                                                                                              | [45 models](#scale-n--1-45-complete-models)  |
-|   2 |          **41** |            5/8 (reasoning, knowledge, language, instruction, context)             | `livebench-instruction-following`, `livebench-reasoning`                                                                                                                                                                                                                                                                                                                                                    | [41 models](#scale-n--2-41-complete-models)  |
-|   3 |          **41** |         6/8 (reasoning, math, knowledge, language, instruction, context)          | `livebench-instruction-following`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                                                                                                                                                                                                           | [41 models](#scale-n--3-41-complete-models)  |
-|   4 |          **41** |         6/8 (reasoning, math, knowledge, language, instruction, context)          | `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                                                                                                                                                                                     | [41 models](#scale-n--4-41-complete-models)  |
-|   5 |          **37** |         6/8 (reasoning, math, knowledge, language, instruction, context)          | `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                                                                                                                                                                     | [37 models](#scale-n--5-37-complete-models)  |
-|   6 |          **34** |         6/8 (reasoning, math, knowledge, language, instruction, context)          | `aime`, `chess-puzzles`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-reasoning`                                                                                                                                                                                                                                                                                     | [34 models](#scale-n--6-34-complete-models)  |
-|   7 |          **34** |         6/8 (reasoning, math, knowledge, language, instruction, context)          | `aime`, `chess-puzzles`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                                                                                                                                            | [34 models](#scale-n--7-34-complete-models)  |
-|   8 |          **31** |         6/8 (reasoning, math, knowledge, language, instruction, context)          | `aime`, `chess-puzzles`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `simpleqa-verified`                                                                                                                                                                                                                                       | [31 models](#scale-n--8-31-complete-models)  |
-|   9 |          **27** |      7/8 (reasoning, math, knowledge, instruction, coding, agentic, context)      | `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `scicode`, `tau3-banking`, `terminal-bench-2-1`                                                                                                                                                                                                                                                                   | [27 models](#scale-n--9-27-complete-models)  |
-|  10 |          **24** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                                                                                           | [24 models](#scale-n--10-24-complete-models) |
-|  11 |          **24** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`                                                                                                                                                                                                | [24 models](#scale-n--11-24-complete-models) |
-|  12 |          **24** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`                                                                                                                                                                                | [24 models](#scale-n--12-24-complete-models) |
-|  13 |          **24** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`                                                                                                                                                          | [24 models](#scale-n--13-24-complete-models) |
-|  14 |          **21** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`                                                                                                                                                       | [21 models](#scale-n--14-21-complete-models) |
-|  15 |          **21** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`                                                                                                                                 | [21 models](#scale-n--15-21-complete-models) |
-|  16 |          **18** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`                                                                                                            | [18 models](#scale-n--16-18-complete-models) |
-|  17 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`                                                                                             | [17 models](#scale-n--17-17-complete-models) |
+|   2 |          **17** |                          3/8 (coding, agentic, context)                           | `deepswe-1-1`, `frontier-code-1-1`                                                                                                                                                                                                                                                                                                                                                                          | [17 models](#scale-n--2-17-complete-models)  |
+|   3 |          **17** |                  5/8 (reasoning, math, coding, agentic, context)                  | `aime`, `deepswe-1-1`, `frontier-code-1-1`                                                                                                                                                                                                                                                                                                                                                                  | [17 models](#scale-n--3-17-complete-models)  |
+|   4 |          **17** |      7/8 (reasoning, math, language, instruction, coding, agentic, context)       | `aime`, `deepswe-1-1`, `frontier-code-1-1`, `livebench-instruction-following`                                                                                                                                                                                                                                                                                                                               | [17 models](#scale-n--4-17-complete-models)  |
+|   5 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `livebench-instruction-following`                                                                                                                                                                                                                                                                                                              | [17 models](#scale-n--5-17-complete-models)  |
+|   6 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`                                                                                                                                                                                                                                                                                              | [17 models](#scale-n--6-17-complete-models)  |
+|   7 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`                                                                                                                                                                                                                                                                        | [17 models](#scale-n--7-17-complete-models)  |
+|   8 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`                                                                                                                                                                                                                                               | [17 models](#scale-n--8-17-complete-models)  |
+|   9 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                                                                                                        | [17 models](#scale-n--9-17-complete-models)  |
+|  10 |          **17** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `simpleqa-verified`                                                                                                                                                                                                   | [17 models](#scale-n--10-17-complete-models) |
+|  11 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`                                                                                                                                                                                                                    | [14 models](#scale-n--11-14-complete-models) |
+|  12 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`                                                                                                                                                                                              | [14 models](#scale-n--12-14-complete-models) |
+|  13 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`                                                                                                                                                                     | [14 models](#scale-n--13-14-complete-models) |
+|  14 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`                                                                                                                                              | [14 models](#scale-n--14-14-complete-models) |
+|  15 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`                                                                                                                                   | [14 models](#scale-n--15-14-complete-models) |
+|  16 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`                                                                                                              | [14 models](#scale-n--16-14-complete-models) |
+|  17 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`                                                                                              | [14 models](#scale-n--17-14-complete-models) |
 |  18 |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`                                                                        | [14 models](#scale-n--18-14-complete-models) |
 |  19 |          **11** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`                                                        | [11 models](#scale-n--19-11-complete-models) |
 |  20 |           **3** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`                                             | [3 models](#scale-n--20-3-complete-models)   |
-|  21 |           **2** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `apex-agents`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`                                      | [2 models](#scale-n--21-2-complete-models)   |
+|  21 |           **1** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `apex-agents`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`                                       | [1 models](#scale-n--21-1-complete-models)   |
 |  22 |           **1** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `apex-agents`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`                 | [1 models](#scale-n--22-1-complete-models)   |
 |  23 |           **0** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) | `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `apex-agents`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `frontiermath`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1` | [0 models](#scale-n--23-0-complete-models)   |
 
@@ -46,604 +48,345 @@ For each retained benchmark count $N$ from 1 to the active benchmark count, the 
 
 Complete qualified base-model lists for each optimal combination in the tradeoff curve.
 
-### Scale N = 1 (45 complete models)
+### Scale N = 2 (17 complete models)
 
-- **Chosen Benchmarks (1)**: `gpqa-diamond`
-- **Covered Dimensions (2/8)**: reasoning, knowledge
-- **Complete Models (45)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-7-plus` (Qwen3.7 Plus)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
+- **Chosen Benchmarks (2)**: `deepswe-1-1`, `frontier-code-1-1`
+- **Covered Dimensions (3/8)**: coding, agentic, context
+- **Complete Models (17)**:
   - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
   - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
   - `anthropic-claude-opus-5` (Claude Opus 5)
   - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
   - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
   - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
   - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
   - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
   - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `google-gemini-3-pro-preview` (Gemini 3 Pro Preview)
-  - `meta-muse-spark` (Muse Spark)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
   - `moonshot-kimi-k3` (Kimi K3)
-  - `nvidia-nemotron-3-ultra` (Nemotron 3 Ultra)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
-  - `openai-gpt-5-4-pro` (GPT-5.4 Pro)
   - `openai-gpt-5-5` (GPT-5.5)
-  - `openai-gpt-5-5-pro` (GPT-5.5 Pro)
   - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
   - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
   - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
   - `xai-grok-4-5` (Grok 4.5)
   - `xai-grok-4-6` (Grok 4.6)
-  - `xiaomi-mimo-v2-5-pro` (MiMo V2.5 Pro)
-  - `zai-glm-5-1` (GLM-5.1)
   - `zai-glm-5-2` (GLM-5.2)
 
-### Scale N = 2 (41 complete models)
+### Scale N = 3 (17 complete models)
 
-- **Chosen Benchmarks (2)**: `livebench-instruction-following`, `livebench-reasoning`
-- **Covered Dimensions (5/8)**: reasoning, knowledge, language, instruction, context
-- **Complete Models (41)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-6-plus` (Qwen3.6 Plus)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
+- **Chosen Benchmarks (3)**: `aime`, `deepswe-1-1`, `frontier-code-1-1`
+- **Covered Dimensions (5/8)**: reasoning, math, coding, agentic, context
+- **Complete Models (17)**:
   - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
   - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
   - `anthropic-claude-opus-5` (Claude Opus 5)
   - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
   - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
   - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
   - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
   - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
   - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-1` (Muse Spark 1.1)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
   - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-2-codex` (GPT-5.2 Codex)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
   - `openai-gpt-5-5` (GPT-5.5)
   - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
   - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
   - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
   - `xai-grok-4-5` (Grok 4.5)
   - `xai-grok-4-6` (Grok 4.6)
-  - `xai-grok-build-0-1` (Grok Build 0.1)
   - `zai-glm-5-2` (GLM-5.2)
 
-### Scale N = 3 (41 complete models)
+### Scale N = 4 (17 complete models)
 
-- **Chosen Benchmarks (3)**: `livebench-instruction-following`, `livebench-mathematics`, `livebench-reasoning`
-- **Covered Dimensions (6/8)**: reasoning, math, knowledge, language, instruction, context
-- **Complete Models (41)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-6-plus` (Qwen3.6 Plus)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
+- **Chosen Benchmarks (4)**: `aime`, `deepswe-1-1`, `frontier-code-1-1`, `livebench-instruction-following`
+- **Covered Dimensions (7/8)**: reasoning, math, language, instruction, coding, agentic, context
+- **Complete Models (17)**:
   - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
   - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
   - `anthropic-claude-opus-5` (Claude Opus 5)
   - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
   - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
   - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
   - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
   - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
   - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-1` (Muse Spark 1.1)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
   - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-2-codex` (GPT-5.2 Codex)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
   - `openai-gpt-5-5` (GPT-5.5)
   - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
   - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
   - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `xai-grok-build-0-1` (Grok Build 0.1)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 4 (41 complete models)
-
-- **Chosen Benchmarks (4)**: `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
-- **Covered Dimensions (6/8)**: reasoning, math, knowledge, language, instruction, context
-- **Complete Models (41)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-6-plus` (Qwen3.6 Plus)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
-  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-1` (Muse Spark 1.1)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-2-codex` (GPT-5.2 Codex)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
-  - `openai-gpt-5-5` (GPT-5.5)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `xai-grok-build-0-1` (Grok Build 0.1)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 5 (37 complete models)
-
-- **Chosen Benchmarks (5)**: `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
-- **Covered Dimensions (6/8)**: reasoning, math, knowledge, language, instruction, context
-- **Complete Models (37)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
-  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
-  - `openai-gpt-5-5` (GPT-5.5)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
   - `xai-grok-4-5` (Grok 4.5)
   - `xai-grok-4-6` (Grok 4.6)
   - `zai-glm-5-2` (GLM-5.2)
 
-### Scale N = 6 (34 complete models)
+### Scale N = 5 (17 complete models)
 
-- **Chosen Benchmarks (6)**: `aime`, `chess-puzzles`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-reasoning`
-- **Covered Dimensions (6/8)**: reasoning, math, knowledge, language, instruction, context
-- **Complete Models (34)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
-  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
-  - `openai-gpt-5-5` (GPT-5.5)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 7 (34 complete models)
-
-- **Chosen Benchmarks (7)**: `aime`, `chess-puzzles`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
-- **Covered Dimensions (6/8)**: reasoning, math, knowledge, language, instruction, context
-- **Complete Models (34)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
-  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
-  - `openai-gpt-5-5` (GPT-5.5)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 8 (31 complete models)
-
-- **Chosen Benchmarks (8)**: `aime`, `chess-puzzles`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `simpleqa-verified`
-- **Covered Dimensions (6/8)**: reasoning, math, knowledge, language, instruction, context
-- **Complete Models (31)**:
-  - `alibaba-qwen3-7-max` (Qwen 3.7 Max)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-4-5` (Claude Opus 4.5)
-  - `anthropic-claude-opus-4-6` (Claude Opus 4.6)
-  - `anthropic-claude-opus-4-7` (Claude Opus 4.7)
-  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash` (Gemini 3.5 Flash)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `moonshot-kimi-k2-6` (Kimi K2.6)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-2` (GPT-5.2)
-  - `openai-gpt-5-4` (GPT-5.4)
-  - `openai-gpt-5-4-mini` (GPT-5.4 mini)
-  - `openai-gpt-5-4-nano` (GPT-5.4 nano)
-  - `openai-gpt-5-5` (GPT-5.5)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 9 (27 complete models)
-
-- **Chosen Benchmarks (9)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (7/8)**: reasoning, math, knowledge, instruction, coding, agentic, context
-- **Complete Models (27)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-7-plus` (Qwen3.7 Plus)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `nvidia-nemotron-3-ultra` (Nemotron 3 Ultra)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `xiaomi-mimo-v2-5-pro` (MiMo V2.5 Pro)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 10 (24 complete models)
-
-- **Chosen Benchmarks (10)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (24)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 11 (24 complete models)
-
-- **Chosen Benchmarks (11)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (24)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 12 (24 complete models)
-
-- **Chosen Benchmarks (12)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (24)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 13 (24 complete models)
-
-- **Chosen Benchmarks (13)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (24)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-8-27b` (Qwen3.8 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `meta-muse-spark-1-2` (Muse Spark 1.2)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-3` (Grok 4.3)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 14 (21 complete models)
-
-- **Chosen Benchmarks (14)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (21)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 15 (21 complete models)
-
-- **Chosen Benchmarks (15)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (21)**:
-  - `alibaba-qwen3-6-27b` (Qwen3.6 27B)
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-5-flash-lite` (Gemini 3.5 Flash-Lite)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `minimax-minimax-m3` (MiniMax M3)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 16 (18 complete models)
-
-- **Chosen Benchmarks (16)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (18)**:
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
-  - `anthropic-claude-fable-5` (Claude Fable 5)
-  - `anthropic-claude-opus-5` (Claude Opus 5)
-  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
-  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
-  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
-  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
-  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
-  - `moonshot-kimi-k3` (Kimi K3)
-  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
-  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
-  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
-  - `thinking-machines-inkling` (Inkling)
-  - `xai-grok-4-5` (Grok 4.5)
-  - `xai-grok-4-6` (Grok 4.6)
-  - `zai-glm-5-2` (GLM-5.2)
-
-### Scale N = 17 (17 complete models)
-
-- **Chosen Benchmarks (17)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`
+- **Chosen Benchmarks (5)**: `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `livebench-instruction-following`
 - **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
 - **Complete Models (17)**:
-  - `alibaba-qwen3-8-max` (Qwen3.8 Max)
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-5` (GPT-5.5)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 6 (17 complete models)
+
+- **Chosen Benchmarks (6)**: `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (17)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-5` (GPT-5.5)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 7 (17 complete models)
+
+- **Chosen Benchmarks (7)**: `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (17)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-5` (GPT-5.5)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 8 (17 complete models)
+
+- **Chosen Benchmarks (8)**: `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (17)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-5` (GPT-5.5)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 9 (17 complete models)
+
+- **Chosen Benchmarks (9)**: `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (17)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-5` (GPT-5.5)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 10 (17 complete models)
+
+- **Chosen Benchmarks (10)**: `aime`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `simpleqa-verified`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (17)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-4-8` (Claude Opus 4.8)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-4-6` (Claude Sonnet 4.6)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-5` (GPT-5.5)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 11 (14 complete models)
+
+- **Chosen Benchmarks (11)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
   - `anthropic-claude-fable-5` (Claude Fable 5)
   - `anthropic-claude-opus-5` (Claude Opus 5)
   - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
   - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
   - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
   - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
   - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
-  - `moonshot-kimi-k2-7-code` (Kimi K2.7 Code)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 12 (14 complete models)
+
+- **Chosen Benchmarks (12)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 13 (14 complete models)
+
+- **Chosen Benchmarks (13)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 14 (14 complete models)
+
+- **Chosen Benchmarks (14)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 15 (14 complete models)
+
+- **Chosen Benchmarks (15)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 16 (14 complete models)
+
+- **Chosen Benchmarks (16)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
+  - `moonshot-kimi-k3` (Kimi K3)
+  - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
+  - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
+  - `openai-gpt-5-6-terra` (GPT-5.6 Terra)
+  - `xai-grok-4-5` (Grok 4.5)
+  - `xai-grok-4-6` (Grok 4.6)
+  - `zai-glm-5-2` (GLM-5.2)
+
+### Scale N = 17 (14 complete models)
+
+- **Chosen Benchmarks (17)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`
+- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Complete Models (14)**:
+  - `anthropic-claude-fable-5` (Claude Fable 5)
+  - `anthropic-claude-opus-5` (Claude Opus 5)
+  - `anthropic-claude-sonnet-5` (Claude Sonnet 5)
+  - `deepseek-deepseek-v4-flash` (DeepSeek V4 Flash)
+  - `deepseek-deepseek-v4-pro` (DeepSeek V4 Pro)
+  - `google-gemini-3-6-flash` (Gemini 3.6 Flash)
+  - `google-gemini-3-7-flash` (Gemini 3.7 Flash)
   - `moonshot-kimi-k3` (Kimi K3)
   - `openai-gpt-5-6-luna` (GPT-5.6 Luna)
   - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
@@ -698,12 +441,11 @@ Complete qualified base-model lists for each optimal combination in the tradeoff
   - `openai-gpt-5-6-sol` (GPT-5.6 Sol)
   - `zai-glm-5-2` (GLM-5.2)
 
-### Scale N = 21 (2 complete models)
+### Scale N = 21 (1 complete models)
 
-- **Chosen Benchmarks (21)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `apex-agents`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`
+- **Chosen Benchmarks (21)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `apex-agents`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `ifbench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`
 - **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Complete Models (2)**:
-  - `google-gemini-3-1-pro-preview` (Gemini 3.1 Pro Preview)
+- **Complete Models (1)**:
   - `zai-glm-5-2` (GLM-5.2)
 
 ### Scale N = 22 (1 complete models)

@@ -244,6 +244,14 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 
 報告供使用者在每期審核時判讀，決定是否調整 `display-set.json`。**代理不得自行調整顯示清單。**
 
+**必選 benchmark（2026-08-22 新增）**：報告接受 `--require`，把指定的 benchmark 釘進每一個候選組合。未加約束時最佳化可以靠**移除整個來源**來衝高模型數——實例是 2026-08-22 的 N=17，它把 `frontier-code-1-1` 拿掉才到 15 個模型。使用者已裁決 `deepswe-1-1` 與 `frontier-code-1-1` 是必要來源，因此期二之後的審核用：
+
+```bash
+pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
+```
+
+不是 active benchmark 的 ID 會讓命令失敗，不會被靜默忽略。
+
 ### 5.4 開發者模式
 
 只負責一件事：顯示被排除的模型缺哪些格子。

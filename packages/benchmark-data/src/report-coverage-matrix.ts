@@ -15,13 +15,25 @@ export interface ReportCoverageMatrixCliOptions {
   repositoryRoot?: string;
   referenceDate?: string;
   outputPath?: string;
+  /**
+   * Benchmarks every combination in the curve must contain, from repeated
+   * `--require <id>` flags or one comma-separated `--require=a,b`.
+   */
+  requiredBenchmarkIds?: string[];
 }
+
+const splitRequired = (value: string): string[] =>
+  value
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter((entry) => entry.length > 0);
 
 export const parseReportArgs = (
   args: readonly string[],
 ): ReportCoverageMatrixCliOptions => {
   const options: ReportCoverageMatrixCliOptions = {};
   const positional: string[] = [];
+  const required: string[] = [];
 
   for (let i = 0; i < args.length; i++) {
     const arg = args[i]!;
@@ -43,6 +55,14 @@ export const parseReportArgs = (
       options.outputPath = arg.slice('--output='.length);
     } else if (arg.startsWith('--out=')) {
       options.outputPath = arg.slice('--out='.length);
+    } else if (arg === '--require') {
+      const next = args[++i];
+      if (!next) {
+        throw new Error(`Missing value for ${arg}`);
+      }
+      required.push(...splitRequired(next));
+    } else if (arg.startsWith('--require=')) {
+      required.push(...splitRequired(arg.slice('--require='.length)));
     } else if (arg === '--root' || arg === '-r') {
       const next = args[++i];
       if (!next) {
@@ -59,6 +79,9 @@ export const parseReportArgs = (
   const firstPositional = positional[0];
   if (!options.repositoryRoot && firstPositional !== undefined) {
     options.repositoryRoot = firstPositional;
+  }
+  if (required.length > 0) {
+    options.requiredBenchmarkIds = required;
   }
 
   return options;
@@ -99,6 +122,9 @@ export const generateCoverageMatrixReport = async (
   const analysis = analyzeCoverageMatrix({
     ...workspaceData,
     referenceDate,
+    ...(options.requiredBenchmarkIds
+      ? { requiredBenchmarkIds: options.requiredBenchmarkIds }
+      : {}),
   });
 
   const markdown = await formatWithPrettier(
@@ -126,6 +152,7 @@ export const runReportCoverageMatrixCli = async (
     `- Reference Date: ${analysis.referenceDate}`,
     `- Qualified Models: ${analysis.qualifiedModels.length}`,
     `- Active Benchmarks: ${analysis.activeBenchmarkIds.length}`,
+    `- Required Benchmarks: ${analysis.requiredBenchmarkIds.length === 0 ? 'none' : analysis.requiredBenchmarkIds.join(', ')}`,
     `- Tradeoff Scale Rows: ${analysis.tradeoffs.length}`,
   ].join('\n');
 };
