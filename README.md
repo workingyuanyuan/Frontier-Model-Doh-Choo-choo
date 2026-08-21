@@ -1,107 +1,161 @@
 # LLM Bench
 
-LLM Bench 是一個以可追溯靜態資料為核心的前沿模型 Dashboard。產品使用單一目前的 `ProductVersion` 提供三個主要視圖：
+前沿大語言模型（Frontier LLMs）綜合能力與性價比評測看板。
 
-- Leaderboard：完整顯示清單模型的綜合分數與八維能力。
-- Quality vs. Cost：跨來源正規化成本與效能曲線。
-- Eight Dimensions：八維雷達圖、Category score 與分數證據。
+本專案整合多個第三方評測來源，將模型表現拆解為八項核心能力維度，並結合實際呼叫成本，提供直觀的評測數據與分析視圖。
 
-## 支援中的架構
+---
+
+## 核心特色
+
+- **八維能力拆解**
+  將模型能力細分為推理（Reasoning）、數學（Math）、知識（Knowledge）、語言（Language）、指令遵循（Instruction）、程式碼（Coding）、智慧體（Agentic）、長上下文（Context）等八個領域。
+- **成本與效能分佈**
+  結合任務呼叫成本（USD / 任務或百萬 Token 價格）與綜合分數，直觀呈現各模型的性價比位置。
+- **原始資料追溯**
+  每項評測數據均記錄來源網址、採集時間與原始快照內容雜湊，確保資料來源可供查核。
+- **推理強度分級**
+  針對支援思考推理的模型，依據不同的推理強度（`non-reasoning < low < medium < high < xhigh < max`）個別記錄與評分，避免混淆不同運算設定下的表現。
+- **開發者檢視模式**
+  提供切換選項，可查看尚未通過完整評測項目門檻的模型，以及其缺少的測試項目清單。
+
+---
+
+## 看板功能導覽
+
+| 視圖                                    | 功能說明                                                                                         |
+| :-------------------------------------- | :----------------------------------------------------------------------------------------------- |
+| **綜合天梯榜 (Leaderboard)**            | 條列各模型的綜合評分、各項維度得分、推理強度與發布日期。支援模型選取、排序與側邊欄詳細資料抽屜。 |
+| **成本與效能分佈圖 (Quality vs. Cost)** | 互動式散佈圖，支援對數座標切換與不同基準任務切換，方便觀察效能與成本的對應關係。                 |
+| **八維能力雷達圖 (Eight Dimensions)**   | 支援同時選取多個模型進行能力雷達圖疊加對比，快速了解各模型的強項與短板。                         |
+| **開發者檢視模式 (Developer Mode)**     | 開啟後可查看因測試項目未齊全而未列入主榜的模型，以及其缺少的評測項目。                           |
+
+---
+
+## 能力維度與評測來源
+
+本專案整合來自多個公開評測的數據（如 [Artificial Analysis](https://artificialanalysis.ai/)、[LiveBench](https://livebench.ai/)、[DeepSWE](https://deepswe.datacurve.ai/)、[Frontier Code](https://cognition.com/frontiercode) 等），並依據測試性質歸納至單一主要能力維度：
 
 ```text
-apps/bench/                  Next.js 單頁 Dashboard
-packages/benchmark-data/     Schema、身份、Profile、計分與產品資料 CLI
-packages/acquisition/        來源快照、成本物化、artifact 與完整性驗證
-data-v2/mappings/            Benchmark、模型、Frontier 與 Profile 設定
-data-v2/sources/             manifest、evidence、candidate、cost 與驗證報告
-data-v2/product/current.json 單一目前 ProductVersion
-artifacts-v2/                Git 外、內容定址的原始來源 bytes
+┌───────────────────────────────────────────────────────────┐
+│                    八大能力維度 (Dimensions)                │
+├─────────────┬─────────────┬─────────────┬─────────────────┤
+│ 推理        │ 數學        │ 知識        │ 語言            │
+│ (Reasoning) │ (Math)      │ (Knowledge) │ (Language)      │
+├─────────────┼─────────────┼─────────────┼─────────────────┤
+│ 指令遵循    │ 程式碼      │ 智慧體      │ 長上下文        │
+│(Instruction)│ (Coding)    │ (Agentic)   │ (Context)       │
+└─────────────┴─────────────┴─────────────┴─────────────────┘
 ```
 
-專案不使用 Docker、PostgreSQL、Drizzle、背景 Worker 或執行期資料庫。舊 Web、LiveBench 專用 publication、Edition、影片、雙語／雙主題／多頁介面及 PREVIEW／FORMAL 契約均已移除或標記為 Superseded，不是相容介面。
+詳細的評分計算方式與維度映射規則，請參閱 [計分方法說明](docs/SCORING_METHODOLOGY.md) 與 [維度映射手冊](docs/BENCHMARK_DIMENSION_MAPPING.md)。
 
-## 環境
+---
 
-- Node.js 24+
-- pnpm 11+
+## 快速上手
+
+### 系統需求
+
+- Node.js >= 24.0.0
+- pnpm >= 11.0.0
+
+### 安裝與啟動
 
 ```bash
+# 安裝依賴套件
 pnpm install --frozen-lockfile
+
+# 啟動開發伺服器
+pnpm dev
 ```
 
-不需要 Docker Desktop、資料庫或來源網站連線即可測試、建置及顯示已存在的 ProductVersion。
+啟動後，在瀏覽器打開 `http://localhost:3000` 即可檢視看板。
 
-## 資料刷新與目前版本
+---
 
-刷新支援來源的結構化快照與成本：
+## 專案結構
+
+本專案採用 Turborepo 與 pnpm workspace 管理：
+
+```text
+├── apps/
+│   └── bench/                  # Next.js 單頁前端看板
+├── packages/
+│   ├── benchmark-data/         # 核心資料處理：資料格式定義、評分演算法與資料庫工具
+│   └── acquisition/            # 資料擷取工具：來源資料抓取、成本計算與快照驗證
+├── data-v2/
+│   ├── mappings/               # 模型設定、維度映射與顯示門檻設定
+│   ├── sources/                # 來源快照清單、驗證紀錄與原始數據
+│   └── product/current.json    # 發布用最新整合資料檔
+├── artifacts-v2/               # 原始快照內容儲存目錄
+└── docs/                       # 設計規格、資料方法論與操作文件
+```
+
+---
+
+## 資料更新流程
+
+如需從外部來源更新最新評測數據：
+
+### 1. 擷取來源資料與成本
 
 ```bash
+# 刷新各評測來源的最新資料
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
+
+# 產出推理強度對齊報告
 pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
-四個刷新命令都要求先核對渲染後頁面的可見母體數。Artificial Analysis 擷取會讀取 gitignored 的 `.env.local` 中的
-`ARTIFICIAL_ANALYSIS_API_KEY` 做交叉驗證；頁面 RSC 管道在金鑰失效時仍可單獨完成。
-Frontier Code 刷新前需以渲染後 DOM 核對列數與 Top 10，再把實測列數傳入命令；
-腳本會將官方靜態 JSON 的完整 Main 設定與頁面 JSON-LD Top 10 交叉驗證。
-四站完成後執行 `materialize:effort-reports`，以同一 policy 產生不改寫來源
-`profile.effort` 的跨來源推測表；表格保持 `PENDING USER REVIEW`。
-
-驗證來源後，建立單一 `data-v2/product/current.json`：
+### 2. 產出整合資料檔
 
 ```bash
+# 驗證來源資料並建立 data-v2/product/current.json
 pnpm data:v2:build-current
 ```
 
-這個檔案包含由內容 SHA-256 計算的 `versionId`，Dashboard 建置固定讀取它；頁尾會顯示完整 ID。刷新與建立目前版本不會自動代表發布，必須由使用者審核變更後再提交資料 commit。
-
-使用目前資料開發或建置：
+### 3. 建置與端到端測試
 
 ```bash
-pnpm --filter @llm-bench/bench dev
+# 建置前端靜態頁面
 pnpm --filter @llm-bench/bench build
+
+# 執行 Playwright 測試驗證看板功能
+pnpm e2e
 ```
 
-若要回復已部署資料，請 `git revert` 對應的資料 commit，然後重新部署；不要以指令改寫版本狀態。
+---
 
-## Dashboard 顯示規則
-
-- 主畫面只顯示在 `data-v2/mappings/display-set.json` 每個 benchmark 都有
-  INCLUDED、非 null normalized score，且八個維度都可渲染的代表 Profile。
-- 右上角無文字 switch 是 Developer mode；開啟後顯示被完整矩陣門檻排除的模型及其缺少的 benchmark 格子。
-- Developer mode 不計算或顯示被排除模型的 Overall／維度聚合值。
-- Representative Profile 取該模型測得 Overall Score 最高者，分數相同時以 `profileId` 字典序決勝；主畫面只保留通過顯示清單的 Profile，避免切換 effort 重新引入缺格資料。
-- Profile selector 只區分 reasoning effort；Harness、tools、attempt、thinking 與 context 設定不建立 Product Profile。
-- Product effort 階梯為 `non-reasoning < low < medium < high < xhigh < max`；無其他來源依據的未標列使用階梯外的 `default`，不得當成 `max`。
-
-## 驗證
+## 程式碼品質與測試
 
 ```bash
-pnpm install --frozen-lockfile
-pnpm format
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm --filter @llm-bench/bench build
-pnpm e2e  # 必須排在 build 之後：webServer 服務靜態匯出產物 apps/bench/out
+pnpm format       # 程式碼格式檢查 (Prettier)
+pnpm lint         # 語法與規範檢查 (ESLint)
+pnpm typecheck    # TypeScript 型別檢查
+pnpm test         # 單元與整合測試 (Vitest)
+pnpm e2e          # 端到端自動化測試 (Playwright)
 ```
 
-## 權威文件
+---
 
-- [文件索引與閱讀順序](docs/README.md)
-- [第二次重構規格（現行唯一權威）](docs/REFACTOR_SPEC_V2.md)
-- [第二次重構任務計畫](tasks/claude-code-plan.md)
-- [專案現況與歷史交接](docs/PROJECT_HANDOFF.md)
-- [架構](docs/ARCHITECTURE.md)
-- [資料方法](docs/DATA_METHODOLOGY.md)
-- [計分方法](docs/SCORING_METHODOLOGY.md)
-- [操作與資料流程](docs/OPERATIONS.md)
-- [已捨棄項目](docs/REFACTOR_DISCARD_LIST.md)
-- [第一次重構規格（歷史考證）](docs/REFACTOR_SPEC.md)
-- [Benchmark 八維映射](docs/BENCHMARK_DIMENSION_MAPPING.md)
-- [可採用成績來源](docs/BENCHMARK_SCORE_SOURCES.md)
+## 相關文件
 
-外部評測結果仍屬其發布者。專案保存 URL、取得方法、原始值、標準化值、來源 Profile 與 evidence；不繞過登入、付費牆、CAPTCHA 或存取控制。
+| 文件                                                                                 | 說明                                     |
+| :----------------------------------------------------------------------------------- | :--------------------------------------- |
+| [文件索引 (docs/README.md)](docs/README.md)                                          | 完整文件清單與閱讀順序                   |
+| [架構設計 (ARCHITECTURE.md)](docs/ARCHITECTURE.md)                                   | 系統架構、目錄分工與資料流說明           |
+| [資料方法論 (DATA_METHODOLOGY.md)](docs/DATA_METHODOLOGY.md)                         | 模型定義、設定判定與成本計算規則         |
+| [計分方法論 (SCORING_METHODOLOGY.md)](docs/SCORING_METHODOLOGY.md)                   | 分數標準化方式、缺值處理與綜合分數演算法 |
+| [維度映射手冊 (BENCHMARK_DIMENSION_MAPPING.md)](docs/BENCHMARK_DIMENSION_MAPPING.md) | 各項評測集與八大能力的映射定義與注意事項 |
+| [維護與操作手冊 (OPERATIONS.md)](docs/OPERATIONS.md)                                 | 資料更新、審核流程與發布步驟             |
+
+---
+
+## 資料來源與聲明
+
+- 外部評測基準成績之智慧財產權與數據歸屬於各原發布機構。
+- 本專案記錄原始出處網址、採集時間與原始快照內容，以便追溯。
+- 本專案不繞過任何登入驗證、付費機制或存取限制。
