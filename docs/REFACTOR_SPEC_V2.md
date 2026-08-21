@@ -324,6 +324,27 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
 - Artificial Analysis 的 **token 單價**（`pricing.price_1m_*`）**不進成本圖**。它與 LiveBench 的 `cost_per_successful_task`、DeepSWE 的 `mean_cost_usd` 是不同的東西，混在同一根軸上會導致錯誤的選模決定，而且看不出來錯在哪。
 - Artificial Analysis 進成本圖的是它自己的**任務成本**（`intelligenceIndexCostPerTask`），從 `/models` 或 `/models/<slug>` 頁面取得。
 
+**軸的縮放規則**（2026-08-21 補定）
+
+兩張圖的三根固定 0–100 軸都改為**依當前繪製的資料動態縮放**：預設圖的 Y（Overall
+Score）、預設圖的 X（成本指數）、進階圖的 Y（來源分數）。進階圖的 X（USD）本來就是動態。
+
+- 定義域取自**當前實際畫出來的點**，不是全體資料。進階圖有序列被關閉時（見下），關閉的
+  序列不參與定義域計算，軸要跟著重算。
+- 上下各留一點邊距，並收斂到整齊的刻度值，避免出現 61.37 這種刻度。
+- 只剩一個點、或所有點同值時仍須產生有寬度的定義域，不得除以零或畫出退化的軸。
+- **軸標題必須寫出實際範圍**（例如 `Overall Score (60–75, higher is better)`），取代寫死的
+  `0–100`。這是截斷軸唯一的揭露方式：2026-08-21 決定不另加圖下說明文字，因此標題與刻度
+  是讀圖者判斷比例的全部依據，不得省略。
+
+**進階圖的序列可見性**（2026-08-21 補定）
+
+進階圖的可讀性會被少數高成本模型破壞——它們把 X 軸拉長，其餘曲線全被擠在左緣。右側既有
+的 `Sources and effort profiles` 圖例因此改為**可見性控制**：每一條序列可以個別關閉與開啟，
+關閉的序列不畫線、不畫點，也不參與軸的定義域。控制項必須是原生可聚焦元件（例如
+`<input type="checkbox">`），不得用 `role` 覆寫 `<li>`——那會同時破壞 list 結構並觸發
+nested-interactive，是已經實測過的 axe serious 違規。
+
 **資料點的懸停資訊**（2026-08-21 補定）
 
 兩張圖的資料點不得依賴 SVG 原生 `<title>` 顯示明細。瀏覽器對原生 tooltip 有固定約
