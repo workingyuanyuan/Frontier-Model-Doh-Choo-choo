@@ -1248,9 +1248,19 @@ axe 與 390px 無溢出維持通過。
 捲入畫面再點擊，平滑捲動仍在進行時座標已經改變，於是點到當下位於該座標的其他元素。
 行動版頁面較長、捲動距離較大，因此只有 mobile project 中彈；桌面與本機只是運氣好。
 
-**做法**：`playwright.config.ts` 的 `use` 加上 `reducedMotion: 'reduce'`。樣式表在
-`prefers-reduced-motion: reduce` 下本來就把 `scroll-behavior` 關成 `auto`
-（`globals.css:1153–1156`），因此這是走專案既有路徑讓 e2e 具決定性，**不改動產品行為**，
-也不需要在個別測試裡加 `force: true` 或等待。
+**第一次判斷錯誤（記錄下來以免重犯）**：先歸因於 `globals.css:43` 的
+`html { scroll-behavior: smooth }`，在 `playwright.config.ts` 加了 `reducedMotion: 'reduce'`
+後推上去，CI **仍然失敗**在同一行。平滑捲動不是原因。該設定本身是合理的（樣式表在
+`prefers-reduced-motion: reduce` 下確實會把 `scroll-behavior` 關成 `auto`，讓 e2e 更具
+決定性），因此保留，但它不是修正。
+
+**真正的原因**：測試點的是那顆 `0.875rem`（14px）的 `<input type="checkbox">` 本體。
+它位於一個 `max-height: 16rem`、`overflow-y: auto`、42 列的內捲清單中（行動版斷點），
+命中測試的中心點在 CI 的字體度量與捲動位置下會落在鄰列 checkbox、`aside`、`svg` 或
+`main` 上，攔截者每次不同。
+
+**做法**：改點整列的 `<label class="cost-legend-checkbox-label">`——那是全寬、使用者實際
+會點的控制項，點它會原生切換該 checkbox；先 `scrollIntoViewIfNeeded()` 再點。斷言仍然
+檢查 `<input>` 的 checked 狀態，覆蓋範圍沒有縮水，也沒有用 `force: true` 掩蓋問題。
 
 **完成條件**：CI 兩個 project 皆綠。
