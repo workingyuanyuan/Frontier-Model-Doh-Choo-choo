@@ -85,6 +85,30 @@ test('supports in-row leaderboard expansion with multiple rows open simultaneous
   }
 });
 
+test('shows the cost point hover card immediately on hover and on focus', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const point = page.locator('.cost-point').first();
+  await expect(point).toBeVisible();
+  // The native SVG tooltip is gone; nothing may re-introduce its ~1s delay.
+  expect(await page.locator('.cost-point title').count()).toBe(0);
+  await expect(page.locator('.cost-hover-card')).toHaveCount(0);
+
+  await point.hover();
+  await expect(page.locator('.cost-hover-card')).toBeVisible({ timeout: 300 });
+  await expect(page.locator('.cost-hover-card')).toContainText('Overall Score');
+
+  await page.mouse.move(0, 0);
+  await expect(page.locator('.cost-hover-card')).toHaveCount(0);
+
+  await point.focus();
+  await expect(page.locator('.cost-hover-card')).toBeVisible({ timeout: 300 });
+  await point.blur();
+  await expect(page.locator('.cost-hover-card')).toHaveCount(0);
+});
+
 test('switching effort updates the selected model scores', async ({ page }) => {
   await page.goto('/');
   const select = page.getByRole('combobox', {

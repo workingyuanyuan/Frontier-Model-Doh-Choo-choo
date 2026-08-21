@@ -1467,6 +1467,118 @@ details[open] > .evidence-group-summary::before {
   stroke-width: 4;
 }
 
+.cost-chart-canvas {
+  position: relative;
+  width: 100%;
+}
+
+.cost-hover-card {
+  background: var(--surface);
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  max-width: min(18rem, calc(100% - 2rem));
+  min-width: 11rem;
+  padding: 0.625rem 0.75rem;
+  pointer-events: none;
+  position: absolute;
+  white-space: normal;
+  z-index: 20;
+}
+
+.cost-hover-card-header {
+  align-items: center;
+  display: flex;
+  gap: 0.375rem;
+  margin-bottom: 0.25rem;
+}
+
+.cost-hover-card .provider-dot {
+  border-radius: 999px;
+  display: inline-block;
+  flex: none;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.cost-hover-card-title {
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 750;
+}
+
+.cost-hover-card-meta {
+  color: var(--ink-soft);
+  font-size: 0.6875rem;
+  margin-bottom: 0.375rem;
+}
+
+.cost-hover-card-metrics {
+  display: grid;
+  gap: 0.125rem;
+}
+
+.cost-hover-card-row {
+  align-items: baseline;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.cost-hover-card-label {
+  color: var(--ink-soft);
+  font-size: 0.6875rem;
+}
+
+.cost-hover-card-value {
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.cost-hover-card-sources {
+  border-top: 0.0625rem solid var(--line);
+  margin-top: 0.375rem;
+  padding-top: 0.375rem;
+}
+
+.cost-hover-card-sources-title {
+  color: var(--ink-soft);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.cost-hover-card-source-list {
+  display: grid;
+  gap: 0.125rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cost-hover-card-source-item {
+  align-items: baseline;
+  color: var(--ink-soft);
+  display: flex;
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.cost-hover-card-source-item span:last-child {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 .cost-frontier-caption {
   color: var(--ink-faint);
   font-size: 0.75rem;

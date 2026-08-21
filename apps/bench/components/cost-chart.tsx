@@ -60,13 +60,33 @@ const defaultPointIsSelected = (
   point.profileId === selectedProfileId ||
   point.selectedProfileIds.includes(selectedProfileId);
 
-function DefaultCostPlot({
+function getCardTransform(x: number, y: number): string {
+  const flipX = x > 340;
+  const flipYTop = y < 110;
+  const flipYBottom = y > 290;
+
+  const translateX = flipX ? 'calc(-100% - 12px)' : '12px';
+  const translateY = flipYTop
+    ? '6px'
+    : flipYBottom
+      ? 'calc(-100% - 6px)'
+      : '-50%';
+
+  return `translate(${translateX}, ${translateY})`;
+}
+
+export function DefaultCostPlot({
   points,
   selectedProfileId,
+  initialActivePoint = null,
 }: {
   points: WeightedCostPoint[];
   selectedProfileId: string;
+  initialActivePoint?: WeightedCostPoint | null;
 }) {
+  const [activePoint, setActivePoint] = useState<WeightedCostPoint | null>(
+    initialActivePoint,
+  );
   const frontier = getCostParetoFrontier(points);
   const left = 58;
   const right = 610;
@@ -87,122 +107,199 @@ function DefaultCostPlot({
       {points.length > 0 ? (
         <div className="cost-curve-layout">
           <div className="cost-plot-wrap">
-            <svg
-              className="cost-curve-chart"
-              viewBox="0 0 660 405"
-              role="img"
-              aria-label="Overall Score versus weighted normalized task cost. The value frontier connects non-dominated models toward the upper left."
-            >
-              {tickValues.map((tick) => (
-                <g key={`y-${tick}`}>
-                  <line
-                    className="cost-grid-line"
-                    x1={left}
-                    y1={y(tick)}
-                    x2={right}
-                    y2={y(tick)}
-                  />
-                  <text
-                    className="cost-tick-label"
-                    x={left - 10}
-                    y={y(tick) + 4}
-                    textAnchor="end"
-                  >
-                    {tick}
-                  </text>
-                </g>
-              ))}
-              {tickValues.map((tick) => (
-                <g key={`x-${tick}`}>
-                  <line
-                    className="cost-grid-line"
-                    x1={x(tick)}
-                    y1={top}
-                    x2={x(tick)}
-                    y2={bottom}
-                  />
-                  <text
-                    className="cost-tick-label"
-                    x={x(tick)}
-                    y={bottom + 22}
-                    textAnchor="middle"
-                  >
-                    {tick}
-                  </text>
-                </g>
-              ))}
-              <line
-                className="chart-axis"
-                x1={left}
-                y1={bottom}
-                x2={right}
-                y2={bottom}
-              />
-              <line
-                className="chart-axis"
-                x1={left}
-                y1={top}
-                x2={left}
-                y2={bottom}
-              />
-              <text
-                className="cost-axis-title"
-                x={(left + right) / 2}
-                y="397"
-                textAnchor="middle"
+            <div className="cost-chart-canvas">
+              <svg
+                className="cost-curve-chart"
+                viewBox="0 0 660 405"
+                role="img"
+                aria-label="Overall Score versus weighted normalized task cost. The value frontier connects non-dominated models toward the upper left."
               >
-                Weighted normalized task cost index (0–100, lower is better)
-              </text>
-              <text
-                className="cost-axis-title"
-                x="15"
-                y={(top + bottom) / 2}
-                textAnchor="middle"
-                transform={`rotate(-90 15 ${(top + bottom) / 2})`}
-              >
-                Overall Score (0–100, higher is better)
-              </text>
-              <text className="cost-direction-label" x={left + 8} y={top + 15}>
-                Better value ↖
-              </text>
-              {frontierPath ? (
-                <path
-                  className="cost-frontier-line"
-                  d={frontierPath}
-                  aria-hidden="true"
+                {tickValues.map((tick) => (
+                  <g key={`y-${tick}`}>
+                    <line
+                      className="cost-grid-line"
+                      x1={left}
+                      y1={y(tick)}
+                      x2={right}
+                      y2={y(tick)}
+                    />
+                    <text
+                      className="cost-tick-label"
+                      x={left - 10}
+                      y={y(tick) + 4}
+                      textAnchor="end"
+                    >
+                      {tick}
+                    </text>
+                  </g>
+                ))}
+                {tickValues.map((tick) => (
+                  <g key={`x-${tick}`}>
+                    <line
+                      className="cost-grid-line"
+                      x1={x(tick)}
+                      y1={top}
+                      x2={x(tick)}
+                      y2={bottom}
+                    />
+                    <text
+                      className="cost-tick-label"
+                      x={x(tick)}
+                      y={bottom + 22}
+                      textAnchor="middle"
+                    >
+                      {tick}
+                    </text>
+                  </g>
+                ))}
+                <line
+                  className="chart-axis"
+                  x1={left}
+                  y1={bottom}
+                  x2={right}
+                  y2={bottom}
                 />
+                <line
+                  className="chart-axis"
+                  x1={left}
+                  y1={top}
+                  x2={left}
+                  y2={bottom}
+                />
+                <text
+                  className="cost-axis-title"
+                  x={(left + right) / 2}
+                  y="397"
+                  textAnchor="middle"
+                >
+                  Weighted normalized task cost index (0–100, lower is better)
+                </text>
+                <text
+                  className="cost-axis-title"
+                  x="15"
+                  y={(top + bottom) / 2}
+                  textAnchor="middle"
+                  transform={`rotate(-90 15 ${(top + bottom) / 2})`}
+                >
+                  Overall Score (0–100, higher is better)
+                </text>
+                <text
+                  className="cost-direction-label"
+                  x={left + 8}
+                  y={top + 15}
+                >
+                  Better value ↖
+                </text>
+                {frontierPath ? (
+                  <path
+                    className="cost-frontier-line"
+                    d={frontierPath}
+                    aria-hidden="true"
+                  />
+                ) : null}
+                {points.map((point) => {
+                  const selected = defaultPointIsSelected(
+                    point,
+                    selectedProfileId,
+                  );
+                  const onFrontier = frontier.some(
+                    ({ profileId }) => profileId === point.profileId,
+                  );
+                  return (
+                    <circle
+                      key={point.modelId}
+                      className={`cost-point${selected ? ' is-selected' : ''}${onFrontier ? ' is-frontier' : ''}`}
+                      cx={x(point.normalizedCost)}
+                      cy={y(point.performance)}
+                      r={selected ? 8 : 6}
+                      fill={providerColor(point.providerId)}
+                      tabIndex={0}
+                      role="img"
+                      aria-label={`${point.displayName}. Overall Score ${point.performance.toFixed(1)}. Weighted normalized task cost ${point.normalizedCost.toFixed(1)}. ${point.sourceCount} source${point.sourceCount === 1 ? '' : 's'}. ${onFrontier ? 'On the value frontier.' : ''}`}
+                      onPointerEnter={() => setActivePoint(point)}
+                      onPointerLeave={() =>
+                        setActivePoint((current) =>
+                          current?.modelId === point.modelId ? null : current,
+                        )
+                      }
+                      onFocus={() => setActivePoint(point)}
+                      onBlur={() =>
+                        setActivePoint((current) =>
+                          current?.modelId === point.modelId ? null : current,
+                        )
+                      }
+                    />
+                  );
+                })}
+              </svg>
+              {activePoint ? (
+                <div
+                  className="cost-hover-card"
+                  role="tooltip"
+                  aria-hidden="true"
+                  style={{
+                    left: `${((x(activePoint.normalizedCost) / 660) * 100).toFixed(2)}%`,
+                    top: `${((y(activePoint.performance) / 405) * 100).toFixed(2)}%`,
+                    transform: getCardTransform(
+                      x(activePoint.normalizedCost),
+                      y(activePoint.performance),
+                    ),
+                  }}
+                >
+                  <div className="cost-hover-card-header">
+                    <span
+                      className="provider-dot"
+                      style={{
+                        backgroundColor: providerColor(activePoint.providerId),
+                      }}
+                      aria-hidden="true"
+                    />
+                    <strong className="cost-hover-card-title">
+                      {activePoint.displayName}
+                    </strong>
+                  </div>
+                  <div className="cost-hover-card-metrics">
+                    <div className="cost-hover-card-row">
+                      <span className="cost-hover-card-label">
+                        Overall Score:
+                      </span>
+                      <span className="cost-hover-card-value">
+                        {activePoint.performance.toFixed(1)}
+                      </span>
+                    </div>
+                    <div className="cost-hover-card-row">
+                      <span className="cost-hover-card-label">
+                        Weighted cost index:
+                      </span>
+                      <span className="cost-hover-card-value">
+                        {activePoint.normalizedCost.toFixed(1)}
+                      </span>
+                    </div>
+                  </div>
+                  {activePoint.sourceCosts.length > 0 ? (
+                    <div className="cost-hover-card-sources">
+                      <div className="cost-hover-card-sources-title">
+                        Source task costs
+                      </div>
+                      <ul className="cost-hover-card-source-list">
+                        {activePoint.sourceCosts.map((source) => (
+                          <li
+                            key={source.sourceId}
+                            className="cost-hover-card-source-item"
+                          >
+                            <span>
+                              {sourceName(source.sourceId)} ({source.profileId})
+                              :
+                            </span>
+                            <span>${source.cost.toFixed(3)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
               ) : null}
-              {points.map((point) => {
-                const selected = defaultPointIsSelected(
-                  point,
-                  selectedProfileId,
-                );
-                const onFrontier = frontier.some(
-                  ({ profileId }) => profileId === point.profileId,
-                );
-                const sourceSummary = point.sourceCosts
-                  .map(
-                    ({ sourceId, cost, profileId }) =>
-                      `${sourceName(sourceId)} (${profileId}): $${cost.toFixed(3)}`,
-                  )
-                  .join('; ');
-                return (
-                  <circle
-                    key={point.modelId}
-                    className={`cost-point${selected ? ' is-selected' : ''}${onFrontier ? ' is-frontier' : ''}`}
-                    cx={x(point.normalizedCost)}
-                    cy={y(point.performance)}
-                    r={selected ? 8 : 6}
-                    fill={providerColor(point.providerId)}
-                    tabIndex={0}
-                    role="img"
-                    aria-label={`${point.displayName}. Overall Score ${point.performance.toFixed(1)}. Weighted normalized task cost ${point.normalizedCost.toFixed(1)}. ${point.sourceCount} source${point.sourceCount === 1 ? '' : 's'}. ${onFrontier ? 'On the value frontier.' : ''}`}
-                  >
-                    <title>{`${point.displayName}\nOverall Score: ${point.performance.toFixed(1)}\nWeighted cost index: ${point.normalizedCost.toFixed(1)}\n${sourceSummary}`}</title>
-                  </circle>
-                );
-              })}
-            </svg>
+            </div>
             <p className="cost-frontier-caption">
               The frontier connects profiles that are not beaten by another
               profile on both cost and performance.
@@ -296,13 +393,22 @@ function DefaultCostPlot({
   );
 }
 
-function AdvancedCostPlot({
+export function AdvancedCostPlot({
   series,
   selectedProfileId,
+  initialActivePoint = null,
 }: {
   series: AdvancedCostSeries[];
   selectedProfileId: string;
+  initialActivePoint?: {
+    series: AdvancedCostSeries;
+    point: AdvancedCostSeries['points'][number];
+  } | null;
 }) {
+  const [activePoint, setActivePoint] = useState<{
+    series: AdvancedCostSeries;
+    point: AdvancedCostSeries['points'][number];
+  } | null>(initialActivePoint);
   const left = 62;
   const right = 610;
   const top = 28;
@@ -316,126 +422,192 @@ function AdvancedCostPlot({
   return series.length > 0 ? (
     <div className="advanced-cost-layout">
       <div className="cost-plot-wrap">
-        <svg
-          className="cost-curve-chart advanced-cost-chart"
-          viewBox="0 0 660 405"
-          role="img"
-          aria-label="Source-local score versus USD per task cost. Each line connects effort profiles for one model and source."
-        >
-          {tickValues.map((tick) => (
-            <g key={`advanced-y-${tick}`}>
-              <line
-                className="cost-grid-line"
-                x1={left}
-                y1={y(tick)}
-                x2={right}
-                y2={y(tick)}
-              />
-              <text
-                className="cost-tick-label"
-                x={left - 10}
-                y={y(tick) + 4}
-                textAnchor="end"
-              >
-                {tick}
-              </text>
-            </g>
-          ))}
-          {costTicks.map((tick) => (
-            <g key={`advanced-x-${tick}`}>
-              <line
-                className="cost-grid-line"
-                x1={x(tick)}
-                y1={top}
-                x2={x(tick)}
-                y2={bottom}
-              />
-              <text
-                className="cost-tick-label"
-                x={x(tick)}
-                y={bottom + 22}
-                textAnchor="middle"
-              >
-                ${tick.toFixed(2)}
-              </text>
-            </g>
-          ))}
-          <line
-            className="chart-axis"
-            x1={left}
-            y1={bottom}
-            x2={right}
-            y2={bottom}
-          />
-          <line
-            className="chart-axis"
-            x1={left}
-            y1={top}
-            x2={left}
-            y2={bottom}
-          />
-          <text
-            className="cost-axis-title"
-            x={(left + right) / 2}
-            y="397"
-            textAnchor="middle"
+        <div className="cost-chart-canvas">
+          <svg
+            className="cost-curve-chart advanced-cost-chart"
+            viewBox="0 0 660 405"
+            role="img"
+            aria-label="Source-local score versus USD per task cost. Each line connects effort profiles for one model and source."
           >
-            Source task cost (USD per task, lower is better)
-          </text>
-          <text
-            className="cost-axis-title"
-            x="15"
-            y={(top + bottom) / 2}
-            textAnchor="middle"
-            transform={`rotate(-90 15 ${(top + bottom) / 2})`}
-          >
-            Source score (0–100, higher is better)
-          </text>
-          {series.map((line) => {
-            const effortLadderPoints = line.points.filter(
-              (point) => !point.isDefaultEffort,
-            );
-            const points = effortLadderPoints
-              .map(
-                (point) =>
-                  `${x(point.cost).toFixed(2)},${y(point.score).toFixed(2)}`,
-              )
-              .join(' ');
-            return (
-              <g key={line.seriesId}>
-                {effortLadderPoints.length > 1 ? (
-                  <polyline
-                    className="advanced-cost-line"
-                    points={points}
-                    stroke={sourceColor(line.sourceId)}
-                    aria-label={`${line.displayName}, ${sourceName(line.sourceId)} effort curve`}
-                  />
-                ) : null}
-                {line.points.map((point) => {
-                  const selected = point.profileId === selectedProfileId;
-                  const effortText = point.isDefaultEffort
-                    ? 'default effort'
-                    : `${point.effort} effort`;
-                  return (
-                    <circle
-                      key={point.profileId}
-                      className={`advanced-cost-point${selected ? ' is-selected' : ''}${point.isDefaultEffort ? ' is-default' : ''}`}
-                      cx={x(point.cost)}
-                      cy={y(point.score)}
-                      r={selected ? 8 : 6}
-                      fill={sourceColor(line.sourceId)}
-                      tabIndex={0}
-                      role="img"
-                      aria-label={`${line.displayName}, ${sourceName(line.sourceId)}, ${effortText}. Cost $${point.cost.toFixed(3)} per task. Source score ${point.score.toFixed(1)}.`}
-                    >
-                      <title>{`${line.displayName}\n${sourceName(line.sourceId)} · ${effortText}\nCost: $${point.cost.toFixed(3)} per task\nSource score: ${point.score.toFixed(1)}`}</title>
-                    </circle>
-                  );
-                })}
+            {tickValues.map((tick) => (
+              <g key={`advanced-y-${tick}`}>
+                <line
+                  className="cost-grid-line"
+                  x1={left}
+                  y1={y(tick)}
+                  x2={right}
+                  y2={y(tick)}
+                />
+                <text
+                  className="cost-tick-label"
+                  x={left - 10}
+                  y={y(tick) + 4}
+                  textAnchor="end"
+                >
+                  {tick}
+                </text>
               </g>
-            );
-          })}
-        </svg>
+            ))}
+            {costTicks.map((tick) => (
+              <g key={`advanced-x-${tick}`}>
+                <line
+                  className="cost-grid-line"
+                  x1={x(tick)}
+                  y1={top}
+                  x2={x(tick)}
+                  y2={bottom}
+                />
+                <text
+                  className="cost-tick-label"
+                  x={x(tick)}
+                  y={bottom + 22}
+                  textAnchor="middle"
+                >
+                  ${tick.toFixed(2)}
+                </text>
+              </g>
+            ))}
+            <line
+              className="chart-axis"
+              x1={left}
+              y1={bottom}
+              x2={right}
+              y2={bottom}
+            />
+            <line
+              className="chart-axis"
+              x1={left}
+              y1={top}
+              x2={left}
+              y2={bottom}
+            />
+            <text
+              className="cost-axis-title"
+              x={(left + right) / 2}
+              y="397"
+              textAnchor="middle"
+            >
+              Source task cost (USD per task, lower is better)
+            </text>
+            <text
+              className="cost-axis-title"
+              x="15"
+              y={(top + bottom) / 2}
+              textAnchor="middle"
+              transform={`rotate(-90 15 ${(top + bottom) / 2})`}
+            >
+              Source score (0–100, higher is better)
+            </text>
+            {series.map((line) => {
+              const effortLadderPoints = line.points.filter(
+                (point) => !point.isDefaultEffort,
+              );
+              const points = effortLadderPoints
+                .map(
+                  (point) =>
+                    `${x(point.cost).toFixed(2)},${y(point.score).toFixed(2)}`,
+                )
+                .join(' ');
+              return (
+                <g key={line.seriesId}>
+                  {effortLadderPoints.length > 1 ? (
+                    <polyline
+                      className="advanced-cost-line"
+                      points={points}
+                      stroke={sourceColor(line.sourceId)}
+                      aria-label={`${line.displayName}, ${sourceName(line.sourceId)} effort curve`}
+                    />
+                  ) : null}
+                  {line.points.map((point) => {
+                    const selected = point.profileId === selectedProfileId;
+                    const effortText = point.isDefaultEffort
+                      ? 'default effort'
+                      : `${point.effort} effort`;
+                    return (
+                      <circle
+                        key={point.profileId}
+                        className={`advanced-cost-point${selected ? ' is-selected' : ''}${point.isDefaultEffort ? ' is-default' : ''}`}
+                        cx={x(point.cost)}
+                        cy={y(point.score)}
+                        r={selected ? 8 : 6}
+                        fill={sourceColor(line.sourceId)}
+                        tabIndex={0}
+                        role="img"
+                        aria-label={`${line.displayName}, ${sourceName(line.sourceId)}, ${effortText}. Cost $${point.cost.toFixed(3)} per task. Source score ${point.score.toFixed(1)}.`}
+                        onPointerEnter={() =>
+                          setActivePoint({ series: line, point })
+                        }
+                        onPointerLeave={() =>
+                          setActivePoint((current) =>
+                            current?.point.profileId === point.profileId
+                              ? null
+                              : current,
+                          )
+                        }
+                        onFocus={() => setActivePoint({ series: line, point })}
+                        onBlur={() =>
+                          setActivePoint((current) =>
+                            current?.point.profileId === point.profileId
+                              ? null
+                              : current,
+                          )
+                        }
+                      />
+                    );
+                  })}
+                </g>
+              );
+            })}
+          </svg>
+          {activePoint ? (
+            <div
+              className="cost-hover-card"
+              role="tooltip"
+              aria-hidden="true"
+              style={{
+                left: `${((x(activePoint.point.cost) / 660) * 100).toFixed(2)}%`,
+                top: `${((y(activePoint.point.score) / 405) * 100).toFixed(2)}%`,
+                transform: getCardTransform(
+                  x(activePoint.point.cost),
+                  y(activePoint.point.score),
+                ),
+              }}
+            >
+              <div className="cost-hover-card-header">
+                <span
+                  className="provider-dot"
+                  style={{
+                    backgroundColor: sourceColor(activePoint.series.sourceId),
+                  }}
+                  aria-hidden="true"
+                />
+                <strong className="cost-hover-card-title">
+                  {activePoint.series.displayName}
+                </strong>
+              </div>
+              <div className="cost-hover-card-meta">
+                {sourceName(activePoint.series.sourceId)} ·{' '}
+                {activePoint.point.isDefaultEffort
+                  ? 'default effort'
+                  : `${activePoint.point.effort} effort`}
+              </div>
+              <div className="cost-hover-card-metrics">
+                <div className="cost-hover-card-row">
+                  <span className="cost-hover-card-label">Source score:</span>
+                  <span className="cost-hover-card-value">
+                    {activePoint.point.score.toFixed(1)}
+                  </span>
+                </div>
+                <div className="cost-hover-card-row">
+                  <span className="cost-hover-card-label">Cost:</span>
+                  <span className="cost-hover-card-value">
+                    ${activePoint.point.cost.toFixed(3)} per task
+                  </span>
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </div>
         <p className="cost-frontier-caption">
           Lines connect profiles from the same model and source. Default
           configurations are marked separately and are not part of the effort
