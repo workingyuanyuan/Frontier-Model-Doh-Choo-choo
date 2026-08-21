@@ -1000,6 +1000,25 @@ G4 重跑 F2 於 2026-08-21 再次判定**不通過**（[驗收報告](../docs/G
 
 **完成條件**：文件中所有圖表數字都能由上述兩支 builder 重現。
 
+## H 階段期間完成的使用者項目
+
+**倉庫外舊 worktree 已於 2026-08-21 依使用者指示移除。**
+`N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend` 是本 repository 的
+detached worktree（HEAD `85e87db`，為 `main` 的祖先，無獨有 commit）。唯一的獨有內容是
+未追蹤的 `apps/bench/`——21 個原始檔（96 KB）加上 `node_modules`／`.next` 產物，共 24 MB。
+那 21 個檔案的 blob 不存在於任何 Git 歷史中，因此**先封存再刪除**：
+`N:/Coding/LLM Bench Project/llm-bench-frontend-worktree-apps-bench-2026-08-21.zip`（19,486 bytes）。
+封存檔刻意放在 repository 之外，不進 Git；確認不需要後可自行刪除。
+`git worktree remove --force` 已解除註冊但因 `node_modules` 路徑過長無法刪目錄，改以
+`rm -rf` 完成，再跑 `git worktree prune`。現在 `git worktree list` 只剩主線。
+
+同層還留有 `llm-bench-materializers-20260718` 與 `llm-bench-model-column-20260718`
+兩個目錄，**兩者都沒有 `.git`**，不是本 repository 的 worktree，也未被 Git 註冊。
+本次未處置，待使用者決定。
+
+`CLAUDE.md` 對該路徑的警告予以保留：它記錄的是「不得當成工作來源」這條判斷，
+即使目錄已不存在，後續代理仍可能從舊文件或舊對話得到該路徑。
+
 ## H5 — 重跑最終驗收
 
 狀態：未開始
