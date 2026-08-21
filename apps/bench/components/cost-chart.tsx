@@ -3,6 +3,7 @@
 import type { ProductVersion } from '@llm-bench/benchmark-data';
 import { useState } from 'react';
 
+import { getChartDomain } from '../lib/chart-scale';
 import {
   ADVANCED_COST_SOURCE_IDS,
   COST_SOURCE_WEIGHTS,
@@ -51,8 +52,6 @@ const sourceColor = (sourceId: string): string =>
 const sourceName = (sourceId: string): string =>
   SOURCE_NAMES[sourceId] ?? sourceId;
 
-const tickValues = [0, 25, 50, 75, 100] as const;
-
 const defaultPointIsSelected = (
   point: WeightedCostPoint,
   selectedProfileId: string | null | undefined,
@@ -97,9 +96,15 @@ export function DefaultCostPlot({
   const right = 610;
   const top = 28;
   const bottom = 350;
-  const x = (cost: number) => left + (cost / 100) * (right - left);
+  const xDomain = getChartDomain(points.map((point) => point.normalizedCost));
+  const yDomain = getChartDomain(points.map((point) => point.performance));
+  const x = (cost: number) =>
+    left +
+    ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left);
   const y = (performance: number) =>
-    bottom - (performance / 100) * (bottom - top);
+    bottom -
+    ((performance - yDomain.min) / (yDomain.max - yDomain.min)) *
+      (bottom - top);
   const frontierPath = frontier
     .map(
       (point, index) =>
@@ -125,9 +130,9 @@ export function DefaultCostPlot({
                 className="cost-curve-chart"
                 viewBox="0 0 660 405"
                 role="img"
-                aria-label="Overall Score versus weighted normalized task cost. The value frontier connects non-dominated models toward the upper left."
+                aria-label={`Overall Score (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost (${xDomain.min}–${xDomain.max}). The value frontier connects non-dominated models toward the upper left.`}
               >
-                {tickValues.map((tick) => (
+                {yDomain.ticks.map((tick) => (
                   <g key={`y-${tick}`}>
                     <line
                       className="cost-grid-line"
@@ -146,7 +151,7 @@ export function DefaultCostPlot({
                     </text>
                   </g>
                 ))}
-                {tickValues.map((tick) => (
+                {xDomain.ticks.map((tick) => (
                   <g key={`x-${tick}`}>
                     <line
                       className="cost-grid-line"
@@ -185,7 +190,7 @@ export function DefaultCostPlot({
                   y="397"
                   textAnchor="middle"
                 >
-                  Weighted normalized task cost index (0–100, lower is better)
+                  {`Weighted normalized task cost index (${xDomain.min}–${xDomain.max}, lower is better)`}
                 </text>
                 <text
                   className="cost-axis-title"
@@ -194,7 +199,7 @@ export function DefaultCostPlot({
                   textAnchor="middle"
                   transform={`rotate(-90 15 ${(top + bottom) / 2})`}
                 >
-                  Overall Score (0–100, higher is better)
+                  {`Overall Score (${yDomain.min}–${yDomain.max}, higher is better)`}
                 </text>
                 <text
                   className="cost-direction-label"
@@ -438,8 +443,11 @@ export function AdvancedCostPlot({
   const bottom = 350;
   const allPoints = series.flatMap(({ points }) => points);
   const maxCost = Math.max(...allPoints.map(({ cost }) => cost), 1);
+  const yDomain = getChartDomain(allPoints.map((point) => point.score));
   const x = (cost: number) => left + (cost / maxCost) * (right - left);
-  const y = (score: number) => bottom - (score / 100) * (bottom - top);
+  const y = (score: number) =>
+    bottom -
+    ((score - yDomain.min) / (yDomain.max - yDomain.min)) * (bottom - top);
   const costTicks = [0, maxCost / 2, maxCost] as const;
 
   const handleToggle = (pointProfileId: string) => {
@@ -458,9 +466,9 @@ export function AdvancedCostPlot({
             className="cost-curve-chart advanced-cost-chart"
             viewBox="0 0 660 405"
             role="img"
-            aria-label="Source-local score versus USD per task cost. Each line connects effort profiles for one model and source."
+            aria-label={`Source-local score (${yDomain.min}–${yDomain.max}) versus USD per task cost. Each line connects effort profiles for one model and source.`}
           >
-            {tickValues.map((tick) => (
+            {yDomain.ticks.map((tick) => (
               <g key={`advanced-y-${tick}`}>
                 <line
                   className="cost-grid-line"
@@ -527,7 +535,7 @@ export function AdvancedCostPlot({
               textAnchor="middle"
               transform={`rotate(-90 15 ${(top + bottom) / 2})`}
             >
-              Source score (0–100, higher is better)
+              {`Source score (${yDomain.min}–${yDomain.max}, higher is better)`}
             </text>
             {series.map((line) => {
               const effortLadderPoints = line.points.filter(

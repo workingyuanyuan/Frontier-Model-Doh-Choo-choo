@@ -210,6 +210,31 @@ test('switching effort updates the selected model scores', async ({ page }) => {
   await expect.poll(() => row.innerText()).not.toBe(before);
 });
 
+test('scales the cost chart default plot axes to the plotted data range', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const yAxisTitle = page.locator('.cost-curve-chart .cost-axis-title').nth(1);
+  await expect(yAxisTitle).toBeVisible();
+
+  // SVG <text> has no innerText; textContent is the only way to read it.
+  const titleText = (await yAxisTitle.textContent()) ?? '';
+  expect(titleText).toMatch(/Overall Score \(\d+–\d+, higher is better\)/);
+  expect(titleText).not.toContain('0–100');
+
+  const match = titleText.match(
+    /Overall Score \((\d+)–(\d+), higher is better\)/,
+  );
+  expect(match).not.toBeNull();
+  if (match) {
+    const min = parseInt(match[1]!, 10);
+    const max = parseInt(match[2]!, 10);
+    expect(max - min).toBeLessThan(100);
+    expect(min).toBeGreaterThan(0);
+  }
+});
+
 test('toggles the advanced source-local cost curves by keyboard', async ({
   page,
 }) => {

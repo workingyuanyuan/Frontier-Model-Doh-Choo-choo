@@ -56,7 +56,7 @@ const sampleAdvancedSeries: AdvancedCostSeries[] = [
   },
 ];
 
-describe('CostChart Hover Cards (Task J3)', () => {
+describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
   const defaultPoints = buildWeightedCostCurve(productFixture);
 
   describe('DefaultCostPlot', () => {
@@ -81,6 +81,53 @@ describe('CostChart Hover Cards (Task J3)', () => {
       expect(html).toContain('GPT-5.6 Sol');
       expect(html).toContain('Overall Score 88.1');
       expect(html).toContain('Weighted normalized task cost');
+    });
+
+    it('renders axis titles and SVG aria-label with dynamic data range instead of hardcoded 0-100', () => {
+      const spreadPoints: WeightedCostPoint[] = [
+        {
+          modelId: 'model-a',
+          profileId: 'model-a-p',
+          providerId: 'openai',
+          displayName: 'Model A',
+          normalizedCost: 18.2,
+          performance: 61.2,
+          sourceCosts: [],
+          sourceCount: 1,
+          sourceWeight: 0.25,
+          selectedProfileIds: ['model-a-p'],
+        },
+        {
+          modelId: 'model-b',
+          profileId: 'model-b-p',
+          providerId: 'anthropic',
+          displayName: 'Model B',
+          normalizedCost: 92.5,
+          performance: 72.8,
+          sourceCosts: [],
+          sourceCount: 1,
+          sourceWeight: 0.25,
+          selectedProfileIds: ['model-b-p'],
+        },
+      ];
+
+      const html = renderToStaticMarkup(
+        createElement(DefaultCostPlot, {
+          points: spreadPoints,
+        }),
+      );
+
+      // Axis titles disclose real data domain snapped to clean bounds (e.g. 60–75 for 61.2–72.8)
+      expect(html).toContain('Overall Score (60–75, higher is better)');
+      expect(html).toContain(
+        'Weighted normalized task cost index (0–100, lower is better)',
+      );
+      expect(html).not.toContain('Overall Score (0–100, higher is better)');
+
+      // SVG aria-label discloses the dynamic domains
+      expect(html).toContain(
+        'aria-label="Overall Score (60–75) versus weighted normalized task cost (0–100)',
+      );
     });
 
     it('renders hover card with all metrics when a point is active (hover / focus)', () => {
@@ -121,7 +168,19 @@ describe('CostChart Hover Cards (Task J3)', () => {
       expect(html).not.toContain('cost-hover-card');
     });
 
-    it('positions and flips hover card correctly near edges', () => {
+    it('positions and flips hover card correctly near edges with dynamic domain', () => {
+      const originPoint: WeightedCostPoint = {
+        modelId: 'test-origin-model',
+        profileId: 'test-origin-profile',
+        providerId: 'openai',
+        displayName: 'Origin Model',
+        normalizedCost: 10,
+        performance: 10,
+        sourceCosts: [],
+        sourceCount: 1,
+        sourceWeight: 0.25,
+        selectedProfileIds: ['test-origin-profile'],
+      };
       const rightEdgePoint: WeightedCostPoint = {
         modelId: 'test-edge-model',
         profileId: 'test-edge-profile',
@@ -137,7 +196,7 @@ describe('CostChart Hover Cards (Task J3)', () => {
 
       const html = renderToStaticMarkup(
         createElement(DefaultCostPlot, {
-          points: [rightEdgePoint],
+          points: [originPoint, rightEdgePoint],
           selectedProfileId: 'test-edge-profile',
           initialActivePoint: rightEdgePoint,
         }),
@@ -162,6 +221,21 @@ describe('CostChart Hover Cards (Task J3)', () => {
       expect(html).toContain('class="advanced-cost-point');
       expect(html).toContain('tabindex="0"');
       expect(html).toContain('aria-label=');
+    });
+
+    it('renders dynamic Y axis title and aria-label matching source scores instead of 0-100', () => {
+      const html = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: sampleAdvancedSeries,
+        }),
+      );
+
+      // For scores 85.6 and 89.2, snapped domain is 85–90
+      expect(html).toContain('Source score (85–90, higher is better)');
+      expect(html).not.toContain('Source score (0–100, higher is better)');
+      expect(html).toContain(
+        'aria-label="Source-local score (85–90) versus USD per task cost',
+      );
     });
 
     it('renders hover card with all metrics when an advanced point is active (hover / focus)', () => {

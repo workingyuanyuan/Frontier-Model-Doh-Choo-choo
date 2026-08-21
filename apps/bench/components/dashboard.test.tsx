@@ -77,7 +77,8 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
 
     expect(html).toContain('Weighted normalized task cost index');
-    expect(html).toContain('Overall Score (0–100, higher is better)');
+    expect(html).toContain('Overall Score');
+    expect(html).toContain('higher is better');
     expect(html).toContain('Artificial Analysis 25%');
     expect(html).toContain('LiveBench 25%');
     expect(html).toContain('DeepSWE 25%');
