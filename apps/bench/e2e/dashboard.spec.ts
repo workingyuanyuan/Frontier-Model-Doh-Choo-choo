@@ -316,7 +316,14 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   const seriesLabel = seriesRow.locator('label');
 
   await expect(seriesCheckbox).toBeChecked();
-  await seriesLabel.scrollIntoViewIfNeeded();
+  // scrollIntoViewIfNeeded() scrolls the minimum distance, which can leave the
+  // row flush against the edge of the legend's 16rem scroll box; its centre
+  // point then hit-tests to the clipping ancestor instead of the label. Row
+  // heights differ between platforms, so that only bit on CI. Centre the row
+  // explicitly, instantly, before clicking.
+  await seriesLabel.evaluate((element) =>
+    element.scrollIntoView({ block: 'center', behavior: 'instant' }),
+  );
   await seriesLabel.click();
   await expect(seriesCheckbox).not.toBeChecked();
 

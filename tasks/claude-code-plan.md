@@ -1259,8 +1259,16 @@ axe 與 390px 無溢出維持通過。
 命中測試的中心點在 CI 的字體度量與捲動位置下會落在鄰列 checkbox、`aside`、`svg` 或
 `main` 上，攔截者每次不同。
 
-**做法**：改點整列的 `<label class="cost-legend-checkbox-label">`——那是全寬、使用者實際
-會點的控制項，點它會原生切換該 checkbox；先 `scrollIntoViewIfNeeded()` 再點。斷言仍然
-檢查 `<input>` 的 checked 狀態，覆蓋範圍沒有縮水，也沒有用 `force: true` 掩蓋問題。
+**第二次判斷也不完整**：改點整列的 `<label class="cost-legend-checkbox-label">`（全寬、
+使用者實際會點的控制項）之後，CI 第三次仍然失敗，攔截者變成 `svg` 與 `aside`。
+
+**最終原因（已量測，非推論）**：`scrollIntoViewIfNeeded()` 只做最小捲動。在行動版斷點
+實測，捲動後該列的中心點落在 y=1047、視窗高 1076——距底部僅 29px。CI 的 Pixel 7 視窗更矮、
+Linux 字體度量下的列高也不同，中心點因此被推出可視／裁切範圍，命中測試回傳的是祖先
+（`aside`／`main`）或圖表 `svg`，這正是攔截者每次都不同的原因。
+
+**做法**：點擊前改用 `element.scrollIntoView({ block: 'center', behavior: 'instant' })`
+把該列捲到正中央（實測中心點回到 y=730），再點 label。斷言仍然檢查 `<input>` 的 checked
+狀態，覆蓋範圍沒有縮水，也沒有用 `force: true` 掩蓋問題。
 
 **完成條件**：CI 兩個 project 皆綠。
