@@ -305,15 +305,11 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   expect(maxCost).toBeGreaterThan(0);
   expect(mostExpensiveSeriesName).not.toBe('');
 
-  // Uncheck the most expensive series. Click the label rather than the 14px
-  // input: the label is the full-width control a user actually taps, and the
-  // input's own hit target sits inside a 42-row scrolling list whose exact
-  // position differs between machines.
+  // Hide the most expensive series.
   const seriesRow = page
     .locator('.cost-model-legend li')
     .filter({ hasText: mostExpensiveSeriesName });
   const seriesCheckbox = seriesRow.locator('input[type="checkbox"]');
-  const seriesLabel = seriesRow.locator('label');
 
   await expect(seriesCheckbox).toBeChecked();
   // Toggle it from the keyboard. A pointer click needs a hit test, and this
