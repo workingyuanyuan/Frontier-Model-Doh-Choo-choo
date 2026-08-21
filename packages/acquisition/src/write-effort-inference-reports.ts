@@ -4,6 +4,7 @@ import { join, resolve } from 'node:path';
 import {
   CandidateResultSchema,
   ProfilePolicySchema,
+  SourcesConfigSchema,
 } from '@llm-bench/benchmark-data';
 
 import {
@@ -12,19 +13,27 @@ import {
 } from './effort-inference-report.js';
 import { getWorkspaceRoot } from './refresh-utils.js';
 
-const SOURCE_IDS = [
-  'artificial-analysis',
-  'livebench',
-  'deepswe',
-  'frontier-code',
-] as const;
+/**
+ * The source list is read from the whitelist rather than hardcoded. Section 4.5
+ * inference is cross-source by definition, so a report computed from a subset of
+ * the sources the pipeline actually reads would disagree with the product data
+ * while every test stayed green -- which is exactly what happened when
+ * `epoch-ai` joined the whitelist and this list still named four sources.
+ */
+const readSourceIds = async (root: string): Promise<readonly string[]> =>
+  SourcesConfigSchema.parse(
+    JSON.parse(
+      await readFile(join(root, 'data-v2', 'mappings', 'sources.json'), 'utf8'),
+    ),
+  ).whitelist;
 
 async function main() {
   const root = resolve(process.argv[2] ?? getWorkspaceRoot());
   const sourceRoot = join(root, 'data-v2', 'sources');
+  const sourceIds = await readSourceIds(root);
   const candidatesBySource = new Map(
     await Promise.all(
-      SOURCE_IDS.map(
+      sourceIds.map(
         async (sourceId) =>
           [
             sourceId,
@@ -40,7 +49,7 @@ async function main() {
       ),
     ),
   );
-  const allCandidates = SOURCE_IDS.flatMap(
+  const allCandidates = sourceIds.flatMap(
     (sourceId) => candidatesBySource.get(sourceId) ?? [],
   );
   const policy = ProfilePolicySchema.parse(
@@ -52,7 +61,7 @@ async function main() {
     ),
   );
 
-  for (const sourceId of SOURCE_IDS) {
+  for (const sourceId of sourceIds) {
     const reportPath = join(sourceRoot, sourceId, 'validation-report.md');
     const report = await readFile(reportPath, 'utf8');
     const section = renderEffortInferenceSection(

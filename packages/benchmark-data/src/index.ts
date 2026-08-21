@@ -502,15 +502,27 @@ const INFERABLE_TIERS: ReadonlySet<EffortTier> = new Set(
 );
 
 /**
- * Each source votes once, with the highest tier it published for the model, and
- * the most common vote wins; ties go to the higher tier.
+ * Every source casts one vote for each named tier it published for the model.
+ * The tier the most sources ran wins; ties go to the higher tier.
  *
  * Taking the single highest tier across all sources let one source decide for
  * everyone. Grok 4.6 showed it: DeepSWE swept low through xhigh while
  * Artificial Analysis and Frontier Code both ran only high, so LiveBench's
  * unlabelled row was handed `xhigh` on the strength of a sweep the other two
- * sources never performed. A vote per source gives `high`, which is what the
- * labelled sources actually agree on.
+ * sources never performed.
+ *
+ * Collapsing each source to its own highest tier was the first fix, and it was
+ * still wrong: it discards the tier a sweeping source shares with everyone
+ * else. Adding Epoch as a fifth source made that visible — Epoch runs Grok 4.6
+ * at both high and xhigh, so under the highest-per-source reading the vote was
+ * high 2, xhigh 2, and the tie rule handed it `xhigh`, splitting the profile
+ * and dropping Grok 4.6 off the main screen. Counting every tier a source
+ * published gives high 4 (Artificial Analysis, DeepSWE, Frontier Code, Epoch)
+ * against xhigh 2, which is what the labelled sources actually agree on, and no
+ * tie-break is needed at all.
+ *
+ * A sweeping source cannot outvote anyone this way: it contributes at most one
+ * vote to each tier, exactly like a source that ran a single configuration.
  *
  * See REFACTOR_SPEC_V2.md section 4.5.
  */
@@ -526,32 +538,21 @@ const higherEffortEvidence = (
   if (direct.length === 0) return null;
 
   const byRank = (effort: EffortTier) => EFFORT_TIER_RANK.get(effort) ?? -1;
-  const perSource = new Map<
-    string,
-    { candidate: EffortResolutionInput; effort: EffortTier }
-  >();
+  const voters = new Map<EffortTier, Set<string>>();
   for (const entry of direct) {
-    const current = perSource.get(entry.candidate.sourceId);
-    if (
-      current === undefined ||
-      byRank(entry.effort) > byRank(current.effort) ||
-      (byRank(entry.effort) === byRank(current.effort) &&
-        entry.candidate.id.localeCompare(current.candidate.id) < 0)
-    ) {
-      perSource.set(entry.candidate.sourceId, entry);
-    }
+    const sources = voters.get(entry.effort) ?? new Set<string>();
+    sources.add(entry.candidate.sourceId);
+    voters.set(entry.effort, sources);
   }
 
-  const votes = new Map<EffortTier, number>();
-  for (const { effort } of perSource.values()) {
-    votes.set(effort, (votes.get(effort) ?? 0) + 1);
-  }
-  const winner = [...votes.entries()].toSorted(
-    (left, right) => right[1] - left[1] || byRank(right[0]) - byRank(left[0]),
+  const winner = [...voters.entries()].toSorted(
+    ([leftEffort, leftSources], [rightEffort, rightSources]) =>
+      rightSources.size - leftSources.size ||
+      byRank(rightEffort) - byRank(leftEffort),
   )[0]![0];
 
   return (
-    [...perSource.values()]
+    direct
       .filter(({ effort }) => effort === winner)
       .toSorted(
         (left, right) =>
@@ -830,7 +831,25 @@ export const selectCurrentResults = (
       continue;
     }
 
-    if (sourceHarnessKey(result) !== sourceHarnessKey(current)) {
+    // Two sources publishing the same benchmark for the same profile is a
+    // genuine duplicate measurement, and the user's rule for it (2026-08-21) is
+    // to take the higher score. Artificial Analysis and Epoch AI both rerun
+    // GPQA Diamond, both as INDEPENDENT and both FULL, so nothing below could
+    // separate them and the choice fell out of whether their harness strings
+    // happened to differ -- an accident, not a decision.
+    //
+    // The rule is deliberately limited to sources of equal standing. A VENDOR's
+    // self-reported number must still lose to an ORGANIZER's, and a partial
+    // snapshot must still lose to a full one, however flattering the score.
+    const equalStanding =
+      SOURCE_ROLE_WEIGHT[result.sourceRole] ===
+        SOURCE_ROLE_WEIGHT[current.sourceRole] &&
+      result.acquisitionStatus === current.acquisitionStatus;
+
+    if (
+      (result.sourceId !== current.sourceId && equalStanding) ||
+      sourceHarnessKey(result) !== sourceHarnessKey(current)
+    ) {
       const scoreDifference =
         comparableScore(result) - comparableScore(current);
       if (scoreDifference > 0) {

@@ -1360,3 +1360,26 @@ coverage-matrix 取捨曲線交使用者判讀。
   serious 違規（`<li>` 加 role、`<circle>` 加 `role="button"`）。
 
 **完成條件**：基準驗證全綠；進階圖序列數為模型數而非模型×來源數；X 軸為成本指數而非 USD。
+
+## L2 — 兩項使用者裁決：檔位推測改為逐檔位計票、gpqa 跨來源取最高分
+
+狀態：完成
+
+**使用者裁決（2026-08-21）**：
+
+1. **Grok 4.6 應判為 `high`，理由是「其餘四個來源都有測 Grok 4.6 high」。** 因此 §4.5 的
+   計票方式從「每個來源投它發布過的**最高**具名檔位」改為「**每個來源對它發布過的每一個
+   具名檔位各投一票**」。實測：`high` 有 AA／DeepSWE／Frontier Code／Epoch 四票，`xhigh`
+   只有 DeepSWE／Epoch 兩票，`high` 以 4:2 勝出，不再需要動用平手規則。
+2. **`gpqa-diamond` 的跨來源重複採「取最高分」。** 這正是現行行為，但它是選取鍵不含
+   `sourceId` 的副作用；本 task 把它改成明寫的規則，並讓它不依賴 harness 欄位是否恰好不同。
+
+**要求**：
+
+- `higherEffortEvidence` 改為逐檔位計票；平手仍取較高檔位。
+- `selectCurrentResults` 在**來源不同**時一律先比分數，`sourceRole`／完整度／發布時間只用來
+  破分數完全相同的平手。
+- 規格 §4.5 與 §9.5 改寫，寫明裁決日期與依據。
+- 重跑推測說明、`current.json`、coverage-matrix。
+
+**完成條件**：Grok 4.6 回到主畫面；基準驗證全綠；`display-set.json` 未被改動。

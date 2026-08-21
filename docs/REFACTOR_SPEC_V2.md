@@ -107,6 +107,26 @@ scale-hle  terminal-bench  vals-ai  zapier-automationbench
 - 排行榜、雷達圖、兩張圖表**全部使用同一個選法**，不得出現同一模型在不同畫面顯示不同 profile 的情況。
 - 這取代現行 `SCORING_METHODOLOGY.md` 的「Coverage 高 → 有效結果數多 → Overall 高」規則。
 
+### 4.3.1 同一個 benchmark 被兩個來源重複量測時
+
+**2026-08-21 新增（使用者裁決）：取分數較高的那一筆。**
+
+Artificial Analysis 與 Epoch AI 都自己重跑 GPQA Diamond，兩者 `sourceRole` 都是
+`INDEPENDENT`、`acquisitionStatus` 都是 `FULL`，沒有任何既有欄位能替它們排序。逐模型的分數
+對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`：26 個重疊的「模型 × 檔位」中，Epoch 較高
+13 個、AA 較高 13 個，平均差 −0.99 分，多數落在 ±3 分內。兩邊都不系統性地偏高或偏低，因此
+沒有「哪個來源比較準」這種可辯護的排序。
+
+**規則只適用於地位相同的來源。** `sourceRole` 權重不同，或 `acquisitionStatus` 不同時，仍
+維持原本的優先序：ORGANIZER 勝過 VENDOR，完整快照勝過部分快照，**再高的分數也不能翻
+盤**。廠商自報的數字不會因為好看就取代第三方量測。
+
+**這條規則之前是「碰巧成立」的。** `selectCurrentResults` 的鍵不含 `sourceId`，實際走的是
+「harness 字串不同 → 比分數」這條分支；AA 的 harness 是 `null`、Epoch 是
+`Epoch AI Inspect`，剛好不同，於是行為看起來就是取最高分。若哪天兩邊的 harness 欄位一致，
+選擇就會靜默改由 `sourceRole` 決定。現在改成直接比 `sourceId`，讓規則不再依賴一個無關欄位
+的巧合。
+
 ### 4.4 思考強度檔位
 
 **本節於 2026-08-18 新增**，取代 `DATA_METHODOLOGY.md` 的「未標 effort 的結果歸入可判定的最高強度，不建立 `unspecified`」。那條規則寫在 Artificial Analysis 還沒有 non-reasoning 變體的年代；審核關卡 1 查出它把 110 筆明確標示 `(Non-reasoning)` 的列標成了 `max`，語義完全顛倒。
@@ -130,19 +150,26 @@ non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
 
 ### 4.5 跨來源檔位推測
 
-某來源未標檔位時，**每個其他來源投一票（該來源對這個模型發布過的最高具名檔位），得票最多的檔位勝出**；平手時取較高的檔位。
+某來源未標檔位時，**每個其他來源對它發布過的每一個具名檔位各投一票，得票的來源數最多的檔位勝出**；平手時取較高的檔位。
 
-**本節於 2026-08-18 從「取最高」改成「每來源一票的眾數」。** 原本的寫法讓單一來源替所有人決定：Grok 4.6 在 DeepSWE 掃過 low 到 xhigh，而 Artificial Analysis 與 Frontier Code 都只跑 high，於是 LiveBench 的未標列被判成 `xhigh`——依據是另外兩個來源從未執行過的掃描。每來源一票會得到 `high`，那才是有標示的來源實際同意的結果。隨著會掃階梯的來源增加，這個偏差只會更常見。
+換句話說，問的是「**有幾個來源實際跑過這一檔**」。一個來源掃了整個階梯，也只是對每一檔各投一票，不會因為掃得多就壓過只跑一檔的來源。
 
-**2026-08-21 觀測：第五個來源讓平手規則翻轉了一個模型。** 加入 Epoch 之後，Grok 4.6 的
-投票從「AA=high、Frontier Code=high、DeepSWE=xhigh」變成「AA=high、Frontier Code=high、
-DeepSWE=xhigh、Epoch=xhigh」，2 比 2 平手，依「平手取較高」判給 `xhigh`。LiveBench 那筆未
-標檔位的列因此從 `xai-grok-4-6-high` 移到 `xai-grok-4-6-xhigh`，把原本八維齊全的 profile
-拆成兩半，Grok 4.6 掉出主畫面（完整模型數 22 → 21）。
+**本節於 2026-08-18 從「取最高」改成「每來源一票」。** 原本的寫法讓單一來源替所有人決定：Grok 4.6 在 DeepSWE 掃過 low 到 xhigh，而 Artificial Analysis 與 Frontier Code 都只跑 high，於是 LiveBench 的未標列被判成 `xhigh`——依據是另外兩個來源從未執行過的掃描。
 
-**顯示清單一格未動，掉的模型純粹來自這條平手規則。** 這是「加來源不會讓主畫面變差」這個
-直覺唯一的例外，記在這裡以免下次再花時間重查。規則本身沒有改動——是否改成「平手時取
-票數並列中較低者」或「平手時不推測、落回 `default`」，屬於使用者裁決，未裁決前維持現狀。
+**本節於 2026-08-21 再改一次：從「每來源投它的最高具名檔位」改成「每來源對它發布過的每一個具名檔位各投一票」**（使用者裁決）。2026-08-18 的寫法把每個來源壓成它自己的最高檔，等於丟掉「掃階梯的來源其實也跑了大家共同的那一檔」這個事實。加入 Epoch 之後這個瑕疵才顯形：
+
+| 來源                | 對 Grok 4.6 發布過的具名檔位  |
+| ------------------- | ----------------------------- |
+| Artificial Analysis | `high`                        |
+| Frontier Code       | `high`                        |
+| DeepSWE             | `low` `medium` `high` `xhigh` |
+| Epoch AI            | `high` `xhigh`                |
+| LiveBench           | （未標，就是待推測的那一筆）  |
+
+- 舊寫法（各取最高）：`high` 2 票、`xhigh` 2 票 → 平手 → 取較高 → **`xhigh`**。LiveBench 那筆從 `xai-grok-4-6-high` 移到 `xai-grok-4-6-xhigh`，把原本八維齊全的 profile 拆成兩半，Grok 4.6 掉出主畫面。
+- 新寫法（逐檔位計票）：`high` 4 票、`xhigh` 2 票 → **`high`**，而且根本用不到平手規則。
+
+**依據是使用者的判準：其餘四個來源都測過 Grok 4.6 的 `high`。** 平手規則（取較高）保留不變——新寫法讓它幾乎不會被觸發，這正是重點：需要靠平手規則來決定的推測，本來就是證據不足的推測。
 
 **`non-reasoning` 不得作為推測結果。** 推測只在 `low`／`medium`／`high`／`xhigh`／`max` 之間進行；若其他來源沒有任何具名檔位可依據，結果為 `default`。
 
@@ -604,10 +631,8 @@ Frontier Code 去數渲染後的列數。但那些頁面顯示的「N models eva
 - ECI 有 553 列，涵蓋回溯到 2023 年的模型，多數不在 catalog 內；identity 解析不到的列保持
   `canonicalModelId: null`，**不做模糊匹配**。
 
-**尚未裁決：`gpqa-diamond` 的跨來源重複。** Artificial Analysis 與 Epoch 都自己重跑 GPQA
-Diamond，兩者 `sourceRole` 都是 `INDEPENDENT`。現行 `selectCurrentResults` 的鍵不含
-`sourceId`，且兩者 harness 不同，因此實際行為是**跨來源取最高分**——這是鍵值設計的副作用，
-不是決策。逐模型分數對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`，待使用者裁決後補寫規則。
+**`gpqa-diamond` 的跨來源重複已裁決：取最高分。** 規則與理由寫在 §4.3.1，逐模型分數對照
+見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`。
 
 ## 10. 不可跨越的邊界
 

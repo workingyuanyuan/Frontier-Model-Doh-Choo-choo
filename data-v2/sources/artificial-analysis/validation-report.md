@@ -85,18 +85,18 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Gemini 3.1 Pro Preview | `artificial-analysis:scicode:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:tau3-banking:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:terminal-bench-2-1:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-briefcase:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-lcr:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite:index` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:critpt:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:gdpval-aa:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v4-1` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:gpqa-diamond:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:humanitys-last-exam:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:scicode:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:tau3-banking:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-2-1:gemini-3-5-flash-lite` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:gemini-3-5-flash-lite-high |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-briefcase:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-lcr:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite:index` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:critpt:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:gdpval-aa:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v4-1` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:gpqa-diamond:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:humanitys-last-exam:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:scicode:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:tau3-banking:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-2-1:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
 | Qwen3.8 Max | `artificial-analysis:aa-briefcase:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-lcr:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-omniscience:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |

@@ -169,6 +169,57 @@ describe('selectCurrentResults', () => {
     ).toEqual([full]);
   });
 
+  it('takes the higher score when two equal-standing sources rerun the same benchmark', () => {
+    // Artificial Analysis and Epoch AI both rerun GPQA Diamond as INDEPENDENT.
+    // The user's rule (2026-08-21) is cross-source max. Both rows carry the
+    // same harness here so that the outcome cannot come from the harness
+    // branch -- `sourceId` and the score are what decide it.
+    const shared = {
+      benchmarkId: 'gpqa-diamond',
+      benchmarkVersion: null,
+      sourceRole: 'INDEPENDENT',
+      acquisitionStatus: 'FULL',
+      profile: { ...makeCandidate().profile, harness: null },
+    } as const;
+    const artificialAnalysis = makeCandidate({
+      ...shared,
+      id: 'aa-gpqa',
+      sourceId: 'artificial-analysis',
+      rawScore: 91.11,
+      normalizedScore: 91.11,
+    });
+    const epoch = makeCandidate({
+      ...shared,
+      id: 'epoch-gpqa',
+      sourceId: 'epoch-ai',
+      rawScore: 93.88,
+      normalizedScore: 93.88,
+    });
+
+    expect(selectCurrentResults([artificialAnalysis, epoch])).toEqual([epoch]);
+    expect(selectCurrentResults([epoch, artificialAnalysis])).toEqual([epoch]);
+  });
+
+  it('keeps organizer precedence over a vendor claim that scores higher', () => {
+    const organizer = makeCandidate({
+      id: 'organizer-lower',
+      sourceId: 'terminal-bench',
+      sourceRole: 'ORGANIZER',
+      rawScore: 70,
+      normalizedScore: 70,
+    });
+    const vendor = makeCandidate({
+      id: 'vendor-higher',
+      sourceId: 'openai',
+      sourceRole: 'VENDOR',
+      rawScore: 99,
+      normalizedScore: 99,
+    });
+
+    expect(selectCurrentResults([organizer, vendor])).toEqual([organizer]);
+    expect(selectCurrentResults([vendor, organizer])).toEqual([organizer]);
+  });
+
   it('does not put the excluded Artificial Analysis Intelligence Index into any dimension', () => {
     const intelligenceIndex = makeCandidate({
       benchmarkId: 'artificial-analysis-intelligence-index',
@@ -809,6 +860,49 @@ describe('deriveModelProfiles', () => {
       basis: 'CROSS_SOURCE',
       basisSourceId: 'livebench',
       basisCandidateId: 'livebench-xhigh',
+    });
+  });
+
+  it('counts one vote per tier per source, so a sweeping source cannot flip the result', () => {
+    // The real Grok 4.6 shape, which is what forced this rule (spec 4.5,
+    // decided 2026-08-21). LiveBench publishes the row unlabelled; Artificial
+    // Analysis and Frontier Code ran only high; DeepSWE swept low..xhigh; Epoch
+    // ran high and xhigh.
+    //
+    // Collapsing each source to its own highest tier gives high 2 / xhigh 2,
+    // and the tie rule would hand it xhigh. Counting every tier each source
+    // published gives high 4 / xhigh 2 with no tie to break.
+    const unlabelled = makeCandidate({
+      id: 'livebench-unlabelled',
+      sourceId: 'livebench',
+      model: { ...makeCandidate().model, rawName: 'GPT-5.6 Sol' },
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+    const published = (
+      sourceId: string,
+      efforts: readonly string[],
+    ): ReturnType<typeof makeCandidate>[] =>
+      efforts.map((effort) =>
+        makeCandidate({
+          id: `${sourceId}-${effort}`,
+          sourceId,
+          profile: { ...makeCandidate().profile, effort },
+        }),
+      );
+
+    const decision = decideProductEffort(unlabelled, [
+      unlabelled,
+      ...published('artificial-analysis', ['high']),
+      ...published('frontier-code', ['high']),
+      ...published('deepswe', ['low', 'medium', 'high', 'xhigh']),
+      ...published('epoch-ai', ['high', 'xhigh']),
+    ]);
+
+    expect(decision).toEqual({
+      effort: 'high',
+      basis: 'CROSS_SOURCE',
+      basisSourceId: 'artificial-analysis',
+      basisCandidateId: 'artificial-analysis-high',
     });
   });
 
