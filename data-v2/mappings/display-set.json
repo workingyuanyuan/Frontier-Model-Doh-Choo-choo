@@ -1,10 +1,11 @@
 {
   "schemaVersion": "display-set-v1",
-  "notes": "Approved at review gate 2 on 2026-08-20. Chosen from docs/COVERAGE_MATRIX_REPORT.md: the N=15 optimum minus aa-briefcase, which alone excluded DeepSeek V4 Pro, GPT-5.6 Luna and GPT-5.6 Terra. Covers all four whitelisted sources and 8/8 dimensions. Twelve of these fourteen have zero marginal cost; only frontier-code-1-1 and deepswe-1-1 narrow the model set, which is the intended price of source diversity. Excluded on low Artificial Analysis coverage: aa-briefcase, apex-agents, gdpval-aa, ifbench.",
+  "notes": "Approved at the phase-two review gate on 2026-08-22, replacing the fourteen benchmarks approved on 2026-08-20. A strict superset of that set: aime, chess-puzzles and gdpval-aa are added, nothing is removed. deepswe-1-1 and frontier-code-1-1 are mandatory — both are benchmark-vendor-operated sources, and dropping either would leave the main-screen gate without it. Under that constraint only twelve profiles in the whole dataset carry a DeepSWE score, a Frontier Code score and all eight dimensions, so twelve models is the hard ceiling regardless of which other benchmarks are chosen; an exhaustive search over the remaining twenty-one active benchmarks confirms N=17 still reaches it. The three additions therefore cost nothing and buy strictness: every listed model is now measured on math by two independent sources (livebench-mathematics and Epoch's aime), on reasoning by four benchmarks across three sources, and on agentic work by both tau3-banking and gdpval-aa. Adding simpleqa-verified on top would drop Claude Fable 5, so seventeen is where the free additions end. All five whitelisted sources and 8/8 dimensions are covered. Adding a benchmark here never changes a score — dimension scores use every available benchmark; this list only decides which profiles qualify for the main screen.",
   "benchmarkIds": [
     "aa-lcr",
     "aa-omniscience",
     "critpt",
+    "gdpval-aa",
     "gpqa-diamond",
     "humanitys-last-exam",
     "scicode",
@@ -14,6 +15,8 @@
     "livebench-mathematics",
     "livebench-language",
     "livebench-instruction-following",
+    "aime",
+    "chess-puzzles",
     "deepswe-1-1",
     "frontier-code-1-1"
   ]
