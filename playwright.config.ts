@@ -12,6 +12,12 @@ export default defineConfig({
   use: {
     baseURL: 'http://127.0.0.1:3910',
     trace: 'retain-on-failure',
+    // `html { scroll-behavior: smooth }` makes click targets move while
+    // Playwright is still resolving them, so a scrolled-to control gets the
+    // click stolen by whatever sat at the old coordinates. The stylesheet
+    // already turns smooth scrolling off under reduced motion; run the suite
+    // that way instead of adding waits to individual tests.
+    reducedMotion: 'reduce',
   },
   projects: [
     { name: 'desktop-chromium', use: { ...devices['Desktop Chrome'] } },

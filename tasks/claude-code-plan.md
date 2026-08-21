@@ -1234,3 +1234,23 @@ axe 與 390px 無溢出維持通過。
 - 不得用 `role` 覆寫 `<li>`（已實測會產生 axe serious 違規）。
 
 **完成條件**：關閉序列後軸定義域改變的測試；axe 通過；鍵盤可操作。
+
+## K3 — 修正 e2e 在 CI 的 mobile 紅燈
+
+狀態：完成
+
+**問題**：K2 推上 main 後，CI 的 `Run Dashboard browser and accessibility gates` 在
+`mobile-chromium` 失敗（重試三次皆失敗），本機兩個 project 都綠。失敗點是
+`seriesCheckbox.uncheck()`，Playwright 回報的攔截者每次不同：`main`、另一個 checkbox、
+`svg.advanced-cost-chart`。
+
+**根因**：`globals.css:43` 的 `html { scroll-behavior: smooth }`。Playwright 先把元素
+捲入畫面再點擊，平滑捲動仍在進行時座標已經改變，於是點到當下位於該座標的其他元素。
+行動版頁面較長、捲動距離較大，因此只有 mobile project 中彈；桌面與本機只是運氣好。
+
+**做法**：`playwright.config.ts` 的 `use` 加上 `reducedMotion: 'reduce'`。樣式表在
+`prefers-reduced-motion: reduce` 下本來就把 `scroll-behavior` 關成 `auto`
+（`globals.css:1153–1156`），因此這是走專案既有路徑讓 e2e 具決定性，**不改動產品行為**，
+也不需要在個別測試裡加 `force: true` 或等待。
+
+**完成條件**：CI 兩個 project 皆綠。
