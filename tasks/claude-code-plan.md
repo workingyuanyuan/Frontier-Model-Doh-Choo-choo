@@ -1026,3 +1026,76 @@ detached worktree（HEAD `85e87db`，為 `main` 的祖先，無獨有 commit）�
 H1 至 H4 完成後，**由未參與 G／H 實作與審查的第三方重跑 F2**。沿用 F2 的 prompt 與
 驗收項目，另加驗兩項：H1 至 H4 的修正是否真的與程式一致；G4 報告的七項阻擋項是否
 逐項解除或有明確裁決紀錄。
+
+---
+
+# I. 部署與資料衛生
+
+H5 於 2026-08-21 判定**通過**（[驗收報告](../docs/H5_F2_ACCEPTANCE_2026-08-21.md)），
+零阻擋項。本階段處理 H5 列出的使用者人工事項與非阻擋觀察。
+
+**使用者裁決（2026-08-21）**：
+
+- 部署目標為 **GitHub Pages**。
+- `frontier` 只砍掉 `profileId` 欄位，保留 53 列與兩個計數。
+- **不輪換 Artificial Analysis 金鑰。** 已實測確認：`aa_lbeg…` 這個值不在工作目錄的
+  任何 tracked 檔案中，也不在 `git log --all -S` 的任何歷史裡；唯一持有處是 gitignored
+  的 `.env.local`（`.gitignore:12` 的 `.env.*` 涵蓋，且從未被 track）。倉庫在 GitHub 上
+  是 **private**。因此 push 不會外洩該金鑰。此決定不改變規格對金鑰保存位置的要求。
+
+## I1 — 清除倉庫外殘留工作目錄
+
+狀態：完成
+
+`N:/Coding/codex-gemini-orchestrator/worktrees/` 底下兩個非 worktree 目錄依 frontend 的
+同一套處理：先找出不在本 repository 物件庫中的獨有內容，封存後再刪除。
+
+- `llm-bench-model-column-20260718`：228 個非建置檔中**獨有 0 個**，全部可由 Git 復原，直接刪除。
+- `llm-bench-materializers-20260718`：獨有 4 個檔（78,605 bytes），為較早的 materializer 實作，
+  封存於 `N:/Coding/LLM Bench Project/llm-bench-materializers-20260718-unique-2026-08-21.zip`（17,531 bytes）後刪除。
+
+`worktrees/` 目錄現為空。其上層 `codex-gemini-orchestrator` 是使用者另一個獨立
+repository（有自己的 `.git`、README、LICENSE），**未觸碰**。
+
+## I2 — `frontier` 移除虛構的 `profileId`
+
+狀態：完成
+
+**問題**：`ProductVersion.frontier` 的 53 列，`profileId` 全部是 `<modelId>-unspecified`，
+53/53 無法在 `product.profiles` 解析，且違反 §4 的「不建立 `unspecified` effort」。
+三次驗收都列為非阻擋觀察，根因是規格從未定義 `frontier` 的結構。
+
+**做法**：規格新增 §5.5 定義 `frontier` 為模型層級集合，明定不得有 `profileId`；
+`ProductVersionSchema.frontier`、`FrontierModel`、`ManualFrontierModel` 與
+`FrontierConfigSchema.manualModels` 一併移除該欄位；`buildFrontier` 兩條路徑停止捏造。
+
+**實測**：重建後的 ProductVersion 與已發布的 `dfbca29` 相比，**只有 `frontier` 不同，
+且差異只是被移除的 `profileId`**；`profiles`、`leaderboard`、`costs`、`evidence` 逐一相等。
+新 `versionId` 為 `sha256:1d2f571445d9fa794553d75401181b59cc107246956e1e7e025664ca322728b2`。
+主畫面兩個計數只取 `modelId`，畫面數字不變。
+
+## I3 — GitHub Pages 部署
+
+狀態：完成（待 push 與使用者在 repo 設定啟用 Pages）
+
+**問題**：倉庫沒有任何部署設定；`next.config.ts` 是 `output: 'standalone'`，與實際
+「單頁、全靜態、無 server 行為」不符，也是 e2e 那則 `next start` 警告的來源。
+
+**做法**：
+
+- `output: 'export'`，產出 `apps/bench/out`。`basePath`／`assetPrefix` 由
+  `NEXT_PUBLIC_BASE_PATH` 決定：本機與 e2e 為空，Pages workflow 傳入 `/<repo>`。
+- 新增 `scripts/serve-static.mjs`（node:http，零新相依）供 Playwright 服務 `out/`，
+  因為 `next start` 不支援靜態匯出。`playwright.config.ts` 的 `webServer` 改用它。
+- 新增 `.github/workflows/pages.yml`：build → `upload-pages-artifact` → `deploy-pages`，
+  actions 全部 pin 到 commit SHA，與既有 `ci.yml` 一致。加 `.nojekyll` 保護 `_next/`。
+- `apps/bench/out/` 加入 `.gitignore`、`.prettierignore` 與 eslint ignores。
+
+**順帶修掉的 CI 阻擋項**：`pnpm audit --audit-level high` 是 `ci.yml` 的最後一關，
+push 前實測**失敗**——`pnpm-workspace.yaml` 的 overrides 把 `nanoid` 釘在 3.3.17，
+而該版本本身中了 GHSA-2v37-7h3g-55p8（high）。已改釘 3.3.18（`legacy` dist-tag 的
+修補版），audit 歸零。若不先修，第一次 push 的 CI 就會紅。
+
+**未完成的部分**：Pages 需要在 repository 設定把 Source 設為 GitHub Actions。
+私有倉庫的 Pages 需要付費方案；若帳號沒有，選項是把倉庫轉公開（**需使用者另行決定**，
+本階段不代為執行）或改用其他靜態主機。
