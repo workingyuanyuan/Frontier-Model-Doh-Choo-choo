@@ -1076,7 +1076,7 @@ repository（有自己的 `.git`、README、LICENSE），**未觸碰**。
 
 ## I3 — GitHub Pages 部署
 
-狀態：完成（待 push 與使用者在 repo 設定啟用 Pages）
+狀態：完成
 
 **問題**：倉庫沒有任何部署設定；`next.config.ts` 是 `output: 'standalone'`，與實際
 「單頁、全靜態、無 server 行為」不符，也是 e2e 那則 `next start` 警告的來源。
@@ -1096,6 +1096,30 @@ push 前實測**失敗**——`pnpm-workspace.yaml` 的 overrides 把 `nanoid` �
 而該版本本身中了 GHSA-2v37-7h3g-55p8（high）。已改釘 3.3.18（`legacy` dist-tag 的
 修補版），audit 歸零。若不先修，第一次 push 的 CI 就會紅。
 
-**未完成的部分**：Pages 需要在 repository 設定把 Source 設為 GitHub Actions。
-私有倉庫的 Pages 需要付費方案；若帳號沒有，選項是把倉庫轉公開（**需使用者另行決定**，
-本階段不代為執行）或改用其他靜態主機。
+## I4 — 首次部署
+
+狀態：完成（2026-08-21）
+
+**使用者明確授權**本次 push 與部署，並指示把倉庫轉為公開。CLAUDE.md「Agent 不得 push、
+deploy 或 release」維持不變，本次是一次性的個別授權，不是規則變更。
+
+轉公開前先做全歷史祕密掃描，結果全部乾淨：
+
+- 曾被加入的檔名中只有 `.env.example`，內容僅為本機 Docker Compose 的 Postgres 佔位值
+  （`llm_bench_dev`），且該檔在 HEAD 已不存在。
+- `aa_`、`sk-`、`ghp_`、`github_pat_`、`AKIA`、`AIza`、`xox[baprs]-`、PEM 私鑰標頭
+  八組樣式對 `git rev-list --all` 全掃，零命中。
+
+**執行順序**：commit `current.json` → push 78 commits → 祕密掃描 → 倉庫轉公開 →
+以 API 啟用 Pages（`build_type=workflow`）→ 驗證線上頁面。
+
+**結果**：
+
+- `9ab96b2..bdb5037  main -> main`
+- CI 全綠，含 `pnpm audit --audit-level high`
+- Pages workflow 全綠，站台 <https://workingyuanyuan.github.io/llm-benchmarks/>，強制 HTTPS
+- 線上實測：12 列排行榜、四格 Dataset scope、雷達圖、兩張成本圖皆正常；
+  `_next/` 資產在 `/llm-benchmarks` 前綴下全部 200，主控台零錯誤，
+  證明 `assetPrefix` 與 `.nojekyll` 都生效
+
+舊的 `Weekly benchmark dry run` workflow 檔案已不在 main，只會留下歷史 run 紀錄，不再觸發。
