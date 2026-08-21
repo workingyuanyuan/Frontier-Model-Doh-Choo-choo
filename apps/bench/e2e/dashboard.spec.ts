@@ -235,7 +235,7 @@ test('scales the cost chart default plot axes to the plotted data range', async 
   }
 });
 
-test('toggles the advanced source-local cost curves by keyboard', async ({
+test('toggles the advanced aggregate cost curves by keyboard', async ({
   page,
 }) => {
   await page.goto('/');
@@ -249,7 +249,7 @@ test('toggles the advanced source-local cost curves by keyboard', async ({
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
   await expect(
-    page.getByText('LiveBench is excluded.', { exact: false }),
+    page.getByText('LiveBench is excluded', { exact: false }),
   ).toBeVisible();
   await toggle.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
@@ -272,48 +272,49 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
 
   const initialXTitle = (await xAxisTitle.textContent()) ?? '';
   expect(initialXTitle).toMatch(
-    /Source task cost \(\$?\d+(\.\d+)?–\$?(\d+(\.\d+)?), lower is better\)/,
+    /Weighted normalized task cost index \((\d+(?:\.\d+)?)–(\d+(?:\.\d+)?), lower is better\)/,
   );
 
-  const initialMatch = initialXTitle.match(/–\$?(\d+(?:\.\d+)?)/);
+  const initialMatch = initialXTitle.match(/–(\d+(?:\.\d+)?)/);
   expect(initialMatch).not.toBeNull();
   const initialMax = parseFloat(initialMatch![1]!);
 
-  // Find all points in the chart to identify the most expensive series
+  // Find the most expensive point, and the series it belongs to. Match on the
+  // data attributes rather than by parsing the aria-label: the label is prose
+  // meant for screen readers, and splitting it on separators broke as soon as
+  // the label text changed. data-series-id is an exact key on both the point
+  // and its legend row.
   const points = page.locator('.advanced-cost-point');
   const pointCount = await points.count();
   expect(pointCount).toBeGreaterThan(0);
 
   let maxCost = -1;
-  let mostExpensiveSeriesName = '';
+  let mostExpensiveSeriesId = '';
 
   for (let i = 0; i < pointCount; i++) {
-    const label = (await points.nth(i).getAttribute('aria-label')) ?? '';
-    const costMatch = label.match(/Cost \$(\d+(?:\.\d+)?)/);
-    if (costMatch) {
-      const cost = parseFloat(costMatch[1]!);
-      if (cost > maxCost) {
-        maxCost = cost;
-        const parts = label.split(',');
-        if (parts[0] && parts[1]) {
-          mostExpensiveSeriesName = `${parts[0].trim()} · ${parts[1].trim()}`;
-        }
-      }
+    const point = points.nth(i);
+    const cost = parseFloat(
+      (await point.getAttribute('data-cost-index')) ?? '',
+    );
+    const seriesId = (await point.getAttribute('data-series-id')) ?? '';
+    if (Number.isFinite(cost) && cost > maxCost) {
+      maxCost = cost;
+      mostExpensiveSeriesId = seriesId;
     }
   }
 
   expect(maxCost).toBeGreaterThan(0);
-  expect(mostExpensiveSeriesName).not.toBe('');
+  expect(mostExpensiveSeriesId).not.toBe('');
 
   // Hide the most expensive series.
-  const seriesRow = page
-    .locator('.cost-model-legend li')
-    .filter({ hasText: mostExpensiveSeriesName });
+  const seriesRow = page.locator(
+    `.cost-model-legend li[data-series-id="${mostExpensiveSeriesId}"]`,
+  );
   const seriesCheckbox = seriesRow.locator('input[type="checkbox"]');
 
   await expect(seriesCheckbox).toBeChecked();
   // Toggle it from the keyboard. A pointer click needs a hit test, and this
-  // checkbox sits in a 42-row scrolling list inside a page that scrolls
+  // checkbox sits in a scrolling list inside a page that scrolls
   // horizontally at mobile widths on the CI runner, so the resolved point kept
   // landing on the chart, the aside, or a neighbouring row. Space on a focused
   // checkbox is a real user path, needs no coordinates, and asserts the same
@@ -322,27 +323,74 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   await page.keyboard.press('Space');
   await expect(seriesCheckbox).not.toBeChecked();
 
-  // Assert the X axis title's upper bound decreased
+  // The upper bound must never grow when a series is removed. It need not
+  // shrink on a single removal: the X axis is a bounded 0-100 index snapped
+  // to round ticks, so one model can no longer stretch it the way raw USD
+  // did. The strict shrink is asserted further down, after enough series are
+  // hidden that the bound has to move.
   const newXTitle = (await xAxisTitle.textContent()) ?? '';
-  const newMatch = newXTitle.match(/–\$?(\d+(?:\.\d+)?)/);
+  const newMatch = newXTitle.match(/–(\d+(?:\.\d+)?)/);
   expect(newMatch).not.toBeNull();
   const newMax = parseFloat(newMatch![1]!);
-  expect(newMax).toBeLessThan(initialMax);
+  expect(newMax).toBeLessThanOrEqual(initialMax);
 
-  // Assert that the most expensive series' points are gone
+  // Assert the hidden series' points are gone, and that nothing which
+  // survives is more expensive than the point we removed.
   const remainingPoints = page.locator('.advanced-cost-point');
   const remainingCount = await remainingPoints.count();
   expect(remainingCount).toBeLessThan(pointCount);
+  await expect(
+    page.locator(
+      `.advanced-cost-point[data-series-id="${mostExpensiveSeriesId}"]`,
+    ),
+  ).toHaveCount(0);
 
   for (let i = 0; i < remainingCount; i++) {
-    const label =
-      (await remainingPoints.nth(i).getAttribute('aria-label')) ?? '';
-    const costMatch = label.match(/Cost \$(\d+(?:\.\d+)?)/);
-    if (costMatch) {
-      const cost = parseFloat(costMatch[1]!);
-      expect(cost).toBeLessThan(maxCost);
+    const cost = parseFloat(
+      (await remainingPoints.nth(i).getAttribute('data-cost-index')) ?? '',
+    );
+    expect(cost).toBeLessThanOrEqual(maxCost);
+  }
+
+  // Now prove the axis really does rescale. The X axis is a 0-100 index whose
+  // bounds snap to round ticks, so dropping one series need not move it —
+  // that is the scale working as designed, not a missing feature. Hide every
+  // series except the one holding the cheapest point; the upper bound then
+  // has no choice but to come down.
+  const cheapestSeriesId = await (async () => {
+    let min = Number.POSITIVE_INFINITY;
+    let id = '';
+    const live = page.locator('.advanced-cost-point');
+    for (let i = 0; i < (await live.count()); i++) {
+      const cost = parseFloat(
+        (await live.nth(i).getAttribute('data-cost-index')) ?? '',
+      );
+      if (Number.isFinite(cost) && cost < min) {
+        min = cost;
+        id = (await live.nth(i).getAttribute('data-series-id')) ?? '';
+      }
+    }
+    return id;
+  })();
+  expect(cheapestSeriesId).not.toBe('');
+
+  const allCheckboxes = page.locator(
+    '.cost-model-legend li input[type="checkbox"]',
+  );
+  for (let i = 0; i < (await allCheckboxes.count()); i++) {
+    const box = allCheckboxes.nth(i);
+    const row = page.locator('.cost-model-legend li').nth(i);
+    const seriesId = (await row.getAttribute('data-series-id')) ?? '';
+    if (seriesId !== cheapestSeriesId && (await box.isChecked())) {
+      await box.focus();
+      await page.keyboard.press('Space');
     }
   }
+
+  const finalXTitle = (await xAxisTitle.textContent()) ?? '';
+  const finalMatch = finalXTitle.match(/–(\d+(?:\.\d+)?)/);
+  expect(finalMatch).not.toBeNull();
+  expect(parseFloat(finalMatch![1]!)).toBeLessThan(initialMax);
 });
 
 test('has no serious accessibility violations or page-level mobile overflow', async ({

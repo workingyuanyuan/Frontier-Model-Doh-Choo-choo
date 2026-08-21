@@ -63,15 +63,10 @@ export interface WeightedCostPoint {
   }>;
 }
 
-export interface AdvancedCostPoint {
-  modelId: string;
-  profileId: string;
-  providerId: string;
-  displayName: string;
-  effort: string;
-  isDefaultEffort: boolean;
+export interface AdvancedCostSourceDetail {
   sourceId: AdvancedCostSourceId;
   cost: number;
+  normalizedCost: number;
   score: number;
   /** The score is intentionally source-local; it is never ProductCost.performance. */
   scoreBasis: 'AA_INTELLIGENCE_INDEX' | 'DEEPSWE_1_1' | 'FRONTIER_CODE_1_1';
@@ -82,12 +77,28 @@ export interface AdvancedCostPoint {
   evidenceIds: string[];
 }
 
+export interface AdvancedCostPoint {
+  modelId: string;
+  profileId: string;
+  providerId: string;
+  displayName: string;
+  effort: string;
+  isDefaultEffort: boolean;
+  /**
+   * The three-source blended cost index (0-100), NOT dollars. Per-source USD
+   * lives on `sources[].cost`; the two must never be confused on an axis.
+   */
+  costIndex: number;
+  /** Arithmetic mean of the three sources' own scores, raw and unnormalized. */
+  score: number;
+  sources: AdvancedCostSourceDetail[];
+}
+
 export interface AdvancedCostSeries {
   seriesId: string;
   modelId: string;
   providerId: string;
   displayName: string;
-  sourceId: AdvancedCostSourceId;
   points: AdvancedCostPoint[];
 }
 
@@ -379,7 +390,7 @@ const SOURCE_SCORE_BENCHMARK_IDS = {
 
 const AA_INDEX_BENCHMARK_ID = 'artificial-analysis-intelligence-index';
 
-type AdvancedScoreBasis = AdvancedCostPoint['scoreBasis'];
+type AdvancedScoreBasis = AdvancedCostSourceDetail['scoreBasis'];
 
 interface SourceScore {
   score: number;
@@ -697,13 +708,33 @@ const compareAdvancedPoints = (
 };
 
 /**
- * Build one source-local line per model. Profiles with no source-local score
- * are omitted; a model is admitted only when all three required sources have
- * at least one cost + score point. No Overall Score is consulted here.
+ * Build one aggregate effort curve per model across Artificial Analysis,
+ * DeepSWE, and Frontier Code (1/3 weight each). A profile is admitted only
+ * when all three sources yield both a task cost and a source-local score.
+ * Models with a single qualifying profile produce a one-point series.
  */
 export const buildAdvancedCostSeries = (
   product: ProductVersion,
 ): AdvancedCostSeries[] => {
+  const sourceRanges = new Map<
+    AdvancedCostSourceId,
+    { min: number; max: number }
+  >();
+  ADVANCED_COST_SOURCE_IDS.forEach((sourceId) => {
+    const logs = product.costs
+      .filter(
+        (point) =>
+          isTaskCost(point) && point.cost > 0 && point.sourceId === sourceId,
+      )
+      .map(({ cost }) => Math.log(cost));
+    if (logs.length > 0) {
+      sourceRanges.set(sourceId, {
+        min: Math.min(...logs),
+        max: Math.max(...logs),
+      });
+    }
+  });
+
   const grouped = new Map<string, CostPoint[]>();
   product.costs
     .filter(
@@ -721,90 +752,113 @@ export const buildAdvancedCostSeries = (
       grouped.set(key, rows);
     });
 
-  const candidatePoints: AdvancedCostPoint[] = [...grouped.values()].flatMap(
-    (rows) => {
-      const first = rows[0];
-      if (!first) return [];
-      const sourceScore = getAdvancedSourceScore(
-        product,
-        first.sourceId as AdvancedCostSourceId,
-        first.profileId,
-      );
-      if (sourceScore === null) return [];
-      const profile = profileById(product, first.profileId);
-      if (!profile) return [];
-      const exemplar = rows.toSorted(compareCostRows)[0];
-      if (!exemplar) return [];
-      const effort = normalizeSourceEffort(sourceScore.sourceEffort);
-      return [
-        {
-          modelId: first.modelId,
-          profileId: first.profileId,
-          providerId: profile.providerId,
-          displayName: getProfileDisplayName(profile),
-          effort,
-          isDefaultEffort: !COST_EFFORT_RANK.has(effort),
-          sourceId: first.sourceId as AdvancedCostSourceId,
-          cost: median(rows.map((row) => row.cost)),
-          score: sourceScore.score,
-          scoreBasis: sourceScore.basis,
-          scoreBenchmarkId: sourceScore.benchmarkId,
-          metricName: exemplar.metricName,
-          sourceUrl: exemplar.sourceUrl,
-          benchmarkId: exemplar.benchmarkId,
-          evidenceIds: rows
-            .flatMap(({ evidenceIds }) => evidenceIds)
-            .toSorted(),
-        },
-      ];
-    },
-  );
+  const candidatePoints: AdvancedCostPoint[] = [];
 
-  const byModel = new Map<
-    string,
-    Map<AdvancedCostSourceId, AdvancedCostPoint[]>
-  >();
-  candidatePoints.forEach((point) => {
-    const bySource = byModel.get(point.modelId) ?? new Map();
-    const points = bySource.get(point.sourceId) ?? [];
-    points.push(point);
-    bySource.set(point.sourceId, points);
-    byModel.set(point.modelId, bySource);
+  product.profiles.forEach((profile) => {
+    const profileId = profile.id;
+    const modelId = profile.modelId;
+
+    const sourceDetails: AdvancedCostSourceDetail[] = [];
+    let hasAllSources = true;
+
+    for (const sourceId of ADVANCED_COST_SOURCE_IDS) {
+      const key = `${modelId}\u0000${profileId}\u0000${sourceId}`;
+      const rows = grouped.get(key);
+      if (!rows || rows.length === 0) {
+        hasAllSources = false;
+        break;
+      }
+      const sourceScore = getAdvancedSourceScore(product, sourceId, profileId);
+      if (sourceScore === null) {
+        hasAllSources = false;
+        break;
+      }
+      const range = sourceRanges.get(sourceId);
+      if (!range) {
+        hasAllSources = false;
+        break;
+      }
+      const sourceCost = median(rows.map((row) => row.cost));
+      if (sourceCost <= 0) {
+        hasAllSources = false;
+        break;
+      }
+      const exemplar = rows.toSorted(compareCostRows)[0];
+      if (!exemplar) {
+        hasAllSources = false;
+        break;
+      }
+      const normalizedCost = normalizeCost(sourceCost, range);
+      sourceDetails.push({
+        sourceId,
+        cost: sourceCost,
+        normalizedCost,
+        score: sourceScore.score,
+        scoreBasis: sourceScore.basis,
+        scoreBenchmarkId: sourceScore.benchmarkId,
+        metricName: exemplar.metricName,
+        sourceUrl: exemplar.sourceUrl,
+        benchmarkId: exemplar.benchmarkId,
+        evidenceIds: rows.flatMap(({ evidenceIds }) => evidenceIds).toSorted(),
+      });
+    }
+
+    if (
+      !hasAllSources ||
+      sourceDetails.length !== ADVANCED_COST_SOURCE_IDS.length
+    ) {
+      return;
+    }
+
+    const effort = normalizeSourceEffort(profile.attributes.effort ?? null);
+    const costIndex = sourceDetails.reduce(
+      (sum, s) => sum + s.normalizedCost * (1 / 3),
+      0,
+    );
+    const score = sourceDetails.reduce((sum, s) => sum + s.score, 0) / 3;
+
+    candidatePoints.push({
+      modelId,
+      profileId,
+      providerId: profile.providerId,
+      displayName: getProfileDisplayName(profile),
+      effort,
+      isDefaultEffort: !COST_EFFORT_RANK.has(effort),
+      costIndex,
+      score,
+      sources: sourceDetails,
+    });
   });
 
-  return [...byModel.entries()]
-    .flatMap(([modelId, bySource]) => {
-      if (
-        ADVANCED_COST_SOURCE_IDS.some(
-          (sourceId) => !bySource.get(sourceId)?.length,
-        )
-      ) {
-        return [];
-      }
-      const modelProfile = profileById(
-        product,
-        bySource.values().next().value?.[0]?.profileId ?? '',
-      );
-      if (!modelProfile) return [];
-      return ADVANCED_COST_SOURCE_IDS.map((sourceId) => {
-        const points = (bySource.get(sourceId) ?? []).toSorted(
-          compareAdvancedPoints,
-        );
-        return {
-          seriesId: `${modelId}:${sourceId}`,
-          modelId,
-          providerId: modelProfile.providerId,
-          displayName: modelProfile.baseModelName,
-          sourceId,
-          points,
-        };
-      });
-    })
-    .toSorted(
-      (left, right) =>
-        left.displayName.localeCompare(right.displayName) ||
-        left.sourceId.localeCompare(right.sourceId),
-    );
+  const byModel = new Map<string, AdvancedCostPoint[]>();
+  candidatePoints.forEach((point) => {
+    const list = byModel.get(point.modelId) ?? [];
+    list.push(point);
+    byModel.set(point.modelId, list);
+  });
+
+  const series: AdvancedCostSeries[] = [];
+  byModel.forEach((points, modelId) => {
+    const sortedPoints = points.toSorted(compareAdvancedPoints);
+    const firstPoint = sortedPoints[0];
+    if (!firstPoint) return;
+    const modelProfile = profileById(product, firstPoint.profileId);
+    if (!modelProfile) return;
+
+    series.push({
+      seriesId: modelId,
+      modelId,
+      providerId: modelProfile.providerId,
+      displayName: modelProfile.baseModelName,
+      points: sortedPoints,
+    });
+  });
+
+  return series.toSorted(
+    (left, right) =>
+      left.displayName.localeCompare(right.displayName) ||
+      left.modelId.localeCompare(right.modelId),
+  );
 };
 
 export interface DataScopeSummary {

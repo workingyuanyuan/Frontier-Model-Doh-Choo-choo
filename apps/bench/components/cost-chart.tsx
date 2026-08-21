@@ -30,12 +30,6 @@ const PROVIDER_COLORS: Record<string, string> = {
   xiaomi: '#e11d48',
 };
 
-const SOURCE_COLORS: Record<string, string> = {
-  'artificial-analysis': '#c2410c',
-  deepswe: '#059669',
-  'frontier-code': '#2563eb',
-};
-
 const SOURCE_NAMES: Record<string, string> = {
   'artificial-analysis': 'Artificial Analysis',
   livebench: 'LiveBench',
@@ -45,9 +39,6 @@ const SOURCE_NAMES: Record<string, string> = {
 
 const providerColor = (providerId: string): string =>
   PROVIDER_COLORS[providerId] ?? '#64748b';
-
-const sourceColor = (sourceId: string): string =>
-  SOURCE_COLORS[sourceId] ?? '#64748b';
 
 const sourceName = (sourceId: string): string =>
   SOURCE_NAMES[sourceId] ?? sourceId;
@@ -463,7 +454,7 @@ export function AdvancedCostPlot({
     (line) => !hiddenSeriesIds.has(line.seriesId),
   );
   const visiblePoints = visibleSeries.flatMap(({ points }) => points);
-  const xDomain = getChartDomain(visiblePoints.map((point) => point.cost));
+  const xDomain = getChartDomain(visiblePoints.map((point) => point.costIndex));
   const yDomain = getChartDomain(visiblePoints.map((point) => point.score));
   const x = (cost: number) =>
     left +
@@ -488,7 +479,7 @@ export function AdvancedCostPlot({
             className="cost-curve-chart advanced-cost-chart"
             viewBox="0 0 660 405"
             role="img"
-            aria-label={`Source-local score (${yDomain.min}–${yDomain.max}) versus USD per task cost ($${xDomain.min}–$${xDomain.max}). Each line connects effort profiles for one model and source.`}
+            aria-label={`Three-source mean score (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost index (${xDomain.min}–${xDomain.max}). Each line connects effort profiles for one model.`}
           >
             {yDomain.ticks.map((tick) => (
               <g key={`advanced-y-${tick}`}>
@@ -524,7 +515,7 @@ export function AdvancedCostPlot({
                   y={bottom + 22}
                   textAnchor="middle"
                 >
-                  ${tick}
+                  {tick}
                 </text>
               </g>
             ))}
@@ -548,7 +539,7 @@ export function AdvancedCostPlot({
               y="397"
               textAnchor="middle"
             >
-              {`Source task cost ($${xDomain.min}–$${xDomain.max}, lower is better)`}
+              {`Weighted normalized task cost index (${xDomain.min}–${xDomain.max}, lower is better)`}
             </text>
             <text
               className="cost-axis-title"
@@ -557,7 +548,10 @@ export function AdvancedCostPlot({
               textAnchor="middle"
               transform={`rotate(-90 15 ${(top + bottom) / 2})`}
             >
-              {`Source score (${yDomain.min}–${yDomain.max}, higher is better)`}
+              {`Three-source mean score (${yDomain.min}–${yDomain.max}, higher is better)`}
+            </text>
+            <text className="cost-direction-label" x={left + 8} y={top + 15}>
+              Better value ↖
             </text>
             {visibleSeries.map((line) => {
               const effortLadderPoints = line.points.filter(
@@ -566,7 +560,7 @@ export function AdvancedCostPlot({
               const points = effortLadderPoints
                 .map(
                   (point) =>
-                    `${x(point.cost).toFixed(2)},${y(point.score).toFixed(2)}`,
+                    `${x(point.costIndex).toFixed(2)},${y(point.score).toFixed(2)}`,
                 )
                 .join(' ');
               return (
@@ -575,26 +569,25 @@ export function AdvancedCostPlot({
                     <polyline
                       className="advanced-cost-line"
                       points={points}
-                      stroke={sourceColor(line.sourceId)}
-                      aria-label={`${line.displayName}, ${sourceName(line.sourceId)} effort curve`}
+                      stroke={providerColor(line.providerId)}
+                      aria-label={`${line.displayName} effort curve`}
                     />
                   ) : null}
                   {line.points.map((point) => {
                     const selected = point.profileId === selectedProfileId;
-                    const effortText = point.isDefaultEffort
-                      ? 'default effort'
-                      : `${point.effort} effort`;
                     return (
                       <circle
                         key={point.profileId}
                         className={`advanced-cost-point${selected ? ' is-selected' : ''}${point.isDefaultEffort ? ' is-default' : ''}`}
-                        cx={x(point.cost)}
+                        data-series-id={line.seriesId}
+                        data-cost-index={point.costIndex.toFixed(2)}
+                        cx={x(point.costIndex)}
                         cy={y(point.score)}
                         r={selected ? 8 : 6}
-                        fill={sourceColor(line.sourceId)}
+                        fill={providerColor(line.providerId)}
                         tabIndex={0}
                         role="img"
-                        aria-label={`${line.displayName}, ${sourceName(line.sourceId)}, ${effortText}. Cost $${point.cost.toFixed(3)} per task. Source score ${point.score.toFixed(1)}.`}
+                        aria-label={`${point.displayName}. Three-source mean score ${point.score.toFixed(1)}. Weighted normalized task cost ${point.costIndex.toFixed(1)}.`}
                         onClick={() => handleToggle(point.profileId)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
@@ -642,10 +635,10 @@ export function AdvancedCostPlot({
               role="tooltip"
               aria-hidden="true"
               style={{
-                left: `${((x(activePoint.point.cost) / 660) * 100).toFixed(2)}%`,
+                left: `${((x(activePoint.point.costIndex) / 660) * 100).toFixed(2)}%`,
                 top: `${((y(activePoint.point.score) / 405) * 100).toFixed(2)}%`,
                 transform: getCardTransform(
-                  x(activePoint.point.cost),
+                  x(activePoint.point.costIndex),
                   y(activePoint.point.score),
                 ),
               }}
@@ -654,7 +647,9 @@ export function AdvancedCostPlot({
                 <span
                   className="provider-dot"
                   style={{
-                    backgroundColor: sourceColor(activePoint.series.sourceId),
+                    backgroundColor: providerColor(
+                      activePoint.series.providerId,
+                    ),
                   }}
                   aria-hidden="true"
                 />
@@ -663,38 +658,63 @@ export function AdvancedCostPlot({
                 </strong>
               </div>
               <div className="cost-hover-card-meta">
-                {sourceName(activePoint.series.sourceId)} ·{' '}
                 {activePoint.point.isDefaultEffort
                   ? 'default effort'
                   : `${activePoint.point.effort} effort`}
               </div>
               <div className="cost-hover-card-metrics">
                 <div className="cost-hover-card-row">
-                  <span className="cost-hover-card-label">Source score:</span>
+                  <span className="cost-hover-card-label">Mean score:</span>
                   <span className="cost-hover-card-value">
                     {activePoint.point.score.toFixed(1)}
                   </span>
                 </div>
                 <div className="cost-hover-card-row">
-                  <span className="cost-hover-card-label">Cost:</span>
+                  <span className="cost-hover-card-label">
+                    Weighted cost index:
+                  </span>
                   <span className="cost-hover-card-value">
-                    ${activePoint.point.cost.toFixed(3)} per task
+                    {activePoint.point.costIndex.toFixed(1)}
                   </span>
                 </div>
               </div>
+              {activePoint.point.sources.length > 0 ? (
+                <div className="cost-hover-card-sources">
+                  <div className="cost-hover-card-sources-title">
+                    Source scores and costs
+                  </div>
+                  <ul className="cost-hover-card-source-list">
+                    {activePoint.point.sources.map((source) => (
+                      <li
+                        key={source.sourceId}
+                        className="cost-hover-card-source-item"
+                      >
+                        <span>{sourceName(source.sourceId)}:</span>
+                        <span>
+                          score {source.score.toFixed(1)} · $
+                          {source.cost.toFixed(3)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
             </div>
           ) : null}
         </div>
         <p className="cost-frontier-caption">
-          Lines connect profiles from the same model and source. Default
+          Lines connect effort profiles for the same model. Default
           configurations are marked separately and are not part of the effort
           ladder.
         </p>
       </div>
 
-      <aside className="cost-model-legend" aria-label="Effort curves">
-        <h3>Sources and effort profiles</h3>
-        <ul tabIndex={0} aria-label="Scrollable effort curve legend">
+      <aside
+        className="cost-model-legend"
+        aria-label="Models in advanced cost chart"
+      >
+        <h3>Models</h3>
+        <ul tabIndex={0} aria-label="Scrollable model legend">
           {series.map((line) => {
             const ladderPoints = line.points.filter(
               (point) => !point.isDefaultEffort,
@@ -704,8 +724,15 @@ export function AdvancedCostPlot({
             );
             const checkboxId = `series-toggle-${line.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
             const isVisible = !hiddenSeriesIds.has(line.seriesId);
+            const isSelected = line.points.some(
+              (p) => p.profileId === selectedProfileId,
+            );
             return (
-              <li key={line.seriesId}>
+              <li
+                key={line.seriesId}
+                data-series-id={line.seriesId}
+                className={isSelected ? 'is-selected' : undefined}
+              >
                 <label
                   htmlFor={checkboxId}
                   className="cost-legend-checkbox-label"
@@ -719,13 +746,11 @@ export function AdvancedCostPlot({
                   />
                   <span
                     className="provider-dot"
-                    style={{ backgroundColor: sourceColor(line.sourceId) }}
+                    style={{ backgroundColor: providerColor(line.providerId) }}
                     aria-hidden="true"
                   />
                   <span>
-                    <strong>
-                      {line.displayName} · {sourceName(line.sourceId)}
-                    </strong>
+                    <strong>{line.displayName}</strong>
                     <small>
                       {ladderPoints.map(({ effort }) => effort).join(' → ')}
                       {defaultPoints.length > 0
@@ -798,8 +823,8 @@ export function CostChart({
             </p>
           ) : (
             <p className="cost-weight-note">
-              Advanced mode: Artificial Analysis · DeepSWE · Frontier Code;
-              LiveBench is excluded.
+              Source weights: Artificial Analysis 33.3% · DeepSWE 33.3% ·
+              Frontier Code 33.3% · LiveBench is excluded
             </p>
           )}
           <button

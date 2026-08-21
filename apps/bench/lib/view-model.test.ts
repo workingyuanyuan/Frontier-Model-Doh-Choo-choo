@@ -699,28 +699,60 @@ describe('cost chart view model', () => {
     expect(buildAdvancedCostSeries(apiOnly)).toEqual([]);
   });
 
-  it('excludes advanced models missing one required source and keeps source IDs aligned', () => {
+  it('excludes profiles missing one required source, but keeps one-point model series', () => {
     const baseEvidence = productFixture.evidence[0]!;
     const profiles = [
       {
         ...productFixture.profiles[0]!,
         id: 'openai-gpt-5-6-sol-low',
+        modelId: 'openai-gpt-5-6-sol',
         displayName: 'GPT-5.6 Sol · low',
         attributes: { effort: 'low', harness: null },
       },
       {
         ...productFixture.profiles[0]!,
+        id: 'openai-gpt-5-6-sol-max',
+        modelId: 'openai-gpt-5-6-sol',
+        displayName: 'GPT-5.6 Sol · max',
+        attributes: { effort: 'max', harness: null },
+      },
+      {
+        ...productFixture.profiles[0]!,
         id: 'openai-gpt-5-6-sol-default',
+        modelId: 'openai-gpt-5-6-sol',
         displayName: 'GPT-5.6 Sol · default',
         attributes: { effort: 'default', harness: null },
       },
       {
-        ...productFixture.profiles[1]!,
+        ...productFixture.profiles[0]!,
+        id: 'openai-gpt-5-6-sol-incomplete',
+        modelId: 'openai-gpt-5-6-sol',
+        displayName: 'GPT-5.6 Sol · incomplete',
+        attributes: { effort: 'medium', harness: null },
+      },
+      {
+        ...productFixture.profiles[2]!,
         id: 'anthropic-claude-fable-5-low',
+        modelId: 'anthropic-claude-fable-5',
         displayName: 'Claude Fable 5 · low',
         attributes: { effort: 'low', harness: null },
       },
+      {
+        ...productFixture.profiles[2]!,
+        id: 'anthropic-claude-fable-5-incomplete',
+        modelId: 'anthropic-claude-fable-5',
+        displayName: 'Claude Fable 5 · incomplete',
+        attributes: { effort: 'high', harness: null },
+      },
+      {
+        ...productFixture.profiles[3]!,
+        id: 'google-gemini-3-1-pro-low',
+        modelId: 'google-gemini-3-1-pro',
+        displayName: 'Gemini 3.1 Pro · low',
+        attributes: { effort: 'low', harness: null },
+      },
     ];
+
     const sourceEvidence = (
       sourceId: string,
       profileId: string,
@@ -762,6 +794,7 @@ describe('cost chart view model', () => {
         rawScore: score,
       };
     };
+
     const taskCost = (
       sourceId: string,
       profileId: string,
@@ -789,123 +822,408 @@ describe('cost chart view model', () => {
             : 'frontier-code-1-1',
       evidenceIds: [`sha256:${String(index).padStart(64, '0')}`],
     });
-    const modelId = 'openai-gpt-5-6-sol';
-    const advancedProfiles = [
+
+    const solProfiles = [
       ['openai-gpt-5-6-sol-low', 10],
       ['openai-gpt-5-6-sol-max', 30],
       ['openai-gpt-5-6-sol-default', 20],
     ] as const;
-    const advancedCosts = advancedProfiles.flatMap(([profileId, cost]) =>
+
+    const solCosts = solProfiles.flatMap(([profileId, cost]) =>
       ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
-        taskCost(sourceId, profileId, modelId, cost + index, index + cost),
+        taskCost(
+          sourceId,
+          profileId,
+          'openai-gpt-5-6-sol',
+          cost + index,
+          index + cost,
+        ),
       ),
     );
-    const advancedEvidence = advancedProfiles.flatMap(([profileId, score]) =>
-      ADVANCED_COST_SOURCE_IDS.flatMap((sourceId, sourceIndex) => [
+    const solEvidence = solProfiles.flatMap(([profileId, score]) =>
+      ADVANCED_COST_SOURCE_IDS.map((sourceId, sourceIndex) =>
         sourceEvidence(
           sourceId,
           profileId,
-          modelId,
+          'openai-gpt-5-6-sol',
           score + sourceIndex,
           sourceIndex,
         ),
-        ...(sourceId === 'artificial-analysis'
-          ? [
-              {
-                ...sourceEvidence(
-                  sourceId,
-                  profileId,
-                  modelId,
-                  score + sourceIndex + 10,
-                  sourceIndex + 10,
-                ),
-                id: `e3:${sourceId}:${profileId}:unrelated`,
-                benchmarkId: 'aa-unrelated-benchmark',
-                inclusion: 'INCLUDED' as const,
-                exclusionReason: null,
-                normalizedScore: score + sourceIndex + 10,
-              },
-            ]
-          : []),
-      ]),
+      ),
     );
-    const missingModelId = 'anthropic-claude-fable-5';
-    const missingCosts = ['artificial-analysis', 'deepswe'].map(
+
+    // Incomplete profile for Sol: missing Frontier Code
+    const solIncompleteCosts = ['artificial-analysis', 'deepswe'].map(
       (sourceId, index) =>
         taskCost(
           sourceId,
-          'anthropic-claude-fable-5-low',
-          missingModelId,
-          index + 1,
-          index + 100,
+          'openai-gpt-5-6-sol-incomplete',
+          'openai-gpt-5-6-sol',
+          15 + index,
+          200 + index,
         ),
     );
-    const missingEvidence = missingCosts.map((cost, index) =>
-      sourceEvidence(
-        cost.sourceId,
-        cost.profileId,
-        missingModelId,
-        50 + index,
-        index + 100,
+    const solIncompleteEvidence = ['artificial-analysis', 'deepswe'].map(
+      (sourceId, index) =>
+        sourceEvidence(
+          sourceId,
+          'openai-gpt-5-6-sol-incomplete',
+          'openai-gpt-5-6-sol',
+          50 + index,
+          200 + index,
+        ),
+    );
+
+    // Claude: low profile has all 3 sources (single qualifying effort), incomplete profile has only 1 source
+    const claudeLowCosts = ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
+      taskCost(
+        sourceId,
+        'anthropic-claude-fable-5-low',
+        'anthropic-claude-fable-5',
+        5 + index,
+        300 + index,
       ),
     );
-    const product = {
+    const claudeLowEvidence = ADVANCED_COST_SOURCE_IDS.map(
+      (sourceId, sourceIndex) =>
+        sourceEvidence(
+          sourceId,
+          'anthropic-claude-fable-5-low',
+          'anthropic-claude-fable-5',
+          80 + sourceIndex,
+          300 + sourceIndex,
+        ),
+    );
+    const claudeIncompleteCosts = [
+      taskCost(
+        'artificial-analysis',
+        'anthropic-claude-fable-5-incomplete',
+        'anthropic-claude-fable-5',
+        8,
+        350,
+      ),
+    ];
+    const claudeIncompleteEvidence = [
+      sourceEvidence(
+        'artificial-analysis',
+        'anthropic-claude-fable-5-incomplete',
+        'anthropic-claude-fable-5',
+        85,
+        350,
+      ),
+    ];
+
+    // Gemini: low profile has only 2 sources (missing Frontier Code), so Gemini has NO qualifying profile
+    const geminiCosts = ['artificial-analysis', 'deepswe'].map(
+      (sourceId, index) =>
+        taskCost(
+          sourceId,
+          'google-gemini-3-1-pro-low',
+          'google-gemini-3-1-pro',
+          4 + index,
+          400 + index,
+        ),
+    );
+    const geminiEvidence = ['artificial-analysis', 'deepswe'].map(
+      (sourceId, index) =>
+        sourceEvidence(
+          sourceId,
+          'google-gemini-3-1-pro-low',
+          'google-gemini-3-1-pro',
+          70 + index,
+          400 + index,
+        ),
+    );
+
+    const product: ProductVersion = {
       ...productFixture,
-      profiles: [...productFixture.profiles, ...profiles],
-      costs: [...productFixture.costs, ...advancedCosts, ...missingCosts],
+      profiles,
+      costs: [
+        ...solCosts,
+        ...solIncompleteCosts,
+        ...claudeLowCosts,
+        ...claudeIncompleteCosts,
+        ...geminiCosts,
+      ],
       evidence: [
-        ...productFixture.evidence,
-        ...advancedEvidence,
-        ...missingEvidence,
+        ...solEvidence,
+        ...solIncompleteEvidence,
+        ...claudeLowEvidence,
+        ...claudeIncompleteEvidence,
+        ...geminiEvidence,
       ],
     };
 
     const series = buildAdvancedCostSeries(product);
-    expect(new Set(series.map(({ modelId: id }) => id))).toEqual(
-      new Set([modelId]),
-    );
-    expect(series.map(({ sourceId }) => sourceId)).toEqual([
-      'artificial-analysis',
-      'deepswe',
-      'frontier-code',
+
+    // Only GPT-5.6 Sol and Claude Fable 5 qualify; Gemini is completely omitted
+    expect(series.map(({ modelId }) => modelId)).toEqual([
+      'anthropic-claude-fable-5',
+      'openai-gpt-5-6-sol',
     ]);
-    series.forEach((line) => {
-      expect(
-        line.points.every(({ sourceId }) => sourceId === line.sourceId),
-      ).toBe(true);
-      expect(
-        line.points.every(
-          ({ scoreBasis, scoreBenchmarkId }) =>
-            scoreBasis ===
-              (line.sourceId === 'artificial-analysis'
-                ? 'AA_INTELLIGENCE_INDEX'
-                : line.sourceId === 'deepswe'
-                  ? 'DEEPSWE_1_1'
-                  : 'FRONTIER_CODE_1_1') &&
-            scoreBenchmarkId ===
-              (line.sourceId === 'artificial-analysis'
-                ? 'artificial-analysis-intelligence-index'
-                : line.sourceId === 'deepswe'
-                  ? 'deepswe-1-1'
-                  : 'frontier-code-1-1'),
-        ),
-      ).toBe(true);
-      expect(line.points.map(({ effort }) => effort)).toEqual([
-        'low',
-        'max',
-        'default',
-      ]);
-    });
+
+    // Claude Fable 5 has a single qualifying effort and produces a 1-point series
+    const claudeSeries = series.find(
+      ({ modelId }) => modelId === 'anthropic-claude-fable-5',
+    )!;
+    expect(claudeSeries.points).toHaveLength(1);
+    expect(claudeSeries.points[0]?.profileId).toBe(
+      'anthropic-claude-fable-5-low',
+    );
+    expect(claudeSeries.points[0]?.effort).toBe('low');
+
+    // GPT-5.6 Sol has 3 qualifying efforts (the incomplete one is dropped)
+    const solSeries = series.find(
+      ({ modelId }) => modelId === 'openai-gpt-5-6-sol',
+    )!;
+    expect(solSeries.points).toHaveLength(3);
+    expect(solSeries.points.map(({ effort }) => effort)).toEqual([
+      'low',
+      'max',
+      'default',
+    ]);
     expect(
-      series
-        .find(({ sourceId }) => sourceId === 'artificial-analysis')!
-        .points.find(({ effort }) => effort === 'default')?.isDefaultEffort,
+      solSeries.points.find(({ effort }) => effort === 'default')
+        ?.isDefaultEffort,
     ).toBe(true);
-    expect(
-      series
-        .find(({ sourceId }) => sourceId === 'artificial-analysis')!
-        .points.map(({ score }) => score),
-    ).toEqual([10, 30, 20]);
+
+    // Detail breakdown is preserved on every point
+    for (const point of [...solSeries.points, ...claudeSeries.points]) {
+      expect(point.sources).toHaveLength(3);
+      expect(point.sources.map(({ sourceId }) => sourceId)).toEqual([
+        'artificial-analysis',
+        'deepswe',
+        'frontier-code',
+      ]);
+    }
+  });
+
+  it('computes Y as the plain arithmetic mean of the three source scores without min-max normalization', () => {
+    const baseEvidence = productFixture.evidence[0]!;
+    const profile = {
+      ...productFixture.profiles[0]!,
+      id: 'test-model-high',
+      modelId: 'test-model',
+      displayName: 'Test Model · high',
+      attributes: { effort: 'high', harness: null },
+    };
+
+    const sourceEvidence = (sourceId: string, score: number) => {
+      const isAa = sourceId === 'artificial-analysis';
+      const benchmarkId =
+        sourceId === 'artificial-analysis'
+          ? 'artificial-analysis-intelligence-index'
+          : sourceId === 'deepswe'
+            ? 'deepswe-1-1'
+            : 'frontier-code-1-1';
+      return {
+        ...baseEvidence,
+        id: `e-mean:${sourceId}`,
+        sourceId,
+        benchmarkId,
+        inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
+        exclusionReason: isAa
+          ? 'External composite is used for display only.'
+          : null,
+        model: {
+          ...baseEvidence.model,
+          canonicalModelId: 'test-model',
+          profileId: 'test-model-high',
+        },
+        profile: {
+          ...baseEvidence.profile,
+          effort: 'high',
+        },
+        normalizedScore: isAa ? null : score,
+        rawScore: score,
+      };
+    };
+
+    const taskCost = (sourceId: string, cost: number) => ({
+      ...productFixture.costs.find(
+        ({ costType }) => costType === 'MEASURED_TASK',
+      )!,
+      sourceId,
+      profileId: 'test-model-high',
+      modelId: 'test-model',
+      cost,
+      costType:
+        sourceId === 'deepswe'
+          ? ('AGENT_TASK' as const)
+          : ('MEASURED_TASK' as const),
+      unit: 'USD_PER_TASK' as const,
+      benchmarkId:
+        sourceId === 'artificial-analysis'
+          ? 'artificial-analysis-intelligence-index'
+          : sourceId === 'deepswe'
+            ? 'deepswe-1-1'
+            : 'frontier-code-1-1',
+      evidenceIds: [
+        'sha256:1111111111111111111111111111111111111111111111111111111111111111',
+      ],
+    });
+
+    const aaScore = 60;
+    const deepsweScore = 75;
+    const frontierCodeScore = 90;
+
+    const product: ProductVersion = {
+      ...productFixture,
+      profiles: [profile],
+      costs: [
+        taskCost('artificial-analysis', 1.0),
+        taskCost('deepswe', 2.0),
+        taskCost('frontier-code', 3.0),
+      ],
+      evidence: [
+        sourceEvidence('artificial-analysis', aaScore),
+        sourceEvidence('deepswe', deepsweScore),
+        sourceEvidence('frontier-code', frontierCodeScore),
+      ],
+    };
+
+    const series = buildAdvancedCostSeries(product);
+    expect(series).toHaveLength(1);
+    const point = series[0]!.points[0]!;
+
+    // Expected Y = (60 + 75 + 90) / 3 = 75.0
+    expect(point.score).toBeCloseTo(75.0, 5);
+  });
+
+  it('keeps point X values untouched when another model is removed from the product', () => {
+    const baseEvidence = productFixture.evidence[0]!;
+    const profiles = [
+      {
+        ...productFixture.profiles[0]!,
+        id: 'model-a-high',
+        modelId: 'model-a',
+        displayName: 'Model A · high',
+        attributes: { effort: 'high', harness: null },
+      },
+      {
+        ...productFixture.profiles[1]!,
+        id: 'model-b-high',
+        modelId: 'model-b',
+        displayName: 'Model B · high',
+        attributes: { effort: 'high', harness: null },
+      },
+    ];
+
+    const sourceEvidence = (
+      sourceId: string,
+      profileId: string,
+      modelId: string,
+      score: number,
+    ) => {
+      const isAa = sourceId === 'artificial-analysis';
+      return {
+        ...baseEvidence,
+        id: `ev:${sourceId}:${profileId}`,
+        sourceId,
+        benchmarkId:
+          sourceId === 'artificial-analysis'
+            ? 'artificial-analysis-intelligence-index'
+            : sourceId === 'deepswe'
+              ? 'deepswe-1-1'
+              : 'frontier-code-1-1',
+        inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
+        exclusionReason: isAa ? 'External composite' : null,
+        model: { ...baseEvidence.model, canonicalModelId: modelId, profileId },
+        profile: { ...baseEvidence.profile, effort: 'high' },
+        normalizedScore: isAa ? null : score,
+        rawScore: score,
+      };
+    };
+
+    const taskCost = (
+      sourceId: string,
+      profileId: string,
+      modelId: string,
+      cost: number,
+    ) => ({
+      ...productFixture.costs.find(
+        ({ costType }) => costType === 'MEASURED_TASK',
+      )!,
+      sourceId,
+      profileId,
+      modelId,
+      cost,
+      costType:
+        sourceId === 'deepswe'
+          ? ('AGENT_TASK' as const)
+          : ('MEASURED_TASK' as const),
+      unit: 'USD_PER_TASK' as const,
+      benchmarkId:
+        sourceId === 'artificial-analysis'
+          ? 'artificial-analysis-intelligence-index'
+          : sourceId === 'deepswe'
+            ? 'deepswe-1-1'
+            : 'frontier-code-1-1',
+      evidenceIds: [
+        'sha256:2222222222222222222222222222222222222222222222222222222222222222',
+      ],
+    });
+
+    // Background task costs to anchor the population source ranges (min/max)
+    const backgroundCosts = [
+      taskCost('artificial-analysis', 'anchor-min', 'anchor-m', 0.5),
+      taskCost('artificial-analysis', 'anchor-max', 'anchor-m', 10.0),
+      taskCost('deepswe', 'anchor-min', 'anchor-m', 1.0),
+      taskCost('deepswe', 'anchor-max', 'anchor-m', 20.0),
+      taskCost('frontier-code', 'anchor-min', 'anchor-m', 2.0),
+      taskCost('frontier-code', 'anchor-max', 'anchor-m', 50.0),
+    ];
+
+    const modelACosts = [
+      taskCost('artificial-analysis', 'model-a-high', 'model-a', 2.0),
+      taskCost('deepswe', 'model-a-high', 'model-a', 5.0),
+      taskCost('frontier-code', 'model-a-high', 'model-a', 10.0),
+    ];
+    const modelAEvidence = [
+      sourceEvidence('artificial-analysis', 'model-a-high', 'model-a', 70),
+      sourceEvidence('deepswe', 'model-a-high', 'model-a', 75),
+      sourceEvidence('frontier-code', 'model-a-high', 'model-a', 80),
+    ];
+
+    const modelBCosts = [
+      taskCost('artificial-analysis', 'model-b-high', 'model-b', 3.0),
+      taskCost('deepswe', 'model-b-high', 'model-b', 8.0),
+      taskCost('frontier-code', 'model-b-high', 'model-b', 15.0),
+    ];
+    const modelBEvidence = [
+      sourceEvidence('artificial-analysis', 'model-b-high', 'model-b', 65),
+      sourceEvidence('deepswe', 'model-b-high', 'model-b', 70),
+      sourceEvidence('frontier-code', 'model-b-high', 'model-b', 75),
+    ];
+
+    const fullProduct: ProductVersion = {
+      ...productFixture,
+      profiles,
+      costs: [...backgroundCosts, ...modelACosts, ...modelBCosts],
+      evidence: [...modelAEvidence, ...modelBEvidence],
+    };
+
+    const withoutModelBProduct: ProductVersion = {
+      ...productFixture,
+      profiles: [profiles[0]!],
+      costs: [...backgroundCosts, ...modelACosts],
+      evidence: [...modelAEvidence],
+    };
+
+    const seriesFull = buildAdvancedCostSeries(fullProduct);
+    const seriesWithoutB = buildAdvancedCostSeries(withoutModelBProduct);
+
+    const modelAPointFull = seriesFull.find(
+      ({ modelId }) => modelId === 'model-a',
+    )?.points[0];
+    const modelAPointWithoutB = seriesWithoutB.find(
+      ({ modelId }) => modelId === 'model-a',
+    )?.points[0];
+
+    expect(modelAPointFull).toBeDefined();
+    expect(modelAPointWithoutB).toBeDefined();
+    expect(modelAPointFull?.costIndex).toBe(modelAPointWithoutB?.costIndex);
+    expect(modelAPointFull?.score).toBe(modelAPointWithoutB?.score);
   });
 });
 

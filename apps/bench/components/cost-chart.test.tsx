@@ -12,45 +12,106 @@ import { productFixture } from '../test/fixture';
 
 const sampleAdvancedSeries: AdvancedCostSeries[] = [
   {
-    seriesId: 'anthropic-claude-fable-5:deepswe',
+    seriesId: 'anthropic-claude-fable-5',
     modelId: 'anthropic-claude-fable-5',
     providerId: 'anthropic',
     displayName: 'Claude Fable 5',
-    sourceId: 'deepswe',
     points: [
       {
         profileId: 'anthropic-claude-fable-5-standard',
         modelId: 'anthropic-claude-fable-5',
         providerId: 'anthropic',
-        displayName: 'Claude Fable 5',
+        displayName: 'Claude Fable 5 · standard',
         effort: 'standard',
-        cost: 2.36,
+        costIndex: 42.5,
         score: 85.6,
-        sourceId: 'deepswe',
-        benchmarkId: 'deepswe',
         isDefaultEffort: true,
-        scoreBasis: 'DEEPSWE_1_1',
-        scoreBenchmarkId: 'deepswe-1-1',
-        metricName: 'Mean agent task cost',
-        sourceUrl: 'https://deepswe.datacurve.ai/',
-        evidenceIds: [],
+        sources: [
+          {
+            sourceId: 'artificial-analysis',
+            cost: 1.25,
+            normalizedCost: 40.0,
+            score: 82.0,
+            scoreBasis: 'AA_INTELLIGENCE_INDEX',
+            scoreBenchmarkId: 'artificial-analysis-intelligence-index',
+            metricName: 'Cost per Intelligence Index task',
+            sourceUrl: 'https://artificialanalysis.ai/models',
+            benchmarkId: 'artificial-analysis-intelligence-index',
+            evidenceIds: [],
+          },
+          {
+            sourceId: 'deepswe',
+            cost: 2.36,
+            normalizedCost: 45.0,
+            score: 85.6,
+            scoreBasis: 'DEEPSWE_1_1',
+            scoreBenchmarkId: 'deepswe-1-1',
+            metricName: 'Mean agent task cost',
+            sourceUrl: 'https://deepswe.datacurve.ai/',
+            benchmarkId: 'deepswe',
+            evidenceIds: [],
+          },
+          {
+            sourceId: 'frontier-code',
+            cost: 3.1,
+            normalizedCost: 42.5,
+            score: 89.2,
+            scoreBasis: 'FRONTIER_CODE_1_1',
+            scoreBenchmarkId: 'frontier-code-1-1',
+            metricName: 'Mean rollout cost',
+            sourceUrl: 'https://frontiercode.org/',
+            benchmarkId: 'frontier-code',
+            evidenceIds: [],
+          },
+        ],
       },
       {
         profileId: 'anthropic-claude-fable-5-high',
         modelId: 'anthropic-claude-fable-5',
         providerId: 'anthropic',
-        displayName: 'Claude Fable 5',
+        displayName: 'Claude Fable 5 · high',
         effort: 'high',
-        cost: 3.45,
+        costIndex: 58.2,
         score: 89.2,
-        sourceId: 'deepswe',
-        benchmarkId: 'deepswe',
         isDefaultEffort: false,
-        scoreBasis: 'DEEPSWE_1_1',
-        scoreBenchmarkId: 'deepswe-1-1',
-        metricName: 'Mean agent task cost',
-        sourceUrl: 'https://deepswe.datacurve.ai/',
-        evidenceIds: [],
+        sources: [
+          {
+            sourceId: 'artificial-analysis',
+            cost: 1.85,
+            normalizedCost: 55.0,
+            score: 86.0,
+            scoreBasis: 'AA_INTELLIGENCE_INDEX',
+            scoreBenchmarkId: 'artificial-analysis-intelligence-index',
+            metricName: 'Cost per Intelligence Index task',
+            sourceUrl: 'https://artificialanalysis.ai/models',
+            benchmarkId: 'artificial-analysis-intelligence-index',
+            evidenceIds: [],
+          },
+          {
+            sourceId: 'deepswe',
+            cost: 3.45,
+            normalizedCost: 60.0,
+            score: 89.2,
+            scoreBasis: 'DEEPSWE_1_1',
+            scoreBenchmarkId: 'deepswe-1-1',
+            metricName: 'Mean agent task cost',
+            sourceUrl: 'https://deepswe.datacurve.ai/',
+            benchmarkId: 'deepswe',
+            evidenceIds: [],
+          },
+          {
+            sourceId: 'frontier-code',
+            cost: 4.2,
+            normalizedCost: 59.6,
+            score: 92.4,
+            scoreBasis: 'FRONTIER_CODE_1_1',
+            scoreBenchmarkId: 'frontier-code-1-1',
+            metricName: 'Mean rollout cost',
+            sourceUrl: 'https://frontiercode.org/',
+            benchmarkId: 'frontier-code',
+            evidenceIds: [],
+          },
+        ],
       },
     ],
   },
@@ -223,22 +284,28 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('aria-label=');
     });
 
-    it('renders dynamic Y axis title and aria-label matching source scores instead of 0-100', () => {
+    it('renders dynamic X and Y axis titles and aria-label matching computed domains without $ formatting', () => {
       const html = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {
           series: sampleAdvancedSeries,
         }),
       );
 
-      // For scores 85.6 and 89.2, snapped domain is 85–90
-      expect(html).toContain('Source score (85–90, higher is better)');
+      // For scores 85.6 and 89.2, snapped domain is 85–90; for costs 42.5 and 58.2, snapped domain is 40–60
+      expect(html).toContain(
+        'Three-source mean score (85–90, higher is better)',
+      );
+      expect(html).toContain(
+        'Weighted normalized task cost index (40–60, lower is better)',
+      );
+      expect(html).not.toContain('Source task cost ($');
       expect(html).not.toContain('Source score (0–100, higher is better)');
       expect(html).toContain(
-        'aria-label="Source-local score (85–90) versus USD per task cost',
+        'aria-label="Three-source mean score (85–90) versus weighted normalized task cost index (40–60)',
       );
     });
 
-    it('renders hover card with all metrics when an advanced point is active (hover / focus)', () => {
+    it('renders hover card with all metrics and source breakdown when an advanced point is active (hover / focus)', () => {
       const firstSeries = sampleAdvancedSeries[0]!;
       const firstPoint = firstSeries.points[0]!;
 
@@ -254,63 +321,100 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('role="tooltip"');
       expect(html).toContain('aria-hidden="true"');
       expect(html).toContain(firstSeries.displayName);
-      expect(html).toContain('DeepSWE');
       expect(html).toContain('default effort');
-      expect(html).toContain('Source score:');
+      expect(html).toContain('Mean score:');
       expect(html).toContain(firstPoint.score.toFixed(1));
-      expect(html).toContain('Cost:');
-      expect(html).toContain(`$${firstPoint.cost.toFixed(3)} per task`);
+      expect(html).toContain('Weighted cost index:');
+      expect(html).toContain(firstPoint.costIndex.toFixed(1));
+
+      // Source breakdown
+      expect(html).toContain('Artificial Analysis:');
+      expect(html).toContain('score 82.0 · $1.250');
+      expect(html).toContain('DeepSWE:');
+      expect(html).toContain('score 85.6 · $2.360');
+      expect(html).toContain('Frontier Code:');
+      expect(html).toContain('score 89.2 · $3.100');
     });
 
-    it('renders native checkbox for each series in legend checked by default with accessible label', () => {
+    it('renders native checkbox for each model in legend checked by default with accessible label', () => {
       const html = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {
           series: sampleAdvancedSeries,
         }),
       );
 
+      expect(html).toContain('<h3>Models</h3>');
+      expect(html).not.toContain('Sources and effort profiles');
       expect(html).toContain('type="checkbox"');
       expect(html).toContain('checked=""');
       expect(html).toContain('class="cost-series-checkbox"');
       expect(html).toContain('class="cost-legend-checkbox-label"');
-      expect(html).toContain(
-        'for="series-toggle-anthropic-claude-fable-5-deepswe"',
-      );
-      expect(html).toContain('Claude Fable 5 · DeepSWE');
+      expect(html).toContain('for="series-toggle-anthropic-claude-fable-5"');
+      expect(html).toContain('Claude Fable 5');
     });
 
     it('recalculates X and Y domains and excludes points when a series is hidden', () => {
       const multiSeries: AdvancedCostSeries[] = [
         sampleAdvancedSeries[0]!,
         {
-          seriesId: 'openai-gpt-5-6-sol:deepswe',
+          seriesId: 'openai-gpt-5-6-sol',
           modelId: 'openai-gpt-5-6-sol',
           providerId: 'openai',
           displayName: 'GPT-5.6 Sol',
-          sourceId: 'deepswe',
           points: [
             {
               profileId: 'openai-gpt-5-6-sol-high',
               modelId: 'openai-gpt-5-6-sol',
               providerId: 'openai',
-              displayName: 'GPT-5.6 Sol',
+              displayName: 'GPT-5.6 Sol · high',
               effort: 'high',
-              cost: 15.8,
+              costIndex: 85.0,
               score: 95.0,
-              sourceId: 'deepswe',
-              benchmarkId: 'deepswe',
               isDefaultEffort: false,
-              scoreBasis: 'DEEPSWE_1_1',
-              scoreBenchmarkId: 'deepswe-1-1',
-              metricName: 'Mean agent task cost',
-              sourceUrl: 'https://deepswe.datacurve.ai/',
-              evidenceIds: [],
+              sources: [
+                {
+                  sourceId: 'artificial-analysis',
+                  cost: 5.0,
+                  normalizedCost: 80.0,
+                  score: 94.0,
+                  scoreBasis: 'AA_INTELLIGENCE_INDEX',
+                  scoreBenchmarkId: 'artificial-analysis-intelligence-index',
+                  metricName: 'Cost per Intelligence Index task',
+                  sourceUrl: 'https://artificialanalysis.ai/models',
+                  benchmarkId: 'artificial-analysis-intelligence-index',
+                  evidenceIds: [],
+                },
+                {
+                  sourceId: 'deepswe',
+                  cost: 15.8,
+                  normalizedCost: 90.0,
+                  score: 95.0,
+                  scoreBasis: 'DEEPSWE_1_1',
+                  scoreBenchmarkId: 'deepswe-1-1',
+                  metricName: 'Mean agent task cost',
+                  sourceUrl: 'https://deepswe.datacurve.ai/',
+                  benchmarkId: 'deepswe',
+                  evidenceIds: [],
+                },
+                {
+                  sourceId: 'frontier-code',
+                  cost: 12.0,
+                  normalizedCost: 85.0,
+                  score: 96.0,
+                  scoreBasis: 'FRONTIER_CODE_1_1',
+                  scoreBenchmarkId: 'frontier-code-1-1',
+                  metricName: 'Mean rollout cost',
+                  sourceUrl: 'https://frontiercode.org/',
+                  benchmarkId: 'frontier-code',
+                  evidenceIds: [],
+                },
+              ],
             },
           ],
         },
       ];
 
-      // With both series visible, domain includes the expensive GPT-5.6 Sol ($15.80)
+      // With both series visible, domain includes the expensive GPT-5.6 Sol (cost 85.0, score 95.0)
       const allVisibleHtml = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {
           series: multiSeries,
@@ -318,35 +422,36 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
       expect(allVisibleHtml).toContain('GPT-5.6 Sol');
       expect(allVisibleHtml).toContain(
-        'Source score (85–95, higher is better)',
+        'Three-source mean score (85–95, higher is better)',
       );
-      // Domain with $15.80 max expands to 0-20
       expect(allVisibleHtml).toContain(
-        'Source task cost ($0–$20, lower is better)',
+        'Weighted normalized task cost index (40–90, lower is better)',
       );
 
       // Hide the expensive GPT-5.6 Sol series
       const filteredHtml = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {
           series: multiSeries,
-          initialHiddenSeriesIds: ['openai-gpt-5-6-sol:deepswe'],
+          initialHiddenSeriesIds: ['openai-gpt-5-6-sol'],
         }),
       );
 
       // Points from the hidden series are excluded from SVG
       expect(filteredHtml).not.toContain('openai-gpt-5-6-sol-high');
-      // Domain pulls in to only the remaining series (costs 2.36 and 3.45 -> domain 2.25-3.5)
+      // Domain pulls in to only the remaining series (costs 42.5 and 58.2 -> domain 40-60; scores 85.6 and 89.2 -> domain 85-90)
       expect(filteredHtml).toContain(
-        'Source task cost ($2.25–$3.5, lower is better)',
+        'Weighted normalized task cost index (40–60, lower is better)',
       );
-      expect(filteredHtml).toContain('Source score (85–90, higher is better)');
+      expect(filteredHtml).toContain(
+        'Three-source mean score (85–90, higher is better)',
+      );
     });
 
     it('renders plot empty state and preserves valid axes when all series are hidden', () => {
       const html = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {
           series: sampleAdvancedSeries,
-          initialHiddenSeriesIds: ['anthropic-claude-fable-5:deepswe'],
+          initialHiddenSeriesIds: ['anthropic-claude-fable-5'],
         }),
       );
 
@@ -359,8 +464,12 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       // Axes stay valid without NaN or crash
       expect(html).toContain('cost-axis-title');
-      expect(html).toContain('Source task cost ($0–$100, lower is better)');
-      expect(html).toContain('Source score (0–100, higher is better)');
+      expect(html).toContain(
+        'Weighted normalized task cost index (0–100, lower is better)',
+      );
+      expect(html).toContain(
+        'Three-source mean score (0–100, higher is better)',
+      );
 
       // Legend checkboxes remain reachable
       expect(html).toContain('cost-model-legend');
