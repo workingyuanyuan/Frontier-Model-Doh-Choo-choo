@@ -5,13 +5,15 @@
 > 下次例行核驗：2026-09-13
 > 適用範圍：模型排行榜、八維能力分數、Quality vs. Cost、Category Profile
 
-本文件是「允許匯入成績的來源白名單與時效登錄」，不是一般連結收藏。來源分類採 **Benchmark 主辦方／獨立評測者／廠商自報**，且分類單位是「一筆結果」，不是整個網站。
+本文件是「來源分類與時效登錄」，不是一般連結收藏，也**不是匯入授權**。來源分類採 **Benchmark 主辦方／獨立評測者／廠商自報**，且分類單位是「一筆結果」，不是整個網站。
+
+**允許進入 ProductVersion 的來源白名單是 `data-v2/mappings/sources.json`**，目前只有 Artificial Analysis、LiveBench、DeepSWE 與 Cognition Frontier Code 四個來源（見 [重構規格 §3](REFACTOR_SPEC_V2.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
 
 ## 採用與覆蓋規則
 
 1. 同一 Benchmark、版本、資料切分、指標、模型 Profile 與評測配置完全一致時，來源優先序為：**主辦方實測 > 獨立評測 > 廠商自報**。
 2. 模型初上市可先保留廠商自報分數與出處；是否進入產品主畫面仍由固定 display set 完整矩陣決定。
-3. 後續出現相同 Product Profile 與相同 Benchmark 的主辦方或獨立實測時，通常依來源優先級取代廠商自報值。Product Profile 只按 reasoning effort 分離；不同 Harness／No Harness 的同 Benchmark 候選合併後取可比較分數較高者。未標 effort 只可從其他來源同一 canonical model 的明示／名稱可判定 effort 推測，規則為**每來源各出一票再取眾數，平手才取較高檔位**（見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)），不是取最高檔；沒有依據時使用階梯外的 `default`，不建立 unspecified，也不把缺值當 `max`。thinking、tools、harness、context、量化或 sampling 仍保存於原始來源配置，不得在 provenance 中遺失。
+3. 後續出現相同 Product Profile 與相同 Benchmark 的主辦方或獨立實測時，通常依來源優先級取代廠商自報值。Product Profile 只按 reasoning effort 分離；不同 Harness／No Harness 的同 Benchmark 候選合併後取可比較分數較高者。未標 effort 只可從其他來源同一 canonical model 的明示／名稱可判定 effort 推測，規則為**每來源各出一票（票值為該來源對這個模型發布過的最高具名檔位）再取眾數，平手才取較高檔位**（見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)），不是直接取所有來源中的最高檔；沒有依據時使用階梯外的 `default`，不建立 unspecified，也不把缺值當 `max`。thinking、tools、harness、context、量化或 sampling 仍保存於原始來源配置，不得在 provenance 中遺失。
 4. 同一頁的競品欄不能自動視為該廠商自報；若註明取自 Artificial Analysis、Scale、DataCurve 或其他執行者，必須回溯並歸類到實際執行者。
 5. 網站只聚合或轉貼結果時，不是終端證據。必須保存原始 URL、Benchmark 版本、模型 Profile、指標、分數、執行者及來源日期。
 6. 官方沒有逐列日期時寫「未公開」，並另記核驗日；不得把核驗日冒充網站更新日。

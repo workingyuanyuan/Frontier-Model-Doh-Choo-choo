@@ -1,5 +1,11 @@
 # LLM Bench 重構執行計畫
 
+> **歷史文件（Superseded）。** 本檔描述的是 Stage 5 時代的架構，包含已廢棄的
+> Draft／Published pointer 流程、`data-v2/product/versions/*.json` 多版本檔，以及
+> 「預設只顯示 8/8、Developer mode 顯示 1–7/8」等舊顯示規則。現行依據是
+> [第二次重構規格](../docs/REFACTOR_SPEC_V2.md) 與 [執行計畫](claude-code-plan.md)。
+> 保留本檔只為考證第一次重構的完成範圍，不得當成待辦或現行契約。
+
 ## 目標狀態
 
 支援中的 repository 只包含：

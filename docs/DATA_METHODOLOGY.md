@@ -79,7 +79,7 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 `non-reasoning < low < medium < high < xhigh < max`，`default` 位於階梯之外：
 
 - 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。
-- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)：**每個來源各出一票（該來源自己的眾數），再對這些票取眾數，平手時才取較高檔位**。不是「取最高檔」——單一來源不得替所有來源決定檔位。`non-reasoning` 永遠不會是推測結果。
+- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)：**每個其他來源各出一票，票值是該來源對這個模型發布過的最高具名檔位；得票最多的檔位勝出，平手時取較高的檔位**。所謂「不是取最高檔」指的是不直接取所有來源中的最高檔——掃過完整階梯的單一來源不得替所有來源決定檔位；但在單一來源內部，投出的就是它自己的最高具名檔位。`non-reasoning` 永遠不會是推測結果。
 - 其他來源也沒有可用依據時使用 `default`；不再把缺值歸入 `max`。
 - 每次跨來源推測都列入各來源 validation report，保持 `PENDING USER REVIEW`，並記錄 target row 與 basis source/row。
 - UI 和產品計分不建立 `unspecified` effort。

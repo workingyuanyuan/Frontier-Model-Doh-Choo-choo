@@ -596,7 +596,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 
 留一法顯示這 14 項中有 12 項邊際成本為零——真正篩掉模型的只有 `frontier-code-1-1`（4 個）與 `deepswe-1-1`（2 個），也就是「四個來源都要」這個要求的全部代價。落選的 `aa-briefcase`、`apex-agents`、`gdpval-aa`、`ifbench` 皆因 Artificial Analysis 覆蓋率偏低。
 
-產物：`sha256:73768465f61b638e58f65070e8f4054b94c38c738bf8e19b6b463983b673ff24`，主畫面 **12 列**、8 家廠商、無 N/A。
+產物：`sha256:73768465f61b638e58f65070e8f4054b94c38c738bf8e19b6b463983b673ff24`，主畫面 **12 列**、**7 家廠商**（anthropic 2、openai 3、google 2、xai 2、deepseek 1、moonshot 1、zai 1）、無 N/A。原本寫 8 家是口頭誤述，2026-08-21 於 H4 更正。
 
 **報告的 14 與主畫面的 12 差在哪：**報告的完整模型數是跨 profile 聯集的上界，§5.2 的門檻則要求**單一 profile** 同時滿足矩陣。Claude Sonnet 5（AA 測 `max`、LiveBench 測 `xhigh`）與 DeepSeek V4 Flash（`max` 只差 `frontier-code-1-1`，而 Frontier Code 測 `high`）兩者聯集完整、交集為空，因此落入開發者模式。
 
@@ -851,12 +851,21 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 **目標**：`packages/acquisition` 的多個測試直接讀取 Git 外的 `artifacts-v2/`（見 `artificial-analysis-materializer.test.ts`、`livebench-materializer.test.ts`、`deepswe-materializer.test.ts`、`epoch-materializer.test.ts`、`artifacts.test.ts`），因此乾淨 clone 後 `pnpm test` 必然失敗，而 `pnpm test` 是 CLAUDE.md 的基準驗證項目。
 
-**使用者已決定的作法**：把測試實際讀取的 artifact **縮成精簡 fixture 進 Git**，`artifacts-v2/` 維持 Git 外。
+**使用者已決定的作法**：把測試實際讀取的 artifact **原樣複製**進 Git，`artifacts-v2/` 維持 Git 外。
+
+**本段於 2026-08-21 修訂（H 階段）。** 原文寫的是「縮成精簡 fixture」，實作提交的是
+七份逐位元組副本（合計 2,525,203 bytes），G4 據原文判定不通過。使用者裁決維持原樣複製，改的是
+本段文字而非程式碼：裁剪 Artificial Analysis 那份 1,353,178 bytes 的 RSC stream 需要理解它的
+內部結構，剪錯會讓測試改為驗證一個從未存在過的格式，而且**不會有任何測試失敗來
+指出剪錯了**。2.4 MiB 換掉這個風險是划算的。理由另記於
+`packages/acquisition/test-fixtures/README.md`。
 
 **要求**：
 
-- 只為測試實際斷言到的內容建立 fixture，不要整份 artifact 進 Git；注意原始 artifact 有數 MB 的 HTML 與 zip。
+- fixture 是來源 artifact 的逐位元組副本，以其 SHA-256 命名，不得裁剪、重排或美化。
 - fixture 放在測試套件內的固定目錄，路徑不得再指向 `artifacts-v2/`。
+- 該目錄要排除在 `.prettierignore` 與 `eslint.config.mjs` 之外，避免格式化工具改動位元組。
+- 目錄內附 README 說明為何不裁剪，以免後人誤以為是疏漏。
 - 保持斷言的實質強度，**不得為了讓測試過而弱化斷言或改成 snapshot 比對**。
 - `data-v2/sources/` 底下任何目錄不得刪除或修改。
 - 不得改動 `artifacts-v2/` 既有內容。
@@ -885,3 +894,116 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 狀態：完成（驗收不通過；詳見 `docs/G4_F2_ACCEPTANCE_2026-08-21.md`）
 
 G1 至 G3 完成、使用者核准 `current.json` 之後，**由未參與本次實作與審查的第三方重跑 F2**。沿用 F2 的 prompt 與驗收項目，另加驗一項：G1 的八處修正是否真的與程式一致。
+
+---
+
+# H. G 階段缺陷修正
+
+G4 重跑 F2 於 2026-08-21 再次判定**不通過**（[驗收報告](../docs/G4_F2_ACCEPTANCE_2026-08-21.md)），
+獨立第三方代理得到相同判定。七項阻擋項中：
+
+- 第 1 項（`current.json` 未提交）已於 2026-08-21 依使用者核准提交（`dfbca29`），解除。
+- 第 2 至第 6 項成立，其中三項是 G1／G3 引入的**新錯誤**，由本階段清除。
+- 第 7 項（G2 fixture 原樣複製 vs 精簡）經使用者裁決：**維持原樣複製**，改的是計畫文字而非程式碼，理由見 G2 修訂段。
+
+共同形狀值得記錄：G1 與 G3 的三個錯誤都發生在「修正別人的錯誤時，自己沒有回頭
+對照原始出處」——檔位規則憑印象重寫、曲線數用簡化模型估算、`CLAUDE.md` 照既有
+清單走而未重新掃描。本階段每一項都必須附上實際對照的來源位置。
+
+## H1 — 修正檔位推測措辭與 CLAUDE.md 命令順序
+
+狀態：完成
+
+**目標**：G1 把跨來源檔位推測寫成「每來源自己的眾數」，與規格 §4.5 及程式不符；
+`CLAUDE.md` 的基準驗證順序在 G1 完全未被觸及。
+
+**權威依據**（本階段不得修改）：
+
+- `docs/REFACTOR_SPEC_V2.md:119`：「每個其他來源投一票（**該來源對這個模型發布過的最高具名檔位**），得票最多的檔位勝出；平手時取較高的檔位。」
+- `packages/benchmark-data/src/index.ts` 的 `higherEffortEvidence`：每來源以 `byRank(entry.effort) > byRank(current.effort)` 取**該來源最高具名檔位**，眾數只作用在跨來源那一層。
+
+**要求**：
+
+1. `docs/DATA_METHODOLOGY.md:82`：「該來源自己的眾數」改為「該來源對這個模型發布過的最高具名檔位」，並保留「不是取最高檔」的警告但寫清楚它指的是**不直接取所有來源中的最高檔**。
+2. `docs/BENCHMARK_SCORE_SOURCES.md:14`：同樣補上每來源投票值的定義。
+3. `CLAUDE.md:36-49`：`pnpm e2e` 移到 `pnpm --filter @llm-bench/bench build` 之後，並附上與 README／OPERATIONS 一致的理由註記。
+
+**完成條件**：三處措辭與規格 §4.5 逐字對應；`CLAUDE.md` 的命令順序與 `README.md:82-89`、`docs/OPERATIONS.md:140-148` 一致。
+
+## H2 — ProductCost 的 evidenceIds 補上 `.min(1)`
+
+狀態：完成
+
+**目標**：G3 移除了無出處的成本列，但 `ProductCostSchema`（`packages/benchmark-data/src/index.ts:736`）
+仍是 `z.array(Sha256Schema)`，接受空陣列；同檔的 `CandidateResultBaseSchema:192` 與
+`CostRecordSchema:286` 都有 `.min(1)`。不變式目前只靠一條測試守著，schema 本身沒有守。
+
+**要求**：
+
+- `ProductCostSchema.evidenceIds` 加 `.min(1)`。
+- 重建 `current.json` 並確認內容不變——現行 232 筆成本列全部帶 `evidenceIds`。
+- 加測試證明 schema 拒絕空 `evidenceIds`；`schema.test.ts` 既有那筆以空陣列驗證
+  `performance` 可為 null 的案例要補上真實 evidence id，不得為了讓它過而放寬 schema。
+
+**已實測**：重建後除 `generatedAt` 外所有欄位逐一相等，成本列仍為 232 筆、
+無空 `evidenceIds`。但 `versionId` 是對含 `generatedAt` 的全部內容取 sha256
+（`index.ts:1340`），因此任何重建都必然產生新 id。既然內容沒有實質變化，
+**已發布的 `current.json`（`dfbca29`，`sha256:bec073cf…`）維持不動**，不重新發布，
+也就不需要再走一次 §11.2 審核。
+
+**完成條件**：schema 拒絕空 `evidenceIds`；已發布的 `current.json` 在新 schema 下
+仍能通過驗證且未被改動。
+
+## H3 — 標記過期任務文件並釐清來源登錄的定位
+
+狀態：完成
+
+**目標**：`tasks/` 底下三個檔案有兩個在描述已廢棄的架構且無任何歷史標記；
+`docs/BENCHMARK_SCORE_SOURCES.md` 自稱是匯入白名單，但真正的白名單是
+`data-v2/mappings/sources.json`。
+
+**要求**：
+
+1. `tasks/plan.md`、`tasks/todo.md`：在檔首加歷史標記，明確指出它們描述的是
+   Stage 5 時代的架構（Draft／Published pointer、「預設只顯示 8/8」等），現行依據是
+   `docs/REFACTOR_SPEC_V2.md` 與 `tasks/claude-code-plan.md`。**不刪除內容**，只加標記。
+2. `docs/BENCHMARK_SCORE_SOURCES.md:8`：改寫為「來源分類與時效登錄」，並指明
+   允許進入 ProductVersion 的來源白名單是 `data-v2/mappings/sources.json` 的四個來源，
+   本文件列出的其他站台是候選與時效追蹤對象，不是匯入授權。
+
+**完成條件**：三處標記與現行架構一致；不新增也不刪除任何實質內容。
+
+## H4 — 更正 G3 刷新報告的曲線數與計畫的 provider 數
+
+狀態：完成
+
+**目標**：G3 的刷新報告寫進階圖有 34 條曲線，實際 25 條——漏套「模型必須三個來源
+都有資料」的閘門（`apps/bench/lib/view-model.ts:790-800`）。計畫 `:599` 也仍寫主畫面
+8 家 provider，同檔 `:825` 與實際資料都是 7 家。
+
+**實測結果**（以 `current.json` 與 `display-set.json` 跑 `buildWeightedCostCurve`／
+`buildAdvancedCostSeries`，並以 `b60e75d` 的 `current.json` 跑同一組作為變更前基準）：
+
+| 指標                 | G3 前 | G3 後 |
+| -------------------- | ----: | ----: |
+| 主畫面列數           |    12 |    12 |
+| 預設圖資料點         |    12 |    12 |
+| 進階圖納入模型數     |    14 |    14 |
+| 進階圖曲線總數       |    42 |    42 |
+| 進階圖 ≥2 點的曲線數 |    25 |    25 |
+| 成本列數             |   253 |   232 |
+
+**要求**：
+
+- `docs/REFRESH_2026-08-21.md` 的圖表影響表改為上表，並標註曲線總數與 ≥2 點曲線數是兩個不同的量。
+- `tasks/claude-code-plan.md:599` 的「8 家廠商」改為 7 家並列出實際分佈。
+
+**完成條件**：文件中所有圖表數字都能由上述兩支 builder 重現。
+
+## H5 — 重跑最終驗收
+
+狀態：未開始
+
+H1 至 H4 完成後，**由未參與 G／H 實作與審查的第三方重跑 F2**。沿用 F2 的 prompt 與
+驗收項目，另加驗兩項：H1 至 H4 的修正是否真的與程式一致；G4 報告的七項阻擋項是否
+逐項解除或有明確裁決紀錄。
