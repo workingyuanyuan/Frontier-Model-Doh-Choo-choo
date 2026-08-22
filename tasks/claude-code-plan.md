@@ -1992,10 +1992,17 @@ N2–N5 交回後由 orchestrator 審查。基準驗證全綠、`display-set.jso
 | R3   | 還原 §4.3.1 的完整度保護（N5 曾移除）。N5 要修的實際症狀是詳細面板的呈現缺陷，不是選取規則。                                             |
 | R4   | Zapier 延後採用是使用者在 N2 執行中做的決策，不是代理越權；理由與 R1 同源（各模型有無 Zapier 記錄不一致）。R1 落地後再重新評估是否納入。 |
 | R5   | 需要分開計分的版本或分割，必須給它自己的 benchmark ID，不能只靠 `benchmarkVersion` 區隔。                                                |
+| R6   | 同一個模型只能有一種寫法。`Claude Fable 5.0` 收斂到 `Claude Fable 5`，不得存在獨立的 5.0 身分。                                          |
+| R7   | 取捨曲線不得把任何 benchmark 釘成全域必選。跨來源齊全只是**預設偏好**；preset 必須能提供「拿掉 Frontier Code」這類選項，條件是該選項能**大幅**提高完整模型數。 |
 
-`Claude Fable 5.0` 這個 alias 經查只有 Zapier 使用（其餘來源一律寫 `Claude Fable 5` 或既有
-正規化能處理的 slug 形式），Zapier 全列 `EXCLUDED`，故目前無計分影響；補記錄於此，待 Zapier
-採用與否一併處理，不另外還原。
+**R6 的查證與處置（2026-08-22）**：`Claude Fable 5.0` 這個寫法只有 Zapier 使用，其餘七個來源
+一律寫 `Claude Fable 5`（或既有正規化處理得了的 slug 形式）。`models.json` 的 `aliases` 就是
+把它收斂回去的機制，實測 Zapier 五列的 `canonicalModelId` 皆為 `anthropic-claude-fable-5`、
+`profileId` 為 `anthropic-claude-fable-5-{high,low,max,medium,xhigh}`，目錄中不存在獨立的
+5.0 身分，符合 R6，**故保留該 alias**。移除它會讓 Zapier 日後採用時這五列解析成 `null`。
+`rawName` 仍保留來源原字串（`Claude Fable 5.0 (Max)`）作為證據，這是證據忠實性要求，不改。
+注意 R6 是**逐一審過的精確 alias**，不是「結尾 .0 一律等於整數」的通用規則——後者屬於 D6
+禁止的模糊比對。
 
 ## N8 — 還原 §4.3.1 的完整度保護
 
@@ -2071,8 +2078,12 @@ qualify for the main screen」。R1 推翻的正是這句話。該檔是審核�
   - 每個候選子集要標出**來源組成**。「跨來源的 benchmark」（DeepSWE／Frontier Code／ARC／
     Zapier 各自一個）比「同一來源內的多個 benchmark」更具權威，報告要讓這個差異看得見，
     並在同分時偏好來源分散度高的子集。
-  - `--require` 目前把 `deepswe-1-1,frontier-code-1-1` 釘成全域必選；改為 preset 的參數，
-    這樣才能回答「拿掉 Frontier Code 能多顯示幾個模型」這類問題。
+  - **`--require` 不得再把任何 benchmark 釘成全域必選**（R7）。`deepswe-1-1,frontier-code-1-1`
+    目前是釘死的，這使得「拿掉 Frontier Code 能多顯示幾個模型」這個問題今天問不出來。改為
+    preset 層級的參數，且報告必須同時列出**不加任何 require** 的候選子集，才看得到代價。
+  - 「來源齊全」降級為**預設偏好**而不是硬性條件：同分時偏好跨來源分散度高的子集，但當某個
+    捨棄來源的子集能**大幅**提高完整模型數時，該子集必須出現在報告中供使用者挑選。報告要
+    直接標出每個候選相對於「來源齊全」基準的模型數增減，讓「大幅」與否可被判讀。
 - 現行取捨曲線（44 個 active benchmark，釘住 DeepSWE ＋ Frontier Code）的平台如下，可作為
   preset 候選的起點：N=11 → 17 個模型；N=12 → 16；N=13–18 → 14；N=19–22 → 13；N=23–24 → 12；
   N=26–31 → 10；全部 8/8 維度。現行 17 項落在 14 那一段（實際主畫面 12 個）。
