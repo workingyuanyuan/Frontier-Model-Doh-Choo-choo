@@ -207,7 +207,7 @@ async function main() {
     lastVerifiedAt: observedAt,
     notes: [
       'Only official v2_Semi_Private display=true rows are promoted (ARC-AGI-2).',
-      'v1, v2 public/private, and v3 evaluation splits remain preserved in content-addressed raw artifacts and are not mixed into arc-agi.',
+      'v1, v2 public/private, and v3 evaluation splits remain preserved in content-addressed raw artifacts and are not mixed into arc-agi-2.',
       'Exact identities only; unresolved models and non-effort parentheticals (e.g. token budgets) remain null.',
       'All promoted v2 rows carry numeric costPerTask in USD/task.',
     ],

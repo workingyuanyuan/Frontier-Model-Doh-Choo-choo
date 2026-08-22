@@ -12,7 +12,7 @@
   ],
   "benchmarks": [
     {
-      "id": "arc-agi",
+      "id": "arc-agi-2",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["context"]
     },
@@ -58,6 +58,11 @@
     },
     {
       "id": "frontiermath",
+      "primaryDimension": "math",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "frontiermath-tier-4",
       "primaryDimension": "math",
       "secondaryDimensions": ["reasoning", "knowledge"]
     },

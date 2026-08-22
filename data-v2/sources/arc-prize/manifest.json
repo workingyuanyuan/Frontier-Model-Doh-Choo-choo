@@ -1,7 +1,7 @@
 {
   "accessMethods": ["API_RESPONSE", "DOM"],
   "baseUrl": "https://arcprize.org",
-  "benchmarkIds": ["arc-agi"],
+  "benchmarkIds": ["arc-agi-2"],
   "completeness": {
     "expectedCountMethod": "Enumerate every display=true row in evaluations.json for the v2_Semi_Private split (ARC-AGI-2) and join model metadata from models.json.",
     "pagination": null,
@@ -15,10 +15,10 @@
     "models.json.displayName": "model.rawName; profile.effort from parenthetical",
     "models.json.modelReleaseDate": "sourcePublishedAt"
   },
-  "lastVerifiedAt": "2026-08-22T06:21:39.667Z",
+  "lastVerifiedAt": "2026-08-22T14:07:48.474Z",
   "notes": [
     "Only official v2_Semi_Private display=true rows are promoted (ARC-AGI-2).",
-    "v1, v2 public/private, and v3 evaluation splits remain preserved in content-addressed raw artifacts and are not mixed into arc-agi.",
+    "v1, v2 public/private, and v3 evaluation splits remain preserved in content-addressed raw artifacts and are not mixed into arc-agi-2.",
     "Exact identities only; unresolved models and non-effort parentheticals (e.g. token budgets) remain null.",
     "All promoted v2 rows carry numeric costPerTask in USD/task."
   ],

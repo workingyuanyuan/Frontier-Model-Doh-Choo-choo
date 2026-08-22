@@ -129,7 +129,7 @@ X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。�
 
 - **先在來源內配對，再跨來源聚合**：AA、DeepSWE、Frontier Code、ARC Prize 各自以同一 profile 的分數配同來源成本；四組皆成立後，X 軸取四來源 log min-max 成本指數各 1/4，Y 軸取四來源原始分數算術平均。不得拿跨來源 Overall 配單一來源成本。
 - **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入八維 Overall）。
-- **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-1-1`、`arc-agi` 的 normalized 分數。
+- **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2` 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。

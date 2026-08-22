@@ -133,7 +133,12 @@ describe('Epoch AI materializer', () => {
     expect(aime).toHaveLength(154);
 
     const fm = candidates.filter((c) => c.benchmarkId === 'frontiermath');
-    expect(fm).toHaveLength(173); // 101 + 72
+    expect(fm).toHaveLength(101);
+
+    const fmTier4 = candidates.filter(
+      (c) => c.benchmarkId === 'frontiermath-tier-4',
+    );
+    expect(fmTier4).toHaveLength(72);
 
     const simpleqa = candidates.filter(
       (c) => c.benchmarkId === 'simpleqa-verified',

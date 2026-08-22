@@ -6,6 +6,7 @@
     "chess-puzzles",
     "epoch-capabilities-index",
     "frontiermath",
+    "frontiermath-tier-4",
     "gpqa-diamond",
     "math-level-5",
     "simpleqa-verified",
@@ -25,7 +26,7 @@
     "Release date": "model release metadata",
     "Started at": "sourcePublishedAt"
   },
-  "lastVerifiedAt": "2026-08-22T03:32:45.624Z",
+  "lastVerifiedAt": "2026-08-22T14:07:35.929Z",
   "notes": [
     "Only files without the _external suffix are treated as Epoch-run evidence.",
     "ECI is an Epoch-owned composite and stays EXCLUDED: selection-only evidence, never a ninth dimension.",

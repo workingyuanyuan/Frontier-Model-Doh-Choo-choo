@@ -44,6 +44,7 @@ export const DIMENSION_DISPLAY_NAMES: Record<DimensionId, string> = {
 export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'aa-lcr': 'AA-LCR',
   'aa-omniscience': 'AA-Omniscience',
+  'arc-agi-2': 'ARC-AGI 2',
   critpt: 'CritPt',
   'gpqa-diamond': 'GPQA Diamond',
   'humanitys-last-exam': 'Humanity’s Last Exam',
@@ -59,6 +60,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'math-level-5': 'MATH Level 5',
   aime: 'AIME',
   frontiermath: 'FrontierMath',
+  'frontiermath-tier-4': 'FrontierMath Tier 4',
   'swe-bench': 'SWE-bench',
   'simpleqa-verified': 'SimpleQA Verified',
   'chess-puzzles': 'Chess Puzzles',

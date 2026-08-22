@@ -8,7 +8,7 @@
 - Models evidence: `sha256:17aeed69df45e06c197a780412331ae32203675c466e1a9cbc8a295a4287d44d`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
 - Page evidence: `sha256:5cab37e0ce87288a654ebc2acc2582e7418bed1de27ef432c76183f26197cc24`
-- Observed at: 2026-08-22T06:21:39.667Z
+- Observed at: 2026-08-22T14:07:48.474Z
 
 ## Exact counts
 
@@ -29,12 +29,12 @@
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi` | `ARC-AGI-2-v2_Semi_Private` | 214 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 214 |
 
 ## Completeness and machine cross-checks
 
 - Model completeness: All 214/214 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
-- Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi`.
+- Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
 - Cost coverage: 214/214 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
@@ -198,23 +198,3 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 | Canonically unresolved models | 122 | 122 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
-<!-- C6-EFFORT-INFERENCE:START -->
-## C6 effort inference — PENDING USER REVIEW
-
-This tagged section is generated deterministically for `arc-prize`. Raw `profile.effort` remains unchanged; `productProfile.effort` is the transient product decision. Policy default: `default`.
-
-### Cross-source inferences — PENDING USER REVIEW
-
-| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
-|---|---|---|---|---|---|
-| GLM-5.2 | `arc-prize:arc-agi:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
-| GPT-5.2 | `arc-prize:arc-agi:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `high` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-high-epoch-inspect-row-128 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `high` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-high-epoch-inspect-row-128 |
-| Inkling | `arc-prize:arc-agi:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
-
-### Unlabelled rows assigned the outside-the-ladder default
-
-- None.
-
-<!-- C6-EFFORT-INFERENCE:END -->

@@ -163,10 +163,7 @@ metric` 認定同一量測，**不含 `benchmarkVersion`**；各站對同一 ben
 **因此「哪些量測算同一個 benchmark」完全由 benchmark ID 決定**（2026-08-22 使用者確認）。
 需要分開計分的版本或分割，必須給它自己的 benchmark ID，不能只靠 `benchmarkVersion` 區隔。
 
-這條的代價已經實際發生：`frontiermath` 在 Epoch 內同時有 `(null)` 與 `Tier 4` 兩個版本，
-期二時是兩個獨立的 math 分量（47 列），版本字串移出選取鍵後塌成一個（24 列），其中 17 個
-profile 留下 Tier 4、7 個留下標準版——**同一個維度對不同模型採用了不同難度的測驗**。
-ARC-AGI 的分割也有同一個風險。兩者都必須改為各自獨立的 benchmark ID，見 N9。
+這條的代價已由 N9 完成拆分與改名（2026-08-22）：`frontiermath`（標準版，27 筆量測、23 個 profile）與 `frontiermath-tier-4`（Tier 4，28 筆量測、24 個 profile）拆為各自獨立的 benchmark ID，恢復 47 筆獨立量測選取，消除不同難度測驗互相覆蓋之問題；ARC-AGI 亦改為以分割命名的 `arc-agi-2`（91 筆量測、88 筆 INCLUDED）。
 
 逐模型 × 檔位對照見 `docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的
 平均抬升為：GPQA 在 46 個至少雙來源重疊列為 **0.80 分**（其中 13 個三來源全齊列為 **0.85
@@ -406,7 +403,7 @@ Language    71.0
 
 1. **來源與權重**：預設圖用本節「預設圖」段落所定的全部來源等權重；進階圖依 2026-08-22
    D5 裁決只用 **Artificial Analysis、DeepSWE、Frontier Code、ARC Prize 四個來源，各 1/4**。
-   ARC 同時提供可精確配對的 `arc-agi` 分數、任務成本與思考強度階梯。排除 LiveBench 的理由見
+   ARC 同時提供可精確配對的 `arc-agi-2` 分數、任務成本與思考強度階梯。排除 LiveBench 的理由見
    下方；Vals 一模型只有一列，實測加入後為 9 個孤立點、0 個可連線模型；Zapier 依 N2 複審
    裁決延後採用。完整量測見 `docs/ADVANCED_CHART_SOURCES_2026-08-22.md`。
 2. **思考強度**：預設圖每個模型只畫**一種**強度（§4.3 的代表 profile）；進階圖畫出**所有
@@ -428,7 +425,7 @@ Language    71.0
   點的 X 值移動。
 - **Y 軸＝四來源各自分數的算術平均**（各 1/4）。各來源「自己的分數」的定義不變，見下方。
 - **聚合只發生在 per-source 配對之後。**AA 的分數配 AA 的成本、DeepSWE 配 DeepSWE、
-  Frontier Code 配 Frontier Code、ARC Prize 配 `arc-agi`，四組各自成立之後才做 1/4 平均。任一來源內部的成本與效能
+  Frontier Code 配 Frontier Code、ARC Prize 配 `arc-agi-2`，四組各自成立之後才做 1/4 平均。任一來源內部的成本與效能
   仍必須來自同一次量測——2026-08-20 的這條規則沒有放寬，只是套用層級從「一個點」下移到
   「一個點的四個組成」。同樣不得為了湊出 Y 軸而回頭放寬 §5.2。
 - 點依思考強度階梯排序（§4.4 的 `non-reasoning < low < medium < high < xhigh < max`，
@@ -460,7 +457,7 @@ Y 軸用四來源原始分數的算術平均。已知代價：四來源的離散
 內正規化」，而不是調整權重去補償。
 
 **DeepSWE、Frontier Code 與 ARC Prize** 各自一個分數對一個成本，該來源的分數直接用對應
-benchmark（`deepswe-1-1`、`frontier-code-1-1`、`arc-agi`）的 normalized 分數。
+benchmark（`deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2`）的 normalized 分數。
 
 **Artificial Analysis 的 Y 軸＝AA 發布的 Intelligence Index 數值本身**（2026-08-20 決定）
 
@@ -741,7 +738,7 @@ profile，同來源、同 harness，選取會退到 `sourcePublishedAt`，於是
 | 思考強度     | 寫在 `models.json` 的 `displayName` 括號後綴                                                                                |
 | 分數尺度     | **0–1 的小數，不是百分比**；`rawScore` 保留原值，`normalizedScore` 為 ×100                                                  |
 
-**只收 `v2_Semi_Private` 這一個分割**（2026-08-22 使用者裁決），對應 benchmark `arc-agi`，
+**只收 `v2_Semi_Private` 這一個分割**（2026-08-22 使用者裁決），對應 benchmark `arc-agi-2`，
 `benchmarkVersion` 記為 `ARC-AGI-2-v2_Semi_Private`。ARC Prize 自己把這個分割標示為
 「ARC-AGI-2」，它是唯一同時具備成本與完整檔位階梯的一份：214 列 `display=true`，全部帶成本。
 

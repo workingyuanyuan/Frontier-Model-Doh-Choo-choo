@@ -17,7 +17,7 @@ const SOURCE_SPECS = {
     benchmarkId: 'frontier-code-1-1',
     useRawScore: false,
   },
-  'arc-prize': { benchmarkId: 'arc-agi', useRawScore: false },
+  'arc-prize': { benchmarkId: 'arc-agi-2', useRawScore: false },
   'vals-ai': { benchmarkId: 'vals-index', useRawScore: true },
 } as const;
 

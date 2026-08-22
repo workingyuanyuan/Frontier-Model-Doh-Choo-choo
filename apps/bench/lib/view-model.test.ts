@@ -785,7 +785,7 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi';
+              : 'arc-agi-2';
       const sourceEffort = profileId.endsWith('-non-reasoning')
         ? 'non-reasoning'
         : profileId.endsWith('-default')
@@ -840,7 +840,7 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi',
+              : 'arc-agi-2',
       evidenceIds: [`sha256:${String(index).padStart(64, '0')}`],
     });
 
@@ -1039,7 +1039,7 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi';
+              : 'arc-agi-2';
       return {
         ...baseEvidence,
         id: `e-mean:${sourceId}`,
@@ -1083,7 +1083,7 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi',
+              : 'arc-agi-2',
       evidenceIds: [
         'sha256:1111111111111111111111111111111111111111111111111111111111111111',
       ],
@@ -1156,7 +1156,7 @@ describe('cost chart view model', () => {
               ? 'deepswe-1-1'
               : sourceId === 'frontier-code'
                 ? 'frontier-code-1-1'
-                : 'arc-agi',
+                : 'arc-agi-2',
         inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
         exclusionReason: isAa ? 'External composite' : null,
         model: { ...baseEvidence.model, canonicalModelId: modelId, profileId },
@@ -1191,7 +1191,7 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi',
+              : 'arc-agi-2',
       evidenceIds: [
         'sha256:2222222222222222222222222222222222222222222222222222222222222222',
       ],

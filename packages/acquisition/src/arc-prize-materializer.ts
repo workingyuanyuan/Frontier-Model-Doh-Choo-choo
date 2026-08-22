@@ -20,7 +20,7 @@ export const ARC_PRIZE_DATASETS_URL =
   'https://arcprize.org/media/data/datasets.json';
 
 export const PROMOTED_DATASET_ID = 'v2_Semi_Private';
-export const BENCHMARK_ID = 'arc-agi';
+export const BENCHMARK_ID = 'arc-agi-2';
 export const BENCHMARK_VERSION = 'ARC-AGI-2-v2_Semi_Private';
 
 export interface ArcPrizeEvaluationRow {

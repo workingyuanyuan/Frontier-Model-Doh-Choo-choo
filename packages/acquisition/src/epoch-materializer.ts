@@ -160,7 +160,7 @@ export const EPOCH_DIRECT_FILES = [
   },
   {
     name: 'frontiermath_tier_4.csv',
-    benchmarkId: 'frontiermath',
+    benchmarkId: 'frontiermath-tier-4',
     isOrganizer: true,
     version: 'Tier 4',
     liveTaskName: 'FrontierMath-Tier-4-2025-07-01-Private',

@@ -1,7 +1,7 @@
 [
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 17,
     "costType": "AGENT_TASK",
@@ -20,7 +20,7 @@
       "profileId": null,
       "rawName": "Human Panel"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -46,7 +46,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.4358764166666664,
     "costType": "AGENT_TASK",
@@ -65,7 +65,7 @@
       "profileId": "anthropic-claude-fable-5-high",
       "rawName": "Claude Fable 5 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -91,7 +91,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.4489280833333338,
     "costType": "AGENT_TASK",
@@ -110,7 +110,7 @@
       "profileId": "anthropic-claude-fable-5-low",
       "rawName": "Claude Fable 5 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -136,7 +136,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 5.449076000000001,
     "costType": "AGENT_TASK",
@@ -155,7 +155,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "Claude Fable 5 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -181,7 +181,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.9269780833333334,
     "costType": "AGENT_TASK",
@@ -200,7 +200,7 @@
       "profileId": "anthropic-claude-fable-5-medium",
       "rawName": "Claude Fable 5 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -226,7 +226,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 3.0043564166666665,
     "costType": "AGENT_TASK",
@@ -245,7 +245,7 @@
       "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "Claude Fable 5 (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -271,7 +271,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.45,
     "costType": "AGENT_TASK",
@@ -290,7 +290,7 @@
       "profileId": "anthropic-claude-opus-5-high",
       "rawName": "Claude Opus 5 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -316,7 +316,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.06,
     "costType": "AGENT_TASK",
@@ -335,7 +335,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "Claude Opus 5 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -361,7 +361,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.7425,
     "costType": "AGENT_TASK",
@@ -380,7 +380,7 @@
       "profileId": "anthropic-claude-opus-4-8-high",
       "rawName": "Claude Opus 4.8 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -406,7 +406,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.6818,
     "costType": "AGENT_TASK",
@@ -425,7 +425,7 @@
       "profileId": "anthropic-claude-opus-4-8-low",
       "rawName": "Claude Opus 4.8 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -451,7 +451,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.3896,
     "costType": "AGENT_TASK",
@@ -470,7 +470,7 @@
       "profileId": "anthropic-claude-opus-4-8-medium",
       "rawName": "Claude Opus 4.8 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -496,7 +496,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2,
     "costType": "AGENT_TASK",
@@ -515,7 +515,7 @@
       "profileId": null,
       "rawName": "ARChitects"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -541,7 +541,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.51,
     "costType": "AGENT_TASK",
@@ -560,7 +560,7 @@
       "profileId": null,
       "rawName": "Claude 3.7 (16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -586,7 +586,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.14,
     "costType": "AGENT_TASK",
@@ -605,7 +605,7 @@
       "profileId": null,
       "rawName": "Claude 3.7 (1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -631,7 +631,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.36,
     "costType": "AGENT_TASK",
@@ -650,7 +650,7 @@
       "profileId": null,
       "rawName": "Claude 3.7 (8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -676,7 +676,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.12,
     "costType": "AGENT_TASK",
@@ -695,7 +695,7 @@
       "profileId": null,
       "rawName": "Claude 3.7"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -721,7 +721,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 3.17,
     "costType": "AGENT_TASK",
@@ -740,7 +740,7 @@
       "profileId": null,
       "rawName": "Claude 4.7 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -766,7 +766,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.38,
     "costType": "AGENT_TASK",
@@ -785,7 +785,7 @@
       "profileId": null,
       "rawName": "Claude 4.7 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -811,7 +811,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 7.43,
     "costType": "AGENT_TASK",
@@ -830,7 +830,7 @@
       "profileId": null,
       "rawName": "Claude 4.7 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -856,7 +856,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.96,
     "costType": "AGENT_TASK",
@@ -875,7 +875,7 @@
       "profileId": null,
       "rawName": "Claude 4.7 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -901,7 +901,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1392,
     "costType": "AGENT_TASK",
@@ -920,7 +920,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5 (Thinking 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -946,7 +946,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0471,
     "costType": "AGENT_TASK",
@@ -965,7 +965,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5 (Thinking 1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -991,7 +991,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.3766,
     "costType": "AGENT_TASK",
@@ -1010,7 +1010,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5 (Thinking 32K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1036,7 +1036,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0909,
     "costType": "AGENT_TASK",
@@ -1055,7 +1055,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5 (Thinking 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1081,7 +1081,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0426,
     "costType": "AGENT_TASK",
@@ -1100,7 +1100,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1126,7 +1126,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.9284,
     "costType": "AGENT_TASK",
@@ -1145,7 +1145,7 @@
       "profileId": null,
       "rawName": "Claude Opus 4 (Thinking 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1171,7 +1171,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7503,
     "costType": "AGENT_TASK",
@@ -1190,7 +1190,7 @@
       "profileId": null,
       "rawName": "Claude Opus 4 (Thinking 1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1216,7 +1216,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.1569,
     "costType": "AGENT_TASK",
@@ -1235,7 +1235,7 @@
       "profileId": null,
       "rawName": "Claude Opus 4 (Thinking 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1261,7 +1261,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.6388,
     "costType": "AGENT_TASK",
@@ -1280,7 +1280,7 @@
       "profileId": null,
       "rawName": "Claude Opus 4"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1306,7 +1306,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.79,
     "costType": "AGENT_TASK",
@@ -1325,7 +1325,7 @@
       "profileId": null,
       "rawName": "Opus 4.5 (Thinking, 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1351,7 +1351,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.4,
     "costType": "AGENT_TASK",
@@ -1370,7 +1370,7 @@
       "profileId": null,
       "rawName": "Opus 4.5 (Thinking, 64K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1396,7 +1396,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.48,
     "costType": "AGENT_TASK",
@@ -1415,7 +1415,7 @@
       "profileId": null,
       "rawName": "Opus 4.5 (Thinking, 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1441,7 +1441,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.22,
     "costType": "AGENT_TASK",
@@ -1460,7 +1460,7 @@
       "profileId": null,
       "rawName": "Opus 4.5 (Thinking, None)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1486,7 +1486,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 3.4719,
     "costType": "AGENT_TASK",
@@ -1505,7 +1505,7 @@
       "profileId": "anthropic-claude-opus-4-6-high",
       "rawName": "Claude Opus 4.6 (120K, High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1531,7 +1531,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.2507,
     "costType": "AGENT_TASK",
@@ -1550,7 +1550,7 @@
       "profileId": "anthropic-claude-opus-4-6-low",
       "rawName": "Claude Opus 4.6 (120K, Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1576,7 +1576,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 3.641,
     "costType": "AGENT_TASK",
@@ -1595,7 +1595,7 @@
       "profileId": "anthropic-claude-opus-4-6-max",
       "rawName": "Claude Opus 4.6 (120K, Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1621,7 +1621,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.7209,
     "costType": "AGENT_TASK",
@@ -1640,7 +1640,7 @@
       "profileId": "anthropic-claude-opus-4-6-medium",
       "rawName": "Claude Opus 4.6 (120K, Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1666,7 +1666,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.4857,
     "costType": "AGENT_TASK",
@@ -1685,7 +1685,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4 (Thinking 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1711,7 +1711,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1425,
     "costType": "AGENT_TASK",
@@ -1730,7 +1730,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4 (Thinking 1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1756,7 +1756,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2654,
     "costType": "AGENT_TASK",
@@ -1775,7 +1775,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4 (Thinking 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1801,7 +1801,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1272,
     "costType": "AGENT_TASK",
@@ -1820,7 +1820,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1846,7 +1846,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.3499,
     "costType": "AGENT_TASK",
@@ -1865,7 +1865,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4.5 (Thinking 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1891,7 +1891,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1424,
     "costType": "AGENT_TASK",
@@ -1910,7 +1910,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4.5 (Thinking 1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1936,7 +1936,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7589,
     "costType": "AGENT_TASK",
@@ -1955,7 +1955,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4.5 (Thinking 32K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1981,7 +1981,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2349,
     "costType": "AGENT_TASK",
@@ -2000,7 +2000,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4.5 (Thinking 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2026,7 +2026,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1295,
     "costType": "AGENT_TASK",
@@ -2045,7 +2045,7 @@
       "profileId": null,
       "rawName": "Claude Sonnet 4.5"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2071,7 +2071,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.6966,
     "costType": "AGENT_TASK",
@@ -2090,7 +2090,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-high",
       "rawName": "Claude Sonnet 4.6 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2116,7 +2116,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.7179,
     "costType": "AGENT_TASK",
@@ -2135,7 +2135,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-max",
       "rawName": "Claude Sonnet 4.6 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2161,7 +2161,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.23,
     "costType": "AGENT_TASK",
@@ -2180,7 +2180,7 @@
       "profileId": null,
       "rawName": "Codex Mini (Latest)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2206,7 +2206,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0527,
     "costType": "AGENT_TASK",
@@ -2225,7 +2225,7 @@
       "profileId": null,
       "rawName": "Deepseek R1 (05/28)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2251,7 +2251,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.12,
     "costType": "AGENT_TASK",
@@ -2270,7 +2270,7 @@
       "profileId": null,
       "rawName": "Deepseek V3.2"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2296,7 +2296,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0453381305,
     "costType": "AGENT_TASK",
@@ -2315,7 +2315,7 @@
       "profileId": "deepseek-deepseek-v4-flash-high",
       "rawName": "DeepSeek V4 Flash 0731 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2341,7 +2341,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0206284715,
     "costType": "AGENT_TASK",
@@ -2360,7 +2360,7 @@
       "profileId": "deepseek-deepseek-v4-flash-low",
       "rawName": "DeepSeek V4 Flash 0731 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2386,7 +2386,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.04163034416666667,
     "costType": "AGENT_TASK",
@@ -2405,7 +2405,7 @@
       "profileId": "deepseek-deepseek-v4-flash-max",
       "rawName": "DeepSeek V4 Flash 0731 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2431,7 +2431,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0037609368333333336,
     "costType": "AGENT_TASK",
@@ -2450,7 +2450,7 @@
       "profileId": "deepseek-deepseek-v4-flash-non-reasoning",
       "rawName": "DeepSeek V4 Flash 0731 (None)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2476,7 +2476,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.5969432040000002,
     "costType": "AGENT_TASK",
@@ -2495,7 +2495,7 @@
       "profileId": "deepseek-deepseek-v4-pro-high",
       "rawName": "DeepSeek V4 Pro 0813 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2521,7 +2521,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.37025881200000005,
     "costType": "AGENT_TASK",
@@ -2540,7 +2540,7 @@
       "profileId": "deepseek-deepseek-v4-pro-low",
       "rawName": "DeepSeek V4 Pro 0813 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2566,7 +2566,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.5976109150000003,
     "costType": "AGENT_TASK",
@@ -2585,7 +2585,7 @@
       "profileId": "deepseek-deepseek-v4-pro-max",
       "rawName": "DeepSeek V4 Pro 0813 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2611,7 +2611,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.040291977000000014,
     "costType": "AGENT_TASK",
@@ -2630,7 +2630,7 @@
       "profileId": "deepseek-deepseek-v4-pro-non-reasoning",
       "rawName": "DeepSeek V4 Pro 0813 (None)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2656,7 +2656,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.04,
     "costType": "AGENT_TASK",
@@ -2675,7 +2675,7 @@
       "profileId": null,
       "rawName": "Gemini 1.5 Pro"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2701,7 +2701,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.004,
     "costType": "AGENT_TASK",
@@ -2720,7 +2720,7 @@
       "profileId": null,
       "rawName": "Gemini 2.0 Flash"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2746,7 +2746,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.3173,
     "costType": "AGENT_TASK",
@@ -2765,7 +2765,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Flash (Preview) (Thinking 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2791,7 +2791,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0302,
     "costType": "AGENT_TASK",
@@ -2810,7 +2810,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Flash (Preview) (Thinking 1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2836,7 +2836,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.3191,
     "costType": "AGENT_TASK",
@@ -2855,7 +2855,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Flash (Preview) (Thinking 24K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2881,7 +2881,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1994,
     "costType": "AGENT_TASK",
@@ -2900,7 +2900,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Flash (Preview) (Thinking 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2926,7 +2926,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.057,
     "costType": "AGENT_TASK",
@@ -2945,7 +2945,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Flash (Preview)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2971,7 +2971,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7145,
     "costType": "AGENT_TASK",
@@ -2990,7 +2990,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Pro (Thinking 16K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3016,7 +3016,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0885,
     "costType": "AGENT_TASK",
@@ -3035,7 +3035,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Pro (Thinking 1K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3061,7 +3061,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.757,
     "costType": "AGENT_TASK",
@@ -3080,7 +3080,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Pro (Thinking 32K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3106,7 +3106,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.4439,
     "costType": "AGENT_TASK",
@@ -3125,7 +3125,7 @@
       "profileId": null,
       "rawName": "Gemini 2.5 Pro (Thinking 8K)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3151,7 +3151,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.9622,
     "costType": "AGENT_TASK",
@@ -3170,7 +3170,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (Preview)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3196,7 +3196,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.8503,
     "costType": "AGENT_TASK",
@@ -3215,7 +3215,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "Gemini 3.5 Flash (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3241,7 +3241,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.13899638250000004,
     "costType": "AGENT_TASK",
@@ -3260,7 +3260,7 @@
       "profileId": "google-gemini-3-5-flash-lite-high",
       "rawName": "Gemini 3.5 Flash-Lite (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3286,7 +3286,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.017051445000000005,
     "costType": "AGENT_TASK",
@@ -3305,7 +3305,7 @@
       "profileId": "google-gemini-3-5-flash-lite-low",
       "rawName": "Gemini 3.5 Flash-Lite (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3331,7 +3331,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.04367807000000001,
     "costType": "AGENT_TASK",
@@ -3350,7 +3350,7 @@
       "profileId": "google-gemini-3-5-flash-lite-medium",
       "rawName": "Gemini 3.5 Flash-Lite (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3376,7 +3376,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.014339924166666665,
     "costType": "AGENT_TASK",
@@ -3395,7 +3395,7 @@
       "profileId": "google-gemini-3-5-flash-lite-low",
       "rawName": "Gemini 3.5 Flash-Lite (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3421,7 +3421,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1074,
     "costType": "AGENT_TASK",
@@ -3440,7 +3440,7 @@
       "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3466,7 +3466,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.6060796625000002,
     "costType": "AGENT_TASK",
@@ -3485,7 +3485,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "Gemini 3.6 Flash (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3511,7 +3511,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.22297816250000002,
     "costType": "AGENT_TASK",
@@ -3530,7 +3530,7 @@
       "profileId": "google-gemini-3-6-flash-low",
       "rawName": "Gemini 3.6 Flash (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3556,7 +3556,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.45550909999999994,
     "costType": "AGENT_TASK",
@@ -3575,7 +3575,7 @@
       "profileId": "google-gemini-3-6-flash-medium",
       "rawName": "Gemini 3.6 Flash (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3601,7 +3601,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.07084053750000002,
     "costType": "AGENT_TASK",
@@ -3620,7 +3620,7 @@
       "profileId": "google-gemini-3-6-flash-low",
       "rawName": "Gemini 3.6 Flash (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3646,7 +3646,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 13.6213,
     "costType": "AGENT_TASK",
@@ -3665,7 +3665,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Deep Think (2/26)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3691,7 +3691,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 77.16309638,
     "costType": "AGENT_TASK",
@@ -3710,7 +3710,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Deep Think (Preview) ²"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3736,7 +3736,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2314,
     "costType": "AGENT_TASK",
@@ -3755,7 +3755,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Flash Preview (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3781,7 +3781,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0249,
     "costType": "AGENT_TASK",
@@ -3800,7 +3800,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Flash Preview (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3826,7 +3826,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0824,
     "costType": "AGENT_TASK",
@@ -3845,7 +3845,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Flash Preview (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3871,7 +3871,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0205,
     "costType": "AGENT_TASK",
@@ -3890,7 +3890,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Flash Preview (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3916,7 +3916,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.8109,
     "costType": "AGENT_TASK",
@@ -3935,7 +3935,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Pro"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3961,7 +3961,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2501,
     "costType": "AGENT_TASK",
@@ -3980,7 +3980,7 @@
       "profileId": null,
       "rawName": "GLM-5.2"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4006,7 +4006,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.27,
     "costType": "AGENT_TASK",
@@ -4025,7 +4025,7 @@
       "profileId": null,
       "rawName": "GLM-5"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4051,7 +4051,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.24944951875000002,
     "costType": "AGENT_TASK",
@@ -4070,7 +4070,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "Gemini 3.7 Flash (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4096,7 +4096,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.07938655,
     "costType": "AGENT_TASK",
@@ -4115,7 +4115,7 @@
       "profileId": "google-gemini-3-7-flash-low",
       "rawName": "Gemini 3.7 Flash (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4141,7 +4141,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.11582842499999997,
     "costType": "AGENT_TASK",
@@ -4160,7 +4160,7 @@
       "profileId": "google-gemini-3-7-flash-medium",
       "rawName": "Gemini 3.7 Flash (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4186,7 +4186,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0691,
     "costType": "AGENT_TASK",
@@ -4205,7 +4205,7 @@
       "profileId": null,
       "rawName": "GPT-4.1"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4231,7 +4231,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0139,
     "costType": "AGENT_TASK",
@@ -4250,7 +4250,7 @@
       "profileId": null,
       "rawName": "GPT-4.1-Mini"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4276,7 +4276,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0036,
     "costType": "AGENT_TASK",
@@ -4295,7 +4295,7 @@
       "profileId": null,
       "rawName": "GPT-4.1-Nano"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4321,7 +4321,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.1,
     "costType": "AGENT_TASK",
@@ -4340,7 +4340,7 @@
       "profileId": null,
       "rawName": "GPT-4.5"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4366,7 +4366,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.08,
     "costType": "AGENT_TASK",
@@ -4385,7 +4385,7 @@
       "profileId": null,
       "rawName": "GPT-4o"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4411,7 +4411,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.01,
     "costType": "AGENT_TASK",
@@ -4430,7 +4430,7 @@
       "profileId": null,
       "rawName": "GPT-4o-mini"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4456,7 +4456,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.1704,
     "costType": "AGENT_TASK",
@@ -4475,7 +4475,7 @@
       "profileId": null,
       "rawName": "GPT-5.1 (Thinking, High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4501,7 +4501,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.129,
     "costType": "AGENT_TASK",
@@ -4520,7 +4520,7 @@
       "profileId": null,
       "rawName": "GPT-5.1 (Thinking, Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4546,7 +4546,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.4206,
     "costType": "AGENT_TASK",
@@ -4565,7 +4565,7 @@
       "profileId": null,
       "rawName": "GPT-5.1 (Thinking, Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4591,7 +4591,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0581,
     "costType": "AGENT_TASK",
@@ -4610,7 +4610,7 @@
       "profileId": null,
       "rawName": "GPT-5.1 (Thinking, None)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4636,7 +4636,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.393,
     "costType": "AGENT_TASK",
@@ -4655,7 +4655,7 @@
       "profileId": "openai-gpt-5-2-high",
       "rawName": "GPT-5.2 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4681,7 +4681,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2642,
     "costType": "AGENT_TASK",
@@ -4700,7 +4700,7 @@
       "profileId": "openai-gpt-5-2-low",
       "rawName": "GPT-5.2 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4726,7 +4726,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7594,
     "costType": "AGENT_TASK",
@@ -4745,7 +4745,7 @@
       "profileId": "openai-gpt-5-2-medium",
       "rawName": "GPT-5.2 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4771,7 +4771,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0818,
     "costType": "AGENT_TASK",
@@ -4790,7 +4790,7 @@
       "profileId": null,
       "rawName": "GPT-5.2"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4816,7 +4816,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.8982,
     "costType": "AGENT_TASK",
@@ -4835,7 +4835,7 @@
       "profileId": "openai-gpt-5-2-xhigh",
       "rawName": "GPT-5.2 (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4861,7 +4861,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 15.721,
     "costType": "AGENT_TASK",
@@ -4880,7 +4880,7 @@
       "profileId": "openai-gpt-5-2-pro-high",
       "rawName": "GPT-5.2 Pro (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4906,7 +4906,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 8.9928,
     "costType": "AGENT_TASK",
@@ -4925,7 +4925,7 @@
       "profileId": "openai-gpt-5-2-pro-medium",
       "rawName": "GPT-5.2 Pro (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4951,7 +4951,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7302,
     "costType": "AGENT_TASK",
@@ -4970,7 +4970,7 @@
       "profileId": null,
       "rawName": "GPT-5 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4996,7 +4996,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1896,
     "costType": "AGENT_TASK",
@@ -5015,7 +5015,7 @@
       "profileId": null,
       "rawName": "GPT-5 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5041,7 +5041,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1896,
     "costType": "AGENT_TASK",
@@ -5060,7 +5060,7 @@
       "profileId": null,
       "rawName": "GPT-5 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5086,7 +5086,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.4486,
     "costType": "AGENT_TASK",
@@ -5105,7 +5105,7 @@
       "profileId": null,
       "rawName": "GPT-5 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5131,7 +5131,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0562,
     "costType": "AGENT_TASK",
@@ -5150,7 +5150,7 @@
       "profileId": null,
       "rawName": "GPT-5 (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5176,7 +5176,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.02,
     "costType": "AGENT_TASK",
@@ -5195,7 +5195,7 @@
       "profileId": "openai-gpt-5-4-high",
       "rawName": "GPT-5.4 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5221,7 +5221,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.27,
     "costType": "AGENT_TASK",
@@ -5240,7 +5240,7 @@
       "profileId": "openai-gpt-5-4-low",
       "rawName": "GPT-5.4 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5266,7 +5266,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.68,
     "costType": "AGENT_TASK",
@@ -5285,7 +5285,7 @@
       "profileId": "openai-gpt-5-4-medium",
       "rawName": "GPT-5.4 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5311,7 +5311,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.56,
     "costType": "AGENT_TASK",
@@ -5330,7 +5330,7 @@
       "profileId": "openai-gpt-5-4-mini-high",
       "rawName": "GPT-5.4 Mini (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5356,7 +5356,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.06,
     "costType": "AGENT_TASK",
@@ -5375,7 +5375,7 @@
       "profileId": "openai-gpt-5-4-mini-low",
       "rawName": "GPT-5.4 Mini (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5401,7 +5401,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.33,
     "costType": "AGENT_TASK",
@@ -5420,7 +5420,7 @@
       "profileId": "openai-gpt-5-4-mini-medium",
       "rawName": "GPT-5.4 Mini (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5446,7 +5446,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.75,
     "costType": "AGENT_TASK",
@@ -5465,7 +5465,7 @@
       "profileId": "openai-gpt-5-4-mini-xhigh",
       "rawName": "GPT-5.4 Mini (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5491,7 +5491,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.13,
     "costType": "AGENT_TASK",
@@ -5510,7 +5510,7 @@
       "profileId": "openai-gpt-5-4-nano-high",
       "rawName": "GPT-5.4 Nano (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5536,7 +5536,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.01,
     "costType": "AGENT_TASK",
@@ -5555,7 +5555,7 @@
       "profileId": "openai-gpt-5-4-nano-low",
       "rawName": "GPT-5.4 Nano (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5581,7 +5581,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.06,
     "costType": "AGENT_TASK",
@@ -5600,7 +5600,7 @@
       "profileId": "openai-gpt-5-4-nano-medium",
       "rawName": "GPT-5.4 Nano (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5626,7 +5626,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.16,
     "costType": "AGENT_TASK",
@@ -5645,7 +5645,7 @@
       "profileId": "openai-gpt-5-4-nano-xhigh",
       "rawName": "GPT-5.4 Nano (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5671,7 +5671,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 16.41,
     "costType": "AGENT_TASK",
@@ -5690,7 +5690,7 @@
       "profileId": "openai-gpt-5-4-pro-xhigh",
       "rawName": "GPT-5.4 Pro (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5716,7 +5716,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.52,
     "costType": "AGENT_TASK",
@@ -5735,7 +5735,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "GPT-5.4 (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5761,7 +5761,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.45,
     "costType": "AGENT_TASK",
@@ -5780,7 +5780,7 @@
       "profileId": "openai-gpt-5-5-high",
       "rawName": "GPT-5.5 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5806,7 +5806,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.35,
     "costType": "AGENT_TASK",
@@ -5825,7 +5825,7 @@
       "profileId": "openai-gpt-5-5-low",
       "rawName": "GPT-5.5 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5851,7 +5851,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.86,
     "costType": "AGENT_TASK",
@@ -5870,7 +5870,7 @@
       "profileId": "openai-gpt-5-5-medium",
       "rawName": "GPT-5.5 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5896,7 +5896,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.87,
     "costType": "AGENT_TASK",
@@ -5915,7 +5915,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "GPT-5.5 (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5941,7 +5941,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 10.51,
     "costType": "AGENT_TASK",
@@ -5960,7 +5960,7 @@
       "profileId": "openai-gpt-5-5-pro-high",
       "rawName": "GPT-5.5 Pro (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5986,7 +5986,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 10.76,
     "costType": "AGENT_TASK",
@@ -6005,7 +6005,7 @@
       "profileId": "openai-gpt-5-5-pro-xhigh",
       "rawName": "GPT-5.5 Pro (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6031,7 +6031,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1977,
     "costType": "AGENT_TASK",
@@ -6050,7 +6050,7 @@
       "profileId": null,
       "rawName": "GPT-5 Mini (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6076,7 +6076,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0189,
     "costType": "AGENT_TASK",
@@ -6095,7 +6095,7 @@
       "profileId": null,
       "rawName": "GPT-5 Mini (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6121,7 +6121,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0629,
     "costType": "AGENT_TASK",
@@ -6140,7 +6140,7 @@
       "profileId": null,
       "rawName": "GPT-5 Mini (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6166,7 +6166,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0094,
     "costType": "AGENT_TASK",
@@ -6185,7 +6185,7 @@
       "profileId": null,
       "rawName": "GPT-5 Mini (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6211,7 +6211,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0295,
     "costType": "AGENT_TASK",
@@ -6230,7 +6230,7 @@
       "profileId": null,
       "rawName": "GPT-5 Nano (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6256,7 +6256,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0033,
     "costType": "AGENT_TASK",
@@ -6275,7 +6275,7 @@
       "profileId": null,
       "rawName": "GPT-5 Nano (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6301,7 +6301,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0137,
     "costType": "AGENT_TASK",
@@ -6320,7 +6320,7 @@
       "profileId": null,
       "rawName": "GPT-5 Nano (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6346,7 +6346,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0025,
     "costType": "AGENT_TASK",
@@ -6365,7 +6365,7 @@
       "profileId": null,
       "rawName": "GPT-5 Nano (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6391,7 +6391,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 7.1432,
     "costType": "AGENT_TASK",
@@ -6410,7 +6410,7 @@
       "profileId": null,
       "rawName": "GPT-5 Pro"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6436,7 +6436,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0131,
     "costType": "AGENT_TASK",
@@ -6455,7 +6455,7 @@
       "profileId": null,
       "rawName": "Grok 3 Mini (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6481,7 +6481,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1421,
     "costType": "AGENT_TASK",
@@ -6500,7 +6500,7 @@
       "profileId": null,
       "rawName": "Grok 3"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6526,7 +6526,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.1659,
     "costType": "AGENT_TASK",
@@ -6545,7 +6545,7 @@
       "profileId": null,
       "rawName": "Grok 4 (Thinking)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6571,7 +6571,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.92,
     "costType": "AGENT_TASK",
@@ -6590,7 +6590,7 @@
       "profileId": null,
       "rawName": "Grok 4.20 (Reasoning)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6616,7 +6616,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.061,
     "costType": "AGENT_TASK",
@@ -6635,7 +6635,7 @@
       "profileId": null,
       "rawName": "Grok 4 (Fast Reasoning)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6661,7 +6661,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.13,
     "costType": "AGENT_TASK",
@@ -6680,7 +6680,7 @@
       "profileId": null,
       "rawName": "Icecuber"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6706,7 +6706,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 30.4,
     "costType": "AGENT_TASK",
@@ -6725,7 +6725,7 @@
       "profileId": null,
       "rawName": "Grok 4 (Refine.)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6751,7 +6751,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 38.99,
     "costType": "AGENT_TASK",
@@ -6770,7 +6770,7 @@
       "profileId": null,
       "rawName": "GPT-5.2 (Refine.)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6796,7 +6796,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.28,
     "costType": "AGENT_TASK",
@@ -6815,7 +6815,7 @@
       "profileId": null,
       "rawName": "Kimi K2.5"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6841,7 +6841,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0121,
     "costType": "AGENT_TASK",
@@ -6860,7 +6860,7 @@
       "profileId": null,
       "rawName": "Llama 4 Maverick"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6886,7 +6886,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0062,
     "costType": "AGENT_TASK",
@@ -6905,7 +6905,7 @@
       "profileId": null,
       "rawName": "Llama 4 Scout"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6931,7 +6931,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.123,
     "costType": "AGENT_TASK",
@@ -6950,7 +6950,7 @@
       "profileId": null,
       "rawName": "Magistral Medium (Thinking)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6976,7 +6976,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1079,
     "costType": "AGENT_TASK",
@@ -6995,7 +6995,7 @@
       "profileId": null,
       "rawName": "Magistral Medium"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7021,7 +7021,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0488,
     "costType": "AGENT_TASK",
@@ -7040,7 +7040,7 @@
       "profileId": null,
       "rawName": "Magistral Small"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7066,7 +7066,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.17,
     "costType": "AGENT_TASK",
@@ -7085,7 +7085,7 @@
       "profileId": null,
       "rawName": "Minimax M2.5"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7111,7 +7111,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.9472229249999998,
     "costType": "AGENT_TASK",
@@ -7130,7 +7130,7 @@
       "profileId": "moonshot-kimi-k3-high",
       "rawName": "Kimi K3 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7156,7 +7156,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2541386750000001,
     "costType": "AGENT_TASK",
@@ -7175,7 +7175,7 @@
       "profileId": "moonshot-kimi-k3-low",
       "rawName": "Kimi K3 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7201,7 +7201,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.5926940250000003,
     "costType": "AGENT_TASK",
@@ -7220,7 +7220,7 @@
       "profileId": "moonshot-kimi-k3-max",
       "rawName": "Kimi K3 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7246,7 +7246,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2,
     "costType": "AGENT_TASK",
@@ -7265,7 +7265,7 @@
       "profileId": null,
       "rawName": "NVARC"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7291,7 +7291,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.1907,
     "costType": "AGENT_TASK",
@@ -7310,7 +7310,7 @@
       "profileId": null,
       "rawName": "o1-mini"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7336,7 +7336,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.8339,
     "costType": "AGENT_TASK",
@@ -7355,7 +7355,7 @@
       "profileId": null,
       "rawName": "o3 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7381,7 +7381,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2343,
     "costType": "AGENT_TASK",
@@ -7400,7 +7400,7 @@
       "profileId": null,
       "rawName": "o3 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7426,7 +7426,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.4787,
     "costType": "AGENT_TASK",
@@ -7445,7 +7445,7 @@
       "profileId": null,
       "rawName": "o3 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7471,7 +7471,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.5472,
     "costType": "AGENT_TASK",
@@ -7490,7 +7490,7 @@
       "profileId": null,
       "rawName": "o3-mini (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7516,7 +7516,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0623,
     "costType": "AGENT_TASK",
@@ -7535,7 +7535,7 @@
       "profileId": null,
       "rawName": "o3-mini (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7561,7 +7561,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2843,
     "costType": "AGENT_TASK",
@@ -7580,7 +7580,7 @@
       "profileId": null,
       "rawName": "o3-mini (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7606,7 +7606,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 7.5516,
     "costType": "AGENT_TASK",
@@ -7625,7 +7625,7 @@
       "profileId": null,
       "rawName": "o3-Pro (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7651,7 +7651,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.2293,
     "costType": "AGENT_TASK",
@@ -7670,7 +7670,7 @@
       "profileId": null,
       "rawName": "o3-Pro (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7696,7 +7696,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 4.7441,
     "costType": "AGENT_TASK",
@@ -7715,7 +7715,7 @@
       "profileId": null,
       "rawName": "o3-Pro (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7741,7 +7741,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.856,
     "costType": "AGENT_TASK",
@@ -7760,7 +7760,7 @@
       "profileId": null,
       "rawName": "o4-mini (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7786,7 +7786,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.05,
     "costType": "AGENT_TASK",
@@ -7805,7 +7805,7 @@
       "profileId": null,
       "rawName": "o4-mini (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7831,7 +7831,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2311,
     "costType": "AGENT_TASK",
@@ -7850,7 +7850,7 @@
       "profileId": null,
       "rawName": "o4-mini (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7876,7 +7876,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.06253926000000003,
     "costType": "AGENT_TASK",
@@ -7895,7 +7895,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna 2026-07-30 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7921,7 +7921,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.29,
     "costType": "AGENT_TASK",
@@ -7940,7 +7940,7 @@
       "profileId": "openai-gpt-5-6-luna-high",
       "rawName": "GPT-5.6 Luna (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -7966,7 +7966,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.013629859999999995,
     "costType": "AGENT_TASK",
@@ -7985,7 +7985,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna 2026-07-30 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8011,7 +8011,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.07,
     "costType": "AGENT_TASK",
@@ -8030,7 +8030,7 @@
       "profileId": "openai-gpt-5-6-luna-low",
       "rawName": "GPT-5.6 Luna (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8056,7 +8056,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.17671712499999995,
     "costType": "AGENT_TASK",
@@ -8075,7 +8075,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna 2026-07-30 (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8101,7 +8101,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.67,
     "costType": "AGENT_TASK",
@@ -8120,7 +8120,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "GPT-5.6 Luna (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8146,7 +8146,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.02209704,
     "costType": "AGENT_TASK",
@@ -8165,7 +8165,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna 2026-07-30 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8191,7 +8191,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.11,
     "costType": "AGENT_TASK",
@@ -8210,7 +8210,7 @@
       "profileId": "openai-gpt-5-6-luna-medium",
       "rawName": "GPT-5.6 Luna (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8236,7 +8236,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.008186350000000002,
     "costType": "AGENT_TASK",
@@ -8255,7 +8255,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna 2026-07-30 (None)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8281,7 +8281,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.13048743000000002,
     "costType": "AGENT_TASK",
@@ -8300,7 +8300,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna 2026-07-30 (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8326,7 +8326,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.54,
     "costType": "AGENT_TASK",
@@ -8345,7 +8345,7 @@
       "profileId": "openai-gpt-5-6-luna-xhigh",
       "rawName": "GPT-5.6 Luna (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8371,7 +8371,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.74,
     "costType": "AGENT_TASK",
@@ -8390,7 +8390,7 @@
       "profileId": "openai-gpt-5-6-sol-high",
       "rawName": "GPT-5.6 Sol (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8416,7 +8416,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.32,
     "costType": "AGENT_TASK",
@@ -8435,7 +8435,7 @@
       "profileId": "openai-gpt-5-6-sol-low",
       "rawName": "GPT-5.6 Sol (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8461,7 +8461,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.44,
     "costType": "AGENT_TASK",
@@ -8480,7 +8480,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "GPT-5.6 Sol (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8506,7 +8506,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.47,
     "costType": "AGENT_TASK",
@@ -8525,7 +8525,7 @@
       "profileId": "openai-gpt-5-6-sol-medium",
       "rawName": "GPT-5.6 Sol (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8551,7 +8551,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.04,
     "costType": "AGENT_TASK",
@@ -8570,7 +8570,7 @@
       "profileId": "openai-gpt-5-6-sol-xhigh",
       "rawName": "GPT-5.6 Sol (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8596,7 +8596,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.55,
     "costType": "AGENT_TASK",
@@ -8615,7 +8615,7 @@
       "profileId": "openai-gpt-5-6-terra-high",
       "rawName": "GPT-5.6 Terra (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8641,7 +8641,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.17,
     "costType": "AGENT_TASK",
@@ -8660,7 +8660,7 @@
       "profileId": "openai-gpt-5-6-terra-low",
       "rawName": "GPT-5.6 Terra (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8686,7 +8686,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 1.09,
     "costType": "AGENT_TASK",
@@ -8705,7 +8705,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "GPT-5.6 Terra (Max)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8731,7 +8731,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.27,
     "costType": "AGENT_TASK",
@@ -8750,7 +8750,7 @@
       "profileId": "openai-gpt-5-6-terra-medium",
       "rawName": "GPT-5.6 Terra (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8776,7 +8776,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.69,
     "costType": "AGENT_TASK",
@@ -8795,7 +8795,7 @@
       "profileId": "openai-gpt-5-6-terra-xhigh",
       "rawName": "GPT-5.6 Terra (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8821,7 +8821,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 30.568,
     "costType": "AGENT_TASK",
@@ -8840,7 +8840,7 @@
       "profileId": null,
       "rawName": "Gemini 3 Pro (Refine.)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8866,7 +8866,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.0044,
     "costType": "AGENT_TASK",
@@ -8885,7 +8885,7 @@
       "profileId": null,
       "rawName": "Qwen3-235b-a22b Instruct (25/07)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8911,7 +8911,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.08,
     "costType": "AGENT_TASK",
@@ -8930,7 +8930,7 @@
       "profileId": null,
       "rawName": "Deepseek R1"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -8956,7 +8956,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.132909555,
     "costType": "AGENT_TASK",
@@ -8975,7 +8975,7 @@
       "profileId": null,
       "rawName": "Inkling Small (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9001,7 +9001,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.05589815499999999,
     "costType": "AGENT_TASK",
@@ -9020,7 +9020,7 @@
       "profileId": null,
       "rawName": "Inkling Small (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9046,7 +9046,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.06378986500000002,
     "costType": "AGENT_TASK",
@@ -9065,7 +9065,7 @@
       "profileId": null,
       "rawName": "Inkling Small (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9091,7 +9091,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.05303395499999999,
     "costType": "AGENT_TASK",
@@ -9110,7 +9110,7 @@
       "profileId": null,
       "rawName": "Inkling Small (Minimal)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9136,7 +9136,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.010745875000000005,
     "costType": "AGENT_TASK",
@@ -9155,7 +9155,7 @@
       "profileId": null,
       "rawName": "Inkling Small (None)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9181,7 +9181,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.23255201249999993,
     "costType": "AGENT_TASK",
@@ -9200,7 +9200,7 @@
       "profileId": null,
       "rawName": "Inkling Small (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9226,7 +9226,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.6420766277310923,
     "costType": "AGENT_TASK",
@@ -9245,7 +9245,7 @@
       "profileId": null,
       "rawName": "Inkling"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9271,7 +9271,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 2.1,
     "costType": "AGENT_TASK",
@@ -9290,7 +9290,7 @@
       "profileId": null,
       "rawName": "Tiny Recursion Model (TRM)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9316,7 +9316,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.78,
     "costType": "AGENT_TASK",
@@ -9335,7 +9335,7 @@
       "profileId": "xai-grok-4-5-high",
       "rawName": "Grok 4.5 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9361,7 +9361,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.4,
     "costType": "AGENT_TASK",
@@ -9380,7 +9380,7 @@
       "profileId": "xai-grok-4-5-low",
       "rawName": "Grok 4.5 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9406,7 +9406,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.75,
     "costType": "AGENT_TASK",
@@ -9425,7 +9425,7 @@
       "profileId": "xai-grok-4-5-medium",
       "rawName": "Grok 4.5 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9451,7 +9451,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7338575666666665,
     "costType": "AGENT_TASK",
@@ -9470,7 +9470,7 @@
       "profileId": "xai-grok-4-6-high",
       "rawName": "Grok 4.6 (High)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9496,7 +9496,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.2124022166666667,
     "costType": "AGENT_TASK",
@@ -9515,7 +9515,7 @@
       "profileId": "xai-grok-4-6-low",
       "rawName": "Grok 4.6 (Low)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9541,7 +9541,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.6586968666666668,
     "costType": "AGENT_TASK",
@@ -9560,7 +9560,7 @@
       "profileId": "xai-grok-4-6-medium",
       "rawName": "Grok 4.6 (Medium)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -9586,7 +9586,7 @@
   },
   {
     "assumptionId": null,
-    "benchmarkId": "arc-agi",
+    "benchmarkId": "arc-agi-2",
     "benchmarkVersion": "ARC-AGI-2-v2_Semi_Private",
     "cost": 0.7574904499999999,
     "costType": "AGENT_TASK",
@@ -9605,7 +9605,7 @@
       "profileId": "xai-grok-4-6-xhigh",
       "rawName": "Grok 4.6 (XHigh)"
     },
-    "observedAt": "2026-08-22T06:21:39.667Z",
+    "observedAt": "2026-08-22T14:07:48.474Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,

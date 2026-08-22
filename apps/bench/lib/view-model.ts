@@ -390,7 +390,7 @@ const sourceEvidenceForProfile = (
 const SOURCE_SCORE_BENCHMARK_IDS = {
   deepswe: 'deepswe-1-1',
   'frontier-code': 'frontier-code-1-1',
-  'arc-prize': 'arc-agi',
+  'arc-prize': 'arc-agi-2',
 } as const;
 
 const SOURCE_SCORE_BASES = {

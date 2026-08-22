@@ -136,7 +136,7 @@ describe('Dashboard Redesign', () => {
       },
       {
         sourceId: 'arc-prize',
-        benchmarkId: 'arc-agi',
+        benchmarkId: 'arc-agi-2',
         costType: 'AGENT_TASK' as const,
         normalizedScore: 75,
         rawScore: 75,
