@@ -3,26 +3,32 @@
   "baseUrl": "https://zapier.com",
   "benchmarkIds": ["automationbench"],
   "completeness": {
-    "expectedCountMethod": "Read the route module embedded in the official Framer page and compare all displayed rank values with the largest rank in the module table.",
+    "expectedCountMethod": "Enumerate every .mjs URL in the official Framer page, select the unique module containing task_completed_correctly, parse every four-column leaderboard row, and require maximum rank to equal parsed row count.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
   "displayName": "Zapier AutomationBench official leaderboard",
   "fallbackMethods": ["DOM", "VISUAL"],
   "fieldMapping": {
-    "cost": "route module API-mode cost per task",
-    "model": "route module leaderboard model",
-    "rank": "route module leaderboard rank",
-    "successRate": "route module task_completed_correctly percentage",
-    "version": "route module z value"
+    "route module leaderboard Cost / task": "CostRecord.cost",
+    "route module leaderboard model": "model.rawName / profile.effort",
+    "route module leaderboard score": "rawScore and normalizedScore for task_completed_correctly",
+    "route module version": "benchmarkVersion"
   },
-  "lastVerifiedAt": "2026-08-13T03:22:43.317Z",
+  "lastVerifiedAt": "2026-08-22T07:29:27.593Z",
   "notes": [
-    "The source is a Framer page; the materializer follows script_main to the /benchmarks route module before parsing its embedded table.",
-    "API mode scores are the primary AutomationBench metric; missing costs remain null."
+    "AutomationBench version 1.0.6; 84 rows and maximum rank 84.",
+    "The route module is discovered by the content feature task_completed_correctly; deployment hashes are never hard-coded.",
+    "API-mode task_completed_correctly is the strict headline metric; partial_credit is diagnostic-only and not materialized.",
+    "Starred standard price ruling: *Gemini 3.7 Flash launch promo: $0.30 / task through Dec 31, 2026 ($0.75 in / $3.75 out per MTok). Ranking and Cost / task reflect standard list pricing; the promo is noted but does not affect rank.",
+    "Raw — means missing cost and emits no CostRecord.",
+    "Dedicated-deployment price ruling: †Dedicated-deployment pricing; not directly comparable to per-token API cost. The score remains included, but the incomparable cost emits no CostRecord."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "zapier-automationbench",
-  "targetUrls": ["https://zapier.com/benchmarks"]
+  "targetUrls": [
+    "https://zapier.com/benchmarks",
+    "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.DiRrazN8.mjs"
+  ]
 }

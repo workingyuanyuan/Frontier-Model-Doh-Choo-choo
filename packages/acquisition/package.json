@@ -18,6 +18,7 @@
     "materialize:deepswe": "tsx src/refresh-deepswe.ts",
     "materialize:epoch": "tsx src/refresh-epoch.ts",
     "materialize:arc-prize": "tsx src/refresh-arc-prize.ts",
+    "materialize:zapier": "tsx src/refresh-zapier.ts",
     "materialize:livebench": "tsx src/refresh-livebench.ts",
     "materialize:artificial-analysis": "node --env-file=../../.env.local --import tsx/esm src/refresh-artificial-analysis.ts",
     "test": "vitest",

@@ -324,6 +324,7 @@ describe('SourcesConfigSchema', () => {
       'frontier-code',
       'epoch-ai',
       'arc-prize',
+      'zapier-automationbench',
     ]);
   });
 

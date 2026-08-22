@@ -283,3 +283,14 @@ export {
   PROMOTED_DATASET_ID as ARC_PRIZE_PROMOTED_DATASET_ID,
   materializeArcPrize,
 } from './arc-prize-materializer.js';
+export {
+  ZAPIER_BENCHMARK_ID,
+  ZAPIER_PAGE_URL,
+  ZAPIER_ROUTE_FEATURE,
+  ZAPIER_SOURCE_ID,
+  extractZapierModuleUrls,
+  findZapierRouteModule,
+  materializeZapier,
+  parseZapierCost,
+  parseZapierRouteModule,
+} from './zapier-materializer.js';

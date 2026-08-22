@@ -6,20 +6,21 @@
     "cost": 1.65,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-fable-5-0-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-high-rank-18:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-high-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Claude Fable 5.0 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -32,20 +33,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 17 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 17 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 18 raw Cost / task \"$1.65\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -55,20 +51,21 @@
     "cost": 1.41,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-fable-5-0-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-low-rank-30:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-low-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Claude Fable 5.0 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -81,20 +78,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 29 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 29 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 30 raw Cost / task \"$1.41\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -104,20 +96,21 @@
     "cost": 2.03,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-fable-5-0-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-max-rank-12:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-max-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Claude Fable 5.0 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -130,20 +123,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 11 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 11 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 12 raw Cost / task \"$2.03\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -153,20 +141,21 @@
     "cost": 1.52,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-fable-5-0-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-medium-rank-24:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-medium-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Claude Fable 5.0 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -179,20 +168,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 23 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 23 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 24 raw Cost / task \"$1.52\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -202,20 +186,21 @@
     "cost": 1.8,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-fable-5-0-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-xhigh-rank-20:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "anthropic-claude-fable-5",
-      "profileId": "anthropic-claude-fable-5-xhigh-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Claude Fable 5.0 (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -228,20 +213,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 19 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 19 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 20 raw Cost / task \"$1.80\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -251,20 +231,21 @@
     "cost": 0.07,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-haiku-4-5:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-haiku-4-5-rank-79:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": null,
       "profileId": null,
       "rawName": "Claude Haiku 4.5"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -277,20 +258,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 78 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 78 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 79 raw Cost / task \"$0.07\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -300,20 +276,21 @@
     "cost": 1.08,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-7-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-high-rank-39:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-7",
-      "profileId": "anthropic-claude-opus-4-7-high-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-7-high",
       "rawName": "Claude Opus 4.7 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -326,20 +303,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 38 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 38 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 39 raw Cost / task \"$1.08\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -349,20 +321,21 @@
     "cost": 0.78,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-7-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-low-rank-52:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-7",
-      "profileId": "anthropic-claude-opus-4-7-low-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-7-low",
       "rawName": "Claude Opus 4.7 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -375,20 +348,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 51 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 51 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 52 raw Cost / task \"$0.78\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -398,20 +366,21 @@
     "cost": 1.52,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-7-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-max-rank-27:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-7",
-      "profileId": "anthropic-claude-opus-4-7-max-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-7-max",
       "rawName": "Claude Opus 4.7 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -424,20 +393,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 26 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 26 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 27 raw Cost / task \"$1.52\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -447,20 +411,21 @@
     "cost": 0.92,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-7-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-medium-rank-48:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-7",
-      "profileId": "anthropic-claude-opus-4-7-medium-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-7-medium",
       "rawName": "Claude Opus 4.7 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -473,20 +438,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 47 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 47 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 48 raw Cost / task \"$0.92\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -496,20 +456,21 @@
     "cost": 1.26,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-7-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-xhigh-rank-38:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-7",
-      "profileId": "anthropic-claude-opus-4-7-xhigh-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-7-xhigh",
       "rawName": "Claude Opus 4.7 (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -522,20 +483,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 37 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 37 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 38 raw Cost / task \"$1.26\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -545,20 +501,21 @@
     "cost": 1.48,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-8-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-high-rank-17:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-high-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-8-high",
       "rawName": "Claude Opus 4.8 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -571,20 +528,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 16 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 16 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 17 raw Cost / task \"$1.48\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -594,20 +546,21 @@
     "cost": 1.2,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-8-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-low-rank-25:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-low-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-8-low",
       "rawName": "Claude Opus 4.8 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -620,20 +573,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 24 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 24 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 25 raw Cost / task \"$1.20\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -643,20 +591,21 @@
     "cost": 2.36,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-8-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-max-rank-16:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-max-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "Claude Opus 4.8 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -669,20 +618,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 15 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 15 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 16 raw Cost / task \"$2.36\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -692,20 +636,21 @@
     "cost": 1.44,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-8-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-medium-rank-23:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-medium-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-8-medium",
       "rawName": "Claude Opus 4.8 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -718,20 +663,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 22 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 22 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 23 raw Cost / task \"$1.44\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -741,20 +681,21 @@
     "cost": 1.91,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-4-8-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-xhigh-rank-13:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-4-8",
-      "profileId": "anthropic-claude-opus-4-8-xhigh-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-4-8-xhigh",
       "rawName": "Claude Opus 4.8 (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -767,20 +708,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 12 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 12 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 13 raw Cost / task \"$1.91\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -790,20 +726,21 @@
     "cost": 1.03,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-5-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-high-rank-7:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-5",
-      "profileId": "anthropic-claude-opus-5-high-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-5-high",
       "rawName": "Claude Opus 5 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -816,20 +753,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 6 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 6 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 7 raw Cost / task \"$1.03\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -839,20 +771,21 @@
     "cost": 0.75,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-5-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-low-rank-8:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-5",
-      "profileId": "anthropic-claude-opus-5-low-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-5-low",
       "rawName": "Claude Opus 5 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -865,20 +798,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 7 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 7 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 8 raw Cost / task \"$0.75\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -888,20 +816,21 @@
     "cost": 1.27,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-5-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-max-rank-2:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-5",
-      "profileId": "anthropic-claude-opus-5-max-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-5-max",
       "rawName": "Claude Opus 5 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -914,20 +843,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 1 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 1 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 2 raw Cost / task \"$1.27\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -937,20 +861,21 @@
     "cost": 0.89,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-5-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-medium-rank-4:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-5",
-      "profileId": "anthropic-claude-opus-5-medium-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-5-medium",
       "rawName": "Claude Opus 5 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -963,20 +888,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 3 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 3 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 4 raw Cost / task \"$0.89\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -986,20 +906,21 @@
     "cost": 1.15,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-opus-5-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-xhigh-rank-3:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-opus-5",
-      "profileId": "anthropic-claude-opus-5-xhigh-zapier-automationbench",
+      "profileId": "anthropic-claude-opus-5-xhigh",
       "rawName": "Claude Opus 5 (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1012,20 +933,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 2 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 2 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 3 raw Cost / task \"$1.15\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1035,20 +951,21 @@
     "cost": 0.84,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-4-6-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-high-rank-56:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-4-6",
-      "profileId": "anthropic-claude-sonnet-4-6-high-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-4-6-high",
       "rawName": "Claude Sonnet 4.6 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1061,20 +978,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 55 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 55 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 56 raw Cost / task \"$0.84\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1084,20 +996,21 @@
     "cost": 0.61,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-4-6-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-low-rank-69:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-4-6",
-      "profileId": "anthropic-claude-sonnet-4-6-low-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-4-6-low",
       "rawName": "Claude Sonnet 4.6 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1110,20 +1023,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 68 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 68 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 69 raw Cost / task \"$0.61\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1133,20 +1041,21 @@
     "cost": 0.9,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-4-6-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-max-rank-54:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-4-6",
-      "profileId": "anthropic-claude-sonnet-4-6-max-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-4-6-max",
       "rawName": "Claude Sonnet 4.6 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1159,20 +1068,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 53 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 53 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 54 raw Cost / task \"$0.90\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1182,20 +1086,21 @@
     "cost": 0.77,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-4-6-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-medium-rank-65:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-4-6",
-      "profileId": "anthropic-claude-sonnet-4-6-medium-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-4-6-medium",
       "rawName": "Claude Sonnet 4.6 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1208,20 +1113,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 64 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 64 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 65 raw Cost / task \"$0.77\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1231,20 +1131,21 @@
     "cost": 0.56,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-5-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-high-rank-37:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-high-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-5-high",
       "rawName": "Claude Sonnet 5 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1257,20 +1158,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 36 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 36 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 37 raw Cost / task \"$0.56\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1280,20 +1176,21 @@
     "cost": 0.26,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-5-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-low-rank-64:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-low-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-5-low",
       "rawName": "Claude Sonnet 5 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1306,20 +1203,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 63 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 63 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 64 raw Cost / task \"$0.26\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1329,20 +1221,21 @@
     "cost": 0.88,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-5-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-max-rank-35:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-max-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "Claude Sonnet 5 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1355,20 +1248,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 34 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 34 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 35 raw Cost / task \"$0.88\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1378,20 +1266,21 @@
     "cost": 0.41,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-5-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-medium-rank-50:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-medium-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-5-medium",
       "rawName": "Claude Sonnet 5 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1404,20 +1293,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 49 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 49 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 50 raw Cost / task \"$0.41\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1427,20 +1311,21 @@
     "cost": 0.67,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:claude-sonnet-5-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-xhigh-rank-46:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "anthropic-claude-sonnet-5",
-      "profileId": "anthropic-claude-sonnet-5-xhigh-zapier-automationbench",
+      "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "Claude Sonnet 5 (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1453,20 +1338,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 45 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 45 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 46 raw Cost / task \"$0.67\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1476,20 +1356,21 @@
     "cost": 0.3,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-1-pro-preview-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-high-rank-43:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "google-gemini-3-1-pro-preview",
-      "profileId": "google-gemini-3-1-pro-preview-high-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1502,20 +1383,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 42 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 42 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 43 raw Cost / task \"$0.30\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1525,20 +1401,21 @@
     "cost": 0.28,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-1-pro-preview-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-low-rank-58:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "google-gemini-3-1-pro-preview",
-      "profileId": "google-gemini-3-1-pro-preview-low-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1551,20 +1428,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 57 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 57 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 58 raw Cost / task \"$0.28\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1574,20 +1446,21 @@
     "cost": 0.25,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-1-pro-preview-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-medium-rank-47:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "google-gemini-3-1-pro-preview",
-      "profileId": "google-gemini-3-1-pro-preview-medium-zapier-automationbench",
+      "canonicalModelId": null,
+      "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1600,20 +1473,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 46 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 46 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 47 raw Cost / task \"$0.25\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1623,20 +1491,21 @@
     "cost": 0.42,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-high-rank-26:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-high-zapier-automationbench",
+      "profileId": "google-gemini-3-5-flash-high",
       "rawName": "Gemini 3.5 Flash (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1649,20 +1518,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 25 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 25 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 26 raw Cost / task \"$0.42\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1672,20 +1536,21 @@
     "cost": 0.13,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-lite-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-high-rank-66:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-high-zapier-automationbench",
+      "canonicalModelId": "google-gemini-3-5-flash-lite",
+      "profileId": "google-gemini-3-5-flash-lite-high",
       "rawName": "Gemini 3.5 Flash Lite (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1698,20 +1563,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 65 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 65 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 66 raw Cost / task \"$0.13\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1721,20 +1581,21 @@
     "cost": 0.06,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-lite-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-low-rank-84:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-low-zapier-automationbench",
+      "canonicalModelId": "google-gemini-3-5-flash-lite",
+      "profileId": "google-gemini-3-5-flash-lite-low",
       "rawName": "Gemini 3.5 Flash Lite (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1747,20 +1608,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 83 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 83 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 84 raw Cost / task \"$0.06\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1770,20 +1626,21 @@
     "cost": 0.12,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-lite-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-medium-rank-62:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-medium-zapier-automationbench",
+      "canonicalModelId": "google-gemini-3-5-flash-lite",
+      "profileId": "google-gemini-3-5-flash-lite-medium",
       "rawName": "Gemini 3.5 Flash Lite (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1796,20 +1653,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 61 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 61 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 62 raw Cost / task \"$0.12\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1819,20 +1671,21 @@
     "cost": 0.3,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-low-rank-40:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-low-zapier-automationbench",
+      "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1845,20 +1698,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 39 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 39 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 40 raw Cost / task \"$0.30\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1868,20 +1716,21 @@
     "cost": 0.38,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-medium-rank-32:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-medium-zapier-automationbench",
+      "profileId": "google-gemini-3-5-flash-medium",
       "rawName": "Gemini 3.5 Flash (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1894,20 +1743,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 31 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 31 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 32 raw Cost / task \"$0.38\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1917,25 +1761,26 @@
     "cost": 0.18,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-5-flash-minimal:1-0-6:zapier-api-mode:cost",
-    "inclusion": "INCLUDED",
+    "exclusionReason": "Zapier published both Minimal and Low labels for this model; minimal cannot represent low.",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-minimal-rank-75:1-0-6",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-5-flash",
-      "profileId": "google-gemini-3-5-flash-minimal-zapier-automationbench",
+      "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Minimal)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": "minimal",
+      "effort": "low",
       "harness": "Zapier API mode",
       "quantization": null,
       "thinking": null,
@@ -1943,20 +1788,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 74 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 74 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 75 raw Cost / task \"$0.18\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -1966,20 +1806,21 @@
     "cost": 0.58,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-6-flash-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-high-rank-11:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-6-flash",
-      "profileId": "google-gemini-3-6-flash-high-zapier-automationbench",
+      "profileId": "google-gemini-3-6-flash-high",
       "rawName": "Gemini 3.6 Flash (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1992,20 +1833,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 10 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 10 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 11 raw Cost / task \"$0.58\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2015,20 +1851,21 @@
     "cost": 0.48,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-6-flash-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-low-rank-19:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-6-flash",
-      "profileId": "google-gemini-3-6-flash-low-zapier-automationbench",
+      "profileId": "google-gemini-3-6-flash-low",
       "rawName": "Gemini 3.6 Flash (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2041,20 +1878,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 18 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 18 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 19 raw Cost / task \"$0.48\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2064,20 +1896,21 @@
     "cost": 0.55,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemini-3-6-flash-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-medium-rank-15:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "google-gemini-3-6-flash",
-      "profileId": "google-gemini-3-6-flash-medium-zapier-automationbench",
+      "profileId": "google-gemini-3-6-flash-medium",
       "rawName": "Gemini 3.6 Flash (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2090,48 +1923,44 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 14 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 14 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 15 raw Cost / task \"$0.55\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "automationbench",
     "benchmarkVersion": "1.0.6",
-    "cost": 0.09,
+    "cost": 0.61,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gemma-4-31b-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-7-flash-high-rank-1:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Gemma 4 31B (Max)"
+      "canonicalModelId": "google-gemini-3-7-flash",
+      "profileId": "google-gemini-3-7-flash-high",
+      "rawName": "Gemini 3.7 Flash (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": "max",
+      "effort": "high",
       "harness": "Zapier API mode",
       "quantization": null,
       "thinking": null,
@@ -2139,20 +1968,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 71 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 71 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 1 raw Cost / task \"$0.61*\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2162,20 +1986,21 @@
     "cost": 0.23,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:glm-5-1-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:glm-5-1-max-rank-49:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "zai-glm-5-1",
-      "profileId": "zai-glm-5-1-max-zapier-automationbench",
+      "profileId": "zai-glm-5-1-max",
       "rawName": "GLM 5.1 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2188,20 +2013,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 48 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 48 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 49 raw Cost / task \"$0.23\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2211,20 +2031,21 @@
     "cost": 0.22,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:glm-5-2-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:glm-5-2-max-rank-45:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "zai-glm-5-2",
-      "profileId": "zai-glm-5-2-max-zapier-automationbench",
+      "profileId": "zai-glm-5-2-max",
       "rawName": "GLM 5.2 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2237,20 +2058,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 44 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 44 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 45 raw Cost / task \"$0.22\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2260,20 +2076,21 @@
     "cost": 0.62,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-4-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-high-rank-36:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-high-zapier-automationbench",
+      "profileId": "openai-gpt-5-4-high",
       "rawName": "GPT-5.4 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2286,20 +2103,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 35 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 35 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 36 raw Cost / task \"$0.62\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2309,20 +2121,21 @@
     "cost": 0.13,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-4-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-low-rank-74:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-low-zapier-automationbench",
+      "profileId": "openai-gpt-5-4-low",
       "rawName": "GPT-5.4 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2335,20 +2148,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 73 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 73 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 74 raw Cost / task \"$0.13\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2358,20 +2166,21 @@
     "cost": 0.36,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-4-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-medium-rank-53:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-medium-zapier-automationbench",
+      "profileId": "openai-gpt-5-4-medium",
       "rawName": "GPT-5.4 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2384,20 +2193,60 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 52 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 52 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 53 raw Cost / task \"$0.36\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.07,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-rank-83:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-4",
+      "profileId": null,
+      "rawName": "GPT-5.4"
+    },
+    "observedAt": "2026-08-22T07:29:27.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 83 raw Cost / task \"$0.07\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2407,20 +2256,21 @@
     "cost": 1.15,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-4-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-xhigh-rank-31:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-xhigh-zapier-automationbench",
+      "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "GPT-5.4 (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2433,69 +2283,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 30 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 30 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 31 raw Cost / task \"$1.15\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.07,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-4:1-0-6:zapier-api-mode:cost",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "Cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-source-default-zapier-automationbench",
-      "rawName": "GPT-5.4"
-    },
-    "observedAt": "2026-08-13T03:22:43.317Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 82 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 82 original approach/tool setting",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2505,20 +2301,21 @@
     "cost": 0.94,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-5-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-high-rank-29:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-high-zapier-automationbench",
+      "profileId": "openai-gpt-5-5-high",
       "rawName": "GPT-5.5 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2531,20 +2328,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 28 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 28 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 29 raw Cost / task \"$0.94\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2554,20 +2346,21 @@
     "cost": 0.36,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-5-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-low-rank-71:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-low-zapier-automationbench",
+      "profileId": "openai-gpt-5-5-low",
       "rawName": "GPT-5.5 (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2580,20 +2373,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 70 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 70 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 71 raw Cost / task \"$0.36\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2603,20 +2391,21 @@
     "cost": 0.75,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-5-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-medium-rank-41:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-medium-zapier-automationbench",
+      "profileId": "openai-gpt-5-5-medium",
       "rawName": "GPT-5.5 (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2629,69 +2418,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 40 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 40 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 41 raw Cost / task \"$0.75\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 1.72,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-5-xhigh:1-0-6:zapier-api-mode:cost",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "Cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-xhigh-zapier-automationbench",
-      "rawName": "GPT-5.5 (XHigh)"
-    },
-    "observedAt": "2026-08-13T03:22:43.317Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 13 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 13 original approach/tool setting",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2701,20 +2436,21 @@
     "cost": 0.2,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-5:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-rank-76:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-5",
-      "profileId": "openai-gpt-5-5-source-default-zapier-automationbench",
+      "profileId": null,
       "rawName": "GPT-5.5"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2727,20 +2463,60 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 75 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 75 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 76 raw Cost / task \"$0.20\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.72,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-xhigh-rank-14:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-5",
+      "profileId": "openai-gpt-5-5-xhigh",
+      "rawName": "GPT-5.5 (XHigh)"
+    },
+    "observedAt": "2026-08-22T07:29:27.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 14 raw Cost / task \"$1.72\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2750,20 +2526,21 @@
     "cost": 0.17,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-luna-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-high-rank-51:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-high-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-luna-high",
       "rawName": "GPT-5.6 Luna (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2776,20 +2553,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 50 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 50 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 51 raw Cost / task \"$0.17\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2799,20 +2571,21 @@
     "cost": 0.05,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-luna-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-low-rank-78:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-low-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-luna-low",
       "rawName": "GPT-5.6 Luna (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2825,20 +2598,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 77 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 77 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 78 raw Cost / task \"$0.05\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2848,20 +2616,21 @@
     "cost": 0.54,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-luna-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-max-rank-28:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-max-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "GPT-5.6 Luna (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2874,20 +2643,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 27 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 27 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 28 raw Cost / task \"$0.54\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2897,20 +2661,21 @@
     "cost": 0.09,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-luna-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-medium-rank-73:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-medium-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-luna-medium",
       "rawName": "GPT-5.6 Luna (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2923,20 +2688,60 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 72 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 72 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 73 raw Cost / task \"$0.09\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.05,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-rank-82:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": null,
+      "rawName": "GPT-5.6 Luna"
+    },
+    "observedAt": "2026-08-22T07:29:27.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 82 raw Cost / task \"$0.05\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -2946,20 +2751,21 @@
     "cost": 0.31,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-luna-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-xhigh-rank-44:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-xhigh-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-luna-xhigh",
       "rawName": "GPT-5.6 Luna (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2972,69 +2778,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 43 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 43 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 44 raw Cost / task \"$0.31\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.05,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-luna:1-0-6:zapier-api-mode:cost",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "Cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-source-default-zapier-automationbench",
-      "rawName": "GPT-5.6 Luna"
-    },
-    "observedAt": "2026-08-13T03:22:43.317Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 81 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 81 original approach/tool setting",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3044,20 +2796,21 @@
     "cost": 0.42,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-sol-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-high-rank-21:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-high-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-sol-high",
       "rawName": "GPT-5.6 Sol (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3070,20 +2823,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 20 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 20 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 21 raw Cost / task \"$0.42\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3093,20 +2841,21 @@
     "cost": 0.15,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-sol-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-low-rank-59:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-low-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-sol-low",
       "rawName": "GPT-5.6 Sol (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3119,20 +2868,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 58 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 58 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 59 raw Cost / task \"$0.15\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3142,20 +2886,21 @@
     "cost": 1,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-sol-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-max-rank-9:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-max-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "GPT-5.6 Sol (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3168,20 +2913,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 8 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 8 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 9 raw Cost / task \"$1.00\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3191,20 +2931,21 @@
     "cost": 0.25,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-sol-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-medium-rank-33:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-medium-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-sol-medium",
       "rawName": "GPT-5.6 Sol (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3217,69 +2958,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 32 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 32 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 33 raw Cost / task \"$0.25\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.66,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-sol-xhigh:1-0-6:zapier-api-mode:cost",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "Cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-xhigh-zapier-automationbench",
-      "rawName": "GPT-5.6 Sol (XHigh)"
-    },
-    "observedAt": "2026-08-13T03:22:43.317Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 21 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 21 original approach/tool setting",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3289,20 +2976,21 @@
     "cost": 0.18,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-sol:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-rank-68:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-source-default-zapier-automationbench",
+      "profileId": null,
       "rawName": "GPT-5.6 Sol"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3315,20 +3003,60 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 67 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 67 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 68 raw Cost / task \"$0.18\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.66,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-xhigh-rank-22:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-xhigh",
+      "rawName": "GPT-5.6 Sol (XHigh)"
+    },
+    "observedAt": "2026-08-22T07:29:27.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 22 raw Cost / task \"$0.66\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3338,20 +3066,21 @@
     "cost": 0.26,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-terra-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-high-rank-42:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-high-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-terra-high",
       "rawName": "GPT-5.6 Terra (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3364,20 +3093,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 41 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 41 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 42 raw Cost / task \"$0.26\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3387,20 +3111,21 @@
     "cost": 0.17,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-terra-low:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-low-rank-55:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-low-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-terra-low",
       "rawName": "GPT-5.6 Terra (Low)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3413,20 +3138,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 54 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 54 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 55 raw Cost / task \"$0.17\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3436,20 +3156,21 @@
     "cost": 1.31,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-terra-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-max-rank-6:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-max-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "GPT-5.6 Terra (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3462,20 +3183,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 5 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 5 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 6 raw Cost / task \"$1.31\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3485,20 +3201,21 @@
     "cost": 0.19,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-terra-medium:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-medium-rank-61:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-medium-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-terra-medium",
       "rawName": "GPT-5.6 Terra (Medium)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3511,20 +3228,60 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 60 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 60 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 61 raw Cost / task \"$0.19\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.12,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-rank-77:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": null,
+      "rawName": "GPT-5.6 Terra"
+    },
+    "observedAt": "2026-08-22T07:29:27.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 77 raw Cost / task \"$0.12\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3534,20 +3291,21 @@
     "cost": 0.4,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-terra-xhigh:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-xhigh-rank-34:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-xhigh-zapier-automationbench",
+      "profileId": "openai-gpt-5-6-terra-xhigh",
       "rawName": "GPT-5.6 Terra (XHigh)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3560,69 +3318,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 33 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 33 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 34 raw Cost / task \"$0.40\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.12,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-5-6-terra:1-0-6:zapier-api-mode:cost",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "Cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-source-default-zapier-automationbench",
-      "rawName": "GPT-5.6 Terra"
-    },
-    "observedAt": "2026-08-13T03:22:43.317Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 76 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 76 original approach/tool setting",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3632,20 +3336,21 @@
     "cost": 0.01,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:gpt-oss-120b-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:gpt-oss-120b-high-rank-81:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": null,
       "profileId": null,
       "rawName": "GPT-OSS 120B (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3658,20 +3363,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 80 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 80 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 81 raw Cost / task \"$0.01\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3681,20 +3381,21 @@
     "cost": 0.28,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:kimi-k2-6:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:kimi-k2-6-rank-70:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "moonshot-kimi-k2-6",
-      "profileId": "moonshot-kimi-k2-6-source-default-zapier-automationbench",
+      "profileId": null,
       "rawName": "Kimi K2.6"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3707,20 +3408,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 69 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 69 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 70 raw Cost / task \"$0.28\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3730,20 +3426,21 @@
     "cost": 0.24,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:kimi-k2-7-code:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:kimi-k2-7-code-rank-67:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "moonshot-kimi-k2-7-code",
       "profileId": null,
       "rawName": "Kimi K2.7 Code"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3756,20 +3453,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 66 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 66 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 67 raw Cost / task \"$0.24\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3779,20 +3471,21 @@
     "cost": 0.43,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:kimi-k3:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:kimi-k3-rank-5:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "moonshot-kimi-k3",
-      "profileId": "moonshot-kimi-k3-source-default-zapier-automationbench",
+      "profileId": null,
       "rawName": "Kimi K3"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3805,20 +3498,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 4 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 4 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 5 raw Cost / task \"$0.43\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3828,20 +3516,21 @@
     "cost": 0.1,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:minimax-m2-7-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:minimax-m2-7-high-rank-80:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": null,
       "profileId": null,
       "rawName": "Minimax M2.7 (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3854,20 +3543,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 79 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 79 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 80 raw Cost / task \"$0.10\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3877,20 +3561,21 @@
     "cost": 0.07,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:minimax-m3-max:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:minimax-m3-max-rank-57:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": "minimax-minimax-m3",
-      "profileId": "minimax-minimax-m3-max-zapier-automationbench",
+      "profileId": "minimax-minimax-m3-max",
       "rawName": "Minimax M3 (Max)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3903,20 +3588,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 56 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 56 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 57 raw Cost / task \"$0.07\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3926,20 +3606,21 @@
     "cost": 0.08,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:qwen-3-6-high:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:qwen-3-6-high-rank-60:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": null,
       "profileId": null,
       "rawName": "Qwen 3.6+ (High)"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3952,20 +3633,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 59 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 59 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 60 raw Cost / task \"$0.08\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3975,20 +3651,21 @@
     "cost": 0.05,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c"
+      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:qwen-3-7:1-0-6:zapier-api-mode:cost",
+    "id": "zapier-automationbench:cost-per-task:qwen-3-7-rank-63:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
-    "metricName": "Cost per task",
+    "metricName": "AutomationBench cost per task",
     "model": {
       "canonicalModelId": null,
       "profileId": null,
       "rawName": "Qwen 3.7+"
     },
-    "observedAt": "2026-08-13T03:22:43.317Z",
+    "observedAt": "2026-08-22T07:29:27.593Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4001,20 +3678,15 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 62 cost per task",
-        "method": "EMBEDDED_JSON"
-      },
-      "profile.harness": {
-        "evidenceId": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-        "locator": "embedded leaderboard rank 62 original approach/tool setting",
+        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+        "locator": "leaderboard rank 63 raw Cost / task \"$0.05\"",
         "method": "EMBEDDED_JSON"
       }
     },
     "schemaVersion": "cost-record-v1",
     "sourceId": "zapier-automationbench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
+    "sourceUrl": "https://zapier.com/benchmarks",
     "unit": "USD_PER_TASK"
   }
 ]

@@ -32,14 +32,15 @@
 
 ### 3.1 現行來源
 
-| 來源 ID               | 網站                               | 角色              | 進入期別 |
-| --------------------- | ---------------------------------- | ----------------- | -------- |
-| `artificial-analysis` | https://artificialanalysis.ai/     | ORGANIZER         | 期一     |
-| `livebench`           | https://livebench.ai/              | ORGANIZER         | 期一     |
-| `deepswe`             | https://deepswe.datacurve.ai/      | ORGANIZER         | 期一     |
-| `frontier-code`       | https://cognition.com/frontiercode | ORGANIZER（新建） | 期一     |
-| `epoch-ai`            | https://epoch.ai/                  | INDEPENDENT       | 期二     |
-| `arc-prize`           | https://arcprize.org/leaderboard   | ORGANIZER         | 期三     |
+| 來源 ID                  | 網站                               | 角色              | 進入期別 |
+| ------------------------ | ---------------------------------- | ----------------- | -------- |
+| `artificial-analysis`    | https://artificialanalysis.ai/     | ORGANIZER         | 期一     |
+| `livebench`              | https://livebench.ai/              | ORGANIZER         | 期一     |
+| `deepswe`                | https://deepswe.datacurve.ai/      | ORGANIZER         | 期一     |
+| `frontier-code`          | https://cognition.com/frontiercode | ORGANIZER（新建） | 期一     |
+| `epoch-ai`               | https://epoch.ai/                  | INDEPENDENT       | 期二     |
+| `arc-prize`              | https://arcprize.org/leaderboard   | ORGANIZER         | 期三     |
+| `zapier-automationbench` | https://zapier.com/benchmarks      | ORGANIZER         | 期三     |
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
@@ -47,7 +48,7 @@
 
 ```
 lech-writing  llm-stats  openai  osworld
-scale-hle  terminal-bench  vals-ai  zapier-automationbench
+scale-hle  terminal-bench  vals-ai
 ```
 
 理由：原始快照是某個時間點的實況，重抓不回來。凍結成本為零。
@@ -67,8 +68,11 @@ scale-hle  terminal-bench  vals-ai  zapier-automationbench
 
 **`arc-prize` 於 2026-08-22 移出凍結清單**（使用者裁決，期三）。處置與 `epoch-ai` 完全相同：
 `refresh-arc-prize.ts` 重新產生該目錄的四個檔案，以新抓的快照為準，舊快照留在 git 歷史與內容
-定址 artifact store 供對照。`vals-ai` 與 `zapier-automationbench` 仍在凍結清單中，等各自的
-task 完成時才移出。
+定址 artifact store 供對照。
+
+**`zapier-automationbench` 於 2026-08-22 移出凍結清單**（使用者裁決，期三）。處置同上：
+`refresh-zapier.ts` 重新產生該目錄的五個檔案（含 `costs.json`），以新抓的快照為準；舊快照
+留在 git 歷史與內容定址 artifact store 供對照。`vals-ai` 仍在凍結清單中，等 N3 完成時移出。
 
 **建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
@@ -438,6 +442,12 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
 
 - Artificial Analysis 的 **token 單價**（`pricing.price_1m_*`）**不進成本圖**。它與 LiveBench 的 `cost_per_successful_task`、DeepSWE 的 `mean_cost_usd` 是不同的東西，混在同一根軸上會導致錯誤的選模決定，而且看不出來錯在哪。
 - Artificial Analysis 進成本圖的是它自己的**任務成本**（`intelligenceIndexCostPerTask`），從 `/models` 或 `/models/<slug>` 頁面取得。
+- **Zapier AutomationBench 的成本標記（2026-08-22 使用者裁決）**：來源值 `—` 是缺值，保存為
+  `null`，不得填零。`$0.61*` 的星號只標示 Gemini 3.7 Flash 另有至 2026-12-31 的促銷價；
+  頁面明示排行榜的 `Cost / task` 仍採標準牌價，因此成本保存為 `0.61`。原始字串 `$0.61*`
+  與完整註腳必須保留在出處／validation report 中；促銷價 `$0.30` 不得取代排行榜量測成本。
+  `$0.09†` 的註腳明示它是專用部署定價，不能直接與其他列的按 token API 成本比較，因此該列
+  的分數照常保存與計分，但不產生 CostRecord；原始字串與註腳同樣保留供查核。
 
 **軸的縮放規則**（2026-08-21 補定）
 
@@ -726,6 +736,34 @@ leaderboard 頁面仍以 `DOM` 方法擷取存證，供 §11.4 抽查清單指�
 **身分解析不做模糊匹配。** 214 列中約 123 列解析不到 catalog 身分，多數是 2024–2025 年的舊
 模型與非 LLM 條目（Human Panel、Icecuber、ARChitects、NVARC、Tiny Recursion Model）。它們保持
 `canonicalModelId: null`，完整名單寫在 validation report 中，供期三的身分裁決使用。
+
+### 9.7 Zapier AutomationBench（期三，2026-08-22 實測）
+
+| 項目       | 結論                                                                                      |
+| ---------- | ----------------------------------------------------------------------------------------- |
+| 入口       | `https://zapier.com/benchmarks`（Framer 站台）                                            |
+| 結構化資料 | 頁面列出的 `.mjs` 中，唯一包含 `task_completed_correctly` 的路由模組                      |
+| 資料形狀   | 反引號字串四欄陣列：rank、model、score、Cost / task；版本 `1.0.6` 共 84 列                |
+| 角色       | ORGANIZER（Zapier 自營 AutomationBench）                                                  |
+| 指標       | API mode 的 `task_completed_correctly`，嚴格 pass/fail；`partial_credit` 只供診斷，不擷取 |
+| 成本       | 每次 task 的美元成本；`—`、`*`、`†` 依 §6.3「成本語意規則」的使用者裁決處置               |
+| 思考強度   | 模型名稱括號後綴；來源未標檔位的裸名保持 null，留待 §4.5                                  |
+| 可見比對   | 模組內最大 rank 必須等於解析列數；2026-08-22 實測 `84 = 84`                               |
+
+**模組定位不得寫死 Framer bundle hash。** 刷新必須先從頁面枚舉 `.mjs` URL，再依內容特徵
+`task_completed_correctly` 找到唯一的路由模組；找不到或找到多個都讓刷新失敗，不得回退成空表。
+測試 fixture 必須在替換 bundle hash 後仍能找到同一個特徵模組。
+
+**成本註腳是擷取契約的一部分。** 帶 `*` 或 `†` 的列若失去對應註腳，刷新必須失敗，不能把
+標記默默剝掉。每列原始成本字串連同符號保存在 Candidate provenance；validation report 同時
+保存完整註腳與數值處置。
+
+**檔位與例外沿用 §4.4。** 合法 `Max/XHigh/High/Medium/Low` 直接歸檔；同模型同時有
+`Minimal` 與 `Low` 時，`Minimal` 列保留但標為 `EXCLUDED`。已解析 catalog 身分的列若日後
+出現未審核括號標記，同樣保留為 `EXCLUDED`，不得讓 null effort 進入跨來源推測後代表基礎模型。
+
+**身分解析只走 catalog 與精確 alias。** 未解析列保持 `canonicalModelId: null` 與
+`profileId: null`，完整名稱清單及「未解析列數／相異名稱數」分開寫進 validation report。
 
 ## 10. 不可跨越的邊界
 

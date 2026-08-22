@@ -1,44 +1,41 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/c1/c175664d4239e5468bb3eea03aa254ecdcf8ce440e96743fc0929377bd43a5aa.html",
-    "byteLength": 211696,
+    "artifactPath": "artifacts-v2/sha256/76/76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53.js",
+    "byteLength": 57583,
+    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.DiRrazN8.mjs",
+    "id": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+    "mediaType": "text/javascript",
+    "metadata": {
+      "automationBenchVersion": "1.0.6",
+      "captureScope": "Framer route module containing AutomationBench table",
+      "costRecords": 82,
+      "maximumRank": 84,
+      "parsedRows": 84,
+      "selectedByContentFeature": "task_completed_correctly"
+    },
+    "method": "EMBEDDED_JSON",
+    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.DiRrazN8.mjs",
+    "retrievedAt": "2026-08-22T07:29:27.593Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
+    "sourceId": "zapier-automationbench"
+  },
+  {
+    "artifactPath": "artifacts-v2/sha256/70/70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b.html",
+    "byteLength": 211472,
     "finalUrl": "https://zapier.com/benchmarks",
-    "id": "sha256:c175664d4239e5468bb3eea03aa254ecdcf8ce440e96743fc0929377bd43a5aa",
+    "id": "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b",
     "mediaType": "text/html",
-    "metadata": { "httpStatus": 200 },
+    "metadata": {
+      "captureScope": "official AutomationBench page and module list",
+      "discoveredModuleCount": 15,
+      "selectedModuleUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.DiRrazN8.mjs"
+    },
     "method": "DOM",
     "requestUrl": "https://zapier.com/benchmarks",
-    "retrievedAt": "2026-08-13T03:22:43.317Z",
+    "retrievedAt": "2026-08-22T07:29:27.593Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:c175664d4239e5468bb3eea03aa254ecdcf8ce440e96743fc0929377bd43a5aa",
-    "sourceId": "zapier-automationbench"
-  },
-  {
-    "artifactPath": "artifacts-v2/sha256/5e/5e7a3e8058d76edac043c6744933b2b64158fee5a8878fd1eb2b95dfdb7508dc.js",
-    "byteLength": 246645,
-    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/script_main.D6sGHD0W.mjs",
-    "id": "sha256:5e7a3e8058d76edac043c6744933b2b64158fee5a8878fd1eb2b95dfdb7508dc",
-    "mediaType": "text/javascript",
-    "metadata": { "httpStatus": 200 },
-    "method": "EMBEDDED_JSON",
-    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/script_main.D6sGHD0W.mjs",
-    "retrievedAt": "2026-08-13T03:22:43.317Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5e7a3e8058d76edac043c6744933b2b64158fee5a8878fd1eb2b95dfdb7508dc",
-    "sourceId": "zapier-automationbench"
-  },
-  {
-    "artifactPath": "artifacts-v2/sha256/89/89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c.js",
-    "byteLength": 57371,
-    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "id": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
-    "mediaType": "text/javascript",
-    "metadata": { "httpStatus": 200 },
-    "method": "EMBEDDED_JSON",
-    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/D7j62BrvNl0kMUuSZI-XICtPWC7DkQUIwHXwY1ijAHA.Bfv-pNMp.mjs",
-    "retrievedAt": "2026-08-13T03:22:43.317Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:89090d4c56845015502f123e5eaffb4001c0ccabf8f7cf2b2acf937590b2989c",
+    "sha256": "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b",
     "sourceId": "zapier-automationbench"
   }
 ]

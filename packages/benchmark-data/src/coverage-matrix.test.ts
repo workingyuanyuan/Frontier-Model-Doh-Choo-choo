@@ -936,6 +936,7 @@ describe('coverage-matrix', () => {
         'epoch-ai',
         'frontier-code',
         'livebench',
+        'zapier-automationbench',
       ]);
       expect(data.sourceCandidates.length).toBeGreaterThan(0);
       expect(data.catalog.models.length).toBeGreaterThan(0);
