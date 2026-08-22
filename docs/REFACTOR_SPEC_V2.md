@@ -639,6 +639,25 @@ Frontier Code 去數渲染後的列數。但那些頁面顯示的「N models eva
 - ECI 有 553 列，涵蓋回溯到 2023 年的模型，多數不在 catalog 內；identity 解析不到的列保持
   `canonicalModelId: null`，**不做模糊匹配**。
 
+**Pro 變體的身分判準（2026-08-22 使用者裁決）**：一個 Pro 版本要成為獨立的 catalog 模型，
+必須是 **Epoch 自己把它當成獨立模型發布**——也就是 pro 出現在 `Model version` 的**前綴**、
+且有自己的模型名稱。
+
+|                    | Model version                  | 模型名稱    | 判定                             |
+| ------------------ | ------------------------------ | ----------- | -------------------------------- |
+| GPT-5.5 Pro        | `gpt-5.5-pro_xhigh`            | GPT-5.5 Pro | 獨立模型                         |
+| GPT-5.4 Pro        | `gpt-5.4-pro-2026-03-05_xhigh` | GPT-5.4 Pro | 獨立模型                         |
+| GPT-5.6 Sol「Pro」 | `gpt-5.6-sol_promax`           | GPT-5.6 Sol | **不獨立**，是基礎模型的一個設定 |
+
+Sol 的 pro 只是同一個 model version 上的後綴，模型名稱仍是「GPT-5.6 Sol」，release date 也
+與基礎模型相同，因此**歸在 GPT-5.6 Sol 之下**。
+
+但**設定後綴形式的 pro 列不得代表基礎模型的該檔位**。它與基礎模型的 `_max` 落在同一個產品
+profile，同來源、同 harness，選取會退到 `sourcePublishedAt`，於是 Pro 的 Chess Puzzles
+64.00 取代了 Sol 自己的 55.00。這類列標為 `EXCLUDED`：出處與分數完整保留可供查核，但不計分。
+
+`docs/DECISIONS.md` 不是現行權威，此判準以本節為準。
+
 **`gpqa-diamond` 的跨來源重複已裁決：取最高分。** 規則與理由寫在 §4.3.1，逐模型分數對照
 見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`。
 

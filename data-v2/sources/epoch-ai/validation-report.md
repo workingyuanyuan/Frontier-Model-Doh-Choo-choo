@@ -1,6 +1,6 @@
 # Epoch AI acquisition validation
 
-- Retrieved at: 2026-08-21T16:44:31.780Z
+- Retrieved at: 2026-08-22T03:32:45.624Z
 - Export: https://epoch.ai/data/benchmark_data.zip
 - Live comparison channel: https://epoch.ai/data/benchmarks.csv
 - Page: https://epoch.ai/benchmarks/use-this-data
@@ -166,7 +166,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | GPT-5.5 (unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-5-default-epoch-inspect-row-389` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-gpt-5-5-xhigh |
 | GPT-5.5 Pro (unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-5-pro-default-epoch-inspect-row-773` | — | `xhigh` | artificial-analysis | artificial-analysis:critpt:gpt-5-5-pro |
 | GPT-5.6 Luna (unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-luna-default-epoch-inspect-row-523` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-6-luna |
-| GPT-5.6 Sol (pro, unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-sol-default-epoch-inspect-row-774` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:gpt-5-6-sol |
+| GPT-5.6 Sol (pro, unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-sol-pro-default-epoch-inspect-row-774` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:gpt-5-6-sol |
 | GPT-5.6 Sol (unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-sol-default-epoch-inspect-row-474` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:gpt-5-6-sol |
 | GPT-5.6 Terra (unknown thinking) | `epoch-ai:epoch-capabilities-index:openai-gpt-5-6-terra-default-epoch-inspect-row-522` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-6-terra |
 | Grok 4.5 (unknown thinking) | `epoch-ai:epoch-capabilities-index:xai-grok-4-5-default-epoch-inspect-row-473` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |

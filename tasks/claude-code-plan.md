@@ -1452,3 +1452,25 @@ Gemini 3.6 Flash 走 `_minimal`），全部是被**低估**。
 - `docs/OPERATIONS.md` 與規格 §5.3 記錄用法與理由。
 
 **完成條件**：釘死與未釘死兩種情形都有測試，打錯 ID 會拋錯；基準驗證全綠。
+
+## L6 — GPT-5.6 Sol Pro 的身分判準
+
+狀態：完成
+
+**使用者裁決（2026-08-22）**：GPT-5.6 Sol Pro **視為同一個模型**，但 Chess Puzzles 要取
+`gpt-5.6-sol_max` 的 55.00。要獨立成一筆，必須像 GPT-5.5 與 GPT-5.5 Pro 那樣在 Epoch.ai
+有明顯區分。
+
+**事實核對**：GPT-5.5 Pro 是 `gpt-5.5-pro_xhigh`，pro 在 model version 的**前綴**，模型名稱
+是「GPT-5.5 Pro」；GPT-5.4 Pro 同理。Sol 是 `gpt-5.6-sol_promax`，pro 在**後綴**，模型名稱
+仍是「GPT-5.6 Sol」，release date 也與基礎模型相同。判準不成立，故不獨立。
+
+**做法**：
+
+- `decodeVersionSuffix` 新增 `proConfiguration`：pro 在後綴而非前綴時為 true。
+- 這類列保留在 `openai-gpt-5-6-sol` 之下，但標為 `EXCLUDED`——設定不同的量測不能代表基礎
+  模型的該檔位。profileId 保留 `-pro-` 以免與基礎模型自己的列相撞。
+- 撤除另一個 session 誤加的 `openai-gpt-5-6-sol-pro` catalog 條目與對應 mapping（使用者
+  確認那是意外錯誤，可完全移除）。
+
+**完成條件**：Sol 的 Chess Puzzles 為 55.00；catalog 無 `openai-gpt-5-6-sol-pro`；基準驗證全綠。

@@ -3,9 +3,19 @@ import { join, dirname } from 'node:path';
 
 const exactModelMappings = {
   'epoch-ai': {
+    // GPT-5.6 Sol Pro stays under GPT-5.6 Sol (user decision, 2026-08-22):
+    // Epoch publishes it as `gpt-5.6-sol_promax`, still named "GPT-5.6 Sol" and
+    // carrying the base model's release date, unlike GPT-5.5 Pro which gets its
+    // own model version and its own name. The `-pro-` in the profile ID keeps
+    // these rows from colliding with the base model's own runs; the materializer
+    // marks them EXCLUDED so they stay reviewable without scoring.
     'GPT-5.6 Sol (pro, max)': {
       canonicalModelId: 'openai-gpt-5-6-sol',
       profileId: 'openai-gpt-5-6-sol-pro-max-epoch-inspect',
+    },
+    'GPT-5.6 Sol (pro, unknown thinking)': {
+      canonicalModelId: 'openai-gpt-5-6-sol',
+      profileId: 'openai-gpt-5-6-sol-pro-default-epoch-inspect',
     },
     'GPT-5.5 Pro (xhigh)': {
       canonicalModelId: 'openai-gpt-5-5-pro',

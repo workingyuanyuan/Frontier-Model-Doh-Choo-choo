@@ -56,14 +56,37 @@ describe('decodeVersionSuffix', () => {
     expect(effortOf('muse-spark')).toBeNull();
   });
 
-  it('reads the pro marker without letting it displace the tier', () => {
-    expect(decodeVersionSuffix('gpt-5.6-sol_promax')).toEqual({
-      effort: 'max',
-      thinking: 'pro',
-    });
+  it('separates a Pro model from a pro configuration of the base model', () => {
+    // Epoch gives a distinct Pro release its own model version and its own
+    // name, so these score normally under their own catalog models.
     expect(decodeVersionSuffix('gpt-5.5-pro_xhigh')).toEqual({
       effort: 'xhigh',
       thinking: 'pro',
+      proConfiguration: false,
+    });
+    expect(decodeVersionSuffix('gpt-5.4-pro-2026-03-05_xhigh')).toEqual({
+      effort: 'xhigh',
+      thinking: 'pro',
+      proConfiguration: false,
+    });
+    // Gemini's "Pro" is the model tier name, in the version, not a suffix.
+    expect(decodeVersionSuffix('gemini-3.1-pro-preview_high')).toEqual({
+      effort: 'high',
+      thinking: 'pro',
+      proConfiguration: false,
+    });
+
+    // GPT-5.6 Sol Pro is a suffix on the base version, so it stays with the
+    // base model and is flagged for exclusion from its scores.
+    expect(decodeVersionSuffix('gpt-5.6-sol_promax')).toEqual({
+      effort: 'max',
+      thinking: 'pro',
+      proConfiguration: true,
+    });
+    expect(decodeVersionSuffix('gpt-5.6-sol_prounknown')).toEqual({
+      effort: null,
+      thinking: 'pro',
+      proConfiguration: true,
     });
   });
 });

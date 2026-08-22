@@ -65,26 +65,62 @@ function parseEciLine(line: string): string[] {
  * Token-budget suffixes such as `_32K`, and the literal `_unknown`, are not
  * effort tiers and stay null deliberately.
  */
+export interface EpochVersionConfiguration {
+  effort: string | null;
+  thinking: string | null;
+  /**
+   * True when the `pro` marker sits in the configuration suffix rather than in
+   * the model version itself, which means Epoch is describing a configuration of
+   * the base model, not a separate model.
+   *
+   * Where Epoch treats a Pro release as its own model it says so in the version
+   * prefix and in the model name: `gpt-5.5-pro_xhigh` / "GPT-5.5 Pro (xhigh)",
+   * likewise `gpt-5.4-pro-2026-03-05_xhigh`. Those resolve to their own catalog
+   * models and score normally.
+   *
+   * GPT-5.6 Sol Pro is not published that way. It is `gpt-5.6-sol_promax`, still
+   * named "GPT-5.6 Sol", with the base model's release date and `pro` appearing
+   * only inside the effort parenthetical. Per the user's criterion (2026-08-22)
+   * that is not a distinct model, so the row stays under GPT-5.6 Sol -- but it
+   * must not stand in for the base model's own max run either. Left included it
+   * did exactly that: Sol's Chess Puzzles score came out as the Pro run's 64.00
+   * instead of its own 55.00.
+   */
+  proConfiguration: boolean;
+}
+
 export const decodeVersionSuffix = (
   version: string,
-): { effort: string | null; thinking: string | null } => {
+): EpochVersionConfiguration => {
   const lower = version.toLowerCase();
-  const suffix = lower.includes('_')
-    ? lower.slice(lower.lastIndexOf('_') + 1)
-    : '';
-  const pro = lower.includes('-pro') || lower.includes('_pro');
-  const thinking = pro
-    ? 'pro'
-    : lower.includes('_thinking')
-      ? 'reasoning'
-      : null;
+  const separator = lower.lastIndexOf('_');
+  const prefix = separator === -1 ? lower : lower.slice(0, separator);
+  const suffix = separator === -1 ? '' : lower.slice(separator + 1);
+
+  const proModel = prefix.includes('-pro') || prefix.includes('_pro');
+  const proConfiguration = !proModel && suffix.startsWith('pro');
+  const thinking =
+    proModel || proConfiguration
+      ? 'pro'
+      : lower.includes('_thinking')
+        ? 'reasoning'
+        : null;
 
   if (suffix === 'promax' || suffix === 'pro_max') {
-    return { effort: 'max', thinking: 'pro' };
+    return { effort: 'max', thinking, proConfiguration };
   }
-  if (suffix === 'none') return { effort: 'non-reasoning', thinking };
-  return { effort: normalizeSourceEffort(suffix), thinking };
+  if (suffix === 'none') {
+    return { effort: 'non-reasoning', thinking, proConfiguration };
+  }
+  return {
+    effort: normalizeSourceEffort(suffix),
+    thinking,
+    proConfiguration,
+  };
 };
+
+const PRO_CONFIGURATION_EXCLUSION =
+  'A `pro` configuration of the base model is not evidence for the base model at that effort tier. Epoch publishes its distinct Pro models in the model version itself (gpt-5.5-pro, gpt-5.4-pro); this row is a suffix on the base version and stays with the base model as reviewable, non-scoring evidence.';
 
 export const EPOCH_DIRECT_FILES = [
   {
@@ -197,7 +233,7 @@ export function materializeEpoch(
       'epoch-ai',
     );
 
-    const { effort, thinking } = decodeVersionSuffix(version);
+    const { effort, thinking, proConfiguration } = decodeVersionSuffix(version);
 
     const modelPart = profileId || slugify(rawName);
 
@@ -232,8 +268,9 @@ export function materializeEpoch(
       normalizedScore: null,
       acquisitionStatus: 'FULL',
       inclusion: 'EXCLUDED',
-      exclusionReason:
-        'Composite index is selection-only and must not be double-counted in eight-dimension scoring.',
+      exclusionReason: proConfiguration
+        ? PRO_CONFIGURATION_EXCLUSION
+        : 'Composite index is selection-only and must not be double-counted in eight-dimension scoring.',
       sourceUrl,
       observedAt,
       sourcePublishedAt: releaseDate,
@@ -277,7 +314,8 @@ export function materializeEpoch(
         'epoch-ai',
       );
 
-      const { effort, thinking } = decodeVersionSuffix(version);
+      const { effort, thinking, proConfiguration } =
+        decodeVersionSuffix(version);
 
       const modelPart = profileId || slugify(rawName);
       const versionPart = f.version ? `:${slugify(f.version)}` : '';
@@ -313,8 +351,8 @@ export function materializeEpoch(
         rawScore: meanScore,
         normalizedScore: meanScore * 100,
         acquisitionStatus: 'FULL',
-        inclusion: 'INCLUDED',
-        exclusionReason: null,
+        inclusion: proConfiguration ? 'EXCLUDED' : 'INCLUDED',
+        exclusionReason: proConfiguration ? PRO_CONFIGURATION_EXCLUSION : null,
         sourceUrl,
         observedAt,
         sourcePublishedAt: startedAt,
