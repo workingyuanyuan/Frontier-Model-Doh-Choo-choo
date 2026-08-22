@@ -2073,6 +2073,18 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
    - 主畫面 12 個 qualified models 名次未變。
    - 進階成本圖 12 個模型、27 個 profile、四來源皆齊全，無掉點。
 4. 基準驗證與 e2e 全綠（253 unit tests pass, 18 e2e pass）。
+5. **審查覆核（orchestrator，2026-08-22）**：獨立重跑 `lint`／`typecheck`／`test`／`build`／`e2e`
+   全綠；產品證據 2463 筆、來源仍為白名單八個；`frontiermath` 23 個 profile ＋
+   `frontiermath-tier-4` 24 個 profile，合計恢復 47 筆獨立選取；`arc-agi` 在程式與資料中已無
+   殘留（`tasks/claude-code-plan.md` 的歷史敘述除外）；主畫面仍為 12 個模型，順序未變；
+   `scoreBasis` 列舉值 `'ARC_AGI'` 依指示未動。`docs/ADVANCED_CHART_SOURCES_2026-08-22.md`
+   的來源表由審查者補上新 ID 與改名註記。
+6. **流程風險（不是本次缺陷，但要記著）**：`materialize:epoch` 實際上就是 `refresh-epoch.ts`，
+   會**重新連網抓取**，沒有「用既有 artifact 重跑 materializer」的路徑。因此這次純粹的 ID 改名
+   仍換掉了 Epoch 的 HTML 與 ZIP artifact（78880 → 78878 bytes，雜湊全變），連帶所有 1612 列的
+   `evidenceIds` 與 `provenance` 都改了。逐欄比對確認**分數、模型身分、納入狀態、版本分佈完全
+   一致**，本次沒有混入上游漂移；但下次做這類改名時，若上游剛好變動就會把兩件事混在同一個
+   commit 裡，屆時必須先確認 artifact 差異再進行。
 
 ## N10 — 動態 benchmark 集合（多甜蜜點）
 

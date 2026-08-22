@@ -58,8 +58,13 @@ limitation applies only to the advanced effort-curve view.
 | Artificial Analysis | Published Intelligence Index raw score | Same product profile has both index score and measured task cost |
 | DeepSWE             | `deepswe-1-1` normalized score         | Same product profile has score and task cost                     |
 | Frontier Code       | `frontier-code-1-1` normalized score   | Same product profile has score and task cost                     |
-| ARC Prize           | `arc-agi` normalized score             | Same product profile has score and task cost                     |
+| ARC Prize           | `arc-agi-2` normalized score           | Same product profile has score and task cost                     |
 | Vals diagnostic     | `vals-index` raw score                 | Same product profile has index score and `vals_index` cost       |
+
+> [!NOTE]
+> 本報告的量測在 2026-08-22 完成，當時該 benchmark 的 ID 是 `arc-agi`。N9（同日稍晚）依裁決 R5
+> 將它改名為 `arc-agi-2`，只改識別字、分數與納入規則不變，故上表已同步為新 ID；報告中的所有
+> 數字仍是改名前那次量測的原始結果。
 
 No source may borrow another effort profile, use a source-wide average as a replacement score, or fill a missing
 cost. A model is "connectable" only when at least two exact profiles pass every source in the combination.
