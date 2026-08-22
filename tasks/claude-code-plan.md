@@ -2101,10 +2101,23 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 
 **依據**：R1、R2、R7。**前置**：N9 完成。
 
-**設計提案**：`docs/N10_DESIGN_PROPOSAL.md`（2026-08-22，orchestrator 撰寫，**未定案**）。
-該文件把 N10 拆成 N10a／N10b／N10c 三個可獨立驗收的子任務並另立 N11（成本圖），同時列出
-六項待裁決事項 D-N10-1 ～ D-N10-6。**裁決之前不得開工**；裁決後把決定寫回
-`REFACTOR_SPEC_V2.md`，本提案降為考證用。
+**設計提案**：`docs/N10_DESIGN_PROPOSAL.md`（2026-08-22，orchestrator 撰寫）。該文件把 N10
+拆成 N10a／N10b／N10c 三個可獨立驗收的子任務並另立 N11（成本圖）。
+
+**D-N10-1 ～ D-N10-6 已於 2026-08-22 由使用者全數裁決**，六項皆採納提案建議，決定內容已寫回
+`REFACTOR_SPEC_V2.md` §5.2.1 與 §5.3（權威在規格，不在提案文件）：
+
+| 編號    | 裁決                                                                                      |
+| ------- | ----------------------------------------------------------------------------------------- |
+| D-N10-1 | `display-set.json` 升為 `display-set-v2`，內含 `presets` 與 `defaultPresetId`；不另開新檔 |
+| D-N10-2 | 該檔 `notes` 末句由**使用者授權代理改寫**；`benchmarkIds` 仍不得動                        |
+| D-N10-3 | preset 必須 8/8 維度覆蓋，作為 schema 驗證                                                |
+| D-N10-4 | 未通過門檻的 profile 仍計分但 `rank` 為 `null`，不與主畫面同表                            |
+| D-N10-5 | preset 切換用 query 參數，不新增頁面                                                      |
+| D-N10-6 | 成本圖切為獨立任務 N11                                                                    |
+
+**執行順序**：N10a → （使用者挑 preset）→ N10b → N10c；N11 可隨時插入。N10a 先做的理由是
+它產出的報告正是使用者挑 preset 的依據。
 
 **背景**：`display-set.json` 目前的說明寫著「Adding a benchmark here never changes a score
 — dimension scores use every available benchmark; this list only decides which profiles
