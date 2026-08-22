@@ -294,3 +294,15 @@ export {
   parseZapierCost,
   parseZapierRouteModule,
 } from './zapier-materializer.js';
+export {
+  APPROVED_VALS_BENCHMARKS,
+  COMPOSITE_VALS_SLUGS,
+  VALS_INDEX_URL,
+  VALS_SOURCE_ID,
+  decodeHtmlEntities,
+  decodeValsEffort,
+  extractValsBenchmarkSlugs,
+  materializeVals,
+  parseValsBenchmarkPage,
+  unwrapAstroValue,
+} from './vals-materializer.js';

@@ -581,6 +581,64 @@ describe('coverage-matrix', () => {
         analysis.tradeoffs[2]?.matchingModels.map((m) => m.modelId),
       ).toEqual(['m4']);
     });
+
+    it('supports more than 30 active benchmarks without 32-bit mask overflow', () => {
+      const benchmarkIds = Array.from(
+        { length: 31 },
+        (_, index) => `bench-${String(index + 1).padStart(2, '0')}`,
+      );
+      const catalog: ModelCatalog = {
+        schemaVersion: 'model-catalog-v1',
+        models: [
+          {
+            modelId: 'model-wide',
+            providerId: 'provider',
+            displayName: 'Model Wide',
+            releaseDate: '2026-01-01',
+            pricing: [],
+            profilePricing: {},
+          },
+        ],
+      };
+      const analysis = analyzeCoverageMatrix({
+        catalog,
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2',
+          qualificationWindowMonths: 12,
+          manualModels: [],
+        },
+        benchmarkMapping: {
+          schemaVersion: 'benchmark-dimensions-v1',
+          dimensions: [...DIMENSION_IDS],
+          benchmarks: benchmarkIds.map((id) => ({
+            id,
+            primaryDimension: 'reasoning' as const,
+            secondaryDimensions: [],
+          })),
+        },
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['source'],
+        sourceCandidates: benchmarkIds.map((benchmarkId, index) =>
+          createMockCandidate({
+            id: `candidate-${index}`,
+            sourceId: 'source',
+            modelId: 'model-wide',
+            rawName: 'Model Wide',
+            benchmarkId,
+          }),
+        ),
+        referenceDate: '2026-08-20',
+      });
+
+      expect(analysis.activeBenchmarkIds).toHaveLength(31);
+      expect(analysis.tradeoffs).toHaveLength(31);
+      expect(analysis.tradeoffs[30]).toMatchObject({
+        benchmarkCount: 31,
+        benchmarkIds,
+        completeModelCount: 1,
+      });
+      expect(analysis.maskFrequencies[0]?.mask).toBe(2 ** 31 - 1);
+    });
   });
 
   describe('deterministic tie-breaking', () => {
@@ -936,6 +994,7 @@ describe('coverage-matrix', () => {
         'epoch-ai',
         'frontier-code',
         'livebench',
+        'vals-ai',
         'zapier-automationbench',
       ]);
       expect(data.sourceCandidates.length).toBeGreaterThan(0);

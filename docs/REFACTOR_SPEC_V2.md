@@ -41,6 +41,7 @@
 | `epoch-ai`               | https://epoch.ai/                  | INDEPENDENT       | 期二     |
 | `arc-prize`              | https://arcprize.org/leaderboard   | ORGANIZER         | 期三     |
 | `zapier-automationbench` | https://zapier.com/benchmarks      | ORGANIZER         | 期三     |
+| `vals-ai`                | https://www.vals.ai/benchmarks     | 逐 benchmark 判定 | 期三     |
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
@@ -48,7 +49,7 @@
 
 ```
 lech-writing  llm-stats  openai  osworld
-scale-hle  terminal-bench  vals-ai
+scale-hle  terminal-bench
 ```
 
 理由：原始快照是某個時間點的實況，重抓不回來。凍結成本為零。
@@ -72,7 +73,11 @@ scale-hle  terminal-bench  vals-ai
 
 **`zapier-automationbench` 於 2026-08-22 移出凍結清單**（使用者裁決，期三）。處置同上：
 `refresh-zapier.ts` 重新產生該目錄的五個檔案（含 `costs.json`），以新抓的快照為準；舊快照
-留在 git 歷史與內容定址 artifact store 供對照。`vals-ai` 仍在凍結清單中，等 N3 完成時移出。
+留在 git 歷史與內容定址 artifact store 供對照。
+
+**`vals-ai` 於 2026-08-22 移出凍結清單**（使用者裁決，期三）。`refresh-vals.ts` 從官方
+benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個檔案（含 `costs.json`）；舊快照
+留在 git 歷史與內容定址 artifact store 供對照。
 
 **建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
@@ -85,6 +90,9 @@ scale-hle  terminal-bench  vals-ai
 |                                               | `materialize-organizers.ts` 的整個擷取層（約 733 行）                                              |
 
 刪除的程式碼在 Git 歷史中可取回，期三需要時再恢復。
+
+期三的 ARC、Zapier 與 Vals 擷取器均依重新驗證後的現行網站契約從頭實作，不直接恢復遭刪除的
+舊擷取器；其中 Vals 使用逐 benchmark 頁面的 BenchmarkView 資料島，不沿用舊首頁矩陣。
 
 `materializers.ts` 目前 1,929 行，必須按來源拆成獨立模組，每個模組有自己的測試。
 
@@ -774,6 +782,27 @@ Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench
 加入低分項、3 個模型完全不受影響的不對稱。Zapier 是否正式納入來源，延至 N 階段全部完成後
 另行討論；在新裁決前不得自動 promote。
 
+### 9.8 Vals AI（期三，2026-08-22 實測）
+
+| 項目     | 結論                                                                                                          |
+| -------- | ------------------------------------------------------------------------------------------------------------- |
+| 榜單清單 | `https://www.vals.ai/benchmarks` 的 `/benchmarks/<slug>` 連結；刷新時動態枚舉，不硬編碼頁數                   |
+| 單榜資料 | 各頁唯一的 `BenchmarkView` Astro island；`props` 先做 HTML entity decode，再遞迴剝除 `[type, value]`          |
+| 完整性   | 每個可解析頁面的 `metadata.total_models` 必須等於 `tasks.overall` 的列數，不符即刷新失敗                      |
+| 分數     | 核可榜的 `tasks.overall.*.accuracy` 是 0–100 百分比；未核可頁若使用其他量尺，只保存 raw，normalized 保持 null |
+| 成本     | 保存每頁 `cost_per_test`，但依 D4 只有 `vals_index` 成本可作 Vals 的來源成本，其餘保留為 EXCLUDED             |
+| effort   | 先讀 `reasoning_effort`，缺值才讀 `compute_effort`；非法值如 `0.99` 保持 null                                 |
+| 角色     | 逐 benchmark 判定：Vals 自營為 ORGANIZER，重跑外部 benchmark 為 INDEPENDENT                                   |
+
+Capability score 採單一明確白名單。N3a 核可的 13 項與 D2 核可的 10 項可產生 INCLUDED；
+`aime`、N3a 未核可項目、執行時新出現但未裁決的頁面一律保存 Candidate 並標為 EXCLUDED。
+`vals_index`、`vals_multimodal_index`、`time_horizon_index`、`web_search` 四個綜合指數恆不進
+八維能力分數。若 index 出現新 slug，validation report 必須單獨列出，禁止自動 promote。
+
+身分只用 catalog 與已審核精確 alias；D6 要求所有未知名稱保留原始列，但
+`canonicalModelId: null`、`profileId: null`。完整未解析名稱清單每次刷新重建並寫入
+`data-v2/sources/vals-ai/validation-report.md`，來源刷新本身不得新增 catalog 或推導 alias。
+
 ## 10. 不可跨越的邊界
 
 以下規則沿用自 `CLAUDE.md` 與 `docs/REFACTOR_DISCARD_LIST.md`，這次重構不改變它們：
@@ -782,6 +811,10 @@ Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench
 - 不得恢復舊 Web、Worker、DB、PostgreSQL、Drizzle、Docker／Compose、Edition、PREVIEW／FORMAL、Remotion/video、雙語、雙主題或多頁架構。
 - 缺失分數保持 `null`／N/A，不得填零、不得推測 identity、不得用綜合指數代替八維成績。
 - Model identity 只允許 canonical catalog 與精確審核過的 alias，不得 fuzzy match，不得把舊型號猜成新版。
+- **D6（2026-08-22）**：期三新來源帶入的未知模型一律保留原始 Candidate，但保持
+  `canonicalModelId: null`、`profileId: null`；來源刷新不得順手新增 catalog 或推測 alias。
+  未解析完整名單寫入各來源 validation report；任何新增身分必須另開資料品質 task，由使用者
+  逐項裁決。
 - 綜合指數（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index）不投入八維總分。
 - 不重寫或刪除凍結的來源資料。
 - 代理不得 push、deploy、release。commit 的規則見 §11。

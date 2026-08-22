@@ -1,62 +1,346 @@
 # Vals AI acquisition validation
 
-- Evidence: captured Vals home `benchmarkView` plus the GPT-5.6 Sol detail response.
+- Index evidence: `sha256:98b427cf22271105ee1154f21f1f8f2637debf837cd7a6627212d567bb49e06f`
+- Observed at: 2026-08-22T09:36:20.830Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Structured tasks | 6 |
-| Models per structured task | 36 |
-| Structured score objects | 216 |
-| Reviewed non-matrix Sol rows | 2 |
-| Extracted rows | 218 |
-| Generated candidates | 218 |
-| Canonically unresolved candidates | 84 |
+| Benchmark slugs discovered from index | 39 |
+| Benchmark pages with BenchmarkView data | 38 |
+| CandidateResults | 2532 |
+| Included CandidateResults | 1695 |
+| Excluded CandidateResults | 837 |
+| Non-percent raw scores retained without normalization | 17 |
+| CostRecords retained | 2408 |
+| Included vals_index CostRecords | 47 |
+| Canonically unresolved rows | 1741 |
+| Distinct canonically unresolved models | 172 |
 
-The structured matrix materializes Vals Index, Finance Agent v2, CorpFin v2, SWE-bench, Terminal-Bench 2.1, and Vibe Code Bench. Vals Index is organizer-owned composite evidence and remains `EXCLUDED`; the other 180 matrix constituents are direct Included results. The two retained non-matrix rows are GPT-5.6 Sol ProofBench and GPQA.
+## Per-page completeness
 
-## Role boundary
+| Slug | Parsed overall rows | Scoring status |
+|---|---:|---|
+| `aime` | 96 | EXCLUDED |
+| `case_law_v2` | 54 | EXCLUDED |
+| `code-migration` | 51 | APPROVED |
+| `corp_fin_v2` | 134 | APPROVED |
+| `cyber` | 22 | APPROVED |
+| `emb` | 48 | APPROVED |
+| `fabv2` | 51 | APPROVED |
+| `gpqa` | 135 | APPROVED |
+| `hlab` | 52 | APPROVED |
+| `ioi` | 62 | APPROVED |
+| `lcb` | 140 | APPROVED |
+| `legal_bench` | 139 | APPROVED |
+| `legal_research` | 51 | APPROVED |
+| `math500` | 60 | EXCLUDED |
+| `medcode` | 86 | APPROVED |
+| `medqa` | 95 | EXCLUDED |
+| `medscribe` | 87 | APPROVED |
+| `mgsm` | 75 | EXCLUDED |
+| `mmlu_pro` | 135 | APPROVED |
+| `mmmu` | 90 | EXCLUDED |
+| `mortgage_tax` | 96 | EXCLUDED |
+| `poker_agent` | 17 | EXCLUDED |
+| `programbench` | 41 | APPROVED |
+| `proof_bench` | 26 | APPROVED |
+| `public-benefits-bench` | 30 | APPROVED |
+| `public-benefits-bench-v1` | 13 | EXCLUDED |
+| `reverse_eng` | 5 | APPROVED |
+| `rsi_index` | 0 | EXCLUDED |
+| `sage` | 77 | EXCLUDED |
+| `skillsbench` | 30 | APPROVED |
+| `swebench` | 86 | APPROVED |
+| `tax_eval_v2` | 141 | APPROVED |
+| `terminal-bench-2` | 67 | EXCLUDED |
+| `terminal-bench-2-1` | 57 | APPROVED |
+| `time_horizon_index` | 8 | EXCLUDED |
+| `vals_index` | 48 | EXCLUDED |
+| `vals_multimodal_index` | 33 | EXCLUDED |
+| `vibe-code` | 86 | APPROVED |
+| `web_search` | 8 | EXCLUDED |
 
-Vals-owned Finance Agent v2, CorpFin v2, Vibe Code Bench, Vals Index, and ProofBench use `ORGANIZER`. Vals reruns of SWE-bench, Terminal-Bench, and GPQA use `INDEPENDENT`.
+Every parsed page passed the strict `metadata.total_models === Object.keys(tasks.overall).length` check.
 
-## Risks and limitations
+## Approved benchmark and role table
 
-- The detail response contains server-rendered `0.0%` placeholders; these are not ingested. No additional hidden-style values are promoted beyond the two previously reviewed Sol rows.
-- 84 rows retain null canonical identity. Benchmark-specific pages remain necessary before expanding beyond the captured matrix.
+| Vals slug | Source-neutral benchmark ID | Source role |
+|---|---|---|
+| `code-migration` | `code-migration` | ORGANIZER |
+| `corp_fin_v2` | `corpfin` | ORGANIZER |
+| `cyber` | `cyber` | INDEPENDENT |
+| `emb` | `emb` | ORGANIZER |
+| `fabv2` | `finance-agent-v2` | ORGANIZER |
+| `gpqa` | `gpqa-diamond` | INDEPENDENT |
+| `hlab` | `hlab` | INDEPENDENT |
+| `ioi` | `ioi` | INDEPENDENT |
+| `lcb` | `livecodebench` | INDEPENDENT |
+| `legal_bench` | `legal-bench` | INDEPENDENT |
+| `legal_research` | `legal-research` | ORGANIZER |
+| `medcode` | `medcode` | ORGANIZER |
+| `medscribe` | `medscribe` | ORGANIZER |
+| `mmlu_pro` | `mmlu-pro` | INDEPENDENT |
+| `programbench` | `programbench` | ORGANIZER |
+| `proof_bench` | `proofbench` | ORGANIZER |
+| `public-benefits-bench` | `public-benefits-bench` | ORGANIZER |
+| `reverse_eng` | `reverse-eng` | ORGANIZER |
+| `skillsbench` | `skillsbench` | INDEPENDENT |
+| `swebench` | `swe-bench` | INDEPENDENT |
+| `tax_eval_v2` | `tax-eval-v2` | ORGANIZER |
+| `terminal-bench-2-1` | `terminal-bench-2-1` | INDEPENDENT |
+| `vibe-code` | `vibe-code-bench` | ORGANIZER |
 
-## N3a benchmark dimension ruling (2026-08-22)
+Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGANIZER; Vals reruns of externally organized benchmarks are INDEPENDENT.
 
-The user approved 13 new source-neutral benchmark IDs after review of the Vals methodology and each benchmark's task design and examples. These mappings are definitions only; N3 performs acquisition and materialization.
+## Unapproved benchmark pages
 
-| Vals page slug | Benchmark ID | Primary dimension | Secondary dimensions |
-| --- | --- | --- | --- |
-| `ioi` | `ioi` | coding | reasoning, math |
+- `aime`
+- `case_law_v2`
+- `math500`
+- `medqa`
+- `mgsm`
+- `mmmu`
+- `mortgage_tax`
+- `poker_agent`
+- `public-benefits-bench-v1`
+- `rsi_index`
+- `sage`
+- `terminal-bench-2`
+- `time_horizon_index`
+- `vals_index`
+- `vals_multimodal_index`
+- `web_search`
+
+All rows from these pages are retained as EXCLUDED CandidateResults. Composite indices remain excluded regardless of later mapping changes.
+Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently Agent Poker Bench ratings) retain the finite raw value but use `normalizedScore: null`; no capability percentage is invented.
+
+## Newly discovered since the reviewed table
+
+- `public-benefits-bench-v1` (not auto-promoted)
+- `rsi_index` (not auto-promoted)
+
+## Pages without BenchmarkView data
+
+- `rsi_index`
+
+## Identity and effort policy
+
+Identity resolution is exact catalog/alias resolution only. Unknown names retain their raw source rows with both canonicalModelId and profileId null. No catalog entries or inferred aliases are created by this refresh.
+Effort uses the first source-declared value (`reasoning_effort`, otherwise `compute_effort`) only when it is a legal tier. Values such as `0.99` remain null and never create an illegal profile ID.
+
+## Complete unresolved model-name list
+
+- ai21labs/jamba-1.5-large
+- ai21labs/jamba-1.5-mini
+- ai21labs/jamba-large-1.6
+- ai21labs/jamba-mini-1.6
+- alibaba/qwen3-max
+- alibaba/qwen3-max-2026-01-23
+- alibaba/qwen3-max-preview
+- alibaba/qwen3-vl-plus-2025-09-23
+- alibaba/qwen3.5-flash
+- alibaba/qwen3.5-plus-thinking
+- alibaba/qwen3.6-max-preview
+- ant/ling-3.0-flash-2607
+- anthropic/claude-3-5-haiku-20241022
+- anthropic/claude-3-5-sonnet-20241022
+- anthropic/claude-3-7-sonnet-20250219
+- anthropic/claude-3-7-sonnet-20250219-thinking
+- anthropic/claude-fable-5-exa
+- anthropic/claude-haiku-4-5-20251001
+- anthropic/claude-haiku-4-5-20251001-thinking
+- anthropic/claude-opus-4-1-20250805
+- anthropic/claude-opus-4-1-20250805-thinking
+- anthropic/claude-opus-4-20250514
+- anthropic/claude-opus-4-20250514-thinking
+- anthropic/claude-opus-4-5-20251101
+- anthropic/claude-opus-4-5-20251101-thinking
+- anthropic/claude-opus-4-6-thinking
+- anthropic/claude-opus-4-8-claude-code
+- anthropic/claude-sonnet-4-20250514
+- anthropic/claude-sonnet-4-20250514-thinking
+- anthropic/claude-sonnet-4-5-20250929
+- anthropic/claude-sonnet-4-5-20250929-thinking
+- anthropic/claude-sonnet-4-6-claude-code
+- arcee-ai/trinity-large-thinking
+- aristotle/aristotle
+- cohere/command-a-03-2025
+- cohere/command-r
+- cohere/command-r-plus
+- cursor/composer-2.5
+- deepseek/deepseek-v4-flash-0731
+- deepseek/deepseek-v4-pro-0813
+- devin/swe-1-6-fast
+- fireworks/deepseek-r1
+- fireworks/deepseek-v3
+- fireworks/deepseek-v3-0324
+- fireworks/deepseek-v3p1
+- fireworks/deepseek-v3p2
+- fireworks/deepseek-v3p2-thinking
+- fireworks/gpt-oss-120b
+- fireworks/gpt-oss-20b
+- fireworks/llama4-maverick-instruct-basic
+- fireworks/nemotron-lightning-3p5-30b-a3b
+- fireworks/qwen3-235b-a22b
+- google/gemini-1.0-pro-002
+- google/gemini-1.5-flash-001
+- google/gemini-1.5-flash-002
+- google/gemini-1.5-pro-002
+- google/gemini-2.0-flash-001
+- google/gemini-2.0-flash-exp
+- google/gemini-2.0-flash-thinking-exp-01-21
+- google/gemini-2.0-pro-exp-02-05
+- google/gemini-2.5-flash
+- google/gemini-2.5-flash-lite
+- google/gemini-2.5-flash-lite-preview-09-2025
+- google/gemini-2.5-flash-lite-preview-09-2025-thinking
+- google/gemini-2.5-flash-preview-04-17
+- google/gemini-2.5-flash-preview-04-17-thinking
+- google/gemini-2.5-flash-preview-09-2025
+- google/gemini-2.5-flash-preview-09-2025-thinking
+- google/gemini-2.5-flash-thinking
+- google/gemini-2.5-pro
+- google/gemini-2.5-pro-exp-03-25
+- google/gemini-2.5-pro-preview-03-25
+- google/gemini-3-flash-preview
+- google/gemini-3.1-flash-lite-preview
+- google/gemini-3.5-flash-exa
+- google/gemma-4-31b-it
+- grok/grok-2-1212
+- grok/grok-2-vision-1212
+- grok/grok-3
+- grok/grok-3-mini-fast-high-reasoning
+- grok/grok-3-mini-fast-low-reasoning
+- grok/grok-4-0709
+- grok/grok-4-1-fast-non-reasoning
+- grok/grok-4-1-fast-reasoning
+- grok/grok-4-fast-non-reasoning
+- grok/grok-4-fast-reasoning
+- grok/grok-4.20-0309-reasoning
+- grok/grok-4.3
+- grok/grok-4.5
+- grok/grok-4.5-exa
+- grok/grok-4.6
+- grok/grok-build-0.1
+- grok/grok-code-fast-1
+- kimi/kimi-k2-thinking
+- kimi/kimi-k2.5-thinking
+- kimi/kimi-k2.7-code
+- kimi/kimi-k3
+- logicalintelligence/alephprover
+- minimax/MiniMax-M2.1
+- minimax/MiniMax-M2.5
+- minimax/MiniMax-M2.7
+- mistralai/devstral-2512
+- mistralai/labs-devstral-small-2512
+- mistralai/magistral-medium-2509
+- mistralai/magistral-small-2509
+- mistralai/mistral-large-2411
+- mistralai/mistral-large-2512
+- mistralai/mistral-medium-2505
+- mistralai/mistral-medium-3.5
+- mistralai/mistral-small-2402
+- mistralai/mistral-small-2503
+- mistralai/mistral-small-2603
+- openai/gpt-3.5-turbo
+- openai/gpt-4-turbo
+- openai/gpt-4.1-2025-04-14
+- openai/gpt-4.1-mini-2025-04-14
+- openai/gpt-4.1-nano-2025-04-14
+- openai/gpt-4o-2024-05-13
+- openai/gpt-4o-2024-08-06
+- openai/gpt-4o-2024-11-20
+- openai/gpt-4o-mini-2024-07-18
+- openai/gpt-5-2025-08-07
+- openai/gpt-5-codex
+- openai/gpt-5-mini-2025-08-07
+- openai/gpt-5-nano-2025-08-07
+- openai/gpt-5.1-2025-11-13
+- openai/gpt-5.1-codex
+- openai/gpt-5.1-codex-max
+- openai/gpt-5.2-2025-12-11
+- openai/gpt-5.4-2026-03-05
+- openai/gpt-5.4-2026-03-05-high
+- openai/gpt-5.4-nano-2026-03-17
+- openai/gpt-5.5-codex
+- openai/gpt-5.5-factory
+- openai/gpt-5.6-sol-exa
+- openai/o1-2024-12-17
+- openai/o1-mini-2024-09-12
+- openai/o1-preview-2024-09-12
+- openai/o3-2025-04-16
+- openai/o3-mini-2025-01-31
+- openai/o4-mini-2025-04-16
+- poolside/laguna-m.1
+- poolside/laguna-xs.2
+- thinkingmachines/inkling
+- thinkingmachines/inkling-small
+- together/google/gemma-2-27b-it
+- together/google/gemma-2-9b-it
+- together/langston/nim/nvidia/llama-3.3-nemotron-super-49b-v1-42e84561
+- together/langston/nim/nvidia/llama-3.3-nemotron-super-49b-v1-42e84561-thinking
+- together/meta-llama/Llama-2-70b-hf
+- together/meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo
+- together/meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo
+- together/meta-llama/Llama-3.3-70B-Instruct-Turbo
+- together/meta-llama/Llama-4-Scout-17B-16E-Instruct
+- together/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo
+- together/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+- together/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo
+- together/mistralai/Mistral-7B-v0.1
+- together/mistralai/Mixtral-8x22B-Instruct-v0.1
+- together/mistralai/Mixtral-8x7B-v0.1
+- together/moonshotai/Kimi-K2-Instruct
+- together/Qwen/Qwen2.5-72B-Instruct-Turbo
+- together/Qwen/Qwen2.5-7B-Instruct-Turbo
+- together/togethercomputer/llama-2-13b
+- together/togethercomputer/llama-2-7b
+- xiaomi/mimo-v2-flash
+- xiaomi/mimo-v2.5
+- zai/glm-4.5
+- zai/glm-4.6
+- zai/glm-4.7
+- zai/glm-5-thinking
+- zai/glm-5.3
+
+## Approved N3a dimension mapping
+
+| Vals slug | Benchmark ID | Primary dimension | Secondary dimensions |
+|---|---|---|---|
 | `code-migration` | `code-migration` | coding | agentic, context |
-| `skillsbench` | `skillsbench` | agentic | coding, instruction |
-| `hlab` | `hlab` | agentic | context, knowledge, instruction |
+| `corp_fin_v2` | `corpfin` | context | reasoning, knowledge |
+| `cyber` | `cyber` | agentic | coding, reasoning |
 | `emb` | `emb` | agentic | math, context, instruction |
+| `fabv2` | `finance-agent-v2` | agentic | knowledge, coding, context |
+| `gpqa` | `gpqa-diamond` | reasoning | knowledge |
+| `hlab` | `hlab` | agentic | context, knowledge, instruction |
+| `ioi` | `ioi` | coding | reasoning, math |
+| `lcb` | `livecodebench` | coding | reasoning |
 | `legal_bench` | `legal-bench` | reasoning | knowledge, language |
 | `legal_research` | `legal-research` | agentic | knowledge, reasoning, context |
 | `medcode` | `medcode` | knowledge | context, instruction |
 | `medscribe` | `medscribe` | language | context, instruction, knowledge |
-| `tax_eval_v2` | `tax-eval-v2` | knowledge | reasoning, math |
+| `mmlu_pro` | `mmlu-pro` | knowledge | reasoning |
+| `programbench` | `programbench` | coding | agentic, context |
+| `proof_bench` | `proofbench` | math | reasoning, coding |
 | `public-benefits-bench` | `public-benefits-bench` | agentic | knowledge, language, instruction |
-| `cyber` | `cyber` | agentic | coding, reasoning |
 | `reverse_eng` | `reverse-eng` | agentic | reasoning, coding, context |
+| `skillsbench` | `skillsbench` | agentic | coding, instruction |
+| `swebench` | `swe-bench` | coding | agentic, context |
+| `tax_eval_v2` | `tax-eval-v2` | knowledge | reasoning, math |
+| `terminal-bench-2-1` | `terminal-bench-2-1` | coding | agentic |
+| `vibe-code` | `vibe-code-bench` | coding | agentic, context |
 
-### Not approved for scoring
+The N3a user ruling remains authoritative. The deferred multimodal watchlist includes `sage` and `mortgage_tax`; neither is promoted by this refresh.
+## Snapshot delta
 
-| Vals page slug | Ruling note |
-| --- | --- |
-| `mmmu` | Not approved; multimodal benchmark does not fit the current eight-dimension taxonomy. |
-| `mgsm` | Not approved. |
-| `math500` | Not approved. |
-| `terminal-bench-2` | Not approved; superseded by Terminal-Bench 2.1. |
-| `sage` | Initially selected, then explicitly withdrawn after methodology review; handwritten-math vision is deferred with the multimodal taxonomy. |
-| `case_law_v2` | Not approved. |
-| `medqa` | Not approved. |
-| `mortgage_tax` | Not approved; native image understanding is deferred with the multimodal taxonomy. |
-| `poker_agent` | Not approved. |
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Benchmark slugs discovered from index | 39 | 39 | +0 |
+| CandidateResults | 2532 | 2532 | +0 |
+| CostRecords retained | 2408 | 2408 | +0 |
+| Canonically unresolved rows | 1741 | 1741 | +0 |
 
-The deferred multimodal watchlist therefore includes at least `sage` and `mortgage_tax`. No ninth dimension is introduced by N3a.
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.

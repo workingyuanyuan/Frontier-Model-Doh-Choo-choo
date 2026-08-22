@@ -1613,7 +1613,7 @@ Frontier Code Inkling 同一個坑。`profile-policy.json` 的合法值只有 `m
 以下六項規格沒有涵蓋，依 `CLAUDE.md` 的邊界規則不得由代理自行決定。每一項都附建議與理由，
 裁決後寫進 `docs/REFACTOR_SPEC_V2.md` 對應章節（N1 的第一步）。
 
-**D1、D2、D4 已於 2026-08-22 裁決，見各項的裁決欄。D3、D5、D6 仍待裁決。**
+**D1、D2、D3、D4、D6 已於 2026-08-22 裁決，見各項的裁決欄。D5 仍待裁決。**
 
 ### D1 — ARC-AGI 要收哪一個分割？
 
@@ -1723,6 +1723,10 @@ N4 的產出就是這張量測表（三／四／五來源各自的合格 profile
 catalog 條目必須逐一由使用者裁決，且應該獨立成一個資料品質 task，不混在來源擷取裡。
 N3 會列出完整的未解析名單供裁決。
 
+**裁決（2026-08-22）：同意。** N3 對未知模型一律保存原始列，但保持
+`canonicalModelId: null`、`profileId: null`；不得新增 catalog、不得模糊匹配。完整未解析名單
+寫入 Vals validation report，日後若要新增身分，另開資料品質 task 逐項裁決。
+
 ## N1 — ARC Prize 來源刷新
 
 狀態：完成
@@ -1829,7 +1833,7 @@ DeepSeek V4 Pro、Grok 4.5），只計分不設門檻則會造成不對稱。N �
 
 ## N3 — Vals AI 來源刷新
 
-狀態：未開始
+狀態：完成
 
 **前置**：N3a 完成，D4、D6 已裁決。三個來源中最大的一個，不要與 N1／N2 合併。
 
@@ -1850,6 +1854,14 @@ DeepSeek V4 Pro、Grok 4.5），只計分不設門檻則會造成不對稱。N �
 - 重跑 build 與 coverage-matrix。
 
 **完成條件**：基準驗證全綠；核可清單以外的榜單沒有任何一列 `INCLUDED`。
+
+**完成結果（2026-08-22）**：從官方 index 動態發現 39 個 slug，38 頁含可解析的
+BenchmarkView（`rsi_index` 僅有空殼）；保留 2,532 筆 CandidateResult，其中核可 23 榜的
+1,695 筆為 INCLUDED、其餘 837 筆為 EXCLUDED。另保留 2,408 筆 CostRecord，只有
+`vals_index` 的 47 筆成本依 D4 標為 INCLUDED。完整未解析名單、兩個新出現且未自動納入的
+slug（`public-benefits-bench-v1`、`rsi_index`）與逐榜角色表均寫入 validation report。
+Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit 全子集列舉改為依
+模型支援集與維度覆蓋合併狀態的精確動態規劃，保留相同最佳化與 tie-break 語義。
 
 ## N4 — 成本圖與進階圖的來源擴充
 

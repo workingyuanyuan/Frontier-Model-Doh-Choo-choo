@@ -325,6 +325,7 @@ describe('SourcesConfigSchema', () => {
       'epoch-ai',
       'arc-prize',
       'zapier-automationbench',
+      'vals-ai',
     ]);
   });
 

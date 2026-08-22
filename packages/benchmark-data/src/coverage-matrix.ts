@@ -168,6 +168,16 @@ function popcount(n: number): number {
   return count;
 }
 
+function popcountBigInt(n: bigint): number {
+  let count = 0;
+  let value = n;
+  while (value > 0n) {
+    count += Number(value & 1n);
+    value >>= 1n;
+  }
+  return count;
+}
+
 function compareLexicographically(
   a: readonly string[],
   b: readonly string[],
@@ -296,7 +306,7 @@ export const analyzeCoverageMatrix = (
       presence[bId] = isPresent;
       if (isPresent) {
         const bit = benchmarkIndexMap.get(bId)!;
-        mask |= 1 << bit;
+        mask += 2 ** bit;
       }
     }
     return {
@@ -328,7 +338,10 @@ export const analyzeCoverageMatrix = (
     }))
     .toSorted((left, right) => left.mask - right.mask);
 
-  // 10. Tradeoff search via integer bitmask subset enumeration
+  // 10. Exact tradeoff search. Dynamic programming groups subsets that have
+  // identical model support and dimension coverage. This preserves the old
+  // objective and tie-breaks without enumerating all 2^M subsets, and unlike
+  // JavaScript bitwise operators it remains correct above 30 benchmarks.
   const M = activeBenchmarkIds.length;
   const tradeoffs: TradeoffResult[] = [];
 
@@ -343,19 +356,30 @@ export const analyzeCoverageMatrix = (
       `required benchmarks are not active: ${unknownRequired.join(', ')}`,
     );
   }
-  let requiredMask = 0;
-  for (const id of requiredBenchmarkIds) {
-    requiredMask |= 1 << activeBenchmarkIds.indexOf(id);
-  }
-
-  if (M > 30) {
+  if (M > 53) {
     throw new Error(
-      `coverage-matrix supports at most 30 active benchmarks with 32-bit integer masks; received ${M}`,
+      `coverage-matrix supports at most 53 active benchmarks in its exact numeric presence masks; received ${M}`,
     );
   }
 
   if (M > 0) {
-    // Precompute dimension bitmask for each benchmark
+    const requiredSet = new Set(requiredBenchmarkIds);
+    const modelIndexMap = new Map(
+      qualifiedModels.map(({ modelId }, index) => [modelId, index]),
+    );
+    const benchmarkSupportMasks = activeBenchmarkIds.map((benchmarkId) => {
+      let support = 0n;
+      for (const row of matrix) {
+        if (row.presence[benchmarkId]) {
+          support |= 1n << BigInt(modelIndexMap.get(row.model.modelId)!);
+        }
+      }
+      return support;
+    });
+    const allModelSupport = (1n << BigInt(qualifiedModels.length)) - 1n;
+
+    // Dimension masks remain ordinary integers because the taxonomy has only
+    // eight fixed dimensions.
     const benchmarkDimMaskByIndex = activeBenchmarkIds.map((bId) => {
       const dims = benchmarkDimensions[bId]?.allDimensions ?? [];
       let dMask = 0;
@@ -366,110 +390,104 @@ export const analyzeCoverageMatrix = (
       return dMask;
     });
 
-    const getBenchmarkIdsForMask = (mask: number): string[] => {
-      const ids: string[] = [];
-      for (let i = 0; i < M; i++) {
-        if ((mask & (1 << i)) !== 0) {
-          ids.push(activeBenchmarkIds[i]!);
-        }
-      }
-      return ids;
-    };
-
     interface BestSubset {
-      mask: number;
       benchmarkIds: string[];
+      supportMask: bigint;
       completeModelCount: number;
       coveredDimensionCount: number;
       coveredDimensions: DimensionId[];
     }
 
-    const bestByN: (BestSubset | null)[] = new Array(M + 1).fill(null);
-    const totalSubsets = 1 << M;
-    const compressedList = maskFrequencies;
-
-    for (let S = 1; S < totalSubsets; S++) {
-      if ((S & requiredMask) !== requiredMask) continue;
-      const N = popcount(S);
-
-      // Complete models count using frequency compression
-      let completeModelCount = 0;
-      for (let i = 0; i < compressedList.length; i++) {
-        const entry = compressedList[i]!;
-        if ((entry.mask & S) === S) {
-          completeModelCount += entry.count;
-        }
-      }
-
-      // Covered dimensions mask
-      let dimMask = 0;
-      for (let j = 0; j < M; j++) {
-        if ((S & (1 << j)) !== 0) {
-          dimMask |= benchmarkDimMaskByIndex[j]!;
-        }
-      }
-      const coveredDimensionCount = popcount(dimMask);
-
-      const currentBest = bestByN[N];
-      if (!currentBest) {
-        bestByN[N] = {
-          mask: S,
-          benchmarkIds: getBenchmarkIdsForMask(S),
-          completeModelCount,
-          coveredDimensionCount,
-          coveredDimensions: DIMENSION_IDS.filter(
-            (_, idx) => (dimMask & (1 << idx)) !== 0,
-          ),
-        };
-        continue;
-      }
-
-      let isBetter = false;
-      if (completeModelCount > currentBest.completeModelCount) {
-        isBetter = true;
-      } else if (completeModelCount === currentBest.completeModelCount) {
-        if (coveredDimensionCount > currentBest.coveredDimensionCount) {
-          isBetter = true;
-        } else if (
-          coveredDimensionCount === currentBest.coveredDimensionCount
-        ) {
-          const candidateBenchmarkIds = getBenchmarkIdsForMask(S);
-          if (
-            compareLexicographically(
-              candidateBenchmarkIds,
-              currentBest.benchmarkIds,
-            ) < 0
-          ) {
-            isBetter = true;
-          }
-        }
-      }
-
-      if (isBetter) {
-        bestByN[N] = {
-          mask: S,
-          benchmarkIds: getBenchmarkIdsForMask(S),
-          completeModelCount,
-          coveredDimensionCount,
-          coveredDimensions: DIMENSION_IDS.filter(
-            (_, idx) => (dimMask & (1 << idx)) !== 0,
-          ),
-        };
-      }
+    interface SubsetState {
+      benchmarkIds: string[];
+      supportMask: bigint;
+      dimensionMask: number;
     }
 
-    for (let N = 1; N <= M; N++) {
-      // With required benchmarks pinned, no combination exists below their
-      // count, so those scales have no row rather than an empty one.
-      const best = bestByN[N];
-      if (!best) continue;
-      const matchingModels: QualifiedModel[] = [];
-      for (const row of matrix) {
-        if ((row.mask & best.mask) === best.mask) {
-          matchingModels.push(row.model);
+    let statesByCount = new Map<number, Map<string, SubsetState>>([
+      [
+        0,
+        new Map([
+          [
+            `${allModelSupport.toString(16)}:0`,
+            {
+              benchmarkIds: [],
+              supportMask: allModelSupport,
+              dimensionMask: 0,
+            },
+          ],
+        ]),
+      ],
+    ]);
+
+    for (let benchmarkIndex = 0; benchmarkIndex < M; benchmarkIndex += 1) {
+      const benchmarkId = activeBenchmarkIds[benchmarkIndex]!;
+      const mustInclude = requiredSet.has(benchmarkId);
+      const nextByCount = new Map<number, Map<string, SubsetState>>();
+      const retain = (count: number, state: SubsetState): void => {
+        const bucket = nextByCount.get(count) ?? new Map<string, SubsetState>();
+        const key = `${state.supportMask.toString(16)}:${state.dimensionMask}`;
+        const existing = bucket.get(key);
+        if (
+          !existing ||
+          compareLexicographically(state.benchmarkIds, existing.benchmarkIds) <
+            0
+        ) {
+          bucket.set(key, state);
+        }
+        nextByCount.set(count, bucket);
+      };
+
+      for (const [count, bucket] of statesByCount) {
+        for (const state of bucket.values()) {
+          if (!mustInclude) retain(count, state);
+          retain(count + 1, {
+            benchmarkIds: [...state.benchmarkIds, benchmarkId],
+            supportMask:
+              state.supportMask & benchmarkSupportMasks[benchmarkIndex]!,
+            dimensionMask:
+              state.dimensionMask | benchmarkDimMaskByIndex[benchmarkIndex]!,
+          });
         }
       }
-      matchingModels.sort((a, b) => a.modelId.localeCompare(b.modelId));
+      statesByCount = nextByCount;
+    }
+
+    const bestByN: (BestSubset | null)[] = new Array(M + 1).fill(null);
+    for (let N = 1; N <= M; N++) {
+      const bucket = statesByCount.get(N);
+      if (!bucket) continue;
+      for (const state of bucket.values()) {
+        const candidate: BestSubset = {
+          benchmarkIds: state.benchmarkIds,
+          supportMask: state.supportMask,
+          completeModelCount: popcountBigInt(state.supportMask),
+          coveredDimensionCount: popcount(state.dimensionMask),
+          coveredDimensions: DIMENSION_IDS.filter(
+            (_, idx) => (state.dimensionMask & (1 << idx)) !== 0,
+          ),
+        };
+        const current = bestByN[N];
+        if (
+          !current ||
+          candidate.completeModelCount > current.completeModelCount ||
+          (candidate.completeModelCount === current.completeModelCount &&
+            (candidate.coveredDimensionCount > current.coveredDimensionCount ||
+              (candidate.coveredDimensionCount ===
+                current.coveredDimensionCount &&
+                compareLexicographically(
+                  candidate.benchmarkIds,
+                  current.benchmarkIds,
+                ) < 0)))
+        ) {
+          bestByN[N] = candidate;
+        }
+      }
+      const best = bestByN[N];
+      if (!best) continue;
+      const matchingModels = qualifiedModels.filter((_, modelIndex) =>
+        Boolean(best.supportMask & (1n << BigInt(modelIndex))),
+      );
 
       tradeoffs.push({
         benchmarkCount: N,
