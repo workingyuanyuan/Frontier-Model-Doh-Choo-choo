@@ -1474,3 +1474,31 @@ Gemini 3.6 Flash 走 `_minimal`），全部是被**低估**。
   確認那是意外錯誤，可完全移除）。
 
 **完成條件**：Sol 的 Chess Puzzles 為 55.00；catalog 無 `openai-gpt-5-6-sol-pro`；基準驗證全綠。
+
+## L7 — 修正八維雷達圖的軸對應與重複標題
+
+狀態：完成
+
+**問題（使用者於 2026-08-22 對照 GPT-5.6 Sol 與 Gemini 3.7 Flash 時發現）**：排行榜顯示
+Sol 的 knowledge 高於 Gemini、context 低於 Gemini，雷達圖上兩者都相反。
+
+**根因**：軸標籤依 `UI_DIMENSION_IDS`（agentic 起）繪製，但 `buildRadarPoints` 是對
+`result.dimensions` 做 `map` 並拿**陣列索引**當軸序——那個陣列是 `DIMENSION_IDS`
+的計分順序（reasoning 起）。兩個順序不同，於是**每一個**值都被畫到別人的軸上：
+
+| 軸  | 標籤 | 實際畫的值  |
+| --- | ---- | ----------- |
+| 4   | KNG  | instruction |
+| 6   | CTX  | agentic     |
+
+使用者挑到的兩軸剛好是名次會顛倒的兩個，其餘六軸同樣錯位，只是不一定顛倒。旁邊的橫條圖
+與圖表自己的無障礙描述都是用 `dimension` 欄位查找，所以一直是對的——只有圖形是錯的。
+
+**做法**：`buildRadarPoints`／`buildRadarSegments` 改為必填 `order` 參數並依 id 查找，
+讓「陣列位置＝軸序」這個隱性耦合不可能再發生。
+
+**順帶**：`radar-chart.tsx` 的 eyebrow 與 `<h2>` 都是「Eight Dimensions」，同一區塊出現兩次。
+其餘每個 panel 都是「分類 eyebrow ＋ 標題 h2」，因此把 eyebrow 改為 `Capability profile`
+以符合既有版式，而不是刪掉其中一個留下唯一沒有 eyebrow 的 panel。
+
+**完成條件**：有測試釘住「每個值畫在該軸標籤所指的維度上」；基準驗證全綠。

@@ -101,7 +101,7 @@ export function RadarChart({
     >
       <div className="section-heading compact">
         <div>
-          <p className="eyebrow">Eight Dimensions</p>
+          <p className="eyebrow">Capability profile</p>
           <h2 id="profile-title">Eight Dimensions</h2>
           <div className="series-controls">
             {seriesList.length < 3 && availableComparisonRows.length > 0 && (
@@ -251,6 +251,7 @@ export function RadarChart({
             {seriesList.map((series, sIndex) => {
               const values = buildRadarPoints(
                 series.dimensions,
+                UI_DIMENSION_IDS,
                 center,
                 center,
                 radius,
@@ -258,6 +259,7 @@ export function RadarChart({
               if (values.some((point) => point === null)) {
                 return buildRadarSegments(
                   series.dimensions,
+                  UI_DIMENSION_IDS,
                   center,
                   center,
                   radius,
@@ -286,6 +288,7 @@ export function RadarChart({
             {seriesList.flatMap((series, sIndex) => {
               const values = buildRadarPoints(
                 series.dimensions,
+                UI_DIMENSION_IDS,
                 center,
                 center,
                 radius,

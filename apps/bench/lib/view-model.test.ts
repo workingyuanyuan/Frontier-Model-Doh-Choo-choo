@@ -1,4 +1,4 @@
-import type { ProductVersion } from '@llm-bench/benchmark-data';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -20,7 +20,12 @@ import {
   buildWeightedCostCurve,
   getCostParetoFrontier,
 } from './view-model';
-import { buildRadarPoints, buildRadarSegments } from './visualization';
+import {
+  buildRadarPoints,
+  buildRadarSegments,
+  polarPoint,
+} from './visualization';
+import { UI_DIMENSION_IDS } from './ui-contract';
 import { productFixture } from '../test/fixture';
 
 type FixtureLeaderboardRow = (typeof productFixture.leaderboard)[number];
@@ -1228,9 +1233,16 @@ describe('cost chart view model', () => {
 });
 
 describe('radar geometry', () => {
+  const missingLast = UI_DIMENSION_IDS.map((dimension, index) => ({
+    dimension,
+    score: index === UI_DIMENSION_IDS.length - 1 ? null : 50,
+    componentCount: index === UI_DIMENSION_IDS.length - 1 ? 0 : 1,
+  }));
+
   it('keeps missing dimension values absent instead of plotting them at zero', () => {
     const points = buildRadarPoints(
-      productFixture.leaderboard[1]!.dimensions,
+      missingLast,
+      UI_DIMENSION_IDS,
       100,
       100,
       80,
@@ -1242,7 +1254,8 @@ describe('radar geometry', () => {
 
   it('breaks partial radar data into open segments instead of closing a polygon across N/A', () => {
     const segments = buildRadarSegments(
-      productFixture.leaderboard[1]!.dimensions,
+      missingLast,
+      UI_DIMENSION_IDS,
       100,
       100,
       80,
@@ -1251,5 +1264,50 @@ describe('radar geometry', () => {
     expect(segments).toHaveLength(1);
     expect(segments[0]).toHaveLength(7);
     expect(segments[0]?.[0]).not.toEqual({ x: 100, y: 100 });
+  });
+
+  it('plots each value on the axis the chart labels with that dimension', () => {
+    // ProductVersion stores dimensions in scoring order and the chart draws them
+    // in UI order. Mapping by array index rotated every value onto a neighbour's
+    // axis: knowledge was drawn where instruction belonged and context where
+    // agentic belonged, so two models could swap places on an axis.
+    const scores: Record<string, number> = {
+      agentic: 10,
+      coding: 20,
+      reasoning: 30,
+      math: 40,
+      knowledge: 50,
+      language: 60,
+      context: 70,
+      instruction: 80,
+    };
+    const storedOrder: DimensionId[] = [
+      'reasoning',
+      'math',
+      'knowledge',
+      'language',
+      'instruction',
+      'coding',
+      'agentic',
+      'context',
+    ];
+    const dimensions = storedOrder.map((dimension) => ({
+      dimension,
+      score: scores[dimension]!,
+      componentCount: 1,
+    }));
+
+    const points = buildRadarPoints(dimensions, UI_DIMENSION_IDS, 0, 0, 100);
+
+    UI_DIMENSION_IDS.forEach((dimension, index) => {
+      const expected = polarPoint(
+        index,
+        UI_DIMENSION_IDS.length,
+        scores[dimension]!,
+        0,
+        0,
+      );
+      expect(points[index]).toEqual(expected);
+    });
   });
 });

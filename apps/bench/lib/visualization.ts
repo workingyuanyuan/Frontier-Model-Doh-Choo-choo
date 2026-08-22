@@ -1,4 +1,4 @@
-import type { ProductVersion } from '@llm-bench/benchmark-data';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
 type DimensionScore =
   ProductVersion['leaderboard'][number]['dimensions'][number];
@@ -22,23 +22,38 @@ export const polarPoint = (
   };
 };
 
+/**
+ * Plot one point per axis, in the order the axes are drawn.
+ *
+ * `order` is required rather than defaulted because the two orders in this app
+ * genuinely differ: `ProductVersion` stores dimensions in scoring order
+ * (reasoning first) while the UI draws them in `UI_DIMENSION_IDS` order
+ * (agentic first). Mapping over the stored array and trusting the array index
+ * silently rotated every value onto the wrong axis -- the picture disagreed
+ * with the table beside it and with this chart's own accessible description,
+ * which had always looked values up by id.
+ */
 export const buildRadarPoints = (
-  dimensions: DimensionScore[],
+  dimensions: readonly DimensionScore[],
+  order: readonly DimensionId[],
   centerX: number,
   centerY: number,
   radius: number,
 ): Array<ChartPoint | null> =>
-  dimensions.map(({ score }, index) =>
-    score === null
+  order.map((dimensionId, index) => {
+    const score =
+      dimensions.find((dimension) => dimension.dimension === dimensionId)
+        ?.score ?? null;
+    return score === null
       ? null
       : polarPoint(
           index,
-          dimensions.length,
+          order.length,
           radius * (score / 100),
           centerX,
           centerY,
-        ),
-  );
+        );
+  });
 
 /**
  * Return only contiguous runs of available radar points. A missing dimension
@@ -46,7 +61,8 @@ export const buildRadarPoints = (
  * a polygon to close across the missing value.
  */
 export const buildRadarSegments = (
-  dimensions: DimensionScore[],
+  dimensions: readonly DimensionScore[],
+  order: readonly DimensionId[],
   centerX: number,
   centerY: number,
   radius: number,
@@ -54,14 +70,16 @@ export const buildRadarSegments = (
   const segments: ChartPoint[][] = [];
   let current: ChartPoint[] = [];
 
-  buildRadarPoints(dimensions, centerX, centerY, radius).forEach((point) => {
-    if (point) {
-      current.push(point);
-      return;
-    }
-    if (current.length > 1) segments.push(current);
-    current = [];
-  });
+  buildRadarPoints(dimensions, order, centerX, centerY, radius).forEach(
+    (point) => {
+      if (point) {
+        current.push(point);
+        return;
+      }
+      if (current.length > 1) segments.push(current);
+      current = [];
+    },
+  );
 
   if (current.length > 1) segments.push(current);
   return segments;
