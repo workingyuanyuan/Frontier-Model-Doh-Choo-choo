@@ -63,6 +63,18 @@ const sampleAdvancedSeries: AdvancedCostSeries[] = [
             benchmarkId: 'frontier-code',
             evidenceIds: [],
           },
+          {
+            sourceId: 'arc-prize',
+            cost: 2.8,
+            normalizedCost: 42.5,
+            score: 85.6,
+            scoreBasis: 'ARC_AGI',
+            scoreBenchmarkId: 'arc-agi',
+            metricName: 'Cost per task',
+            sourceUrl: 'https://arcprize.org/leaderboard',
+            benchmarkId: 'arc-agi',
+            evidenceIds: [],
+          },
         ],
       },
       {
@@ -109,6 +121,18 @@ const sampleAdvancedSeries: AdvancedCostSeries[] = [
             metricName: 'Mean rollout cost',
             sourceUrl: 'https://frontiercode.org/',
             benchmarkId: 'frontier-code',
+            evidenceIds: [],
+          },
+          {
+            sourceId: 'arc-prize',
+            cost: 3.8,
+            normalizedCost: 58.2,
+            score: 89.2,
+            scoreBasis: 'ARC_AGI',
+            scoreBenchmarkId: 'arc-agi',
+            metricName: 'Cost per task',
+            sourceUrl: 'https://arcprize.org/leaderboard',
+            benchmarkId: 'arc-agi',
             evidenceIds: [],
           },
         ],
@@ -293,7 +317,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       // For scores 85.6 and 89.2, snapped domain is 85–90; for costs 42.5 and 58.2, snapped domain is 40–60
       expect(html).toContain(
-        'Three-source mean score (85–90, higher is better)',
+        'Four-source mean score (85–90, higher is better)',
       );
       expect(html).toContain(
         'Weighted normalized task cost index (40–60, lower is better)',
@@ -301,7 +325,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).not.toContain('Source task cost ($');
       expect(html).not.toContain('Source score (0–100, higher is better)');
       expect(html).toContain(
-        'aria-label="Three-source mean score (85–90) versus weighted normalized task cost index (40–60)',
+        'aria-label="Four-source mean score (85–90) versus weighted normalized task cost index (40–60)',
       );
     });
 
@@ -334,6 +358,8 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('score 85.6 · $2.360');
       expect(html).toContain('Frontier Code:');
       expect(html).toContain('score 89.2 · $3.100');
+      expect(html).toContain('ARC Prize:');
+      expect(html).toContain('score 85.6 · $2.800');
     });
 
     it('renders native checkbox for each model in legend checked by default with accessible label', () => {
@@ -422,7 +448,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
       expect(allVisibleHtml).toContain('GPT-5.6 Sol');
       expect(allVisibleHtml).toContain(
-        'Three-source mean score (85–95, higher is better)',
+        'Four-source mean score (85–95, higher is better)',
       );
       expect(allVisibleHtml).toContain(
         'Weighted normalized task cost index (40–90, lower is better)',
@@ -443,7 +469,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         'Weighted normalized task cost index (40–60, lower is better)',
       );
       expect(filteredHtml).toContain(
-        'Three-source mean score (85–90, higher is better)',
+        'Four-source mean score (85–90, higher is better)',
       );
     });
 
@@ -468,7 +494,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         'Weighted normalized task cost index (0–100, lower is better)',
       );
       expect(html).toContain(
-        'Three-source mean score (0–100, higher is better)',
+        'Four-source mean score (0–100, higher is better)',
       );
 
       // Legend checkboxes remain reachable

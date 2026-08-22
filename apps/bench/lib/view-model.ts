@@ -8,16 +8,19 @@ export type LeaderboardRow = ProductVersion['leaderboard'][number];
 type CostPoint = ProductVersion['costs'][number];
 
 export const COST_SOURCE_WEIGHTS = {
-  'artificial-analysis': 0.25,
-  livebench: 0.25,
-  deepswe: 0.25,
-  'frontier-code': 0.25,
+  'artificial-analysis': 1 / 6,
+  livebench: 1 / 6,
+  deepswe: 1 / 6,
+  'frontier-code': 1 / 6,
+  'arc-prize': 1 / 6,
+  'vals-ai': 1 / 6,
 } as const;
 
 export const ADVANCED_COST_SOURCE_IDS = [
   'artificial-analysis',
   'deepswe',
   'frontier-code',
+  'arc-prize',
 ] as const;
 
 export type AdvancedCostSourceId = (typeof ADVANCED_COST_SOURCE_IDS)[number];
@@ -69,7 +72,8 @@ export interface AdvancedCostSourceDetail {
   normalizedCost: number;
   score: number;
   /** The score is intentionally source-local; it is never ProductCost.performance. */
-  scoreBasis: 'AA_INTELLIGENCE_INDEX' | 'DEEPSWE_1_1' | 'FRONTIER_CODE_1_1';
+  scoreBasis:
+    'AA_INTELLIGENCE_INDEX' | 'DEEPSWE_1_1' | 'FRONTIER_CODE_1_1' | 'ARC_AGI';
   scoreBenchmarkId: string;
   metricName: string;
   sourceUrl: string;
@@ -85,11 +89,11 @@ export interface AdvancedCostPoint {
   effort: string;
   isDefaultEffort: boolean;
   /**
-   * The three-source blended cost index (0-100), NOT dollars. Per-source USD
+   * The four-source blended cost index (0-100), NOT dollars. Per-source USD
    * lives on `sources[].cost`; the two must never be confused on an axis.
    */
   costIndex: number;
-  /** Arithmetic mean of the three sources' own scores, raw and unnormalized. */
+  /** Arithmetic mean of the four sources' own scores, raw and unnormalized. */
   score: number;
   sources: AdvancedCostSourceDetail[];
 }
@@ -386,7 +390,17 @@ const sourceEvidenceForProfile = (
 const SOURCE_SCORE_BENCHMARK_IDS = {
   deepswe: 'deepswe-1-1',
   'frontier-code': 'frontier-code-1-1',
+  'arc-prize': 'arc-agi',
 } as const;
+
+const SOURCE_SCORE_BASES = {
+  deepswe: 'DEEPSWE_1_1',
+  'frontier-code': 'FRONTIER_CODE_1_1',
+  'arc-prize': 'ARC_AGI',
+} as const satisfies Record<
+  keyof typeof SOURCE_SCORE_BENCHMARK_IDS,
+  AdvancedCostSourceDetail['scoreBasis']
+>;
 
 const AA_INDEX_BENCHMARK_ID = 'artificial-analysis-intelligence-index';
 
@@ -406,8 +420,8 @@ const normalizeSourceEffort = (effort: string | null): string =>
  * Return the one source-native score that may be paired with an advanced
  * source cost. AA's Index is deliberately EXCLUDED from the eight-dimension
  * scoring matrix, so its published value lives in rawScore rather than
- * normalizedScore. DeepSWE and Frontier Code each have one included source
- * benchmark and use that benchmark's normalized score directly.
+ * normalizedScore. DeepSWE, Frontier Code, and ARC Prize each have one
+ * included source benchmark and use that benchmark's normalized score directly.
  */
 const getAdvancedSourceScore = (
   product: ProductVersion,
@@ -449,7 +463,7 @@ const getAdvancedSourceScore = (
     ? null
     : {
         score: evidence.normalizedScore,
-        basis: sourceId === 'deepswe' ? 'DEEPSWE_1_1' : 'FRONTIER_CODE_1_1',
+        basis: SOURCE_SCORE_BASES[sourceId],
         benchmarkId,
         sourceEffort: evidence.profile.effort,
       };
@@ -459,8 +473,8 @@ const getAdvancedSourceScore = (
  * Return the source-local score for one profile.
  *
  * Sources used by the advanced chart have an explicit source-native score:
- * AA uses its published EXCLUDED Intelligence Index rawScore, while DeepSWE
- * and Frontier Code use their named included benchmark. Other sources (such
+ * AA uses its published EXCLUDED Intelligence Index rawScore, while DeepSWE,
+ * Frontier Code, and ARC Prize use their named included benchmark. Other sources (such
  * as LiveBench in the default chart) have no single source benchmark and use
  * the mean of their included normalized rows.
  */
@@ -709,8 +723,8 @@ const compareAdvancedPoints = (
 
 /**
  * Build one aggregate effort curve per model across Artificial Analysis,
- * DeepSWE, and Frontier Code (1/3 weight each). A profile is admitted only
- * when all three sources yield both a task cost and a source-local score.
+ * DeepSWE, Frontier Code, and ARC Prize (1/4 weight each). A profile is admitted
+ * only when all four sources yield both a task cost and a source-local score.
  * Models with a single qualifying profile produce a one-point series.
  */
 export const buildAdvancedCostSeries = (
@@ -811,11 +825,14 @@ export const buildAdvancedCostSeries = (
     }
 
     const effort = normalizeSourceEffort(profile.attributes.effort ?? null);
+    const sourceWeight = 1 / ADVANCED_COST_SOURCE_IDS.length;
     const costIndex = sourceDetails.reduce(
-      (sum, s) => sum + s.normalizedCost * (1 / 3),
+      (sum, s) => sum + s.normalizedCost * sourceWeight,
       0,
     );
-    const score = sourceDetails.reduce((sum, s) => sum + s.score, 0) / 3;
+    const score =
+      sourceDetails.reduce((sum, s) => sum + s.score, 0) /
+      ADVANCED_COST_SOURCE_IDS.length;
 
     candidatePoints.push({
       modelId,

@@ -104,35 +104,37 @@ Frontier 模型清單由 **`data-v2/mappings/models.json`（model catalog）** �
 - LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。
 - DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
 - Frontier Code：Main 的 `cost` 是平均 rollout 美元成本，保存為 `AGENT_TASK`；raw `none` 保持 null，產品層只依上述跨來源規則建立可稽核的 effort 決策。
+- ARC Prize：`costPerTask` 保存為 `AGENT_TASK`，只使用有成本的 v2 Semi-Private 列。
+- Vals AI：每頁成本照常保存，但預設成本圖只使用 `vals_index` 的 `cost_per_test`。
 
 ### 預設圖（跨來源加權 Quality vs. Cost）
 
 主 Quality vs. Cost 預設圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。
 
-權重為四個來源各 25%（Artificial Analysis 25%、LiveBench 25%、DeepSWE 25%、Frontier Code 25%）。採用等權的理由：
+權重為六個來源各 1/6（Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI）。Zapier 資料已保存但暫不採用，不進成本圖；Epoch 沒有成本。採用等權的理由：
 
-1. 四個來源的任務成本語意一致（皆為單次任務美元成本）。
+1. 六個來源皆提供單次 task／test 的美元成本。
 2. min-max 正規化後混合的是各模型在各來源內的相對位置。
 3. 缺站時只在可用來源上重新正規化權重，不把缺值當零。
 
-X 軸為四來源加權正規化任務成本，Y 軸為八維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
+X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
 
 圖中的 frontier 是非支配集合（Pareto frontier）：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
 
-### 進階圖（來源內部多思考強度性價比曲線）
+### 進階圖（四來源聚合的多思考強度性價比曲線）
 
-透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）在單一來源內的分數與成本軌跡，同一模型的各強度點連成折線。
+透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）的四來源聚合分數與成本軌跡，同一模型的各強度點連成折線。
 
 進階圖設計原則：
 
-- **X 軸與 Y 軸皆來自同一個來源，不跨來源聚合**：X 軸＝該來源自己的任務成本，Y 軸＝該來源自己的分數。多 effort profile 往往非八維全齊、沒有八維 Overall Score，不得為了湊 Y 軸而放寬顯示門檻，也不得拿跨來源 Overall 配單一來源成本。
+- **先在來源內配對，再跨來源聚合**：AA、DeepSWE、Frontier Code、ARC Prize 各自以同一 profile 的分數配同來源成本；四組皆成立後，X 軸取四來源 log min-max 成本指數各 1/4，Y 軸取四來源原始分數算術平均。不得拿跨來源 Overall 配單一來源成本。
 - **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入八維 Overall）。
-- **DeepSWE 與 Frontier Code**：Y 軸使用該來源對應 benchmark 的 normalized 分數。
+- **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-1-1`、`arc-agi` 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
   3. LiveBench 的成本掛在整站 `livebench` benchmarkId，但分數拆成四個維度，無法一對一配對。
-- **缺任一來源資料的模型完全不顯示**，不是只少畫該來源的曲線。三個來源必須都有資料，該模型才會出現在進階圖上；缺了什麼由開發者模式揭露。
+- **逐 profile 要求四來源齊全**：缺任一來源的該強度不出點；模型仍可用其他齊全的強度出現。Vals 因沒有多檔位階梯而排除，Zapier 依 N2 裁決暫不採用。
 
 ## ProductVersion 與可重現性
 

@@ -249,7 +249,7 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
   await expect(
-    page.getByText('LiveBench is excluded', { exact: false }),
+    page.getByText('LiveBench and Vals AI are excluded', { exact: false }),
   ).toBeVisible();
   await toggle.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');

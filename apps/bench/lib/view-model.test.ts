@@ -514,9 +514,11 @@ describe('cost chart view model', () => {
       'openai-gpt-5-6-sol-max',
       'anthropic-claude-fable-5-standard',
     ]);
-    expect(points.every(({ normalizedCost }) => normalizedCost === 50)).toBe(
-      true,
-    );
+    expect(
+      points.every(
+        ({ normalizedCost }) => Math.abs(normalizedCost - 50) < 1e-10,
+      ),
+    ).toBe(true);
     expect(points.every(({ sourceCount }) => sourceCount === 1)).toBe(true);
   });
 
@@ -578,7 +580,7 @@ describe('cost chart view model', () => {
     expect(solPoints).toHaveLength(1);
     expect(solPoints[0]?.profileId).toBe(solRep?.profileId);
     expect(solPoints[0]?.performance).toBe(solRep?.overallScore);
-    expect(solPoints[0]?.normalizedCost).toBe(100);
+    expect(solPoints[0]?.normalizedCost).toBeCloseTo(100, 10);
   });
 
   it('uses the best available profile for a source when the global representative has no cost data', () => {
@@ -646,12 +648,14 @@ describe('cost chart view model', () => {
     });
   });
 
-  it('uses four equal source weights and excludes model-catalog costs', () => {
+  it('uses six equal source weights and excludes model-catalog costs', () => {
     expect(COST_SOURCE_WEIGHTS).toEqual({
-      'artificial-analysis': 0.25,
-      livebench: 0.25,
-      deepswe: 0.25,
-      'frontier-code': 0.25,
+      'artificial-analysis': 1 / 6,
+      livebench: 1 / 6,
+      deepswe: 1 / 6,
+      'frontier-code': 1 / 6,
+      'arc-prize': 1 / 6,
+      'vals-ai': 1 / 6,
     });
 
     const taskTemplate = productFixture.costs.find(
@@ -661,29 +665,37 @@ describe('cost chart view model', () => {
       ...productFixture,
       costs: [
         ...productFixture.costs,
-        ...(['livebench', 'frontier-code', 'model-catalog'] as const).map(
-          (sourceId, index) => ({
-            ...taskTemplate,
-            sourceId,
-            cost: 1.5 + index,
-            performance: 88.1,
-            unit: 'USD_PER_TASK' as const,
-          }),
-        ),
+        ...(
+          [
+            'livebench',
+            'frontier-code',
+            'arc-prize',
+            'vals-ai',
+            'model-catalog',
+          ] as const
+        ).map((sourceId, index) => ({
+          ...taskTemplate,
+          sourceId,
+          cost: 1.5 + index,
+          performance: 88.1,
+          unit: 'USD_PER_TASK' as const,
+        })),
       ],
     };
 
     const points = buildWeightedCostCurve(product);
     const sol = points.find(({ modelId }) => modelId === 'openai-gpt-5-6-sol');
-    expect(sol?.sourceCount).toBe(3);
+    expect(sol?.sourceCount).toBe(5);
     expect(
       sol?.sourceCosts
         .map(({ sourceId, weight }) => [sourceId, weight] as const)
         .toSorted(([left], [right]) => left.localeCompare(right)),
     ).toEqual([
-      ['artificial-analysis', 0.25],
-      ['frontier-code', 0.25],
-      ['livebench', 0.25],
+      ['arc-prize', 1 / 6],
+      ['artificial-analysis', 1 / 6],
+      ['frontier-code', 1 / 6],
+      ['livebench', 1 / 6],
+      ['vals-ai', 1 / 6],
     ]);
     expect(
       sol?.sourceCosts.some(({ sourceId }) => sourceId === 'model-catalog'),
@@ -771,7 +783,9 @@ describe('cost chart view model', () => {
           ? 'artificial-analysis-intelligence-index'
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
-            : 'frontier-code-1-1';
+            : sourceId === 'frontier-code'
+              ? 'frontier-code-1-1'
+              : 'arc-agi';
       const sourceEffort = profileId.endsWith('-non-reasoning')
         ? 'non-reasoning'
         : profileId.endsWith('-default')
@@ -824,7 +838,9 @@ describe('cost chart view model', () => {
           ? 'artificial-analysis-intelligence-index'
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
-            : 'frontier-code-1-1',
+            : sourceId === 'frontier-code'
+              ? 'frontier-code-1-1'
+              : 'arc-agi',
       evidenceIds: [`sha256:${String(index).padStart(64, '0')}`],
     });
 
@@ -857,7 +873,7 @@ describe('cost chart view model', () => {
       ),
     );
 
-    // Incomplete profile for Sol: missing Frontier Code
+    // Incomplete profile for Sol: missing Frontier Code and ARC Prize
     const solIncompleteCosts = ['artificial-analysis', 'deepswe'].map(
       (sourceId, index) =>
         taskCost(
@@ -879,7 +895,7 @@ describe('cost chart view model', () => {
         ),
     );
 
-    // Claude: low profile has all 3 sources (single qualifying effort), incomplete profile has only 1 source
+    // Claude: low profile has all 4 sources (single qualifying effort), incomplete profile has only 1 source
     const claudeLowCosts = ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
       taskCost(
         sourceId,
@@ -918,7 +934,7 @@ describe('cost chart view model', () => {
       ),
     ];
 
-    // Gemini: low profile has only 2 sources (missing Frontier Code), so Gemini has NO qualifying profile
+    // Gemini: low profile has only 2 sources, so Gemini has NO qualifying profile
     const geminiCosts = ['artificial-analysis', 'deepswe'].map(
       (sourceId, index) =>
         taskCost(
@@ -994,16 +1010,17 @@ describe('cost chart view model', () => {
 
     // Detail breakdown is preserved on every point
     for (const point of [...solSeries.points, ...claudeSeries.points]) {
-      expect(point.sources).toHaveLength(3);
+      expect(point.sources).toHaveLength(4);
       expect(point.sources.map(({ sourceId }) => sourceId)).toEqual([
         'artificial-analysis',
         'deepswe',
         'frontier-code',
+        'arc-prize',
       ]);
     }
   });
 
-  it('computes Y as the plain arithmetic mean of the three source scores without min-max normalization', () => {
+  it('computes Y as the plain arithmetic mean of the four source scores without min-max normalization', () => {
     const baseEvidence = productFixture.evidence[0]!;
     const profile = {
       ...productFixture.profiles[0]!,
@@ -1020,7 +1037,9 @@ describe('cost chart view model', () => {
           ? 'artificial-analysis-intelligence-index'
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
-            : 'frontier-code-1-1';
+            : sourceId === 'frontier-code'
+              ? 'frontier-code-1-1'
+              : 'arc-agi';
       return {
         ...baseEvidence,
         id: `e-mean:${sourceId}`,
@@ -1062,7 +1081,9 @@ describe('cost chart view model', () => {
           ? 'artificial-analysis-intelligence-index'
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
-            : 'frontier-code-1-1',
+            : sourceId === 'frontier-code'
+              ? 'frontier-code-1-1'
+              : 'arc-agi',
       evidenceIds: [
         'sha256:1111111111111111111111111111111111111111111111111111111111111111',
       ],
@@ -1071,6 +1092,7 @@ describe('cost chart view model', () => {
     const aaScore = 60;
     const deepsweScore = 75;
     const frontierCodeScore = 90;
+    const arcScore = 95;
 
     const product: ProductVersion = {
       ...productFixture,
@@ -1079,11 +1101,13 @@ describe('cost chart view model', () => {
         taskCost('artificial-analysis', 1.0),
         taskCost('deepswe', 2.0),
         taskCost('frontier-code', 3.0),
+        taskCost('arc-prize', 4.0),
       ],
       evidence: [
         sourceEvidence('artificial-analysis', aaScore),
         sourceEvidence('deepswe', deepsweScore),
         sourceEvidence('frontier-code', frontierCodeScore),
+        sourceEvidence('arc-prize', arcScore),
       ],
     };
 
@@ -1091,8 +1115,8 @@ describe('cost chart view model', () => {
     expect(series).toHaveLength(1);
     const point = series[0]!.points[0]!;
 
-    // Expected Y = (60 + 75 + 90) / 3 = 75.0
-    expect(point.score).toBeCloseTo(75.0, 5);
+    // Expected Y = (60 + 75 + 90 + 95) / 4 = 80.0
+    expect(point.score).toBeCloseTo(80.0, 5);
   });
 
   it('keeps point X values untouched when another model is removed from the product', () => {
@@ -1130,7 +1154,9 @@ describe('cost chart view model', () => {
             ? 'artificial-analysis-intelligence-index'
             : sourceId === 'deepswe'
               ? 'deepswe-1-1'
-              : 'frontier-code-1-1',
+              : sourceId === 'frontier-code'
+                ? 'frontier-code-1-1'
+                : 'arc-agi',
         inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
         exclusionReason: isAa ? 'External composite' : null,
         model: { ...baseEvidence.model, canonicalModelId: modelId, profileId },
@@ -1163,7 +1189,9 @@ describe('cost chart view model', () => {
           ? 'artificial-analysis-intelligence-index'
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
-            : 'frontier-code-1-1',
+            : sourceId === 'frontier-code'
+              ? 'frontier-code-1-1'
+              : 'arc-agi',
       evidenceIds: [
         'sha256:2222222222222222222222222222222222222222222222222222222222222222',
       ],
@@ -1177,28 +1205,34 @@ describe('cost chart view model', () => {
       taskCost('deepswe', 'anchor-max', 'anchor-m', 20.0),
       taskCost('frontier-code', 'anchor-min', 'anchor-m', 2.0),
       taskCost('frontier-code', 'anchor-max', 'anchor-m', 50.0),
+      taskCost('arc-prize', 'anchor-min', 'anchor-m', 0.25),
+      taskCost('arc-prize', 'anchor-max', 'anchor-m', 5.0),
     ];
 
     const modelACosts = [
       taskCost('artificial-analysis', 'model-a-high', 'model-a', 2.0),
       taskCost('deepswe', 'model-a-high', 'model-a', 5.0),
       taskCost('frontier-code', 'model-a-high', 'model-a', 10.0),
+      taskCost('arc-prize', 'model-a-high', 'model-a', 1.0),
     ];
     const modelAEvidence = [
       sourceEvidence('artificial-analysis', 'model-a-high', 'model-a', 70),
       sourceEvidence('deepswe', 'model-a-high', 'model-a', 75),
       sourceEvidence('frontier-code', 'model-a-high', 'model-a', 80),
+      sourceEvidence('arc-prize', 'model-a-high', 'model-a', 85),
     ];
 
     const modelBCosts = [
       taskCost('artificial-analysis', 'model-b-high', 'model-b', 3.0),
       taskCost('deepswe', 'model-b-high', 'model-b', 8.0),
       taskCost('frontier-code', 'model-b-high', 'model-b', 15.0),
+      taskCost('arc-prize', 'model-b-high', 'model-b', 1.5),
     ];
     const modelBEvidence = [
       sourceEvidence('artificial-analysis', 'model-b-high', 'model-b', 65),
       sourceEvidence('deepswe', 'model-b-high', 'model-b', 70),
       sourceEvidence('frontier-code', 'model-b-high', 'model-b', 75),
+      sourceEvidence('arc-prize', 'model-b-high', 'model-b', 80),
     ];
 
     const fullProduct: ProductVersion = {

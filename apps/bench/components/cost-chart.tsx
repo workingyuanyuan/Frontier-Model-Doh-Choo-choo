@@ -35,6 +35,8 @@ const SOURCE_NAMES: Record<string, string> = {
   livebench: 'LiveBench',
   deepswe: 'DeepSWE',
   'frontier-code': 'Frontier Code',
+  'arc-prize': 'ARC Prize',
+  'vals-ai': 'Vals AI',
 };
 
 const providerColor = (providerId: string): string =>
@@ -479,7 +481,7 @@ export function AdvancedCostPlot({
             className="cost-curve-chart advanced-cost-chart"
             viewBox="0 0 660 405"
             role="img"
-            aria-label={`Three-source mean score (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost index (${xDomain.min}–${xDomain.max}). Each line connects effort profiles for one model.`}
+            aria-label={`Four-source mean score (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost index (${xDomain.min}–${xDomain.max}). Each line connects effort profiles for one model.`}
           >
             {yDomain.ticks.map((tick) => (
               <g key={`advanced-y-${tick}`}>
@@ -548,7 +550,7 @@ export function AdvancedCostPlot({
               textAnchor="middle"
               transform={`rotate(-90 15 ${(top + bottom) / 2})`}
             >
-              {`Three-source mean score (${yDomain.min}–${yDomain.max}, higher is better)`}
+              {`Four-source mean score (${yDomain.min}–${yDomain.max}, higher is better)`}
             </text>
             <text className="cost-direction-label" x={left + 8} y={top + 15}>
               Better value ↖
@@ -587,7 +589,7 @@ export function AdvancedCostPlot({
                         fill={providerColor(line.providerId)}
                         tabIndex={0}
                         role="img"
-                        aria-label={`${point.displayName}. Three-source mean score ${point.score.toFixed(1)}. Weighted normalized task cost ${point.costIndex.toFixed(1)}.`}
+                        aria-label={`${point.displayName}. Four-source mean score ${point.score.toFixed(1)}. Weighted normalized task cost ${point.costIndex.toFixed(1)}.`}
                         onClick={() => handleToggle(point.profileId)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
@@ -769,10 +771,10 @@ export function AdvancedCostPlot({
     </div>
   ) : (
     <div className="empty-state" role="status">
-      <strong>No complete three-source effort curves</strong>
+      <strong>No complete four-source effort curves</strong>
       <span>
-        A model needs Artificial Analysis, DeepSWE, and Frontier Code task costs
-        with source-local scores.
+        A model needs Artificial Analysis, DeepSWE, Frontier Code, and ARC Prize
+        task costs with source-local scores.
       </span>
     </div>
   );
@@ -818,13 +820,14 @@ export function CostChart({
         <div className="cost-chart-actions">
           {!advanced ? (
             <p className="cost-weight-note">
-              Source weights: Artificial Analysis 25% · LiveBench 25% · DeepSWE
-              25% · Frontier Code 25%
+              Source weights: Artificial Analysis 16.7% · LiveBench 16.7% ·
+              DeepSWE 16.7% · Frontier Code 16.7% · ARC Prize 16.7% · Vals AI
+              16.7%
             </p>
           ) : (
             <p className="cost-weight-note">
-              Source weights: Artificial Analysis 33.3% · DeepSWE 33.3% ·
-              Frontier Code 33.3% · LiveBench is excluded
+              Source weights: Artificial Analysis 25% · DeepSWE 25% · Frontier
+              Code 25% · ARC Prize 25% · LiveBench and Vals AI are excluded
             </p>
           )}
           <button

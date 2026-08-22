@@ -1713,6 +1713,10 @@ benchmark 各有一個成本的來源，`cost_per_test` 不唯一。建議比照
 連乘項；期二實測三來源時合格 profile 只有 31 個、模型 13 個，加到五個來源很可能腰斬。
 N4 的產出就是這張量測表（三／四／五來源各自的合格 profile 數與模型數），交使用者選一個。
 
+**裁決（2026-08-22）：進階圖加入 ARC Prize，Artificial Analysis／DeepSWE／Frontier Code／
+ARC Prize 四來源各 `1/4`。** Vals 因一模型一列、無檔位階梯而不納入；Zapier 依 N2 複審裁決
+延至 N 階段結束後再討論，不納入本次實作。
+
 ### D6 — 新來源帶進來的未知模型要不要進 catalog？
 
 三個來源會帶進 catalog 沒有的名字，例如 `zai/glm-5.3`、`deepseek/deepseek-v4-pro-0813`、
@@ -1865,7 +1869,7 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
 
 ## N4 — 成本圖與進階圖的來源擴充
 
-狀態：未開始
+狀態：完成
 
 **前置**：N1、N2、N3 完成。D5 在本 task 中段交付量測後才裁決。
 
@@ -1881,6 +1885,16 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
   不要留下沒有記錄的現狀。
 
 **完成條件**：基準驗證全綠；量測文件存在且被規格引用。
+
+**量測完成（2026-08-22）**：見 `docs/ADVANCED_CHART_SOURCES_2026-08-22.md`。現行三來源為
+31 profiles／13 models／5 個可連線模型；加入 ARC 為 27／12／5；再加入不具檔位階梯的 Vals
+只剩 9／9／0，無法形成任何 effort curve。Zapier 依 N2 複審裁決完全排除於本次量測與選項。
+
+**D5 裁決（2026-08-22）**：採加入 ARC 的四來源方案，各 `1/4`；Vals 與 Zapier 不進進階圖。
+
+**完成（2026-08-22）**：`buildAdvancedCostSeries` 已改為四來源完整配對與各 `1/4` 聚合；預設圖
+依 D4／N2 覆寫改為 AA／LiveBench／DeepSWE／Frontier Code／ARC Prize／Vals AI 各 `1/6`。
+量測腳本同步輸出 X／Y 範圍與各來源分數離散度，完整基準驗證通過。
 
 ## N5 — 檔位推測與重複量測的期三揭露
 

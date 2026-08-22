@@ -79,10 +79,12 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Weighted normalized task cost index');
     expect(html).toContain('Overall Score');
     expect(html).toContain('higher is better');
-    expect(html).toContain('Artificial Analysis 25%');
-    expect(html).toContain('LiveBench 25%');
-    expect(html).toContain('DeepSWE 25%');
-    expect(html).toContain('Frontier Code 25%');
+    expect(html).toContain('Artificial Analysis 16.7%');
+    expect(html).toContain('LiveBench 16.7%');
+    expect(html).toContain('DeepSWE 16.7%');
+    expect(html).toContain('Frontier Code 16.7%');
+    expect(html).toContain('ARC Prize 16.7%');
+    expect(html).toContain('Vals AI 16.7%');
     expect(html).toContain('API standardized token prices are excluded');
     expect(html.match(/cost-curve-chart/g)).toHaveLength(1);
     expect(html).toContain('Show advanced effort curves');
@@ -126,6 +128,15 @@ describe('Dashboard Redesign', () => {
       {
         sourceId: 'frontier-code',
         benchmarkId: 'frontier-code-1-1',
+        costType: 'AGENT_TASK' as const,
+        normalizedScore: 75,
+        rawScore: 75,
+        inclusion: 'INCLUDED' as const,
+        exclusionReason: null,
+      },
+      {
+        sourceId: 'arc-prize',
+        benchmarkId: 'arc-agi',
         costType: 'AGENT_TASK' as const,
         normalizedScore: 75,
         rawScore: 75,
