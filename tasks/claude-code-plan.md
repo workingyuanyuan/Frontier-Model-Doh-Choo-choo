@@ -1760,7 +1760,7 @@ N3 會列出完整的未解析名單供裁決。
 
 ## N3a — Vals 新 benchmark 的維度歸屬報告與裁決
 
-狀態：未開始
+狀態：完成
 
 **前置**：D2 的裁決（2026-08-22）要求除了 10 項現有 ID 之外，另外挑新 benchmark 進來。
 規格 §5.3 規定新 benchmark 必須先出報告、由使用者裁決，代理不得自行決定納入哪些、歸到哪一維。
@@ -1807,6 +1807,14 @@ N3 會列出完整的未解析名單供裁決。
 
 **完成條件**：`benchmarks.json` 只包含使用者核可的新項目；基準驗證全綠；`current.json`
 不受影響（尚無來源提供這些 benchmark 的分數）。
+
+**裁決結果（2026-08-22）**：核可 13 項：`ioi`、`code-migration`、`skillsbench`、`hlab`、
+`emb`、`legal-bench`、`legal-research`、`medcode`、`medscribe`、`tax-eval-v2`、
+`public-benefits-bench`、`cyber`、`reverse-eng`。未核可 9 項：`mmmu`、`mgsm`、`math500`、
+`terminal-bench-2`、`sage`、`case_law_v2`、`medqa`、`mortgage_tax`、`poker_agent`。
+其中 `sage` 原先選擇收錄，於逐項方法論核對後改為不收；它與 `mortgage_tax` 一併列入未來
+多模態維度的觀察清單。完整主／次維度與來源 slug → benchmark ID 對照記錄於
+`data-v2/sources/vals-ai/validation-report.md`。
 
 ## N3 — Vals AI 來源刷新
 

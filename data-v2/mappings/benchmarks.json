@@ -52,6 +52,11 @@
       "secondaryDimensions": ["context"]
     },
     {
+      "id": "legal-bench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge", "language"]
+    },
+    {
       "id": "frontiermath",
       "primaryDimension": "math",
       "secondaryDimensions": ["reasoning", "knowledge"]
@@ -112,6 +117,16 @@
       "secondaryDimensions": ["reasoning"]
     },
     {
+      "id": "medcode",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["context", "instruction"]
+    },
+    {
+      "id": "tax-eval-v2",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning", "math"]
+    },
+    {
       "id": "livebench-language",
       "primaryDimension": "language",
       "secondaryDimensions": ["instruction"]
@@ -125,6 +140,11 @@
       "id": "wmt24-plus-plus",
       "primaryDimension": "language",
       "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "medscribe",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["context", "instruction", "knowledge"]
     },
     {
       "id": "ifbench",
@@ -197,6 +217,16 @@
       "secondaryDimensions": ["agentic", "context"]
     },
     {
+      "id": "ioi",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning", "math"]
+    },
+    {
+      "id": "code-migration",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "context"]
+    },
+    {
       "id": "osworld",
       "primaryDimension": "agentic",
       "secondaryDimensions": ["context", "reasoning"]
@@ -240,6 +270,41 @@
       "id": "tau3-banking",
       "primaryDimension": "agentic",
       "secondaryDimensions": ["instruction", "context"]
+    },
+    {
+      "id": "skillsbench",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding", "instruction"]
+    },
+    {
+      "id": "hlab",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["context", "knowledge", "instruction"]
+    },
+    {
+      "id": "emb",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["math", "context", "instruction"]
+    },
+    {
+      "id": "legal-research",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "reasoning", "context"]
+    },
+    {
+      "id": "public-benefits-bench",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "language", "instruction"]
+    },
+    {
+      "id": "cyber",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding", "reasoning"]
+    },
+    {
+      "id": "reverse-eng",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "coding", "context"]
     },
     {
       "id": "aa-lcr",
