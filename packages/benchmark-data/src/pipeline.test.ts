@@ -169,10 +169,13 @@ describe('selectCurrentResults', () => {
     ).toEqual([full]);
   });
 
-  it('takes the higher score when equal-role sources label the same benchmark version differently', () => {
+  it('takes the higher score between equal-standing sources but never lets a partial snapshot win', () => {
     // AA, Epoch, and Vals all rerun GPQA Diamond as INDEPENDENT. The user's
-    // rule (2026-08-21) is cross-source max. AA is PARTIAL_SOURCE at the site
-    // level and Vals calls its benchmarkVersion "1"; neither may bypass max.
+    // rule (2026-08-21) is cross-source max, and it is limited to sources of
+    // equal standing (§4.3.1, restored 2026-08-22): Epoch and Vals are both
+    // FULL, so the higher of the two wins even though Vals labels its
+    // benchmarkVersion "1" and Epoch leaves it null. AA scores highest of all
+    // three but is PARTIAL_SOURCE at the site level, so it cannot take the row.
     const shared = {
       benchmarkId: 'gpqa-diamond',
       sourceRole: 'INDEPENDENT',
@@ -207,10 +210,10 @@ describe('selectCurrentResults', () => {
     });
 
     expect(selectCurrentResults([artificialAnalysis, epoch, vals])).toEqual([
-      artificialAnalysis,
+      vals,
     ]);
     expect(selectCurrentResults([vals, epoch, artificialAnalysis])).toEqual([
-      artificialAnalysis,
+      vals,
     ]);
   });
 

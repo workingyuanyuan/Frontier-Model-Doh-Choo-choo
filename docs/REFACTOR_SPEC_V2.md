@@ -130,16 +130,24 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 **2026-08-21 新增（使用者裁決）：取分數較高的那一筆。**
 
 Artificial Analysis 與 Epoch AI 都自己重跑 GPQA Diamond，兩者 `sourceRole` 都是
-`INDEPENDENT`；AA 的站級狀態雖是 `PARTIAL_SOURCE`，但這些個別 benchmark 列已核可為
-`INCLUDED`，沒有可辯護的來源排序。逐模型的分數
-對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`：26 個重疊的「模型 × 檔位」中，Epoch 較高
+`INDEPENDENT`。逐模型的分數對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`：26 個重疊的「模型 × 檔位」中，Epoch 較高
 13 個、AA 較高 13 個，平均差 −0.99 分，多數落在 ±3 分內。兩邊都不系統性地偏高或偏低，因此
 沒有「哪個來源比較準」這種可辯護的排序。
 
-**規則只適用於 `sourceRole` 相同的來源。**角色不同時仍維持原本優先序：ORGANIZER 勝過
-VENDOR，廠商自報的數字不會因為好看就取代第三方量測。角色相同但站級
-`acquisitionStatus` 不同時仍先取最高；完整度只在分數相同時破平手。同一來源內的重複列則仍
-依完整度與發布時間選現行量測。
+**規則只適用於地位相同的來源。** `sourceRole` 權重不同，或 `acquisitionStatus` 不同時，仍
+維持原本的優先序：ORGANIZER 勝過 VENDOR，完整快照勝過部分快照，**再高的分數也不能翻
+盤**。廠商自報的數字不會因為好看就取代第三方量測。
+
+**2026-08-22 還原（使用者裁決）。** N5 曾把 `acquisitionStatus` 從「地位相同」的判斷中拿掉，
+理由是 Artificial Analysis 的站級狀態是 `PARTIAL_SOURCE`，會讓它在重複量測中一律輸掉。該次
+改動要修的實際症狀是**詳細證據面板**把同一個模型的「未標 effort」與「Max」兩列後者覆蓋前者、
+顯示成錯的成本與分數——那是呈現層缺陷，已在 `model-detail-panel.tsx` 依貢獻證據 ID 去重修正，
+與選取規則無關。選取規則因此還原為原文。
+
+還原的實測影響：26 筆重複列的現行量測由 Artificial Analysis 換成 Vals AI（同為
+`INDEPENDENT`，Vals 是 `FULL`），144 個 profile 中 15 個 overall 有變化，全部下降，最大
+−0.43（DeepSeek V4 Pro max 與 Qwen3.8 27B xhigh），主畫面名次未變。方向符合本節原意：
+**部分快照不因分數好看而翻盤。**
 
 **這條規則之前是「碰巧成立」的。** `selectCurrentResults` 的鍵不含 `sourceId`，實際走的是
 「harness 字串不同 → 比分數」這條分支；AA 的 harness 是 `null`、Epoch 是
@@ -151,6 +159,14 @@ VENDOR，廠商自報的數字不會因為好看就取代第三方量測。角�
 SWE-bench 是 Epoch／Vals，Terminal-Bench 2.1 是 AA／Vals。選取鍵以 `benchmarkId + profile +
 metric` 認定同一量測，**不含 `benchmarkVersion`**；各站對同一 benchmark 的版本字串可能一方
 缺值、一方寫 `1` 或 `2.1`，不能因此被重複計入維度平均。版本字串仍完整保留在證據中。
+
+**因此「哪些量測算同一個 benchmark」完全由 benchmark ID 決定**（2026-08-22 使用者確認）。
+需要分開計分的版本或分割，必須給它自己的 benchmark ID，不能只靠 `benchmarkVersion` 區隔。
+
+這條的代價已經實際發生：`frontiermath` 在 Epoch 內同時有 `(null)` 與 `Tier 4` 兩個版本，
+期二時是兩個獨立的 math 分量（47 列），版本字串移出選取鍵後塌成一個（24 列），其中 17 個
+profile 留下 Tier 4、7 個留下標準版——**同一個維度對不同模型採用了不同難度的測驗**。
+ARC-AGI 的分割也有同一個風險。兩者都必須改為各自獨立的 benchmark ID，見 N9。
 
 逐模型 × 檔位對照見 `docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的
 平均抬升為：GPQA 在 46 個至少雙來源重疊列為 **0.80 分**（其中 13 個三來源全齊列為 **0.85

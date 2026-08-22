@@ -1960,3 +1960,125 @@ N5 重跑另修正兩個會讓揭露與實際計分不一致的問題：`EXCLUDE
 
 **完成條件**：文件中不存在「四個來源」「五個來源」的殘留敘述；基準驗證全綠；
 `current.json` 仍未 commit，等使用者明確指示（規格 §11.2）。
+
+# N8–N10：期三審查（2026-08-22）的裁決與後續
+
+N2–N5 交回後由 orchestrator 審查。基準驗證全綠、`display-set.json` 未被動、
+`current.json` 未 commit，衛生無問題。以下是審查發現與使用者裁決。
+
+**審查確認的兩個症狀**（使用者先行指出）：
+
+1. **排行榜的分數已不可互相比較。** 八維分數是「該 profile 在該維度碰巧有的 benchmark 的
+   算術平均」，而 `display-set.json` 只是**進主畫面的門檻**、不是計分基準。期二時 active
+   benchmark 24 個、主畫面 12 個模型各用 19–22 個 benchmark，差距 3；期三 active benchmark
+   增為 44 個之後，同樣 12 個模型用的是 20–42 個（Grok 4.6／4.5 為 20，GPT-5.6 Sol 為 42），
+   而且多出來的幾乎全部來自 Vals，等於「有沒有被 Vals 量過」直接決定分數。實測影響：
+   DeepSeek V4 Pro 的 math 由 96.8（2 項）掉到 69.9（3 項，`proofbench` 16 分以同權擠入），
+   overall 66.96 → 62.41；只用 display-set 那 17 項重算的話它會回到第 9 名而不是第 12 名。
+2. **成本圖的來源數不齊。** 預設圖 X 軸的權重只在該模型實際有的來源上重新歸一，31 個上圖
+   模型的來源數分布為 6／5／4／3／2／1 各 6／5／9／4／5／2 個模型；同一張圖上有的點是六來源
+   共識，有的點（`alibaba-qwen3-6-27b`、`alibaba-qwen3-6-plus`）只有單一來源。分數側同樣不齊：
+   `getSourcePerformance` 對 Vals 取「23 個核可榜單中該模型有的列」的平均，而 ARC、DeepSWE、
+   Frontier Code 各只有 1 個 benchmark。
+
+**根因**：門檻與計分基準分離。這個缺陷期二就存在，期三把它從「差 3 項」放大到「差 22 項」。
+
+## 使用者裁決（2026-08-22，審查後）
+
+| 編號 | 裁決                                                                                                                                     |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| R1   | **選定的 benchmark 集合同時是計分基準**，不再只是顯示門檻。同一張表上的每個模型用同一組 benchmark、同樣的項數。                          |
+| R2   | 取捨曲線由使用者從報告挑選，代理不得自行決定 preset 內容。曲線必須比「N 是多少」更細，見 N10。                                           |
+| R3   | 還原 §4.3.1 的完整度保護（N5 曾移除）。N5 要修的實際症狀是詳細面板的呈現缺陷，不是選取規則。                                             |
+| R4   | Zapier 延後採用是使用者在 N2 執行中做的決策，不是代理越權；理由與 R1 同源（各模型有無 Zapier 記錄不一致）。R1 落地後再重新評估是否納入。 |
+| R5   | 需要分開計分的版本或分割，必須給它自己的 benchmark ID，不能只靠 `benchmarkVersion` 區隔。                                                |
+
+`Claude Fable 5.0` 這個 alias 經查只有 Zapier 使用（其餘來源一律寫 `Claude Fable 5` 或既有
+正規化能處理的 slug 形式），Zapier 全列 `EXCLUDED`，故目前無計分影響；補記錄於此，待 Zapier
+採用與否一併處理，不另外還原。
+
+## N8 — 還原 §4.3.1 的完整度保護
+
+狀態：完成
+
+**依據**：R3。
+
+**要求**：
+
+- `selectCurrentResults` 的 `equalStanding` 還原為「`sourceRole` 權重相同**且**
+  `acquisitionStatus` 相同」。
+- 規格 §4.3.1 還原原文並記錄這次還原的理由與實測影響。
+- **不動** `model-detail-panel.tsx` 依貢獻證據 ID 去重的修正——那才是 N5 當時真正該修的東西。
+- **不還原** `benchmarkVersion` 移出選取鍵的改動；該問題改由 N9 用 benchmark ID 解決。
+
+**完成結果（2026-08-22）**：26 筆重複列的現行量測由 Artificial Analysis 換成 Vals AI（同為
+`INDEPENDENT`，Vals 是 `FULL`、AA 是 `PARTIAL_SOURCE`）。144 個 profile 中 15 個 overall 有
+變化，全部下降，最大 −0.43（DeepSeek V4 Pro max、Qwen3.8 27B xhigh），主畫面 12 個模型的
+名次未變。方向符合本節原意：部分快照不因分數好看而翻盤。
+
+## N9 — 需要分開計分的版本改用獨立 benchmark ID
+
+狀態：未開始
+
+**依據**：R5。
+
+**背景**：`benchmarkVersion` 移出選取鍵之後，同一個 benchmark ID 底下不同版本的量測會塌成
+一列，而留下哪一列是由發布時間與 harness 字串決定的，不是設計決定的。實測已經發生：
+
+| benchmark ID   | 版本                        | 期二選取列數 | 期三選取列數 | 後果                                       |
+| -------------- | --------------------------- | -----------: | -----------: | ------------------------------------------ |
+| `frontiermath` | `(null)` 與 `Tier 4`        | 47（23＋24） |           24 | 17 個 profile 留下 Tier 4、7 個留下標準版  |
+| `arc-agi`      | `ARC-AGI-2-v2_Semi_Private` |            — |            — | 目前只有一個分割在線，但 v3 一旦納入即重演 |
+
+FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維度對不同模型採用了不同難度的
+測驗**——正是 R1 要消滅的那類不一致。
+
+**要求**：
+
+- `frontiermath` 的 `Tier 4` 改為獨立 benchmark ID（建議 `frontiermath-tier-4`），維度歸屬
+  沿用 `frontiermath`；Epoch materializer 依版本字串分流，需回歸測試。
+- ARC-AGI 改為以分割命名的 benchmark ID（建議 `arc-agi-2`），`benchmarkVersion` 保留為證據。
+  `view-model.ts` 的 `SOURCE_SCORE_BENCHMARK_IDS['arc-prize']` 與進階圖的 `ARC_AGI` 基準要
+  一併改名，否則進階圖會靜默掉點。
+- 掃過所有來源，列出其餘「同 ID 多版本」的情況並在 validation report 中列表；沒有難度差異
+  的（例如 `gpqa-diamond` 的 `(null)` 與 `1`、`terminal-bench-2-1` 的 `(null)` 與 `2.1`、
+  `swe-bench` 的 `(null)` 與 `1`）維持共用 ID，那是同一個測驗的不同寫法。
+- `arc-agi` 不在 `display-set.json` 中，改名不觸及該檔；若 N10 之後改名會觸及顯示清單，
+  必須先交使用者裁決。
+
+**完成條件**：不存在「同一 benchmark ID 底下難度不同的版本互相覆蓋」的情況；基準驗證全綠。
+
+## N10 — 動態 benchmark 集合（多甜蜜點）
+
+狀態：未開始
+
+**依據**：R1、R2。**前置**：N9 完成。
+
+**背景**：`display-set.json` 目前的說明寫著「Adding a benchmark here never changes a score
+— dimension scores use every available benchmark; this list only decides which profiles
+qualify for the main screen」。R1 推翻的正是這句話。該檔是審核關卡產物，**代理不得修改**；
+說明文字的更新要由使用者執行或明確授權。
+
+**要求**：
+
+- 八維分數改為**只用選定集合內的 benchmark** 計算；被排除的量測仍完整保留在證據面板。
+- 支援多組 preset（多個甜蜜點），每一組是一對自洽的（benchmark 集合, 合格模型集合）。
+  切換 preset 時分數與名次跟著改變是預期行為，不是缺陷；UI 必須明示當前 preset 的
+  benchmark 組成與來源組成。
+- **取捨曲線報告要比「N 是多少」更細**（R2）：
+  - 同一個 N 之下不同的 benchmark 組成會得到不同的模型數，報告必須列出每個 N 的**多個候選
+    子集**，不是只有一個最佳解。
+  - 每個候選子集要標出**來源組成**。「跨來源的 benchmark」（DeepSWE／Frontier Code／ARC／
+    Zapier 各自一個）比「同一來源內的多個 benchmark」更具權威，報告要讓這個差異看得見，
+    並在同分時偏好來源分散度高的子集。
+  - `--require` 目前把 `deepswe-1-1,frontier-code-1-1` 釘成全域必選；改為 preset 的參數，
+    這樣才能回答「拿掉 Frontier Code 能多顯示幾個模型」這類問題。
+- 現行取捨曲線（44 個 active benchmark，釘住 DeepSWE ＋ Frontier Code）的平台如下，可作為
+  preset 候選的起點：N=11 → 17 個模型；N=12 → 16；N=13–18 → 14；N=19–22 → 13；N=23–24 → 12；
+  N=26–31 → 10；全部 8/8 維度。現行 17 項落在 14 那一段（實際主畫面 12 個）。
+- 成本圖同步處理：每個來源投入圖表的「分數」必須有單一且明示的基準（單一 benchmark 或明確
+  子集合），不得再用「該來源所有 INCLUDED 列的平均」這種項數浮動的定義；預設圖也要揭露每個
+  點實際由幾個來源構成。
+
+**完成條件**：同一 preset 下所有顯示模型的 benchmark 項數相同；取捨曲線報告含多候選子集與
+來源組成；成本圖每個點的來源數與分數基準可查。

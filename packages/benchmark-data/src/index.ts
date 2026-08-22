@@ -834,18 +834,25 @@ export const selectCurrentResults = (
     // Two sources publishing the same benchmark for the same profile is a
     // genuine duplicate measurement, and the user's rule for it (2026-08-21) is
     // to take the higher score. Artificial Analysis and Epoch AI both rerun
-    // GPQA Diamond as INDEPENDENT sources, so the choice once fell out of whether their harness strings
-    // happened to differ -- an accident, not a decision.
+    // GPQA Diamond as INDEPENDENT sources, so the choice once fell out of
+    // whether their harness strings happened to differ -- an accident, not a
+    // decision.
     //
-    // The rule is deliberately limited to sources with the same role. A
-    // VENDOR's self-reported number must still lose to an ORGANIZER's. Within
-    // the same role, source-level PARTIAL_SOURCE must not disable the explicit
-    // cross-source maximum rule for an otherwise included benchmark row.
+    // The rule is deliberately limited to sources of equal standing. A VENDOR's
+    // self-reported number must still lose to an ORGANIZER's, and a partial
+    // snapshot must still lose to a full one, however flattering the score.
+    // N5 dropped the completeness half of that test so that AA -- whose site
+    // status is PARTIAL_SOURCE -- could win duplicates on score; the user
+    // restored it on 2026-08-22, because the panel misread it was meant to fix
+    // was a presentation defect, not a selection one.
+    //
     // benchmarkVersion is evidence metadata rather than part of this key:
     // sources often label the same benchmark release differently (or omit it).
+    // Keeping different releases apart is the benchmark ID's job, not this key's.
     const equalStanding =
       SOURCE_ROLE_WEIGHT[result.sourceRole] ===
-      SOURCE_ROLE_WEIGHT[current.sourceRole];
+        SOURCE_ROLE_WEIGHT[current.sourceRole] &&
+      result.acquisitionStatus === current.acquisitionStatus;
 
     if (
       (result.sourceId !== current.sourceId && equalStanding) ||
