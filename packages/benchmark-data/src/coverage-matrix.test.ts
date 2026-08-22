@@ -3,6 +3,9 @@ import { resolve } from 'node:path';
 
 import {
   analyzeCoverageMatrix,
+  compareTradeoffCandidates,
+  compareTradeoffCurves,
+  computeSourceComposition,
   formatCoverageMatrixMarkdown,
   loadWorkspaceCoverageData,
   type CoverageMatrixAnalysis,
@@ -258,13 +261,20 @@ describe('coverage-matrix', () => {
       expect(analysis.activeBenchmarkIds).toEqual(['bench-active']);
       expect(analysis.activeBenchmarkIds).not.toContain('bench-stopped');
       expect(analysis.activeBenchmarkIds).not.toContain('bench-old-only');
+      expect(analysis.benchmarkSources).toEqual({
+        'bench-active': ['active-source'],
+      });
 
       // Assert tradeoff recommendations only contain active benchmarks and qualified models
       expect(analysis.tradeoffs).toHaveLength(1);
-      expect(analysis.tradeoffs[0]?.benchmarkIds).toEqual(['bench-active']);
-      expect(analysis.tradeoffs[0]?.completeModelCount).toBe(2);
+      expect(analysis.tradeoffs[0]?.candidates[0]?.benchmarkIds).toEqual([
+        'bench-active',
+      ]);
+      expect(analysis.tradeoffs[0]?.candidates[0]?.completeModelCount).toBe(2);
       expect(
-        analysis.tradeoffs[0]?.matchingModels.map((m) => m.modelId),
+        analysis.tradeoffs[0]?.candidates[0]?.matchingModels.map(
+          (m) => m.modelId,
+        ),
       ).toEqual(['model-null-date', 'model-recent']);
     });
   });
@@ -460,9 +470,6 @@ describe('coverage-matrix', () => {
         ],
       };
 
-      // m1, m2, m3 have {b1, b2} -> identical mask
-      // m4 has {b1, b2, b3}
-      // m5 has {b3}
       const sourceCandidates: CandidateResult[] = [
         createMockCandidate({
           id: 'c1',
@@ -550,12 +557,6 @@ describe('coverage-matrix', () => {
         referenceDate: '2026-08-20',
       });
 
-      // Verify mask frequency compression
-      // Masks:
-      // b1 (bit 0), b2 (bit 1), b3 (bit 2)
-      // {b1, b2} = mask 3 -> count 3 (m1, m2, m3)
-      // {b1, b2, b3} = mask 7 -> count 1 (m4)
-      // {b3} = mask 4 -> count 1 (m5)
       const mask3 = analysis.maskFrequencies.find((f) => f.mask === 3);
       expect(mask3).toBeDefined();
       expect(mask3?.count).toBe(3);
@@ -563,22 +564,33 @@ describe('coverage-matrix', () => {
 
       // N=1: {b1} or {b2} gives 4 complete models (m1,m2,m3,m4); {b3} gives 2 (m4, m5)
       expect(analysis.tradeoffs[0]?.benchmarkCount).toBe(1);
-      expect(analysis.tradeoffs[0]?.completeModelCount).toBe(4);
+      expect(analysis.tradeoffs[0]?.candidates[0]?.completeModelCount).toBe(4);
 
       // N=2: {b1, b2} gives 4 complete models (m1, m2, m3, m4)
       expect(analysis.tradeoffs[1]?.benchmarkCount).toBe(2);
-      expect(analysis.tradeoffs[1]?.benchmarkIds).toEqual(['b1', 'b2']);
-      expect(analysis.tradeoffs[1]?.completeModelCount).toBe(4);
+      expect(analysis.tradeoffs[1]?.candidates[0]?.benchmarkIds).toEqual([
+        'b1',
+        'b2',
+      ]);
+      expect(analysis.tradeoffs[1]?.candidates[0]?.completeModelCount).toBe(4);
       expect(
-        analysis.tradeoffs[1]?.matchingModels.map((m) => m.modelId),
+        analysis.tradeoffs[1]?.candidates[0]?.matchingModels.map(
+          (m) => m.modelId,
+        ),
       ).toEqual(['m1', 'm2', 'm3', 'm4']);
 
       // N=3: {b1, b2, b3} gives 1 complete model (m4)
       expect(analysis.tradeoffs[2]?.benchmarkCount).toBe(3);
-      expect(analysis.tradeoffs[2]?.benchmarkIds).toEqual(['b1', 'b2', 'b3']);
-      expect(analysis.tradeoffs[2]?.completeModelCount).toBe(1);
+      expect(analysis.tradeoffs[2]?.candidates[0]?.benchmarkIds).toEqual([
+        'b1',
+        'b2',
+        'b3',
+      ]);
+      expect(analysis.tradeoffs[2]?.candidates[0]?.completeModelCount).toBe(1);
       expect(
-        analysis.tradeoffs[2]?.matchingModels.map((m) => m.modelId),
+        analysis.tradeoffs[2]?.candidates[0]?.matchingModels.map(
+          (m) => m.modelId,
+        ),
       ).toEqual(['m4']);
     });
 
@@ -632,12 +644,163 @@ describe('coverage-matrix', () => {
 
       expect(analysis.activeBenchmarkIds).toHaveLength(31);
       expect(analysis.tradeoffs).toHaveLength(31);
-      expect(analysis.tradeoffs[30]).toMatchObject({
-        benchmarkCount: 31,
+      expect(analysis.tradeoffs[30]?.candidates[0]).toMatchObject({
         benchmarkIds,
         completeModelCount: 1,
       });
       expect(analysis.maskFrequencies[0]?.mask).toBe(2 ** 31 - 1);
+    });
+  });
+
+  describe('source composition and ranking order', () => {
+    it('ranks candidate with higher exclusiveSources first when model count and covered dimensions tie', () => {
+      const catalog: ModelCatalog = {
+        schemaVersion: 'model-catalog-v1',
+        models: [
+          {
+            modelId: 'm1',
+            providerId: 'p',
+            displayName: 'M1',
+            releaseDate: '2026-01-01',
+            pricing: [],
+            profilePricing: {},
+          },
+        ],
+      };
+
+      const benchmarkMapping: BenchmarkDimensionMapping = {
+        schemaVersion: 'benchmark-dimensions-v1',
+        dimensions: [...DIMENSION_IDS],
+        benchmarks: [
+          {
+            id: 'b-src1-1',
+            primaryDimension: 'reasoning',
+            secondaryDimensions: [],
+          },
+          {
+            id: 'b-src1-2',
+            primaryDimension: 'reasoning',
+            secondaryDimensions: [],
+          },
+          {
+            id: 'b-src2-1',
+            primaryDimension: 'reasoning',
+            secondaryDimensions: [],
+          },
+        ],
+      };
+
+      // Model m1 has all three benchmarks
+      // b-src1-1 is exclusive to src-1
+      // b-src1-2 is exclusive to src-1
+      // b-src2-1 is exclusive to src-2
+      const sourceCandidates: CandidateResult[] = [
+        createMockCandidate({
+          id: 'c1',
+          sourceId: 'src-1',
+          modelId: 'm1',
+          rawName: 'M1',
+          benchmarkId: 'b-src1-1',
+        }),
+        createMockCandidate({
+          id: 'c2',
+          sourceId: 'src-1',
+          modelId: 'm1',
+          rawName: 'M1',
+          benchmarkId: 'b-src1-2',
+        }),
+        createMockCandidate({
+          id: 'c3',
+          sourceId: 'src-2',
+          modelId: 'm1',
+          rawName: 'M1',
+          benchmarkId: 'b-src2-1',
+        }),
+      ];
+
+      const analysis = analyzeCoverageMatrix({
+        catalog,
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2',
+          qualificationWindowMonths: 12,
+          manualModels: [],
+        },
+        benchmarkMapping,
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['src-1', 'src-2'],
+        sourceCandidates,
+        referenceDate: '2026-08-20',
+        candidatesPerScale: 5,
+      });
+
+      // At N=2:
+      // Subset {b-src1-1, b-src2-1} -> exclusiveSources = 2, maxSourceShare = 0.5
+      // Subset {b-src1-2, b-src2-1} -> exclusiveSources = 2, maxSourceShare = 0.5
+      // Subset {b-src1-1, b-src1-2} -> exclusiveSources = 1, maxSourceShare = 1.0
+      // Subsets with 2 exclusiveSources rank above subset with 1 exclusiveSource
+      const t2 = analysis.tradeoffs.find((t) => t.benchmarkCount === 2);
+      expect(t2).toBeDefined();
+      expect(t2!.candidates.length).toBe(3);
+
+      expect(t2!.candidates[0]!.sourceComposition.exclusiveSources).toBe(2);
+      expect(t2!.candidates[1]!.sourceComposition.exclusiveSources).toBe(2);
+      expect(t2!.candidates[2]!.sourceComposition.exclusiveSources).toBe(1);
+      expect(t2!.candidates[2]!.benchmarkIds).toEqual(['b-src1-1', 'b-src1-2']);
+    });
+
+    it('ranks candidate with lower maxSourceShare first when exclusiveSources also tie', () => {
+      // Comparison between:
+      // a: 2 benchmarks from src-1, 2 from src-2 (excl=2, maxSourceShare=2/4=0.5)
+      // b: 3 benchmarks from src-1, 1 from src-2 (excl=2, maxSourceShare=3/4=0.75)
+      const candA = {
+        completeModelCount: 5,
+        coveredDimensionCount: 8,
+        exclusiveSources: 2,
+        maxSourceShare: 0.5,
+        benchmarkIds: ['b1', 'b2', 'b3', 'b4'],
+      };
+      const candB = {
+        completeModelCount: 5,
+        coveredDimensionCount: 8,
+        exclusiveSources: 2,
+        maxSourceShare: 0.75,
+        benchmarkIds: ['b1', 'b2', 'b3', 'b5'],
+      };
+
+      expect(compareTradeoffCandidates(candA, candB)).toBeLessThan(0);
+      expect(compareTradeoffCandidates(candB, candA)).toBeGreaterThan(0);
+    });
+
+    it('computes source composition metrics correctly', () => {
+      const benchmarkSources: Record<string, string[]> = {
+        b1: ['src-a'],
+        b2: ['src-a'],
+        b3: ['src-b'],
+        b4: ['src-a', 'src-b'], // multi-source (not exclusive)
+      };
+
+      const comp = computeSourceComposition(
+        ['b1', 'b2', 'b3', 'b4'],
+        benchmarkSources,
+        ['src-a', 'src-b'],
+      );
+
+      expect(comp.sourceSpan).toBe(2);
+      expect(comp.exclusiveSources).toBe(2);
+      // exclusive: b1, b2 -> src-a (2); b3 -> src-b (1); max is 2/4 = 0.5
+      expect(comp.maxSourceShare).toBe(0.5);
+      expect(comp.bySource).toEqual([
+        {
+          sourceId: 'src-a',
+          benchmarkCount: 3, // b1, b2, b4
+          exclusiveBenchmarkCount: 2, // b1, b2
+        },
+        {
+          sourceId: 'src-b',
+          benchmarkCount: 2, // b3, b4
+          exclusiveBenchmarkCount: 1, // b3
+        },
+      ]);
     });
   });
 
@@ -699,7 +862,6 @@ describe('coverage-matrix', () => {
         ],
       };
 
-      // Both m1 and m2 have bench-a, bench-b, bench-c
       const sourceCandidates: CandidateResult[] = [
         createMockCandidate({
           id: 'c1',
@@ -760,18 +922,19 @@ describe('coverage-matrix', () => {
       });
 
       // At N=1: all three singletons have 2 models.
-      // bench-a has 1 dimension (reasoning)
-      // bench-b has 3 dimensions (reasoning, math, coding)
-      // bench-c has 3 dimensions (reasoning, math, coding)
       // bench-b and bench-c tie on dimensions (3 > 1).
-      // Lexicographical tie-breaker between bench-b and bench-c: 'bench-b' < 'bench-c' -> bench-b wins!
+      // Lexicographical tie-breaker between bench-b and bench-c: 'bench-b' < 'bench-c' -> bench-b wins candidate #1!
       expect(analysis.tradeoffs[0]?.benchmarkCount).toBe(1);
-      expect(analysis.tradeoffs[0]?.benchmarkIds).toEqual(['bench-b']);
-      expect(analysis.tradeoffs[0]?.coveredDimensionCount).toBe(3);
+      expect(analysis.tradeoffs[0]?.candidates[0]?.benchmarkIds).toEqual([
+        'bench-b',
+      ]);
+      expect(analysis.tradeoffs[0]?.candidates[0]?.coveredDimensionCount).toBe(
+        3,
+      );
     });
   });
 
-  describe('required benchmarks', () => {
+  describe('required benchmarks and no default requirements', () => {
     const build = (required?: string[]) => {
       const catalog: ModelCatalog = {
         schemaVersion: 'model-catalog-v1',
@@ -784,10 +947,6 @@ describe('coverage-matrix', () => {
           profilePricing: {},
         })),
       };
-      // `pinned` is carried by only one model; `wide` by all three. Left free,
-      // the optimum at N=1 picks `wide` and reports three models. Pinning
-      // `pinned` forces the honest answer for the question actually being
-      // asked, which is one model.
       const sourceCandidates = [
         ['m1', 'pinned'],
         ['m1', 'wide'],
@@ -833,41 +992,243 @@ describe('coverage-matrix', () => {
       });
     };
 
-    it('keeps a pinned benchmark in every combination and drops the scales below it', () => {
+    it('has no default requirements and yields empty requiredBenchmarkIds', () => {
       const free = build();
       expect(free.requiredBenchmarkIds).toEqual([]);
-      expect(free.tradeoffs[0]?.benchmarkIds).toEqual(['wide']);
-      expect(free.tradeoffs[0]?.completeModelCount).toBe(3);
+      expect(free.tradeoffs[0]?.candidates[0]?.benchmarkIds).toEqual(['wide']);
+      expect(free.tradeoffs[0]?.candidates[0]?.completeModelCount).toBe(3);
+      // 'pinned' is offered as a lower-ranked alternative, never forced into
+      // every candidate the way an implicit default requirement would force it.
+      expect(
+        free.tradeoffs[0]?.candidates.every((c) =>
+          c.benchmarkIds.includes('pinned'),
+        ),
+      ).toBe(false);
+      expect(
+        free.tradeoffs[0]?.candidates.some((c) =>
+          c.benchmarkIds.includes('pinned'),
+        ),
+      ).toBe(true);
+    });
 
+    it('keeps a pinned benchmark in every combination when requiredBenchmarkIds is passed', () => {
       const pinned = build(['pinned']);
       expect(pinned.requiredBenchmarkIds).toEqual(['pinned']);
       expect(
-        pinned.tradeoffs.every(({ benchmarkIds }) =>
-          benchmarkIds.includes('pinned'),
+        pinned.tradeoffs.every(({ candidates }) =>
+          candidates.every(({ benchmarkIds }) =>
+            benchmarkIds.includes('pinned'),
+          ),
         ),
       ).toBe(true);
-      // No combination of size 1 contains the pin plus anything else, so the
-      // curve starts at N=1 with the pin alone.
-      expect(pinned.tradeoffs[0]?.benchmarkIds).toEqual(['pinned']);
-      expect(pinned.tradeoffs[0]?.completeModelCount).toBe(1);
+      expect(pinned.tradeoffs[0]?.candidates[0]?.benchmarkIds).toEqual([
+        'pinned',
+      ]);
+      expect(pinned.tradeoffs[0]?.candidates[0]?.completeModelCount).toBe(1);
     });
 
     it('throws on a required benchmark that is not active rather than ignoring it', () => {
-      // A typo must not silently produce the unconstrained curve.
       expect(() => build(['deepswe-1-1'])).toThrow(
         /required benchmarks are not active: deepswe-1-1/u,
       );
     });
   });
 
+  describe('candidatesPerScale truncation and validation', () => {
+    it('truncates candidates to candidatesPerScale', () => {
+      const catalog: ModelCatalog = {
+        schemaVersion: 'model-catalog-v1',
+        models: [
+          {
+            modelId: 'm1',
+            providerId: 'p',
+            displayName: 'M1',
+            releaseDate: '2026-01-01',
+            pricing: [],
+            profilePricing: {},
+          },
+        ],
+      };
+
+      const benchmarkIds = ['b1', 'b2', 'b3', 'b4', 'b5'];
+      const benchmarkMapping: BenchmarkDimensionMapping = {
+        schemaVersion: 'benchmark-dimensions-v1',
+        dimensions: [...DIMENSION_IDS],
+        benchmarks: benchmarkIds.map((id) => ({
+          id,
+          primaryDimension: 'reasoning' as const,
+          secondaryDimensions: [],
+        })),
+      };
+
+      const sourceCandidates = benchmarkIds.map((id, index) =>
+        createMockCandidate({
+          id: `c${index}`,
+          sourceId: 's',
+          modelId: 'm1',
+          rawName: 'M1',
+          benchmarkId: id,
+        }),
+      );
+
+      const k = 3;
+      const analysis = analyzeCoverageMatrix({
+        catalog,
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2',
+          qualificationWindowMonths: 12,
+          manualModels: [],
+        },
+        benchmarkMapping,
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['s'],
+        sourceCandidates,
+        referenceDate: '2026-08-20',
+        candidatesPerScale: k,
+      });
+
+      expect(analysis.candidatesPerScale).toBe(3);
+      for (const t of analysis.tradeoffs) {
+        expect(t.candidates.length).toBeLessThanOrEqual(k);
+      }
+
+      // At N=1 there are 5 individual benchmarks; should return exactly 3
+      expect(analysis.tradeoffs[0]?.candidates).toHaveLength(3);
+      expect(
+        analysis.tradeoffs[0]?.candidates.map((c) => c.benchmarkIds),
+      ).toEqual([['b1'], ['b2'], ['b3']]);
+    });
+
+    it('rejects candidatesPerScale < 1 or non-integer', () => {
+      const baseInput = {
+        catalog: { schemaVersion: 'model-catalog-v1' as const, models: [] },
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2' as const,
+          manualModels: [],
+          qualificationWindowMonths: 12,
+        },
+        benchmarkMapping: {
+          schemaVersion: 'benchmark-dimensions-v1' as const,
+          dimensions: [...DIMENSION_IDS],
+          benchmarks: [],
+        },
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['s'],
+        sourceCandidates: [],
+        referenceDate: '2026-08-20',
+      };
+
+      expect(() =>
+        analyzeCoverageMatrix({ ...baseInput, candidatesPerScale: 0 }),
+      ).toThrow(/candidatesPerScale must be an integer >= 1/u);
+
+      expect(() =>
+        analyzeCoverageMatrix({ ...baseInput, candidatesPerScale: -2 }),
+      ).toThrow(/candidatesPerScale must be an integer >= 1/u);
+
+      expect(() =>
+        analyzeCoverageMatrix({ ...baseInput, candidatesPerScale: 2.5 }),
+      ).toThrow(/candidatesPerScale must be an integer >= 1/u);
+    });
+  });
+
+  describe('compareTradeoffCurves', () => {
+    it('compares unconstrained and baseline curves including null cases', () => {
+      const makeAnalysis = (
+        tradeoffs: {
+          benchmarkCount: number;
+          completeModelCount: number;
+        }[],
+      ): CoverageMatrixAnalysis => ({
+        referenceDate: '2026-08-20',
+        qualificationWindowMonths: 12,
+        whitelist: ['s'],
+        activeBenchmarkIds: ['b1', 'b2', 'b3', 'b4'],
+        requiredBenchmarkIds: [],
+        candidatesPerScale: 5,
+        qualifiedModels: [],
+        matrix: [],
+        tradeoffs: tradeoffs.map(({ benchmarkCount, completeModelCount }) => ({
+          benchmarkCount,
+          candidates: [
+            {
+              benchmarkIds: [`b${benchmarkCount}`],
+              completeModelCount,
+              coveredDimensionCount: 1,
+              coveredDimensions: ['reasoning'],
+              matchingModels: [],
+              sourceComposition: {
+                sourceSpan: 1,
+                exclusiveSources: 1,
+                maxSourceShare: 1,
+                bySource: [
+                  {
+                    sourceId: 's',
+                    benchmarkCount: 1,
+                    exclusiveBenchmarkCount: 1,
+                  },
+                ],
+              },
+            },
+          ],
+        })),
+        maskFrequencies: [],
+        benchmarkDimensions: {},
+        benchmarkSources: {},
+      });
+
+      const unconstrained = makeAnalysis([
+        { benchmarkCount: 1, completeModelCount: 10 },
+        { benchmarkCount: 2, completeModelCount: 8 },
+        { benchmarkCount: 3, completeModelCount: 5 },
+      ]);
+
+      const baseline = makeAnalysis([
+        { benchmarkCount: 2, completeModelCount: 7 },
+        { benchmarkCount: 3, completeModelCount: 5 },
+        { benchmarkCount: 4, completeModelCount: 2 },
+      ]);
+
+      const rows = compareTradeoffCurves(unconstrained, baseline);
+
+      expect(rows).toEqual([
+        {
+          benchmarkCount: 1,
+          unconstrainedCompleteModelCount: 10,
+          baselineCompleteModelCount: null,
+          deltaVsSourceCompleteBaseline: null,
+        },
+        {
+          benchmarkCount: 2,
+          unconstrainedCompleteModelCount: 8,
+          baselineCompleteModelCount: 7,
+          deltaVsSourceCompleteBaseline: 1,
+        },
+        {
+          benchmarkCount: 3,
+          unconstrainedCompleteModelCount: 5,
+          baselineCompleteModelCount: 5,
+          deltaVsSourceCompleteBaseline: 0,
+        },
+        {
+          benchmarkCount: 4,
+          unconstrainedCompleteModelCount: null,
+          baselineCompleteModelCount: 2,
+          deltaVsSourceCompleteBaseline: null,
+        },
+      ]);
+    });
+  });
+
   describe('formatCoverageMatrixMarkdown', () => {
-    it('produces valid markdown with required sections and model lists', () => {
+    it('produces valid markdown with definitions, disclosure, and candidate details', () => {
       const mockAnalysis: CoverageMatrixAnalysis = {
         referenceDate: '2026-08-20',
         qualificationWindowMonths: 12,
         whitelist: ['source-1'],
         activeBenchmarkIds: ['bench-x', 'bench-y'],
         requiredBenchmarkIds: [],
+        candidatesPerScale: 5,
         qualifiedModels: [
           { modelId: 'model-1', displayName: 'Model 1' },
           { modelId: 'model-2', displayName: 'Model 2' },
@@ -891,22 +1252,56 @@ describe('coverage-matrix', () => {
         tradeoffs: [
           {
             benchmarkCount: 1,
-            benchmarkIds: ['bench-x'],
-            completeModelCount: 2,
-            coveredDimensionCount: 1,
-            coveredDimensions: ['reasoning'],
-            matchingModels: [
-              { modelId: 'model-1', displayName: 'Model 1' },
-              { modelId: 'model-2', displayName: 'Model 2' },
+            candidates: [
+              {
+                benchmarkIds: ['bench-x'],
+                completeModelCount: 2,
+                coveredDimensionCount: 1,
+                coveredDimensions: ['reasoning'],
+                matchingModels: [
+                  { modelId: 'model-1', displayName: 'Model 1' },
+                  { modelId: 'model-2', displayName: 'Model 2' },
+                ],
+                sourceComposition: {
+                  sourceSpan: 1,
+                  exclusiveSources: 1,
+                  maxSourceShare: 1,
+                  bySource: [
+                    {
+                      sourceId: 'source-1',
+                      benchmarkCount: 1,
+                      exclusiveBenchmarkCount: 1,
+                    },
+                  ],
+                },
+              },
             ],
           },
           {
             benchmarkCount: 2,
-            benchmarkIds: ['bench-x', 'bench-y'],
-            completeModelCount: 1,
-            coveredDimensionCount: 2,
-            coveredDimensions: ['reasoning', 'coding'],
-            matchingModels: [{ modelId: 'model-1', displayName: 'Model 1' }],
+            candidates: [
+              {
+                benchmarkIds: ['bench-x', 'bench-y'],
+                completeModelCount: 1,
+                coveredDimensionCount: 2,
+                coveredDimensions: ['reasoning', 'coding'],
+                matchingModels: [
+                  { modelId: 'model-1', displayName: 'Model 1' },
+                ],
+                sourceComposition: {
+                  sourceSpan: 1,
+                  exclusiveSources: 1,
+                  maxSourceShare: 1,
+                  bySource: [
+                    {
+                      sourceId: 'source-1',
+                      benchmarkCount: 2,
+                      exclusiveBenchmarkCount: 2,
+                    },
+                  ],
+                },
+              },
+            ],
           },
         ],
         maskFrequencies: [
@@ -925,54 +1320,141 @@ describe('coverage-matrix', () => {
             allDimensions: ['coding'],
           },
         },
+        benchmarkSources: {
+          'bench-x': ['source-1'],
+          'bench-y': ['source-1'],
+        },
       };
 
       const markdown = formatCoverageMatrixMarkdown(mockAnalysis);
 
       expect(markdown).toContain('# Coverage Matrix Report');
-      expect(markdown).toContain('## 1. Tradeoff Curve');
+      expect(markdown).toContain('## Definitions');
+      expect(markdown).toContain('`sourceSpan`');
+      expect(markdown).toContain('`exclusiveSources`');
+      expect(markdown).toContain('`maxSourceShare`');
+      expect(markdown).toContain('`deltaVsSourceCompleteBaseline`');
+      expect(markdown).toContain('Search & Pruning Disclosure');
+      expect(markdown).toContain('## 1. Tradeoff Curve (Unconstrained)');
       expect(markdown).toContain('## 2. Tradeoff Combination Model Details');
       expect(markdown).toContain(
         '## 3. Qualified Model × Active Benchmark Presence Matrix',
       );
-      expect(markdown).toContain('### Scale N = 1 (2 complete models)');
-      expect(markdown).toContain('### Scale N = 2 (1 complete models)');
-      expect(markdown).toContain('`model-1` (Model 1)');
-      expect(markdown).toContain('`model-2` (Model 2)');
+      expect(markdown).toContain(
+        '### Scale N = 1, Candidate #1 (2 complete models)',
+      );
+      expect(markdown).toContain(
+        '### Scale N = 2, Candidate #1 (1 complete models)',
+      );
+      expect(markdown).toContain('`model-1`');
+      expect(markdown).toContain('`model-2`');
+      expect(markdown).toContain('`source-1` 1 (1 exclusive)');
       expect(markdown).toContain(
         '| Model | Model ID | Total | `bench-x` | `bench-y` |',
       );
       expect(markdown).toContain('**Total Models Covered**');
     });
+
+    it('renders comparison and baseline sections when baseline is provided', () => {
+      const mockAnalysis: CoverageMatrixAnalysis = {
+        referenceDate: '2026-08-20',
+        qualificationWindowMonths: 12,
+        whitelist: ['source-1'],
+        activeBenchmarkIds: ['bench-x', 'bench-y'],
+        requiredBenchmarkIds: [],
+        candidatesPerScale: 5,
+        qualifiedModels: [{ modelId: 'model-1', displayName: 'Model 1' }],
+        matrix: [],
+        tradeoffs: [
+          {
+            benchmarkCount: 1,
+            candidates: [
+              {
+                benchmarkIds: ['bench-x'],
+                completeModelCount: 1,
+                coveredDimensionCount: 1,
+                coveredDimensions: ['reasoning'],
+                matchingModels: [
+                  { modelId: 'model-1', displayName: 'Model 1' },
+                ],
+                sourceComposition: {
+                  sourceSpan: 1,
+                  exclusiveSources: 1,
+                  maxSourceShare: 1,
+                  bySource: [
+                    {
+                      sourceId: 'source-1',
+                      benchmarkCount: 1,
+                      exclusiveBenchmarkCount: 1,
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
+        maskFrequencies: [],
+        benchmarkDimensions: {},
+        benchmarkSources: { 'bench-x': ['source-1'] },
+      };
+
+      const baselineAnalysis: CoverageMatrixAnalysis = {
+        ...mockAnalysis,
+        requiredBenchmarkIds: ['bench-x'],
+      };
+
+      const markdown = formatCoverageMatrixMarkdown(mockAnalysis, {
+        baseline: baselineAnalysis,
+      });
+
+      expect(markdown).toContain(
+        '## 2. Curve Comparison (Unconstrained vs. Baseline)',
+      );
+      expect(markdown).toContain('## 3. Baseline Tradeoff Curve (`bench-x`)');
+      expect(markdown).toContain('## 4. Unconstrained Candidate Details');
+      expect(markdown).toContain('## 5. Baseline Candidate Details');
+      expect(markdown).toContain(
+        '## 6. Qualified Model × Active Benchmark Presence Matrix',
+      );
+    });
   });
 
   describe('CLI arguments parser and workspace loader', () => {
-    it('parses various CLI argument formats', () => {
+    it('parses various CLI argument formats including candidates', () => {
       const opts1 = parseReportArgs([
         '--reference-date',
         '2026-08-20',
         '--out',
         'out.md',
+        '--candidates',
+        '3',
       ]);
       expect(opts1.referenceDate).toBe('2026-08-20');
       expect(opts1.outputPath).toBe('out.md');
+      expect(opts1.candidatesPerScale).toBe(3);
 
       const opts2 = parseReportArgs([
         '--reference-date=2026-07-01',
         '--root=/path/to/repo',
+        '--candidates=7',
       ]);
       expect(opts2.referenceDate).toBe('2026-07-01');
       expect(opts2.repositoryRoot).toBe('/path/to/repo');
+      expect(opts2.candidatesPerScale).toBe(7);
 
       const opts3 = parseReportArgs([
         '/positional/repo/root',
         '-d',
         '2026-05-15',
+        '-k',
+        '2',
       ]);
       expect(opts3.repositoryRoot).toBe('/positional/repo/root');
       expect(opts3.referenceDate).toBe('2026-05-15');
+      expect(opts3.candidatesPerScale).toBe(2);
 
       expect(parseReportArgs([]).requiredBenchmarkIds).toBeUndefined();
+      expect(parseReportArgs([]).candidatesPerScale).toBeUndefined();
       expect(
         parseReportArgs(['--require=deepswe-1-1, frontier-code-1-1'])
           .requiredBenchmarkIds,
@@ -981,8 +1463,25 @@ describe('coverage-matrix', () => {
         parseReportArgs(['--require', 'deepswe-1-1', '--require', 'bench-x'])
           .requiredBenchmarkIds,
       ).toEqual(['deepswe-1-1', 'bench-x']);
+
+      // Error cases for invalid --candidates
+      expect(() => parseReportArgs(['--candidates=0'])).toThrow(
+        /Invalid value for --candidates: 0/u,
+      );
+      expect(() => parseReportArgs(['--candidates=-1'])).toThrow(
+        /Invalid value for --candidates: -1/u,
+      );
+      expect(() => parseReportArgs(['--candidates', 'abc'])).toThrow(
+        /Invalid value for --candidates: abc/u,
+      );
+      expect(() => parseReportArgs(['--candidates=1.5'])).toThrow(
+        /Invalid value for --candidates: 1.5/u,
+      );
     });
 
+    // The real matrix is 45 active benchmarks x 53 qualified models. The DP is
+    // measured at ~1.9s / 333MB with k = 1 and ~10.5s / 1.1GB with k = 5, so the
+    // smoke test pins k = 1; k-truncation is covered by the fixtures above.
     it('loads workspace data and runs report on current repo', async () => {
       const repoRoot = resolve(import.meta.dirname, '../../..');
       const data = await loadWorkspaceCoverageData(repoRoot);
@@ -1003,6 +1502,7 @@ describe('coverage-matrix', () => {
       const analysis = analyzeCoverageMatrix({
         ...data,
         referenceDate: '2026-08-20',
+        candidatesPerScale: 1,
       });
 
       expect(analysis.qualifiedModels.length).toBeGreaterThan(0);
@@ -1011,11 +1511,18 @@ describe('coverage-matrix', () => {
         analysis.activeBenchmarkIds.length,
       );
       expect(analysis.matrix.length).toBe(analysis.qualifiedModels.length);
+      expect(Object.keys(analysis.benchmarkSources).length).toBe(
+        analysis.activeBenchmarkIds.length,
+      );
 
-      // Verify every tradeoff row has a non-empty list of matching models
+      // Verify every tradeoff row has candidates with matching models
       for (const t of analysis.tradeoffs) {
-        expect(t.completeModelCount).toBe(t.matchingModels.length);
+        expect(t.candidates.length).toBeGreaterThan(0);
+        for (const cand of t.candidates) {
+          expect(cand.completeModelCount).toBe(cand.matchingModels.length);
+          expect(cand.sourceComposition.sourceSpan).toBeGreaterThan(0);
+        }
       }
-    });
+    }, 60_000);
   });
 });

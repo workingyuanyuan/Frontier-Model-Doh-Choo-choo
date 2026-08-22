@@ -342,15 +342,34 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 候選相對「來源齊全基準」的模型數增減，讓「大幅」與否可被判讀。同時報告每個 N 要列出**多個
 候選子集**並標明**來源組成**，不能只給一個最佳解。實作見 N10a。
 
-下段是 R7 之前的做法，保留為沿革：
-
-**必選 benchmark（2026-08-22 新增，已由 R7 取代）**：報告接受 `--require`，把指定的 benchmark 釘進每一個候選組合。未加約束時最佳化可以靠**移除整個來源**來衝高模型數——實例是 2026-08-22 的 N=17，它把 `frontier-code-1-1` 拿掉才到 15 個模型。使用者已裁決 `deepswe-1-1` 與 `frontier-code-1-1` 是必要來源，因此期二之後的審核用：
+**指令介面（N10a 實作後）**：主曲線一律無約束，`--require` 只決定並列的**基準曲線**。同一次
+執行產出兩條曲線與一張逐 N 的模型數對照表；不給 `--require` 就只輸出無約束曲線。
 
 ```bash
+# 無約束曲線（預設，每個 N 給 5 個候選）
+pnpm report:coverage-matrix
+
+# 無約束曲線 ＋ 來源齊全基準曲線 ＋ 兩者的逐 N 模型數對照（審核用）
 pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
+
+# 調整每個 N 的候選數
+pnpm report:coverage-matrix -- --candidates=3 --require=deepswe-1-1,frontier-code-1-1
 ```
 
-不是 active benchmark 的 ID 會讓命令失敗，不會被靜默忽略。
+`--candidates` 預設 5，必須是 ≥ 1 的整數。不是 active benchmark 的 `--require` ID 會讓命令
+失敗，不會被靜默忽略。候選排序為：完整模型數 ↓ → 維度覆蓋數 ↓ → `exclusiveSources` ↓ →
+`maxSourceShare` ↑ → `benchmarkIds` 字典序 ↑。
+
+**精度限制（報告本文亦有揭露）**：DP 以 `(模型支援 bitmask, 維度 bitmask)` 為鍵，每個鍵只保留
+前 k 個狀態，因此結果是**每個（鍵, N）的前 k 佳**，不是每個 N 的全域前 k 佳。鍵相同的子集對後續
+擴充等價，但來源組成可能不同，剪枝時會丟掉其中一些。要恢復全域精確性必須把 `exclusiveSources`
+併入 DP 鍵，那是記憶體與精確度的取捨，需使用者裁決後才可實作。
+
+下段是 R7 之前的做法，保留為沿革：
+
+**必選 benchmark（2026-08-22 新增，已由 R7 取代）**：報告接受 `--require`，把指定的 benchmark 釘進每一個候選組合。未加約束時最佳化可以靠**移除整個來源**來衝高模型數——實例是 2026-08-22 的 N=17，它把 `frontier-code-1-1` 拿掉才到 15 個模型。使用者已裁決 `deepswe-1-1` 與 `frontier-code-1-1` 是必要來源，因此期二之後的審核以
+`--require=deepswe-1-1,frontier-code-1-1` 執行。R7 之後這個旗標仍在，但語意改為「基準曲線」，
+不再約束主曲線。
 
 ### 5.4 開發者模式
 

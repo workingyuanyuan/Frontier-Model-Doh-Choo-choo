@@ -15,8 +15,9 @@ export interface ReportCoverageMatrixCliOptions {
   repositoryRoot?: string;
   referenceDate?: string;
   outputPath?: string;
+  candidatesPerScale?: number;
   /**
-   * Benchmarks every combination in the curve must contain, from repeated
+   * Benchmarks every combination in the baseline curve must contain, from repeated
    * `--require <id>` flags or one comma-separated `--require=a,b`.
    */
   requiredBenchmarkIds?: string[];
@@ -55,6 +56,23 @@ export const parseReportArgs = (
       options.outputPath = arg.slice('--output='.length);
     } else if (arg.startsWith('--out=')) {
       options.outputPath = arg.slice('--out='.length);
+    } else if (arg === '--candidates' || arg === '-k') {
+      const next = args[++i];
+      if (!next) {
+        throw new Error(`Missing value for ${arg}`);
+      }
+      const parsed = Number(next);
+      if (!Number.isInteger(parsed) || parsed < 1) {
+        throw new Error(`Invalid value for ${arg}: ${next}`);
+      }
+      options.candidatesPerScale = parsed;
+    } else if (arg.startsWith('--candidates=')) {
+      const val = arg.slice('--candidates='.length);
+      const parsed = Number(val);
+      if (!Number.isInteger(parsed) || parsed < 1) {
+        throw new Error(`Invalid value for --candidates: ${val}`);
+      }
+      options.candidatesPerScale = parsed;
     } else if (arg === '--require') {
       const next = args[++i];
       if (!next) {
@@ -106,6 +124,7 @@ export const generateCoverageMatrixReport = async (
   options: ReportCoverageMatrixCliOptions = {},
 ): Promise<{
   analysis: CoverageMatrixAnalysis;
+  baseline?: CoverageMatrixAnalysis | undefined;
   markdown: string;
   outputPath: string;
 }> => {
@@ -122,13 +141,26 @@ export const generateCoverageMatrixReport = async (
   const analysis = analyzeCoverageMatrix({
     ...workspaceData,
     referenceDate,
-    ...(options.requiredBenchmarkIds
-      ? { requiredBenchmarkIds: options.requiredBenchmarkIds }
+    ...(options.candidatesPerScale !== undefined
+      ? { candidatesPerScale: options.candidatesPerScale }
       : {}),
+    requiredBenchmarkIds: [],
   });
 
+  let baseline: CoverageMatrixAnalysis | undefined;
+  if (options.requiredBenchmarkIds && options.requiredBenchmarkIds.length > 0) {
+    baseline = analyzeCoverageMatrix({
+      ...workspaceData,
+      referenceDate,
+      ...(options.candidatesPerScale !== undefined
+        ? { candidatesPerScale: options.candidatesPerScale }
+        : {}),
+      requiredBenchmarkIds: options.requiredBenchmarkIds,
+    });
+  }
+
   const markdown = await formatWithPrettier(
-    formatCoverageMatrixMarkdown(analysis),
+    formatCoverageMatrixMarkdown(analysis, baseline ? { baseline } : undefined),
     {
       parser: 'markdown',
       endOfLine: 'lf',
@@ -137,24 +169,34 @@ export const generateCoverageMatrixReport = async (
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, markdown, 'utf8');
 
-  return { analysis, markdown, outputPath };
+  return { analysis, baseline, markdown, outputPath };
 };
 
 export const runReportCoverageMatrixCli = async (
   args: string[],
 ): Promise<string> => {
   const options = parseReportArgs(args);
-  const { analysis, outputPath } = await generateCoverageMatrixReport(options);
+  const { analysis, baseline, outputPath } =
+    await generateCoverageMatrixReport(options);
 
-  return [
+  const lines = [
     `Coverage matrix report generated successfully:`,
     `- Output: ${outputPath}`,
     `- Reference Date: ${analysis.referenceDate}`,
     `- Qualified Models: ${analysis.qualifiedModels.length}`,
     `- Active Benchmarks: ${analysis.activeBenchmarkIds.length}`,
-    `- Required Benchmarks: ${analysis.requiredBenchmarkIds.length === 0 ? 'none' : analysis.requiredBenchmarkIds.join(', ')}`,
-    `- Tradeoff Scale Rows: ${analysis.tradeoffs.length}`,
-  ].join('\n');
+    `- Candidates Per Scale: ${analysis.candidatesPerScale}`,
+    `- Unconstrained Tradeoff Scale Rows: ${analysis.tradeoffs.length}`,
+  ];
+
+  if (baseline) {
+    lines.push(
+      `- Baseline Required Benchmarks: ${baseline.requiredBenchmarkIds.join(', ')}`,
+      `- Baseline Tradeoff Scale Rows: ${baseline.tradeoffs.length}`,
+    );
+  }
+
+  return lines.join('\n');
 };
 
 const invokedPath = process.argv[1] ? resolve(process.argv[1]) : null;

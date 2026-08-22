@@ -2151,3 +2151,79 @@ qualify for the main screen」。R1 推翻的正是這句話。該檔是審核�
 
 **完成條件**：同一 preset 下所有顯示模型的 benchmark 項數相同；取捨曲線報告含多候選子集與
 來源組成；成本圖每個點的來源數與分數基準可查。
+
+### N10a — 取捨曲線報告：多候選子集、來源組成、無釘死 requirement
+
+狀態：完成
+
+**依據**：R2、R7。
+
+**做了什麼**
+
+1. `benchmarkSources: Record<string, string[]>` 上到 `CoverageMatrixAnalysis`，用來判定
+   exclusive benchmark（只有單一白名單來源能提供）。
+2. 新增 `SourceCompositionEntry` / `SourceComposition`，指標為 `sourceSpan`、
+   `exclusiveSources`、`maxSourceShare`（＝單一來源獨佔數 ÷ N），並在報告本文先定義後使用。
+3. `TradeoffResult` 改為 `{ benchmarkCount, candidates: TradeoffCandidate[] }`，每個 N 給
+   多個候選；`candidatesPerScale` 預設 5，CLI 為 `--candidates=<k>`（`< 1` 或非整數拋錯）。
+4. 排序統一走 `compareTradeoffCandidates`：完整模型數 ↓ → 維度覆蓋數 ↓ →
+   `exclusiveSources` ↓ → `maxSourceShare` ↑ → `benchmarkIds` 字典序 ↑。DP 內外共用同一個
+   比較器，不會漂移。
+5. DP `retain()` 由每鍵 1 個改為每鍵 k 個；來源組成以 `sourceSpanMask` 與 `exclusiveCounts`
+   在轉移時**增量**攜帶，不在排序時回頭重算。DP 鍵維持
+   `(supportMask, dimensionMask)` 不變。
+6. `--require` 語意改為只約束**基準曲線**；主曲線一律無約束。`generateCoverageMatrixReport`
+   跑兩次 analyze，`formatCoverageMatrixMarkdown(analysis, { baseline })` 同時輸出兩條曲線，
+   加上純函式 `compareTradeoffCurves` 產生逐 N 的模型數對照表。無 `--require` 時只輸出無約束
+   曲線，不留空章節。
+7. 報告本文揭露 DP 剪枝的精度限制（每個（鍵, N）的前 k 佳，不是每個 N 的全域前 k 佳）。
+
+**指令**
+
+```bash
+# 無約束曲線
+pnpm report:coverage-matrix
+
+# 無約束 ＋ 來源齊全基準 ＋ 逐 N 對照（審核用）
+pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
+
+# 調整候選數
+pnpm report:coverage-matrix -- --candidates=3 --require=deepswe-1-1,frontier-code-1-1
+```
+
+**量測（reference date 2026-08-22，45 個 active benchmark、53 個合格模型）**
+
+| 項目                                   | 數值                               |
+| -------------------------------------- | ---------------------------------- |
+| DP 峰值狀態數（現行鍵，k=5）           | 511,569                            |
+| DP 耗時（k=5）                         | 10.5 s                             |
+| 記憶體（k=5）                          | heapUsed 936 MB／RSS 1,157 MB      |
+| DP 耗時／記憶體（k=1）                 | 1.9 s／heapUsed 333 MB、RSS 530 MB |
+| 報告總耗時（兩次 analyze ＋ prettier） | 14.7 s                             |
+| 報告大小                               | 3,635 行／664 KB                   |
+
+**若把 `exclusiveSources` 併入 DP 鍵（可恢復全域精確性）——已量測，未實作**：峰值狀態數
+1,129,460（2.21×）、耗時 24.4 s（2.33×）、heapUsed 2,509 MB／RSS 2,763 MB（2.68×）。
+可行但代價明確，**是否採用需使用者裁決**，代理不得自行改。
+
+**來源集中度（本任務量測，供挑 preset 用）**：45 個 active benchmark 中 42 個只有單一來源。
+獨佔數 vals-ai 20、artificial-analysis 10、epoch-ai 5、livebench 4，arc-prize／deepswe／
+frontier-code 各 1；`zapier-automationbench` 目前 84 列全部 EXCLUDED，對現行資料貢獻為零。
+跨來源可互相印證的只有 `gpqa-diamond`、`swe-bench`、`terminal-bench-2-1`。
+
+**無約束 vs 來源齊全基準（完整模型數，節錄）**
+
+| $N$ | 無約束 | 基準 | $\Delta$ |
+| --: | -----: | ---: | -------: |
+|  12 |     27 |   16 |      +11 |
+|  15 |     26 |   14 |      +12 |
+|  17 |     24 |   14 |      +10 |
+|  20 |     20 |   13 |       +7 |
+|  25 |     16 |   11 |       +5 |
+|  30 |     12 |   10 |       +2 |
+|  35 |      6 |    6 |        0 |
+
+完整對照表在 `docs/COVERAGE_MATRIX_REPORT.md` §2。R7 的「大幅」與否由使用者判讀，報告不定義門檻。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（261 項全綠）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e` 全綠。
