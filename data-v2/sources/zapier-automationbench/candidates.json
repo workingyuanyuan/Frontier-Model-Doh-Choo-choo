@@ -7,9 +7,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-fable-5-0-high-rank-18:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -17,12 +17,12 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-high",
       "rawName": "Claude Fable 5.0 (High)"
     },
     "normalizedScore": 16.13,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -64,9 +64,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-fable-5-0-low-rank-30:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -74,12 +74,12 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-low",
       "rawName": "Claude Fable 5.0 (Low)"
     },
     "normalizedScore": 12.48,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -121,9 +121,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-fable-5-0-max-rank-12:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -131,12 +131,12 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max",
       "rawName": "Claude Fable 5.0 (Max)"
     },
     "normalizedScore": 17.05,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -178,9 +178,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-fable-5-0-medium-rank-24:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -188,12 +188,12 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-medium",
       "rawName": "Claude Fable 5.0 (Medium)"
     },
     "normalizedScore": 13.7,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -235,9 +235,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-fable-5-0-xhigh-rank-20:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -245,12 +245,12 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "Claude Fable 5.0 (XHigh)"
     },
     "normalizedScore": 15.22,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -292,9 +292,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-haiku-4-5-rank-79:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -307,7 +307,7 @@
       "rawName": "Claude Haiku 4.5"
     },
     "normalizedScore": 0.46,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -349,9 +349,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-7-high-rank-39:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -364,7 +364,7 @@
       "rawName": "Claude Opus 4.7 (High)"
     },
     "normalizedScore": 9.13,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -406,9 +406,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-7-low-rank-52:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -421,7 +421,7 @@
       "rawName": "Claude Opus 4.7 (Low)"
     },
     "normalizedScore": 5.48,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -463,9 +463,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-7-max-rank-27:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -478,7 +478,7 @@
       "rawName": "Claude Opus 4.7 (Max)"
     },
     "normalizedScore": 13.39,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -520,9 +520,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-7-medium-rank-48:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -535,7 +535,7 @@
       "rawName": "Claude Opus 4.7 (Medium)"
     },
     "normalizedScore": 6.85,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -577,9 +577,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-7-xhigh-rank-38:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -592,7 +592,7 @@
       "rawName": "Claude Opus 4.7 (XHigh)"
     },
     "normalizedScore": 9.74,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -634,9 +634,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-8-high-rank-17:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -649,7 +649,7 @@
       "rawName": "Claude Opus 4.8 (High)"
     },
     "normalizedScore": 16.13,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -691,9 +691,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-8-low-rank-25:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -706,7 +706,7 @@
       "rawName": "Claude Opus 4.8 (Low)"
     },
     "normalizedScore": 13.55,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -748,9 +748,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-8-max-rank-16:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -763,7 +763,7 @@
       "rawName": "Claude Opus 4.8 (Max)"
     },
     "normalizedScore": 16.44,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -805,9 +805,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-8-medium-rank-23:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -820,7 +820,7 @@
       "rawName": "Claude Opus 4.8 (Medium)"
     },
     "normalizedScore": 14,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -862,9 +862,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-4-8-xhigh-rank-13:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -877,7 +877,7 @@
       "rawName": "Claude Opus 4.8 (XHigh)"
     },
     "normalizedScore": 16.89,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -919,9 +919,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-5-high-rank-7:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -934,7 +934,7 @@
       "rawName": "Claude Opus 5 (High)"
     },
     "normalizedScore": 20.55,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -976,9 +976,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-5-low-rank-8:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -991,7 +991,7 @@
       "rawName": "Claude Opus 5 (Low)"
     },
     "normalizedScore": 20.4,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1033,9 +1033,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-5-max-rank-2:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1048,7 +1048,7 @@
       "rawName": "Claude Opus 5 (Max)"
     },
     "normalizedScore": 26.94,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1090,9 +1090,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-5-medium-rank-4:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1105,7 +1105,7 @@
       "rawName": "Claude Opus 5 (Medium)"
     },
     "normalizedScore": 23.9,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1147,9 +1147,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-opus-5-xhigh-rank-3:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1162,7 +1162,7 @@
       "rawName": "Claude Opus 5 (XHigh)"
     },
     "normalizedScore": 25.27,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1204,9 +1204,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-4-6-high-rank-56:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1219,7 +1219,7 @@
       "rawName": "Claude Sonnet 4.6 (High)"
     },
     "normalizedScore": 5.02,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1261,9 +1261,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-4-6-low-rank-69:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1276,7 +1276,7 @@
       "rawName": "Claude Sonnet 4.6 (Low)"
     },
     "normalizedScore": 2.89,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1318,9 +1318,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-4-6-max-rank-54:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1333,7 +1333,7 @@
       "rawName": "Claude Sonnet 4.6 (Max)"
     },
     "normalizedScore": 5.33,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1375,9 +1375,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-4-6-medium-rank-65:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1390,7 +1390,7 @@
       "rawName": "Claude Sonnet 4.6 (Medium)"
     },
     "normalizedScore": 3.65,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1432,9 +1432,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-5-high-rank-37:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1447,7 +1447,7 @@
       "rawName": "Claude Sonnet 5 (High)"
     },
     "normalizedScore": 9.89,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1489,9 +1489,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-5-low-rank-64:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1504,7 +1504,7 @@
       "rawName": "Claude Sonnet 5 (Low)"
     },
     "normalizedScore": 3.65,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1546,9 +1546,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-5-max-rank-35:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1561,7 +1561,7 @@
       "rawName": "Claude Sonnet 5 (Max)"
     },
     "normalizedScore": 10.65,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1603,9 +1603,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-5-medium-rank-50:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1618,7 +1618,7 @@
       "rawName": "Claude Sonnet 5 (Medium)"
     },
     "normalizedScore": 5.78,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1660,9 +1660,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:claude-sonnet-5-xhigh-rank-46:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1675,7 +1675,7 @@
       "rawName": "Claude Sonnet 5 (XHigh)"
     },
     "normalizedScore": 7.61,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1717,9 +1717,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:deepseek-v4-flash-max-rank-10:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1732,7 +1732,7 @@
       "rawName": "Deepseek v4 Flash (Max)"
     },
     "normalizedScore": 18.11,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1774,9 +1774,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-1-pro-preview-high-rank-43:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1789,7 +1789,7 @@
       "rawName": "Gemini 3.1 Pro (preview) (High)"
     },
     "normalizedScore": 8.68,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1831,9 +1831,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-1-pro-preview-low-rank-58:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1846,7 +1846,7 @@
       "rawName": "Gemini 3.1 Pro (preview) (Low)"
     },
     "normalizedScore": 4.57,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1888,9 +1888,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-1-pro-preview-medium-rank-47:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1903,7 +1903,7 @@
       "rawName": "Gemini 3.1 Pro (preview) (Medium)"
     },
     "normalizedScore": 7,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1945,9 +1945,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-high-rank-26:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -1960,7 +1960,7 @@
       "rawName": "Gemini 3.5 Flash (High)"
     },
     "normalizedScore": 13.39,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2002,9 +2002,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-lite-high-rank-66:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2017,7 +2017,7 @@
       "rawName": "Gemini 3.5 Flash Lite (High)"
     },
     "normalizedScore": 3.35,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2059,9 +2059,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-lite-low-rank-84:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2074,7 +2074,7 @@
       "rawName": "Gemini 3.5 Flash Lite (Low)"
     },
     "normalizedScore": 0,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2116,9 +2116,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-lite-medium-rank-62:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2131,7 +2131,7 @@
       "rawName": "Gemini 3.5 Flash Lite (Medium)"
     },
     "normalizedScore": 3.96,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2173,9 +2173,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-low-rank-40:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2188,7 +2188,7 @@
       "rawName": "Gemini 3.5 Flash (Low)"
     },
     "normalizedScore": 8.98,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2230,9 +2230,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-medium-rank-32:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2245,7 +2245,7 @@
       "rawName": "Gemini 3.5 Flash (Medium)"
     },
     "normalizedScore": 11.42,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2287,7 +2287,7 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": "Zapier published both Minimal and Low labels for this model; minimal cannot represent low.",
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review. Zapier published both Minimal and Low labels for this model; minimal cannot represent low.",
     "id": "zapier-automationbench:automationbench:gemini-3-5-flash-minimal-rank-75:1-0-6",
     "inclusion": "EXCLUDED",
     "metric": {
@@ -2302,7 +2302,7 @@
       "rawName": "Gemini 3.5 Flash (Minimal)"
     },
     "normalizedScore": 1.22,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2344,9 +2344,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-6-flash-high-rank-11:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2359,7 +2359,7 @@
       "rawName": "Gemini 3.6 Flash (High)"
     },
     "normalizedScore": 17.05,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2401,9 +2401,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-6-flash-low-rank-19:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2416,7 +2416,7 @@
       "rawName": "Gemini 3.6 Flash (Low)"
     },
     "normalizedScore": 15.68,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2458,9 +2458,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-6-flash-medium-rank-15:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2473,7 +2473,7 @@
       "rawName": "Gemini 3.6 Flash (Medium)"
     },
     "normalizedScore": 16.44,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2515,9 +2515,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemini-3-7-flash-high-rank-1:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2530,7 +2530,7 @@
       "rawName": "Gemini 3.7 Flash (High)"
     },
     "normalizedScore": 30.44,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2572,9 +2572,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gemma-4-31b-max-rank-72:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2587,7 +2587,7 @@
       "rawName": "Gemma 4 31B (Max)"
     },
     "normalizedScore": 1.7,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2629,9 +2629,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:glm-5-1-max-rank-49:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2644,7 +2644,7 @@
       "rawName": "GLM 5.1 (Max)"
     },
     "normalizedScore": 6.2,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2686,9 +2686,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:glm-5-2-max-rank-45:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2701,7 +2701,7 @@
       "rawName": "GLM 5.2 (Max)"
     },
     "normalizedScore": 7.76,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2743,9 +2743,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-4-high-rank-36:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2758,7 +2758,7 @@
       "rawName": "GPT-5.4 (High)"
     },
     "normalizedScore": 10.05,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2800,9 +2800,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-4-low-rank-74:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2815,7 +2815,7 @@
       "rawName": "GPT-5.4 (Low)"
     },
     "normalizedScore": 1.52,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2857,9 +2857,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-4-medium-rank-53:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2872,7 +2872,7 @@
       "rawName": "GPT-5.4 (Medium)"
     },
     "normalizedScore": 5.33,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2914,9 +2914,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-4-rank-83:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2929,7 +2929,7 @@
       "rawName": "GPT-5.4"
     },
     "normalizedScore": 0.15,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2971,9 +2971,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-4-xhigh-rank-31:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -2986,7 +2986,7 @@
       "rawName": "GPT-5.4 (XHigh)"
     },
     "normalizedScore": 11.57,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3028,9 +3028,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-5-high-rank-29:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3043,7 +3043,7 @@
       "rawName": "GPT-5.5 (High)"
     },
     "normalizedScore": 12.79,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3085,9 +3085,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-5-low-rank-71:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3100,7 +3100,7 @@
       "rawName": "GPT-5.5 (Low)"
     },
     "normalizedScore": 2.59,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3142,9 +3142,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-5-medium-rank-41:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3157,7 +3157,7 @@
       "rawName": "GPT-5.5 (Medium)"
     },
     "normalizedScore": 8.98,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3199,9 +3199,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-5-rank-76:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3214,7 +3214,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 1.07,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3256,9 +3256,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-5-xhigh-rank-14:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3271,7 +3271,7 @@
       "rawName": "GPT-5.5 (XHigh)"
     },
     "normalizedScore": 16.59,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3313,9 +3313,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-luna-high-rank-51:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3328,7 +3328,7 @@
       "rawName": "GPT-5.6 Luna (High)"
     },
     "normalizedScore": 5.48,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3370,9 +3370,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-luna-low-rank-78:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3385,7 +3385,7 @@
       "rawName": "GPT-5.6 Luna (Low)"
     },
     "normalizedScore": 0.46,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3427,9 +3427,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-luna-max-rank-28:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3442,7 +3442,7 @@
       "rawName": "GPT-5.6 Luna (Max)"
     },
     "normalizedScore": 13.24,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3484,9 +3484,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-luna-medium-rank-73:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3499,7 +3499,7 @@
       "rawName": "GPT-5.6 Luna (Medium)"
     },
     "normalizedScore": 1.67,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3541,9 +3541,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-luna-rank-82:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3556,7 +3556,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 0.15,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3598,9 +3598,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-luna-xhigh-rank-44:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3613,7 +3613,7 @@
       "rawName": "GPT-5.6 Luna (XHigh)"
     },
     "normalizedScore": 8.07,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3655,9 +3655,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-sol-high-rank-21:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3670,7 +3670,7 @@
       "rawName": "GPT-5.6 Sol (High)"
     },
     "normalizedScore": 14.76,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3712,9 +3712,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-sol-low-rank-59:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3727,7 +3727,7 @@
       "rawName": "GPT-5.6 Sol (Low)"
     },
     "normalizedScore": 4.41,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3769,9 +3769,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-sol-max-rank-9:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3784,7 +3784,7 @@
       "rawName": "GPT-5.6 Sol (Max)"
     },
     "normalizedScore": 19.63,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3826,9 +3826,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-sol-medium-rank-33:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3841,7 +3841,7 @@
       "rawName": "GPT-5.6 Sol (Medium)"
     },
     "normalizedScore": 11.11,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3883,9 +3883,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-sol-rank-68:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3898,7 +3898,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 2.89,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3940,9 +3940,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-sol-xhigh-rank-22:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -3955,7 +3955,7 @@
       "rawName": "GPT-5.6 Sol (XHigh)"
     },
     "normalizedScore": 14.46,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3997,9 +3997,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-terra-high-rank-42:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4012,7 +4012,7 @@
       "rawName": "GPT-5.6 Terra (High)"
     },
     "normalizedScore": 8.68,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4054,9 +4054,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-terra-low-rank-55:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4069,7 +4069,7 @@
       "rawName": "GPT-5.6 Terra (Low)"
     },
     "normalizedScore": 5.18,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4111,9 +4111,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-terra-max-rank-6:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4126,7 +4126,7 @@
       "rawName": "GPT-5.6 Terra (Max)"
     },
     "normalizedScore": 21,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4168,9 +4168,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-terra-medium-rank-61:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4183,7 +4183,7 @@
       "rawName": "GPT-5.6 Terra (Medium)"
     },
     "normalizedScore": 4.11,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4225,9 +4225,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-terra-rank-77:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4240,7 +4240,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 0.61,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4282,9 +4282,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-5-6-terra-xhigh-rank-34:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4297,7 +4297,7 @@
       "rawName": "GPT-5.6 Terra (XHigh)"
     },
     "normalizedScore": 11.11,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4339,9 +4339,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:gpt-oss-120b-high-rank-81:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4354,7 +4354,7 @@
       "rawName": "GPT-OSS 120B (High)"
     },
     "normalizedScore": 0.15,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4396,9 +4396,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:kimi-k2-6-rank-70:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4411,7 +4411,7 @@
       "rawName": "Kimi K2.6"
     },
     "normalizedScore": 2.59,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4453,9 +4453,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:kimi-k2-7-code-rank-67:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4468,7 +4468,7 @@
       "rawName": "Kimi K2.7 Code"
     },
     "normalizedScore": 3.2,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4510,9 +4510,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:kimi-k3-rank-5:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4525,7 +4525,7 @@
       "rawName": "Kimi K3"
     },
     "normalizedScore": 22.68,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4567,9 +4567,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:minimax-m2-7-high-rank-80:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4582,7 +4582,7 @@
       "rawName": "Minimax M2.7 (High)"
     },
     "normalizedScore": 0.46,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4624,9 +4624,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:minimax-m3-max-rank-57:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4639,7 +4639,7 @@
       "rawName": "Minimax M3 (Max)"
     },
     "normalizedScore": 4.87,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4681,9 +4681,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:qwen-3-6-high-rank-60:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4696,7 +4696,7 @@
       "rawName": "Qwen 3.6+ (High)"
     },
     "normalizedScore": 4.3,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4738,9 +4738,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:automationbench:qwen-3-7-rank-63:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "metric": {
       "higherIsBetter": true,
       "id": "task-completed-correctly",
@@ -4753,7 +4753,7 @@
       "rawName": "Qwen 3.7+"
     },
     "normalizedScore": 3.7,
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,

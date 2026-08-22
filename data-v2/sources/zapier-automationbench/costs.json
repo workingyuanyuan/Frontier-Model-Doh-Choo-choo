@@ -9,18 +9,18 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-high-rank-18:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-high",
       "rawName": "Claude Fable 5.0 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -54,18 +54,18 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-low-rank-30:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-low",
       "rawName": "Claude Fable 5.0 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -99,18 +99,18 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-max-rank-12:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-max",
       "rawName": "Claude Fable 5.0 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -144,18 +144,18 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-medium-rank-24:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-medium",
       "rawName": "Claude Fable 5.0 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -189,18 +189,18 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-xhigh-rank-20:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "Claude Fable 5.0 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -234,9 +234,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-haiku-4-5-rank-79:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -245,7 +245,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -279,9 +279,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-high-rank-39:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -290,7 +290,7 @@
       "profileId": "anthropic-claude-opus-4-7-high",
       "rawName": "Claude Opus 4.7 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -324,9 +324,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-low-rank-52:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -335,7 +335,7 @@
       "profileId": "anthropic-claude-opus-4-7-low",
       "rawName": "Claude Opus 4.7 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -369,9 +369,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-max-rank-27:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -380,7 +380,7 @@
       "profileId": "anthropic-claude-opus-4-7-max",
       "rawName": "Claude Opus 4.7 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -414,9 +414,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-medium-rank-48:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -425,7 +425,7 @@
       "profileId": "anthropic-claude-opus-4-7-medium",
       "rawName": "Claude Opus 4.7 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -459,9 +459,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-xhigh-rank-38:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -470,7 +470,7 @@
       "profileId": "anthropic-claude-opus-4-7-xhigh",
       "rawName": "Claude Opus 4.7 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -504,9 +504,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-high-rank-17:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -515,7 +515,7 @@
       "profileId": "anthropic-claude-opus-4-8-high",
       "rawName": "Claude Opus 4.8 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -549,9 +549,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-low-rank-25:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -560,7 +560,7 @@
       "profileId": "anthropic-claude-opus-4-8-low",
       "rawName": "Claude Opus 4.8 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -594,9 +594,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-max-rank-16:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -605,7 +605,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "Claude Opus 4.8 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -639,9 +639,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-medium-rank-23:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -650,7 +650,7 @@
       "profileId": "anthropic-claude-opus-4-8-medium",
       "rawName": "Claude Opus 4.8 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -684,9 +684,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-xhigh-rank-13:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -695,7 +695,7 @@
       "profileId": "anthropic-claude-opus-4-8-xhigh",
       "rawName": "Claude Opus 4.8 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -729,9 +729,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-5-high-rank-7:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -740,7 +740,7 @@
       "profileId": "anthropic-claude-opus-5-high",
       "rawName": "Claude Opus 5 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -774,9 +774,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-5-low-rank-8:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -785,7 +785,7 @@
       "profileId": "anthropic-claude-opus-5-low",
       "rawName": "Claude Opus 5 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -819,9 +819,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-5-max-rank-2:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -830,7 +830,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "Claude Opus 5 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -864,9 +864,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-5-medium-rank-4:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -875,7 +875,7 @@
       "profileId": "anthropic-claude-opus-5-medium",
       "rawName": "Claude Opus 5 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -909,9 +909,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-opus-5-xhigh-rank-3:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -920,7 +920,7 @@
       "profileId": "anthropic-claude-opus-5-xhigh",
       "rawName": "Claude Opus 5 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -954,9 +954,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-high-rank-56:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -965,7 +965,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-high",
       "rawName": "Claude Sonnet 4.6 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -999,9 +999,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-low-rank-69:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1010,7 +1010,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-low",
       "rawName": "Claude Sonnet 4.6 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1044,9 +1044,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-max-rank-54:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1055,7 +1055,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-max",
       "rawName": "Claude Sonnet 4.6 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1089,9 +1089,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-medium-rank-65:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1100,7 +1100,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-medium",
       "rawName": "Claude Sonnet 4.6 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1134,9 +1134,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-high-rank-37:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1145,7 +1145,7 @@
       "profileId": "anthropic-claude-sonnet-5-high",
       "rawName": "Claude Sonnet 5 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1179,9 +1179,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-low-rank-64:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1190,7 +1190,7 @@
       "profileId": "anthropic-claude-sonnet-5-low",
       "rawName": "Claude Sonnet 5 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1224,9 +1224,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-max-rank-35:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1235,7 +1235,7 @@
       "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "Claude Sonnet 5 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1269,9 +1269,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-medium-rank-50:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1280,7 +1280,7 @@
       "profileId": "anthropic-claude-sonnet-5-medium",
       "rawName": "Claude Sonnet 5 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1314,9 +1314,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-xhigh-rank-46:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1325,7 +1325,7 @@
       "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "Claude Sonnet 5 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1359,9 +1359,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-high-rank-43:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1370,7 +1370,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1404,9 +1404,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-low-rank-58:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1415,7 +1415,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1449,9 +1449,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-medium-rank-47:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1460,7 +1460,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1494,9 +1494,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-high-rank-26:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1505,7 +1505,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "Gemini 3.5 Flash (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1539,9 +1539,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-high-rank-66:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1550,7 +1550,7 @@
       "profileId": "google-gemini-3-5-flash-lite-high",
       "rawName": "Gemini 3.5 Flash Lite (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1584,9 +1584,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-low-rank-84:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1595,7 +1595,7 @@
       "profileId": "google-gemini-3-5-flash-lite-low",
       "rawName": "Gemini 3.5 Flash Lite (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1629,9 +1629,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-medium-rank-62:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1640,7 +1640,7 @@
       "profileId": "google-gemini-3-5-flash-lite-medium",
       "rawName": "Gemini 3.5 Flash Lite (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1674,9 +1674,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-low-rank-40:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1685,7 +1685,7 @@
       "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1719,9 +1719,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-medium-rank-32:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1730,7 +1730,7 @@
       "profileId": "google-gemini-3-5-flash-medium",
       "rawName": "Gemini 3.5 Flash (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1764,7 +1764,7 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": "Zapier published both Minimal and Low labels for this model; minimal cannot represent low.",
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review. Zapier published both Minimal and Low labels for this model; minimal cannot represent low.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-minimal-rank-75:1-0-6",
     "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
@@ -1775,7 +1775,7 @@
       "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Minimal)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1809,9 +1809,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-high-rank-11:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1820,7 +1820,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "Gemini 3.6 Flash (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1854,9 +1854,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-low-rank-19:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1865,7 +1865,7 @@
       "profileId": "google-gemini-3-6-flash-low",
       "rawName": "Gemini 3.6 Flash (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1899,9 +1899,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-medium-rank-15:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1910,7 +1910,7 @@
       "profileId": "google-gemini-3-6-flash-medium",
       "rawName": "Gemini 3.6 Flash (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1944,9 +1944,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gemini-3-7-flash-high-rank-1:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -1955,7 +1955,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "Gemini 3.7 Flash (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1989,9 +1989,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:glm-5-1-max-rank-49:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2000,7 +2000,7 @@
       "profileId": "zai-glm-5-1-max",
       "rawName": "GLM 5.1 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2034,9 +2034,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:glm-5-2-max-rank-45:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2045,7 +2045,7 @@
       "profileId": "zai-glm-5-2-max",
       "rawName": "GLM 5.2 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2079,9 +2079,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-4-high-rank-36:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2090,7 +2090,7 @@
       "profileId": "openai-gpt-5-4-high",
       "rawName": "GPT-5.4 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2124,9 +2124,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-4-low-rank-74:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2135,7 +2135,7 @@
       "profileId": "openai-gpt-5-4-low",
       "rawName": "GPT-5.4 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2169,9 +2169,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-4-medium-rank-53:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2180,7 +2180,7 @@
       "profileId": "openai-gpt-5-4-medium",
       "rawName": "GPT-5.4 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2214,9 +2214,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-4-rank-83:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2225,7 +2225,7 @@
       "profileId": null,
       "rawName": "GPT-5.4"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2259,9 +2259,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-4-xhigh-rank-31:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2270,7 +2270,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "GPT-5.4 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2304,9 +2304,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-5-high-rank-29:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2315,7 +2315,7 @@
       "profileId": "openai-gpt-5-5-high",
       "rawName": "GPT-5.5 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2349,9 +2349,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-5-low-rank-71:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2360,7 +2360,7 @@
       "profileId": "openai-gpt-5-5-low",
       "rawName": "GPT-5.5 (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2394,9 +2394,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-5-medium-rank-41:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2405,7 +2405,7 @@
       "profileId": "openai-gpt-5-5-medium",
       "rawName": "GPT-5.5 (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2439,9 +2439,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-5-rank-76:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2450,7 +2450,7 @@
       "profileId": null,
       "rawName": "GPT-5.5"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2484,9 +2484,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-5-xhigh-rank-14:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2495,7 +2495,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "GPT-5.5 (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2529,9 +2529,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-high-rank-51:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2540,7 +2540,7 @@
       "profileId": "openai-gpt-5-6-luna-high",
       "rawName": "GPT-5.6 Luna (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2574,9 +2574,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-low-rank-78:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2585,7 +2585,7 @@
       "profileId": "openai-gpt-5-6-luna-low",
       "rawName": "GPT-5.6 Luna (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2619,9 +2619,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-max-rank-28:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2630,7 +2630,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "GPT-5.6 Luna (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2664,9 +2664,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-medium-rank-73:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2675,7 +2675,7 @@
       "profileId": "openai-gpt-5-6-luna-medium",
       "rawName": "GPT-5.6 Luna (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2709,9 +2709,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-rank-82:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2720,7 +2720,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Luna"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2754,9 +2754,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-xhigh-rank-44:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2765,7 +2765,7 @@
       "profileId": "openai-gpt-5-6-luna-xhigh",
       "rawName": "GPT-5.6 Luna (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2799,9 +2799,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-high-rank-21:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2810,7 +2810,7 @@
       "profileId": "openai-gpt-5-6-sol-high",
       "rawName": "GPT-5.6 Sol (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2844,9 +2844,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-low-rank-59:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2855,7 +2855,7 @@
       "profileId": "openai-gpt-5-6-sol-low",
       "rawName": "GPT-5.6 Sol (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2889,9 +2889,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-max-rank-9:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2900,7 +2900,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "GPT-5.6 Sol (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2934,9 +2934,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-medium-rank-33:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2945,7 +2945,7 @@
       "profileId": "openai-gpt-5-6-sol-medium",
       "rawName": "GPT-5.6 Sol (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2979,9 +2979,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-rank-68:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -2990,7 +2990,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Sol"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3024,9 +3024,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-xhigh-rank-22:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3035,7 +3035,7 @@
       "profileId": "openai-gpt-5-6-sol-xhigh",
       "rawName": "GPT-5.6 Sol (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3069,9 +3069,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-high-rank-42:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3080,7 +3080,7 @@
       "profileId": "openai-gpt-5-6-terra-high",
       "rawName": "GPT-5.6 Terra (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3114,9 +3114,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-low-rank-55:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3125,7 +3125,7 @@
       "profileId": "openai-gpt-5-6-terra-low",
       "rawName": "GPT-5.6 Terra (Low)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3159,9 +3159,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-max-rank-6:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3170,7 +3170,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "GPT-5.6 Terra (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3204,9 +3204,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-medium-rank-61:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3215,7 +3215,7 @@
       "profileId": "openai-gpt-5-6-terra-medium",
       "rawName": "GPT-5.6 Terra (Medium)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3249,9 +3249,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-rank-77:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3260,7 +3260,7 @@
       "profileId": null,
       "rawName": "GPT-5.6 Terra"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3294,9 +3294,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-xhigh-rank-34:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3305,7 +3305,7 @@
       "profileId": "openai-gpt-5-6-terra-xhigh",
       "rawName": "GPT-5.6 Terra (XHigh)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3339,9 +3339,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:gpt-oss-120b-high-rank-81:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3350,7 +3350,7 @@
       "profileId": null,
       "rawName": "GPT-OSS 120B (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3384,9 +3384,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:kimi-k2-6-rank-70:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3395,7 +3395,7 @@
       "profileId": null,
       "rawName": "Kimi K2.6"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3429,9 +3429,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:kimi-k2-7-code-rank-67:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3440,7 +3440,7 @@
       "profileId": null,
       "rawName": "Kimi K2.7 Code"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3474,9 +3474,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:kimi-k3-rank-5:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3485,7 +3485,7 @@
       "profileId": null,
       "rawName": "Kimi K3"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3519,9 +3519,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:minimax-m2-7-high-rank-80:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3530,7 +3530,7 @@
       "profileId": null,
       "rawName": "Minimax M2.7 (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3564,9 +3564,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:minimax-m3-max-rank-57:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3575,7 +3575,7 @@
       "profileId": "minimax-minimax-m3-max",
       "rawName": "Minimax M3 (Max)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3609,9 +3609,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:qwen-3-6-high-rank-60:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3620,7 +3620,7 @@
       "profileId": null,
       "rawName": "Qwen 3.6+ (High)"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3654,9 +3654,9 @@
       "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
       "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
     ],
-    "exclusionReason": null,
+    "exclusionReason": "Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.",
     "id": "zapier-automationbench:cost-per-task:qwen-3-7-rank-63:1-0-6",
-    "inclusion": "INCLUDED",
+    "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
@@ -3665,7 +3665,7 @@
       "profileId": null,
       "rawName": "Qwen 3.7+"
     },
-    "observedAt": "2026-08-22T07:29:27.593Z",
+    "observedAt": "2026-08-22T09:13:22.151Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,

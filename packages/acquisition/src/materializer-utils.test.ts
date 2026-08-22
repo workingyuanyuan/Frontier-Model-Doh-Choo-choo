@@ -39,6 +39,12 @@ describe('materializer utilities', () => {
     expect(normalizeSourceEffort('0.99')).toBeNull();
     expect(normalizeSourceEffort('none')).toBeNull();
   });
+
+  it('resolves the Zapier Fable 5.0 label through its reviewed catalog alias', () => {
+    expect(resolveCatalogModel('Claude Fable 5.0').canonicalModelId).toBe(
+      'anthropic-claude-fable-5',
+    );
+  });
 });
 
 describe('parseEffort on comma-separated parentheticals', () => {

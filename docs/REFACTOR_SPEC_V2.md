@@ -447,7 +447,8 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
   頁面明示排行榜的 `Cost / task` 仍採標準牌價，因此成本保存為 `0.61`。原始字串 `$0.61*`
   與完整註腳必須保留在出處／validation report 中；促銷價 `$0.30` 不得取代排行榜量測成本。
   `$0.09†` 的註腳明示它是專用部署定價，不能直接與其他列的按 token API 成本比較，因此該列
-  的分數照常保存與計分，但不產生 CostRecord；原始字串與註腳同樣保留供查核。
+  的分數值照常保存在 CandidateResult，但不產生 CostRecord；是否計分另受 §9.7 的來源採用
+  裁決控制，目前為 `EXCLUDED`。原始字串與註腳同樣保留供查核。
 
 **軸的縮放規則**（2026-08-21 補定）
 
@@ -764,6 +765,14 @@ leaderboard 頁面仍以 `DOM` 方法擷取存證，供 §11.4 抽查清單指�
 
 **身分解析只走 catalog 與精確 alias。** 未解析列保持 `canonicalModelId: null` 與
 `profileId: null`，完整名稱清單及「未解析列數／相異名稱數」分開寫進 validation report。
+
+**2026-08-22 N2 複審裁決：暫不採用 Zapier 來源。** 84 列分數及可比較的成本資料照常擷取、
+保存與驗證，但 CandidateResult 與 CostRecord 一律標為 `EXCLUDED`；不得投入八維能力分數、
+Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench 在修正 Claude Fable 5.0 的
+精確 alias 後仍只覆蓋現行 12 個主畫面模型中的 9 個；若列入完整性門檻，主畫面會由 12 個降至
+9 個（Grok 4.6、DeepSeek V4 Pro、Grok 4.5 退出），若只計分不設門檻，則又會形成 9 個模型被
+加入低分項、3 個模型完全不受影響的不對稱。Zapier 是否正式納入來源，延至 N 階段全部完成後
+另行討論；在新裁決前不得自動 promote。
 
 ## 10. 不可跨越的邊界
 

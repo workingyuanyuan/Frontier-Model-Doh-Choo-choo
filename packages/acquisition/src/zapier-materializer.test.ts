@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 import {
+  ZAPIER_ADOPTION_PENDING_REASON,
   ZAPIER_ROUTE_FEATURE,
   extractZapierModuleUrls,
   findZapierRouteModule,
@@ -125,12 +126,23 @@ describe('Zapier AutomationBench materializer', () => {
     expect(gemini37.normalizedScore).toBe(30.44);
     expect(gemini37.profile.effort).toBe('high');
     expect(gemini37.provenance.cost?.locator).toContain('$0.61*');
+    expect(gemini37.inclusion).toBe('EXCLUDED');
+    expect(gemini37.exclusionReason).toBe(ZAPIER_ADOPTION_PENDING_REASON);
 
     const starredCost = result.costs.find(
       ({ model }) => model.rawName === 'Gemini 3.7 Flash (High)',
     )!;
     expect(starredCost.cost).toBe(0.61);
     expect(starredCost.provenance.cost?.locator).toContain('$0.61*');
+    expect(starredCost.inclusion).toBe('EXCLUDED');
+    expect(starredCost.exclusionReason).toBe(ZAPIER_ADOPTION_PENDING_REASON);
+
+    expect(
+      result.candidates.every(({ inclusion }) => inclusion === 'EXCLUDED'),
+    ).toBe(true);
+    expect(
+      result.costs.every(({ inclusion }) => inclusion === 'EXCLUDED'),
+    ).toBe(true);
 
     expect(
       result.costs.find(({ model }) => model.rawName === 'Gemma 4 31B (Max)'),
@@ -158,7 +170,8 @@ describe('Zapier AutomationBench materializer', () => {
     expect(minimal.inclusion).toBe('EXCLUDED');
     expect(minimal.exclusionReason).toContain('both Minimal and Low');
     expect(minimalCost.inclusion).toBe('EXCLUDED');
-    expect(low.inclusion).toBe('INCLUDED');
+    expect(low.inclusion).toBe('EXCLUDED');
+    expect(low.exclusionReason).toBe(ZAPIER_ADOPTION_PENDING_REASON);
   });
 
   it('reports row counts separately from distinct unresolved names and lists exclusions', () => {
@@ -170,5 +183,7 @@ describe('Zapier AutomationBench materializer', () => {
     expect(result.validationReport).toContain('## Excluded rows');
     expect(result.validationReport).toContain('Gemini 3.5 Flash (Minimal)');
     expect(result.validationReport).toContain('$0.09†');
+    expect(result.validationReport).toContain('## Adoption status');
+    expect(result.validationReport).toContain('after the N phase is complete');
   });
 });

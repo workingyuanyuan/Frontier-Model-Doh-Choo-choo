@@ -5,6 +5,7 @@
       "modelId": "anthropic-claude-fable-5",
       "providerId": "anthropic",
       "displayName": "Claude Fable 5",
+      "aliases": ["Claude Fable 5.0"],
       "releaseDate": "2026-06-09",
       "pricing": [],
       "profilePricing": {}

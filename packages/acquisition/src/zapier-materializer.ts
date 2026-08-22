@@ -16,6 +16,8 @@ export const ZAPIER_SOURCE_ID = 'zapier-automationbench';
 export const ZAPIER_PAGE_URL = 'https://zapier.com/benchmarks';
 export const ZAPIER_BENCHMARK_ID = 'automationbench';
 export const ZAPIER_ROUTE_FEATURE = 'task_completed_correctly';
+export const ZAPIER_ADOPTION_PENDING_REASON =
+  'Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.';
 
 export const ZAPIER_PROMO_NOTE =
   '*Gemini 3.7 Flash launch promo: $0.30 / task through Dec 31, 2026 ($0.75 in / $3.75 out per MTok). Ranking and Cost / task reflect standard list pricing; the promo is noted but does not affect rank.';
@@ -267,6 +269,11 @@ interface ParsedEntry {
   low: boolean;
 }
 
+const appendExclusionReason = (
+  current: string | null,
+  additional: string,
+): string => (current ? `${current} ${additional}` : additional);
+
 export function materializeZapier(
   moduleText: string,
   context: MaterializeZapierContext,
@@ -290,11 +297,13 @@ export function materializeZapier(
     const profileId = profileIdFor(canonicalModelId, effort.effort);
     if (canonicalModelId === null) unresolvedModels.add(row.model);
 
-    let inclusion: 'INCLUDED' | 'EXCLUDED' = 'INCLUDED';
-    let exclusionReason: string | null = null;
+    const inclusion = 'EXCLUDED' as const;
+    let exclusionReason: string | null = ZAPIER_ADOPTION_PENDING_REASON;
     if (canonicalModelId !== null && !effort.recognized) {
-      inclusion = 'EXCLUDED';
-      exclusionReason = `Unrecognised configuration segment ${JSON.stringify(trailingSegment(row.model))} has not been reviewed as an effort tier.`;
+      exclusionReason = appendExclusionReason(
+        exclusionReason,
+        `Unrecognised configuration segment ${JSON.stringify(trailingSegment(row.model))} has not been reviewed as an effort tier.`,
+      );
     }
 
     const model = { rawName: row.model, canonicalModelId, profileId };
@@ -409,10 +418,16 @@ export function materializeZapier(
         const reason =
           'Zapier published both Minimal and Low labels for this model; minimal cannot represent low.';
         entry.candidate.inclusion = 'EXCLUDED';
-        entry.candidate.exclusionReason = reason;
+        entry.candidate.exclusionReason = appendExclusionReason(
+          entry.candidate.exclusionReason,
+          reason,
+        );
         if (entry.cost) {
           entry.cost.inclusion = 'EXCLUDED';
-          entry.cost.exclusionReason = reason;
+          entry.cost.exclusionReason = appendExclusionReason(
+            entry.cost.exclusionReason,
+            reason,
+          );
         }
       }
     }
@@ -435,6 +450,13 @@ export function materializeZapier(
   const excluded = candidates.filter(
     ({ inclusion }) => inclusion === 'EXCLUDED',
   );
+  const excludedReasonGroups = new Map<string, string[]>();
+  for (const candidate of excluded) {
+    const reason = candidate.exclusionReason ?? 'No exclusion reason recorded.';
+    const names = excludedReasonGroups.get(reason) ?? [];
+    names.push(candidate.model.rawName);
+    excludedReasonGroups.set(reason, names);
+  }
   const missingCostRowsCount = parsed.rows.filter(
     ({ rawCost }) => parseZapierCost(rawCost).kind === 'MISSING',
   ).length;
@@ -469,6 +491,7 @@ export function materializeZapier(
     `| Canonically unresolved rows | ${unresolvedRowsCount} |`,
     `| Distinct canonically unresolved names | ${unresolved.length} |`,
     `| Excluded candidate rows | ${excluded.length} |`,
+    `| Excluded cost records | ${costs.filter(({ inclusion }) => inclusion === 'EXCLUDED').length} |`,
     '',
     '## Benchmark contract and visible comparison',
     '',
@@ -476,6 +499,12 @@ export function materializeZapier(
     `- Required content feature: \`${ZAPIER_ROUTE_FEATURE}\`. The route module is selected by content, never by its deployment hash.`,
     `- Visible comparison: maximum rank ${Math.max(...parsed.rows.map(({ rank }) => rank))} equals ${candidates.length} parsed rows.`,
     `- Headline metric: API-mode \`${ZAPIER_ROUTE_FEATURE}\` (strict pass/fail). \`partial_credit\` is diagnostic-only and is not materialized.`,
+    '',
+    '## Adoption status',
+    '',
+    `- User ruling 2026-08-22: ${ZAPIER_ADOPTION_PENDING_REASON}`,
+    '- All parsed scores and comparable costs remain in the source artifacts as EXCLUDED records. They do not affect capability dimensions, Overall Score, leaderboard eligibility, ranking, or cost charts.',
+    '- Revisit whether to adopt the Zapier source only after the N phase is complete.',
     '',
     '## Cost policy',
     '',
@@ -489,11 +518,11 @@ export function materializeZapier(
     ...(excluded.length === 0
       ? ['- None', '']
       : [
-          '| Model | Reason |',
-          '|---|---|',
-          ...excluded.map(
-            ({ model, exclusionReason }) =>
-              `| ${model.rawName} | ${exclusionReason} |`,
+          '| Reason | Rows | Examples |',
+          '|---|---:|---|',
+          ...[...excludedReasonGroups.entries()].map(
+            ([reason, names]) =>
+              `| ${reason} | ${names.length} | ${names.slice(0, 5).join('; ')}${names.length > 5 ? '; …' : ''} |`,
           ),
           '',
         ]),

@@ -24,6 +24,7 @@ export interface ModelDetailPanelProps {
           dimension: DimensionId;
           score: number | null;
         }>;
+        evidenceResultIds?: string[];
       }
     | undefined;
   displaySet?: DisplaySet | null | undefined;
@@ -65,6 +66,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'apex-agents': 'APEX-Agents',
   'gdpval-aa': 'GDPval-AA',
   ifbench: 'IFBench',
+  automationbench: 'AutomationBench',
 };
 
 export const getSourceDisplayName = (sourceId: string): string => {
@@ -79,6 +81,8 @@ export const getSourceDisplayName = (sourceId: string): string => {
       return 'Frontier Code';
     case 'epoch-ai':
       return 'Epoch AI';
+    case 'zapier-automationbench':
+      return 'zapier';
     default:
       return sourceId;
   }
@@ -124,11 +128,29 @@ export function ModelDetailPanel({
 
   const evidenceByBenchmark = useMemo(() => {
     const map = new Map<string, ProductEvidence>();
+    const contributingEvidenceIds = new Set(
+      selectedResult?.evidenceResultIds ?? [],
+    );
     profileEvidence.forEach((e) => {
-      map.set(e.benchmarkId, e);
+      const current = map.get(e.benchmarkId);
+      if (!current) {
+        map.set(e.benchmarkId, e);
+        return;
+      }
+
+      const currentContributes = contributingEvidenceIds.has(current.id);
+      const candidateContributes = contributingEvidenceIds.has(e.id);
+      if (
+        (candidateContributes && !currentContributes) ||
+        (candidateContributes === currentContributes &&
+          (e.normalizedScore ?? Number.NEGATIVE_INFINITY) >
+            (current.normalizedScore ?? Number.NEGATIVE_INFINITY))
+      ) {
+        map.set(e.benchmarkId, e);
+      }
     });
     return map;
-  }, [profileEvidence]);
+  }, [profileEvidence, selectedResult?.evidenceResultIds]);
 
   const dimensionScoreMap = useMemo(() => {
     const map = new Map<DimensionId, number | null>();

@@ -116,4 +116,54 @@ describe('ModelDetailPanel (Task E1)', () => {
       'aria-label="View provenance for Terminal-Bench 2.1"',
     );
   });
+
+  it('shows the selected AutomationBench contributor instead of a duplicate unlabelled effort row', () => {
+    const profile = productFixture.profiles.find(
+      (p) => p.id === 'openai-gpt-5-6-sol-max',
+    )!;
+    const explicitMax = {
+      ...productFixture.evidence[0]!,
+      id: 'zapier:sol:max',
+      sourceId: 'zapier-automationbench',
+      benchmarkId: 'automationbench',
+      normalizedScore: 19.63,
+      rawScore: 19.63,
+      metric: {
+        id: 'task-completed-correctly',
+        name: 'task_completed_correctly',
+        unit: 'percent',
+        higherIsBetter: true,
+      },
+    };
+    const unlabelled = {
+      ...explicitMax,
+      id: 'zapier:sol:unlabelled',
+      normalizedScore: 2.89,
+      rawScore: 2.89,
+    };
+    const product = {
+      ...productFixture,
+      evidence: [...productFixture.evidence, explicitMax, unlabelled],
+    };
+    const selected = productFixture.leaderboard.find(
+      (row) => row.profileId === profile.id,
+    )!;
+    const html = renderPanel({
+      profile,
+      product,
+      benchmarkDimensions: {
+        ...benchmarkDimensions,
+        automationbench: 'agentic',
+      },
+      selectedResult: {
+        ...selected,
+        evidenceResultIds: [...selected.evidenceResultIds, explicitMax.id],
+      },
+    });
+
+    expect(html).toContain('AutomationBench');
+    expect(html).toContain('(zapier)');
+    expect(html).toContain('19.6');
+    expect(html).not.toContain('2.9');
+  });
 });
