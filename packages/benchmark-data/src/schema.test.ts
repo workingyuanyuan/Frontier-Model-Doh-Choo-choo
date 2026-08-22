@@ -323,6 +323,7 @@ describe('SourcesConfigSchema', () => {
       'deepswe',
       'frontier-code',
       'epoch-ai',
+      'arc-prize',
     ]);
   });
 

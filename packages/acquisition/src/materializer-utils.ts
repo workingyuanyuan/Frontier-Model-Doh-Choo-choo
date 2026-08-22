@@ -272,7 +272,7 @@ export function isAAModels(obj: unknown): obj is AAModelItem[] {
 let modelsCatalog: ModelCatalog | null = null;
 const modelAliasIndex = new Map<string, ModelCatalogItem>();
 
-function stripTrailingConfiguration(rawName: string): string {
+export function stripTrailingConfiguration(rawName: string): string {
   let current = rawName.trim();
   let previous = '';
   while (current !== previous) {

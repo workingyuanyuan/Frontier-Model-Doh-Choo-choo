@@ -273,3 +273,13 @@ export {
   materializeDeepSweCosts,
   materializeLiveBenchCosts,
 } from './pricing-materializers.js';
+export {
+  ARC_PRIZE_DATASETS_URL,
+  ARC_PRIZE_EVALUATIONS_URL,
+  ARC_PRIZE_MODELS_URL,
+  ARC_PRIZE_PAGE_URL,
+  BENCHMARK_ID as ARC_PRIZE_BENCHMARK_ID,
+  BENCHMARK_VERSION as ARC_PRIZE_BENCHMARK_VERSION,
+  PROMOTED_DATASET_ID as ARC_PRIZE_PROMOTED_DATASET_ID,
+  materializeArcPrize,
+} from './arc-prize-materializer.js';

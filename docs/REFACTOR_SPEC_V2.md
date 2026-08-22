@@ -22,7 +22,7 @@
 | ---- | ------------------------------------------------------ | ---------------------- |
 | 期一 | Artificial Analysis、LiveBench、DeepSWE、Frontier Code | 使用者人工審核資料無誤 |
 | 期二 | 加入 Epoch.AI                                          | 同上                   |
-| 期三 | 加入 Vals，以及其他依實際需求追加的來源                | 同上                   |
+| 期三 | 加入 Vals、ARC Prize、Zapier AutomationBench           | 同上                   |
 
 **每一期都必須由使用者人工審核資料才算完成。** 代理不得自行判定某一期已完成。
 
@@ -39,13 +39,14 @@
 | `deepswe`             | https://deepswe.datacurve.ai/      | ORGANIZER         | 期一     |
 | `frontier-code`       | https://cognition.com/frontiercode | ORGANIZER（新建） | 期一     |
 | `epoch-ai`            | https://epoch.ai/                  | INDEPENDENT       | 期二     |
+| `arc-prize`           | https://arcprize.org/leaderboard   | ORGANIZER         | 期三     |
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
 `data-v2/sources/` 底下這些目錄**原地保留、內容不得修改**：
 
 ```
-arc-prize  lech-writing  llm-stats  openai   osworld
+lech-writing  llm-stats  openai  osworld
 scale-hle  terminal-bench  vals-ai  zapier-automationbench
 ```
 
@@ -63,6 +64,11 @@ scale-hle  terminal-bench  vals-ai  zapier-automationbench
 
 兩者的用途是讓後續執行代理**對照擷取結果**——確認新舊快照之間的差異是來源真的更新了，
 而不是擷取程式解析錯了。它們不是現行資料，不得再被讀進計分。
+
+**`arc-prize` 於 2026-08-22 移出凍結清單**（使用者裁決，期三）。處置與 `epoch-ai` 完全相同：
+`refresh-arc-prize.ts` 重新產生該目錄的四個檔案，以新抓的快照為準，舊快照留在 git 歷史與內容
+定址 artifact store 供對照。`vals-ai` 與 `zapier-automationbench` 仍在凍結清單中，等各自的
+task 完成時才移出。
 
 **建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
@@ -145,6 +151,9 @@ non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
 2. **來源名稱自報配置** → 依名稱歸檔，不需推測。
    - `(Non-reasoning)` → `non-reasoning`
    - `(minimal)` → `low`。Artificial Analysis 對 Gemini 3.5 Flash 用 `minimal`，對 Gemini 3.7 Flash 用 `low`，是同一檔的兩種寫法。
+   - **例外（2026-08-22 使用者裁決）：同一個來源對同一個模型同時發布 `minimal` 與 `low` 兩列時，`minimal` 那列標為 `EXCLUDED`。**
+     上一條的依據是「兩個字指同一檔」，而那是從兩個不同模型家族的用字推得的。ARC Prize 打破了這個前提——它在同一個分割裡對同一個模型同時發布兩者，而且分數差距極大（Gemini 3.6 Flash 的 `Low` 是 30.42、`Minimal` 是 2.64；Gemini 3.5 Flash-Lite 是 1.53 對 0.83）。來源自己把它們當成兩次不同的量測，就不能再假設是同一檔的兩種寫法。
+     `EXCLUDED` 的處置沿用 L6 對 GPT-5.6 Sol Pro 設定列的做法：分數與出處完整保留可供查核，但不計分。沒有 `low` 兄弟列的 `minimal` 不受影響，仍依上一條歸為 `low`。
 3. **跨來源推測**（下方 §4.5）。
 4. 以上皆不適用 → `default`。
 
@@ -660,6 +669,63 @@ profile，同來源、同 harness，選取會退到 `sourcePublishedAt`，於是
 
 **`gpqa-diamond` 的跨來源重複已裁決：取最高分。** 規則與理由寫在 §4.3.1，逐模型分數對照
 見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`。
+
+### 9.6 ARC Prize（期三，2026-08-22 實測）
+
+| 項目         | 結論                                                                                                                        |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| 分數         | `https://arcprize.org/media/data/evaluations.json` — 869 列，欄位 `datasetId`／`modelId`／`score`／`costPerTask`／`display` |
+| 模型中繼資料 | `https://arcprize.org/media/data/models.json` — 249 列，欄位 `id`／`displayName`／`modelReleaseDate`／`providerId`          |
+| 評測分割清單 | `https://arcprize.org/media/data/datasets.json` — 8 個分割                                                                  |
+| 角色         | ORGANIZER（ARC Prize 自營 ARC-AGI）                                                                                         |
+| 成本         | 有。`costPerTask` 為每次任務的美元成本，保存為 `AGENT_TASK`／`USD_PER_TASK`                                                 |
+| 思考強度     | 寫在 `models.json` 的 `displayName` 括號後綴                                                                                |
+| 分數尺度     | **0–1 的小數，不是百分比**；`rawScore` 保留原值，`normalizedScore` 為 ×100                                                  |
+
+**只收 `v2_Semi_Private` 這一個分割**（2026-08-22 使用者裁決），對應 benchmark `arc-agi`，
+`benchmarkVersion` 記為 `ARC-AGI-2-v2_Semi_Private`。ARC Prize 自己把這個分割標示為
+「ARC-AGI-2」，它是唯一同時具備成本與完整檔位階梯的一份：214 列 `display=true`，全部帶成本。
+
+其他分割不得混入同一個 benchmark ID：
+
+- `v3_Semi_Private` 只有 27 列、完全沒有成本、22 列低於 1%。要納入必須先走 §5.3 的報告與裁決，
+  並使用另一個 benchmark ID。
+- `v1_*`、`v2_Public_Eval`、`v2_Private_Eval` 同理，目前只留在內容定址 artifact 中。
+
+**`display=true` 是唯一的入選條件**；隱藏列與預覽列不進候選集。
+
+**可見比對的做法與其他來源不同，理由要寫清楚。** `https://arcprize.org/leaderboard` 是
+client-rendered 的 Next.js 頁面，伺服器回傳的 HTML 裡沒有任何模型列，也沒有可數的 RSC
+payload，因此無法比照 LiveBench 或 Frontier Code 去數渲染後的列數；三個資料檔之間也沒有
+第二個可互相印證的管道。改為兩項機器可查的完整性檢查：
+
+1. 每一列 `display=true` 的 `modelId` 都必須在 `models.json` 中存在，否則刷新失敗。
+2. 每個分割的列數變化寫進 snapshot delta，**數字倒退即讓刷新失敗**。
+
+leaderboard 頁面仍以 `DOM` 方法擷取存證，供 §11.4 抽查清單指向一個人眼可讀的頁面。
+
+**名稱括號後綴的判讀規則**（2026-08-22 使用者裁決，兩項）：
+
+| 後綴形態                                          | 判讀                                                       |
+| ------------------------------------------------- | ---------------------------------------------------------- |
+| `(Max)`／`(XHigh)`／`(High)`／`(Medium)`／`(Low)` | 檔位，直接採用                                             |
+| `(None)`、`(Thinking, None)`                      | 來源明示關閉推理 → `non-reasoning`，**不得留 null 走推測** |
+| `(Thinking 16K)`、`(120K, High)` 的 `120K`        | token 預算，不是檔位；該段落忽略                           |
+| `(Minimal)`                                       | 見 §4.4 規則 2 的例外                                      |
+| 其他未經審核的標記，例如 `(Refine.)`              | 該列標為 `EXCLUDED`（僅限已解析出 catalog 身分的列）       |
+
+第二列是 L4 的同一個缺陷換一個來源重演：`(None)` 留成 null 會走 §4.5 推測，實測被判成 `max`，
+於是一筆關閉推理的量測代表了模型的 max 檔。§4.4 規則 2 明定來源自報的配置直接歸檔，不推測。
+
+最後一列是 L6 的同一個道理：`GPT-5.2 (Refine.)` 是精修支架的量測，被推測成 `high` 之後以
+72.90 蓋過 GPT-5.2 自己的 0.83。規則寫成**白名單**而非逐一列舉要排除的字串：括號段落只有在
+是合法檔位、`minimal`、`none`、推理模式字（`thinking`／`reasoning`）或 token 預算時才算已識別；
+已解析出 catalog 身分的列若帶有任何未識別的段落，該列標為 `EXCLUDED` 並在 validation report
+中列出。未解析身分的列不受此規則影響——它們本來就不計分，而且那些標記正是日後身分裁決的素材。
+
+**身分解析不做模糊匹配。** 214 列中約 123 列解析不到 catalog 身分，多數是 2024–2025 年的舊
+模型與非 LLM 條目（Human Panel、Icecuber、ARChitects、NVARC、Tiny Recursion Model）。它們保持
+`canonicalModelId: null`，完整名單寫在 validation report 中，供期三的身分裁決使用。
 
 ## 10. 不可跨越的邊界
 

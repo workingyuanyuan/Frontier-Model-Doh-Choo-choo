@@ -930,6 +930,7 @@ describe('coverage-matrix', () => {
       const data = await loadWorkspaceCoverageData(repoRoot);
 
       expect(data.whitelist).toEqual([
+        'arc-prize',
         'artificial-analysis',
         'deepswe',
         'epoch-ai',
