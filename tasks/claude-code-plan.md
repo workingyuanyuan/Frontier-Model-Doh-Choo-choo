@@ -1613,6 +1613,8 @@ Frontier Code Inkling 同一個坑。`profile-policy.json` 的合法值只有 `m
 以下六項規格沒有涵蓋，依 `CLAUDE.md` 的邊界規則不得由代理自行決定。每一項都附建議與理由，
 裁決後寫進 `docs/REFACTOR_SPEC_V2.md` 對應章節（N1 的第一步）。
 
+**D1、D2、D4 已於 2026-08-22 裁決，見各項的裁決欄。D3、D5、D6 仍待裁決。**
+
 ### D1 — ARC-AGI 要收哪一個分割？
 
 現有 benchmark ID `arc-agi`（primary `reasoning`、secondary `context`）沒有指定版本，而
@@ -1623,6 +1625,8 @@ Frontier Code Inkling 同一個坑。`profile-policy.json` 的合法值只有 `m
 | （建議）`v2_Semi_Private` → `arc-agi` |  214 | 全有 | 涵蓋現役前沿模型與完整檔位階梯，可進成本圖 |
 | `v3_Semi_Private` → `arc-agi`         |   27 | 全無 | 分數 0.000–0.302，區辨力低，且不能進成本圖 |
 | 兩者並收，新增 `arc-agi-3`            |  241 | 部分 |  需要新的 benchmark 定義與維度裁決（§5.3） |
+
+**裁決（2026-08-22）：取 `v2_Semi_Private`。** 可見比對改用下方兩項機器可查的完整性檢查。
 
 **建議取 v2_Semi_Private。** 它是 ARC Prize 自己標為「ARC-AGI-2」的官方分割，是唯一同時
 具備成本與檔位階梯的一份；v3 目前更像是尚未飽和的前瞻測試，27 列裡有 22 列低於 1%，放進
@@ -1640,6 +1644,10 @@ Frontier Code Inkling 同一個坑。`profile-policy.json` 的合法值只有 `m
 | （建議）只收已有 ID 且仍在更新的 10 項                 | 上表扣掉 `aime`、`math500` | 零新增 benchmark 定義，不需要新的維度裁決                |
 | 收全部 11 項有 ID 的                                   | 加 `aime`                  | Vals 的 aime 已四個月未更新，與 Epoch 的 aime 重複且較舊 |
 | 另外挑幾個新 benchmark（如 `mmmu`、`ioi`、`sage`）進來 | 需要新 ID＋維度歸屬        | 走規格 §5.3 的報告與裁決，本階段會多一個 task            |
+
+**裁決（2026-08-22）：收 10 項有 ID 的，並且另外挑新 benchmark 進來。** 新 benchmark 的
+候選清單、維度歸屬提案與裁決程序獨立成 **N3a**，必須在 N3 之前完成——`benchmarks.json`
+沒有定義的 benchmark 無法被物化成 INCLUDED 結果。
 
 **建議先收 10 項**：`swe-bench`、`gpqa-diamond`、`terminal-bench-2-1`、`livecodebench`、
 `mmlu-pro`、`proofbench`、`corpfin`、`finance-agent-v2`、`vibe-code-bench`、`programbench`。
@@ -1667,6 +1675,8 @@ Frontier Code Inkling 同一個坑。`profile-policy.json` 的合法值只有 `m
 | （建議）沿用等權重      | AA／LiveBench／DeepSWE／Frontier Code／ARC／Zapier／Vals 各 1/7 |
 | 排除 LiveBench 後等權重 | 其餘六個各 1/6                                                  |
 | 自訂權重                | 需要可辯護的排序依據                                            |
+
+**裁決（2026-08-22）：等權重各 1/7，Vals 的成本採 `vals_index` 那一列的 `cost_per_test`。**
 
 **建議沿用等權重各 1/7。** 規格 §6.3 已經寫明「等權重讓擴充成為機械操作」，而且七個來源的
 成本語意一致（都是 USD per task／test）。**但 Vals 需要一條附加規則**：它是唯一每個
@@ -1739,11 +1749,61 @@ N3 會列出完整的未解析名單供裁決。
 
 **完成條件**：基準驗證全綠；bundle hash 改變時測試仍能通過（以錄下的 fixture 驗證特徵搜尋）。
 
+## N3a — Vals 新 benchmark 的維度歸屬報告與裁決
+
+狀態：未開始
+
+**前置**：D2 的裁決（2026-08-22）要求除了 10 項現有 ID 之外，另外挑新 benchmark 進來。
+規格 §5.3 規定新 benchmark 必須先出報告、由使用者裁決，代理不得自行決定納入哪些、歸到哪一維。
+
+**要求**：代理交付候選表與提案，使用者逐項裁決。以下是規劃期已備妥的候選清單（Vals 的 38 個
+榜單扣掉 12 個已有 ID 者、扣掉四個綜合指數），`維度提案` 欄是代理的建議，不是決定：
+
+| slug                    | 名稱                  | 領域       | 列數 | 更新日     | 維度提案                      | 代理建議                                                    |
+| ----------------------- | --------------------- | ---------- | ---: | ---------- | ----------------------------- | ----------------------------------------------------------- |
+| `ioi`                   | IOI                   | coding     |   62 | 2026-08-09 | coding ＋ reasoning, math     | **收**：競賽程式，與 SWE 型任務互補                         |
+| `code-migration`        | Code Migration        | coding     |   51 | 2026-08-19 | coding ＋ agentic, context    | **收**：跨語言重寫，長脈絡的真實工作                        |
+| `skillsbench`           | SkillsBench           | coding     |   30 | 2026-08-19 | agentic ＋ coding             | **收**：agentic 維度目前只有四項                            |
+| `hlab`                  | Harvey Legal Agent    | legal      |   52 | 2026-08-19 | agentic ＋ context, knowledge | 可收：AA 也有 `harvey-lab-aa`，但兩邊指標是否同一版需先核對 |
+| `emb`                   | EMB（Excel 財務建模） | finance    |   48 | 2026-08-19 | agentic ＋ math, context      | 可收：領域窄，但確實是工具使用型 agent                      |
+| `mmmu`                  | MMMU                  | academic   |   90 | 2026-08-19 | knowledge ＋ reasoning        | 不建議：多模態，八維沒有視覺軸，落到 knowledge 會誤導       |
+| `mgsm`                  | MGSM                  | math       |   75 | 2026-01-09 | math ＋ language              | 不建議：七個月未更新                                        |
+| `math500`               | MATH 500              | math       |   60 | 2026-01-09 | math ＋ reasoning             | 不建議：七個月未更新，且已飽和                              |
+| `terminal-bench-2`      | Terminal-Bench 2.0    | coding     |   67 | 2026-06-04 | coding ＋ agentic             | 不建議：已被 2.1 取代，同一家的舊版                         |
+| `sage`                  | SAGE                  | education  |   77 | 2026-08-19 | knowledge ＋ language         | 不建議：評的是出題與評分，與八維軸不對齊                    |
+| `case_law_v2`           | CaseLaw v2            | legal      |   54 | 2026-05-04 | knowledge ＋ language         | 不建議：垂直領域知識                                        |
+| `legal_bench`           | LegalBench            | legal      |  139 | 2026-08-19 | knowledge ＋ reasoning        | 不建議：同上                                                |
+| `legal_research`        | Legal Research Bench  | legal      |   51 | 2026-08-19 | agentic ＋ knowledge, context | 不建議：同上                                                |
+| `medqa`                 | MedQA                 | healthcare |   95 | 2026-04-16 | knowledge                     | 不建議：垂直領域＋四個月未更新                              |
+| `medcode`               | MedCode               | healthcare |   86 | 2026-08-20 | knowledge ＋ instruction      | 不建議：垂直領域                                            |
+| `medscribe`             | MedScribe             | healthcare |   87 | 2026-08-20 | language ＋ instruction       | 不建議：垂直領域                                            |
+| `tax_eval_v2`           | TaxEval v2            | finance    |  141 | 2026-08-19 | knowledge ＋ reasoning        | 不建議：垂直領域                                            |
+| `mortgage_tax`          | MortgageTax           | finance    |   96 | 2026-08-19 | knowledge ＋ context          | 不建議：垂直領域＋影像判讀                                  |
+| `public-benefits-bench` | Public Benefits Bench | social     |   30 | 2026-08-12 | knowledge ＋ language         | 不建議：垂直領域                                            |
+| `cyber`                 | CyberBench            | beta       |   22 | 2026-08-03 | agentic ＋ coding             | 不建議：beta，22 列                                         |
+| `reverse_eng`           | ReverseEngBench       | beta       |    5 | 2026-08-10 | coding ＋ reasoning           | 不建議：只有 5 列                                           |
+| `poker_agent`           | Agent Poker Bench     | beta       |   17 | 2025-12-23 | agentic ＋ reasoning          | 不建議：八個月未更新                                        |
+
+**垂直領域榜單一律不建議收的共同理由**：它們彼此高度相關（法律三項、醫療三項、稅務兩項），
+一次收進來會讓 knowledge 這一維被同一類測驗重複計算，而八維的語義是「一般能力」，不是
+「產業覆蓋」。這是規格 §4.1「不建立權重系統、靠加來源稀釋」的前提會被破壞的地方。
+
+**要求**：
+
+- 交付上表並取得逐項裁決；核可者寫進 `data-v2/mappings/benchmarks.json` 與
+  `docs/BENCHMARK_DIMENSION_MAPPING.md`，未核可者寫進 validation report 的未核可清單。
+- 新 benchmark 的 ID 命名沿用既有慣例（來源中立的通用名，例如 `ioi`、`code-migration`、
+  `skillsbench`），不加 `vals-` 前綴——同一個 benchmark 日後可能被其他來源量測。
+- **本 task 不擷取資料**，只改 mapping 與文件；資料由 N3 一併物化。
+
+**完成條件**：`benchmarks.json` 只包含使用者核可的新項目；基準驗證全綠；`current.json`
+不受影響（尚無來源提供這些 benchmark 的分數）。
+
 ## N3 — Vals AI 來源刷新
 
 狀態：未開始
 
-**前置**：D2、D4、D6 已裁決。三個來源中最大的一個，不要與 N1／N2 合併。
+**前置**：N3a 完成，D4、D6 已裁決。三個來源中最大的一個，不要與 N1／N2 合併。
 
 **要求**：
 
