@@ -370,6 +370,8 @@ export type EffortDecisionBasis =
 export interface EffortResolutionInput {
   id: string;
   sourceId: string;
+  /** Excluded rows may receive a product effort for audit, but never cast votes. */
+  inclusion?: 'INCLUDED' | 'EXCLUDED';
   model: {
     rawName: string;
     canonicalModelId: string | null;
@@ -590,6 +592,7 @@ export const decideProductEffort = (
         (other) =>
           other.id !== candidate.id &&
           other.sourceId !== candidate.sourceId &&
+          other.inclusion !== 'EXCLUDED' &&
           other.model.canonicalModelId === candidate.model.canonicalModelId,
       ),
     );
@@ -797,12 +800,9 @@ const SOURCE_ROLE_WEIGHT: Record<z.infer<typeof SourceRoleSchema>, number> = {
 };
 
 const resultIdentityKey = (result: CandidateResult): string =>
-  [
-    result.benchmarkId,
-    result.benchmarkVersion ?? '',
-    result.model.profileId ?? '',
-    result.metric.id,
-  ].join('\u001f');
+  [result.benchmarkId, result.model.profileId ?? '', result.metric.id].join(
+    '\u001f',
+  );
 
 const sourceHarnessKey = (result: CandidateResult): string =>
   normalizedLabelKey(result.profile.harness ?? '');
@@ -834,17 +834,18 @@ export const selectCurrentResults = (
     // Two sources publishing the same benchmark for the same profile is a
     // genuine duplicate measurement, and the user's rule for it (2026-08-21) is
     // to take the higher score. Artificial Analysis and Epoch AI both rerun
-    // GPQA Diamond, both as INDEPENDENT and both FULL, so nothing below could
-    // separate them and the choice fell out of whether their harness strings
+    // GPQA Diamond as INDEPENDENT sources, so the choice once fell out of whether their harness strings
     // happened to differ -- an accident, not a decision.
     //
-    // The rule is deliberately limited to sources of equal standing. A VENDOR's
-    // self-reported number must still lose to an ORGANIZER's, and a partial
-    // snapshot must still lose to a full one, however flattering the score.
+    // The rule is deliberately limited to sources with the same role. A
+    // VENDOR's self-reported number must still lose to an ORGANIZER's. Within
+    // the same role, source-level PARTIAL_SOURCE must not disable the explicit
+    // cross-source maximum rule for an otherwise included benchmark row.
+    // benchmarkVersion is evidence metadata rather than part of this key:
+    // sources often label the same benchmark release differently (or omit it).
     const equalStanding =
       SOURCE_ROLE_WEIGHT[result.sourceRole] ===
-        SOURCE_ROLE_WEIGHT[current.sourceRole] &&
-      result.acquisitionStatus === current.acquisitionStatus;
+      SOURCE_ROLE_WEIGHT[current.sourceRole];
 
     if (
       (result.sourceId !== current.sourceId && equalStanding) ||

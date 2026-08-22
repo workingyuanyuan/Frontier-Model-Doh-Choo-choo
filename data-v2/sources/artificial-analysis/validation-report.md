@@ -85,18 +85,29 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Gemini 3.1 Pro Preview | `artificial-analysis:scicode:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:tau3-banking:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:terminal-bench-2-1:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-briefcase:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-lcr:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite:index` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:critpt:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:gdpval-aa:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v4-1` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:gpqa-diamond:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:humanitys-last-exam:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:scicode:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:tau3-banking:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-2-1:gemini-3-5-flash-lite` | — | `high` | epoch-ai | epoch-ai:aime:google-gemini-3-5-flash-lite-default-epoch-inspect-row-56 |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-briefcase:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-lcr:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite:index` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:critpt:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:gdpval-aa:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v4-1` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:gpqa-diamond:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:humanitys-last-exam:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:scicode:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:tau3-banking:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-2-1:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Qwen3.8 27B | `artificial-analysis:aa-lcr:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:aa-omniscience:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:aa-omniscience:qwen3-8-27b:index` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:alibaba-qwen3-8-27b-aa-index:intelligence-index-v4-1` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:critpt:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:gdpval-aa:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:gpqa-diamond:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:humanitys-last-exam:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:scicode:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:tau3-banking:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| Qwen3.8 27B | `artificial-analysis:terminal-bench-2-1:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
 | Qwen3.8 Max | `artificial-analysis:aa-briefcase:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-lcr:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-omniscience:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -192,16 +203,5 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Qwen3.7 Plus | `artificial-analysis:scicode:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:tau3-banking:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:terminal-bench-2-1:qwen3-7-plus` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:aa-lcr:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:aa-omniscience:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:aa-omniscience:qwen3-8-27b:index` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:alibaba-qwen3-8-27b-aa-index:intelligence-index-v4-1` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:critpt:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:gdpval-aa:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:gpqa-diamond:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:humanitys-last-exam:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:scicode:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:tau3-banking:qwen3-8-27b` | — | `default` | — | — |
-| Qwen3.8 27B | `artificial-analysis:terminal-bench-2-1:qwen3-8-27b` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

@@ -13,7 +13,7 @@
 | `VENDOR`      | 受測模型廠商自報             | 保留來源角色與出處，仍須通過顯示清單門檻 |
 | `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入八維計分     |
 
-同一 Benchmark、版本、模型、effort 與 metric 的可比較結果，先依既有來源角色優先級，再依 `FULL` 優先於 `PARTIAL_SOURCE`、較新快照優先。Harness 歸併造成的同配置重複結果取較高可比較分數，但每筆 Evidence 最多只貢獻一次。
+同一 Benchmark ID、模型、effort 與 metric 的跨來源可比較結果，先依來源角色；角色相同時取較高可比較分數，`FULL`／發布時間只在同分時破平手。`benchmarkVersion` 保留在 Evidence，但不進重複量測鍵，避免同一 benchmark 因各站版本字串格式不同而重複計分。同一來源內的重複列仍依完整度、發布時間與 harness 選現行量測。每筆 Evidence 最多只貢獻一次。
 
 來源網站、角色、Benchmark 與最近更新狀態由 [可採用成績來源](BENCHMARK_SCORE_SOURCES.md) 維護。
 
@@ -79,7 +79,7 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 `non-reasoning < low < medium < high < xhigh < max`，`default` 位於階梯之外：
 
 - 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。
-- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)：**每個其他來源各出一票，票值是該來源對這個模型發布過的最高具名檔位；得票最多的檔位勝出，平手時取較高的檔位**。所謂「不是取最高檔」指的是不直接取所有來源中的最高檔——掃過完整階梯的單一來源不得替所有來源決定檔位；但在單一來源內部，投出的就是它自己的最高具名檔位。`non-reasoning` 永遠不會是推測結果。
+- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)：**每個其他來源對它實際發布過的每一個具名檔位各投一票；得票來源數最多的檔位勝出，平手時取較高檔**。單一來源掃過完整階梯時，對每檔也至多一票，不會壓過其他來源。只有 `INCLUDED` 列可投票；`EXCLUDED` 列不得間接影響計分。`non-reasoning` 永遠不會是推測結果。
 - 其他來源也沒有可用依據時使用 `default`；不再把缺值歸入 `max`。
 - 每次跨來源推測都列入各來源 validation report，保持 `PENDING USER REVIEW`，並記錄 target row 與 basis source/row。
 - UI 和產品計分不建立 `unspecified` effort。

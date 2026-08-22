@@ -1898,7 +1898,7 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
 
 ## N5 — 檔位推測與重複量測的期三揭露
 
-狀態：未開始
+狀態：完成
 
 **前置**：N1–N3 完成。
 
@@ -1916,6 +1916,16 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
   會改變，逐筆依據必須寫進各來源的 validation report。
 
 **完成條件**：對照文件存在；三個新來源的 validation report 都有 Cross-source inferences 章節。
+
+**完成（2026-08-22）**：逐模型 × 檔位對照已產生於
+`docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的平均抬升為 GPQA 0.80
+分（13 個三來源全齊列為 0.85）、SWE-bench 1.29 分、Terminal-Bench 2.1 4.24 分。ARC／Zapier／
+Vals validation report 分別列出 3／5／70 筆跨來源推測，以及 0／1／191 筆 `default`。
+
+N5 重跑另修正兩個會讓揭露與實際計分不一致的問題：`EXCLUDED` 列不得投跨來源 effort 票；
+同 benchmark 的跨來源選取鍵不再含各站格式不一致的 `benchmarkVersion`，同角色來源確實依裁決
+取最高分。coverage 維持 53 qualified models／44 active benchmarks／43 tradeoff rows；完整基準
+驗證通過，`display-set.json` 未修改。
 
 ## ▣ N6 — 期三審核關卡（使用者執行）
 

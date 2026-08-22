@@ -71,3 +71,28 @@
 | Canonically unresolved rows | 9 | 9 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
+<!-- C6-EFFORT-INFERENCE:START -->
+## C6 effort inference — PENDING USER REVIEW
+
+This tagged section is generated deterministically for `zapier-automationbench`. Raw `profile.effort` remains unchanged; `productProfile.effort` is the transient product decision. Policy default: `default`.
+
+### Cross-source inferences — PENDING USER REVIEW
+
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| GPT-5.4 | `zapier-automationbench:automationbench:gpt-5-4-rank-83:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
+| GPT-5.5 | `zapier-automationbench:automationbench:gpt-5-5-rank-76:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi:gpt-5-5-2026-04-22-thinking-xhigh:arc-agi-2-v2-semi-private |
+| GPT-5.6 Luna | `zapier-automationbench:automationbench:gpt-5-6-luna-rank-82:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
+| GPT-5.6 Sol | `zapier-automationbench:automationbench:gpt-5-6-sol-rank-68:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi:openai-gpt-5-6-sol-max:arc-agi-2-v2-semi-private |
+| GPT-5.6 Terra | `zapier-automationbench:automationbench:gpt-5-6-terra-rank-77:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi:openai-gpt-5-6-terra-max:arc-agi-2-v2-semi-private |
+| Kimi K3 | `zapier-automationbench:automationbench:kimi-k3-rank-5:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+
+### Unlabelled rows assigned the outside-the-ladder default
+
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| Kimi K2.6 | `zapier-automationbench:automationbench:kimi-k2-6-rank-70:1-0-6` | — | `default` | — | — |
+| Kimi K2.7 Code | `zapier-automationbench:automationbench:kimi-k2-7-code-rank-67:1-0-6` | — | `default` | — | — |
+
+<!-- C6-EFFORT-INFERENCE:END -->

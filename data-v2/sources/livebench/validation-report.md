@@ -40,34 +40,42 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-language:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash-0731` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:deepseek-v4-flash |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
-| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | artificial-analysis | artificial-analysis:aa-lcr:deepseek-v4-pro |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-language:deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-flash-0731 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-flash-0731` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-instruction-following:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
+| deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | glm-5.2 | `livebench-2026-06-25:livebench-instruction-following:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-reasoning:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
 | grok-4.3 | `livebench-2026-06-25:livebench-instruction-following:grok-4-3` | — | `medium` | artificial-analysis | artificial-analysis:aa-lcr:grok-4-3-medium |
 | grok-4.3 | `livebench-2026-06-25:livebench-language:grok-4-3` | — | `medium` | artificial-analysis | artificial-analysis:aa-lcr:grok-4-3-medium |
 | grok-4.3 | `livebench-2026-06-25:livebench-mathematics:grok-4-3` | — | `medium` | artificial-analysis | artificial-analysis:aa-lcr:grok-4-3-medium |
 | grok-4.3 | `livebench-2026-06-25:livebench-reasoning:grok-4-3` | — | `medium` | artificial-analysis | artificial-analysis:aa-lcr:grok-4-3-medium |
-| grok-4.5 | `livebench-2026-06-25:livebench-instruction-following:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
-| grok-4.5 | `livebench-2026-06-25:livebench-language:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
-| grok-4.5 | `livebench-2026-06-25:livebench-mathematics:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
-| grok-4.5 | `livebench-2026-06-25:livebench-reasoning:grok-4-5` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-5 |
-| grok-4.6 | `livebench-2026-06-25:livebench-instruction-following:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
-| grok-4.6 | `livebench-2026-06-25:livebench-language:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
-| grok-4.6 | `livebench-2026-06-25:livebench-mathematics:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
-| grok-4.6 | `livebench-2026-06-25:livebench-reasoning:grok-4-6` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-6 |
-| kimi-k3 | `livebench-2026-06-25:livebench-instruction-following:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
-| kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
-| kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
-| kimi-k3 | `livebench-2026-06-25:livebench-reasoning:kimi-k3` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:kimi-k3 |
+| grok-4.5 | `livebench-2026-06-25:livebench-instruction-following:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
+| grok-4.5 | `livebench-2026-06-25:livebench-language:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
+| grok-4.5 | `livebench-2026-06-25:livebench-mathematics:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
+| grok-4.5 | `livebench-2026-06-25:livebench-reasoning:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-instruction-following:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-language:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-mathematics:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-reasoning:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
+| kimi-k3 | `livebench-2026-06-25:livebench-instruction-following:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| kimi-k3 | `livebench-2026-06-25:livebench-reasoning:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| qwen3.8-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| qwen3.8-27b | `livebench-2026-06-25:livebench-language:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| qwen3.8-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
+| qwen3.8-27b | `livebench-2026-06-25:livebench-reasoning:qwen3-8-27b` | — | `xhigh` | vals-ai | vals-ai:code-migration:alibaba-qwen3-8-27b |
 | qwen3.8-max | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-language:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | qwen3.8-max | `livebench-2026-06-25:livebench-mathematics:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -77,10 +85,6 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `default` | — | — |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `default` | — | — |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `default` | — | — |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `default` | — | — |
 | grok-build-0.1 | `livebench-2026-06-25:livebench-instruction-following:grok-build-0-1` | — | `default` | — | — |
 | grok-build-0.1 | `livebench-2026-06-25:livebench-language:grok-build-0-1` | — | `default` | — | — |
 | grok-build-0.1 | `livebench-2026-06-25:livebench-mathematics:grok-build-0-1` | — | `default` | — | — |
@@ -109,9 +113,5 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | qwen3.7-max | `livebench-2026-06-25:livebench-language:qwen3-7-max` | — | `default` | — | — |
 | qwen3.7-max | `livebench-2026-06-25:livebench-mathematics:qwen3-7-max` | — | `default` | — | — |
 | qwen3.7-max | `livebench-2026-06-25:livebench-reasoning:qwen3-7-max` | — | `default` | — | — |
-| qwen3.8-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-27b` | — | `default` | — | — |
-| qwen3.8-27b | `livebench-2026-06-25:livebench-language:qwen3-8-27b` | — | `default` | — | — |
-| qwen3.8-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-8-27b` | — | `default` | — | — |
-| qwen3.8-27b | `livebench-2026-06-25:livebench-reasoning:qwen3-8-27b` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

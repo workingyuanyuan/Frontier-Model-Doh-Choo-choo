@@ -169,35 +169,49 @@ describe('selectCurrentResults', () => {
     ).toEqual([full]);
   });
 
-  it('takes the higher score when two equal-standing sources rerun the same benchmark', () => {
-    // Artificial Analysis and Epoch AI both rerun GPQA Diamond as INDEPENDENT.
-    // The user's rule (2026-08-21) is cross-source max. Both rows carry the
-    // same harness here so that the outcome cannot come from the harness
-    // branch -- `sourceId` and the score are what decide it.
+  it('takes the higher score when equal-role sources label the same benchmark version differently', () => {
+    // AA, Epoch, and Vals all rerun GPQA Diamond as INDEPENDENT. The user's
+    // rule (2026-08-21) is cross-source max. AA is PARTIAL_SOURCE at the site
+    // level and Vals calls its benchmarkVersion "1"; neither may bypass max.
     const shared = {
       benchmarkId: 'gpqa-diamond',
-      benchmarkVersion: null,
       sourceRole: 'INDEPENDENT',
-      acquisitionStatus: 'FULL',
       profile: { ...makeCandidate().profile, harness: null },
     } as const;
     const artificialAnalysis = makeCandidate({
       ...shared,
       id: 'aa-gpqa',
       sourceId: 'artificial-analysis',
-      rawScore: 91.11,
-      normalizedScore: 91.11,
+      benchmarkVersion: null,
+      acquisitionStatus: 'PARTIAL_SOURCE',
+      rawScore: 95.11,
+      normalizedScore: 95.11,
     });
     const epoch = makeCandidate({
       ...shared,
       id: 'epoch-gpqa',
       sourceId: 'epoch-ai',
+      benchmarkVersion: null,
+      acquisitionStatus: 'FULL',
       rawScore: 93.88,
       normalizedScore: 93.88,
     });
+    const vals = makeCandidate({
+      ...shared,
+      id: 'vals-gpqa',
+      sourceId: 'vals-ai',
+      benchmarkVersion: '1',
+      acquisitionStatus: 'FULL',
+      rawScore: 94.55,
+      normalizedScore: 94.55,
+    });
 
-    expect(selectCurrentResults([artificialAnalysis, epoch])).toEqual([epoch]);
-    expect(selectCurrentResults([epoch, artificialAnalysis])).toEqual([epoch]);
+    expect(selectCurrentResults([artificialAnalysis, epoch, vals])).toEqual([
+      artificialAnalysis,
+    ]);
+    expect(selectCurrentResults([vals, epoch, artificialAnalysis])).toEqual([
+      artificialAnalysis,
+    ]);
   });
 
   it('keeps organizer precedence over a vendor claim that scores higher', () => {
@@ -928,6 +942,29 @@ describe('deriveModelProfiles', () => {
       model: { profileId: 'openai-gpt-5-6-sol-default' },
       productProfile: { effort: 'default' },
       profile: { effort: null },
+    });
+  });
+
+  it('does not let an excluded source cast a cross-source effort vote', () => {
+    const missing = makeCandidate({
+      id: 'included-unlabelled',
+      sourceId: 'artificial-analysis',
+      model: { ...makeCandidate().model, rawName: 'GPT-5.6 Sol' },
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+    const excludedMax = makeCandidate({
+      id: 'excluded-zapier-max',
+      sourceId: 'zapier-automationbench',
+      inclusion: 'EXCLUDED',
+      exclusionReason: 'Source adoption deferred until after N phase.',
+      profile: { ...makeCandidate().profile, effort: 'max' },
+    });
+
+    expect(decideProductEffort(missing, [missing, excludedMax])).toEqual({
+      effort: 'default',
+      basis: 'DEFAULT',
+      basisSourceId: null,
+      basisCandidateId: null,
     });
   });
 

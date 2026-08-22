@@ -198,3 +198,23 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 | Canonically unresolved models | 122 | 122 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
+<!-- C6-EFFORT-INFERENCE:START -->
+## C6 effort inference — PENDING USER REVIEW
+
+This tagged section is generated deterministically for `arc-prize`. Raw `profile.effort` remains unchanged; `productProfile.effort` is the transient product decision. Policy default: `default`.
+
+### Cross-source inferences — PENDING USER REVIEW
+
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| GLM-5.2 | `arc-prize:arc-agi:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| GPT-5.2 | `arc-prize:arc-agi:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `high` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-high-epoch-inspect-row-128 |
+| GPT-5.2 (Refine.) | `arc-prize:arc-agi:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `high` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-high-epoch-inspect-row-128 |
+| Inkling | `arc-prize:arc-agi:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
+
+### Unlabelled rows assigned the outside-the-ladder default
+
+- None.
+
+<!-- C6-EFFORT-INFERENCE:END -->

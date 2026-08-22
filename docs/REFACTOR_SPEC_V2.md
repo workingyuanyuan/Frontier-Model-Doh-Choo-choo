@@ -125,25 +125,38 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 - 排行榜、雷達圖、兩張圖表**全部使用同一個選法**，不得出現同一模型在不同畫面顯示不同 profile 的情況。
 - 這取代現行 `SCORING_METHODOLOGY.md` 的「Coverage 高 → 有效結果數多 → Overall 高」規則。
 
-### 4.3.1 同一個 benchmark 被兩個來源重複量測時
+### 4.3.1 同一個 benchmark 被多個來源重複量測時
 
 **2026-08-21 新增（使用者裁決）：取分數較高的那一筆。**
 
 Artificial Analysis 與 Epoch AI 都自己重跑 GPQA Diamond，兩者 `sourceRole` 都是
-`INDEPENDENT`、`acquisitionStatus` 都是 `FULL`，沒有任何既有欄位能替它們排序。逐模型的分數
+`INDEPENDENT`；AA 的站級狀態雖是 `PARTIAL_SOURCE`，但這些個別 benchmark 列已核可為
+`INCLUDED`，沒有可辯護的來源排序。逐模型的分數
 對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`：26 個重疊的「模型 × 檔位」中，Epoch 較高
 13 個、AA 較高 13 個，平均差 −0.99 分，多數落在 ±3 分內。兩邊都不系統性地偏高或偏低，因此
 沒有「哪個來源比較準」這種可辯護的排序。
 
-**規則只適用於地位相同的來源。** `sourceRole` 權重不同，或 `acquisitionStatus` 不同時，仍
-維持原本的優先序：ORGANIZER 勝過 VENDOR，完整快照勝過部分快照，**再高的分數也不能翻
-盤**。廠商自報的數字不會因為好看就取代第三方量測。
+**規則只適用於 `sourceRole` 相同的來源。**角色不同時仍維持原本優先序：ORGANIZER 勝過
+VENDOR，廠商自報的數字不會因為好看就取代第三方量測。角色相同但站級
+`acquisitionStatus` 不同時仍先取最高；完整度只在分數相同時破平手。同一來源內的重複列則仍
+依完整度與發布時間選現行量測。
 
 **這條規則之前是「碰巧成立」的。** `selectCurrentResults` 的鍵不含 `sourceId`，實際走的是
 「harness 字串不同 → 比分數」這條分支；AA 的 harness 是 `null`、Epoch 是
 `Epoch AI Inspect`，剛好不同，於是行為看起來就是取最高分。若哪天兩邊的 harness 欄位一致，
 選擇就會靜默改由 `sourceRole` 決定。現在改成直接比 `sourceId`，讓規則不再依賴一個無關欄位
 的巧合。
+
+**期三揭露（2026-08-22）**：Vals 加入後，GPQA Diamond 變成 AA／Epoch／Vals 三方重複；
+SWE-bench 是 Epoch／Vals，Terminal-Bench 2.1 是 AA／Vals。選取鍵以 `benchmarkId + profile +
+metric` 認定同一量測，**不含 `benchmarkVersion`**；各站對同一 benchmark 的版本字串可能一方
+缺值、一方寫 `1` 或 `2.1`，不能因此被重複計入維度平均。版本字串仍完整保留在證據中。
+
+逐模型 × 檔位對照見 `docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的
+平均抬升為：GPQA 在 46 個至少雙來源重疊列為 **0.80 分**（其中 13 個三來源全齊列為 **0.85
+分**）；SWE-bench 11 列為 **1.29 分**；Terminal-Bench 2.1 19 列為 **4.24 分**。最大個別抬升
+分別為 2.69、4.24、14.23 分。這是「多次量測取最好」的已知向上選擇偏誤，不代表任一來源
+造假；本階段維持使用者裁決的取最高規則，但必須隨報告揭露。
 
 ### 4.4 思考強度檔位
 
@@ -172,6 +185,10 @@ non-reasoning  <  low  <  medium  <  high  <  xhigh  <  max
 ### 4.5 跨來源檔位推測
 
 某來源未標檔位時，**每個其他來源對它發布過的每一個具名檔位各投一票，得票的來源數最多的檔位勝出**；平手時取較高的檔位。
+
+只有 `INCLUDED` 列可以投票。`EXCLUDED` 列仍可為自身保留或推導 product effort 供稽核，但不得
+作為其他來源的跨來源依據；否則一個尚未採用的來源仍會透過 profile 歸檔間接改變能力分數。
+N5 重跑時發現暫緩採用的 Zapier 曾替 AA 的 MiniMax-M3 投 `max`，本規則已據此補強。
 
 換句話說，問的是「**有幾個來源實際跑過這一檔**」。一個來源掃了整個階梯，也只是對每一檔各投一票，不會因為掃得多就壓過只跑一檔的來源。
 
