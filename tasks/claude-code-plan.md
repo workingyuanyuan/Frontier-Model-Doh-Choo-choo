@@ -1502,3 +1502,335 @@ Sol 的 knowledge 高於 Gemini、context 低於 Gemini，雷達圖上兩者都�
 以符合既有版式，而不是刪掉其中一個留下唯一沒有 eyebrow 的 panel。
 
 **完成條件**：有測試釘住「每個值畫在該軸標籤所指的維度上」；基準驗證全綠。
+
+---
+
+# N. 期三：Vals AI、ARC Prize、Zapier AutomationBench
+
+規格 §2 的期三。使用者於 2026-08-22 指示：期三除了 Vals，同時加入
+`https://arcprize.org/leaderboard` 與 `https://zapier.com/benchmarks`，一共三個新來源，
+現行來源由五個增為八個。
+
+三個來源目前都在規格 §3.2 的凍結清單中，處置比照期二的 `epoch-ai`：**移出凍結清單、以新抓
+的快照為準**，舊快照留在 git 歷史與內容定址 artifact store，只作為對照擷取結果之用，不得
+讀進計分。
+
+期二的擷取程式已在 A2 刪除（`materializeVals` 約 406 行、arc-prize 與 zapier 的
+organizer materializer 約 613 行）。**不要從 git 歷史還原那些檔案**：`materializer-utils.ts`
+與 `refresh-utils.ts` 的介面在 A3 之後已完全不同，還原回來的程式無法接上現行管線。新的
+materializer 以 `epoch-materializer.ts` 與 `frontier-code-materializer.ts` 為範本重寫，
+舊程式只作為欄位語義的考證。
+
+**本階段不得改動 `data-v2/mappings/display-set.json`**——顯示清單是審核關卡的產物（規格
+§5.3），由使用者判讀取捨曲線後決定（N6）。
+
+## N0 — 擷取契約實測（2026-08-22，規劃期已完成）
+
+狀態：完成
+
+規格 §9 要求「開工前必須重新驗證一次」。以下三張表是 2026-08-22 對三個來源的實測結論，
+N1／N2／N3 直接依此實作；動工當天若發現與此不符，先更新本節與規格 §9，再改程式。
+
+### N0.1 ARC Prize
+
+| 項目           | 實測結論                                                                                                                    |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 分數           | `https://arcprize.org/media/data/evaluations.json` — 869 列，欄位 `datasetId`／`modelId`／`score`／`costPerTask`／`display` |
+| 模型中繼資料   | `https://arcprize.org/media/data/models.json` — 249 列，欄位 `id`／`displayName`／`modelReleaseDate`／`providerId`          |
+| 評測分割清單   | `https://arcprize.org/media/data/datasets.json` — 8 個分割，`v2_Semi_Private` 的 displayName 就是「ARC-AGI-2」              |
+| `display=true` | v2_Semi_Private 214 列、v3_Semi_Private 27 列、v2_Public_Eval 202、v1_\* 403                                                |
+| 成本           | v2_Semi_Private **214 列全部有 `costPerTask`**（USD／task）；**v3_Semi_Private 27 列全部沒有成本**                          |
+| 思考強度       | 寫在 `displayName` 的括號後綴：新模型是 `(Low/Medium/High/XHigh/Max)`，舊模型是 token 預算 `(Thinking 16K)`                 |
+| 分數尺度       | 0–1 的小數，**不是百分比**；v3 全部落在 0.000–0.302                                                                         |
+| 角色           | ORGANIZER（ARC Prize 自營 ARC-AGI）                                                                                         |
+
+**可見比對無法比照 LiveBench 的做法。** `https://arcprize.org/leaderboard` 是 Next.js
+client-rendered 頁面，伺服器回傳的 HTML 中沒有任何模型列（實測 46 KB，0 筆 `datasetId`、
+0 筆分數），RSC payload 也沒有。三個資料檔沒有第二個管道可以互相印證。處置見 D1 的裁決項。
+
+### N0.2 Zapier AutomationBench
+
+| 項目     | 實測結論                                                                                                                |
+| -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 入口     | `https://zapier.com/benchmarks`（Framer 站台，211 KB HTML）                                                             |
+| 資料位置 | HTML 直接列出全部 `.mjs` 模組；含 `task_completed_correctly` 的那一個即路由模組（實測 `EoTxbXN5….DiRrazN8.mjs`，57 KB） |
+| 資料形狀 | 反引號字串陣列，每列四欄（rank、model、pct、$cost），實測 **84 列**（上次凍結快照為 83）                                |
+| 版本     | 模組內的 `1.0.6`                                                                                                        |
+| 指標     | API mode 的 `task_completed_correctly`，嚴格 pass/fail；`partial_credit` 僅供診斷，不擷取                               |
+| 成本     | 每列一個 USD／task；缺值為 `—`，另有 `$0.61*` 這種帶星號的值                                                            |
+| 思考強度 | 名稱括號後綴；29 個模型中 **15 個有兩個以上檔位**，Claude Opus 5、GPT-5.6 Sol／Terra／Luna、Fable 5 皆為完整五階        |
+| 可見比對 | 模組內最大 rank 必須等於解析出的列數（84 = 84）                                                                         |
+| 角色     | ORGANIZER                                                                                                               |
+
+`$0.61*` 的星號語義未知（頁面上有註腳），擷取時**不得**默默去掉星號當成乾淨數字，見 D3。
+
+### N0.3 Vals AI
+
+| 項目     | 實測結論                                                                                                                                               |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 榜單清單 | `https://www.vals.ai/benchmarks` 的 `/benchmarks/<slug>` 連結，實測 39 個 slug（其中 `rsi_index` 無資料島）                                            |
+| 單榜資料 | `https://www.vals.ai/benchmarks/<slug>` 的 `<astro-island component-url="/_astro/BenchmarkView.*.js" props="…">`                                       |
+| 解析方式 | `props` 屬性 HTML-unescape 後是 JSON，值以 Astro 的 `[type, value]` 兩元素陣列包裹，需遞迴剝殼                                                         |
+| 資料形狀 | `benchmarkView.tasks.<task>` 是 `"provider/model" → { accuracy, cost_per_test, latency, stderr, reasoning_effort, compute_effort, provider, harness }` |
+| 中繼資料 | `benchmarkView.metadata`：`benchmark`／`version`／`updated`／`dataset_type`／`runner`／`archived`／`total_models`                                      |
+| 可見比對 | `metadata.total_models` 必須等於 `tasks.overall` 的列數（實測 swebench 86 = 86）                                                                       |
+| 成本     | **每個 benchmark 各自一個 `cost_per_test`（USD／test）**，覆蓋率極高（swebench 86 列中 84 列有值）                                                     |
+| 思考強度 | `reasoning_effort`／`compute_effort` 欄位，約半數有值；**一個模型在一個 benchmark 只有一列**，沒有檔位階梯                                             |
+| 角色     | 依 benchmark 而定：Vals 自營者為 ORGANIZER，重跑外部 benchmark 者為 INDEPENDENT                                                                        |
+
+**Vals 也有 `"0.99"` 這種非法 effort 值**（實測 swebench 有 2 列），與規格 §12 風險 6 的
+Frontier Code Inkling 同一個坑。`profile-policy.json` 的合法值只有 `max/xhigh/high/medium/low`，
+解析不出合法檔位時保持 null 走 §4.5 推測，**不得造出 `-0-99` 這種 profile**。
+
+**38 個可用榜單中，只有 12 個對得上 `benchmarks.json` 現有的 benchmark ID**：
+
+| slug                 | benchmarkId          | 更新日     | 列數 | 備註                                  |
+| -------------------- | -------------------- | ---------- | ---: | ------------------------------------- |
+| `swebench`           | `swe-bench`          | 2026-08-19 |   86 | 與 Epoch 重複量測                     |
+| `gpqa`               | `gpqa-diamond`       | 2026-08-19 |  135 | 與 AA、Epoch 重複量測（第三個來源）   |
+| `terminal-bench-2-1` | `terminal-bench-2-1` | 2026-08-19 |   57 | 與 AA 重複量測                        |
+| `lcb`                | `livecodebench`      | 2026-08-19 |  140 | AA 已停跑此項，Vals 仍在跑            |
+| `aime`               | `aime`               | 2026-04-16 |   96 | **已四個月未更新**，與 Epoch 重複     |
+| `mmlu_pro`           | `mmlu-pro`           | 2026-08-19 |  135 | AA 已停跑                             |
+| `proof_bench`        | `proofbench`         | 2026-08-21 |   26 | Vals 自營                             |
+| `corp_fin_v2`        | `corpfin`            | 2026-08-12 |  134 | Vals 自營                             |
+| `fabv2`              | `finance-agent-v2`   | 2026-08-19 |   51 | Vals 自營                             |
+| `vibe-code`          | `vibe-code-bench`    | 2026-08-19 |   86 | Vals 自營                             |
+| `programbench`       | `programbench`       | 2026-08-19 |   41 | Vals 自營                             |
+| `math500`            | （無對應 ID）        | 2026-01-09 |   60 | `math-level-5` 是不同的東西，不可共用 |
+
+`vals_index`／`vals_multimodal_index`／`time_horizon_index`／`web_search`（Web Search Index）
+是綜合指數，比照 AA Intelligence Index 與 Epoch ECI **恆為 `EXCLUDED`**。
+
+其餘 21 個榜單（`case_law_v2`、`code-migration`、`cyber`、`emb`、`hlab`、`ioi`、
+`legal_bench`、`legal_research`、`medcode`、`medqa`、`medscribe`、`mgsm`、`mmmu`、
+`mortgage_tax`、`poker_agent`、`public-benefits-bench`、`reverse_eng`、`sage`、
+`skillsbench`、`tax_eval_v2`、`terminal-bench-2`）**沒有核可的 benchmark ID 與維度對應**，
+依規格 §5.3 不得自行納入，見 D2。
+
+## 待使用者裁決（N1 開工前必須全部有答案）
+
+以下六項規格沒有涵蓋，依 `CLAUDE.md` 的邊界規則不得由代理自行決定。每一項都附建議與理由，
+裁決後寫進 `docs/REFACTOR_SPEC_V2.md` 對應章節（N1 的第一步）。
+
+### D1 — ARC-AGI 要收哪一個分割？
+
+現有 benchmark ID `arc-agi`（primary `reasoning`、secondary `context`）沒有指定版本，而
+凍結快照收的是 v3_Semi_Private。規格禁止混用版本與分割。
+
+| 選項                                  | 列數 | 成本 |                                       結果 |
+| ------------------------------------- | ---: | ---- | -----------------------------------------: |
+| （建議）`v2_Semi_Private` → `arc-agi` |  214 | 全有 | 涵蓋現役前沿模型與完整檔位階梯，可進成本圖 |
+| `v3_Semi_Private` → `arc-agi`         |   27 | 全無 | 分數 0.000–0.302，區辨力低，且不能進成本圖 |
+| 兩者並收，新增 `arc-agi-3`            |  241 | 部分 |  需要新的 benchmark 定義與維度裁決（§5.3） |
+
+**建議取 v2_Semi_Private。** 它是 ARC Prize 自己標為「ARC-AGI-2」的官方分割，是唯一同時
+具備成本與檔位階梯的一份；v3 目前更像是尚未飽和的前瞻測試，27 列裡有 22 列低於 1%，放進
+維度平均只會把 reasoning 整體壓低而不增加分辨率（期二的 `chess-puzzles` 已經是這個效果）。
+
+**同時要決定可見比對的替代做法。** ARC 沒有第二個管道（見 N0.1）。建議比照 Epoch 的精神
+改為兩項機器可查的完整性檢查：(a) 每一列 `display=true` 都必須在 `models.json` 找到對應
+`id`，(b) 每個分割的列數變化寫進 snapshot delta，數字倒退就讓刷新失敗。人眼比對改由 §11.4
+的抽查清單承擔。
+
+### D2 — Vals 收哪幾個 benchmark？
+
+| 選項                                                   | 進入計分的 benchmark       | 說明                                                     |
+| ------------------------------------------------------ | -------------------------- | -------------------------------------------------------- |
+| （建議）只收已有 ID 且仍在更新的 10 項                 | 上表扣掉 `aime`、`math500` | 零新增 benchmark 定義，不需要新的維度裁決                |
+| 收全部 11 項有 ID 的                                   | 加 `aime`                  | Vals 的 aime 已四個月未更新，與 Epoch 的 aime 重複且較舊 |
+| 另外挑幾個新 benchmark（如 `mmmu`、`ioi`、`sage`）進來 | 需要新 ID＋維度歸屬        | 走規格 §5.3 的報告與裁決，本階段會多一個 task            |
+
+**建議先收 10 項**：`swe-bench`、`gpqa-diamond`、`terminal-bench-2-1`、`livecodebench`、
+`mmlu-pro`、`proofbench`、`corpfin`、`finance-agent-v2`、`vibe-code-bench`、`programbench`。
+理由：這 10 項全部有現成的維度對應，不需要任何新裁決；其中 `livecodebench` 與 `mmlu-pro`
+在 AA 已停跑，Vals 正好把 coding 與 knowledge 兩維補厚。`aime` 建議不收——同一個 benchmark
+已有 Epoch 在跑而且比較新，依 §4.3.1 取最高分只會讓一份四個月前的舊資料有機會蓋掉新的。
+
+擷取層仍應把 38 個榜單**全部存成 Candidate**（未核可者標 `EXCLUDED`），這樣日後要 promote
+不必重抓；進計分的只有核可清單，唯一來源比照 `EPOCH_DIRECT_FILES` 寫成一張明表。
+
+### D3 — Zapier 的星號成本與 `—` 缺值
+
+`$0.61*`（Gemini 3.7 Flash，排名第一）帶星號，頁面有註腳說明；`—` 是缺值。
+
+**建議**：`—` → null；帶星號的值**先不進成本圖**（保存原始字串於出處記錄，`cost` 記 null），
+直到 N2 讀出註腳確認語義後再依語義決定。理由：成本圖的每一根軸都要求「同一次量測」，一個
+語義不明的註腳有可能正是「不同量測條件」的標記。
+
+### D4 — 成本權重表怎麼改？（規格 §6.3「預設圖」）
+
+現行是四個來源各 25%（Epoch 無成本，權重 0）。期三之後有成本的來源變成 **七個**。
+
+| 選項                    | 權重                                                            |
+| ----------------------- | --------------------------------------------------------------- |
+| （建議）沿用等權重      | AA／LiveBench／DeepSWE／Frontier Code／ARC／Zapier／Vals 各 1/7 |
+| 排除 LiveBench 後等權重 | 其餘六個各 1/6                                                  |
+| 自訂權重                | 需要可辯護的排序依據                                            |
+
+**建議沿用等權重各 1/7。** 規格 §6.3 已經寫明「等權重讓擴充成為機械操作」，而且七個來源的
+成本語意一致（都是 USD per task／test）。**但 Vals 需要一條附加規則**：它是唯一每個
+benchmark 各有一個成本的來源，`cost_per_test` 不唯一。建議比照 AA Intelligence Index 的
+處理——**採 `vals_index` 那一列的 `cost_per_test` 作為「Vals 的成本」**，沒有 Vals Index
+成績的模型就沒有 Vals 成本點，不用其他 benchmark 的成本頂替。
+
+### D5 — 進階圖要不要擴充來源？（規格 §6.3「進階圖」）
+
+進階圖現行是 AA／DeepSWE／Frontier Code 各 1/3，入選條件是**三個來源都有**該檔位的分數與
+成本。規格已寫明擴充門檻：「除非新來源同時提供可配對的成本與思考強度階梯」。
+
+| 來源   | 可配對成本 | 檔位階梯                                      | 是否合格 |
+| ------ | ---------- | --------------------------------------------- | -------- |
+| Zapier | 有         | 有（29 模型中 15 個多檔位，五個模型完整五階） | **合格** |
+| ARC    | 有（v2）   | 有（新模型 Low–Max）                          | **合格** |
+| Vals   | 有         | **無**（一模型一列）                          | 不合格   |
+
+**建議：先量測再決定，本階段不預先擴充。** 每多一個來源，入選條件就多一個「必須都有」的
+連乘項；期二實測三來源時合格 profile 只有 31 個、模型 13 個，加到五個來源很可能腰斬。
+N4 的產出就是這張量測表（三／四／五來源各自的合格 profile 數與模型數），交使用者選一個。
+
+### D6 — 新來源帶進來的未知模型要不要進 catalog？
+
+三個來源會帶進 catalog 沒有的名字，例如 `zai/glm-5.3`、`deepseek/deepseek-v4-pro-0813`、
+`thinkingmachines/inkling-small`、`xiaomi/mimo-v2.5`、`minimax/MiniMax-M3`／`M2.7`、
+`logicalintelligence/alephprover`、`aristotle/aristotle`、`GPT-OSS 120B`。
+
+**建議：一律保持 `canonicalModelId: null`，不做模糊匹配**（規格 §10 的硬邊界）。要新增
+catalog 條目必須逐一由使用者裁決，且應該獨立成一個資料品質 task，不混在來源擷取裡。
+N3 會列出完整的未解析名單供裁決。
+
+## N1 — ARC Prize 來源刷新
+
+狀態：未開始
+
+**前置**：D1、D4 已裁決。
+
+**目標**：把 `arc-prize` 從凍結來源改為現行來源。
+
+**要求**：
+
+- 新增 `arc-prize-materializer.ts` 與 `refresh-arc-prize.ts`，比照 `refresh-epoch.ts` 的結構：
+  內容定址 artifact、evidence-index、candidates、validation report、manifest、snapshot delta。
+- 分數 0–1 換算為 0–100 的 normalized 分數，`rawScore` 保留來源原值。
+- 檔位由 `displayName` 括號後綴解碼，**token 預算後綴（`Thinking 16K` 等）維持 null**，
+  比照 L4 的 `decodeVersionSuffix` 寫成單一具測試的函式，不要手寫 `endsWith` 鏈。
+- `costPerTask` 存為 `AGENT_TASK`／`USD_PER_TASK`。
+- `sources.json` 白名單加入 `arc-prize`；規格 §3.1／§3.2／§9 增補本來源。
+- 重跑 `pnpm data:v2:build-current`（不 commit `current.json`）與
+  `pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1`。
+
+**完成條件**：基準驗證全綠；D1 選定的分割列數與實測相符；`display-set.json` 未被改動。
+
+## N2 — Zapier AutomationBench 來源刷新
+
+狀態：未開始
+
+**前置**：D3、D4 已裁決。
+
+**要求**：
+
+- 新增 `zapier-materializer.ts` 與 `refresh-zapier.ts`。模組定位方式必須是**依內容特徵**
+  （含 `task_completed_correctly`）而非寫死檔名——Framer 的 bundle hash 每次部署都會變。
+- 找不到符合特徵的模組時**必須讓刷新失敗**，不得回退成空表；這是靜默失效的主要入口。
+- 可見比對：最大 rank == 解析列數，不符即失敗。
+- 版本字串（`1.0.6`）寫進 manifest 與 validation report。
+- 白名單加入 `zapier-automationbench`；規格 §3.1／§3.2／§9 增補。
+- 重跑 build 與 coverage-matrix。
+
+**完成條件**：基準驗證全綠；bundle hash 改變時測試仍能通過（以錄下的 fixture 驗證特徵搜尋）。
+
+## N3 — Vals AI 來源刷新
+
+狀態：未開始
+
+**前置**：D2、D4、D6 已裁決。三個來源中最大的一個，不要與 N1／N2 合併。
+
+**要求**：
+
+- 新增 `vals-materializer.ts` 與 `refresh-vals.ts`。Astro island 的 `[type, value]` 剝殼
+  與 `props` 反跳脫各自獨立成具測試的函式。
+- 榜單清單由 `/benchmarks` 頁面枚舉，**不寫死 38 個 slug**；新榜單出現時要能被看見（寫進
+  validation report 的「未核可榜單」清單），但不自動進計分。
+- 核可清單寫成單一明表（比照 `EPOCH_DIRECT_FILES`），未核可者一律 `EXCLUDED`。
+- 綜合指數（`vals_index` 等四項）恆為 `EXCLUDED`。
+- 角色逐 benchmark 判定：Vals 自營為 ORGANIZER，重跑外部 benchmark 為 INDEPENDENT。
+- `reasoning_effort`／`compute_effort` 解碼；非法值（`"0.99"`）保持 null，**不得造出非法
+  profile**，需有回歸測試。
+- `metadata.total_models` 與解析列數不符即失敗。
+- 白名單加入 `vals-ai`；規格 §3.1／§3.2／§9 增補。
+- 產出未解析 identity 的完整名單（D6 的裁決素材）。
+- 重跑 build 與 coverage-matrix。
+
+**完成條件**：基準驗證全綠；核可清單以外的榜單沒有任何一列 `INCLUDED`。
+
+## N4 — 成本圖與進階圖的來源擴充
+
+狀態：未開始
+
+**前置**：N1、N2、N3 完成。D5 在本 task 中段交付量測後才裁決。
+
+**要求**：
+
+- 依 D4 改寫成本權重表與規格 §6.3。
+- **先量測後改圖**：產出三／四／五來源各自的進階圖合格 profile 數、模型數、可連線模型數，
+  以及每個組合下 X 軸的實際範圍，寫成 `docs/ADVANCED_CHART_SOURCES_<日期>.md` 交使用者裁決。
+- 依裁決結果調整 `buildAdvancedCostSeries`；不得回退 J2／J3／K1／K2／M1 的既有行為。
+- 若裁決為維持三來源，仍必須把「為何 Vals 不合格、ARC 與 Zapier 合格但不採用」寫進規格，
+  不要留下沒有記錄的現狀。
+
+**完成條件**：基準驗證全綠；量測文件存在且被規格引用。
+
+## N5 — 檔位推測與重複量測的期三揭露
+
+狀態：未開始
+
+**前置**：N1–N3 完成。
+
+**背景**：期三之後同一個 benchmark 的重複量測從「兩個來源」變成「三個來源」
+（`gpqa-diamond` 由 AA／Epoch／Vals 三家各自量測，`swe-bench` 由 Epoch／Vals，
+`terminal-bench-2-1` 由 AA／Vals）。§4.3.1 的「取最高分」規則本身不變，但**三取一比二取一
+系統性地更偏高**，這件事必須被量化並揭露，不能留給下一次審核自己發現。
+
+**要求**：
+
+- 產出各重複 benchmark 的逐模型三來源分數對照（比照
+  `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`）。
+- 統計「取最高分」相對於「取中位數」的平均抬升，寫進規格 §4.3.1 作為已知偏誤揭露。
+- 重跑 §4.5 的檔位推測說明。三個新來源有大量未標檔位的列（Vals 約半數），推測票數的分佈
+  會改變，逐筆依據必須寫進各來源的 validation report。
+
+**完成條件**：對照文件存在；三個新來源的 validation report 都有 Cross-source inferences 章節。
+
+## ▣ N6 — 期三審核關卡（使用者執行）
+
+狀態：未開始
+
+代理**不得**自行通過本關卡，也不得自行改動 `display-set.json`。
+
+代理交付：
+
+1. 八來源的 coverage-matrix 取捨曲線（必選 `deepswe-1-1,frontier-code-1-1`，見 L5）。
+2. 顯示清單若擴充，主畫面模型數的變化與進出名單。
+3. N5 的重複量測對照與檔位推測揭露。
+
+使用者裁決：顯示清單的內容與規模，以及三個新來源的資料是否可信。
+
+## N7 — 期三刷新報告與文件同步
+
+狀態：未開始
+
+**前置**：N6 通過。
+
+**要求**：
+
+- 依規格 §11.4 產出 `docs/REFRESH_<YYYY-MM-DD>.md`：規模變化、主畫面進出、變動最大的分數、
+  **檔位推測揭露表（強制）**、依風險排序的抽查清單、已知未解。抽查清單必須涵蓋三個新來源
+  各至少一筆，且每一筆都能壓縮成「打開連結、找到這一列、比對一個數字」。
+- 同步 `docs/ARCHITECTURE.md`、`docs/DATA_METHODOLOGY.md`、`docs/SCORING_METHODOLOGY.md`、
+  `docs/OPERATIONS.md`、`docs/BENCHMARK_DIMENSION_MAPPING.md`、
+  `docs/BENCHMARK_SCORE_SOURCES.md`：來源數由五改八、三個新來源的刷新指令、成本權重表。
+- `docs/REFACTOR_DISCARD_LIST.md` 若仍把這三個來源列為已丟棄，一併修正，不要留下互相矛盾
+  的文件。
+
+**完成條件**：文件中不存在「四個來源」「五個來源」的殘留敘述；基準驗證全綠；
+`current.json` 仍未 commit，等使用者明確指示（規格 §11.2）。
