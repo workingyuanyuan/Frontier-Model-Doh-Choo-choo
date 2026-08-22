@@ -2047,9 +2047,17 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 - ARC-AGI 改為以分割命名的 benchmark ID（建議 `arc-agi-2`），`benchmarkVersion` 保留為證據。
   `view-model.ts` 的 `SOURCE_SCORE_BENCHMARK_IDS['arc-prize']` 與進階圖的 `ARC_AGI` 基準要
   一併改名，否則進階圖會靜默掉點。
-- 掃過所有來源，列出其餘「同 ID 多版本」的情況並在 validation report 中列表；沒有難度差異
-  的（例如 `gpqa-diamond` 的 `(null)` 與 `1`、`terminal-bench-2-1` 的 `(null)` 與 `2.1`、
-  `swe-bench` 的 `(null)` 與 `1`）維持共用 ID，那是同一個測驗的不同寫法。
+- 掃過**白名單上的八個來源**（`data-v2/mappings/sources.json`），列出其餘「同 ID 多版本」的
+  情況並在 validation report 中列表；沒有難度差異的（`gpqa-diamond`、`swe-bench`、
+  `terminal-bench-2-1`、`livecodebench`、`mmlu-pro` 的 `(null)` 與 `1`／`2.1`，以及 `aime`
+  的 Vals 全 EXCLUDED 版）維持共用 ID，那是同一個測驗的不同寫法。
+- **統計不得混入凍結來源。** `REFACTOR_SPEC_V2.md` §3.2 凍結的六個目錄（`lech-writing`、
+  `llm-stats`、`openai`、`osworld`、`scale-hle`、`terminal-bench`）不在白名單內、不參與建置，
+  `workspace.ts` 以 `sources.json` 的 whitelist 過濾目錄，實測 `current.json` 的 2463 筆證據
+  只來自那八個來源。審查時一度把 `openai` 的 `frontiermath` 兩列與 `scale-hle` 的
+  `humanitys-last-exam`、`openai` 的 `mrcr-v2`、`osworld` 當成待處理項目，那是**錯的**：
+  它們是期一遺留的靜態快照，內容不得修改，也不影響計分。凡涉及 benchmark 版本、來源數、
+  覆蓋率的統計，一律先過白名單再算。
 - `arc-agi` 不在 `display-set.json` 中，改名不觸及該檔；若 N10 之後改名會觸及顯示清單，
   必須先交使用者裁決。
 
