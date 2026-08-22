@@ -2069,7 +2069,16 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 2. `arc-agi` 改名為 `arc-agi-2`（91 筆量測，88 筆 INCLUDED）。
 3. 影響實測：
    - math 維度分量數改變的 profile 數：23 個。
-   - overallScore 改變的 profile 數：23 個，最大變化量為 2.32 分（`openai-gpt-5-4-mini-high`）。
+   - ~~overallScore 改變的 profile 數：23 個，最大變化量為 2.32 分
+     （`openai-gpt-5-4-mini-high`）。~~ **此數字有誤，由審查者更正如下**：23 是 math 維度
+     改變的 profile 數，其中只有 **5 個** profile 的 overallScore 非 `null`，也就是只有 5 個
+     overall 真的改變，全部下降，最大 **−1.83**（`moonshot-kimi-k2-6-default`，math −14.63、
+     4 個分量）。其餘依序為 `anthropic-claude-opus-4-8-max` −1.52、`openai-gpt-5-5-xhigh`
+     −1.47、`google-gemini-3-5-flash-high` −1.22、`google-gemini-3-1-pro-preview-high` −1.14。
+     原報告點名的 `openai-gpt-5-4-mini-high` 的 overallScore 是 `null`（八維不齊），不可能
+     改變。更正方法：以 `leaderboard[].evidenceResultIds`（即 `selectCurrentResults` 的輸出）
+     重建各維度分量，對 1152 個維度格全數比對無誤後再計算；直接用全部 `evidence` 列重建會
+     多算跨來源重複列而失真。
    - 主畫面 12 個 qualified models 名次未變。
    - 進階成本圖 12 個模型、27 個 profile、四來源皆齊全，無掉點。
 4. 基準驗證與 e2e 全綠（253 unit tests pass, 18 e2e pass）。
