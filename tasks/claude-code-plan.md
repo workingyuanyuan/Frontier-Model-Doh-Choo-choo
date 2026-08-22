@@ -2099,7 +2099,12 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 
 狀態：未開始
 
-**依據**：R1、R2。**前置**：N9 完成。
+**依據**：R1、R2、R7。**前置**：N9 完成。
+
+**設計提案**：`docs/N10_DESIGN_PROPOSAL.md`（2026-08-22，orchestrator 撰寫，**未定案**）。
+該文件把 N10 拆成 N10a／N10b／N10c 三個可獨立驗收的子任務並另立 N11（成本圖），同時列出
+六項待裁決事項 D-N10-1 ～ D-N10-6。**裁決之前不得開工**；裁決後把決定寫回
+`REFACTOR_SPEC_V2.md`，本提案降為考證用。
 
 **背景**：`display-set.json` 目前的說明寫著「Adding a benchmark here never changes a score
 — dimension scores use every available benchmark; this list only decides which profiles
