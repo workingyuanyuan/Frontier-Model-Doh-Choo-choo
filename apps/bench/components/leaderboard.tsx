@@ -1,8 +1,4 @@
-import type {
-  DimensionId,
-  DisplaySet,
-  ProductVersion,
-} from '@llm-bench/benchmark-data';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { useMemo, useState } from 'react';
 
 import { UI_DIMENSION_IDS } from '../lib/ui-contract';
@@ -11,7 +7,11 @@ import {
   type LeaderboardSortKey,
   type SortDirection,
 } from '../lib/table-sort';
-import { getRepresentativeRows, type LeaderboardRow } from '../lib/view-model';
+import {
+  getRepresentativeRows,
+  type LeaderboardRow,
+  type ProductPreset,
+} from '../lib/view-model';
 import { ModelPicker } from './leaderboard-controls';
 import { LeaderboardTable } from './leaderboard-table';
 
@@ -24,7 +24,7 @@ export type LeaderboardProps = {
   checkedModelIds: string[];
   setCheckedModelIds: React.Dispatch<React.SetStateAction<string[]>>;
   benchmarkDimensions: Record<string, DimensionId>;
-  displaySet: DisplaySet | null;
+  preset: ProductPreset | null;
   initialExpandedModelIds?: string[] | undefined;
 };
 
@@ -35,7 +35,7 @@ export function Leaderboard({
   checkedModelIds,
   setCheckedModelIds,
   benchmarkDimensions,
-  displaySet,
+  preset,
   initialExpandedModelIds,
 }: LeaderboardProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
@@ -153,7 +153,7 @@ export function Leaderboard({
         modelProfiles={modelProfiles}
         onProfileChange={handleProfileChange}
         benchmarkDimensions={benchmarkDimensions}
-        displaySet={displaySet}
+        preset={preset}
         expandedModelIds={expandedModelIds}
         onToggleExpand={toggleExpand}
       />

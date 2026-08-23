@@ -355,6 +355,19 @@ describe('buildProductVersion', () => {
         [makeCandidate()],
         new Map([['terminal-bench-2-1', 'coding']]),
       ),
+      defaultPresetId: 'test-preset',
+      presets: [
+        {
+          id: 'test-preset',
+          targetModelCount: 1,
+          requireAllSources: false,
+          benchmarkIds: ['terminal-bench-2-1'],
+          leaderboard: scoreProfiles(
+            [makeCandidate()],
+            new Map([['terminal-bench-2-1', 'coding']]),
+          ),
+        },
+      ],
       costs: [],
       evidence: [toProductEvidence(makeCandidate())],
     };
@@ -364,6 +377,26 @@ describe('buildProductVersion', () => {
     expect(version).toEqual(buildProductVersion(input));
     expect(version).not.toHaveProperty('state');
   });
+});
+
+/**
+ * A one-preset display set covering the benchmarks a test actually uses.
+ * Ruling R1 makes the preset the scoring basis, so `buildProduct` needs one;
+ * these fixtures only care that their own benchmark is inside it.
+ */
+const displaySetFor = (
+  benchmarkIds: string[],
+): Parameters<typeof buildProduct>[0]['displaySet'] => ({
+  schemaVersion: 'display-set-v2',
+  defaultPresetId: 'test-preset',
+  presets: [
+    {
+      id: 'test-preset',
+      targetModelCount: 1,
+      requireAllSources: false,
+      benchmarkIds,
+    },
+  ],
 });
 
 describe('buildProduct', () => {
@@ -443,6 +476,7 @@ describe('buildProduct', () => {
       ],
       profiles: [profile],
       benchmarkDimensions: new Map([['livebench-reasoning', 'reasoning']]),
+      displaySet: displaySetFor(['livebench-reasoning']),
       catalog,
       manualModels: [],
     });
@@ -484,6 +518,7 @@ describe('buildProduct', () => {
         candidates: [makeCandidate()],
         profiles: [],
         benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
+        displaySet: displaySetFor(['terminal-bench-2-1']),
         manualModels: [
           {
             modelId: 'openai-gpt-5-6-sol',
@@ -760,6 +795,7 @@ describe('deriveModelProfiles', () => {
       candidates,
       profiles: deriveModelProfiles(candidates, catalog),
       benchmarkDimensions: new Map([['terminal-bench-2-1', 'coding']]),
+      displaySet: displaySetFor(['terminal-bench-2-1']),
       catalog,
       manualModels: [
         {

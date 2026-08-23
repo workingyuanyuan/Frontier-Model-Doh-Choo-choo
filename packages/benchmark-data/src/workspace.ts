@@ -138,6 +138,7 @@ export const buildWorkspaceProduct = async (
     profiles: deriveModelProfiles(candidates, catalog),
     benchmarkDimensions,
     catalog,
+    displaySet,
     manualModels: frontierConfig.manualModels,
     qualificationWindowMonths: frontierConfig.qualificationWindowMonths,
     costRecords,

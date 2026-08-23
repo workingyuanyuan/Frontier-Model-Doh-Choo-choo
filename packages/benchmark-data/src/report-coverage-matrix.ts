@@ -167,6 +167,9 @@ export const generateCoverageMatrixReport = async (
     ...workspaceData,
     referenceDate,
     requiredBenchmarkIds: options.requiredBenchmarkIds ?? [],
+    // A subset that cannot fill all eight dimensions is not a display-set
+    // candidate, so offering it would inflate the curve with unrankable rows.
+    requireAllDimensions: true,
     ...(options.candidatesPerScale !== undefined
       ? { candidatesPerScale: options.candidatesPerScale }
       : {}),

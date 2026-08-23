@@ -44,14 +44,46 @@ describe('loadProductVersion', () => {
             primaryDimension: 'coding',
             secondaryDimensions: ['agentic'],
           },
+          ...(
+            [
+              'reasoning',
+              'math',
+              'knowledge',
+              'language',
+              'instruction',
+              'agentic',
+              'context',
+            ] as const
+          ).map((dimension) => ({
+            id: `bench-${dimension}`,
+            primaryDimension: dimension,
+            secondaryDimensions: [],
+          })),
         ],
       }),
     );
     writeFileSync(
       join(mappingRoot, 'display-set.json'),
       JSON.stringify({
-        schemaVersion: 'display-set-v1',
-        benchmarkIds: ['terminal-bench-2-1'],
+        schemaVersion: 'display-set-v2',
+        defaultPresetId: 'fixture-preset',
+        presets: [
+          {
+            id: 'fixture-preset',
+            targetModelCount: 2,
+            requireAllSources: false,
+            benchmarkIds: [
+              'terminal-bench-2-1',
+              'bench-reasoning',
+              'bench-math',
+              'bench-knowledge',
+              'bench-language',
+              'bench-instruction',
+              'bench-agentic',
+              'bench-context',
+            ],
+          },
+        ],
       }),
     );
     mkdirSync(productRoot, { recursive: true });
@@ -64,12 +96,30 @@ describe('loadProductVersion', () => {
     const loaded = loadProductVersion();
 
     expect(loaded.product).toEqual(productFixture);
-    expect(loaded.benchmarkDimensions).toEqual({
+    expect(loaded.benchmarkDimensions).toMatchObject({
       'terminal-bench-2-1': 'coding',
+      'bench-context': 'context',
     });
     expect(loaded.displaySet).toEqual({
-      schemaVersion: 'display-set-v1',
-      benchmarkIds: ['terminal-bench-2-1'],
+      schemaVersion: 'display-set-v2',
+      defaultPresetId: 'fixture-preset',
+      presets: [
+        {
+          id: 'fixture-preset',
+          targetModelCount: 2,
+          requireAllSources: false,
+          benchmarkIds: [
+            'terminal-bench-2-1',
+            'bench-reasoning',
+            'bench-math',
+            'bench-knowledge',
+            'bench-language',
+            'bench-instruction',
+            'bench-agentic',
+            'bench-context',
+          ],
+        },
+      ],
     });
   });
 
@@ -117,6 +167,21 @@ describe('loadProductVersion', () => {
             primaryDimension: 'coding',
             secondaryDimensions: ['agentic'],
           },
+          ...(
+            [
+              'reasoning',
+              'math',
+              'knowledge',
+              'language',
+              'instruction',
+              'agentic',
+              'context',
+            ] as const
+          ).map((dimension) => ({
+            id: `bench-${dimension}`,
+            primaryDimension: dimension,
+            secondaryDimensions: [],
+          })),
         ],
       }),
     );

@@ -394,11 +394,34 @@ export const SourcesConfigSchema = z.object({
 });
 export type SourcesConfig = z.infer<typeof SourcesConfigSchema>;
 
-export const DisplaySetSchema = z.object({
-  schemaVersion: z.literal('display-set-v1'),
-  notes: z.string().optional(),
-  benchmarkIds: z.array(SlugSchema).min(1),
-});
+export const DisplaySetPresetSchema = z
+  .object({
+    id: SlugSchema,
+    /**
+     * How many qualified base models the coverage report predicted this preset
+     * would leave complete. It is the user-facing axis -- the UI slider selects
+     * a model count, not a benchmark count -- so it is stored rather than
+     * recomputed, and the report is what it is checked against.
+     */
+    targetModelCount: z.int().positive(),
+    /**
+     * Whether this preset came from the curve that forces every source holding
+     * an active benchmark to contribute at least one.
+     */
+    requireAllSources: z.boolean(),
+    benchmarkIds: z.array(SlugSchema).min(1),
+  })
+  .strict();
+export type DisplaySetPreset = z.infer<typeof DisplaySetPresetSchema>;
+
+export const DisplaySetSchema = z
+  .object({
+    schemaVersion: z.literal('display-set-v2'),
+    notes: z.string().optional(),
+    defaultPresetId: SlugSchema,
+    presets: z.array(DisplaySetPresetSchema).min(1),
+  })
+  .strict();
 export type DisplaySet = z.infer<typeof DisplaySetSchema>;
 
 export const validateDisplaySet = (
@@ -409,15 +432,54 @@ export const validateDisplaySet = (
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
     benchmarkMappingInput,
   );
-  const knownBenchmarkIds = new Set(
-    benchmarkMapping.benchmarks.map(({ id }) => id),
+  const knownBenchmarks = new Map(
+    benchmarkMapping.benchmarks.map((benchmark) => [benchmark.id, benchmark]),
   );
-  const missing = displaySet.benchmarkIds.filter(
-    (id) => !knownBenchmarkIds.has(id),
-  );
-  if (missing.length > 0) {
+
+  const seenPresetIds = new Set<string>();
+  for (const preset of displaySet.presets) {
+    if (seenPresetIds.has(preset.id)) {
+      throw new Error(`Display set has duplicate preset id: ${preset.id}`);
+    }
+    seenPresetIds.add(preset.id);
+
+    const missing = preset.benchmarkIds.filter(
+      (id) => !knownBenchmarks.has(id),
+    );
+    if (missing.length > 0) {
+      throw new Error(
+        `Display set preset ${preset.id} contains unknown benchmark IDs: ${missing.join(', ')}`,
+      );
+    }
+    const duplicates = preset.benchmarkIds.filter(
+      (id, index) => preset.benchmarkIds.indexOf(id) !== index,
+    );
+    if (duplicates.length > 0) {
+      throw new Error(
+        `Display set preset ${preset.id} repeats benchmark IDs: ${[...new Set(duplicates)].join(', ')}`,
+      );
+    }
+
+    // D-N10-3: a preset is now the scoring basis, so one that cannot fill all
+    // eight dimensions would publish an Overall Score nobody can reach.
+    const covered = new Set(
+      preset.benchmarkIds.map(
+        (id) => knownBenchmarks.get(id)!.primaryDimension,
+      ),
+    );
+    const uncovered = DIMENSION_IDS.filter(
+      (dimension) => !covered.has(dimension),
+    );
+    if (uncovered.length > 0) {
+      throw new Error(
+        `Display set preset ${preset.id} leaves dimensions with no benchmark: ${uncovered.join(', ')}`,
+      );
+    }
+  }
+
+  if (!seenPresetIds.has(displaySet.defaultPresetId)) {
     throw new Error(
-      `Display set contains unknown benchmark IDs: ${missing.join(', ')}`,
+      `Display set defaultPresetId ${displaySet.defaultPresetId} is not one of its presets`,
     );
   }
 };
@@ -742,8 +804,19 @@ export const ProductCostSchema = z.object({
 });
 export type ProductCost = z.infer<typeof ProductCostSchema>;
 
+const LeaderboardEntrySchema = z
+  .object({
+    modelId: SlugSchema,
+    profileId: SlugSchema,
+    rank: z.int().positive().nullable(),
+    overallScore: z.number().min(0).max(100).nullable(),
+    dimensions: OrderedDimensionScoresSchema,
+    evidenceResultIds: z.array(z.string().min(1)),
+  })
+  .strict();
+
 export const ProductVersionSchema = z.object({
-  schemaVersion: z.literal('product-version-v3'),
+  schemaVersion: z.literal('product-version-v4'),
   versionId: Sha256Schema,
   generatedAt: z.iso.datetime(),
   sourceSnapshotIds: z.array(z.string().min(1)),
@@ -755,18 +828,31 @@ export const ProductVersionSchema = z.object({
     }),
   ),
   profiles: z.array(ModelProfileSchema),
-  leaderboard: z.array(
-    z
-      .object({
-        modelId: SlugSchema,
-        profileId: SlugSchema,
-        rank: z.int().positive().nullable(),
-        overallScore: z.number().min(0).max(100).nullable(),
-        dimensions: OrderedDimensionScoresSchema,
-        evidenceResultIds: z.array(z.string().min(1)),
-      })
-      .strict(),
-  ),
+  defaultPresetId: SlugSchema,
+  /**
+   * One scored leaderboard per display-set preset. Ruling R1: the selected
+   * benchmark set is the scoring basis, so a score only means anything
+   * alongside the preset it was computed under.
+   */
+  presets: z
+    .array(
+      z
+        .object({
+          id: SlugSchema,
+          targetModelCount: z.int().positive(),
+          requireAllSources: z.boolean(),
+          benchmarkIds: z.array(SlugSchema).min(1),
+          leaderboard: z.array(LeaderboardEntrySchema),
+        })
+        .strict(),
+    )
+    .min(1),
+  /**
+   * The default preset's leaderboard, repeated at the top level so the app can
+   * keep reading one array while the preset switcher is built (N10c). N10c
+   * removes it; until then `buildProduct` asserts the two stay identical.
+   */
+  leaderboard: z.array(LeaderboardEntrySchema),
   costs: z.array(ProductCostSchema),
   evidence: z.array(ProductEvidenceSchema),
 });
@@ -1021,11 +1107,32 @@ type LeaderboardEntry = z.infer<
   typeof ProductVersionSchema
 >['leaderboard'][number];
 
+export interface ScoreProfilesOptions {
+  /**
+   * Restrict scoring to these benchmarks.
+   *
+   * Ruling R1: the selected display set is the scoring basis, not merely an
+   * eligibility gate. Filtering here rather than at the dimension map also
+   * keeps `evidenceResultIds` honest -- a detail panel must not cite a result
+   * that did not enter the score.
+   *
+   * Omitted means every benchmark, which is the pre-R1 behaviour and is still
+   * what a preset-less caller wants.
+   */
+  benchmarkIds?: ReadonlySet<string> | undefined;
+}
+
 export const scoreProfiles = (
   results: CandidateResult[],
   benchmarkDimensions: ReadonlyMap<string, DimensionId>,
+  options: ScoreProfilesOptions = {},
 ): LeaderboardEntry[] => {
-  const selected = selectCurrentResults(results);
+  const { benchmarkIds } = options;
+  const scoped =
+    benchmarkIds === undefined
+      ? results
+      : results.filter(({ benchmarkId }) => benchmarkIds.has(benchmarkId));
+  const selected = selectCurrentResults(scoped);
   const byProfile = groupBy(selected, ({ model }) => model.profileId as string);
 
   const entries = [...byProfile.entries()].map(
@@ -1211,6 +1318,12 @@ export interface ProductInput {
   candidates: CandidateResult[];
   profiles: ModelProfile[];
   benchmarkDimensions: ReadonlyMap<string, DimensionId>;
+  /**
+   * The approved presets. Each one is scored independently, because ruling R1
+   * makes the selected benchmark set the scoring basis rather than a filter
+   * applied after the fact.
+   */
+  displaySet: DisplaySet;
   catalog?: ModelCatalog | undefined;
   manualModels?: ManualFrontierModel[] | undefined;
   qualificationWindowMonths?: number | undefined;
@@ -1266,10 +1379,33 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
         frontierModelIds.has(model.canonicalModelId),
     )
     .toSorted((left, right) => left.id.localeCompare(right.id));
-  const leaderboard = scoreProfiles(scoringEvidence, input.benchmarkDimensions);
+  const presets = input.displaySet.presets.map((preset) => ({
+    id: preset.id,
+    targetModelCount: preset.targetModelCount,
+    requireAllSources: preset.requireAllSources,
+    benchmarkIds: [...preset.benchmarkIds].toSorted((left, right) =>
+      left.localeCompare(right),
+    ),
+    leaderboard: scoreProfiles(scoringEvidence, input.benchmarkDimensions, {
+      benchmarkIds: new Set(preset.benchmarkIds),
+    }),
+  }));
+  const defaultPreset = presets.find(
+    ({ id }) => id === input.displaySet.defaultPresetId,
+  );
+  if (!defaultPreset) {
+    throw new Error(
+      `display set defaultPresetId ${input.displaySet.defaultPresetId} is not one of its presets`,
+    );
+  }
+  const leaderboard = defaultPreset.leaderboard;
   const evidence = scoringEvidence.map(toProductEvidence);
+  // Every preset ranks the same universe of profiles, so the catalog check
+  // below has to see all of them, not just the default preset's.
   const leaderboardProfileIds = new Set(
-    leaderboard.map(({ profileId }) => profileId),
+    presets.flatMap(({ leaderboard: rows }) =>
+      rows.map(({ profileId }) => profileId),
+    ),
   );
   const profiles = input.profiles
     .filter(({ id }) => leaderboardProfileIds.has(id))
@@ -1341,6 +1477,8 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     sourceSnapshotIds: input.sourceSnapshotIds.toSorted(),
     frontier,
     profiles,
+    defaultPresetId: defaultPreset.id,
+    presets,
     leaderboard,
     costs,
     evidence,
@@ -1353,7 +1491,7 @@ export const buildProductVersion = (
   input: ProductVersionInput,
 ): ProductVersion => {
   const versionContent = {
-    schemaVersion: 'product-version-v3' as const,
+    schemaVersion: 'product-version-v4' as const,
     ...input,
   };
   return ProductVersionSchema.parse({

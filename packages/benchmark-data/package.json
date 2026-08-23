@@ -15,7 +15,8 @@
     "report:coverage-matrix": "tsx src/report-coverage-matrix.ts",
     "test": "vitest",
     "test:run": "vitest run",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "data:generate-display-set": "tsx src/generate-display-set.ts"
   },
   "dependencies": {
     "zod": "catalog:"

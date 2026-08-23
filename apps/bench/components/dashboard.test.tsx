@@ -16,16 +16,10 @@ const benchmarkDimensions = {
   frontiermath: 'math',
 } as const;
 
-const displaySet = {
-  schemaVersion: 'display-set-v1' as const,
-  benchmarkIds: ['terminal-bench-2-1'],
-};
-
 const dashboard = (product = productFixture) =>
   createElement(Dashboard, {
     product,
     benchmarkDimensions,
-    displaySet,
   });
 
 describe('Dashboard Redesign', () => {
@@ -294,7 +288,6 @@ describe('Dashboard Redesign', () => {
       createElement(Dashboard, {
         product: productFixture,
         benchmarkDimensions,
-        displaySet,
         initialExpandedModelIds: ['openai-gpt-5-6-sol'],
       }),
     );
@@ -328,7 +321,6 @@ describe('Dashboard Redesign', () => {
       createElement(Dashboard, {
         product: multiModelProduct,
         benchmarkDimensions,
-        displaySet,
         initialExpandedModelIds: [
           'openai-gpt-5-6-sol',
           'google-gemini-3-1-pro',

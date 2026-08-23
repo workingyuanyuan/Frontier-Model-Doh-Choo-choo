@@ -20,7 +20,8 @@
     "report:coverage-matrix": "pnpm --filter @llm-bench/benchmark-data report:coverage-matrix",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck",
-    "web": "pnpm --filter @llm-bench/bench dev"
+    "web": "pnpm --filter @llm-bench/bench dev",
+    "data:v2:generate-display-set": "pnpm --filter @llm-bench/benchmark-data data:generate-display-set"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

@@ -80,6 +80,7 @@ export interface CoverageMatrixAnalysis {
   requiredBenchmarkIds: string[];
   candidatesPerScale: number;
   requireAllSources: boolean;
+  requireAllDimensions: boolean;
   coverableSourceIds: string[];
   qualifiedModels: QualifiedModel[];
   matrix: ModelBenchmarkPresence[];
@@ -113,6 +114,21 @@ export interface CoverageAnalysisInput {
    * that happens to cover fewer sources.
    */
   requireAllSources?: boolean;
+  /**
+   * Keep only subsets that give every one of the eight dimensions at least one
+   * benchmark, counting `primaryDimension` alone.
+   *
+   * Scoring maps a benchmark to exactly one dimension -- its primary -- so a
+   * subset missing a primary for some dimension can never produce eight
+   * dimension scores, and every profile under it would carry a null Overall
+   * Score. Since ruling R1 made the selected subset the scoring basis, such a
+   * subset is not a display-set candidate at all, and its complete-model count
+   * would overstate how many models are actually rankable.
+   *
+   * Defaults to false so small fixtures stay usable; the report and the
+   * display-set generator both set it.
+   */
+  requireAllDimensions?: boolean;
   /**
    * Benchmarks every candidate combination must contain.
    *
@@ -385,6 +401,7 @@ export const analyzeCoverageMatrix = (
     input.frontierConfig.qualificationWindowMonths ?? 12;
 
   const requireAllSources = input.requireAllSources ?? false;
+  const requireAllDimensions = input.requireAllDimensions ?? false;
   const candidatesPerScale = input.candidatesPerScale ?? 1;
   if (!Number.isInteger(candidatesPerScale) || candidatesPerScale < 1) {
     throw new Error(
@@ -585,15 +602,16 @@ export const analyzeCoverageMatrix = (
     });
     const allModelSupport = (1n << BigInt(qualifiedModels.length)) - 1n;
 
+    // Primary dimension only. `scoreProfiles` averages a benchmark into
+    // exactly one dimension, so counting secondary dimensions here would report
+    // a coverage the scores can never deliver.
     const benchmarkDimMaskByIndex = activeBenchmarkIds.map((bId) => {
-      const dims = benchmarkDimensions[bId]?.allDimensions ?? [];
-      let dMask = 0;
-      for (const d of dims) {
-        const idx = DIMENSION_IDS.indexOf(d);
-        if (idx >= 0) dMask |= 1 << idx;
-      }
-      return dMask;
+      const primary = benchmarkDimensions[bId]?.primaryDimension;
+      if (primary === undefined) return 0;
+      const idx = DIMENSION_IDS.indexOf(primary);
+      return idx >= 0 ? 1 << idx : 0;
     });
+    const allDimensionMask = (1 << DIMENSION_IDS.length) - 1;
 
     const whitelistIndexMap = new Map(
       whitelist.map((id, index) => [id, index]),
@@ -745,6 +763,58 @@ export const analyzeCoverageMatrix = (
           }
         }
       }
+      // Dominance pruning. Within one benchmark count and one model-support
+      // mask, a state whose dimension mask -- and, when the all-sources
+      // constraint is on, whose source-span mask -- is a superset of another's
+      // can do everything the other can: later benchmarks set the same bits in
+      // both, the support mask is already equal, and the ranking never prefers
+      // fewer covered dimensions. Dropping the dominated state is therefore
+      // free.
+      //
+      // It is also what makes the search tractable. Dimension masks count the
+      // primary dimension only, so they no longer saturate at all eight bits
+      // the way primary-plus-secondary masks did, and without this pass the
+      // key space fragments by a factor of up to 256.
+      for (const bucket of nextByCount.values()) {
+        const bySupport = new Map<
+          string,
+          { key: string; dimensionMask: number; sourceSpanMask: number }[]
+        >();
+        for (const [key, states] of bucket) {
+          const state = states[0]!;
+          const supportKey = state.supportMask.toString(16);
+          const group = bySupport.get(supportKey) ?? [];
+          group.push({
+            key,
+            dimensionMask: state.dimensionMask,
+            sourceSpanMask: state.sourceSpanMask,
+          });
+          bySupport.set(supportKey, group);
+        }
+        for (const group of bySupport.values()) {
+          if (group.length < 2) continue;
+          for (const dominator of group) {
+            for (const dominated of group) {
+              if (dominator === dominated) continue;
+              if (
+                (dominator.dimensionMask & dominated.dimensionMask) !==
+                dominated.dimensionMask
+              ) {
+                continue;
+              }
+              if (
+                requireAllSources &&
+                (dominator.sourceSpanMask & dominated.sourceSpanMask) !==
+                  dominated.sourceSpanMask
+              ) {
+                continue;
+              }
+              bucket.delete(dominated.key);
+            }
+          }
+        }
+      }
+
       statesByCount = nextByCount;
     }
 
@@ -756,6 +826,8 @@ export const analyzeCoverageMatrix = (
       for (const stateList of bucket.values()) {
         for (const state of stateList) {
           if (requireAllSources && state.sourceSpanMask !== coverableSourceMask)
+            continue;
+          if (requireAllDimensions && state.dimensionMask !== allDimensionMask)
             continue;
           allStatesForN.push(state);
         }
@@ -798,6 +870,7 @@ export const analyzeCoverageMatrix = (
     requiredBenchmarkIds,
     candidatesPerScale,
     requireAllSources,
+    requireAllDimensions,
     coverableSourceIds: whitelist.filter(
       (_, index) => (coverableSourceMask & (1 << index)) !== 0,
     ),

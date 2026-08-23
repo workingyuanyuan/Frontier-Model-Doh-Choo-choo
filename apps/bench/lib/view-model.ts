@@ -5,6 +5,30 @@ import type {
 } from '@llm-bench/benchmark-data';
 
 export type LeaderboardRow = ProductVersion['leaderboard'][number];
+export type ProductPreset = ProductVersion['presets'][number];
+
+/**
+ * The preset a view is rendered under.
+ *
+ * Ruling R1 made the selected benchmark set the scoring basis, so a leaderboard
+ * only means something next to the preset that produced it. N10c turns the id
+ * into a query parameter; until then every caller gets the default.
+ */
+export const resolveActivePreset = (
+  product: ProductVersion,
+  presetId?: string | undefined,
+): ProductPreset => {
+  const wanted = presetId ?? product.defaultPresetId;
+  const preset =
+    product.presets.find(({ id }) => id === wanted) ??
+    product.presets.find(({ id }) => id === product.defaultPresetId);
+  if (!preset) {
+    throw new Error(
+      `product has no preset ${wanted} and no default ${product.defaultPresetId}`,
+    );
+  }
+  return preset;
+};
 type CostPoint = ProductVersion['costs'][number];
 
 /**

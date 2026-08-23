@@ -2119,6 +2119,24 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 **執行順序**：N10a → （使用者挑 preset）→ N10b → N10c；N11 可隨時插入。N10a 先做的理由是
 它產出的報告正是使用者挑 preset 的依據。
 
+**D-N10-7（2026-08-23 使用者裁決，preset 選法）**：preset 不逐一手挑，而是由一條規則生成。
+
+> 對每一個目標「完整模型數」M，取**仍能達到 M 的最大 N**。曲線單調不增，所以每個 M 對應
+> 一段 N 區間，取右端——同樣的模型數就多測幾個 benchmark，不為零收益付出 benchmark。
+
+兩條曲線各自套用同一條規則，**M 是對外座標軸**（滑桿 2–13），來源約束是切換按鈕。因此兩條
+曲線必須提供**相同的 M 集合**，否則切換時選項會變。M = 12 只在無約束曲線上存在、M = 7 只在
+來源齊全曲線上存在，**使用者裁決兩者都不提供**。實際可選 M 為
+`13, 11, 10, 9, 8, 6, 5, 4, 3, 2`，共 10 檔 × 2 模式 = 20 個 preset。
+**預設為來源齊全的 M = 11（N = 24）**。
+
+生成結果見下方 N10b 小節——**實作 N10b 時發現報告的維度覆蓋算錯（R9），數字已重算**，
+本節原先列出的 13／11／10 那張表不再有效。
+
+**D-N10-8（2026-08-23 使用者裁決，UI 形態，實作於 N10c）**：滑桿（2–13，跳過 7 與 12）加
+一個切換「是否要求所有來源」的小按鈕，兩者都要簡潔、少字，放在 `Search models or profiles`
+輸入框左側。
+
 **背景**：`display-set.json` 目前的說明寫著「Adding a benchmark here never changes a score
 — dimension scores use every available benchmark; this list only decides which profiles
 qualify for the main screen」。R1 推翻的正是這句話。該檔是審核關卡產物，**代理不得修改**；
@@ -2282,3 +2300,81 @@ frontier-code 各 1；`zapier-automationbench` 目前 84 列全部 EXCLUDED，�
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e` 全綠。
+
+### N10b — display-set-v2、preset 計分、ProductVersion `presets[]`
+
+狀態：完成
+
+**依據**：R1、R2、D-N10-1 ～ D-N10-4、D-N10-7。
+
+**先講一個必須先看的修正（R9）**
+
+`scoreProfiles` 把一個 benchmark 併入**唯一一個**維度——它的 `primaryDimension`；
+`secondaryDimensions` 完全不參與計分。但取捨曲線報告先前用 primary ＋ secondary 算「涵蓋
+幾個維度」，於是把一些**永遠算不出八維分數**的子集標成 8/8。R1 之前這只是展示瑕疵；R1 之後
+選定集合就是計分基準，那種 preset 之下每個 profile 的 Overall Score 都會是 `null`。
+
+第一次生成 preset 時就撞到了：`all-sources-13`（N = 13）沒有任何 `context` 的 primary
+benchmark，被 D-N10-3 的驗證擋下。修正是報告與生成器都加上 `requireAllDimensions`。
+
+**修正前後的曲線（完整模型數）**
+
+|   N | 無約束（修正前 → 後） | 每來源≥1（修正前 → 後） |
+| --: | --------------------- | ----------------------- |
+|   8 | 31 → 24               | 13 → 不可行             |
+|  13 | 26 → 24               | 13 → 10                 |
+|  25 | 16 → 16               | 10 → **10**             |
+|  32 | 10 → 10               | 8 → 8                   |
+
+上限因此改變：**來源齊全曲線最多 10 個完整模型，不是 13**；無約束曲線最多 24。可同時提供的
+模型數由 `13, 11, 10, 9, 8, 6, 5, 4, 3, 2` 變成 `10, 9, 8, 6, 5, 4, 3, 2`（13、12、11 只有
+無約束曲線有，7 只有來源齊全曲線有）。預設 preset 因此由 `all-sources-11` 改為
+**`all-sources-10`（N = 25）**——這是我在無法取得裁決時採用的最接近選擇，**待使用者確認**。
+
+DP 效能：primary-only 的維度 bitmask 不再飽和，鍵碎裂最多 256 倍（來源齊全曲線 103 秒／
+9.9 GB）。加入**支配剪枝**後為 3.9 秒／930 MB：同一個 benchmark 數與模型支援 bitmask 之下，
+維度 bitmask（來源齊全曲線另含來源涵蓋 bitmask）為另一個超集的狀態必然不劣，可丟棄被支配者。
+
+**做了什麼**
+
+1. `display-set.json` 升為 `display-set-v2`：`presets[]` ＋ `defaultPresetId`。驗證涵蓋
+   未知 benchmark、重複 benchmark、重複 preset id、`defaultPresetId` 不存在，以及 D-N10-3
+   的八維 primary 覆蓋。
+2. 新增生成器 `packages/benchmark-data/src/generate-display-set.ts` 與
+   `pnpm data:v2:generate-display-set`。preset 內容**不手打**，由 D-N10-7 的規則從報告推導，
+   可重跑、可稽核。
+3. `scoreProfiles(results, benchmarkDimensions, { benchmarkIds })`：preset 之外的結果既不
+   進分數也不進 `evidenceResultIds`，明細面板不會引用沒有參與計分的列。
+4. `ProductVersion` 升為 `product-version-v4`：新增 `defaultPresetId` 與 `presets[]`（每個
+   preset 帶自己的 leaderboard）。頂層 `leaderboard` 暫時保留為預設 preset 的複本，讓 UI 在
+   N10c 之前不必改；`buildProduct` 與 workspace 測試斷言兩者相同，N10c 移除頂層欄位。
+5. App 端把 `displaySet` prop 換成 `preset`，由 `resolveActivePreset(product)` 取得預設
+   preset。切換器是 N10c。
+
+**生成結果（16 個 preset）**
+
+| 模型數 | 無約束 N |     每來源≥1 N |
+| -----: | -------: | -------------: |
+|     10 |       32 | **25（預設）** |
+|      9 |       33 |             27 |
+|      8 |       34 |             33 |
+|      6 |       36 |             35 |
+|      5 |       37 |             37 |
+|      4 |       38 |             38 |
+|      3 |       39 |             39 |
+|      2 |       42 |             42 |
+
+模型數 5 以下兩種模式的 N 相同，實測 benchmark 組成亦相同，該處切換按鈕沒有作用——
+N10c 應在 UI 上如實反映，不要假裝有差別。
+
+**主畫面變化**：預設 preset（`all-sources-10`、N = 25）之下完整模型由 12 個變為 **10 個**：
+Claude Fable 5、Claude Opus 4.8、Claude Opus 5、Claude Sonnet 4.6、Gemini 3.6 Flash、
+GPT-5.5、GPT-5.6 Luna／Sol／Terra、GLM-5.2。Grok、DeepSeek、Qwen、Kimi 退出。
+
+**產物大小**：`current.json` 由 2.996 MB 增為 **5.831 MB**（16 個 preset 各一份 leaderboard，
+`evidence` 2.53 MB 共用）。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（267 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（18 passed）全綠。新增測試：display-set-v2
+的五種驗證失敗、preset 排序與截斷、`requireAllSources`，以及 workspace 端的
+`targetModelCount` 與實際完整模型數逐一相符、preset leaderboard 不得引用集合外的證據。

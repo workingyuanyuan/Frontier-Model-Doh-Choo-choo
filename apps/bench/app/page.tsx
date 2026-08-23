@@ -4,12 +4,10 @@ import { loadProductVersion } from '../lib/load-product-version';
 export const dynamic = 'force-static';
 
 export default function Page() {
-  const { benchmarkDimensions, displaySet, product } = loadProductVersion();
+  // The display set is loaded and validated here; the product already
+  // carries the scored presets, so the dashboard reads those.
+  const { benchmarkDimensions, product } = loadProductVersion();
   return (
-    <Dashboard
-      benchmarkDimensions={benchmarkDimensions}
-      displaySet={displaySet}
-      product={product}
-    />
+    <Dashboard benchmarkDimensions={benchmarkDimensions} product={product} />
   );
 }

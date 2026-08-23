@@ -840,24 +840,25 @@ describe('coverage-matrix', () => {
           'agentic',
           'context',
         ],
+        // Coverage counts the primary dimension only, matching how
+        // `scoreProfiles` maps a benchmark into exactly one dimension. The
+        // secondary lists below are deliberately non-empty and deliberately
+        // ignored.
         benchmarks: [
-          // bench-a covers reasoning (1 dim)
           {
             id: 'bench-a',
             primaryDimension: 'reasoning',
-            secondaryDimensions: [],
-          },
-          // bench-b covers reasoning + math + coding (3 dims)
-          {
-            id: 'bench-b',
-            primaryDimension: 'reasoning',
             secondaryDimensions: ['math', 'coding'],
           },
-          // bench-c covers reasoning + math + coding (3 dims, same as bench-b)
+          {
+            id: 'bench-b',
+            primaryDimension: 'math',
+            secondaryDimensions: [],
+          },
           {
             id: 'bench-c',
             primaryDimension: 'reasoning',
-            secondaryDimensions: ['math', 'coding'],
+            secondaryDimensions: ['coding'],
           },
         ],
       };
@@ -921,15 +922,27 @@ describe('coverage-matrix', () => {
         referenceDate: '2026-08-20',
       });
 
-      // At N=1: all three singletons have 2 models.
-      // bench-b and bench-c tie on dimensions (3 > 1).
-      // Lexicographical tie-breaker between bench-b and bench-c: 'bench-b' < 'bench-c' -> bench-b wins candidate #1!
+      // N=1: every singleton has both models and covers exactly one primary
+      // dimension, so the lexicographic tie-break decides. bench-a would carry
+      // three dimensions if secondaries counted; they do not.
       expect(analysis.tradeoffs[0]?.benchmarkCount).toBe(1);
       expect(analysis.tradeoffs[0]?.candidates[0]?.benchmarkIds).toEqual([
-        'bench-b',
+        'bench-a',
       ]);
       expect(analysis.tradeoffs[0]?.candidates[0]?.coveredDimensionCount).toBe(
-        3,
+        1,
+      );
+
+      // N=2: {bench-a, bench-b} covers reasoning and math, while
+      // {bench-a, bench-c} covers reasoning twice. Dimension count outranks
+      // lexicographic order, so the pair spanning two dimensions wins even
+      // though 'bench-c' never gets a chance to break the tie.
+      expect(analysis.tradeoffs[1]?.candidates[0]?.benchmarkIds).toEqual([
+        'bench-a',
+        'bench-b',
+      ]);
+      expect(analysis.tradeoffs[1]?.candidates[0]?.coveredDimensionCount).toBe(
+        2,
       );
     });
   });
@@ -1240,6 +1253,7 @@ describe('coverage-matrix', () => {
         activeBenchmarkIds: ['b1', 'b2', 'b3', 'b4'],
         requiredBenchmarkIds: [],
         requireAllSources: false,
+        requireAllDimensions: false,
         coverableSourceIds: ['source-1'],
         candidatesPerScale: 5,
         qualifiedModels: [],
@@ -1325,6 +1339,7 @@ describe('coverage-matrix', () => {
         activeBenchmarkIds: ['bench-x', 'bench-y'],
         requiredBenchmarkIds: [],
         requireAllSources: false,
+        requireAllDimensions: false,
         coverableSourceIds: ['source-1'],
         candidatesPerScale: 5,
         qualifiedModels: [
@@ -1461,6 +1476,7 @@ describe('coverage-matrix', () => {
         activeBenchmarkIds: ['bench-x', 'bench-y'],
         requiredBenchmarkIds: [],
         requireAllSources: false,
+        requireAllDimensions: false,
         coverableSourceIds: ['source-1'],
         candidatesPerScale: 5,
         qualifiedModels: [{ modelId: 'model-1', displayName: 'Model 1' }],

@@ -185,7 +185,7 @@ describe('ProductVersionSchema', () => {
   it('keeps all eight dimensions in canonical order', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const product = ProductVersionSchema.parse({
-      schemaVersion: 'product-version-v3',
+      schemaVersion: 'product-version-v4',
       versionId:
         'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb',
       generatedAt: '2026-07-16T00:00:00.000Z',
@@ -209,6 +209,16 @@ describe('ProductVersionSchema', () => {
             { dimension: 'context', score: null, componentCount: 0 },
           ],
           evidenceResultIds: [candidate.id],
+        },
+      ],
+      defaultPresetId: 'sample-preset',
+      presets: [
+        {
+          id: 'sample-preset',
+          targetModelCount: 1,
+          requireAllSources: false,
+          benchmarkIds: ['terminal-bench-2-1'],
+          leaderboard: [],
         },
       ],
       costs: [],
@@ -291,6 +301,16 @@ describe('ProductVersionSchema', () => {
       frontier: [],
       profiles: [],
       leaderboard: [],
+      defaultPresetId: 'sample-preset',
+      presets: [
+        {
+          id: 'sample-preset',
+          targetModelCount: 1,
+          requireAllSources: false,
+          benchmarkIds: ['terminal-bench-2-1'],
+          leaderboard: [],
+        },
+      ],
       costs: [],
       evidence: [evidence],
     };
@@ -347,50 +367,134 @@ describe('SourcesConfigSchema', () => {
 });
 
 describe('DisplaySetSchema and validateDisplaySet', () => {
-  it('validates the committed display-set.json mapping', () => {
-    const parsed = DisplaySetSchema.parse(displaySetConfig);
-    expect(parsed.schemaVersion).toBe('display-set-v1');
-    expect(parsed.benchmarkIds.length).toBeGreaterThan(0);
-    expect(() =>
-      validateDisplaySet(
-        parsed,
-        BenchmarkDimensionMappingSchema.parse(benchmarkMappings),
-      ),
-    ).not.toThrow();
+  const mapping = () =>
+    BenchmarkDimensionMappingSchema.parse(benchmarkMappings);
+  // One benchmark per primary dimension, so the eight-dimension rule passes and
+  // each test below fails for the single reason it is about.
+  const eightDimensionIds = [
+    'livebench-reasoning',
+    'livebench-mathematics',
+    'livebench-language',
+    'livebench-instruction-following',
+    'mmlu-pro',
+    'swe-bench',
+    'tau3-banking',
+    'aa-lcr',
+  ];
+  const preset = (overrides: Record<string, unknown> = {}) => ({
+    id: 'sample-preset',
+    targetModelCount: 4,
+    requireAllSources: false,
+    benchmarkIds: eightDimensionIds,
+    ...overrides,
+  });
+  const displaySet = (overrides: Record<string, unknown> = {}) => ({
+    schemaVersion: 'display-set-v2',
+    defaultPresetId: 'sample-preset',
+    presets: [preset()],
+    ...overrides,
   });
 
-  it('rejects display set with empty benchmark list or invalid slug', () => {
-    expect(() =>
-      DisplaySetSchema.parse({
-        schemaVersion: 'display-set-v1',
-        benchmarkIds: [],
-      }),
-    ).toThrow();
+  it('validates the committed display-set.json mapping', () => {
+    const parsed = DisplaySetSchema.parse(displaySetConfig);
+    expect(parsed.schemaVersion).toBe('display-set-v2');
+    expect(parsed.presets.length).toBeGreaterThan(0);
+    expect(
+      parsed.presets.map(({ id }) => id).includes(parsed.defaultPresetId),
+    ).toBe(true);
+    expect(() => validateDisplaySet(parsed, mapping())).not.toThrow();
+  });
 
+  it('rejects an empty benchmark list, an invalid slug, or no presets', () => {
     expect(() =>
-      DisplaySetSchema.parse({
-        schemaVersion: 'display-set-v1',
-        benchmarkIds: ['NOT_A_VALID_SLUG!'],
-      }),
+      DisplaySetSchema.parse(
+        displaySet({ presets: [preset({ benchmarkIds: [] })] }),
+      ),
     ).toThrow();
+    expect(() =>
+      DisplaySetSchema.parse(
+        displaySet({
+          presets: [preset({ benchmarkIds: ['NOT_A_VALID_SLUG!'] })],
+        }),
+      ),
+    ).toThrow();
+    expect(() => DisplaySetSchema.parse(displaySet({ presets: [] }))).toThrow();
   });
 
   it('throws an explicit error identifying unknown benchmark IDs', () => {
-    const mapping = BenchmarkDimensionMappingSchema.parse(benchmarkMappings);
     expect(() =>
       validateDisplaySet(
-        {
-          schemaVersion: 'display-set-v1',
-          benchmarkIds: [
-            'livebench-reasoning',
-            'non-existent-bench-foo',
-            'another-missing-bench-bar',
-          ],
-        },
-        mapping,
+        DisplaySetSchema.parse(
+          displaySet({
+            presets: [
+              preset({
+                benchmarkIds: [
+                  ...eightDimensionIds,
+                  'non-existent-bench-foo',
+                  'another-missing-bench-bar',
+                ],
+              }),
+            ],
+          }),
+        ),
+        mapping(),
       ),
     ).toThrowError(
-      'Display set contains unknown benchmark IDs: non-existent-bench-foo, another-missing-bench-bar',
+      'Display set preset sample-preset contains unknown benchmark IDs: non-existent-bench-foo, another-missing-bench-bar',
+    );
+  });
+
+  it('rejects a preset that leaves a dimension with no primary benchmark', () => {
+    // Ruling D-N10-3: a preset is the scoring basis, so one that cannot fill
+    // every dimension would publish an Overall Score nobody can reach.
+    expect(() =>
+      validateDisplaySet(
+        DisplaySetSchema.parse(
+          displaySet({
+            presets: [
+              preset({
+                benchmarkIds: eightDimensionIds.filter((id) => id !== 'aa-lcr'),
+              }),
+            ],
+          }),
+        ),
+        mapping(),
+      ),
+    ).toThrowError(
+      'Display set preset sample-preset leaves dimensions with no benchmark: context',
+    );
+  });
+
+  it('rejects duplicate preset ids, repeated benchmarks, and a dangling default', () => {
+    expect(() =>
+      validateDisplaySet(
+        DisplaySetSchema.parse(displaySet({ presets: [preset(), preset()] })),
+        mapping(),
+      ),
+    ).toThrowError('Display set has duplicate preset id: sample-preset');
+
+    expect(() =>
+      validateDisplaySet(
+        DisplaySetSchema.parse(
+          displaySet({
+            presets: [
+              preset({ benchmarkIds: [...eightDimensionIds, 'aa-lcr'] }),
+            ],
+          }),
+        ),
+        mapping(),
+      ),
+    ).toThrowError(
+      'Display set preset sample-preset repeats benchmark IDs: aa-lcr',
+    );
+
+    expect(() =>
+      validateDisplaySet(
+        DisplaySetSchema.parse(displaySet({ defaultPresetId: 'not-a-preset' })),
+        mapping(),
+      ),
+    ).toThrowError(
+      'Display set defaultPresetId not-a-preset is not one of its presets',
     );
   });
 });

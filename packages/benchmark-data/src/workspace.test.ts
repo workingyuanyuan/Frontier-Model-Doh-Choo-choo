@@ -15,7 +15,56 @@ describe('buildWorkspaceProduct', () => {
 
     expect(product.frontier.length).toBeGreaterThanOrEqual(5);
     expect(product.leaderboard.length).toBeGreaterThan(0);
-    expect(product.schemaVersion).toBe('product-version-v3');
+    expect(product.schemaVersion).toBe('product-version-v4');
+
+    // Every preset is scored on its own benchmarks (R1), and each one's
+    // `targetModelCount` is the coverage report's promise: exactly that many
+    // qualified base models carry every benchmark in the preset. Checking it
+    // here is what stops a stale display-set.json going unnoticed.
+    expect(product.presets.length).toBeGreaterThan(0);
+    const defaultPreset = product.presets.find(
+      ({ id }) => id === product.defaultPresetId,
+    );
+    expect(defaultPreset).toBeDefined();
+    expect(defaultPreset?.leaderboard).toEqual(product.leaderboard);
+
+    const benchmarksByModel = new Map<string, Set<string>>();
+    for (const row of product.evidence) {
+      const modelId = row.model.canonicalModelId;
+      if (
+        modelId === null ||
+        row.inclusion !== 'INCLUDED' ||
+        row.normalizedScore === null
+      ) {
+        continue;
+      }
+      const owned = benchmarksByModel.get(modelId) ?? new Set<string>();
+      owned.add(row.benchmarkId);
+      benchmarksByModel.set(modelId, owned);
+    }
+    for (const preset of product.presets) {
+      const completeModels = [...benchmarksByModel.values()].filter((owned) =>
+        preset.benchmarkIds.every((benchmarkId) => owned.has(benchmarkId)),
+      ).length;
+      expect({
+        id: preset.id,
+        completeModels,
+      }).toEqual({ id: preset.id, completeModels: preset.targetModelCount });
+
+      // A preset scores only its own benchmarks, so nothing outside it may be
+      // cited as the evidence behind a score.
+      const allowed = new Set(preset.benchmarkIds);
+      const evidenceById = new Map(
+        product.evidence.map((row) => [row.id, row]),
+      );
+      for (const row of preset.leaderboard) {
+        for (const evidenceId of row.evidenceResultIds) {
+          expect(allowed.has(evidenceById.get(evidenceId)!.benchmarkId)).toBe(
+            true,
+          );
+        }
+      }
+    }
     expect(
       product.leaderboard.every((row) => !Object.hasOwn(row, 'status')),
     ).toBe(true);

@@ -139,6 +139,41 @@ const evidence = (
     ),
   );
 
+const fixtureLeaderboard = [
+  {
+    modelId: 'openai-gpt-5-6-sol',
+    profileId: 'openai-gpt-5-6-sol-max',
+    rank: 1,
+    overallScore: 88.1,
+    dimensions: dimensions([91.2, 94.7, 86.4, 82.8, 90.5, 92.4, 87.6, 79.3]),
+    evidenceResultIds: ['terminal:max'],
+  },
+  {
+    modelId: 'anthropic-claude-fable-5',
+    profileId: 'anthropic-claude-fable-5-standard',
+    rank: 2,
+    overallScore: 85.6,
+    dimensions: dimensions([88.6, 87.2, 89.1, 91.4, 92.1, 86.8, 80.3, null]),
+    evidenceResultIds: ['terminal:claude'],
+  },
+  {
+    modelId: 'openai-gpt-5-6-sol',
+    profileId: 'openai-gpt-5-6-sol-high',
+    rank: 3,
+    overallScore: 84.2,
+    dimensions: dimensions([87, 90, 83, 80, 86, 88, 82, 78]),
+    evidenceResultIds: ['terminal:high'],
+  },
+  {
+    modelId: 'google-gemini-3-1-pro',
+    profileId: 'google-gemini-3-1-pro-high',
+    rank: 4,
+    overallScore: 82.9,
+    dimensions: dimensions([86.3, 89.8, 84.5, 85.2, 81.7, 78.4, 74.9, 82.6]),
+    evidenceResultIds: ['terminal:gemini'],
+  },
+];
+
 export const productFixture = buildProductVersion({
   generatedAt: '2026-07-16T12:00:00.000Z',
   sourceSnapshotIds: ['terminal-bench:2026-07-16'],
@@ -193,38 +228,15 @@ export const productFixture = buildProductVersion({
       'high',
     ),
   ],
-  leaderboard: [
+  leaderboard: fixtureLeaderboard,
+  defaultPresetId: 'fixture-preset',
+  presets: [
     {
-      modelId: 'openai-gpt-5-6-sol',
-      profileId: 'openai-gpt-5-6-sol-max',
-      rank: 1,
-      overallScore: 88.1,
-      dimensions: dimensions([91.2, 94.7, 86.4, 82.8, 90.5, 92.4, 87.6, 79.3]),
-      evidenceResultIds: ['terminal:max'],
-    },
-    {
-      modelId: 'anthropic-claude-fable-5',
-      profileId: 'anthropic-claude-fable-5-standard',
-      rank: 2,
-      overallScore: 85.6,
-      dimensions: dimensions([88.6, 87.2, 89.1, 91.4, 92.1, 86.8, 80.3, null]),
-      evidenceResultIds: ['terminal:claude'],
-    },
-    {
-      modelId: 'openai-gpt-5-6-sol',
-      profileId: 'openai-gpt-5-6-sol-high',
-      rank: 3,
-      overallScore: 84.2,
-      dimensions: dimensions([87, 90, 83, 80, 86, 88, 82, 78]),
-      evidenceResultIds: ['terminal:high'],
-    },
-    {
-      modelId: 'google-gemini-3-1-pro',
-      profileId: 'google-gemini-3-1-pro-high',
-      rank: 4,
-      overallScore: 82.9,
-      dimensions: dimensions([86.3, 89.8, 84.5, 85.2, 81.7, 78.4, 74.9, 82.6]),
-      evidenceResultIds: ['terminal:gemini'],
+      id: 'fixture-preset',
+      targetModelCount: 2,
+      requireAllSources: false,
+      benchmarkIds: ['terminal-bench-2-1'],
+      leaderboard: fixtureLeaderboard,
     },
   ],
   costs: [

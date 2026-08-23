@@ -1,10 +1,6 @@
 'use client';
 
-import type {
-  DimensionId,
-  DisplaySet,
-  ProductVersion,
-} from '@llm-bench/benchmark-data';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
@@ -17,32 +13,35 @@ import {
   getDeveloperModelRows,
   getRepresentativeRows,
   isMainEligibleRow,
+  resolveActivePreset,
 } from '../lib/view-model';
 
 export function Dashboard({
   benchmarkDimensions,
-  displaySet,
   product,
   initialExpandedModelIds,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
-  displaySet: DisplaySet | null;
   product: ProductVersion;
   initialExpandedModelIds?: string[] | undefined;
 }) {
   const [developerMode, setDeveloperMode] = useState(false);
+  // The preset is the scoring basis (R1). Only the default is reachable until
+  // N10c adds the switcher, but every gate already reads it rather than the
+  // whole display set.
+  const activePreset = useMemo(() => resolveActivePreset(product), [product]);
   const developerRows = useMemo(
-    () => getDeveloperModelRows(product, displaySet),
-    [displaySet, product],
+    () => getDeveloperModelRows(product, activePreset),
+    [activePreset, product],
   );
   const mainProfileIds = useMemo(
     () =>
       new Set(
         product.leaderboard
-          .filter((row) => isMainEligibleRow(product, row, displaySet))
+          .filter((row) => isMainEligibleRow(product, row, activePreset))
           .map(({ profileId }) => profileId),
       ),
-    [displaySet, product],
+    [activePreset, product],
   );
   const visibleModelIds = useMemo(
     () =>
@@ -155,7 +154,7 @@ export function Dashboard({
           checkedModelIds={checkedModelIds}
           setCheckedModelIds={setCheckedModelIds}
           benchmarkDimensions={benchmarkDimensions}
-          displaySet={displaySet}
+          preset={activePreset}
           initialExpandedModelIds={initialExpandedModelIds}
         />
 
@@ -164,7 +163,7 @@ export function Dashboard({
             rows={developerRows}
             product={product}
             benchmarkDimensions={benchmarkDimensions}
-            displaySet={displaySet}
+            preset={activePreset}
           />
         ) : null}
 

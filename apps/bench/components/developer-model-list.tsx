@@ -1,18 +1,18 @@
-import type {
-  DimensionId,
-  DisplaySet,
-  ProductVersion,
-} from '@llm-bench/benchmark-data';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { useState } from 'react';
 
-import { profileById, type DeveloperModelRow } from '../lib/view-model';
+import {
+  profileById,
+  type DeveloperModelRow,
+  type ProductPreset,
+} from '../lib/view-model';
 import { ModelDetailPanel } from './model-detail-panel';
 
 export interface DeveloperModelListProps {
   rows: DeveloperModelRow[];
   product?: ProductVersion | undefined;
   benchmarkDimensions?: Record<string, DimensionId> | undefined;
-  displaySet?: DisplaySet | null | undefined;
+  preset?: ProductPreset | null | undefined;
   initialExpandedModelIds?: string[] | undefined;
 }
 
@@ -20,7 +20,7 @@ export function DeveloperModelList({
   rows,
   product,
   benchmarkDimensions,
-  displaySet,
+  preset,
   initialExpandedModelIds,
 }: DeveloperModelListProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
@@ -87,7 +87,7 @@ export function DeveloperModelList({
                       product={product}
                       benchmarkDimensions={benchmarkDimensions}
                       selectedResult={undefined}
-                      displaySet={displaySet}
+                      preset={preset}
                     />
                   </div>
                 ) : null}

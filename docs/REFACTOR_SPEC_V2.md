@@ -352,6 +352,21 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 
 兩條曲線並列，加上逐 N 的完整模型數差，就是挑 preset 的依據。
 
+**R9（2026-08-23，實作 N10b 時發現並修正）**：維度覆蓋一律只算 `primaryDimension`。
+`scoreProfiles` 把一個 benchmark 併入**唯一一個**維度——它的 primary——`secondaryDimensions`
+不參與計分。取捨曲線報告先前用 primary ＋ secondary 計算「涵蓋幾個維度」，因此會把一個
+**永遠算不出八維分數**的子集標成 8/8。R1 讓選定集合成為計分基準之後，這個差異從展示瑕疵變成
+實質錯誤：那種 preset 之下每個 profile 的 Overall Score 都是 `null`。
+
+因此報告與 preset 生成一律加上 `requireAllDimensions`：只考慮八個維度各有至少一個
+primary benchmark 的子集。修正後的實測影響很大——來源齊全曲線的完整模型數上限由 13 降為
+**10**，無約束曲線在 N = 8 由 31 降為 24。修正前的數字不可再引用。
+
+技術附註：primary-only 的維度 bitmask 不再像 primary ＋ secondary 那樣迅速飽和成八個 bit，
+DP 鍵因此碎裂最多 256 倍（實測來源齊全曲線 103 秒／9.9 GB）。解法是**支配剪枝**：在同一個
+benchmark 數與同一個模型支援 bitmask 之下，維度 bitmask（在來源齊全曲線另含來源涵蓋 bitmask）
+為另一個超集的狀態必然不劣，可直接丟棄被支配者。加入後為 3.9 秒／930 MB。
+
 **指令介面（N10a／R8 之後）**：
 
 ```bash

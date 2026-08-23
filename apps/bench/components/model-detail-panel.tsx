@@ -1,6 +1,5 @@
 import type {
   DimensionId,
-  DisplaySet,
   ModelProfile,
   ProductEvidence,
   ProductVersion,
@@ -11,7 +10,7 @@ import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
 } from '../lib/ui-contract';
-import { getProfileDisplayName } from '../lib/view-model';
+import { getProfileDisplayName, type ProductPreset } from '../lib/view-model';
 
 export interface ModelDetailPanelProps {
   profile: ModelProfile;
@@ -27,7 +26,7 @@ export interface ModelDetailPanelProps {
         evidenceResultIds?: string[];
       }
     | undefined;
-  displaySet?: DisplaySet | null | undefined;
+  preset?: ProductPreset | null | undefined;
 }
 
 export const DIMENSION_DISPLAY_NAMES: Record<DimensionId, string> = {
@@ -115,7 +114,7 @@ export function ModelDetailPanel({
   product,
   benchmarkDimensions,
   selectedResult,
-  displaySet,
+  preset,
 }: ModelDetailPanelProps) {
   const [openProvenanceId, setOpenProvenanceId] = useState<string | null>(null);
 
@@ -168,11 +167,11 @@ export function ModelDetailPanel({
       map.set(dim, []);
     });
 
-    const activeBenchmarkIds = displaySet?.benchmarkIds
-      ? [...displaySet.benchmarkIds]
+    const activeBenchmarkIds = preset
+      ? [...preset.benchmarkIds]
       : Object.keys(benchmarkDimensions);
 
-    // Also include any profile evidence benchmarks that are not in displaySet
+    // Also include any profile evidence benchmarks that are not in preset
     profileEvidence.forEach((e) => {
       if (!activeBenchmarkIds.includes(e.benchmarkId)) {
         activeBenchmarkIds.push(e.benchmarkId);
@@ -190,7 +189,7 @@ export function ModelDetailPanel({
     });
 
     return map;
-  }, [benchmarkDimensions, displaySet, profileEvidence]);
+  }, [benchmarkDimensions, preset, profileEvidence]);
 
   const modelDisplayName = getProfileDisplayName(profile);
   const overallText =

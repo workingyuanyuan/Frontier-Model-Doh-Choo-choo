@@ -15,14 +15,17 @@ const benchmarkDimensions = {
   'livebench-language': 'language' as const,
 };
 
-const displaySet = {
-  schemaVersion: 'display-set-v1' as const,
+const preset = {
+  id: 'fixture-preset',
+  targetModelCount: 2,
+  requireAllSources: false,
   benchmarkIds: [
     'terminal-bench-2-1',
     'frontiermath',
     'gpqa-diamond',
     'livebench-language',
   ],
+  leaderboard: [],
 };
 
 const renderPanel = (props: Partial<ModelDetailPanelProps> = {}) => {
@@ -40,8 +43,7 @@ const renderPanel = (props: Partial<ModelDetailPanelProps> = {}) => {
       product: props.product ?? productFixture,
       benchmarkDimensions: props.benchmarkDimensions ?? benchmarkDimensions,
       selectedResult,
-      displaySet:
-        props.displaySet !== undefined ? props.displaySet : displaySet,
+      preset: props.preset !== undefined ? props.preset : preset,
     }),
   );
 };

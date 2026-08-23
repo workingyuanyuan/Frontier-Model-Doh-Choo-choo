@@ -18,6 +18,16 @@ const makeVersion = (generatedAt: string) =>
     frontier: [],
     profiles: [],
     leaderboard: [],
+    defaultPresetId: 'sample-preset',
+    presets: [
+      {
+        id: 'sample-preset',
+        targetModelCount: 1,
+        requireAllSources: false,
+        benchmarkIds: ['terminal-bench-2-1'],
+        leaderboard: [],
+      },
+    ],
     costs: [],
     evidence: [],
   });

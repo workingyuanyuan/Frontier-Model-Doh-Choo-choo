@@ -1,8 +1,4 @@
-import type {
-  DimensionId,
-  DisplaySet,
-  ProductVersion,
-} from '@llm-bench/benchmark-data';
+import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { Fragment } from 'react';
 
 import {
@@ -10,6 +6,7 @@ import {
   profileById,
   getProfilesForModel,
   type LeaderboardRow,
+  type ProductPreset,
 } from '../lib/view-model';
 import {
   UI_DIMENSION_ABBREVIATIONS,
@@ -33,7 +30,7 @@ export function LeaderboardTable({
   modelProfiles,
   onProfileChange,
   benchmarkDimensions,
-  displaySet,
+  preset,
   expandedModelIds,
   onToggleExpand,
 }: {
@@ -45,7 +42,7 @@ export function LeaderboardTable({
   modelProfiles: Record<string, string>;
   onProfileChange: (modelId: string, profileId: string) => void;
   benchmarkDimensions: Record<string, DimensionId>;
-  displaySet: DisplaySet | null;
+  preset: ProductPreset | null;
   expandedModelIds: string[];
   onToggleExpand: (modelId: string) => void;
 }) {
@@ -230,7 +227,7 @@ export function LeaderboardTable({
                         product={product}
                         benchmarkDimensions={benchmarkDimensions}
                         selectedResult={activeRow}
-                        displaySet={displaySet}
+                        preset={preset}
                       />
                     </td>
                   </tr>
