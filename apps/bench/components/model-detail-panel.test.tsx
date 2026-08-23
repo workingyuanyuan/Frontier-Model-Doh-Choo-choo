@@ -44,6 +44,7 @@ const renderPanel = (props: Partial<ModelDetailPanelProps> = {}) => {
       benchmarkDimensions: props.benchmarkDimensions ?? benchmarkDimensions,
       selectedResult,
       preset: props.preset !== undefined ? props.preset : preset,
+      developerMode: props.developerMode ?? false,
     }),
   );
 };
@@ -54,29 +55,29 @@ describe('ModelDetailPanel (Task E1)', () => {
     // dimension is instruction while the preset scored only LiveBench's. The
     // card therefore showed two children under a number computed from one, and
     // nothing on the row said which. The score was right; the row was not.
-    const html = renderPanel({
-      benchmarkDimensions: {
-        ...benchmarkDimensions,
-        'terminal-bench-2-1': 'coding' as const,
-        frontiermath: 'math' as const,
-      },
-      preset: {
-        ...preset,
-        // Drop one benchmark the profile has evidence for. It must stay
-        // visible -- the measurement is real -- but must not read as scored.
-        benchmarkIds: preset.benchmarkIds.filter(
-          (id) => id !== 'terminal-bench-2-1',
-        ),
-      },
-    });
+    // Drop one benchmark the profile has evidence for.
+    const narrowed = {
+      ...preset,
+      benchmarkIds: preset.benchmarkIds.filter(
+        (id) => id !== 'terminal-bench-2-1',
+      ),
+    };
 
-    expect(html).toContain('data-benchmark-id="terminal-bench-2-1"');
-    expect(html).toContain('not scored here');
-    expect(html).toContain('data-outside-basis="true"');
+    // Main screen: a benchmark that does not contribute is not shown at all.
+    const main = renderPanel({ preset: narrowed });
+    expect(main).not.toContain('data-benchmark-id="terminal-bench-2-1"');
+    expect(main).not.toContain('not scored here');
+
+    // Developer mode: the measurement is real and stays inspectable, but it
+    // says outright that the score above was computed without it.
+    const developer = renderPanel({ preset: narrowed, developerMode: true });
+    expect(developer).toContain('data-benchmark-id="terminal-bench-2-1"');
+    expect(developer).toContain('not scored here');
+    expect(developer).toContain('data-outside-basis="true"');
 
     // A benchmark the preset does score carries no such marker.
-    const scoredRow = html.slice(
-      html.indexOf('data-benchmark-id="frontiermath"'),
+    const scoredRow = developer.slice(
+      developer.indexOf('data-benchmark-id="frontiermath"'),
     );
     expect(scoredRow.slice(0, scoredRow.indexOf('</li>'))).not.toContain(
       'not scored here',
@@ -194,6 +195,10 @@ describe('ModelDetailPanel (Task E1)', () => {
       selectedResult: {
         ...selected,
         evidenceResultIds: [...selected.evidenceResultIds, explicitMax.id],
+      },
+      preset: {
+        ...preset,
+        benchmarkIds: [...preset.benchmarkIds, 'automationbench'],
       },
     });
 

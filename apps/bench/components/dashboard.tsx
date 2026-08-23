@@ -191,6 +191,7 @@ export function Dashboard({
           preset={activePreset}
           onSelectPreset={setPresetId}
           initialExpandedModelIds={initialExpandedModelIds}
+          developerMode={developerMode}
         />
 
         {developerMode ? (

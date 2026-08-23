@@ -29,6 +29,7 @@ export type LeaderboardProps = {
   preset: ProductPreset | null;
   onSelectPreset: (presetId: string) => void;
   initialExpandedModelIds?: string[] | undefined;
+  developerMode: boolean;
 };
 
 export function Leaderboard({
@@ -41,6 +42,7 @@ export function Leaderboard({
   preset,
   onSelectPreset,
   initialExpandedModelIds,
+  developerMode,
 }: LeaderboardProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
     initialExpandedModelIds ?? [],
@@ -156,6 +158,7 @@ export function Leaderboard({
       </div>
 
       <LeaderboardTable
+        developerMode={developerMode}
         product={product}
         rows={sortedRows}
         sort={sort}

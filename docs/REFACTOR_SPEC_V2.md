@@ -405,6 +405,17 @@ profile 背後的相異模型數（以支援 bitmask 為鍵記憶化，同一個
 `docs/COVERAGE_MATRIX_REPORT.md` 的有無矩陣仍以模型為列、跨 profile 取聯集，另加一欄
 **Best profile**（單一 profile 最多覆蓋幾個 benchmark），落差因此在報告中看得見。
 
+**R17（2026-08-23 裁決，不計分的 benchmark 不上主畫面）**：模型明細的維度卡只列出**參與該
+維度計分**的 benchmark。preset 以外的量測仍然完整保留、仍然可查，但**改放在開發者模式**。
+
+起因是使用者審查時發現 GPT-5.6 Sol 的 Instruction 卡列出兩個 benchmark，其他模型只有一個。
+分數是對的——AA 的 `ifbench` primaryDimension 為 instruction，但不在 preset 內，依 R1 不計分，
+`componentCount` 為 1——錯的是顯示：那一列渲染得和計分列一模一樣，於是卡片呈現「一個分數、
+兩個子項」，讀者無從得知數字怎麼算出來的。
+
+開發者模式打開時，這些列排在 preset 自己的列之後，並標示 `not scored here`、名稱與分數淡化。
+`developerMode` 由 Dashboard 一路傳到明細面板，主表格與「Excluded model cells」清單行為一致。
+
 **R16（2026-08-23 裁決，滑桿放到 22 且預設改到無約束側）**：`maxModelCount` 由 13 改為
 **22**，`defaultPresetId` 由 `all-sources-9` 改為 **`free-sources-13`（N = 28）**。
 

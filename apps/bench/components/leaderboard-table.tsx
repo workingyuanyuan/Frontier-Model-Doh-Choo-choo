@@ -34,6 +34,7 @@ export function LeaderboardTable({
   preset,
   expandedModelIds,
   onToggleExpand,
+  developerMode,
 }: {
   product: PresetProductVersion;
   rows: LeaderboardRow[];
@@ -46,6 +47,7 @@ export function LeaderboardTable({
   preset: ProductPreset | null;
   expandedModelIds: string[];
   onToggleExpand: (modelId: string) => void;
+  developerMode: boolean;
 }) {
   return (
     <div
@@ -229,6 +231,7 @@ export function LeaderboardTable({
                         benchmarkDimensions={benchmarkDimensions}
                         selectedResult={activeRow}
                         preset={preset}
+                        developerMode={developerMode}
                       />
                     </td>
                   </tr>

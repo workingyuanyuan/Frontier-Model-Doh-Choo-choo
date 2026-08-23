@@ -88,6 +88,7 @@ export function DeveloperModelList({
                       benchmarkDimensions={benchmarkDimensions}
                       selectedResult={undefined}
                       preset={preset}
+                      developerMode
                     />
                   </div>
                 ) : null}

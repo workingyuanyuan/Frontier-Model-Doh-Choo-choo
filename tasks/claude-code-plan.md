@@ -2683,7 +2683,18 @@ instruction、normalized 72.7），但它不在預設 preset 的 benchmark 集�
 **實測**：`IF Instruction 71.8 ├ LiveBench Instruction Following (LiveBench) 71.8
 └ IFBench (AA) not scored here 72.7`。
 
-**測試**：新增 1 項，驗證 preset 以外的列仍然出現、帶有標記，且 preset 內的列不帶標記。
+**追加裁決（同日，使用者）**：「不參與計分就不要顯示出來，被排除的量測放開發者模式。」
+因此主畫面的維度卡只列參與計分的 benchmark；preset 以外的量測改由**開發者模式**呈現，仍帶
+`not scored here` 標記。`developerMode` 由 Dashboard 經 Leaderboard、LeaderboardTable 傳到
+明細面板，主表格與「Excluded model cells」清單行為一致。記於規格 **R17**。
+
+**實測**：一般模式 `IF Instruction 71.8 └ LiveBench Instruction Following 71.8`；打開開發者
+模式後同一張卡變成 `├ LiveBench … 71.8 └ IFBench (AA) not scored here 72.7`。
+
+**測試**：新增 1 項，同時驗證兩種模式——一般模式下該列**完全不出現**，開發者模式下出現且帶
+標記，而 preset 內的列在兩種模式都不帶標記。順帶修正一項既有測試：它靠
+`automationbench` 這個非 preset benchmark 會被列出來，改為把該 benchmark 放進 preset，
+因為它要驗的是重複列的取捨，不是 preset 成員資格。
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（278 項）、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。

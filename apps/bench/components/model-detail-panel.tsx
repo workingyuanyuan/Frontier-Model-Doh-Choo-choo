@@ -27,6 +27,12 @@ export interface ModelDetailPanelProps {
       }
     | undefined;
   preset?: ProductPreset | null | undefined;
+  /**
+   * Show measurements the preset does not score. Off by default: a benchmark
+   * that does not contribute to the number above it does not belong on the
+   * main screen, and retained evidence is a developer-mode concern.
+   */
+  developerMode?: boolean | undefined;
 }
 
 export const DIMENSION_DISPLAY_NAMES: Record<DimensionId, string> = {
@@ -115,6 +121,7 @@ export function ModelDetailPanel({
   benchmarkDimensions,
   selectedResult,
   preset,
+  developerMode = false,
 }: ModelDetailPanelProps) {
   const [openProvenanceId, setOpenProvenanceId] = useState<string | null>(null);
 
@@ -177,16 +184,19 @@ export function ModelDetailPanel({
       ? [...preset.benchmarkIds]
       : Object.keys(benchmarkDimensions);
 
-    // Measurements outside the preset are retained rather than hidden, but they
-    // are appended AFTER the preset's own, and the row marks itself as not
-    // counted. Rendering them identically made a dimension card show two
-    // children under a score computed from one of them, which is arithmetic no
-    // reader can follow. Ruling R1: the preset is the scoring basis.
-    profileEvidence.forEach((e) => {
-      if (!activeBenchmarkIds.includes(e.benchmarkId)) {
-        activeBenchmarkIds.push(e.benchmarkId);
-      }
-    });
+    // Measurements outside the preset appear in developer mode only, appended
+    // after the preset's own and marked as not counted. On the main screen they
+    // are omitted entirely: rendering them made a dimension card show two
+    // children under a score computed from one, which is arithmetic no reader
+    // can follow. Ruling R1: the preset is the scoring basis, and R17 says the
+    // main screen shows only what is in it.
+    if (developerMode) {
+      profileEvidence.forEach((e) => {
+        if (!activeBenchmarkIds.includes(e.benchmarkId)) {
+          activeBenchmarkIds.push(e.benchmarkId);
+        }
+      });
+    }
 
     activeBenchmarkIds.forEach((bmId) => {
       const dim = benchmarkDimensions[bmId];
@@ -199,7 +209,7 @@ export function ModelDetailPanel({
     });
 
     return map;
-  }, [benchmarkDimensions, preset, profileEvidence]);
+  }, [benchmarkDimensions, developerMode, preset, profileEvidence]);
 
   const modelDisplayName = getProfileDisplayName(profile);
   const overallText =
