@@ -1,9 +1,10 @@
 import { existsSync } from 'node:fs';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format as formatWithPrettier } from 'prettier';
 
+import { DisplaySetPolicySchema } from './index.js';
 import {
   analyzeCoverageMatrix,
   formatCoverageMatrixMarkdown,
@@ -163,9 +164,22 @@ export const generateCoverageMatrixReport = async (
   );
 
   const workspaceData = await loadWorkspaceCoverageData(repoRoot);
+  // The report is what the presets are chosen from, so it has to be computed
+  // under the same pins the generator applies. A report showing a scale the
+  // presets cannot use is worse than no report.
+  const policy = DisplaySetPolicySchema.parse(
+    JSON.parse(
+      await readFile(
+        join(repoRoot, 'data-v2', 'mappings', 'display-set-policy.json'),
+        'utf8',
+      ),
+    ),
+  );
+
   const shared = {
     ...workspaceData,
     referenceDate,
+    requiredModelIds: policy.requiredModelIds,
     requiredBenchmarkIds: options.requiredBenchmarkIds ?? [],
     // A subset that cannot fill all eight dimensions is not a display-set
     // candidate, so offering it would inflate the curve with unrankable rows.
@@ -220,6 +234,7 @@ export const runReportCoverageMatrixCli = async (
     `- Active Benchmarks: ${analysis.activeBenchmarkIds.length}`,
     `- Candidates Per Scale: ${analysis.candidatesPerScale}`,
     `- Sources With An Active Benchmark: ${analysis.coverableSourceIds.length}`,
+    `- Pinned Models: ${analysis.requiredModelIds.join(', ') || 'none'}`,
     `- Unconstrained Tradeoff Scale Rows: ${analysis.tradeoffs.length}`,
     `- All-Sources Tradeoff Scale Rows: ${baseline.tradeoffs.length} (smallest feasible $N$ = ${baseline.tradeoffs[0]?.benchmarkCount ?? 'n/a'})`,
   ];

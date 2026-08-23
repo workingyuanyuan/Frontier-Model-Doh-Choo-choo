@@ -1050,6 +1050,95 @@ describe('coverage-matrix', () => {
     });
   });
 
+  describe('requiredModelIds', () => {
+    // m1 has both benchmarks, m2 only b1. Maximising the model count alone
+    // prefers {b1}; pinning m1 is what forces the subset that keeps measuring
+    // it on both.
+    const build = (requiredModelIds?: string[]) => {
+      const catalog: ModelCatalog = {
+        schemaVersion: 'model-catalog-v1',
+        models: ['m1', 'm2'].map((modelId) => ({
+          modelId,
+          providerId: 'p',
+          displayName: modelId.toUpperCase(),
+          releaseDate: '2026-01-01',
+          pricing: [],
+          profilePricing: {},
+        })),
+      };
+      const rows: [string, string][] = [
+        ['m1', 'b1'],
+        ['m2', 'b1'],
+        ['m1', 'b2'],
+      ];
+      return analyzeCoverageMatrix({
+        catalog,
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2',
+          qualificationWindowMonths: 12,
+          manualModels: [],
+        },
+        benchmarkMapping: {
+          schemaVersion: 'benchmark-dimensions-v1',
+          dimensions: [...DIMENSION_IDS],
+          benchmarks: [
+            { id: 'b1', primaryDimension: 'coding', secondaryDimensions: [] },
+            { id: 'b2', primaryDimension: 'math', secondaryDimensions: [] },
+          ],
+        },
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['s'],
+        sourceCandidates: rows.map(([modelId, benchmarkId], index) =>
+          createMockCandidate({
+            id: `c${index}`,
+            sourceId: 's',
+            modelId,
+            rawName: modelId.toUpperCase(),
+            benchmarkId,
+          }),
+        ),
+        referenceDate: '2026-08-20',
+        ...(requiredModelIds ? { requiredModelIds } : {}),
+      });
+    };
+
+    it('defaults to pinning nothing', () => {
+      const free = build();
+      expect(free.requiredModelIds).toEqual([]);
+      expect(free.tradeoffs[0]?.candidates[0]?.completeModelCount).toBe(2);
+    });
+
+    it('keeps a pinned model complete in every reported subset', () => {
+      const pinned = build(['m1']);
+      expect(pinned.requiredModelIds).toEqual(['m1']);
+      const m1Index = pinned.qualifiedModels.findIndex(
+        ({ modelId }) => modelId === 'm1',
+      );
+      expect(m1Index).toBeGreaterThanOrEqual(0);
+      for (const { candidates } of pinned.tradeoffs) {
+        for (const candidate of candidates) {
+          expect(
+            candidate.matchingModels.map(({ modelId }) => modelId),
+          ).toContain('m1');
+        }
+      }
+      // m2 lacks b2, so pinning m1 does not stop the optimum keeping both at
+      // the scale where both are possible.
+      expect(pinned.tradeoffs[0]?.candidates[0]?.completeModelCount).toBe(2);
+      expect(pinned.tradeoffs[1]?.candidates[0]?.benchmarkIds).toEqual([
+        'b1',
+        'b2',
+      ]);
+      expect(pinned.tradeoffs[1]?.candidates[0]?.completeModelCount).toBe(1);
+    });
+
+    it('throws on a pinned model that is not qualified rather than ignoring it', () => {
+      expect(() => build(['not-a-model'])).toThrowError(
+        /required models are not qualified: not-a-model/u,
+      );
+    });
+  });
+
   describe('requireAllSources', () => {
     // src-a holds two benchmarks, src-b holds one. Dropping src-b buys a model,
     // which is exactly the trade the constraint is there to expose.
@@ -1254,6 +1343,7 @@ describe('coverage-matrix', () => {
         requiredBenchmarkIds: [],
         requireAllSources: false,
         requireAllDimensions: false,
+        requiredModelIds: [],
         coverableSourceIds: ['source-1'],
         candidatesPerScale: 5,
         qualifiedModels: [],
@@ -1340,6 +1430,7 @@ describe('coverage-matrix', () => {
         requiredBenchmarkIds: [],
         requireAllSources: false,
         requireAllDimensions: false,
+        requiredModelIds: [],
         coverableSourceIds: ['source-1'],
         candidatesPerScale: 5,
         qualifiedModels: [
@@ -1477,6 +1568,7 @@ describe('coverage-matrix', () => {
         requiredBenchmarkIds: [],
         requireAllSources: false,
         requireAllDimensions: false,
+        requiredModelIds: [],
         coverableSourceIds: ['source-1'],
         candidatesPerScale: 5,
         qualifiedModels: [{ modelId: 'model-1', displayName: 'Model 1' }],

@@ -81,6 +81,7 @@ export interface CoverageMatrixAnalysis {
   candidatesPerScale: number;
   requireAllSources: boolean;
   requireAllDimensions: boolean;
+  requiredModelIds: string[];
   coverableSourceIds: string[];
   qualifiedModels: QualifiedModel[];
   matrix: ModelBenchmarkPresence[];
@@ -129,6 +130,19 @@ export interface CoverageAnalysisInput {
    * display-set generator both set it.
    */
   requireAllDimensions?: boolean;
+  /**
+   * Qualified base models that every reported subset must leave complete.
+   *
+   * Maximising the NUMBER of complete models says nothing about WHICH models,
+   * and the optimum is free to reach its count by dropping a model the
+   * leaderboard exists to show. Naming those models turns "how many models
+   * can we keep" into "how strict can we get while still ranking the ones that
+   * matter", which is the question the review gate actually asks.
+   *
+   * An id that is not a qualified model throws rather than being ignored: a
+   * typo would otherwise silently produce the unpinned curve.
+   */
+  requiredModelIds?: readonly string[];
   /**
    * Benchmarks every candidate combination must contain.
    *
@@ -402,6 +416,9 @@ export const analyzeCoverageMatrix = (
 
   const requireAllSources = input.requireAllSources ?? false;
   const requireAllDimensions = input.requireAllDimensions ?? false;
+  const requiredModelIds = [...new Set(input.requiredModelIds ?? [])].toSorted(
+    (left, right) => left.localeCompare(right),
+  );
   const candidatesPerScale = input.candidatesPerScale ?? 1;
   if (!Number.isInteger(candidatesPerScale) || candidatesPerScale < 1) {
     throw new Error(
@@ -578,6 +595,14 @@ export const analyzeCoverageMatrix = (
       `required benchmarks are not active: ${unknownRequired.join(', ')}`,
     );
   }
+  const unknownRequiredModels = requiredModelIds.filter(
+    (modelId) => !qualifiedModelIdSet.has(modelId),
+  );
+  if (unknownRequiredModels.length > 0) {
+    throw new Error(
+      `required models are not qualified: ${unknownRequiredModels.join(', ')}`,
+    );
+  }
   if (M > 53) {
     throw new Error(
       `coverage-matrix supports at most 53 active benchmarks in its exact numeric presence masks; received ${M}`,
@@ -601,6 +626,13 @@ export const analyzeCoverageMatrix = (
       return support;
     });
     const allModelSupport = (1n << BigInt(qualifiedModels.length)) - 1n;
+    // Support masks only ever shrink, so a state that has already lost a
+    // required model can never regain it. Dropping it at the transition is both
+    // correct and the cheapest place to do it.
+    let requiredModelMask = 0n;
+    for (const modelId of requiredModelIds) {
+      requiredModelMask |= 1n << BigInt(modelIndexMap.get(modelId)!);
+    }
 
     // Primary dimension only. `scoreProfiles` averages a benchmark into
     // exactly one dimension, so counting secondary dimensions here would report
@@ -685,6 +717,9 @@ export const analyzeCoverageMatrix = (
       const nextByCount = new Map<number, Map<string, SubsetState[]>>();
 
       const retain = (count: number, state: SubsetState): void => {
+        if ((state.supportMask & requiredModelMask) !== requiredModelMask) {
+          return;
+        }
         const bucket =
           nextByCount.get(count) ?? new Map<string, SubsetState[]>();
         const key = requireAllSources
@@ -871,6 +906,7 @@ export const analyzeCoverageMatrix = (
     candidatesPerScale,
     requireAllSources,
     requireAllDimensions,
+    requiredModelIds,
     coverableSourceIds: whitelist.filter(
       (_, index) => (coverableSourceMask & (1 << index)) !== 0,
     ),
@@ -1007,11 +1043,18 @@ export const formatCoverageMatrixMarkdown = (
     `- **Sources with at least one active benchmark (${analysis.coverableSourceIds.length})**: ${analysis.coverableSourceIds.map((id) => `\`${id}\``).join(', ')}`,
   );
   const smallestFeasibleAllSources = baseline?.tradeoffs[0]?.benchmarkCount;
+  if (analysis.requiredModelIds.length > 0) {
+    lines.push(
+      `- **Pinned models (${analysis.requiredModelIds.length})**: ${analysis.requiredModelIds.map((id) => `\`${id}\``).join(', ')} -- every combination below leaves these complete, per \`data-v2/mappings/display-set-policy.json\`. Maximising the model count says nothing about which models survive; this is how a model the leaderboard exists to show is kept in.`,
+    );
+  }
   lines.push(
     `- **Smallest scale reported**: $N$ = ${minBenchmarkCount}${
-      smallestFeasibleAllSources !== undefined
-        ? ` (a reporting floor; the all-sources curve is already feasible at $N$ = ${smallestFeasibleAllSources}, because a benchmark carried by several sources covers all of them at once)`
-        : ''
+      smallestFeasibleAllSources === undefined
+        ? ''
+        : smallestFeasibleAllSources < minBenchmarkCount
+          ? ` (a reporting floor, not a feasibility bound: the all-sources curve already has a solution at $N$ = ${smallestFeasibleAllSources}, because a benchmark carried by several sources covers all of them at once)`
+          : ` (the all-sources curve has no solution below $N$ = ${smallestFeasibleAllSources})`
     }`,
   );
   if (analysis.requiredBenchmarkIds.length > 0) {

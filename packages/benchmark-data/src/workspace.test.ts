@@ -1,8 +1,9 @@
-import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
+import { DisplaySetPolicySchema } from './index.js';
 import { buildWorkspaceProduct } from './workspace.js';
 
 describe('buildWorkspaceProduct', () => {
@@ -42,6 +43,18 @@ describe('buildWorkspaceProduct', () => {
       owned.add(row.benchmarkId);
       benchmarksByModel.set(modelId, owned);
     }
+    // Every model named in display-set-policy.json must survive every preset.
+    // This is what stops the optimiser reaching its model count by dropping a
+    // model the leaderboard exists to show.
+    const policy = DisplaySetPolicySchema.parse(
+      JSON.parse(
+        await readFile(
+          join(root, 'data-v2', 'mappings', 'display-set-policy.json'),
+          'utf8',
+        ),
+      ),
+    );
+
     for (const preset of product.presets) {
       const completeModels = [...benchmarksByModel.values()].filter((owned) =>
         preset.benchmarkIds.every((benchmarkId) => owned.has(benchmarkId)),
@@ -50,6 +63,16 @@ describe('buildWorkspaceProduct', () => {
         id: preset.id,
         completeModels,
       }).toEqual({ id: preset.id, completeModels: preset.targetModelCount });
+
+      for (const modelId of policy.requiredModelIds) {
+        expect({
+          preset: preset.id,
+          modelId,
+          complete: preset.benchmarkIds.every((benchmarkId) =>
+            benchmarksByModel.get(modelId)?.has(benchmarkId),
+          ),
+        }).toEqual({ preset: preset.id, modelId, complete: true });
+      }
 
       // A preset scores only its own benchmarks, so nothing outside it may be
       // cited as the evidence behind a score.

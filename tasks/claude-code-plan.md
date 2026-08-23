@@ -2378,3 +2378,57 @@ GPT-5.5、GPT-5.6 Luna／Sol／Terra、GLM-5.2。Grok、DeepSeek、Qwen、Kimi �
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（18 passed）全綠。新增測試：display-set-v2
 的五種驗證失敗、preset 排序與截斷、`requireAllSources`，以及 workspace 端的
 `targetModelCount` 與實際完整模型數逐一相符、preset leaderboard 不得引用集合外的證據。
+
+### N10b 追加：釘住模型（R10）
+
+狀態：完成
+
+**問題**：使用者否決 `all-sources-10` 作為預設，理由是主畫面不再顯示 Gemini 3.7 Flash，
+「那樣榜單就沒有用」。
+
+**診斷**：Gemini 3.7 Flash 在 46 個 active benchmark 中有 **37 個，只缺 `corpfin` 一個**。
+`corpfin` 是 `context` 的 primary benchmark，在 N = 25 的最佳解裡被選來覆蓋 context——而
+Gemini 3.7 Flash 有另一個 context primary（`aa-lcr`）卻沒有 `corpfin`。根本原因是目標函數
+只最大化**完整模型的數量**，對**哪些模型**完全沒有意見。
+
+**修法**：新增 `requiredModelIds`。DP 在轉移時就丟掉已經失去必選模型的狀態（支援 bitmask
+只會縮小，不可能救回來），既正確又順便剪枝。清單放在新的 committed 輸入檔
+`data-v2/mappings/display-set-policy.json`，報告與生成器共用，重跑可重現。
+
+**代價：零個模型，5 個 benchmark。**
+
+|                         | 釘住前                          | 釘住後                   |
+| ----------------------- | ------------------------------- | ------------------------ |
+| 來源齊全 M = 10         | N = 25，**無** Gemini 3.7 Flash | N = 20，**有**           |
+| 無約束 M = 13 / 12 / 11 | N = 28 / 30 / 31                | N = 28 / 30 / 31（不變） |
+
+**預設 preset `all-sources-10`（N = 20）的 10 個模型**：Claude Fable 5、Claude Opus 5、
+DeepSeek V4 Flash、Gemini 3.6 Flash、**Gemini 3.7 Flash**、Kimi K3、GPT-5.6 Luna／Sol／Terra、
+GLM-5.2。
+
+**D-N10-7 的修訂**：釘住模型對兩條曲線的收窄程度不同，可達模型數不再相同。原本「兩條曲線
+必須提供相同模型數」的規則會刪掉無約束曲線最有價值的區段（它仍可到 24 個模型），故改為
+各曲線輸出自己可達的模型數。現況 15 個 preset：
+
+| 模型數 | 無約束 N |     每來源≥1 N | 備註                            |
+| -----: | -------: | -------------: | ------------------------------- |
+|     13 |       28 |              — | 只有無約束                      |
+|     12 |       30 |              — | 只有無約束                      |
+|     11 |       31 |              — | 只有無約束                      |
+|     10 |        — | **20（預設）** | 只有來源齊全                    |
+|      9 |       32 |              — | 只有無約束                      |
+|      8 |       33 |             33 | 兩邊 benchmark 組成**完全相同** |
+|      7 |       34 |             34 | 同上                            |
+|      6 |       35 |             35 | 同上                            |
+|      4 |       36 |             36 | 同上                            |
+|      3 |       37 |             37 | 同上                            |
+
+**待 N10c 裁決**：滑桿在只有單邊有 preset 的位置要怎麼表現（隱藏切換鈕／自動切換模式／
+標示不可用），以及 M ≤ 8 時兩邊組成相同、切換鈕實際無作用要如何呈現。
+
+**產物大小**：`current.json` 5.618 MB（15 個 preset）。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（270 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（18 passed）全綠。新增測試：
+`requiredModelIds` 的預設空值、釘住後每個候選都含該模型、非合格模型 ID 拋錯，以及 workspace
+端斷言 policy 裡的每個模型在**每一個** preset 中都完整。

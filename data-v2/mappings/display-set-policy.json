@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "display-set-policy-v1",
+  "notes": "Inputs to `pnpm data:v2:generate-display-set`. Maximising the number of complete models says nothing about which models, so the optimiser is free to reach its count by dropping one the leaderboard exists to show. requiredModelIds names the models every preset must be able to rank. Keep the list short: each entry narrows the search to benchmark subsets that model has, and the cost in benchmark count is reported by the generator.",
+  "requiredModelIds": ["google-gemini-3-7-flash"],
+  "minModelCount": 2,
+  "maxModelCount": 13,
+  "defaultPresetId": "all-sources-10"
+}

@@ -394,6 +394,29 @@ export const SourcesConfigSchema = z.object({
 });
 export type SourcesConfig = z.infer<typeof SourcesConfigSchema>;
 
+/**
+ * Committed inputs to the display-set generator, so regenerating is
+ * reproducible from the repository rather than from remembered CLI flags.
+ */
+export const DisplaySetPolicySchema = z
+  .object({
+    schemaVersion: z.literal('display-set-policy-v1'),
+    notes: z.string().optional(),
+    /** Models every preset must leave complete. */
+    requiredModelIds: z.array(SlugSchema).default([]),
+    minModelCount: z.int().positive(),
+    maxModelCount: z.int().positive(),
+    defaultPresetId: SlugSchema,
+  })
+  .strict()
+  .refine(
+    ({ minModelCount, maxModelCount }) => minModelCount <= maxModelCount,
+    {
+      message: 'minModelCount must not exceed maxModelCount',
+    },
+  );
+export type DisplaySetPolicy = z.infer<typeof DisplaySetPolicySchema>;
+
 export const DisplaySetPresetSchema = z
   .object({
     id: SlugSchema,
