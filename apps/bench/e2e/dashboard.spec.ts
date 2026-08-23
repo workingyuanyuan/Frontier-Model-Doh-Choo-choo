@@ -507,8 +507,14 @@ test('switches the scored preset from the model-count slider and keeps it in the
   const count = page.getByTestId('preset-model-count');
   const sourcesSwitch = page.locator('.preset-sources-switch');
 
-  // The default preset keeps every source represented.
-  await expect(sourcesSwitch).toHaveAttribute('aria-checked', 'true');
+  // Which mode the default preset is in is a user ruling and changes; what
+  // must always hold is that the switch's label and its state agree, since the
+  // label is the only thing a reader sees.
+  const requiresAllSources =
+    (await sourcesSwitch.getAttribute('aria-checked')) === 'true';
+  await expect(sourcesSwitch).toHaveText(
+    requiresAllSources ? 'All sources' : 'Any sources',
+  );
   const defaultCount = (await count.textContent()) ?? '';
   const defaultRows = await page
     .locator('.leaderboard-table tbody tr[data-ranked-row]')

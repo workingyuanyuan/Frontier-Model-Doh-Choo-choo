@@ -2615,3 +2615,45 @@ pattern）。
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（277 項）、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。
+
+### N14 — 滑桿上限放到 22，預設改到無約束側
+
+狀態：完成
+
+**使用者裁決（2026-08-23）**：`maxModelCount` 13 → **22**；主畫面預設由 `all-sources-9`
+改到 free-sources 那側，經確認取 **`free-sources-13`（N = 28）**。記於規格 **R16**。
+
+**做了什麼**：只改 `data-v2/mappings/display-set-policy.json` 兩個值，重跑
+`pnpm data:v2:generate-display-set` 與 `pnpm data:v2:build-current`。沒有動任何演算法。
+
+**結果**
+
+- preset 由 13 個增為 **18 個**；每個 preset 仍是 `targetModelCount === 實際列數`。
+- 滑桿位置：`3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 16, 17, 20, 22`（15 檔，刻度不連續）。
+- 切換鈕只在 **9、8、7** 可用；10 以上只有無約束曲線，6 以下只有來源齊全曲線。
+
+| 模型數 | 無約束 N |     每來源≥1 N |
+| -----: | -------: | -------------: |
+|     22 |       13 |              — |
+|     20 |       15 |              — |
+|     17 |       21 |              — |
+|     16 |       25 |              — |
+|     14 |       27 |              — |
+| **13** |   **28** |              — |
+|     12 |       29 |              — |
+|     10 |       30 |              — |
+|      9 |       31 |             19 |
+|      8 |       32 |             28 |
+|      7 |       33 |             32 |
+|    6–3 |        — | 34／35／36／37 |
+
+**瀏覽器實測**：預設載入 13 models／Any sources／13 列／網址無 query 參數；拉到頂為
+22 models（`?preset=free-sources-22`）、44→22 列；拉到底為 3 models／All sources。
+9、8、7 三檔的切換鈕確實可按。
+
+**修掉一個過期斷言**：e2e 原本寫死「預設 preset 的切換鈕 `aria-checked` 為 true」。預設在
+哪一側是使用者裁決、會變；改為驗證**標籤與狀態一致**（`aria-checked` 為 true 才顯示
+`All sources`），那才是恆真的性質。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（277 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。

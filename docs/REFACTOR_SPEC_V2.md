@@ -405,6 +405,24 @@ profile 背後的相異模型數（以支援 bitmask 為鍵記憶化，同一個
 `docs/COVERAGE_MATRIX_REPORT.md` 的有無矩陣仍以模型為列、跨 profile 取聯集，另加一欄
 **Best profile**（單一 profile 最多覆蓋幾個 benchmark），落差因此在報告中看得見。
 
+**R16（2026-08-23 裁決，滑桿放到 22 且預設改到無約束側）**：`maxModelCount` 由 13 改為
+**22**，`defaultPresetId` 由 `all-sources-9` 改為 **`free-sources-13`（N = 28）**。
+
+13 這個上限原本是使用者訂的，當時無約束曲線在它之下也只到 12；N13 補上兩個 xAI alias 之後
+曲線整體上移，13 才真的變成綁住的那一道限制。放到 22 之後 preset 由 13 個增為 **18 個**，
+滑桿位置為 `3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 16, 17, 20, 22`——**刻度不連續且上段間隔
+變大**，這是資料的形狀，不是 UI 缺陷：模型數與 benchmark 數是此消彼長的，22 個模型只剩
+13 個 benchmark，9 個模型則有 31 個。
+
+預設改到無約束側的理由是主畫面要看得到 Grok 4.5／4.6。它們在**任何**來源齊全 preset 中都
+不可能出現：Zapier 的 AutomationBench 沒有任何 xAI 列，而 Zapier 只有 `automationbench`
+一個 benchmark，「每來源至少一個」使它成為必選（見 §9.7 與 N13）。選 13 而非 22 或 9，是
+在模型數與量測深度之間取的平衡點；`free-sources-13` 同時含 Claude Fable 5、Gemini 3.7
+Flash、Grok 4.6／4.5 與 Qwen3.8 Max。
+
+切換鈕現在只在模型數 **9、8、7** 三個位置可用（兩條曲線都有 preset 且組成不同）；其餘位置
+仍為狀態指示。10 以上只有無約束曲線可達，6 以下只有來源齊全曲線可達。
+
 **指令介面（N10a／R8 之後）**：
 
 ```bash
