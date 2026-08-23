@@ -161,6 +161,12 @@ export function ModelDetailPanel({
     return map;
   }, [selectedResult]);
 
+  const scoringBasisIds = useMemo(
+    () =>
+      new Set(preset ? preset.benchmarkIds : Object.keys(benchmarkDimensions)),
+    [benchmarkDimensions, preset],
+  );
+
   const benchmarksByDimension = useMemo(() => {
     const map = new Map<DimensionId, string[]>();
     UI_DIMENSION_IDS.forEach((dim) => {
@@ -171,7 +177,11 @@ export function ModelDetailPanel({
       ? [...preset.benchmarkIds]
       : Object.keys(benchmarkDimensions);
 
-    // Also include any profile evidence benchmarks that are not in preset
+    // Measurements outside the preset are retained rather than hidden, but they
+    // are appended AFTER the preset's own, and the row marks itself as not
+    // counted. Rendering them identically made a dimension card show two
+    // children under a score computed from one of them, which is arithmetic no
+    // reader can follow. Ruling R1: the preset is the scoring basis.
     profileEvidence.forEach((e) => {
       if (!activeBenchmarkIds.includes(e.benchmarkId)) {
         activeBenchmarkIds.push(e.benchmarkId);
@@ -263,14 +273,16 @@ export function ModelDetailPanel({
                       : '—';
                     const provKey = `${profile.id}:${bmId}`;
                     const isProvOpen = openProvenanceId === provKey;
+                    const isScored = scoringBasisIds.has(bmId);
 
                     return (
                       <li
                         key={bmId}
                         className={`dimension-benchmark-item ${
                           evidence ? 'has-score' : 'is-missing'
-                        }`}
+                        }${isScored ? '' : ' is-outside-basis'}`}
                         data-benchmark-id={bmId}
+                        data-outside-basis={isScored ? undefined : 'true'}
                       >
                         <div className="benchmark-row-main">
                           <span className="tree-branch" aria-hidden="true">
@@ -296,6 +308,14 @@ export function ModelDetailPanel({
                               ({sourceName})
                             </span>
                           ) : null}
+                          {isScored ? null : (
+                            <span
+                              className="benchmark-outside-basis"
+                              title="Measured, but outside the benchmark set this preset scores. It does not affect the dimension score above."
+                            >
+                              not scored here
+                            </span>
+                          )}
                           <span className="benchmark-score">{scoreText}</span>
                         </div>
 

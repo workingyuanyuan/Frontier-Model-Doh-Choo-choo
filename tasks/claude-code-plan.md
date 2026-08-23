@@ -2657,3 +2657,33 @@ pattern）。
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（277 項）、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。
+
+### N15 — 模型明細把「未計分的量測」標示出來
+
+狀態：完成
+
+**使用者回報（2026-08-23，審查中發現）**：GPT-5.6 Sol 的 Instruction 維度列出兩個 benchmark，
+其他模型只有一個，而多出來的那個看起來沒有被計分。
+
+**判定：分數是對的，顯示是錯的。** Sol 另有一筆 AA 的 `ifbench`（primaryDimension 為
+instruction、normalized 72.7），但它不在預設 preset 的 benchmark 集合內，依 **R1** 不參與計分，
+維度分數 71.8 完全來自 `livebench-instruction-following`，`componentCount` 為 1。
+
+問題在 `model-detail-panel.tsx`：preset 以外的量測會被刻意保留顯示（規格要求被排除的量測仍
+可查），但**渲染方式與計分列完全相同**——同樣的樹狀分支、同樣的分數、沒有任何標記。於是卡片
+呈現「一個分數、兩個子項」，讀者無從得知那個數字是怎麼算出來的。這正是使用者遇到的情況。
+
+顯示 13 個模型中另有 Claude Fable 5、Gemini 3.1 Pro Preview、GLM-5.2、MiniMax M3 同樣持有
+`ifbench`，症狀相同，只是使用者展開的是 Sol。
+
+**修法**：preset 以外的列加上 `is-outside-basis` 樣式與 `not scored here` 標記，名稱與分數
+一併淡化，`data-outside-basis="true"` 供測試與除錯使用。順序上仍排在 preset 自己的列之後。
+不隱藏該列——量測是真的，只是不計入上方那個數字。
+
+**實測**：`IF Instruction 71.8 ├ LiveBench Instruction Following (LiveBench) 71.8
+└ IFBench (AA) not scored here 72.7`。
+
+**測試**：新增 1 項，驗證 preset 以外的列仍然出現、帶有標記，且 preset 內的列不帶標記。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（278 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。

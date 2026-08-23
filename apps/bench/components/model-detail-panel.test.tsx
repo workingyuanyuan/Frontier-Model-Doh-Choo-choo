@@ -49,6 +49,40 @@ const renderPanel = (props: Partial<ModelDetailPanelProps> = {}) => {
 };
 
 describe('ModelDetailPanel (Task E1)', () => {
+  it('marks a measurement the preset does not score instead of listing it like one', () => {
+    // The reported case: GPT-5.6 Sol carried an AA `ifbench` row whose primary
+    // dimension is instruction while the preset scored only LiveBench's. The
+    // card therefore showed two children under a number computed from one, and
+    // nothing on the row said which. The score was right; the row was not.
+    const html = renderPanel({
+      benchmarkDimensions: {
+        ...benchmarkDimensions,
+        'terminal-bench-2-1': 'coding' as const,
+        frontiermath: 'math' as const,
+      },
+      preset: {
+        ...preset,
+        // Drop one benchmark the profile has evidence for. It must stay
+        // visible -- the measurement is real -- but must not read as scored.
+        benchmarkIds: preset.benchmarkIds.filter(
+          (id) => id !== 'terminal-bench-2-1',
+        ),
+      },
+    });
+
+    expect(html).toContain('data-benchmark-id="terminal-bench-2-1"');
+    expect(html).toContain('not scored here');
+    expect(html).toContain('data-outside-basis="true"');
+
+    // A benchmark the preset does score carries no such marker.
+    const scoredRow = html.slice(
+      html.indexOf('data-benchmark-id="frontiermath"'),
+    );
+    expect(scoredRow.slice(0, scoredRow.indexOf('</li>'))).not.toContain(
+      'not scored here',
+    );
+  });
+
   it('renders complete capability breakdown grouped by dimension for main leaderboard model', () => {
     const html = renderPanel();
 

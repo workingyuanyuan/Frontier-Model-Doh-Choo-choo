@@ -776,6 +776,25 @@ tbody tr {
   margin-left: auto;
 }
 
+/* Retained but not counted: the row stays visible because the measurement is
+   real, and reads as muted because the dimension score above it was computed
+   without this row. */
+.benchmark-outside-basis {
+  border: 0.0625rem solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink-faint);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.05rem 0.3rem;
+  white-space: nowrap;
+}
+
+.dimension-benchmark-item.is-outside-basis .benchmark-name,
+.dimension-benchmark-item.is-outside-basis .benchmark-score {
+  color: var(--ink-faint);
+}
+
 .dimension-benchmark-item.is-missing .benchmark-name,
 .dimension-benchmark-item.is-missing .benchmark-score {
   color: var(--ink-faint);
