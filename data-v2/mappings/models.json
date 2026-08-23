@@ -377,6 +377,7 @@
       "modelId": "xai-grok-4-5",
       "providerId": "xai",
       "displayName": "Grok 4.5",
+      "aliases": ["grok/grok-4.5"],
       "releaseDate": "2026-07-08",
       "pricing": [],
       "profilePricing": {}
@@ -401,6 +402,7 @@
       "modelId": "xai-grok-4-6",
       "providerId": "xai",
       "displayName": "Grok 4.6",
+      "aliases": ["grok/grok-4.6"],
       "releaseDate": "2026-08-12",
       "pricing": [],
       "profilePricing": {}

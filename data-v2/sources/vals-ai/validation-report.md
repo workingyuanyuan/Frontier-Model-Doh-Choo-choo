@@ -15,8 +15,8 @@
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 2408 |
 | Included vals_index CostRecords | 47 |
-| Canonically unresolved rows | 1741 |
-| Distinct canonically unresolved models | 172 |
+| Canonically unresolved rows | 1691 |
+| Distinct canonically unresolved models | 170 |
 
 ## Per-page completeness
 
@@ -220,9 +220,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - grok/grok-4-fast-reasoning
 - grok/grok-4.20-0309-reasoning
 - grok/grok-4.3
-- grok/grok-4.5
 - grok/grok-4.5-exa
-- grok/grok-4.6
 - grok/grok-build-0.1
 - grok/grok-code-fast-1
 - kimi/kimi-k2-thinking
@@ -341,7 +339,7 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Benchmark slugs discovered from index | 39 | 39 | +0 |
 | CandidateResults | 2532 | 2532 | +0 |
 | CostRecords retained | 2408 | 2408 | +0 |
-| Canonically unresolved rows | 1741 | 1741 | +0 |
+| Canonically unresolved rows | 1741 | 1691 | -50 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -406,6 +404,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | google/gemini-3.1-pro-preview | `vals-ai:cyber:google-gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | google/gemini-3.5-flash | `vals-ai:cyber:google-gemini-3-5-flash` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-high:arc-agi-2-v2-semi-private |
+| grok/grok-4.5 | `vals-ai:proofbench:grok-grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | meta/muse_spark_1_2 | `vals-ai:ioi:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | meta/muse_spark_1_2 | `vals-ai:proofbench:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | meta/muse_spark_1_2 | `vals-ai:vals-multimodal-index:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |

@@ -125,4 +125,21 @@ describe('superseded DeepSeek builds', () => {
       resolveCatalogModel('deepseek-v4-pro', 'deepswe').canonicalModelId,
     ).toBe('deepseek-deepseek-v4-pro');
   });
+  it('resolves the Vals-form xAI names that the catalog now carries', () => {
+    // Vals writes `provider/model` and the resolver slugifies the whole
+    // string, so `grok/grok-4.5` keys on `grok-grok-4-5` and matches nothing
+    // the modelId or displayName produce. Without the alias, 21 included Vals
+    // benchmarks per Grok release resolve to null and never reach the product.
+    expect(resolveCatalogModel('grok/grok-4.5').canonicalModelId).toBe(
+      'xai-grok-4-5',
+    );
+    expect(resolveCatalogModel('grok/grok-4.6').canonicalModelId).toBe(
+      'xai-grok-4-6',
+    );
+    // Exactly these two were reviewed. Neighbouring Vals rows stay unresolved
+    // rather than being pattern-matched into an identity.
+    expect(
+      resolveCatalogModel('grok/grok-4.5-exa').canonicalModelId,
+    ).toBeNull();
+  });
 });

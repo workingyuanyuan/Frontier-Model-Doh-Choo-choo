@@ -7759,8 +7759,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -7803,8 +7803,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -12159,8 +12159,8 @@
     "metricId": "cost-per-test",
     "metricName": "CorpFin v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -12203,8 +12203,8 @@
     "metricId": "cost-per-test",
     "metricName": "CorpFin v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -16603,8 +16603,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -16647,8 +16647,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -18671,8 +18671,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -18715,8 +18715,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -22851,8 +22851,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -22895,8 +22895,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -26635,8 +26635,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -26679,8 +26679,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -31915,8 +31915,8 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -31959,8 +31959,8 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -34379,8 +34379,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -34423,8 +34423,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -38603,8 +38603,8 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -38647,8 +38647,8 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -46171,8 +46171,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -46215,8 +46215,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -54091,8 +54091,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -54135,8 +54135,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -62143,8 +62143,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -62187,8 +62187,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -66983,8 +66983,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMMU cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -71163,8 +71163,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -71207,8 +71207,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -74595,8 +74595,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -75827,7 +75827,7 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xai-grok-4-5",
       "profileId": null,
       "rawName": "grok/grok-4.5"
     },
@@ -75871,8 +75871,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -77675,8 +77675,8 @@
     "metricId": "cost-per-test",
     "metricName": "Public Benefits Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -78291,8 +78291,8 @@
     "metricId": "cost-per-test",
     "metricName": "ReverseEngBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -80535,8 +80535,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -80579,8 +80579,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -82471,8 +82471,8 @@
     "metricId": "cost-per-test",
     "metricName": "SkillsBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -82515,8 +82515,8 @@
     "metricId": "cost-per-test",
     "metricName": "SkillsBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -84935,8 +84935,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -84979,8 +84979,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -90171,8 +90171,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -90215,8 +90215,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -94087,8 +94087,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -94131,8 +94131,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -98223,8 +98223,8 @@
     "metricId": "cost-per-test",
     "metricName": "Time Horizon Index: KSP cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -98267,8 +98267,8 @@
     "metricId": "cost-per-test",
     "metricName": "Time Horizon Index: KSP cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -99587,8 +99587,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -99631,8 +99631,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -101259,8 +101259,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Multimodal Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -103723,8 +103723,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -103767,8 +103767,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",
@@ -105791,8 +105791,8 @@
     "metricId": "cost-per-test",
     "metricName": "Web Search Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "observedAt": "2026-08-22T09:36:20.830Z",

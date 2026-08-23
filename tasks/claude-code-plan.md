@@ -2563,3 +2563,55 @@ Frontier Code 1.1、ARC-AGI-2，LiveBench 為 cost only。X 軸定義未動—�
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（276 項）、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。
+
+### N13 — 補上 Vals 的兩個 xAI alias，並改為離線重新 materialize
+
+狀態：完成
+
+**使用者裁決（2026-08-23）**：把 `grok/grok-4.5`、`grok/grok-4.6` 登錄成 catalog alias（4.3
+不在本次範圍）；Vals 用**既有 artifacts 離線重跑**，不連網 refresh。裁決記於規格
+**D-N13-1** 與 **R15**。這是 D6 所要求的「另開資料品質 task 逐項裁決」。
+
+**根因**：Vals 的識別走 `slugify(rawName)`，`grok/grok-4.5` 得到 `grok-grok-4-5`，對不上
+`xai-grok-4-5`。同儕來源都登錄了 vals 形式的 alias（`kimi/kimi-k2.6`、`zai/glm-5.1`），
+這兩個條目沒有。因此 Vals 上 Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全部 unresolved。
+
+**做了什麼**
+
+1. **新增 `rematerialize-vals.ts`**：只讀既有 artifacts、逐一重新雜湊比對 `evidence-index.json`
+   的 id，上游 bytes 被釘住。落地前先在**未改 alias** 的狀態下跑一次，`candidates.json` 與
+   `costs.json` 與 committed 版本 byte-for-byte 相同，證明離線路徑重現了 refresh 的輸出。
+2. **抽出 `vals-snapshot.ts`**：`writeValsSnapshot` 由連網 refresh 與離線重跑共用，兩條路徑
+   不會寫出不同形狀的 snapshot。
+3. **兩個 alias 落地**，重跑後差異**恰好 50 列 × 2 檔**，欄位只有 `canonicalModelId` 與
+   `profileId`，受影響模型只有那兩個 Grok。
+4. **重生 display-set 與 current.json**。
+
+**實測影響**
+
+|                                 | 補 alias 前 | 補 alias 後             |
+| ------------------------------- | ----------- | ----------------------- |
+| Vals 未解析列                   | 172         | **170**                 |
+| preset 數                       | 12          | **13**                  |
+| 無約束曲線在 13 之內的上限      | 12          | **13**（N=28）          |
+| free-sources preset 是否含 Grok | 否          | **全部都含 4.5 與 4.6** |
+| all-sources preset 是否含 Grok  | 否          | **仍然沒有**            |
+
+**Grok 在有約束那側回不來，與 alias 無關**：Zapier 的 AutomationBench 榜單沒有任何 xAI 列，
+而 Zapier 只有 `automationbench` 一個 benchmark，「每來源至少一個」使它成為必選。這是 N12
+採用 Zapier 的結構後果。預設 preset 仍為 `all-sources-9`（N=19），因此主畫面沒有 Grok；
+要在主畫面看到 Grok，只能改預設到 free-sources 那側，這是使用者裁決，本任務未動。
+
+`free-sources-13`（N=28）的 13 個模型：Claude Fable 5、GPT-5.6 Sol、Claude Opus 5、
+Gemini 3.7 Flash、**Grok 4.6**、**Grok 4.5**、Qwen3.8 Max、Gemini 3.6 Flash、
+Gemini 3.1 Pro Preview、DeepSeek V4 Pro、GLM-5.2、MiniMax M3、Gemini 3.5 Flash-Lite。
+
+**`maxModelCount` 待裁決**：現為 13，無約束曲線實際可達更高。實測（模型數 → 無約束 N）：
+22→13、20→15、17→21、16→25、14→27、13→28。要開放把 `display-set-policy.json` 的
+`maxModelCount` 改大再重跑即可。
+
+**測試**：新增 1 項，鎖住兩個 alias 解析得出、且 `grok/grok-4.5-exa` 仍為 null（不得推廣成
+pattern）。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（277 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。

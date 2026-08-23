@@ -9872,8 +9872,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 36.596,
@@ -9928,8 +9928,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 44.572,
@@ -15528,8 +15528,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 67.405,
@@ -15584,8 +15584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 66.161,
@@ -21464,8 +21464,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 52.911,
@@ -21520,8 +21520,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 62.727,
@@ -24152,8 +24152,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 48.349,
@@ -24208,8 +24208,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 53.682,
@@ -29528,8 +29528,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 92.929,
@@ -29584,8 +29584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 94.697,
@@ -34568,8 +34568,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 12.917,
@@ -34624,8 +34624,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 15.833,
@@ -43528,8 +43528,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 85.965,
@@ -43584,8 +43584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 86.307,
@@ -48736,8 +48736,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 37.981,
@@ -48792,8 +48792,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 48.077,
@@ -54168,8 +54168,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 87.351,
@@ -54224,8 +54224,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 88.224,
@@ -64080,8 +64080,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 43.291,
@@ -64136,8 +64136,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 44.712,
@@ -74272,8 +74272,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 86.884,
@@ -74328,8 +74328,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 86.534,
@@ -84520,8 +84520,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 89.216,
@@ -84576,8 +84576,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 89.4,
@@ -90848,8 +90848,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 61.792,
@@ -96168,8 +96168,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 61.804,
@@ -96224,8 +96224,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 64.189,
@@ -100592,8 +100592,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 0,
@@ -102440,7 +102440,7 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
+      "canonicalModelId": "xai-grok-4-5",
       "profileId": null,
       "rawName": "grok/grok-4.5"
     },
@@ -102496,8 +102496,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 51,
@@ -104792,8 +104792,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 66.847,
@@ -105688,8 +105688,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 0.763,
@@ -108544,8 +108544,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 34.967,
@@ -108600,8 +108600,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 28.9,
@@ -111008,8 +111008,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 66.034,
@@ -111064,8 +111064,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 55.766,
@@ -114200,8 +114200,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 86.6,
@@ -114256,8 +114256,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 95.6,
@@ -120920,8 +120920,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 71.668,
@@ -120976,8 +120976,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 71.096,
@@ -126184,8 +126184,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 67.79,
@@ -126240,8 +126240,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 78.277,
@@ -131672,8 +131672,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 6.333,
@@ -131728,8 +131728,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 5.833,
@@ -133464,8 +133464,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 51.528,
@@ -133520,8 +133520,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 59.167,
@@ -135648,8 +135648,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 63.42,
@@ -138840,8 +138840,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 69.002,
@@ -138896,8 +138896,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-high",
       "rawName": "grok/grok-4.6"
     },
     "normalizedScore": 76.239,
@@ -141584,8 +141584,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "xai-grok-4-5",
+      "profileId": "xai-grok-4-5-high",
       "rawName": "grok/grok-4.5"
     },
     "normalizedScore": 35.5375,

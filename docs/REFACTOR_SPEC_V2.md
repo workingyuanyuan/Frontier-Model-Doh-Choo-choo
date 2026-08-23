@@ -1028,6 +1028,29 @@ Capability score 採單一明確白名單。N3a 核可的 13 項與 D2 核可的
 `canonicalModelId: null`、`profileId: null`。完整未解析名稱清單每次刷新重建並寫入
 `data-v2/sources/vals-ai/validation-report.md`，來源刷新本身不得新增 catalog 或推導 alias。
 
+**D-N13-1（2026-08-23 使用者裁決，依 D6 另開資料品質 task）**：登錄
+`xai-grok-4-5` 的 alias `grok/grok-4.5` 與 `xai-grok-4-6` 的 alias `grok/grok-4.6`。
+
+Vals 的識別走 `slugify(rawName)`，`grok/grok-4.5` 得到 `grok-grok-4-5`，對不上 modelId
+`xai-grok-4-5`，也對不上 displayName `Grok 4.5`。同儕條目早已登錄同形式的 alias
+（`kimi/kimi-k2.6`、`zai/glm-5.1`、`openai/gpt-5.4-mini-2026-03-17`），這兩個沒有，因此
+Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這兩個**：
+`grok/grok-4.5-exa`、`grok/grok-4.3` 等鄰近列維持 null，不得由此推廣成 pattern。
+
+**R15 — alias 變更要用離線重新 materialize，不重新連網（2026-08-23）**
+
+身分在 materialize 當下解析並寫死進 `candidates.json`，事後新增 alias 不會自己生效。重跑
+網路 refresh 也能生效，但會同時帶進上游自上次刷新以來的所有變動，兩種效果在 diff 裡分不開。
+因此改用 `pnpm --filter @llm-bench/acquisition rematerialize:vals`：只讀
+`artifacts-v2/sha256/` 既有 bytes，**每個 artifact 重新雜湊並必須等於
+`evidence-index.json` 記錄的 id**，上游內容因而被釘住，輸出的任何差異都只能來自身分層。
+
+實測（本次）：`candidates.json` 與 `costs.json` 各 **恰好 50 列**變動，變動欄位**只有**
+`model.canonicalModelId` 與 `model.profileId`，受影響模型只有 `grok/grok-4.5` 與
+`grok/grok-4.6`，列數與任何分數、inclusion、benchmarkId 皆未變。
+
+離線與連網兩條路徑共用 `writeValsSnapshot`，不得各自寫出不同形狀的 snapshot。
+
 ## 10. 不可跨越的邊界
 
 以下規則沿用自 `CLAUDE.md` 與 `docs/REFACTOR_DISCARD_LIST.md`，這次重構不改變它們：
