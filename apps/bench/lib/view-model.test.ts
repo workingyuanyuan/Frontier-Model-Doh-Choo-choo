@@ -648,14 +648,15 @@ describe('cost chart view model', () => {
     });
   });
 
-  it('uses six equal source weights and excludes model-catalog costs', () => {
+  it('uses seven equal source weights and excludes model-catalog costs', () => {
     expect(COST_SOURCE_WEIGHTS).toEqual({
-      'artificial-analysis': 1 / 6,
-      livebench: 1 / 6,
-      deepswe: 1 / 6,
-      'frontier-code': 1 / 6,
-      'arc-prize': 1 / 6,
-      'vals-ai': 1 / 6,
+      'artificial-analysis': 1 / 7,
+      livebench: 1 / 7,
+      deepswe: 1 / 7,
+      'frontier-code': 1 / 7,
+      'arc-prize': 1 / 7,
+      'vals-ai': 1 / 7,
+      'zapier-automationbench': 1 / 7,
     });
 
     const taskTemplate = productFixture.costs.find(
@@ -691,11 +692,11 @@ describe('cost chart view model', () => {
         .map(({ sourceId, weight }) => [sourceId, weight] as const)
         .toSorted(([left], [right]) => left.localeCompare(right)),
     ).toEqual([
-      ['arc-prize', 1 / 6],
-      ['artificial-analysis', 1 / 6],
-      ['frontier-code', 1 / 6],
-      ['livebench', 1 / 6],
-      ['vals-ai', 1 / 6],
+      ['arc-prize', 1 / 7],
+      ['artificial-analysis', 1 / 7],
+      ['frontier-code', 1 / 7],
+      ['livebench', 1 / 7],
+      ['vals-ai', 1 / 7],
     ]);
     expect(
       sol?.sourceCosts.some(({ sourceId }) => sourceId === 'model-catalog'),

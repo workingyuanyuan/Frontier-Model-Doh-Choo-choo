@@ -7,13 +7,20 @@ import type {
 export type LeaderboardRow = ProductVersion['leaderboard'][number];
 type CostPoint = ProductVersion['costs'][number];
 
+/**
+ * Equal weight per source, renormalised per model over the sources it actually
+ * has. Zapier joined on 2026-08-23 when the source was adopted, taking the
+ * table from six sources to seven; the value is the source count, never a
+ * judgement about a site.
+ */
 export const COST_SOURCE_WEIGHTS = {
-  'artificial-analysis': 1 / 6,
-  livebench: 1 / 6,
-  deepswe: 1 / 6,
-  'frontier-code': 1 / 6,
-  'arc-prize': 1 / 6,
-  'vals-ai': 1 / 6,
+  'artificial-analysis': 1 / 7,
+  livebench: 1 / 7,
+  deepswe: 1 / 7,
+  'frontier-code': 1 / 7,
+  'arc-prize': 1 / 7,
+  'vals-ai': 1 / 7,
+  'zapier-automationbench': 1 / 7,
 } as const;
 
 export const ADVANCED_COST_SOURCE_IDS = [

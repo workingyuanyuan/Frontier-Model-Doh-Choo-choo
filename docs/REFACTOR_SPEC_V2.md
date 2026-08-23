@@ -459,19 +459,18 @@ Language    71.0
 - 每個模型每個來源取**最佳表現**那一筆（與 §4.3 同一套選法）。
 - 未來新增來源時可直接擴充。
 
-**權重：六個來源各 1/6**（2026-08-22 D4 與 N2 複審裁決）
+**權重：七個來源各 1/7**（2026-08-22 D4；2026-08-23 因 Zapier 採用由六改七）
 
-來源為 Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI。
-**Zapier 已於 2026-08-23 採用於產品計分（§9.7），但成本權重仍為 0**：它不在
-`COST_SOURCE_WEIGHTS` 表內，CostRecord 雖為 `INCLUDED` 也不影響成本圖。是否改為七個來源
-各 1/7 尚未裁決，**代理不得自行加入權重表**。Epoch 沒有成本，
+來源為 Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、
+Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成本圖，七個來源各 1/7。**
+這符合下列第 4 點——來源採用裁決完成後直接按來源數重算，不對特定站點另給權重。Epoch 沒有成本，
 同樣不在權重表。Vals 每個 benchmark 都發布成本，但只有 `vals_index` 的 `cost_per_test` 可作為
 來源成本，沒有該列就不以其他 benchmark 成本頂替。
 
 原本的 40／40／20 是三來源時代的遺留值，沒有任何依據，不是決策結果。採等權重的理由：
 
-1. 六個來源都提供每次 task／test 的美元成本；任務大小造成的量級差距由 per-source 的 log min-max 正規化吸收。
-2. 權重混合的是「模型在該來源內部的相對貴賤位置」，不是美元。沒有可辯護的證據能對六個來源的量測品質排序。
+1. 七個來源都提供每次 task／test 的美元成本；任務大小造成的量級差距由 per-source 的 log min-max 正規化吸收。
+2. 權重混合的是「模型在該來源內部的相對貴賤位置」，不是美元。沒有可辯護的證據能對這些來源的量測品質排序。
 3. `sourceWeight` 會對該模型**實際具備的來源**重新正規化，缺來源不受懲罰。因此權重只在同一模型有兩個以上來源且排名不一致時才起作用。
 4. 等權重讓擴充成為機械操作；來源採用裁決完成後直接按來源數重算，不任意調高特定站點。
 
@@ -564,7 +563,7 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
 2. **它的分母是成功次數，效能已經內含在成本裡。**表現差的模型會因為分母變小而顯得更貴。把它放上「效能 vs. 成本」的散布圖，等於讓 X 軸包含 Y 軸的資訊。AA 的 cost per Intelligence Index task、DeepSWE 的 mean agent task cost、Frontier Code 的 mean rollout cost 都是**每次嘗試**的平均成本，與成功率無關，不具這個性質。
 3. 另外，LiveBench 的成本掛在 `benchmarkId: 'livebench'`（整站一個值），但它的分數在本專案是拆成 `livebench-reasoning`、`-mathematics`、`-language`、`-instruction-following` 四個 benchmark 進入產品。**沒有一個「LiveBench 分數」可以和這個成本配對。**
 
-第 2 點對預設圖同樣成立，程度較輕（權重 1/6、且經 log 正規化後只影響相對位置）。**這是一個已知且已揭露的偏誤：它會讓預設圖的品質—成本相關性看起來比實際更乾淨。**目前選擇保留六來源等權重；若日後判定失真不可接受，應另行裁決是否移除 LiveBench，不得暗中調整權重補償。
+第 2 點對預設圖同樣成立，程度較輕（權重 1/7、且經 log 正規化後只影響相對位置）。**這是一個已知且已揭露的偏誤：它會讓預設圖的品質—成本相關性看起來比實際更乾淨。**目前選擇保留全來源等權重；若日後判定失真不可接受，應另行裁決是否移除 LiveBench，不得暗中調整權重補償。
 
 **成本語意規則（重要）**
 
@@ -584,7 +583,7 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
 （Overall Score）與 X（成本指數）、進階圖的 Y（四來源平均分數）與 X（四來源成本指數）。
 
 2026-08-21 進階圖改為聚合圖後，它的 X 從 USD 變成與預設圖同單位的成本指數（見上方「進階圖
-的軸定義」），因此兩張圖的 X 軸可以直接對照解讀；但兩者的權重組成不同（六來源各 1/6 vs.
+的軸定義」），因此兩張圖的 X 軸可以直接對照解讀；但兩者的權重組成不同（七來源各 1/7 vs.
 四來源各 1/4），數值不等價，軸標題必須各自寫出自己的實際範圍。
 
 - 定義域取自**當前實際畫出來的點**，不是全體資料。進階圖有序列被關閉時（見下），關閉的
@@ -917,9 +916,9 @@ Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench
   Zapier 另外帶進三個明示檔位的 profile（`google-gemini-3-5-flash-medium`、
   `minimax-minimax-m3-max`、`zai-glm-5-1-max`），並取代兩個 `-default` profile。
 - **主畫面不受影響**：`display-set.json` 未含 `automationbench`，完整性門檻不變。
-- **成本圖權重仍為 0，尚未裁決。** §6.3 的「六個來源各 1/6」未改；Zapier 的 CostRecord 雖已
-  `INCLUDED`，但不在 `COST_SOURCE_WEIGHTS` 表內，因此對成本圖沒有貢獻。要不要改成七個來源
-  各 1/7 是另一個裁決，**代理不得自行加入權重表**。
+- **成本圖一併納入（2026-08-23 使用者裁決）**：`COST_SOURCE_WEIGHTS` 由六個來源各 1/6 改為
+  **七個來源各 1/7**，Zapier 加入權重表。進階成本圖的四來源（D5 裁決）不受影響——它要求
+  一個 profile 在四個來源上都有可配對的分數與成本，Zapier 不在那四個之內。
 
 ### 9.8 Vals AI（期三，2026-08-22 實測）
 

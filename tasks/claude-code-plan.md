@@ -2274,9 +2274,11 @@ frontier-code 各 1；`zapier-automationbench` 目前 84 列全部 EXCLUDED，�
 | profile 總數                 | 144 → 145（Zapier 帶進三個明示檔位，取代兩個 `-default`）           |
 | 主畫面                       | 不變（`display-set.json` 未含 `automationbench`）                   |
 
-**尚未裁決**：成本圖權重仍是「六個來源各 1/6」，Zapier 不在 `COST_SOURCE_WEIGHTS` 表內，
-因此 CostRecord 雖已 `INCLUDED` 卻對成本圖沒有貢獻。是否改為七個來源各 1/7 需使用者裁決，
-代理不得自行加入權重表。進階成本圖的四來源（D5 裁決）不受影響。
+**2026-08-23 追加裁決：成本圖一併納入 Zapier，七個來源各 1/7。**
+`apps/bench/lib/view-model.ts` 的 `COST_SOURCE_WEIGHTS` 由六個 1/6 改為七個 1/7。
+`sourceWeight` 對每個模型實際具備的來源重新正規化，因此只有兩個以上來源且排名不一致的模型
+會受影響。進階成本圖的四來源（D5 裁決）不受影響——它要求一個 profile 在四個來源上都有可
+配對的分數與成本，Zapier 不在那四個之內。
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e` 全綠。
