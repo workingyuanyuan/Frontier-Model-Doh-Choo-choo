@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   ADVANCED_COST_SOURCE_IDS,
+  COST_SOURCE_SCORE_BASES,
   COST_SOURCE_WEIGHTS,
   filterLeaderboard,
   getDataScopeSummary,
@@ -19,6 +20,7 @@ import {
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
+  getSourceScore,
   type PresetProductVersion,
 } from './view-model';
 import {
@@ -495,6 +497,118 @@ describe('leaderboard view model', () => {
 });
 
 describe('cost chart view model', () => {
+  it('declares one score basis, or an explicit none, for every weighted cost source', () => {
+    // A source missing from this table would fall back to whatever the caller
+    // did by default; the whole point of N11 is that there is no default.
+    expect(
+      Object.keys(COST_SOURCE_WEIGHTS).filter(
+        (sourceId) => !(sourceId in COST_SOURCE_SCORE_BASES),
+      ),
+    ).toEqual([]);
+    expect(
+      ADVANCED_COST_SOURCE_IDS.filter(
+        (sourceId) => COST_SOURCE_SCORE_BASES[sourceId] == null,
+      ),
+    ).toEqual([]);
+  });
+
+  it('gives LiveBench no score at all rather than a mean of its four benchmarks', () => {
+    // Its cost is per SUCCESSFUL task and is filed site-wide, so no LiveBench
+    // score was measured by the run that produced it. Null is the disclosure.
+    expect(COST_SOURCE_SCORE_BASES['livebench']).toBeNull();
+    expect(
+      productFixture.profiles.every(
+        ({ id }) => getSourceScore(productFixture, 'livebench', id) === null,
+      ),
+    ).toBe(true);
+  });
+
+  it('reads each source score off that source declared benchmark only', () => {
+    const template = productFixture.evidence.find(
+      ({ benchmarkId }) => benchmarkId === 'terminal-bench-2-1',
+    )!;
+    const product: PresetProductVersion = {
+      ...productFixture,
+      evidence: [
+        ...productFixture.evidence,
+        {
+          ...template,
+          id: 'aa-index:max',
+          sourceId: 'artificial-analysis',
+          benchmarkId: 'artificial-analysis-intelligence-index',
+          inclusion: 'EXCLUDED',
+          rawScore: 61.2,
+          normalizedScore: null,
+          model: {
+            ...template.model,
+            profileId: 'openai-gpt-5-6-sol-max',
+            canonicalModelId: 'openai-gpt-5-6-sol',
+          },
+        },
+        {
+          ...template,
+          id: 'aa-other:max',
+          sourceId: 'artificial-analysis',
+          benchmarkId: 'aa-briefcase',
+          inclusion: 'INCLUDED',
+          rawScore: 12,
+          normalizedScore: 12,
+          model: {
+            ...template.model,
+            profileId: 'openai-gpt-5-6-sol-max',
+            canonicalModelId: 'openai-gpt-5-6-sol',
+          },
+        },
+      ],
+    };
+
+    // The second AA row is off-basis and must not move the number, which is
+    // exactly what the old "mean of every INCLUDED AA row" did.
+    expect(
+      getSourceScore(product, 'artificial-analysis', 'openai-gpt-5-6-sol-max'),
+    ).toEqual({
+      score: 61.2,
+      basis: 'AA_INTELLIGENCE_INDEX',
+      benchmarkId: 'artificial-analysis-intelligence-index',
+      sourceEffort: 'max',
+    });
+
+    const aaSource = buildWeightedCostCurve(product)
+      .find(({ profileId }) => profileId === 'openai-gpt-5-6-sol-max')
+      ?.sourceCosts.find(({ sourceId }) => sourceId === 'artificial-analysis');
+    expect(aaSource?.sourceScore).toBe(61.2);
+    expect(aaSource?.scoreBasis).toBe('AA_INTELLIGENCE_INDEX');
+    expect(aaSource?.scoreBenchmarkId).toBe(
+      'artificial-analysis-intelligence-index',
+    );
+  });
+
+  it('marks a source with no basis score as NONE instead of leaving it ambiguous', () => {
+    const points = buildWeightedCostCurve(productFixture);
+
+    expect(points.flatMap(({ sourceCosts }) => sourceCosts)).not.toHaveLength(
+      0,
+    );
+    points
+      .flatMap(({ sourceCosts }) => sourceCosts)
+      .forEach((source) => {
+        expect(source.scoreBasis === 'NONE').toBe(source.sourceScore === null);
+        expect(source.scoreBenchmarkId === null).toBe(
+          source.scoreBasis === 'NONE',
+        );
+      });
+  });
+
+  it('never claims more contributing sources than the weight table has', () => {
+    const limit = Object.keys(COST_SOURCE_WEIGHTS).length;
+
+    buildWeightedCostCurve(productFixture).forEach((point) => {
+      expect(point.sourceCount).toBe(point.sourceCosts.length);
+      expect(point.sourceCount).toBeGreaterThan(0);
+      expect(point.sourceCount).toBeLessThanOrEqual(limit);
+    });
+  });
+
   it('separates standardized API cost from measured and agent task cost', () => {
     const series = splitCostSeries(productFixture);
 

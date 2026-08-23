@@ -145,6 +145,41 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
   const defaultPoints = buildWeightedCostCurve(productFixture);
 
   describe('DefaultCostPlot', () => {
+    it('discloses the source count and each source score basis (N11)', () => {
+      const [first] = defaultPoints;
+      const point: WeightedCostPoint = {
+        ...first!,
+        sourceCount: 2,
+        sourceCosts: [
+          {
+            ...first!.sourceCosts[0]!,
+            sourceId: 'artificial-analysis',
+            sourceScore: 61.2,
+            scoreBasis: 'AA_INTELLIGENCE_INDEX',
+            scoreBenchmarkId: 'artificial-analysis-intelligence-index',
+          },
+          {
+            ...first!.sourceCosts[0]!,
+            sourceId: 'livebench',
+            sourceScore: null,
+            scoreBasis: 'NONE',
+            scoreBenchmarkId: null,
+          },
+        ],
+      };
+      const html = renderToStaticMarkup(
+        createElement(DefaultCostPlot, { points: [point] }),
+      );
+
+      // How many of the seven sources actually placed this point.
+      expect(html).toContain('2 of 7');
+      // What each of them contributed, named rather than averaged.
+      expect(html).toContain('Intelligence Index 61.2');
+      expect(html).toContain('cost only, no pairable score');
+      // And the same sentence naming LiveBench is derived, not written out.
+      expect(html).toContain('LiveBench contributes cost only.');
+    });
+
     it('does not render hover card initially and removes native <title> elements from points', () => {
       const html = renderToStaticMarkup(
         createElement(DefaultCostPlot, {

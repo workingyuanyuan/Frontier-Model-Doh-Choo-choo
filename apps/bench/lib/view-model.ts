@@ -113,7 +113,10 @@ export interface WeightedCostPoint {
     weight: number;
     profileId: string;
     performance: number;
+    /** Source-local score on this source's declared basis; null when it has none. */
     sourceScore: number | null;
+    scoreBasis: CostSourceScoreBasisId;
+    scoreBenchmarkId: string | null;
     metricName: string;
     sourceUrl: string;
   }>;
@@ -427,42 +430,90 @@ const median = (values: number[]): number => {
     : sorted[middle]!;
 };
 
-const sourceEvidenceForProfile = (
-  product: ProductVersion,
-  sourceId: string,
-  profileId: string,
-) =>
-  product.evidence.filter(
-    (evidence) =>
-      evidence.inclusion === 'INCLUDED' &&
-      evidence.sourceId === sourceId &&
-      evidence.model.profileId === profileId &&
-      evidence.normalizedScore !== null,
-  );
+/**
+ * The one score each cost source contributes, declared per source.
+ *
+ * A source's score must have a SINGLE, stated basis: one named benchmark, or
+ * none at all. The rejected alternative was "mean of every INCLUDED normalized
+ * row of that source", whose denominator floats with how many benchmarks the
+ * source happens to publish for that profile -- Vals averaged twenty-odd
+ * leaderboards while ARC, DeepSWE and Frontier Code averaged one, so the same
+ * column meant a different thing per row.
+ *
+ * `field` says which score the basis benchmark carries. The two composite
+ * indices (AA, Vals) are EXCLUDED from the eight dimensions on purpose, so the
+ * published value lives in `rawScore` and never reaches a radar axis; the
+ * single-benchmark sources use their normalized score.
+ */
+interface CostSourceScoreBasis {
+  benchmarkId: string;
+  basis: CostSourceScoreBasisId;
+  field: 'raw' | 'normalized';
+  inclusion: 'INCLUDED' | 'EXCLUDED';
+}
 
-const SOURCE_SCORE_BENCHMARK_IDS = {
-  deepswe: 'deepswe-1-1',
-  'frontier-code': 'frontier-code-1-1',
-  'arc-prize': 'arc-agi-2',
-} as const;
+export type CostSourceScoreBasisId =
+  | 'AA_INTELLIGENCE_INDEX'
+  | 'DEEPSWE_1_1'
+  | 'FRONTIER_CODE_1_1'
+  | 'ARC_AGI'
+  | 'VALS_INDEX'
+  | 'ZAPIER_AUTOMATIONBENCH'
+  | 'NONE';
 
-const SOURCE_SCORE_BASES = {
-  deepswe: 'DEEPSWE_1_1',
-  'frontier-code': 'FRONTIER_CODE_1_1',
-  'arc-prize': 'ARC_AGI',
-} as const satisfies Record<
-  keyof typeof SOURCE_SCORE_BENCHMARK_IDS,
-  AdvancedCostSourceDetail['scoreBasis']
->;
-
-const AA_INDEX_BENCHMARK_ID = 'artificial-analysis-intelligence-index';
+export const COST_SOURCE_SCORE_BASES: Readonly<
+  Record<string, CostSourceScoreBasis | null>
+> = {
+  'artificial-analysis': {
+    benchmarkId: 'artificial-analysis-intelligence-index',
+    basis: 'AA_INTELLIGENCE_INDEX',
+    field: 'raw',
+    inclusion: 'EXCLUDED',
+  },
+  deepswe: {
+    benchmarkId: 'deepswe-1-1',
+    basis: 'DEEPSWE_1_1',
+    field: 'normalized',
+    inclusion: 'INCLUDED',
+  },
+  'frontier-code': {
+    benchmarkId: 'frontier-code-1-1',
+    basis: 'FRONTIER_CODE_1_1',
+    field: 'normalized',
+    inclusion: 'INCLUDED',
+  },
+  'arc-prize': {
+    benchmarkId: 'arc-agi-2',
+    basis: 'ARC_AGI',
+    field: 'normalized',
+    inclusion: 'INCLUDED',
+  },
+  'vals-ai': {
+    benchmarkId: 'vals-index',
+    basis: 'VALS_INDEX',
+    field: 'raw',
+    inclusion: 'EXCLUDED',
+  },
+  'zapier-automationbench': {
+    benchmarkId: 'automationbench',
+    basis: 'ZAPIER_AUTOMATIONBENCH',
+    field: 'normalized',
+    inclusion: 'INCLUDED',
+  },
+  // LiveBench has no pairable score, and this null is the disclosure rather
+  // than an omission (spec 6.3). Its cost is `cost_per_successful_task`, filed
+  // site-wide under `benchmarkId: 'livebench'`, while its score enters the
+  // product split across four benchmarks. No single one of them was measured
+  // by the run that produced the cost, so LiveBench contributes cost only.
+  livebench: null,
+};
 
 type AdvancedScoreBasis = AdvancedCostSourceDetail['scoreBasis'];
 
 interface SourceScore {
   score: number;
-  basis: AdvancedScoreBasis;
-  benchmarkId: string;
+  basis: CostSourceScoreBasisId;
+  benchmarkId: string | null;
   sourceEffort: string | null;
 }
 
@@ -470,88 +521,58 @@ const normalizeSourceEffort = (effort: string | null): string =>
   effort !== null && COST_EFFORT_RANK.has(effort) ? effort : 'default';
 
 /**
- * Return the one source-native score that may be paired with an advanced
- * source cost. AA's Index is deliberately EXCLUDED from the eight-dimension
- * scoring matrix, so its published value lives in rawScore rather than
- * normalizedScore. DeepSWE, Frontier Code, and ARC Prize each have one
- * included source benchmark and use that benchmark's normalized score directly.
+ * Return the one source-local score for a profile, per COST_SOURCE_SCORE_BASES.
+ *
+ * `null` means this profile has no score on that source's declared basis, and
+ * a source declared with no basis at all (LiveBench) returns `null` for every
+ * profile. Both are the same statement: nothing on this source may be paired
+ * with this source's cost. It is never ProductCost.performance, which is the
+ * cross-source Overall Score and would make the column circular.
  */
-const getAdvancedSourceScore = (
+export const getSourceScore = (
   product: ProductVersion,
-  sourceId: AdvancedCostSourceId,
+  sourceId: string,
   profileId: string,
 ): SourceScore | null => {
-  if (sourceId === 'artificial-analysis') {
-    const evidence = product.evidence
-      .filter(
-        (result) =>
-          result.inclusion === 'EXCLUDED' &&
-          result.sourceId === sourceId &&
-          result.model.profileId === profileId &&
-          result.benchmarkId === AA_INDEX_BENCHMARK_ID,
-      )
-      .toSorted((left, right) => left.id.localeCompare(right.id))[0];
-    return evidence
-      ? {
-          score: evidence.rawScore,
-          basis: 'AA_INTELLIGENCE_INDEX',
-          benchmarkId: AA_INDEX_BENCHMARK_ID,
-          sourceEffort: evidence.profile.effort,
-        }
-      : null;
-  }
-
-  const benchmarkId = SOURCE_SCORE_BENCHMARK_IDS[sourceId];
+  const basis = COST_SOURCE_SCORE_BASES[sourceId];
+  if (!basis) return null;
   const evidence = product.evidence
     .filter(
       (result) =>
-        result.inclusion === 'INCLUDED' &&
+        result.inclusion === basis.inclusion &&
         result.sourceId === sourceId &&
         result.model.profileId === profileId &&
-        result.benchmarkId === benchmarkId &&
-        result.normalizedScore !== null,
+        result.benchmarkId === basis.benchmarkId,
     )
     .toSorted((left, right) => left.id.localeCompare(right.id))[0];
-  return evidence?.normalizedScore === null || evidence === undefined
+  if (!evidence) return null;
+  const score =
+    basis.field === 'raw' ? evidence.rawScore : evidence.normalizedScore;
+  return score === null
     ? null
     : {
-        score: evidence.normalizedScore,
-        basis: SOURCE_SCORE_BASES[sourceId],
-        benchmarkId,
+        score,
+        basis: basis.basis,
+        benchmarkId: basis.benchmarkId,
         sourceEffort: evidence.profile.effort,
       };
 };
 
-/**
- * Return the source-local score for one profile.
- *
- * Sources used by the advanced chart have an explicit source-native score:
- * AA uses its published EXCLUDED Intelligence Index rawScore, while DeepSWE,
- * Frontier Code, and ARC Prize use their named included benchmark. Other sources (such
- * as LiveBench in the default chart) have no single source benchmark and use
- * the mean of their included normalized rows.
- */
-export const getSourcePerformance = (
+/** The advanced chart's four sources all declare a basis, so this narrows. */
+const getAdvancedSourceScore = (
   product: ProductVersion,
-  sourceId: string,
+  sourceId: AdvancedCostSourceId,
   profileId: string,
-): number | null => {
-  if ((ADVANCED_COST_SOURCE_IDS as readonly string[]).includes(sourceId)) {
-    return (
-      getAdvancedSourceScore(
-        product,
-        sourceId as AdvancedCostSourceId,
-        profileId,
-      )?.score ?? null
-    );
-  }
-  const scores = sourceEvidenceForProfile(product, sourceId, profileId).flatMap(
-    ({ normalizedScore }) =>
-      normalizedScore === null ? [] : [normalizedScore],
-  );
-  return scores.length > 0
-    ? scores.reduce((total, score) => total + score, 0) / scores.length
-    : null;
+):
+  (SourceScore & { basis: AdvancedScoreBasis; benchmarkId: string }) | null => {
+  const score = getSourceScore(product, sourceId, profileId);
+  return score === null || score.basis === 'NONE' || score.benchmarkId === null
+    ? null
+    : {
+        ...score,
+        basis: score.basis as AdvancedScoreBasis,
+        benchmarkId: score.benchmarkId,
+      };
 };
 
 const compareCostRows = (left: CostPoint, right: CostPoint): number =>
@@ -578,7 +599,7 @@ interface SourceCostCandidate {
   sourceId: string;
   profileId: string;
   rows: CostPoint[];
-  sourceScore: number | null;
+  sourceScore: SourceScore | null;
   overallScore: number;
 }
 
@@ -612,11 +633,7 @@ const chooseBestSourceCandidate = (
         sourceId: first.sourceId,
         profileId: first.profileId,
         rows: performanceRows,
-        sourceScore: getSourcePerformance(
-          product,
-          first.sourceId,
-          first.profileId,
-        ),
+        sourceScore: getSourceScore(product, first.sourceId, first.profileId),
         overallScore,
       },
     ];
@@ -625,8 +642,8 @@ const chooseBestSourceCandidate = (
   return candidates.toSorted(
     (left, right) =>
       right.overallScore - left.overallScore ||
-      (right.sourceScore ?? Number.NEGATIVE_INFINITY) -
-        (left.sourceScore ?? Number.NEGATIVE_INFINITY) ||
+      (right.sourceScore?.score ?? Number.NEGATIVE_INFINITY) -
+        (left.sourceScore?.score ?? Number.NEGATIVE_INFINITY) ||
       left.profileId.localeCompare(right.profileId),
   )[0];
 };
@@ -692,7 +709,9 @@ export const buildWeightedCostCurve = (
             weight,
             profileId: candidate.profileId,
             performance: candidate.overallScore,
-            sourceScore: candidate.sourceScore,
+            sourceScore: candidate.sourceScore?.score ?? null,
+            scoreBasis: candidate.sourceScore?.basis ?? 'NONE',
+            scoreBenchmarkId: candidate.sourceScore?.benchmarkId ?? null,
             metricName: exemplar.metricName,
             sourceUrl: exemplar.sourceUrl,
           },

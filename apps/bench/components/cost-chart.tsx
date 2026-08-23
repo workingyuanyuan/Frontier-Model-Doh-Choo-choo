@@ -5,11 +5,13 @@ import { useState } from 'react';
 import { getChartDomain } from '../lib/chart-scale';
 import {
   ADVANCED_COST_SOURCE_IDS,
+  COST_SOURCE_SCORE_BASES,
   COST_SOURCE_WEIGHTS,
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
   type AdvancedCostSeries,
+  type CostSourceScoreBasisId,
   type WeightedCostPoint,
   type PresetProductVersion,
 } from '../lib/view-model';
@@ -73,6 +75,44 @@ const advancedWeightNote = (): string => {
       ? ''
       : ` · ${excluded.join(', ')} ${excluded.length === 1 ? 'is' : 'are'} excluded`;
   return `${weightNote(weights)}${tail}`;
+};
+
+/**
+ * What each source's contributed score actually is. A cost source without a
+ * basis says so out loud: it contributed cost and nothing else.
+ */
+const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
+  AA_INTELLIGENCE_INDEX: 'Intelligence Index',
+  DEEPSWE_1_1: 'DeepSWE 1.1',
+  FRONTIER_CODE_1_1: 'Frontier Code 1.1',
+  ARC_AGI: 'ARC-AGI-2',
+  VALS_INDEX: 'Vals Index',
+  ZAPIER_AUTOMATIONBENCH: 'AutomationBench',
+  NONE: 'cost only, no pairable score',
+};
+
+const scoreBasisNote = (
+  basis: CostSourceScoreBasisId,
+  score: number | null,
+): string =>
+  basis === 'NONE' || score === null
+    ? SCORE_BASIS_NAMES.NONE
+    : `${SCORE_BASIS_NAMES[basis]} ${score.toFixed(1)}`;
+
+/** Sources carrying a weight, i.e. the largest source count a point can have. */
+const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
+
+/**
+ * Named from the basis table, not written out, so the sentence cannot go stale
+ * the way the hand-written weight note did when Zapier was adopted.
+ */
+const costOnlySourcesNote = (): string => {
+  const costOnly = Object.keys(COST_SOURCE_WEIGHTS)
+    .filter((sourceId) => COST_SOURCE_SCORE_BASES[sourceId] == null)
+    .map((sourceId) => SOURCE_NAMES[sourceId] ?? sourceId);
+  return costOnly.length === 0
+    ? 'Every source here contributes both.'
+    : `${costOnly.join(', ')} ${costOnly.length === 1 ? 'contributes' : 'contribute'} cost only.`;
 };
 
 const providerColor = (providerId: string): string =>
@@ -329,6 +369,15 @@ export function DefaultCostPlot({
                         {activePoint.normalizedCost.toFixed(1)}
                       </span>
                     </div>
+                    <div className="cost-hover-card-row">
+                      <span className="cost-hover-card-label">Sources:</span>
+                      <span
+                        className="cost-hover-card-value"
+                        data-testid="cost-hover-source-count"
+                      >
+                        {activePoint.sourceCount} of {WEIGHTED_SOURCE_COUNT}
+                      </span>
+                    </div>
                   </div>
                   {activePoint.sourceCosts.length > 0 ? (
                     <div className="cost-hover-card-sources">
@@ -346,6 +395,12 @@ export function DefaultCostPlot({
                               :
                             </span>
                             <span>${source.cost.toFixed(3)}</span>
+                            <span className="cost-hover-card-source-basis">
+                              {scoreBasisNote(
+                                source.scoreBasis,
+                                source.sourceScore,
+                              )}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -411,6 +466,12 @@ export function DefaultCostPlot({
 
       <details className="chart-data cost-chart-data">
         <summary>Quality vs. Cost chart data and source contributions</summary>
+        <p className="chart-data-note">
+          Each source contributes cost plus at most one score, on a single named
+          basis. A source that has no score pairable with its own cost metric
+          contributes cost only, and says so rather than averaging whatever
+          benchmarks it happens to publish. {costOnlySourcesNote()}
+        </p>
         <table className="compact-data-table">
           <thead>
             <tr>
@@ -419,6 +480,7 @@ export function DefaultCostPlot({
               <th scope="col">Weighted cost</th>
               <th scope="col">Overall</th>
               <th scope="col">Sources</th>
+              <th scope="col">Source cost and score basis</th>
             </tr>
           </thead>
           <tbody>
@@ -428,6 +490,9 @@ export function DefaultCostPlot({
                 <td>{point.providerId}</td>
                 <td>{point.normalizedCost.toFixed(1)}</td>
                 <td>{point.performance.toFixed(1)}</td>
+                <td data-testid="cost-row-source-count">
+                  {point.sourceCount} of {WEIGHTED_SOURCE_COUNT}
+                </td>
                 <td>
                   {point.sourceCosts.map((source, index) => (
                     <span key={source.sourceId}>
@@ -435,7 +500,8 @@ export function DefaultCostPlot({
                       <a href={source.sourceUrl}>
                         {sourceName(source.sourceId)}
                       </a>{' '}
-                      ({source.profileId}, ${source.cost.toFixed(3)})
+                      ({source.profileId}, ${source.cost.toFixed(3)},{' '}
+                      {scoreBasisNote(source.scoreBasis, source.sourceScore)})
                     </span>
                   ))}
                 </td>

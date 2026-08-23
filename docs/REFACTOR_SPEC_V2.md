@@ -529,6 +529,40 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
 
 不在權重表內的來源（例如 `model-catalog`）權重視為 0，靜默排除，這是預期行為。
 
+**R13 — 每個來源的分數基準必須單一且具名（2026-08-23，N11 落實）**
+
+原本非進階來源的「該來源分數」取的是「該 profile 在該來源所有 INCLUDED 列的 normalized 平均」。
+這個定義的**分母會浮動**：Vals 平均二十幾個榜單，ARC／DeepSWE／Frontier Code 各只平均一個，
+同一個欄位在不同列代表不同的東西。改為**七個來源各自宣告一個基準**，宣告表在
+`apps/bench/lib/view-model.ts` 的 `COST_SOURCE_SCORE_BASES`：
+
+| 來源                | 基準 benchmark                           | 取值              | 理由                                         |
+| ------------------- | ---------------------------------------- | ----------------- | -------------------------------------------- |
+| Artificial Analysis | `artificial-analysis-intelligence-index` | `rawScore`        | 與 `cost-per-intelligence-index-task` 同源   |
+| Vals AI             | `vals-index`                             | `rawScore`        | 與 `cost-per-test` 同源，結構與 AA 相同      |
+| DeepSWE             | `deepswe-1-1`                            | `normalizedScore` | 該來源唯一 benchmark                         |
+| Frontier Code       | `frontier-code-1-1`                      | `normalizedScore` | 該來源唯一 benchmark                         |
+| ARC Prize           | `arc-agi-2`                              | `normalizedScore` | 該來源唯一 benchmark                         |
+| Zapier              | `automationbench`                        | `normalizedScore` | 該來源唯一 benchmark                         |
+| LiveBench           | **無**                                   | `null`            | 見上方「LiveBench 的成本為何不能與分數配對」 |
+
+- 兩個 composite index（AA、Vals）都是 `EXCLUDED`，值只在 `rawScore`，因此**不會**進入八維
+  或雷達圖；這正是 `REFACTOR_DISCARD_LIST.md`「composite index 只供選模與展示」的用法。
+- **LiveBench 的 `null` 是揭露，不是遺漏。**它的成本是整站一個 `cost_per_successful_task`，
+  而分數在產品內拆成四個 benchmark，沒有任何一個是產生該成本的那次量測。UI 必須寫出
+  「cost only, no pairable score」，不得以四項平均頂替。
+- 新增來源時**必須**在該表登錄一列（可以是 `null`）；漏登錄會由單元測試擋下，不會靜默回到
+  平均值。
+- 這個分數不是 `ProductCost.performance`。後者是跨來源的 Overall Score，拿它當「該來源的
+  分數」會讓欄位自我循環。
+
+**R14 — 預設圖每個點必須揭露它由幾個來源構成（2026-08-23，N11 落實）**
+
+`sourceWeight` 會對模型實際具備的來源重新正規化，缺來源不受懲罰；代價是「七個來源都有」與
+「只有一個來源」的兩個點外觀完全相同。因此每個點在懸停卡與資料表都要寫出 `N of 7`，並逐來源
+列出成本與分數基準。實測預設 preset（`all-sources-9`）的 9 個點為 7/7 五個、6/7 三個、
+5/7 一個。
+
 **進階圖**（按鈕開啟）
 
 **2026-08-21 改定：進階圖從「三個來源的原始散點拼貼」改為「與預設圖同構的聚合圖」。**

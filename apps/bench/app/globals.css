@@ -1557,6 +1557,7 @@ details[open] > .evidence-group-summary::before {
 }
 
 .cost-hover-card-source-item {
+  flex-wrap: wrap;
   align-items: baseline;
   color: var(--ink-soft);
   display: flex;
@@ -1566,9 +1567,26 @@ details[open] > .evidence-group-summary::before {
   justify-content: space-between;
 }
 
-.cost-hover-card-source-item span:last-child {
+.cost-hover-card-source-item span:nth-child(2) {
   color: var(--ink);
   font-weight: 600;
+}
+
+/* The basis sits on its own row: it is a sentence, not a number, and the card
+   is 18rem wide. Without the full-row break it wraps into the cost column and
+   the two stop lining up. */
+.cost-hover-card-source-basis {
+  color: var(--ink-faint);
+  flex-basis: 100%;
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+
+.chart-data-note {
+  color: var(--ink-faint);
+  margin: 0.35rem 0 0.5rem;
+  max-width: 60rem;
+  font-size: 0.6875rem;
 }
 
 .cost-frontier-caption {

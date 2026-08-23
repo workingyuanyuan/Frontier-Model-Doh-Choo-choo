@@ -2525,3 +2525,41 @@ Gemini 3.7 Flash 在榜上；按下切換鈕變成 `Any sources`、`?preset=free
 **產物大小**：`current.json` 4.824 MB（12 個 preset）。
 
 **驗證**：全鏈綠。e2e 新增斷言「滑桿上的數字等於表格列數」，兩種模式都驗。
+
+### N11 — 成本圖的分數基準與來源數揭露
+
+狀態：完成
+
+**依據**：D-N10-6（成本圖切為獨立任務）、規格 §6.3、設計提案 §4。**前置**：N10b／N10c／N12
+完成（preset 與 Zapier 採用都已落地，成本圖的來源已是七個）。
+
+**問題**：`getSourcePerformance` 對非進階來源取「該 profile 在該來源所有 INCLUDED 列的
+normalized 平均」。分母會浮動——Vals 平均二十幾個榜單，ARC／DeepSWE／Frontier Code 各只平均
+一個——同一個欄位在不同列不是同一種東西。另外預設圖的 `sourceWeight` 會缺來源不罰，因此
+「七個來源都有」與「只有一個來源」的兩個點外觀相同。
+
+**做了什麼**
+
+1. **`COST_SOURCE_SCORE_BASES`**：七個來源各宣告一個基準（benchmark、取 raw 還是 normalized、
+   期待的 inclusion），細節與理由見規格 §6.3 的 **R13**。原本只有進階圖四個來源有明示基準，
+   現在擴及全部七個，浮動平均整段刪除。
+2. **LiveBench 宣告為 `null`**：它的成本是整站一個 `cost_per_successful_task`，分數在產品內
+   拆成四個 benchmark，沒有一個是產生該成本的那次量測。UI 寫出 `cost only, no pairable
+score`。這是規格早就說明的事實，先前被平均值蓋掉了。
+3. **Vals 補上 `vals-index`**：它與 AA 的 Intelligence Index 結構相同（`EXCLUDED` 的
+   composite、值在 `rawScore`、成本 `cost-per-test` 同源），先前卻走的是平均值那條路。
+4. **每個點揭露來源數**：懸停卡與資料表都寫 `N of 7`，資料表另加一欄逐來源列出成本與分數
+   基準（**R14**）。
+5. **「哪些來源只出成本」由基準表推導**，不手寫，理由同 N10c 第 5 點。
+
+**實測影響**：預設 preset（`all-sources-9`）的 9 個點，來源數為 7/7 五個、6/7 三個、5/7 一個。
+分數基準全部具名：Intelligence Index、Vals Index、AutomationBench、DeepSWE 1.1、
+Frontier Code 1.1、ARC-AGI-2，LiveBench 為 cost only。X 軸定義未動——分數基準只影響同分時
+選哪個 profile 與揭露內容，不影響成本正規化。
+
+**測試**：新增 6 項。單元測試擋下「新增來源卻沒在基準表登錄」與「有基準卻回傳 null／
+無基準卻回傳數值」；元件測試驗證 `N of 7` 與具名基準都渲染得出來；e2e 逐列檢查來源數格式與
+每列的來源貢獻字串，並要求出現 LiveBench 的列必須寫出 cost only。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（276 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（22 passed）全綠。

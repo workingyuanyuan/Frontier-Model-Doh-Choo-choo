@@ -188,6 +188,43 @@ test('shows the cost point hover card immediately on hover and on focus', async 
   await expect(page.locator('.cost-hover-card')).toHaveCount(0);
 });
 
+test('every cost point discloses its source count and each source score basis', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  // Hover card: how many of the weighted sources placed this point.
+  const point = page.locator('.cost-point').first();
+  await point.hover();
+  const count = page.getByTestId('cost-hover-source-count');
+  await expect(count).toBeVisible({ timeout: 300 });
+  await expect(count).toHaveText(/^[1-7] of 7$/);
+
+  // Table: the same count per row, plus a named basis for every source.
+  await page.locator('.cost-chart-data > summary').click();
+
+  const counts = page.getByTestId('cost-row-source-count');
+  const total = await counts.count();
+  expect(total).toBeGreaterThan(0);
+  for (let index = 0; index < total; index += 1) {
+    await expect(counts.nth(index)).toHaveText(/^[1-7] of 7$/);
+  }
+
+  // No source may contribute an unnamed, floating average. LiveBench is in
+  // the weight table but has no pairable score, and must say so.
+  const rows = page.locator('.cost-chart-data tbody tr');
+  const contributions = await rows.evaluateAll((elements) =>
+    elements.map((element) => element.lastElementChild?.textContent ?? ''),
+  );
+  expect(contributions.length).toBeGreaterThan(0);
+  contributions.forEach((text) => {
+    expect(text).not.toBe('');
+    if (text.includes('LiveBench')) {
+      expect(text).toContain('cost only, no pairable score');
+    }
+  });
+});
+
 test('switching effort updates the selected model scores', async ({ page }) => {
   await page.goto('/');
   const select = page.getByRole('combobox', {
