@@ -192,25 +192,6 @@ describe('ProductVersionSchema', () => {
       sourceSnapshotIds: ['terminal-bench:2026-07-16'],
       frontier: [],
       profiles: [],
-      leaderboard: [
-        {
-          modelId: 'openai-gpt-5-6-sol',
-          profileId: 'openai-gpt-5-6-sol-max',
-          rank: 1,
-          overallScore: 85.8,
-          dimensions: [
-            { dimension: 'reasoning', score: null, componentCount: 0 },
-            { dimension: 'math', score: null, componentCount: 0 },
-            { dimension: 'knowledge', score: null, componentCount: 0 },
-            { dimension: 'language', score: null, componentCount: 0 },
-            { dimension: 'instruction', score: null, componentCount: 0 },
-            { dimension: 'coding', score: 85.8, componentCount: 1 },
-            { dimension: 'agentic', score: null, componentCount: 0 },
-            { dimension: 'context', score: null, componentCount: 0 },
-          ],
-          evidenceResultIds: [candidate.id],
-        },
-      ],
       defaultPresetId: 'sample-preset',
       presets: [
         {
@@ -218,7 +199,25 @@ describe('ProductVersionSchema', () => {
           targetModelCount: 1,
           requireAllSources: false,
           benchmarkIds: ['terminal-bench-2-1'],
-          leaderboard: [],
+          leaderboard: [
+            {
+              modelId: 'openai-gpt-5-6-sol',
+              profileId: 'openai-gpt-5-6-sol-max',
+              rank: 1,
+              overallScore: 85.8,
+              dimensions: [
+                { dimension: 'reasoning', score: null, componentCount: 0 },
+                { dimension: 'math', score: null, componentCount: 0 },
+                { dimension: 'knowledge', score: null, componentCount: 0 },
+                { dimension: 'language', score: null, componentCount: 0 },
+                { dimension: 'instruction', score: null, componentCount: 0 },
+                { dimension: 'coding', score: 85.8, componentCount: 1 },
+                { dimension: 'agentic', score: null, componentCount: 0 },
+                { dimension: 'context', score: null, componentCount: 0 },
+              ],
+              evidenceResultIds: [candidate.id],
+            },
+          ],
         },
       ],
       costs: [],
@@ -226,7 +225,9 @@ describe('ProductVersionSchema', () => {
     });
 
     expect(
-      product.leaderboard[0]?.dimensions.map(({ dimension }) => dimension),
+      product.presets[0]?.leaderboard[0]?.dimensions.map(
+        ({ dimension }) => dimension,
+      ),
     ).toEqual([
       'reasoning',
       'math',
@@ -241,9 +242,12 @@ describe('ProductVersionSchema', () => {
     expect(() =>
       ProductVersionSchema.parse({
         ...product,
-        leaderboard: product.leaderboard.map((row) => ({
-          ...row,
-          status: 'ESTIMATED',
+        presets: product.presets.map((preset) => ({
+          ...preset,
+          leaderboard: preset.leaderboard.map((row) => ({
+            ...row,
+            status: 'ESTIMATED',
+          })),
         })),
       }),
     ).toThrow();
@@ -293,14 +297,13 @@ describe('ProductVersionSchema', () => {
     ).toThrow();
   });
 
-  it('keeps the version hash deterministic for identical v3 input', () => {
+  it('keeps the version hash deterministic for identical v4 input', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const input = {
       generatedAt: '2026-07-16T00:00:00.000Z',
       sourceSnapshotIds: ['terminal-bench:2026-07-16'],
       frontier: [],
       profiles: [],
-      leaderboard: [],
       defaultPresetId: 'sample-preset',
       presets: [
         {

@@ -1,6 +1,5 @@
 'use client';
 
-import type { ProductVersion } from '@llm-bench/benchmark-data';
 import { useMemo, useState } from 'react';
 
 import {
@@ -16,14 +15,15 @@ import {
 import {
   getProfileDisplayName,
   getRepresentativeRows,
+  type PresetProductVersion,
 } from '../lib/view-model';
 
 export function RadarChart({
   product,
   comparisonProduct,
 }: {
-  product: ProductVersion;
-  comparisonProduct?: ProductVersion;
+  product: PresetProductVersion;
+  comparisonProduct?: PresetProductVersion;
 }) {
   const center = 140;
   const radius = 92;

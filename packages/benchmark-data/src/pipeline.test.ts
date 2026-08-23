@@ -488,7 +488,7 @@ describe('buildProduct', () => {
     product.frontier.forEach((entry) => {
       expect(entry).not.toHaveProperty('profileId');
     });
-    expect(product.leaderboard[0]?.overallScore).toBeNull();
+    expect(product.presets[0]!.leaderboard[0]?.overallScore).toBeNull();
     expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
     expect(product.costs).toEqual(
       expect.arrayContaining([
@@ -809,8 +809,8 @@ describe('deriveModelProfiles', () => {
       'independent-epoch',
       'organizer-bare',
     ]);
-    expect(product.leaderboard).toHaveLength(1);
-    expect(product.leaderboard[0]).toMatchObject({
+    expect(product.presets[0]!.leaderboard).toHaveLength(1);
+    expect(product.presets[0]!.leaderboard[0]).toMatchObject({
       overallScore: null,
       dimensions: expect.arrayContaining([
         expect.objectContaining({

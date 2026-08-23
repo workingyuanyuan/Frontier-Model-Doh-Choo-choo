@@ -2432,3 +2432,46 @@ GLM-5.2。
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（18 passed）全綠。新增測試：
 `requiredModelIds` 的預設空值、釘住後每個候選都含該模型、非合格模型 ID 拋錯，以及 workspace
 端斷言 policy 裡的每個模型在**每一個** preset 中都完整。
+
+### N10c — preset 切換 UI（滑桿 ＋ 來源指示）
+
+狀態：完成
+
+**依據**：D-N10-5（query 參數，不新增頁面）、使用者 2026-08-23 的 UI 裁決。
+
+**使用者裁決**：只有單邊有 preset 時，切換鈕標成**不可用**。13／12／11／9 顯示為無約束，
+其餘顯示為有約束。現況所有位置的切換鈕都不可用，因此它現在的價值是**告知使用者當前來源
+是否有約束**，而不是一個可操作的開關。
+
+**做了什麼**
+
+1. **生成器收斂重複 preset**：兩條曲線在同一模型數上產出相同 benchmark 組成時只留一個，
+   取 `requireAllSources: true` 的那個（較強且為真）。留兩個等於給 UI 一個按了不會變的開關。
+   preset 由 15 個降為 **10 個**，每個模型數恰好一個。
+2. **移除 ProductVersion 的頂層 `leaderboard`**（N10b 承諾的收尾）。preset 可以在執行期切換，
+   頂層欄位會變成過期的第二真相來源。改為 `withActivePreset(product, presetId)` 產生
+   `PresetProductVersion`，在 Dashboard 解析一次，往下所有元件讀同一份分數。
+3. **`PresetControls`**：模型數滑桿 ＋ 來源狀態鈕，放在 `Search models or profiles` 左側。
+   滑桿的刻度是**資料實際可達的模型數**（3、4、6、7、8、9、10、11、12、13），不是連續整數。
+4. **Query 參數**：`?preset=<id>`，掛載時讀取、切換時以 `replaceState` 寫入，預設 preset 不
+   寫參數。重新整理後保持選取。
+5. **順手修掉一個我在 N12 造成的錯誤**：成本圖上「Source weights: … 16.7%」是手寫的，
+   Zapier 採用後仍宣稱六個來源各 16.7%（實際為七個各 14.3%）。改為從
+   `COST_SOURCE_WEIGHTS` 推導；進階圖的「哪些來源被排除」同樣改為由差集推導，不再手寫。
+
+**瀏覽器實測**（`pnpm --filter @llm-bench/bench dev`）：預設載入顯示 10 models／All sources／
+按鈕 disabled；拉到最大變成 13 models／Any sources，網址變為 `?preset=free-sources-13`，
+重新整理後保持；主控制列無水平溢位，主控台無錯誤。
+
+**已知落差，待裁決**：`targetModelCount` 數的是**完整基礎模型**（跨 profile 取聯集），而主畫面
+一列需要**單一 profile** 具備該 preset 的全部 benchmark 且八維齊全。預設 preset 之下
+10 個完整模型只有 8 個出得了列——`anthropic-claude-fable-5` 與 `deepseek-deepseek-v4-flash`
+各自沒有任何一個 profile 同時具備 25 個 benchmark，只有把不同 profile 聯集起來才齊。
+free-sources-13 則是 13 對 11。滑桿標示的數字因此系統性高於實際列數。
+
+修法是把取捨曲線的完整性判定由「模型的 profile 聯集」改為「存在單一 profile 具備整個子集」，
+DP 需改成以 profile 為單位、再映射回模型計數。這會再次改動所有 preset 的數字，**需使用者裁決**。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（270 項）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e`（20 passed，含新增的 preset 切換與
+deep-link 測試）全綠。

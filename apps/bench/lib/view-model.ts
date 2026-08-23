@@ -4,15 +4,28 @@ import type {
   ProductVersion,
 } from '@llm-bench/benchmark-data';
 
-export type LeaderboardRow = ProductVersion['leaderboard'][number];
 export type ProductPreset = ProductVersion['presets'][number];
+export type LeaderboardRow = ProductPreset['leaderboard'][number];
+
+/**
+ * A product paired with the leaderboard of one preset.
+ *
+ * Ruling R1 makes the preset the scoring basis, so there is no product-wide
+ * leaderboard to read any more. Resolving it once here, rather than threading a
+ * preset id through every component, keeps a single place where "which scores
+ * am I looking at" is decided.
+ */
+export type PresetProductVersion = ProductVersion & {
+  activePreset: ProductPreset;
+  leaderboard: LeaderboardRow[];
+};
 
 /**
  * The preset a view is rendered under.
  *
  * Ruling R1 made the selected benchmark set the scoring basis, so a leaderboard
  * only means something next to the preset that produced it. N10c turns the id
- * into a query parameter; until then every caller gets the default.
+ * into a query parameter, so the id arrives from the URL when there is one.
  */
 export const resolveActivePreset = (
   product: ProductVersion,
@@ -29,6 +42,15 @@ export const resolveActivePreset = (
   }
   return preset;
 };
+
+export const withActivePreset = (
+  product: ProductVersion,
+  presetId?: string | undefined,
+): PresetProductVersion => {
+  const activePreset = resolveActivePreset(product, presetId);
+  return { ...product, activePreset, leaderboard: activePreset.leaderboard };
+};
+
 type CostPoint = ProductVersion['costs'][number];
 
 /**
@@ -172,7 +194,7 @@ export const getProfileDisplayName = (profile: ModelProfile): string =>
   `${profile.baseModelName} · ${getProfileIdentity(profile)}`;
 
 export const getRepresentativeRows = (
-  product: ProductVersion,
+  product: PresetProductVersion,
 ): LeaderboardRow[] => {
   const rows = new Map<string, LeaderboardRow>();
   product.leaderboard.forEach((row) => {
@@ -261,7 +283,7 @@ export interface DeveloperModelRow {
  * No overall or dimension values are returned to the caller.
  */
 export const getDeveloperModelRows = (
-  product: ProductVersion,
+  product: PresetProductVersion,
   displaySet: { benchmarkIds: readonly string[] } | null,
 ): DeveloperModelRow[] => {
   const eligibleModelIds = new Set(
@@ -325,7 +347,7 @@ export const getDeveloperModelRows = (
 };
 
 export const filterLeaderboard = (
-  product: ProductVersion,
+  product: PresetProductVersion,
   query: string,
 ): LeaderboardRow[] => {
   const representatives = getRepresentativeRows(product);
@@ -538,7 +560,7 @@ const compareCostRows = (left: CostPoint, right: CostPoint): number =>
   left.profileId.localeCompare(right.profileId);
 
 const representativeProfileForModel = (
-  product: ProductVersion,
+  product: PresetProductVersion,
   modelId: string,
 ): LeaderboardRow | undefined =>
   getRepresentativeRows(product).find((row) => row.modelId === modelId);
@@ -610,7 +632,7 @@ const chooseBestSourceCandidate = (
 };
 
 export const buildWeightedCostCurve = (
-  product: ProductVersion,
+  product: PresetProductVersion,
   weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
 ): WeightedCostPoint[] => {
   const taskCosts = product.costs.filter(
@@ -917,7 +939,7 @@ export interface DataScopeSummary {
 }
 
 export const getDataScopeSummary = (
-  product: ProductVersion,
+  product: PresetProductVersion,
 ): DataScopeSummary => {
   const frontierModelIds = new Set(
     product.frontier.map(({ modelId }) => modelId),

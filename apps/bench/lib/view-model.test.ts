@@ -1,4 +1,4 @@
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import type { DimensionId } from '@llm-bench/benchmark-data';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -19,6 +19,7 @@ import {
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
+  type PresetProductVersion,
 } from './view-model';
 import {
   buildRadarPoints,
@@ -283,7 +284,7 @@ describe('leaderboard view model', () => {
       benchmarkIds: ['bm-1', 'bm-2', 'bm-3', 'bm-4'],
     };
 
-    const multiProfileExcludedProduct: ProductVersion = {
+    const multiProfileExcludedProduct: PresetProductVersion = {
       ...productFixture,
       frontier: [],
       profiles: [
@@ -435,7 +436,7 @@ describe('leaderboard view model', () => {
   });
 
   it('excludes frontier models that have no profile at all from developer mode', () => {
-    const fixtureWithPhantomFrontier: ProductVersion = {
+    const fixtureWithPhantomFrontier: PresetProductVersion = {
       ...productFixture,
       frontier: [
         ...productFixture.frontier,
@@ -957,7 +958,7 @@ describe('cost chart view model', () => {
         ),
     );
 
-    const product: ProductVersion = {
+    const product: PresetProductVersion = {
       ...productFixture,
       profiles,
       costs: [
@@ -1095,7 +1096,7 @@ describe('cost chart view model', () => {
     const frontierCodeScore = 90;
     const arcScore = 95;
 
-    const product: ProductVersion = {
+    const product: PresetProductVersion = {
       ...productFixture,
       profiles: [profile],
       costs: [
@@ -1236,14 +1237,14 @@ describe('cost chart view model', () => {
       sourceEvidence('arc-prize', 'model-b-high', 'model-b', 80),
     ];
 
-    const fullProduct: ProductVersion = {
+    const fullProduct: PresetProductVersion = {
       ...productFixture,
       profiles,
       costs: [...backgroundCosts, ...modelACosts, ...modelBCosts],
       evidence: [...modelAEvidence, ...modelBEvidence],
     };
 
-    const withoutModelBProduct: ProductVersion = {
+    const withoutModelBProduct: PresetProductVersion = {
       ...productFixture,
       profiles: [profiles[0]!],
       costs: [...backgroundCosts, ...modelACosts],

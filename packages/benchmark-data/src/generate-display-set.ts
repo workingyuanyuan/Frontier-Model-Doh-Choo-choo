@@ -125,10 +125,22 @@ export const buildDisplaySetFromCurves = (
     else if (inAll) allSourcesOnlyModelCounts.push(modelCount);
     else if (inFree) unconstrainedOnlyModelCounts.push(modelCount);
 
-    for (const [requireAllSources, byCount] of [
-      [true, allByCount],
-      [false, freeByCount],
-    ] as const) {
+    // When both curves land on the same benchmarks, emit one preset, the
+    // all-sources one: `requireAllSources: true` is the stronger statement and
+    // it is true. Two identical presets would show the UI a switch that cannot
+    // change anything.
+    const identical =
+      inAll &&
+      inFree &&
+      allByCount.get(modelCount)!.benchmarkIds.join() ===
+        freeByCount.get(modelCount)!.benchmarkIds.join();
+
+    for (const [requireAllSources, byCount] of (identical
+      ? [[true, allByCount]]
+      : [
+          [true, allByCount],
+          [false, freeByCount],
+        ]) as readonly (readonly [boolean, Map<number, ScaleChoice>])[]) {
       const chosen = byCount.get(modelCount);
       if (!chosen) continue;
       presets.push({

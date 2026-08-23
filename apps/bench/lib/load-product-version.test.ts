@@ -95,7 +95,14 @@ describe('loadProductVersion', () => {
 
     const loaded = loadProductVersion();
 
-    expect(loaded.product).toEqual(productFixture);
+    // productFixture carries the resolved-preset conveniences the app adds;
+    // the loader returns the file as written.
+    const {
+      activePreset: _activePreset,
+      leaderboard: _leaderboard,
+      ...onDisk
+    } = productFixture;
+    expect(loaded.product).toEqual(onDisk);
     expect(loaded.benchmarkDimensions).toMatchObject({
       'terminal-bench-2-1': 'coding',
       'bench-context': 'context',

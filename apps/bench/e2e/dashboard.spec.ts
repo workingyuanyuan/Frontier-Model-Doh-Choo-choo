@@ -249,7 +249,7 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
   await expect(
-    page.getByText('LiveBench and Vals AI are excluded', { exact: false }),
+    page.getByText('LiveBench, Vals AI, Zapier are excluded', { exact: false }),
   ).toBeVisible();
   await toggle.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
@@ -459,4 +459,39 @@ test('keeps leaderboard sort, search, and effort controls keyboard reachable', a
     const options = await effortSelector.locator('option').count();
     expect(options).toBeGreaterThan(0);
   }
+});
+
+test('switches the scored preset from the model-count slider and keeps it in the URL', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const slider = page.locator('#preset-model-count');
+  const count = page.getByTestId('preset-model-count');
+  const sourcesSwitch = page.locator('.preset-sources-switch');
+
+  // The default preset keeps every source represented, and no other preset
+  // reaches the same model count, so the switch reports state rather than
+  // offering a choice.
+  await expect(count).toHaveText('10');
+  await expect(sourcesSwitch).toHaveAttribute('aria-checked', 'true');
+  await expect(sourcesSwitch).toBeDisabled();
+  const defaultRows = await page
+    .locator('.leaderboard-table tbody tr[data-ranked-row]')
+    .count();
+
+  const max = Number(await slider.getAttribute('max'));
+  await slider.fill(String(max));
+  await expect(count).not.toHaveText('10');
+  await expect(page).toHaveURL(/preset=/u);
+
+  const switchedRows = await page
+    .locator('.leaderboard-table tbody tr[data-ranked-row]')
+    .count();
+  expect(switchedRows).not.toBe(defaultRows);
+
+  // The preset survives a reload, which is the point of putting it in the URL.
+  const url = page.url();
+  await page.goto(url);
+  await expect(count).not.toHaveText('10');
 });

@@ -13,23 +13,57 @@ import {
   getDeveloperModelRows,
   getRepresentativeRows,
   isMainEligibleRow,
-  resolveActivePreset,
+  withActivePreset,
+  type PresetProductVersion,
 } from '../lib/view-model';
+
+const PRESET_QUERY_KEY = 'preset';
 
 export function Dashboard({
   benchmarkDimensions,
-  product,
+  product: rawProduct,
   initialExpandedModelIds,
+  initialPresetId,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
   product: ProductVersion;
   initialExpandedModelIds?: string[] | undefined;
+  initialPresetId?: string | undefined;
 }) {
   const [developerMode, setDeveloperMode] = useState(false);
-  // The preset is the scoring basis (R1). Only the default is reachable until
-  // N10c adds the switcher, but every gate already reads it rather than the
-  // whole display set.
-  const activePreset = useMemo(() => resolveActivePreset(product), [product]);
+  const [presetId, setPresetId] = useState(
+    initialPresetId ?? rawProduct.defaultPresetId,
+  );
+
+  // Ruling D-N10-5: the preset lives in a query parameter, not a route. Read
+  // once on mount so a shared link opens on the right scores, and write with
+  // replaceState so switching presets does not fill the back button.
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get(
+      PRESET_QUERY_KEY,
+    );
+    if (requested && rawProduct.presets.some(({ id }) => id === requested)) {
+      setPresetId(requested);
+    }
+  }, [rawProduct.presets]);
+
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (presetId === rawProduct.defaultPresetId) {
+      url.searchParams.delete(PRESET_QUERY_KEY);
+    } else {
+      url.searchParams.set(PRESET_QUERY_KEY, presetId);
+    }
+    window.history.replaceState(null, '', url);
+  }, [presetId, rawProduct.defaultPresetId]);
+
+  // The preset is the scoring basis (R1): resolved once here, so every gate,
+  // chart and table below reads the same set of scores.
+  const product = useMemo(
+    () => withActivePreset(rawProduct, presetId),
+    [presetId, rawProduct],
+  );
+  const activePreset = product.activePreset;
   const developerRows = useMemo(
     () => getDeveloperModelRows(product, activePreset),
     [activePreset, product],
@@ -61,7 +95,7 @@ export function Dashboard({
       ),
     [mainProfileIds, product.profiles],
   );
-  const visibleProduct = useMemo<ProductVersion>(
+  const visibleProduct = useMemo<PresetProductVersion>(
     () => ({
       ...product,
       frontier: product.frontier.filter(({ modelId }) =>
@@ -155,6 +189,7 @@ export function Dashboard({
           setCheckedModelIds={setCheckedModelIds}
           benchmarkDimensions={benchmarkDimensions}
           preset={activePreset}
+          onSelectPreset={setPresetId}
           initialExpandedModelIds={initialExpandedModelIds}
         />
 

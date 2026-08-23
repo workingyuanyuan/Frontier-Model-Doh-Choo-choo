@@ -17,7 +17,6 @@ const makeVersion = (generatedAt: string) =>
     sourceSnapshotIds: [],
     frontier: [],
     profiles: [],
-    leaderboard: [],
     defaultPresetId: 'sample-preset',
     presets: [
       {

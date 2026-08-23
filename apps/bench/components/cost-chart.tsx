@@ -1,6 +1,5 @@
 'use client';
 
-import type { ProductVersion } from '@llm-bench/benchmark-data';
 import { useState } from 'react';
 
 import { getChartDomain } from '../lib/chart-scale';
@@ -12,6 +11,7 @@ import {
   getCostParetoFrontier,
   type AdvancedCostSeries,
   type WeightedCostPoint,
+  type PresetProductVersion,
 } from '../lib/view-model';
 
 const PROVIDER_COLORS: Record<string, string> = {
@@ -37,6 +37,42 @@ const SOURCE_NAMES: Record<string, string> = {
   'frontier-code': 'Frontier Code',
   'arc-prize': 'ARC Prize',
   'vals-ai': 'Vals AI',
+  'zapier-automationbench': 'Zapier',
+};
+
+/**
+ * Derived from COST_SOURCE_WEIGHTS rather than written out. The hand-written
+ * version silently kept claiming six sources at 16.7% after Zapier was adopted
+ * and the table became seven at 14.3%.
+ */
+const weightNote = (weights: Readonly<Record<string, number>>): string =>
+  `Source weights: ${Object.entries(weights)
+    .map(
+      ([sourceId, weight]) =>
+        `${SOURCE_NAMES[sourceId] ?? sourceId} ${(weight * 100).toFixed(1)}%`,
+    )
+    .join(' · ')}`;
+
+/**
+ * The advanced chart uses four of the seven sources. Naming the excluded ones
+ * from the difference keeps the sentence true when the source set changes; the
+ * hand-written version said "LiveBench and Vals AI are excluded" and would have
+ * kept saying it after Zapier joined.
+ */
+const advancedWeightNote = (): string => {
+  const included = new Set<string>(ADVANCED_COST_SOURCE_IDS);
+  const excluded = Object.keys(COST_SOURCE_WEIGHTS)
+    .filter((sourceId) => !included.has(sourceId))
+    .map((sourceId) => SOURCE_NAMES[sourceId] ?? sourceId);
+  const share = 1 / ADVANCED_COST_SOURCE_IDS.length;
+  const weights = Object.fromEntries(
+    ADVANCED_COST_SOURCE_IDS.map((sourceId) => [sourceId, share]),
+  );
+  const tail =
+    excluded.length === 0
+      ? ''
+      : ` · ${excluded.join(', ')} ${excluded.length === 1 ? 'is' : 'are'} excluded`;
+  return `${weightNote(weights)}${tail}`;
 };
 
 const providerColor = (providerId: string): string =>
@@ -785,9 +821,9 @@ export function CostChart({
   advancedProduct,
 }: {
   /** Main-screen projection: complete display-set profiles only. */
-  defaultProduct: ProductVersion;
+  defaultProduct: PresetProductVersion;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
-  advancedProduct: ProductVersion;
+  advancedProduct: PresetProductVersion;
 }) {
   const [advanced, setAdvanced] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(
@@ -820,15 +856,10 @@ export function CostChart({
         <div className="cost-chart-actions">
           {!advanced ? (
             <p className="cost-weight-note">
-              Source weights: Artificial Analysis 16.7% · LiveBench 16.7% ·
-              DeepSWE 16.7% · Frontier Code 16.7% · ARC Prize 16.7% · Vals AI
-              16.7%
+              {weightNote(COST_SOURCE_WEIGHTS)}
             </p>
           ) : (
-            <p className="cost-weight-note">
-              Source weights: Artificial Analysis 25% · DeepSWE 25% · Frontier
-              Code 25% · ARC Prize 25% · LiveBench and Vals AI are excluded
-            </p>
+            <p className="cost-weight-note">{advancedWeightNote()}</p>
           )}
           <button
             type="button"

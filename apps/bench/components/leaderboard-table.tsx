@@ -1,4 +1,4 @@
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import type { DimensionId } from '@llm-bench/benchmark-data';
 import { Fragment } from 'react';
 
 import {
@@ -7,6 +7,7 @@ import {
   getProfilesForModel,
   type LeaderboardRow,
   type ProductPreset,
+  type PresetProductVersion,
 } from '../lib/view-model';
 import {
   UI_DIMENSION_ABBREVIATIONS,
@@ -34,7 +35,7 @@ export function LeaderboardTable({
   expandedModelIds,
   onToggleExpand,
 }: {
-  product: ProductVersion;
+  product: PresetProductVersion;
   rows: LeaderboardRow[];
   sort: { key: LeaderboardSortKey; direction: SortDirection };
   onSort: (key: LeaderboardSortKey) => void;

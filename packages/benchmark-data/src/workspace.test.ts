@@ -14,8 +14,12 @@ describe('buildWorkspaceProduct', () => {
       '2026-07-16T14:00:00.000Z',
     );
 
+    const defaultLeaderboard =
+      product.presets.find(({ id }) => id === product.defaultPresetId)
+        ?.leaderboard ?? [];
+
     expect(product.frontier.length).toBeGreaterThanOrEqual(5);
-    expect(product.leaderboard.length).toBeGreaterThan(0);
+    expect(defaultLeaderboard.length).toBeGreaterThan(0);
     expect(product.schemaVersion).toBe('product-version-v4');
 
     // Every preset is scored on its own benchmarks (R1), and each one's
@@ -27,7 +31,6 @@ describe('buildWorkspaceProduct', () => {
       ({ id }) => id === product.defaultPresetId,
     );
     expect(defaultPreset).toBeDefined();
-    expect(defaultPreset?.leaderboard).toEqual(product.leaderboard);
 
     const benchmarksByModel = new Map<string, Set<string>>();
     for (const row of product.evidence) {
@@ -89,9 +92,9 @@ describe('buildWorkspaceProduct', () => {
       }
     }
     expect(
-      product.leaderboard.every((row) => !Object.hasOwn(row, 'status')),
+      defaultLeaderboard.every((row) => !Object.hasOwn(row, 'status')),
     ).toBe(true);
-    expect(product.leaderboard[0]?.dimensions).toHaveLength(8);
+    expect(defaultLeaderboard[0]?.dimensions).toHaveLength(8);
     expect(
       product.evidence.some(({ inclusion }) => inclusion === 'INCLUDED'),
     ).toBe(true);
@@ -211,8 +214,8 @@ describe('buildWorkspaceProduct', () => {
       );
       expect(productWithDummy.evidence.length).toBe(baseline.evidence.length);
       expect(productWithDummy.costs.length).toBe(baseline.costs.length);
-      expect(productWithDummy.leaderboard.length).toBe(
-        baseline.leaderboard.length,
+      expect(productWithDummy.presets[0]!.leaderboard.length).toBe(
+        baseline.presets[0]!.leaderboard.length,
       );
     } finally {
       await rm(dummyDir, { recursive: true, force: true });

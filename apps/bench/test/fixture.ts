@@ -5,6 +5,8 @@ import {
   type ProductEvidence,
 } from '@llm-bench/benchmark-data';
 
+import { withActivePreset } from '../lib/view-model';
+
 const dimensions = (
   values: Array<number | null>,
 ): Array<{
@@ -174,7 +176,7 @@ const fixtureLeaderboard = [
   },
 ];
 
-export const productFixture = buildProductVersion({
+const builtFixture = buildProductVersion({
   generatedAt: '2026-07-16T12:00:00.000Z',
   sourceSnapshotIds: ['terminal-bench:2026-07-16'],
   frontier: [
@@ -228,7 +230,6 @@ export const productFixture = buildProductVersion({
       'high',
     ),
   ],
-  leaderboard: fixtureLeaderboard,
   defaultPresetId: 'fixture-preset',
   presets: [
     {
@@ -363,3 +364,10 @@ export const productFixture = buildProductVersion({
     ),
   ],
 });
+
+/**
+ * Tests read `productFixture.leaderboard`, which after ruling R1 only exists
+ * relative to a preset. Resolving the default here keeps every existing
+ * assertion meaningful and pins what "the leaderboard" means in a test.
+ */
+export const productFixture = withActivePreset(builtFixture);

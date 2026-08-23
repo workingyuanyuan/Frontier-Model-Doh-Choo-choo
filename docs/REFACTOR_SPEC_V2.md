@@ -384,6 +384,17 @@ committed 的 `data-v2/mappings/display-set-policy.json`（`display-set-policy-v
 無約束曲線最有價值的區段，故改為**各曲線輸出自己可達的模型數**，並在生成結果中標明哪些模型數
 兩邊都有、哪些只有一邊。滑桿在只有單邊有 preset 的位置要怎麼表現，屬 N10c 的 UI 裁決。
 
+**R11（2026-08-23 裁決，UI 呈現）**：同一個模型數只有單邊曲線有 preset 時，來源切換鈕
+標成**不可用**，並如實顯示當前 preset 是否要求所有來源。兩條曲線在同一模型數產出相同
+benchmark 組成時，生成器只留 `requireAllSources: true` 的那一個——留兩個等於給 UI 一個
+按了不會變的開關。現況十個模型數各只有一個 preset，切換鈕全部不可用，其角色是**狀態指示**。
+preset 以 `?preset=<id>` 帶在 query 參數上（D-N10-5），預設 preset 不寫入參數。
+
+**已知落差（待裁決）**：`targetModelCount` 數的是完整**基礎模型**（跨 profile 聯集），主畫面
+一列則要求**單一 profile** 具備整個子集且八維齊全，因此滑桿標示的數字系統性高於實際列數
+（預設 preset 為 10 對 8）。要對齊必須把完整性判定改為 profile 層級，DP 需以 profile 為單位
+重寫，會再次改動所有 preset 的數字。
+
 **指令介面（N10a／R8 之後）**：
 
 ```bash

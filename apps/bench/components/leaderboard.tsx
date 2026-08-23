@@ -1,4 +1,4 @@
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useMemo, useState } from 'react';
 
 import { UI_DIMENSION_IDS } from '../lib/ui-contract';
@@ -11,20 +11,23 @@ import {
   getRepresentativeRows,
   type LeaderboardRow,
   type ProductPreset,
+  type PresetProductVersion,
 } from '../lib/view-model';
 import { ModelPicker } from './leaderboard-controls';
 import { LeaderboardTable } from './leaderboard-table';
+import { PresetControls } from './preset-controls';
 
 type HeatMap = Record<string, Record<number, number>>;
 
 export type LeaderboardProps = {
-  product: ProductVersion;
+  product: PresetProductVersion;
   rows: LeaderboardRow[];
   representatives: LeaderboardRow[];
   checkedModelIds: string[];
   setCheckedModelIds: React.Dispatch<React.SetStateAction<string[]>>;
   benchmarkDimensions: Record<string, DimensionId>;
   preset: ProductPreset | null;
+  onSelectPreset: (presetId: string) => void;
   initialExpandedModelIds?: string[] | undefined;
 };
 
@@ -36,6 +39,7 @@ export function Leaderboard({
   setCheckedModelIds,
   benchmarkDimensions,
   preset,
+  onSelectPreset,
   initialExpandedModelIds,
 }: LeaderboardProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
@@ -136,12 +140,19 @@ export function Leaderboard({
           <h2 id="leaderboard-title">Leaderboard</h2>
           <p>One row per base model.</p>
         </div>
-        <ModelPicker
-          product={product}
-          representatives={representatives}
-          checkedModelIds={checkedModelIds}
-          setCheckedModelIds={setCheckedModelIds}
-        />
+        <div className="leaderboard-toolbar">
+          <PresetControls
+            presets={product.presets}
+            activePreset={product.activePreset}
+            onSelectPreset={onSelectPreset}
+          />
+          <ModelPicker
+            product={product}
+            representatives={representatives}
+            checkedModelIds={checkedModelIds}
+            setCheckedModelIds={setCheckedModelIds}
+          />
+        </div>
       </div>
 
       <LeaderboardTable

@@ -9,12 +9,30 @@ import {
   buildWeightedCostCurve,
   getRepresentativeRows,
 } from '../lib/view-model';
+import { COST_SOURCE_WEIGHTS } from '../lib/view-model';
 import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
   'terminal-bench-2-1': 'coding',
   frontiermath: 'math',
 } as const;
+
+/**
+ * The dashboard resolves its scores from `presets`, so a test that rewrites
+ * rows has to rewrite them where the component reads them, not only on the
+ * convenience `leaderboard` alias.
+ */
+const withLeaderboard = (
+  product: typeof productFixture,
+  leaderboard: typeof productFixture.leaderboard,
+): typeof productFixture => ({
+  ...product,
+  leaderboard,
+  activePreset: { ...product.activePreset, leaderboard },
+  presets: product.presets.map((preset) =>
+    preset.id === product.activePreset.id ? { ...preset, leaderboard } : preset,
+  ),
+});
 
 const dashboard = (product = productFixture) =>
   createElement(Dashboard, {
@@ -73,12 +91,13 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Weighted normalized task cost index');
     expect(html).toContain('Overall Score');
     expect(html).toContain('higher is better');
-    expect(html).toContain('Artificial Analysis 16.7%');
-    expect(html).toContain('LiveBench 16.7%');
-    expect(html).toContain('DeepSWE 16.7%');
-    expect(html).toContain('Frontier Code 16.7%');
-    expect(html).toContain('ARC Prize 16.7%');
-    expect(html).toContain('Vals AI 16.7%');
+    // Derived from COST_SOURCE_WEIGHTS, so adopting a source updates the note
+    // instead of leaving it claiming a share nobody has.
+    Object.entries(COST_SOURCE_WEIGHTS).forEach(([sourceId, weight]) => {
+      expect(html).toContain(`${(weight * 100).toFixed(1)}%`);
+      expect(html).toContain(sourceId);
+    });
+    expect(html).toContain('Zapier 14.3%');
     expect(html).toContain('API standardized token prices are excluded');
     expect(html.match(/cost-curve-chart/g)).toHaveLength(1);
     expect(html).toContain('Show advanced effort curves');
@@ -352,17 +371,14 @@ describe('Dashboard Redesign', () => {
   });
 
   it('keeps an explicit N/A textual equivalent for incomplete radar data', () => {
-    const incompleteProduct = {
-      ...productFixture,
-      leaderboard: [
-        {
-          ...productFixture.leaderboard[0]!,
-          dimensions: productFixture.leaderboard[0]!.dimensions.map((d) =>
-            d.dimension === 'context' ? { ...d, score: null } : d,
-          ),
-        },
-      ],
-    };
+    const incompleteProduct = withLeaderboard(productFixture, [
+      {
+        ...productFixture.leaderboard[0]!,
+        dimensions: productFixture.leaderboard[0]!.dimensions.map((d) =>
+          d.dimension === 'context' ? { ...d, score: null } : d,
+        ),
+      },
+    ]);
     const html = renderToStaticMarkup(
       createElement(RadarChart, {
         product: incompleteProduct,
@@ -417,9 +433,9 @@ describe('Dashboard Redesign', () => {
   });
 
   it('filters an incomplete alternative profile and keeps N/A out of main markup', () => {
-    const adversarialProduct = {
-      ...productFixture,
-      leaderboard: productFixture.leaderboard.map((row) =>
+    const adversarialProduct = withLeaderboard(
+      productFixture,
+      productFixture.leaderboard.map((row) =>
         row.profileId === 'openai-gpt-5-6-sol-high'
           ? {
               ...row,
@@ -431,7 +447,7 @@ describe('Dashboard Redesign', () => {
             }
           : row,
       ),
-    };
+    );
     const html = renderToStaticMarkup(dashboard(adversarialProduct));
 
     expect(html).not.toContain('GPT-5.6 Sol · high');

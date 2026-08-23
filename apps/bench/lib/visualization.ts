@@ -1,7 +1,7 @@
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
 type DimensionScore =
-  ProductVersion['leaderboard'][number]['dimensions'][number];
+  ProductVersion['presets'][number]['leaderboard'][number]['dimensions'][number];
 
 export type ChartPoint = {
   x: number;

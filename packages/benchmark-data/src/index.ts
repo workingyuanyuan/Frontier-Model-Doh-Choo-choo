@@ -870,12 +870,6 @@ export const ProductVersionSchema = z.object({
         .strict(),
     )
     .min(1),
-  /**
-   * The default preset's leaderboard, repeated at the top level so the app can
-   * keep reading one array while the preset switcher is built (N10c). N10c
-   * removes it; until then `buildProduct` asserts the two stay identical.
-   */
-  leaderboard: z.array(LeaderboardEntrySchema),
   costs: z.array(ProductCostSchema),
   evidence: z.array(ProductEvidenceSchema),
 });
@@ -1128,7 +1122,7 @@ export const buildFrontierSet = ({
 
 type LeaderboardEntry = z.infer<
   typeof ProductVersionSchema
->['leaderboard'][number];
+>['presets'][number]['leaderboard'][number];
 
 export interface ScoreProfilesOptions {
   /**
@@ -1421,7 +1415,6 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
       `display set defaultPresetId ${input.displaySet.defaultPresetId} is not one of its presets`,
     );
   }
-  const leaderboard = defaultPreset.leaderboard;
   const evidence = scoringEvidence.map(toProductEvidence);
   // Every preset ranks the same universe of profiles, so the catalog check
   // below has to see all of them, not just the default preset's.
@@ -1443,8 +1436,10 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     );
   }
 
+  // Cost points carry the performance of the DEFAULT preset. A cost chart row
+  // has one score, and the default preset is the one the app opens on.
   const leaderboardByProfile = new Map(
-    leaderboard.map((entry) => [entry.profileId, entry]),
+    defaultPreset.leaderboard.map((entry) => [entry.profileId, entry]),
   );
   // The model catalog carries manual pricing, but a cost with no evidence
   // cannot be audited back to a source, and DATA_METHODOLOGY forbids exactly
@@ -1502,7 +1497,6 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     profiles,
     defaultPresetId: defaultPreset.id,
     presets,
-    leaderboard,
     costs,
     evidence,
   });
