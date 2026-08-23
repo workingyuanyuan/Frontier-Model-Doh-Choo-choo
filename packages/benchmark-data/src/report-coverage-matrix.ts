@@ -17,8 +17,16 @@ export interface ReportCoverageMatrixCliOptions {
   outputPath?: string;
   candidatesPerScale?: number;
   /**
-   * Benchmarks every combination in the baseline curve must contain, from repeated
-   * `--require <id>` flags or one comma-separated `--require=a,b`.
+   * Smallest scale rendered. Defaults to the number of sources holding an
+   * active benchmark. That is a reporting floor chosen to keep the review
+   * range legible, not a feasibility bound.
+   */
+  minBenchmarkCount?: number;
+  /**
+   * Benchmarks every combination in BOTH curves must contain, from repeated
+   * `--require <id>` flags or one comma-separated `--require=a,b`. Empty by
+   * default: ruling R7 forbids pinning a benchmark globally, so this exists
+   * only for ad-hoc "what if we insisted on X" questions.
    */
   requiredBenchmarkIds?: string[];
 }
@@ -66,6 +74,23 @@ export const parseReportArgs = (
         throw new Error(`Invalid value for ${arg}: ${next}`);
       }
       options.candidatesPerScale = parsed;
+    } else if (arg === '--min-n') {
+      const next = args[++i];
+      if (!next) {
+        throw new Error(`Missing value for ${arg}`);
+      }
+      const parsedMin = Number(next);
+      if (!Number.isInteger(parsedMin) || parsedMin < 1) {
+        throw new Error(`Invalid value for ${arg}: ${next}`);
+      }
+      options.minBenchmarkCount = parsedMin;
+    } else if (arg.startsWith('--min-n=')) {
+      const val = arg.slice('--min-n='.length);
+      const parsedMin = Number(val);
+      if (!Number.isInteger(parsedMin) || parsedMin < 1) {
+        throw new Error(`Invalid value for --min-n: ${val}`);
+      }
+      options.minBenchmarkCount = parsedMin;
     } else if (arg.startsWith('--candidates=')) {
       const val = arg.slice('--candidates='.length);
       const parsed = Number(val);
@@ -124,7 +149,7 @@ export const generateCoverageMatrixReport = async (
   options: ReportCoverageMatrixCliOptions = {},
 ): Promise<{
   analysis: CoverageMatrixAnalysis;
-  baseline?: CoverageMatrixAnalysis | undefined;
+  baseline: CoverageMatrixAnalysis;
   markdown: string;
   outputPath: string;
 }> => {
@@ -138,29 +163,34 @@ export const generateCoverageMatrixReport = async (
   );
 
   const workspaceData = await loadWorkspaceCoverageData(repoRoot);
-  const analysis = analyzeCoverageMatrix({
+  const shared = {
     ...workspaceData,
     referenceDate,
+    requiredBenchmarkIds: options.requiredBenchmarkIds ?? [],
     ...(options.candidatesPerScale !== undefined
       ? { candidatesPerScale: options.candidatesPerScale }
       : {}),
-    requiredBenchmarkIds: [],
+  };
+
+  // Two curves, always: one free to drop whole sources, one that must keep
+  // every source represented. The gap between them is the report's whole
+  // point, so neither is optional.
+  const analysis = analyzeCoverageMatrix({
+    ...shared,
+    requireAllSources: false,
+  });
+  const baseline = analyzeCoverageMatrix({
+    ...shared,
+    requireAllSources: true,
   });
 
-  let baseline: CoverageMatrixAnalysis | undefined;
-  if (options.requiredBenchmarkIds && options.requiredBenchmarkIds.length > 0) {
-    baseline = analyzeCoverageMatrix({
-      ...workspaceData,
-      referenceDate,
-      ...(options.candidatesPerScale !== undefined
-        ? { candidatesPerScale: options.candidatesPerScale }
-        : {}),
-      requiredBenchmarkIds: options.requiredBenchmarkIds,
-    });
-  }
-
   const markdown = await formatWithPrettier(
-    formatCoverageMatrixMarkdown(analysis, baseline ? { baseline } : undefined),
+    formatCoverageMatrixMarkdown(analysis, {
+      baseline,
+      ...(options.minBenchmarkCount !== undefined
+        ? { minBenchmarkCount: options.minBenchmarkCount }
+        : {}),
+    }),
     {
       parser: 'markdown',
       endOfLine: 'lf',
@@ -186,13 +216,14 @@ export const runReportCoverageMatrixCli = async (
     `- Qualified Models: ${analysis.qualifiedModels.length}`,
     `- Active Benchmarks: ${analysis.activeBenchmarkIds.length}`,
     `- Candidates Per Scale: ${analysis.candidatesPerScale}`,
+    `- Sources With An Active Benchmark: ${analysis.coverableSourceIds.length}`,
     `- Unconstrained Tradeoff Scale Rows: ${analysis.tradeoffs.length}`,
+    `- All-Sources Tradeoff Scale Rows: ${baseline.tradeoffs.length} (smallest feasible $N$ = ${baseline.tradeoffs[0]?.benchmarkCount ?? 'n/a'})`,
   ];
 
-  if (baseline) {
+  if (analysis.requiredBenchmarkIds.length > 0) {
     lines.push(
-      `- Baseline Required Benchmarks: ${baseline.requiredBenchmarkIds.join(', ')}`,
-      `- Baseline Tradeoff Scale Rows: ${baseline.tradeoffs.length}`,
+      `- Pinned Benchmarks: ${analysis.requiredBenchmarkIds.join(', ')}`,
     );
   }
 

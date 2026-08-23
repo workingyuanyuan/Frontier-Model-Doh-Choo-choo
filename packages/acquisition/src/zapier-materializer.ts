@@ -16,8 +16,20 @@ export const ZAPIER_SOURCE_ID = 'zapier-automationbench';
 export const ZAPIER_PAGE_URL = 'https://zapier.com/benchmarks';
 export const ZAPIER_BENCHMARK_ID = 'automationbench';
 export const ZAPIER_ROUTE_FEATURE = 'task_completed_correctly';
+/**
+ * Adopted for product scoring and cost aggregation on 2026-08-23. Before that
+ * ruling every parsed row carried this reason and was EXCLUDED wholesale; the
+ * constant stays exported so the ruling that lifted it is greppable and so a
+ * future re-freeze does not have to reinvent the wording.
+ */
 export const ZAPIER_ADOPTION_PENDING_REASON =
   'Zapier is retained as reviewed source data but is not approved for product scoring or cost aggregation until the post-N source-adoption review.';
+
+export const ZAPIER_ADOPTED_NOTE =
+  'Adopted for product scoring and cost aggregation by user ruling on 2026-08-23. Rows are excluded only for a row-specific reason.';
+
+export const ZAPIER_UNRESOLVED_EFFORT_REASON_PREFIX =
+  'Unrecognised configuration segment';
 
 export const ZAPIER_PROMO_NOTE =
   '*Gemini 3.7 Flash launch promo: $0.30 / task through Dec 31, 2026 ($0.75 in / $3.75 out per MTok). Ranking and Cost / task reflect standard list pricing; the promo is noted but does not affect rank.';
@@ -297,14 +309,16 @@ export function materializeZapier(
     const profileId = profileIdFor(canonicalModelId, effort.effort);
     if (canonicalModelId === null) unresolvedModels.add(row.model);
 
-    const inclusion = 'EXCLUDED' as const;
-    let exclusionReason: string | null = ZAPIER_ADOPTION_PENDING_REASON;
+    // Zapier was adopted on 2026-08-23. A row is now excluded only when that
+    // row itself is unusable, never because of the source it came from.
+    let exclusionReason: string | null = null;
     if (canonicalModelId !== null && !effort.recognized) {
       exclusionReason = appendExclusionReason(
         exclusionReason,
-        `Unrecognised configuration segment ${JSON.stringify(trailingSegment(row.model))} has not been reviewed as an effort tier.`,
+        `${ZAPIER_UNRESOLVED_EFFORT_REASON_PREFIX} ${JSON.stringify(trailingSegment(row.model))} has not been reviewed as an effort tier.`,
       );
     }
+    const inclusion = exclusionReason === null ? 'INCLUDED' : 'EXCLUDED';
 
     const model = { rawName: row.model, canonicalModelId, profileId };
     const profile = {
@@ -502,9 +516,10 @@ export function materializeZapier(
     '',
     '## Adoption status',
     '',
-    `- User ruling 2026-08-22: ${ZAPIER_ADOPTION_PENDING_REASON}`,
-    '- All parsed scores and comparable costs remain in the source artifacts as EXCLUDED records. They do not affect capability dimensions, Overall Score, leaderboard eligibility, ranking, or cost charts.',
-    '- Revisit whether to adopt the Zapier source only after the N phase is complete.',
+    `- User ruling 2026-08-23: ${ZAPIER_ADOPTED_NOTE}`,
+    `- Superseded ruling 2026-08-22: ${ZAPIER_ADOPTION_PENDING_REASON}`,
+    '- Parsed scores and comparable costs now feed capability dimensions, Overall Score, leaderboard eligibility, ranking, and cost charts.',
+    `- Rows still excluded carry a row-specific reason (unreviewed effort segment, or a Minimal label that cannot represent Low). Excluded candidate rows: ${excluded.length}.`,
     '',
     '## Cost policy',
     '',

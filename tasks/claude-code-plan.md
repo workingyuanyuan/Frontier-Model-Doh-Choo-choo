@@ -2178,20 +2178,37 @@ qualify for the main screen」。R1 推翻的正是這句話。該檔是審核�
    曲線，不留空章節。
 7. 報告本文揭露 DP 剪枝的精度限制（每個（鍵, N）的前 k 佳，不是每個 N 的全域前 k 佳）。
 
+**2026-08-23 修訂（R8，使用者裁決「報告 3,600 行審不過來，直接簡化」）**
+
+原本的「每個 N 五個候選 ＋ `--require` 基準曲線」產出 3,635 行，不可審。改為：
+
+1. 每個 N 只給**一個最優解**（`candidatesPerScale` 預設由 5 改為 1；多候選降為 `--candidates`
+   的選用能力）。
+2. `--require` 基準曲線改為**來源層級約束曲線**：新增 `requireAllSources`，凡持有 active
+   benchmark 的來源都必須在子集中至少出現一個 benchmark。不指名任何 benchmark，不違反 R7。
+   實作上該曲線的 DP 鍵額外併入來源涵蓋 bitmask，否則涵蓋不足的狀態會被同支援度狀態剪掉。
+3. 報告從 `--min-n` 起算，預設為「持有 active benchmark 的來源數」（現為 8）。這是**呈現
+   下限，不是可行性下限**——`gpqa-diamond` 之類跨三來源的 benchmark 一格覆蓋多個來源，
+   實測來源齊全曲線在 N = 6 就有解，報告本文有揭露。
+4. `--require` 保留，語意改為同時約束兩條曲線，預設為空。
+
+結果：報告 790 行／175 KB，兩條曲線各 39 列，加一張逐 N 對照表。
+
 **指令**
 
 ```bash
-# 無約束曲線
+# 標準審核用法
 pnpm report:coverage-matrix
 
-# 無約束 ＋ 來源齊全基準 ＋ 逐 N 對照（審核用）
-pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
+# 想看多候選時才加
+pnpm report:coverage-matrix -- --candidates=5
 
-# 調整候選數
-pnpm report:coverage-matrix -- --candidates=3 --require=deepswe-1-1,frontier-code-1-1
+# 調整起算 N
+pnpm report:coverage-matrix -- --min-n=12
 ```
 
-**量測（reference date 2026-08-22，45 個 active benchmark、53 個合格模型）**
+**量測（reference date 2026-08-22，45 個 active benchmark、53 個合格模型；k=5 時代的數字，
+R8 之後 k 預設為 1）**
 
 | 項目                                   | 數值                               |
 | -------------------------------------- | ---------------------------------- |
@@ -2226,4 +2243,40 @@ frontier-code 各 1；`zapier-automationbench` 目前 84 列全部 EXCLUDED，�
 完整對照表在 `docs/COVERAGE_MATRIX_REPORT.md` §2。R7 的「大幅」與否由使用者判讀，報告不定義門檻。
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（261 項全綠）、
+`pnpm --filter @llm-bench/bench build`、`pnpm e2e` 全綠。
+
+### N12 — 採用 Zapier AutomationBench 於產品計分
+
+狀態：完成
+
+**依據**：使用者 2026-08-23 裁決「Zapier 押前」，取代 2026-08-22 N2 複審的暫緩。
+暫緩的理由是「列入完整性門檻會使主畫面由 12 降至 9」；R1／R8 之後顯示集合由取捨曲線報告
+挑出，被採用不等於被列入門檻，該理由不再成立。
+
+**做了什麼**
+
+`packages/acquisition/src/zapier-materializer.ts` 原本把每一列都設成 `EXCLUDED`，理由是
+「來源尚未採用」。改為只有**逐列的理由**才排除：未審核的括號標記，以及同模型同時有
+`Minimal` 與 `Low` 時的 `Minimal` 列。`ZAPIER_ADOPTION_PENDING_REASON` 保留為匯出常數，
+讓解除凍結的裁決可被 grep 到，也讓日後若要重新凍結不必重新發明措辭。
+
+**實測影響**
+
+| 項目                         | 數值                                                                |
+| ---------------------------- | ------------------------------------------------------------------- |
+| 重抓後的上游內容漂移         | **0 列**（84 列逐欄比對，只有 `inclusion`／`exclusionReason` 改變） |
+| CandidateResult              | 83 INCLUDED／1 EXCLUDED（Minimal 與 Low 衝突）                      |
+| CostRecord                   | 81 INCLUDED／1 EXCLUDED                                             |
+| active benchmark 數          | 45 → 46（新增 `automationbench`，`primaryDimension` 為 `agentic`）  |
+| agentic 分量數改變的 profile | 66 個（皆 +1）                                                      |
+| Overall Score 改變的 profile | 16 個，全部下降，最大 −1.01（`moonshot-kimi-k2-7-code-default`）    |
+| 獲得／失去完整性的 profile   | 0 個                                                                |
+| profile 總數                 | 144 → 145（Zapier 帶進三個明示檔位，取代兩個 `-default`）           |
+| 主畫面                       | 不變（`display-set.json` 未含 `automationbench`）                   |
+
+**尚未裁決**：成本圖權重仍是「六個來源各 1/6」，Zapier 不在 `COST_SOURCE_WEIGHTS` 表內，
+因此 CostRecord 雖已 `INCLUDED` 卻對成本圖沒有貢獻。是否改為七個來源各 1/7 需使用者裁決，
+代理不得自行加入權重表。進階成本圖的四來源（D5 裁決）不受影響。
+
+**驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e` 全綠。

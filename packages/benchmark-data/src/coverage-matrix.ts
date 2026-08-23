@@ -79,6 +79,8 @@ export interface CoverageMatrixAnalysis {
   activeBenchmarkIds: string[];
   requiredBenchmarkIds: string[];
   candidatesPerScale: number;
+  requireAllSources: boolean;
+  coverableSourceIds: string[];
   qualifiedModels: QualifiedModel[];
   matrix: ModelBenchmarkPresence[];
   tradeoffs: TradeoffResult[];
@@ -96,6 +98,21 @@ export interface CoverageAnalysisInput {
   sourceCandidates: readonly CandidateResult[];
   referenceDate: string;
   candidatesPerScale?: number;
+  /**
+   * Keep only subsets in which every source that has at least one active
+   * benchmark contributes at least one benchmark.
+   *
+   * This is a source-level constraint, not a benchmark pin: it never names a
+   * benchmark, so it does not reintroduce the global pinning that R7 removed.
+   * Because four sources currently expose exactly one active benchmark each,
+   * the smallest subset that satisfies it has as many benchmarks as there are
+   * such sources.
+   *
+   * The span mask joins the dynamic-programming key while this is set, so no
+   * partially covering state can be pruned in favour of an equal-support state
+   * that happens to cover fewer sources.
+   */
+  requireAllSources?: boolean;
   /**
    * Benchmarks every candidate combination must contain.
    *
@@ -367,7 +384,8 @@ export const analyzeCoverageMatrix = (
   const qualificationWindowMonths =
     input.frontierConfig.qualificationWindowMonths ?? 12;
 
-  const candidatesPerScale = input.candidatesPerScale ?? 5;
+  const requireAllSources = input.requireAllSources ?? false;
+  const candidatesPerScale = input.candidatesPerScale ?? 1;
   if (!Number.isInteger(candidatesPerScale) || candidatesPerScale < 1) {
     throw new Error(
       `candidatesPerScale must be an integer >= 1; received ${candidatesPerScale}`,
@@ -530,6 +548,7 @@ export const analyzeCoverageMatrix = (
   // 10. Exact tradeoff search with DP keeping top-k candidates per (count, key)
   const M = activeBenchmarkIds.length;
   const tradeoffs: TradeoffResult[] = [];
+  let coverableSourceMask = 0;
 
   const requiredBenchmarkIds = [
     ...new Set(input.requiredBenchmarkIds ?? []),
@@ -589,6 +608,11 @@ export const analyzeCoverageMatrix = (
       return spanMask;
     });
 
+    coverableSourceMask = benchmarkSourceSpanMasks.reduce(
+      (mask, spanMask) => mask | spanMask,
+      0,
+    );
+
     const benchmarkExclusiveSourceIndex = activeBenchmarkIds.map((bId) => {
       const sources = benchmarkSources[bId] ?? [];
       if (sources.length === 1) {
@@ -645,7 +669,9 @@ export const analyzeCoverageMatrix = (
       const retain = (count: number, state: SubsetState): void => {
         const bucket =
           nextByCount.get(count) ?? new Map<string, SubsetState[]>();
-        const key = `${state.supportMask.toString(16)}:${state.dimensionMask}`;
+        const key = requireAllSources
+          ? `${state.supportMask.toString(16)}:${state.dimensionMask}:${state.sourceSpanMask}`
+          : `${state.supportMask.toString(16)}:${state.dimensionMask}`;
         const existingList = bucket.get(key);
         if (!existingList) {
           bucket.set(key, [state]);
@@ -728,7 +754,11 @@ export const analyzeCoverageMatrix = (
 
       const allStatesForN: SubsetState[] = [];
       for (const stateList of bucket.values()) {
-        allStatesForN.push(...stateList);
+        for (const state of stateList) {
+          if (requireAllSources && state.sourceSpanMask !== coverableSourceMask)
+            continue;
+          allStatesForN.push(state);
+        }
       }
 
       allStatesForN.sort(compareTradeoffCandidates);
@@ -767,6 +797,10 @@ export const analyzeCoverageMatrix = (
     activeBenchmarkIds,
     requiredBenchmarkIds,
     candidatesPerScale,
+    requireAllSources,
+    coverableSourceIds: whitelist.filter(
+      (_, index) => (coverableSourceMask & (1 << index)) !== 0,
+    ),
     qualifiedModels,
     matrix,
     tradeoffs,
@@ -777,7 +811,19 @@ export const analyzeCoverageMatrix = (
 };
 
 export interface FormatCoverageMatrixOptions {
+  /**
+   * The all-sources curve rendered beside the unconstrained one. Its analysis
+   * must have been produced with `requireAllSources: true`.
+   */
   baseline?: CoverageMatrixAnalysis;
+  /**
+   * Smallest scale rendered. The very small scales both curves reach are not
+   * display-set candidates, and printing them buries the range that is. The
+   * default is the coverable source count, which is a reporting floor, not a
+   * feasibility bound: a benchmark carried by several sources covers all of
+   * them at once, so the all-sources constraint is satisfiable below it.
+   */
+  minBenchmarkCount?: number;
 }
 
 /**
@@ -859,6 +905,14 @@ export const formatCoverageMatrixMarkdown = (
   };
 
   const baseline = options?.baseline;
+  const minBenchmarkCount =
+    options?.minBenchmarkCount ?? analysis.coverableSourceIds.length;
+  const atOrAboveMin = (
+    tradeoffs: readonly TradeoffResult[],
+  ): TradeoffResult[] =>
+    tradeoffs.filter(
+      ({ benchmarkCount }) => benchmarkCount >= minBenchmarkCount,
+    );
 
   lines.push('# Coverage Matrix Report');
   lines.push('');
@@ -877,12 +931,21 @@ export const formatCoverageMatrixMarkdown = (
     `- **Candidates per Scale ($k$)**: ${analysis.candidatesPerScale}`,
   );
   lines.push(
-    `- **Required Benchmarks (Baseline)**: ${
-      baseline && baseline.requiredBenchmarkIds.length > 0
-        ? baseline.requiredBenchmarkIds.map((id) => `\`${id}\``).join(', ')
-        : 'none (unconstrained only)'
+    `- **Sources with at least one active benchmark (${analysis.coverableSourceIds.length})**: ${analysis.coverableSourceIds.map((id) => `\`${id}\``).join(', ')}`,
+  );
+  const smallestFeasibleAllSources = baseline?.tradeoffs[0]?.benchmarkCount;
+  lines.push(
+    `- **Smallest scale reported**: $N$ = ${minBenchmarkCount}${
+      smallestFeasibleAllSources !== undefined
+        ? ` (a reporting floor; the all-sources curve is already feasible at $N$ = ${smallestFeasibleAllSources}, because a benchmark carried by several sources covers all of them at once)`
+        : ''
     }`,
   );
+  if (analysis.requiredBenchmarkIds.length > 0) {
+    lines.push(
+      `- **Additional pinned benchmarks (\`--require\`)**: ${analysis.requiredBenchmarkIds.map((id) => `\`${id}\``).join(', ')}`,
+    );
+  }
   lines.push('');
   lines.push(
     '> [!NOTE]',
@@ -891,17 +954,10 @@ export const formatCoverageMatrixMarkdown = (
     '> It does not modify `display-set.json`.',
     "> Coverage is unioned across a canonical base model's product profiles, as required by the §5.3 model bitmask. D2 main-screen eligibility is stricter: one profile must pass the selected matrix and have all eight rendered dimensions. Complete-model counts here are therefore review upper bounds, not predicted main-screen row counts.",
   );
-  if (baseline && baseline.requiredBenchmarkIds.length > 0) {
-    lines.push(
-      '>',
-      `> Requirements are not pinned by default (ruling R7). The primary tradeoff curve is unconstrained, and the baseline curve below reflects the \`--require\` constraints for side-by-side cost comparison.`,
-    );
-  } else {
-    lines.push(
-      '>',
-      `> Requirements are not pinned by default (ruling R7). The curve below is unconstrained. To compare against a source-complete baseline, pass \`--require=<benchmark-ids>\`.`,
-    );
-  }
+  lines.push(
+    '>',
+    '> No benchmark is pinned (ruling R7). Two curves are reported: an unconstrained one, and one in which every source holding an active benchmark must contribute at least one. The second is a constraint on sources, never on named benchmarks.',
+  );
   lines.push('');
 
   // Definitions
@@ -932,7 +988,7 @@ export const formatCoverageMatrixMarkdown = (
   lines.push('## 1. Tradeoff Curve (Unconstrained)');
   lines.push('');
   lines.push(
-    `For each retained benchmark count $N$ from 1 to the active benchmark count, the table below lists up to ${analysis.candidatesPerScale} candidate combinations that maximize the number of complete qualified base models. Deterministic ranking order strictly favors:`,
+    `For each retained benchmark count $N$ from ${minBenchmarkCount} to the active benchmark count, the table below lists ${analysis.candidatesPerScale === 1 ? 'the combination' : `up to ${analysis.candidatesPerScale} combinations`} that maximize the number of complete qualified base models, with no constraint on which sources survive. Deterministic ranking order strictly favors:`,
   );
   lines.push('1. Complete model count (descending)');
   lines.push('2. Covered dimension count (descending)');
@@ -941,36 +997,34 @@ export const formatCoverageMatrixMarkdown = (
   lines.push('5. Lexicographical benchmark ID order (ascending)');
   lines.push('');
   lines.push(
-    'The chosen benchmark IDs and the complete-model list of every candidate live in the candidate detail sections below; each row links to its own block. Keeping the full 45-item ID lists out of the curve tables is what keeps the curve scannable.',
+    'Each row links to a detail block carrying its chosen benchmark IDs, its source breakdown and its complete-model list. Keeping those lists out of the curve table is what keeps the curve scannable.',
   );
   lines.push('');
 
   pushCurveHeader();
-  pushCurveRows(analysis.tradeoffs, '');
+  pushCurveRows(atOrAboveMin(analysis.tradeoffs), '');
 
   let nextSectionNumber = 2;
 
   if (baseline) {
-    const requiredList = baseline.requiredBenchmarkIds
-      .map((id) => `\`${id}\``)
-      .join(', ');
-
     lines.push(
-      `## ${nextSectionNumber++}. Curve Comparison (Unconstrained vs. Baseline)`,
+      `## ${nextSectionNumber++}. Curve Comparison (Unconstrained vs. All Sources)`,
     );
     lines.push('');
     lines.push(
-      `Comparison of the best complete-model count at each scale $N$ between the unconstrained curve and the source-complete baseline curve (${requiredList}).`,
+      'Comparison of the best complete-model count at each scale $N$ between the unconstrained curve and the curve in which every source holding an active benchmark contributes at least one.',
     );
     lines.push(
-      '`deltaVsSourceCompleteBaseline` is defined as best unconstrained complete-model count at this $N$ minus best baseline complete-model count at this $N$. This report states the difference and never labels it large or small; that judgement belongs to the review gate.',
+      '`deltaVsSourceCompleteBaseline` is defined as best unconstrained complete-model count at this $N$ minus best all-sources complete-model count at this $N$. It is the price, in complete models, of keeping every source represented. This report states the difference and never labels it large or small; that judgement belongs to the review gate.',
     );
     lines.push('');
     lines.push(
-      '| $N$ | Unconstrained Complete Models | Baseline Complete Models | $\\Delta$ vs. Baseline |',
+      '| $N$ | Unconstrained Complete Models | All-Sources Complete Models | $\\Delta$ |',
     );
     lines.push('| --: | --: | --: | --: |');
-    for (const row of compareTradeoffCurves(analysis, baseline)) {
+    for (const row of compareTradeoffCurves(analysis, baseline).filter(
+      ({ benchmarkCount }) => benchmarkCount >= minBenchmarkCount,
+    )) {
       const unconstrained = row.unconstrainedCompleteModelCount;
       const base = row.baselineCompleteModelCount;
       const delta = row.deltaVsSourceCompleteBaseline;
@@ -981,15 +1035,15 @@ export const formatCoverageMatrixMarkdown = (
     lines.push('');
 
     lines.push(
-      `## ${nextSectionNumber++}. Baseline Tradeoff Curve (${requiredList})`,
+      `## ${nextSectionNumber++}. Tradeoff Curve (Every Source Represented)`,
     );
     lines.push('');
     lines.push(
-      `For each retained benchmark count $N$ from ${baseline.requiredBenchmarkIds.length} to the active benchmark count, the table below lists up to ${baseline.candidatesPerScale} candidate combinations subject to the required benchmarks baseline.`,
+      `Every combination below contains at least one benchmark from each of the ${analysis.coverableSourceIds.length} sources that hold an active benchmark, so no source silently drops out of the main-screen gate. A benchmark carried by several sources covers all of them at once, so this constraint is satisfiable below $N$ = ${analysis.coverableSourceIds.length}; those scales are omitted by the reporting floor above, not by the constraint.`,
     );
     lines.push('');
     pushCurveHeader();
-    pushCurveRows(baseline.tradeoffs, 'baseline-');
+    pushCurveRows(atOrAboveMin(baseline.tradeoffs), 'baseline-');
   }
 
   lines.push(
@@ -1003,17 +1057,17 @@ export const formatCoverageMatrixMarkdown = (
   );
   lines.push('');
 
-  pushCandidateDetails(analysis.tradeoffs, '');
+  pushCandidateDetails(atOrAboveMin(analysis.tradeoffs), '');
 
   if (baseline) {
-    lines.push(`## ${nextSectionNumber++}. Baseline Candidate Details`);
+    lines.push(`## ${nextSectionNumber++}. All-Sources Candidate Details`);
     lines.push('');
     lines.push(
       'Complete qualified base-model lists and source composition for each candidate combination in the baseline tradeoff curve.',
     );
     lines.push('');
 
-    pushCandidateDetails(baseline.tradeoffs, 'Baseline ');
+    pushCandidateDetails(atOrAboveMin(baseline.tradeoffs), 'Baseline ');
   }
 
   // Presence Matrix

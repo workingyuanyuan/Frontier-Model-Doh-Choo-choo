@@ -342,28 +342,41 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 候選相對「來源齊全基準」的模型數增減，讓「大幅」與否可被判讀。同時報告每個 N 要列出**多個
 候選子集**並標明**來源組成**，不能只給一個最佳解。實作見 N10a。
 
-**指令介面（N10a 實作後）**：主曲線一律無約束，`--require` 只決定並列的**基準曲線**。同一次
-執行產出兩條曲線與一張逐 N 的模型數對照表；不給 `--require` 就只輸出無約束曲線。
+**R8（2026-08-23 裁決，修訂 R7 的呈現方式）**：報告只給**兩條曲線**，每條每個 N 只給
+**一個最優解**。R7 的「每個 N 多個候選」降為選用能力（`--candidates`），預設 1。
+原本以 `--require` 指定的「來源齊全基準曲線」由**來源層級的約束**取代：
+
+1. **無約束曲線**：不限制哪些來源存活，逐 N 取完整模型數最大者。
+2. **每個來源至少一個 benchmark 的曲線**：凡是持有 active benchmark 的來源，都必須在子集中
+   至少出現一個 benchmark。這是**對來源**的約束，不指名任何 benchmark，因此不違反 R7。
+
+兩條曲線並列，加上逐 N 的完整模型數差，就是挑 preset 的依據。
+
+**指令介面（N10a／R8 之後）**：
 
 ```bash
-# 無約束曲線（預設，每個 N 給 5 個候選）
+# 標準審核用法：兩條曲線 ＋ 逐 N 對照，從 N = 來源數起算
 pnpm report:coverage-matrix
 
-# 無約束曲線 ＋ 來源齊全基準曲線 ＋ 兩者的逐 N 模型數對照（審核用）
-pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
+# 想看每個 N 的多個候選時才加
+pnpm report:coverage-matrix -- --candidates=5
 
-# 調整每個 N 的候選數
-pnpm report:coverage-matrix -- --candidates=3 --require=deepswe-1-1,frontier-code-1-1
+# 調整報告起算的最小 N
+pnpm report:coverage-matrix -- --min-n=12
 ```
 
-`--candidates` 預設 5，必須是 ≥ 1 的整數。不是 active benchmark 的 `--require` ID 會讓命令
-失敗，不會被靜默忽略。候選排序為：完整模型數 ↓ → 維度覆蓋數 ↓ → `exclusiveSources` ↓ →
+`--candidates` 預設 1，`--min-n` 預設為「持有 active benchmark 的來源數」。`--min-n` 是
+**呈現下限，不是可行性下限**：跨來源的 benchmark（例如 `gpqa-diamond` 同時屬於三個來源）
+一格就能覆蓋多個來源，所以來源齊全曲線在更小的 N 也可能有解，只是不列出。
+`--require` 仍在，改為同時約束兩條曲線，預設為空；不是 active benchmark 的 ID 會讓命令失敗，
+不會被靜默忽略。候選排序仍為：完整模型數 ↓ → 維度覆蓋數 ↓ → `exclusiveSources` ↓ →
 `maxSourceShare` ↑ → `benchmarkIds` 字典序 ↑。
 
-**精度限制（報告本文亦有揭露）**：DP 以 `(模型支援 bitmask, 維度 bitmask)` 為鍵，每個鍵只保留
-前 k 個狀態，因此結果是**每個（鍵, N）的前 k 佳**，不是每個 N 的全域前 k 佳。鍵相同的子集對後續
-擴充等價，但來源組成可能不同，剪枝時會丟掉其中一些。要恢復全域精確性必須把 `exclusiveSources`
-併入 DP 鍵，那是記憶體與精確度的取捨，需使用者裁決後才可實作。
+**精度限制（報告本文亦有揭露）**：DP 以 `(模型支援 bitmask, 維度 bitmask)` 為鍵（來源齊全
+曲線另外把來源涵蓋 bitmask 併入鍵，否則涵蓋不足的狀態會被同支援度的狀態剪掉），每個鍵只保留
+前 k 個狀態，因此結果是**每個（鍵, N）的前 k 佳**，不是每個 N 的全域前 k 佳。k = 1 時仍成立。
+要在無約束曲線上恢復全域精確性必須把 `exclusiveSources` 併入 DP 鍵，實測代價是狀態數 2.21×、
+記憶體 2.68×，需使用者裁決後才可實作。
 
 下段是 R7 之前的做法，保留為沿革：
 
@@ -448,8 +461,10 @@ Language    71.0
 
 **權重：六個來源各 1/6**（2026-08-22 D4 與 N2 複審裁決）
 
-來源為 Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI。Zapier 的
-資料已保存但依 N2 複審裁決暫不採用，故權重為 0，留待 N 階段結束後再討論。Epoch 沒有成本，
+來源為 Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI。
+**Zapier 已於 2026-08-23 採用於產品計分（§9.7），但成本權重仍為 0**：它不在
+`COST_SOURCE_WEIGHTS` 表內，CostRecord 雖為 `INCLUDED` 也不影響成本圖。是否改為七個來源
+各 1/7 尚未裁決，**代理不得自行加入權重表**。Epoch 沒有成本，
 同樣不在權重表。Vals 每個 benchmark 都發布成本，但只有 `vals_index` 的 `cost_per_test` 可作為
 來源成本，沒有該列就不以其他 benchmark 成本頂替。
 
@@ -560,8 +575,8 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
   頁面明示排行榜的 `Cost / task` 仍採標準牌價，因此成本保存為 `0.61`。原始字串 `$0.61*`
   與完整註腳必須保留在出處／validation report 中；促銷價 `$0.30` 不得取代排行榜量測成本。
   `$0.09†` 的註腳明示它是專用部署定價，不能直接與其他列的按 token API 成本比較，因此該列
-  的分數值照常保存在 CandidateResult，但不產生 CostRecord；是否計分另受 §9.7 的來源採用
-  裁決控制，目前為 `EXCLUDED`。原始字串與註腳同樣保留供查核。
+  的分數值照常保存在 CandidateResult，但不產生 CostRecord。該列的計分狀態依 §9.7 的
+  2026-08-23 採用裁決，現為 `INCLUDED`。原始字串與註腳同樣保留供查核。
 
 **軸的縮放規則**（2026-08-21 補定）
 
@@ -886,6 +901,25 @@ Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench
 9 個（Grok 4.6、DeepSeek V4 Pro、Grok 4.5 退出），若只計分不設門檻，則又會形成 9 個模型被
 加入低分項、3 個模型完全不受影響的不對稱。Zapier 是否正式納入來源，延至 N 階段全部完成後
 另行討論；在新裁決前不得自動 promote。
+
+**2026-08-23 使用者裁決：採用 Zapier 於產品計分（取代上段的暫緩）。** 上段暫緩的理由是
+「若列入完整性門檻，主畫面會由 12 個降至 9 個」。R1／R8 之後這個理由不再成立：顯示集合由
+§5.3 的取捨曲線報告挑出，`automationbench` 只是候選 benchmark 之一，被採用不等於被列入門檻。
+因此：
+
+- CandidateResult 與 CostRecord 不再因為「來源是 Zapier」而 `EXCLUDED`。**只有逐列的理由**
+  才排除：未審核的括號標記，以及同模型同時有 `Minimal` 與 `Low` 時的 `Minimal` 列。
+  2026-08-23 實測 84 列中 83 列 `INCLUDED`、1 列因 Minimal／Low 衝突 `EXCLUDED`；
+  成本 82 列中 81 列 `INCLUDED`。
+- `automationbench` 因此成為第 46 個 active benchmark（`primaryDimension` 為 `agentic`）。
+  實測 66 個 profile 的 agentic 分量數 +1；16 個 profile 的 Overall Score 改變，全部下降，
+  最大 −1.01（`moonshot-kimi-k2-7-code-default`）；沒有 profile 因此獲得或失去完整性。
+  Zapier 另外帶進三個明示檔位的 profile（`google-gemini-3-5-flash-medium`、
+  `minimax-minimax-m3-max`、`zai-glm-5-1-max`），並取代兩個 `-default` profile。
+- **主畫面不受影響**：`display-set.json` 未含 `automationbench`，完整性門檻不變。
+- **成本圖權重仍為 0，尚未裁決。** §6.3 的「六個來源各 1/6」未改；Zapier 的 CostRecord 雖已
+  `INCLUDED`，但不在 `COST_SOURCE_WEIGHTS` 表內，因此對成本圖沒有貢獻。要不要改成七個來源
+  各 1/7 是另一個裁決，**代理不得自行加入權重表**。
 
 ### 9.8 Vals AI（期三，2026-08-22 實測）
 

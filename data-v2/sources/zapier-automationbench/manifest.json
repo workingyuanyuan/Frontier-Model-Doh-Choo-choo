@@ -15,7 +15,7 @@
     "route module leaderboard score": "rawScore and normalizedScore for task_completed_correctly",
     "route module version": "benchmarkVersion"
   },
-  "lastVerifiedAt": "2026-08-22T09:13:22.151Z",
+  "lastVerifiedAt": "2026-08-23T05:10:30.541Z",
   "notes": [
     "AutomationBench version 1.0.6; 84 rows and maximum rank 84.",
     "The route module is discovered by the content feature task_completed_correctly; deployment hashes are never hard-coded.",

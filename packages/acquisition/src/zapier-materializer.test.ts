@@ -126,22 +126,28 @@ describe('Zapier AutomationBench materializer', () => {
     expect(gemini37.normalizedScore).toBe(30.44);
     expect(gemini37.profile.effort).toBe('high');
     expect(gemini37.provenance.cost?.locator).toContain('$0.61*');
-    expect(gemini37.inclusion).toBe('EXCLUDED');
-    expect(gemini37.exclusionReason).toBe(ZAPIER_ADOPTION_PENDING_REASON);
+    expect(gemini37.inclusion).toBe('INCLUDED');
+    expect(gemini37.exclusionReason).toBeNull();
 
     const starredCost = result.costs.find(
       ({ model }) => model.rawName === 'Gemini 3.7 Flash (High)',
     )!;
     expect(starredCost.cost).toBe(0.61);
     expect(starredCost.provenance.cost?.locator).toContain('$0.61*');
-    expect(starredCost.inclusion).toBe('EXCLUDED');
-    expect(starredCost.exclusionReason).toBe(ZAPIER_ADOPTION_PENDING_REASON);
+    expect(starredCost.inclusion).toBe('INCLUDED');
+    expect(starredCost.exclusionReason).toBeNull();
 
+    // Adopted on 2026-08-23: a row is excluded only for a row-specific reason,
+    // never because it came from Zapier.
     expect(
-      result.candidates.every(({ inclusion }) => inclusion === 'EXCLUDED'),
-    ).toBe(true);
+      result.candidates.filter(({ inclusion }) => inclusion === 'EXCLUDED'),
+    ).toHaveLength(1);
     expect(
-      result.costs.every(({ inclusion }) => inclusion === 'EXCLUDED'),
+      result.candidates.every(
+        ({ inclusion, exclusionReason }) =>
+          inclusion === 'INCLUDED' ||
+          exclusionReason?.includes(ZAPIER_ADOPTION_PENDING_REASON) === false,
+      ),
     ).toBe(true);
 
     expect(
@@ -170,8 +176,8 @@ describe('Zapier AutomationBench materializer', () => {
     expect(minimal.inclusion).toBe('EXCLUDED');
     expect(minimal.exclusionReason).toContain('both Minimal and Low');
     expect(minimalCost.inclusion).toBe('EXCLUDED');
-    expect(low.inclusion).toBe('EXCLUDED');
-    expect(low.exclusionReason).toBe(ZAPIER_ADOPTION_PENDING_REASON);
+    expect(low.inclusion).toBe('INCLUDED');
+    expect(low.exclusionReason).toBeNull();
   });
 
   it('reports row counts separately from distinct unresolved names and lists exclusions', () => {
@@ -184,6 +190,7 @@ describe('Zapier AutomationBench materializer', () => {
     expect(result.validationReport).toContain('Gemini 3.5 Flash (Minimal)');
     expect(result.validationReport).toContain('$0.09†');
     expect(result.validationReport).toContain('## Adoption status');
-    expect(result.validationReport).toContain('after the N phase is complete');
+    expect(result.validationReport).toContain('User ruling 2026-08-23');
+    expect(result.validationReport).toContain('Superseded ruling 2026-08-22');
   });
 });
