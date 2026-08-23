@@ -4,5 +4,5 @@
   "requiredModelIds": ["google-gemini-3-7-flash"],
   "minModelCount": 2,
   "maxModelCount": 13,
-  "defaultPresetId": "all-sources-10"
+  "defaultPresetId": "all-sources-9"
 }

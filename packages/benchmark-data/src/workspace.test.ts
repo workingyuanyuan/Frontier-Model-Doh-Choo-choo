@@ -32,20 +32,39 @@ describe('buildWorkspaceProduct', () => {
     );
     expect(defaultPreset).toBeDefined();
 
-    const benchmarksByModel = new Map<string, Set<string>>();
+    // Completeness is per PROFILE: a model counts only when one of its
+    // profiles carries the whole preset, which is the bar the main screen
+    // applies. Unioning across profiles is what used to overstate the count.
+    const benchmarksByProfile = new Map<string, Set<string>>();
+    const modelOfProfile = new Map<string, string>();
     for (const row of product.evidence) {
       const modelId = row.model.canonicalModelId;
+      const profileId = row.model.profileId;
       if (
         modelId === null ||
+        profileId === null ||
         row.inclusion !== 'INCLUDED' ||
         row.normalizedScore === null
       ) {
         continue;
       }
-      const owned = benchmarksByModel.get(modelId) ?? new Set<string>();
+      const owned = benchmarksByProfile.get(profileId) ?? new Set<string>();
       owned.add(row.benchmarkId);
-      benchmarksByModel.set(modelId, owned);
+      benchmarksByProfile.set(profileId, owned);
+      modelOfProfile.set(profileId, modelId);
     }
+
+    const completeModelsFor = (
+      benchmarkIds: readonly string[],
+    ): Set<string> => {
+      const models = new Set<string>();
+      for (const [profileId, owned] of benchmarksByProfile) {
+        if (benchmarkIds.every((benchmarkId) => owned.has(benchmarkId))) {
+          models.add(modelOfProfile.get(profileId)!);
+        }
+      }
+      return models;
+    };
     // Every model named in display-set-policy.json must survive every preset.
     // This is what stops the optimiser reaching its model count by dropping a
     // model the leaderboard exists to show.
@@ -59,21 +78,17 @@ describe('buildWorkspaceProduct', () => {
     );
 
     for (const preset of product.presets) {
-      const completeModels = [...benchmarksByModel.values()].filter((owned) =>
-        preset.benchmarkIds.every((benchmarkId) => owned.has(benchmarkId)),
-      ).length;
+      const completeModels = completeModelsFor(preset.benchmarkIds);
       expect({
         id: preset.id,
-        completeModels,
+        completeModels: completeModels.size,
       }).toEqual({ id: preset.id, completeModels: preset.targetModelCount });
 
       for (const modelId of policy.requiredModelIds) {
         expect({
           preset: preset.id,
           modelId,
-          complete: preset.benchmarkIds.every((benchmarkId) =>
-            benchmarksByModel.get(modelId)?.has(benchmarkId),
-          ),
+          complete: completeModels.has(modelId),
         }).toEqual({ preset: preset.id, modelId, complete: true });
       }
 

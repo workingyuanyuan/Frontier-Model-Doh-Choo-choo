@@ -1444,6 +1444,8 @@ describe('coverage-matrix', () => {
             presentBenchmarks: ['bench-x', 'bench-y'],
             presence: { 'bench-x': true, 'bench-y': true },
             presentBenchmarkCount: 2,
+            bestProfileId: 'model-1-max',
+            bestProfileBenchmarkCount: 2,
           },
           {
             model: { modelId: 'model-2', displayName: 'Model 2' },
@@ -1451,6 +1453,8 @@ describe('coverage-matrix', () => {
             presentBenchmarks: ['bench-x'],
             presence: { 'bench-x': true, 'bench-y': false },
             presentBenchmarkCount: 1,
+            bestProfileId: 'model-2-max',
+            bestProfileBenchmarkCount: 1,
           },
         ],
         tradeoffs: [
@@ -1554,7 +1558,7 @@ describe('coverage-matrix', () => {
       expect(markdown).toContain('`model-2`');
       expect(markdown).toContain('`source-1` 1 (1 exclusive)');
       expect(markdown).toContain(
-        '| Model | Model ID | Total | `bench-x` | `bench-y` |',
+        '| Model | Model ID | Total | Best profile | `bench-x` | `bench-y` |',
       );
       expect(markdown).toContain('**Total Models Covered**');
     });

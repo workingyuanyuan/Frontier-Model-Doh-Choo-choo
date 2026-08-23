@@ -28,9 +28,19 @@ export interface QualifiedModel {
 export interface ModelBenchmarkPresence {
   model: QualifiedModel;
   mask: number;
+  /** Benchmarks any of the model's profiles has. */
   presentBenchmarks: string[];
   presence: Record<string, boolean>;
   presentBenchmarkCount: number;
+  /**
+   * The model's single best-covered product profile.
+   *
+   * `presence` unions across profiles, but completeness is judged per profile,
+   * so a row that looks complete in the matrix is still incomplete unless one
+   * profile alone carries the set. This column is where that gap is visible.
+   */
+  bestProfileId: string | null;
+  bestProfileBenchmarkCount: number;
 }
 
 export interface SourceCompositionEntry {
@@ -238,16 +248,6 @@ function popcount(n: number): number {
   while (val > 0) {
     count += val & 1;
     val >>>= 1;
-  }
-  return count;
-}
-
-function popcountBigInt(n: bigint): number {
-  let count = 0;
-  let value = n;
-  while (value > 0n) {
-    count += Number(value & 1n);
-    value >>= 1n;
   }
   return count;
 }
@@ -524,16 +524,34 @@ export const analyzeCoverageMatrix = (
     modelPresentBenchmarksMap.set(m.modelId, new Set<string>());
   }
 
+  // Completeness is judged per product profile, not per base model. A model
+  // whose benchmarks are only complete once several efforts are unioned has no
+  // single profile that can be scored, so it never reaches the main screen --
+  // counting it as complete overstated the row count by exactly those models.
+  const profileBenchmarks = new Map<string, Set<string>>();
+  const profileModelId = new Map<string, string>();
+
   for (const result of selectedResults) {
     const modelId = result.model.canonicalModelId;
+    const profileId = result.model.profileId;
     if (
       modelId !== null &&
       qualifiedModelIdSet.has(modelId) &&
       benchmarkIndexMap.has(result.benchmarkId)
     ) {
       modelPresentBenchmarksMap.get(modelId)!.add(result.benchmarkId);
+      if (profileId !== null) {
+        const owned = profileBenchmarks.get(profileId) ?? new Set<string>();
+        owned.add(result.benchmarkId);
+        profileBenchmarks.set(profileId, owned);
+        profileModelId.set(profileId, modelId);
+      }
     }
   }
+
+  const eligibleProfileIds = [...profileBenchmarks.keys()].toSorted(
+    (left, right) => left.localeCompare(right),
+  );
 
   const matrix: ModelBenchmarkPresence[] = qualifiedModels.map((model) => {
     const presentSet = modelPresentBenchmarksMap.get(model.modelId)!;
@@ -550,12 +568,27 @@ export const analyzeCoverageMatrix = (
         mask += 2 ** bit;
       }
     }
+    const modelProfiles = eligibleProfileIds.filter(
+      (profileId) => profileModelId.get(profileId) === model.modelId,
+    );
+    let bestProfileId: string | null = null;
+    let bestProfileBenchmarkCount = 0;
+    for (const profileId of modelProfiles) {
+      const owned = profileBenchmarks.get(profileId)!.size;
+      if (bestProfileId === null || owned > bestProfileBenchmarkCount) {
+        bestProfileId = profileId;
+        bestProfileBenchmarkCount = owned;
+      }
+    }
+
     return {
       model,
       mask,
       presentBenchmarks,
       presence,
       presentBenchmarkCount: presentBenchmarks.length,
+      bestProfileId,
+      bestProfileBenchmarkCount,
     };
   });
 
@@ -613,26 +646,58 @@ export const analyzeCoverageMatrix = (
 
   if (M > 0) {
     const requiredSet = new Set(requiredBenchmarkIds);
-    const modelIndexMap = new Map(
-      qualifiedModels.map(({ modelId }, index) => [modelId, index]),
+
+    // The search runs over PROFILES. A model counts as complete when one of its
+    // profiles carries the whole subset, which is the same bar the main screen
+    // applies; running over models and unioning their profiles counted models
+    // no single profile can score.
+    const profileIndexMap = new Map(
+      eligibleProfileIds.map((profileId, index) => [profileId, index]),
     );
     const benchmarkSupportMasks = activeBenchmarkIds.map((benchmarkId) => {
       let support = 0n;
-      for (const row of matrix) {
-        if (row.presence[benchmarkId]) {
-          support |= 1n << BigInt(modelIndexMap.get(row.model.modelId)!);
+      for (const profileId of eligibleProfileIds) {
+        if (profileBenchmarks.get(profileId)!.has(benchmarkId)) {
+          support |= 1n << BigInt(profileIndexMap.get(profileId)!);
         }
       }
       return support;
     });
-    const allModelSupport = (1n << BigInt(qualifiedModels.length)) - 1n;
-    // Support masks only ever shrink, so a state that has already lost a
-    // required model can never regain it. Dropping it at the transition is both
-    // correct and the cheapest place to do it.
-    let requiredModelMask = 0n;
-    for (const modelId of requiredModelIds) {
-      requiredModelMask |= 1n << BigInt(modelIndexMap.get(modelId)!);
+    const allModelSupport = (1n << BigInt(eligibleProfileIds.length)) - 1n;
+
+    const modelProfileMasks = new Map<string, bigint>();
+    for (const profileId of eligibleProfileIds) {
+      const modelId = profileModelId.get(profileId)!;
+      modelProfileMasks.set(
+        modelId,
+        (modelProfileMasks.get(modelId) ?? 0n) |
+          (1n << BigInt(profileIndexMap.get(profileId)!)),
+      );
     }
+    const modelMaskEntries = [...modelProfileMasks.entries()];
+
+    // Distinct models behind a profile-support mask. The DP key already carries
+    // the support mask, so every state sharing a key shares this number and it
+    // is worth computing once per mask rather than per state.
+    const modelCountCache = new Map<string, number>();
+    const countModels = (supportMask: bigint): number => {
+      const key = supportMask.toString(16);
+      const cached = modelCountCache.get(key);
+      if (cached !== undefined) return cached;
+      let count = 0;
+      for (const [, profileMask] of modelMaskEntries) {
+        if ((supportMask & profileMask) !== 0n) count += 1;
+      }
+      modelCountCache.set(key, count);
+      return count;
+    };
+
+    // Support masks only ever shrink, so once a required model has no profile
+    // left it can never regain one. Dropping the state at the transition is
+    // both correct and the cheapest place to do it.
+    const requiredModelProfileMasks = requiredModelIds.map(
+      (modelId) => modelProfileMasks.get(modelId) ?? 0n,
+    );
 
     // Primary dimension only. `scoreProfiles` averages a benchmark into
     // exactly one dimension, so counting secondary dimensions here would report
@@ -717,8 +782,8 @@ export const analyzeCoverageMatrix = (
       const nextByCount = new Map<number, Map<string, SubsetState[]>>();
 
       const retain = (count: number, state: SubsetState): void => {
-        if ((state.supportMask & requiredModelMask) !== requiredModelMask) {
-          return;
+        for (const profileMask of requiredModelProfileMasks) {
+          if ((state.supportMask & profileMask) === 0n) return;
         }
         const bucket =
           nextByCount.get(count) ?? new Map<string, SubsetState[]>();
@@ -780,7 +845,7 @@ export const analyzeCoverageMatrix = (
 
             const nextMaxSourceShare =
               nextCount === 0 ? 0 : nextMaxExclusiveCount / nextCount;
-            const nextCompleteModelCount = popcountBigInt(nextSupportMask);
+            const nextCompleteModelCount = countModels(nextSupportMask);
             const nextCoveredDimensionCount = popcount(nextDimensionMask);
 
             retain(nextCount, {
@@ -880,8 +945,9 @@ export const analyzeCoverageMatrix = (
         coveredDimensions: DIMENSION_IDS.filter(
           (_, idx) => (state.dimensionMask & (1 << idx)) !== 0,
         ),
-        matchingModels: qualifiedModels.filter((_, modelIndex) =>
-          Boolean(state.supportMask & (1n << BigInt(modelIndex))),
+        matchingModels: qualifiedModels.filter(
+          ({ modelId }) =>
+            ((modelProfileMasks.get(modelId) ?? 0n) & state.supportMask) !== 0n,
         ),
         sourceComposition: computeSourceComposition(
           state.benchmarkIds,
@@ -1068,7 +1134,7 @@ export const formatCoverageMatrixMarkdown = (
     '> This report is Gate 2 review material (`docs/REFACTOR_SPEC_V2.md` §5.3, `tasks/claude-code-plan.md` D3).',
     '> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data-v2/mappings/display-set.json`.',
     '> It does not modify `display-set.json`.',
-    "> Coverage is unioned across a canonical base model's product profiles, as required by the §5.3 model bitmask. D2 main-screen eligibility is stricter: one profile must pass the selected matrix and have all eight rendered dimensions. Complete-model counts here are therefore review upper bounds, not predicted main-screen row counts.",
+    '> A model counts as complete when ONE of its product profiles carries every benchmark in the set. That is the same bar the main screen applies, so the complete-model count is the row count, not an upper bound on it. Counting a model complete because several of its profiles union to the set overstated it, since no single profile could then be scored.',
   );
   lines.push(
     '>',
@@ -1192,7 +1258,7 @@ export const formatCoverageMatrixMarkdown = (
   );
   lines.push('');
   lines.push(
-    'Presence indicates that the qualified base model has an eligible current result with non-null normalized score for the benchmark in an active whitelisted source.',
+    'Presence indicates that SOME product profile of the qualified base model has an eligible current result with non-null normalized score for the benchmark in an active whitelisted source. The tradeoff curves above judge completeness per profile, so a row that looks complete here is still incomplete unless one profile alone carries the set: the "Best profile" column is the largest number of these benchmarks any single profile of that model has.',
   );
   lines.push('');
 
@@ -1200,11 +1266,12 @@ export const formatCoverageMatrixMarkdown = (
     'Model',
     'Model ID',
     'Total',
+    'Best profile',
     ...analysis.activeBenchmarkIds.map((id) => `\`${id}\``),
   ];
   lines.push(`| ${headers.join(' | ')} |`);
   lines.push(
-    `| ${headers.map((_, i) => (i === 2 ? '--:' : i >= 3 ? ':-:' : '---')).join(' | ')} |`,
+    `| ${headers.map((_, i) => (i === 2 || i === 3 ? '--:' : i >= 4 ? ':-:' : '---')).join(' | ')} |`,
   );
 
   for (const row of analysis.matrix) {
@@ -1212,6 +1279,7 @@ export const formatCoverageMatrixMarkdown = (
       row.model.displayName,
       `\`${row.model.modelId}\``,
       `${row.presentBenchmarkCount}/${analysis.activeBenchmarkIds.length}`,
+      `${row.bestProfileBenchmarkCount}/${analysis.activeBenchmarkIds.length}`,
       ...analysis.activeBenchmarkIds.map((bId) =>
         row.presence[bId] ? '✓' : '-',
       ),
@@ -1231,7 +1299,8 @@ export const formatCoverageMatrixMarkdown = (
   const totalsCols = [
     '**Total Models Covered**',
     '—',
-    `—`,
+    '—',
+    '—',
     ...benchmarkTotals.map((count) => `**${count}**`),
   ];
   lines.push(`| ${totalsCols.join(' | ')} |`);

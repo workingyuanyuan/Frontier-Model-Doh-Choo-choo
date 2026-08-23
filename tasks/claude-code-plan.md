@@ -2463,15 +2463,65 @@ GLM-5.2。
 按鈕 disabled；拉到最大變成 13 models／Any sources，網址變為 `?preset=free-sources-13`，
 重新整理後保持；主控制列無水平溢位，主控台無錯誤。
 
-**已知落差，待裁決**：`targetModelCount` 數的是**完整基礎模型**（跨 profile 取聯集），而主畫面
-一列需要**單一 profile** 具備該 preset 的全部 benchmark 且八維齊全。預設 preset 之下
-10 個完整模型只有 8 個出得了列——`anthropic-claude-fable-5` 與 `deepseek-deepseek-v4-flash`
-各自沒有任何一個 profile 同時具備 25 個 benchmark，只有把不同 profile 聯集起來才齊。
-free-sources-13 則是 13 對 11。滑桿標示的數字因此系統性高於實際列數。
-
-修法是把取捨曲線的完整性判定由「模型的 profile 聯集」改為「存在單一 profile 具備整個子集」，
-DP 需改成以 profile 為單位、再映射回模型計數。這會再次改動所有 preset 的數字，**需使用者裁決**。
+**落差已修（R12，使用者裁決「重寫 DP，改成單一 profile 判定」）**：見下一節。
 
 **驗證**：`pnpm format`、`pnpm lint`、`pnpm typecheck`、`pnpm test`（270 項）、
 `pnpm --filter @llm-bench/bench build`、`pnpm e2e`（20 passed，含新增的 preset 切換與
 deep-link 測試）全綠。
+
+### N10c 追加：完整性改為逐 profile 判定（R12）
+
+狀態：完成
+
+**問題**：`targetModelCount` 數的是完整基礎模型，跨 profile 取聯集；主畫面一列要求**單一
+profile** 具備整個子集。預設 preset 之下 10 個「完整」模型只有 8 個出得了列——
+`anthropic-claude-fable-5` 與 `deepseek-deepseek-v4-flash` 沒有任何單一 profile 同時具備那
+25 個 benchmark。滑桿標的數字因此系統性高於實際列數。
+
+**修法**：DP 改成以 **profile** 為單位。
+
+- 支援 bitmask 的每一位是一個合格 profile，不是一個模型。
+- 完整模型數 = 存活 profile 背後的相異模型數。這個值在排序時就要用到，故以支援 bitmask
+  為鍵記憶化——DP 鍵本來就含支援 bitmask，同鍵狀態共用同一個數字，實際只算一次。
+- `requiredModelIds` 的剪枝改為「該模型的 profile bitmask 與支援 bitmask 交集為空即丟棄」。
+  支援 bitmask 只會縮小，所以這個判斷在轉移時就成立。
+- 有無矩陣仍以模型為列（跨 profile 聯集），另加 **Best profile** 欄位顯示單一 profile 最多
+  覆蓋幾個，讓兩種判定的差距在報告裡看得見。
+
+DP 反而變快（3.3 秒生成整份 preset），因為逐 profile 的支援 bitmask 縮減得比聯集快。
+
+**實測影響**
+
+|                      | 聯集判定                   | 逐 profile 判定               |
+| -------------------- | -------------------------- | ----------------------------- |
+| 來源齊全曲線上限     | 10 個模型                  | **9**                         |
+| 無約束曲線上限       | 24                         | **22**                        |
+| 預設 preset          | `all-sources-10`（N = 25） | **`all-sources-9`（N = 19）** |
+| 滑桿數字 vs 實際列數 | 10 對 8                    | **9 對 9**                    |
+
+**現在 12 個 preset**（模型數 12、11、10 只有無約束曲線有；9 與 8 兩條曲線都有且組成不同，
+**切換鈕在這兩個位置是可以按的**；7 以下兩條曲線組成相同，收斂成單一 preset、鈕不可用）：
+
+| 模型數 | 無約束 N |     每來源≥1 N |
+| -----: | -------: | -------------: |
+|     12 |       27 |              — |
+|     11 |       28 |              — |
+|     10 |       29 |              — |
+|      9 |       30 | **19（預設）** |
+|      8 |       31 |             28 |
+|      7 |        — |             32 |
+|      6 |        — |             34 |
+|      5 |        — |             35 |
+|      4 |        — |             36 |
+|      3 |        — |             37 |
+
+無約束曲線在 N = 25 可達 **14** 個模型，但 `display-set-policy.json` 的 `maxModelCount` 是
+使用者訂的 13，故未輸出。要開放把該值改成 14 再重跑即可。
+
+**瀏覽器實測**：預設載入 `9 models` / `All sources`，表格 **9 列**，數字與列數相符，
+Gemini 3.7 Flash 在榜上；按下切換鈕變成 `Any sources`、`?preset=free-sources-9`，仍是 9 列
+但名單不同（Claude Fable 5、Kimi K3 換成 Qwen3.8 Max、Gemini 3.1 Pro Preview、DeepSeek V4 Pro）。
+
+**產物大小**：`current.json` 4.824 MB（12 個 preset）。
+
+**驗證**：全鏈綠。e2e 新增斷言「滑桿上的數字等於表格列數」，兩種模式都驗。

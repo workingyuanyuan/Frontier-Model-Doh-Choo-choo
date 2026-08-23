@@ -390,10 +390,20 @@ benchmark 組成時，生成器只留 `requireAllSources: true` 的那一個—�
 按了不會變的開關。現況十個模型數各只有一個 preset，切換鈕全部不可用，其角色是**狀態指示**。
 preset 以 `?preset=<id>` 帶在 query 參數上（D-N10-5），預設 preset 不寫入參數。
 
-**已知落差（待裁決）**：`targetModelCount` 數的是完整**基礎模型**（跨 profile 聯集），主畫面
-一列則要求**單一 profile** 具備整個子集且八維齊全，因此滑桿標示的數字系統性高於實際列數
-（預設 preset 為 10 對 8）。要對齊必須把完整性判定改為 profile 層級，DP 需以 profile 為單位
-重寫，會再次改動所有 preset 的數字。
+**R12（2026-08-23 裁決，完整性改為逐 profile 判定）**：一個模型算「完整」的條件是
+**存在單一 product profile 具備子集中的每一個 benchmark**，不是「該模型的各 profile 聯集
+起來具備」。聯集判定會把沒有任何單一 profile 可計分的模型算成完整，滑桿標示的數字因此
+系統性高於實際列數（實測預設 preset 為 10 對 8）。
+
+DP 因此改為以 **profile** 為單位：支援 bitmask 的每一位是一個 profile，完整模型數是存活
+profile 背後的相異模型數（以支援 bitmask 為鍵記憶化，同一個鍵的狀態共用同一個數字）。
+`requiredModelIds` 的剪枝條件相應改為「該模型的 profile bitmask 與支援 bitmask 交集為空」。
+
+**現在 `targetModelCount` 就是主畫面的列數**，不再是上界。實測影響：來源齊全曲線上限由
+10 降為 **9**，無約束曲線由 24 降為 22。預設 preset 改為 `all-sources-9`（N = 19）。
+
+`docs/COVERAGE_MATRIX_REPORT.md` 的有無矩陣仍以模型為列、跨 profile 取聯集，另加一欄
+**Best profile**（單一 profile 最多覆蓋幾個 benchmark），落差因此在報告中看得見。
 
 **指令介面（N10a／R8 之後）**：
 
