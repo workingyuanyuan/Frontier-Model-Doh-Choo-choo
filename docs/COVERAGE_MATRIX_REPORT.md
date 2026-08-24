@@ -1,6 +1,6 @@
 # Coverage Matrix Report
 
-- **Reference Date**: `2026-08-23`
+- **Reference Date**: `2026-08-24`
 - **Qualification Window**: 12 months
 - **Active Sources (8)**: `arc-prize`, `artificial-analysis`, `deepswe`, `epoch-ai`, `frontier-code`, `livebench`, `vals-ai`, `zapier-automationbench`
 - **Qualified Canonical Base Models**: 53
@@ -8,7 +8,7 @@
 - **Candidates per Scale ($k$)**: 1
 - **Sources with at least one active benchmark (8)**: `arc-prize`, `artificial-analysis`, `deepswe`, `epoch-ai`, `frontier-code`, `livebench`, `vals-ai`, `zapier-automationbench`
 - **Pinned models (1)**: `google-gemini-3-7-flash` -- every combination below leaves these complete, per `data/mappings/display-set-policy.json`. Maximising the model count says nothing about which models survive; this is how a model the leaderboard exists to show is kept in.
-- **Smallest scale reported**: $N$ = 8 (the all-sources curve has no solution below $N$ = 9)
+- **Smallest scale reported**: $N$ = 8 (a reporting floor, not a feasibility bound: the all-sources curve already has a solution at $N$ = 7, because a benchmark carried by several sources covers all of them at once)
 
 > [!NOTE]
 > This report is Gate 2 review material (`docs/SPEC.md` §5.3, `tasks/claude-code-plan.md` D3).
@@ -40,38 +40,38 @@ For each retained benchmark count $N$ from 8 to the active benchmark count, the 
 
 Each row links to a detail block carrying its chosen benchmark IDs, its source breakdown and its complete-model list. Keeping those lists out of the curve table is what keeps the curve scannable.
 
-| $N$ | Rank | Complete Models |                                Covered Dimensions                                 | Sources (Span / Excl / MaxShare) | Chosen Benchmarks                                            |
-| --: | :--: | --------------: | :-------------------------------------------------------------------------------: | :------------------------------: | ------------------------------------------------------------ |
-|   8 |  #1  |          **22** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 2 / 37.5%           | [list + models](#scale-n--8-candidate-1-22-complete-models)  |
-|   9 |  #1  |          **22** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 2 / 44.4%           | [list + models](#scale-n--9-candidate-1-22-complete-models)  |
-|  10 |  #1  |          **22** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 2 / 50.0%           | [list + models](#scale-n--10-candidate-1-22-complete-models) |
-|  11 |  #1  |          **22** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 2 / 45.5%           | [list + models](#scale-n--11-candidate-1-22-complete-models) |
-|  12 |  #1  |          **22** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 2 / 50.0%           | [list + models](#scale-n--12-candidate-1-22-complete-models) |
-|  13 |  #1  |          **22** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 2 / 53.8%           | [list + models](#scale-n--13-candidate-1-22-complete-models) |
-|  14 |  #1  |          **20** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 42.9%           | [list + models](#scale-n--14-candidate-1-20-complete-models) |
-|  15 |  #1  |          **20** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 46.7%           | [list + models](#scale-n--15-candidate-1-20-complete-models) |
-|  16 |  #1  |          **16** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          5 / 4 / 43.8%           | [list + models](#scale-n--16-candidate-1-16-complete-models) |
-|  17 |  #1  |          **15** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          5 / 4 / 41.2%           | [list + models](#scale-n--17-candidate-1-15-complete-models) |
-|  18 |  #1  |          **15** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 33.3%           | [list + models](#scale-n--18-candidate-1-15-complete-models) |
-|  19 |  #1  |          **15** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 31.6%           | [list + models](#scale-n--19-candidate-1-15-complete-models) |
-|  20 |  #1  |          **15** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 35.0%           | [list + models](#scale-n--20-candidate-1-15-complete-models) |
-|  21 |  #1  |          **15** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 33.3%           | [list + models](#scale-n--21-candidate-1-15-complete-models) |
-|  22 |  #1  |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 36.4%           | [list + models](#scale-n--22-candidate-1-14-complete-models) |
-|  23 |  #1  |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 39.1%           | [list + models](#scale-n--23-candidate-1-14-complete-models) |
-|  24 |  #1  |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 41.7%           | [list + models](#scale-n--24-candidate-1-14-complete-models) |
-|  25 |  #1  |          **14** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 3 / 44.0%           | [list + models](#scale-n--25-candidate-1-14-complete-models) |
-|  26 |  #1  |          **12** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 4 / 38.5%           | [list + models](#scale-n--26-candidate-1-12-complete-models) |
-|  27 |  #1  |          **12** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 4 / 40.7%           | [list + models](#scale-n--27-candidate-1-12-complete-models) |
-|  28 |  #1  |          **11** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          4 / 4 / 42.9%           | [list + models](#scale-n--28-candidate-1-11-complete-models) |
-|  29 |  #1  |          **10** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          5 / 5 / 41.4%           | [list + models](#scale-n--29-candidate-1-10-complete-models) |
-|  30 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          5 / 5 / 40.0%           | [list + models](#scale-n--30-candidate-1-9-complete-models)  |
-|  31 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          7 / 7 / 38.7%           | [list + models](#scale-n--31-candidate-1-8-complete-models)  |
-|  32 |  #1  |           **7** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 37.5%           | [list + models](#scale-n--32-candidate-1-7-complete-models)  |
-|  33 |  #1  |           **6** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 36.4%           | [list + models](#scale-n--33-candidate-1-6-complete-models)  |
-|  34 |  #1  |           **6** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 38.2%           | [list + models](#scale-n--34-candidate-1-6-complete-models)  |
-|  35 |  #1  |           **5** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 37.1%           | [list + models](#scale-n--35-candidate-1-5-complete-models)  |
-|  36 |  #1  |           **4** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 38.9%           | [list + models](#scale-n--36-candidate-1-4-complete-models)  |
-|  37 |  #1  |           **3** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 40.5%           | [list + models](#scale-n--37-candidate-1-3-complete-models)  |
+| $N$ | Rank | Complete Models |                  Covered Dimensions                   | Sources (Span / Excl / MaxShare) | Chosen Benchmarks                                            |
+| --: | :--: | --------------: | :---------------------------------------------------: | :------------------------------: | ------------------------------------------------------------ |
+|   8 |  #1  |          **27** | 5/5 (reasoning, knowledge, coding, agentic, language) |          3 / 1 / 75.0%           | [list + models](#scale-n--8-candidate-1-27-complete-models)  |
+|   9 |  #1  |          **27** | 5/5 (reasoning, knowledge, coding, agentic, language) |          3 / 1 / 77.8%           | [list + models](#scale-n--9-candidate-1-27-complete-models)  |
+|  10 |  #1  |          **27** | 5/5 (reasoning, knowledge, coding, agentic, language) |          3 / 1 / 80.0%           | [list + models](#scale-n--10-candidate-1-27-complete-models) |
+|  11 |  #1  |          **26** | 5/5 (reasoning, knowledge, coding, agentic, language) |          3 / 1 / 81.8%           | [list + models](#scale-n--11-candidate-1-26-complete-models) |
+|  12 |  #1  |          **25** | 5/5 (reasoning, knowledge, coding, agentic, language) |          3 / 1 / 75.0%           | [list + models](#scale-n--12-candidate-1-25-complete-models) |
+|  13 |  #1  |          **24** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 2 / 53.8%           | [list + models](#scale-n--13-candidate-1-24-complete-models) |
+|  14 |  #1  |          **24** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 2 / 57.1%           | [list + models](#scale-n--14-candidate-1-24-complete-models) |
+|  15 |  #1  |          **23** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 2 / 60.0%           | [list + models](#scale-n--15-candidate-1-23-complete-models) |
+|  16 |  #1  |          **23** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 2 / 62.5%           | [list + models](#scale-n--16-candidate-1-23-complete-models) |
+|  17 |  #1  |          **22** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 2 / 58.8%           | [list + models](#scale-n--17-candidate-1-22-complete-models) |
+|  18 |  #1  |          **21** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 2 / 61.1%           | [list + models](#scale-n--18-candidate-1-21-complete-models) |
+|  19 |  #1  |          **19** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 3 / 57.9%           | [list + models](#scale-n--19-candidate-1-19-complete-models) |
+|  20 |  #1  |          **18** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 3 / 55.0%           | [list + models](#scale-n--20-candidate-1-18-complete-models) |
+|  21 |  #1  |          **18** | 5/5 (reasoning, knowledge, coding, agentic, language) |          3 / 2 / 52.4%           | [list + models](#scale-n--21-candidate-1-18-complete-models) |
+|  22 |  #1  |          **16** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 3 / 36.4%           | [list + models](#scale-n--22-candidate-1-16-complete-models) |
+|  23 |  #1  |          **16** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 3 / 39.1%           | [list + models](#scale-n--23-candidate-1-16-complete-models) |
+|  24 |  #1  |          **16** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 3 / 41.7%           | [list + models](#scale-n--24-candidate-1-16-complete-models) |
+|  25 |  #1  |          **16** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 3 / 44.0%           | [list + models](#scale-n--25-candidate-1-16-complete-models) |
+|  26 |  #1  |          **14** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 4 / 38.5%           | [list + models](#scale-n--26-candidate-1-14-complete-models) |
+|  27 |  #1  |          **14** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 4 / 40.7%           | [list + models](#scale-n--27-candidate-1-14-complete-models) |
+|  28 |  #1  |          **13** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 4 / 42.9%           | [list + models](#scale-n--28-candidate-1-13-complete-models) |
+|  29 |  #1  |          **12** | 5/5 (reasoning, knowledge, coding, agentic, language) |          4 / 4 / 41.4%           | [list + models](#scale-n--29-candidate-1-12-complete-models) |
+|  30 |  #1  |          **10** | 5/5 (reasoning, knowledge, coding, agentic, language) |          7 / 7 / 36.7%           | [list + models](#scale-n--30-candidate-1-10-complete-models) |
+|  31 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          7 / 7 / 35.5%           | [list + models](#scale-n--31-candidate-1-9-complete-models)  |
+|  32 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          7 / 7 / 37.5%           | [list + models](#scale-n--32-candidate-1-8-complete-models)  |
+|  33 |  #1  |           **7** | 5/5 (reasoning, knowledge, coding, agentic, language) |          7 / 7 / 36.4%           | [list + models](#scale-n--33-candidate-1-7-complete-models)  |
+|  34 |  #1  |           **6** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 38.2%           | [list + models](#scale-n--34-candidate-1-6-complete-models)  |
+|  35 |  #1  |           **5** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 37.1%           | [list + models](#scale-n--35-candidate-1-5-complete-models)  |
+|  36 |  #1  |           **4** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 38.9%           | [list + models](#scale-n--36-candidate-1-4-complete-models)  |
+|  37 |  #1  |           **3** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 40.5%           | [list + models](#scale-n--37-candidate-1-3-complete-models)  |
 
 ## 2. Curve Comparison (Unconstrained vs. All Sources)
 
@@ -80,32 +80,32 @@ Comparison of the best complete-model count at each scale $N$ between the uncons
 
 | $N$ | Unconstrained Complete Models | All-Sources Complete Models | $\Delta$ |
 | --: | ----------------------------: | --------------------------: | -------: |
-|   8 |                        **22** |                           — |        — |
-|   9 |                        **22** |                       **7** |      +15 |
-|  10 |                        **22** |                       **9** |      +13 |
-|  11 |                        **22** |                       **9** |      +13 |
-|  12 |                        **22** |                       **9** |      +13 |
-|  13 |                        **22** |                       **9** |      +13 |
-|  14 |                        **20** |                       **9** |      +11 |
-|  15 |                        **20** |                       **9** |      +11 |
-|  16 |                        **16** |                       **9** |       +7 |
-|  17 |                        **15** |                       **9** |       +6 |
-|  18 |                        **15** |                       **9** |       +6 |
-|  19 |                        **15** |                       **9** |       +6 |
-|  20 |                        **15** |                       **8** |       +7 |
-|  21 |                        **15** |                       **8** |       +7 |
-|  22 |                        **14** |                       **8** |       +6 |
-|  23 |                        **14** |                       **8** |       +6 |
-|  24 |                        **14** |                       **8** |       +6 |
-|  25 |                        **14** |                       **8** |       +6 |
-|  26 |                        **12** |                       **8** |       +4 |
-|  27 |                        **12** |                       **8** |       +4 |
-|  28 |                        **11** |                       **8** |       +3 |
-|  29 |                        **10** |                       **7** |       +3 |
-|  30 |                         **9** |                       **7** |       +2 |
-|  31 |                         **8** |                       **7** |       +1 |
-|  32 |                         **7** |                       **7** |        0 |
-|  33 |                         **6** |                       **6** |        0 |
+|   8 |                        **27** |                       **9** |      +18 |
+|   9 |                        **27** |                       **9** |      +18 |
+|  10 |                        **27** |                       **9** |      +18 |
+|  11 |                        **26** |                       **9** |      +17 |
+|  12 |                        **25** |                       **9** |      +16 |
+|  13 |                        **24** |                       **9** |      +15 |
+|  14 |                        **24** |                       **9** |      +15 |
+|  15 |                        **23** |                       **9** |      +14 |
+|  16 |                        **23** |                       **9** |      +14 |
+|  17 |                        **22** |                       **9** |      +13 |
+|  18 |                        **21** |                       **9** |      +12 |
+|  19 |                        **19** |                       **9** |      +10 |
+|  20 |                        **18** |                       **8** |      +10 |
+|  21 |                        **18** |                       **8** |      +10 |
+|  22 |                        **16** |                       **8** |       +8 |
+|  23 |                        **16** |                       **8** |       +8 |
+|  24 |                        **16** |                       **8** |       +8 |
+|  25 |                        **16** |                       **8** |       +8 |
+|  26 |                        **14** |                       **8** |       +6 |
+|  27 |                        **14** |                       **8** |       +6 |
+|  28 |                        **13** |                       **8** |       +5 |
+|  29 |                        **12** |                       **7** |       +5 |
+|  30 |                        **10** |                       **7** |       +3 |
+|  31 |                         **9** |                       **7** |       +2 |
+|  32 |                         **8** |                       **7** |       +1 |
+|  33 |                         **7** |                       **6** |       +1 |
 |  34 |                         **6** |                       **6** |        0 |
 |  35 |                         **5** |                       **5** |        0 |
 |  36 |                         **4** |                       **4** |        0 |
@@ -115,249 +115,250 @@ Comparison of the best complete-model count at each scale $N$ between the uncons
 
 Every combination below contains at least one benchmark from each of the 8 sources that hold an active benchmark, so no source silently drops out of the main-screen gate. A benchmark carried by several sources covers all of them at once, so this constraint is satisfiable below $N$ = 8; those scales are omitted by the reporting floor above, not by the constraint.
 
-| $N$ | Rank | Complete Models |                                Covered Dimensions                                 | Sources (Span / Excl / MaxShare) | Chosen Benchmarks                                                    |
-| --: | :--: | --------------: | :-------------------------------------------------------------------------------: | :------------------------------: | -------------------------------------------------------------------- |
-|   9 |  #1  |           **7** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 22.2%           | [list + models](#baseline-scale-n--9-candidate-1-7-complete-models)  |
-|  10 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 20.0%           | [list + models](#baseline-scale-n--10-candidate-1-9-complete-models) |
-|  11 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 18.2%           | [list + models](#baseline-scale-n--11-candidate-1-9-complete-models) |
-|  12 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 16.7%           | [list + models](#baseline-scale-n--12-candidate-1-9-complete-models) |
-|  13 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 23.1%           | [list + models](#baseline-scale-n--13-candidate-1-9-complete-models) |
-|  14 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 21.4%           | [list + models](#baseline-scale-n--14-candidate-1-9-complete-models) |
-|  15 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 26.7%           | [list + models](#baseline-scale-n--15-candidate-1-9-complete-models) |
-|  16 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 25.0%           | [list + models](#baseline-scale-n--16-candidate-1-9-complete-models) |
-|  17 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 29.4%           | [list + models](#baseline-scale-n--17-candidate-1-9-complete-models) |
-|  18 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 33.3%           | [list + models](#baseline-scale-n--18-candidate-1-9-complete-models) |
-|  19 |  #1  |           **9** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 7 / 36.8%           | [list + models](#baseline-scale-n--19-candidate-1-9-complete-models) |
-|  20 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 20.0%           | [list + models](#baseline-scale-n--20-candidate-1-8-complete-models) |
-|  21 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 19.0%           | [list + models](#baseline-scale-n--21-candidate-1-8-complete-models) |
-|  22 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 22.7%           | [list + models](#baseline-scale-n--22-candidate-1-8-complete-models) |
-|  23 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 21.7%           | [list + models](#baseline-scale-n--23-candidate-1-8-complete-models) |
-|  24 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 25.0%           | [list + models](#baseline-scale-n--24-candidate-1-8-complete-models) |
-|  25 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 24.0%           | [list + models](#baseline-scale-n--25-candidate-1-8-complete-models) |
-|  26 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 26.9%           | [list + models](#baseline-scale-n--26-candidate-1-8-complete-models) |
-|  27 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 25.9%           | [list + models](#baseline-scale-n--27-candidate-1-8-complete-models) |
-|  28 |  #1  |           **8** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 28.6%           | [list + models](#baseline-scale-n--28-candidate-1-8-complete-models) |
-|  29 |  #1  |           **7** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 27.6%           | [list + models](#baseline-scale-n--29-candidate-1-7-complete-models) |
-|  30 |  #1  |           **7** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 33.3%           | [list + models](#baseline-scale-n--30-candidate-1-7-complete-models) |
-|  31 |  #1  |           **7** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 35.5%           | [list + models](#baseline-scale-n--31-candidate-1-7-complete-models) |
-|  32 |  #1  |           **7** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 37.5%           | [list + models](#baseline-scale-n--32-candidate-1-7-complete-models) |
-|  33 |  #1  |           **6** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 36.4%           | [list + models](#baseline-scale-n--33-candidate-1-6-complete-models) |
-|  34 |  #1  |           **6** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 38.2%           | [list + models](#baseline-scale-n--34-candidate-1-6-complete-models) |
-|  35 |  #1  |           **5** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 37.1%           | [list + models](#baseline-scale-n--35-candidate-1-5-complete-models) |
-|  36 |  #1  |           **4** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 38.9%           | [list + models](#baseline-scale-n--36-candidate-1-4-complete-models) |
-|  37 |  #1  |           **3** | 8/8 (reasoning, math, knowledge, language, instruction, coding, agentic, context) |          8 / 8 / 40.5%           | [list + models](#baseline-scale-n--37-candidate-1-3-complete-models) |
+| $N$ | Rank | Complete Models |                  Covered Dimensions                   | Sources (Span / Excl / MaxShare) | Chosen Benchmarks                                                    |
+| --: | :--: | --------------: | :---------------------------------------------------: | :------------------------------: | -------------------------------------------------------------------- |
+|   8 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 12.5%           | [list + models](#baseline-scale-n--8-candidate-1-9-complete-models)  |
+|   9 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 11.1%           | [list + models](#baseline-scale-n--9-candidate-1-9-complete-models)  |
+|  10 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 20.0%           | [list + models](#baseline-scale-n--10-candidate-1-9-complete-models) |
+|  11 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 18.2%           | [list + models](#baseline-scale-n--11-candidate-1-9-complete-models) |
+|  12 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 16.7%           | [list + models](#baseline-scale-n--12-candidate-1-9-complete-models) |
+|  13 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 23.1%           | [list + models](#baseline-scale-n--13-candidate-1-9-complete-models) |
+|  14 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 21.4%           | [list + models](#baseline-scale-n--14-candidate-1-9-complete-models) |
+|  15 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 26.7%           | [list + models](#baseline-scale-n--15-candidate-1-9-complete-models) |
+|  16 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 25.0%           | [list + models](#baseline-scale-n--16-candidate-1-9-complete-models) |
+|  17 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 29.4%           | [list + models](#baseline-scale-n--17-candidate-1-9-complete-models) |
+|  18 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 33.3%           | [list + models](#baseline-scale-n--18-candidate-1-9-complete-models) |
+|  19 |  #1  |           **9** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 7 / 36.8%           | [list + models](#baseline-scale-n--19-candidate-1-9-complete-models) |
+|  20 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 20.0%           | [list + models](#baseline-scale-n--20-candidate-1-8-complete-models) |
+|  21 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 19.0%           | [list + models](#baseline-scale-n--21-candidate-1-8-complete-models) |
+|  22 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 22.7%           | [list + models](#baseline-scale-n--22-candidate-1-8-complete-models) |
+|  23 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 21.7%           | [list + models](#baseline-scale-n--23-candidate-1-8-complete-models) |
+|  24 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 25.0%           | [list + models](#baseline-scale-n--24-candidate-1-8-complete-models) |
+|  25 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 24.0%           | [list + models](#baseline-scale-n--25-candidate-1-8-complete-models) |
+|  26 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 26.9%           | [list + models](#baseline-scale-n--26-candidate-1-8-complete-models) |
+|  27 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 25.9%           | [list + models](#baseline-scale-n--27-candidate-1-8-complete-models) |
+|  28 |  #1  |           **8** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 28.6%           | [list + models](#baseline-scale-n--28-candidate-1-8-complete-models) |
+|  29 |  #1  |           **7** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 27.6%           | [list + models](#baseline-scale-n--29-candidate-1-7-complete-models) |
+|  30 |  #1  |           **7** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 33.3%           | [list + models](#baseline-scale-n--30-candidate-1-7-complete-models) |
+|  31 |  #1  |           **7** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 35.5%           | [list + models](#baseline-scale-n--31-candidate-1-7-complete-models) |
+|  32 |  #1  |           **7** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 37.5%           | [list + models](#baseline-scale-n--32-candidate-1-7-complete-models) |
+|  33 |  #1  |           **6** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 36.4%           | [list + models](#baseline-scale-n--33-candidate-1-6-complete-models) |
+|  34 |  #1  |           **6** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 38.2%           | [list + models](#baseline-scale-n--34-candidate-1-6-complete-models) |
+|  35 |  #1  |           **5** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 37.1%           | [list + models](#baseline-scale-n--35-candidate-1-5-complete-models) |
+|  36 |  #1  |           **4** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 38.9%           | [list + models](#baseline-scale-n--36-candidate-1-4-complete-models) |
+|  37 |  #1  |           **3** | 5/5 (reasoning, knowledge, coding, agentic, language) |          8 / 8 / 40.5%           | [list + models](#baseline-scale-n--37-candidate-1-3-complete-models) |
 
 ## 4. Unconstrained Candidate Details
 
 Complete qualified base-model lists and source composition for each optimal candidate combination in the unconstrained tradeoff curve.
 
-### Scale N = 8, Candidate #1 (22 complete models)
+### Scale N = 8, Candidate #1 (27 complete models)
 
-- **Chosen Benchmarks (8)**: `aa-lcr`, `aa-omniscience`, `gdpval-aa`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 37.5% -- `artificial-analysis` 5 (3 exclusive), `epoch-ai` 1 (0 exclusive), `livebench` 3 (3 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (22)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (8)**: `code-migration`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `medscribe`, `mmlu-pro`, `swe-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 3, `exclusiveSources` 1, `maxSourceShare` 75.0% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `vals-ai` 8 (6 exclusive)
+- **Complete Models (27)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-7`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `anthropic-claude-sonnet-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `xiaomi-mimo-v2-5-pro`, `zai-glm-5-1`, `zai-glm-5-2`
 
-### Scale N = 9, Candidate #1 (22 complete models)
+### Scale N = 9, Candidate #1 (27 complete models)
 
-- **Chosen Benchmarks (9)**: `aa-lcr`, `aa-omniscience`, `gdpval-aa`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `scicode`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 44.4% -- `artificial-analysis` 6 (4 exclusive), `epoch-ai` 1 (0 exclusive), `livebench` 3 (3 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (22)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (9)**: `code-migration`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 3, `exclusiveSources` 1, `maxSourceShare` 77.8% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `vals-ai` 9 (7 exclusive)
+- **Complete Models (27)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-7`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `anthropic-claude-sonnet-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `xiaomi-mimo-v2-5-pro`, `zai-glm-5-1`, `zai-glm-5-2`
 
-### Scale N = 10, Candidate #1 (22 complete models)
+### Scale N = 10, Candidate #1 (27 complete models)
 
-- **Chosen Benchmarks (10)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 50.0% -- `artificial-analysis` 6 (5 exclusive), `epoch-ai` 1 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 1 (0 exclusive)
-- **Complete Models (22)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (10)**: `code-migration`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 3, `exclusiveSources` 1, `maxSourceShare` 80.0% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `vals-ai` 10 (8 exclusive)
+- **Complete Models (27)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-7`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `anthropic-claude-sonnet-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `xiaomi-mimo-v2-5-pro`, `zai-glm-5-1`, `zai-glm-5-2`
 
-### Scale N = 11, Candidate #1 (22 complete models)
+### Scale N = 11, Candidate #1 (26 complete models)
 
-- **Chosen Benchmarks (11)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 45.5% -- `artificial-analysis` 7 (5 exclusive), `epoch-ai` 1 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (22)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (11)**: `code-migration`, `emb`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 3, `exclusiveSources` 1, `maxSourceShare` 81.8% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `vals-ai` 11 (9 exclusive)
+- **Complete Models (26)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-7`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `anthropic-claude-sonnet-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `xiaomi-mimo-v2-5-pro`, `zai-glm-5-2`
 
-### Scale N = 12, Candidate #1 (22 complete models)
+### Scale N = 12, Candidate #1 (25 complete models)
 
-- **Chosen Benchmarks (12)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 50.0% -- `artificial-analysis` 8 (6 exclusive), `epoch-ai` 1 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (22)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (12)**: `code-migration`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 3, `exclusiveSources` 1, `maxSourceShare` 75.0% -- `artificial-analysis` 2 (0 exclusive), `epoch-ai` 2 (0 exclusive), `vals-ai` 12 (9 exclusive)
+- **Complete Models (25)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `anthropic-claude-sonnet-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `xiaomi-mimo-v2-5-pro`, `zai-glm-5-1`, `zai-glm-5-2`
 
-### Scale N = 13, Candidate #1 (22 complete models)
+### Scale N = 13, Candidate #1 (24 complete models)
 
-- **Chosen Benchmarks (13)**: `aa-lcr`, `aa-omniscience`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 53.8% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 1 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (22)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (13)**: `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 53.8% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 9 (7 exclusive)
+- **Complete Models (24)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-4-mini`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 14, Candidate #1 (20 complete models)
+### Scale N = 14, Candidate #1 (24 complete models)
 
-- **Chosen Benchmarks (14)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 42.9% -- `artificial-analysis` 8 (6 exclusive), `epoch-ai` 3 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (20)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (14)**: `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 57.1% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 10 (8 exclusive)
+- **Complete Models (24)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-4-mini`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 15, Candidate #1 (20 complete models)
+### Scale N = 15, Candidate #1 (23 complete models)
 
-- **Chosen Benchmarks (15)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 46.7% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 3 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (20)**: `alibaba-qwen3-6-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `thinking-machines-inkling`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (15)**: `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 60.0% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 11 (9 exclusive)
+- **Complete Models (23)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 16, Candidate #1 (16 complete models)
+### Scale N = 16, Candidate #1 (23 complete models)
 
-- **Chosen Benchmarks (16)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 5, `exclusiveSources` 4, `maxSourceShare` 43.8% -- `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (16)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (16)**: `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 62.5% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 12 (10 exclusive)
+- **Complete Models (23)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 17, Candidate #1 (15 complete models)
+### Scale N = 17, Candidate #1 (22 complete models)
 
-- **Chosen Benchmarks (17)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `simpleqa-verified`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 5, `exclusiveSources` 4, `maxSourceShare` 41.2% -- `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (3 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive)
-- **Complete Models (15)**: `alibaba-qwen3-8-max`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-flash`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k2-7-code`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
+- **Chosen Benchmarks (17)**: `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 58.8% -- `artificial-analysis` 2 (0 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 13 (10 exclusive)
+- **Complete Models (22)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-1`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 18, Candidate #1 (15 complete models)
+### Scale N = 18, Candidate #1 (21 complete models)
 
-- **Chosen Benchmarks (18)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `swe-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 33.3% -- `artificial-analysis` 7 (6 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 8 (6 exclusive)
-- **Complete Models (15)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
+- **Chosen Benchmarks (18)**: `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 2, `maxSourceShare` 61.1% -- `artificial-analysis` 2 (0 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive)
+- **Complete Models (21)**: `alibaba-qwen3-6-plus`, `alibaba-qwen3-7-max`, `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 19, Candidate #1 (15 complete models)
+### Scale N = 19, Candidate #1 (19 complete models)
 
-- **Chosen Benchmarks (19)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `swe-bench`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 31.6% -- `artificial-analysis` 8 (6 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 9 (6 exclusive)
-- **Complete Models (15)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
+- **Chosen Benchmarks (19)**: `aime`, `chess-puzzles`, `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 57.9% -- `artificial-analysis` 1 (0 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 13 (11 exclusive)
+- **Complete Models (19)**: `alibaba-qwen3-7-max`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-5`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 20, Candidate #1 (15 complete models)
+### Scale N = 20, Candidate #1 (18 complete models)
 
-- **Chosen Benchmarks (20)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 35.0% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 9 (6 exclusive)
-- **Complete Models (15)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
+- **Chosen Benchmarks (20)**: `aime`, `chess-puzzles`, `code-migration`, `emb`, `finance-agent-v2`, `gpqa-diamond`, `hlab`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `swe-bench`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 55.0% -- `artificial-analysis` 2 (0 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive)
+- **Complete Models (18)**: `alibaba-qwen3-7-max`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-4-8`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `moonshot-kimi-k2-6`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 21, Candidate #1 (15 complete models)
+### Scale N = 21, Candidate #1 (18 complete models)
 
-- **Chosen Benchmarks (21)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 33.3% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 10 (7 exclusive)
-- **Complete Models (15)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
+- **Chosen Benchmarks (21)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 3, `exclusiveSources` 2, `maxSourceShare` 52.4% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `vals-ai` 14 (11 exclusive)
+- **Complete Models (18)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `anthropic-claude-sonnet-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `xiaomi-mimo-v2-5-pro`, `zai-glm-5-2`
 
-### Scale N = 22, Candidate #1 (14 complete models)
+### Scale N = 22, Candidate #1 (16 complete models)
 
 - **Chosen Benchmarks (22)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 36.4% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 11 (8 exclusive)
-- **Complete Models (14)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (16)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 23, Candidate #1 (14 complete models)
+### Scale N = 23, Candidate #1 (16 complete models)
 
 - **Chosen Benchmarks (23)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 39.1% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 12 (9 exclusive)
-- **Complete Models (14)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (16)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 24, Candidate #1 (14 complete models)
+### Scale N = 24, Candidate #1 (16 complete models)
 
 - **Chosen Benchmarks (24)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 41.7% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 13 (10 exclusive)
-- **Complete Models (14)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (16)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 25, Candidate #1 (14 complete models)
+### Scale N = 25, Candidate #1 (16 complete models)
 
 - **Chosen Benchmarks (25)**: `aa-lcr`, `aa-omniscience`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 3, `maxSourceShare` 44.0% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 2 (0 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive)
-- **Complete Models (14)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (16)**: `alibaba-qwen3-8-27b`, `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `meta-muse-spark-1-2`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 26, Candidate #1 (12 complete models)
+### Scale N = 26, Candidate #1 (14 complete models)
 
 - **Chosen Benchmarks (26)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 4, `maxSourceShare` 38.5% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 13 (10 exclusive)
-- **Complete Models (12)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (14)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 27, Candidate #1 (12 complete models)
+### Scale N = 27, Candidate #1 (14 complete models)
 
 - **Chosen Benchmarks (27)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 4, `maxSourceShare` 40.7% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive)
-- **Complete Models (12)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (14)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 28, Candidate #1 (11 complete models)
+### Scale N = 28, Candidate #1 (13 complete models)
 
 - **Chosen Benchmarks (28)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 4, `exclusiveSources` 4, `maxSourceShare` 42.9% -- `artificial-analysis` 9 (7 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
-- **Complete Models (11)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Complete Models (13)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 29, Candidate #1 (10 complete models)
+### Scale N = 29, Candidate #1 (12 complete models)
 
-- **Chosen Benchmarks (29)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 5, `exclusiveSources` 5, `maxSourceShare` 41.4% -- `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
-- **Complete Models (10)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Chosen Benchmarks (29)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `code-migration`, `critpt`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 4, `exclusiveSources` 4, `maxSourceShare` 41.4% -- `artificial-analysis` 10 (8 exclusive), `epoch-ai` 4 (2 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
+- **Complete Models (12)**: `alibaba-qwen3-8-max`, `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-1-pro-preview`, `google-gemini-3-5-flash-lite`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `minimax-minimax-m3`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 30, Candidate #1 (9 complete models)
+### Scale N = 30, Candidate #1 (10 complete models)
 
-- **Chosen Benchmarks (30)**: `aa-lcr`, `aa-omniscience`, `aime`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 5, `exclusiveSources` 5, `maxSourceShare` 40.0% -- `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
-- **Complete Models (9)**: `alibaba-qwen3-8-max`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-1-pro-preview`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Chosen Benchmarks (30)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 7, `exclusiveSources` 7, `maxSourceShare` 36.7% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive)
+- **Complete Models (10)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 31, Candidate #1 (8 complete models)
+### Scale N = 31, Candidate #1 (9 complete models)
 
-- **Chosen Benchmarks (31)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 7, `exclusiveSources` 7, `maxSourceShare` 38.7% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
-- **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Chosen Benchmarks (31)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 7, `exclusiveSources` 7, `maxSourceShare` 35.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive)
+- **Complete Models (9)**: `anthropic-claude-opus-5`, `deepseek-deepseek-v4-pro`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 32, Candidate #1 (7 complete models)
+### Scale N = 32, Candidate #1 (8 complete models)
 
-- **Chosen Benchmarks (32)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 37.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive), `zapier-automationbench` 1 (1 exclusive)
-- **Complete Models (7)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Chosen Benchmarks (32)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 7, `exclusiveSources` 7, `maxSourceShare` 37.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
+- **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
-### Scale N = 33, Candidate #1 (6 complete models)
+### Scale N = 33, Candidate #1 (7 complete models)
 
-- **Chosen Benchmarks (33)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 36.4% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive), `zapier-automationbench` 1 (1 exclusive)
-- **Complete Models (6)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Chosen Benchmarks (33)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 7, `exclusiveSources` 7, `maxSourceShare` 36.4% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive)
+- **Complete Models (7)**: `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `xai-grok-4-5`, `xai-grok-4-6`, `zai-glm-5-2`
 
 ### Scale N = 34, Candidate #1 (6 complete models)
 
 - **Chosen Benchmarks (34)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 38.2% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 16 (13 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (6)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Scale N = 35, Candidate #1 (5 complete models)
 
 - **Chosen Benchmarks (35)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 37.1% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 16 (13 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (5)**: `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Scale N = 36, Candidate #1 (4 complete models)
 
 - **Chosen Benchmarks (36)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `simpleqa-verified`, `skillsbench`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 38.9% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 17 (14 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (4)**: `anthropic-claude-opus-5`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Scale N = 37, Candidate #1 (3 complete models)
 
 - **Chosen Benchmarks (37)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `proofbench`, `scicode`, `simpleqa-verified`, `skillsbench`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 40.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 18 (15 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (3)**: `anthropic-claude-opus-5`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`
 
@@ -365,206 +366,213 @@ Complete qualified base-model lists and source composition for each optimal cand
 
 Complete qualified base-model lists and source composition for each candidate combination in the baseline tradeoff curve.
 
-### Baseline Scale N = 9, Candidate #1 (7 complete models)
+### Baseline Scale N = 8, Candidate #1 (9 complete models)
 
-- **Chosen Benchmarks (9)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `deepswe-1-1`, `frontier-code-1-1`, `livebench-instruction-following`, `medscribe`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 22.2% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 2 (2 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 1 (1 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 1 (1 exclusive), `vals-ai` 1 (1 exclusive), `zapier-automationbench` 1 (1 exclusive)
-- **Complete Models (7)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
+- **Chosen Benchmarks (8)**: `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 12.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 2 (1 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 2 (1 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 1 (1 exclusive), `vals-ai` 1 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
+- **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
+
+### Baseline Scale N = 9, Candidate #1 (9 complete models)
+
+- **Chosen Benchmarks (9)**: `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `terminal-bench-2-1`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 11.1% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 3 (1 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 2 (1 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 1 (1 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
+- **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 10, Candidate #1 (9 complete models)
 
-- **Chosen Benchmarks (10)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
-- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 20.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 3 (2 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 2 (1 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 2 (2 exclusive), `vals-ai` 1 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
+- **Chosen Benchmarks (10)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
+- **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 20.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 3 (2 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 1 (1 exclusive), `vals-ai` 1 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 11, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (11)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 18.2% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 3 (2 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 2 (2 exclusive), `vals-ai` 1 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 12, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (12)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 16.7% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 4 (2 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 2 (2 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 13, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (13)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 23.1% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 4 (3 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 3 (3 exclusive), `vals-ai` 1 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 14, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (14)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 21.4% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 5 (3 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 3 (3 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 15, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (15)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 26.7% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 5 (4 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 1 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 16, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (16)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 25.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 6 (4 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 17, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (17)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 29.4% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 7 (5 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 18, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (18)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 33.3% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 8 (6 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 19, Candidate #1 (9 complete models)
 
 - **Chosen Benchmarks (19)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `critpt`, `deepswe-1-1`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `humanitys-last-exam`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 7, `maxSourceShare` 36.8% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 3 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 2 (0 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (9)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `moonshot-kimi-k3`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 20, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (20)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `swe-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 20.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 5 (4 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 6 (4 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 21, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (21)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `swe-bench`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 19.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 6 (4 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 7 (4 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 22, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (22)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `swe-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 22.7% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 6 (5 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 7 (5 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 23, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (23)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `swe-bench`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 21.7% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 7 (5 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 8 (5 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 24, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (24)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `swe-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 25.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 7 (6 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 8 (6 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 25, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (25)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `scicode`, `swe-bench`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 24.0% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 8 (6 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 9 (6 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 26, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (26)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 26.9% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 8 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 9 (7 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 27, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (27)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 25.9% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 10 (7 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 28, Candidate #1 (8 complete models)
 
 - **Chosen Benchmarks (28)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 28.6% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 11 (8 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (8)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 29, Candidate #1 (7 complete models)
 
 - **Chosen Benchmarks (29)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `programbench`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 27.6% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 11 (8 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (7)**: `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `openai-gpt-5-6-terra`, `zai-glm-5-2`
 
 ### Baseline Scale N = 30, Candidate #1 (7 complete models)
 
 - **Chosen Benchmarks (30)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 33.3% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 13 (10 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (7)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 31, Candidate #1 (7 complete models)
 
 - **Chosen Benchmarks (31)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 35.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 14 (11 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (7)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 32, Candidate #1 (7 complete models)
 
 - **Chosen Benchmarks (32)**: `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 37.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 9 (7 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (7)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-luna`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 33, Candidate #1 (6 complete models)
 
 - **Chosen Benchmarks (33)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 36.4% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 15 (12 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (6)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 34, Candidate #1 (6 complete models)
 
 - **Chosen Benchmarks (34)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 38.2% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 4 (2 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 16 (13 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (6)**: `anthropic-claude-fable-5`, `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 35, Candidate #1 (5 complete models)
 
 - **Chosen Benchmarks (35)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `simpleqa-verified`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 37.1% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 16 (13 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (5)**: `anthropic-claude-opus-5`, `google-gemini-3-6-flash`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 36, Candidate #1 (4 complete models)
 
 - **Chosen Benchmarks (36)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `scicode`, `simpleqa-verified`, `skillsbench`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 38.9% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 17 (14 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (4)**: `anthropic-claude-opus-5`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`, `zai-glm-5-2`
 
 ### Baseline Scale N = 37, Candidate #1 (3 complete models)
 
 - **Chosen Benchmarks (37)**: `aa-briefcase`, `aa-lcr`, `aa-omniscience`, `aime`, `arc-agi-2`, `automationbench`, `chess-puzzles`, `code-migration`, `critpt`, `deepswe-1-1`, `emb`, `finance-agent-v2`, `frontier-code-1-1`, `gdpval-aa`, `gpqa-diamond`, `hlab`, `humanitys-last-exam`, `legal-bench`, `legal-research`, `livebench-instruction-following`, `livebench-language`, `livebench-mathematics`, `livebench-reasoning`, `livecodebench`, `medcode`, `medscribe`, `mmlu-pro`, `programbench`, `proofbench`, `scicode`, `simpleqa-verified`, `skillsbench`, `swe-bench`, `tau3-banking`, `tax-eval-v2`, `terminal-bench-2-1`, `vibe-code-bench`
-- **Covered Dimensions (8/8)**: reasoning, math, knowledge, language, instruction, coding, agentic, context
+- **Covered Dimensions (5/5)**: reasoning, knowledge, coding, agentic, language
 - **Source Composition**: `sourceSpan` 8, `exclusiveSources` 8, `maxSourceShare` 40.5% -- `arc-prize` 1 (1 exclusive), `artificial-analysis` 10 (8 exclusive), `deepswe` 1 (1 exclusive), `epoch-ai` 5 (3 exclusive), `frontier-code` 1 (1 exclusive), `livebench` 4 (4 exclusive), `vals-ai` 18 (15 exclusive), `zapier-automationbench` 1 (1 exclusive)
 - **Complete Models (3)**: `anthropic-claude-opus-5`, `google-gemini-3-7-flash`, `openai-gpt-5-6-sol`
 
@@ -621,10 +629,10 @@ Presence indicates that SOME product profile of the qualified base model has an 
 | GPT-5.6 Terra            | `openai-gpt-5-6-terra`            | 41/46 |        33/46 |       -        |    ✓     |        ✓         |   ✓    |       ✓       |      ✓      |         ✓         |        ✓        |        ✓         |     ✓     |    ✓     |    -    |       ✓       |   ✓    |         ✓          |          ✓          |       -        |           -           |      ✓      |       ✓        |   ✓    |           ✓           |     ✓     |   ✓    |       ✓       |        ✓         |                 ✓                 |          ✓           |            ✓            |           ✓           |        ✓        |     ✓     |      ✓      |     ✓      |       ✓        |      ✓       |            ✓            |       -       |     ✓     |          ✓          |       ✓       |      ✓      |       ✓        |       ✓       |          ✓           |         ✓         |
 | Inkling                  | `thinking-machines-inkling`       | 19/46 |        19/46 |       ✓        |    ✓     |        ✓         |   ✓    |       -       |      ✓      |         -         |        ✓        |        -         |     -     |    ✓     |    -    |       -       |   -    |         -          |          ✓          |       -        |           -           |      ✓      |       ✓        |   -    |           ✓           |     -     |   -    |       -       |        -         |                 ✓                 |          ✓           |            ✓            |           ✓           |        -        |     -     |      -      |     -      |       -        |      -       |            -            |       -       |     ✓     |          ✓          |       -       |      -      |       ✓        |       -       |          ✓           |         -         |
 | Grok 4.3                 | `xai-grok-4-3`                    | 14/46 |        11/46 |       -        |    ✓     |        ✓         |   -    |       -       |      -      |         -         |        -        |        -         |     -     |    ✓     |    -    |       -       |   -    |         -          |          -          |       -        |           -           |      ✓      |       ✓        |   -    |           ✓           |     ✓     |   -    |       -       |        -         |                 ✓                 |          ✓           |            ✓            |           ✓           |        -        |     -     |      -      |     -      |       -        |      -       |            -            |       -       |     ✓     |          -          |       -       |      -      |       ✓        |       -       |          ✓           |         -         |
-| Grok 4.5                 | `xai-grok-4-5`                    | 20/46 |        20/46 |       ✓        |    ✓     |        ✓         |   ✓    |       -       |      ✓      |         -         |        ✓        |        -         |     -     |    ✓     |    -    |       ✓       |   -    |         -          |          ✓          |       -        |           -           |      ✓      |       ✓        |   -    |           ✓           |     -     |   -    |       -       |        -         |                 ✓                 |          ✓           |            ✓            |           ✓           |        -        |     -     |      -      |     -      |       -        |      -       |            -            |       -       |     ✓     |          ✓          |       -       |      -      |       ✓        |       -       |          ✓           |         -         |
-| Grok 4.6                 | `xai-grok-4-6`                    | 20/46 |        20/46 |       ✓        |    ✓     |        ✓         |   ✓    |       -       |      ✓      |         -         |        ✓        |        -         |     -     |    ✓     |    -    |       ✓       |   -    |         -          |          ✓          |       -        |           -           |      ✓      |       ✓        |   -    |           ✓           |     -     |   -    |       -       |        -         |                 ✓                 |          ✓           |            ✓            |           ✓           |        -        |     -     |      -      |     -      |       -        |      -       |            -            |       -       |     ✓     |          ✓          |       -       |      -      |       ✓        |       -       |          ✓           |         -         |
+| Grok 4.5                 | `xai-grok-4-5`                    | 38/46 |        38/46 |       ✓        |    ✓     |        ✓         |   ✓    |       -       |      ✓      |         -         |        ✓        |        ✓         |     ✓     |    ✓     |    -    |       ✓       |   ✓    |         ✓          |          ✓          |       -        |           -           |      ✓      |       ✓        |   ✓    |           ✓           |     -     |   -    |       ✓       |        ✓         |                 ✓                 |          ✓           |            ✓            |           ✓           |        ✓        |     ✓     |      ✓      |     ✓      |       ✓        |      ✓       |            -            |       ✓       |     ✓     |          ✓          |       ✓       |      ✓      |       ✓        |       ✓       |          ✓           |         ✓         |
+| Grok 4.6                 | `xai-grok-4-6`                    | 37/46 |        37/46 |       ✓        |    ✓     |        ✓         |   ✓    |       -       |      ✓      |         -         |        ✓        |        ✓         |     ✓     |    ✓     |    -    |       ✓       |   ✓    |         ✓          |          ✓          |       -        |           -           |      ✓      |       ✓        |   ✓    |           ✓           |     -     |   -    |       ✓       |        ✓         |                 ✓                 |          ✓           |            ✓            |           ✓           |        ✓        |     ✓     |      ✓      |     ✓      |       -        |      ✓       |            ✓            |       -       |     ✓     |          ✓          |       ✓       |      ✓      |       ✓        |       ✓       |          ✓           |         ✓         |
 | Grok Build 0.1           | `xai-grok-build-0-1`              |  4/46 |         4/46 |       -        |    -     |        -         |   -    |       -       |      -      |         -         |        -        |        -         |     -     |    -     |    -    |       -       |   -    |         -          |          -          |       -        |           -           |      -      |       -        |   -    |           -           |     -     |   -    |       -       |        -         |                 ✓                 |          ✓           |            ✓            |           ✓           |        -        |     -     |      -      |     -      |       -        |      -       |            -            |       -       |     -     |          -          |       -       |      -      |       -        |       -       |          -           |         -         |
 | MiMo V2.5 Pro            | `xiaomi-mimo-v2-5-pro`            | 27/46 |        27/46 |       ✓        |    ✓     |        ✓         |   -    |       ✓       |      -      |         -         |        -        |        ✓         |     ✓     |    ✓     |    -    |       -       |   ✓    |         ✓          |          -          |       -        |           -           |      ✓      |       ✓        |   ✓    |           ✓           |     ✓     |   -    |       ✓       |        ✓         |                 -                 |          -           |            -            |           -           |        ✓        |     ✓     |      ✓      |     ✓      |       -        |      ✓       |            -            |       -       |     ✓     |          -          |       -       |      ✓      |       ✓        |       ✓       |          ✓           |         ✓         |
 | GLM-5.1                  | `zai-glm-5-1`                     | 23/46 |        23/46 |       -        |    -     |        -         |   ✓    |       -       |      -      |         ✓         |        ✓        |        ✓         |     ✓     |    -     |    -    |       -       |   -    |         ✓          |          -          |       ✓        |           ✓           |      -      |       ✓        |   ✓    |           -           |     -     |   -    |       ✓       |        ✓         |                 -                 |          -           |            -            |           -           |        ✓        |     ✓     |      ✓      |     ✓      |       ✓        |      -       |            ✓            |       -       |     -     |          ✓          |       -       |      ✓      |       -        |       ✓       |          ✓           |         ✓         |
 | GLM-5.2                  | `zai-glm-5-2`                     | 41/46 |        41/46 |       ✓        |    ✓     |        ✓         |   ✓    |       ✓       |      ✓      |         ✓         |        ✓        |        ✓         |     ✓     |    ✓     |    ✓    |       ✓       |   ✓    |         ✓          |          ✓          |       -        |           -           |      ✓      |       ✓        |   ✓    |           ✓           |     ✓     |   -    |       ✓       |        ✓         |                 ✓                 |          ✓           |            ✓            |           ✓           |        ✓        |     ✓     |      ✓      |     ✓      |       ✓        |      -       |            -            |       ✓       |     ✓     |          ✓          |       ✓       |      ✓      |       ✓        |       ✓       |          ✓           |         ✓         |
-| **Total Models Covered** | —                                 |     — |            — |     **20**     |  **27**  |      **27**      | **39** |     **7**     |   **27**    |      **22**       |     **39**      |      **30**      |  **30**   |  **28**  | **16**  |    **24**     | **29** |       **30**       |       **23**        |     **18**     |        **19**         |   **27**    |     **47**     | **30** |        **27**         |  **12**   | **14** |    **30**     |      **30**      |              **41**               |        **41**        |         **41**          |        **41**         |     **30**      |  **29**   |   **29**    |   **31**   |     **25**     |    **15**    |         **20**          |     **4**     |  **27**   |       **36**        |    **18**     |   **38**    |     **27**     |    **32**     |        **38**        |      **37**       |
+| **Total Models Covered** | —                                 |     — |            — |     **20**     |  **27**  |      **27**      | **39** |     **7**     |   **27**    |      **22**       |     **39**      |      **32**      |  **32**   |  **28**  | **16**  |    **24**     | **31** |       **32**       |       **23**        |     **18**     |        **19**         |   **27**    |     **47**     | **32** |        **27**         |  **12**   | **14** |    **32**     |      **32**      |              **41**               |        **41**        |         **41**          |        **41**         |     **32**      |  **31**   |   **31**    |   **33**   |     **26**     |    **17**    |         **21**          |     **5**     |  **27**   |       **36**        |    **20**     |   **40**    |     **27**     |    **34**     |        **38**        |      **39**       |

@@ -102,7 +102,7 @@ A 到 N 已完成，紀錄在 [docs/history/PHASE_A_TO_N.md](../docs/history/PHA
 
 ## O2 — preset 與取捨曲線以五維重新產生
 
-狀態：未開始
+狀態：完成
 
 **目的**：完整性判定逐維度進行（R12），維度集合變動後所有 preset 的完整模型數都要重算。
 

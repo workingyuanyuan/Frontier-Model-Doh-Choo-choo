@@ -480,8 +480,8 @@ export const validateDisplaySet = (
       );
     }
 
-    // D-N10-3: a preset is now the scoring basis, so one that cannot fill all
-    // eight dimensions would publish an Overall Score nobody can reach.
+    // D-N10-3: a preset is now the scoring basis, so one that cannot fill
+    // every dimension would publish an Overall Score nobody can reach.
     const covered = new Set(
       preset.benchmarkIds.map(
         (id) => knownBenchmarks.get(id)!.primaryDimension,
