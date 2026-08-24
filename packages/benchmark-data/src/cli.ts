@@ -25,7 +25,7 @@ export const runProductVersionCli = async (
 
   if (command === 'write-current') {
     if (!first) throw new Error(usage);
-    const root = resolve(second ?? 'data-v2/product');
+    const root = resolve(second ?? 'data/product');
     const version = ProductVersionSchema.parse(
       JSON.parse(await readFile(resolve(first), 'utf8')),
     );

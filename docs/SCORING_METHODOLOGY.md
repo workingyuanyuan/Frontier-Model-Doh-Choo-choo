@@ -13,7 +13,7 @@
 | Context     | CTX     | 長輸入檢索、跨文件整合、追蹤與長時程狀態維持 |
 | Instruction | IF      | 顯式要求、格式／內容限制與任務規格遵循       |
 
-Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `data-v2/mappings/benchmarks.json` 控制；主要維度、跨維關聯、理由與限制見 [Benchmark 八維映射](BENCHMARK_DIMENSION_MAPPING.md)。
+Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `data/mappings/benchmarks.json` 控制；主要維度、跨維關聯、理由與限制見 [Benchmark 八維映射](BENCHMARK_DIMENSION_MAPPING.md)。
 
 ## Benchmark 納入規則
 
@@ -56,7 +56,7 @@ Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profile
 
 ## 顯示門檻與 Developer mode
 
-- `data-v2/mappings/display-set.json` 是人工維護的 benchmark 清單；建置流程只驗證 ID，不自動選擇內容。
+- `data/mappings/display-set.json` 是人工維護的 benchmark 清單；建置流程只驗證 ID，不自動選擇內容。
 - Profile 必須對清單每一個 benchmark 有 INCLUDED、非 null normalized score，且八個渲染維度都非 null，才能進主畫面。
 - Developer mode 只列出被排除模型缺少的 benchmark 格子；不計算或曝光 Overall／維度聚合，不補缺值、不發布資料。
 

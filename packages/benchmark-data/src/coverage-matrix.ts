@@ -196,7 +196,7 @@ export const loadWorkspaceCoverageData = async (
   repositoryRoot: string,
 ): Promise<WorkspaceCoverageData> => {
   const root = resolve(repositoryRoot);
-  const dataRoot = join(root, 'data-v2');
+  const dataRoot = join(root, 'data');
 
   const sourcesConfig = SourcesConfigSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'sources.json')),
@@ -1111,7 +1111,7 @@ export const formatCoverageMatrixMarkdown = (
   const smallestFeasibleAllSources = baseline?.tradeoffs[0]?.benchmarkCount;
   if (analysis.requiredModelIds.length > 0) {
     lines.push(
-      `- **Pinned models (${analysis.requiredModelIds.length})**: ${analysis.requiredModelIds.map((id) => `\`${id}\``).join(', ')} -- every combination below leaves these complete, per \`data-v2/mappings/display-set-policy.json\`. Maximising the model count says nothing about which models survive; this is how a model the leaderboard exists to show is kept in.`,
+      `- **Pinned models (${analysis.requiredModelIds.length})**: ${analysis.requiredModelIds.map((id) => `\`${id}\``).join(', ')} -- every combination below leaves these complete, per \`data/mappings/display-set-policy.json\`. Maximising the model count says nothing about which models survive; this is how a model the leaderboard exists to show is kept in.`,
     );
   }
   lines.push(
@@ -1132,7 +1132,7 @@ export const formatCoverageMatrixMarkdown = (
   lines.push(
     '> [!NOTE]',
     '> This report is Gate 2 review material (`docs/REFACTOR_SPEC_V2.md` §5.3, `tasks/claude-code-plan.md` D3).',
-    '> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data-v2/mappings/display-set.json`.',
+    '> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data/mappings/display-set.json`.',
     '> It does not modify `display-set.json`.',
     '> A model counts as complete when ONE of its product profiles carries every benchmark in the set. That is the same bar the main screen applies, so the complete-model count is the row count, not an upper bound on it. Counting a model complete because several of its profiles union to the set overstated it, since no single profile could then be scored.',
   );

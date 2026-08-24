@@ -141,7 +141,7 @@ export function extractFrontierCodeTopTen(
 
 // FrontierCode keys some configurations by a sampling parameter rather than a
 // reasoning effort (Inkling is keyed "0.99"). Only the efforts declared in
-// data-v2/mappings/profile-policy.json may become a product profile; anything
+// data/mappings/profile-policy.json may become a product profile; anything
 // else is treated as unlabelled. The raw key stays in the provenance locator.
 const sourceEffort = (rawEffort: string): string | null =>
   normalizeSourceEffort(rawEffort);

@@ -12,7 +12,7 @@ packages/acquisition
   擷取、物化、hash、列數與完整性驗證
         │
         ├── artifacts/sha256/...       原始 bytes（Git 外）
-        └── data-v2/sources/<source>/     可審查的結構化結果（Git 內）
+        └── data/sources/<source>/     可審查的結構化結果（Git 內）
                          │
                          ▼
 packages/benchmark-data
@@ -20,7 +20,7 @@ packages/benchmark-data
          → Frontier → 八維計分 → deterministic ProductVersion
                          │
                          ▼
-               data-v2/product/current.json
+               data/product/current.json
                          │
                          ▼
                     apps/bench
@@ -37,7 +37,7 @@ packages/benchmark-data
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
 - Leaderboard、Quality vs. Cost、Eight Dimensions 與 Included／Excluded Evidence。
 - 主畫面只顯示通過 `display-set.json` 完整矩陣且八個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
-- 靜態／standalone 建置不讀取 `data-v2/sources` 或 `artifacts`。
+- 靜態／standalone 建置不讀取 `data/sources` 或 `artifacts`。
 
 ### `packages/benchmark-data`
 
@@ -54,7 +54,7 @@ packages/benchmark-data
 - 驗證 Candidate／CostRecord 引用的 Evidence 存在。
 - 來源刷新只產生候選資料，不直接改變產品資料檔。
 
-### `data-v2`
+### `data`
 
 - `mappings/`：可修改的 Benchmark、模型 alias、Frontier 與 Profile policy。
 - `sources/`：每站 manifest、evidence-index、candidates、costs 與 validation report。
@@ -70,7 +70,7 @@ packages/benchmark-data
 verified sources
       │ build-current
       ▼
-data-v2/product/current.json ──► apps/bench static build
+data/product/current.json ──► apps/bench static build
       │
       └── Git commit records the deployed data version
 ```
@@ -95,7 +95,7 @@ data-v2/product/current.json ──► apps/bench static build
 | ------------------------------------------------------ | ---------------------------------------------- |
 | 舊 `apps/web` 多頁、雙語、雙主題 UI                    | `apps/bench` 單頁英文淺色 Dashboard            |
 | `apps/worker` 與 LiveBench 專用 ingest／score／promote | 通用 `packages/acquisition` + `benchmark-data` |
-| PostgreSQL、Drizzle、migration、seed、Compose          | Git 內 `data-v2` 靜態資料與 JSON               |
+| PostgreSQL、Drizzle、migration、seed、Compose          | Git 內 `data` 靜態資料與 JSON                  |
 | Edition、PREVIEW／FORMAL、revision／publication 契約   | 單一 `current.json` 與內容 hash                |
 | Edition-bound Remotion 影片                            | 不屬 MVP；無保留介面                           |
 | 舊 Connector、scoring、presentation package graph      | 新資料工作區中實際使用的獨立模組               |

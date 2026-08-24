@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch:
 
-# The dashboard is a static export of data-v2/product/current.json, so a
+# The dashboard is a static export of data/product/current.json, so a
 # deployment carries no secrets and needs no runtime environment.
 permissions:
   contents: read

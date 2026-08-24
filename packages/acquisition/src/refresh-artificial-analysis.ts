@@ -32,7 +32,7 @@ const DETAIL_CONCURRENCY = 8;
 const getWorkspaceRoot = (): string => {
   let directory = process.cwd();
   while (true) {
-    if (existsSync(join(directory, 'data-v2'))) return directory;
+    if (existsSync(join(directory, 'data'))) return directory;
     const parent = resolve(directory, '..');
     if (parent === directory) throw new Error('Workspace root not found');
     directory = parent;
@@ -252,7 +252,7 @@ const main = async () => {
     );
   }
   const retrievedAt = new Date().toISOString();
-  const sourceDirectory = join(root, 'data-v2', 'sources', SOURCE_ID);
+  const sourceDirectory = join(root, 'data', 'sources', SOURCE_ID);
   const previousManifest = await readJson<{ notes?: string[] }>(
     join(sourceDirectory, 'manifest.json'),
   );

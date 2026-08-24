@@ -29,7 +29,7 @@ const prettyDeterministicJson = (value: unknown): string =>
 function getWorkspaceRoot(): string {
   let dir = process.cwd();
   while (true) {
-    if (existsSync(join(dir, 'data-v2'))) {
+    if (existsSync(join(dir, 'data'))) {
       return dir;
     }
     const parent = dirname(dir);
@@ -78,7 +78,7 @@ const appendEffortInferenceReports = (
   repoRoot: string,
   sourceIds: readonly string[],
 ): void => {
-  const sourceRoot = join(repoRoot, 'data-v2', 'sources');
+  const sourceRoot = join(repoRoot, 'data', 'sources');
   const allCandidates = sourceIds.flatMap((sourceId) => {
     const path = join(sourceRoot, sourceId, 'candidates.json');
     return CandidateResultSchema.array().parse(
@@ -88,7 +88,7 @@ const appendEffortInferenceReports = (
   const policy = ProfilePolicySchema.parse(
     JSON.parse(
       readFileSync(
-        join(repoRoot, 'data-v2', 'mappings', 'profile-policy.json'),
+        join(repoRoot, 'data', 'mappings', 'profile-policy.json'),
         'utf8',
       ),
     ),
@@ -142,7 +142,7 @@ function main() {
   ];
 
   for (const src of sources) {
-    const sourceDir = join(repoRoot, 'data-v2', 'sources', src.id);
+    const sourceDir = join(repoRoot, 'data', 'sources', src.id);
     const indexFile = join(sourceDir, 'evidence-index.json');
 
     console.log(`Processing source ${src.id}...`);

@@ -23,13 +23,13 @@ import { getWorkspaceRoot } from './refresh-utils.js';
 const readSourceIds = async (root: string): Promise<readonly string[]> =>
   SourcesConfigSchema.parse(
     JSON.parse(
-      await readFile(join(root, 'data-v2', 'mappings', 'sources.json'), 'utf8'),
+      await readFile(join(root, 'data', 'mappings', 'sources.json'), 'utf8'),
     ),
   ).whitelist;
 
 async function main() {
   const root = resolve(process.argv[2] ?? getWorkspaceRoot());
-  const sourceRoot = join(root, 'data-v2', 'sources');
+  const sourceRoot = join(root, 'data', 'sources');
   const sourceIds = await readSourceIds(root);
   const candidatesBySource = new Map(
     await Promise.all(
@@ -55,7 +55,7 @@ async function main() {
   const policy = ProfilePolicySchema.parse(
     JSON.parse(
       await readFile(
-        join(root, 'data-v2', 'mappings', 'profile-policy.json'),
+        join(root, 'data', 'mappings', 'profile-policy.json'),
         'utf8',
       ),
     ),

@@ -7,7 +7,7 @@
 
 本文件是「來源分類與時效登錄」，不是一般連結收藏，也**不是匯入授權**。來源分類採 **Benchmark 主辦方／獨立評測者／廠商自報**，且分類單位是「一筆結果」，不是整個網站。
 
-**允許進入 ProductVersion 的來源白名單是 `data-v2/mappings/sources.json`**，目前只有 Artificial Analysis、LiveBench、DeepSWE 與 Cognition Frontier Code 四個來源（見 [重構規格 §3](REFACTOR_SPEC_V2.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
+**允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json`**，目前只有 Artificial Analysis、LiveBench、DeepSWE 與 Cognition Frontier Code 四個來源（見 [重構規格 §3](REFACTOR_SPEC_V2.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
 
 ## 採用與覆蓋規則
 

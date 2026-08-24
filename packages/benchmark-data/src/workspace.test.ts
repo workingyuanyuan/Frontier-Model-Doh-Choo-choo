@@ -71,7 +71,7 @@ describe('buildWorkspaceProduct', () => {
     const policy = DisplaySetPolicySchema.parse(
       JSON.parse(
         await readFile(
-          join(root, 'data-v2', 'mappings', 'display-set-policy.json'),
+          join(root, 'data', 'mappings', 'display-set-policy.json'),
           'utf8',
         ),
       ),
@@ -199,7 +199,7 @@ describe('buildWorkspaceProduct', () => {
     ).toBe(true);
   });
 
-  it('ignores frozen or non-whitelisted source directories in data-v2/sources without error', async () => {
+  it('ignores frozen or non-whitelisted source directories in data/sources without error', async () => {
     const root = resolve(import.meta.dirname, '../../..');
     const baseline = await buildWorkspaceProduct(
       root,
@@ -208,7 +208,7 @@ describe('buildWorkspaceProduct', () => {
 
     const dummyDir = join(
       root,
-      'data-v2',
+      'data',
       'sources',
       'dummy-unwhitelisted-source',
     );

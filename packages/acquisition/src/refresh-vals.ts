@@ -62,7 +62,7 @@ async function main() {
     .find((argument) => !argument.startsWith('--'));
   const root = resolve(rootArgument ?? getWorkspaceRoot());
   const retrievedAt = new Date().toISOString();
-  const sourceDirectory = join(root, 'data-v2', 'sources', VALS_SOURCE_ID);
+  const sourceDirectory = join(root, 'data', 'sources', VALS_SOURCE_ID);
   const previousCandidates = await readJson<CandidateResult[]>(
     join(sourceDirectory, 'candidates.json'),
   ).catch(() => [] as CandidateResult[]);
@@ -73,7 +73,7 @@ async function main() {
     join(sourceDirectory, 'validation-report.md'),
   ).catch(() => '');
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
-    await readJson(join(root, 'data-v2', 'mappings', 'benchmarks.json')),
+    await readJson(join(root, 'data', 'mappings', 'benchmarks.json')),
   );
 
   const index = await captureArtifact({

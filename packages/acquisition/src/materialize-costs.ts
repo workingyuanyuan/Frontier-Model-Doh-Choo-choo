@@ -32,7 +32,7 @@ const prettyDeterministicJson = (value: unknown): string =>
 const getWorkspaceRoot = (): string => {
   let directory = process.cwd();
   while (true) {
-    if (existsSync(join(directory, 'data-v2'))) return directory;
+    if (existsSync(join(directory, 'data'))) return directory;
     const parent = dirname(directory);
     if (parent === directory) throw new Error('Workspace root not found');
     directory = parent;
@@ -50,7 +50,7 @@ const findEvidence = (
 
 async function main() {
   const root = resolve(process.argv[2] ?? getWorkspaceRoot());
-  const sourcesRoot = join(root, 'data-v2', 'sources');
+  const sourcesRoot = join(root, 'data', 'sources');
 
   const aaIndexPath = join(
     sourcesRoot,

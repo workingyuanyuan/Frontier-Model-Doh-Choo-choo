@@ -45,7 +45,7 @@
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
-`data-v2/sources/` 底下這些目錄**原地保留、內容不得修改**：
+`data/sources/` 底下這些目錄**原地保留、內容不得修改**：
 
 ```
 lech-writing  llm-stats  openai  osworld
@@ -110,7 +110,7 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 | Agentic   | 在可操作環境中多步執行：工具選擇、搜尋、狀態更新與任務完成，且評估端點不由程式碼產物主導。 |
 | Language  | 理解與產生自然語言，並依語義、形式與使用者指定的限制控制輸出。                             |
 
-`data-v2/mappings/benchmarks.json` 的 `dimensions` 陣列與每筆 benchmark 的
+`data/mappings/benchmarks.json` 的 `dimensions` 陣列與每筆 benchmark 的
 `primaryDimension` 使用這五個值。`secondaryDimensions` 使用同一組值，維持去重，
 目前只由 `coverage-matrix.ts` 讀取，不參與計分。
 
@@ -315,11 +315,11 @@ frontiermath × gpqa-diamond 0.78，與 reasoning 的組內相關（0.65）同�
 
 `releaseDate` 仍應盡量回填（Artificial Analysis payload 的 `release_date` 與 Frontier Code export 都有此欄位），但那是資料品質工作，不是上榜的前提。
 
-`data-v2/mappings/frontier.json` 的 `compositeSources`（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index 的 Top-N 選模）**全部移除**。`manualModels` 保留，作為新品尚未被任何綜合榜收錄時的逃生口。
+`data/mappings/frontier.json` 的 `compositeSources`（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index 的 Top-N 選模）**全部移除**。`manualModels` 保留，作為新品尚未被任何綜合榜收錄時的逃生口。
 
 ### 5.2 顯示清單與完整矩陣
 
-新增設定檔 `data-v2/mappings/display-set.json`，內容是一組固定的 benchmark ID。
+新增設定檔 `data/mappings/display-set.json`，內容是一組固定的 benchmark ID。
 
 - 模型必須在顯示清單的**每一項**上都有分數，才會出現在主畫面。
 - 缺任何一項 → 不進主畫面，進開發者模式。
@@ -430,7 +430,7 @@ benchmark 數與同一個模型支援 bitmask 之下，維度 bitmask（在來�
 benchmark 中有 37 個、只缺 `corpfin` 一個，於是被排除在主畫面之外；使用者裁定那樣的榜單沒有用。
 
 因此新增 `requiredModelIds`：報告與 preset 生成只考慮**讓指定模型維持完整**的子集。清單放在
-committed 的 `data-v2/mappings/display-set-policy.json`（`display-set-policy-v1`），連同
+committed 的 `data/mappings/display-set-policy.json`（`display-set-policy-v1`），連同
 `minModelCount`、`maxModelCount`、`defaultPresetId` 一起，生成器與報告都讀它，重跑可重現。
 不是合格模型的 ID 會讓命令失敗，不會被靜默忽略。
 
@@ -496,7 +496,7 @@ Flash、Grok 4.6／4.5 與 Qwen3.8 Max。
 Language**，定義與驗算依據見 **§4.1** 與 **§4.6**。
 
 管轄範圍：`DIMENSION_IDS`（`packages/benchmark-data/src/index.ts`）、
-`data-v2/mappings/benchmarks.json` 的 `dimensions` 與每筆 `primaryDimension`／
+`data/mappings/benchmarks.json` 的 `dimensions` 與每筆 `primaryDimension`／
 `secondaryDimensions`、`coverage-matrix.ts` 的維度 bitmask、雷達圖軸數、
 `docs/SCORING_METHODOLOGY.md`、`docs/BENCHMARK_DIMENSION_MAPPING.md`。
 
@@ -853,12 +853,12 @@ nested-interactive，是已經實測過的 axe serious 違規。
 
 | 對象                                                            | 數量             | 說明                                                                                          |
 | --------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------- |
-| `data-v2/product/versions/*.json`                               | 21 個，14 MB     | 舊格式，改版後讀不出來。它們是**算出來的結果**不是原始資料，且 Git 有紀錄可取回               |
+| `data/product/versions/*.json`                                  | 21 個，14 MB     | 舊格式，改版後讀不出來。它們是**算出來的結果**不是原始資料，且 Git 有紀錄可取回               |
 | `packages/{connectors,contracts,db,presentation,radar,scoring}` | 6 個目錄，1.3 MB | Git 未追蹤，內容只有 `dist`／`.turbo`／`node_modules`，原始碼在 Git 歷史（各 3–11 個 commit） |
 | Vals 與 5 個 organizer 的擷取程式                               | 約 1,346 行      | 見 §3.3                                                                                       |
 | Coverage／ESTIMATED 相關程式                                    | 約 100 處        | 見 §5.2                                                                                       |
 | `evidence-detail.tsx`                                           | 282 行           | 功能併入模型明細面板                                                                          |
-| `data-v2/product/pointers/`                                     | 整個目錄         | 發布機制簡化，見 §11                                                                          |
+| `data/product/pointers/`                                        | 整個目錄         | 發布機制簡化，見 §11                                                                          |
 | `LLM_BENCH_CHANNEL` 環境變數與 DRAFT／PUBLISHED 雙軌            | —                | 同上                                                                                          |
 | publish／rollback 指令與其狀態機、測試、CI 步驟                 | —                | 同上                                                                                          |
 
@@ -1141,7 +1141,7 @@ Capability score 採單一明確白名單。N3a 核可的 13 項與 D2 核可的
 
 身分只用 catalog 與已審核精確 alias；D6 要求所有未知名稱保留原始列，但
 `canonicalModelId: null`、`profileId: null`。完整未解析名稱清單每次刷新重建並寫入
-`data-v2/sources/vals-ai/validation-report.md`，來源刷新本身不得新增 catalog 或推導 alias。
+`data/sources/vals-ai/validation-report.md`，來源刷新本身不得新增 catalog 或推導 alias。
 
 **D-N13-1（2026-08-23 使用者裁決，依 D6 另開資料品質 task）**：登錄
 `xai-grok-4-5` 的 alias `grok/grok-4.5` 與 `xai-grok-4-6` 的 alias `grok/grok-4.6`。
@@ -1189,7 +1189,7 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 
 ### 11.1 機制
 
-- 建置只讀 **`data-v2/product/current.json`** 這一個固定路徑。沒有 channel、沒有 pointer、沒有環境變數切換。
+- 建置只讀 **`data/product/current.json`** 這一個固定路徑。沒有 channel、沒有 pointer、沒有環境變數切換。
 - **`versionId`（內容的 SHA-256）保留**。它不是 pointer 機制的一部分，是「這個檔案沒被改過」的指紋，計算成本為零，顯示在頁尾。
 - **Rollback = `git revert` 那個資料 commit，然後重新部署。** 不另外做 rollback 指令。這一點必須寫進 `docs/OPERATIONS.md`。
 
@@ -1216,7 +1216,7 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 
 **代理的四個步驟**
 
-1. 刷新來源，重跑 `pnpm data:v2:build-current`，把新的 `current.json` 留在工作目錄，**不 commit**。
+1. 刷新來源，重跑 `pnpm data:build-current`，把新的 `current.json` 留在工作目錄，**不 commit**。
 2. 產出一份刷新報告（`docs/REFRESH_<YYYY-MM-DD>.md`），內容見下。
 3. **主動提示使用者抽查，並指名該查哪幾筆、怎麼查。**不得只說「請審核」。
 4. 等使用者明確指示後才 commit `current.json` 與報告。

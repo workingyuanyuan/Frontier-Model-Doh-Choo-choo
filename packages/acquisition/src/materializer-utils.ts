@@ -189,7 +189,7 @@ const exactModelMappings = {
 function getWorkspaceRoot(): string {
   let dir = process.cwd();
   while (true) {
-    if (existsSync(join(dir, 'data-v2'))) {
+    if (existsSync(join(dir, 'data'))) {
       return dir;
     }
     const parent = dirname(dir);
@@ -284,7 +284,7 @@ export function stripTrailingConfiguration(rawName: string): string {
 
 /**
  * The only reasoning-effort values that may become a product profile. Kept in
- * sync with `effortOrder` in data-v2/mappings/profile-policy.json; the test
+ * sync with `effortOrder` in data/mappings/profile-policy.json; the test
  * suite asserts the two stay identical. Source values outside this set are
  * treated as unlabelled rather than inventing a new effort tier.
  */
@@ -359,7 +359,7 @@ function registerModelAlias(alias: string, model: ModelCatalogItem): void {
 function loadModelsCatalog() {
   if (!modelsCatalog) {
     const root = getWorkspaceRoot();
-    const p = join(root, 'data-v2/mappings/models.json');
+    const p = join(root, 'data/mappings/models.json');
     const parsed: unknown = JSON.parse(readFileSync(p, 'utf8'));
     if (!isModelCatalog(parsed)) {
       throw new Error('Invalid models catalog schema');

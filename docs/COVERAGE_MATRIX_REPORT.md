@@ -7,12 +7,12 @@
 - **Active Benchmarks**: 46
 - **Candidates per Scale ($k$)**: 1
 - **Sources with at least one active benchmark (8)**: `arc-prize`, `artificial-analysis`, `deepswe`, `epoch-ai`, `frontier-code`, `livebench`, `vals-ai`, `zapier-automationbench`
-- **Pinned models (1)**: `google-gemini-3-7-flash` -- every combination below leaves these complete, per `data-v2/mappings/display-set-policy.json`. Maximising the model count says nothing about which models survive; this is how a model the leaderboard exists to show is kept in.
+- **Pinned models (1)**: `google-gemini-3-7-flash` -- every combination below leaves these complete, per `data/mappings/display-set-policy.json`. Maximising the model count says nothing about which models survive; this is how a model the leaderboard exists to show is kept in.
 - **Smallest scale reported**: $N$ = 8 (the all-sources curve has no solution below $N$ = 9)
 
 > [!NOTE]
 > This report is Gate 2 review material (`docs/REFACTOR_SPEC_V2.md` §5.3, `tasks/claude-code-plan.md` D3).
-> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data-v2/mappings/display-set.json`.
+> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data/mappings/display-set.json`.
 > It does not modify `display-set.json`.
 > A model counts as complete when ONE of its product profiles carries every benchmark in the set. That is the same bar the main screen applies, so the complete-model count is the row count, not an upper bound on it. Counting a model complete because several of its profiles union to the set overstated it, since no single profile could then be scored.
 >

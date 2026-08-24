@@ -52,7 +52,7 @@ const manifestJson = (
 const getWorkspaceRoot = (): string => {
   let directory = process.cwd();
   while (true) {
-    if (existsSync(join(directory, 'data-v2'))) return directory;
+    if (existsSync(join(directory, 'data'))) return directory;
     const parent = dirname(directory);
     if (parent === directory) throw new Error('Workspace root not found');
     directory = parent;
@@ -122,7 +122,7 @@ async function main() {
   }
 
   const root = resolve(option('--root') ?? getWorkspaceRoot());
-  const sourceDir = join(root, 'data-v2', 'sources', 'frontier-code');
+  const sourceDir = join(root, 'data', 'sources', 'frontier-code');
   const evidencePath = join(sourceDir, 'evidence-index.json');
   await mkdir(sourceDir, { recursive: true });
   await readExistingEvidence(evidencePath);

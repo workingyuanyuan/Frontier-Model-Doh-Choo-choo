@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import benchmarkMappings from '../../../data-v2/mappings/benchmarks.json';
-import displaySetConfig from '../../../data-v2/mappings/display-set.json';
-import frontierConfig from '../../../data-v2/mappings/frontier.json';
-import sourcesConfig from '../../../data-v2/mappings/sources.json';
+import benchmarkMappings from '../../../data/mappings/benchmarks.json';
+import displaySetConfig from '../../../data/mappings/display-set.json';
+import frontierConfig from '../../../data/mappings/frontier.json';
+import sourcesConfig from '../../../data/mappings/sources.json';
 
 import {
   BenchmarkDimensionMappingSchema,

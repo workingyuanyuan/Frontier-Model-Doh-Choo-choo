@@ -19,7 +19,7 @@
 
 ## 來源資料單位
 
-每個 `data-v2/sources/<source>/` 目錄包含：
+每個 `data/sources/<source>/` 目錄包含：
 
 - `manifest.json`：來源角色、URL、快照狀態、取得方法與驗證時間。
 - `evidence-index.json`：artifact hash、byte length、locator、方法與來源 URL。
@@ -86,13 +86,13 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 - Harness／No Harness、tools、attempt、thinking、context、quantization 等均不建立 Product Profile。
 - 原始 Harness 名稱與配置仍保留在 Candidate／Evidence provenance。
 
-`data-v2/mappings/models.json` 與 `profile-policy.json` 是可修改設定；變更後必須重新生成 `data-v2/product/current.json`，不能在未審核下提交資料。
+`data/mappings/models.json` 與 `profile-policy.json` 是可修改設定；變更後必須重新生成 `data/product/current.json`，不能在未審核下提交資料。
 
 ## Frontier 模型
 
-Frontier 模型清單由 **`data-v2/mappings/models.json`（model catalog）** 中通過資格條件的模型，結合 `data-v2/mappings/frontier.json` 的 `manualModels`（作為新品尚未被 catalog 收錄時的指定逃生口）共同構成。資格條件見 [重構規格 §5.1](REFACTOR_SPEC_V2.md)：未標記 deprecated，且不存在「已知且早於資格窗口」的 `releaseDate`（`qualificationWindowMonths`，預設 12 個月）；`releaseDate` 為 null 者通過，缺欄位不構成淘汰理由。
+Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中通過資格條件的模型，結合 `data/mappings/frontier.json` 的 `manualModels`（作為新品尚未被 catalog 收錄時的指定逃生口）共同構成。資格條件見 [重構規格 §5.1](REFACTOR_SPEC_V2.md)：未標記 deprecated，且不存在「已知且早於資格窗口」的 `releaseDate`（`qualificationWindowMonths`，預設 12 個月）；`releaseDate` 為 null 者通過，缺欄位不構成淘汰理由。
 
-要調整 frontier 成員，改的是 `models.json` 或 `frontier.json`，**不是 `data-v2/sources/` 底下任何來源目錄**。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
+要調整 frontier 成員，改的是 `models.json` 或 `frontier.json`，**不是 `data/sources/` 底下任何來源目錄**。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
 
 外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入八維 Overall，避免底層 Benchmark 被重複計分。
 
@@ -140,7 +140,7 @@ X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。�
 
 建置流程驗證所有來源 schema、Evidence 引用、Included mapping 與 identity 後，產生排序固定的 canonical JSON。移除 `versionId` 欄位後計算 SHA-256，形成 `ProductVersion.versionId`。
 
-`data-v2/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v3` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts` 的內容定址 bytes。
+`data/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v3` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts` 的內容定址 bytes。
 
 ```text
 固定來源 bytes + mapping + generatedAt
@@ -148,8 +148,8 @@ X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。�
   → 相同 versionId
 ```
 
-`data-v2/product/current.json` 是唯一產品輸出；其內容可由新的 verified sources 重建，Git 資料 commit 保存已部署版本。
+`data/product/current.json` 是唯一產品輸出；其內容可由新的 verified sources 重建，Git 資料 commit 保存已部署版本。
 
 ## Dashboard 資料邊界
 
-產品視圖由 `data-v2/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外八個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。
+產品視圖由 `data/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外八個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。

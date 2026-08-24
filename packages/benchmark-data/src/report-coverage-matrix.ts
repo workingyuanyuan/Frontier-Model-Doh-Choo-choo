@@ -134,7 +134,7 @@ export const parseReportArgs = (
 function findRepositoryRoot(startDir: string = '.'): string {
   let current = resolve(startDir);
   while (true) {
-    if (existsSync(join(current, 'data-v2', 'mappings', 'sources.json'))) {
+    if (existsSync(join(current, 'data', 'mappings', 'sources.json'))) {
       return current;
     }
     const parent = dirname(current);
@@ -170,7 +170,7 @@ export const generateCoverageMatrixReport = async (
   const policy = DisplaySetPolicySchema.parse(
     JSON.parse(
       await readFile(
-        join(repoRoot, 'data-v2', 'mappings', 'display-set-policy.json'),
+        join(repoRoot, 'data', 'mappings', 'display-set-policy.json'),
         'utf8',
       ),
     ),

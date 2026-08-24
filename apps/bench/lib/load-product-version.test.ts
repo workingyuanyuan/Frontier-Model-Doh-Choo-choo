@@ -21,8 +21,8 @@ describe('loadProductVersion', () => {
   it('loads and validates the fixed current product path synchronously', () => {
     const root = mkdtempSync(join(tmpdir(), 'llm-bench-product-'));
     temporaryRoots.push(root);
-    const productRoot = join(root, 'data-v2', 'product');
-    const mappingRoot = join(root, 'data-v2', 'mappings');
+    const productRoot = join(root, 'data', 'product');
+    const mappingRoot = join(root, 'data', 'mappings');
     mkdirSync(mappingRoot, { recursive: true });
     writeFileSync(
       join(mappingRoot, 'benchmarks.json'),
@@ -133,7 +133,7 @@ describe('loadProductVersion', () => {
   it('loads the current product without sources, artifacts, network, or a database', () => {
     const root = mkdtempSync(join(tmpdir(), 'llm-bench-current-'));
     temporaryRoots.push(root);
-    const productRoot = join(root, 'data-v2', 'product');
+    const productRoot = join(root, 'data', 'product');
     mkdirSync(productRoot, { recursive: true });
     writeFileSync(
       join(productRoot, 'current.json'),
@@ -151,8 +151,8 @@ describe('loadProductVersion', () => {
   it('does not silently disable the complete-matrix gate when display-set is missing', () => {
     const root = mkdtempSync(join(tmpdir(), 'llm-bench-missing-display-set-'));
     temporaryRoots.push(root);
-    const productRoot = join(root, 'data-v2', 'product');
-    const mappingRoot = join(root, 'data-v2', 'mappings');
+    const productRoot = join(root, 'data', 'product');
+    const mappingRoot = join(root, 'data', 'mappings');
     mkdirSync(mappingRoot, { recursive: true });
     writeFileSync(
       join(mappingRoot, 'benchmarks.json'),
@@ -207,7 +207,7 @@ describe('loadProductVersion', () => {
   it('rejects current content whose bytes no longer match its version hash', () => {
     const root = mkdtempSync(join(tmpdir(), 'llm-bench-product-'));
     temporaryRoots.push(root);
-    const productRoot = join(root, 'data-v2', 'product');
+    const productRoot = join(root, 'data', 'product');
     mkdirSync(productRoot, { recursive: true });
     writeFileSync(
       join(productRoot, 'current.json'),

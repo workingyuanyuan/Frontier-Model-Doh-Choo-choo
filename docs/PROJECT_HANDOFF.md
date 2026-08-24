@@ -30,9 +30,9 @@
 ```text
 公開來源
   -> packages/acquisition
-  -> data-v2/sources + Git 外 artifacts
+  -> data/sources + Git 外 artifacts
   -> packages/benchmark-data
-  -> data-v2/product/current.json
+  -> data/product/current.json
   -> apps/bench static build
 ```
 
@@ -48,10 +48,10 @@
 - `apps/bench`
 - `packages/benchmark-data`
 - `packages/acquisition`
-- `data-v2`
+- `data`
 - Git 外 `artifacts`
 
-不得恢復舊 Web、Worker、DB、影片、Edition、PREVIEW／FORMAL、雙語、雙主題或多頁架構。不得刪除或修改 `data-v2/sources/`。
+不得恢復舊 Web、Worker、DB、影片、Edition、PREVIEW／FORMAL、雙語、雙主題或多頁架構。不得刪除或修改 `data/sources/`。
 
 ## 6. 資料與計分基線
 
@@ -68,7 +68,7 @@
 
 1. 來源收斂至 Artificial Analysis、LiveBench、DeepSWE、Frontier Code；其他來源目錄凍結保留。
 2. Evidence 併入模型明細面板；保留排行榜、八維雷達圖與兩張性價比圖表。
-3. 產品資料改為單一 `data-v2/product/current.json`；Git 歷史負責版本回復。
+3. 產品資料改為單一 `data/product/current.json`；Git 歷史負責版本回復。
 
 ## 8. 風險與接手提醒
 

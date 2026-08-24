@@ -40,7 +40,7 @@ async function main() {
     .find((argument) => !argument.startsWith('--'));
   const root = resolve(rootArgument ?? getWorkspaceRoot());
   const retrievedAt = new Date().toISOString();
-  const sourceDirectory = join(root, 'data-v2', 'sources', ZAPIER_SOURCE_ID);
+  const sourceDirectory = join(root, 'data', 'sources', ZAPIER_SOURCE_ID);
 
   const previousCandidates = await readJson<CandidateResult[]>(
     join(sourceDirectory, 'candidates.json'),

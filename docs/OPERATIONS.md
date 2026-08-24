@@ -4,7 +4,7 @@
 
 - Source refresh、目前版本建立與資料 commit 是不同的操作。
 - Agent 可以刷新來源、修正 Candidate、重建 `current.json` 並完成代理審核。
-- Agent 不得替使用者審核或提交 `data-v2/product/current.json`。
+- Agent 不得替使用者審核或提交 `data/product/current.json`。
 - 不使用 Docker、PostgreSQL、Drizzle、Worker、Edition 或影片流程。
 
 ## 1. 安裝
@@ -52,7 +52,7 @@ JSON-LD 與官方靜態 JSON；未提供 DOM 核對結果時會拒絕標記完�
 ## 3. 建立目前版本
 
 ```bash
-pnpm data:v2:build-current
+pnpm data:build-current
 ```
 
 命令會：
@@ -62,7 +62,7 @@ pnpm data:v2:build-current
 3. 依據來源資料與人工指定清單建立 Frontier 模型集合。
 4. 計算八維、Overall 與 cost point；主畫面另依 display set 驗證完整矩陣。
 5. 產生 canonical deterministic JSON 及內容 `versionId`。
-6. 驗證內容 hash 後寫入 `data-v2/product/current.json`。
+6. 驗證內容 hash 後寫入 `data/product/current.json`。
 
 `current.json` 是單一可變工作區輸出；使用者審核前不得提交。相同輸入會產生相同內容與 `versionId`。
 
@@ -73,7 +73,7 @@ pnpm --filter @llm-bench/bench dev
 pnpm --filter @llm-bench/bench build
 ```
 
-Dashboard 建置固定讀取 `data-v2/product/current.json`，不讀取來源、artifact、網路或資料庫。**頁尾直接顯示完整 `versionId`；頁首顯示的是縮寫，完整值在該元素的 `title` 屬性上**（見 `apps/bench/components/version-header.tsx`），核對時請以頁尾為準。目前資料沒有預覽通道，也不產生 noindex metadata。
+Dashboard 建置固定讀取 `data/product/current.json`，不讀取來源、artifact、網路或資料庫。**頁尾直接顯示完整 `versionId`；頁首顯示的是縮寫，完整值在該元素的 `title` 屬性上**（見 `apps/bench/components/version-header.tsx`），核對時請以頁尾為準。目前資料沒有預覽通道，也不產生 noindex metadata。
 
 ## 5. 建置前代理審核
 
@@ -109,7 +109,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 依據規格 §11.4，每次常態資料刷新必須遵守以下程序：
 
-1. 刷新來源並執行 `pnpm data:v2:build-current` 後，`data-v2/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
+1. 刷新來源並執行 `pnpm data:build-current` 後，`data/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
 2. 產出 `docs/REFRESH_<YYYY-MM-DD>.md` 刷新審核報告（格式參考 [REFRESH_2026-08-20.md](REFRESH_2026-08-20.md)），內容必須涵蓋：
    - **舊／新 `versionId`**，以及模型數、排行榜列數、evidence 筆數、成本筆數各自的增減。
    - **主畫面的進出**：本次新進、退出主畫面的模型，各附原因（缺哪一格／補上哪一格）。
@@ -129,7 +129,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
    - 新的 `versionId`。
 3. **主動提示使用者進行人工抽查，並明確指名抽查哪幾筆資料、如何核對**。
-4. 使用者完成審核並明確指示後，才可提交 `data-v2/product/current.json` 與相關報告。
+4. 使用者完成審核並明確指示後，才可提交 `data/product/current.json` 與相關報告。
 5. 部署由包含該資料的 Git commit 決定；部署前核對建置顯示的 `versionId` 等於審核值。
 
 若需要 rollback，請對包含資料的 Git commit 執行 `git revert`，再以還原後的工作樹重新建置與部署。不要新增版本切換指令，也不要重抓來源或重算未變更的資料。
@@ -158,7 +158,7 @@ pnpm audit --audit-level high  # CI 的相依套件公告門檻
 pnpm report:coverage-matrix
 ```
 
-此命令執行覆蓋率矩陣分析，輸出模型 × benchmark 的有無矩陣與各規模 display-set 取捨曲線，供審核關卡 2 人工判讀是否需調整 `data-v2/mappings/display-set.json`。代理不得自行調整顯示清單。
+此命令執行覆蓋率矩陣分析，輸出模型 × benchmark 的有無矩陣與各規模 display-set 取捨曲線，供審核關卡 2 人工判讀是否需調整 `data/mappings/display-set.json`。代理不得自行調整顯示清單。
 
 **`--require`：把必選 benchmark 釘死。**
 

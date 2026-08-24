@@ -31,7 +31,7 @@ export const buildWorkspaceProduct = async (
   repositoryRoot: string,
   generatedAt: string,
 ): Promise<ProductVersion> => {
-  const dataRoot = join(resolve(repositoryRoot), 'data-v2');
+  const dataRoot = join(resolve(repositoryRoot), 'data');
   const sourcesConfig = SourcesConfigSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'sources.json')),
   );
@@ -151,7 +151,7 @@ export const writeWorkspaceCurrent = async (
 ): Promise<ProductVersion> => {
   const root = resolve(repositoryRoot);
   const product = await buildWorkspaceProduct(root, generatedAt);
-  const productRoot = join(root, 'data-v2', 'product');
+  const productRoot = join(root, 'data', 'product');
   await writeCurrentProductVersion(productRoot, product);
   return product;
 };

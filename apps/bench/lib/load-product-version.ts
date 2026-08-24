@@ -21,8 +21,8 @@ export interface LoadedProductVersion {
 
 const productRoot = (): string => {
   const candidates = [
-    resolve(process.cwd(), 'data-v2', 'product'),
-    resolve(process.cwd(), '..', '..', 'data-v2', 'product'),
+    resolve(process.cwd(), 'data', 'product'),
+    resolve(process.cwd(), '..', '..', 'data', 'product'),
   ];
   const existing = candidates.find((candidate) => {
     try {

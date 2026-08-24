@@ -85,7 +85,7 @@ const main = async (): Promise<void> => {
   const root = resolve(process.argv[2] ?? process.cwd());
   const product = ProductVersionSchema.parse(
     JSON.parse(
-      await readFile(resolve(root, 'data-v2/product/current.json'), 'utf8'),
+      await readFile(resolve(root, 'data/product/current.json'), 'utf8'),
     ),
   );
   const ranges = new Map<SourceId, { min: number; max: number }>();

@@ -60,7 +60,7 @@ export async function rematerializeVals(root: string): Promise<{
   candidates: number;
   unresolvedModels: number;
 }> {
-  const sourceDirectory = join(root, 'data-v2', 'sources', VALS_SOURCE_ID);
+  const sourceDirectory = join(root, 'data', 'sources', VALS_SOURCE_ID);
   const evidence = (
     await readJson<unknown[]>(join(sourceDirectory, 'evidence-index.json'))
   ).map((record) => EvidenceRecordSchema.parse(record));
@@ -119,7 +119,7 @@ export async function rematerializeVals(root: string): Promise<{
     })),
     result,
     benchmarkMapping: BenchmarkDimensionMappingSchema.parse(
-      await readJson(join(root, 'data-v2', 'mappings', 'benchmarks.json')),
+      await readJson(join(root, 'data', 'mappings', 'benchmarks.json')),
     ),
     previousReport: await readText(
       join(sourceDirectory, 'validation-report.md'),

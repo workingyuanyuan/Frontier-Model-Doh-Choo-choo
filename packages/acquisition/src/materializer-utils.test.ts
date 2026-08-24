@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import profilePolicy from '../../../data-v2/mappings/profile-policy.json';
+import profilePolicy from '../../../data/mappings/profile-policy.json';
 
 import {
   LEGAL_SOURCE_EFFORTS,

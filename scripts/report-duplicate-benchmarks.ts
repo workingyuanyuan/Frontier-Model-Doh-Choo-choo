@@ -178,7 +178,7 @@ const main = async (): Promise<void> => {
   );
   const product = ProductVersionSchema.parse(
     JSON.parse(
-      await readFile(resolve(root, 'data-v2/product/current.json'), 'utf8'),
+      await readFile(resolve(root, 'data/product/current.json'), 'utf8'),
     ),
   );
   const sections = SPECIFICATIONS.map((specification) => {
@@ -192,7 +192,7 @@ const main = async (): Promise<void> => {
   const report = [
     '# Phase 3 duplicate benchmark source comparison — 2026-08-22',
     '',
-    '> Generated from `data-v2/product/current.json` by `scripts/report-duplicate-benchmarks.ts`.',
+    '> Generated from `data/product/current.json` by `scripts/report-duplicate-benchmarks.ts`.',
     '> This report quantifies the approved §4.3.1 cross-source maximum rule; it does not change scoring policy.',
     '',
     '## Method',

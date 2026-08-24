@@ -16,7 +16,7 @@
 commit 的具體做法：
 
 1. **用 `git add` 逐一列出本 task 改動的檔案。不要用 `git add -A`、`git add .` 或 `git commit -a`。**
-2. **永遠不要 `git add data-v2/product/current.json`。** 那個檔案需要使用者審核後明確指示才能提交（規格 §11.2）。它會一直以未追蹤狀態留在工作目錄，這是正常的，**不是**阻止你 commit 其他檔案的理由。
+2. **永遠不要 `git add data/product/current.json`。** 那個檔案需要使用者審核後明確指示才能提交（規格 §11.2）。它會一直以未追蹤狀態留在工作目錄，這是正常的，**不是**阻止你 commit 其他檔案的理由。
 3. commit 前確認 `git status` 只剩 `current.json` 未進版。
 4. commit 訊息開頭用 `<type>(<task id>):`，內文最後一行註明 `Executed by: <模型／harness>`。
 
@@ -25,7 +25,7 @@ commit 的具體做法：
 **凡是改動計分管線、mapping 或 schema 的 task，完成前必須重新產生產品資料：**
 
 ```bash
-pnpm data:v2:build-current
+pnpm data:build-current
 ```
 
 並在 `validation` 中回報新的 `versionId`、來源數與排行榜列數。**這一步不能省略。** 曾經發生過：B2 的來源白名單實作正確且有測試，但沒有人重新產生 `current.json`，於是磁碟上的產品資料仍帶著全部 13 個來源，而管線只讀 4 個。所有測試、typecheck、lint 與 build 在兩種狀態下都通過——**沒有任何自動化能抓到這種不一致**，只有重新產生後比對 `versionId` 才會發現。
@@ -53,7 +53,7 @@ pnpm --filter @llm-bench/bench build
 
 **全程禁止**：push、deploy、release、恢復 `docs/REFACTOR_DISCARD_LIST.md` 中的任何項目。
 
-**commit `data-v2/product/current.json` 需要使用者明確指示**（規格 §11.2）。程式碼變更的 commit 不受此限。
+**commit `data/product/current.json` 需要使用者明確指示**（規格 §11.2）。程式碼變更的 commit 不受此限。
 
 ---
 
@@ -72,7 +72,7 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 
 兩個順序陷阱：
 
-1. **A1 之後 repository 不可 build。** A1 刪掉了 `data-v2/product/pointers/`，但把建置改讀 `current.json` 的是 B0。因此 **B0 必須是 Phase B 的第一個 task**，把不可 build 的窗口壓到最短。
+1. **A1 之後 repository 不可 build。** A1 刪掉了 `data/product/pointers/`，但把建置改讀 `current.json` 的是 B0。因此 **B0 必須是 Phase B 的第一個 task**，把不可 build 的窗口壓到最短。
 2. **`display-set.json` 的內容不能提前決定。** 它要等 coverage-matrix 報告跑出來、使用者判讀後才能填。所以 B3 只建立設定檔的**機制與 schema**，內容在審核關卡 2 才填。
 
 ---
@@ -89,11 +89,11 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 
 **刪除**：
 
-- `data-v2/product/versions/*.json`（21 個，14 MB）
-- `data-v2/product/pointers/`（整個目錄，B0 會移除 pointer 機制）
+- `data/product/versions/*.json`（21 個，14 MB）
+- `data/product/pointers/`（整個目錄，B0 會移除 pointer 機制）
 - `packages/connectors`、`packages/contracts`、`packages/db`、`packages/presentation`、`packages/radar`、`packages/scoring`（Git 未追蹤，內容只有建置產物）
 
-**不得刪除**：`data-v2/sources/` 底下任何目錄；倉庫外的 `codex-gemini-orchestrator` 工作目錄。
+**不得刪除**：`data/sources/` 底下任何目錄；倉庫外的 `codex-gemini-orchestrator` 工作目錄。
 
 **完成條件**：`git status` 顯示的刪除範圍與上表完全一致；`pnpm-workspace.yaml` 的 glob 不會再撈到已刪除的 package；基準驗證通過（e2e 可能因缺少產品資料而失敗，此時記錄為預期失敗並在 C 階段結束後重跑）。
 
@@ -112,7 +112,7 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 
 **保留**：`materializeArtificialAnalysis`、`materializeEpoch`。
 
-**完成條件**：全域搜尋 `vals`、`arc-prize`、`scale-hle`、`zapier`、`osworld`、`lech-writing` 在 `packages/` 與 `apps/` 下沒有現行程式碼引用（`data-v2/sources/` 的凍結資料不算）；`packages/acquisition` 的 export 面只剩保留項；基準驗證通過。
+**完成條件**：全域搜尋 `vals`、`arc-prize`、`scale-hle`、`zapier`、`osworld`、`lech-writing` 在 `packages/` 與 `apps/` 下沒有現行程式碼引用（`data/sources/` 的凍結資料不算）；`packages/acquisition` 的 export 面只剩保留項；基準驗證通過。
 
 ## A3 — 拆分 `materializers.ts`
 
@@ -153,14 +153,14 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 
 狀態：完成
 
-**為什麼排在最前面**：A1 已刪除 `data-v2/product/pointers/`，`pnpm --filter @llm-bench/bench build` 目前失敗。本 task 完成前 repository 不可 build。
+**為什麼排在最前面**：A1 已刪除 `data/product/pointers/`，`pnpm --filter @llm-bench/bench build` 目前失敗。本 task 完成前 repository 不可 build。
 
 **目標**：實作規格 §11。移除三段式 Draft／Published／rollback 狀態機，改成單一當前版本。
 
 **要求**：
 
-- 建置只讀 `data-v2/product/current.json` 這一個固定路徑。
-- **移除**：`data-v2/product/pointers/` 目錄、`LLM_BENCH_CHANNEL` 環境變數、DRAFT／PUBLISHED 雙軌、publish／rollback 指令與其狀態機、對應測試與 CI 步驟、以及 README／ARCHITECTURE／OPERATIONS 中描述這套流程的段落。
+- 建置只讀 `data/product/current.json` 這一個固定路徑。
+- **移除**：`data/product/pointers/` 目錄、`LLM_BENCH_CHANNEL` 環境變數、DRAFT／PUBLISHED 雙軌、publish／rollback 指令與其狀態機、對應測試與 CI 步驟、以及 README／ARCHITECTURE／OPERATIONS 中描述這套流程的段落。
 - **保留 `versionId`**（內容的 SHA-256），顯示在頁尾。
 - `docs/OPERATIONS.md` 改寫成新流程，並明確寫出 **rollback = `git revert` 資料 commit 後重新部署**。不要做 rollback 指令。
 - Draft／Preview 相關的 `noindex` 邏輯一併移除（不再有 Draft 這個狀態）。
@@ -207,13 +207,13 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 - 期一內容：`artificial-analysis`、`livebench`、`deepswe`、`frontier-code`。
 - 凍結目錄存在但不在白名單時，建置必須完全忽略它們，且不得報錯。
 
-**完成條件**：有一個測試證明「在 `data-v2/sources/` 放入一個不在白名單的目錄，建置結果不變」。
+**完成條件**：有一個測試證明「在 `data/sources/` 放入一個不在白名單的目錄，建置結果不變」。
 
 ## B3 — 顯示清單機制
 
 狀態：完成
 
-**目標**：建立 `data-v2/mappings/display-set.json` 的 schema、載入與驗證機制。
+**目標**：建立 `data/mappings/display-set.json` 的 schema、載入與驗證機制。
 
 **要求**：
 
@@ -232,7 +232,7 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 **要求**：
 
 - 資格 = 未 deprecated 且 `release_date` 在今天往前 12 個月內。
-- 移除 `data-v2/mappings/frontier.json` 的 `compositeSources`。
+- 移除 `data/mappings/frontier.json` 的 `compositeSources`。
 - 保留 `manualModels`。
 - 12 個月是設定值，不是硬編碼常數。
 
@@ -326,7 +326,7 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 - `frontierswe` 保留給 Proximal，期一不擷取。
 - `docs/BENCHMARK_DIMENSION_MAPPING.md` 與 `docs/BENCHMARK_SCORE_SOURCES.md` 明確區分這兩個 benchmark。
 
-**完成條件**：全域搜尋 `frontierswe` 在 `data-v2/sources/frontier-code/` 底下沒有命中；兩份文件各有一列描述正確的主辦方與指標。
+**完成條件**：全域搜尋 `frontierswe` 在 `data/sources/frontier-code/` 底下沒有命中；兩份文件各有一列描述正確的主辦方與指標。
 
 ### C5-2 放寬模型資格條件
 
@@ -366,7 +366,7 @@ Frontier Code export 中 Inkling 一列的 effort 被解析成 `"0.99"`，造出
 
 ### C5 整體完成條件
 
-- 重新產生 `data-v2/product/current.json`，並在 `validation` 中回報新的 `versionId`、來源數、模型數與各 benchmark 的 evidence 數。
+- 重新產生 `data/product/current.json`，並在 `validation` 中回報新的 `versionId`、來源數、模型數與各 benchmark 的 evidence 數。
 - 回報修正前後的模型母體對照（修正前：3 個 profile 通過完整矩陣，全部是 `openai-gpt-5-6-*-max`）。
 - 基準驗證通過。
 
@@ -453,7 +453,7 @@ LiveBench 與 Frontier Code 仍有未解析名稱屬於 catalog 根本沒有的�
 
 ### C6 整體完成條件
 
-- 重新產生 `data-v2/product/current.json`。
+- 重新產生 `data/product/current.json`。
 - 回報：新 `versionId`、模型數、四來源齊全的模型數、以及**修正前後對照**（修正前：33 個模型，四來源齊全 8 個）。
 - 回報推測說明表，交使用者審核。
 - 基準驗證通過。
@@ -464,7 +464,7 @@ LiveBench 與 Frontier Code 仍有未解析名稱屬於 catalog 根本沒有的�
 
 ## ▣ 審核關卡 1（使用者執行）
 
-C 階段完成後產生第一個新格式的 `data-v2/product/current.json`（**寫入工作目錄，不 commit**），交由使用者人工審核資料正確性。審核通過並由使用者明確指示後，代理才 commit。
+C 階段完成後產生第一個新格式的 `data/product/current.json`（**寫入工作目錄，不 commit**），交由使用者人工審核資料正確性。審核通過並由使用者明確指示後，代理才 commit。
 
 **代理要準備的東西**：
 
@@ -476,7 +476,7 @@ C 階段完成後產生第一個新格式的 `data-v2/product/current.json`（**
 
 ### 狀態：已通過（2026-08-18）
 
-使用者審核通過並指示提交，`data-v2/product/current.json` 已 commit：
+使用者審核通過並指示提交，`data/product/current.json` 已 commit：
 
 ```
 sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
@@ -521,7 +521,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 - 補齊 `gdpval-aa`，目標是那 17 個 profile 全數有值；若某些模型 AA 官方確實未測，逐一列出並保持 null，不得推估。
 - 出處記錄依 §7 的單一結構，`sourceUrl` 必須指向實際讀取的頁面（C6 已修過一次指錯頁的問題，不要重蹈）。
 - 更新該來源的 validation report，對照人眼可見列數。
-- 重跑 `pnpm data:v2:build-current`，回報新的 `versionId`、Index 候選筆數、`gdpval-aa` 筆數，以及 9 項齊全的 AA profile 數（目前 33 / 50）。
+- 重跑 `pnpm data:build-current`，回報新的 `versionId`、Index 候選筆數、`gdpval-aa` 筆數，以及 9 項齊全的 AA profile 數（目前 33 / 50）。
 
 **不得**：
 
@@ -655,7 +655,7 @@ if (performance === null || performance === undefined) return [];
 - 移除上述守衛。**所有 `INCLUDED` 且能解析出 `canonicalModelId` 與 `profileId` 的成本列都必須保存**，不論該 profile 是否通過顯示門檻。
 - `catalogCosts` 內同樣的 `performance === null` 守衛一併檢查，套用相同規則。
 - 由呼叫端決定是否濾掉 null：`buildWeightedCostCurve`（預設圖）必須濾，進階圖不濾。
-- 重跑 `pnpm data:v2:build-current`，回報新的 `versionId`、成本列數、以及具兩個以上帶成本 effort profile 的模型數。
+- 重跑 `pnpm data:build-current`，回報新的 `versionId`、成本列數、以及具兩個以上帶成本 effort profile 的模型數。
 - **不得**為了讓數字變好看而放寬 §5.2 的顯示門檻，或改動 `display-set.json`（那是審核關卡 2 的產物，已定案）。
 
 **完成條件**：有測試以「profile 的 `overallScore` 為 null 但有成本列」的 fixture 證明該成本列仍保存在 ProductVersion 中；重建後具兩個以上帶成本 effort profile 的模型數大於 0（實測 20 個）。
@@ -869,7 +869,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 - 該目錄要排除在 `.prettierignore` 與 `eslint.config.mjs` 之外，避免格式化工具改動位元組。
 - 目錄內附 README 說明為何不裁剪，以免後人誤以為是疏漏。
 - 保持斷言的實質強度，**不得為了讓測試過而弱化斷言或改成 snapshot 比對**。
-- `data-v2/sources/` 底下任何目錄不得刪除或修改。
+- `data/sources/` 底下任何目錄不得刪除或修改。
 - 不得改動 `artifacts/` 既有內容。
 
 **完成條件**：在沒有 `artifacts/` 的環境下 `pnpm test` 全綠；測試數量不低於現行 181 筆。
@@ -886,7 +886,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 - 移除 `catalogCosts` 的產生路徑，使 ProductVersion 只保留有出處的成本列。
 - 確認移除後預設圖與進階圖皆無變化——這 21 筆的 `sourceId` 權重為 0，本來就不進任何圖表。若有變化，停下來回報。
-- 重跑 `pnpm data:v2:build-current`，回報新 `versionId`、成本列數（現為 253）與各來源分佈。
+- 重跑 `pnpm data:build-current`，回報新 `versionId`、成本列數（現為 253）與各來源分佈。
 - **`current.json` 不得提交**，依規格 §11.4 交由使用者審核。因本次不涉及來源刷新、分數不變，刷新報告可精簡為變更摘要。
 
 **完成條件**：ProductVersion 內無 `sourceId: 'model-catalog'` 的成本列；有測試證明成本列的 `evidenceIds` 皆非空；兩張圖表的資料點數與 G3 前相同。
@@ -961,7 +961,7 @@ G4 重跑 F2 於 2026-08-21 再次判定不通過，獨立第三方代理得到�
 
 **目標**：`tasks/` 底下三個檔案有兩個在描述已廢棄的架構且無任何歷史標記；
 `docs/BENCHMARK_SCORE_SOURCES.md` 自稱是匯入白名單，但真正的白名單是
-`data-v2/mappings/sources.json`。
+`data/mappings/sources.json`。
 
 **要求**：
 
@@ -969,7 +969,7 @@ G4 重跑 F2 於 2026-08-21 再次判定不通過，獨立第三方代理得到�
    Stage 5 時代的架構（Draft／Published pointer、「預設只顯示 8/8」等），現行依據是
    `docs/REFACTOR_SPEC_V2.md` 與 `tasks/claude-code-plan.md`。**不刪除內容**，只加標記。
 2. `docs/BENCHMARK_SCORE_SOURCES.md:8`：改寫為「來源分類與時效登錄」，並指明
-   允許進入 ProductVersion 的來源白名單是 `data-v2/mappings/sources.json` 的四個來源，
+   允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json` 的四個來源，
    本文件列出的其他站台是候選與時效追蹤對象，不是匯入授權。
 
 **完成條件**：三處標記與現行架構一致；不新增也不刪除任何實質內容。
@@ -1292,7 +1292,7 @@ PROFILES` 標題被切掉，頁尾的 `LLM Bench` 只剩 `M Bench`。也就是 r
 
 # L. 期二：Epoch.AI
 
-規格 §2 的期二。**本階段不得改動 `data-v2/mappings/display-set.json`**——顯示清單是審核關卡的
+規格 §2 的期二。**本階段不得改動 `data/mappings/display-set.json`**——顯示清單是審核關卡的
 產物，由使用者判讀取捨曲線後決定（規格 §5.3）。
 
 ## L1 — Epoch.AI 來源刷新與擴充後的取捨曲線
@@ -1313,8 +1313,8 @@ coverage-matrix 取捨曲線交使用者判讀。
 
 - 新增 `refresh-epoch.ts`，比照其他四個來源的刷新腳本：內容定址 artifact、evidence-index、
   candidates、validation report、manifest、snapshot delta。
-- `data-v2/mappings/sources.json` 白名單加入 `epoch-ai`。
-- 重跑 `pnpm data:v2:build-current` 與 `pnpm report:coverage-matrix`。
+- `data/mappings/sources.json` 白名單加入 `epoch-ai`。
+- 重跑 `pnpm data:build-current` 與 `pnpm report:coverage-matrix`。
 - 產出 AA × Epoch 的 `gpqa-diamond` 逐模型分數對照。
 
 **完成條件**：基準驗證全綠；取捨曲線報告更新為五來源；`display-set.json` 未被改動。
@@ -1522,7 +1522,7 @@ organizer materializer 約 613 行）。**不要從 git 歷史還原那些檔案
 materializer 以 `epoch-materializer.ts` 與 `frontier-code-materializer.ts` 為範本重寫，
 舊程式只作為欄位語義的考證。
 
-**本階段不得改動 `data-v2/mappings/display-set.json`**——顯示清單是審核關卡的產物（規格
+**本階段不得改動 `data/mappings/display-set.json`**——顯示清單是審核關卡的產物（規格
 §5.3），由使用者判讀取捨曲線後決定（N6）。
 
 ## N0 — 擷取契約實測（2026-08-22，規劃期已完成）
@@ -1749,7 +1749,7 @@ N3 會列出完整的未解析名單供裁決。
   比照 L4 的 `decodeVersionSuffix` 寫成單一具測試的函式，不要手寫 `endsWith` 鏈。
 - `costPerTask` 存為 `AGENT_TASK`／`USD_PER_TASK`。
 - `sources.json` 白名單加入 `arc-prize`；規格 §3.1／§3.2／§9 增補本來源。
-- 重跑 `pnpm data:v2:build-current`（不 commit `current.json`）與
+- 重跑 `pnpm data:build-current`（不 commit `current.json`）與
   `pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1`。
 
 **完成條件**：基準驗證全綠；D1 選定的分割列數與實測相符；`display-set.json` 未被改動。
@@ -1819,7 +1819,7 @@ DeepSeek V4 Pro、Grok 4.5），只計分不設門檻則會造成不對稱。N �
 
 **要求**：
 
-- 交付上表並取得逐項裁決；核可者寫進 `data-v2/mappings/benchmarks.json` 與
+- 交付上表並取得逐項裁決；核可者寫進 `data/mappings/benchmarks.json` 與
   `docs/BENCHMARK_DIMENSION_MAPPING.md`，未核可者寫進 validation report 的未核可清單。
 - 新 benchmark 的 ID 命名沿用既有慣例（來源中立的通用名，例如 `ioi`、`code-migration`、
   `skillsbench`），不加 `vals-` 前綴——同一個 benchmark 日後可能被其他來源量測。
@@ -1834,7 +1834,7 @@ DeepSeek V4 Pro、Grok 4.5），只計分不設門檻則會造成不對稱。N �
 `terminal-bench-2`、`sage`、`case_law_v2`、`medqa`、`mortgage_tax`、`poker_agent`。
 其中 `sage` 原先選擇收錄，於逐項方法論核對後改為不收；它與 `mortgage_tax` 一併列入未來
 多模態維度的觀察清單。完整主／次維度與來源 slug → benchmark ID 對照記錄於
-`data-v2/sources/vals-ai/validation-report.md`。
+`data/sources/vals-ai/validation-report.md`。
 
 ## N3 — Vals AI 來源刷新
 
@@ -2048,7 +2048,7 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 - ARC-AGI 改為以分割命名的 benchmark ID（建議 `arc-agi-2`），`benchmarkVersion` 保留為證據。
   `view-model.ts` 的 `SOURCE_SCORE_BENCHMARK_IDS['arc-prize']` 與進階圖的 `ARC_AGI` 基準要
   一併改名，否則進階圖會靜默掉點。
-- 掃過**白名單上的八個來源**（`data-v2/mappings/sources.json`），列出其餘「同 ID 多版本」的
+- 掃過**白名單上的八個來源**（`data/mappings/sources.json`），列出其餘「同 ID 多版本」的
   情況並在 validation report 中列表；沒有難度差異的（`gpqa-diamond`、`swe-bench`、
   `terminal-bench-2-1`、`livecodebench`、`mmlu-pro` 的 `(null)` 與 `1`／`2.1`，以及 `aime`
   的 Vals 全 EXCLUDED 版）維持共用 ID，那是同一個測驗的不同寫法。
@@ -2342,7 +2342,7 @@ DP 效能：primary-only 的維度 bitmask 不再飽和，鍵碎裂最多 256 �
    未知 benchmark、重複 benchmark、重複 preset id、`defaultPresetId` 不存在，以及 D-N10-3
    的八維 primary 覆蓋。
 2. 新增生成器 `packages/benchmark-data/src/generate-display-set.ts` 與
-   `pnpm data:v2:generate-display-set`。preset 內容**不手打**，由 D-N10-7 的規則從報告推導，
+   `pnpm data:generate-display-set`。preset 內容**不手打**，由 D-N10-7 的規則從報告推導，
    可重跑、可稽核。
 3. `scoreProfiles(results, benchmarkDimensions, { benchmarkIds })`：preset 之外的結果既不
    進分數也不進 `evidenceResultIds`，明細面板不會引用沒有參與計分的列。
@@ -2394,7 +2394,7 @@ Gemini 3.7 Flash 有另一個 context primary（`aa-lcr`）卻沒有 `corpfin`�
 
 **修法**：新增 `requiredModelIds`。DP 在轉移時就丟掉已經失去必選模型的狀態（支援 bitmask
 只會縮小，不可能救回來），既正確又順便剪枝。清單放在新的 committed 輸入檔
-`data-v2/mappings/display-set-policy.json`，報告與生成器共用，重跑可重現。
+`data/mappings/display-set-policy.json`，報告與生成器共用，重跑可重現。
 
 **代價：零個模型，5 個 benchmark。**
 
@@ -2624,8 +2624,8 @@ pattern）。
 **使用者裁決（2026-08-23）**：`maxModelCount` 13 → **22**；主畫面預設由 `all-sources-9`
 改到 free-sources 那側，經確認取 **`free-sources-13`（N = 28）**。記於規格 **R16**。
 
-**做了什麼**：只改 `data-v2/mappings/display-set-policy.json` 兩個值，重跑
-`pnpm data:v2:generate-display-set` 與 `pnpm data:v2:build-current`。沒有動任何演算法。
+**做了什麼**：只改 `data/mappings/display-set-policy.json` 兩個值，重跑
+`pnpm data:generate-display-set` 與 `pnpm data:build-current`。沒有動任何演算法。
 
 **結果**
 
@@ -2719,7 +2719,7 @@ instruction、normalized 72.7），但它不在預設 preset 的 benchmark 集�
 
 **做法**：
 
-1. `data-v2/mappings/benchmarks.json`：`dimensions` 改為
+1. `data/mappings/benchmarks.json`：`dimensions` 改為
    `["reasoning", "knowledge", "coding", "agentic", "language"]`；69 筆 benchmark 的
    `primaryDimension` 依 §4.1 對照：`math`／`context` → `reasoning`，
    `instruction` → `language`，其餘保持原值。
@@ -2735,7 +2735,7 @@ instruction、normalized 72.7），但它不在預設 preset 的 benchmark 集�
 **驗收**：
 
 - `pnpm typecheck` 通過；測試中列舉維度的固定陣列改為五個值。
-- 重跑 `pnpm data:v2:build-current`，回報預設 preset 的可計分 profile 數，預期為 **35**。
+- 重跑 `pnpm data:build-current`，回報預設 preset 的可計分 profile 數，預期為 **35**。
   數字不符時停下回報，mapping 保持依 §4.1 對照的結果。
 
 ## O2 — preset 與取捨曲線以五維重新產生
