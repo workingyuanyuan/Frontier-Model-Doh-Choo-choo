@@ -329,7 +329,7 @@ export function normalizeSourceEffort(
  * segment is normalised on its own; segments that name neither a mode nor a
  * tier, such as `Adaptive Reasoning` or `Opus 4.8 Fallback`, are ignored.
  *
- * Per REFACTOR_SPEC_V2.md section 4.4 the reasoning switch and the tier are one
+ * Per SPEC.md section 4.4 the reasoning switch and the tier are one
  * axis, so an explicit non-reasoning marker wins over any tier named alongside
  * it: `(Non-reasoning, High Effort)` is `non-reasoning`, not `high`.
  */

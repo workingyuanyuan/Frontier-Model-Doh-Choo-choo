@@ -465,7 +465,7 @@ export function materializeLiveBench(
     ``,
     `## Category scope boundary`,
     ``,
-    `Per REFACTOR_SPEC_V2.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathematics, Language, Instruction Following) enter scoring. Coding, Agentic Coding, and Data Analysis categories are unapproved and excluded.`,
+    `Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathematics, Language, Instruction Following) enter scoring. Coding, Agentic Coding, and Data Analysis categories are unapproved and excluded.`,
     ``,
     `## Discrepancies and notes`,
     ``,

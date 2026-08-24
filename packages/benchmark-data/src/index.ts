@@ -582,7 +582,7 @@ const directEffort = (
  * tier left, so LiveBench's plain `qwen3.6-27b` row was filed as reasoning-off
  * and the non-reasoning profile outscored the real reasoning one.
  *
- * See REFACTOR_SPEC_V2.md section 4.5.
+ * See SPEC.md section 4.5.
  */
 const INFERABLE_TIERS: ReadonlySet<EffortTier> = new Set(
   EFFORT_TIERS.filter((tier) => tier !== 'non-reasoning'),
@@ -611,7 +611,7 @@ const INFERABLE_TIERS: ReadonlySet<EffortTier> = new Set(
  * A sweeping source cannot outvote anyone this way: it contributes at most one
  * vote to each tier, exactly like a source that ran a single configuration.
  *
- * See REFACTOR_SPEC_V2.md section 4.5.
+ * See SPEC.md section 4.5.
  */
 const higherEffortEvidence = (
   candidates: readonly EffortResolutionInput[],
@@ -822,7 +822,7 @@ export const ProductCostSchema = z.object({
   unit: z.enum(['USD_PER_MILLION_TOKENS', 'USD_PER_TASK']),
   benchmarkId: SlugSchema.nullable(),
   benchmarkVersion: z.string().min(1).nullable(),
-  /** Every product cost must carry provenance; see REFACTOR_SPEC_V2 section 4.4. */
+  /** Every product cost must carry provenance; see SPEC section 4.4. */
   evidenceIds: z.array(Sha256Schema).min(1),
 });
 export type ProductCost = z.infer<typeof ProductCostSchema>;
@@ -1056,7 +1056,7 @@ export const isReleaseDateQualified = (
  * frontier eligibility is decided by measured benchmark availability (the
  * display-set complete-matrix gate), not by whether a catalog row happens to
  * carry a date.
- * See REFACTOR_SPEC_V2.md section 5.1.
+ * See SPEC.md section 5.1.
  */
 export const isModelQualified = (
   model: {
@@ -1444,7 +1444,7 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
   // The model catalog carries manual pricing, but a cost with no evidence
   // cannot be audited back to a source, and DATA_METHODOLOGY forbids exactly
   // that. Only materialized CostRecords - each one carrying evidenceIds -
-  // reach the product. See REFACTOR_SPEC_V2.md section 6.3.
+  // reach the product. See SPEC.md section 6.3.
   const materializedCosts = (input.costRecords ?? []).flatMap((record) => {
     if (
       record.inclusion !== 'INCLUDED' ||

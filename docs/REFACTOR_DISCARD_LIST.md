@@ -1,15 +1,15 @@
 # Stage 5 已捨棄項目
 
-本文件是重構後的負面架構清單：下列項目已移除或 Superseded，不是備援、可選安裝或未來相容承諾。若歷史文件仍提及它們，以 [第二次重構規格](REFACTOR_SPEC_V2.md) 為準；該規格未涵蓋的部分再參照 [架構](ARCHITECTURE.md)。
+本文件是重構後的負面架構清單：下列項目已移除或 Superseded，不是備援、可選安裝或未來相容承諾。若歷史文件仍提及它們，以 [第二次重構規格](SPEC.md) 為準；該規格未涵蓋的部分再參照 [架構](ARCHITECTURE.md)。
 
 > **本清單的負面範圍全部仍然有效**，第二次重構只增加項目、不解除任何一項。
 >
 > 但本文件寫於 Stage 5，其中被描述為「現行」的機制已被第二次重構取代：
 >
-> - **DRAFT／PUBLISHED pointer 已整套移除**，改為單一 `data/product/current.json`，由部署 commit 決定。見 `REFACTOR_SPEC_V2.md` §11。
-> - **不可變 `data/product/versions/*.json` 已刪除**。見 `REFACTOR_SPEC_V2.md` §8。
+> - **DRAFT／PUBLISHED pointer 已整套移除**，改為單一 `data/product/current.json`，由部署 commit 決定。見 `SPEC.md` §11。
+> - **不可變 `data/product/versions/*.json` 已刪除**。見 `SPEC.md` §8。
 >
-> 遇到本文件描述現行機制的段落，一律以 `REFACTOR_SPEC_V2.md` 為準。
+> 遇到本文件描述現行機制的段落，一律以 `SPEC.md` 為準。
 
 ## 應用
 
@@ -50,7 +50,7 @@
 - **`frontier.json` 的 `compositeSources`**：舊有的 `compositeSources` 映射結構已整套移除，改為單一清單式配置。
 - **`evidence-detail.tsx` 獨立 Evidence 區塊**：已整套移除，改由統一的 Model Detail Panel 呈現維度分解與出處。
 
-~~現行狀態只有不可變 ProductVersion，以及人工控制的 DRAFT／PUBLISHED pointer。~~ **Superseded by REFACTOR_SPEC_V2 §11**：改為單一 `data/product/current.json`，pointer 機制整套移除。
+~~現行狀態只有不可變 ProductVersion，以及人工控制的 DRAFT／PUBLISHED pointer。~~ **Superseded by SPEC §11**：改為單一 `data/product/current.json`，pointer 機制整套移除。
 
 ## Package 與依賴
 
@@ -66,7 +66,7 @@
 - video still、render、artifact upload。
 - 任何需要 Docker 或 `DATABASE_URL` 的 setup/runbook。
 
-現行 CI 只驗證 acquisition、benchmark-data、bench、靜態產品版本、production build、瀏覽器／無障礙與 dependency security。（`pointer` gate 已隨 `REFACTOR_SPEC_V2.md` §11 移除。）
+現行 CI 只驗證 acquisition、benchmark-data、bench、靜態產品版本、production build、瀏覽器／無障礙與 dependency security。（`pointer` gate 已隨 `SPEC.md` §11 移除。）
 
 ## 文件狀態
 

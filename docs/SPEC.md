@@ -1217,7 +1217,7 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 **代理的四個步驟**
 
 1. 刷新來源，重跑 `pnpm data:build-current`，把新的 `current.json` 留在工作目錄，**不 commit**。
-2. 產出一份刷新報告（`docs/REFRESH_<YYYY-MM-DD>.md`），內容見下。
+2. 產出一份刷新報告（`docs/refresh/<YYYY-MM-DD>.md`），內容見下。
 3. **主動提示使用者抽查，並指名該查哪幾筆、怎麼查。**不得只說「請審核」。
 4. 等使用者明確指示後才 commit `current.json` 與報告。
 

@@ -559,7 +559,7 @@ describe('FrontierConfigSchema and model qualification', () => {
     });
 
     it('qualifies a model with no releaseDate at all', () => {
-      // REFACTOR_SPEC_V2.md section 5.1: the window only removes models known
+      // SPEC.md section 5.1: the window only removes models known
       // to be old. A missing date must never silently drop a model, because
       // frontier eligibility is decided by measured availability, not by whether the
       // catalog row happens to carry a date.

@@ -49,7 +49,7 @@ describe('materializer utilities', () => {
 
 describe('parseEffort on comma-separated parentheticals', () => {
   it('lets an explicit non-reasoning marker win over a tier named beside it', () => {
-    // REFACTOR_SPEC_V2.md 4.4: the reasoning switch and the tier are one axis.
+    // SPEC.md 4.4: the reasoning switch and the tier are one axis.
     // These rows previously parsed to null, fell through to the cross-source
     // inference in 4.5, and came out labelled `max`.
     expect(parseEffort('Claude Sonnet 5 (Non-reasoning, High Effort)')).toBe(

@@ -2,7 +2,7 @@
 
 Byte-for-byte copies of the `artifacts/` entries that the materializer
 tests read. `artifacts/` is content-addressed and deliberately kept out
-of Git (see `REFACTOR_SPEC_V2.md` §2), so a clean clone has no copy of it
+of Git (see `SPEC.md` §2), so a clean clone has no copy of it
 and `pnpm test` — a baseline validation command in `CLAUDE.md` — could not
 run without these.
 

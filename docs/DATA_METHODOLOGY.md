@@ -79,7 +79,7 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 `non-reasoning < low < medium < high < xhigh < max`，`default` 位於階梯之外：
 
 - 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。
-- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](REFACTOR_SPEC_V2.md)：**每個其他來源對它實際發布過的每一個具名檔位各投一票；得票來源數最多的檔位勝出，平手時取較高檔**。單一來源掃過完整階梯時，對每檔也至多一票，不會壓過其他來源。只有 `INCLUDED` 列可投票；`EXCLUDED` 列不得間接影響計分。`non-reasoning` 永遠不會是推測結果。
+- 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](SPEC.md)：**每個其他來源對它實際發布過的每一個具名檔位各投一票；得票來源數最多的檔位勝出，平手時取較高檔**。單一來源掃過完整階梯時，對每檔也至多一票，不會壓過其他來源。只有 `INCLUDED` 列可投票；`EXCLUDED` 列不得間接影響計分。`non-reasoning` 永遠不會是推測結果。
 - 其他來源也沒有可用依據時使用 `default`；不再把缺值歸入 `max`。
 - 每次跨來源推測都列入各來源 validation report，保持 `PENDING USER REVIEW`，並記錄 target row 與 basis source/row。
 - UI 和產品計分不建立 `unspecified` effort。
@@ -90,7 +90,7 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 
 ## Frontier 模型
 
-Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中通過資格條件的模型，結合 `data/mappings/frontier.json` 的 `manualModels`（作為新品尚未被 catalog 收錄時的指定逃生口）共同構成。資格條件見 [重構規格 §5.1](REFACTOR_SPEC_V2.md)：未標記 deprecated，且不存在「已知且早於資格窗口」的 `releaseDate`（`qualificationWindowMonths`，預設 12 個月）；`releaseDate` 為 null 者通過，缺欄位不構成淘汰理由。
+Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中通過資格條件的模型，結合 `data/mappings/frontier.json` 的 `manualModels`（作為新品尚未被 catalog 收錄時的指定逃生口）共同構成。資格條件見 [重構規格 §5.1](SPEC.md)：未標記 deprecated，且不存在「已知且早於資格窗口」的 `releaseDate`（`qualificationWindowMonths`，預設 12 個月）；`releaseDate` 為 null 者通過，缺欄位不構成淘汰理由。
 
 要調整 frontier 成員，改的是 `models.json` 或 `frontier.json`，**不是 `data/sources/` 底下任何來源目錄**。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
 

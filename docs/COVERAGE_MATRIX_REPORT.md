@@ -11,7 +11,7 @@
 - **Smallest scale reported**: $N$ = 8 (the all-sources curve has no solution below $N$ = 9)
 
 > [!NOTE]
-> This report is Gate 2 review material (`docs/REFACTOR_SPEC_V2.md` §5.3, `tasks/claude-code-plan.md` D3).
+> This report is Gate 2 review material (`docs/SPEC.md` §5.3, `tasks/claude-code-plan.md` D3).
 > It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data/mappings/display-set.json`.
 > It does not modify `display-set.json`.
 > A model counts as complete when ONE of its product profiles carries every benchmark in the set. That is the same bar the main screen applies, so the complete-model count is the row count, not an upper bound on it. Counting a model complete because several of its profiles union to the set overstated it, since no single profile could then be scored.

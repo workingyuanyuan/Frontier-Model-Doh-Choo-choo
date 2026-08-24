@@ -4,7 +4,7 @@
 
 | 文件                                                         | 狀態        | 用途                                           |
 | ------------------------------------------------------------ | ----------- | ---------------------------------------------- |
-| [REFACTOR_SPEC_V2.md](REFACTOR_SPEC_V2.md)                   | **Binding** | 第二次重構的唯一權威規格（狀態：使用者已確認） |
+| [SPEC.md](SPEC.md)                                           | **Binding** | 第二次重構的唯一權威規格（狀態：使用者已確認） |
 | [../tasks/claude-code-plan.md](../tasks/claude-code-plan.md) | **Current** | 第二次重構任務計畫契約                         |
 | [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)                     | Historical  | 2026-08-17 的現況盤點；與規格衝突時以規格為準  |
 | [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)         | **Binding** | 明確禁止恢復的功能、程式與操作路徑             |
@@ -13,7 +13,7 @@
 
 | 文件                                                             | 管轄範圍                                           |
 | ---------------------------------------------------------------- | -------------------------------------------------- |
-| [REFACTOR_SPEC_V2.md](REFACTOR_SPEC_V2.md)                       | 第二次重構唯一權威規格                             |
+| [SPEC.md](SPEC.md)                                               | 第二次重構唯一權威規格                             |
 | [ARCHITECTURE.md](ARCHITECTURE.md)                               | runtime、workspace 與資料流                        |
 | [DATA_METHODOLOGY.md](DATA_METHODOLOGY.md)                       | 來源、Evidence、identity、Profile、Frontier 與成本 |
 | [SCORING_METHODOLOGY.md](SCORING_METHODOLOGY.md)                 | 八維、缺值、衝突、Overall 與排序                   |
@@ -45,6 +45,6 @@
 | `history/ADVANCED_CHART_SOURCES_2026-08-22.md`       | 進階成本圖的來源量測                |
 | `history/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`  | 重複 benchmark 的跨來源比較         |
 
-刷新報告 `REFRESH_<YYYY-MM-DD>.md` 依規格 §11.4 逐次產生，留在 `docs/` 下。
+刷新報告依規格 §11.4 逐次產生於 `refresh/<YYYY-MM-DD>.md`。
 
-若文件互相衝突，優先順序為：`REFACTOR_SPEC_V2.md` > `../tasks/claude-code-plan.md` > `CLAUDE.md` / `REFACTOR_DISCARD_LIST.md` > `PROJECT_HANDOFF.md` > 其他文件 > 歷史文件。
+若文件互相衝突，優先順序為：`SPEC.md` > `../tasks/claude-code-plan.md` > `CLAUDE.md` / `REFACTOR_DISCARD_LIST.md` > `PROJECT_HANDOFF.md` > 其他文件 > 歷史文件。

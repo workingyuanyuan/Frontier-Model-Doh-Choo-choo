@@ -110,7 +110,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 依據規格 §11.4，每次常態資料刷新必須遵守以下程序：
 
 1. 刷新來源並執行 `pnpm data:build-current` 後，`data/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
-2. 產出 `docs/REFRESH_<YYYY-MM-DD>.md` 刷新審核報告（格式參考 [REFRESH_2026-08-20.md](REFRESH_2026-08-20.md)），內容必須涵蓋：
+2. 產出 `docs/refresh/<YYYY-MM-DD>.md` 刷新審核報告（格式參考 [2026-08-20.md](refresh/2026-08-20.md)），內容必須涵蓋：
    - **舊／新 `versionId`**，以及模型數、排行榜列數、evidence 筆數、成本筆數各自的增減。
    - **主畫面的進出**：本次新進、退出主畫面的模型，各附原因（缺哪一格／補上哪一格）。
    - **既有模型分數變化的絕對值前幾名**。

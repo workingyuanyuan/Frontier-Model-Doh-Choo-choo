@@ -30,13 +30,14 @@
 影片時代的 `artifacts/`、`output/`、`reference-table-data/` 與早期抓取的
 `data/raw/` 已移除，`playwright-report/`、`test-results/` 為可重新產生的產物。
 
-## 3. 待裁決：文件命名收斂
+## 3. 文件命名（已完成）
 
-| 現況                                                  | 建議                                                                   |
-| ----------------------------------------------------- | ---------------------------------------------------------------------- |
-| `docs/REFACTOR_SPEC_V2.md`（105 KB，27 處反向引用）   | 改名為 `docs/SPEC.md`，同時更新 `CLAUDE.md` 的權威順序段落             |
-| `tasks/claude-code-plan.md`（181 KB，A–O 共 15 階段） | A–N 已完成，抽出為 `docs/history/PHASE_A_TO_N.md`，計畫只留 O 之後     |
-| `docs/REFRESH_<日期>.md` 三份                         | 移入 `docs/refresh/`，同時更新規格 §11.4 與 `OPERATIONS.md` 的路徑約定 |
+| 現況                           | 內容                                                    |
+| ------------------------------ | ------------------------------------------------------- |
+| `docs/SPEC.md`                 | 權威規格                                                |
+| `tasks/claude-code-plan.md`    | O 之後的 task                                           |
+| `docs/history/PHASE_A_TO_N.md` | A–N 階段的完成紀錄                                      |
+| `docs/refresh/<YYYY-MM-DD>.md` | 逐次刷新報告，路徑約定寫在規格 §11.4 與 `OPERATIONS.md` |
 
 ## 4. Git 外的本地產物（已處置）
 

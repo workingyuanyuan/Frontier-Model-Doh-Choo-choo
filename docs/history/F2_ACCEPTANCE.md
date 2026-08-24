@@ -237,7 +237,7 @@ DIFF_CHECK_EXIT=0
 
 ```text
 Published on the user's explicit 2026-08-21 approval, per
-REFACTOR_SPEC_V2.md section 11.2.
+SPEC.md section 11.2.
 ```
 
 沒有發現未經使用者指示的 `current.json` commit。
@@ -260,10 +260,10 @@ environments=0
 | --: | ---------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |   1 | `current.json` 未提交                    | **已解除**                         | `dfbca29` 只提交 `data-v2/product/current.json:1`，commit body 記錄使用者明確核准；HEAD 與該 commit blob 相同。實測版本 `sha256:bec073cf27357689035bfebaa7c5dcf61adb9b068b81ea3195570958f3e56385`，232 costs、0 `model-catalog`、0 空 `evidenceIds`。 |
 |   2 | `CLAUDE.md` e2e 在 build 前              | **已解除**                         | `CLAUDE.md:37-43` 為 install → format → lint → typecheck → test → build → e2e；`CLAUDE.md:45-46` 說明 e2e 需要 `.next`。本次照此順序 8 passed / 2 skipped。                                                                                           |
-|   3 | 每來源票值誤寫為該來源眾數               | **已解除**                         | 規格 `docs/REFACTOR_SPEC_V2.md:117-123`、程式 `packages/benchmark-data/src/index.ts:517-560`、`docs/DATA_METHODOLOGY.md:78-84`、`docs/BENCHMARK_SCORE_SOURCES.md:14-16` 均為「單一來源先取最高具名檔位，一來源一票；跨來源取眾數，平手取高」。        |
+|   3 | 每來源票值誤寫為該來源眾數               | **已解除**                         | 規格 `docs/SPEC.md:117-123`、程式 `packages/benchmark-data/src/index.ts:517-560`、`docs/DATA_METHODOLOGY.md:78-84`、`docs/BENCHMARK_SCORE_SOURCES.md:14-16` 均為「單一來源先取最高具名檔位，一來源一票；跨來源取眾數，平手取高」。                    |
 |   4 | `ProductCostSchema.evidenceIds` 可為空   | **已解除**                         | `packages/benchmark-data/src/index.ts:722-738` 使用 `.min(1)`；`packages/benchmark-data/src/schema.test.ts:242-283` 同時覆蓋 null performance 正例與空 evidenceIds 負例；動態 `safeParse` 空陣列失敗。                                                |
 |   5 | 過期 task 無標記；來源文件自稱匯入白名單 | **已解除**                         | `docs/history/STAGE5_PLAN.md:3-7`、`docs/history/STAGE5_TODO.md:3-7` 明標 Historical／Superseded；`docs/BENCHMARK_SCORE_SOURCES.md:8-10` 明定是時效登錄、不是匯入授權，真正四來源白名單在 `data-v2/mappings/sources.json:1`。                         |
-|   6 | 刷新報告 34；計畫 8 providers            | **已解除**                         | `docs/REFRESH_2026-08-21.md:48-68` 列 14 models／42 total series／25 series with ≥2 points；`tasks/claude-code-plan.md:593-599` 為 12 列、7 家與實際分布。H5 builder 重算完全一致。                                                                   |
+|   6 | 刷新報告 34；計畫 8 providers            | **已解除**                         | `docs/refresh/2026-08-21.md:48-68` 列 14 models／42 total series／25 series with ≥2 points；`tasks/claude-code-plan.md:593-599` 為 12 列、7 家與實際分布。H5 builder 重算完全一致。                                                                   |
 |   7 | fixture 原樣複製而非精簡                 | **有明確裁決紀錄，文字與實作一致** | `tasks/claude-code-plan.md:856-869` 記錄使用者裁決維持逐位元組副本；`packages/acquisition/test-fixtures/README.md:3-16` 同義。7 個 tracked fixture 共 2,525,203 bytes，檔名 SHA-256 與內容及本機原 artifact 7/7 相同。                                |
 
 ## 6. H1–H4 與程式／資料一致性
@@ -277,7 +277,7 @@ environments=0
 3. `:545-551` 每來源一票，跨來源取票數眾數，平手以 effort rank 取較高檔。
 4. `:553-560` 從勝出檔位選 deterministic basis row；`:586-593` 排除目標來源本身；無票時 `:605-610` 得到 `default`。
 
-此行為與 `docs/REFACTOR_SPEC_V2.md:117-136`、`docs/DATA_METHODOLOGY.md:78-84`、`docs/BENCHMARK_SCORE_SOURCES.md:14-16` 一致。
+此行為與 `docs/SPEC.md:117-136`、`docs/DATA_METHODOLOGY.md:78-84`、`docs/BENCHMARK_SCORE_SOURCES.md:14-16` 一致。
 
 以四個 whitelist 來源的 1,544 candidates 重算：202 筆 canonical model 未標 effort 列中，74 筆 `CROSS_SOURCE`、128 筆 `DEFAULT`；Grok 4.6 對 LiveBench 的票為 AA=`high`、DeepSWE=`xhigh`、Frontier Code=`high`，彙總為 `high`，符合規格示例。
 
@@ -368,7 +368,7 @@ H5 直接匯入 `apps/bench/lib/view-model.ts:574-677` 的 `buildWeightedCostCur
 3. `product.frontier` 53/53 列仍使用 `<modelId>-unspecified` placeholder，0/53 可解析到 `product.profiles`。`getDeveloperModelRows` 已排除這些無效 profile，規格仍未定義 frontier placeholder 的長期結構；延續前兩次驗收的非阻擋觀察。
 4. `docs/REFACTOR_DISCARD_LIST.md:35` 的 Stage 5 正文仍寫「Draft 流程」，但同檔 `:3-12,53` 已明確總括裁決 DRAFT／PUBLISHED pointer 與 versions 被 V2 取代。依 H3 對 Superseded 歷史正文的相同原則，不視為現行支援承諾；措辭仍可在未來清理。
 5. 本機 ignored `artifacts/`（13 檔／4,163,024 bytes）與 `output/`（28 檔／10,708,878 bytes）保留 2026-07 的舊影片輸出；tracked 程式、scripts、CI 無引用。它們是未知使用者歷史輸出，不是受支援 runtime，H5 依邊界未刪除或修改。`data-v2/product/versions/` 亦只剩 0 檔空目錄。
-6. `docs/REFRESH_2026-08-21.md:65-66` 以「曲線數」簡稱應為「≥2 點的曲線數」，但緊鄰表格 `:48-60` 已清楚區分 42 total series 與 25 multi-point series，實測數字正確。
+6. `docs/refresh/2026-08-21.md:65-66` 以「曲線數」簡稱應為「≥2 點的曲線數」，但緊鄰表格 `:48-60` 已清楚區分 42 total series 與 25 multi-point series，實測數字正確。
 
 ## 9. 仍需使用者人工處理
 

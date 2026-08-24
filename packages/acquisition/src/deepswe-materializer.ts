@@ -208,7 +208,7 @@ export function materializeDeepSwe(
     ``,
     `## Multi-effort reasoning ladders preserved`,
     ``,
-    `Per REFACTOR_SPEC_V2.md §9.2 and §6.3, all configuration rows and reasoning effort ladders are preserved unpruned during acquisition for advanced Pareto frontier curves:`,
+    `Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders are preserved unpruned during acquisition for advanced Pareto frontier curves:`,
     ``,
     ...modelsWithMultipleEfforts.map((m) => `- ${m}`),
     ``,

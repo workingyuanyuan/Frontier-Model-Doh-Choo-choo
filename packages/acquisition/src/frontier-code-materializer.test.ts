@@ -129,7 +129,7 @@ describe('Frontier Code materializer', () => {
     );
 
     // frontierswe belongs to Proximal FrontierSWE, a different organiser
-    // scoring model+harness rank and dominance. See REFACTOR_SPEC_V2.md 4.2.
+    // scoring model+harness rank and dominance. See SPEC.md 4.2.
     expect(
       result.candidates.every(
         ({ benchmarkId }) => benchmarkId === 'frontier-code-1-1',

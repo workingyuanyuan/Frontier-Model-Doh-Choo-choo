@@ -71,6 +71,16 @@ pnpm dev
 
 啟動後，在瀏覽器打開 `http://localhost:3000` 即可檢視看板。
 
+### 一鍵開啟本地審查頁面
+
+直接雙擊專案根目錄的 `start-bench-review.cmd`。它會使用 4000 port 啟動開發伺服器，並在網站可連線後自動開啟瀏覽器：
+
+```text
+http://localhost:4000
+```
+
+若網站已經在 4000 port 執行，腳本會直接開啟現有頁面，不會重複啟動伺服器。要停止開發伺服器，請切換到它的 PowerShell 視窗按 `Ctrl+C`。
+
 ---
 
 ## 專案結構
@@ -83,11 +93,11 @@ pnpm dev
 ├── packages/
 │   ├── benchmark-data/         # 核心資料處理：資料格式定義、評分演算法與資料庫工具
 │   └── acquisition/            # 資料擷取工具：來源資料抓取、成本計算與快照驗證
-├── data-v2/
+├── data/
 │   ├── mappings/               # 模型設定、維度映射與顯示門檻設定
 │   ├── sources/                # 來源快照清單、驗證紀錄與原始數據
 │   └── product/current.json    # 發布用最新整合資料檔
-├── artifacts-v2/               # 原始快照內容儲存目錄
+├── artifacts/               # 原始快照內容儲存目錄
 └── docs/                       # 設計規格、資料方法論與操作文件
 ```
 
@@ -113,8 +123,8 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ### 2. 產出整合資料檔
 
 ```bash
-# 驗證來源資料並建立 data-v2/product/current.json
-pnpm data:v2:build-current
+# 驗證來源資料並建立 data/product/current.json
+pnpm data:build-current
 ```
 
 ### 3. 建置與端到端測試

@@ -371,7 +371,7 @@ export function materializeFrontierCode(
     '',
     '## Known documentation conflict',
     '',
-    'Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `REFACTOR_SPEC_V2.md` §4.2.',
+    'Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `SPEC.md` §4.2.',
     '',
   ].join('\n');
 

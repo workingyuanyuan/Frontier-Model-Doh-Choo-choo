@@ -484,7 +484,7 @@ describe('buildProduct', () => {
     expect(product.frontier).toHaveLength(1);
     // Frontier is a model-level set derived from the catalog. It must not
     // invent a profile id: those placeholders resolved to nothing and broke
-    // the spec's own ban on an `unspecified` effort. See REFACTOR_SPEC_V2 5.4.
+    // the spec's own ban on an `unspecified` effort. See SPEC 5.4.
     product.frontier.forEach((entry) => {
       expect(entry).not.toHaveProperty('profileId');
     });
@@ -501,7 +501,7 @@ describe('buildProduct', () => {
     );
 
     // Manual catalog pricing carries no evidence, so it cannot be audited back
-    // to a source and must not reach the product. See REFACTOR_SPEC_V2 6.3.
+    // to a source and must not reach the product. See SPEC 6.3.
     expect(
       product.costs.filter(({ sourceId }) => sourceId === 'model-catalog'),
     ).toEqual([]);
