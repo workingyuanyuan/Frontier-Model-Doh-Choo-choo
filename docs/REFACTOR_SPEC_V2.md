@@ -96,14 +96,33 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 
 `materializers.ts` 目前 1,929 行，必須按來源拆成獨立模組，每個模組有自己的測試。
 
-## 4. 八維與計分
+## 4. 五維與計分
 
-### 4.1 不變的部分
+**本節於 2026-08-24 由八維改為五維（裁決 R18）。** 原文與改動理由完整保留於 §4.6，
+不要把本節讀成「維度從來就是五個」。
 
-- 八個維度不變：Agentic、Coding、Reasoning、Math、Knowledge、Language、Context、Instruction。
-- `data-v2/mappings/benchmarks.json` 的 benchmark 對維度的歸屬**完全不動**。特別是 DeepSWE、Frontier Code（`frontierswe`）、Terminal-Bench 都留在 `coding`。
-- 總分 = 八個維度分數的算術平均。
-- **不建立權重系統。** 某個 benchmark 影響力過大的問題，靠期二期三加來源稀釋，不靠權重調整。
+### 4.1 維度定義
+
+五個維度：**Reasoning、Knowledge、Coding、Agentic、Language**。
+
+| 維度      | 定義                                                                                       | 由哪些舊維度構成                   |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------- |
+| Reasoning | 依題目或輸入資訊進行推導、計算、邏輯分析與跨文件整合。數學與長脈絡推理都在其中。           | `reasoning` ＋ `math` ＋ `context` |
+| Knowledge | 答案主要仰賴模型既有的世界、學術或專業領域知識。                                           | `knowledge`（不變）                |
+| Coding    | 最終評估端點是程式、程式修改、演算法或可執行產物，不論是否透過 agent harness 完成。        | `coding`（不變）                   |
+| Agentic   | 在可操作環境中多步執行：工具選擇、搜尋、狀態更新與任務完成，且評估端點不由程式碼產物主導。 | `agentic`（不變）                  |
+| Language  | 理解與產生自然語言，並依語義、形式與使用者指定的限制控制輸出。                             | `language` ＋ `instruction`        |
+
+- `data-v2/mappings/benchmarks.json` 的 `dimensions` 陣列與每筆 benchmark 的
+  `primaryDimension` 依上表重寫。**benchmark 本身不新增、不刪除、不改名**，只改維度標籤。
+- `secondaryDimensions` 同步映射到新的五個值，重複值去除。它目前不參與計分（只有
+  `coverage-matrix.ts` 讀取），維持這個定位。
+- 總分 = **五個**維度分數的算術平均。維度分數仍是該維度內所有參與計分 benchmark 的算術平均。
+- **不建立權重系統。** 這一點不因收維而改變：收維是拿掉不成立的維度，不是替維度調權重。
+- **不得順手改動任何 benchmark 的跨維度歸屬。** 特別是 DeepSWE、Frontier Code
+  （`frontier-code-1-1`）、Terminal-Bench 一律留在 `coding`，`cyber` 留在 `agentic`。
+  GPT 的外部建議曾夾帶 `cyber` → coding 與 `terminal-bench-2-1` → agentic 兩項重分類，
+  **本裁決明確不採納**：那與維度數無關，要改必須另立提案並附各自的證據。
 
 ### 4.2 Frontier Code 用新的 benchmark ID
 
@@ -237,6 +256,56 @@ N5 重跑時發現暫緩採用的 Zapier 曾替 AA 的 MiniMax-M3 投 `max`，�
 
 **不得對已依 §4.4 規則 2 歸檔的列套用推測。** `(Non-reasoning)` 就是 `non-reasoning`，不會因為別的來源標了 `max` 就被改寫。
 
+### 4.6 為什麼從八維收成五維（2026-08-24 裁決的證據）
+
+**動機**：上線後使用者觀察到 agentic／coding／knowledge／reasoning 有大量 benchmark 支撐，
+而 math、language、context、instruction 四個維度極稀薄或已飽和。本節記錄實際驗算，
+而不只是這個主觀觀察。
+
+**驗算方法**：46 個 active benchmark、145 個 product profile。取所有「同一批 profile 同時
+持有兩支成績」且 n ≥ 15 的 benchmark 配對，計算 Spearman rho，共 738 組。
+以「組內平均 rho − 組間平均 rho」作為一個維度是否成立的判準。
+
+**發現 1 — 全體高度相關，維度本身只是弱結構。** 組內平均 0.61、組間平均 0.50，
+分離度僅 **+0.10**。LLM 能力有很強的單一因子，維度切分能額外解釋的部分本來就有限。
+這是後續所有判斷的前提，也是**不得再把維度切得更細**的理由。
+
+**發現 2 — `context` 與 `language` 在統計上不成立。**
+
+| 維度        |                          可算的組數 | 組內平均 rho |
+| ----------- | ----------------------------------: | -----------: |
+| context     |               1（aa-lcr × corpfin） |     **0.13** |
+| language    | 1（livebench-language × medscribe） |     **0.25** |
+| instruction | 0（ifbench 共同樣本僅 9，不足採信） |     無法計算 |
+| math        |                                   5 |         0.78 |
+| coding      |                                  36 |         0.65 |
+| reasoning   |                                  15 |         0.65 |
+| agentic     |                                  39 |         0.57 |
+| knowledge   |                                  15 |         0.55 |
+
+context 的兩支互相 0.13，而 aa-lcr × gpqa-diamond 高達 **0.87**：它測的是 reasoning。
+`context` 只是兩支不相關的 benchmark 共用一個標籤。
+
+**發現 3 — `math` 要刪，理由是鑑別力不是內聚度。** math 的組內 rho 0.78 是全表最高，
+收維後整體分離度反而由 +0.103 略降到 **+0.086**。**這一項對本裁決不利，仍照實記錄。**
+刪除 math 的正當理由是它在前沿已飽和：livebench-mathematics top10 均值 94.9、
+aime 99.5，而跨維相關 aime × gpqa-diamond 0.78、livebench-mathematics ×
+livebench-reasoning 0.76、frontiermath × gpqa-diamond 0.78——與 reasoning 的組內相關
+（0.65）相當甚至更高。一個無法區分榜首群的維度佔 1/8 總權重是負貢獻。
+
+**發現 4 — 收維的實際收益是覆蓋率，而非排序。** 在預設 preset `free-sources-13` 上，
+可計分 profile 由 **22 增至 35**；`all-sources-3` 上由 22 增至 38。前三名不變
+（Fable 5 / Opus 5 / GPT-5.6 Sol），22 名內最大位移 ±2 名。新解鎖的包含 Opus 4.8、
+GPT-5.5、Gemini 3.5 Flash、Opus 4.7、Sonnet 5、Kimi K2.6 等——它們原本落榜只是因為缺
+一支 context 或 instruction 成績。
+
+**外部建議的兩處資料錯誤（記錄備查）**：外部分析給出的 46 筆清單把 `math-level-5`
+（evidence 0 筆，非 active）算入，並漏掉 `automationbench`（active，22 個模型）。
+其分類結論可參考，其**清單不可直接採用**。
+
+**尚未解決**：`medscribe` 與 `livebench-language` 的 rho 僅 0.25，它在 Language 維度內
+不內聚。本裁決仍將它留在 Language，因為它不影響上述任何一項結論。列入 §12 待查。
+
 ## 5. 顯示規則
 
 ### 5.1 模型資格
@@ -302,7 +371,7 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 | ------- | -------------------------------------------------------------------------------------------------------- |
 | D-N10-1 | `display-set.json` 升為 `display-set-v2`，內含 `presets` 陣列與 `defaultPresetId`；不另開新檔。          |
 | D-N10-2 | 該檔 `notes` 末句「Adding a benchmark here never changes a score」已被 R1 推翻，**使用者授權代理改寫**。 |
-| D-N10-3 | preset 必須 8/8 維度覆蓋才合法，作為 schema 驗證；不合法即建置失敗。                                     |
+| D-N10-3 | preset 必須覆蓋**全部維度**才合法，作為 schema 驗證；不合法即建置失敗。R18 後為 5/5。                    |
 | D-N10-4 | 未通過該 preset 門檻的 profile 仍計算分數，但 `rank` 一律 `null`，不與主畫面同表呈現。                   |
 | D-N10-5 | preset 切換以 query 參數表示，**不新增頁面**，維持單頁靜態匯出。                                         |
 | D-N10-6 | 成本圖的分數基準問題切為獨立任務 N11，不併入 N10。                                                       |
@@ -313,7 +382,7 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 
 其餘契約：
 
-- 八維分數只用選定集合內的 benchmark 計算；被排除的量測**仍完整保留在證據面板**，缺分仍是
+- 維度分數只用選定集合內的 benchmark 計算；被排除的量測**仍完整保留在證據面板**，缺分仍是
   `null`，不填零。顯示規則不得決定資料保存範圍（§5.2 既有原則）。
 - 計分在**建置期**依 preset 各算一次，寫進 ProductVersion；不在瀏覽器計算。理由是產物是經過
   審核、帶雜湊的東西，畫面上的數字必須等於被審核的產物。
@@ -434,6 +503,35 @@ Flash、Grok 4.6／4.5 與 Qwen3.8 Max。
 切換鈕現在只在模型數 **9、8、7** 三個位置可用（兩條曲線都有 preset 且組成不同）；其餘位置
 仍為狀態指示。10 以上只有無約束曲線可達，6 以下只有來源齊全曲線可達。
 
+**R18（2026-08-24 裁決，維度由八收成五）**：維度改為 **Reasoning／Knowledge／Coding／
+Agentic／Language**，`math` 與 `context` 併入 Reasoning、`instruction` 併入 Language。
+定義、對照表與完整證據見 **§4.1** 與 **§4.6**。
+
+影響面：`DIMENSION_IDS`（`packages/benchmark-data/src/index.ts`）、
+`data-v2/mappings/benchmarks.json` 的 `dimensions` 與每筆 `primaryDimension`／
+`secondaryDimensions`、`coverage-matrix.ts` 的維度 bitmask（長度由 8 變 5）、雷達圖軸數、
+`docs/SCORING_METHODOLOGY.md`、`docs/BENCHMARK_DIMENSION_MAPPING.md`，以及全部既有
+preset——**preset 的 benchmark 集合本身不重新挑選**，但取捨曲線與 `presets[]` 必須以
+五維重新產生，因為 §5.2 的完整性判定是逐維度的。
+
+**R19（2026-08-24 裁決，完整性閘門維持「全維齊備」，另設 partial-coverage 清單）**：
+overallScore 仍然只給**五個維度全部非 null** 的 profile。**放寬成「四維即可排名」的提案
+經驗算後否決**，理由記於此，避免日後重提：
+
+1. **逐維度剔除測試**：對預設 preset 上 35 個完整 profile，每次拿掉一個維度重排。
+   Spearman rho 雖有 0.94–0.99，但**最大名次位移達 8 名**（35 名中）。榜單的意義就是名次。
+2. **補值不可行**：用其餘四維預測缺的那一維，MAE 3.5–8.1 分；最差的 knowledge
+   MAE 8.07 對上該維 sd 11.75，只消掉約一半變異。
+3. **缺失不是隨機的（決定性）**：覆蓋 5 維的 35 個 profile 在其持有 benchmark 上的平均
+   z 為 **+0.114**，只覆蓋 4 維的 31 個為 **−0.188**；而且這 31 個裡有 **27 個缺的是同一個
+   維度 Language**。放寬閘門會同時做兩件錯事——放進一批系統性較弱的模型，並用「剛好排除掉
+   資料最稀缺那一維」的基準替它們計分，與主榜不同度量而被並排比較。
+
+原本「八維太難齊備」的問題，由 R18 從 22 個 profile 放寬到 35 個來解決，**不是靠拆閘門**。
+
+剩下的「五缺一」profile 以**獨立的 partial-coverage 清單**呈現：明確標示缺哪一個維度、
+**不給 overallScore**、不給名次、不與主榜混排。它是資料缺口的揭露，不是第二份排行榜。
+
 **指令介面（N10a／R8 之後）**：
 
 ```bash
@@ -496,8 +594,8 @@ pnpm report:coverage-matrix -- --min-n=12
 
 ### 6.1 保留的區塊
 
-1. **排行榜**：總分、八維分數、排序、搜尋、思考強度選擇，以及列內展開的模型明細（見 6.2）。
-2. **八維雷達圖**。
+1. **排行榜**：總分、五維分數（R18 前為八維）、排序、搜尋、思考強度選擇，以及列內展開的模型明細（見 6.2）。
+2. **五維雷達圖**（R18 前為八軸）。
 3. **性價比圖表**（兩張，見 6.3）。
 
 **三個區塊各自持有自己的選取狀態，互不驅動**（2026-08-21 決定，見 6.4）。
@@ -526,7 +624,7 @@ Language    71.0
   一個模型，正是要修掉的問題。
 - **可同時展開多列**（2026-08-21 決定）。展開一列不會收合其他列，這是「能並排比較多個模型
   明細」的唯一機制。收合由再次點擊同一列完成。
-- **展開內容不刪減**：八維、逐 benchmark 分數與可點開的出處（§7）全部留在列內。
+- **展開內容不刪減**：五個維度、逐 benchmark 分數與可點開的出處（§7）全部留在列內。
 - **雷達圖上不加任何 benchmark 數量標記。** 軸厚不厚從明細裡自然看得出來。
 - **同一個元件同時服務兩種情境**：排行榜與開發者模式清單**都是列內展開**，共用同一個
   展開元件；從開發者模式進來時，缺的格子顯示為空。不要做兩個元件，也不要讓開發者模式
@@ -575,7 +673,7 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
 | Zapier              | `automationbench`                        | `normalizedScore` | 該來源唯一 benchmark                         |
 | LiveBench           | **無**                                   | `null`            | 見上方「LiveBench 的成本為何不能與分數配對」 |
 
-- 兩個 composite index（AA、Vals）都是 `EXCLUDED`，值只在 `rawScore`，因此**不會**進入八維
+- 兩個 composite index（AA、Vals）都是 `EXCLUDED`，值只在 `rawScore`，因此**不會**進入維度分數
   或雷達圖；這正是 `REFACTOR_DISCARD_LIST.md`「composite index 只供選模與展示」的用法。
 - **LiveBench 的 `null` 是揭露，不是遺漏。**它的成本是整站一個 `cost_per_successful_task`，
   而分數在產品內拆成四個 benchmark，沒有任何一個是產生該成本的那次量測。UI 必須寫出
@@ -1180,3 +1278,5 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 8. **一筆待查的資料異常**：Claude Opus 4.6 的 max 強度總分 53.7，high 強度 81.1，相差 27.4 分。「思考強度調高、總分掉 27 分」不合常理，可能是 profile 歸屬錯誤或稀疏證據所致。列入期一人工審核的必查項。
 9. **Artificial Analysis 的金鑰曾出現在對話記錄中**，MVP 穩定後建議使用者輪換。
 10. **Artificial Analysis 有兩套 Intelligence Index 欄位並存**（`intelligence_index` 與 `intelligence_index_v4_1`）。取錯欄位會排出完全不同的名單。本規格的模型資格條件（§5.1）刻意不依賴任何指數版本，正是為了避開這個坑。
+11. **`medscribe` 在 Language 維度內不內聚**：與 `livebench-language` 的 Spearman rho 僅 0.25（n=23）。R18 仍將它留在 Language，因為它不影響收維的任何一項結論，但它究竟該歸 Language、Knowledge 還是 Agentic 尚無足夠共同樣本判定。等到它與其他 Language benchmark 的共同樣本達 n ≥ 20 時重新驗算。
+12. **收維後整體維度分離度略降**（+0.103 → +0.086，見 §4.6 發現 3）。這是併入高內聚的 `math` 造成的代價，已知且接受。若日後 reasoning 內部出現明顯的雙峰結構，應重新檢視是否要把飽和的數學題庫整批停用，而不是重建 Math 維度。
