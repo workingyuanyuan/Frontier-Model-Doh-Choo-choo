@@ -5,12 +5,14 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
 import { DeveloperModelList } from './developer-model-list';
+import { PartialCoverageList } from './partial-coverage-list';
 import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
 import {
   getDataScopeSummary,
   getDeveloperModelRows,
+  getPartialCoverageRows,
   getRepresentativeRows,
   isMainEligibleRow,
   withActivePreset,
@@ -67,6 +69,10 @@ export function Dashboard({
   const developerRows = useMemo(
     () => getDeveloperModelRows(product, activePreset),
     [activePreset, product],
+  );
+  const partialCoverageRows = useMemo(
+    () => getPartialCoverageRows(product),
+    [product],
   );
   const mainProfileIds = useMemo(
     () =>
@@ -152,7 +158,7 @@ export function Dashboard({
           <div>
             <p className="eyebrow">Current frontier snapshot</p>
             <h1 id="page-title">Compare capability, cost, and evidence.</h1>
-            <p>Eight capability scores, cost, and evidence.</p>
+            <p>Five capability scores, cost, and evidence.</p>
           </div>
         </section>
 
@@ -193,6 +199,8 @@ export function Dashboard({
           initialExpandedModelIds={initialExpandedModelIds}
           developerMode={developerMode}
         />
+
+        <PartialCoverageList rows={partialCoverageRows} />
 
         {developerMode ? (
           <DeveloperModelList

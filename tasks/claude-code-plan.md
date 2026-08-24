@@ -122,7 +122,7 @@ benchmark 組成依 **R2** 由使用者挑選：若 `free-sources-13` 不在新�
 
 ## O3 — partial-coverage 清單（R19）
 
-狀態：未開始
+狀態：完成
 
 **目的**：揭露「五缺一」的 profile。
 

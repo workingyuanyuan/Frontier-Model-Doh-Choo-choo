@@ -1,4 +1,5 @@
 import type {
+  DimensionId,
   ModelProfile,
   ProductEvidence,
   ProductVersion,
@@ -348,6 +349,45 @@ export const getDeveloperModelRows = (
   rows.sort((a, b) => a.displayName.localeCompare(b.displayName));
   return rows;
 };
+
+export interface PartialCoverageRow {
+  modelId: string;
+  profileId: string;
+  displayName: string;
+  missingDimension: DimensionId;
+  dimensions: LeaderboardRow['dimensions'];
+}
+
+/**
+ * Ruling R19: a profile holding four of the five dimensions gets no overall
+ * score and no rank, so it needs its own disclosure. The list is a statement
+ * about a data gap; it never joins the main table's ordering, because the
+ * profiles on it are measured on a different basis from the ranked ones.
+ */
+export const getPartialCoverageRows = (
+  product: PresetProductVersion,
+): PartialCoverageRow[] =>
+  product.leaderboard
+    .flatMap((row) => {
+      const missing = row.dimensions.filter(({ score }) => score === null);
+      const only = missing.length === 1 ? missing[0] : undefined;
+      if (!only) return [];
+      const profile = profileById(product, row.profileId);
+      return [
+        {
+          modelId: row.modelId,
+          profileId: row.profileId,
+          displayName: profile ? getProfileDisplayName(profile) : row.profileId,
+          missingDimension: only.dimension,
+          dimensions: row.dimensions,
+        },
+      ];
+    })
+    .sort(
+      (a, b) =>
+        a.displayName.localeCompare(b.displayName) ||
+        a.profileId.localeCompare(b.profileId),
+    );
 
 export const filterLeaderboard = (
   product: PresetProductVersion,

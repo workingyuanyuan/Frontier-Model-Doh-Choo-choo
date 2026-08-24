@@ -13,6 +13,7 @@ import {
   getProfilesForModel,
   getDeveloperModelRows,
   getMissingDisplaySetBenchmarks,
+  getPartialCoverageRows,
   getRepresentativeRows,
   isMainEligibleRow,
   profileById,
@@ -1446,5 +1447,49 @@ describe('radar geometry', () => {
       );
       expect(points[index]).toEqual(expected);
     });
+  });
+});
+
+describe('partial coverage disclosure (R19)', () => {
+  it('lists profiles that hold four of the five dimensions with the axis they lack', () => {
+    const rows = getPartialCoverageRows(productFixture);
+
+    expect(rows.map(({ profileId }) => profileId)).toEqual([
+      'anthropic-claude-fable-5-standard',
+    ]);
+    expect(rows[0]?.missingDimension).toBe('language');
+    expect(rows[0]?.displayName).toBe('Claude Fable 5 · standard');
+    expect(
+      rows[0]?.dimensions.filter(({ score }) => score === null),
+    ).toHaveLength(1);
+  });
+
+  it('excludes ranked profiles and profiles missing more than one dimension', () => {
+    const mainEligible = productFixture.leaderboard.filter((row) =>
+      isMainEligibleRow(productFixture, row, {
+        benchmarkIds: productFixture.activePreset.benchmarkIds,
+      }),
+    );
+    const twoMissing = {
+      ...productFixture,
+      leaderboard: productFixture.leaderboard.map((row) => ({
+        ...row,
+        dimensions: row.dimensions.map((dimension, index) =>
+          index < 2
+            ? { ...dimension, score: null, componentCount: 0 }
+            : dimension,
+        ),
+        overallScore: null,
+      })),
+    };
+
+    const partialIds = new Set(
+      getPartialCoverageRows(productFixture).map(({ profileId }) => profileId),
+    );
+    expect(mainEligible.length).toBeGreaterThan(0);
+    expect(
+      mainEligible.some(({ profileId }) => partialIds.has(profileId)),
+    ).toBe(false);
+    expect(getPartialCoverageRows(twoMissing)).toEqual([]);
   });
 });

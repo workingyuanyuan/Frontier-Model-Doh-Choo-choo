@@ -540,3 +540,42 @@ test('switches the scored preset from the model-count slider and keeps it in the
   await page.goto(url);
   await expect(count).not.toHaveText(defaultCount);
 });
+
+test('discloses partial-coverage profiles outside the ranked table', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const panel = page.locator('[data-partial-coverage]');
+  await expect(panel).toBeVisible();
+
+  const partialRows = page.locator('[data-partial-coverage-row]');
+  const partialCount = await partialRows.count();
+  expect(partialCount).toBe(31);
+  await expect(
+    page.locator(`[data-partial-coverage-count="${partialCount}"]`),
+  ).toBeVisible();
+
+  // R19: the list carries no aggregate and no position.
+  await expect(panel).not.toContainText('Overall');
+  await expect(panel).not.toContainText('Rank');
+
+  // The ranked table is one row per model at the preset's target count, and it
+  // never shows an N/A cell; every profile listed above has one.
+  const rankedRows = page.locator('[data-ranked-row]');
+  expect(await rankedRows.count()).toBe(13);
+  expect(
+    (await rankedRows.allTextContents()).every((text) => !text.includes('N/A')),
+  ).toBe(true);
+
+  // Every listed profile shows exactly one N/A dimension cell.
+  const naCounts = await partialRows.evaluateAll((nodes) =>
+    nodes.map(
+      (node) =>
+        [...node.querySelectorAll('td')].filter(
+          (cell) => cell.textContent?.trim() === 'N/A',
+        ).length,
+    ),
+  );
+  expect(naCounts.every((count) => count === 1)).toBe(true);
+});
