@@ -174,7 +174,7 @@ const main = async (): Promise<void> => {
   const root = resolve(process.argv[2] ?? process.cwd());
   const outputPath = resolve(
     root,
-    process.argv[3] ?? 'docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md',
+    process.argv[3] ?? 'docs/history/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md',
   );
   const product = ProductVersionSchema.parse(
     JSON.parse(
