@@ -68,7 +68,7 @@ A 清理  ──┐
 
 **所有審核關卡都由使用者人工執行，代理不得自行通過。**
 
-F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順序追加；最新一個是 **O. 維度收斂**。
+F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順序追加；最新一個是 **O. 維度集合改為五維**。
 
 兩個順序陷阱：
 
@@ -2703,84 +2703,76 @@ instruction、normalized 72.7），但它不在預設 preset 的 benchmark 集�
 
 ---
 
-# O. 維度收斂：八維 → 五維（2026-08-24 使用者裁決）
+# O. 維度集合改為五維（2026-08-24 使用者裁決）
 
 > 權威依據：`docs/REFACTOR_SPEC_V2.md` §4.1、§4.6、**R18**、**R19**。
-> 起因：上線後使用者觀察到 math／language／context／instruction 四個維度極稀薄或已飽和，
-> 要求評估收維。經 738 組成對相關驗算後裁決收成五維，並**否決**放寬完整性閘門的提案。
 
 **這個階段會改動計分結果。** 每個 task 完成後都要重新產生 `current.json` 並回報
 `versionId`、來源數、排行榜列數，依共同契約辦理；`current.json` 本身不得 commit。
 
-**執行順序固定 O1 → O2 → O3 → O4 → O5。** O1 到 O3 之間 repository 會處於
-「mapping 已改、程式仍假設八維」或反之的狀態，因此**不得跳號執行**。
+**執行順序固定 O1 → O2 → O3 → O4 → O5。**
 
 ## O1 — mapping 與型別改為五維
 
 狀態：未開始
 
-**目的**：把維度集合本身從八個縮成五個，不動任何 benchmark 的存在與其他欄位。
+**目的**：把維度集合縮成五個，benchmark 的存在與其他欄位保持原狀。
 
 **做法**：
 
 1. `data-v2/mappings/benchmarks.json`：`dimensions` 改為
    `["reasoning", "knowledge", "coding", "agentic", "language"]`；69 筆 benchmark 的
-   `primaryDimension` 依 §4.1 對照表重寫（`math`／`context` → `reasoning`，
-   `instruction` → `language`，其餘不動）。
-2. 同一批 benchmark 的 `secondaryDimensions` 套用同一張對照表後**去重**，且不得與
+   `primaryDimension` 依 §4.1 對照：`math`／`context` → `reasoning`，
+   `instruction` → `language`，其餘保持原值。
+2. 同一批 benchmark 的 `secondaryDimensions` 套用同一組對照後去重，且不與
    `primaryDimension` 重複。
 3. `packages/benchmark-data/src/index.ts` 的 `DIMENSION_IDS` 改為五個值。
-4. `coverage-matrix.ts` 的維度 bitmask 長度隨 `DIMENSION_IDS.length` 而變，
-   `allDimensionMask` 已是計算值，確認沒有寫死 8 的地方。
+4. `coverage-matrix.ts` 的維度 bitmask 長度取自 `DIMENSION_IDS.length`；
+   確認沒有寫死 8 的位置。
 
-**不得順手做的事**：新增或刪除 benchmark、改 benchmark ID、把 `cyber` 移到 coding、
-把 `terminal-bench-2-1` 移到 agentic。R18 明文不採納這兩項重分類。
+**範圍限制**：benchmark 的新增、刪除、改名與跨維度歸屬調整不屬於本 task。
+`cyber` 維持 `agentic`，`terminal-bench-2-1` 維持 `coding`。
 
 **驗收**：
 
-- `pnpm typecheck` 通過；schema 測試中所有列舉八個維度的固定陣列已改為五個。
-- 重跑 `pnpm data:v2:build-current`，回報預設 preset 的可計分 profile 數。
-  **預期由 22 增為 35**；若不是 35，停下來回報，不要自行調整 mapping 遷就數字。
+- `pnpm typecheck` 通過；測試中列舉維度的固定陣列改為五個值。
+- 重跑 `pnpm data:v2:build-current`，回報預設 preset 的可計分 profile 數，預期為 **35**。
+  數字不符時停下回報，mapping 保持依 §4.1 對照的結果。
 
 ## O2 — preset 與取捨曲線以五維重新產生
 
 狀態：未開始
 
-**目的**：`presets[]` 的完整性判定是逐維度的（R12），維度改變後全部 preset 的
-「完整模型數」都會變，必須重算。
+**目的**：完整性判定逐維度進行（R12），維度集合變動後所有 preset 的完整模型數都要重算。
 
 **做法**：
 
-1. 重跑 §5.3 的 coverage-matrix 報告，產生新的兩條曲線與逐 N 對照。
-2. `display-set-v2` 的 schema 驗證由「8/8 維度覆蓋」改為「覆蓋全部 `DIMENSION_IDS`」
-   （D-N10-3），不要寫死數字。
-3. `docs/COVERAGE_MATRIX_REPORT.md` 重新產生。
+1. 重跑 §5.3 的 coverage-matrix 報告，產生兩條曲線與逐 N 對照。
+2. `display-set-v2` 的 schema 驗證改為「覆蓋全部 `DIMENSION_IDS`」（D-N10-3），
+   維度數取自常數。
+3. 重新產生 `docs/COVERAGE_MATRIX_REPORT.md`。
 
-**preset 的 benchmark 集合不重新挑選，`maxModelCount` 與 `defaultPresetId` 先維持
-R16 的 22 與 `free-sources-13`。** 收維後曲線形狀會變、滑桿刻度會變，**若 `free-sources-13`
-不再存在於新曲線上，停下來回報，由使用者重新指定預設 preset**——preset 組成依 R2
-不得由代理決定。
+`maxModelCount` 維持 22，`defaultPresetId` 維持 `free-sources-13`。preset 的
+benchmark 組成依 **R2** 由使用者挑選：若 `free-sources-13` 不在新曲線上，停下回報，
+由使用者指定預設 preset。
 
-**驗收**：報告中每個 preset 的維度覆蓋欄顯示 5/5；回報新的滑桿刻度序列與預設 preset
-的可計分 profile 數，以及前 22 名相對於現行榜單的名次變動（**預期前三名不變、最大位移 ±2**）。
+**驗收**：報告中每個 preset 的維度覆蓋欄顯示 5/5；回報新的滑桿刻度序列、預設 preset 的
+可計分 profile 數，以及前 22 名相對於現行榜單的名次變動（預期前三名不變、最大位移 ±2）。
 
 ## O3 — partial-coverage 清單（R19）
 
 狀態：未開始
 
-**目的**：把「五缺一」的 profile 揭露出來，但**不給名次、不與主榜混排**。
+**目的**：揭露「五缺一」的 profile。
 
 **做法**：
 
-1. 主排行榜的資格條件不變：五維全非 null 才有 `overallScore` 與 `rank`。
-   **不要改 `scoreProfiles` 的閘門邏輯。**
-2. 新增獨立區塊列出缺一維的 profile：顯示模型、缺哪一個維度、以及它已有的各維度分數，
-   **不顯示總分、不顯示名次、不參與排序比較**。
-3. 區塊必須有一句說明，講清楚它為什麼不能和主榜比較——採 R19 的第 3 點：
-   缺一維的 profile 在其持有 benchmark 上的平均 z 為 −0.188，而完整者為 +0.114，
-   且 31 個裡有 27 個缺的都是 Language。
-
-**明確不做**：4-of-5 給分、缺值補算、把 partial 清單排序後當成第二份排行榜。R19 已否決。
+1. 主排行榜的資格條件維持五維全非 null 才有 `overallScore` 與 `rank`，
+   `scoreProfiles` 的閘門邏輯保持原狀。
+2. 新增獨立區塊列出缺一維的 profile：顯示模型、缺少的維度、已有的各維度分數。
+   該區塊不顯示總分、不顯示名次、不參與排序比較。
+3. 區塊附一句說明其與主榜的度量差異，依 R19 判準 3：缺一維的 profile 在其持有
+   benchmark 上的平均 z 為 −0.188，完整者為 +0.114，且 31 個裡有 27 個缺的是 Language。
 
 **驗收**：預設 preset 下該清單有 **31 筆**；e2e 驗證主榜列數不含這 31 筆。
 
@@ -2788,14 +2780,12 @@ R16 的 22 與 `free-sources-13`。** 收維後曲線形狀會變、滑桿刻度
 
 狀態：未開始
 
-**做法**：雷達圖由八軸改為五軸（正五邊形）；排行榜維度欄、模型明細維度卡、
-開發者模式清單一併改為五個維度。維度顯示名稱採 §4.1 的中文／英文標籤，
-**不要在 UI 上出現 `math`、`context`、`instruction` 三個已移除的維度名**。
+**做法**：雷達圖改為五軸（正五邊形）；排行榜維度欄、模型明細維度卡、開發者模式清單
+一併改為五個維度。維度顯示名稱採 §4.1 的標籤。
 
-`L7` 曾修過「雷達圖軸對應錯誤與重複標題」，改軸數時要確認該修正沒有被回退：
-軸的順序必須由 `DIMENSION_IDS` 驅動，不得在元件中另行寫死一份順序。
+軸的順序由 `DIMENSION_IDS` 驅動，元件內不另存一份順序（見 L7）。
 
-**驗收**：`pnpm e2e` 全綠；截圖確認雷達圖為五軸且無殘留空軸。
+**驗收**：`pnpm e2e` 全綠；截圖確認雷達圖為五軸。
 
 ## O5 — 文件同步與最終驗證
 
@@ -2803,19 +2793,14 @@ R16 的 22 與 `free-sources-13`。** 收維後曲線形狀會變、滑桿刻度
 
 **做法**：
 
-1. `docs/SCORING_METHODOLOGY.md`：總分定義由八維平均改為五維平均；補上 R18／R19。
-2. `docs/BENCHMARK_DIMENSION_MAPPING.md`：對照表重寫，並保留一節記錄舊八維的對應關係，
-   供考證。
-3. `docs/ARCHITECTURE.md` 第 20、39、46 行的「八維」字樣。
-4. `docs/BENCHMARK_SCORE_SOURCES.md` 第 6 行的適用範圍。
-5. `README.md` 若提及維度數一併更新。
+1. `docs/SCORING_METHODOLOGY.md`：總分定義改為五維平均；納入 R18／R19。
+2. `docs/BENCHMARK_DIMENSION_MAPPING.md`：對照表改為五維。
+3. `docs/ARCHITECTURE.md`、`docs/BENCHMARK_SCORE_SOURCES.md`、`README.md` 中的維度數。
 
-**不要改動**：`docs/REFACTOR_SPEC.md`（上一次重構的規格，狀態 Implemented，只供考證）、
-`docs/DECISIONS.md`。
+**範圍限制**：`docs/REFACTOR_SPEC.md` 與 `docs/DECISIONS.md` 屬考證文件，保持原狀。
 
 **驗收**：跑完整基準驗證（`pnpm install --frozen-lockfile` → `format` → `lint` →
-`typecheck` → `test` → `--filter @llm-bench/bench build` → `e2e`，順序不可調換），
-並全文搜尋 `八維`／`8/8`，確認殘留的都是歷史記述而非現行契約。
+`typecheck` → `test` → `--filter @llm-bench/bench build` → `e2e`，順序不可調換）。
 
 ## ▣ 審核關卡 O（使用者執行）
 
@@ -2823,7 +2808,7 @@ R16 的 22 與 `free-sources-13`。** 收維後曲線形狀會變、滑桿刻度
 
 O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `current.json`：
 
-1. 新榜單前 22 名與舊榜單的逐名對照。
-2. partial-coverage 清單的 31 筆是否合理。
+1. 新榜單前 22 名與現行榜單的逐名對照。
+2. partial-coverage 清單的 31 筆。
 3. 五軸雷達圖的視覺。
 4. 新的滑桿刻度與預設 preset。
