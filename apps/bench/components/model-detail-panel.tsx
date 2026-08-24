@@ -39,11 +39,8 @@ export const DIMENSION_DISPLAY_NAMES: Record<DimensionId, string> = {
   agentic: 'Agentic',
   coding: 'Coding',
   reasoning: 'Reasoning',
-  math: 'Math',
   knowledge: 'Knowledge',
   language: 'Language',
-  context: 'Context',
-  instruction: 'Instruction',
 };
 
 export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {

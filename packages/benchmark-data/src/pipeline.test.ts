@@ -305,7 +305,7 @@ describe('scoreProfiles', () => {
       [
         makeCandidate(),
         makeCandidate({
-          id: 'math',
+          id: 'reasoning',
           benchmarkId: 'aime',
           benchmarkVersion: '2026',
           metric: {
@@ -320,14 +320,14 @@ describe('scoreProfiles', () => {
       ],
       new Map([
         ['terminal-bench-2-1', 'coding'],
-        ['aime', 'math'],
+        ['aime', 'reasoning'],
       ]),
     );
 
     expect(scored[0]?.overallScore).toBeNull();
     expect(scored[0]?.dimensions).toEqual(
       expect.arrayContaining([
-        { dimension: 'math', score: 90, componentCount: 1 },
+        { dimension: 'reasoning', score: 90, componentCount: 1 },
         { dimension: 'coding', score: 82, componentCount: 1 },
         { dimension: 'knowledge', score: null, componentCount: 0 },
       ]),

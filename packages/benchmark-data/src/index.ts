@@ -6,13 +6,10 @@ import * as z from 'zod';
 
 export const DIMENSION_IDS = [
   'reasoning',
-  'math',
   'knowledge',
-  'language',
-  'instruction',
   'coding',
   'agentic',
-  'context',
+  'language',
 ] as const;
 
 export const DimensionIdSchema = z.enum(DIMENSION_IDS);

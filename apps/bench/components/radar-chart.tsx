@@ -102,7 +102,7 @@ export function RadarChart({
       <div className="section-heading compact">
         <div>
           <p className="eyebrow">Capability profile</p>
-          <h2 id="profile-title">Eight Dimensions</h2>
+          <h2 id="profile-title">Five Dimensions</h2>
           <div className="series-controls">
             {seriesList.length < 3 && availableComparisonRows.length > 0 && (
               <div className="add-model-container">
@@ -178,21 +178,21 @@ export function RadarChart({
             role="img"
             aria-label={
               modelNames
-                ? `Eight Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`
-                : 'Eight Dimensions radar chart. Missing values are omitted rather than drawn at zero.'
+                ? `Five Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`
+                : 'Five Dimensions radar chart. Missing values are omitted rather than drawn at zero.'
             }
             aria-describedby="radar-chart-description"
           >
             <title id="radar-chart-title">
               {modelNames
-                ? `Eight Dimensions radar chart for ${modelNames}`
-                : 'Eight Dimensions radar chart'}
+                ? `Five Dimensions radar chart for ${modelNames}`
+                : 'Five Dimensions radar chart'}
             </title>
             <desc id="radar-chart-description">
               {textualSummary ? `${textualSummary}. ` : ''}
               {hasMissingValues
                 ? 'Missing values are shown as N/A and omitted from the plotted shape.'
-                : 'All eight dimensions have available values.'}
+                : 'All five dimensions have available values.'}
             </desc>
             {[25, 50, 75, 100].map((level) => {
               const grid = UI_DIMENSION_IDS.map((_, index) =>

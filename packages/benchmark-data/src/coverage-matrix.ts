@@ -872,9 +872,9 @@ export const analyzeCoverageMatrix = (
       // free.
       //
       // It is also what makes the search tractable. Dimension masks count the
-      // primary dimension only, so they no longer saturate at all eight bits
+      // primary dimension only, so they no longer saturate at every dimension bit
       // the way primary-plus-secondary masks did, and without this pass the
-      // key space fragments by a factor of up to 256.
+      // key space fragments by a factor of up to 2 ** DIMENSION_IDS.length.
       for (const bucket of nextByCount.values()) {
         const bySupport = new Map<
           string,
@@ -1031,7 +1031,7 @@ export const formatCoverageMatrixMarkdown = (
         const sharePct = (comp.maxSourceShare * 100).toFixed(1);
         const anchor = `#${anchorPrefix}scale-n--${tradeoff.benchmarkCount}-candidate-${rank}-${candidate.completeModelCount}-complete-models`;
         lines.push(
-          `| ${tradeoff.benchmarkCount} | #${rank} | **${candidate.completeModelCount}** | ${candidate.coveredDimensionCount}/8 (${candidate.coveredDimensions.join(', ')}) | ${comp.sourceSpan} / ${comp.exclusiveSources} / ${sharePct}% | [list + models](${anchor}) |`,
+          `| ${tradeoff.benchmarkCount} | #${rank} | **${candidate.completeModelCount}** | ${candidate.coveredDimensionCount}/${DIMENSION_IDS.length} (${candidate.coveredDimensions.join(', ')}) | ${comp.sourceSpan} / ${comp.exclusiveSources} / ${sharePct}% | [list + models](${anchor}) |`,
         );
       }
     }
@@ -1064,7 +1064,7 @@ export const formatCoverageMatrixMarkdown = (
           `### ${headingPrefix}Scale N = ${tradeoff.benchmarkCount}, Candidate #${cIdx + 1} (${candidate.completeModelCount} complete models)`,
           '',
           `- **Chosen Benchmarks (${candidate.benchmarkIds.length})**: ${candidate.benchmarkIds.map((id) => `\`${id}\``).join(', ')}`,
-          `- **Covered Dimensions (${candidate.coveredDimensionCount}/8)**: ${candidate.coveredDimensions.join(', ')}`,
+          `- **Covered Dimensions (${candidate.coveredDimensionCount}/${DIMENSION_IDS.length})**: ${candidate.coveredDimensions.join(', ')}`,
           `- **Source Composition**: \`sourceSpan\` ${comp.sourceSpan}, \`exclusiveSources\` ${comp.exclusiveSources}, \`maxSourceShare\` ${sharePct}% -- ${breakdown}`,
           `- **Complete Models (${candidate.matchingModels.length})**: ${
             candidate.matchingModels.length === 0

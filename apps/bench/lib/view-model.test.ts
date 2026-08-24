@@ -1,4 +1,4 @@
-import type { DimensionId } from '@llm-bench/benchmark-data';
+import { DIMENSION_IDS, type DimensionId } from '@llm-bench/benchmark-data';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -1398,8 +1398,8 @@ describe('radar geometry', () => {
       80,
     );
 
-    expect(points[7]).toBeNull();
-    expect(points.filter(Boolean)).toHaveLength(7);
+    expect(points[UI_DIMENSION_IDS.length - 1]).toBeNull();
+    expect(points.filter(Boolean)).toHaveLength(UI_DIMENSION_IDS.length - 1);
   });
 
   it('breaks partial radar data into open segments instead of closing a polygon across N/A', () => {
@@ -1412,35 +1412,22 @@ describe('radar geometry', () => {
     );
 
     expect(segments).toHaveLength(1);
-    expect(segments[0]).toHaveLength(7);
+    expect(segments[0]).toHaveLength(UI_DIMENSION_IDS.length - 1);
     expect(segments[0]?.[0]).not.toEqual({ x: 100, y: 100 });
   });
 
   it('plots each value on the axis the chart labels with that dimension', () => {
-    // ProductVersion stores dimensions in scoring order and the chart draws them
-    // in UI order. Mapping by array index rotated every value onto a neighbour's
-    // axis: knowledge was drawn where instruction belonged and context where
-    // agentic belonged, so two models could swap places on an axis.
+    // ProductVersion stores dimensions in scoring order and the chart draws
+    // them in UI order. Mapping by array index rotates every value onto a
+    // neighbour's axis, so two models can swap places on an axis.
     const scores: Record<string, number> = {
       agentic: 10,
       coding: 20,
       reasoning: 30,
-      math: 40,
       knowledge: 50,
       language: 60,
-      context: 70,
-      instruction: 80,
     };
-    const storedOrder: DimensionId[] = [
-      'reasoning',
-      'math',
-      'knowledge',
-      'language',
-      'instruction',
-      'coding',
-      'agentic',
-      'context',
-    ];
+    const storedOrder: DimensionId[] = [...DIMENSION_IDS];
     const dimensions = storedOrder.map((dimension) => ({
       dimension,
       score: scores[dimension]!,

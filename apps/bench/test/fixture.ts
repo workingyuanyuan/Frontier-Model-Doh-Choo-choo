@@ -1,7 +1,9 @@
 import {
+  DIMENSION_IDS,
   buildProductVersion,
   toProductEvidence,
   type CandidateResult,
+  type DimensionId,
   type ProductEvidence,
 } from '@llm-bench/benchmark-data';
 
@@ -10,30 +12,11 @@ import { withActivePreset } from '../lib/view-model';
 const dimensions = (
   values: Array<number | null>,
 ): Array<{
-  dimension:
-    | 'reasoning'
-    | 'math'
-    | 'knowledge'
-    | 'language'
-    | 'instruction'
-    | 'coding'
-    | 'agentic'
-    | 'context';
+  dimension: DimensionId;
   score: number | null;
   componentCount: number;
 }> =>
-  (
-    [
-      'reasoning',
-      'math',
-      'knowledge',
-      'language',
-      'instruction',
-      'coding',
-      'agentic',
-      'context',
-    ] as const
-  ).map((dimension, index) => ({
+  DIMENSION_IDS.map((dimension, index) => ({
     dimension,
     score: values[index] ?? null,
     componentCount: values[index] === null ? 0 : 1,
@@ -147,7 +130,7 @@ const fixtureLeaderboard = [
     profileId: 'openai-gpt-5-6-sol-max',
     rank: 1,
     overallScore: 88.1,
-    dimensions: dimensions([91.2, 94.7, 86.4, 82.8, 90.5, 92.4, 87.6, 79.3]),
+    dimensions: dimensions([91.2, 86.4, 92.4, 87.6, 82.8]),
     evidenceResultIds: ['terminal:max'],
   },
   {
@@ -155,7 +138,7 @@ const fixtureLeaderboard = [
     profileId: 'anthropic-claude-fable-5-standard',
     rank: 2,
     overallScore: 85.6,
-    dimensions: dimensions([88.6, 87.2, 89.1, 91.4, 92.1, 86.8, 80.3, null]),
+    dimensions: dimensions([88.6, 89.1, 86.8, 80.3, null]),
     evidenceResultIds: ['terminal:claude'],
   },
   {
@@ -163,7 +146,7 @@ const fixtureLeaderboard = [
     profileId: 'openai-gpt-5-6-sol-high',
     rank: 3,
     overallScore: 84.2,
-    dimensions: dimensions([87, 90, 83, 80, 86, 88, 82, 78]),
+    dimensions: dimensions([87, 83, 88, 82, 80]),
     evidenceResultIds: ['terminal:high'],
   },
   {
@@ -171,7 +154,7 @@ const fixtureLeaderboard = [
     profileId: 'google-gemini-3-1-pro-high',
     rank: 4,
     overallScore: 82.9,
-    dimensions: dimensions([86.3, 89.8, 84.5, 85.2, 81.7, 78.4, 74.9, 82.6]),
+    dimensions: dimensions([86.3, 84.5, 78.4, 74.9, 85.2]),
     evidenceResultIds: ['terminal:gemini'],
   },
 ];

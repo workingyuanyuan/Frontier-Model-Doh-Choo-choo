@@ -9,7 +9,7 @@ import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
   'terminal-bench-2-1': 'coding',
-  frontiermath: 'math',
+  frontiermath: 'reasoning',
 } as const;
 
 describe('sortable product tables', () => {
@@ -30,19 +30,19 @@ describe('sortable product tables', () => {
         direction: 'descending',
       },
     );
-    const contextAscending = sortLeaderboardRows(
+    const languageAscending = sortLeaderboardRows(
       productFixture,
       productFixture.leaderboard,
       {
-        key: 'context',
+        key: 'language',
         direction: 'ascending',
       },
     );
-    const contextDescending = sortLeaderboardRows(
+    const languageDescending = sortLeaderboardRows(
       productFixture,
       productFixture.leaderboard,
       {
-        key: 'context',
+        key: 'language',
         direction: 'descending',
       },
     );
@@ -54,8 +54,8 @@ describe('sortable product tables', () => {
       'openai-gpt-5-6-sol',
     ]);
     expect(byReasoning[0]?.profileId).toBe('openai-gpt-5-6-sol-max');
-    expect(contextAscending.at(-1)?.modelId).toBe('anthropic-claude-fable-5');
-    expect(contextDescending.at(-1)?.modelId).toBe('anthropic-claude-fable-5');
+    expect(languageAscending.at(-1)?.modelId).toBe('anthropic-claude-fable-5');
+    expect(languageDescending.at(-1)?.modelId).toBe('anthropic-claude-fable-5');
   });
 
   it('sorts evidence by each visible column value', () => {
@@ -83,7 +83,7 @@ describe('sortable product tables', () => {
 });
 
 describe('evidence categories', () => {
-  it('always returns the eight product dimensions in UI order', () => {
+  it('always returns the five product dimensions in UI order', () => {
     const { groups } = groupEvidenceByDimension(
       productFixture.evidence,
       benchmarkDimensions,
@@ -93,21 +93,18 @@ describe('evidence categories', () => {
       'agentic',
       'coding',
       'reasoning',
-      'math',
       'knowledge',
       'language',
-      'context',
-      'instruction',
     ]);
     expect(
       groups.find(({ dimension }) => dimension === 'coding')?.rows,
     ).toHaveLength(2);
     expect(
-      groups.find(({ dimension }) => dimension === 'math')?.rows,
+      groups.find(({ dimension }) => dimension === 'reasoning')?.rows,
     ).toHaveLength(1);
   });
 
-  it('retains excluded, non-scoring evidence outside the eight score groups', () => {
+  it('retains excluded, non-scoring evidence outside the five score groups', () => {
     const { unmapped } = groupEvidenceByDimension(
       productFixture.evidence,
       benchmarkDimensions,

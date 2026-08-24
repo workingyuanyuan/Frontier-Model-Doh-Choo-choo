@@ -7,6 +7,7 @@ import sourcesConfig from '../../../data/mappings/sources.json';
 import {
   BenchmarkDimensionMappingSchema,
   CandidateResultSchema,
+  DIMENSION_IDS,
   DisplaySetSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
@@ -166,23 +167,12 @@ describe('BenchmarkDimensionMappingSchema', () => {
       new Set(
         parsed.benchmarks.map(({ primaryDimension }) => primaryDimension),
       ),
-    ).toEqual(
-      new Set([
-        'reasoning',
-        'math',
-        'knowledge',
-        'language',
-        'instruction',
-        'coding',
-        'agentic',
-        'context',
-      ]),
-    );
+    ).toEqual(new Set(DIMENSION_IDS));
   });
 });
 
 describe('ProductVersionSchema', () => {
-  it('keeps all eight dimensions in canonical order', () => {
+  it('keeps all five dimensions in canonical order', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const product = ProductVersionSchema.parse({
       schemaVersion: 'product-version-v4',
@@ -207,13 +197,10 @@ describe('ProductVersionSchema', () => {
               overallScore: 85.8,
               dimensions: [
                 { dimension: 'reasoning', score: null, componentCount: 0 },
-                { dimension: 'math', score: null, componentCount: 0 },
                 { dimension: 'knowledge', score: null, componentCount: 0 },
-                { dimension: 'language', score: null, componentCount: 0 },
-                { dimension: 'instruction', score: null, componentCount: 0 },
                 { dimension: 'coding', score: 85.8, componentCount: 1 },
                 { dimension: 'agentic', score: null, componentCount: 0 },
-                { dimension: 'context', score: null, componentCount: 0 },
+                { dimension: 'language', score: null, componentCount: 0 },
               ],
               evidenceResultIds: [candidate.id],
             },
@@ -228,16 +215,7 @@ describe('ProductVersionSchema', () => {
       product.presets[0]?.leaderboard[0]?.dimensions.map(
         ({ dimension }) => dimension,
       ),
-    ).toEqual([
-      'reasoning',
-      'math',
-      'knowledge',
-      'language',
-      'instruction',
-      'coding',
-      'agentic',
-      'context',
-    ]);
+    ).toEqual([...DIMENSION_IDS]);
 
     expect(() =>
       ProductVersionSchema.parse({
@@ -372,23 +350,20 @@ describe('SourcesConfigSchema', () => {
 describe('DisplaySetSchema and validateDisplaySet', () => {
   const mapping = () =>
     BenchmarkDimensionMappingSchema.parse(benchmarkMappings);
-  // One benchmark per primary dimension, so the eight-dimension rule passes and
+  // One benchmark per primary dimension, so the full-coverage rule passes and
   // each test below fails for the single reason it is about.
-  const eightDimensionIds = [
+  const allDimensionIds = [
     'livebench-reasoning',
-    'livebench-mathematics',
-    'livebench-language',
-    'livebench-instruction-following',
     'mmlu-pro',
     'swe-bench',
     'tau3-banking',
-    'aa-lcr',
+    'livebench-language',
   ];
   const preset = (overrides: Record<string, unknown> = {}) => ({
     id: 'sample-preset',
     targetModelCount: 4,
     requireAllSources: false,
-    benchmarkIds: eightDimensionIds,
+    benchmarkIds: allDimensionIds,
     ...overrides,
   });
   const displaySet = (overrides: Record<string, unknown> = {}) => ({
@@ -432,7 +407,7 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
             presets: [
               preset({
                 benchmarkIds: [
-                  ...eightDimensionIds,
+                  ...allDimensionIds,
                   'non-existent-bench-foo',
                   'another-missing-bench-bar',
                 ],
@@ -456,7 +431,9 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
           displaySet({
             presets: [
               preset({
-                benchmarkIds: eightDimensionIds.filter((id) => id !== 'aa-lcr'),
+                benchmarkIds: allDimensionIds.filter(
+                  (id) => id !== 'livebench-language',
+                ),
               }),
             ],
           }),
@@ -464,7 +441,7 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
         mapping(),
       ),
     ).toThrowError(
-      'Display set preset sample-preset leaves dimensions with no benchmark: context',
+      'Display set preset sample-preset leaves dimensions with no benchmark: language',
     );
   });
 
@@ -481,14 +458,14 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
         DisplaySetSchema.parse(
           displaySet({
             presets: [
-              preset({ benchmarkIds: [...eightDimensionIds, 'aa-lcr'] }),
+              preset({ benchmarkIds: [...allDimensionIds, 'mmlu-pro'] }),
             ],
           }),
         ),
         mapping(),
       ),
     ).toThrowError(
-      'Display set preset sample-preset repeats benchmark IDs: aa-lcr',
+      'Display set preset sample-preset repeats benchmark IDs: mmlu-pro',
     );
 
     expect(() =>

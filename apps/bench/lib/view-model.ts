@@ -262,7 +262,7 @@ export const hasCompleteDimensionScores = (row: LeaderboardRow): boolean =>
 /**
  * A main-screen profile must pass both the explicit benchmark matrix and the
  * no-N/A rendered-dimension invariant. The latter is deliberately separate:
- * display-set benchmarks do not necessarily span all eight dimensions.
+ * display-set benchmarks do not necessarily span every dimension.
  */
 export const isMainEligibleRow = (
   product: ProductVersion,
@@ -441,7 +441,7 @@ const median = (values: number[]): number => {
  * column meant a different thing per row.
  *
  * `field` says which score the basis benchmark carries. The two composite
- * indices (AA, Vals) are EXCLUDED from the eight dimensions on purpose, so the
+ * indices (AA, Vals) are EXCLUDED from the scoring dimensions on purpose, so the
  * published value lives in `rawScore` and never reaches a radar axis; the
  * single-benchmark sources use their normalized score.
  */

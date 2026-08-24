@@ -75,7 +75,7 @@ A 到 N 已完成，紀錄在 [docs/history/PHASE_A_TO_N.md](../docs/history/PHA
 
 ## O1 — mapping 與型別改為五維
 
-狀態：未開始
+狀態：完成
 
 **目的**：把維度集合縮成五個，benchmark 的存在與其他欄位保持原狀。
 

@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { DisplaySetPolicySchema } from './index.js';
+import { DIMENSION_IDS, DisplaySetPolicySchema } from './index.js';
 import { buildWorkspaceProduct } from './workspace.js';
 
 describe('buildWorkspaceProduct', () => {
@@ -109,7 +109,9 @@ describe('buildWorkspaceProduct', () => {
     expect(
       defaultLeaderboard.every((row) => !Object.hasOwn(row, 'status')),
     ).toBe(true);
-    expect(defaultLeaderboard[0]?.dimensions).toHaveLength(8);
+    expect(defaultLeaderboard[0]?.dimensions).toHaveLength(
+      DIMENSION_IDS.length,
+    );
     expect(
       product.evidence.some(({ inclusion }) => inclusion === 'INCLUDED'),
     ).toBe(true);

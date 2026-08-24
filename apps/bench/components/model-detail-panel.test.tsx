@@ -10,7 +10,7 @@ import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
   'terminal-bench-2-1': 'coding' as const,
-  frontiermath: 'math' as const,
+  frontiermath: 'reasoning' as const,
   'gpqa-diamond': 'reasoning' as const,
   'livebench-language': 'language' as const,
 };
@@ -95,7 +95,7 @@ describe('ModelDetailPanel (Task E1)', () => {
     expect(html).toContain('Overall 88.1');
 
     // Groups by all 8 dimensions
-    expect(html.match(/data-dimension-group/g)).toHaveLength(8);
+    expect(html.match(/data-dimension-group/g)).toHaveLength(5);
     expect(html).toContain('Coding');
     expect(html).toContain('Math');
     expect(html).toContain('Reasoning');
@@ -116,13 +116,10 @@ describe('ModelDetailPanel (Task E1)', () => {
       overallScore: null,
       dimensions: [
         { dimension: 'coding' as const, score: 70.0 },
-        { dimension: 'math' as const, score: null },
         { dimension: 'reasoning' as const, score: null },
         { dimension: 'knowledge' as const, score: null },
         { dimension: 'language' as const, score: null },
-        { dimension: 'instruction' as const, score: null },
         { dimension: 'agentic' as const, score: null },
-        { dimension: 'context' as const, score: null },
       ],
     };
 

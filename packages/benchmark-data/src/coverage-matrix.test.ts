@@ -143,16 +143,7 @@ describe('coverage-matrix', () => {
 
       const benchmarkMapping: BenchmarkDimensionMapping = {
         schemaVersion: 'benchmark-dimensions-v1',
-        dimensions: [
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ],
+        dimensions: [...DIMENSION_IDS],
         benchmarks: [
           {
             id: 'bench-active',
@@ -161,7 +152,7 @@ describe('coverage-matrix', () => {
           },
           {
             id: 'bench-stopped',
-            primaryDimension: 'math',
+            primaryDimension: 'agentic',
             secondaryDimensions: ['knowledge'],
           },
           {
@@ -311,16 +302,7 @@ describe('coverage-matrix', () => {
 
       const benchmarkMapping: BenchmarkDimensionMapping = {
         schemaVersion: 'benchmark-dimensions-v1',
-        dimensions: [
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ],
+        dimensions: [...DIMENSION_IDS],
         benchmarks: [
           {
             id: 'bench-1',
@@ -329,7 +311,7 @@ describe('coverage-matrix', () => {
           },
           {
             id: 'bench-2',
-            primaryDimension: 'math',
+            primaryDimension: 'agentic',
             secondaryDimensions: [],
           },
           {
@@ -453,19 +435,10 @@ describe('coverage-matrix', () => {
 
       const benchmarkMapping: BenchmarkDimensionMapping = {
         schemaVersion: 'benchmark-dimensions-v1',
-        dimensions: [
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ],
+        dimensions: [...DIMENSION_IDS],
         benchmarks: [
           { id: 'b1', primaryDimension: 'reasoning', secondaryDimensions: [] },
-          { id: 'b2', primaryDimension: 'math', secondaryDimensions: [] },
+          { id: 'b2', primaryDimension: 'agentic', secondaryDimensions: [] },
           { id: 'b3', primaryDimension: 'coding', secondaryDimensions: [] },
         ],
       };
@@ -754,14 +727,14 @@ describe('coverage-matrix', () => {
       // b: 3 benchmarks from src-1, 1 from src-2 (excl=2, maxSourceShare=3/4=0.75)
       const candA = {
         completeModelCount: 5,
-        coveredDimensionCount: 8,
+        coveredDimensionCount: 5,
         exclusiveSources: 2,
         maxSourceShare: 0.5,
         benchmarkIds: ['b1', 'b2', 'b3', 'b4'],
       };
       const candB = {
         completeModelCount: 5,
-        coveredDimensionCount: 8,
+        coveredDimensionCount: 5,
         exclusiveSources: 2,
         maxSourceShare: 0.75,
         benchmarkIds: ['b1', 'b2', 'b3', 'b5'],
@@ -830,16 +803,7 @@ describe('coverage-matrix', () => {
 
       const benchmarkMapping: BenchmarkDimensionMapping = {
         schemaVersion: 'benchmark-dimensions-v1',
-        dimensions: [
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ],
+        dimensions: [...DIMENSION_IDS],
         // Coverage counts the primary dimension only, matching how
         // `scoreProfiles` maps a benchmark into exactly one dimension. The
         // secondary lists below are deliberately non-empty and deliberately
@@ -848,11 +812,11 @@ describe('coverage-matrix', () => {
           {
             id: 'bench-a',
             primaryDimension: 'reasoning',
-            secondaryDimensions: ['math', 'coding'],
+            secondaryDimensions: ['agentic', 'coding'],
           },
           {
             id: 'bench-b',
-            primaryDimension: 'math',
+            primaryDimension: 'agentic',
             secondaryDimensions: [],
           },
           {
@@ -933,7 +897,7 @@ describe('coverage-matrix', () => {
         1,
       );
 
-      // N=2: {bench-a, bench-b} covers reasoning and math, while
+      // N=2: {bench-a, bench-b} covers reasoning and agentic, while
       // {bench-a, bench-c} covers reasoning twice. Dimension count outranks
       // lexicographic order, so the pair spanning two dimensions wins even
       // though 'bench-c' never gets a chance to break the tie.
@@ -1083,7 +1047,7 @@ describe('coverage-matrix', () => {
           dimensions: [...DIMENSION_IDS],
           benchmarks: [
             { id: 'b1', primaryDimension: 'coding', secondaryDimensions: [] },
-            { id: 'b2', primaryDimension: 'math', secondaryDimensions: [] },
+            { id: 'b2', primaryDimension: 'agentic', secondaryDimensions: [] },
           ],
         },
         profilePolicy: mockProfilePolicy,

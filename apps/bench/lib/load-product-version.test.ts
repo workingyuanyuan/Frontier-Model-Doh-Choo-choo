@@ -4,6 +4,8 @@ import { join } from 'node:path';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
+import { DIMENSION_IDS } from '@llm-bench/benchmark-data';
+
 import { loadProductVersion } from './load-product-version';
 import { productFixture } from '../test/fixture';
 
@@ -28,37 +30,20 @@ describe('loadProductVersion', () => {
       join(mappingRoot, 'benchmarks.json'),
       JSON.stringify({
         schemaVersion: 'benchmark-dimensions-v1',
-        dimensions: [
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ],
+        dimensions: [...DIMENSION_IDS],
         benchmarks: [
           {
             id: 'terminal-bench-2-1',
             primaryDimension: 'coding',
             secondaryDimensions: ['agentic'],
           },
-          ...(
-            [
-              'reasoning',
-              'math',
-              'knowledge',
-              'language',
-              'instruction',
-              'agentic',
-              'context',
-            ] as const
-          ).map((dimension) => ({
-            id: `bench-${dimension}`,
-            primaryDimension: dimension,
-            secondaryDimensions: [],
-          })),
+          ...DIMENSION_IDS.filter((dimension) => dimension !== 'coding').map(
+            (dimension) => ({
+              id: `bench-${dimension}`,
+              primaryDimension: dimension,
+              secondaryDimensions: [],
+            }),
+          ),
         ],
       }),
     );
@@ -75,12 +60,9 @@ describe('loadProductVersion', () => {
             benchmarkIds: [
               'terminal-bench-2-1',
               'bench-reasoning',
-              'bench-math',
               'bench-knowledge',
-              'bench-language',
-              'bench-instruction',
               'bench-agentic',
-              'bench-context',
+              'bench-language',
             ],
           },
         ],
@@ -105,7 +87,7 @@ describe('loadProductVersion', () => {
     expect(loaded.product).toEqual(onDisk);
     expect(loaded.benchmarkDimensions).toMatchObject({
       'terminal-bench-2-1': 'coding',
-      'bench-context': 'context',
+      'bench-language': 'language',
     });
     expect(loaded.displaySet).toEqual({
       schemaVersion: 'display-set-v2',
@@ -118,12 +100,9 @@ describe('loadProductVersion', () => {
           benchmarkIds: [
             'terminal-bench-2-1',
             'bench-reasoning',
-            'bench-math',
             'bench-knowledge',
-            'bench-language',
-            'bench-instruction',
             'bench-agentic',
-            'bench-context',
+            'bench-language',
           ],
         },
       ],
@@ -158,37 +137,20 @@ describe('loadProductVersion', () => {
       join(mappingRoot, 'benchmarks.json'),
       JSON.stringify({
         schemaVersion: 'benchmark-dimensions-v1',
-        dimensions: [
-          'reasoning',
-          'math',
-          'knowledge',
-          'language',
-          'instruction',
-          'coding',
-          'agentic',
-          'context',
-        ],
+        dimensions: [...DIMENSION_IDS],
         benchmarks: [
           {
             id: 'terminal-bench-2-1',
             primaryDimension: 'coding',
             secondaryDimensions: ['agentic'],
           },
-          ...(
-            [
-              'reasoning',
-              'math',
-              'knowledge',
-              'language',
-              'instruction',
-              'agentic',
-              'context',
-            ] as const
-          ).map((dimension) => ({
-            id: `bench-${dimension}`,
-            primaryDimension: dimension,
-            secondaryDimensions: [],
-          })),
+          ...DIMENSION_IDS.filter((dimension) => dimension !== 'coding').map(
+            (dimension) => ({
+              id: `bench-${dimension}`,
+              primaryDimension: dimension,
+              secondaryDimensions: [],
+            }),
+          ),
         ],
       }),
     );

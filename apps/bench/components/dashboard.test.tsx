@@ -14,7 +14,7 @@ import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
   'terminal-bench-2-1': 'coding',
-  frontiermath: 'math',
+  frontiermath: 'reasoning',
 } as const;
 
 /**
@@ -47,7 +47,7 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain(`Version ${productFixture.versionId}`);
     expect(html).toContain('Leaderboard');
     expect(html).toContain('Quality vs. Cost');
-    expect(html).toContain('Eight Dimensions');
+    expect(html).toContain('Five Dimensions');
     expect(html).toContain('role="switch"');
     expect(html).toContain('aria-label="Developer mode"');
     expect(html).toContain('aria-checked="false"');
@@ -231,7 +231,7 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
 
     expect(html).toContain('Quality vs. Cost chart data');
-    expect(html).toContain('Eight Dimensions');
+    expect(html).toContain('Five Dimensions');
   });
 
   it('explains the frontier, ranked-model, and scored-profile counts', () => {
@@ -254,17 +254,7 @@ describe('Dashboard Redesign', () => {
   it('renders dimension columns and category rows in the requested order using abbreviations', () => {
     const html = renderToStaticMarkup(dashboard());
 
-    const headers = [
-      'Overall',
-      'AGT',
-      'COD',
-      'RSN',
-      'MAT',
-      'KNG',
-      'LNG',
-      'CTX',
-      'IF',
-    ];
+    const headers = ['Overall', 'AGT', 'COD', 'RSN', 'KNG', 'LNG'];
     headers.slice(0, -1).forEach((header, index) => {
       expect(html.indexOf(`Sort by ${header}`)).toBeLessThan(
         html.indexOf(`Sort by ${headers[index + 1]}`),
@@ -276,16 +266,7 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
     expect(html).toContain('data-max-series="3"');
 
-    const abbreviations = [
-      'AGT',
-      'COD',
-      'RSN',
-      'MAT',
-      'KNG',
-      'LNG',
-      'CTX',
-      'IF',
-    ];
+    const abbreviations = ['AGT', 'COD', 'RSN', 'KNG', 'LNG'];
     abbreviations.forEach((abbr) => {
       expect(html).toContain(abbr);
     });
@@ -294,15 +275,15 @@ describe('Dashboard Redesign', () => {
     expect(html).not.toContain('src)');
   });
 
-  it('orders Quality vs. Cost below Eight Dimensions', () => {
+  it('orders Quality vs. Cost below Five Dimensions', () => {
     const html = renderToStaticMarkup(dashboard());
-    const eightDimensionsIndex = html.indexOf('Eight Dimensions');
+    const fiveDimensionsIndex = html.indexOf('Five Dimensions');
     const qualityVsCostIndex = html.indexOf('Quality vs. Cost');
-    expect(eightDimensionsIndex).toBeGreaterThan(0);
-    expect(qualityVsCostIndex).toBeGreaterThan(eightDimensionsIndex);
+    expect(fiveDimensionsIndex).toBeGreaterThan(0);
+    expect(qualityVsCostIndex).toBeGreaterThan(fiveDimensionsIndex);
   });
 
-  it('groups model benchmarks into eight capability dimensions in the detail panel when expanded', () => {
+  it('groups model benchmarks into five capability dimensions in the detail panel when expanded', () => {
     const html = renderToStaticMarkup(
       createElement(Dashboard, {
         product: productFixture,
@@ -313,9 +294,9 @@ describe('Dashboard Redesign', () => {
 
     expect(html).toContain('data-model-detail="openai-gpt-5-6-sol"');
     expect(html).toContain('Model capability breakdown');
-    expect(html.match(/data-dimension-group/g)).toHaveLength(8);
+    expect(html.match(/data-dimension-group/g)).toHaveLength(5);
     expect(html).toContain('Agentic');
-    expect(html).toContain('Instruction');
+    expect(html).toContain('Knowledge');
     expect(html).toContain('Terminal-Bench 2.1');
   });
 
@@ -359,7 +340,7 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
     const leaderboardSorts = html.match(/data-leaderboard-sort/g) ?? [];
 
-    expect(leaderboardSorts.length).toBe(11);
+    expect(leaderboardSorts.length).toBe(8);
     expect(html).toContain('aria-sort="descending"');
     expect(html).toContain('Sort by Model');
   });
@@ -375,7 +356,7 @@ describe('Dashboard Redesign', () => {
       {
         ...productFixture.leaderboard[0]!,
         dimensions: productFixture.leaderboard[0]!.dimensions.map((d) =>
-          d.dimension === 'context' ? { ...d, score: null } : d,
+          d.dimension === 'language' ? { ...d, score: null } : d,
         ),
       },
     ]);
@@ -387,7 +368,7 @@ describe('Dashboard Redesign', () => {
     );
 
     expect(html).toContain('Missing values are shown as N/A');
-    expect(html).toContain('CTX: N/A');
+    expect(html).toContain('LNG: N/A');
     expect(html).toContain('<polyline');
     expect(html).not.toContain('<polygon class="radar-area');
     expect(html).not.toContain('bar-src');
@@ -440,7 +421,7 @@ describe('Dashboard Redesign', () => {
           ? {
               ...row,
               dimensions: row.dimensions.map((dimension, index) =>
-                index === 7
+                index === row.dimensions.length - 1
                   ? { ...dimension, score: null, componentCount: 0 }
                   : dimension,
               ),
@@ -452,7 +433,7 @@ describe('Dashboard Redesign', () => {
 
     expect(html).not.toContain('GPT-5.6 Sol · high');
     expect(html).not.toContain('value="openai-gpt-5-6-sol-high"');
-    const mainMarkup = html.slice(0, html.indexOf('Eight Dimensions'));
+    const mainMarkup = html.slice(0, html.indexOf('Five Dimensions'));
     expect(mainMarkup).not.toContain('N/A');
   });
 
