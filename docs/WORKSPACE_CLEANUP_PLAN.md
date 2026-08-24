@@ -46,25 +46,23 @@
 `playwright-report/`、`test-results/` 均已移除。`.turbo/` 與 `.pnpm-store/`
 是套件與建置快取，保留。
 
-## 5. 待確認：未追蹤的工作檔
+## 5. 工作檔（已進版）
 
-| 檔案                             | 說明                                                     |
-| -------------------------------- | -------------------------------------------------------- |
-| `start-bench-review.cmd`         | 本地審查用啟動器，`README.md` 的未提交變更已為它加了一節 |
-| `scripts/start-bench-review.ps1` | 同上，`.cmd` 呼叫的實作                                  |
-| `apps/bench/CLAUDE.md`           | 內容待確認是否與根目錄 `CLAUDE.md` 重複                  |
-| `apps/bench/AGENTS.md`           | 同上                                                     |
-
-四個檔案要一起決定進版或留在本機；`README.md` 的該節現在指向未追蹤的檔案。
+| 檔案                             | 說明                                                          |
+| -------------------------------- | ------------------------------------------------------------- |
+| `start-bench-review.cmd`         | 本地審查啟動器，雙擊即開                                      |
+| `scripts/start-bench-review.ps1` | 啟動器的 PowerShell 實作，4000 port，重複執行會沿用既有伺服器 |
+| `apps/bench/AGENTS.md`           | `next dev` 產生並維護的 Next.js 代理規則                      |
+| `apps/bench/CLAUDE.md`           | 指向 `AGENTS.md` 的一行指標                                   |
 
 ## 6. 未完成的工作
 
-| 位置                              | 狀態                                                      |
-| --------------------------------- | --------------------------------------------------------- |
-| `tasks/claude-code-plan.md` N6    | 期三審核關卡，待使用者執行                                |
-| `tasks/claude-code-plan.md` N7    | 期三刷新報告與文件同步，前置為 N6                         |
-| `tasks/claude-code-plan.md` O1–O5 | 維度集合改為五維，待開工                                  |
-| 規格 §12 第 11、12 項             | `medscribe` 歸屬與 Reasoning 內部結構，待資料量足夠後重驗 |
+| 位置                                  | 狀態                                                      |
+| ------------------------------------- | --------------------------------------------------------- |
+| `tasks/claude-code-plan.md` O1–O5     | 維度集合改為五維，待開工                                  |
+| 審核關卡 O                            | O5 完成後由使用者執行                                     |
+| `docs/history/PHASE_A_TO_N.md` N6、N7 | 期三審核關卡與其後的刷新報告，狀態停在未開始              |
+| 規格 §12 第 11、12 項                 | `medscribe` 歸屬與 Reasoning 內部結構，待資料量足夠後重驗 |
 
 `data/sources/` 下 `lech-writing`、`llm-stats`、`openai`、`osworld`、`scale-hle`、
 `terminal-bench` 六個來源依規格 §3.2 為凍結狀態，保留不動。
