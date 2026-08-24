@@ -24,17 +24,27 @@
 
 ## 歷史與審計紀錄
 
-下列文件只用來解釋以前做過什麼，不可覆蓋現行規格：
+`history/` 下的文件解釋過去做過什麼，不覆蓋現行規格：
 
-- `REFACTOR_SPEC.md`：上一次重構規格（狀態：Implemented），只供考證，非現行依據。
-- `DECISIONS.md`：舊 PostgreSQL／Worker／Edition v1 決策，整份 Superseded。
-- `DRAFT_REVIEW_2026-07-17.md`、`DRAFT_REVIEW_2026-07-18*.md`：舊 Draft 審核。
-- `N_A_IDENTITY_REMEDIATION_2026-07-19.md`：identity 修正紀錄。
-- `DRAFT_REVIEW_2026-08-13.md`：前次 Draft 的代理審核證據。
-- `GATE1_AUDIT_2026-08-17.md`、`GATE1_AUDIT_ROUND2_2026-08-18.md`：審核關卡 1 稽核記錄。
-- `MODELS_RELEASE_DATE_BACKFILL_2026-08-17.md`：模型發布日期回填紀錄。
-- `EFFORT_INFERENCE_REVIEW_2026-08-18.md`：跨來源 effort 推測人工審查記錄。
-- `C6_GATE_1_REVIEW.md`、`C6_MODEL_CANDIDATES.md`：審核關卡 1 審查總結與跨來源模型候選清單。
-- `REFRESH_2026-08-20.md`：常態刷新報告範本與 2026-08-20 刷新抽查紀錄。
+| 文件                                                 | 內容                                |
+| ---------------------------------------------------- | ----------------------------------- |
+| `history/REFACTOR_SPEC.md`                           | 第一次重構規格（狀態：Implemented） |
+| `history/STAGE5_PLAN.md`                             | 第一次重構的執行計畫與完成範圍      |
+| `history/STAGE5_TODO.md`                             | 第一次重構的待辦清單與完成紀錄      |
+| `history/DECISIONS.md`                               | PostgreSQL／Worker／Edition v1 決策 |
+| `history/DRAFT_REVIEW.md`                            | Draft 發布前代理審核                |
+| `history/GATE1_AUDIT.md`                             | 審核關卡 1 的來源逐列稽核           |
+| `history/F2_ACCEPTANCE.md`                           | 最終驗收報告                        |
+| `history/C6_GATE_1_REVIEW.md`                        | 審核關卡 1 審查總結                 |
+| `history/C6_MODEL_CANDIDATES.md`                     | 跨來源模型候選清單                  |
+| `history/N_A_IDENTITY_REMEDIATION_2026-07-19.md`     | identity 修正紀錄                   |
+| `history/MODELS_RELEASE_DATE_BACKFILL_2026-08-17.md` | `models.json` 發布日期回填對照      |
+| `history/EFFORT_INFERENCE_REVIEW_2026-08-18.md`      | 跨來源 effort 推測人工審查          |
+| `history/GPQA_AA_VS_EPOCH_2026-08-21.md`             | GPQA 跨來源逐模型對照               |
+| `history/N10_DESIGN_PROPOSAL.md`                     | 動態 benchmark 集合的設計推導       |
+| `history/ADVANCED_CHART_SOURCES_2026-08-22.md`       | 進階成本圖的來源量測                |
+| `history/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`  | 重複 benchmark 的跨來源比較         |
+
+刷新報告 `REFRESH_<YYYY-MM-DD>.md` 依規格 §11.4 逐次產生，留在 `docs/` 下。
 
 若文件互相衝突，優先順序為：`REFACTOR_SPEC_V2.md` > `../tasks/claude-code-plan.md` > `CLAUDE.md` / `REFACTOR_DISCARD_LIST.md` > `PROJECT_HANDOFF.md` > 其他文件 > 歷史文件。

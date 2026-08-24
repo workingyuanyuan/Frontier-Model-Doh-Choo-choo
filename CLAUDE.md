@@ -8,7 +8,7 @@
 4. `docs/PROJECT_HANDOFF.md`：上一次重構的進度與風險盤點。其 §8「待使用者決定」已全部決定，答案在 `REFACTOR_SPEC_V2.md`。
 5. `docs/ARCHITECTURE.md`、`docs/DATA_METHODOLOGY.md`、`docs/SCORING_METHODOLOGY.md`、`docs/OPERATIONS.md`：上一次重構後的系統契約，正由第二次重構逐項改寫。
 
-`docs/REFACTOR_SPEC.md` 是上一次重構的規格（狀態 Implemented），只供考證，不是現行依據。
+`docs/history/REFACTOR_SPEC.md` 是上一次重構的規格（狀態 Implemented），只供考證，不是現行依據。
 
 **文件權威順序**：`docs/REFACTOR_SPEC_V2.md` > `tasks/claude-code-plan.md` > `CLAUDE.md` > 其他文件。
 
@@ -28,7 +28,7 @@
 - 動程式前先把 `tasks/claude-code-plan.md` 中該 task 的**狀態欄位**改成 `進行中`，完成後改成 `完成`。每個 task 要保持單一目的且可獨立驗收。
 - 不得刪除或修改 `data-v2/sources/` 底下任何目錄。
 - 產品版本檔的處置依 `REFACTOR_SPEC_V2.md` §8 與 §11：舊的 `data-v2/product/versions/*.json` 要刪除，改為單一 `data-v2/product/current.json`。
-- 不要把歷史文件 `docs/DECISIONS.md` 或舊 Draft review 當成現行架構權威。
+- 不要把歷史文件 `docs/history/DECISIONS.md` 或舊 Draft review 當成現行架構權威。
 - 保留使用者現有變更；不要用 reset、checkout 或清理指令丟棄未知內容。
 
 ## 基準驗證

@@ -262,7 +262,7 @@ environments=0
 |   2 | `CLAUDE.md` e2e 在 build 前              | **已解除**                         | `CLAUDE.md:37-43` 為 install → format → lint → typecheck → test → build → e2e；`CLAUDE.md:45-46` 說明 e2e 需要 `.next`。本次照此順序 8 passed / 2 skipped。                                                                                           |
 |   3 | 每來源票值誤寫為該來源眾數               | **已解除**                         | 規格 `docs/REFACTOR_SPEC_V2.md:117-123`、程式 `packages/benchmark-data/src/index.ts:517-560`、`docs/DATA_METHODOLOGY.md:78-84`、`docs/BENCHMARK_SCORE_SOURCES.md:14-16` 均為「單一來源先取最高具名檔位，一來源一票；跨來源取眾數，平手取高」。        |
 |   4 | `ProductCostSchema.evidenceIds` 可為空   | **已解除**                         | `packages/benchmark-data/src/index.ts:722-738` 使用 `.min(1)`；`packages/benchmark-data/src/schema.test.ts:242-283` 同時覆蓋 null performance 正例與空 evidenceIds 負例；動態 `safeParse` 空陣列失敗。                                                |
-|   5 | 過期 task 無標記；來源文件自稱匯入白名單 | **已解除**                         | `tasks/plan.md:3-7`、`tasks/todo.md:3-7` 明標 Historical／Superseded；`docs/BENCHMARK_SCORE_SOURCES.md:8-10` 明定是時效登錄、不是匯入授權，真正四來源白名單在 `data-v2/mappings/sources.json:1`。                                                     |
+|   5 | 過期 task 無標記；來源文件自稱匯入白名單 | **已解除**                         | `docs/history/STAGE5_PLAN.md:3-7`、`docs/history/STAGE5_TODO.md:3-7` 明標 Historical／Superseded；`docs/BENCHMARK_SCORE_SOURCES.md:8-10` 明定是時效登錄、不是匯入授權，真正四來源白名單在 `data-v2/mappings/sources.json:1`。                         |
 |   6 | 刷新報告 34；計畫 8 providers            | **已解除**                         | `docs/REFRESH_2026-08-21.md:48-68` 列 14 models／42 total series／25 series with ≥2 points；`tasks/claude-code-plan.md:593-599` 為 12 列、7 家與實際分布。H5 builder 重算完全一致。                                                                   |
 |   7 | fixture 原樣複製而非精簡                 | **有明確裁決紀錄，文字與實作一致** | `tasks/claude-code-plan.md:856-869` 記錄使用者裁決維持逐位元組副本；`packages/acquisition/test-fixtures/README.md:3-16` 同義。7 個 tracked fixture 共 2,525,203 bytes，檔名 SHA-256 與內容及本機原 artifact 7/7 相同。                                |
 
@@ -359,7 +359,7 @@ H5 直接匯入 `apps/bench/lib/view-model.ts:574-677` 的 `buildWeightedCostCur
 - `data-v2/product/current.json:1` 遞迴搜尋 `status`、Coverage 欄位、`compositeSources`、Edition、revision、publication、channel、pointer 全為 0。
 - `schema.test.ts:231-239` 的 `ESTIMATED` 是刻意證明 schema 拒絕舊欄位；runtime `coverage` 只剩規格 §5.3 明確保留的 coverage-matrix 報告。
 - app route tree只有 `page.tsx`、`layout.tsx` 與 CSS；`apps/bench/app/page.tsx:4` 強制 static，production build 只產生 `/` 與框架 `/_not-found`。
-- 雙語、雙主題、多頁、Edition、PREVIEW／FORMAL 在現行文件的命中都是禁止／已移除敘述；`tasks/plan.md`、`tasks/todo.md` 舊正文已有檔首 Superseded 裁決。
+- 雙語、雙主題、多頁、Edition、PREVIEW／FORMAL 在現行文件的命中都是禁止／已移除敘述；`docs/history/STAGE5_PLAN.md`、`docs/history/STAGE5_TODO.md` 舊正文已有檔首 Superseded 裁決。
 
 ## 8. 非阻擋觀察
 
@@ -392,7 +392,7 @@ H5 已按 F2 第三次完整重跑，結論通過。七步乾淨基準、無 `ar
 
 ### changed_files
 
-- `docs/H5_F2_ACCEPTANCE_2026-08-21.md`
+- `docs/history/F2_ACCEPTANCE.md`
 
 ### validation
 

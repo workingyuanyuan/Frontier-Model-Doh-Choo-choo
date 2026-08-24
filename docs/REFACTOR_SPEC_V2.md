@@ -147,7 +147,7 @@ DeepSWE、Frontier Code（`frontier-code-1-1`）、Terminal-Bench 屬 `coding`�
 **2026-08-21 新增（使用者裁決）：取分數較高的那一筆。**
 
 Artificial Analysis 與 Epoch AI 都自己重跑 GPQA Diamond，兩者 `sourceRole` 都是
-`INDEPENDENT`。逐模型的分數對照見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`：26 個重疊的「模型 × 檔位」中，Epoch 較高
+`INDEPENDENT`。逐模型的分數對照見 `docs/history/GPQA_AA_VS_EPOCH_2026-08-21.md`：26 個重疊的「模型 × 檔位」中，Epoch 較高
 13 個、AA 較高 13 個，平均差 −0.99 分，多數落在 ±3 分內。兩邊都不系統性地偏高或偏低，因此
 沒有「哪個來源比較準」這種可辯護的排序。
 
@@ -182,7 +182,7 @@ metric` 認定同一量測，**不含 `benchmarkVersion`**；各站對同一 ben
 
 這條的代價已由 N9 完成拆分與改名（2026-08-22）：`frontiermath`（標準版，27 筆量測、23 個 profile）與 `frontiermath-tier-4`（Tier 4，28 筆量測、24 個 profile）拆為各自獨立的 benchmark ID，恢復 47 筆獨立量測選取，消除不同難度測驗互相覆蓋之問題；ARC-AGI 亦改為以分割命名的 `arc-agi-2`（91 筆量測、88 筆 INCLUDED）。
 
-逐模型 × 檔位對照見 `docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的
+逐模型 × 檔位對照見 `docs/history/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的
 平均抬升為：GPQA 在 46 個至少雙來源重疊列為 **0.80 分**（其中 13 個三來源全齊列為 **0.85
 分**）；SWE-bench 11 列為 **1.29 分**；Terminal-Bench 2.1 19 列為 **4.24 分**。最大個別抬升
 分別為 2.69、4.24、14.23 分。這是「多次量測取最好」的已知向上選擇偏誤，不代表任一來源
@@ -379,7 +379,7 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
   規則，但**必須寫成測試釘住**。
 - 切換 preset 時分數與名次改變是預期行為；UI 必須明示當前 preset 的 benchmark 組成與來源組成。
 
-設計細節見 `docs/N10_DESIGN_PROPOSAL.md`（該文件於本節寫定後降為考證用）。
+設計細節見 `docs/history/N10_DESIGN_PROPOSAL.md`（該文件於本節寫定後降為考證用）。
 
 ### 5.3 coverage-matrix 報告指令
 
@@ -689,7 +689,7 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
    D5 裁決只用 **Artificial Analysis、DeepSWE、Frontier Code、ARC Prize 四個來源，各 1/4**。
    ARC 同時提供可精確配對的 `arc-agi-2` 分數、任務成本與思考強度階梯。排除 LiveBench 的理由見
    下方；Vals 一模型只有一列，實測加入後為 9 個孤立點、0 個可連線模型；Zapier 依 N2 複審
-   裁決延後採用。完整量測見 `docs/ADVANCED_CHART_SOURCES_2026-08-22.md`。
+   裁決延後採用。完整量測見 `docs/history/ADVANCED_CHART_SOURCES_2026-08-22.md`。
 2. **思考強度**：預設圖每個模型只畫**一種**強度（§4.3 的代表 profile）；進階圖畫出**所有
    具備四來源分數的強度**，同一模型的各強度點連成一條線，讓思考強度的邊際效應看得出來。
 
@@ -1005,10 +1005,10 @@ Sol 的 pro 只是同一個 model version 上的後綴，模型名稱仍是「GP
 profile，同來源、同 harness，選取會退到 `sourcePublishedAt`，於是 Pro 的 Chess Puzzles
 64.00 取代了 Sol 自己的 55.00。這類列標為 `EXCLUDED`：出處與分數完整保留可供查核，但不計分。
 
-`docs/DECISIONS.md` 不是現行權威，此判準以本節為準。
+`docs/history/DECISIONS.md` 不是現行權威，此判準以本節為準。
 
 **`gpqa-diamond` 的跨來源重複已裁決：取最高分。** 規則與理由寫在 §4.3.1，逐模型分數對照
-見 `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`。
+見 `docs/history/GPQA_AA_VS_EPOCH_2026-08-21.md`。
 
 ### 9.6 ARC Prize（期三，2026-08-22 實測）
 

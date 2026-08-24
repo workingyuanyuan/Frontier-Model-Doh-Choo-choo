@@ -139,7 +139,7 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 - `docs/PROJECT_HANDOFF.md` §8「待使用者決定」→ 標記為已決定，指向 `docs/REFACTOR_SPEC_V2.md`
 - `docs/PROJECT_HANDOFF.md` 中「有多個舊不可變 Draft 是正常審計歷史，不要為『整理』而刪除」→ 移除或改寫（規格 §8 已決定刪除）
 - `docs/PROJECT_HANDOFF.md` §5 的數量、hash、branch 狀態 → 更新為實際狀態
-- `docs/README.md` → 把 `REFACTOR_SPEC.md` 標為 Historical、`REFACTOR_SPEC_V2.md` 標為 Current／Binding
+- `docs/README.md` → 把 `history/REFACTOR_SPEC.md` 標為 Historical、`REFACTOR_SPEC_V2.md` 標為 Current／Binding
 
 **完成條件**：搜尋文件集，沒有任何現行說明與規格衝突；`docs/README.md` 的 Current／Binding／Historical 分類正確。
 
@@ -483,7 +483,7 @@ sha256:1b8a47b195d30ca5e3bf834d9e562c97f7e34d3a5b8ae93dec92b849f53a8025
 46 個模型 · 113 列排行榜 · 909 筆 evidence · 252 筆成本 · 15 個模型四來源齊全
 ```
 
-審核證據：[docs/GATE1_AUDIT_ROUND2_2026-08-18.md](../docs/GATE1_AUDIT_ROUND2_2026-08-18.md)——18 個 benchmark 各抽三列共 54 筆，全部屬於會出現在主畫面的模型；52 筆逐位相符、0 筆不符，另 2 筆是出處指錯頁面（已修）。
+審核證據：[docs/history/GATE1_AUDIT.md](../docs/history/GATE1_AUDIT.md)——18 個 benchmark 各抽三列共 54 筆，全部屬於會出現在主畫面的模型；52 筆逐位相符、0 筆不符，另 2 筆是出處指錯頁面（已修）。
 
 審核過程中修掉的缺陷（都已 commit）：
 
@@ -817,7 +817,7 @@ openai-gpt-5-4-pro-unspecified                zai-glm-5-1-unspecified
 
 # G. 驗收缺陷修正
 
-F2 於 2026-08-21 判定**不通過**（[驗收報告](../docs/F2_ACCEPTANCE_2026-08-21.md)）。本階段清掉阻擋項，完成後**必須由未參與實作與審查的第三方重跑 F2**。
+F2 於 2026-08-21 判定不通過。本階段清掉阻擋項，完成後**必須由未參與實作與審查的第三方重跑 F2**。
 
 已排除的兩項非缺陷：
 
@@ -893,7 +893,7 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 ## G4 — 重跑最終驗收
 
-狀態：完成（驗收不通過；詳見 `docs/G4_F2_ACCEPTANCE_2026-08-21.md`）
+狀態：完成（驗收不通過）
 
 G1 至 G3 完成、使用者核准 `current.json` 之後，**由未參與本次實作與審查的第三方重跑 F2**。沿用 F2 的 prompt 與驗收項目，另加驗一項：G1 的八處修正是否真的與程式一致。
 
@@ -901,8 +901,7 @@ G1 至 G3 完成、使用者核准 `current.json` 之後，**由未參與本次�
 
 # H. G 階段缺陷修正
 
-G4 重跑 F2 於 2026-08-21 再次判定**不通過**（[驗收報告](../docs/G4_F2_ACCEPTANCE_2026-08-21.md)），
-獨立第三方代理得到相同判定。七項阻擋項中：
+G4 重跑 F2 於 2026-08-21 再次判定不通過，獨立第三方代理得到相同判定。七項阻擋項中：
 
 - 第 1 項（`current.json` 未提交）已於 2026-08-21 依使用者核准提交（`dfbca29`），解除。
 - 第 2 至第 6 項成立，其中三項是 G1／G3 引入的**新錯誤**，由本階段清除。
@@ -966,7 +965,7 @@ G4 重跑 F2 於 2026-08-21 再次判定**不通過**（[驗收報告](../docs/G
 
 **要求**：
 
-1. `tasks/plan.md`、`tasks/todo.md`：在檔首加歷史標記，明確指出它們描述的是
+1. `docs/history/STAGE5_PLAN.md`、`docs/history/STAGE5_TODO.md`：在檔首加歷史標記，明確指出它們描述的是
    Stage 5 時代的架構（Draft／Published pointer、「預設只顯示 8/8」等），現行依據是
    `docs/REFACTOR_SPEC_V2.md` 與 `tasks/claude-code-plan.md`。**不刪除內容**，只加標記。
 2. `docs/BENCHMARK_SCORE_SOURCES.md:8`：改寫為「來源分類與時效登錄」，並指明
@@ -1023,7 +1022,7 @@ detached worktree（HEAD `85e87db`，為 `main` 的祖先，無獨有 commit）�
 
 ## H5 — 重跑最終驗收
 
-狀態：完成（2026-08-21 判定通過，報告見 `docs/H5_F2_ACCEPTANCE_2026-08-21.md`）
+狀態：完成（2026-08-21 判定通過，報告見 `docs/history/F2_ACCEPTANCE.md`）
 
 H1 至 H4 完成後，**由未參與 G／H 實作與審查的第三方重跑 F2**。沿用 F2 的 prompt 與
 驗收項目，另加驗兩項：H1 至 H4 的修正是否真的與程式一致；G4 報告的七項阻擋項是否
@@ -1033,7 +1032,7 @@ H1 至 H4 完成後，**由未參與 G／H 實作與審查的第三方重跑 F2*
 
 # I. 部署與資料衛生
 
-H5 於 2026-08-21 判定**通過**（[驗收報告](../docs/H5_F2_ACCEPTANCE_2026-08-21.md)），
+H5 於 2026-08-21 判定**通過**（[驗收報告](../docs/history/F2_ACCEPTANCE.md)），
 零阻擋項。本階段處理 H5 列出的使用者人工事項與非阻擋觀察。
 
 **使用者裁決（2026-08-21）**：
@@ -1888,7 +1887,7 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
 
 **完成條件**：基準驗證全綠；量測文件存在且被規格引用。
 
-**量測完成（2026-08-22）**：見 `docs/ADVANCED_CHART_SOURCES_2026-08-22.md`。現行三來源為
+**量測完成（2026-08-22）**：見 `docs/history/ADVANCED_CHART_SOURCES_2026-08-22.md`。現行三來源為
 31 profiles／13 models／5 個可連線模型；加入 ARC 為 27／12／5；再加入不具檔位階梯的 Vals
 只剩 9／9／0，無法形成任何 effort curve。Zapier 依 N2 複審裁決完全排除於本次量測與選項。
 
@@ -1912,7 +1911,7 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
 **要求**：
 
 - 產出各重複 benchmark 的逐模型三來源分數對照（比照
-  `docs/GPQA_AA_VS_EPOCH_2026-08-21.md`）。
+  `docs/history/GPQA_AA_VS_EPOCH_2026-08-21.md`）。
 - 統計「取最高分」相對於「取中位數」的平均抬升，寫進規格 §4.3.1 作為已知偏誤揭露。
 - 重跑 §4.5 的檔位推測說明。三個新來源有大量未標檔位的列（Vals 約半數），推測票數的分佈
   會改變，逐筆依據必須寫進各來源的 validation report。
@@ -1920,7 +1919,7 @@ Vals 加入後 active benchmark 由 24 增至 44；coverage-matrix 已由 32-bit
 **完成條件**：對照文件存在；三個新來源的 validation report 都有 Cross-source inferences 章節。
 
 **完成（2026-08-22）**：逐模型 × 檔位對照已產生於
-`docs/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的平均抬升為 GPQA 0.80
+`docs/history/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`。取最高相對中位數的平均抬升為 GPQA 0.80
 分（13 個三來源全齊列為 0.85）、SWE-bench 1.29 分、Terminal-Bench 2.1 4.24 分。ARC／Zapier／
 Vals validation report 分別列出 3／5／70 筆跨來源推測，以及 0／1／191 筆 `default`。
 
@@ -2088,7 +2087,7 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
    全綠；產品證據 2463 筆、來源仍為白名單八個；`frontiermath` 23 個 profile ＋
    `frontiermath-tier-4` 24 個 profile，合計恢復 47 筆獨立選取；`arc-agi` 在程式與資料中已無
    殘留（`tasks/claude-code-plan.md` 的歷史敘述除外）；主畫面仍為 12 個模型，順序未變；
-   `scoreBasis` 列舉值 `'ARC_AGI'` 依指示未動。`docs/ADVANCED_CHART_SOURCES_2026-08-22.md`
+   `scoreBasis` 列舉值 `'ARC_AGI'` 依指示未動。`docs/history/ADVANCED_CHART_SOURCES_2026-08-22.md`
    的來源表由審查者補上新 ID 與改名註記。
 6. **流程風險（不是本次缺陷，但要記著）**：`materialize:epoch` 實際上就是 `refresh-epoch.ts`，
    會**重新連網抓取**，沒有「用既有 artifact 重跑 materializer」的路徑。因此這次純粹的 ID 改名
@@ -2099,11 +2098,11 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
 
 ## N10 — 動態 benchmark 集合（多甜蜜點）
 
-狀態：未開始
+狀態：完成（由 N10a、N10b、N10c 三個子任務交付）
 
 **依據**：R1、R2、R7。**前置**：N9 完成。
 
-**設計提案**：`docs/N10_DESIGN_PROPOSAL.md`（2026-08-22，orchestrator 撰寫）。該文件把 N10
+**設計提案**：`docs/history/N10_DESIGN_PROPOSAL.md`（2026-08-22，orchestrator 撰寫）。該文件把 N10
 拆成 N10a／N10b／N10c 三個可獨立驗收的子任務並另立 N11（成本圖）。
 
 **D-N10-1 ～ D-N10-6 已於 2026-08-22 由使用者全數裁決**，六項皆採納提案建議，決定內容已寫回
@@ -2797,7 +2796,7 @@ benchmark 組成依 **R2** 由使用者挑選：若 `free-sources-13` 不在新�
 2. `docs/BENCHMARK_DIMENSION_MAPPING.md`：對照表改為五維。
 3. `docs/ARCHITECTURE.md`、`docs/BENCHMARK_SCORE_SOURCES.md`、`README.md` 中的維度數。
 
-**範圍限制**：`docs/REFACTOR_SPEC.md` 與 `docs/DECISIONS.md` 屬考證文件，保持原狀。
+**範圍限制**：`docs/history/REFACTOR_SPEC.md` 與 `docs/history/DECISIONS.md` 屬考證文件，保持原狀。
 
 **驗收**：跑完整基準驗證（`pnpm install --frozen-lockfile` → `format` → `lint` →
 `typecheck` → `test` → `--filter @llm-bench/bench build` → `e2e`，順序不可調換）。

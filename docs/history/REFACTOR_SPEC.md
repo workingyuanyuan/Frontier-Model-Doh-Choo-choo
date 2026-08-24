@@ -109,7 +109,7 @@ Stage 5 將舊架構整體淘汰，不保留回退相容層：
 - 雙語、雙主題、多頁資訊架構。
 - 僅為舊系統存在的 Connector、CI service、依賴與命令。
 
-詳細項目見 [已捨棄項目](REFACTOR_DISCARD_LIST.md)。歷史文件與決策不刪改其背景，但其架構結論一律標為 Superseded。
+詳細項目見 [已捨棄項目](../REFACTOR_DISCARD_LIST.md)。歷史文件與決策不刪改其背景，但其架構結論一律標為 Superseded。
 
 ## 10. 驗收
 
