@@ -27,7 +27,7 @@
 - `costs.json`：來源有公開成本資料時保存獨立 CostRecord。
 - `validation-report.md`：母體列數、取得列數、分頁、衝突及已知限制。
 
-原始 bytes 寫入根目錄 `artifacts-v2/sha256/...`。Git 只保存可審查 metadata 與產品輸出；原始大檔不進 Git。
+原始 bytes 寫入根目錄 `artifacts/sha256/...`。Git 只保存可審查 metadata 與產品輸出；原始大檔不進 Git。
 
 ## 擷取與刷新
 
@@ -140,7 +140,7 @@ X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。�
 
 建置流程驗證所有來源 schema、Evidence 引用、Included mapping 與 identity 後，產生排序固定的 canonical JSON。移除 `versionId` 欄位後計算 SHA-256，形成 `ProductVersion.versionId`。
 
-`data-v2/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v3` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts-v2` 的內容定址 bytes。
+`data-v2/sources/` 中的 Candidate 是 acquisition input；其欄位級記錄不直接進入產品檔。`product-version-v3` 會把每筆分數收斂成一個嚴格的 `provenance` 物件，只含 `sourceUrl`、`locator`、`method`、`retrievedAt`、`evidenceId`。其中 `evidenceId` 持續指向 `artifacts` 的內容定址 bytes。
 
 ```text
 固定來源 bytes + mapping + generatedAt

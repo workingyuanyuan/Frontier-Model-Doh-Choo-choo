@@ -189,7 +189,7 @@ F 驗收之後的階段（G 起）為上線後的修正與回饋，依字母順�
 
 **要求**：
 
-- `evidenceId` 必須保留並繼續指向 `artifacts-v2` 的內容定址存檔。
+- `evidenceId` 必須保留並繼續指向 `artifacts` 的內容定址存檔。
 - `schemaVersion` 升版。
 - 舊版本檔已在 A1 刪除，因此**不需要**讀取相容層。不要寫向後相容程式碼。
 
@@ -851,9 +851,9 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 
 狀態：完成
 
-**目標**：`packages/acquisition` 的多個測試直接讀取 Git 外的 `artifacts-v2/`（見 `artificial-analysis-materializer.test.ts`、`livebench-materializer.test.ts`、`deepswe-materializer.test.ts`、`epoch-materializer.test.ts`、`artifacts.test.ts`），因此乾淨 clone 後 `pnpm test` 必然失敗，而 `pnpm test` 是 CLAUDE.md 的基準驗證項目。
+**目標**：`packages/acquisition` 的多個測試直接讀取 Git 外的 `artifacts/`（見 `artificial-analysis-materializer.test.ts`、`livebench-materializer.test.ts`、`deepswe-materializer.test.ts`、`epoch-materializer.test.ts`、`artifacts.test.ts`），因此乾淨 clone 後 `pnpm test` 必然失敗，而 `pnpm test` 是 CLAUDE.md 的基準驗證項目。
 
-**使用者已決定的作法**：把測試實際讀取的 artifact **原樣複製**進 Git，`artifacts-v2/` 維持 Git 外。
+**使用者已決定的作法**：把測試實際讀取的 artifact **原樣複製**進 Git，`artifacts/` 維持 Git 外。
 
 **本段於 2026-08-21 修訂（H 階段）。** 原文寫的是「縮成精簡 fixture」，實作提交的是
 七份逐位元組副本（合計 2,525,203 bytes），G4 據原文判定不通過。使用者裁決維持原樣複製，改的是
@@ -865,14 +865,14 @@ F2 另指出主畫面為 7 家 provider 而非先前口頭宣稱的 8 家。實�
 **要求**：
 
 - fixture 是來源 artifact 的逐位元組副本，以其 SHA-256 命名，不得裁剪、重排或美化。
-- fixture 放在測試套件內的固定目錄，路徑不得再指向 `artifacts-v2/`。
+- fixture 放在測試套件內的固定目錄，路徑不得再指向 `artifacts/`。
 - 該目錄要排除在 `.prettierignore` 與 `eslint.config.mjs` 之外，避免格式化工具改動位元組。
 - 目錄內附 README 說明為何不裁剪，以免後人誤以為是疏漏。
 - 保持斷言的實質強度，**不得為了讓測試過而弱化斷言或改成 snapshot 比對**。
 - `data-v2/sources/` 底下任何目錄不得刪除或修改。
-- 不得改動 `artifacts-v2/` 既有內容。
+- 不得改動 `artifacts/` 既有內容。
 
-**完成條件**：在沒有 `artifacts-v2/` 的環境下 `pnpm test` 全綠；測試數量不低於現行 181 筆。
+**完成條件**：在沒有 `artifacts/` 的環境下 `pnpm test` 全綠；測試數量不低於現行 181 筆。
 
 ## G3 — 移除無出處的 model-catalog 成本列
 

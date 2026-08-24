@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/98/98b427cf22271105ee1154f21f1f8f2637debf837cd7a6627212d567bb49e06f.html",
+    "artifactPath": "artifacts/sha256/98/98b427cf22271105ee1154f21f1f8f2637debf837cd7a6627212d567bb49e06f.html",
     "byteLength": 224170,
     "finalUrl": "https://www.vals.ai/benchmarks",
     "id": "sha256:98b427cf22271105ee1154f21f1f8f2637debf837cd7a6627212d567bb49e06f",
@@ -19,7 +19,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/ba/babcca9f5f3f5e31377d6412aa3f42945ab0a9b318cb05a6ae979b11e27e4025.html",
+    "artifactPath": "artifacts/sha256/ba/babcca9f5f3f5e31377d6412aa3f42945ab0a9b318cb05a6ae979b11e27e4025.html",
     "byteLength": 380296,
     "finalUrl": "https://www.vals.ai/benchmarks/aime",
     "id": "sha256:babcca9f5f3f5e31377d6412aa3f42945ab0a9b318cb05a6ae979b11e27e4025",
@@ -38,7 +38,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/5e/5ecd79188317635f0213afa530c84fb63456199e75e164d7508f5d2530391cd4.html",
+    "artifactPath": "artifacts/sha256/5e/5ecd79188317635f0213afa530c84fb63456199e75e164d7508f5d2530391cd4.html",
     "byteLength": 151235,
     "finalUrl": "https://www.vals.ai/benchmarks/case_law_v2",
     "id": "sha256:5ecd79188317635f0213afa530c84fb63456199e75e164d7508f5d2530391cd4",
@@ -57,7 +57,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/6d/6d68e3e60e877633a0f02d533bfe8e99c44956f8cd1b4330c97502400edec5ad.html",
+    "artifactPath": "artifacts/sha256/6d/6d68e3e60e877633a0f02d533bfe8e99c44956f8cd1b4330c97502400edec5ad.html",
     "byteLength": 772077,
     "finalUrl": "https://www.vals.ai/benchmarks/code-migration",
     "id": "sha256:6d68e3e60e877633a0f02d533bfe8e99c44956f8cd1b4330c97502400edec5ad",
@@ -76,7 +76,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/6b/6b088b634e9f118b23b9b69461b1ac63b826deba3e8fb2994ed7159504393b9e.html",
+    "artifactPath": "artifacts/sha256/6b/6b088b634e9f118b23b9b69461b1ac63b826deba3e8fb2994ed7159504393b9e.html",
     "byteLength": 937905,
     "finalUrl": "https://www.vals.ai/benchmarks/corp_fin_v2",
     "id": "sha256:6b088b634e9f118b23b9b69461b1ac63b826deba3e8fb2994ed7159504393b9e",
@@ -95,7 +95,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/2e/2ee1231b102bc242ea299d63e277ef29f648f4e95a3190b055ea2c4f34730f0d.html",
+    "artifactPath": "artifacts/sha256/2e/2ee1231b102bc242ea299d63e277ef29f648f4e95a3190b055ea2c4f34730f0d.html",
     "byteLength": 2413695,
     "finalUrl": "https://www.vals.ai/benchmarks/cyber",
     "id": "sha256:2ee1231b102bc242ea299d63e277ef29f648f4e95a3190b055ea2c4f34730f0d",
@@ -114,7 +114,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/b1/b1b7da9b05d16d699520551d7d50977cd37e31cbb71b15b7c547554d735eff5a.html",
+    "artifactPath": "artifacts/sha256/b1/b1b7da9b05d16d699520551d7d50977cd37e31cbb71b15b7c547554d735eff5a.html",
     "byteLength": 1179232,
     "finalUrl": "https://www.vals.ai/benchmarks/emb",
     "id": "sha256:b1b7da9b05d16d699520551d7d50977cd37e31cbb71b15b7c547554d735eff5a",
@@ -133,7 +133,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/58/58076d23a3949436b101f607f3430b8588f69fc56984af95bcbaadb2aecec027.html",
+    "artifactPath": "artifacts/sha256/58/58076d23a3949436b101f607f3430b8588f69fc56984af95bcbaadb2aecec027.html",
     "byteLength": 2371395,
     "finalUrl": "https://www.vals.ai/benchmarks/fabv2",
     "id": "sha256:58076d23a3949436b101f607f3430b8588f69fc56984af95bcbaadb2aecec027",
@@ -152,7 +152,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/13/133488a0076ca96a8074e546e703e6b82cca792f9838947aafc01a89d31907f7.html",
+    "artifactPath": "artifacts/sha256/13/133488a0076ca96a8074e546e703e6b82cca792f9838947aafc01a89d31907f7.html",
     "byteLength": 746543,
     "finalUrl": "https://www.vals.ai/benchmarks/gpqa",
     "id": "sha256:133488a0076ca96a8074e546e703e6b82cca792f9838947aafc01a89d31907f7",
@@ -171,7 +171,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/85/858e4c0340e27474f086bc9561c1f8a85e8732d66932093aa5da6c9534e31efd.html",
+    "artifactPath": "artifacts/sha256/85/858e4c0340e27474f086bc9561c1f8a85e8732d66932093aa5da6c9534e31efd.html",
     "byteLength": 3213513,
     "finalUrl": "https://www.vals.ai/benchmarks/hlab",
     "id": "sha256:858e4c0340e27474f086bc9561c1f8a85e8732d66932093aa5da6c9534e31efd",
@@ -190,7 +190,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/80/8085d0b4d75607ab33063876e4d24d67f3038782c04fd291a4f97c78b770e387.html",
+    "artifactPath": "artifacts/sha256/80/8085d0b4d75607ab33063876e4d24d67f3038782c04fd291a4f97c78b770e387.html",
     "byteLength": 282935,
     "finalUrl": "https://www.vals.ai/benchmarks/ioi",
     "id": "sha256:8085d0b4d75607ab33063876e4d24d67f3038782c04fd291a4f97c78b770e387",
@@ -209,7 +209,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/c3/c31d7ae190014724a23fe7288b97dd31c9f196e3213233494c7ea4de62d7446a.html",
+    "artifactPath": "artifacts/sha256/c3/c31d7ae190014724a23fe7288b97dd31c9f196e3213233494c7ea4de62d7446a.html",
     "byteLength": 966603,
     "finalUrl": "https://www.vals.ai/benchmarks/lcb",
     "id": "sha256:c31d7ae190014724a23fe7288b97dd31c9f196e3213233494c7ea4de62d7446a",
@@ -228,7 +228,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/f5/f54ab1ed267fa8c0ffa92ffa89876cf677fece88cb1f3b740e678b6ed1ee64b8.html",
+    "artifactPath": "artifacts/sha256/f5/f54ab1ed267fa8c0ffa92ffa89876cf677fece88cb1f3b740e678b6ed1ee64b8.html",
     "byteLength": 1375638,
     "finalUrl": "https://www.vals.ai/benchmarks/legal_bench",
     "id": "sha256:f54ab1ed267fa8c0ffa92ffa89876cf677fece88cb1f3b740e678b6ed1ee64b8",
@@ -247,7 +247,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/4e/4e9b3e20a6e13ef7336785d57aa8283e413d62af63c46fa8101857b63da2587c.html",
+    "artifactPath": "artifacts/sha256/4e/4e9b3e20a6e13ef7336785d57aa8283e413d62af63c46fa8101857b63da2587c.html",
     "byteLength": 4168846,
     "finalUrl": "https://www.vals.ai/benchmarks/legal_research",
     "id": "sha256:4e9b3e20a6e13ef7336785d57aa8283e413d62af63c46fa8101857b63da2587c",
@@ -266,7 +266,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/f6/f6e399c44ec4564148bdb1d201acb369b11c6b7ed4c90f2bce8e16e49279fdcf.html",
+    "artifactPath": "artifacts/sha256/f6/f6e399c44ec4564148bdb1d201acb369b11c6b7ed4c90f2bce8e16e49279fdcf.html",
     "byteLength": 166578,
     "finalUrl": "https://www.vals.ai/benchmarks/math500",
     "id": "sha256:f6e399c44ec4564148bdb1d201acb369b11c6b7ed4c90f2bce8e16e49279fdcf",
@@ -285,7 +285,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/fd/fddf9622395af15e84152976700184725cfdc80a31bbd02690902b349429b2d6.html",
+    "artifactPath": "artifacts/sha256/fd/fddf9622395af15e84152976700184725cfdc80a31bbd02690902b349429b2d6.html",
     "byteLength": 1325699,
     "finalUrl": "https://www.vals.ai/benchmarks/medcode",
     "id": "sha256:fddf9622395af15e84152976700184725cfdc80a31bbd02690902b349429b2d6",
@@ -304,7 +304,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/18/189f04dcfb52d7ac755dd37b379d9fe66e1869dc6254ae7226958b0270d9f4c6.html",
+    "artifactPath": "artifacts/sha256/18/189f04dcfb52d7ac755dd37b379d9fe66e1869dc6254ae7226958b0270d9f4c6.html",
     "byteLength": 1066637,
     "finalUrl": "https://www.vals.ai/benchmarks/medqa",
     "id": "sha256:189f04dcfb52d7ac755dd37b379d9fe66e1869dc6254ae7226958b0270d9f4c6",
@@ -323,7 +323,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/a7/a7afd84299792d023cb74cee43f5219881e81d13dd1c3c21f71a14445c92a1d7.html",
+    "artifactPath": "artifacts/sha256/a7/a7afd84299792d023cb74cee43f5219881e81d13dd1c3c21f71a14445c92a1d7.html",
     "byteLength": 1099541,
     "finalUrl": "https://www.vals.ai/benchmarks/medscribe",
     "id": "sha256:a7afd84299792d023cb74cee43f5219881e81d13dd1c3c21f71a14445c92a1d7",
@@ -342,7 +342,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/7a/7a89e931c5df6f804ef0f5a439b974319cdf88c919e951f839ee4b0384931316.html",
+    "artifactPath": "artifacts/sha256/7a/7a89e931c5df6f804ef0f5a439b974319cdf88c919e951f839ee4b0384931316.html",
     "byteLength": 936223,
     "finalUrl": "https://www.vals.ai/benchmarks/mgsm",
     "id": "sha256:7a89e931c5df6f804ef0f5a439b974319cdf88c919e951f839ee4b0384931316",
@@ -361,7 +361,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/5e/5ec28007d2c8d84564dfbcc9b58057db05a318c7e863cbfc9a6611e1bd58ad0f.html",
+    "artifactPath": "artifacts/sha256/5e/5ec28007d2c8d84564dfbcc9b58057db05a318c7e863cbfc9a6611e1bd58ad0f.html",
     "byteLength": 3128181,
     "finalUrl": "https://www.vals.ai/benchmarks/mmlu_pro",
     "id": "sha256:5ec28007d2c8d84564dfbcc9b58057db05a318c7e863cbfc9a6611e1bd58ad0f",
@@ -380,7 +380,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/bc/bc10f2a04f3f60f2844f370add0c93f826b984ec3e6d10db166e8d0edec7afb9.html",
+    "artifactPath": "artifacts/sha256/bc/bc10f2a04f3f60f2844f370add0c93f826b984ec3e6d10db166e8d0edec7afb9.html",
     "byteLength": 201466,
     "finalUrl": "https://www.vals.ai/benchmarks/mmmu",
     "id": "sha256:bc10f2a04f3f60f2844f370add0c93f826b984ec3e6d10db166e8d0edec7afb9",
@@ -399,7 +399,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/9c/9c721289c2c34d9a1c9c456bd0bc5c1a26243e6e13c0293a68c5b4badae86b2a.html",
+    "artifactPath": "artifacts/sha256/9c/9c721289c2c34d9a1c9c456bd0bc5c1a26243e6e13c0293a68c5b4badae86b2a.html",
     "byteLength": 404338,
     "finalUrl": "https://www.vals.ai/benchmarks/mortgage_tax",
     "id": "sha256:9c721289c2c34d9a1c9c456bd0bc5c1a26243e6e13c0293a68c5b4badae86b2a",
@@ -418,7 +418,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/3a/3ad89f58762a9c89567539ea3a1c7910fb8c6431bf0bf1aa256ab50ec15e9b0e.html",
+    "artifactPath": "artifacts/sha256/3a/3ad89f58762a9c89567539ea3a1c7910fb8c6431bf0bf1aa256ab50ec15e9b0e.html",
     "byteLength": 2028572,
     "finalUrl": "https://www.vals.ai/benchmarks/poker_agent",
     "id": "sha256:3ad89f58762a9c89567539ea3a1c7910fb8c6431bf0bf1aa256ab50ec15e9b0e",
@@ -437,7 +437,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/52/5292d68f69649a889bf3f1eaba5b26d5782c6f062c888655633548eb7d404fe5.html",
+    "artifactPath": "artifacts/sha256/52/5292d68f69649a889bf3f1eaba5b26d5782c6f062c888655633548eb7d404fe5.html",
     "byteLength": 265766,
     "finalUrl": "https://www.vals.ai/benchmarks/programbench",
     "id": "sha256:5292d68f69649a889bf3f1eaba5b26d5782c6f062c888655633548eb7d404fe5",
@@ -456,7 +456,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/9b/9bfb4fc6c3eea347fbab7dd3ebee83d6eb8b52061ceac33376cf00ab1f472c1c.html",
+    "artifactPath": "artifacts/sha256/9b/9bfb4fc6c3eea347fbab7dd3ebee83d6eb8b52061ceac33376cf00ab1f472c1c.html",
     "byteLength": 367863,
     "finalUrl": "https://www.vals.ai/benchmarks/proof_bench",
     "id": "sha256:9bfb4fc6c3eea347fbab7dd3ebee83d6eb8b52061ceac33376cf00ab1f472c1c",
@@ -475,7 +475,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/d1/d19bb2714e5abbc6a29fbd0fc9bcb040de4b86a3f77f059c53b6d02ed4001a1a.html",
+    "artifactPath": "artifacts/sha256/d1/d19bb2714e5abbc6a29fbd0fc9bcb040de4b86a3f77f059c53b6d02ed4001a1a.html",
     "byteLength": 385774,
     "finalUrl": "https://www.vals.ai/benchmarks/public-benefits-bench",
     "id": "sha256:d19bb2714e5abbc6a29fbd0fc9bcb040de4b86a3f77f059c53b6d02ed4001a1a",
@@ -494,7 +494,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/0e/0e15307cdcbf96022039f88d2fc36bb8f0501208d1df24d77d69f4164759f115.html",
+    "artifactPath": "artifacts/sha256/0e/0e15307cdcbf96022039f88d2fc36bb8f0501208d1df24d77d69f4164759f115.html",
     "byteLength": 503512,
     "finalUrl": "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
     "id": "sha256:0e15307cdcbf96022039f88d2fc36bb8f0501208d1df24d77d69f4164759f115",
@@ -513,7 +513,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/52/527b46372b3fedc6afa853303d1598f032ce7c10ba352328ec8609050ac03bbf.html",
+    "artifactPath": "artifacts/sha256/52/527b46372b3fedc6afa853303d1598f032ce7c10ba352328ec8609050ac03bbf.html",
     "byteLength": 523800,
     "finalUrl": "https://www.vals.ai/benchmarks/reverse_eng",
     "id": "sha256:527b46372b3fedc6afa853303d1598f032ce7c10ba352328ec8609050ac03bbf",
@@ -532,7 +532,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/89/8999b145abcc23d8641f972fa7f77a16b76dc45c44aaa08c167d5f240aa44f88.html",
+    "artifactPath": "artifacts/sha256/89/8999b145abcc23d8641f972fa7f77a16b76dc45c44aaa08c167d5f240aa44f88.html",
     "byteLength": 145624,
     "finalUrl": "https://www.vals.ai/benchmarks/rsi_index",
     "id": "sha256:8999b145abcc23d8641f972fa7f77a16b76dc45c44aaa08c167d5f240aa44f88",
@@ -551,7 +551,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/29/2944f0b64819ca5c61c8a46312e9dd03ab5a5a885dc1fd33a6155bb07ecda821.html",
+    "artifactPath": "artifacts/sha256/29/2944f0b64819ca5c61c8a46312e9dd03ab5a5a885dc1fd33a6155bb07ecda821.html",
     "byteLength": 1090212,
     "finalUrl": "https://www.vals.ai/benchmarks/sage",
     "id": "sha256:2944f0b64819ca5c61c8a46312e9dd03ab5a5a885dc1fd33a6155bb07ecda821",
@@ -570,7 +570,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/92/924e144e72d1f380712ef8e329a87f4916a0f4cd88dc9ef3d261f73bcf998de5.html",
+    "artifactPath": "artifacts/sha256/92/924e144e72d1f380712ef8e329a87f4916a0f4cd88dc9ef3d261f73bcf998de5.html",
     "byteLength": 473118,
     "finalUrl": "https://www.vals.ai/benchmarks/skillsbench",
     "id": "sha256:924e144e72d1f380712ef8e329a87f4916a0f4cd88dc9ef3d261f73bcf998de5",
@@ -589,7 +589,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/38/38c5526dc72d5742a998dce7e52de3a3f13ce22cd52a69948f8582f390ced470.html",
+    "artifactPath": "artifacts/sha256/38/38c5526dc72d5742a998dce7e52de3a3f13ce22cd52a69948f8582f390ced470.html",
     "byteLength": 2174470,
     "finalUrl": "https://www.vals.ai/benchmarks/swebench",
     "id": "sha256:38c5526dc72d5742a998dce7e52de3a3f13ce22cd52a69948f8582f390ced470",
@@ -608,7 +608,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/6c/6c5e4bbe04f26491303c3430d72e1596a7cb731ce32a2d55e2fc2725f7ec4a16.html",
+    "artifactPath": "artifacts/sha256/6c/6c5e4bbe04f26491303c3430d72e1596a7cb731ce32a2d55e2fc2725f7ec4a16.html",
     "byteLength": 779864,
     "finalUrl": "https://www.vals.ai/benchmarks/tax_eval_v2",
     "id": "sha256:6c5e4bbe04f26491303c3430d72e1596a7cb731ce32a2d55e2fc2725f7ec4a16",
@@ -627,7 +627,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/69/69c8746bf0711eb657303953fa3ffa248432b6c28580f51304df44c04954befa.html",
+    "artifactPath": "artifacts/sha256/69/69c8746bf0711eb657303953fa3ffa248432b6c28580f51304df44c04954befa.html",
     "byteLength": 366539,
     "finalUrl": "https://www.vals.ai/benchmarks/terminal-bench-2",
     "id": "sha256:69c8746bf0711eb657303953fa3ffa248432b6c28580f51304df44c04954befa",
@@ -646,7 +646,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/45/4580f27227de1e65400fd1da8438769a144c09251b8d6ae6f4bbbfd4e0182652.html",
+    "artifactPath": "artifacts/sha256/45/4580f27227de1e65400fd1da8438769a144c09251b8d6ae6f4bbbfd4e0182652.html",
     "byteLength": 323020,
     "finalUrl": "https://www.vals.ai/benchmarks/terminal-bench-2-1",
     "id": "sha256:4580f27227de1e65400fd1da8438769a144c09251b8d6ae6f4bbbfd4e0182652",
@@ -665,7 +665,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/48/482c7ef598a8d6f29c615d10377bbb9bf628e8c220c8763704162fa65d725a30.html",
+    "artifactPath": "artifacts/sha256/48/482c7ef598a8d6f29c615d10377bbb9bf628e8c220c8763704162fa65d725a30.html",
     "byteLength": 104029,
     "finalUrl": "https://www.vals.ai/benchmarks/time_horizon_index",
     "id": "sha256:482c7ef598a8d6f29c615d10377bbb9bf628e8c220c8763704162fa65d725a30",
@@ -684,7 +684,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/91/91d2fd82f8b55ce95629e30e660add65e390f918118c8b3816a258c0eee6cf05.html",
+    "artifactPath": "artifacts/sha256/91/91d2fd82f8b55ce95629e30e660add65e390f918118c8b3816a258c0eee6cf05.html",
     "byteLength": 677052,
     "finalUrl": "https://www.vals.ai/benchmarks/vals_index",
     "id": "sha256:91d2fd82f8b55ce95629e30e660add65e390f918118c8b3816a258c0eee6cf05",
@@ -703,7 +703,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/a0/a050dfedf007487f24aa86ac531722dceed2d72dd6b9d6c97fc3545510902e2b.html",
+    "artifactPath": "artifacts/sha256/a0/a050dfedf007487f24aa86ac531722dceed2d72dd6b9d6c97fc3545510902e2b.html",
     "byteLength": 487936,
     "finalUrl": "https://www.vals.ai/benchmarks/vals_multimodal_index",
     "id": "sha256:a050dfedf007487f24aa86ac531722dceed2d72dd6b9d6c97fc3545510902e2b",
@@ -722,7 +722,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/38/3839cca7ebc8d28f514e7406935cd917d38b5719d5072ceee1e2c1abfe00a772.html",
+    "artifactPath": "artifacts/sha256/38/3839cca7ebc8d28f514e7406935cd917d38b5719d5072ceee1e2c1abfe00a772.html",
     "byteLength": 969291,
     "finalUrl": "https://www.vals.ai/benchmarks/vibe-code",
     "id": "sha256:3839cca7ebc8d28f514e7406935cd917d38b5719d5072ceee1e2c1abfe00a772",
@@ -741,7 +741,7 @@
     "sourceId": "vals-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/3c/3c7db88328836b046bf1484cef370685db2d6861adafa733f068bd0c4cdba5f2.html",
+    "artifactPath": "artifacts/sha256/3c/3c7db88328836b046bf1484cef370685db2d6861adafa733f068bd0c4cdba5f2.html",
     "byteLength": 284848,
     "finalUrl": "https://www.vals.ai/benchmarks/web_search",
     "id": "sha256:3c7db88328836b046bf1484cef370685db2d6861adafa733f068bd0c4cdba5f2",

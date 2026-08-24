@@ -11,7 +11,7 @@ LLM Bench 是一套靜態資料產品，不是資料庫應用。唯一支援中�
 packages/acquisition
   擷取、物化、hash、列數與完整性驗證
         │
-        ├── artifacts-v2/sha256/...       原始 bytes（Git 外）
+        ├── artifacts/sha256/...       原始 bytes（Git 外）
         └── data-v2/sources/<source>/     可審查的結構化結果（Git 內）
                          │
                          ▼
@@ -37,7 +37,7 @@ packages/benchmark-data
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
 - Leaderboard、Quality vs. Cost、Eight Dimensions 與 Included／Excluded Evidence。
 - 主畫面只顯示通過 `display-set.json` 完整矩陣且八個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
-- 靜態／standalone 建置不讀取 `data-v2/sources` 或 `artifacts-v2`。
+- 靜態／standalone 建置不讀取 `data-v2/sources` 或 `artifacts`。
 
 ### `packages/benchmark-data`
 
@@ -60,7 +60,7 @@ packages/benchmark-data
 - `sources/`：每站 manifest、evidence-index、candidates、costs 與 validation report。
 - `product/current.json`：唯一的目前 ProductVersion，內容 hash 形成 `versionId`。
 
-### `artifacts-v2`
+### `artifacts`
 
 原始 HTML、JSON、CSV、ZIP、PDF 或 JS 使用內容 SHA-256 定址且不進 Git。它支援溯源與重新物化，但不是 Dashboard 建置的依賴。
 

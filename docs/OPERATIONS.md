@@ -176,7 +176,7 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 
 ## 8. Artifact 保存
 
-`artifacts-v2/` 不進 Git。每次成功擷取後應把內容定址 bytes 同步至耐久儲存；Evidence metadata 不能取代原始 artifact。artifact store 暫時不可用時，新快照不得標為驗證完成。
+`artifacts/` 不進 Git。每次成功擷取後應把內容定址 bytes 同步至耐久儲存；Evidence metadata 不能取代原始 artifact。artifact store 暫時不可用時，新快照不得標為驗證完成。
 
 ## 9. 已移除命令
 

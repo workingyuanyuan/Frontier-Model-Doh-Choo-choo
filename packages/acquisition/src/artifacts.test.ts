@@ -32,7 +32,7 @@ describe('content-addressed artifacts', () => {
     const record = buildArtifactRecord(
       Buffer.from('evidence'),
       'application/json',
-      'artifacts-v2/aa/bad.json',
+      'artifacts/aa/bad.json',
     );
 
     expect(() => verifyArtifactRecord(record, Buffer.from('changed'))).toThrow(

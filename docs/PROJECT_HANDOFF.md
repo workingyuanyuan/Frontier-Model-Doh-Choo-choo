@@ -30,7 +30,7 @@
 ```text
 公開來源
   -> packages/acquisition
-  -> data-v2/sources + Git 外 artifacts-v2
+  -> data-v2/sources + Git 外 artifacts
   -> packages/benchmark-data
   -> data-v2/product/current.json
   -> apps/bench static build
@@ -49,7 +49,7 @@
 - `packages/benchmark-data`
 - `packages/acquisition`
 - `data-v2`
-- Git 外 `artifacts-v2`
+- Git 外 `artifacts`
 
 不得恢復舊 Web、Worker、DB、影片、Edition、PREVIEW／FORMAL、雙語、雙主題或多頁架構。不得刪除或修改 `data-v2/sources/`。
 

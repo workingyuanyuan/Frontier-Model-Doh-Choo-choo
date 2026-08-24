@@ -18,14 +18,14 @@
 
 ## 2. 待裁決：目錄命名收斂
 
-`data-v2` 與 `artifacts-v2` 的 `-v2` 後綴要移除，前置條件是處置同名的舊目錄。
+`data-v2` 與 `artifacts` 的 `-v2` 後綴要移除，前置條件是處置同名的舊目錄。
 
-| 目錄            | Git     | 內容                                                       | 前置動作            |
-| --------------- | ------- | ---------------------------------------------------------- | ------------------- |
-| `data/`         | ignored | 只有 `raw/`，第一次重構前的抓取暫存                        | 確認可刪後移除      |
-| `data-v2/`      | tracked | 現行來源、mapping 與 `current.json`，74 個追蹤檔           | 改名為 `data/`      |
-| `artifacts/`    | ignored | 13 個檔，Remotion／影片時代的截圖與 `llm-bench-weekly.png` | 確認可刪後移除      |
-| `artifacts-v2/` | ignored | `sha256/` 原始 artifact 保存區                             | 改名為 `artifacts/` |
+| 目錄         | Git     | 內容                                                       | 前置動作            |
+| ------------ | ------- | ---------------------------------------------------------- | ------------------- |
+| `data/`      | ignored | 只有 `raw/`，第一次重構前的抓取暫存                        | 確認可刪後移除      |
+| `data-v2/`   | tracked | 現行來源、mapping 與 `current.json`，74 個追蹤檔           | 改名為 `data/`      |
+| `artifacts/` | ignored | 13 個檔，Remotion／影片時代的截圖與 `llm-bench-weekly.png` | 確認可刪後移除      |
+| `artifacts/` | ignored | `sha256/` 原始 artifact 保存區                             | 改名為 `artifacts/` |
 
 改名的影響面：
 
@@ -33,10 +33,10 @@
   `apps/bench/lib/load-product-version.ts`、`packages/acquisition` 與
   `packages/benchmark-data` 的全部 refresh／materialize 進入點、`scripts/`、
   以及 `CLAUDE.md` 與規格文件。
-- `artifacts-v2` 出現在各來源的 `evidence-index.json` 出處路徑中（`artificial-analysis`
+- `artifacts` 出現在各來源的 `evidence-index.json` 出處路徑中（`artificial-analysis`
   單一檔就有 61 處）。改名等於改寫已發布的出處字串，須連同 §7 出處記錄一併裁決。
 
-建議作法：獨立一個 task，先改 `artifacts-v2`（純路徑字串），再改 `data-v2`（含 CI 與程式），
+建議作法：獨立一個 task，先改 `artifacts`（純路徑字串），再改 `data-v2`（含 CI 與程式），
 每步各跑一次完整基準驗證。
 
 ## 3. 待裁決：文件命名收斂

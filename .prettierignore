@@ -1,4 +1,3 @@
-reference-table-data/
 pnpm-lock.yaml
 .next/
 apps/bench/out/
@@ -15,7 +14,7 @@ data-v2/product/versions/
 data-v2/sources/*/candidates.json
 data-v2/sources/*/validation-report.md
 
-# Byte-for-byte copies of artifacts-v2 entries used by the materializer tests.
+# Byte-for-byte copies of artifacts entries used by the materializer tests.
 # Reformatting them would change the bytes the tests parse and break the link
 # back to the SHA-256 each filename records.
 packages/acquisition/test-fixtures/*.html

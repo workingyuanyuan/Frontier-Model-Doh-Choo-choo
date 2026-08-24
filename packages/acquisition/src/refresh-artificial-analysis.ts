@@ -76,7 +76,7 @@ const capture = async (
     url.endsWith('.json') ? 'application/json' : 'text/html',
   );
   const stored = await writeContentAddressedArtifact(
-    join(root, 'artifacts-v2', 'sha256'),
+    join(root, 'artifacts', 'sha256'),
     bytes,
     mediaType,
   );
@@ -86,7 +86,7 @@ const capture = async (
     retrievedAt,
     requestUrl: url,
     finalUrl: response.url || url,
-    artifactPath: `artifacts-v2/sha256/${stored.record.artifactPath}`,
+    artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
     method,
     metadata,
   });
@@ -197,7 +197,7 @@ const fetchApi = async (
     }
     const bytes = new Uint8Array(await response.arrayBuffer());
     const stored = await writeContentAddressedArtifact(
-      join(root, 'artifacts-v2', 'sha256'),
+      join(root, 'artifacts', 'sha256'),
       bytes,
       'application/json',
     );
@@ -207,7 +207,7 @@ const fetchApi = async (
       retrievedAt,
       requestUrl: API_URL,
       finalUrl: response.url || API_URL,
-      artifactPath: `artifacts-v2/sha256/${stored.record.artifactPath}`,
+      artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
       method: 'API_RESPONSE',
       metadata: {
         captureScope: 'complete API response; request credentials excluded',

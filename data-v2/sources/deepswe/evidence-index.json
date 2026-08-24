@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/e1/e1589743e6deee2de58e989ba9f655e44003419d9ce8e9f013aaada41c0893cb.html",
+    "artifactPath": "artifacts/sha256/e1/e1589743e6deee2de58e989ba9f655e44003419d9ce8e9f013aaada41c0893cb.html",
     "byteLength": 234932,
     "finalUrl": "https://deepswe.datacurve.ai/",
     "id": "sha256:e1589743e6deee2de58e989ba9f655e44003419d9ce8e9f013aaada41c0893cb",
@@ -19,7 +19,7 @@
     "sourceId": "deepswe"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/37/37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c.json",
+    "artifactPath": "artifacts/sha256/37/37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c.json",
     "byteLength": 75918,
     "finalUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
     "id": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",

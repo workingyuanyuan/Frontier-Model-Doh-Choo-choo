@@ -60,7 +60,7 @@ scale-hle  terminal-bench
 
 舊快照沒有消失，也不需要另外複製一份：
 
-- 原始 ZIP 位元組留在內容定址 artifact store（`artifacts-v2/sha256/f8/f8ce9598….zip`），
+- 原始 ZIP 位元組留在內容定址 artifact store（`artifacts/sha256/f8/f8ce9598….zip`），
   §8 的保存規則已經涵蓋。
 - 舊的 `candidates.json` 留在 git 歷史。
 
@@ -845,7 +845,7 @@ nested-interactive，是已經實測過的 axe serious 違規。
 }
 ```
 
-- `evidenceId` **必須保留**。它指向 `artifacts-v2` 的內容定址存檔，是「這個版本的數字沒有被改過」的憑據，也是不可變版本設計的地基。
+- `evidenceId` **必須保留**。它指向 `artifacts` 的內容定址存檔，是「這個版本的數字沒有被改過」的憑據，也是不可變版本設計的地基。
 - 介面上點開一格時顯示：來源網址（可點）、`rawScore`（擷取到的原始值）、`locator`、`retrievedAt`。使用者的實際審查動作就是打開來源網址、比對分數是否一致，介面只需支援這件事。
 - 這是 breaking change，`schemaVersion` 要升版。
 
@@ -1157,7 +1157,7 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 身分在 materialize 當下解析並寫死進 `candidates.json`，事後新增 alias 不會自己生效。重跑
 網路 refresh 也能生效，但會同時帶進上游自上次刷新以來的所有變動，兩種效果在 diff 裡分不開。
 因此改用 `pnpm --filter @llm-bench/acquisition rematerialize:vals`：只讀
-`artifacts-v2/sha256/` 既有 bytes，**每個 artifact 重新雜湊並必須等於
+`artifacts/sha256/` 既有 bytes，**每個 artifact 重新雜湊並必須等於
 `evidence-index.json` 記錄的 id**，上游內容因而被釘住，輸出的任何差異都只能來自身分層。
 
 實測（本次）：`candidates.json` 與 `costs.json` 各 **恰好 50 列**變動，變動欄位**只有**

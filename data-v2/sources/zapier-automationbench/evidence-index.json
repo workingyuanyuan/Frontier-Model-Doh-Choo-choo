@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/76/76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53.js",
+    "artifactPath": "artifacts/sha256/76/76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53.js",
     "byteLength": 57583,
     "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.DiRrazN8.mjs",
     "id": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
@@ -21,7 +21,7 @@
     "sourceId": "zapier-automationbench"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/70/70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b.html",
+    "artifactPath": "artifacts/sha256/70/70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b.html",
     "byteLength": 211472,
     "finalUrl": "https://zapier.com/benchmarks",
     "id": "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b",

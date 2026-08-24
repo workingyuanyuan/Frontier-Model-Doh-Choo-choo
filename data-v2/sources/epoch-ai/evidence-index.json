@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/1c/1c502e1990af95020a58b55dc64ad8710df068c88d8a61e52fafc58147e8a3d0.html",
+    "artifactPath": "artifacts/sha256/1c/1c502e1990af95020a58b55dc64ad8710df068c88d8a61e52fafc58147e8a3d0.html",
     "byteLength": 78878,
     "finalUrl": "https://epoch.ai/benchmarks/use-this-data",
     "id": "sha256:1c502e1990af95020a58b55dc64ad8710df068c88d8a61e52fafc58147e8a3d0",
@@ -16,7 +16,7 @@
     "sourceId": "epoch-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/1f/1f8792c41d54426bee2f72540112900599593b7a93e2211fba7572f869bda166.zip",
+    "artifactPath": "artifacts/sha256/1f/1f8792c41d54426bee2f72540112900599593b7a93e2211fba7572f869bda166.zip",
     "byteLength": 464411,
     "finalUrl": "https://epoch.ai/data/benchmark_data.zip",
     "id": "sha256:1f8792c41d54426bee2f72540112900599593b7a93e2211fba7572f869bda166",
@@ -35,7 +35,7 @@
     "sourceId": "epoch-ai"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/ab/abb75ce293c08740e08f3e1444adc91d61312687a9148d457712aec0df15af8e.csv",
+    "artifactPath": "artifacts/sha256/ab/abb75ce293c08740e08f3e1444adc91d61312687a9148d457712aec0df15af8e.csv",
     "byteLength": 2954281,
     "finalUrl": "https://epoch.ai/data/benchmarks.csv",
     "id": "sha256:abb75ce293c08740e08f3e1444adc91d61312687a9148d457712aec0df15af8e",

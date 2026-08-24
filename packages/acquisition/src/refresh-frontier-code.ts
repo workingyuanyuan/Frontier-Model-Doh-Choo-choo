@@ -83,7 +83,7 @@ const fetchArtifact = async (
   }
   const bytes = new Uint8Array(await response.arrayBuffer());
   const stored = await writeContentAddressedArtifact(
-    join(root, 'artifacts-v2', 'sha256'),
+    join(root, 'artifacts', 'sha256'),
     bytes,
     mediaType,
   );
@@ -95,7 +95,7 @@ const fetchArtifact = async (
       retrievedAt,
       requestUrl: url,
       finalUrl: response.url || url,
-      artifactPath: `artifacts-v2/sha256/${stored.record.artifactPath}`,
+      artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
       method,
       metadata,
     }),

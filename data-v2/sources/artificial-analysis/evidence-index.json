@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/10/10f7d5ec0931af94e932ab70bdc979a7054d366c01e4c29ce0fe3433c6e23449.json",
+    "artifactPath": "artifacts/sha256/10/10f7d5ec0931af94e932ab70bdc979a7054d366c01e4c29ce0fe3433c6e23449.json",
     "byteLength": 526558,
     "finalUrl": "https://artificialanalysis.ai/api/v2/data/llms/models",
     "id": "sha256:10f7d5ec0931af94e932ab70bdc979a7054d366c01e4c29ce0fe3433c6e23449",
@@ -17,7 +17,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/1b/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html",
+    "artifactPath": "artifacts/sha256/1b/1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28.html",
     "byteLength": 386099,
     "finalUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
     "id": "sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28",
@@ -35,7 +35,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/43/43562599310ea745cffb2ffb337762f40e2e66b03419630c464f6eaa5801eafa.html",
+    "artifactPath": "artifacts/sha256/43/43562599310ea745cffb2ffb337762f40e2e66b03419630c464f6eaa5801eafa.html",
     "byteLength": 314126,
     "finalUrl": "https://artificialanalysis.ai/articles/gpt-5-6-has-landed",
     "id": "sha256:43562599310ea745cffb2ffb337762f40e2e66b03419630c464f6eaa5801eafa",
@@ -53,7 +53,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/35/35203d9adec43f07bc657d86bdeda81d31a0da054202e21bedd8462d4b75ded3.html",
+    "artifactPath": "artifacts/sha256/35/35203d9adec43f07bc657d86bdeda81d31a0da054202e21bedd8462d4b75ded3.html",
     "byteLength": 699957,
     "finalUrl": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
     "id": "sha256:35203d9adec43f07bc657d86bdeda81d31a0da054202e21bedd8462d4b75ded3",
@@ -71,7 +71,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/40/40378e82e218ab6243e464a645fedbccf0beddbdd8cc4e3dd3c5c79e1dd152f1.html",
+    "artifactPath": "artifacts/sha256/40/40378e82e218ab6243e464a645fedbccf0beddbdd8cc4e3dd3c5c79e1dd152f1.html",
     "byteLength": 1043604,
     "finalUrl": "https://artificialanalysis.ai/evaluations/aa-briefcase",
     "id": "sha256:40378e82e218ab6243e464a645fedbccf0beddbdd8cc4e3dd3c5c79e1dd152f1",
@@ -89,7 +89,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/7b/7b1be47e86cc023a6a95cddb6442a3828ba96f8e46db327793e11f7a5665610b.html",
+    "artifactPath": "artifacts/sha256/7b/7b1be47e86cc023a6a95cddb6442a3828ba96f8e46db327793e11f7a5665610b.html",
     "byteLength": 644871,
     "finalUrl": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
     "id": "sha256:7b1be47e86cc023a6a95cddb6442a3828ba96f8e46db327793e11f7a5665610b",
@@ -107,7 +107,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/1c/1ca36a54cc90c7c3e0f6ab10d9f2df04f55063dc25f21e598b701d73f0c41e2b.html",
+    "artifactPath": "artifacts/sha256/1c/1ca36a54cc90c7c3e0f6ab10d9f2df04f55063dc25f21e598b701d73f0c41e2b.html",
     "byteLength": 774587,
     "finalUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
     "id": "sha256:1ca36a54cc90c7c3e0f6ab10d9f2df04f55063dc25f21e598b701d73f0c41e2b",
@@ -125,7 +125,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/41/41c8bb679b567a27315c107dbe1beed300bab1b10016db16d6d60cac41914681.html",
+    "artifactPath": "artifacts/sha256/41/41c8bb679b567a27315c107dbe1beed300bab1b10016db16d6d60cac41914681.html",
     "byteLength": 831441,
     "finalUrl": "https://artificialanalysis.ai/evaluations/automationbench-aa",
     "id": "sha256:41c8bb679b567a27315c107dbe1beed300bab1b10016db16d6d60cac41914681",
@@ -143,7 +143,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/10/10c45f7ea984014eced40fc5491ef2d68ce798654cb6dcd04d4981ad8777de31.html",
+    "artifactPath": "artifacts/sha256/10/10c45f7ea984014eced40fc5491ef2d68ce798654cb6dcd04d4981ad8777de31.html",
     "byteLength": 785896,
     "finalUrl": "https://artificialanalysis.ai/evaluations/critpt",
     "id": "sha256:10c45f7ea984014eced40fc5491ef2d68ce798654cb6dcd04d4981ad8777de31",
@@ -161,7 +161,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/9f/9f9fd25c6da83fa0b243db0d63ecbe94525e08284be43011ff82f56fa3efd78c.html",
+    "artifactPath": "artifacts/sha256/9f/9f9fd25c6da83fa0b243db0d63ecbe94525e08284be43011ff82f56fa3efd78c.html",
     "byteLength": 717458,
     "finalUrl": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
     "id": "sha256:9f9fd25c6da83fa0b243db0d63ecbe94525e08284be43011ff82f56fa3efd78c",
@@ -179,7 +179,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/58/58f7640dac8cde41f7bdf6327d1880e7fe6e0ff249490ebb578b830149f9e35d.html",
+    "artifactPath": "artifacts/sha256/58/58f7640dac8cde41f7bdf6327d1880e7fe6e0ff249490ebb578b830149f9e35d.html",
     "byteLength": 1110763,
     "finalUrl": "https://artificialanalysis.ai/evaluations/gdpval-aa",
     "id": "sha256:58f7640dac8cde41f7bdf6327d1880e7fe6e0ff249490ebb578b830149f9e35d",
@@ -197,7 +197,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/a1/a1f5cf7bb4de54bfc50f8dd138c6e0a20217f78efd5dcaa0a39586977a52c167.html",
+    "artifactPath": "artifacts/sha256/a1/a1f5cf7bb4de54bfc50f8dd138c6e0a20217f78efd5dcaa0a39586977a52c167.html",
     "byteLength": 782100,
     "finalUrl": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
     "id": "sha256:a1f5cf7bb4de54bfc50f8dd138c6e0a20217f78efd5dcaa0a39586977a52c167",
@@ -215,7 +215,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/fa/fa099271dfe151a099948bd7f547549e617637eb50f64cff6bb0fe7f157cec40.html",
+    "artifactPath": "artifacts/sha256/fa/fa099271dfe151a099948bd7f547549e617637eb50f64cff6bb0fe7f157cec40.html",
     "byteLength": 787257,
     "finalUrl": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
     "id": "sha256:fa099271dfe151a099948bd7f547549e617637eb50f64cff6bb0fe7f157cec40",
@@ -233,7 +233,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/52/5288dcdae339b33fd80763af6bebe2c17f1b5fd1e38f0acc85bb3b8a5fa92134.html",
+    "artifactPath": "artifacts/sha256/52/5288dcdae339b33fd80763af6bebe2c17f1b5fd1e38f0acc85bb3b8a5fa92134.html",
     "byteLength": 801896,
     "finalUrl": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
     "id": "sha256:5288dcdae339b33fd80763af6bebe2c17f1b5fd1e38f0acc85bb3b8a5fa92134",
@@ -251,7 +251,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/d9/d9fd3e504d1d6d0677bb6901c14422aa11017211cd53a461e799c6c90408967d.html",
+    "artifactPath": "artifacts/sha256/d9/d9fd3e504d1d6d0677bb6901c14422aa11017211cd53a461e799c6c90408967d.html",
     "byteLength": 673940,
     "finalUrl": "https://artificialanalysis.ai/evaluations/ifbench",
     "id": "sha256:d9fd3e504d1d6d0677bb6901c14422aa11017211cd53a461e799c6c90408967d",
@@ -269,7 +269,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/cb/cbe7a41c19ffcb26089e13e51b71779aefcced50c761411ad093d440cdef5b94.html",
+    "artifactPath": "artifacts/sha256/cb/cbe7a41c19ffcb26089e13e51b71779aefcced50c761411ad093d440cdef5b94.html",
     "byteLength": 678913,
     "finalUrl": "https://artificialanalysis.ai/evaluations/itbench-aa",
     "id": "sha256:cbe7a41c19ffcb26089e13e51b71779aefcced50c761411ad093d440cdef5b94",
@@ -287,7 +287,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/76/7608a582e1c78fc296f46c9c874fd3944c27f82942d0366bd1f0adad982d5e82.html",
+    "artifactPath": "artifacts/sha256/76/7608a582e1c78fc296f46c9c874fd3944c27f82942d0366bd1f0adad982d5e82.html",
     "byteLength": 667792,
     "finalUrl": "https://artificialanalysis.ai/evaluations/mmmu-pro",
     "id": "sha256:7608a582e1c78fc296f46c9c874fd3944c27f82942d0366bd1f0adad982d5e82",
@@ -305,7 +305,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/2b/2b822c6c96799c53832c036bc7c0c830da4795e81bc723f65671c4caf83f35a5.html",
+    "artifactPath": "artifacts/sha256/2b/2b822c6c96799c53832c036bc7c0c830da4795e81bc723f65671c4caf83f35a5.html",
     "byteLength": 1045930,
     "finalUrl": "https://artificialanalysis.ai/evaluations/omniscience",
     "id": "sha256:2b822c6c96799c53832c036bc7c0c830da4795e81bc723f65671c4caf83f35a5",
@@ -323,7 +323,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/85/85caf991dfb9f6b13899b9e924d527d23b0bd4e7e59ab10555eee24820f0e374.html",
+    "artifactPath": "artifacts/sha256/85/85caf991dfb9f6b13899b9e924d527d23b0bd4e7e59ab10555eee24820f0e374.html",
     "byteLength": 1357221,
     "finalUrl": "https://artificialanalysis.ai/evaluations/scicode",
     "id": "sha256:85caf991dfb9f6b13899b9e924d527d23b0bd4e7e59ab10555eee24820f0e374",
@@ -341,7 +341,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/0a/0a608ccc37dbc5d7fed45b9d2ba489d67c5fdd059b162562e3224da2615b1593.html",
+    "artifactPath": "artifacts/sha256/0a/0a608ccc37dbc5d7fed45b9d2ba489d67c5fdd059b162562e3224da2615b1593.html",
     "byteLength": 772462,
     "finalUrl": "https://artificialanalysis.ai/evaluations/tau3-banking",
     "id": "sha256:0a608ccc37dbc5d7fed45b9d2ba489d67c5fdd059b162562e3224da2615b1593",
@@ -359,7 +359,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/fa/faa30e3468e4dd17985895e840e562e657ec03e5e67e1b1614a531e712ccbce5.html",
+    "artifactPath": "artifacts/sha256/fa/faa30e3468e4dd17985895e840e562e657ec03e5e67e1b1614a531e712ccbce5.html",
     "byteLength": 773346,
     "finalUrl": "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
     "id": "sha256:faa30e3468e4dd17985895e840e562e657ec03e5e67e1b1614a531e712ccbce5",
@@ -377,7 +377,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/e4/e4c3ffb79684c731f0593ab372f5c2cc4ee5a6b38c53e27d6c3a52fffcb3fd57.html",
+    "artifactPath": "artifacts/sha256/e4/e4c3ffb79684c731f0593ab372f5c2cc4ee5a6b38c53e27d6c3a52fffcb3fd57.html",
     "byteLength": 1321618,
     "finalUrl": "https://artificialanalysis.ai/models",
     "id": "sha256:e4c3ffb79684c731f0593ab372f5c2cc4ee5a6b38c53e27d6c3a52fffcb3fd57",
@@ -398,7 +398,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/3f/3fb4a2da1aea8a8722b36de7da8de777e901217f5b8c3205f9e52a142f39a859.html",
+    "artifactPath": "artifacts/sha256/3f/3fb4a2da1aea8a8722b36de7da8de777e901217f5b8c3205f9e52a142f39a859.html",
     "byteLength": 3149461,
     "finalUrl": "https://artificialanalysis.ai/models/a-x-k2",
     "id": "sha256:3fb4a2da1aea8a8722b36de7da8de777e901217f5b8c3205f9e52a142f39a859",
@@ -416,7 +416,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/43/4329c2d92515b9c00e2917373d98ef43c9982337d273ebfcf8050e49bb4c90ee.html",
+    "artifactPath": "artifacts/sha256/43/4329c2d92515b9c00e2917373d98ef43c9982337d273ebfcf8050e49bb4c90ee.html",
     "byteLength": 3305786,
     "finalUrl": "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
     "id": "sha256:4329c2d92515b9c00e2917373d98ef43c9982337d273ebfcf8050e49bb4c90ee",
@@ -434,7 +434,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/40/401b458e9abd64d7196dfe32020b6fa0ffa9e18361fae7a64fc8cffcf998e92f.html",
+    "artifactPath": "artifacts/sha256/40/401b458e9abd64d7196dfe32020b6fa0ffa9e18361fae7a64fc8cffcf998e92f.html",
     "byteLength": 3303709,
     "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5",
     "id": "sha256:401b458e9abd64d7196dfe32020b6fa0ffa9e18361fae7a64fc8cffcf998e92f",
@@ -452,7 +452,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/fb/fbb9b63a951f55014572da79c8ad026dfd96b5530b17125eba3d752330c30688.html",
+    "artifactPath": "artifacts/sha256/fb/fbb9b63a951f55014572da79c8ad026dfd96b5530b17125eba3d752330c30688.html",
     "byteLength": 3305433,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5",
     "id": "sha256:fbb9b63a951f55014572da79c8ad026dfd96b5530b17125eba3d752330c30688",
@@ -470,7 +470,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/3d/3d83a9f206c402939f1aada75c9da0cce8308f3e7c59104a5b77c71fbb721cf5.html",
+    "artifactPath": "artifacts/sha256/3d/3d83a9f206c402939f1aada75c9da0cce8308f3e7c59104a5b77c71fbb721cf5.html",
     "byteLength": 3304583,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-high",
     "id": "sha256:3d83a9f206c402939f1aada75c9da0cce8308f3e7c59104a5b77c71fbb721cf5",
@@ -488,7 +488,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/ca/cae086aa9c0e26eff9b210c344fd61524052990f2e1c08cf3a6ac9b3f838676b.html",
+    "artifactPath": "artifacts/sha256/ca/cae086aa9c0e26eff9b210c344fd61524052990f2e1c08cf3a6ac9b3f838676b.html",
     "byteLength": 3304512,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-medium",
     "id": "sha256:cae086aa9c0e26eff9b210c344fd61524052990f2e1c08cf3a6ac9b3f838676b",
@@ -506,7 +506,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/36/36520a17f0eb210ebb30badc0970f6d038cd64104741c508ac4615a97c37a242.html",
+    "artifactPath": "artifacts/sha256/36/36520a17f0eb210ebb30badc0970f6d038cd64104741c508ac4615a97c37a242.html",
     "byteLength": 3305444,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-xhigh",
     "id": "sha256:36520a17f0eb210ebb30badc0970f6d038cd64104741c508ac4615a97c37a242",
@@ -524,7 +524,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/77/776f4d4e6683568e072b60a72ca3857702357eb2df9c706fbe1b1aacf05e8d08.html",
+    "artifactPath": "artifacts/sha256/77/776f4d4e6683568e072b60a72ca3857702357eb2df9c706fbe1b1aacf05e8d08.html",
     "byteLength": 3367906,
     "finalUrl": "https://artificialanalysis.ai/models/command-a-plus",
     "id": "sha256:776f4d4e6683568e072b60a72ca3857702357eb2df9c706fbe1b1aacf05e8d08",
@@ -542,7 +542,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/df/dff9cf606064caba66cb2456fb73132bddee8d84a92230e1d6ae0222680a6bac.html",
+    "artifactPath": "artifacts/sha256/df/dff9cf606064caba66cb2456fb73132bddee8d84a92230e1d6ae0222680a6bac.html",
     "byteLength": 3344157,
     "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro",
     "id": "sha256:dff9cf606064caba66cb2456fb73132bddee8d84a92230e1d6ae0222680a6bac",
@@ -560,7 +560,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/a8/a8ee11fae26c65f60cfbb66e4dbdad050e94088c377c80031325c0dc72ac4188.html",
+    "artifactPath": "artifacts/sha256/a8/a8ee11fae26c65f60cfbb66e4dbdad050e94088c377c80031325c0dc72ac4188.html",
     "byteLength": 3295320,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-1-pro-preview",
     "id": "sha256:a8ee11fae26c65f60cfbb66e4dbdad050e94088c377c80031325c0dc72ac4188",
@@ -578,7 +578,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/50/5091e76b63942eb4ce4b6f4ee1f8cdb4272538d08b28309469f20c94738be7e7.html",
+    "artifactPath": "artifacts/sha256/50/5091e76b63942eb4ce4b6f4ee1f8cdb4272538d08b28309469f20c94738be7e7.html",
     "byteLength": 3295207,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
     "id": "sha256:5091e76b63942eb4ce4b6f4ee1f8cdb4272538d08b28309469f20c94738be7e7",
@@ -596,7 +596,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/f1/f1a809ba93d19b1925b964bb611e851c047f7d64a519cb8070572059745eb6a6.html",
+    "artifactPath": "artifacts/sha256/f1/f1a809ba93d19b1925b964bb611e851c047f7d64a519cb8070572059745eb6a6.html",
     "byteLength": 3294955,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash",
     "id": "sha256:f1a809ba93d19b1925b964bb611e851c047f7d64a519cb8070572059745eb6a6",
@@ -614,7 +614,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/a0/a09024693c7eda9706ee188bb87f74473d82d07fc2b8d9f078c172b7a097a3e7.html",
+    "artifactPath": "artifacts/sha256/a0/a09024693c7eda9706ee188bb87f74473d82d07fc2b8d9f078c172b7a097a3e7.html",
     "byteLength": 3296681,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash",
     "id": "sha256:a09024693c7eda9706ee188bb87f74473d82d07fc2b8d9f078c172b7a097a3e7",
@@ -632,7 +632,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/70/70bf77433c1b9e3db29848a61acd48fb5b642903af9fbdaa65631a6e4b381712.html",
+    "artifactPath": "artifacts/sha256/70/70bf77433c1b9e3db29848a61acd48fb5b642903af9fbdaa65631a6e4b381712.html",
     "byteLength": 3256367,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-low",
     "id": "sha256:70bf77433c1b9e3db29848a61acd48fb5b642903af9fbdaa65631a6e4b381712",
@@ -650,7 +650,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/18/18bdbc3e48ed484605cfd8f6b6be37df8bf8b8e246359e83bc205be51449a2cb.html",
+    "artifactPath": "artifacts/sha256/18/18bdbc3e48ed484605cfd8f6b6be37df8bf8b8e246359e83bc205be51449a2cb.html",
     "byteLength": 3258143,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-medium",
     "id": "sha256:18bdbc3e48ed484605cfd8f6b6be37df8bf8b8e246359e83bc205be51449a2cb",
@@ -668,7 +668,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/44/445ab1ddcae5aa226cec67260782e7d428f57336bcf6855a178de8ae53c69fde.html",
+    "artifactPath": "artifacts/sha256/44/445ab1ddcae5aa226cec67260782e7d428f57336bcf6855a178de8ae53c69fde.html",
     "byteLength": 3249590,
     "finalUrl": "https://artificialanalysis.ai/models/glm-5-3",
     "id": "sha256:445ab1ddcae5aa226cec67260782e7d428f57336bcf6855a178de8ae53c69fde",
@@ -686,7 +686,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/16/1634a3e78f62eecfda3b0a4c6ab2443ec9aa6d9affe5d20b56a75fd025047687.html",
+    "artifactPath": "artifacts/sha256/16/1634a3e78f62eecfda3b0a4c6ab2443ec9aa6d9affe5d20b56a75fd025047687.html",
     "byteLength": 2969277,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-5-pro",
     "id": "sha256:1634a3e78f62eecfda3b0a4c6ab2443ec9aa6d9affe5d20b56a75fd025047687",
@@ -704,7 +704,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/3e/3e7075df1839cd65ac3475caaa4dec4053fc179e3523a208593c4050a6b36f94.html",
+    "artifactPath": "artifacts/sha256/3e/3e7075df1839cd65ac3475caaa4dec4053fc179e3523a208593c4050a6b36f94.html",
     "byteLength": 3259513,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna",
     "id": "sha256:3e7075df1839cd65ac3475caaa4dec4053fc179e3523a208593c4050a6b36f94",
@@ -722,7 +722,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/f1/f13b6e7d083abe2407914be6b6481ddd5eb5a8f6b26d2afd0a1aa6a43169f8e3.html",
+    "artifactPath": "artifacts/sha256/f1/f13b6e7d083abe2407914be6b6481ddd5eb5a8f6b26d2afd0a1aa6a43169f8e3.html",
     "byteLength": 3296914,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol",
     "id": "sha256:f13b6e7d083abe2407914be6b6481ddd5eb5a8f6b26d2afd0a1aa6a43169f8e3",
@@ -740,7 +740,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/01/0182d0fc4a4f943cd9414b40bad88f15ce90c40357e80ea21446e390bad72d88.html",
+    "artifactPath": "artifacts/sha256/01/0182d0fc4a4f943cd9414b40bad88f15ce90c40357e80ea21446e390bad72d88.html",
     "byteLength": 3257317,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-xhigh",
     "id": "sha256:0182d0fc4a4f943cd9414b40bad88f15ce90c40357e80ea21446e390bad72d88",
@@ -758,7 +758,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/7f/7fe2e65a46d385e100cb86d8f5f54ecf9f68cd9b741e6421d596e57fbffd2c1d.html",
+    "artifactPath": "artifacts/sha256/7f/7fe2e65a46d385e100cb86d8f5f54ecf9f68cd9b741e6421d596e57fbffd2c1d.html",
     "byteLength": 3259506,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra",
     "id": "sha256:7fe2e65a46d385e100cb86d8f5f54ecf9f68cd9b741e6421d596e57fbffd2c1d",
@@ -776,7 +776,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/d9/d907ce7a14dd10fc7a4163fa8e5226e3fedb65b702f007c53d13a626e4ff7e5c.html",
+    "artifactPath": "artifacts/sha256/d9/d907ce7a14dd10fc7a4163fa8e5226e3fedb65b702f007c53d13a626e4ff7e5c.html",
     "byteLength": 3207429,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-3-medium",
     "id": "sha256:d907ce7a14dd10fc7a4163fa8e5226e3fedb65b702f007c53d13a626e4ff7e5c",
@@ -794,7 +794,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/5b/5b59a5579621b35ef2ec006cf96797d97f1a7c76d184014b93e999258a748585.html",
+    "artifactPath": "artifacts/sha256/5b/5b59a5579621b35ef2ec006cf96797d97f1a7c76d184014b93e999258a748585.html",
     "byteLength": 3291538,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-5",
     "id": "sha256:5b59a5579621b35ef2ec006cf96797d97f1a7c76d184014b93e999258a748585",
@@ -812,7 +812,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/77/777b005ae848aa0127c0601d2b2786814f3f4e4a206e2093a8270b7b269ffd6a.html",
+    "artifactPath": "artifacts/sha256/77/777b005ae848aa0127c0601d2b2786814f3f4e4a206e2093a8270b7b269ffd6a.html",
     "byteLength": 3290291,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-6",
     "id": "sha256:777b005ae848aa0127c0601d2b2786814f3f4e4a206e2093a8270b7b269ffd6a",
@@ -830,7 +830,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/68/6846c89413e08fdb7eaae0b2dc37110585a2cd13d2b03770ecbc0dc167098580.html",
+    "artifactPath": "artifacts/sha256/68/6846c89413e08fdb7eaae0b2dc37110585a2cd13d2b03770ecbc0dc167098580.html",
     "byteLength": 3381082,
     "finalUrl": "https://artificialanalysis.ai/models/inkling",
     "id": "sha256:6846c89413e08fdb7eaae0b2dc37110585a2cd13d2b03770ecbc0dc167098580",
@@ -848,7 +848,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/4f/4ff7060b30b76b541de2959b37d31e17d976625e29500d396d8efd527e81dc86.html",
+    "artifactPath": "artifacts/sha256/4f/4ff7060b30b76b541de2959b37d31e17d976625e29500d396d8efd527e81dc86.html",
     "byteLength": 3147749,
     "finalUrl": "https://artificialanalysis.ai/models/k-exaone-2-0-0803",
     "id": "sha256:4ff7060b30b76b541de2959b37d31e17d976625e29500d396d8efd527e81dc86",
@@ -866,7 +866,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/b4/b407472dc02b86225ee8b27a3d70fc4af31300882048b2908029bf35e2de5701.html",
+    "artifactPath": "artifacts/sha256/b4/b407472dc02b86225ee8b27a3d70fc4af31300882048b2908029bf35e2de5701.html",
     "byteLength": 3383299,
     "finalUrl": "https://artificialanalysis.ai/models/kimi-k3",
     "id": "sha256:b407472dc02b86225ee8b27a3d70fc4af31300882048b2908029bf35e2de5701",
@@ -884,7 +884,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/f0/f09ea4751a13466688b530727254dab3bfe0d8b6485c51a97688f707c461cfb1.html",
+    "artifactPath": "artifacts/sha256/f0/f09ea4751a13466688b530727254dab3bfe0d8b6485c51a97688f707c461cfb1.html",
     "byteLength": 3379477,
     "finalUrl": "https://artificialanalysis.ai/models/minimax-m3",
     "id": "sha256:f09ea4751a13466688b530727254dab3bfe0d8b6485c51a97688f707c461cfb1",
@@ -902,7 +902,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/61/615e5bc562bb3ea183692ca88b14c1676b5a6bbcc76697922c00e58cd871f2ab.html",
+    "artifactPath": "artifacts/sha256/61/615e5bc562bb3ea183692ca88b14c1676b5a6bbcc76697922c00e58cd871f2ab.html",
     "byteLength": 3378053,
     "finalUrl": "https://artificialanalysis.ai/models/mistral-medium-3-5",
     "id": "sha256:615e5bc562bb3ea183692ca88b14c1676b5a6bbcc76697922c00e58cd871f2ab",
@@ -920,7 +920,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/ae/ae72bf0603de57b754cb7295786092045df7f04e45dd00bd125bc7b848e9c4bb.html",
+    "artifactPath": "artifacts/sha256/ae/ae72bf0603de57b754cb7295786092045df7f04e45dd00bd125bc7b848e9c4bb.html",
     "byteLength": 3143336,
     "finalUrl": "https://artificialanalysis.ai/models/motif-3",
     "id": "sha256:ae72bf0603de57b754cb7295786092045df7f04e45dd00bd125bc7b848e9c4bb",
@@ -938,7 +938,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/5f/5f6315461883295e37c0a12c32091acc362896520ec4b0857ea1c1b57a34c5b0.html",
+    "artifactPath": "artifacts/sha256/5f/5f6315461883295e37c0a12c32091acc362896520ec4b0857ea1c1b57a34c5b0.html",
     "byteLength": 3338238,
     "finalUrl": "https://artificialanalysis.ai/models/muse-glimmer",
     "id": "sha256:5f6315461883295e37c0a12c32091acc362896520ec4b0857ea1c1b57a34c5b0",
@@ -956,7 +956,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/22/228aac4b812f8a2b4dd2811a93db5b212a09b1d07dfc81450da26568ac57d2b4.html",
+    "artifactPath": "artifacts/sha256/22/228aac4b812f8a2b4dd2811a93db5b212a09b1d07dfc81450da26568ac57d2b4.html",
     "byteLength": 3115839,
     "finalUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
     "id": "sha256:228aac4b812f8a2b4dd2811a93db5b212a09b1d07dfc81450da26568ac57d2b4",
@@ -974,7 +974,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/cd/cddc2d9f00835b77cbfef588f69489087a941d2cba005901d8e629ab31acca0d.html",
+    "artifactPath": "artifacts/sha256/cd/cddc2d9f00835b77cbfef588f69489087a941d2cba005901d8e629ab31acca0d.html",
     "byteLength": 3339788,
     "finalUrl": "https://artificialanalysis.ai/models/nemotron-3-5-lightning",
     "id": "sha256:cddc2d9f00835b77cbfef588f69489087a941d2cba005901d8e629ab31acca0d",
@@ -992,7 +992,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/13/1313ef57cfc411d0d546e3562ab5c311cb6ac66980607000fc1321a422f1f967.html",
+    "artifactPath": "artifacts/sha256/13/1313ef57cfc411d0d546e3562ab5c311cb6ac66980607000fc1321a422f1f967.html",
     "byteLength": 3383335,
     "finalUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-super-120b-a12b",
     "id": "sha256:1313ef57cfc411d0d546e3562ab5c311cb6ac66980607000fc1321a422f1f967",
@@ -1010,7 +1010,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/2d/2d3841bc503f38c42cfc1c781ed57562da7a01a94a42b89c61040666330adb9d.html",
+    "artifactPath": "artifacts/sha256/2d/2d3841bc503f38c42cfc1c781ed57562da7a01a94a42b89c61040666330adb9d.html",
     "byteLength": 3385632,
     "finalUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
     "id": "sha256:2d3841bc503f38c42cfc1c781ed57562da7a01a94a42b89c61040666330adb9d",
@@ -1028,7 +1028,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/51/51c5fc3ef7d2f6edef500af438fcb0610c75bf6d7cac6587a80cbcd38b510210.html",
+    "artifactPath": "artifacts/sha256/51/51c5fc3ef7d2f6edef500af438fcb0610c75bf6d7cac6587a80cbcd38b510210.html",
     "byteLength": 3339788,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b",
     "id": "sha256:51c5fc3ef7d2f6edef500af438fcb0610c75bf6d7cac6587a80cbcd38b510210",
@@ -1046,7 +1046,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/62/62b5b6adeaeac23a697cdad190943e38814ebcb7ab507cb5c8ad811f4c4713f7.html",
+    "artifactPath": "artifacts/sha256/62/62b5b6adeaeac23a697cdad190943e38814ebcb7ab507cb5c8ad811f4c4713f7.html",
     "byteLength": 3155975,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
     "id": "sha256:62b5b6adeaeac23a697cdad190943e38814ebcb7ab507cb5c8ad811f4c4713f7",
@@ -1064,7 +1064,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/04/047802ca95d501a4591a43b4fcb3fc218c64255cdcc76ddd3d1d7a2049f19fec.html",
+    "artifactPath": "artifacts/sha256/04/047802ca95d501a4591a43b4fcb3fc218c64255cdcc76ddd3d1d7a2049f19fec.html",
     "byteLength": 3292558,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
     "id": "sha256:047802ca95d501a4591a43b4fcb3fc218c64255cdcc76ddd3d1d7a2049f19fec",
@@ -1082,7 +1082,7 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/6a/6afbbd2705e33d0ccdd66236394c810f917442b7480aa60deedfe32a32dee49f.html",
+    "artifactPath": "artifacts/sha256/6a/6afbbd2705e33d0ccdd66236394c810f917442b7480aa60deedfe32a32dee49f.html",
     "byteLength": 3156561,
     "finalUrl": "https://artificialanalysis.ai/models/solar-open2-250b",
     "id": "sha256:6afbbd2705e33d0ccdd66236394c810f917442b7480aa60deedfe32a32dee49f",

@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/a7/a74041df069ab2565751d3f86832739375903173b2c8e3e0273b2b93d3f98317.html",
+    "artifactPath": "artifacts/sha256/a7/a74041df069ab2565751d3f86832739375903173b2c8e3e0273b2b93d3f98317.html",
     "byteLength": 1066,
     "finalUrl": "https://livebench.ai/",
     "id": "sha256:a74041df069ab2565751d3f86832739375903173b2c8e3e0273b2b93d3f98317",
@@ -19,7 +19,7 @@
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/da/dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3.json",
+    "artifactPath": "artifacts/sha256/da/dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3.json",
     "byteLength": 725,
     "finalUrl": "https://livebench.ai/categories_2026_06_25.json?v=1787033560",
     "id": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
@@ -36,7 +36,7 @@
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/94/9488102ff0814b8a9a48a613f48bf5e8121c35d6a831c5e20847bfbe9a2eb800.csv",
+    "artifactPath": "artifacts/sha256/94/9488102ff0814b8a9a48a613f48bf5e8121c35d6a831c5e20847bfbe9a2eb800.csv",
     "byteLength": 19615,
     "finalUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1787033560",
     "id": "sha256:9488102ff0814b8a9a48a613f48bf5e8121c35d6a831c5e20847bfbe9a2eb800",
@@ -53,7 +53,7 @@
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/2d/2de1888b5f1bda3bcd01eefb418189fd1fcda71fb50490c881359268eb731f37.js",
+    "artifactPath": "artifacts/sha256/2d/2de1888b5f1bda3bcd01eefb418189fd1fcda71fb50490c881359268eb731f37.js",
     "byteLength": 305661,
     "finalUrl": "https://livebench.ai/static/js/main.d02aefd7.js",
     "id": "sha256:2de1888b5f1bda3bcd01eefb418189fd1fcda71fb50490c881359268eb731f37",
@@ -70,7 +70,7 @@
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/6e/6e0171ee9f601a5ca4c6043c062d145b721921f55535d6b26eeca936492cdd1b.csv",
+    "artifactPath": "artifacts/sha256/6e/6e0171ee9f601a5ca4c6043c062d145b721921f55535d6b26eeca936492cdd1b.csv",
     "byteLength": 7459,
     "finalUrl": "https://livebench.ai/table_2026_06_25.csv?v=1787033560",
     "id": "sha256:6e0171ee9f601a5ca4c6043c062d145b721921f55535d6b26eeca936492cdd1b",

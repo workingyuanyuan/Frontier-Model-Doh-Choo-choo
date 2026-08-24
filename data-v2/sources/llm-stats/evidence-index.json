@@ -9,7 +9,7 @@
     "mediaType": "text/html; charset=utf-8",
     "byteLength": 240663,
     "sha256": "sha256:82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3",
-    "artifactPath": "artifacts-v2/sha256/82/82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3.html",
+    "artifactPath": "artifacts/sha256/82/82465f2c6d878232c3944ec39cd5b235de562d6e69e32cb195dc21ae090ef2f3.html",
     "method": "DOM",
     "metadata": {
       "httpStatus": 200,

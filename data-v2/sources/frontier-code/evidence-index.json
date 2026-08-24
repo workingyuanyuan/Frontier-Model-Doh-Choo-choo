@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/1b/1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a.json",
+    "artifactPath": "artifacts/sha256/1b/1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a.json",
     "byteLength": 58814,
     "finalUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
     "id": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
@@ -22,7 +22,7 @@
     "sourceId": "frontier-code"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/99/99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf.html",
+    "artifactPath": "artifacts/sha256/99/99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf.html",
     "byteLength": 118840,
     "finalUrl": "https://cognition.com/frontiercode",
     "id": "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf",

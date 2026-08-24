@@ -17,9 +17,6 @@ test-results/
 
 data/
 artifacts/
-artifacts-v2/
-output/
-reference-table-data/
 tmp/
 *.log
 *.tsbuildinfo

@@ -1,6 +1,6 @@
 [
   {
-    "artifactPath": "artifacts-v2/sha256/7a/7aa01dafa368ba27afb33338534fda8e2f553b2c960f92376db22f7c54daa078.html",
+    "artifactPath": "artifacts/sha256/7a/7aa01dafa368ba27afb33338534fda8e2f553b2c960f92376db22f7c54daa078.html",
     "byteLength": 86834,
     "finalUrl": "https://osworld-v2.xlang.ai/",
     "id": "sha256:7aa01dafa368ba27afb33338534fda8e2f553b2c960f92376db22f7c54daa078",
@@ -14,7 +14,7 @@
     "sourceId": "osworld"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/b3/b31ee69c3619c44a6a573ead3e1d0d8d7c2e53179422517253c6145b026dc8df.js",
+    "artifactPath": "artifacts/sha256/b3/b31ee69c3619c44a6a573ead3e1d0d8d7c2e53179422517253c6145b026dc8df.js",
     "byteLength": 11247,
     "finalUrl": "https://osworld-v2.xlang.ai/static/js/leaderboard.js?v=leaderboard-opus48-batched-v2",
     "id": "sha256:b31ee69c3619c44a6a573ead3e1d0d8d7c2e53179422517253c6145b026dc8df",
@@ -28,7 +28,7 @@
     "sourceId": "osworld"
   },
   {
-    "artifactPath": "artifacts-v2/sha256/a4/a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf.json",
+    "artifactPath": "artifacts/sha256/a4/a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf.json",
     "byteLength": 6613,
     "finalUrl": "https://osworld-v2.xlang.ai/static/data/leaderboard/official-results.json?v=leaderboard-opus48-batched-v2",
     "id": "sha256:a48d24c886c62a64336dc827c5b3cb46c61822de38522785965f804ba76f4aaf",
