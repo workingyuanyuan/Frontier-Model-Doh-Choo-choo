@@ -541,12 +541,15 @@ test('switches the scored preset from the model-count slider and keeps it in the
   await expect(count).not.toHaveText(defaultCount);
 });
 
-test('discloses partial-coverage profiles outside the ranked table', async ({
+test('discloses partial-coverage profiles in developer mode, outside the ranked table', async ({
   page,
 }) => {
   await page.goto('/');
 
   const panel = page.locator('[data-partial-coverage]');
+  await expect(panel).toHaveCount(0);
+
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   await expect(panel).toBeVisible();
 
   const partialRows = page.locator('[data-partial-coverage-row]');

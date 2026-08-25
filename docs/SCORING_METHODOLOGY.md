@@ -54,7 +54,8 @@ Leaderboard 與 Category score table 使用上表 UI 順序，雷達圖為對應
 ——覆蓋五維者在其持有 benchmark 上的平均 z 為 +0.114，只覆蓋四維者為 −0.188。
 
 只缺一個維度的 Profile 列入獨立的 partial-coverage 清單：顯示模型、缺少的維度與已有的
-各維度分數，不給 Overall、不給名次、不與主榜同表排序。清單的定位是資料缺口的揭露。
+各維度分數，不給 Overall、不給名次、不與主榜同表排序。清單放在 Developer mode（R20），
+與缺格清單同一性質，預設不顯示。
 
 ## Representative Profile
 

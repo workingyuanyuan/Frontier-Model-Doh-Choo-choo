@@ -15,7 +15,9 @@ const formatScore = (score: number | null) =>
 /**
  * Ruling R19: a profile holding four of the five dimensions is disclosed here
  * instead of ranked. No overall score, no rank, and no shared ordering with the
- * main table -- the two sets are not measured on the same basis.
+ * main table -- the two sets are not measured on the same basis. Like the
+ * excluded-cells list, this is a developer-mode diagnostic: it reports a gap in
+ * the data, so it does not belong beside the numbers the main screen publishes.
  */
 export function PartialCoverageList({ rows }: PartialCoverageListProps) {
   const dominantGap = [...UI_DIMENSION_IDS]
@@ -33,7 +35,7 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
     >
       <div className="section-heading compact">
         <div>
-          <p className="eyebrow">Data gap</p>
+          <p className="eyebrow">Developer diagnostics</p>
           <h2 id="partial-coverage-title">Partial coverage</h2>
           <p>
             These profiles carry four of the five dimensions, so they get no

@@ -26,13 +26,17 @@ export function Dashboard({
   product: rawProduct,
   initialExpandedModelIds,
   initialPresetId,
+  initialDeveloperMode,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
   product: ProductVersion;
   initialExpandedModelIds?: string[] | undefined;
   initialPresetId?: string | undefined;
+  initialDeveloperMode?: boolean | undefined;
 }) {
-  const [developerMode, setDeveloperMode] = useState(false);
+  const [developerMode, setDeveloperMode] = useState(
+    initialDeveloperMode ?? false,
+  );
   const [presetId, setPresetId] = useState(
     initialPresetId ?? rawProduct.defaultPresetId,
   );
@@ -200,15 +204,16 @@ export function Dashboard({
           developerMode={developerMode}
         />
 
-        <PartialCoverageList rows={partialCoverageRows} />
-
         {developerMode ? (
-          <DeveloperModelList
-            rows={developerRows}
-            product={product}
-            benchmarkDimensions={benchmarkDimensions}
-            preset={activePreset}
-          />
+          <>
+            <PartialCoverageList rows={partialCoverageRows} />
+            <DeveloperModelList
+              rows={developerRows}
+              product={product}
+              benchmarkDimensions={benchmarkDimensions}
+              preset={activePreset}
+            />
+          </>
         ) : null}
 
         <RadarChart product={product} comparisonProduct={visibleProduct} />

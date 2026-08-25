@@ -35,7 +35,7 @@ packages/benchmark-data
 
 - 英文、單一淺色主題、單頁 Dashboard。
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
-- Leaderboard、Partial coverage、Quality vs. Cost、Five Dimensions 與 Included／Excluded Evidence。
+- Leaderboard、Quality vs. Cost、Five Dimensions 與 Included／Excluded Evidence。
 - 主畫面只顯示通過 `display-set.json` 完整矩陣且五個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
 - 靜態／standalone 建置不讀取 `data/sources` 或 `artifacts`。
 

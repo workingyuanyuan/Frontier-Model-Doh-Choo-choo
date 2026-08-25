@@ -122,8 +122,18 @@ describe('Dashboard Redesign', () => {
     });
   });
 
-  it('discloses partial-coverage profiles without a score or a rank (R19)', () => {
-    const html = renderToStaticMarkup(dashboard());
+  it('discloses partial-coverage profiles in developer mode, without a score or a rank (R19)', () => {
+    expect(renderToStaticMarkup(dashboard())).not.toContain(
+      'data-partial-coverage',
+    );
+
+    const html = renderToStaticMarkup(
+      createElement(Dashboard, {
+        product: productFixture,
+        benchmarkDimensions,
+        initialDeveloperMode: true,
+      }),
+    );
 
     expect(html).toContain('data-partial-coverage');
     expect(html).toContain('data-partial-coverage-count="1"');
@@ -134,7 +144,7 @@ describe('Dashboard Redesign', () => {
 
     const panel = html.slice(
       html.indexOf('data-partial-coverage'),
-      html.indexOf('Five Dimensions'),
+      html.indexOf('data-developer-models'),
     );
     expect(panel).not.toContain('Overall');
     expect(panel).not.toContain('Rank');
@@ -144,10 +154,8 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
 
     // Claude Fable 5 is present in the full fixture but lacks the display-set
-    // terminal-bench cell, so it belongs only in the partial-coverage
-    // disclosure and in developer-mode diagnostics.
-    const mainMarkup = html.slice(0, html.indexOf('Partial coverage'));
-    expect(mainMarkup).not.toContain('Claude Fable 5');
+    // terminal-bench cell, so it belongs only in developer-mode diagnostics.
+    expect(html).not.toContain('Claude Fable 5');
   });
 
   it('keeps advanced curves on the full product while default costs stay scoped', () => {
@@ -469,9 +477,9 @@ describe('Dashboard Redesign', () => {
     );
     const html = renderToStaticMarkup(dashboard(adversarialProduct));
 
-    const mainMarkup = html.slice(0, html.indexOf('Partial coverage'));
-    expect(mainMarkup).not.toContain('GPT-5.6 Sol · high');
-    expect(mainMarkup).not.toContain('value="openai-gpt-5-6-sol-high"');
+    expect(html).not.toContain('GPT-5.6 Sol · high');
+    expect(html).not.toContain('value="openai-gpt-5-6-sol-high"');
+    const mainMarkup = html.slice(0, html.indexOf('Five Dimensions'));
     expect(mainMarkup).not.toContain('N/A');
   });
 
