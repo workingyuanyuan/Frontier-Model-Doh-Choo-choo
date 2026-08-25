@@ -236,7 +236,7 @@ export function ModelDetailPanel({
             <span className="model-detail-overall-badge">{overallText}</span>
           </div>
           <p>
-            Eight capability dimensions and underlying source-verified
+            Five capability dimensions and underlying source-verified
             benchmarks.
           </p>
         </div>

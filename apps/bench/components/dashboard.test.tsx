@@ -10,6 +10,10 @@ import {
   getRepresentativeRows,
 } from '../lib/view-model';
 import { COST_SOURCE_WEIGHTS } from '../lib/view-model';
+import {
+  UI_DIMENSION_ABBREVIATIONS,
+  UI_DIMENSION_IDS,
+} from '../lib/ui-contract';
 import { productFixture } from '../test/fixture';
 
 const benchmarkDimensions = {
@@ -102,6 +106,20 @@ describe('Dashboard Redesign', () => {
     expect(html.match(/cost-curve-chart/g)).toHaveLength(1);
     expect(html).toContain('Show advanced effort curves');
     expect(html).toContain('aria-expanded="false"');
+  });
+
+  it('draws one radar axis per scored dimension', () => {
+    const html = renderToStaticMarkup(dashboard());
+
+    expect(html.match(/class="radar-axis"/g)).toHaveLength(
+      UI_DIMENSION_IDS.length,
+    );
+    expect(html.match(/class="radar-grid"/g)).toHaveLength(4);
+    UI_DIMENSION_IDS.forEach((dimension) => {
+      expect(html).toContain(
+        `>${UI_DIMENSION_ABBREVIATIONS[dimension]}</text>`,
+      );
+    });
   });
 
   it('discloses partial-coverage profiles without a score or a rank (R19)', () => {
