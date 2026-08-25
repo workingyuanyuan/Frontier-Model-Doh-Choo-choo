@@ -1,19 +1,19 @@
 # 計分方法
 
-## 八維定義
+## 五維定義（R18）
 
-| 維度        | UI 縮寫 | 最小能力邊界                                 |
-| ----------- | ------- | -------------------------------------------- |
-| Agentic     | AGT     | 工具使用、環境操作、規劃、狀態與錯誤恢復     |
-| Coding      | COD     | 生成、補全、除錯、修復、重構與軟體工程       |
-| Reasoning   | RSN     | 抽象、演繹、歸納、因果、空間、時間與規劃推理 |
-| Math        | MAT     | 計算、代數、形式推導、證明、競賽數學與最佳化 |
-| Knowledge   | KNG     | 事實、專業與世界知識、校準及幻覺抑制         |
-| Language    | LNG     | 語意、篇章、文字品質、摘要、敘事與風格控制   |
-| Context     | CTX     | 長輸入檢索、跨文件整合、追蹤與長時程狀態維持 |
-| Instruction | IF      | 顯式要求、格式／內容限制與任務規格遵循       |
+| 維度      | UI 縮寫 | 最小能力邊界                                                                       |
+| --------- | ------- | ---------------------------------------------------------------------------------- |
+| Agentic   | AGT     | 在可操作環境中多步執行：工具選擇、搜尋、狀態更新與任務完成，評估端點不由程式碼主導 |
+| Coding    | COD     | 生成、補全、除錯、修復、重構與軟體工程，不論是否透過 agent harness 完成            |
+| Reasoning | RSN     | 依題目或輸入資訊推導、計算、邏輯分析與跨文件整合；數學與長脈絡推理都在其中         |
+| Knowledge | KNG     | 事實、專業與世界知識、校準及幻覺抑制                                               |
+| Language  | LNG     | 理解與產生自然語言，並依語義、形式與使用者指定的限制控制輸出                       |
 
-Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `data/mappings/benchmarks.json` 控制；主要維度、跨維關聯、理由與限制見 [Benchmark 八維映射](BENCHMARK_DIMENSION_MAPPING.md)。
+Leaderboard 與 Category score table 使用上表 UI 順序，雷達圖為對應的五軸。機器映射由 `data/mappings/benchmarks.json` 控制；主要維度、跨維關聯、理由與限制見 [Benchmark 維度映射](BENCHMARK_DIMENSION_MAPPING.md)。
+
+維度集合的裁決與驗算依據見 [規格 §4.1、§4.6 與 R18](SPEC.md)：46 個 active benchmark ×
+145 個 profile 的 738 組同 profile 配對相關度中，維度內平均 Spearman rho 0.61、維度間 0.50。
 
 ## Benchmark 納入規則
 
@@ -41,10 +41,20 @@ Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `d
 1. 選出每個 Benchmark 的有效 normalized result。
 2. 同一維度內，對已納入 Benchmark 分數取算術平均。
 3. 每個維度內的分數取算術平均；缺失維度保持 `null`。
-4. Overall 是八個維度分數的算術平均；缺失維度不會被填零。
-5. 產品主畫面只使用八個維度皆非 null 且通過顯示清單完整矩陣的 Profile。
+4. Overall 是五個維度分數的算術平均；缺失維度不會被填零。
+5. 產品主畫面只使用五個維度皆非 null 且通過顯示清單完整矩陣的 Profile。
 
 缺格資料仍保留在 ProductVersion 供追溯，但不會以聚合數值呈現在主畫面或 Developer mode。
+
+## 完整性閘門與 partial-coverage 清單（R19）
+
+`overallScore` 與 `rank` 只給五個維度全部非 null 的 Profile。判準見
+[規格 R19](SPEC.md)：逐維度剔除重排的最大名次位移為 35 名中的 8 名；以其餘四維預測
+缺的那一維，MAE 3.5–8.1 分，`knowledge` 的 8.07 對上該維 sd 11.75；而且缺失並非隨機
+——覆蓋五維者在其持有 benchmark 上的平均 z 為 +0.114，只覆蓋四維者為 −0.188。
+
+只缺一個維度的 Profile 列入獨立的 partial-coverage 清單：顯示模型、缺少的維度與已有的
+各維度分數，不給 Overall、不給名次、不與主榜同表排序。清單的定位是資料缺口的揭露。
 
 ## Representative Profile
 
@@ -52,19 +62,19 @@ Leaderboard 與 Category score table 使用上表 UI 順序。機器映射由 `d
 
 Leaderboard、雷達圖、性價比圖表與儀表板預設選取全部使用同一個選法。
 
-Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profileId` tie-break。使用者切換 effort 時，只能切換仍通過顯示清單與八維 no-N/A 門檻的 Profile。
+Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profileId` tie-break。使用者切換 effort 時，只能切換仍通過顯示清單與五維 no-N/A 門檻的 Profile。
 
 ## 顯示門檻與 Developer mode
 
 - `data/mappings/display-set.json` 是人工維護的 benchmark 清單；建置流程只驗證 ID，不自動選擇內容。
-- Profile 必須對清單每一個 benchmark 有 INCLUDED、非 null normalized score，且八個渲染維度都非 null，才能進主畫面。
+- Profile 必須對清單每一個 benchmark 有 INCLUDED、非 null normalized score，且五個渲染維度都非 null，才能進主畫面。
 - Developer mode 只列出被排除模型缺少的 benchmark 格子；不計算或曝光 Overall／維度聚合，不補缺值、不發布資料。
 
-## 綜合榜與成本不進八維
+## 綜合榜與成本不進五維
 
-Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於 Frontier 選模、外部指標展示，以及性價比進階圖中作為單一來源（AA）的 Y 軸使用。它們**絕不投入八維 Overall**（Evidence 維持 `inclusion: EXCLUDED`），避免底層 Benchmark 被重複計分或跨座標系混淆。
+Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 與 LLM Stats Coding Index 只用於 Frontier 選模、外部指標展示，以及性價比進階圖中作為單一來源（AA）的 Y 軸使用。它們**絕不投入五維 Overall**（Evidence 維持 `inclusion: EXCLUDED`），避免底層 Benchmark 被重複計分或跨座標系混淆。
 
-Quality vs. Cost 的預設圖使用八維 Overall 作 Y 軸，進階圖則使用各來源各自的分數（AA 使用 Intelligence Index，DeepSWE 與 Frontier Code 使用各自 benchmark 的 normalized 分數）。成本正規化與 Pareto frontier 都不是第九個能力分數，也不回饋至 Leaderboard。成本與圖表算法詳見 [資料方法](DATA_METHODOLOGY.md)。
+Quality vs. Cost 的預設圖使用五維 Overall 作 Y 軸，進階圖則使用各來源各自的分數（AA 使用 Intelligence Index，DeepSWE 與 Frontier Code 使用各自 benchmark 的 normalized 分數）。成本正規化與 Pareto frontier 都不是第六個能力分數，也不回饋至 Leaderboard。成本與圖表算法詳見 [資料方法](DATA_METHODOLOGY.md)。
 
 ## 可重現性
 

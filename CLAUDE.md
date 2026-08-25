@@ -16,7 +16,7 @@
 
 - 唯一支援中的 runtime app 是 `apps/bench`；現行資料／程式 workspace 只有 `apps/bench`、`packages/benchmark-data`、`packages/acquisition`。
 - 不得恢復舊 Web、Worker、DB、PostgreSQL、Drizzle、Docker／Compose、Edition、PREVIEW／FORMAL、Remotion/video、雙語、雙主題或多頁架構。
-- 缺失 Benchmark 分數保持 `null`／N/A，不能填零、推測 identity 或用 composite index 代替八維成績。
+- 缺失 Benchmark 分數保持 `null`／N/A，不能填零、推測 identity 或用 composite index 代替五維成績。
 - Agent 不得 push、deploy 或 release。
 - Agent 不得 commit `data/product/current.json`；那是發布動作，需使用者審核後明確指示（`SPEC.md` §11.2）。**這條規則只針對這一個檔案，不是不要 commit 的意思**：每個 task 完成時仍必須 commit 其餘檔案，做法見 `tasks/claude-code-plan.md` 共同契約。用 `git add` 逐一列出檔案，不要用 `git add -A`。
 - 規格未涵蓋的情況不得自行決定；先向使用者確認，再把決定寫回文件與測試。

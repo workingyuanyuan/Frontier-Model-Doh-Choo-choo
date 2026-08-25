@@ -821,7 +821,7 @@ nested-interactive，是已經實測過的 axe serious 違規。
 顯示誰。結果是三個區塊被綁成一組，無法各自比較不同的模型組合。改為：
 
 - **排行榜**：點擊模型列只做展開／收合，是該表格的區域狀態，不影響其他任何區塊。
-- **八維雷達圖**：自己持有一組比較模型。預設載入 Overall 第 1 名一個模型，使用者可自行
+- **五維雷達圖**：自己持有一組比較模型。預設載入 Overall 第 1 名一個模型，使用者可自行
   新增與移除，上限維持 3 條序列。它不再從排行榜取得 active profile，也沒有
   `onClearActiveProfile` 這類跨區塊回呼。
 - **性價比圖表**：自己持有高亮的模型，由圖例或資料點的點擊決定，不再接受外部
@@ -1096,7 +1096,7 @@ leaderboard 頁面仍以 `DOM` 方法擷取存證，供 §11.4 抽查清單指�
 `profileId: null`，完整名稱清單及「未解析列數／相異名稱數」分開寫進 validation report。
 
 **2026-08-22 N2 複審裁決：暫不採用 Zapier 來源。** 84 列分數及可比較的成本資料照常擷取、
-保存與驗證，但 CandidateResult 與 CostRecord 一律標為 `EXCLUDED`；不得投入八維能力分數、
+保存與驗證，但 CandidateResult 與 CostRecord 一律標為 `EXCLUDED`；不得投入五維能力分數、
 Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench 在修正 Claude Fable 5.0 的
 精確 alias 後仍只覆蓋現行 12 個主畫面模型中的 9 個；若列入完整性門檻，主畫面會由 12 個降至
 9 個（Grok 4.6、DeepSeek V4 Pro、Grok 4.5 退出），若只計分不設門檻，則又會形成 9 個模型被
@@ -1137,7 +1137,7 @@ Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench
 Capability score 採單一明確白名單。N3a 核可的 13 項與 D2 核可的 10 項可產生 INCLUDED；
 `aime`、N3a 未核可項目、執行時新出現但未裁決的頁面一律保存 Candidate 並標為 EXCLUDED。
 `vals_index`、`vals_multimodal_index`、`time_horizon_index`、`web_search` 四個綜合指數恆不進
-八維能力分數。若 index 出現新 slug，validation report 必須單獨列出，禁止自動 promote。
+五維能力分數。若 index 出現新 slug，validation report 必須單獨列出，禁止自動 promote。
 
 身分只用 catalog 與已審核精確 alias；D6 要求所有未知名稱保留原始列，但
 `canonicalModelId: null`、`profileId: null`。完整未解析名稱清單每次刷新重建並寫入
@@ -1172,13 +1172,13 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 
 - 唯一支援的 runtime app 是 `apps/bench`。
 - 不得恢復舊 Web、Worker、DB、PostgreSQL、Drizzle、Docker／Compose、Edition、PREVIEW／FORMAL、Remotion/video、雙語、雙主題或多頁架構。
-- 缺失分數保持 `null`／N/A，不得填零、不得推測 identity、不得用綜合指數代替八維成績。
+- 缺失分數保持 `null`／N/A，不得填零、不得推測 identity、不得用綜合指數代替五維成績。
 - Model identity 只允許 canonical catalog 與精確審核過的 alias，不得 fuzzy match，不得把舊型號猜成新版。
 - **D6（2026-08-22）**：期三新來源帶入的未知模型一律保留原始 Candidate，但保持
   `canonicalModelId: null`、`profileId: null`；來源刷新不得順手新增 catalog 或推測 alias。
   未解析完整名單寫入各來源 validation report；任何新增身分必須另開資料品質 task，由使用者
   逐項裁決。
-- 綜合指數（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index）不投入八維總分。
+- 綜合指數（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index）不投入五維總分。
 - 不重寫或刪除凍結的來源資料。
 - 代理不得 push、deploy、release。commit 的規則見 §11。
 - production build 不需要網路、artifact store、資料庫、Docker 或背景程序。

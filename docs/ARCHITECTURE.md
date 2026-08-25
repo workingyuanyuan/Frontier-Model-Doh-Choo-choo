@@ -17,7 +17,7 @@ packages/acquisition
                          ▼
 packages/benchmark-data
   Schema → canonical identity → Profile policy → 來源取代
-         → Frontier → 八維計分 → deterministic ProductVersion
+         → Frontier → 五維計分 → deterministic ProductVersion
                          │
                          ▼
                data/product/current.json
@@ -35,15 +35,15 @@ packages/benchmark-data
 
 - 英文、單一淺色主題、單頁 Dashboard。
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
-- Leaderboard、Quality vs. Cost、Eight Dimensions 與 Included／Excluded Evidence。
-- 主畫面只顯示通過 `display-set.json` 完整矩陣且八個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
+- Leaderboard、Partial coverage、Quality vs. Cost、Five Dimensions 與 Included／Excluded Evidence。
+- 主畫面只顯示通過 `display-set.json` 完整矩陣且五個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
 - 靜態／standalone 建置不讀取 `data/sources` 或 `artifacts`。
 
 ### `packages/benchmark-data`
 
 - 版本化 Zod Schema：SourceManifest、EvidenceRecord、CandidateResult、CostRecord、ModelProfile 與 ProductVersion。
 - canonical model identity、reasoning-effort Profile、來源優先與衝突取代。
-- Frontier 模型選取、八維映射、稀疏安全計分及 Representative Profile 選擇。
+- Frontier 模型選取、五維映射、稀疏安全計分及 Representative Profile 選擇。
 - canonical deterministic JSON、內容 SHA-256 與目前資料檔寫入。
 
 ### `packages/acquisition`

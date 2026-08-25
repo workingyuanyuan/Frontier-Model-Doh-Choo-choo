@@ -60,7 +60,7 @@ pnpm data:build-current
 1. 驗證所有 manifest、Evidence、Candidate、CostRecord 與 mapping schema。
 2. 套用 canonical identity、effort-only Profile 與來源衝突規則。
 3. 依據來源資料與人工指定清單建立 Frontier 模型集合。
-4. 計算八維、Overall 與 cost point；主畫面另依 display set 驗證完整矩陣。
+4. 計算五維、Overall 與 cost point；主畫面另依 display set 驗證完整矩陣。
 5. 產生 canonical deterministic JSON 及內容 `versionId`。
 6. 驗證內容 hash 後寫入 `data/product/current.json`。
 
@@ -91,12 +91,12 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 - canonical identity、alias 與 effort 歸屬可由證據支持。
 - Harness、tools、attempt、thinking、context 沒有拆成 Product Profile。
 - Included Benchmark 皆有主要維度映射；Excluded 不計分。
-- 缺值不是零，Composite index 未重複投入八維。
+- 缺值不是零，Composite index 未重複投入五維。
 - Representative Profile 取最高 Overall，且 display set 的每個 benchmark 都有 INCLUDED、非 null 分數。
 
 ### UI
 
-- 主畫面八個維度不出現 N/A；Developer mode 只列出缺格模型，不顯示聚合分數。
+- 主畫面五個維度不出現 N/A；Developer mode 只列出缺格模型，不顯示聚合分數。
 - Profile selector 只提供仍通過完整矩陣與 no-N/A 門檻的 Profile，並同步更新雷達與 Evidence。
 - Leaderboard／Evidence 排序與 Included／Excluded 出處正確。
 - 桌面、行動、鍵盤與無障礙檢查通過。

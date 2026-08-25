@@ -11,7 +11,7 @@
 | `ORGANIZER`   | Benchmark 主辦方或官方排行榜 | 可直接採用其執行或正式收錄的結果         |
 | `INDEPENDENT` | 自行執行測試的獨立評測者     | 保留其版本、模型配置與執行環境           |
 | `VENDOR`      | 受測模型廠商自報             | 保留來源角色與出處，仍須通過顯示清單門檻 |
-| `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入八維計分     |
+| `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入五維計分     |
 
 同一 Benchmark ID、模型、effort 與 metric 的跨來源可比較結果，先依來源角色；角色相同時取較高可比較分數，`FULL`／發布時間只在同分時破平手。`benchmarkVersion` 保留在 Evidence，但不進重複量測鍵，避免同一 benchmark 因各站版本字串格式不同而重複計分。同一來源內的重複列仍依完整度、發布時間與 harness 選現行量測。每筆 Evidence 最多只貢獻一次。
 
@@ -94,7 +94,7 @@ Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中�
 
 要調整 frontier 成員，改的是 `models.json` 或 `frontier.json`，**不是 `data/sources/` 底下任何來源目錄**。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
 
-外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入八維 Overall，避免底層 Benchmark 被重複計分。
+外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入五維 Overall，避免底層 Benchmark 被重複計分。
 
 ## 成本資料與性價比圖表
 
@@ -117,7 +117,7 @@ Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中�
 2. min-max 正規化後混合的是各模型在各來源內的相對位置。
 3. 缺站時只在可用來源上重新正規化權重，不把缺值當零。
 
-X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
+X 軸為六來源加權正規化任務成本，Y 軸為五維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
 
 圖中的 frontier 是非支配集合（Pareto frontier）：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
 
@@ -128,7 +128,7 @@ X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。�
 進階圖設計原則：
 
 - **先在來源內配對，再跨來源聚合**：AA、DeepSWE、Frontier Code、ARC Prize 各自以同一 profile 的分數配同來源成本；四組皆成立後，X 軸取四來源 log min-max 成本指數各 1/4，Y 軸取四來源原始分數算術平均。不得拿跨來源 Overall 配單一來源成本。
-- **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入八維 Overall）。
+- **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入五維 Overall）。
 - **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2` 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
@@ -152,4 +152,4 @@ X 軸為六來源加權正規化任務成本，Y 軸為八維 Overall Score。�
 
 ## Dashboard 資料邊界
 
-產品視圖由 `data/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外八個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。
+產品視圖由 `data/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外五個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。

@@ -18,12 +18,12 @@
 
 同一個 ProductVersion 驅動英文、單一淺色主題、完整響應式的單頁 Dashboard：
 
-1. Leaderboard：Overall 與八維分數，可排序、搜尋、選擇完整矩陣 Profile。
-2. Eight Dimensions：所選 Profile 的雷達／比較視圖。
+1. Leaderboard：Overall 與五維分數，可排序、搜尋、選擇完整矩陣 Profile。
+2. Five Dimensions：所選 Profile 的雷達／比較視圖。
 3. Quality vs. Cost：合併任務成本、provider 圖例與 Pareto frontier。
 4. Evidence：按能力維度顯示 Included／Excluded、原始來源 Profile 與 provenance。
 
-主畫面只顯示在 display set 每格都有 INCLUDED、非 null 分數且八維皆非 null 的 Profile。Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
+主畫面只顯示在 display set 每格都有 INCLUDED、非 null 分數且五維皆非 null 的 Profile。Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
 
 ## 4. 資料路徑
 
@@ -55,10 +55,10 @@
 
 ## 6. 資料與計分基線
 
-- 維度固定為 Agentic、Coding、Reasoning、Math、Knowledge、Language、Context、Instruction。
+- 維度固定為 Agentic、Coding、Reasoning、Knowledge、Language（R18，見 [SPEC.md §4.1](SPEC.md)）。
 - 每個 Benchmark 第一版只投入一個主要維度。
-- 缺失值保持 `null`／N/A，不填零。**Overall 只在八個維度全部有分數時才計算**（D2 之後的規則，見 [重構規格 §5.2](SPEC.md)）；任一維度缺值時 `overallScore` 為 `null`，不以已有維度取平均。
-- Composite index 只用於 Frontier 選模／展示，不投入八維。
+- 缺失值保持 `null`／N/A，不填零。**Overall 只在五個維度全部有分數時才計算**（D2 之後的規則，見 [重構規格 §5.2](SPEC.md)）；任一維度缺值時 `overallScore` 為 `null`，不以已有維度取平均。
+- Composite index 只用於 Frontier 選模／展示，不投入五維。
 - Product Profile 只按 reasoning effort 分離；其他 harness 設定留在 provenance。
 - Identity 只允許 canonical catalog 與 exact reviewed alias；不得 fuzzy match 或猜測新版。
 
@@ -67,7 +67,7 @@
 使用者已在 [`SPEC.md`](SPEC.md) 定案：
 
 1. 來源收斂至 Artificial Analysis、LiveBench、DeepSWE、Frontier Code；其他來源目錄凍結保留。
-2. Evidence 併入模型明細面板；保留排行榜、八維雷達圖與兩張性價比圖表。
+2. Evidence 併入模型明細面板；保留排行榜、五維雷達圖與兩張性價比圖表。
 3. 產品資料改為單一 `data/product/current.json`；Git 歷史負責版本回復。
 
 ## 8. 風險與接手提醒
