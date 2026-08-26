@@ -909,70 +909,72 @@ export function CostChart({
   };
 
   return (
-    <section
-      className="panel chart-panel cost-panel"
-      aria-labelledby="cost-title"
-      data-cost-mode={advanced ? 'advanced' : 'default'}
-    >
-      <div className="section-heading compact">
-        <div>
-          <p className="eyebrow">Price efficiency</p>
-          <h2 id="cost-title">Quality vs. Cost</h2>
-          <p>
-            {advanced
-              ? 'Source-local scores and task costs show how each effort profile changes the trade-off.'
-              : 'Lower cost is better. Higher Overall Score is better.'}
-          </p>
-        </div>
-        <div className="cost-chart-actions">
-          {!advanced ? (
-            <p className="cost-weight-note">
-              {weightNote(COST_SOURCE_WEIGHTS)}
+    <div className="dashboard-section">
+      <p className="eyebrow section-eyebrow">Price efficiency</p>
+      <section
+        className="panel chart-panel cost-panel"
+        aria-labelledby="cost-title"
+        data-cost-mode={advanced ? 'advanced' : 'default'}
+      >
+        <div className="section-heading compact">
+          <div>
+            <h2 id="cost-title">Quality vs. Cost</h2>
+            <p>
+              {advanced
+                ? 'Source-local scores and task costs show how each effort profile changes the trade-off.'
+                : 'Lower cost is better. Higher Overall Score is better.'}
             </p>
-          ) : (
-            <p className="cost-weight-note">{advancedWeightNote()}</p>
-          )}
-          <button
-            type="button"
-            className="cost-mode-toggle"
-            aria-label={
-              advanced
-                ? 'Show default cost chart'
-                : 'Show advanced effort curves'
-            }
-            aria-expanded={advanced}
-            aria-controls={advancedPanelId}
-            onClick={() => setAdvanced((current) => !current)}
-          >
-            {advanced ? 'Default' : 'Advanced'}
-          </button>
+          </div>
+          <div className="cost-chart-actions">
+            {!advanced ? (
+              <p className="cost-weight-note">
+                {weightNote(COST_SOURCE_WEIGHTS)}
+              </p>
+            ) : (
+              <p className="cost-weight-note">{advancedWeightNote()}</p>
+            )}
+            <button
+              type="button"
+              className="cost-mode-toggle"
+              aria-label={
+                advanced
+                  ? 'Show default cost chart'
+                  : 'Show advanced effort curves'
+              }
+              aria-expanded={advanced}
+              aria-controls={advancedPanelId}
+              onClick={() => setAdvanced((current) => !current)}
+            >
+              {advanced ? 'Default' : 'Advanced'}
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div id={advancedPanelId}>
-        {advanced ? (
-          <AdvancedCostPlot
-            series={series}
-            selectedProfileId={selectedProfileId}
-            onToggleSelect={handleToggleSelect}
-          />
-        ) : (
-          <DefaultCostPlot
-            points={points}
-            selectedProfileId={selectedProfileId}
-            onToggleSelect={handleToggleSelect}
-          />
-        )}
-      </div>
+        <div id={advancedPanelId}>
+          {advanced ? (
+            <AdvancedCostPlot
+              series={series}
+              selectedProfileId={selectedProfileId}
+              onToggleSelect={handleToggleSelect}
+            />
+          ) : (
+            <DefaultCostPlot
+              points={points}
+              selectedProfileId={selectedProfileId}
+              onToggleSelect={handleToggleSelect}
+            />
+          )}
+        </div>
 
-      <span className="sr-only">
-        Configured weights:{' '}
-        {Object.entries(COST_SOURCE_WEIGHTS)
-          .map(([source, weight]) => `${source} ${weight * 100}%`)
-          .join(', ')}
-        . Advanced sources: {ADVANCED_COST_SOURCE_IDS.join(', ')}. API
-        standardized token prices are excluded from both charts.
-      </span>
-    </section>
+        <span className="sr-only">
+          Configured weights:{' '}
+          {Object.entries(COST_SOURCE_WEIGHTS)
+            .map(([source, weight]) => `${source} ${weight * 100}%`)
+            .join(', ')}
+          . Advanced sources: {ADVANCED_COST_SOURCE_IDS.join(', ')}. API
+          standardized token prices are excluded from both charts.
+        </span>
+      </section>
+    </div>
   );
 }

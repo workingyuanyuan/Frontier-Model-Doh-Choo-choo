@@ -26,6 +26,19 @@ test('switches and persists the icon-only color theme', async ({ page }) => {
   await darkTheme.press('Enter');
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await expect(darkTheme).toHaveAttribute('aria-pressed', 'true');
+  const darkThemeStyle = await page.evaluate(() => {
+    const tokens = getComputedStyle(document.documentElement);
+    return {
+      accent: tokens.getPropertyValue('--accent').trim(),
+      radius: tokens.getPropertyValue('--radius-md').trim(),
+      leak: getComputedStyle(document.body, '::before').backgroundImage,
+      grain: getComputedStyle(document.body, '::after').backgroundImage,
+    };
+  });
+  expect(darkThemeStyle.accent).toBe('#a95d35');
+  expect(darkThemeStyle.radius).toBe('2px');
+  expect(darkThemeStyle.leak).not.toBe('none');
+  expect(darkThemeStyle.grain).not.toBe('none');
   expect(await page.evaluate(() => localStorage.getItem('fm-dcc-theme'))).toBe(
     'dark',
   );
@@ -33,9 +46,52 @@ test('switches and persists the icon-only color theme', async ({ page }) => {
   await lightTheme.click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await expect(lightTheme).toHaveAttribute('aria-pressed', 'true');
+  const lightThemeStyle = await page.evaluate(() => {
+    const tokens = getComputedStyle(document.documentElement);
+    return {
+      accent: tokens.getPropertyValue('--accent').trim(),
+      displayFont: tokens.getPropertyValue('--font-display').trim(),
+      canvas: tokens.getPropertyValue('--surface-subtle').trim(),
+    };
+  });
+  expect(lightThemeStyle.accent).toBe('#cc785c');
+  expect(lightThemeStyle.displayFont).toContain('Copernicus');
+  expect(lightThemeStyle.canvas).toBe('#faf9f5');
   await page.reload();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   await expect(lightTheme).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('places dashboard labels above and outside their panels with section spacing', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const sections = page.locator('.dashboard-section');
+  const labels = page.locator('.section-eyebrow');
+  await expect(sections).toHaveCount(3);
+  await expect(labels).toHaveCount(3);
+
+  for (let index = 0; index < 3; index += 1) {
+    const label = labels.nth(index);
+    expect(
+      await label.evaluate(
+        (element) =>
+          element.closest('section') === null &&
+          element.nextElementSibling?.tagName === 'SECTION',
+      ),
+    ).toBe(true);
+  }
+
+  for (let index = 1; index < 3; index += 1) {
+    const previous = await sections.nth(index - 1).boundingBox();
+    const current = await sections.nth(index).boundingBox();
+    expect(previous).not.toBeNull();
+    expect(current).not.toBeNull();
+    expect(
+      current!.y - (previous!.y + previous!.height),
+    ).toBeGreaterThanOrEqual(24);
+  }
 });
 
 test('defaults to complete matrix models and exposes excluded cells explicitly', async ({

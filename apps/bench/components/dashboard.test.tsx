@@ -80,6 +80,20 @@ describe('Dashboard Redesign', () => {
     expect(html).not.toContain('Static, reviewable, source-backed.');
   });
 
+  it('places each dashboard eyebrow immediately outside and above its section', () => {
+    const html = renderToStaticMarkup(dashboard());
+
+    expect(html).toMatch(
+      /<p class="eyebrow section-eyebrow">Representative profiles<\/p><section class="panel leaderboard-panel"/,
+    );
+    expect(html).toMatch(
+      /<p class="eyebrow section-eyebrow">Capability profile<\/p><section class="panel chart-panel"/,
+    );
+    expect(html).toMatch(
+      /<p class="eyebrow section-eyebrow">Price efficiency<\/p><section class="panel chart-panel cost-panel"/,
+    );
+  });
+
   it('renders an icon-only three-theme control before Developer mode', () => {
     const html = renderToStaticMarkup(dashboard());
     const header = html.slice(

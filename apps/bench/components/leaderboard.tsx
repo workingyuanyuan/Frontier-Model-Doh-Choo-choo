@@ -132,51 +132,53 @@ export function Leaderboard({
   }, [activeRows]);
 
   return (
-    <section
-      className="panel leaderboard-panel"
-      aria-labelledby="leaderboard-title"
-    >
-      <div className="section-heading">
-        <div>
-          <p className="eyebrow">Representative profiles</p>
-          <h2 id="leaderboard-title">One row per base model.</h2>
+    <div className="dashboard-section">
+      <p className="eyebrow section-eyebrow">Representative profiles</p>
+      <section
+        className="panel leaderboard-panel"
+        aria-labelledby="leaderboard-title"
+      >
+        <div className="section-heading">
+          <div>
+            <h2 id="leaderboard-title">One row per base model.</h2>
+          </div>
+          <div className="leaderboard-toolbar">
+            <PresetControls
+              presets={product.presets}
+              activePreset={product.activePreset}
+              onSelectPreset={onSelectPreset}
+            />
+            <ModelPicker
+              product={product}
+              representatives={representatives}
+              checkedModelIds={checkedModelIds}
+              setCheckedModelIds={setCheckedModelIds}
+            />
+          </div>
         </div>
-        <div className="leaderboard-toolbar">
-          <PresetControls
-            presets={product.presets}
-            activePreset={product.activePreset}
-            onSelectPreset={onSelectPreset}
-          />
-          <ModelPicker
-            product={product}
-            representatives={representatives}
-            checkedModelIds={checkedModelIds}
-            setCheckedModelIds={setCheckedModelIds}
-          />
-        </div>
-      </div>
 
-      <LeaderboardTable
-        developerMode={developerMode}
-        product={product}
-        rows={sortedRows}
-        sort={sort}
-        onSort={onSort}
-        heatMap={heatMap}
-        modelProfiles={modelProfiles}
-        onProfileChange={handleProfileChange}
-        benchmarkDimensions={benchmarkDimensions}
-        preset={preset}
-        expandedModelIds={expandedModelIds}
-        onToggleExpand={toggleExpand}
-      />
+        <LeaderboardTable
+          developerMode={developerMode}
+          product={product}
+          rows={sortedRows}
+          sort={sort}
+          onSort={onSort}
+          heatMap={heatMap}
+          modelProfiles={modelProfiles}
+          onProfileChange={handleProfileChange}
+          benchmarkDimensions={benchmarkDimensions}
+          preset={preset}
+          expandedModelIds={expandedModelIds}
+          onToggleExpand={toggleExpand}
+        />
 
-      {rows.length === 0 ? (
-        <div className="empty-state" role="status">
-          <strong>No matching models</strong>
-          <span>Try a provider, base model, or effort level.</span>
-        </div>
-      ) : null}
-    </section>
+        {rows.length === 0 ? (
+          <div className="empty-state" role="status">
+            <strong>No matching models</strong>
+            <span>Try a provider, base model, or effort level.</span>
+          </div>
+        ) : null}
+      </section>
+    </div>
   );
 }

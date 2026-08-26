@@ -198,3 +198,13 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 **範圍**：`apps/bench` 的主題狀態、Header 控制、設計 token、持久化與對應測試。不改動產品資料、mapping 或計分邏輯。
 
 **驗收**：三個主題可由圖示控制並具可存取名稱；選擇會持久化且首屏不閃爍；各主題涵蓋完整 Dashboard、圖表與互動狀態；桌面與行動版視覺、鍵盤操作、reduced motion 與完整基準驗證通過。
+
+## P3 — Claude 淺色、Kage 黑暗主題與區段標籤外移
+
+狀態：完成
+
+**目的**：淺色主題改依 `N:\Markdown\Design\claude-DESIGN.md`，黑暗主題改依 `N:\Markdown\Design\Kage-DESIGN.md`；將 Representative profiles、Capability profile、Price efficiency 移至各自 Section 正上方，建立清楚的區段節奏。
+
+**範圍**：`apps/bench` 的淺色／黑暗主題 token、背景材質、排版、區段結構與對應測試。不改動藍色主題、產品資料、mapping 或計分邏輯。
+
+**驗收**：兩套主題忠於指定參考稿且維持資料可讀性與可存取性；三個標籤均位於對應 Section 外並直接置於其上方；桌面與行動版區段間距清楚、無水平溢位；完整基準驗證通過。
