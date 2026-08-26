@@ -174,3 +174,17 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 2. 開發者模式中 partial-coverage 清單的 31 筆。
 3. 五軸雷達圖的視覺。
 4. 新的滑桿刻度與預設 preset。
+
+---
+
+# P. 前端資訊層級與品牌簡化
+
+## P1 — Header、Leaderboard、成本圖與 Footer 優化
+
+狀態：完成
+
+**目的**：依使用者指定的文案與佈局簡化單頁 Dashboard，並修正寬螢幕下成本圖圖例高度。
+
+**範圍**：`apps/bench` 的元件、樣式、metadata 與對應測試。不改動產品資料、mapping 或計分邏輯。
+
+**驗收**：指定文案與區塊調整全部落地；header 呼吸燈支援 reduced motion；Leaderboard 控制項等高且順序正確；成本圖圖例在寬螢幕與圖表等高；完整基準驗證通過。

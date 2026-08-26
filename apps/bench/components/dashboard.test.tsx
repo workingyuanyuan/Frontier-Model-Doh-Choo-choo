@@ -49,6 +49,8 @@ describe('Dashboard Redesign', () => {
     const html = renderToStaticMarkup(dashboard());
 
     expect(html).toContain(`Version ${productFixture.versionId}`);
+    expect(html).toContain('FM-DCC');
+    expect(html).toContain('Frontier Model Doh Choo-choo');
     expect(html).toContain('Leaderboard');
     expect(html).toContain('Quality vs. Cost');
     expect(html).toContain('Five Dimensions');
@@ -57,17 +59,30 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('aria-checked="false"');
   });
 
-  it('displays concise copy and removes long paragraphs', () => {
+  it('renders the simplified hero, leaderboard heading, and footer metadata', () => {
     const html = renderToStaticMarkup(dashboard());
-    expect(html).not.toContain('A source-backed view');
-    expect(html).not.toContain('The main table shows');
-    expect(html).toContain('Five capability scores, cost, and evidence.');
-    expect(html).toContain('One row per base model.');
+    const header = html.slice(
+      html.indexOf('<header'),
+      html.indexOf('</header>'),
+    );
+
+    expect(html).toContain('<h1 id="page-title">Leaderboard</h1>');
+    expect(html).toContain(
+      '<h2 id="leaderboard-title">One row per base model.</h2>',
+    );
+    expect(html).not.toContain('Current frontier snapshot');
+    expect(html).not.toContain('Compare capability, cost, and evidence.');
+    expect(html).not.toContain('Five capability scores, cost, and evidence.');
+    expect(html).not.toContain('scope-panel');
+    expect(header).not.toContain('Version');
+    expect(header).not.toContain('Generated');
+    expect(html).toContain('Generated');
+    expect(html).not.toContain('Static, reviewable, source-backed.');
   });
 
   it('renders the collapsed model visibility picker trigger', () => {
     const html = renderToStaticMarkup(dashboard());
-    expect(html).toContain('Search models or profiles');
+    expect(html).toContain('Search Models');
     expect(html).toContain('selected');
     expect(html).toContain('aria-expanded="false"');
   });
@@ -95,16 +110,14 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Weighted normalized task cost index');
     expect(html).toContain('Overall Score');
     expect(html).toContain('higher is better');
-    // Derived from COST_SOURCE_WEIGHTS, so adopting a source updates the note
-    // instead of leaving it claiming a share nobody has.
-    Object.entries(COST_SOURCE_WEIGHTS).forEach(([sourceId, weight]) => {
-      expect(html).toContain(`${(weight * 100).toFixed(1)}%`);
+    expect(html).toContain('Source weights: 14.3% each.');
+    expect(html.match(/14\.3%/g)).toHaveLength(1);
+    Object.keys(COST_SOURCE_WEIGHTS).forEach((sourceId) => {
       expect(html).toContain(sourceId);
     });
-    expect(html).toContain('Zapier 14.3%');
     expect(html).toContain('API standardized token prices are excluded');
     expect(html.match(/cost-curve-chart/g)).toHaveLength(1);
-    expect(html).toContain('Show advanced effort curves');
+    expect(html).toContain('>Advanced</button>');
     expect(html).toContain('aria-expanded="false"');
   });
 
@@ -280,21 +293,12 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Five Dimensions');
   });
 
-  it('explains the frontier, ranked-model, and scored-profile counts', () => {
+  it('removes the dataset scope panel', () => {
     const html = renderToStaticMarkup(dashboard());
 
-    expect(html).toContain(
-      'data-scope-metric="frontier"><dt>Frontier models</dt><dd>1</dd>',
-    );
-    expect(html).toContain(
-      'data-scope-metric="ranked"><dt>Ranked models</dt><dd>1</dd>',
-    );
-    expect(html).toContain(
-      'data-scope-metric="profiles"><dt>Scored Profiles</dt><dd>2</dd>',
-    );
-    expect(html).toContain(
-      'data-scope-metric="pending"><dt>Awaiting direct evidence</dt><dd>0</dd>',
-    );
+    expect(html).not.toContain('Dataset scope');
+    expect(html).not.toContain('Dataset at a glance.');
+    expect(html).not.toContain('data-scope-metric');
   });
 
   it('renders dimension columns and category rows in the requested order using abbreviations', () => {

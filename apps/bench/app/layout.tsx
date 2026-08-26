@@ -5,7 +5,7 @@ import './globals.css';
 import './leaderboard.css';
 
 export const metadata: Metadata = {
-  title: 'LLM Bench — Frontier model intelligence',
+  title: 'FM-DCC — Frontier Model Doh Choo-choo',
   description:
     'Compare frontier language models across capability, price, and source evidence.',
 };

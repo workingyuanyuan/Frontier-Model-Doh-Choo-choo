@@ -278,12 +278,13 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   await page.goto('/');
 
   const toggle = page.locator('.cost-mode-toggle');
-  await expect(toggle).toHaveText('Show advanced effort curves');
+  await expect(toggle).toHaveText('Advanced');
   await toggle.focus();
   await expect(toggle).toBeFocused();
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await page.keyboard.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(toggle).toHaveText('Default');
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
   await expect(
     page.getByText('LiveBench, Vals AI, Zapier are excluded', { exact: false }),
@@ -475,7 +476,7 @@ test('keeps leaderboard sort, search, and effort controls keyboard reachable', a
   await expect(page.locator('th[aria-sort="ascending"]')).toHaveCount(1);
 
   const pickerTrigger = page.getByRole('button', {
-    name: /Search models or profiles/,
+    name: /Search Models/,
   });
   await pickerTrigger.focus();
   await expect(pickerTrigger).toBeFocused();
@@ -495,6 +496,45 @@ test('keeps leaderboard sort, search, and effort controls keyboard reachable', a
     await expect(effortSelector).toBeFocused();
     const options = await effortSelector.locator('option').count();
     expect(options).toBeGreaterThan(0);
+  }
+});
+
+test('keeps leaderboard controls ordered and equal-height on wide screens', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+
+  const sources = await page.locator('.preset-sources-switch').boundingBox();
+  const slider = await page.locator('.preset-slider').boundingBox();
+  const picker = await page.locator('.picker-trigger-btn').boundingBox();
+
+  expect(sources).not.toBeNull();
+  expect(slider).not.toBeNull();
+  expect(picker).not.toBeNull();
+  if (sources && slider && picker) {
+    expect(sources.x).toBeLessThan(slider.x);
+    expect(slider.x).toBeLessThan(picker.x);
+    expect(Math.abs(sources.height - slider.height)).toBeLessThanOrEqual(1);
+    expect(Math.abs(slider.height - picker.height)).toBeLessThanOrEqual(1);
+  }
+});
+
+test('stretches the cost legend to the chart row bottom on wide screens', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+
+  const plot = await page.locator('.cost-plot-wrap').first().boundingBox();
+  const legend = await page.locator('.cost-model-legend').first().boundingBox();
+
+  expect(plot).not.toBeNull();
+  expect(legend).not.toBeNull();
+  if (plot && legend) {
+    expect(
+      Math.abs(plot.y + plot.height - (legend.y + legend.height)),
+    ).toBeLessThanOrEqual(1);
   }
 });
 

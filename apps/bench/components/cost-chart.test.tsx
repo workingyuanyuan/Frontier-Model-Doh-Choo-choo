@@ -561,6 +561,10 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       expect(html).toContain('Quality vs. Cost');
       expect(html).toContain('cost-curve-chart');
+      expect(html).toContain('Lower cost is better.');
+      expect(html).toContain('Source weights: 14.3% each.');
+      expect(html).toContain('The frontier connects best score at each cost.');
+      expect(html).toContain('>Advanced</button>');
       expect(html).not.toContain('<title>');
     });
   });

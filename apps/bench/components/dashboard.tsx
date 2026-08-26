@@ -10,7 +10,6 @@ import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
 import {
-  getDataScopeSummary,
   getDeveloperModelRows,
   getPartialCoverageRows,
   getRepresentativeRows,
@@ -20,6 +19,13 @@ import {
 } from '../lib/view-model';
 
 const PRESET_QUERY_KEY = 'preset';
+
+const formatGeneratedAt = (generatedAt: string): string =>
+  new Intl.DateTimeFormat('en', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+    timeZone: 'UTC',
+  }).format(new Date(generatedAt));
 
 export function Dashboard({
   benchmarkDimensions,
@@ -144,7 +150,7 @@ export function Dashboard({
     );
   }, [representatives, checkedModelIds]);
 
-  const dataScope = getDataScopeSummary(visibleProduct);
+  const generated = formatGeneratedAt(product.generatedAt);
 
   useEffect(() => {
     setCheckedModelIds(defaultCheckedIds);
@@ -153,42 +159,12 @@ export function Dashboard({
   return (
     <div id="top">
       <VersionHeader
-        product={product}
         developerMode={developerMode}
         onDeveloperModeChange={setDeveloperMode}
       />
       <main className="page-shell">
         <section className="intro" aria-labelledby="page-title">
-          <div>
-            <p className="eyebrow">Current frontier snapshot</p>
-            <h1 id="page-title">Compare capability, cost, and evidence.</h1>
-            <p>Five capability scores, cost, and evidence.</p>
-          </div>
-        </section>
-
-        <section className="panel scope-panel" aria-labelledby="scope-title">
-          <div>
-            <p className="eyebrow">Dataset scope</p>
-            <h2 id="scope-title">Dataset at a glance.</h2>
-          </div>
-          <dl className="scope-metrics">
-            <div data-scope-metric="frontier">
-              <dt>Frontier models</dt>
-              <dd>{dataScope.frontierModels}</dd>
-            </div>
-            <div data-scope-metric="ranked">
-              <dt>Ranked models</dt>
-              <dd>{dataScope.rankedModels}</dd>
-            </div>
-            <div data-scope-metric="profiles">
-              <dt>Scored Profiles</dt>
-              <dd>{dataScope.scoredProfiles}</dd>
-            </div>
-            <div data-scope-metric="pending">
-              <dt>Awaiting direct evidence</dt>
-              <dd>{dataScope.awaitingDirectEvidence}</dd>
-            </div>
-          </dl>
+          <h1 id="page-title">Leaderboard</h1>
         </section>
 
         <Leaderboard
@@ -221,9 +197,11 @@ export function Dashboard({
         <CostChart defaultProduct={visibleProduct} advancedProduct={product} />
       </main>
       <footer className="site-footer">
-        <span>LLM Bench</span>
-        <span>Version {product.versionId}</span>
-        <span>Static, reviewable, source-backed.</span>
+        <span>FM-DCC</span>
+        <span className="footer-version-meta">
+          <span>Version {product.versionId}</span>
+          <span>Generated {generated} UTC</span>
+        </span>
       </footer>
     </div>
   );

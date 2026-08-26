@@ -47,13 +47,22 @@ const SOURCE_NAMES: Record<string, string> = {
  * version silently kept claiming six sources at 16.7% after Zapier was adopted
  * and the table became seven at 14.3%.
  */
-const weightNote = (weights: Readonly<Record<string, number>>): string =>
-  `Source weights: ${Object.entries(weights)
-    .map(
-      ([sourceId, weight]) =>
-        `${SOURCE_NAMES[sourceId] ?? sourceId} ${(weight * 100).toFixed(1)}%`,
-    )
-    .join(' · ')}`;
+const weightNote = (weights: Readonly<Record<string, number>>): string => {
+  const entries = Object.entries(weights);
+  const firstWeight = entries[0]?.[1] ?? 0;
+  const equalWeights = entries.every(
+    ([, weight]) => Math.abs(weight - firstWeight) < Number.EPSILON,
+  );
+
+  return equalWeights
+    ? `Source weights: ${(firstWeight * 100).toFixed(1)}% each.`
+    : `Source weights: ${entries
+        .map(
+          ([sourceId, weight]) =>
+            `${SOURCE_NAMES[sourceId] ?? sourceId} ${(weight * 100).toFixed(1)}%`,
+        )
+        .join(' · ')}.`;
+};
 
 /**
  * The advanced chart uses four of the seven sources. Naming the excluded ones
@@ -67,14 +76,11 @@ const advancedWeightNote = (): string => {
     .filter((sourceId) => !included.has(sourceId))
     .map((sourceId) => SOURCE_NAMES[sourceId] ?? sourceId);
   const share = 1 / ADVANCED_COST_SOURCE_IDS.length;
-  const weights = Object.fromEntries(
-    ADVANCED_COST_SOURCE_IDS.map((sourceId) => [sourceId, share]),
-  );
   const tail =
     excluded.length === 0
       ? ''
       : ` · ${excluded.join(', ')} ${excluded.length === 1 ? 'is' : 'are'} excluded`;
-  return `${weightNote(weights)}${tail}`;
+  return `Source weights: ${(share * 100).toFixed(1)}% each${tail}.`;
 };
 
 /**
@@ -410,8 +416,7 @@ export function DefaultCostPlot({
               ) : null}
             </div>
             <p className="cost-frontier-caption">
-              The frontier connects profiles that are not beaten by another
-              profile on both cost and performance.
+              The frontier connects best score at each cost.
             </p>
           </div>
 
@@ -916,7 +921,7 @@ export function CostChart({
           <p>
             {advanced
               ? 'Source-local scores and task costs show how each effort profile changes the trade-off.'
-              : 'Lower normalized task cost is better. Higher Overall Score is better.'}
+              : 'Lower cost is better. Higher Overall Score is better.'}
           </p>
         </div>
         <div className="cost-chart-actions">
@@ -930,13 +935,16 @@ export function CostChart({
           <button
             type="button"
             className="cost-mode-toggle"
+            aria-label={
+              advanced
+                ? 'Show default cost chart'
+                : 'Show advanced effort curves'
+            }
             aria-expanded={advanced}
             aria-controls={advancedPanelId}
             onClick={() => setAdvanced((current) => !current)}
           >
-            {advanced
-              ? 'Show default cost chart'
-              : 'Show advanced effort curves'}
+            {advanced ? 'Default' : 'Advanced'}
           </button>
         </div>
       </div>

@@ -132,7 +132,7 @@ export function ModelPicker({
         aria-controls="picker-popover"
         onClick={() => setIsOpen((current) => !current)}
       >
-        <span>Search models or profiles</span>
+        <span>Search Models</span>
         <span className="selected-badge">
           {checkedModelIds.length} selected
         </span>
@@ -152,7 +152,7 @@ export function ModelPicker({
               type="search"
               name="model-profile-filter"
               className="picker-search-input"
-              placeholder="Search models or profiles..."
+              placeholder="Search Models..."
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               aria-label="Filter models in list"

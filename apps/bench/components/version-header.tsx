@@ -1,47 +1,22 @@
-import type { ProductVersion } from '@llm-bench/benchmark-data';
-
-const shortVersion = (versionId: string) =>
-  `${versionId.slice(7, 15)}…${versionId.slice(-6)}`;
-
 export function VersionHeader({
-  product,
   developerMode,
   onDeveloperModeChange,
 }: {
-  product: ProductVersion;
   developerMode: boolean;
   onDeveloperModeChange: (enabled: boolean) => void;
 }) {
-  const generated = new Intl.DateTimeFormat('en', {
-    dateStyle: 'medium',
-    timeStyle: 'short',
-    timeZone: 'UTC',
-  }).format(new Date(product.generatedAt));
-
   return (
     <header className="site-header">
       <div>
         <a className="brand" href="#top">
-          <span className="brand-mark" aria-hidden="true">
-            LB
-          </span>
+          <span className="brand-mark" aria-hidden="true" />
           <span>
-            <strong>LLM Bench</strong>
-            <small>Frontier model intelligence</small>
+            <strong>FM-DCC</strong>
+            <small>Frontier Model Doh Choo-choo</small>
           </span>
         </a>
       </div>
       <div className="header-controls">
-        <dl className="version-meta" aria-label="Dataset version">
-          <div>
-            <dt>Version</dt>
-            <dd title={product.versionId}>{shortVersion(product.versionId)}</dd>
-          </div>
-          <div>
-            <dt>Generated</dt>
-            <dd>{generated} UTC</dd>
-          </div>
-        </dl>
         <button
           type="button"
           className="developer-mode-switch"

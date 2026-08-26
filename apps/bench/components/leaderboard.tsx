@@ -139,8 +139,7 @@ export function Leaderboard({
       <div className="section-heading">
         <div>
           <p className="eyebrow">Representative profiles</p>
-          <h2 id="leaderboard-title">Leaderboard</h2>
-          <p>One row per base model.</p>
+          <h2 id="leaderboard-title">One row per base model.</h2>
         </div>
         <div className="leaderboard-toolbar">
           <PresetControls

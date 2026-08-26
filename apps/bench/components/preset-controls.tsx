@@ -48,6 +48,24 @@ export function PresetControls({
 
   return (
     <div className="preset-controls">
+      <button
+        type="button"
+        role="switch"
+        className="preset-sources-switch"
+        aria-checked={activePreset.requireAllSources}
+        disabled={alternative === undefined}
+        title={
+          alternative === undefined
+            ? `Only one benchmark set reaches ${activePreset.targetModelCount} models, so there is nothing to switch to.`
+            : 'Switch between requiring every source and letting the set drop sources.'
+        }
+        onClick={() => {
+          if (alternative) onSelectPreset(alternative.id);
+        }}
+      >
+        {activePreset.requireAllSources ? 'All sources' : 'Any sources'}
+      </button>
+
       <label className="preset-slider" htmlFor="preset-model-count">
         <span className="preset-label">Models</span>
         <input
@@ -69,24 +87,6 @@ export function PresetControls({
           {activePreset.targetModelCount}
         </output>
       </label>
-
-      <button
-        type="button"
-        role="switch"
-        className="preset-sources-switch"
-        aria-checked={activePreset.requireAllSources}
-        disabled={alternative === undefined}
-        title={
-          alternative === undefined
-            ? `Only one benchmark set reaches ${activePreset.targetModelCount} models, so there is nothing to switch to.`
-            : 'Switch between requiring every source and letting the set drop sources.'
-        }
-        onClick={() => {
-          if (alternative) onSelectPreset(alternative.id);
-        }}
-      >
-        {activePreset.requireAllSources ? 'All sources' : 'Any sources'}
-      </button>
     </div>
   );
 }
