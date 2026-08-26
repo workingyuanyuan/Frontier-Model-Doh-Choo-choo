@@ -1,6 +1,43 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+test('switches and persists the icon-only color theme', async ({ page }) => {
+  await page.goto('/');
+
+  const themeGroup = page.getByRole('group', { name: 'Theme' });
+  const developerMode = page.getByRole('switch', { name: 'Developer mode' });
+  const lightTheme = page.getByRole('button', { name: 'Light theme' });
+  const darkTheme = page.getByRole('button', { name: 'Dark theme' });
+  const blueTheme = page.getByRole('button', { name: 'Blue theme' });
+
+  await expect(themeGroup).toBeVisible();
+  await expect(blueTheme).toHaveAttribute('aria-pressed', 'true');
+  await expect(lightTheme).toHaveText('');
+  await expect(darkTheme).toHaveText('');
+  await expect(blueTheme).toHaveText('');
+
+  const themeBox = await themeGroup.boundingBox();
+  const developerBox = await developerMode.boundingBox();
+  expect(themeBox).not.toBeNull();
+  expect(developerBox).not.toBeNull();
+  expect(themeBox!.x).toBeLessThan(developerBox!.x);
+
+  await darkTheme.focus();
+  await darkTheme.press('Enter');
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(darkTheme).toHaveAttribute('aria-pressed', 'true');
+  expect(await page.evaluate(() => localStorage.getItem('fm-dcc-theme'))).toBe(
+    'dark',
+  );
+
+  await lightTheme.click();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await expect(lightTheme).toHaveAttribute('aria-pressed', 'true');
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+  await expect(lightTheme).toHaveAttribute('aria-pressed', 'true');
+});
+
 test('defaults to complete matrix models and exposes excluded cells explicitly', async ({
   page,
 }) => {

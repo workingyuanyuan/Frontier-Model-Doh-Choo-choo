@@ -80,6 +80,23 @@ describe('Dashboard Redesign', () => {
     expect(html).not.toContain('Static, reviewable, source-backed.');
   });
 
+  it('renders an icon-only three-theme control before Developer mode', () => {
+    const html = renderToStaticMarkup(dashboard());
+    const header = html.slice(
+      html.indexOf('<header'),
+      html.indexOf('</header>'),
+    );
+
+    expect(header).toContain('role="group" aria-label="Theme"');
+    expect(header).toContain('aria-label="Light theme"');
+    expect(header).toContain('aria-label="Dark theme"');
+    expect(header).toContain('aria-label="Blue theme"');
+    expect(header).toContain('aria-label="Blue theme" aria-pressed="true"');
+    expect(header.indexOf('aria-label="Theme"')).toBeLessThan(
+      header.indexOf('aria-label="Developer mode"'),
+    );
+  });
+
   it('renders the collapsed model visibility picker trigger', () => {
     const html = renderToStaticMarkup(dashboard());
     expect(html).toContain('Search Models');

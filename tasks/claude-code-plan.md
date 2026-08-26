@@ -188,3 +188,13 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 **範圍**：`apps/bench` 的元件、樣式、metadata 與對應測試。不改動產品資料、mapping 或計分邏輯。
 
 **驗收**：指定文案與區塊調整全部落地；header 呼吸燈支援 reduced motion；Leaderboard 控制項等高且順序正確；成本圖圖例在寬螢幕與圖表等高；完整基準驗證通過。
+
+## P2 — 三主題切換與 Anthropic 風格淺色主題
+
+狀態：完成
+
+**目的**：在 Header 的開發者模式切換器左側新增圖示式三主題控制，提供淺色、黑暗與藍色主題；現行視覺歸為藍色主題，淺色主題依 `N:\Markdown\Desing\anthropic-DESIGN.md` 建立。
+
+**範圍**：`apps/bench` 的主題狀態、Header 控制、設計 token、持久化與對應測試。不改動產品資料、mapping 或計分邏輯。
+
+**驗收**：三個主題可由圖示控制並具可存取名稱；選擇會持久化且首屏不閃爍；各主題涵蓋完整 Dashboard、圖表與互動狀態；桌面與行動版視覺、鍵盤操作、reduced motion 與完整基準驗證通過。
