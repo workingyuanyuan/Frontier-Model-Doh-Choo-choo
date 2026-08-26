@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { AdvancedCostPlot, CostChart, DefaultCostPlot } from './cost-chart';
 import {
   buildWeightedCostCurve,
+  type AdvancedCostModelOption,
   type AdvancedCostSeries,
   type WeightedCostPoint,
 } from '../lib/view-model';
@@ -136,6 +137,42 @@ const sampleAdvancedSeries: AdvancedCostSeries[] = [
             evidenceIds: [],
           },
         ],
+      },
+    ],
+  },
+];
+
+const sampleAdvancedModelOptions: AdvancedCostModelOption[] = [
+  {
+    seriesId: 'anthropic-claude-fable-5',
+    modelId: 'anthropic-claude-fable-5',
+    providerId: 'anthropic',
+    displayName: 'Claude Fable 5',
+    efforts: [
+      {
+        profileId: 'anthropic-claude-fable-5-low',
+        effort: 'low',
+        isDefaultEffort: false,
+      },
+      {
+        profileId: 'anthropic-claude-fable-5-medium',
+        effort: 'medium',
+        isDefaultEffort: false,
+      },
+      {
+        profileId: 'anthropic-claude-fable-5-high',
+        effort: 'high',
+        isDefaultEffort: false,
+      },
+      {
+        profileId: 'anthropic-claude-fable-5-max',
+        effort: 'max',
+        isDefaultEffort: false,
+      },
+      {
+        profileId: 'anthropic-claude-fable-5-standard',
+        effort: 'default',
+        isDefaultEffort: true,
       },
     ],
   },
@@ -351,16 +388,14 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
 
       // For scores 85.6 and 89.2, snapped domain is 85–90; for costs 42.5 and 58.2, snapped domain is 40–60
-      expect(html).toContain(
-        'Four-source mean score (85–90, higher is better)',
-      );
+      expect(html).toContain('4-source mean score (85–90, higher is better)');
       expect(html).toContain(
         'Weighted normalized task cost index (40–60, lower is better)',
       );
       expect(html).not.toContain('Source task cost ($');
       expect(html).not.toContain('Source score (0–100, higher is better)');
       expect(html).toContain(
-        'aria-label="Four-source mean score (85–90) versus weighted normalized task cost index (40–60)',
+        'aria-label="4-source mean score (85–90) versus weighted normalized task cost index (40–60)',
       );
     });
 
@@ -397,6 +432,36 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('score 85.6 · $2.800');
     });
 
+    it('rebinds an active tooltip to the latest source aggregation', () => {
+      const previousSeries = sampleAdvancedSeries[0]!;
+      const previousPoint = previousSeries.points[1]!;
+      const currentPoint = {
+        ...previousPoint,
+        costIndex: 51.25,
+        score: 87.4,
+        sources: previousPoint.sources.filter(
+          ({ sourceId }) => sourceId !== 'arc-prize',
+        ),
+      };
+      const currentSeries = [{ ...previousSeries, points: [currentPoint] }];
+
+      const html = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: currentSeries,
+          selectedSourceCount: 3,
+          initialActivePoint: {
+            series: previousSeries,
+            point: previousPoint,
+          },
+        }),
+      );
+
+      expect(html).toContain('3-source mean score (');
+      expect(html).toContain('higher is better)');
+      expect(html).toContain('87.4');
+      expect(html).not.toContain('ARC Prize:');
+    });
+
     it('renders native checkbox for each model in legend checked by default with accessible label', () => {
       const html = renderToStaticMarkup(
         createElement(AdvancedCostPlot, {
@@ -412,6 +477,26 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('class="cost-legend-checkbox-label"');
       expect(html).toContain('for="series-toggle-anthropic-claude-fable-5"');
       expect(html).toContain('Claude Fable 5');
+    });
+
+    it('renders the complete effort ladder and disables profiles outside the current source intersection', () => {
+      const html = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: sampleAdvancedSeries,
+          modelOptions: sampleAdvancedModelOptions,
+          selectedSourceCount: 4,
+        }),
+      );
+
+      expect(html).toContain('2/5');
+      expect(html).toContain('aria-label="Claude Fable 5 effort profiles"');
+      expect(html).toContain(
+        'data-profile-id="anthropic-claude-fable-5-low" aria-pressed="false" disabled=""',
+      );
+      expect(html).toContain(
+        'data-profile-id="anthropic-claude-fable-5-high" aria-pressed="true"',
+      );
+      expect(html).toContain('>default</button>');
     });
 
     it('recalculates X and Y domains and excludes points when a series is hidden', () => {
@@ -483,7 +568,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
       expect(allVisibleHtml).toContain('GPT-5.6 Sol');
       expect(allVisibleHtml).toContain(
-        'Four-source mean score (85–95, higher is better)',
+        '4-source mean score (85–95, higher is better)',
       );
       expect(allVisibleHtml).toContain(
         'Weighted normalized task cost index (40–90, lower is better)',
@@ -504,7 +589,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         'Weighted normalized task cost index (40–60, lower is better)',
       );
       expect(filteredHtml).toContain(
-        'Four-source mean score (85–90, higher is better)',
+        '4-source mean score (85–90, higher is better)',
       );
     });
 
@@ -518,9 +603,9 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       // Plot area shows understandable empty state
       expect(html).toContain('cost-plot-empty');
-      expect(html).toContain('All series hidden');
+      expect(html).toContain('All efforts hidden');
       expect(html).toContain(
-        'Check at least one series in the legend to display its effort curve.',
+        'Use a model checkbox or effort button to show a curve.',
       );
 
       // Axes stay valid without NaN or crash
@@ -528,9 +613,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain(
         'Weighted normalized task cost index (0–100, lower is better)',
       );
-      expect(html).toContain(
-        'Four-source mean score (0–100, higher is better)',
-      );
+      expect(html).toContain('4-source mean score (0–100, higher is better)');
 
       // Legend checkboxes remain reachable
       expect(html).toContain('cost-model-legend');

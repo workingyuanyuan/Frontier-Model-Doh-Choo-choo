@@ -208,3 +208,25 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 **範圍**：`apps/bench` 的淺色／黑暗主題 token、背景材質、排版、區段結構與對應測試。不改動藍色主題、產品資料、mapping 或計分邏輯。
 
 **驗收**：兩套主題忠於指定參考稿且維持資料可讀性與可存取性；三個標籤均位於對應 Section 外並直接置於其上方；桌面與行動版區段間距清楚、無水平溢位；完整基準驗證通過。
+
+---
+
+# Q. Quality vs. Cost 進階互動
+
+## Q1 — 動態來源與逐 effort 可見性控制
+
+狀態：完成
+
+**目的**：讓進階成本圖可依使用者啟用的來源即時重算資格與等權聚合，並讓模型層與 effort 層各自可控制可見性。
+
+**做法**：
+
+1. 進階模式與預設模式使用相同說明句：`Lower cost is better. Higher Overall Score is better.`。
+2. 以 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize 四個可切換按鈕取代固定權重說明；四個來源預設啟用。
+3. 每個 profile 必須在目前啟用的每個來源都有可配對分數與成本才出點；聚合權重在啟用來源間等分。來源關閉後立即重算資格、座標與軸域。
+4. 模型 checkbox 控制該模型目前合格的全部 effort；每個 effort 另有獨立按鈕。控制清單同時顯示完整 effort 母體與目前合格數，未通過目前來源交集的 effort 保持不可用。
+5. 保留原生可聚焦控制、mixed checkbox 狀態、鍵盤操作、窄螢幕無溢位與動態空狀態。
+
+**範圍**：`apps/bench` 的成本圖 view model、元件、樣式、測試，以及對應現行文件。不改動來源快照、mapping、ProductVersion schema 或 `data/product/current.json`。
+
+**驗收**：四來源時 Claude Opus 5 顯示 2/5；關閉 ARC Prize 後顯示 5/5 且 low／medium／xhigh effort 回到圖中，三來源各 1/3 聚合。模型與單一 effort 均可由鍵盤開關；完整基準驗證依規定順序通過。

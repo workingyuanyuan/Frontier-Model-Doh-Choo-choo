@@ -1717,6 +1717,47 @@ details[open] > .evidence-group-summary::before {
   gap: 0.5rem;
 }
 
+.advanced-source-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: flex-end;
+}
+
+.advanced-source-toggle,
+.cost-effort-toggle {
+  background: var(--surface);
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink-faint);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.advanced-source-toggle {
+  font-size: 0.6875rem;
+  padding: 0.4rem 0.55rem;
+}
+
+.advanced-source-toggle[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--surface);
+}
+
+.advanced-source-toggle:hover,
+.cost-effort-toggle:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.advanced-source-toggle:focus-visible,
+.cost-effort-toggle:focus-visible {
+  outline: 0.15rem solid var(--focus);
+  outline-offset: 0.15rem;
+}
+
 .cost-mode-toggle {
   background: var(--surface);
   border: 0.0625rem solid var(--line-strong);
@@ -2038,24 +2079,71 @@ details[open] > .evidence-group-summary::before {
 
 .advanced-cost-layout .cost-model-legend li {
   display: block;
-  padding: 0;
+  padding: 0.35rem 0.4rem;
 }
 
 .cost-legend-checkbox-label {
-  align-items: start;
+  align-items: center;
   border: 0.0625rem solid transparent;
   border-radius: var(--radius-sm);
   cursor: pointer;
   display: grid;
   gap: 0.5rem;
   grid-template-columns: auto auto minmax(0, 1fr);
-  padding: 0.35rem 0.4rem;
+  padding: 0;
   user-select: none;
   width: 100%;
 }
 
 .cost-legend-checkbox-label:hover {
-  background: var(--surface-subtle);
+  color: var(--accent);
+}
+
+.cost-model-control-header {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.cost-model-effort-count {
+  color: var(--ink-faint);
+  font-size: 0.6875rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cost-effort-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0.35rem 0 0 2.75rem;
+}
+
+.cost-effort-toggle {
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  min-height: 1.65rem;
+  padding: 0.25rem 0.4rem;
+  text-transform: uppercase;
+}
+
+.cost-effort-toggle[aria-pressed='true'] {
+  background: var(--surface-selected);
+  border-color: var(--selection-border);
+  color: var(--ink);
+}
+
+.cost-effort-toggle[aria-pressed='false'] {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.0625rem;
+}
+
+.cost-effort-toggle:disabled {
+  border-color: var(--line);
+  color: var(--ink-faint);
+  cursor: not-allowed;
+  opacity: 0.45;
 }
 
 .cost-series-checkbox {
@@ -2144,6 +2232,14 @@ details[open] > .evidence-group-summary::before {
   .cost-chart-actions {
     align-items: stretch;
     width: 100%;
+  }
+
+  .advanced-source-controls {
+    justify-content: stretch;
+  }
+
+  .advanced-source-toggle {
+    flex: 1 1 calc(50% - 0.35rem);
   }
 
   .cost-mode-toggle {

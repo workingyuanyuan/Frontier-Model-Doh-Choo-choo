@@ -380,8 +380,15 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   await expect(toggle).toHaveText('Default');
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
   await expect(
-    page.getByText('LiveBench, Vals AI, Zapier are excluded', { exact: false }),
+    page
+      .locator('.cost-panel')
+      .getByText('Lower cost is better. Higher Overall Score is better.'),
   ).toBeVisible();
+  const sourceButtons = page.locator('.advanced-source-toggle');
+  await expect(sourceButtons).toHaveCount(4);
+  for (let i = 0; i < (await sourceButtons.count()); i++) {
+    await expect(sourceButtons.nth(i)).toHaveAttribute('aria-pressed', 'true');
+  }
   await toggle.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('.cost-curve-chart')).toBeVisible();
@@ -443,7 +450,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   );
   const seriesCheckbox = seriesRow.locator('input[type="checkbox"]');
 
-  await expect(seriesCheckbox).toBeChecked();
+  await expect(seriesCheckbox).toBeEnabled();
   // Toggle it from the keyboard. A pointer click needs a hit test, and this
   // checkbox sits in a scrolling list inside a page that scrolls
   // horizontally at mobile widths on the CI runner, so the resolved point kept
@@ -512,7 +519,10 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
     const box = allCheckboxes.nth(i);
     const row = page.locator('.cost-model-legend li').nth(i);
     const seriesId = (await row.getAttribute('data-series-id')) ?? '';
-    if (seriesId !== cheapestSeriesId && (await box.isChecked())) {
+    const visibleSeriesPoints = page.locator(
+      `.advanced-cost-point[data-series-id="${seriesId}"]`,
+    );
+    if (seriesId !== cheapestSeriesId && (await visibleSeriesPoints.count())) {
       await box.focus();
       await page.keyboard.press('Space');
     }
@@ -522,6 +532,68 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   const finalMatch = finalXTitle.match(/–(\d+(?:\.\d+)?)/);
   expect(finalMatch).not.toBeNull();
   expect(parseFloat(finalMatch![1]!)).toBeLessThan(initialMax);
+});
+
+test('recomputes source eligibility and supports model and effort controls', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.locator('.cost-mode-toggle').click();
+
+  const opusRow = page.locator(
+    '.cost-model-legend li[data-series-id="anthropic-claude-opus-5"]',
+  );
+  await expect(opusRow).toContainText('2/5');
+  const opusCheckbox = opusRow.locator('input[type="checkbox"]');
+  await expect(opusCheckbox).toHaveJSProperty('indeterminate', true);
+
+  const low = opusRow.locator(
+    '.cost-effort-toggle[data-profile-id="anthropic-claude-opus-5-low"]',
+  );
+  await expect(low).toBeDisabled();
+
+  const arc = page.locator(
+    '.advanced-source-toggle[data-source-id="arc-prize"]',
+  );
+  await arc.focus();
+  await page.keyboard.press('Enter');
+  await expect(arc).toHaveAttribute('aria-pressed', 'false');
+
+  await expect(opusRow).toContainText('5/5');
+  await expect(opusCheckbox).toBeChecked();
+  await expect(opusCheckbox).toHaveJSProperty('indeterminate', false);
+  await expect(low).toBeEnabled();
+  await expect(low).toHaveAttribute('aria-pressed', 'true');
+  await expect(
+    page.locator(
+      '.advanced-cost-point[data-series-id="anthropic-claude-opus-5"]',
+    ),
+  ).toHaveCount(5);
+  await expect(
+    page.locator('.advanced-cost-chart .cost-axis-title').last(),
+  ).toContainText('3-source mean score');
+
+  await opusCheckbox.focus();
+  await page.keyboard.press('Space');
+  await expect(opusRow).toContainText('0/5');
+  await expect(
+    page.locator(
+      '.advanced-cost-point[data-series-id="anthropic-claude-opus-5"]',
+    ),
+  ).toHaveCount(0);
+
+  await opusCheckbox.focus();
+  await page.keyboard.press('Space');
+  await expect(opusRow).toContainText('5/5');
+
+  const medium = opusRow.locator(
+    '.cost-effort-toggle[data-profile-id="anthropic-claude-opus-5-medium"]',
+  );
+  await medium.focus();
+  await page.keyboard.press('Space');
+  await expect(medium).toHaveAttribute('aria-pressed', 'false');
+  await expect(opusRow).toContainText('4/5');
+  await expect(opusCheckbox).toHaveJSProperty('indeterminate', true);
 });
 
 test('has no serious accessibility violations or page-level mobile overflow', async ({

@@ -123,18 +123,19 @@ X 軸為六來源加權正規化任務成本，Y 軸為五維 Overall Score。�
 
 ### 進階圖（四來源聚合的多思考強度性價比曲線）
 
-透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）的四來源聚合分數與成本軌跡，同一模型的各強度點連成折線。
+透過開關開啟，顯示各模型不同思考強度（`non-reasoning < low < medium < high < xhigh < max`，`default` 單獨標示）的來源聚合分數與成本軌跡，同一模型的各強度點連成折線。來源母體為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize；四個來源預設開啟，使用者可個別關閉。
 
 進階圖設計原則：
 
-- **先在來源內配對，再跨來源聚合**：AA、DeepSWE、Frontier Code、ARC Prize 各自以同一 profile 的分數配同來源成本；四組皆成立後，X 軸取四來源 log min-max 成本指數各 1/4，Y 軸取四來源原始分數算術平均。不得拿跨來源 Overall 配單一來源成本。
+- **先在來源內配對，再跨來源聚合**：目前啟用的來源各自以同一 profile 的分數配同來源成本；全部成立後，X 軸取各來源 log min-max 成本指數等權平均，Y 軸取各來源原始分數等權平均。四來源時各 1/4，關閉一個後三來源各 1/3。不得拿跨來源 Overall 配單一來源成本。
 - **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入五維 Overall）。
 - **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2` 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
   3. LiveBench 的成本掛在整站 `livebench` benchmarkId，但分數拆成四個維度，無法一對一配對。
-- **逐 profile 要求四來源齊全**：缺任一來源的該強度不出點；模型仍可用其他齊全的強度出現。Vals 因沒有多檔位階梯而排除，Zapier 依 N2 裁決暫不採用。
+- **逐 profile 要求啟用來源齊全**：缺任一啟用來源的該強度不出點；模型仍可用其他齊全的強度出現。關閉來源後資格、等權聚合與軸域即時重算；每個來源的 log min-max 母體仍是產品檔內該來源的全部任務成本。Vals、LiveBench、Zapier 不在進階圖的來源母體。
+- **來源與 effort 控制**：四個來源按鈕決定聚合交集。Models 清單以 checkbox 控制模型的全部 effort，並以個別按鈕控制單一 effort；列上保留完整 ProductVersion effort 母體，未通過目前來源交集的 effort 顯示為不可用。
 
 ## ProductVersion 與可重現性
 

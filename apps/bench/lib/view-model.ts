@@ -163,6 +163,20 @@ export interface AdvancedCostSeries {
   points: AdvancedCostPoint[];
 }
 
+export interface AdvancedCostEffortOption {
+  profileId: string;
+  effort: string;
+  isDefaultEffort: boolean;
+}
+
+export interface AdvancedCostModelOption {
+  seriesId: string;
+  modelId: string;
+  providerId: string;
+  displayName: string;
+  efforts: AdvancedCostEffortOption[];
+}
+
 export const compareDefaultLeaderboardRows = (
   left: LeaderboardRow,
   right: LeaderboardRow,
@@ -598,7 +612,7 @@ export const getSourceScore = (
       };
 };
 
-/** The advanced chart's four sources all declare a basis, so this narrows. */
+/** Every source eligible for the advanced chart declares a score basis. */
 const getAdvancedSourceScore = (
   product: ProductVersion,
   sourceId: AdvancedCostSourceId,
@@ -834,19 +848,26 @@ const compareAdvancedPoints = (
 };
 
 /**
- * Build one aggregate effort curve per model across Artificial Analysis,
- * DeepSWE, Frontier Code, and ARC Prize (1/4 weight each). A profile is admitted
- * only when all four sources yield both a task cost and a source-local score.
- * Models with a single qualifying profile produce a one-point series.
+ * Build one aggregate effort curve per model across the selected advanced
+ * sources. A profile is admitted only when every selected source yields both a
+ * task cost and its declared source-local score. Selected sources receive equal
+ * weight, while each source's normalization range continues to use the full
+ * product population. Models with one qualifying profile remain as one point.
  */
 export const buildAdvancedCostSeries = (
   product: ProductVersion,
+  selectedSourceIds: readonly AdvancedCostSourceId[] = ADVANCED_COST_SOURCE_IDS,
 ): AdvancedCostSeries[] => {
+  const activeSourceIds = ADVANCED_COST_SOURCE_IDS.filter((sourceId) =>
+    selectedSourceIds.includes(sourceId),
+  );
+  if (activeSourceIds.length === 0) return [];
+
   const sourceRanges = new Map<
     AdvancedCostSourceId,
     { min: number; max: number }
   >();
-  ADVANCED_COST_SOURCE_IDS.forEach((sourceId) => {
+  activeSourceIds.forEach((sourceId) => {
     const logs = product.costs
       .filter(
         (point) =>
@@ -867,9 +888,7 @@ export const buildAdvancedCostSeries = (
       (point) =>
         isTaskCost(point) &&
         point.cost > 0 &&
-        (ADVANCED_COST_SOURCE_IDS as readonly string[]).includes(
-          point.sourceId,
-        ),
+        (activeSourceIds as readonly string[]).includes(point.sourceId),
     )
     .forEach((point) => {
       const key = `${point.modelId}\u0000${point.profileId}\u0000${point.sourceId}`;
@@ -887,7 +906,7 @@ export const buildAdvancedCostSeries = (
     const sourceDetails: AdvancedCostSourceDetail[] = [];
     let hasAllSources = true;
 
-    for (const sourceId of ADVANCED_COST_SOURCE_IDS) {
+    for (const sourceId of activeSourceIds) {
       const key = `${modelId}\u0000${profileId}\u0000${sourceId}`;
       const rows = grouped.get(key);
       if (!rows || rows.length === 0) {
@@ -929,22 +948,19 @@ export const buildAdvancedCostSeries = (
       });
     }
 
-    if (
-      !hasAllSources ||
-      sourceDetails.length !== ADVANCED_COST_SOURCE_IDS.length
-    ) {
+    if (!hasAllSources || sourceDetails.length !== activeSourceIds.length) {
       return;
     }
 
     const effort = normalizeSourceEffort(profile.attributes.effort ?? null);
-    const sourceWeight = 1 / ADVANCED_COST_SOURCE_IDS.length;
+    const sourceWeight = 1 / activeSourceIds.length;
     const costIndex = sourceDetails.reduce(
       (sum, s) => sum + s.normalizedCost * sourceWeight,
       0,
     );
     const score =
       sourceDetails.reduce((sum, s) => sum + s.score, 0) /
-      ADVANCED_COST_SOURCE_IDS.length;
+      activeSourceIds.length;
 
     candidatePoints.push({
       modelId,
@@ -988,6 +1004,86 @@ export const buildAdvancedCostSeries = (
       left.displayName.localeCompare(right.displayName) ||
       left.modelId.localeCompare(right.modelId),
   );
+};
+
+/**
+ * Return the complete model × effort control surface for the advanced chart.
+ * A model belongs to the surface when at least one advanced source can pair a
+ * score and cost for it. Once admitted, every ProductVersion effort for that
+ * model remains visible in the control surface. The current source intersection
+ * decides which controls are enabled, so unavailable efforts remain explicit
+ * instead of disappearing from the model's ladder.
+ */
+export const buildAdvancedCostModelOptions = (
+  product: ProductVersion,
+): AdvancedCostModelOption[] => {
+  const byModel = new Map<string, AdvancedCostModelOption>();
+
+  ADVANCED_COST_SOURCE_IDS.forEach((sourceId) => {
+    buildAdvancedCostSeries(product, [sourceId]).forEach((line) => {
+      const existing = byModel.get(line.modelId) ?? {
+        seriesId: line.seriesId,
+        modelId: line.modelId,
+        providerId: line.providerId,
+        displayName: line.displayName,
+        efforts: [],
+      };
+      const knownProfileIds = new Set(
+        existing.efforts.map(({ profileId }) => profileId),
+      );
+      line.points.forEach((point) => {
+        if (knownProfileIds.has(point.profileId)) return;
+        existing.efforts.push({
+          profileId: point.profileId,
+          effort: point.effort,
+          isDefaultEffort: point.isDefaultEffort,
+        });
+        knownProfileIds.add(point.profileId);
+      });
+      byModel.set(line.modelId, existing);
+    });
+  });
+
+  product.profiles.forEach((profile) => {
+    const existing = byModel.get(profile.modelId);
+    if (!existing) return;
+    if (existing.efforts.some(({ profileId }) => profileId === profile.id)) {
+      return;
+    }
+    const effort = normalizeSourceEffort(profile.attributes.effort ?? null);
+    existing.efforts.push({
+      profileId: profile.id,
+      effort,
+      isDefaultEffort: !COST_EFFORT_RANK.has(effort),
+    });
+  });
+
+  return [...byModel.values()]
+    .map((model) => ({
+      ...model,
+      efforts: model.efforts.toSorted((left, right) => {
+        const leftRank = COST_EFFORT_RANK.get(left.effort);
+        const rightRank = COST_EFFORT_RANK.get(right.effort);
+        if (
+          leftRank !== undefined &&
+          rightRank !== undefined &&
+          leftRank !== rightRank
+        ) {
+          return leftRank - rightRank;
+        }
+        if (leftRank !== undefined && rightRank === undefined) return -1;
+        if (leftRank === undefined && rightRank !== undefined) return 1;
+        return (
+          left.effort.localeCompare(right.effort) ||
+          left.profileId.localeCompare(right.profileId)
+        );
+      }),
+    }))
+    .toSorted(
+      (left, right) =>
+        left.displayName.localeCompare(right.displayName) ||
+        left.modelId.localeCompare(right.modelId),
+    );
 };
 
 export interface DataScopeSummary {

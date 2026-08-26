@@ -18,6 +18,7 @@ import {
   isMainEligibleRow,
   profileById,
   splitCostSeries,
+  buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
@@ -1135,6 +1136,39 @@ describe('cost chart view model', () => {
         'arc-prize',
       ]);
     }
+
+    const twoSourceSeries = buildAdvancedCostSeries(product, [
+      'artificial-analysis',
+      'deepswe',
+    ]);
+    const twoSourceSol = twoSourceSeries.find(
+      ({ modelId }) => modelId === 'openai-gpt-5-6-sol',
+    )!;
+    expect(twoSourceSol.points.map(({ effort }) => effort)).toEqual([
+      'low',
+      'medium',
+      'max',
+      'default',
+    ]);
+    expect(
+      twoSourceSol.points.find(({ effort }) => effort === 'medium')?.sources,
+    ).toHaveLength(2);
+    expect(
+      twoSourceSol.points
+        .find(({ effort }) => effort === 'medium')
+        ?.sources.map(({ sourceId }) => sourceId),
+    ).toEqual(['artificial-analysis', 'deepswe']);
+    expect(
+      twoSourceSol.points.find(({ effort }) => effort === 'medium')?.score,
+    ).toBeCloseTo(50.5, 5);
+
+    const options = buildAdvancedCostModelOptions(product);
+    expect(
+      options
+        .find(({ modelId }) => modelId === 'openai-gpt-5-6-sol')
+        ?.efforts.map(({ effort }) => effort),
+    ).toEqual(['low', 'medium', 'max', 'default']);
+    expect(buildAdvancedCostSeries(product, [])).toEqual([]);
   });
 
   it('computes Y as the plain arithmetic mean of the four source scores without min-max normalization', () => {

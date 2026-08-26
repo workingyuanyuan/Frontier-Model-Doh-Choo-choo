@@ -7,10 +7,13 @@ import {
   ADVANCED_COST_SOURCE_IDS,
   COST_SOURCE_SCORE_BASES,
   COST_SOURCE_WEIGHTS,
+  buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
+  type AdvancedCostModelOption,
   type AdvancedCostSeries,
+  type AdvancedCostSourceId,
   type CostSourceScoreBasisId,
   type WeightedCostPoint,
   type PresetProductVersion,
@@ -62,25 +65,6 @@ const weightNote = (weights: Readonly<Record<string, number>>): string => {
             `${SOURCE_NAMES[sourceId] ?? sourceId} ${(weight * 100).toFixed(1)}%`,
         )
         .join(' · ')}.`;
-};
-
-/**
- * The advanced chart uses four of the seven sources. Naming the excluded ones
- * from the difference keeps the sentence true when the source set changes; the
- * hand-written version said "LiveBench and Vals AI are excluded" and would have
- * kept saying it after Zapier joined.
- */
-const advancedWeightNote = (): string => {
-  const included = new Set<string>(ADVANCED_COST_SOURCE_IDS);
-  const excluded = Object.keys(COST_SOURCE_WEIGHTS)
-    .filter((sourceId) => !included.has(sourceId))
-    .map((sourceId) => SOURCE_NAMES[sourceId] ?? sourceId);
-  const share = 1 / ADVANCED_COST_SOURCE_IDS.length;
-  const tail =
-    excluded.length === 0
-      ? ''
-      : ` · ${excluded.join(', ')} ${excluded.length === 1 ? 'is' : 'are'} excluded`;
-  return `Source weights: ${(share * 100).toFixed(1)}% each${tail}.`;
 };
 
 /**
@@ -521,12 +505,17 @@ export function DefaultCostPlot({
 
 export function AdvancedCostPlot({
   series,
+  modelOptions,
+  selectedSourceCount,
   selectedProfileId = null,
   onToggleSelect,
   initialActivePoint = null,
   initialHiddenSeriesIds,
+  initialHiddenProfileIds,
 }: {
   series: AdvancedCostSeries[];
+  modelOptions?: AdvancedCostModelOption[];
+  selectedSourceCount?: number;
   selectedProfileId?: string | null;
   onToggleSelect?: (profileId: string | null) => void;
   initialActivePoint?: {
@@ -534,9 +523,18 @@ export function AdvancedCostPlot({
     point: AdvancedCostSeries['points'][number];
   } | null;
   initialHiddenSeriesIds?: Set<string> | readonly string[];
+  initialHiddenProfileIds?: Set<string> | readonly string[];
 }) {
-  const [hiddenSeriesIds, setHiddenSeriesIds] = useState<Set<string>>(
-    () => new Set(initialHiddenSeriesIds ?? []),
+  const [hiddenProfileIds, setHiddenProfileIds] = useState<Set<string>>(
+    () =>
+      new Set([
+        ...(initialHiddenProfileIds ?? []),
+        ...series
+          .filter(({ seriesId }) =>
+            new Set(initialHiddenSeriesIds ?? []).has(seriesId),
+          )
+          .flatMap(({ points }) => points.map(({ profileId }) => profileId)),
+      ]),
   );
   const [activePoint, setActivePoint] = useState<{
     series: AdvancedCostSeries;
@@ -546,23 +544,68 @@ export function AdvancedCostPlot({
   const right = 610;
   const top = 28;
   const bottom = 350;
+  const controls: AdvancedCostModelOption[] =
+    modelOptions ??
+    series.map((line) => ({
+      seriesId: line.seriesId,
+      modelId: line.modelId,
+      providerId: line.providerId,
+      displayName: line.displayName,
+      efforts: line.points.map((point) => ({
+        profileId: point.profileId,
+        effort: point.effort,
+        isDefaultEffort: point.isDefaultEffort,
+      })),
+    }));
+  const sourceCount =
+    selectedSourceCount ?? series[0]?.points[0]?.sources.length ?? 0;
+  const scoreAxisLabel =
+    sourceCount <= 1 ? 'Source score' : `${sourceCount}-source mean score`;
 
-  const toggleSeriesVisibility = (seriesId: string) => {
-    setHiddenSeriesIds((prev) => {
+  const toggleProfileVisibility = (profileId: string) => {
+    setHiddenProfileIds((prev) => {
       const next = new Set(prev);
-      if (next.has(seriesId)) {
-        next.delete(seriesId);
+      if (next.has(profileId)) {
+        next.delete(profileId);
       } else {
-        next.add(seriesId);
+        next.add(profileId);
       }
       return next;
     });
   };
 
-  const visibleSeries = series.filter(
-    (line) => !hiddenSeriesIds.has(line.seriesId),
-  );
+  const setModelVisibility = (
+    eligibleProfileIds: readonly string[],
+    visible: boolean,
+  ) => {
+    setHiddenProfileIds((prev) => {
+      const next = new Set(prev);
+      eligibleProfileIds.forEach((profileId) => {
+        if (visible) next.delete(profileId);
+        else next.add(profileId);
+      });
+      return next;
+    });
+  };
+
+  const seriesById = new Map(series.map((line) => [line.seriesId, line]));
+  const visibleSeries = series.flatMap((line) => {
+    const points = line.points.filter(
+      ({ profileId }) => !hiddenProfileIds.has(profileId),
+    );
+    return points.length > 0 ? [{ ...line, points }] : [];
+  });
   const visiblePoints = visibleSeries.flatMap(({ points }) => points);
+  const visibleProfileIds = new Set(
+    visiblePoints.map(({ profileId }) => profileId),
+  );
+  const currentActivePoint = activePoint
+    ? (series.flatMap((line) =>
+        line.points
+          .filter(({ profileId }) => profileId === activePoint.point.profileId)
+          .map((point) => ({ series: line, point })),
+      )[0] ?? null)
+    : null;
   const xDomain = getChartDomain(visiblePoints.map((point) => point.costIndex));
   const yDomain = getChartDomain(visiblePoints.map((point) => point.score));
   const x = (cost: number) =>
@@ -580,7 +623,7 @@ export function AdvancedCostPlot({
     }
   };
 
-  return series.length > 0 ? (
+  return controls.length > 0 ? (
     <div className="advanced-cost-layout">
       <div className="cost-plot-wrap">
         <div className="cost-chart-canvas">
@@ -588,7 +631,7 @@ export function AdvancedCostPlot({
             className="cost-curve-chart advanced-cost-chart"
             viewBox="0 0 660 405"
             role="img"
-            aria-label={`Four-source mean score (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost index (${xDomain.min}–${xDomain.max}). Each line connects effort profiles for one model.`}
+            aria-label={`${scoreAxisLabel} (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost index (${xDomain.min}–${xDomain.max}). Each line connects effort profiles for one model.`}
           >
             {yDomain.ticks.map((tick) => (
               <g key={`advanced-y-${tick}`}>
@@ -657,7 +700,7 @@ export function AdvancedCostPlot({
               textAnchor="middle"
               transform={`rotate(-90 15 ${(top + bottom) / 2})`}
             >
-              {`Four-source mean score (${yDomain.min}–${yDomain.max}, higher is better)`}
+              {`${scoreAxisLabel} (${yDomain.min}–${yDomain.max}, higher is better)`}
             </text>
             <text className="cost-direction-label" x={left + 8} y={top + 15}>
               Better value ↖
@@ -696,7 +739,7 @@ export function AdvancedCostPlot({
                         fill={providerColor(line.providerId)}
                         tabIndex={0}
                         role="img"
-                        aria-label={`${point.displayName}. Four-source mean score ${point.score.toFixed(1)}. Weighted normalized task cost ${point.costIndex.toFixed(1)}.`}
+                        aria-label={`${point.displayName}. ${scoreAxisLabel} ${point.score.toFixed(1)}. Weighted normalized task cost ${point.costIndex.toFixed(1)}.`}
                         onClick={() => handleToggle(point.profileId)}
                         onKeyDown={(e) => {
                           if (e.key === 'Enter' || e.key === ' ') {
@@ -729,26 +772,36 @@ export function AdvancedCostPlot({
               );
             })}
           </svg>
-          {visibleSeries.length === 0 ? (
+          {visiblePoints.length === 0 ? (
             <div className="cost-plot-empty" role="status">
-              <strong>All series hidden</strong>
+              <strong>
+                {sourceCount === 0
+                  ? 'No sources selected'
+                  : series.length === 0
+                    ? 'No profiles match these sources'
+                    : 'All efforts hidden'}
+              </strong>
               <span>
-                Check at least one series in the legend to display its effort
-                curve.
+                {sourceCount === 0
+                  ? 'Turn on at least one source to calculate the advanced chart.'
+                  : series.length === 0
+                    ? 'Turn off a source to admit profiles with a smaller complete intersection.'
+                    : 'Use a model checkbox or effort button to show a curve.'}
               </span>
             </div>
           ) : null}
-          {activePoint && !hiddenSeriesIds.has(activePoint.series.seriesId) ? (
+          {currentActivePoint &&
+          visibleProfileIds.has(currentActivePoint.point.profileId) ? (
             <div
               className="cost-hover-card"
               role="tooltip"
               aria-hidden="true"
               style={{
-                left: `${((x(activePoint.point.costIndex) / 660) * 100).toFixed(2)}%`,
-                top: `${((y(activePoint.point.score) / 405) * 100).toFixed(2)}%`,
+                left: `${((x(currentActivePoint.point.costIndex) / 660) * 100).toFixed(2)}%`,
+                top: `${((y(currentActivePoint.point.score) / 405) * 100).toFixed(2)}%`,
                 transform: getCardTransform(
-                  x(activePoint.point.costIndex),
-                  y(activePoint.point.score),
+                  x(currentActivePoint.point.costIndex),
+                  y(currentActivePoint.point.score),
                 ),
               }}
             >
@@ -757,25 +810,25 @@ export function AdvancedCostPlot({
                   className="provider-dot"
                   style={{
                     backgroundColor: providerColor(
-                      activePoint.series.providerId,
+                      currentActivePoint.series.providerId,
                     ),
                   }}
                   aria-hidden="true"
                 />
                 <strong className="cost-hover-card-title">
-                  {activePoint.series.displayName}
+                  {currentActivePoint.series.displayName}
                 </strong>
               </div>
               <div className="cost-hover-card-meta">
-                {activePoint.point.isDefaultEffort
+                {currentActivePoint.point.isDefaultEffort
                   ? 'default effort'
-                  : `${activePoint.point.effort} effort`}
+                  : `${currentActivePoint.point.effort} effort`}
               </div>
               <div className="cost-hover-card-metrics">
                 <div className="cost-hover-card-row">
                   <span className="cost-hover-card-label">Mean score:</span>
                   <span className="cost-hover-card-value">
-                    {activePoint.point.score.toFixed(1)}
+                    {currentActivePoint.point.score.toFixed(1)}
                   </span>
                 </div>
                 <div className="cost-hover-card-row">
@@ -783,17 +836,17 @@ export function AdvancedCostPlot({
                     Weighted cost index:
                   </span>
                   <span className="cost-hover-card-value">
-                    {activePoint.point.costIndex.toFixed(1)}
+                    {currentActivePoint.point.costIndex.toFixed(1)}
                   </span>
                 </div>
               </div>
-              {activePoint.point.sources.length > 0 ? (
+              {currentActivePoint.point.sources.length > 0 ? (
                 <div className="cost-hover-card-sources">
                   <div className="cost-hover-card-sources-title">
                     Source scores and costs
                   </div>
                   <ul className="cost-hover-card-source-list">
-                    {activePoint.point.sources.map((source) => (
+                    {currentActivePoint.point.sources.map((source) => (
                       <li
                         key={source.sourceId}
                         className="cost-hover-card-source-item"
@@ -824,52 +877,102 @@ export function AdvancedCostPlot({
       >
         <h3>Models</h3>
         <ul tabIndex={0} aria-label="Scrollable model legend">
-          {series.map((line) => {
-            const ladderPoints = line.points.filter(
-              (point) => !point.isDefaultEffort,
+          {controls.map((model) => {
+            const currentLine = seriesById.get(model.seriesId);
+            const eligiblePoints = currentLine?.points ?? [];
+            const eligibleProfileIds = eligiblePoints.map(
+              ({ profileId }) => profileId,
             );
-            const defaultPoints = line.points.filter(
-              (point) => point.isDefaultEffort,
-            );
-            const checkboxId = `series-toggle-${line.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-            const isVisible = !hiddenSeriesIds.has(line.seriesId);
-            const isSelected = line.points.some(
-              (p) => p.profileId === selectedProfileId,
+            const eligibleSet = new Set(eligibleProfileIds);
+            const visibleCount = eligibleProfileIds.filter(
+              (profileId) => !hiddenProfileIds.has(profileId),
+            ).length;
+            const eligibleCount = eligibleProfileIds.length;
+            const allEligibleVisible =
+              eligibleCount > 0 && visibleCount === eligibleCount;
+            const isMixed =
+              visibleCount > 0 && visibleCount < model.efforts.length;
+            const checkboxId = `series-toggle-${model.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+            const isSelected = model.efforts.some(
+              ({ profileId }) => profileId === selectedProfileId,
             );
             return (
               <li
-                key={line.seriesId}
-                data-series-id={line.seriesId}
+                key={model.seriesId}
+                data-series-id={model.seriesId}
                 className={isSelected ? 'is-selected' : undefined}
               >
-                <label
-                  htmlFor={checkboxId}
-                  className="cost-legend-checkbox-label"
-                >
-                  <input
-                    type="checkbox"
-                    id={checkboxId}
-                    checked={isVisible}
-                    onChange={() => toggleSeriesVisibility(line.seriesId)}
-                    className="cost-series-checkbox"
-                  />
+                <div className="cost-model-control-header">
+                  <label
+                    htmlFor={checkboxId}
+                    className="cost-legend-checkbox-label"
+                  >
+                    <input
+                      ref={(node) => {
+                        if (node) node.indeterminate = isMixed;
+                      }}
+                      type="checkbox"
+                      id={checkboxId}
+                      checked={allEligibleVisible && !isMixed}
+                      disabled={eligibleCount === 0}
+                      onChange={() =>
+                        setModelVisibility(
+                          model.efforts.map(({ profileId }) => profileId),
+                          !allEligibleVisible,
+                        )
+                      }
+                      className="cost-series-checkbox"
+                      aria-label={`Toggle all ${model.displayName} effort profiles`}
+                    />
+                    <span
+                      className="provider-dot"
+                      style={{
+                        backgroundColor: providerColor(model.providerId),
+                      }}
+                      aria-hidden="true"
+                    />
+                    <strong>{model.displayName}</strong>
+                  </label>
                   <span
-                    className="provider-dot"
-                    style={{ backgroundColor: providerColor(line.providerId) }}
-                    aria-hidden="true"
-                  />
-                  <span>
-                    <strong>{line.displayName}</strong>
-                    <small>
-                      {ladderPoints.map(({ effort }) => effort).join(' → ')}
-                      {defaultPoints.length > 0
-                        ? ` · default: ${defaultPoints
-                            .map(({ effort }) => effort)
-                            .join(', ')}`
-                        : ''}
-                    </small>
+                    className="cost-model-effort-count"
+                    aria-label={`${visibleCount} of ${model.efforts.length} effort profiles visible`}
+                  >
+                    {visibleCount}/{model.efforts.length}
                   </span>
-                </label>
+                </div>
+                {model.efforts.length > 1 ? (
+                  <div
+                    className="cost-effort-controls"
+                    role="group"
+                    aria-label={`${model.displayName} effort profiles`}
+                  >
+                    {model.efforts.map((effort) => {
+                      const eligible = eligibleSet.has(effort.profileId);
+                      const visible =
+                        eligible && !hiddenProfileIds.has(effort.profileId);
+                      return (
+                        <button
+                          key={effort.profileId}
+                          type="button"
+                          className="cost-effort-toggle"
+                          data-profile-id={effort.profileId}
+                          aria-pressed={visible}
+                          disabled={!eligible}
+                          title={
+                            eligible
+                              ? `${visible ? 'Hide' : 'Show'} ${model.displayName} ${effort.effort}`
+                              : `${model.displayName} ${effort.effort} does not have complete data for the selected sources`
+                          }
+                          onClick={() =>
+                            toggleProfileVisibility(effort.profileId)
+                          }
+                        >
+                          {effort.effort}
+                        </button>
+                      );
+                    })}
+                  </div>
+                ) : null}
               </li>
             );
           })}
@@ -878,10 +981,10 @@ export function AdvancedCostPlot({
     </div>
   ) : (
     <div className="empty-state" role="status">
-      <strong>No complete four-source effort curves</strong>
+      <strong>No source-backed effort profiles</strong>
       <span>
-        A model needs Artificial Analysis, DeepSWE, Frontier Code, and ARC Prize
-        task costs with source-local scores.
+        The advanced chart needs at least one effort with a pairable score and
+        task cost.
       </span>
     </div>
   );
@@ -900,12 +1003,31 @@ export function CostChart({
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(
     null,
   );
+  const [advancedSourceIds, setAdvancedSourceIds] = useState<
+    Set<AdvancedCostSourceId>
+  >(() => new Set(ADVANCED_COST_SOURCE_IDS));
   const points = buildWeightedCostCurve(defaultProduct);
-  const series = buildAdvancedCostSeries(advancedProduct);
+  const selectedAdvancedSourceIds = ADVANCED_COST_SOURCE_IDS.filter(
+    (sourceId) => advancedSourceIds.has(sourceId),
+  );
+  const series = buildAdvancedCostSeries(
+    advancedProduct,
+    selectedAdvancedSourceIds,
+  );
+  const advancedModelOptions = buildAdvancedCostModelOptions(advancedProduct);
   const advancedPanelId = 'advanced-cost-chart-panel';
 
   const handleToggleSelect = (profileId: string | null) => {
     setSelectedProfileId(profileId);
+  };
+
+  const toggleAdvancedSource = (sourceId: AdvancedCostSourceId) => {
+    setAdvancedSourceIds((current) => {
+      const next = new Set(current);
+      if (next.has(sourceId)) next.delete(sourceId);
+      else next.add(sourceId);
+      return next;
+    });
   };
 
   return (
@@ -919,11 +1041,7 @@ export function CostChart({
         <div className="section-heading compact">
           <div>
             <h2 id="cost-title">Quality vs. Cost</h2>
-            <p>
-              {advanced
-                ? 'Source-local scores and task costs show how each effort profile changes the trade-off.'
-                : 'Lower cost is better. Higher Overall Score is better.'}
-            </p>
+            <p>Lower cost is better. Higher Overall Score is better.</p>
           </div>
           <div className="cost-chart-actions">
             {!advanced ? (
@@ -931,7 +1049,27 @@ export function CostChart({
                 {weightNote(COST_SOURCE_WEIGHTS)}
               </p>
             ) : (
-              <p className="cost-weight-note">{advancedWeightNote()}</p>
+              <div
+                className="advanced-source-controls"
+                role="group"
+                aria-label="Sources used in the advanced cost chart"
+              >
+                {ADVANCED_COST_SOURCE_IDS.map((sourceId) => {
+                  const enabled = advancedSourceIds.has(sourceId);
+                  return (
+                    <button
+                      key={sourceId}
+                      type="button"
+                      className="advanced-source-toggle"
+                      data-source-id={sourceId}
+                      aria-pressed={enabled}
+                      onClick={() => toggleAdvancedSource(sourceId)}
+                    >
+                      {sourceName(sourceId)}
+                    </button>
+                  );
+                })}
+              </div>
             )}
             <button
               type="button"
@@ -954,6 +1092,8 @@ export function CostChart({
           {advanced ? (
             <AdvancedCostPlot
               series={series}
+              modelOptions={advancedModelOptions}
+              selectedSourceCount={selectedAdvancedSourceIds.length}
               selectedProfileId={selectedProfileId}
               onToggleSelect={handleToggleSelect}
             />
@@ -971,8 +1111,9 @@ export function CostChart({
           {Object.entries(COST_SOURCE_WEIGHTS)
             .map(([source, weight]) => `${source} ${weight * 100}%`)
             .join(', ')}
-          . Advanced sources: {ADVANCED_COST_SOURCE_IDS.join(', ')}. API
-          standardized token prices are excluded from both charts.
+          . Advanced sources enabled:{' '}
+          {selectedAdvancedSourceIds.join(', ') || 'none'}. API standardized
+          token prices are excluded from both charts.
         </span>
       </section>
     </div>
