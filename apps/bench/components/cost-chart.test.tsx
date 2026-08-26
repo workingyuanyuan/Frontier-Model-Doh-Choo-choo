@@ -205,7 +205,10 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         ],
       };
       const html = renderToStaticMarkup(
-        createElement(DefaultCostPlot, { points: [point] }),
+        createElement(DefaultCostPlot, {
+          points: [point],
+          developerMode: true,
+        }),
       );
 
       // How many of the seven sources actually placed this point.
@@ -631,6 +634,39 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       expect(html).not.toContain('cost-hover-card');
     });
+
+    it('keeps four primary model controls and moves the remainder into a disclosure', () => {
+      const modelOptions = Array.from({ length: 6 }, (_, index) => ({
+        ...sampleAdvancedModelOptions[0]!,
+        seriesId: `test-model-${index + 1}`,
+        modelId: `test-model-${index + 1}`,
+        displayName: `Test Model ${index + 1}`,
+        efforts: sampleAdvancedModelOptions[0]!.efforts.map((effort) => ({
+          ...effort,
+          profileId: `test-model-${index + 1}-${effort.effort}`,
+        })),
+      }));
+      const html = renderToStaticMarkup(
+        createElement(AdvancedCostPlot, {
+          series: [],
+          modelOptions,
+          selectedSourceCount: 4,
+        }),
+      );
+
+      expect(html).toContain('class="cost-model-primary-list"');
+      expect(html).toContain('aria-expanded="false"');
+      expect(html).toContain('>More models (2)</button>');
+      expect(html).toContain(
+        'aria-label="Additional models in advanced cost chart"',
+      );
+      expect(html.indexOf('Test Model 4')).toBeLessThan(
+        html.indexOf('More models (2)'),
+      );
+      expect(html.indexOf('Test Model 5')).toBeGreaterThan(
+        html.indexOf('More models (2)'),
+      );
+    });
   });
 
   describe('Integrated CostChart', () => {
@@ -648,7 +684,24 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('Source weights: 14.3% each.');
       expect(html).toContain('The frontier connects best score at each cost.');
       expect(html).toContain('>Advanced</button>');
+      expect(html).not.toContain(
+        'Quality vs. Cost chart data and source contributions',
+      );
       expect(html).not.toContain('<title>');
+    });
+
+    it('renders source contribution data when developer mode is enabled', () => {
+      const html = renderToStaticMarkup(
+        createElement(CostChart, {
+          defaultProduct: productFixture,
+          advancedProduct: productFixture,
+          developerMode: true,
+        }),
+      );
+
+      expect(html).toContain(
+        'Quality vs. Cost chart data and source contributions',
+      );
     });
   });
 });

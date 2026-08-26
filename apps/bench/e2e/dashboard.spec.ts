@@ -294,6 +294,7 @@ test('every cost point discloses its source count and each source score basis', 
   await expect(count).toHaveText(/^[1-7] of 7$/);
 
   // Table: the same count per row, plus a named basis for every source.
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   await page.locator('.cost-chart-data > summary').click();
 
   const counts = page.getByTestId('cost-row-source-count');
@@ -685,7 +686,7 @@ test('keeps leaderboard controls ordered and equal-height on wide screens', asyn
   }
 });
 
-test('stretches the cost legend to the chart row bottom on wide screens', async ({
+test('keeps both cost legends aligned with the chart and overflows advanced models into a disclosure', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -701,6 +702,55 @@ test('stretches the cost legend to the chart row bottom on wide screens', async 
       Math.abs(plot.y + plot.height - (legend.y + legend.height)),
     ).toBeLessThanOrEqual(1);
   }
+
+  await page.locator('.cost-mode-toggle').click();
+  const advancedPlot = await page
+    .locator('.advanced-cost-layout .cost-plot-wrap')
+    .boundingBox();
+  const advancedLegend = await page
+    .locator('.advanced-cost-layout .cost-model-legend')
+    .boundingBox();
+
+  expect(advancedPlot).not.toBeNull();
+  expect(advancedLegend).not.toBeNull();
+  if (advancedPlot && advancedLegend) {
+    expect(
+      Math.abs(
+        advancedPlot.y +
+          advancedPlot.height -
+          (advancedLegend.y + advancedLegend.height),
+      ),
+    ).toBeLessThanOrEqual(1);
+  }
+
+  const panel = page.locator('.cost-panel');
+  const panelHeightBefore = (await panel.boundingBox())?.height;
+  const overflowTrigger = page.getByRole('button', { name: /More models/ });
+  await expect(overflowTrigger).toBeVisible();
+  await overflowTrigger.focus();
+  await page.keyboard.press('Enter');
+  await expect(overflowTrigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(
+    page.getByRole('list', {
+      name: 'Additional models in advanced cost chart',
+    }),
+  ).toBeVisible();
+  const panelHeightAfter = (await panel.boundingBox())?.height;
+  expect(panelHeightAfter).toBe(panelHeightBefore);
+});
+
+test('shows cost chart source contributions only in developer mode', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const sourceContributions = page.getByText(
+    'Quality vs. Cost chart data and source contributions',
+  );
+  await expect(sourceContributions).toHaveCount(0);
+
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
+  await expect(sourceContributions).toBeVisible();
 });
 
 test('switches the scored preset from the model-count slider and keeps it in the URL', async ({

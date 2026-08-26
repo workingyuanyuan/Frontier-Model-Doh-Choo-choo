@@ -2082,6 +2082,70 @@ details[open] > .evidence-group-summary::before {
   padding: 0.35rem 0.4rem;
 }
 
+.advanced-cost-layout .cost-model-primary-list {
+  flex: 0 1 auto;
+  overflow: hidden;
+}
+
+.cost-model-overflow {
+  margin-top: auto;
+  position: relative;
+}
+
+.cost-model-overflow-trigger {
+  align-items: center;
+  background: var(--surface);
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: flex;
+  font-size: 0.6875rem;
+  font-weight: 750;
+  justify-content: space-between;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.625rem;
+  width: 100%;
+}
+
+.cost-model-overflow-trigger::after {
+  content: '⌄';
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+.cost-model-overflow-trigger[aria-expanded='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cost-model-overflow-trigger[aria-expanded='true']::after {
+  transform: rotate(180deg);
+}
+
+.cost-model-overflow-trigger:focus-visible {
+  outline: 0.15rem solid var(--focus);
+  outline-offset: 0.15rem;
+}
+
+.cost-model-overflow-menu {
+  background: var(--surface-overlay);
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: var(--radius-md);
+  bottom: calc(100% + 0.4rem);
+  box-shadow: var(--popover-shadow);
+  inset-inline: 0;
+  padding: 0.35rem;
+  position: absolute;
+  z-index: 8;
+}
+
+.cost-model-overflow-menu ul {
+  max-height: min(26rem, 65vh);
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
 .cost-legend-checkbox-label {
   align-items: center;
   border: 0.0625rem solid transparent;
@@ -2208,6 +2272,13 @@ details[open] > .evidence-group-summary::before {
   padding-top: 0.75rem;
 }
 
+@media (min-width: 64.001rem) {
+  .advanced-cost-layout > .cost-model-legend {
+    height: 0;
+    min-height: 100%;
+  }
+}
+
 @media (max-width: 64rem) {
   .cost-curve-layout,
   .advanced-cost-layout {
@@ -2225,6 +2296,19 @@ details[open] > .evidence-group-summary::before {
     flex: none;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-height: 16rem;
+  }
+
+  .advanced-cost-layout .cost-model-primary-list {
+    flex: none;
+  }
+
+  .cost-model-overflow {
+    margin-top: 0.75rem;
+  }
+
+  .cost-model-overflow-menu {
+    margin-top: 0.4rem;
+    position: static;
   }
 }
 

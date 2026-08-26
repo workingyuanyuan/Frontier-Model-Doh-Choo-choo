@@ -318,10 +318,34 @@ describe('Dashboard Redesign', () => {
   });
 
   it('provides textual equivalents for SVG charts', () => {
-    const html = renderToStaticMarkup(dashboard());
+    const html = renderToStaticMarkup(
+      createElement(Dashboard, {
+        product: productFixture,
+        benchmarkDimensions,
+        initialDeveloperMode: true,
+      }),
+    );
 
     expect(html).toContain('Quality vs. Cost chart data');
     expect(html).toContain('Five Dimensions');
+  });
+
+  it('keeps cost source contributions inside developer mode', () => {
+    const publicHtml = renderToStaticMarkup(dashboard());
+    const developerHtml = renderToStaticMarkup(
+      createElement(Dashboard, {
+        product: productFixture,
+        benchmarkDimensions,
+        initialDeveloperMode: true,
+      }),
+    );
+
+    expect(publicHtml).not.toContain(
+      'Quality vs. Cost chart data and source contributions',
+    );
+    expect(developerHtml).toContain(
+      'Quality vs. Cost chart data and source contributions',
+    );
   });
 
   it('removes the dataset scope panel', () => {

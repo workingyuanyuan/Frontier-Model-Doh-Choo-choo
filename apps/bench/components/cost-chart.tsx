@@ -91,6 +91,7 @@ const scoreBasisNote = (
 
 /** Sources carrying a weight, i.e. the largest source count a point can have. */
 const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
+const ADVANCED_LEGEND_PRIMARY_MODEL_COUNT = 4;
 
 /**
  * Named from the basis table, not written out, so the sentence cannot go stale
@@ -141,11 +142,13 @@ export function DefaultCostPlot({
   selectedProfileId = null,
   onToggleSelect,
   initialActivePoint = null,
+  developerMode = false,
 }: {
   points: WeightedCostPoint[];
   selectedProfileId?: string | null;
   onToggleSelect?: (profileId: string | null) => void;
   initialActivePoint?: WeightedCostPoint | null;
+  developerMode?: boolean;
 }) {
   const [activePoint, setActivePoint] = useState<WeightedCostPoint | null>(
     initialActivePoint,
@@ -453,52 +456,56 @@ export function DefaultCostPlot({
         </div>
       )}
 
-      <details className="chart-data cost-chart-data">
-        <summary>Quality vs. Cost chart data and source contributions</summary>
-        <p className="chart-data-note">
-          Each source contributes cost plus at most one score, on a single named
-          basis. A source that has no score pairable with its own cost metric
-          contributes cost only, and says so rather than averaging whatever
-          benchmarks it happens to publish. {costOnlySourcesNote()}
-        </p>
-        <table className="compact-data-table">
-          <thead>
-            <tr>
-              <th scope="col">Model</th>
-              <th scope="col">Provider</th>
-              <th scope="col">Weighted cost</th>
-              <th scope="col">Overall</th>
-              <th scope="col">Sources</th>
-              <th scope="col">Source cost and score basis</th>
-            </tr>
-          </thead>
-          <tbody>
-            {points.map((point) => (
-              <tr key={point.modelId}>
-                <th scope="row">{point.displayName}</th>
-                <td>{point.providerId}</td>
-                <td>{point.normalizedCost.toFixed(1)}</td>
-                <td>{point.performance.toFixed(1)}</td>
-                <td data-testid="cost-row-source-count">
-                  {point.sourceCount} of {WEIGHTED_SOURCE_COUNT}
-                </td>
-                <td>
-                  {point.sourceCosts.map((source, index) => (
-                    <span key={source.sourceId}>
-                      {index > 0 ? ' · ' : ''}
-                      <a href={source.sourceUrl}>
-                        {sourceName(source.sourceId)}
-                      </a>{' '}
-                      ({source.profileId}, ${source.cost.toFixed(3)},{' '}
-                      {scoreBasisNote(source.scoreBasis, source.sourceScore)})
-                    </span>
-                  ))}
-                </td>
+      {developerMode ? (
+        <details className="chart-data cost-chart-data">
+          <summary>
+            Quality vs. Cost chart data and source contributions
+          </summary>
+          <p className="chart-data-note">
+            Each source contributes cost plus at most one score, on a single
+            named basis. A source that has no score pairable with its own cost
+            metric contributes cost only, and says so rather than averaging
+            whatever benchmarks it happens to publish. {costOnlySourcesNote()}
+          </p>
+          <table className="compact-data-table">
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Provider</th>
+                <th scope="col">Weighted cost</th>
+                <th scope="col">Overall</th>
+                <th scope="col">Sources</th>
+                <th scope="col">Source cost and score basis</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </details>
+            </thead>
+            <tbody>
+              {points.map((point) => (
+                <tr key={point.modelId}>
+                  <th scope="row">{point.displayName}</th>
+                  <td>{point.providerId}</td>
+                  <td>{point.normalizedCost.toFixed(1)}</td>
+                  <td>{point.performance.toFixed(1)}</td>
+                  <td data-testid="cost-row-source-count">
+                    {point.sourceCount} of {WEIGHTED_SOURCE_COUNT}
+                  </td>
+                  <td>
+                    {point.sourceCosts.map((source, index) => (
+                      <span key={source.sourceId}>
+                        {index > 0 ? ' · ' : ''}
+                        <a href={source.sourceUrl}>
+                          {sourceName(source.sourceId)}
+                        </a>{' '}
+                        ({source.profileId}, ${source.cost.toFixed(3)},{' '}
+                        {scoreBasisNote(source.scoreBasis, source.sourceScore)})
+                      </span>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </details>
+      ) : null}
     </>
   );
 }
@@ -540,6 +547,7 @@ export function AdvancedCostPlot({
     series: AdvancedCostSeries;
     point: AdvancedCostSeries['points'][number];
   } | null>(initialActivePoint);
+  const [overflowOpen, setOverflowOpen] = useState(false);
   const left = 62;
   const right = 610;
   const top = 28;
@@ -621,6 +629,109 @@ export function AdvancedCostPlot({
     } else {
       onToggleSelect?.(pointProfileId);
     }
+  };
+
+  const orderedControls = controls.toSorted(
+    (leftModel, rightModel) =>
+      Number(seriesById.has(rightModel.seriesId)) -
+      Number(seriesById.has(leftModel.seriesId)),
+  );
+  const primaryControls = orderedControls.slice(
+    0,
+    ADVANCED_LEGEND_PRIMARY_MODEL_COUNT,
+  );
+  const overflowControls = orderedControls.slice(
+    ADVANCED_LEGEND_PRIMARY_MODEL_COUNT,
+  );
+  const renderModelControl = (model: AdvancedCostModelOption) => {
+    const currentLine = seriesById.get(model.seriesId);
+    const eligiblePoints = currentLine?.points ?? [];
+    const eligibleProfileIds = eligiblePoints.map(({ profileId }) => profileId);
+    const eligibleSet = new Set(eligibleProfileIds);
+    const visibleCount = eligibleProfileIds.filter(
+      (profileId) => !hiddenProfileIds.has(profileId),
+    ).length;
+    const eligibleCount = eligibleProfileIds.length;
+    const allEligibleVisible =
+      eligibleCount > 0 && visibleCount === eligibleCount;
+    const isMixed = visibleCount > 0 && visibleCount < model.efforts.length;
+    const checkboxId = `series-toggle-${model.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+    const isSelected = model.efforts.some(
+      ({ profileId }) => profileId === selectedProfileId,
+    );
+
+    return (
+      <li
+        key={model.seriesId}
+        data-series-id={model.seriesId}
+        className={isSelected ? 'is-selected' : undefined}
+      >
+        <div className="cost-model-control-header">
+          <label htmlFor={checkboxId} className="cost-legend-checkbox-label">
+            <input
+              ref={(node) => {
+                if (node) node.indeterminate = isMixed;
+              }}
+              type="checkbox"
+              id={checkboxId}
+              checked={allEligibleVisible && !isMixed}
+              disabled={eligibleCount === 0}
+              onChange={() =>
+                setModelVisibility(
+                  model.efforts.map(({ profileId }) => profileId),
+                  !allEligibleVisible,
+                )
+              }
+              className="cost-series-checkbox"
+              aria-label={`Toggle all ${model.displayName} effort profiles`}
+            />
+            <span
+              className="provider-dot"
+              style={{ backgroundColor: providerColor(model.providerId) }}
+              aria-hidden="true"
+            />
+            <strong>{model.displayName}</strong>
+          </label>
+          <span
+            className="cost-model-effort-count"
+            aria-label={`${visibleCount} of ${model.efforts.length} effort profiles visible`}
+          >
+            {visibleCount}/{model.efforts.length}
+          </span>
+        </div>
+        {model.efforts.length > 1 ? (
+          <div
+            className="cost-effort-controls"
+            role="group"
+            aria-label={`${model.displayName} effort profiles`}
+          >
+            {model.efforts.map((effort) => {
+              const eligible = eligibleSet.has(effort.profileId);
+              const visible =
+                eligible && !hiddenProfileIds.has(effort.profileId);
+              return (
+                <button
+                  key={effort.profileId}
+                  type="button"
+                  className="cost-effort-toggle"
+                  data-profile-id={effort.profileId}
+                  aria-pressed={visible}
+                  disabled={!eligible}
+                  title={
+                    eligible
+                      ? `${visible ? 'Hide' : 'Show'} ${model.displayName} ${effort.effort}`
+                      : `${model.displayName} ${effort.effort} does not have complete data for the selected sources`
+                  }
+                  onClick={() => toggleProfileVisibility(effort.profileId)}
+                >
+                  {effort.effort}
+                </button>
+              );
+            })}
+          </div>
+        ) : null}
+      </li>
+    );
   };
 
   return controls.length > 0 ? (
@@ -876,107 +987,31 @@ export function AdvancedCostPlot({
         aria-label="Models in advanced cost chart"
       >
         <h3>Models</h3>
-        <ul tabIndex={0} aria-label="Scrollable model legend">
-          {controls.map((model) => {
-            const currentLine = seriesById.get(model.seriesId);
-            const eligiblePoints = currentLine?.points ?? [];
-            const eligibleProfileIds = eligiblePoints.map(
-              ({ profileId }) => profileId,
-            );
-            const eligibleSet = new Set(eligibleProfileIds);
-            const visibleCount = eligibleProfileIds.filter(
-              (profileId) => !hiddenProfileIds.has(profileId),
-            ).length;
-            const eligibleCount = eligibleProfileIds.length;
-            const allEligibleVisible =
-              eligibleCount > 0 && visibleCount === eligibleCount;
-            const isMixed =
-              visibleCount > 0 && visibleCount < model.efforts.length;
-            const checkboxId = `series-toggle-${model.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-            const isSelected = model.efforts.some(
-              ({ profileId }) => profileId === selectedProfileId,
-            );
-            return (
-              <li
-                key={model.seriesId}
-                data-series-id={model.seriesId}
-                className={isSelected ? 'is-selected' : undefined}
-              >
-                <div className="cost-model-control-header">
-                  <label
-                    htmlFor={checkboxId}
-                    className="cost-legend-checkbox-label"
-                  >
-                    <input
-                      ref={(node) => {
-                        if (node) node.indeterminate = isMixed;
-                      }}
-                      type="checkbox"
-                      id={checkboxId}
-                      checked={allEligibleVisible && !isMixed}
-                      disabled={eligibleCount === 0}
-                      onChange={() =>
-                        setModelVisibility(
-                          model.efforts.map(({ profileId }) => profileId),
-                          !allEligibleVisible,
-                        )
-                      }
-                      className="cost-series-checkbox"
-                      aria-label={`Toggle all ${model.displayName} effort profiles`}
-                    />
-                    <span
-                      className="provider-dot"
-                      style={{
-                        backgroundColor: providerColor(model.providerId),
-                      }}
-                      aria-hidden="true"
-                    />
-                    <strong>{model.displayName}</strong>
-                  </label>
-                  <span
-                    className="cost-model-effort-count"
-                    aria-label={`${visibleCount} of ${model.efforts.length} effort profiles visible`}
-                  >
-                    {visibleCount}/{model.efforts.length}
-                  </span>
-                </div>
-                {model.efforts.length > 1 ? (
-                  <div
-                    className="cost-effort-controls"
-                    role="group"
-                    aria-label={`${model.displayName} effort profiles`}
-                  >
-                    {model.efforts.map((effort) => {
-                      const eligible = eligibleSet.has(effort.profileId);
-                      const visible =
-                        eligible && !hiddenProfileIds.has(effort.profileId);
-                      return (
-                        <button
-                          key={effort.profileId}
-                          type="button"
-                          className="cost-effort-toggle"
-                          data-profile-id={effort.profileId}
-                          aria-pressed={visible}
-                          disabled={!eligible}
-                          title={
-                            eligible
-                              ? `${visible ? 'Hide' : 'Show'} ${model.displayName} ${effort.effort}`
-                              : `${model.displayName} ${effort.effort} does not have complete data for the selected sources`
-                          }
-                          onClick={() =>
-                            toggleProfileVisibility(effort.profileId)
-                          }
-                        >
-                          {effort.effort}
-                        </button>
-                      );
-                    })}
-                  </div>
-                ) : null}
-              </li>
-            );
-          })}
+        <ul className="cost-model-primary-list">
+          {primaryControls.map(renderModelControl)}
         </ul>
+        {overflowControls.length > 0 ? (
+          <div className="cost-model-overflow">
+            <button
+              type="button"
+              className="cost-model-overflow-trigger"
+              aria-expanded={overflowOpen}
+              aria-controls="advanced-cost-overflow-models"
+              onClick={() => setOverflowOpen((current) => !current)}
+            >
+              More models ({overflowControls.length})
+            </button>
+            <div
+              id="advanced-cost-overflow-models"
+              className="cost-model-overflow-menu"
+              hidden={!overflowOpen}
+            >
+              <ul aria-label="Additional models in advanced cost chart">
+                {overflowControls.map(renderModelControl)}
+              </ul>
+            </div>
+          </div>
+        ) : null}
       </aside>
     </div>
   ) : (
@@ -993,11 +1028,13 @@ export function AdvancedCostPlot({
 export function CostChart({
   defaultProduct,
   advancedProduct,
+  developerMode = false,
 }: {
   /** Main-screen projection: complete display-set profiles only. */
   defaultProduct: PresetProductVersion;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
   advancedProduct: PresetProductVersion;
+  developerMode?: boolean;
 }) {
   const [advanced, setAdvanced] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(
@@ -1102,6 +1139,7 @@ export function CostChart({
               points={points}
               selectedProfileId={selectedProfileId}
               onToggleSelect={handleToggleSelect}
+              developerMode={developerMode}
             />
           )}
         </div>

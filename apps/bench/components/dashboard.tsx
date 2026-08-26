@@ -194,7 +194,11 @@ export function Dashboard({
 
         <RadarChart product={product} comparisonProduct={visibleProduct} />
 
-        <CostChart defaultProduct={visibleProduct} advancedProduct={product} />
+        <CostChart
+          defaultProduct={visibleProduct}
+          advancedProduct={product}
+          developerMode={developerMode}
+        />
       </main>
       <footer className="site-footer">
         <span>FM-DCC</span>

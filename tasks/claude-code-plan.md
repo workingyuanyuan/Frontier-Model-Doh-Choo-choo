@@ -230,3 +230,13 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 **範圍**：`apps/bench` 的成本圖 view model、元件、樣式、測試，以及對應現行文件。不改動來源快照、mapping、ProductVersion schema 或 `data/product/current.json`。
 
 **驗收**：四來源時 Claude Opus 5 顯示 2/5；關閉 ARC Prize 後顯示 5/5 且 low／medium／xhigh effort 回到圖中，三來源各 1/3 聚合。模型與單一 effort 均可由鍵盤開關；完整基準驗證依規定順序通過。
+
+## Q2 — 成本圖開發者明細與等高模型圖例
+
+狀態：完成
+
+**目的**：讓成本圖的來源貢獻資料只在開發者模式顯示，並讓 Advanced 模式的模型圖例與圖表保持相同高度，不再由完整模型控制清單撐高 Section。
+
+**範圍**：`apps/bench` 的 Dashboard 到 CostChart 開發者模式傳遞、Advanced 模型圖例分層、樣式與對應測試。不改動產品資料、mapping、計分或圖表座標算法。
+
+**驗收**：預設模式不渲染 `Quality vs. Cost chart data and source contributions`，開發者模式才顯示；寬螢幕下 default 與 Advanced 圖例均和圖表列底部對齊；超出可見範圍的模型可透過可聚焦的下拉 disclosure 操作；行動版無水平溢位，完整基準驗證依規定順序通過。
