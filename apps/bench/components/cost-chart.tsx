@@ -91,7 +91,6 @@ const scoreBasisNote = (
 
 /** Sources carrying a weight, i.e. the largest source count a point can have. */
 const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
-const ADVANCED_LEGEND_PRIMARY_MODEL_COUNT = 4;
 
 /**
  * Named from the basis table, not written out, so the sentence cannot go stale
@@ -135,6 +134,219 @@ function getCardTransform(x: number, y: number): string {
       : '-50%';
 
   return `translate(${translateX}, ${translateY})`;
+}
+
+export function CostModelMenu({
+  advanced,
+  open,
+  menuId,
+  points,
+  series,
+  modelOptions,
+  selectedProfileId,
+  hiddenProfileIds,
+  onToggleOpen,
+  onToggleSelect,
+  onUpdateHiddenProfileIds,
+}: {
+  advanced: boolean;
+  open: boolean;
+  menuId: string;
+  points: WeightedCostPoint[];
+  series: AdvancedCostSeries[];
+  modelOptions: AdvancedCostModelOption[];
+  selectedProfileId: string | null;
+  hiddenProfileIds: Set<string>;
+  onToggleOpen: () => void;
+  onToggleSelect: (profileId: string | null) => void;
+  onUpdateHiddenProfileIds: (
+    update: (current: Set<string>) => Set<string>,
+  ) => void;
+}) {
+  const seriesById = new Map(series.map((line) => [line.seriesId, line]));
+  const orderedOptions = modelOptions.toSorted(
+    (leftModel, rightModel) =>
+      Number(seriesById.has(rightModel.seriesId)) -
+      Number(seriesById.has(leftModel.seriesId)),
+  );
+
+  const toggleProfileVisibility = (profileId: string) => {
+    onUpdateHiddenProfileIds((current) => {
+      const next = new Set(current);
+      if (next.has(profileId)) next.delete(profileId);
+      else next.add(profileId);
+      return next;
+    });
+  };
+
+  return (
+    <div className="cost-model-overflow">
+      <button
+        type="button"
+        className="cost-model-overflow-trigger"
+        aria-expanded={open}
+        aria-controls={menuId}
+        onClick={onToggleOpen}
+      >
+        Models
+      </button>
+      <div id={menuId} className="cost-model-overflow-menu" hidden={!open}>
+        <ul
+          className="cost-model-menu-list"
+          aria-label={`Models in ${advanced ? 'advanced' : 'default'} cost chart`}
+        >
+          {advanced
+            ? orderedOptions.map((model) => {
+                const currentLine = seriesById.get(model.seriesId);
+                const eligiblePoints = currentLine?.points ?? [];
+                const eligibleProfileIds = eligiblePoints.map(
+                  ({ profileId }) => profileId,
+                );
+                const eligibleSet = new Set(eligibleProfileIds);
+                const visibleCount = eligibleProfileIds.filter(
+                  (profileId) => !hiddenProfileIds.has(profileId),
+                ).length;
+                const eligibleCount = eligibleProfileIds.length;
+                const allEligibleVisible =
+                  eligibleCount > 0 && visibleCount === eligibleCount;
+                const isMixed =
+                  visibleCount > 0 && visibleCount < model.efforts.length;
+                const checkboxId = `series-toggle-${model.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+                const isSelected = model.efforts.some(
+                  ({ profileId }) => profileId === selectedProfileId,
+                );
+
+                return (
+                  <li
+                    key={model.seriesId}
+                    data-series-id={model.seriesId}
+                    className={isSelected ? 'is-selected' : undefined}
+                  >
+                    <div className="cost-model-control-header">
+                      <label
+                        htmlFor={checkboxId}
+                        className="cost-legend-checkbox-label"
+                      >
+                        <input
+                          ref={(node) => {
+                            if (node) node.indeterminate = isMixed;
+                          }}
+                          type="checkbox"
+                          id={checkboxId}
+                          checked={allEligibleVisible && !isMixed}
+                          disabled={eligibleCount === 0}
+                          onChange={() =>
+                            onUpdateHiddenProfileIds((current) => {
+                              const next = new Set(current);
+                              model.efforts.forEach(({ profileId }) => {
+                                if (allEligibleVisible) next.add(profileId);
+                                else next.delete(profileId);
+                              });
+                              return next;
+                            })
+                          }
+                          className="cost-series-checkbox"
+                          aria-label={`Toggle all ${model.displayName} effort profiles`}
+                        />
+                        <span
+                          className="provider-dot"
+                          style={{
+                            backgroundColor: providerColor(model.providerId),
+                          }}
+                          aria-hidden="true"
+                        />
+                        <strong>{model.displayName}</strong>
+                      </label>
+                      <span
+                        className="cost-model-effort-count"
+                        aria-label={`${visibleCount} of ${model.efforts.length} effort profiles visible`}
+                      >
+                        {visibleCount}/{model.efforts.length}
+                      </span>
+                    </div>
+                    {model.efforts.length > 1 ? (
+                      <div
+                        className="cost-effort-controls"
+                        role="group"
+                        aria-label={`${model.displayName} effort profiles`}
+                      >
+                        {model.efforts.map((effort) => {
+                          const eligible = eligibleSet.has(effort.profileId);
+                          const visible =
+                            eligible && !hiddenProfileIds.has(effort.profileId);
+                          return (
+                            <button
+                              key={effort.profileId}
+                              type="button"
+                              className="cost-effort-toggle"
+                              data-profile-id={effort.profileId}
+                              aria-pressed={visible}
+                              disabled={!eligible}
+                              title={
+                                eligible
+                                  ? `${visible ? 'Hide' : 'Show'} ${model.displayName} ${effort.effort}`
+                                  : `${model.displayName} ${effort.effort} does not have complete data for the selected sources`
+                              }
+                              onClick={() =>
+                                toggleProfileVisibility(effort.profileId)
+                              }
+                            >
+                              {effort.effort}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+                  </li>
+                );
+              })
+            : points
+                .toSorted(
+                  (leftPoint, rightPoint) =>
+                    rightPoint.performance - leftPoint.performance ||
+                    leftPoint.normalizedCost - rightPoint.normalizedCost,
+                )
+                .map((point) => {
+                  const selected = defaultPointIsSelected(
+                    point,
+                    selectedProfileId,
+                  );
+                  return (
+                    <li
+                      key={point.modelId}
+                      data-profile-id={point.profileId}
+                      className={selected ? 'is-selected' : undefined}
+                    >
+                      <button
+                        type="button"
+                        aria-pressed={selected}
+                        onClick={() =>
+                          onToggleSelect(selected ? null : point.profileId)
+                        }
+                      >
+                        <span
+                          className="provider-dot"
+                          style={{
+                            backgroundColor: providerColor(point.providerId),
+                          }}
+                          aria-hidden="true"
+                        />
+                        <span>
+                          <strong>{point.displayName}</strong>
+                          <small>
+                            {point.providerId} · cost{' '}
+                            {point.normalizedCost.toFixed(1)} · score{' '}
+                            {point.performance.toFixed(1)}
+                          </small>
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export function DefaultCostPlot({
@@ -406,48 +618,6 @@ export function DefaultCostPlot({
               The frontier connects best score at each cost.
             </p>
           </div>
-
-          <aside
-            className="cost-model-legend"
-            aria-label="Models in default cost chart"
-          >
-            <h3>Models</h3>
-            <ul tabIndex={0} aria-label="Scrollable model legend">
-              {points
-                .toSorted(
-                  (leftPoint, rightPoint) =>
-                    rightPoint.performance - leftPoint.performance ||
-                    leftPoint.normalizedCost - rightPoint.normalizedCost,
-                )
-                .map((point) => (
-                  <li
-                    key={point.modelId}
-                    className={
-                      defaultPointIsSelected(point, selectedProfileId)
-                        ? 'is-selected'
-                        : undefined
-                    }
-                    onClick={() => handleToggle(point)}
-                  >
-                    <span
-                      className="provider-dot"
-                      style={{
-                        backgroundColor: providerColor(point.providerId),
-                      }}
-                      aria-hidden="true"
-                    />
-                    <span>
-                      <strong>{point.displayName}</strong>
-                      <small>
-                        {point.providerId} · cost{' '}
-                        {point.normalizedCost.toFixed(1)} · score{' '}
-                        {point.performance.toFixed(1)}
-                      </small>
-                    </span>
-                  </li>
-                ))}
-            </ul>
-          </aside>
         </div>
       ) : (
         <div className="empty-state" role="status">
@@ -519,6 +689,7 @@ export function AdvancedCostPlot({
   initialActivePoint = null,
   initialHiddenSeriesIds,
   initialHiddenProfileIds,
+  hiddenProfileIds: controlledHiddenProfileIds,
 }: {
   series: AdvancedCostSeries[];
   modelOptions?: AdvancedCostModelOption[];
@@ -531,8 +702,9 @@ export function AdvancedCostPlot({
   } | null;
   initialHiddenSeriesIds?: Set<string> | readonly string[];
   initialHiddenProfileIds?: Set<string> | readonly string[];
+  hiddenProfileIds?: Set<string>;
 }) {
-  const [hiddenProfileIds, setHiddenProfileIds] = useState<Set<string>>(
+  const [internalHiddenProfileIds] = useState<Set<string>>(
     () =>
       new Set([
         ...(initialHiddenProfileIds ?? []),
@@ -547,56 +719,19 @@ export function AdvancedCostPlot({
     series: AdvancedCostSeries;
     point: AdvancedCostSeries['points'][number];
   } | null>(initialActivePoint);
-  const [overflowOpen, setOverflowOpen] = useState(false);
+  const hiddenProfileIds =
+    controlledHiddenProfileIds ?? internalHiddenProfileIds;
   const left = 62;
   const right = 610;
   const top = 28;
   const bottom = 350;
-  const controls: AdvancedCostModelOption[] =
-    modelOptions ??
-    series.map((line) => ({
-      seriesId: line.seriesId,
-      modelId: line.modelId,
-      providerId: line.providerId,
-      displayName: line.displayName,
-      efforts: line.points.map((point) => ({
-        profileId: point.profileId,
-        effort: point.effort,
-        isDefaultEffort: point.isDefaultEffort,
-      })),
-    }));
+  const controls =
+    modelOptions ?? series.map((line) => ({ seriesId: line.seriesId }));
   const sourceCount =
     selectedSourceCount ?? series[0]?.points[0]?.sources.length ?? 0;
   const scoreAxisLabel =
     sourceCount <= 1 ? 'Source score' : `${sourceCount}-source mean score`;
 
-  const toggleProfileVisibility = (profileId: string) => {
-    setHiddenProfileIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(profileId)) {
-        next.delete(profileId);
-      } else {
-        next.add(profileId);
-      }
-      return next;
-    });
-  };
-
-  const setModelVisibility = (
-    eligibleProfileIds: readonly string[],
-    visible: boolean,
-  ) => {
-    setHiddenProfileIds((prev) => {
-      const next = new Set(prev);
-      eligibleProfileIds.forEach((profileId) => {
-        if (visible) next.delete(profileId);
-        else next.add(profileId);
-      });
-      return next;
-    });
-  };
-
-  const seriesById = new Map(series.map((line) => [line.seriesId, line]));
   const visibleSeries = series.flatMap((line) => {
     const points = line.points.filter(
       ({ profileId }) => !hiddenProfileIds.has(profileId),
@@ -629,109 +764,6 @@ export function AdvancedCostPlot({
     } else {
       onToggleSelect?.(pointProfileId);
     }
-  };
-
-  const orderedControls = controls.toSorted(
-    (leftModel, rightModel) =>
-      Number(seriesById.has(rightModel.seriesId)) -
-      Number(seriesById.has(leftModel.seriesId)),
-  );
-  const primaryControls = orderedControls.slice(
-    0,
-    ADVANCED_LEGEND_PRIMARY_MODEL_COUNT,
-  );
-  const overflowControls = orderedControls.slice(
-    ADVANCED_LEGEND_PRIMARY_MODEL_COUNT,
-  );
-  const renderModelControl = (model: AdvancedCostModelOption) => {
-    const currentLine = seriesById.get(model.seriesId);
-    const eligiblePoints = currentLine?.points ?? [];
-    const eligibleProfileIds = eligiblePoints.map(({ profileId }) => profileId);
-    const eligibleSet = new Set(eligibleProfileIds);
-    const visibleCount = eligibleProfileIds.filter(
-      (profileId) => !hiddenProfileIds.has(profileId),
-    ).length;
-    const eligibleCount = eligibleProfileIds.length;
-    const allEligibleVisible =
-      eligibleCount > 0 && visibleCount === eligibleCount;
-    const isMixed = visibleCount > 0 && visibleCount < model.efforts.length;
-    const checkboxId = `series-toggle-${model.seriesId.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
-    const isSelected = model.efforts.some(
-      ({ profileId }) => profileId === selectedProfileId,
-    );
-
-    return (
-      <li
-        key={model.seriesId}
-        data-series-id={model.seriesId}
-        className={isSelected ? 'is-selected' : undefined}
-      >
-        <div className="cost-model-control-header">
-          <label htmlFor={checkboxId} className="cost-legend-checkbox-label">
-            <input
-              ref={(node) => {
-                if (node) node.indeterminate = isMixed;
-              }}
-              type="checkbox"
-              id={checkboxId}
-              checked={allEligibleVisible && !isMixed}
-              disabled={eligibleCount === 0}
-              onChange={() =>
-                setModelVisibility(
-                  model.efforts.map(({ profileId }) => profileId),
-                  !allEligibleVisible,
-                )
-              }
-              className="cost-series-checkbox"
-              aria-label={`Toggle all ${model.displayName} effort profiles`}
-            />
-            <span
-              className="provider-dot"
-              style={{ backgroundColor: providerColor(model.providerId) }}
-              aria-hidden="true"
-            />
-            <strong>{model.displayName}</strong>
-          </label>
-          <span
-            className="cost-model-effort-count"
-            aria-label={`${visibleCount} of ${model.efforts.length} effort profiles visible`}
-          >
-            {visibleCount}/{model.efforts.length}
-          </span>
-        </div>
-        {model.efforts.length > 1 ? (
-          <div
-            className="cost-effort-controls"
-            role="group"
-            aria-label={`${model.displayName} effort profiles`}
-          >
-            {model.efforts.map((effort) => {
-              const eligible = eligibleSet.has(effort.profileId);
-              const visible =
-                eligible && !hiddenProfileIds.has(effort.profileId);
-              return (
-                <button
-                  key={effort.profileId}
-                  type="button"
-                  className="cost-effort-toggle"
-                  data-profile-id={effort.profileId}
-                  aria-pressed={visible}
-                  disabled={!eligible}
-                  title={
-                    eligible
-                      ? `${visible ? 'Hide' : 'Show'} ${model.displayName} ${effort.effort}`
-                      : `${model.displayName} ${effort.effort} does not have complete data for the selected sources`
-                  }
-                  onClick={() => toggleProfileVisibility(effort.profileId)}
-                >
-                  {effort.effort}
-                </button>
-              );
-            })}
-          </div>
-        ) : null}
-      </li>
-    );
   };
 
   return controls.length > 0 ? (
@@ -981,38 +1013,6 @@ export function AdvancedCostPlot({
           ladder.
         </p>
       </div>
-
-      <aside
-        className="cost-model-legend"
-        aria-label="Models in advanced cost chart"
-      >
-        <h3>Models</h3>
-        <ul className="cost-model-primary-list">
-          {primaryControls.map(renderModelControl)}
-        </ul>
-        {overflowControls.length > 0 ? (
-          <div className="cost-model-overflow">
-            <button
-              type="button"
-              className="cost-model-overflow-trigger"
-              aria-expanded={overflowOpen}
-              aria-controls="advanced-cost-overflow-models"
-              onClick={() => setOverflowOpen((current) => !current)}
-            >
-              More models ({overflowControls.length})
-            </button>
-            <div
-              id="advanced-cost-overflow-models"
-              className="cost-model-overflow-menu"
-              hidden={!overflowOpen}
-            >
-              <ul aria-label="Additional models in advanced cost chart">
-                {overflowControls.map(renderModelControl)}
-              </ul>
-            </div>
-          </div>
-        ) : null}
-      </aside>
     </div>
   ) : (
     <div className="empty-state" role="status">
@@ -1043,6 +1043,10 @@ export function CostChart({
   const [advancedSourceIds, setAdvancedSourceIds] = useState<
     Set<AdvancedCostSourceId>
   >(() => new Set(ADVANCED_COST_SOURCE_IDS));
+  const [advancedHiddenProfileIds, setAdvancedHiddenProfileIds] = useState(
+    () => new Set<string>(),
+  );
+  const [modelMenuOpen, setModelMenuOpen] = useState(false);
   const points = buildWeightedCostCurve(defaultProduct);
   const selectedAdvancedSourceIds = ADVANCED_COST_SOURCE_IDS.filter(
     (sourceId) => advancedSourceIds.has(sourceId),
@@ -1081,6 +1085,40 @@ export function CostChart({
             <p>Lower cost is better. Higher Overall Score is better.</p>
           </div>
           <div className="cost-chart-actions">
+            <div className="cost-chart-primary-actions">
+              <button
+                type="button"
+                className="cost-mode-toggle"
+                aria-label={
+                  advanced
+                    ? 'Show default cost chart'
+                    : 'Show advanced effort curves'
+                }
+                aria-expanded={advanced}
+                aria-controls={advancedPanelId}
+                onClick={() => {
+                  setAdvanced((current) => !current);
+                  setModelMenuOpen(false);
+                }}
+              >
+                {advanced ? 'Default' : 'Advanced'}
+              </button>
+              <CostModelMenu
+                advanced={advanced}
+                open={modelMenuOpen}
+                menuId="cost-chart-models-menu"
+                points={points}
+                series={series}
+                modelOptions={advancedModelOptions}
+                selectedProfileId={selectedProfileId}
+                hiddenProfileIds={advancedHiddenProfileIds}
+                onToggleOpen={() => setModelMenuOpen((current) => !current)}
+                onToggleSelect={handleToggleSelect}
+                onUpdateHiddenProfileIds={(update) =>
+                  setAdvancedHiddenProfileIds(update)
+                }
+              />
+            </div>
             {!advanced ? (
               <p className="cost-weight-note">
                 {weightNote(COST_SOURCE_WEIGHTS)}
@@ -1108,20 +1146,6 @@ export function CostChart({
                 })}
               </div>
             )}
-            <button
-              type="button"
-              className="cost-mode-toggle"
-              aria-label={
-                advanced
-                  ? 'Show default cost chart'
-                  : 'Show advanced effort curves'
-              }
-              aria-expanded={advanced}
-              aria-controls={advancedPanelId}
-              onClick={() => setAdvanced((current) => !current)}
-            >
-              {advanced ? 'Default' : 'Advanced'}
-            </button>
           </div>
         </div>
 
@@ -1133,6 +1157,7 @@ export function CostChart({
               selectedSourceCount={selectedAdvancedSourceIds.length}
               selectedProfileId={selectedProfileId}
               onToggleSelect={handleToggleSelect}
+              hiddenProfileIds={advancedHiddenProfileIds}
             />
           ) : (
             <DefaultCostPlot

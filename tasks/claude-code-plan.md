@@ -240,3 +240,13 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 **範圍**：`apps/bench` 的 Dashboard 到 CostChart 開發者模式傳遞、Advanced 模型圖例分層、樣式與對應測試。不改動產品資料、mapping、計分或圖表座標算法。
 
 **驗收**：預設模式不渲染 `Quality vs. Cost chart data and source contributions`，開發者模式才顯示；寬螢幕下 default 與 Advanced 圖例均和圖表列底部對齊；超出可見範圍的模型可透過可聚焦的下拉 disclosure 操作；行動版無水平溢位，完整基準驗證依規定順序通過。
+
+## Q3 — 全寬成本圖與共用 Models 選單
+
+狀態：完成
+
+**目的**：移除成本圖右側 Models 欄，將 Default／Advanced 共用的模型選單移至模式切換右側，讓成本圖完整使用 Section 寬度。
+
+**範圍**：`apps/bench` 的成本圖控制列、Default／Advanced 模型選單、全寬圖表樣式與對應測試。不改動產品資料、mapping、計分或圖表座標算法。
+
+**驗收**：Default／Advanced 模式皆由控制列 Models 選單操作模型；模式切換位於左側且與 Models 觸發器等寬；不渲染右側模型圖例；兩種成本圖皆充滿 Section 可用寬度；選單支援鍵盤操作且行動版無水平溢位，完整基準驗證依規定順序通過。

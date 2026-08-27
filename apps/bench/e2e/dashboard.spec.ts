@@ -199,9 +199,9 @@ test('expanding a leaderboard row does not change radar chart series or cost cha
 
   // Cost chart has no selected point or legend highlight initially
   await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
-  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
-    0,
-  );
+  await expect(
+    page.locator('.cost-model-menu-list li.is-selected'),
+  ).toHaveCount(0);
 
   // Expand a leaderboard row
   const modelButtons = page.locator('[data-ranked-row] .model-button');
@@ -219,35 +219,36 @@ test('expanding a leaderboard row does not change radar chart series or cost cha
 
   // Cost chart selection is NOT affected by leaderboard expansion
   await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
-  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
-    0,
-  );
+  await expect(
+    page.locator('.cost-model-menu-list li.is-selected'),
+  ).toHaveCount(0);
 
   // Cost chart owns its highlight: clicking a point toggles highlight
   const costPoint = page.locator('.cost-point').first();
   await costPoint.click();
   await expect(page.locator('.cost-point.is-selected')).toHaveCount(1);
-  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
-    1,
-  );
+  await expect(
+    page.locator('.cost-model-menu-list li.is-selected'),
+  ).toHaveCount(1);
 
   // Toggle off on re-click
   await costPoint.click();
   await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
-  await expect(page.locator('.cost-model-legend li.is-selected')).toHaveCount(
-    0,
-  );
+  await expect(
+    page.locator('.cost-model-menu-list li.is-selected'),
+  ).toHaveCount(0);
 
-  // Clicking a legend entry in default plot toggles highlight
-  const legendItem = page.locator('.cost-model-legend li').first();
-  await legendItem.click();
+  // The shared Models menu controls the default plot highlight.
+  await page.locator('.cost-model-overflow-trigger').click();
+  const modelItem = page.locator('.cost-model-menu-list li').first();
+  await modelItem.getByRole('button').click();
   await expect(page.locator('.cost-point.is-selected')).toHaveCount(1);
-  await expect(legendItem).toHaveClass(/is-selected/);
+  await expect(modelItem).toHaveClass(/is-selected/);
 
-  // Re-clicking the legend entry toggles it off
-  await legendItem.click();
+  // Re-clicking the model entry toggles it off.
+  await modelItem.getByRole('button').click();
   await expect(page.locator('.cost-point.is-selected')).toHaveCount(0);
-  await expect(legendItem).not.toHaveClass(/is-selected/);
+  await expect(modelItem).not.toHaveClass(/is-selected/);
 
   // Keyboard toggling: Enter / Space on a focused point
   await costPoint.focus();
@@ -403,6 +404,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   const toggle = page.locator('.cost-mode-toggle');
   await toggle.click();
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
+  await page.locator('.cost-model-overflow-trigger').click();
 
   const xAxisTitle = page
     .locator('.advanced-cost-chart .cost-axis-title')
@@ -447,7 +449,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
 
   // Hide the most expensive series.
   const seriesRow = page.locator(
-    `.cost-model-legend li[data-series-id="${mostExpensiveSeriesId}"]`,
+    `.cost-model-menu-list li[data-series-id="${mostExpensiveSeriesId}"]`,
   );
   const seriesCheckbox = seriesRow.locator('input[type="checkbox"]');
 
@@ -514,11 +516,11 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   expect(cheapestSeriesId).not.toBe('');
 
   const allCheckboxes = page.locator(
-    '.cost-model-legend li input[type="checkbox"]',
+    '.cost-model-menu-list li input[type="checkbox"]',
   );
   for (let i = 0; i < (await allCheckboxes.count()); i++) {
     const box = allCheckboxes.nth(i);
-    const row = page.locator('.cost-model-legend li').nth(i);
+    const row = page.locator('.cost-model-menu-list li').nth(i);
     const seriesId = (await row.getAttribute('data-series-id')) ?? '';
     const visibleSeriesPoints = page.locator(
       `.advanced-cost-point[data-series-id="${seriesId}"]`,
@@ -540,9 +542,10 @@ test('recomputes source eligibility and supports model and effort controls', asy
 }) => {
   await page.goto('/');
   await page.locator('.cost-mode-toggle').click();
+  await page.locator('.cost-model-overflow-trigger').click();
 
   const opusRow = page.locator(
-    '.cost-model-legend li[data-series-id="anthropic-claude-opus-5"]',
+    '.cost-model-menu-list li[data-series-id="anthropic-claude-opus-5"]',
   );
   await expect(opusRow).toContainText('2/5');
   const opusCheckbox = opusRow.locator('input[type="checkbox"]');
@@ -618,6 +621,14 @@ test('has no serious accessibility violations or page-level mobile overflow', as
     );
     expect(overflow).toBeLessThanOrEqual(1);
 
+    await page.locator('.cost-model-overflow-trigger').click();
+    await expect(page.locator('.cost-model-overflow-menu')).toBeVisible();
+    const menuOverflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - window.innerWidth,
+    );
+    expect(menuOverflow).toBeLessThanOrEqual(1);
+    await page.locator('.cost-model-overflow-trigger').click();
+
     // The advanced chart adds a second legend layout; it must not push the
     // page sideways either. A CI trace showed the whole document scrolled
     // horizontally in this mode, which the default-mode check above misses.
@@ -686,57 +697,66 @@ test('keeps leaderboard controls ordered and equal-height on wide screens', asyn
   }
 });
 
-test('keeps both cost legends aligned with the chart and overflows advanced models into a disclosure', async ({
+test('uses an equal-width cost toolbar and full-width charts in both modes', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
 
-  const plot = await page.locator('.cost-plot-wrap').first().boundingBox();
-  const legend = await page.locator('.cost-model-legend').first().boundingBox();
-
-  expect(plot).not.toBeNull();
-  expect(legend).not.toBeNull();
-  if (plot && legend) {
-    expect(
-      Math.abs(plot.y + plot.height - (legend.y + legend.height)),
-    ).toBeLessThanOrEqual(1);
+  await expect(page.locator('.cost-model-legend')).toHaveCount(0);
+  const modeTrigger = page.locator('.cost-mode-toggle');
+  const modelsTrigger = page.locator('.cost-model-overflow-trigger');
+  const modeBox = await modeTrigger.boundingBox();
+  const modelsBox = await modelsTrigger.boundingBox();
+  expect(modeBox).not.toBeNull();
+  expect(modelsBox).not.toBeNull();
+  if (modeBox && modelsBox) {
+    expect(modeBox.x).toBeLessThan(modelsBox.x);
+    expect(Math.abs(modeBox.width - modelsBox.width)).toBeLessThanOrEqual(1);
+    expect(Math.abs(modeBox.height - modelsBox.height)).toBeLessThanOrEqual(1);
   }
 
-  await page.locator('.cost-mode-toggle').click();
-  const advancedPlot = await page
-    .locator('.advanced-cost-layout .cost-plot-wrap')
-    .boundingBox();
-  const advancedLegend = await page
-    .locator('.advanced-cost-layout .cost-model-legend')
-    .boundingBox();
-
-  expect(advancedPlot).not.toBeNull();
-  expect(advancedLegend).not.toBeNull();
-  if (advancedPlot && advancedLegend) {
+  const defaultLayout = await page.locator('.cost-curve-layout').boundingBox();
+  const defaultPlot = await page.locator('.cost-plot-wrap').boundingBox();
+  expect(defaultLayout).not.toBeNull();
+  expect(defaultPlot).not.toBeNull();
+  if (defaultLayout && defaultPlot) {
     expect(
-      Math.abs(
-        advancedPlot.y +
-          advancedPlot.height -
-          (advancedLegend.y + advancedLegend.height),
-      ),
+      Math.abs(defaultLayout.width - 40 - defaultPlot.width),
     ).toBeLessThanOrEqual(1);
   }
 
   const panel = page.locator('.cost-panel');
   const panelHeightBefore = (await panel.boundingBox())?.height;
-  const overflowTrigger = page.getByRole('button', { name: /More models/ });
-  await expect(overflowTrigger).toBeVisible();
-  await overflowTrigger.focus();
+  await modelsTrigger.focus();
   await page.keyboard.press('Enter');
-  await expect(overflowTrigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(modelsTrigger).toHaveAttribute('aria-expanded', 'true');
   await expect(
-    page.getByRole('list', {
-      name: 'Additional models in advanced cost chart',
-    }),
+    page.getByRole('list', { name: 'Models in default cost chart' }),
   ).toBeVisible();
   const panelHeightAfter = (await panel.boundingBox())?.height;
   expect(panelHeightAfter).toBe(panelHeightBefore);
+
+  await modeTrigger.click();
+  await expect(page.locator('.advanced-cost-chart')).toBeVisible();
+  await expect(modelsTrigger).toHaveAttribute('aria-expanded', 'false');
+  await modelsTrigger.click();
+  await expect(
+    page.getByRole('list', { name: 'Models in advanced cost chart' }),
+  ).toBeVisible();
+  const advancedLayout = await page
+    .locator('.advanced-cost-layout')
+    .boundingBox();
+  const advancedPlot = await page
+    .locator('.advanced-cost-layout .cost-plot-wrap')
+    .boundingBox();
+  expect(advancedLayout).not.toBeNull();
+  expect(advancedPlot).not.toBeNull();
+  if (advancedLayout && advancedPlot) {
+    expect(
+      Math.abs(advancedLayout.width - 40 - advancedPlot.width),
+    ).toBeLessThanOrEqual(1);
+  }
 });
 
 test('shows cost chart source contributions only in developer mode', async ({

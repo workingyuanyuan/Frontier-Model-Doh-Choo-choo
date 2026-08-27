@@ -2,7 +2,12 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import { AdvancedCostPlot, CostChart, DefaultCostPlot } from './cost-chart';
+import {
+  AdvancedCostPlot,
+  CostChart,
+  CostModelMenu,
+  DefaultCostPlot,
+} from './cost-chart';
 import {
   buildWeightedCostCurve,
   type AdvancedCostModelOption,
@@ -465,17 +470,27 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).not.toContain('ARC Prize:');
     });
 
-    it('renders native checkbox for each model in legend checked by default with accessible label', () => {
+    it('renders native checkbox for each advanced model in the shared menu', () => {
       const html = renderToStaticMarkup(
-        createElement(AdvancedCostPlot, {
+        createElement(CostModelMenu, {
+          advanced: true,
+          open: true,
+          menuId: 'test-model-menu',
+          points: [],
           series: sampleAdvancedSeries,
+          modelOptions: sampleAdvancedModelOptions,
+          selectedProfileId: null,
+          hiddenProfileIds: new Set<string>(),
+          onToggleOpen: () => undefined,
+          onToggleSelect: () => undefined,
+          onUpdateHiddenProfileIds: () => undefined,
         }),
       );
 
-      expect(html).toContain('<h3>Models</h3>');
-      expect(html).not.toContain('Sources and effort profiles');
+      expect(html).toContain('>Models</button>');
+      expect(html).toContain('aria-label="Models in advanced cost chart"');
       expect(html).toContain('type="checkbox"');
-      expect(html).toContain('checked=""');
+      expect(html).toContain('2/5');
       expect(html).toContain('class="cost-series-checkbox"');
       expect(html).toContain('class="cost-legend-checkbox-label"');
       expect(html).toContain('for="series-toggle-anthropic-claude-fable-5"');
@@ -484,10 +499,18 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
     it('renders the complete effort ladder and disables profiles outside the current source intersection', () => {
       const html = renderToStaticMarkup(
-        createElement(AdvancedCostPlot, {
+        createElement(CostModelMenu, {
+          advanced: true,
+          open: true,
+          menuId: 'test-model-menu',
+          points: [],
           series: sampleAdvancedSeries,
           modelOptions: sampleAdvancedModelOptions,
-          selectedSourceCount: 4,
+          selectedProfileId: null,
+          hiddenProfileIds: new Set<string>(),
+          onToggleOpen: () => undefined,
+          onToggleSelect: () => undefined,
+          onUpdateHiddenProfileIds: () => undefined,
         }),
       );
 
@@ -618,9 +641,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
       expect(html).toContain('4-source mean score (0–100, higher is better)');
 
-      // Legend checkboxes remain reachable
-      expect(html).toContain('cost-model-legend');
-      expect(html).toContain('type="checkbox"');
+      expect(html).not.toContain('cost-model-legend');
     });
 
     it('disappears when advanced point is blurred or pointer leaves (active point is null)', () => {
@@ -635,7 +656,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).not.toContain('cost-hover-card');
     });
 
-    it('keeps four primary model controls and moves the remainder into a disclosure', () => {
+    it('keeps every advanced model control in the shared scrollable menu', () => {
       const modelOptions = Array.from({ length: 6 }, (_, index) => ({
         ...sampleAdvancedModelOptions[0]!,
         seriesId: `test-model-${index + 1}`,
@@ -647,25 +668,25 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         })),
       }));
       const html = renderToStaticMarkup(
-        createElement(AdvancedCostPlot, {
+        createElement(CostModelMenu, {
+          advanced: true,
+          open: true,
+          menuId: 'test-model-menu',
+          points: [],
           series: [],
           modelOptions,
-          selectedSourceCount: 4,
+          selectedProfileId: null,
+          hiddenProfileIds: new Set<string>(),
+          onToggleOpen: () => undefined,
+          onToggleSelect: () => undefined,
+          onUpdateHiddenProfileIds: () => undefined,
         }),
       );
 
-      expect(html).toContain('class="cost-model-primary-list"');
-      expect(html).toContain('aria-expanded="false"');
-      expect(html).toContain('>More models (2)</button>');
-      expect(html).toContain(
-        'aria-label="Additional models in advanced cost chart"',
-      );
-      expect(html.indexOf('Test Model 4')).toBeLessThan(
-        html.indexOf('More models (2)'),
-      );
-      expect(html.indexOf('Test Model 5')).toBeGreaterThan(
-        html.indexOf('More models (2)'),
-      );
+      expect(html).toContain('class="cost-model-menu-list"');
+      expect(html).not.toContain('cost-model-primary-list');
+      expect(html).not.toContain('More models');
+      expect(html.match(/data-series-id="test-model-/g)).toHaveLength(6);
     });
   });
 
@@ -684,6 +705,8 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('Source weights: 14.3% each.');
       expect(html).toContain('The frontier connects best score at each cost.');
       expect(html).toContain('>Advanced</button>');
+      expect(html).toContain('>Models</button>');
+      expect(html).not.toContain('cost-model-legend');
       expect(html).not.toContain(
         'Quality vs. Cost chart data and source contributions',
       );
