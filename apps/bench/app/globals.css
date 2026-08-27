@@ -1711,10 +1711,10 @@ details[open] > .evidence-group-summary::before {
 }
 
 .cost-chart-actions {
-  align-items: end;
+  align-items: center;
   display: flex;
-  flex-direction: column;
   gap: 0.5rem;
+  justify-content: flex-end;
 }
 
 .cost-chart-primary-actions {
@@ -2087,14 +2087,20 @@ details[open] > .evidence-group-summary::before {
 }
 
 .cost-model-overflow-trigger {
+  gap: 0.5rem;
   justify-content: center;
 }
 
-.cost-model-overflow-trigger::after {
-  content: '⌄';
-  font-size: 0.875rem;
-  line-height: 1;
-  margin-left: 0.5rem;
+.cost-model-overflow-chevron {
+  fill: none;
+  flex: none;
+  height: 0.75rem;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+  transition: transform 120ms ease;
+  width: 0.75rem;
 }
 
 .cost-model-overflow-trigger[aria-expanded='true'] {
@@ -2102,7 +2108,8 @@ details[open] > .evidence-group-summary::before {
   color: var(--accent);
 }
 
-.cost-model-overflow-trigger[aria-expanded='true']::after {
+.cost-model-overflow-trigger[aria-expanded='true']
+  .cost-model-overflow-chevron {
   transform: rotate(180deg);
 }
 
@@ -2248,6 +2255,7 @@ details[open] > .evidence-group-summary::before {
 @media (max-width: 40rem) {
   .cost-chart-actions {
     align-items: stretch;
+    flex-direction: column;
     width: 100%;
   }
 

@@ -706,14 +706,33 @@ test('uses an equal-width cost toolbar and full-width charts in both modes', asy
   await expect(page.locator('.cost-model-legend')).toHaveCount(0);
   const modeTrigger = page.locator('.cost-mode-toggle');
   const modelsTrigger = page.locator('.cost-model-overflow-trigger');
+  const modelsLabel = modelsTrigger.locator('span');
+  const modelsChevron = modelsTrigger.locator('svg');
+  const weightNote = page.locator('.cost-weight-note');
+  const weightBox = await weightNote.boundingBox();
   const modeBox = await modeTrigger.boundingBox();
   const modelsBox = await modelsTrigger.boundingBox();
+  const modelsLabelBox = await modelsLabel.boundingBox();
+  const modelsChevronBox = await modelsChevron.boundingBox();
+  expect(weightBox).not.toBeNull();
   expect(modeBox).not.toBeNull();
   expect(modelsBox).not.toBeNull();
-  if (modeBox && modelsBox) {
+  expect(modelsLabelBox).not.toBeNull();
+  expect(modelsChevronBox).not.toBeNull();
+  if (weightBox && modeBox && modelsBox) {
+    expect(weightBox.x + weightBox.width).toBeLessThanOrEqual(modeBox.x);
     expect(modeBox.x).toBeLessThan(modelsBox.x);
     expect(Math.abs(modeBox.width - modelsBox.width)).toBeLessThanOrEqual(1);
     expect(Math.abs(modeBox.height - modelsBox.height)).toBeLessThanOrEqual(1);
+  }
+  if (modelsLabelBox && modelsChevronBox) {
+    expect(
+      Math.abs(
+        modelsLabelBox.y +
+          modelsLabelBox.height / 2 -
+          (modelsChevronBox.y + modelsChevronBox.height / 2),
+      ),
+    ).toBeLessThanOrEqual(1);
   }
 
   const defaultLayout = await page.locator('.cost-curve-layout').boundingBox();
@@ -739,6 +758,17 @@ test('uses an equal-width cost toolbar and full-width charts in both modes', asy
 
   await modeTrigger.click();
   await expect(page.locator('.advanced-cost-chart')).toBeVisible();
+  const sourceControlsBox = await page
+    .locator('.advanced-source-controls')
+    .boundingBox();
+  const advancedModeBox = await modeTrigger.boundingBox();
+  expect(sourceControlsBox).not.toBeNull();
+  expect(advancedModeBox).not.toBeNull();
+  if (sourceControlsBox && advancedModeBox) {
+    expect(sourceControlsBox.x + sourceControlsBox.width).toBeLessThanOrEqual(
+      advancedModeBox.x,
+    );
+  }
   await expect(modelsTrigger).toHaveAttribute('aria-expanded', 'false');
   await modelsTrigger.click();
   await expect(

@@ -188,7 +188,14 @@ export function CostModelMenu({
         aria-controls={menuId}
         onClick={onToggleOpen}
       >
-        Models
+        <span>Models</span>
+        <svg
+          className="cost-model-overflow-chevron"
+          viewBox="0 0 12 12"
+          aria-hidden="true"
+        >
+          <path d="M2.5 4.25 6 7.75l3.5-3.5" />
+        </svg>
       </button>
       <div id={menuId} className="cost-model-overflow-menu" hidden={!open}>
         <ul
@@ -1085,6 +1092,33 @@ export function CostChart({
             <p>Lower cost is better. Higher Overall Score is better.</p>
           </div>
           <div className="cost-chart-actions">
+            {!advanced ? (
+              <p className="cost-weight-note">
+                {weightNote(COST_SOURCE_WEIGHTS)}
+              </p>
+            ) : (
+              <div
+                className="advanced-source-controls"
+                role="group"
+                aria-label="Sources used in the advanced cost chart"
+              >
+                {ADVANCED_COST_SOURCE_IDS.map((sourceId) => {
+                  const enabled = advancedSourceIds.has(sourceId);
+                  return (
+                    <button
+                      key={sourceId}
+                      type="button"
+                      className="advanced-source-toggle"
+                      data-source-id={sourceId}
+                      aria-pressed={enabled}
+                      onClick={() => toggleAdvancedSource(sourceId)}
+                    >
+                      {sourceName(sourceId)}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
             <div className="cost-chart-primary-actions">
               <button
                 type="button"
@@ -1119,33 +1153,6 @@ export function CostChart({
                 }
               />
             </div>
-            {!advanced ? (
-              <p className="cost-weight-note">
-                {weightNote(COST_SOURCE_WEIGHTS)}
-              </p>
-            ) : (
-              <div
-                className="advanced-source-controls"
-                role="group"
-                aria-label="Sources used in the advanced cost chart"
-              >
-                {ADVANCED_COST_SOURCE_IDS.map((sourceId) => {
-                  const enabled = advancedSourceIds.has(sourceId);
-                  return (
-                    <button
-                      key={sourceId}
-                      type="button"
-                      className="advanced-source-toggle"
-                      data-source-id={sourceId}
-                      aria-pressed={enabled}
-                      onClick={() => toggleAdvancedSource(sourceId)}
-                    >
-                      {sourceName(sourceId)}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
           </div>
         </div>
 

@@ -487,7 +487,8 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         }),
       );
 
-      expect(html).toContain('>Models</button>');
+      expect(html).toContain('>Models</span>');
+      expect(html).toContain('class="cost-model-overflow-chevron"');
       expect(html).toContain('aria-label="Models in advanced cost chart"');
       expect(html).toContain('type="checkbox"');
       expect(html).toContain('2/5');
@@ -705,7 +706,13 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('Source weights: 14.3% each.');
       expect(html).toContain('The frontier connects best score at each cost.');
       expect(html).toContain('>Advanced</button>');
-      expect(html).toContain('>Models</button>');
+      expect(html).toContain('>Models</span>');
+      expect(html.indexOf('Source weights: 14.3% each.')).toBeLessThan(
+        html.indexOf('>Advanced</button>'),
+      );
+      expect(html.indexOf('>Advanced</button>')).toBeLessThan(
+        html.indexOf('>Models</span>'),
+      );
       expect(html).not.toContain('cost-model-legend');
       expect(html).not.toContain(
         'Quality vs. Cost chart data and source contributions',
