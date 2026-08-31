@@ -17,6 +17,7 @@ import {
   getRepresentativeRows,
   isMainEligibleRow,
   profileById,
+  resolveSelectedProfileId,
   splitCostSeries,
   buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
@@ -217,6 +218,36 @@ describe('leaderboard view model', () => {
       'openai-gpt-5-6-sol-max',
       'openai-gpt-5-6-sol-high',
     ]);
+  });
+
+  it('falls back to the representative when a preset removes the selected profile', () => {
+    const modelId = 'openai-gpt-5-6-sol';
+    const representativeProfileId = 'openai-gpt-5-6-sol-max';
+    const requestedProfileId = 'openai-gpt-5-6-sol-high';
+
+    expect(
+      resolveSelectedProfileId(
+        productFixture,
+        modelId,
+        requestedProfileId,
+        representativeProfileId,
+      ),
+    ).toBe(requestedProfileId);
+
+    const productWithoutRequestedProfile = {
+      ...productFixture,
+      profiles: productFixture.profiles.filter(
+        ({ id }) => id !== requestedProfileId,
+      ),
+    };
+    expect(
+      resolveSelectedProfileId(
+        productWithoutRequestedProfile,
+        modelId,
+        requestedProfileId,
+        representativeProfileId,
+      ),
+    ).toBe(representativeProfileId);
   });
 
   it('keeps Included evidence profile-specific and Excluded evidence model-wide', () => {

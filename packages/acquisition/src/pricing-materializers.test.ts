@@ -86,4 +86,20 @@ describe('pricing materializers', () => {
     ]);
     expect(rows[1]?.metricId).toBe('cost-per-successful-task');
   });
+
+  it('omits superseded bare DeepSeek builds from LiveBench costs', () => {
+    const rows = materializeLiveBenchCosts(
+      'model,input_price_per_million,output_price_per_million,cost_per_successful_task\n' +
+        'deepseek-v4-flash,0.14,0.28,0.0161\n' +
+        'deepseek-v4-pro,0.435,0.87,0.0498\n' +
+        'gpt-5.6-sol-max,5,30,0.5070\n',
+      context,
+    );
+
+    expect(rows).toHaveLength(2);
+    expect(rows.map(({ model }) => model.rawName)).toEqual([
+      'gpt-5.6-sol-max',
+      'gpt-5.6-sol-max',
+    ]);
+  });
 });

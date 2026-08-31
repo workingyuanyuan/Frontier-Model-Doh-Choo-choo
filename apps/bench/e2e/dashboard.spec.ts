@@ -846,6 +846,32 @@ test('switches the scored preset from the model-count slider and keeps it in the
   await expect(count).not.toHaveText(defaultCount);
 });
 
+test('falls back when a preset removes the selected model profile', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const profileSelect = page.getByRole('combobox', {
+    name: 'Select profile for GPT-5.2 Codex',
+  });
+  await profileSelect.selectOption('openai-gpt-5-2-codex-default');
+  await expect(profileSelect).toHaveValue('openai-gpt-5-2-codex-default');
+
+  // The current product's 19-model preset keeps GPT-5.2 Codex high while
+  // removing the selected default profile.
+  await page.locator('#preset-model-count').fill('13');
+  await expect(page).toHaveURL(/preset=free-sources-19/u);
+
+  const row = page.getByRole('row', { name: /GPT-5\.2 Codex/u });
+  await expect(row).not.toContainText('openai-gpt-5-2-codex');
+  await expect(profileSelect).toHaveCount(0);
+
+  await row.getByRole('button').click();
+  await expect(
+    page.locator('[data-model-detail="openai-gpt-5-2-codex"]'),
+  ).toBeVisible();
+});
+
 test('discloses partial-coverage profiles in developer mode, outside the ranked table', async ({
   page,
 }) => {

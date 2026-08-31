@@ -9,6 +9,7 @@ import {
 } from '../lib/table-sort';
 import {
   getRepresentativeRows,
+  resolveSelectedProfileId,
   type LeaderboardRow,
   type ProductPreset,
   type PresetProductVersion,
@@ -83,8 +84,12 @@ export function Leaderboard({
   const activeRows = useMemo(
     () =>
       rows.map((representative) => {
-        const profileId =
-          modelProfiles[representative.modelId] ?? representative.profileId;
+        const profileId = resolveSelectedProfileId(
+          product,
+          representative.modelId,
+          modelProfiles[representative.modelId],
+          representative.profileId,
+        );
         const selected = product.leaderboard.find(
           (row) => row.profileId === profileId,
         );

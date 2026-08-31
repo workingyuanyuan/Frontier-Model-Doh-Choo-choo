@@ -440,6 +440,19 @@ export const getProfilesForModel = (
       return left.displayName.localeCompare(right.displayName);
     });
 
+export const resolveSelectedProfileId = (
+  product: ProductVersion,
+  modelId: string,
+  requestedProfileId: string | undefined,
+  representativeProfileId: string,
+): string =>
+  requestedProfileId &&
+  getProfilesForModel(product, modelId, representativeProfileId).some(
+    ({ id }) => id === requestedProfileId,
+  )
+    ? requestedProfileId
+    : representativeProfileId;
+
 export const getEvidenceForProfile = (
   product: ProductVersion,
   profileId: string,

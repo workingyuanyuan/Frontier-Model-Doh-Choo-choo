@@ -5,6 +5,7 @@ import {
   getProfileIdentity,
   profileById,
   getProfilesForModel,
+  resolveSelectedProfileId,
   type LeaderboardRow,
   type ProductPreset,
   type PresetProductVersion,
@@ -115,13 +116,18 @@ export function LeaderboardTable({
         </thead>
         <tbody>
           {rows.map((row) => {
-            const chosenProfileId = modelProfiles[row.modelId] ?? row.profileId;
-            const profile = profileById(product, chosenProfileId);
             const profiles = getProfilesForModel(
               product,
               row.modelId,
               row.profileId,
             );
+            const chosenProfileId = resolveSelectedProfileId(
+              product,
+              row.modelId,
+              modelProfiles[row.modelId],
+              row.profileId,
+            );
+            const profile = profileById(product, chosenProfileId);
             const isExpanded = expandedModelIds.includes(row.modelId);
             const activeRow =
               product.leaderboard.find(

@@ -1,6 +1,9 @@
 import { CostRecordSchema, type CostRecord } from '@llm-bench/benchmark-data';
 import { DEEPSWE_MODELS } from './deepswe-materializer.js';
-import { normalizeSourceEffort } from './materializer-utils.js';
+import {
+  isSupersededBuild,
+  normalizeSourceEffort,
+} from './materializer-utils.js';
 
 type Identity = { modelId: string; effort: string | null };
 
@@ -23,8 +26,6 @@ const AA_MODELS: Record<string, Identity> = {
 };
 
 const LIVEBENCH_MODELS: Record<string, Identity> = {
-  'deepseek-v4-flash': { modelId: 'deepseek-deepseek-v4-flash', effort: 'max' },
-  'deepseek-v4-pro': { modelId: 'deepseek-deepseek-v4-pro', effort: 'max' },
   'minimax-m3': { modelId: 'minimax-minimax-m3', effort: 'max' },
   'kimi-k2.6-thinking': { modelId: 'moonshot-kimi-k2-6', effort: 'max' },
   'qwen3.7-max': { modelId: 'alibaba-qwen3-7-max', effort: 'max' },
@@ -275,6 +276,7 @@ export function materializeLiveBenchCosts(
   return lines.flatMap((line) => {
     const row = parseCsvLine(line);
     const rawName = row[columns.model]!;
+    if (isSupersededBuild('livebench', rawName)) return [];
     const identity = LIVEBENCH_MODELS[rawName];
     if (!identity) return [];
     const input = Number(row[columns.input]);
