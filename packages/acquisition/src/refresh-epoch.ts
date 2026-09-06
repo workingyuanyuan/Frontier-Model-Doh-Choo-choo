@@ -165,12 +165,13 @@ ${input.comparisons
 ## Known unresolved
 
 - The Epoch Capabilities Index is a composite and stays \`EXCLUDED\`; it is
-  selection-only evidence and must not be double-counted in eight-dimension
+  selection-only evidence and must not be double-counted in five-dimension
   scoring.
 - \`mirrorcode.csv\` and \`mystery_game_puzzles.csv\` are present in the export but
   are not promoted: neither has an approved benchmark ID or dimension mapping.
 - \`gpqa-diamond\` is also published by Artificial Analysis. The cross-source
-  merge rule is not yet decided; see \`tasks/claude-code-plan.md\` L1.
+  selection rule is documented in \`docs/SPEC.md\` §4.3.1; apply source role,
+  completeness and the approved equal-standing score comparison.
 
 ${input.delta}`;
 };

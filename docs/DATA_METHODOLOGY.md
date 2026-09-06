@@ -111,13 +111,13 @@ Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中�
 
 主 Quality vs. Cost 預設圖排除語義不同的 API standardized series，只合併已物化的任務成本。各來源先對 cost 取自然對數，再在來源內 min-max 正規化至 0–100；0 為該站較低成本，100 為較高成本。
 
-權重為六個來源各 1/6（Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI）。Zapier 資料已保存但暫不採用，不進成本圖；Epoch 沒有成本。採用等權的理由：
+權重為七個來源各 1/7（Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、Zapier AutomationBench）；Epoch 沒有成本。採用等權的理由：
 
-1. 六個來源皆提供單次 task／test 的美元成本。
+1. 七個來源皆提供單次 task／test 的美元成本。
 2. min-max 正規化後混合的是各模型在各來源內的相對位置。
 3. 缺站時只在可用來源上重新正規化權重，不把缺值當零。
 
-X 軸為六來源加權正規化任務成本，Y 軸為五維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
+X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。每個模型在各來源取最佳表現的一筆成本。
 
 圖中的 frontier 是非支配集合（Pareto frontier）：成本由低至高掃描，只保留 Overall 高於所有更便宜 Profile 的點。此指標是比較輔助，不是美元估計或新 Benchmark 分數。
 

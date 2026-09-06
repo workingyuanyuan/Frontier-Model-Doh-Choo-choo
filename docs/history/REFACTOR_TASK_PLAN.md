@@ -1,5 +1,8 @@
 # 第二次重構任務計畫
 
+> 歷史封存（2026-09-06）。原路徑：`tasks/claude-code-plan.md`。本文保留當時的指令、狀態與數量，供考證；現行規則見 [文件入口](../README.md) 與 [操作手冊](../OPERATIONS.md)。
+> 結案證據：O1–O5、P1–P3、Q1–Q4 均已標記完成；提交 `e859b72` 記錄使用者在審核關卡 O 指示發布五維資料。下文關卡 O 的「未開始」是當時漏更新，保留原文供追溯。
+
 > 權威規格：`docs/SPEC.md`
 > 執行者：外部代理（Codex）
 
@@ -57,7 +60,7 @@ pnpm --filter @llm-bench/bench build
 
 ## 階段
 
-A 到 N 已完成，紀錄在 [docs/history/PHASE_A_TO_N.md](../docs/history/PHASE_A_TO_N.md)。
+A 到 N 已完成，紀錄在 [docs/history/PHASE_A_TO_N.md](PHASE_A_TO_N.md)。
 本文件持有 **O 之後**的 task。
 
 **所有審核關卡都由使用者人工執行，代理不得自行通過。**

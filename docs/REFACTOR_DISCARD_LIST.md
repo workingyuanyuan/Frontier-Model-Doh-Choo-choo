@@ -1,15 +1,6 @@
 # Stage 5 已捨棄項目
 
-本文件是重構後的負面架構清單：下列項目已移除或 Superseded，不是備援、可選安裝或未來相容承諾。若歷史文件仍提及它們，以 [第二次重構規格](SPEC.md) 為準；該規格未涵蓋的部分再參照 [架構](ARCHITECTURE.md)。
-
-> **本清單的負面範圍全部仍然有效**，第二次重構只增加項目、不解除任何一項。
->
-> 但本文件寫於 Stage 5，其中被描述為「現行」的機制已被第二次重構取代：
->
-> - **DRAFT／PUBLISHED pointer 已整套移除**，改為單一 `data/product/current.json`，由部署 commit 決定。見 `SPEC.md` §11。
-> - **不可變 `data/product/versions/*.json` 已刪除**。見 `SPEC.md` §8。
->
-> 遇到本文件描述現行機制的段落，一律以 `SPEC.md` 為準。
+本文件補充 [架構](ARCHITECTURE.md) 的已移除功能與相容邊界；現行流程見 [操作手冊](OPERATIONS.md)。產品使用單一 `data/product/current.json`，由 Git 保存接受的版本。
 
 ## 應用
 
@@ -32,7 +23,7 @@
 
 ## LiveBench 舊專用流程
 
-下列 alias、inventory、judgment、revision、aggregation、promotion、formal scoring、publication、weekly 與人工 override 流程均已捨棄。LiveBench 現在只是 `data/sources/livebench` 的一個來源，與其他站共用 Candidate、Evidence、CostRecord、mapping 和 Draft 流程。
+下列 alias、inventory、judgment、revision、aggregation、promotion、formal scoring、publication、weekly 與人工 override 流程均已捨棄。LiveBench 現在只是 `data/sources/livebench` 的一個來源，與其他站共用 Candidate、Evidence、CostRecord、mapping 和產品重建流程。
 
 不得恢復舊 `fetch:*livebench*`、`ingest:*livebench*`、`score:*livebench*`、`promote:*livebench*`、`edition` 或 Worker weekly root command。
 
@@ -42,7 +33,7 @@
 - PREVIEW／FORMAL、formal coverage、formal confidence 與 publication-enabled 狀態。
 - 舊 theme、locale、multi-page route、source admin 與 DB API contract。
 - Harness、tools、attempt 等被誤當 Product Profile 的舊語義。
-- 將 Composite index 直接投入八維的舊計分假設。
+- 將 Composite index 直接投入能力維度的舊計分假設。
 - Edition-bound video DTO、metadata、ranking CSV 與 render artifact。
 - **Coverage 比例與 8/8 顯示欄位**：覆蓋率百分比或維度計數欄位已移除；主榜改由 `display-set.json` 完整矩陣與五維無 N/A 門檻嚴格把關。
 - **ProductVersion 的 ESTIMATED 狀態**：ProductVersion schema 升級為 v3，已徹底刪除並拒絕 `status: "ESTIMATED"` / `ProductVersionStatus` 欄位。
@@ -50,7 +41,7 @@
 - **`frontier.json` 的 `compositeSources`**：舊有的 `compositeSources` 映射結構已整套移除，改為單一清單式配置。
 - **`evidence-detail.tsx` 獨立 Evidence 區塊**：已整套移除，改由統一的 Model Detail Panel 呈現維度分解與出處。
 
-~~現行狀態只有不可變 ProductVersion，以及人工控制的 DRAFT／PUBLISHED pointer。~~ **Superseded by SPEC §11**：改為單一 `data/product/current.json`，pointer 機制整套移除。
+產品使用單一 `data/product/current.json`；DRAFT／PUBLISHED pointer 與舊多版本檔路徑已移除。
 
 ## Package 與依賴
 

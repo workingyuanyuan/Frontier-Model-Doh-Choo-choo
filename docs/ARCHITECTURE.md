@@ -1,5 +1,7 @@
 # 架構
 
+本文件負責系統邊界與資料流；共用契約入口見 [文件索引](README.md)，操作步驟與完成標準見 [操作手冊](OPERATIONS.md)。
+
 ## 系統邊界
 
 LLM Bench 是一套靜態資料產品，不是資料庫應用。唯一支援中的應用與資料路徑為：
@@ -36,7 +38,7 @@ packages/benchmark-data
 - 英文、單一淺色主題、單頁 Dashboard。
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
 - Leaderboard、Quality vs. Cost、Five Dimensions 與 Included／Excluded Evidence。
-- 主畫面只顯示通過 `display-set.json` 完整矩陣且五個維度皆非 null 的模型；Developer mode 只列出被排除模型缺少的 benchmark 格子，不顯示聚合分數。
+- 主畫面只顯示通過 `display-set.json` 完整矩陣且五個維度皆非 null 的模型；Developer mode 提供缺格清單及獨立 partial-coverage 清單；後者顯示已有維度分數，不提供 Overall 或排名。
 - 靜態／standalone 建置不讀取 `data/sources` 或 `artifacts`。
 
 ### `packages/benchmark-data`
@@ -52,7 +54,7 @@ packages/benchmark-data
 - 保存真實 artifact bytes、SHA-256、byte length、locator 與取得方法。
 - 對照來源母體、分頁或人眼可見列數，產生完整性報告。
 - 驗證 Candidate／CostRecord 引用的 Evidence 存在。
-- 來源刷新只產生候選資料，不直接改變產品資料檔。
+- 來源刷新只產生候選資料，不直接改變產品資料檔。常態任務接著依核准政策重產集合、重建產品及驗證展示，由操作手冊定義完整交付。
 
 ### `data`
 
@@ -68,6 +70,9 @@ packages/benchmark-data
 
 ```text
 verified sources
+      │ coverage report + approved display-set policy
+      ▼
+ generated display-set.json
       │ build-current
       ▼
 data/product/current.json ──► apps/bench static build

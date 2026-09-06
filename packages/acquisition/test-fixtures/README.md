@@ -3,7 +3,7 @@
 Byte-for-byte copies of the `artifacts/` entries that the materializer
 tests read. `artifacts/` is content-addressed and deliberately kept out
 of Git (see `SPEC.md` §2), so a clean clone has no copy of it
-and `pnpm test` — a baseline validation command in `CLAUDE.md` — could not
+and `pnpm test` — a baseline validation command in `docs/OPERATIONS.md` — could not
 run without these.
 
 Each file keeps its original SHA-256 name, so a fixture can always be

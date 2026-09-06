@@ -1,8 +1,11 @@
 # LLM Bench 專案交接
 
+> 歷史封存（2026-09-06）。原路徑：`docs/PROJECT_HANDOFF.md`。本文保留當時的指令、狀態與數量，供考證；現行規則見 [文件入口](../README.md) 與 [操作手冊](../OPERATIONS.md)。
+> 本文起始於 2026-08-17，曾在後續迭代補寫，並非該日期的完整不可變快照。
+
 > 盤點日期：2026-08-17（Asia/Taipei）  
 > 接手對象：Claude Code / Codex agent  
-> 本文件是 **2026-08-17 當下的**現況摘要，屬歷史盤點紀錄，不是現行契約。第二次重構的現行唯一權威規格為 [`SPEC.md`](SPEC.md)；本文與規格衝突時一律以規格為準。
+> 本文件是 **2026-08-17 當下的**現況摘要，屬歷史盤點紀錄，不是現行契約。第二次重構的現行唯一權威規格為 [`SPEC.md`](../SPEC.md)；本文與規格衝突時一律以規格為準。
 
 ## 1. 一句話狀態
 
@@ -55,16 +58,16 @@
 
 ## 6. 資料與計分基線
 
-- 維度固定為 Agentic、Coding、Reasoning、Knowledge、Language（R18，見 [SPEC.md §4.1](SPEC.md)）。
+- 維度固定為 Agentic、Coding、Reasoning、Knowledge、Language（R18，見 [SPEC.md §4.1](../SPEC.md)）。
 - 每個 Benchmark 第一版只投入一個主要維度。
-- 缺失值保持 `null`／N/A，不填零。**Overall 只在五個維度全部有分數時才計算**（D2 之後的規則，見 [重構規格 §5.2](SPEC.md)）；任一維度缺值時 `overallScore` 為 `null`，不以已有維度取平均。
+- 缺失值保持 `null`／N/A，不填零。**Overall 只在五個維度全部有分數時才計算**（D2 之後的規則，見 [重構規格 §5.2](../SPEC.md)）；任一維度缺值時 `overallScore` 為 `null`，不以已有維度取平均。
 - Composite index 只用於 Frontier 選模／展示，不投入五維。
 - Product Profile 只按 reasoning effort 分離；其他 harness 設定留在 provenance。
 - Identity 只允許 canonical catalog 與 exact reviewed alias；不得 fuzzy match 或猜測新版。
 
 ## 7. 第二次重構收斂
 
-使用者已在 [`SPEC.md`](SPEC.md) 定案：
+使用者已在 [`SPEC.md`](../SPEC.md) 定案：
 
 1. 來源收斂至 Artificial Analysis、LiveBench、DeepSWE、Frontier Code；其他來源目錄凍結保留。
 2. Evidence 併入模型明細面板；保留排行榜、五維雷達圖與兩張性價比圖表。

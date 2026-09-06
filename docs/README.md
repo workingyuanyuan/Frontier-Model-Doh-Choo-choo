@@ -1,50 +1,41 @@
-# 文件索引
+# 文件入口
 
-## 接手時先讀
+從這裡找到目前產品、開發與代理工作的共用契約。
 
-| 文件                                                         | 狀態        | 用途                                           |
-| ------------------------------------------------------------ | ----------- | ---------------------------------------------- |
-| [SPEC.md](SPEC.md)                                           | **Binding** | 第二次重構的唯一權威規格（狀態：使用者已確認） |
-| [../tasks/claude-code-plan.md](../tasks/claude-code-plan.md) | **Current** | 第二次重構任務計畫契約                         |
-| [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)                     | Historical  | 2026-08-17 的現況盤點；與規格衝突時以規格為準  |
-| [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)         | **Binding** | 明確禁止恢復的功能、程式與操作路徑             |
+## 依任務閱讀
 
-## 現行權威規格與工具
+| 需要完成的事                   | 入口與權威範圍                                                                                                                          |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 使用看板、了解功能             | [專案 README](../README.md)                                                                                                             |
+| 理解系統與資料流               | [ARCHITECTURE.md](ARCHITECTURE.md)：workspace、runtime、資料生命週期與架構邊界                                                          |
+| 理解產品行為與詳細設計         | [SPEC.md](SPEC.md)：產品互動與尚未拆出的詳細設計契約、裁決依據                                                                          |
+| 判定資料、模型與成本           | [DATA_METHODOLOGY.md](DATA_METHODOLOGY.md)：Evidence、identity、effort、Frontier、成本                                                  |
+| 理解計分與展示資格             | [SCORING_METHODOLOGY.md](SCORING_METHODOLOGY.md)：benchmark 集合、五維、Overall、排名與缺值                                             |
+| 查 benchmark 維度              | [BENCHMARK_DIMENSION_MAPPING.md](BENCHMARK_DIMENSION_MAPPING.md)：逐 benchmark 的主要維度與理由                                         |
+| 查來源採用與擷取依據           | [BENCHMARK_SCORE_SOURCES.md](BENCHMARK_SCORE_SOURCES.md)：來源目錄；採用清單以 [sources.json](../data/mappings/sources.json) 為機器設定 |
+| 更新資料、修正程式、驗證與交付 | [OPERATIONS.md](OPERATIONS.md)：觸發條件、完成標準、異動判斷、審核與文件維護                                                            |
+| 查已移除架構的邊界             | [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)：架構邊界的補充清單                                                                |
+| 檢視集合覆蓋率                 | [COVERAGE_MATRIX_REPORT.md](COVERAGE_MATRIX_REPORT.md)：有日期的產出報告，重產方式見操作手冊                                            |
 
-| 文件                                                             | 管轄範圍                                           |
-| ---------------------------------------------------------------- | -------------------------------------------------- |
-| [SPEC.md](SPEC.md)                                               | 第二次重構唯一權威規格                             |
-| [ARCHITECTURE.md](ARCHITECTURE.md)                               | runtime、workspace 與資料流                        |
-| [DATA_METHODOLOGY.md](DATA_METHODOLOGY.md)                       | 來源、Evidence、identity、Profile、Frontier 與成本 |
-| [SCORING_METHODOLOGY.md](SCORING_METHODOLOGY.md)                 | 五維、缺值、衝突、Overall 與排序                   |
-| [OPERATIONS.md](OPERATIONS.md)                                   | 安裝、來源刷新、目前版本、審核與 Git 回復          |
-| [BENCHMARK_DIMENSION_MAPPING.md](BENCHMARK_DIMENSION_MAPPING.md) | Benchmark 到單一主要維度的映射                     |
-| [BENCHMARK_SCORE_SOURCES.md](BENCHMARK_SCORE_SOURCES.md)         | 可採用來源與人工覆核事項                           |
-| [COVERAGE_MATRIX_REPORT.md](COVERAGE_MATRIX_REPORT.md)           | 審核關卡 2 矩陣分析與 display-set 取捨報告工具產出 |
+## 權威與維護方式
 
-## 歷史與審計紀錄
+- 使用者已確認的新決定，必須同步到其所屬主題文件。上表定義各文件的權責；同一條規則只在負責的文件維護，其他入口連結引用。
+- `SPEC.md` 保留詳細產品設計與裁決依據；資料、計分、架構與操作的現行摘要分別由上表的主題文件負責。歷史階段、舊裁決與一次性任務不能覆蓋現行契約。
+- 程式與機器設定用來驗證實作；發現與文件不符時，先追查已核准決定與實作證據，再同步修正。無法裁決的產品政策問題交給使用者。
+- `history/` 是歷史考證，`refresh/` 是逐次資料審核紀錄；日期、當時數量與任務狀態均有其時點，不作為日常待辦。
+- 開發者與代理使用相同入口。`apps/bench/AGENTS.md` 是框架維護的局部技術指引，適用於該應用的程式工作；產品流程以本入口所列文件為準。
+- 每次任務同步文件、引用、狀態與驗證證據的完成條件，見 [操作手冊 §10](OPERATIONS.md#10-任務與文件維護)。
 
-`history/` 下的文件解釋過去做過什麼，不覆蓋現行規格：
+## 歷史與審核紀錄
 
-| 文件                                                 | 內容                                |
-| ---------------------------------------------------- | ----------------------------------- |
-| `history/REFACTOR_SPEC.md`                           | 第一次重構規格（狀態：Implemented） |
-| `history/STAGE5_PLAN.md`                             | 第一次重構的執行計畫與完成範圍      |
-| `history/STAGE5_TODO.md`                             | 第一次重構的待辦清單與完成紀錄      |
-| `history/DECISIONS.md`                               | PostgreSQL／Worker／Edition v1 決策 |
-| `history/DRAFT_REVIEW.md`                            | Draft 發布前代理審核                |
-| `history/GATE1_AUDIT.md`                             | 審核關卡 1 的來源逐列稽核           |
-| `history/F2_ACCEPTANCE.md`                           | 最終驗收報告                        |
-| `history/C6_GATE_1_REVIEW.md`                        | 審核關卡 1 審查總結                 |
-| `history/C6_MODEL_CANDIDATES.md`                     | 跨來源模型候選清單                  |
-| `history/N_A_IDENTITY_REMEDIATION_2026-07-19.md`     | identity 修正紀錄                   |
-| `history/MODELS_RELEASE_DATE_BACKFILL_2026-08-17.md` | `models.json` 發布日期回填對照      |
-| `history/EFFORT_INFERENCE_REVIEW_2026-08-18.md`      | 跨來源 effort 推測人工審查          |
-| `history/GPQA_AA_VS_EPOCH_2026-08-21.md`             | GPQA 跨來源逐模型對照               |
-| `history/N10_DESIGN_PROPOSAL.md`                     | 動態 benchmark 集合的設計推導       |
-| `history/ADVANCED_CHART_SOURCES_2026-08-22.md`       | 進階成本圖的來源量測                |
-| `history/PHASE3_DUPLICATE_BENCHMARKS_2026-08-22.md`  | 重複 benchmark 的跨來源比較         |
+| 文件                                                           | 範圍                                    |
+| -------------------------------------------------------------- | --------------------------------------- |
+| [REFACTOR_AGENT_ENTRY.md](history/REFACTOR_AGENT_ENTRY.md)     | 原根目錄 CLAUDE.md；重構時期的代理入口  |
+| [REFACTOR_TASK_PLAN.md](history/REFACTOR_TASK_PLAN.md)         | 第二次重構 O–Q 計畫與驗收紀錄           |
+| [PHASE_A_TO_N.md](history/PHASE_A_TO_N.md)                     | 第二次重構 A–N 階段紀錄                 |
+| [PROJECT_HANDOFF.md](history/PROJECT_HANDOFF.md)               | 起始於 2026-08-17、後續曾補寫的交接紀錄 |
+| [WORKSPACE_CLEANUP_PLAN.md](history/WORKSPACE_CLEANUP_PLAN.md) | 2026-08-24 工作區整理紀錄               |
+| [其他歷史文件](history/)                                       | 先前規格、設計推導與驗收證據            |
+| [刷新報告](refresh/)                                           | 逐次來源與產品異動、抽查及審核結果      |
 
-刷新報告依規格 §11.4 逐次產生於 `refresh/<YYYY-MM-DD>.md`。
-
-若文件互相衝突，優先順序為：`SPEC.md` > `../tasks/claude-code-plan.md` > `CLAUDE.md` / `REFACTOR_DISCARD_LIST.md` > `PROJECT_HANDOFF.md` > 其他文件 > 歷史文件。
+尚待資料量足夠後重驗的產品問題由 [SPEC.md §12](SPEC.md#12-已知風險與待查項目) 保持可追蹤；歷史紀錄中的未結項需先核對後續證據，不能直接當成新任務。

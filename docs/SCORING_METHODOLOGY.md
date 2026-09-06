@@ -26,11 +26,11 @@ Leaderboard 與 Category score table 使用上表 UI 順序，雷達圖為對應
 
 ## 有效結果與衝突
 
-同一 Benchmark、版本、模型、effort、metric 與歸屬 Profile 只能有一筆有效結果：
+同一 Benchmark、模型、effort、metric 與歸屬 Profile 只能有一筆有效結果。`benchmarkVersion` 保存來源版本證據；不可比較的不同測驗需用不同 benchmark ID 隔離。
 
 1. 套用來源角色優先級。
 2. `FULL` 優先於 `PARTIAL_SOURCE`。
-3. 完整新快照直接取代舊值；同條件以較新公開時間為準。
+3. 地位相同的跨來源重複量測取可比較分數較高者；完整新快照替換該站舊快照，其他條件相同再以公開／觀測時間裁決。
 4. Harness／No Harness 可比較且前述條件相同時取較高分，但不建立 Harness Profile。
 5. 每筆 Evidence 最多貢獻一次；未採用結果仍留在審計軌跡。
 
@@ -38,9 +38,9 @@ Leaderboard 與 Category score table 使用上表 UI 順序，雷達圖為對應
 
 對每個 reasoning-effort Product Profile：
 
-1. 選出每個 Benchmark 的有效 normalized result。
+1. 在所選 preset 的 benchmark 範圍內，選出每個 Benchmark 的有效 normalized result。
 2. 同一維度內，對已納入 Benchmark 分數取算術平均。
-3. 每個維度內的分數取算術平均；缺失維度保持 `null`。
+3. 沒有有效分量的維度保持 `null`。
 4. Overall 是五個維度分數的算術平均；缺失維度不會被填零。
 5. 產品主畫面只使用五個維度皆非 null 且通過顯示清單完整矩陣的 Profile。
 
@@ -67,9 +67,12 @@ Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profile
 
 ## 顯示門檻與 Developer mode
 
-- `data/mappings/display-set.json` 是人工維護的 benchmark 清單；建置流程只驗證 ID，不自動選擇內容。
+- `data/mappings/display-set-policy.json` 保存使用者核准的集合生成政策；`pnpm data:generate-display-set` 依來源覆蓋率產生 `display-set.json` 的多組 presets。
+- 每次刷新先依現有政策重產集合，再重建產品。來源約束、模型數範圍、必留模型與預設選擇政策的變更需使用者裁決；流程見 [操作手冊](OPERATIONS.md)。
+- 每個 preset 同時決定展示資格與計分基準：同表模型只使用該集合內的 benchmark，集合改變可能改變五維、Overall 與排名。每個 preset 在建置時獨立計分。
+- 前後比較需分開評估來源數值與集合組成的影響，並核對所選 effort 與代表 profile。
 - Profile 必須對清單每一個 benchmark 有 INCLUDED、非 null normalized score，且五個渲染維度都非 null，才能進主畫面。
-- Developer mode 只列出被排除模型缺少的 benchmark 格子；不計算或曝光 Overall／維度聚合，不補缺值、不發布資料。
+- Developer mode 的缺格清單列出缺失 benchmark；獨立 partial-coverage 清單依 R19 顯示已有維度分數，沒有 Overall 或排名，不與主榜混排。
 
 ## 綜合榜與成本不進五維
 

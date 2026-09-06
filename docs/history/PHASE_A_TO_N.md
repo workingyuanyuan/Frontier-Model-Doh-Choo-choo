@@ -1,7 +1,7 @@
 # 第二次重構 A–N 階段紀錄
 
-> A 到 N 的 task 全部完成。現行計畫是 [tasks/claude-code-plan.md](../../tasks/claude-code-plan.md)，
-> 權威規格是 [docs/SPEC.md](../SPEC.md)。
+> 歷史階段紀錄。後續 O–Q 計畫見 [封存計畫](REFACTOR_TASK_PLAN.md)；現行入口見 [文件索引](../README.md)。
+> 下文保留原任務狀態，包含 N6／N7 的未開始標記；實際審核與刷新需對照後續提交及報告，不據此宣告通過或重啟舊任務。
 
 ## 相依關係總覽
 

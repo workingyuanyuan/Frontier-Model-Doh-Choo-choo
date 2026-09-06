@@ -1131,8 +1131,8 @@ export const formatCoverageMatrixMarkdown = (
   lines.push('');
   lines.push(
     '> [!NOTE]',
-    '> This report is Gate 2 review material (`docs/SPEC.md` §5.3, `tasks/claude-code-plan.md` D3).',
-    '> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to inform manual configuration of `data/mappings/display-set.json`.',
+    '> This dated report records coverage analysis. Current generation and review procedures are in `docs/OPERATIONS.md`; the original D3 task is archived in `docs/history/PHASE_A_TO_N.md`.',
+    '> It details the empirical coverage tradeoff between retained benchmark count and complete qualified base-model count to support policy-based generation of `data/mappings/display-set.json` and review of its impact.',
     '> It does not modify `display-set.json`.',
     '> A model counts as complete when ONE of its product profiles carries every benchmark in the set. That is the same bar the main screen applies, so the complete-model count is the row count, not an upper bound on it. Counting a model complete because several of its profiles union to the set overstated it, since no single profile could then be scored.',
   );

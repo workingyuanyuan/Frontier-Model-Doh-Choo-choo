@@ -110,37 +110,9 @@ http://localhost:4000
 
 ## 資料更新流程
 
-如需從外部來源更新最新評測數據：
+資料更新預設完成來源查核與快照匯入、依核准政策重產 benchmark 集合、產品重建、展示驗證及異動報告。正常或輕微變化由代理完成後報告；重大計分口徑影響與無法解釋的變化備妥證據後交付審核。
 
-### 1. 擷取來源資料與成本
-
-```bash
-# 刷新各評測來源的最新資料
-pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
-
-# 產出推理強度對齊報告
-pnpm --filter @llm-bench/acquisition materialize:effort-reports
-```
-
-### 2. 產出整合資料檔
-
-```bash
-# 驗證來源資料並建立 data/product/current.json
-pnpm data:build-current
-```
-
-### 3. 建置與端到端測試
-
-```bash
-# 建置前端靜態頁面
-pnpm --filter @llm-bench/bench build
-
-# 執行 Playwright 測試驗證看板功能
-pnpm e2e
-```
+完整命令、完成標準與提交部署程序見 [操作手冊](docs/OPERATIONS.md)。架構、設計、開發與代理工作的共用入口是 [文件索引](docs/README.md)。
 
 ---
 
@@ -161,7 +133,7 @@ pnpm e2e          # 端到端自動化測試 (Playwright)
 | 文件                                                                                 | 說明                                     |
 | :----------------------------------------------------------------------------------- | :--------------------------------------- |
 | [文件索引 (docs/README.md)](docs/README.md)                                          | 完整文件清單與閱讀順序                   |
-| [設計規格 (SPEC.md)](docs/SPEC.md)                                                   | 第二次重構之權威規格與標準               |
+| [設計規格 (SPEC.md)](docs/SPEC.md)                                                   | 產品設計、詳細契約與裁決依據             |
 | [架構設計 (ARCHITECTURE.md)](docs/ARCHITECTURE.md)                                   | 系統架構、目錄分工與資料流說明           |
 | [資料方法論 (DATA_METHODOLOGY.md)](docs/DATA_METHODOLOGY.md)                         | 模型定義、設定判定與成本計算規則         |
 | [計分方法論 (SCORING_METHODOLOGY.md)](docs/SCORING_METHODOLOGY.md)                   | 分數標準化方式、缺值處理與綜合分數演算法 |
