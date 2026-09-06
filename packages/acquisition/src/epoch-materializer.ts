@@ -8,6 +8,11 @@ import {
   slugify,
 } from './materializer-utils.js';
 
+export const EPOCH_ECI_FILES = [
+  'epoch_capabilities_index/eci_scores.csv',
+  'epoch_capabilities_index.csv',
+] as const;
+
 function parseEciLine(line: string): string[] {
   const row: string[] = [];
   let cell = '';
@@ -196,15 +201,60 @@ export function materializeEpoch(
     'sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9';
 
   // 1. Load ECI capabilities index to map versions to display names
-  const eciText = zip.text('epoch_capabilities_index.csv');
+  const eciFile = EPOCH_ECI_FILES.find((name) => zip.names().includes(name));
+  const eciText = eciFile ? zip.text(eciFile) : undefined;
   if (eciText === undefined)
     throw new Error('epoch_capabilities_index.csv not found');
 
-  // ECI must be split naively by line to get exactly 719 rows
+  // The legacy export uses backslash escaping; the current export is standard CSV.
   const eciLines = eciText.split(/\r?\n/).filter((line) => line.trim());
-  const eciRows = eciLines.map(parseEciLine);
+  const modern = eciFile === EPOCH_ECI_FILES[0];
+  const parsedEci = modern ? parseCsv(eciText) : eciLines.map(parseEciLine);
+  const eciHeader = parsedEci[0] ?? [];
+  if (
+    modern &&
+    ['Model', 'Display name', 'eci', 'date'].some(
+      (key) => !eciHeader.includes(key),
+    )
+  ) {
+    throw new Error('Epoch ECI export is missing required columns');
+  }
+  const eciRows = modern
+    ? parsedEci.map((row, index) =>
+        index === 0
+          ? row
+          : [
+              row[eciHeader.indexOf('Model')] ?? '',
+              row[eciHeader.indexOf('eci')] ?? '',
+              row[eciHeader.indexOf('date')] ?? '',
+              '',
+              '',
+              '',
+              '',
+              '',
+              '',
+              '',
+              row[eciHeader.indexOf('Display name')] ?? '',
+            ],
+      )
+    : parsedEci;
 
   const versionToDisplayName = new Map<string, string>();
+  if (modern) {
+    const metadata = zip.text('model_metadata.csv');
+    if (metadata === undefined)
+      throw new Error('Epoch model_metadata.csv is missing');
+    const rows = parseCsv(metadata);
+    const header = rows[0] ?? [];
+    const versionIndex = header.indexOf('model_version');
+    const displayIndex = header.indexOf('display_name');
+    if (versionIndex < 0 || displayIndex < 0)
+      throw new Error('Epoch model metadata columns are missing');
+    for (const row of rows.slice(1)) {
+      if (row[versionIndex] && row[displayIndex])
+        versionToDisplayName.set(row[versionIndex]!, row[displayIndex]!);
+    }
+  }
   for (let i = 1; i < eciRows.length; i++) {
     const row = eciRows[i];
     if (!row) continue;
@@ -215,7 +265,7 @@ export function materializeEpoch(
     }
   }
 
-  // Parse ECI candidates (from row 1 to 719)
+  // Composite ECI rows remain excluded from dimension scoring.
   for (let i = 1; i < eciRows.length; i++) {
     const row = eciRows[i];
     if (!row) continue;
@@ -243,7 +293,7 @@ export function materializeEpoch(
       sourceId,
       sourceRole: 'ORGANIZER',
       benchmarkId: 'epoch-capabilities-index',
-      benchmarkVersion: '2026-07-16',
+      benchmarkVersion: modern ? null : '2026-07-16',
       model: {
         rawName,
         canonicalModelId,
@@ -279,13 +329,12 @@ export function materializeEpoch(
         rawScore: {
           evidenceId,
           method: 'EXPORT',
-          locator: `epoch_capabilities_index.csv[Model version="${version}"].ECI Score`,
+          locator: `${eciFile}[${modern ? 'Model' : 'Model version'}="${version}"].${modern ? 'eci' : 'ECI Score'}`,
         },
         sourceRole: {
           evidenceId,
           method: 'EXPORT',
-          locator:
-            'epoch_capabilities_index.csv (filename has no _external suffix)',
+          locator: `${eciFile} (Epoch-owned composite)`,
         },
       },
     });

@@ -5,11 +5,23 @@ import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
 import {
   extractLiveBenchMetadata,
+  liveBenchExportOnlyNames,
   materializeLiveBench,
   resolveLiveBenchModel,
 } from './livebench-materializer.js';
 
 describe('LiveBench materializer', () => {
+  it('counts only the two retired bare slugs as export-only, retaining Vision Exp', () => {
+    expect(
+      liveBenchExportOnlyNames(
+        'model,score\ndeepseek-v4-flash,1\ndeepseek-v4-pro,2\ndeepseek-v4-flash-vision-exp,3\ndeepseek-v4-flash-0731,4\ngpt-6-astra-max,5\n',
+      ),
+    ).toEqual(['deepseek-v4-flash', 'deepseek-v4-pro']);
+    expect(() => liveBenchExportOnlyNames('wrong,score\nx,1')).toThrow(
+      'model column',
+    );
+  });
+
   const jsPath = fileURLToPath(
     new URL(
       '../test-fixtures/7ad013edfc9ccaec78ad4a25dfebd0c8a1fa7f54744fc0e0354a1ffcf88c97db.js',

@@ -17,11 +17,11 @@
     "rows[].pass_rate": "normalizedScore",
     "rows[].reasoning_effort": "profile.effort"
   },
-  "lastVerifiedAt": "2026-08-18T13:27:24.031Z",
+  "lastVerifiedAt": "2026-09-06T03:26:52.394Z",
   "notes": [
-    "61 configurations / 24 models; every configuration is retained.",
-    "11 models expose multi-effort ladders.",
-    "Exact catalog identities only; 0 configuration rows remain unresolved.",
+    "70 configurations / 28 models; every configuration is retained.",
+    "13 models expose multi-effort ladders.",
+    "Exact catalog identities only; 4 configuration rows remain unresolved.",
     "Harness and n_runs remain provenance, not separate Product Profiles."
   ],
   "role": "ORGANIZER",

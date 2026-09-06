@@ -1,5 +1,16 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import type { ProductVersion } from '@llm-bench/benchmark-data';
+import {
+  withActivePreset,
+  getPartialCoverageRows,
+  isMainEligibleRow,
+} from '../lib/view-model';
+
+const currentProduct = JSON.parse(
+  readFileSync('data/product/current.json', 'utf8'),
+) as ProductVersion;
 
 test('switches and persists the icon-only color theme', async ({ page }) => {
   await page.goto('/');
@@ -849,27 +860,83 @@ test('switches the scored preset from the model-count slider and keeps it in the
 test('falls back when a preset removes the selected model profile', async ({
   page,
 }) => {
-  await page.goto('/');
-
+  const presets = currentProduct.presets.filter(
+    (preset) => !preset.requireAllSources,
+  );
+  const eligible = (preset: (typeof presets)[number]) =>
+    preset.leaderboard.filter((row) =>
+      isMainEligibleRow(currentProduct, row, preset),
+    );
+  const transition = presets.flatMap((from) =>
+    presets.flatMap((to) => {
+      if (from.id === to.id) return [];
+      const target = eligible(to);
+      return eligible(from)
+        .filter(
+          (row) =>
+            eligible(from).filter((other) => other.modelId === row.modelId)
+              .length > 1 &&
+            !target.some((other) => other.profileId === row.profileId) &&
+            target.some((other) => other.modelId === row.modelId),
+        )
+        .map((row) => ({ from, to, row }));
+    }),
+  )[0];
+  test.skip(
+    !transition,
+    'Current free-source presets have no multi-effort profile-removal transition; covered by dashboard unit fixtures.',
+  );
+  const { from, to, row: selected } = transition!;
+  const profile = currentProduct.profiles.find(
+    (profile) => profile.id === selected.profileId,
+  )!;
+  await page.goto(`/?preset=${from.id}`);
   const profileSelect = page.getByRole('combobox', {
-    name: 'Select profile for GPT-5.2 Codex',
+    name: `Select profile for ${profile.baseModelName}`,
   });
-  await profileSelect.selectOption('openai-gpt-5-2-codex-default');
-  await expect(profileSelect).toHaveValue('openai-gpt-5-2-codex-default');
-
-  // The current product's 19-model preset keeps GPT-5.2 Codex high while
-  // removing the selected default profile.
-  await page.locator('#preset-model-count').fill('13');
-  await expect(page).toHaveURL(/preset=free-sources-19/u);
-
-  const row = page.getByRole('row', { name: /GPT-5\.2 Codex/u });
-  await expect(row).not.toContainText('openai-gpt-5-2-codex');
-  await expect(profileSelect).toHaveCount(0);
-
-  await row.getByRole('button').click();
+  await profileSelect.selectOption(selected.profileId);
+  await expect(profileSelect).toHaveValue(selected.profileId);
+  // The slider's ordered positions follow the free-source model-count curve.
+  const ordered = [
+    ...new Set(currentProduct.presets.map((preset) => preset.targetModelCount)),
+  ].toSorted((a, b) => a - b);
+  await page
+    .locator('#preset-model-count')
+    .fill(String(ordered.indexOf(to.targetModelCount)));
+  await expect(page).toHaveURL(new RegExp(`preset=${to.id}(?:&|$)`));
+  const expected = eligible(to)
+    .filter((row) => row.modelId === selected.modelId)
+    .toSorted((a, b) => b.overallScore! - a.overallScore!)[0]!;
+  if (await profileSelect.count())
+    await expect(profileSelect).toHaveValue(expected.profileId);
+  const row = page
+    .locator('[data-ranked-row]')
+    .filter({ hasText: profile.baseModelName });
+  await row.getByRole('button').first().click();
   await expect(
-    page.locator('[data-model-detail="openai-gpt-5-2-codex"]'),
+    page.locator(`[data-model-detail="${selected.modelId}"]`),
   ).toBeVisible();
+});
+
+test('renders refreshed Astra with complete scores and the audited version', async ({
+  page,
+}) => {
+  await page.goto('/?preset=free-sources-19');
+  const row = page
+    .locator('[data-ranked-row]')
+    .filter({ hasText: 'GPT-6 Astra' });
+  await expect(row).toHaveCount(1);
+  await expect(row).toContainText('68.0');
+  await expect(row).not.toContainText('N/A');
+  await expect(page.locator('footer')).toContainText(currentProduct.versionId);
+  await row.getByRole('button').first().click();
+  const detail = page.locator('[data-model-detail="openai-gpt-6-astra"]');
+  await expect(detail).toBeVisible();
+  await expect(detail).toContainText('max');
+  await page.goto('/');
+  await expect(
+    page.locator('[data-ranked-row]').filter({ hasText: 'GPT-6 Astra' }),
+  ).toHaveCount(0);
 });
 
 test('discloses partial-coverage profiles in developer mode, outside the ranked table', async ({
@@ -885,7 +952,9 @@ test('discloses partial-coverage profiles in developer mode, outside the ranked 
 
   const partialRows = page.locator('[data-partial-coverage-row]');
   const partialCount = await partialRows.count();
-  expect(partialCount).toBe(31);
+  expect(partialCount).toBe(
+    getPartialCoverageRows(withActivePreset(currentProduct)).length,
+  );
   await expect(
     page.locator(`[data-partial-coverage-count="${partialCount}"]`),
   ).toBeVisible();

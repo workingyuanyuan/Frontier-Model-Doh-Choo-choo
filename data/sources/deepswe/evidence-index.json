@@ -1,41 +1,41 @@
 [
   {
-    "artifactPath": "artifacts/sha256/e1/e1589743e6deee2de58e989ba9f655e44003419d9ce8e9f013aaada41c0893cb.html",
-    "byteLength": 234932,
+    "artifactPath": "artifacts/sha256/8f/8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7.html",
+    "byteLength": 268313,
     "finalUrl": "https://deepswe.datacurve.ai/",
-    "id": "sha256:e1589743e6deee2de58e989ba9f655e44003419d9ce8e9f013aaada41c0893cb",
+    "id": "sha256:8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "leaderboard page",
       "version": "1.1",
       "visibleComparisonMatched": true,
-      "visibleModels": 24
+      "visibleModels": 28
     },
     "method": "DOM",
     "requestUrl": "https://deepswe.datacurve.ai/",
-    "retrievedAt": "2026-08-18T13:27:24.031Z",
+    "retrievedAt": "2026-09-06T03:26:52.394Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e1589743e6deee2de58e989ba9f655e44003419d9ce8e9f013aaada41c0893cb",
+    "sha256": "sha256:8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7",
     "sourceId": "deepswe"
   },
   {
-    "artifactPath": "artifacts/sha256/37/37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c.json",
-    "byteLength": 75918,
+    "artifactPath": "artifacts/sha256/00/005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415.json",
+    "byteLength": 94738,
     "finalUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "id": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+    "id": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
     "mediaType": "application/json",
     "metadata": {
       "captureScope": "complete leaderboard export",
-      "configurationRows": 61,
-      "distinctModels": 24,
-      "generatedAt": "2026-08-13T16:11:55.708636+00:00",
+      "configurationRows": 70,
+      "distinctModels": 28,
+      "generatedAt": "2026-09-03T22:24:37.984682+00:00",
       "version": "1.1"
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "retrievedAt": "2026-08-18T13:27:24.031Z",
+    "retrievedAt": "2026-09-06T03:26:52.394Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c",
+    "sha256": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
     "sourceId": "deepswe"
   }
 ]

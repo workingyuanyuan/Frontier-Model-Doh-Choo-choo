@@ -1,23 +1,25 @@
 # DeepSWE acquisition validation
 
 - Source: `https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json`
-- Evidence ID: `sha256:37423f93a3e51e86e32c64c9c676962e317533536721ba2602dd9f19370a0f6c`
-- Generated at: `2026-08-13T16:11:55.708Z`
+- Evidence ID: `sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415`
+- Generated at: `2026-09-03T22:24:37.984Z`
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Configuration rows extracted | 61 |
-| Distinct models represented | 24 |
-| Models with multi-effort reasoning ladders | 11 |
-| Canonically resolved candidates | 61 |
-| Canonically unresolved candidates | 0 |
+| Configuration rows extracted | 70 |
+| Distinct models represented | 28 |
+| Models with multi-effort reasoning ladders | 13 |
+| Canonically resolved candidates | 66 |
+| Canonically unresolved candidates | 4 |
 
 ## Multi-effort reasoning ladders preserved
 
 Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders are preserved unpruned during acquisition for advanced Pareto frontier curves:
 
+- gpt-6-astra (5 levels: xhigh, high, max, medium, low)
+- gemini-3-8-flash (2 levels: high, medium)
 - claude-opus-5 (5 levels: max, xhigh, high, medium, low)
 - gpt-5-6-sol (5 levels: max, xhigh, high, medium, low)
 - claude-fable-5 (5 levels: xhigh, max, high, medium, low)
@@ -25,10 +27,10 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 - grok-4-6 (4 levels: medium, xhigh, high, low)
 - gpt-5-6-luna (5 levels: max, xhigh, high, medium, low)
 - gpt-5-5 (4 levels: xhigh, high, medium, low)
+- gemini-3-7-flash (3 levels: medium, high, low)
 - claude-opus-4-8 (5 levels: max, xhigh, high, medium, low)
 - claude-sonnet-5 (5 levels: max, xhigh, high, medium, low)
 - glm-5-2 (2 levels: max, high)
-- gemini-3-7-flash (3 levels: medium, high, low)
 
 ## Role boundary & cost semantics
 
@@ -37,17 +39,17 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 
 ## Visible comparison
 
-- Fresh rendered page model count: 24
-- Complete export distinct model count: 24
+- Fresh rendered page model count: 28
+- Complete export distinct model count: 28
 - Result: matched
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Configuration rows | 53 | 61 | +8 |
-| Distinct models | 21 | 24 | +3 |
-| Materialized costs | 43 | 61 | +18 |
+| Configuration rows | 53 | 70 | +17 |
+| Distinct models | 21 | 28 | +7 |
+| Materialized costs | 43 | 66 | +23 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

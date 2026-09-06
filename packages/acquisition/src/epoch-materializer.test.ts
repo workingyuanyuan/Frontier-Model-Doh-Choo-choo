@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import AdmZip from 'adm-zip';
 import {
   CandidateResultSchema,
   normalizeProductEffort,
@@ -92,6 +93,71 @@ describe('decodeVersionSuffix', () => {
 });
 
 describe('Epoch AI materializer', () => {
+  const modernArchive = (
+    metadata = true,
+    header = 'Model,Display name,eci,date',
+  ) => {
+    const zip = new AdmZip();
+    zip.addFile(
+      'epoch_capabilities_index/eci_scores.csv',
+      Buffer.from(`${header}\nGPT-6 Astra,GPT-6 Astra,169.23,2026-09-03\n`),
+    );
+    if (metadata)
+      zip.addFile(
+        'model_metadata.csv',
+        Buffer.from(
+          'model_version,display_name\ngpt-6-astra_max,GPT-6 Astra (max)\ngpt-6-astra_none,GPT-6 Astra (none)\n',
+        ),
+      );
+    zip.addFile(
+      'chess_puzzles.csv',
+      Buffer.from(
+        'Model version,mean_score\ngpt-6-astra_max,0.7\ngpt-6-astra_none,0.1\n',
+      ),
+    );
+    return zip.toBuffer();
+  };
+
+  it('reads modern family ECI and uses metadata for exact run identities', () => {
+    const rows = materializeEpoch(modernArchive(), '2026-09-06T00:00:00.000Z');
+    CandidateResultSchema.array().parse(rows);
+    expect(rows).toHaveLength(3);
+    expect(rows[0]).toMatchObject({
+      benchmarkVersion: null,
+      rawScore: 169.23,
+      inclusion: 'EXCLUDED',
+      model: { canonicalModelId: 'openai-gpt-6-astra' },
+      profile: { effort: null },
+    });
+    expect(rows[0]!.provenance.rawScore!.locator).toContain(
+      'epoch_capabilities_index/eci_scores.csv',
+    );
+    expect(
+      rows
+        .slice(1)
+        .map((row) => [
+          row.model.canonicalModelId,
+          row.profile.effort,
+          row.normalizedScore,
+        ]),
+    ).toEqual([
+      ['openai-gpt-6-astra', 'max', 70],
+      ['openai-gpt-6-astra', 'non-reasoning', 10],
+    ]);
+  });
+
+  it('rejects modern exports without metadata or required ECI columns', () => {
+    expect(() =>
+      materializeEpoch(modernArchive(false), '2026-09-06T00:00:00.000Z'),
+    ).toThrow('model_metadata.csv');
+    expect(() =>
+      materializeEpoch(
+        modernArchive(true, 'Model,Display name,wrong,date'),
+        '2026-09-06T00:00:00.000Z',
+      ),
+    ).toThrow('required columns');
+  });
+
   it('materializes all structured rows from zip', () => {
     const zipPath = fileURLToPath(
       new URL(

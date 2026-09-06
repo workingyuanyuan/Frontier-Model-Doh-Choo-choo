@@ -15,13 +15,13 @@
     "route module leaderboard score": "rawScore and normalizedScore for task_completed_correctly",
     "route module version": "benchmarkVersion"
   },
-  "lastVerifiedAt": "2026-08-23T05:10:30.541Z",
+  "lastVerifiedAt": "2026-09-06T03:20:03.737Z",
   "notes": [
-    "AutomationBench version 1.0.6; 84 rows and maximum rank 84.",
+    "AutomationBench version 1.0.6; 95 rows and maximum rank 95.",
     "The route module is discovered by the content feature task_completed_correctly; deployment hashes are never hard-coded.",
     "API-mode task_completed_correctly is the strict headline metric; partial_credit is diagnostic-only and not materialized.",
     "User ruling 2026-08-22: all Zapier scores and costs remain EXCLUDED until a separate source-adoption review after the N phase.",
-    "Starred standard price ruling: *Gemini 3.7 Flash launch promo: $0.30 / task through Dec 31, 2026 ($0.75 in / $3.75 out per MTok). Ranking and Cost / task reflect standard list pricing; the promo is noted but does not affect rank.",
+    "Starred standard price ruling: *Promotional pricing is available for both Gemini models; Ranking and Cost / task reflect standard list pricing. Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026. Gemini 3.8 Flash: $0.27 (Medium) / $0.31 (High) per task.",
     "Raw — means missing cost and emits no CostRecord.",
     "Dedicated-deployment price ruling: †Dedicated-deployment pricing; not directly comparable to per-token API cost. The score value remains preserved in the excluded candidate, but the incomparable cost emits no CostRecord."
   ],
@@ -30,6 +30,6 @@
   "sourceId": "zapier-automationbench",
   "targetUrls": [
     "https://zapier.com/benchmarks",
-    "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.DiRrazN8.mjs"
+    "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.BaX_1WYu.mjs"
   ]
 }

@@ -80,6 +80,10 @@ JSON-LD 與官方靜態 JSON；未提供 DOM 核對結果時會拒絕標記完�
 本次範圍內各站完成後執行 `materialize:effort-reports`；它只替換 validation report 中
 標記過的推測區段，保留每站刷新產生的可見母體核對與前後 delta。
 
+LiveBench 的可見母體以啟用 Include finetunes 後的頁面核對。2026-09-06 匯出仍保留兩個已不在畫面的 bare slugs：`deepseek-v4-flash`、`deepseek-v4-pro`；腳本僅精確扣除這兩筆再比對可見數，不能用前綴排除仍可見的 Vision Exp。原始匯出列仍保留。若來源改變此關係，重新查核畫面與匯出，不調整人工數字以繞過檢查。
+
+Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabilities_index/eci_scores.csv`；目前格式必須有 `model_metadata.csv` 對照 direct benchmark run version。family-level ECI 的日期是模型日期，不是檔位或 benchmark 版本；未宣告版本保存 null，綜合指數保持 EXCLUDED。
+
 刷新完成後逐站檢查：
 
 - artifact 是來源回傳的真實 bytes，SHA-256 與 byte length 相符。
@@ -248,7 +252,11 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 
 ## 8. Artifact 保存
 
-`artifacts/` 不進 Git。每次成功擷取後應把內容定址 bytes 同步至耐久儲存；Evidence metadata 不能取代原始 artifact。artifact store 暫時不可用時，新快照不得標為驗證完成。
+本流程的「耐久儲存」指既有本機 artifact store：工作目錄下的 `artifacts/sha256/<SHA-256 前兩碼>/<完整 SHA-256><副檔名>`。擷取程序將來源回傳的原始 bytes 依內容 SHA-256 寫入此處，供後續溯源與重新物化；檔案須在程序結束後持續保留，不作為可隨任務清除的暫存。架構依據見 [ARCHITECTURE 的 artifacts 說明](ARCHITECTURE.md#artifacts)，寫入實作見 [`writeContentAddressedArtifact`](../packages/acquisition/src/index.ts) 與 [`captureArtifact`](../packages/acquisition/src/refresh-utils.ts)。
+
+每次成功擷取後，依本次快照 Evidence 的 `artifactPath` 回讀本機原始檔，核對 SHA-256 與 `byteLength`；全部相符才算完成 artifact 保存驗證。`artifacts/` 不進 Git，Evidence metadata 不能取代原始 artifact。若本次快照所需檔案缺失、無法讀寫或完整性不符，新快照不得標為驗證完成；報告須列出具體路徑與失敗證據。
+
+現行流程未要求第二份外部備份，也未定義遠端儲存服務或同步命令。本機保存與上述驗證完成，即滿足本節要求；不得僅因沒有外部同步位置而判定使用者欠缺儲存設定或阻擋完成。另有使用者明確要求或已核准的備份政策時，才依其指定的目的地、操作方式與驗收條件執行額外備份。
 
 ## 9. 已移除命令
 

@@ -4,8 +4,46 @@ import { describe, expect, it } from 'vitest';
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
 import { materializeDeepSwe } from './deepswe-materializer.js';
+import { materializeDeepSweCosts } from './pricing-materializers.js';
 
 describe('DeepSWE materializer', () => {
+  it('resolves Astra scores and costs to the same model and effort', () => {
+    const json = JSON.stringify({
+      generated_at: '2026-09-03T00:00:00Z',
+      rows: [
+        {
+          model: 'gpt-6-astra',
+          reasoning_effort: 'xhigh',
+          harness: 'mini-swe-agent',
+          config: 'astra-xhigh',
+          pass_rate: 0.74,
+          mean_cost_usd: 6.52,
+        },
+      ],
+    });
+    const context = {
+      evidenceId: `sha256:${'a'.repeat(64)}`,
+      sourceUrl:
+        'https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json',
+    };
+    const score = materializeDeepSwe(json, '2026-09-06T00:00:00Z', context)
+      .candidates[0]!;
+    const costs = materializeDeepSweCosts(json, {
+      ...context,
+      observedAt: '2026-09-06T00:00:00Z',
+      method: 'API_RESPONSE',
+    });
+    expect(score.model.canonicalModelId).toBe('openai-gpt-6-astra');
+    expect(score.profile.effort).toBe('xhigh');
+    expect(score.rawScore).toBe(74);
+    expect(costs).toHaveLength(1);
+    expect(costs[0]).toMatchObject({
+      model: { canonicalModelId: 'openai-gpt-6-astra' },
+      profile: { effort: 'xhigh' },
+      cost: 6.52,
+    });
+  });
+
   const jsonPath = fileURLToPath(
     new URL(
       '../test-fixtures/c4be4303194e8c91a6033b7e03cc1952845817412daaef42cab8679797191c3f.json',

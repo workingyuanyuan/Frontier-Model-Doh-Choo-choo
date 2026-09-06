@@ -4,8 +4,268 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:claude-fable-5-1-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1"
+    },
+    "normalizedScore": 50.339999999999996,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "claude-code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Claude Fable 5.1\"],efforts[\"Claude Fable 5.1\"],data[\"Claude Fable 5.1\"][\"high\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Claude Fable 5.1\"][\"high\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.5034,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:claude-fable-5-1-low",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1"
+    },
+    "normalizedScore": 49.82,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "claude-code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Claude Fable 5.1\"],efforts[\"Claude Fable 5.1\"],data[\"Claude Fable 5.1\"][\"low\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Claude Fable 5.1\"][\"low\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4982,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:claude-fable-5-1-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1"
+    },
+    "normalizedScore": 50.28,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "claude-code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Claude Fable 5.1\"],efforts[\"Claude Fable 5.1\"],data[\"Claude Fable 5.1\"][\"max\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Claude Fable 5.1\"][\"max\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.5028,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:claude-fable-5-1-medium",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1"
+    },
+    "normalizedScore": 50.91,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "claude-code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Claude Fable 5.1\"],efforts[\"Claude Fable 5.1\"],data[\"Claude Fable 5.1\"][\"medium\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Claude Fable 5.1\"][\"medium\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.5091,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:claude-fable-5-1-xhigh",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1"
+    },
+    "normalizedScore": 48.730000000000004,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "claude-code",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Claude Fable 5.1\"],efforts[\"Claude Fable 5.1\"],data[\"Claude Fable 5.1\"][\"xhigh\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Claude Fable 5.1\"][\"xhigh\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4873,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-fable-5-high",
@@ -22,7 +282,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 52.73,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -34,12 +294,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Fable 5\"],efforts[\"Claude Fable 5\"],data[\"Claude Fable 5\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Fable 5\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -56,8 +316,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-fable-5-low",
@@ -74,7 +334,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 48.010000000000005,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -86,12 +346,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Fable 5\"],efforts[\"Claude Fable 5\"],data[\"Claude Fable 5\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Fable 5\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -108,8 +368,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-fable-5-max",
@@ -126,7 +386,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 51.57000000000001,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -138,12 +398,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Fable 5\"],efforts[\"Claude Fable 5\"],data[\"Claude Fable 5\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Fable 5\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -160,8 +420,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-fable-5-medium",
@@ -178,7 +438,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 49.82,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -190,12 +450,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Fable 5\"],efforts[\"Claude Fable 5\"],data[\"Claude Fable 5\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Fable 5\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -212,8 +472,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-fable-5-xhigh",
@@ -230,7 +490,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 53.480000000000004,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -242,12 +502,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Fable 5\"],efforts[\"Claude Fable 5\"],data[\"Claude Fable 5\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Fable 5\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -264,8 +524,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-6-high",
@@ -282,7 +542,7 @@
       "rawName": "Claude Opus 4.6"
     },
     "normalizedScore": 26.640000000000004,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -294,12 +554,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.6\"],efforts[\"Claude Opus 4.6\"],data[\"Claude Opus 4.6\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.6\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -316,8 +576,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-6-low",
@@ -334,7 +594,7 @@
       "rawName": "Claude Opus 4.6"
     },
     "normalizedScore": 18.310000000000002,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -346,12 +606,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.6\"],efforts[\"Claude Opus 4.6\"],data[\"Claude Opus 4.6\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.6\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -368,8 +628,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-6-medium",
@@ -386,7 +646,7 @@
       "rawName": "Claude Opus 4.6"
     },
     "normalizedScore": 23.669999999999998,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -398,12 +658,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.6\"],efforts[\"Claude Opus 4.6\"],data[\"Claude Opus 4.6\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.6\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -420,8 +680,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-7-high",
@@ -438,7 +698,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 35.17,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -450,12 +710,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.7\"],efforts[\"Claude Opus 4.7\"],data[\"Claude Opus 4.7\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.7\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -472,8 +732,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-7-low",
@@ -490,7 +750,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 27.61,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -502,12 +762,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.7\"],efforts[\"Claude Opus 4.7\"],data[\"Claude Opus 4.7\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.7\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -524,8 +784,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-7-max",
@@ -542,7 +802,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 38.54,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -554,12 +814,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.7\"],efforts[\"Claude Opus 4.7\"],data[\"Claude Opus 4.7\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.7\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -576,8 +836,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-7-medium",
@@ -594,7 +854,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 28.910000000000004,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -606,12 +866,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.7\"],efforts[\"Claude Opus 4.7\"],data[\"Claude Opus 4.7\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.7\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -628,8 +888,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-7-xhigh",
@@ -646,7 +906,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 34.910000000000004,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -658,12 +918,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.7\"],efforts[\"Claude Opus 4.7\"],data[\"Claude Opus 4.7\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.7\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -680,8 +940,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-8-high",
@@ -698,7 +958,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 41.02,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -710,12 +970,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.8\"],efforts[\"Claude Opus 4.8\"],data[\"Claude Opus 4.8\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.8\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -732,8 +992,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-8-low",
@@ -750,7 +1010,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 35.14,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -762,12 +1022,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.8\"],efforts[\"Claude Opus 4.8\"],data[\"Claude Opus 4.8\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.8\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -784,8 +1044,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-8-max",
@@ -802,7 +1062,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 46.5,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -814,12 +1074,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.8\"],efforts[\"Claude Opus 4.8\"],data[\"Claude Opus 4.8\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.8\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -836,8 +1096,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-8-medium",
@@ -854,7 +1114,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 40.46,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -866,12 +1126,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.8\"],efforts[\"Claude Opus 4.8\"],data[\"Claude Opus 4.8\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.8\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -888,8 +1148,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-4-8-xhigh",
@@ -906,7 +1166,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 45.49,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -918,12 +1178,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 4.8\"],efforts[\"Claude Opus 4.8\"],data[\"Claude Opus 4.8\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 4.8\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -940,8 +1200,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-5-high",
@@ -958,7 +1218,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 47.99,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -970,12 +1230,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 5\"],efforts[\"Claude Opus 5\"],data[\"Claude Opus 5\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 5\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -992,8 +1252,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-5-low",
@@ -1010,7 +1270,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 41.949999999999996,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1022,12 +1282,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 5\"],efforts[\"Claude Opus 5\"],data[\"Claude Opus 5\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 5\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1044,8 +1304,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-5-max",
@@ -1062,7 +1322,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 48.04,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1074,12 +1334,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 5\"],efforts[\"Claude Opus 5\"],data[\"Claude Opus 5\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 5\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1096,8 +1356,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-5-medium",
@@ -1114,7 +1374,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 53.38,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1126,12 +1386,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 5\"],efforts[\"Claude Opus 5\"],data[\"Claude Opus 5\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 5\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1148,8 +1408,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-opus-5-xhigh",
@@ -1166,7 +1426,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 43.65,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1178,12 +1438,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Opus 5\"],efforts[\"Claude Opus 5\"],data[\"Claude Opus 5\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Opus 5\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1200,8 +1460,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-4-6-high",
@@ -1218,7 +1478,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 23.47,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1230,12 +1490,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 4.6\"],efforts[\"Claude Sonnet 4.6\"],data[\"Claude Sonnet 4.6\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 4.6\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1252,8 +1512,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-4-6-low",
@@ -1270,7 +1530,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 15.03,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1282,12 +1542,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 4.6\"],efforts[\"Claude Sonnet 4.6\"],data[\"Claude Sonnet 4.6\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 4.6\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1304,8 +1564,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-4-6-max",
@@ -1322,7 +1582,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 24.310000000000002,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1334,12 +1594,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 4.6\"],efforts[\"Claude Sonnet 4.6\"],data[\"Claude Sonnet 4.6\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 4.6\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1356,8 +1616,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-4-6-medium",
@@ -1374,7 +1634,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 21.099999999999998,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1386,12 +1646,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 4.6\"],efforts[\"Claude Sonnet 4.6\"],data[\"Claude Sonnet 4.6\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 4.6\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1408,8 +1668,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-5-high",
@@ -1426,7 +1686,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 39.35,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1438,12 +1698,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 5\"],efforts[\"Claude Sonnet 5\"],data[\"Claude Sonnet 5\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 5\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1460,8 +1720,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-5-low",
@@ -1478,7 +1738,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 28.71,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1490,12 +1750,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 5\"],efforts[\"Claude Sonnet 5\"],data[\"Claude Sonnet 5\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 5\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1512,8 +1772,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-5-max",
@@ -1530,7 +1790,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 42.36,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1542,12 +1802,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 5\"],efforts[\"Claude Sonnet 5\"],data[\"Claude Sonnet 5\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 5\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1564,8 +1824,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-5-medium",
@@ -1582,7 +1842,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 35.199999999999996,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1594,12 +1854,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 5\"],efforts[\"Claude Sonnet 5\"],data[\"Claude Sonnet 5\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 5\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1616,8 +1876,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:claude-sonnet-5-xhigh",
@@ -1634,7 +1894,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 42.730000000000004,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1646,12 +1906,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Claude Sonnet 5\"],efforts[\"Claude Sonnet 5\"],data[\"Claude Sonnet 5\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Claude Sonnet 5\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1668,8 +1928,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:composer-2-5-none",
@@ -1686,7 +1946,7 @@
       "rawName": "Composer 2.5"
     },
     "normalizedScore": 25.64,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1698,12 +1958,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Composer 2.5\"],efforts[\"Composer 2.5\"],data[\"Composer 2.5\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Composer 2.5\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1720,8 +1980,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:deepseek-v4-flash-0731-high",
@@ -1738,7 +1998,7 @@
       "rawName": "DeepSeek V4 Flash 0731"
     },
     "normalizedScore": 18.8,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1750,12 +2010,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"DeepSeek V4 Flash 0731\"],efforts[\"DeepSeek V4 Flash 0731\"],data[\"DeepSeek V4 Flash 0731\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"DeepSeek V4 Flash 0731\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1772,8 +2032,60 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:deepseek-v4-pro-0813-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-pro",
+      "profileId": "deepseek-deepseek-v4-pro-high",
+      "rawName": "DeepSeek V4 Pro 0813"
+    },
+    "normalizedScore": 28.549999999999997,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "chisel",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"DeepSeek V4 Pro 0813\"],efforts[\"DeepSeek V4 Pro 0813\"],data[\"DeepSeek V4 Pro 0813\"][\"high\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"DeepSeek V4 Pro 0813\"][\"high\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.2855,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:deepseek-v4-pro-none",
@@ -1790,7 +2102,7 @@
       "rawName": "DeepSeek V4 Pro"
     },
     "normalizedScore": 17.64,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1802,12 +2114,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"DeepSeek V4 Pro\"],efforts[\"DeepSeek V4 Pro\"],data[\"DeepSeek V4 Pro\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"DeepSeek V4 Pro\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1824,8 +2136,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gemini-3-6-flash-high",
@@ -1842,7 +2154,7 @@
       "rawName": "Gemini 3.6 Flash"
     },
     "normalizedScore": 33.69,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1854,12 +2166,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Gemini 3.6 Flash\"],efforts[\"Gemini 3.6 Flash\"],data[\"Gemini 3.6 Flash\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Gemini 3.6 Flash\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1876,8 +2188,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gemini-3-6-flash-low",
@@ -1894,7 +2206,7 @@
       "rawName": "Gemini 3.6 Flash"
     },
     "normalizedScore": 22.82,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1906,12 +2218,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Gemini 3.6 Flash\"],efforts[\"Gemini 3.6 Flash\"],data[\"Gemini 3.6 Flash\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Gemini 3.6 Flash\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1928,8 +2240,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gemini-3-6-flash-medium",
@@ -1946,7 +2258,7 @@
       "rawName": "Gemini 3.6 Flash"
     },
     "normalizedScore": 34.37,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1958,12 +2270,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Gemini 3.6 Flash\"],efforts[\"Gemini 3.6 Flash\"],data[\"Gemini 3.6 Flash\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Gemini 3.6 Flash\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -1980,8 +2292,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gemini-3-7-flash-high",
@@ -1998,7 +2310,7 @@
       "rawName": "Gemini 3.7 Flash"
     },
     "normalizedScore": 42.230000000000004,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2010,12 +2322,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Gemini 3.7 Flash\"],efforts[\"Gemini 3.7 Flash\"],data[\"Gemini 3.7 Flash\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Gemini 3.7 Flash\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2032,8 +2344,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gemini-3-7-flash-low",
@@ -2050,7 +2362,7 @@
       "rawName": "Gemini 3.7 Flash"
     },
     "normalizedScore": 36.91,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2062,12 +2374,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Gemini 3.7 Flash\"],efforts[\"Gemini 3.7 Flash\"],data[\"Gemini 3.7 Flash\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Gemini 3.7 Flash\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2084,8 +2396,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gemini-3-7-flash-medium",
@@ -2102,7 +2414,7 @@
       "rawName": "Gemini 3.7 Flash"
     },
     "normalizedScore": 43.59,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2114,12 +2426,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Gemini 3.7 Flash\"],efforts[\"Gemini 3.7 Flash\"],data[\"Gemini 3.7 Flash\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Gemini 3.7 Flash\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2136,8 +2448,112 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Gemini 3.8 Flash"
+    },
+    "normalizedScore": 37.96,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "chisel",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Gemini 3.8 Flash\"],efforts[\"Gemini 3.8 Flash\"],data[\"Gemini 3.8 Flash\"][\"high\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Gemini 3.8 Flash\"][\"high\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.3796,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gemini-3-8-flash-medium",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Gemini 3.8 Flash"
+    },
+    "normalizedScore": 41.19,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "chisel",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Gemini 3.8 Flash\"],efforts[\"Gemini 3.8 Flash\"],data[\"Gemini 3.8 Flash\"][\"medium\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Gemini 3.8 Flash\"][\"medium\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4119,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:glm-5-2-none",
@@ -2154,7 +2570,7 @@
       "rawName": "GLM 5.2"
     },
     "normalizedScore": 24.5,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2166,12 +2582,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GLM 5.2\"],efforts[\"GLM 5.2\"],data[\"GLM 5.2\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GLM 5.2\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2188,8 +2604,112 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:glm-5-3-flash-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM 5.3 Flash"
+    },
+    "normalizedScore": 31.830000000000002,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "chisel",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GLM 5.3 Flash\"],efforts[\"GLM 5.3 Flash\"],data[\"GLM 5.3 Flash\"][\"max\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GLM 5.3 Flash\"][\"max\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.3183,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:glm-5-3-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM 5.3"
+    },
+    "normalizedScore": 40.14,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "chisel",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GLM 5.3\"],efforts[\"GLM 5.3\"],data[\"GLM 5.3\"][\"max\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GLM 5.3\"][\"max\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4014,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-4-mini-high",
@@ -2206,7 +2726,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 23.080000000000002,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2218,12 +2738,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.4-mini\"],efforts[\"GPT-5.4-mini\"],data[\"GPT-5.4-mini\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.4-mini\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2240,8 +2760,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-4-mini-low",
@@ -2258,7 +2778,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 9.25,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2270,12 +2790,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.4-mini\"],efforts[\"GPT-5.4-mini\"],data[\"GPT-5.4-mini\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.4-mini\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2292,8 +2812,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-4-mini-medium",
@@ -2310,7 +2830,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 20.78,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2322,12 +2842,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.4-mini\"],efforts[\"GPT-5.4-mini\"],data[\"GPT-5.4-mini\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.4-mini\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2344,8 +2864,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-4-mini-xhigh",
@@ -2362,7 +2882,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 27.04,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2374,12 +2894,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.4-mini\"],efforts[\"GPT-5.4-mini\"],data[\"GPT-5.4-mini\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.4-mini\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2396,8 +2916,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-5-high",
@@ -2414,7 +2934,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 40.56,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2426,12 +2946,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.5\"],efforts[\"GPT-5.5\"],data[\"GPT-5.5\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.5\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2448,8 +2968,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-5-low",
@@ -2466,7 +2986,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 30.55,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2478,12 +2998,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.5\"],efforts[\"GPT-5.5\"],data[\"GPT-5.5\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.5\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2500,8 +3020,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-5-medium",
@@ -2518,7 +3038,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 36.6,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2530,12 +3050,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.5\"],efforts[\"GPT-5.5\"],data[\"GPT-5.5\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.5\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2552,8 +3072,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-5-xhigh",
@@ -2570,7 +3090,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 42.96,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2582,12 +3102,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.5\"],efforts[\"GPT-5.5\"],data[\"GPT-5.5\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.5\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2604,8 +3124,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-luna-high",
@@ -2622,7 +3142,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 35.89,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2634,12 +3154,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Luna\"],efforts[\"GPT-5.6 Luna\"],data[\"GPT-5.6 Luna\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Luna\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2656,8 +3176,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-luna-low",
@@ -2674,7 +3194,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 15.379999999999999,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2686,12 +3206,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Luna\"],efforts[\"GPT-5.6 Luna\"],data[\"GPT-5.6 Luna\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Luna\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2708,8 +3228,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-luna-max",
@@ -2726,7 +3246,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 39.81,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2738,12 +3258,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Luna\"],efforts[\"GPT-5.6 Luna\"],data[\"GPT-5.6 Luna\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Luna\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2760,8 +3280,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-luna-medium",
@@ -2778,7 +3298,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 25.740000000000002,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2790,12 +3310,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Luna\"],efforts[\"GPT-5.6 Luna\"],data[\"GPT-5.6 Luna\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Luna\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2812,8 +3332,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-luna-xhigh",
@@ -2830,7 +3350,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 38.91,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2842,12 +3362,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Luna\"],efforts[\"GPT-5.6 Luna\"],data[\"GPT-5.6 Luna\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Luna\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2864,8 +3384,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-sol-high",
@@ -2882,7 +3402,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 45.06,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2894,12 +3414,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Sol\"],efforts[\"GPT-5.6 Sol\"],data[\"GPT-5.6 Sol\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Sol\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2916,8 +3436,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-sol-low",
@@ -2934,7 +3454,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 35.44,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2946,12 +3466,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Sol\"],efforts[\"GPT-5.6 Sol\"],data[\"GPT-5.6 Sol\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Sol\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -2968,8 +3488,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-sol-max",
@@ -2986,7 +3506,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 47.49,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2998,12 +3518,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Sol\"],efforts[\"GPT-5.6 Sol\"],data[\"GPT-5.6 Sol\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Sol\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3020,8 +3540,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-sol-medium",
@@ -3038,7 +3558,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 39.93,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3050,12 +3570,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Sol\"],efforts[\"GPT-5.6 Sol\"],data[\"GPT-5.6 Sol\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Sol\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3072,8 +3592,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-sol-xhigh",
@@ -3090,7 +3610,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 46.839999999999996,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3102,12 +3622,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Sol\"],efforts[\"GPT-5.6 Sol\"],data[\"GPT-5.6 Sol\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Sol\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3124,8 +3644,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-terra-high",
@@ -3142,7 +3662,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 36.89,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3154,12 +3674,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Terra\"],efforts[\"GPT-5.6 Terra\"],data[\"GPT-5.6 Terra\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Terra\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3176,8 +3696,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-terra-low",
@@ -3194,7 +3714,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 24.11,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3206,12 +3726,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Terra\"],efforts[\"GPT-5.6 Terra\"],data[\"GPT-5.6 Terra\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Terra\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3228,8 +3748,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-terra-max",
@@ -3246,7 +3766,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 41.31,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3258,12 +3778,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Terra\"],efforts[\"GPT-5.6 Terra\"],data[\"GPT-5.6 Terra\"][\"max\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Terra\"][\"max\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3280,8 +3800,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-terra-medium",
@@ -3298,7 +3818,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 33.879999999999995,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3310,12 +3830,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Terra\"],efforts[\"GPT-5.6 Terra\"],data[\"GPT-5.6 Terra\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Terra\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3332,8 +3852,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:gpt-5-6-terra-xhigh",
@@ -3350,7 +3870,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 38.75,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3362,12 +3882,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"GPT-5.6 Terra\"],efforts[\"GPT-5.6 Terra\"],data[\"GPT-5.6 Terra\"][\"xhigh\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"GPT-5.6 Terra\"][\"xhigh\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3384,8 +3904,268 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gpt-6-astra-high",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 50.94,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GPT-6 Astra\"],efforts[\"GPT-6 Astra\"],data[\"GPT-6 Astra\"][\"high\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GPT-6 Astra\"][\"high\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.5094,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gpt-6-astra-low",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 45.269999999999996,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GPT-6 Astra\"],efforts[\"GPT-6 Astra\"],data[\"GPT-6 Astra\"][\"low\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GPT-6 Astra\"][\"low\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4527,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gpt-6-astra-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 53.26,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GPT-6 Astra\"],efforts[\"GPT-6 Astra\"],data[\"GPT-6 Astra\"][\"max\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GPT-6 Astra\"][\"max\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.5326,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gpt-6-astra-medium",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 48.83,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GPT-6 Astra\"],efforts[\"GPT-6 Astra\"],data[\"GPT-6 Astra\"][\"medium\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GPT-6 Astra\"][\"medium\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4883,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:gpt-6-astra-xhigh",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 50.62,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "codex",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"GPT-6 Astra\"],efforts[\"GPT-6 Astra\"],data[\"GPT-6 Astra\"][\"xhigh\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"GPT-6 Astra\"][\"xhigh\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.5062,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:grok-4-5-high",
@@ -3402,7 +4182,7 @@
       "rawName": "Grok 4.5"
     },
     "normalizedScore": 42.44,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3414,12 +4194,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Grok 4.5\"],efforts[\"Grok 4.5\"],data[\"Grok 4.5\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Grok 4.5\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3436,8 +4216,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:grok-4-5-low",
@@ -3454,7 +4234,7 @@
       "rawName": "Grok 4.5"
     },
     "normalizedScore": 37.86,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3466,12 +4246,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Grok 4.5\"],efforts[\"Grok 4.5\"],data[\"Grok 4.5\"][\"low\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Grok 4.5\"][\"low\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3488,8 +4268,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:grok-4-5-medium",
@@ -3506,7 +4286,7 @@
       "rawName": "Grok 4.5"
     },
     "normalizedScore": 41.93,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3518,12 +4298,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Grok 4.5\"],efforts[\"Grok 4.5\"],data[\"Grok 4.5\"][\"medium\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Grok 4.5\"][\"medium\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3540,8 +4320,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:grok-4-6-high",
@@ -3558,7 +4338,7 @@
       "rawName": "Grok 4.6"
     },
     "normalizedScore": 48.010000000000005,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3570,12 +4350,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Grok 4.6\"],efforts[\"Grok 4.6\"],data[\"Grok 4.6\"][\"high\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Grok 4.6\"][\"high\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3592,8 +4372,112 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:grok-4-6-low",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-low",
+      "rawName": "Grok 4.6"
+    },
+    "normalizedScore": 40.11,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "grok-build",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Grok 4.6\"],efforts[\"Grok 4.6\"],data[\"Grok 4.6\"][\"low\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Grok 4.6\"][\"low\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4011,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:grok-4-6-medium",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "xai-grok-4-6",
+      "profileId": "xai-grok-4-6-medium",
+      "rawName": "Grok 4.6"
+    },
+    "normalizedScore": 46.06,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "grok-build",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Grok 4.6\"],efforts[\"Grok 4.6\"],data[\"Grok 4.6\"][\"medium\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Grok 4.6\"][\"medium\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.4606,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:inkling-0-99",
@@ -3610,7 +4494,7 @@
       "rawName": "Inkling"
     },
     "normalizedScore": 14.000000000000002,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3622,12 +4506,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Inkling\"],efforts[\"Inkling\"],data[\"Inkling\"][\"0.99\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Inkling\"][\"0.99\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3644,8 +4528,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:kimi-k2-7-none",
@@ -3662,7 +4546,7 @@
       "rawName": "Kimi K2.7"
     },
     "normalizedScore": 30.06,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3674,12 +4558,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Kimi K2.7\"],efforts[\"Kimi K2.7\"],data[\"Kimi K2.7\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Kimi K2.7\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3696,8 +4580,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:kimi-k3-none",
@@ -3714,7 +4598,7 @@
       "rawName": "Kimi K3"
     },
     "normalizedScore": 44.17,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3726,12 +4610,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Kimi K3\"],efforts[\"Kimi K3\"],data[\"Kimi K3\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Kimi K3\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3748,8 +4632,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:minimax-m3-none",
@@ -3766,7 +4650,7 @@
       "rawName": "MiniMax M3"
     },
     "normalizedScore": 14.7,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3778,12 +4662,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"MiniMax M3\"],efforts[\"MiniMax M3\"],data[\"MiniMax M3\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"MiniMax M3\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3800,8 +4684,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:mistral-3-5-medium-none",
@@ -3818,7 +4702,7 @@
       "rawName": "Mistral 3.5 Medium"
     },
     "normalizedScore": 8,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3830,12 +4714,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Mistral 3.5 Medium\"],efforts[\"Mistral 3.5 Medium\"],data[\"Mistral 3.5 Medium\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Mistral 3.5 Medium\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3852,8 +4736,60 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
+    ],
+    "exclusionReason": null,
+    "id": "frontier-code:frontier-code-1-1:nemotron-3-ultra-none",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "weighted-rubric-score",
+      "name": "Weighted rubric score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "nvidia-nemotron-3-ultra",
+      "profileId": null,
+      "rawName": "Nemotron 3 Ultra"
+    },
+    "normalizedScore": 13.61,
+    "observedAt": "2026-09-06T03:22:08.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "chisel",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.{harness[\"Nemotron 3 Ultra\"],efforts[\"Nemotron 3 Ultra\"],data[\"Nemotron 3 Ultra\"][\"none\"]}",
+        "method": "EXPORT"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+        "locator": "$.v1_1.data[\"Nemotron 3 Ultra\"][\"none\"].main.new_score",
+        "method": "EXPORT"
+      }
+    },
+    "rawScore": 0.1361,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "frontier-code",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://cognition.com/frontiercode"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:qwen-3-7-plus-none",
@@ -3870,7 +4806,7 @@
       "rawName": "Qwen 3.7 Plus"
     },
     "normalizedScore": 10.2,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3882,12 +4818,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"Qwen 3.7 Plus\"],efforts[\"Qwen 3.7 Plus\"],data[\"Qwen 3.7 Plus\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"Qwen 3.7 Plus\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3904,8 +4840,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:swe-1-6-none",
@@ -3922,7 +4858,7 @@
       "rawName": "SWE-1.6"
     },
     "normalizedScore": 9.39,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3934,12 +4870,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"SWE-1.6\"],efforts[\"SWE-1.6\"],data[\"SWE-1.6\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"SWE-1.6\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }
@@ -3956,8 +4892,8 @@
     "benchmarkId": "frontier-code-1-1",
     "benchmarkVersion": "1.1",
     "evidenceIds": [
-      "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
-      "sha256:99df5234616a757f65d09cc9beb3c24f5f54963bba7a2a6dd9fde725cf58a4cf"
+      "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
+      "sha256:48bb1567aa56eb823cd7388e0d7519dc99ef7bdcf4e907448c5b31a0813adf72"
     ],
     "exclusionReason": null,
     "id": "frontier-code:frontier-code-1-1:swe-1-7-none",
@@ -3974,7 +4910,7 @@
       "rawName": "SWE-1.7"
     },
     "normalizedScore": 41.99,
-    "observedAt": "2026-08-18T13:28:51.232Z",
+    "observedAt": "2026-09-06T03:22:08.259Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3986,12 +4922,12 @@
     },
     "provenance": {
       "profile": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.{harness[\"SWE-1.7\"],efforts[\"SWE-1.7\"],data[\"SWE-1.7\"][\"none\"]}",
         "method": "EXPORT"
       },
       "rawScore": {
-        "evidenceId": "sha256:1b418dda0c291be4d5149966620882ef40cbb97cad0c4a2e4aa81b954900a20a",
+        "evidenceId": "sha256:7573c844a9420a24c6450405dd919eeb59457f22df16d8b1bcc286e604aa5e5b",
         "locator": "$.v1_1.data[\"SWE-1.7\"][\"none\"].main.new_score",
         "method": "EXPORT"
       }

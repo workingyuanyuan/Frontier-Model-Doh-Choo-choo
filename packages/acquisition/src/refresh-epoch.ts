@@ -8,7 +8,11 @@ import {
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
 
-import { EPOCH_DIRECT_FILES, materializeEpoch } from './epoch-materializer.js';
+import {
+  EPOCH_DIRECT_FILES,
+  EPOCH_ECI_FILES,
+  materializeEpoch,
+} from './epoch-materializer.js';
 import { parseCsv } from './materializer-utils.js';
 import {
   captureArtifact,
@@ -25,8 +29,6 @@ const SOURCE_ID = 'epoch-ai';
 const PAGE_URL = 'https://epoch.ai/benchmarks/use-this-data';
 const ZIP_URL = 'https://epoch.ai/data/benchmark_data.zip';
 const LIVE_URL = 'https://epoch.ai/data/benchmarks.csv';
-
-const ECI_FILE = 'epoch_capabilities_index.csv';
 
 /**
  * Epoch publishes no countable model table in server-rendered HTML, so the
@@ -225,8 +227,8 @@ async function main() {
   const externalMirrors = entries.filter((name) =>
     name.includes('_external'),
   ).length;
-  if (!entries.includes(ECI_FILE)) {
-    throw new Error(`${ECI_FILE} is missing from ${ZIP_URL}`);
+  if (!EPOCH_ECI_FILES.some((file) => entries.includes(file))) {
+    throw new Error(`Epoch capabilities index is missing from ${ZIP_URL}`);
   }
 
   const comparisons = compareChannels(zip, live.text);

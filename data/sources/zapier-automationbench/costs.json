@@ -6,11 +6,11 @@
     "cost": 1.65,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-high-rank-18:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-high-rank-33:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -20,7 +20,7 @@
       "profileId": "anthropic-claude-fable-5-high",
       "rawName": "Claude Fable 5.0 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -33,8 +33,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 18 raw Cost / task \"$1.65\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 33 raw Cost / task \"$1.65\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -51,11 +51,11 @@
     "cost": 1.41,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-low-rank-30:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-low-rank-44:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -65,7 +65,7 @@
       "profileId": "anthropic-claude-fable-5-low",
       "rawName": "Claude Fable 5.0 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -78,8 +78,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 30 raw Cost / task \"$1.41\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 44 raw Cost / task \"$1.41\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -96,11 +96,11 @@
     "cost": 2.03,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-max-rank-12:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-max-rank-27:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -110,7 +110,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "Claude Fable 5.0 (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -123,8 +123,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 12 raw Cost / task \"$2.03\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 27 raw Cost / task \"$2.03\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -141,11 +141,11 @@
     "cost": 1.52,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-medium-rank-24:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-medium-rank-38:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -155,7 +155,7 @@
       "profileId": "anthropic-claude-fable-5-medium",
       "rawName": "Claude Fable 5.0 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -168,8 +168,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 24 raw Cost / task \"$1.52\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 38 raw Cost / task \"$1.52\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -186,11 +186,11 @@
     "cost": 1.8,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-xhigh-rank-20:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-0-xhigh-rank-35:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -200,7 +200,7 @@
       "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "Claude Fable 5.0 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -213,8 +213,98 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 20 raw Cost / task \"$1.80\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 35 raw Cost / task \"$1.80\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 2.45,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-1-max-rank-19:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1 (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 19 raw Cost / task \"$2.45\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 2.14,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:claude-fable-5-1-xhigh-rank-20:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Claude Fable 5.1 (XHigh)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 20 raw Cost / task \"$2.14\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -231,11 +321,11 @@
     "cost": 0.07,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-haiku-4-5-rank-79:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-haiku-4-5-rank-90:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -245,7 +335,7 @@
       "profileId": null,
       "rawName": "Claude Haiku 4.5"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -258,8 +348,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 79 raw Cost / task \"$0.07\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 90 raw Cost / task \"$0.07\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -276,11 +366,11 @@
     "cost": 1.08,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-high-rank-39:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-high-rank-54:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -290,7 +380,7 @@
       "profileId": "anthropic-claude-opus-4-7-high",
       "rawName": "Claude Opus 4.7 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -303,8 +393,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 39 raw Cost / task \"$1.08\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 54 raw Cost / task \"$1.08\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -321,11 +411,11 @@
     "cost": 0.78,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-low-rank-52:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-low-rank-66:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -335,7 +425,7 @@
       "profileId": "anthropic-claude-opus-4-7-low",
       "rawName": "Claude Opus 4.7 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -348,8 +438,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 52 raw Cost / task \"$0.78\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 66 raw Cost / task \"$0.78\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -366,11 +456,11 @@
     "cost": 1.52,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-max-rank-27:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-max-rank-41:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -380,7 +470,7 @@
       "profileId": "anthropic-claude-opus-4-7-max",
       "rawName": "Claude Opus 4.7 (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -393,8 +483,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 27 raw Cost / task \"$1.52\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 41 raw Cost / task \"$1.52\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -411,11 +501,11 @@
     "cost": 0.92,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-medium-rank-48:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-medium-rank-63:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -425,7 +515,7 @@
       "profileId": "anthropic-claude-opus-4-7-medium",
       "rawName": "Claude Opus 4.7 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -438,8 +528,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 48 raw Cost / task \"$0.92\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 63 raw Cost / task \"$0.92\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -456,11 +546,11 @@
     "cost": 1.26,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-xhigh-rank-38:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-7-xhigh-rank-52:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -470,7 +560,7 @@
       "profileId": "anthropic-claude-opus-4-7-xhigh",
       "rawName": "Claude Opus 4.7 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -483,8 +573,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 38 raw Cost / task \"$1.26\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 52 raw Cost / task \"$1.26\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -501,11 +591,11 @@
     "cost": 1.48,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-high-rank-17:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-high-rank-32:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -515,7 +605,7 @@
       "profileId": "anthropic-claude-opus-4-8-high",
       "rawName": "Claude Opus 4.8 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -528,8 +618,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 17 raw Cost / task \"$1.48\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 32 raw Cost / task \"$1.48\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -546,11 +636,11 @@
     "cost": 1.2,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-low-rank-25:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-low-rank-39:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -560,7 +650,7 @@
       "profileId": "anthropic-claude-opus-4-8-low",
       "rawName": "Claude Opus 4.8 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -573,8 +663,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 25 raw Cost / task \"$1.20\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 39 raw Cost / task \"$1.20\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -591,11 +681,11 @@
     "cost": 2.36,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-max-rank-16:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-max-rank-31:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -605,7 +695,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "Claude Opus 4.8 (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -618,8 +708,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 16 raw Cost / task \"$2.36\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 31 raw Cost / task \"$2.36\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -636,11 +726,11 @@
     "cost": 1.44,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-medium-rank-23:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-medium-rank-37:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -650,7 +740,7 @@
       "profileId": "anthropic-claude-opus-4-8-medium",
       "rawName": "Claude Opus 4.8 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -663,8 +753,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 23 raw Cost / task \"$1.44\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 37 raw Cost / task \"$1.44\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -681,11 +771,11 @@
     "cost": 1.91,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-xhigh-rank-13:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-4-8-xhigh-rank-28:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -695,7 +785,7 @@
       "profileId": "anthropic-claude-opus-4-8-xhigh",
       "rawName": "Claude Opus 4.8 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -708,8 +798,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 13 raw Cost / task \"$1.91\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 28 raw Cost / task \"$1.91\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -726,11 +816,11 @@
     "cost": 1.03,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-5-high-rank-7:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-high-rank-21:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -740,7 +830,7 @@
       "profileId": "anthropic-claude-opus-5-high",
       "rawName": "Claude Opus 5 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -753,8 +843,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 7 raw Cost / task \"$1.03\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 21 raw Cost / task \"$1.03\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -771,11 +861,11 @@
     "cost": 0.75,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-5-low-rank-8:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-low-rank-22:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -785,7 +875,7 @@
       "profileId": "anthropic-claude-opus-5-low",
       "rawName": "Claude Opus 5 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -798,8 +888,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 8 raw Cost / task \"$0.75\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 22 raw Cost / task \"$0.75\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -816,11 +906,11 @@
     "cost": 1.27,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-5-max-rank-2:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-max-rank-11:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -830,7 +920,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "Claude Opus 5 (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -843,8 +933,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 2 raw Cost / task \"$1.27\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 11 raw Cost / task \"$1.27\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -861,11 +951,11 @@
     "cost": 0.89,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-5-medium-rank-4:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-medium-rank-16:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -875,7 +965,7 @@
       "profileId": "anthropic-claude-opus-5-medium",
       "rawName": "Claude Opus 5 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -888,8 +978,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 4 raw Cost / task \"$0.89\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 16 raw Cost / task \"$0.89\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -906,11 +996,11 @@
     "cost": 1.15,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-opus-5-xhigh-rank-3:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-opus-5-xhigh-rank-13:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -920,7 +1010,7 @@
       "profileId": "anthropic-claude-opus-5-xhigh",
       "rawName": "Claude Opus 5 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -933,8 +1023,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 3 raw Cost / task \"$1.15\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 13 raw Cost / task \"$1.15\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -951,11 +1041,11 @@
     "cost": 0.84,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-high-rank-56:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-high-rank-69:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -965,7 +1055,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-high",
       "rawName": "Claude Sonnet 4.6 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -978,8 +1068,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 56 raw Cost / task \"$0.84\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 69 raw Cost / task \"$0.84\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -996,11 +1086,11 @@
     "cost": 0.61,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-low-rank-69:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-low-rank-81:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1010,7 +1100,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-low",
       "rawName": "Claude Sonnet 4.6 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1023,8 +1113,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 69 raw Cost / task \"$0.61\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 81 raw Cost / task \"$0.61\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1041,11 +1131,11 @@
     "cost": 0.9,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-max-rank-54:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-max-rank-68:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1055,7 +1145,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-max",
       "rawName": "Claude Sonnet 4.6 (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1068,8 +1158,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 54 raw Cost / task \"$0.90\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 68 raw Cost / task \"$0.90\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1086,11 +1176,11 @@
     "cost": 0.77,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-medium-rank-65:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-4-6-medium-rank-78:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1100,7 +1190,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-medium",
       "rawName": "Claude Sonnet 4.6 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1113,8 +1203,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 65 raw Cost / task \"$0.77\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 78 raw Cost / task \"$0.77\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1131,11 +1221,11 @@
     "cost": 0.56,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-high-rank-37:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-high-rank-51:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1145,7 +1235,7 @@
       "profileId": "anthropic-claude-sonnet-5-high",
       "rawName": "Claude Sonnet 5 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1158,8 +1248,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 37 raw Cost / task \"$0.56\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 51 raw Cost / task \"$0.56\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1176,11 +1266,11 @@
     "cost": 0.26,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-low-rank-64:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-low-rank-77:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1190,7 +1280,7 @@
       "profileId": "anthropic-claude-sonnet-5-low",
       "rawName": "Claude Sonnet 5 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1203,8 +1293,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 64 raw Cost / task \"$0.26\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 77 raw Cost / task \"$0.26\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1221,11 +1311,11 @@
     "cost": 0.88,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-max-rank-35:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-max-rank-49:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1235,7 +1325,7 @@
       "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "Claude Sonnet 5 (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1248,8 +1338,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 35 raw Cost / task \"$0.88\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 49 raw Cost / task \"$0.88\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1266,11 +1356,11 @@
     "cost": 0.41,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-medium-rank-50:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-medium-rank-65:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1280,7 +1370,7 @@
       "profileId": "anthropic-claude-sonnet-5-medium",
       "rawName": "Claude Sonnet 5 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1293,8 +1383,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 50 raw Cost / task \"$0.41\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 65 raw Cost / task \"$0.41\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1311,11 +1401,11 @@
     "cost": 0.67,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-xhigh-rank-46:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:claude-sonnet-5-xhigh-rank-60:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1325,7 +1415,7 @@
       "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "Claude Sonnet 5 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1338,8 +1428,53 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 46 raw Cost / task \"$0.67\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 60 raw Cost / task \"$0.67\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.04,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:deepseek-v4-flash-max-rank-24:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-flash",
+      "profileId": "deepseek-deepseek-v4-flash-max",
+      "rawName": "DeepSeek V4 Flash (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 24 raw Cost / task \"$0.04‡\"; footnote \"‡DeepSeek V4 Flash priced at Fireworks rates ($0.14 / task uncached, $0.04 cached).\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1356,11 +1491,11 @@
     "cost": 0.3,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-high-rank-43:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-high-rank-57:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1370,7 +1505,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1383,8 +1518,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 43 raw Cost / task \"$0.30\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 57 raw Cost / task \"$0.30\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1401,11 +1536,11 @@
     "cost": 0.28,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-low-rank-58:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-low-rank-71:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1415,7 +1550,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1428,8 +1563,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 58 raw Cost / task \"$0.28\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 71 raw Cost / task \"$0.28\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1446,11 +1581,11 @@
     "cost": 0.25,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-medium-rank-47:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-1-pro-preview-medium-rank-62:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1460,7 +1595,7 @@
       "profileId": null,
       "rawName": "Gemini 3.1 Pro (preview) (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1473,8 +1608,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 47 raw Cost / task \"$0.25\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 62 raw Cost / task \"$0.25\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1491,11 +1626,11 @@
     "cost": 0.42,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-high-rank-26:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-high-rank-40:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1505,7 +1640,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "Gemini 3.5 Flash (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1518,8 +1653,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 26 raw Cost / task \"$0.42\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 40 raw Cost / task \"$0.42\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1536,11 +1671,11 @@
     "cost": 0.13,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-high-rank-66:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-high-rank-79:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1550,7 +1685,7 @@
       "profileId": "google-gemini-3-5-flash-lite-high",
       "rawName": "Gemini 3.5 Flash Lite (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1563,8 +1698,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 66 raw Cost / task \"$0.13\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 79 raw Cost / task \"$0.13\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1581,11 +1716,11 @@
     "cost": 0.06,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-low-rank-84:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-low-rank-95:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1595,7 +1730,7 @@
       "profileId": "google-gemini-3-5-flash-lite-low",
       "rawName": "Gemini 3.5 Flash Lite (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1608,8 +1743,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 84 raw Cost / task \"$0.06\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 95 raw Cost / task \"$0.06\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1626,11 +1761,11 @@
     "cost": 0.12,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-medium-rank-62:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-lite-medium-rank-74:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1640,7 +1775,7 @@
       "profileId": "google-gemini-3-5-flash-lite-medium",
       "rawName": "Gemini 3.5 Flash Lite (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1653,8 +1788,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 62 raw Cost / task \"$0.12\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 74 raw Cost / task \"$0.12\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1671,11 +1806,11 @@
     "cost": 0.3,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-low-rank-40:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-low-rank-55:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1685,7 +1820,7 @@
       "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1698,8 +1833,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 40 raw Cost / task \"$0.30\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 55 raw Cost / task \"$0.30\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1716,11 +1851,11 @@
     "cost": 0.38,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-medium-rank-32:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-medium-rank-48:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1730,7 +1865,7 @@
       "profileId": "google-gemini-3-5-flash-medium",
       "rawName": "Gemini 3.5 Flash (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1743,8 +1878,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 32 raw Cost / task \"$0.38\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 48 raw Cost / task \"$0.38\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1761,11 +1896,11 @@
     "cost": 0.18,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": "Zapier published both Minimal and Low labels for this model; minimal cannot represent low.",
-    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-minimal-rank-75:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-5-flash-minimal-rank-87:1-0-6",
     "inclusion": "EXCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1775,7 +1910,7 @@
       "profileId": "google-gemini-3-5-flash-low",
       "rawName": "Gemini 3.5 Flash (Minimal)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1788,8 +1923,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 75 raw Cost / task \"$0.18\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 87 raw Cost / task \"$0.18\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1806,11 +1941,11 @@
     "cost": 0.58,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-high-rank-11:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-high-rank-26:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1820,7 +1955,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "Gemini 3.6 Flash (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1833,8 +1968,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 11 raw Cost / task \"$0.58\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 26 raw Cost / task \"$0.58\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1851,11 +1986,11 @@
     "cost": 0.48,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-low-rank-19:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-low-rank-34:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1865,7 +2000,7 @@
       "profileId": "google-gemini-3-6-flash-low",
       "rawName": "Gemini 3.6 Flash (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1878,8 +2013,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 19 raw Cost / task \"$0.48\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 34 raw Cost / task \"$0.48\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1896,11 +2031,11 @@
     "cost": 0.55,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-medium-rank-15:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-6-flash-medium-rank-30:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1910,7 +2045,7 @@
       "profileId": "google-gemini-3-6-flash-medium",
       "rawName": "Gemini 3.6 Flash (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1923,8 +2058,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 15 raw Cost / task \"$0.55\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 30 raw Cost / task \"$0.55\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -1941,11 +2076,11 @@
     "cost": 0.61,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gemini-3-7-flash-high-rank-1:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-7-flash-high-rank-6:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -1955,7 +2090,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "Gemini 3.7 Flash (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1968,98 +2103,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 1 raw Cost / task \"$0.61*\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.23,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:glm-5-1-max-rank-49:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "zai-glm-5-1",
-      "profileId": "zai-glm-5-1-max",
-      "rawName": "GLM 5.1 (Max)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 49 raw Cost / task \"$0.23\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.22,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:glm-5-2-max-rank-45:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "zai-glm-5-2",
-      "profileId": "zai-glm-5-2-max",
-      "rawName": "GLM 5.2 (Max)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 45 raw Cost / task \"$0.22\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 6 raw Cost / task \"$0.61*\"; footnote \"*Promotional pricing is available for both Gemini models; Ranking and Cost / task reflect standard list pricing. Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026. Gemini 3.8 Flash: $0.27 (Medium) / $0.31 (High) per task.\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2076,21 +2121,21 @@
     "cost": 0.62,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-4-high-rank-36:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gemini-3-8-flash-high-rank-9:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "openai-gpt-5-4",
-      "profileId": "openai-gpt-5-4-high",
-      "rawName": "GPT-5.4 (High)"
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Gemini 3.8 Flash (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2103,8 +2148,188 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 36 raw Cost / task \"$0.62\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 9 raw Cost / task \"$0.62*\"; footnote \"*Promotional pricing is available for both Gemini models; Ranking and Cost / task reflect standard list pricing. Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026. Gemini 3.8 Flash: $0.27 (Medium) / $0.31 (High) per task.\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.55,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gemini-3-8-flash-medium-rank-8:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Gemini 3.8 Flash (Medium)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 8 raw Cost / task \"$0.55*\"; footnote \"*Promotional pricing is available for both Gemini models; Ranking and Cost / task reflect standard list pricing. Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026. Gemini 3.8 Flash: $0.27 (Medium) / $0.31 (High) per task.\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.23,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:glm-5-1-max-rank-64:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "zai-glm-5-1",
+      "profileId": "zai-glm-5-1-max",
+      "rawName": "GLM 5.1 (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 64 raw Cost / task \"$0.23\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.22,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:glm-5-2-max-rank-59:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "zai-glm-5-2",
+      "profileId": "zai-glm-5-2-max",
+      "rawName": "GLM 5.2 (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 59 raw Cost / task \"$0.22\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.62,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-high-rank-50:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-4",
+      "profileId": "openai-gpt-5-4-high",
+      "rawName": "GPT-5.4 (High)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 50 raw Cost / task \"$0.62\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2121,11 +2346,11 @@
     "cost": 0.13,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-4-low-rank-74:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-low-rank-86:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2135,7 +2360,7 @@
       "profileId": "openai-gpt-5-4-low",
       "rawName": "GPT-5.4 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2148,8 +2373,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 74 raw Cost / task \"$0.13\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 86 raw Cost / task \"$0.13\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2166,11 +2391,11 @@
     "cost": 0.36,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-4-medium-rank-53:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-medium-rank-67:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2180,7 +2405,7 @@
       "profileId": "openai-gpt-5-4-medium",
       "rawName": "GPT-5.4 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2193,8 +2418,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 53 raw Cost / task \"$0.36\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 67 raw Cost / task \"$0.36\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2211,11 +2436,11 @@
     "cost": 0.07,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-4-rank-83:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-rank-94:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2225,7 +2450,7 @@
       "profileId": null,
       "rawName": "GPT-5.4"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2238,8 +2463,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 83 raw Cost / task \"$0.07\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 94 raw Cost / task \"$0.07\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2256,11 +2481,11 @@
     "cost": 1.15,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-4-xhigh-rank-31:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-4-xhigh-rank-47:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2270,7 +2495,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "GPT-5.4 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2283,8 +2508,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 31 raw Cost / task \"$1.15\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 47 raw Cost / task \"$1.15\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2301,11 +2526,11 @@
     "cost": 0.94,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-5-high-rank-29:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-high-rank-43:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2315,7 +2540,7 @@
       "profileId": "openai-gpt-5-5-high",
       "rawName": "GPT-5.5 (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2328,8 +2553,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 29 raw Cost / task \"$0.94\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 43 raw Cost / task \"$0.94\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2346,11 +2571,11 @@
     "cost": 0.36,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-5-low-rank-71:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-low-rank-83:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2360,7 +2585,7 @@
       "profileId": "openai-gpt-5-5-low",
       "rawName": "GPT-5.5 (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2373,8 +2598,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 71 raw Cost / task \"$0.36\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 83 raw Cost / task \"$0.36\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2391,11 +2616,11 @@
     "cost": 0.75,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-5-medium-rank-41:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-medium-rank-56:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2405,7 +2630,7 @@
       "profileId": "openai-gpt-5-5-medium",
       "rawName": "GPT-5.5 (Medium)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2418,8 +2643,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 41 raw Cost / task \"$0.75\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 56 raw Cost / task \"$0.75\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2436,11 +2661,11 @@
     "cost": 0.2,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-5-rank-76:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-rank-88:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2450,7 +2675,7 @@
       "profileId": null,
       "rawName": "GPT-5.5"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2463,8 +2688,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 76 raw Cost / task \"$0.20\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 88 raw Cost / task \"$0.20\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2481,11 +2706,11 @@
     "cost": 1.72,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-5-xhigh-rank-14:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-5-xhigh-rank-29:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2495,7 +2720,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "GPT-5.5 (XHigh)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2508,8 +2733,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 14 raw Cost / task \"$1.72\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 29 raw Cost / task \"$1.72\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -2523,14 +2748,14 @@
     "assumptionId": null,
     "benchmarkId": "automationbench",
     "benchmarkVersion": "1.0.6",
-    "cost": 0.17,
+    "cost": 0.05,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-high-rank-51:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-high-rank-53:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -2540,7 +2765,7 @@
       "profileId": "openai-gpt-5-6-luna-high",
       "rawName": "GPT-5.6 Luna (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2553,773 +2778,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 51 raw Cost / task \"$0.17\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.05,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-low-rank-78:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-low",
-      "rawName": "GPT-5.6 Luna (Low)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 78 raw Cost / task \"$0.05\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.54,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-max-rank-28:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-max",
-      "rawName": "GPT-5.6 Luna (Max)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 28 raw Cost / task \"$0.54\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.09,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-medium-rank-73:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-medium",
-      "rawName": "GPT-5.6 Luna (Medium)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 73 raw Cost / task \"$0.09\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.05,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-rank-82:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": null,
-      "rawName": "GPT-5.6 Luna"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 82 raw Cost / task \"$0.05\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.31,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-xhigh-rank-44:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-luna",
-      "profileId": "openai-gpt-5-6-luna-xhigh",
-      "rawName": "GPT-5.6 Luna (XHigh)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 44 raw Cost / task \"$0.31\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.42,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-high-rank-21:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-high",
-      "rawName": "GPT-5.6 Sol (High)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 21 raw Cost / task \"$0.42\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.15,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-low-rank-59:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-low",
-      "rawName": "GPT-5.6 Sol (Low)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 59 raw Cost / task \"$0.15\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 1,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-max-rank-9:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-max",
-      "rawName": "GPT-5.6 Sol (Max)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 9 raw Cost / task \"$1.00\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.25,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-medium-rank-33:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-medium",
-      "rawName": "GPT-5.6 Sol (Medium)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 33 raw Cost / task \"$0.25\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.18,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-rank-68:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": null,
-      "rawName": "GPT-5.6 Sol"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 68 raw Cost / task \"$0.18\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.66,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-xhigh-rank-22:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-sol",
-      "profileId": "openai-gpt-5-6-sol-xhigh",
-      "rawName": "GPT-5.6 Sol (XHigh)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 22 raw Cost / task \"$0.66\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.26,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-high-rank-42:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-high",
-      "rawName": "GPT-5.6 Terra (High)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 42 raw Cost / task \"$0.26\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.17,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-low-rank-55:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-low",
-      "rawName": "GPT-5.6 Terra (Low)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 55 raw Cost / task \"$0.17\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 1.31,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-max-rank-6:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-max",
-      "rawName": "GPT-5.6 Terra (Max)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 6 raw Cost / task \"$1.31\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.19,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-medium-rank-61:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-medium",
-      "rawName": "GPT-5.6 Terra (Medium)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 61 raw Cost / task \"$0.19\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.12,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-rank-77:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": null,
-      "rawName": "GPT-5.6 Terra"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 77 raw Cost / task \"$0.12\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.4,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-xhigh-rank-34:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "openai-gpt-5-6-terra",
-      "profileId": "openai-gpt-5-6-terra-xhigh",
-      "rawName": "GPT-5.6 Terra (XHigh)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 34 raw Cost / task \"$0.40\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 53 raw Cost / task \"$0.05\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -3336,26 +2796,26 @@
     "cost": 0.01,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:gpt-oss-120b-high-rank-81:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-low-rank-84:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "GPT-OSS 120B (High)"
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-low",
+      "rawName": "GPT-5.6 Luna (Low)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
-      "effort": "high",
+      "effort": "low",
       "harness": "Zapier API mode",
       "quantization": null,
       "thinking": null,
@@ -3363,188 +2823,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 81 raw Cost / task \"$0.01\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.28,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:kimi-k2-6-rank-70:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "moonshot-kimi-k2-6",
-      "profileId": null,
-      "rawName": "Kimi K2.6"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 70 raw Cost / task \"$0.28\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.24,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:kimi-k2-7-code-rank-67:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "moonshot-kimi-k2-7-code",
-      "profileId": null,
-      "rawName": "Kimi K2.7 Code"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 67 raw Cost / task \"$0.24\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.43,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:kimi-k3-rank-5:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": "moonshot-kimi-k3",
-      "profileId": null,
-      "rawName": "Kimi K3"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": null,
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 5 raw Cost / task \"$0.43\"",
-        "method": "EMBEDDED_JSON"
-      }
-    },
-    "schemaVersion": "cost-record-v1",
-    "sourceId": "zapier-automationbench",
-    "sourcePublishedAt": null,
-    "sourceUrl": "https://zapier.com/benchmarks",
-    "unit": "USD_PER_TASK"
-  },
-  {
-    "assumptionId": null,
-    "benchmarkId": "automationbench",
-    "benchmarkVersion": "1.0.6",
-    "cost": 0.1,
-    "costType": "AGENT_TASK",
-    "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
-    ],
-    "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:minimax-m2-7-high-rank-80:1-0-6",
-    "inclusion": "INCLUDED",
-    "inputPerMillionTokens": null,
-    "metricId": "cost-per-task",
-    "metricName": "AutomationBench cost per task",
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Minimax M2.7 (High)"
-    },
-    "observedAt": "2026-08-23T05:10:30.541Z",
-    "outputPerMillionTokens": null,
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": "Zapier API mode",
-      "quantization": null,
-      "thinking": null,
-      "tools": null
-    },
-    "provenance": {
-      "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 80 raw Cost / task \"$0.10\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 84 raw Cost / task \"$0.01\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -3561,21 +2841,21 @@
     "cost": 0.07,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:minimax-m3-max-rank-57:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-max-rank-25:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": "minimax-minimax-m3",
-      "profileId": "minimax-minimax-m3-max",
-      "rawName": "Minimax M3 (Max)"
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max",
+      "rawName": "GPT-5.6 Luna (Max)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3588,8 +2868,1223 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 57 raw Cost / task \"$0.07\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 25 raw Cost / task \"$0.07\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.02,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-medium-rank-73:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-medium",
+      "rawName": "GPT-5.6 Luna (Medium)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 73 raw Cost / task \"$0.02\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.02,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-rank-93:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": null,
+      "rawName": "GPT-5.6 Luna"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 93 raw Cost / task \"$0.02\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.06,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-luna-xhigh-rank-42:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-xhigh",
+      "rawName": "GPT-5.6 Luna (XHigh)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 42 raw Cost / task \"$0.06\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.64,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-high-rank-15:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-high",
+      "rawName": "GPT-5.6 Sol (High)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 15 raw Cost / task \"$0.64\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.42,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-low-rank-46:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-low",
+      "rawName": "GPT-5.6 Sol (Low)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 46 raw Cost / task \"$0.42\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.91,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-max-rank-10:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "GPT-5.6 Sol (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 10 raw Cost / task \"$0.91\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.57,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-medium-rank-23:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-medium",
+      "rawName": "GPT-5.6 Sol (Medium)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 23 raw Cost / task \"$0.57\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.41,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-rank-75:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": null,
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 75 raw Cost / task \"$0.41\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.74,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-sol-xhigh-rank-12:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-xhigh",
+      "rawName": "GPT-5.6 Sol (XHigh)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 12 raw Cost / task \"$0.74\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.29,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-high-rank-45:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-high",
+      "rawName": "GPT-5.6 Terra (High)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 45 raw Cost / task \"$0.29\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.19,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-low-rank-61:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-low",
+      "rawName": "GPT-5.6 Terra (Low)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 61 raw Cost / task \"$0.19\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.51,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-max-rank-17:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-max",
+      "rawName": "GPT-5.6 Terra (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 17 raw Cost / task \"$0.51\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.22,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-medium-rank-58:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-medium",
+      "rawName": "GPT-5.6 Terra (Medium)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 58 raw Cost / task \"$0.22\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.12,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-rank-89:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": null,
+      "rawName": "GPT-5.6 Terra"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 89 raw Cost / task \"$0.12\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.37,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-5-6-terra-xhigh-rank-36:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-terra",
+      "profileId": "openai-gpt-5-6-terra-xhigh",
+      "rawName": "GPT-5.6 Terra (XHigh)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 36 raw Cost / task \"$0.37\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.45,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-6-astra-high-rank-3:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "GPT 6 Astra (High)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 3 raw Cost / task \"$1.45\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.08,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-6-astra-low-rank-7:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "GPT 6 Astra (Low)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 7 raw Cost / task \"$1.08\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.77,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-6-astra-max-rank-1:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT 6 Astra (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 1 raw Cost / task \"$1.77\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.28,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-6-astra-medium-rank-4:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "GPT 6 Astra (Medium)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 4 raw Cost / task \"$1.28\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.28,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-6-astra-none-rank-14:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-non-reasoning",
+      "rawName": "GPT 6 Astra (None)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "non-reasoning",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 14 raw Cost / task \"$1.28\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.53,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-6-astra-xhigh-rank-2:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "GPT 6 Astra (XHigh)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 2 raw Cost / task \"$1.53\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.01,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:gpt-oss-120b-high-rank-92:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GPT-OSS 120B (High)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 92 raw Cost / task \"$0.01\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.28,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:kimi-k2-6-rank-82:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k2-6",
+      "profileId": null,
+      "rawName": "Kimi K2.6"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 82 raw Cost / task \"$0.28\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.24,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:kimi-k2-7-code-rank-80:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k2-7-code",
+      "profileId": null,
+      "rawName": "Kimi K2.7 Code"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 80 raw Cost / task \"$0.24\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.43,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:kimi-k3-rank-18:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3",
+      "profileId": null,
+      "rawName": "Kimi K3"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 18 raw Cost / task \"$0.43\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.1,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:minimax-m2-7-high-rank-91:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Minimax M2.7 (High)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 91 raw Cost / task \"$0.10\"",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "zapier-automationbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://zapier.com/benchmarks",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.07,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
+    ],
+    "exclusionReason": null,
+    "id": "zapier-automationbench:cost-per-task:minimax-m3-max-rank-70:1-0-6",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "AutomationBench cost per task",
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3-max",
+      "rawName": "Minimax M3 (Max)"
+    },
+    "observedAt": "2026-09-06T03:20:03.737Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": "Zapier API mode",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 70 raw Cost / task \"$0.07\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -3606,11 +4101,11 @@
     "cost": 0.08,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:qwen-3-6-high-rank-60:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:qwen-3-6-high-rank-72:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -3620,7 +4115,7 @@
       "profileId": null,
       "rawName": "Qwen 3.6+ (High)"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3633,8 +4128,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 60 raw Cost / task \"$0.08\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 72 raw Cost / task \"$0.08\"",
         "method": "EMBEDDED_JSON"
       }
     },
@@ -3651,11 +4146,11 @@
     "cost": 0.05,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-      "sha256:70aeac3acccb510f033d28f2438a748b90c93080fd062c6705326fc6956a280b"
+      "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+      "sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1"
     ],
     "exclusionReason": null,
-    "id": "zapier-automationbench:cost-per-task:qwen-3-7-rank-63:1-0-6",
+    "id": "zapier-automationbench:cost-per-task:qwen-3-7-rank-76:1-0-6",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": null,
     "metricId": "cost-per-task",
@@ -3665,7 +4160,7 @@
       "profileId": null,
       "rawName": "Qwen 3.7+"
     },
-    "observedAt": "2026-08-23T05:10:30.541Z",
+    "observedAt": "2026-09-06T03:20:03.737Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3678,8 +4173,8 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:76c693bbda064645c276a80688f1a8cd9190a4ba12b549f8c2df1b6674188b53",
-        "locator": "leaderboard rank 63 raw Cost / task \"$0.05\"",
+        "evidenceId": "sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69",
+        "locator": "leaderboard rank 76 raw Cost / task \"$0.05\"",
         "method": "EMBEDDED_JSON"
       }
     },

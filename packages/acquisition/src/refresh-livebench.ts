@@ -10,6 +10,7 @@ import {
 
 import {
   extractLiveBenchMetadata,
+  liveBenchExportOnlyNames,
   materializeLiveBench,
 } from './livebench-materializer.js';
 import { materializeLiveBenchCosts } from './pricing-materializers.js';
@@ -127,9 +128,11 @@ async function main() {
       jsUrl: scriptUrl,
     },
   );
-  if (visualProfileCount !== result.populationRows) {
+  const supersededNames = liveBenchExportOnlyNames(table.text);
+  const expectedVisibleRows = result.populationRows - supersededNames.length;
+  if (visualProfileCount !== expectedVisibleRows) {
     throw new Error(
-      `Visible LiveBench profile count ${visualProfileCount} does not match export count ${result.populationRows}`,
+      `Visible LiveBench profile count ${visualProfileCount} does not match current export count ${expectedVisibleRows} (raw ${result.populationRows}; superseded ${supersededNames.join(', ')})`,
     );
   }
   const costs = materializeLiveBenchCosts(cost.text, {
@@ -155,12 +158,13 @@ async function main() {
     ...page.record.metadata,
     latestRelease,
     visibleProfiles: visualProfileCount,
+    supersededExportNames: supersededNames,
     visibleComparisonMatched: true,
   };
   const previousProfiles = new Set(
     previousCandidates.map(({ model }) => model.rawName),
   ).size;
-  const report = `${result.validationReport.trimEnd()}\n\n## Visible comparison\n\n- Fresh rendered page profile count: ${visualProfileCount}\n- Complete table export profile count: ${result.populationRows}\n- Result: matched\n\n${snapshotDeltaMarkdown(
+  const report = `${result.validationReport.trimEnd()}\n\n## Visible comparison\n\n- Fresh rendered page profile count (Include finetunes enabled): ${visualProfileCount}\n- Complete table export profile count: ${result.populationRows}\n- Superseded export-only names, absent from the current rendered leaderboard: ${supersededNames.join(', ') || 'none'}\n- Current export profiles after the existing superseded-build policy: ${expectedVisibleRows}\n- Result: current profiles matched; raw export-only rows remain traceable and unresolved.\n\n${snapshotDeltaMarkdown(
     [
       {
         label: 'Raw model profiles',

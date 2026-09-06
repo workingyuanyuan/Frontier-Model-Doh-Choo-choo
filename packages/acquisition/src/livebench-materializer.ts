@@ -13,6 +13,20 @@ export interface LiveBenchMetadata {
   cacheVersion: string;
 }
 
+/** Bare pre-refresh DeepSeek rows remain in the export but not the rendered table.
+ * Exact matching matters: Flash Vision Exp is still visible and must be counted.
+ * Refresh still compares the resulting count with an independently observed UI.
+ */
+export const liveBenchExportOnlyNames = (csv: string): string[] => {
+  const rows = parseCsv(csv.trim());
+  const column = rows[0]?.indexOf('model') ?? -1;
+  if (column < 0) throw new Error('LiveBench table is missing model column');
+  return rows
+    .slice(1)
+    .map((row) => row[column] ?? '')
+    .filter((name) => ['deepseek-v4-flash', 'deepseek-v4-pro'].includes(name));
+};
+
 export const APPROVED_LIVEBENCH_CATEGORIES: Record<
   string,
   { benchmarkId: string; metricName: string }

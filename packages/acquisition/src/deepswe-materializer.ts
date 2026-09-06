@@ -5,6 +5,7 @@ import {
 import { normalizeSourceEffort, slugify } from './materializer-utils.js';
 
 export const DEEPSWE_MODELS: Record<string, string> = {
+  'gpt-6-astra': 'openai-gpt-6-astra',
   'claude-fable-5': 'anthropic-claude-fable-5',
   'claude-opus-4-8': 'anthropic-claude-opus-4-8',
   'claude-opus-5': 'anthropic-claude-opus-5',
