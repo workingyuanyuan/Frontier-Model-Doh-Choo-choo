@@ -1,4 +1,4 @@
-import AdmZip from 'adm-zip';
+import { AcquisitionArchive } from './safe-archive.js';
 import { type CandidateResult } from '@llm-bench/benchmark-data';
 
 import {
@@ -186,7 +186,7 @@ export function materializeEpoch(
   observedAt: string,
   context: { evidenceId?: string; sourceUrl?: string } = {},
 ): CandidateResult[] {
-  const zip = new AdmZip(zipBuffer);
+  const zip = new AcquisitionArchive(zipBuffer);
   const candidates: CandidateResult[] = [];
   const sourceId = 'epoch-ai';
   const sourceUrl =
@@ -196,9 +196,9 @@ export function materializeEpoch(
     'sha256:f8ce95989868ba75347e92b661e5f700f5c07767f9884768d36632425c78a3b9';
 
   // 1. Load ECI capabilities index to map versions to display names
-  const eciEntry = zip.getEntry('epoch_capabilities_index.csv');
-  if (!eciEntry) throw new Error('epoch_capabilities_index.csv not found');
-  const eciText = eciEntry.getData().toString('utf8');
+  const eciText = zip.text('epoch_capabilities_index.csv');
+  if (eciText === undefined)
+    throw new Error('epoch_capabilities_index.csv not found');
 
   // ECI must be split naively by line to get exactly 719 rows
   const eciLines = eciText.split(/\r?\n/).filter((line) => line.trim());
@@ -293,9 +293,8 @@ export function materializeEpoch(
 
   // 2. Parse direct benchmarks using the robust CSV parser
   for (const f of EPOCH_DIRECT_FILES) {
-    const entry = zip.getEntry(f.name);
-    if (!entry) continue;
-    const text = entry.getData().toString('utf8');
+    const text = zip.text(f.name);
+    if (text === undefined) continue;
     const rows = parseCsv(text);
 
     for (let i = 1; i < rows.length; i++) {

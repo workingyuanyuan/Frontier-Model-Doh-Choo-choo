@@ -1,3 +1,4 @@
+import { acquisitionClient } from './safe-network.js';
 import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -80,13 +81,11 @@ export const captureArtifact = async (input: {
   method: EvidenceRecord['method'];
   metadata: Record<string, unknown>;
 }): Promise<CapturedArtifact> => {
-  const response = await fetch(input.url, {
-    signal: AbortSignal.timeout(120_000),
-  });
+  const response = await acquisitionClient.get(input.url);
   if (!response.ok) {
     throw new Error(`${input.url} returned HTTP ${response.status}`);
   }
-  const bytes = new Uint8Array(await response.arrayBuffer());
+  const bytes = response.bytes;
   const stored = await writeContentAddressedArtifact(
     join(input.root, 'artifacts', 'sha256'),
     bytes,

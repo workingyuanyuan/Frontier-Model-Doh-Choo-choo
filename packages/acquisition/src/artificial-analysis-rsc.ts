@@ -46,6 +46,17 @@ export interface ArtificialAnalysisPage {
   retrievedAt: string;
   html?: string;
   rows?: readonly ArtificialAnalysisRow[];
+  /**
+   * Version metadata belongs to the page that displayed the credited value.
+   * Refresh callers may provide it explicitly; rows extracted from HTML also
+   * carry the same metadata through the internal WeakMap below.
+   */
+  versionMetadata?: ArtificialAnalysisVersionMetadata;
+}
+
+export interface ArtificialAnalysisVersionMetadata {
+  intelligenceIndexVersion: string | null;
+  benchmarkVersions: Readonly<Record<string, string>>;
 }
 
 export interface ArtificialAnalysisApiPage {
@@ -354,6 +365,78 @@ const balancedSlice = (
 export const decodeArtificialAnalysisRsc = (html: string): string =>
   html.replaceAll('\\"', '"');
 
+const versionAfterLabel = (text: string, label: string): string | null => {
+  const match = text.match(
+    new RegExp(`${label}\\s+[vV](\\d+(?:\\.\\d+)*)`, 'iu'),
+  );
+  return match?.[1] ? `v${match[1]}` : null;
+};
+
+const parseArtificialAnalysisVersionMetadata = (
+  text: string,
+): ArtificialAnalysisVersionMetadata => {
+  const intelligenceIndexMatch = text.match(
+    /Artificial Analysis Intelligence Index\s+[vV](\d+(?:\.\d+)*)/u,
+  );
+  const intelligenceIndexVersion = intelligenceIndexMatch?.[1]
+    ? `v${intelligenceIndexMatch[1]}`
+    : null;
+  const benchmarkVersions: Record<string, string> = {};
+
+  const directVersions: ReadonlyArray<readonly [string, string]> = [
+    ['gdpval-aa', 'GDPval-AA'],
+    ['terminal-bench-2-1', 'Terminal-Bench'],
+    ['aa-lcr', 'AA-LCR'],
+  ];
+  for (const [benchmarkId, label] of directVersions) {
+    const version = versionAfterLabel(text, label);
+    if (version) benchmarkVersions[benchmarkId] = version;
+  }
+
+  const scicodeVersion = text.match(
+    /(?:Upgraded\s+)?SciCode\s+(?:to\s+)?[vV](\d+(?:\.\d+)*)/iu,
+  )?.[1];
+  if (scicodeVersion) benchmarkVersions.scicode = `v${scicodeVersion}`;
+
+  return { intelligenceIndexVersion, benchmarkVersions };
+};
+
+/**
+ * Extract the AA index release and explicitly documented constituent
+ * benchmark versions from a rendered page or Next.js flight payload.
+ * Unknown versions are intentionally returned as null/omitted.
+ */
+export const extractArtificialAnalysisVersionMetadata = (
+  html: string,
+): ArtificialAnalysisVersionMetadata =>
+  parseArtificialAnalysisVersionMetadata(decodeArtificialAnalysisRsc(html));
+
+const ROW_VERSION_METADATA = new WeakMap<
+  ArtificialAnalysisRow,
+  ArtificialAnalysisVersionMetadata
+>();
+const PAGE_VERSION_METADATA = new WeakMap<
+  ArtificialAnalysisPage,
+  ArtificialAnalysisVersionMetadata
+>();
+
+const versionMetadataFor = (
+  observation: RowObservation,
+  row: ArtificialAnalysisRow,
+): ArtificialAnalysisVersionMetadata | null => {
+  if (observation.page.versionMetadata) return observation.page.versionMetadata;
+  if (observation.page.html !== undefined) {
+    const cached = PAGE_VERSION_METADATA.get(observation.page);
+    if (cached) return cached;
+    const parsed = extractArtificialAnalysisVersionMetadata(
+      observation.page.html,
+    );
+    PAGE_VERSION_METADATA.set(observation.page, parsed);
+    return parsed;
+  }
+  return ROW_VERSION_METADATA.get(row) ?? null;
+};
+
 const parseObjectAtMarker = (
   text: string,
   marker: number,
@@ -435,6 +518,7 @@ export const extractArtificialAnalysisRscRows = (
   html: string,
 ): ArtificialAnalysisRow[] => {
   const text = decodeArtificialAnalysisRsc(html);
+  const versionMetadata = parseArtificialAnalysisVersionMetadata(text);
   const rows = [
     ...extractObjectsWithMarker(text, 'model_creator_id', 'model_creator_id'),
     ...extractInitialModels(text),
@@ -453,6 +537,9 @@ export const extractArtificialAnalysisRscRows = (
       byKey.set(key, row);
     }
   }
+  for (const row of byKey.values()) {
+    ROW_VERSION_METADATA.set(row, versionMetadata);
+  }
   return [...byKey.values()].toSorted((left, right) =>
     (modelRowKey(left) ?? '').localeCompare(modelRowKey(right) ?? ''),
   );
@@ -465,6 +552,27 @@ interface RowObservation {
   page: ArtificialAnalysisPage;
   row: ArtificialAnalysisRow;
 }
+
+const benchmarkVersionFor = (
+  observation: RowObservation,
+  row: ArtificialAnalysisRow,
+  benchmarkId: string,
+): string | null => {
+  const metadata = versionMetadataFor(observation, row);
+  return metadata?.benchmarkVersions[benchmarkId] ?? null;
+};
+
+const intelligenceIndexVersionFor = (
+  observation: RowObservation,
+  row: ArtificialAnalysisRow,
+): string | null => {
+  const metadata = versionMetadataFor(observation, row);
+  if (metadata) return metadata.intelligenceIndexVersion;
+  return null;
+};
+
+const intelligenceIndexIdVersion = (version: string | null): string =>
+  version ? slugify(version) : 'unversioned';
 
 export const ARTIFICIAL_ANALYSIS_MODELS_URL =
   'https://artificialanalysis.ai/models';
@@ -655,13 +763,18 @@ const makeScoreCandidate = (
   const canonicalModelId = identity.resolved.canonicalModelId;
   const profileId = identity.resolved.profileId;
   const effort = identity.effort;
+  const benchmarkVersion = benchmarkVersionFor(
+    observation,
+    row,
+    mapping.benchmarkId,
+  );
   const candidate = {
     schemaVersion: 'candidate-result-v1' as const,
     id: `${SOURCE_ID}:${mapping.benchmarkId}:${slugify(key)}`,
     sourceId: SOURCE_ID,
     sourceRole: mapping.sourceRole,
     benchmarkId: mapping.benchmarkId,
-    benchmarkVersion: null,
+    benchmarkVersion,
     model: {
       rawName: identity.rawName,
       canonicalModelId,
@@ -726,13 +839,14 @@ const makeIntelligenceIndexCandidate = (
   const value = readNumberField(row, INTELLIGENCE_INDEX_ALIASES);
   if (!identity || !key || value === null) return null;
   const modelPart = identity.resolved.profileId ?? slugify(identity.rawName);
+  const benchmarkVersion = intelligenceIndexVersionFor(observation, row);
   return CandidateResultSchema.parse({
     schemaVersion: 'candidate-result-v1',
-    id: `${SOURCE_ID}:${modelPart}:intelligence-index-v4-1`,
+    id: `${SOURCE_ID}:${modelPart}:intelligence-index-${intelligenceIndexIdVersion(benchmarkVersion)}`,
     sourceId: SOURCE_ID,
     sourceRole: 'ORGANIZER',
     benchmarkId: TASK_COST_BENCHMARK_ID,
-    benchmarkVersion: 'v4.1',
+    benchmarkVersion,
     model: {
       rawName: identity.rawName,
       canonicalModelId: identity.resolved.canonicalModelId,
@@ -987,6 +1101,7 @@ const makeCostRecord = (
   cost: number | null,
   input: number | null,
   output: number | null,
+  intelligenceIndexVersion: string | null,
 ): CostRecord[] => {
   const identity = modelIdentity(row);
   const key = pageRowKey(row);
@@ -1031,6 +1146,7 @@ const makeCostRecord = (
         metricId: 'cost-per-intelligence-index-task',
         metricName: 'Cost per Intelligence Index task',
         unit: 'USD_PER_TASK',
+        benchmarkVersion: intelligenceIndexVersion,
         inputPerMillionTokens: null,
         outputPerMillionTokens: null,
         cost,
@@ -1254,7 +1370,14 @@ export const materializeArtificialAnalysisRsc = (
       readRowField(row, ['price1mOutputTokens', 'price_1m_output_tokens']),
     );
     if (cost === null && (input === null || output === null)) continue;
-    const records = makeCostRecord(observation, row, cost, input, output);
+    const records = makeCostRecord(
+      observation,
+      row,
+      cost,
+      input,
+      output,
+      intelligenceIndexVersionFor(observation, row),
+    );
     for (const record of records) {
       if (!costsById.has(record.id)) {
         costsById.set(record.id, record);

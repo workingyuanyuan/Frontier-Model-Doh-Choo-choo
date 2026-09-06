@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   compareArtificialAnalysisApi,
   extractArtificialAnalysisRscRows,
+  extractArtificialAnalysisVersionMetadata,
   isArtificialAnalysisValuePresent,
   materializeArtificialAnalysisRsc,
 } from './artificial-analysis-rsc.js';
@@ -11,6 +12,35 @@ const evidenceId =
   'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 describe('Artificial Analysis RSC parser', () => {
+  it('extracts the current index and directly published benchmark versions', () => {
+    const metadata = extractArtificialAnalysisVersionMetadata(
+      'Artificial Analysis Intelligence Index v4.2 includes GDPval-AA v2, Terminal-Bench v2.1, and AA-LCR v1.1.',
+    );
+
+    expect(metadata).toEqual({
+      intelligenceIndexVersion: 'v4.2',
+      benchmarkVersions: {
+        'gdpval-aa': 'v2',
+        'terminal-bench-2-1': 'v2.1',
+        'aa-lcr': 'v1.1',
+      },
+    });
+  });
+
+  it('preserves older page versions and leaves unpublished versions unknown', () => {
+    const metadata = extractArtificialAnalysisVersionMetadata(
+      'Artificial Analysis Intelligence Index v4.1 includes GDPval-AA v2 and Terminal-Bench v2.1.',
+    );
+
+    expect(metadata).toEqual({
+      intelligenceIndexVersion: 'v4.1',
+      benchmarkVersions: {
+        'gdpval-aa': 'v2',
+        'terminal-bench-2-1': 'v2.1',
+      },
+    });
+  });
+
   it('extracts model rows and treats $undefined as missing, not as a score', () => {
     const html =
       '<script>self.__next_f.push([1,"21:[{\\"model_creator_id\\":\\"creator\\",\\"slug\\":\\"model\\",\\"name\\":\\"Model (high)\\",\\"release_date\\":\\"2026-08-01\\",\\"deprecated\\":false,\\"gpqa\\":\\"$undefined\\",\\"hle\\":0.5,\\"omniscience_breakdown\\":{\\"total\\":{\\"accuracy\\":0.7}},\\"intelligenceIndexCostPerTask\\":{\\"cost\\":{\\"total\\":1.25}}}]")])</script>';
@@ -151,6 +181,96 @@ describe('Artificial Analysis RSC materializer', () => {
       '$undefined` is treated as missing',
     );
   });
+
+  it('keeps v4.2 metadata on credited scores and Intelligence Index task cost', () => {
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'models',
+        slug: 'models',
+        sourceUrl: 'https://artificialanalysis.ai/models',
+        evidenceId,
+        retrievedAt: '2026-09-05T00:00:00.000Z',
+        html: 'Artificial Analysis Intelligence Index v4.2 includes GDPval-AA v2, Terminal-Bench v2.1, and AA-LCR v1.1.',
+        rows: [
+          {
+            slug: 'gpt-6-astra',
+            name: 'GPT-6 Astra (max)',
+            release_date: '2026-09-03',
+            deprecated: false,
+            intelligenceIndex: 54.6573323423926,
+            intelligenceIndexCostPerTask: { cost: { total: 2.5673 } },
+            gdpvalNormalized: 0.542065,
+            terminalbenchV21: 0.883895,
+            lcr: 0.806666,
+          },
+        ],
+      },
+    ]);
+
+    const index = result.candidates.find(
+      ({ benchmarkId }) =>
+        benchmarkId === 'artificial-analysis-intelligence-index',
+    );
+    expect(index).toMatchObject({ benchmarkVersion: 'v4.2' });
+    expect(index?.id).toMatch(/:intelligence-index-v4-2$/u);
+    expect(
+      result.candidates.find(({ benchmarkId }) => benchmarkId === 'gdpval-aa'),
+    ).toMatchObject({ benchmarkVersion: 'v2' });
+    expect(
+      result.candidates.find(({ benchmarkId }) => benchmarkId === 'aa-lcr'),
+    ).toMatchObject({ benchmarkVersion: 'v1.1' });
+    expect(
+      result.candidates.find(
+        ({ benchmarkId }) => benchmarkId === 'terminal-bench-2-1',
+      ),
+    ).toMatchObject({ benchmarkVersion: 'v2.1' });
+
+    expect(
+      result.costs.find(({ costType }) => costType === 'MEASURED_TASK'),
+    ).toMatchObject({ benchmarkVersion: 'v4.2' });
+    expect(
+      result.costs.find(({ costType }) => costType === 'API_STANDARDIZED'),
+    ).toBeUndefined();
+  });
+
+  it('does not invent a version when a synthetic page has no version metadata', () => {
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'models',
+        slug: 'models',
+        sourceUrl: 'https://artificialanalysis.ai/models',
+        evidenceId,
+        retrievedAt: '2026-09-05T00:00:00.000Z',
+        rows: [
+          {
+            slug: 'unknown-model',
+            name: 'Unknown Model (max)',
+            release_date: '2026-09-03',
+            deprecated: false,
+            intelligenceIndex: 20,
+            intelligenceIndexCostPerTask: { cost: { total: 1 } },
+            gdpvalNormalized: 0.5,
+          },
+        ],
+      },
+    ]);
+
+    expect(
+      result.candidates.find(
+        ({ benchmarkId }) =>
+          benchmarkId === 'artificial-analysis-intelligence-index',
+      ),
+    ).toMatchObject({
+      id: 'artificial-analysis:unknown-model-max:intelligence-index-unversioned',
+      benchmarkVersion: null,
+    });
+    expect(
+      result.candidates.find(({ benchmarkId }) => benchmarkId === 'gdpval-aa'),
+    ).toMatchObject({ benchmarkVersion: null });
+    expect(
+      result.costs.find(({ costType }) => costType === 'MEASURED_TASK'),
+    ).toMatchObject({ benchmarkVersion: null });
+  });
 });
 
 describe('Artificial Analysis Index and GDPval provenance', () => {
@@ -170,6 +290,10 @@ describe('Artificial Analysis Index and GDPval provenance', () => {
           : `https://artificialanalysis.ai/models/${slug}`,
     evidenceId,
     retrievedAt: '2026-08-20T00:00:00.000Z',
+    versionMetadata: {
+      intelligenceIndexVersion: 'v4.1',
+      benchmarkVersions: {},
+    },
     rows,
   });
 
@@ -279,6 +403,10 @@ describe('Artificial Analysis provenance URLs', () => {
     sourceUrl: `https://artificialanalysis.ai/models/${slug}`,
     evidenceId: `sha256:${'c'.repeat(64)}`,
     retrievedAt: '2026-08-17T00:00:00.000Z',
+    versionMetadata: {
+      intelligenceIndexVersion: 'v4.1',
+      benchmarkVersions: {},
+    },
     rows,
   });
 
@@ -331,6 +459,10 @@ describe('Artificial Analysis superseded builds', () => {
         sourceUrl: 'https://artificialanalysis.ai/evaluations/omniscience',
         evidenceId: `sha256:${'d'.repeat(64)}`,
         retrievedAt: '2026-08-18T00:00:00.000Z',
+        versionMetadata: {
+          intelligenceIndexVersion: 'v4.1',
+          benchmarkVersions: {},
+        },
         rows: [
           {
             slug: 'deepseek-v4-pro-0424',

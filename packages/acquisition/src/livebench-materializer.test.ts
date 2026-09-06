@@ -34,6 +34,16 @@ describe('LiveBench materializer', () => {
   const categoriesJson = readFileSync(categoriesPath, 'utf8');
 
   describe('deterministic model-name resolution', () => {
+    it('resolves Astra max through the catalog and explicit effort suffix', () => {
+      expect(resolveLiveBenchModel('gpt-6-astra-max')).toMatchObject({
+        canonicalModelId: 'openai-gpt-6-astra',
+        effort: 'max',
+        rule: 'effort-suffix',
+      });
+      expect(
+        resolveLiveBenchModel('gpt-6-astra-mini-max').canonicalModelId,
+      ).toBeNull();
+    });
     it('matches a full catalog alias before interpreting max as effort', () => {
       expect(resolveLiveBenchModel('kimi-k3')).toMatchObject({
         canonicalModelId: 'moonshot-kimi-k3',

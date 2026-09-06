@@ -2,6 +2,15 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "openai-gpt-6-astra",
+      "providerId": "openai",
+      "displayName": "GPT-6 Astra",
+      "aliases": ["GPT 6 Astra", "gpt-6-astra", "openai/gpt-6-astra"],
+      "releaseDate": "2026-09-03",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "anthropic-claude-fable-5",
       "providerId": "anthropic",
       "displayName": "Claude Fable 5",

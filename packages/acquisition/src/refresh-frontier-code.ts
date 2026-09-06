@@ -1,3 +1,4 @@
+import { acquisitionClient } from './safe-network.js';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
@@ -77,11 +78,11 @@ const fetchArtifact = async (
   retrievedAt: string,
   metadata: Record<string, unknown>,
 ): Promise<{ bytes: Uint8Array; evidence: EvidenceRecord }> => {
-  const response = await fetch(url);
+  const response = await acquisitionClient.get(url);
   if (!response.ok) {
     throw new Error(`${url} returned HTTP ${response.status}`);
   }
-  const bytes = new Uint8Array(await response.arrayBuffer());
+  const bytes = response.bytes;
   const stored = await writeContentAddressedArtifact(
     join(root, 'artifacts', 'sha256'),
     bytes,

@@ -18,7 +18,7 @@
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings 0",
     "report:coverage-matrix": "pnpm --filter @llm-bench/benchmark-data report:coverage-matrix",
-    "test": "turbo run test",
+    "test": "node --test scripts/serve-static.test.mjs && turbo run test",
     "typecheck": "turbo run typecheck",
     "web": "pnpm --filter @llm-bench/bench dev",
     "data:generate-display-set": "pnpm --filter @llm-bench/benchmark-data data:generate-display-set"

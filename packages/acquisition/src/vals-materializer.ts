@@ -93,12 +93,14 @@ export interface ParsedValsPage {
   rows: Record<string, ValsOverallRow>;
 }
 
-export interface ValsPageInput {
+export type ValsPageInput = {
   slug: string;
-  html: string;
   evidenceId: string;
   sourceUrl: string;
-}
+} & (
+  | { html: string; parsed?: never }
+  | { parsed: ParsedValsPage | null; html?: never }
+);
 
 export interface MaterializeValsContext {
   observedAt: string;
@@ -288,7 +290,10 @@ export function materializeVals(
   )) {
     let parsed: ParsedValsPage | null;
     try {
-      parsed = parseValsBenchmarkPage(page.html);
+      parsed =
+        page.html !== undefined
+          ? parseValsBenchmarkPage(page.html)
+          : page.parsed;
     } catch (error) {
       throw new Error(
         `Failed to parse Vals page ${page.slug}: ${error instanceof Error ? error.message : String(error)}`,

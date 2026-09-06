@@ -15,6 +15,30 @@ const context = {
 };
 
 describe('pricing materializers', () => {
+  it('retains both published Astra max LiveBench costs and provenance', () => {
+    const rows = materializeLiveBenchCosts(
+      'model,input_price_per_million,output_price_per_million,cost_per_successful_task\n' +
+        'gpt-6-astra-max,10,50,0.7359\n',
+      context,
+    );
+    expect(rows).toHaveLength(2);
+    for (const row of rows) {
+      expect(row.model).toMatchObject({
+        rawName: 'gpt-6-astra-max',
+        canonicalModelId: 'openai-gpt-6-astra',
+        profileId: 'openai-gpt-6-astra-max',
+      });
+      expect(row.profile.effort).toBe('max');
+      expect(row.evidenceIds).toEqual([context.evidenceId]);
+      expect(row.provenance.cost?.locator).toContain('model=gpt-6-astra-max');
+    }
+    expect(rows[0]).toMatchObject({
+      costType: 'API_STANDARDIZED',
+      inputPerMillionTokens: 10,
+      outputPerMillionTokens: 50,
+    });
+    expect(rows[1]).toMatchObject({ costType: 'MEASURED_TASK', cost: 0.7359 });
+  });
   it('extracts Artificial Analysis task cost with canonical identity', () => {
     const rows = materializeArtificialAnalysisCosts(
       '{"label":"GPT-5.6 Sol (max)","costPerIntelligenceIndexTask":1.0373,"detailsUrl":"/models/gpt-5-6-sol"}',

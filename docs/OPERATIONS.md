@@ -17,6 +17,35 @@ pnpm install --frozen-lockfile
 
 ## 2. 刷新來源
 
+### 共用擷取安全政策
+
+新增來源時使用 `refresh-utils.ts` 的 `captureArtifact`；需要自訂請求時使用
+`safe-network.ts` 的 `acquisitionClient.get`。每個刷新程序共用
+`acquisition-policy.ts` 的預算，所有來源套用相同限制：
+
+| 項目                   | 預設上限        |
+| ---------------------- | --------------- |
+| 單一回應／整次下載量   | 32 MiB／512 MiB |
+| 請求數（含重新導向）   | 1,024           |
+| 探索項目／批次並行數   | 512／6          |
+| 單次請求／整次刷新時間 | 120 秒／30 分鐘 |
+| 每次請求重新導向       | 5 次            |
+| ZIP 輸入／項目數       | 32 MiB／1,024   |
+| 單一項目／累計解壓縮量 | 16 MiB／64 MiB  |
+
+目的地必須是公開 IP 的 HTTPS 443；DNS 的所有回覆均須通過檢查，連線固定使用
+已驗證的 IP，每次重新導向重新檢查。帶有自訂憑證標頭的請求不得跨 origin
+重新導向。HTTP 要求 identity encoding，遇到其他編碼會終止擷取；回應串流
+即時計算位元組，即使沒有 Content-Length 仍會套用上限。
+
+ZIP 使用 `safe-archive.ts` 的 `AcquisitionArchive`，同時檢查宣告大小與實際
+解壓縮量。探索頁面使用 `mapAcquisitionItems`，在發送請求前限制項目數，並在
+回呼內完成解析，只回傳後續需要的結構化資料。Vals 即採用此方式釋放每頁原始
+HTML。ESLint 會攔截 adapter 直接使用 fetch 或底層網路／ZIP 套件。
+
+超過限制會中止操作並回報錯誤。若資料規模需要調整，集中修改共用政策並補上
+邊界測試；不要在個別網站 adapter 內另設不受控的下載或解壓縮路徑。
+
 來源快照與成本使用相同 materializer：
 
 ```bash

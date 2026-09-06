@@ -26,6 +26,7 @@ const AA_MODELS: Record<string, Identity> = {
 };
 
 const LIVEBENCH_MODELS: Record<string, Identity> = {
+  'gpt-6-astra-max': { modelId: 'openai-gpt-6-astra', effort: 'max' },
   'minimax-m3': { modelId: 'minimax-minimax-m3', effort: 'max' },
   'kimi-k2.6-thinking': { modelId: 'moonshot-kimi-k2-6', effort: 'max' },
   'qwen3.7-max': { modelId: 'alibaba-qwen3-7-max', effort: 'max' },

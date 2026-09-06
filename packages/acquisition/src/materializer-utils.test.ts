@@ -7,6 +7,7 @@ import {
   currentBuildCanonicalId,
   isSupersededBuild,
   resolveCatalogModel,
+  resolveModel,
   normalizeSourceEffort,
   parseCsv,
   parseEffort,
@@ -14,6 +15,35 @@ import {
 } from './materializer-utils.js';
 
 describe('materializer utilities', () => {
+  it.each(['GPT-6 Astra', 'GPT 6 Astra', 'gpt-6-astra', 'openai/gpt-6-astra'])(
+    'resolves the reviewed Astra catalog name %s',
+    (name) => {
+      expect(resolveCatalogModel(name).canonicalModelId).toBe(
+        'openai-gpt-6-astra',
+      );
+    },
+  );
+
+  it.each(['artificial-analysis', 'epoch-ai'] as const)(
+    'resolves Astra configurations on %s without merging effort tiers',
+    (source) => {
+      for (const effort of [
+        'low',
+        'medium',
+        'high',
+        'xhigh',
+        'max',
+        'non-reasoning',
+      ]) {
+        const result = resolveModel(`GPT-6 Astra (${effort})`, source);
+        expect(result.canonicalModelId).toBe('openai-gpt-6-astra');
+        expect(result.profileId).toContain(`openai-gpt-6-astra-${effort}-`);
+      }
+      expect(
+        resolveModel('GPT-6 Astra Mini (max)', source).canonicalModelId,
+      ).toBeNull();
+    },
+  );
   it('keeps the legal effort tiers identical to profile-policy.json', () => {
     expect([...LEGAL_SOURCE_EFFORTS].toSorted()).toEqual(
       [...profilePolicy.effortOrder].toSorted(),

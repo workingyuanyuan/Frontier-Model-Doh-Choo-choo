@@ -20,6 +20,40 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   {
+    files: ['packages/acquisition/src/**/*.ts'],
+    ignores: ['**/*.test.ts', '**/safe-network.ts', '**/safe-archive.ts'],
+    rules: {
+      'no-restricted-globals': [
+        'error',
+        {
+          name: 'fetch',
+          message:
+            'Use acquisitionClient so destination and resource limits apply.',
+        },
+      ],
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            'node:http',
+            'node:https',
+            'http',
+            'https',
+            'node:http2',
+            'undici',
+            'axios',
+            'adm-zip',
+            'node:zlib',
+          ].map((name) => ({
+            name,
+            message:
+              'Use safe-network or safe-archive with the shared acquisition policy.',
+          })),
+        },
+      ],
+    },
+  },
+  {
     // Node scripts run outside the browser and outside the TS program.
     files: ['scripts/**/*.mjs'],
     languageOptions: {

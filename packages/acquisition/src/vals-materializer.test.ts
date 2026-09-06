@@ -118,6 +118,25 @@ describe('Vals Astro parsing', () => {
 });
 
 describe('Vals materialization policy', () => {
+  it('produces identical results after releasing each raw page body', () => {
+    const page = {
+      slug: 'swebench',
+      evidenceId,
+      sourceUrl: 'https://www.vals.ai/benchmarks/swebench',
+    };
+    const context = {
+      observedAt: '2026-08-22T00:00:00.000Z',
+      indexEvidenceId: evidenceId,
+      discoveredSlugs: ['swebench'],
+    };
+    expect(
+      materializeVals(
+        [{ ...page, parsed: parseValsBenchmarkPage(fixture()) }],
+        context,
+      ),
+    ).toEqual(materializeVals([{ ...page, html: fixture() }], context));
+  });
+
   it('maps underscore slugs explicitly and records per-benchmark roles', () => {
     expect(APPROVED_VALS_BENCHMARKS.corp_fin_v2).toEqual({
       benchmarkId: 'corpfin',

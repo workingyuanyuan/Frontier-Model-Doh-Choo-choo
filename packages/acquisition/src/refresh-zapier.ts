@@ -1,3 +1,4 @@
+import { acquisitionClient } from './safe-network.js';
 import { writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
@@ -29,9 +30,9 @@ import {
 } from './refresh-utils.js';
 
 async function fetchModuleText(url: string): Promise<string> {
-  const response = await fetch(url, { signal: AbortSignal.timeout(120_000) });
+  const response = await acquisitionClient.get(url);
   if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
-  return response.text();
+  return new TextDecoder().decode(response.bytes);
 }
 
 async function main() {
@@ -61,7 +62,12 @@ async function main() {
     method: 'DOM',
     metadata: { captureScope: 'official AutomationBench page and module list' },
   });
-  const found = await findZapierRouteModule(page.text, fetchModuleText);
+  const found = await findZapierRouteModule(
+    page.text,
+    fetchModuleText,
+    ZAPIER_PAGE_URL,
+    acquisitionClient.budget,
+  );
   const routeModule = await captureArtifact({
     root,
     sourceId: ZAPIER_SOURCE_ID,

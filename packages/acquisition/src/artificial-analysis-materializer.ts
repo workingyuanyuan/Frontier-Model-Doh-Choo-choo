@@ -6,7 +6,10 @@ import {
   resolveModel,
   slugify,
 } from './materializer-utils.js';
-import { isArtificialAnalysisValuePresent } from './artificial-analysis-rsc.js';
+import {
+  extractArtificialAnalysisVersionMetadata,
+  isArtificialAnalysisValuePresent,
+} from './artificial-analysis-rsc.js';
 
 export function materializeArtificialAnalysis(
   modelsHtml: string,
@@ -31,6 +34,8 @@ export function materializeArtificialAnalysis(
   const articleEvidenceId =
     context.articleEvidenceId ??
     'sha256:1b8ce2a9690fbd52b4706e5fe3f81215735b792710b7a8f4859e684a284d2a28';
+  const versionMetadata = extractArtificialAnalysisVersionMetadata(modelsHtml);
+  const intelligenceIndexVersion = versionMetadata.intelligenceIndexVersion;
 
   // 1. Parse initialModels array from modelsHtml
   const imIdx = modelsHtml.indexOf('initialModels');
@@ -239,11 +244,11 @@ export function materializeArtificialAnalysis(
     if (isArtificialAnalysisValuePresent(model.intelligenceIndex)) {
       candidates.push({
         schemaVersion: 'candidate-result-v1',
-        id: `${sourceId}:${modelPart}:intelligence-index-v4-1`,
+        id: `${sourceId}:${modelPart}:intelligence-index-${intelligenceIndexVersion ? slugify(intelligenceIndexVersion) : 'unversioned'}`,
         sourceId,
         sourceRole: 'ORGANIZER',
         benchmarkId: 'artificial-analysis-intelligence-index',
-        benchmarkVersion: 'v4.1',
+        benchmarkVersion: intelligenceIndexVersion,
         model: {
           rawName,
           canonicalModelId,
@@ -474,7 +479,8 @@ export function materializeArtificialAnalysis(
           sourceId,
           sourceRole: m.isOrganizer ? 'ORGANIZER' : 'INDEPENDENT',
           benchmarkId: m.benchmarkId,
-          benchmarkVersion: null,
+          benchmarkVersion:
+            versionMetadata.benchmarkVersions[m.benchmarkId] ?? null,
           model: {
             rawName,
             canonicalModelId,

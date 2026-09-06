@@ -1,4 +1,10 @@
 import {
+  AcquisitionBudget,
+  AcquisitionLimitError,
+  mapAcquisitionItems,
+} from './acquisition-policy.js';
+import { publicHttpsUrl } from './safe-network.js';
+import {
   CandidateResultSchema,
   CostRecordSchema,
   type CandidateResult,
@@ -32,7 +38,11 @@ export const ZAPIER_UNRESOLVED_EFFORT_REASON_PREFIX =
   'Unrecognised configuration segment';
 
 export const ZAPIER_PROMO_NOTE =
-  '*Gemini 3.7 Flash launch promo: $0.30 / task through Dec 31, 2026 ($0.75 in / $3.75 out per MTok). Ranking and Cost / task reflect standard list pricing; the promo is noted but does not affect rank.';
+  '*Promotional pricing is available for both Gemini models; Ranking and Cost / task reflect standard list pricing. Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026. Gemini 3.8 Flash: $0.27 (Medium) / $0.31 (High) per task.';
+export const ZAPIER_FALLBACK_NOTE =
+  "§ Rank 5 is Fable 5.1 with an Opus 5 fallback: when Fable 5.1's safety classifier refuses a step, Opus 5 completes it and Fable finishes the task. Opus 5 handled ~40% of tasks (260 of 657); the 31.4% score includes those fallback completions. Cost/task shown is Fable 5.1 alone and excludes fallback tokens, so the true combo cost is higher.";
+export const ZAPIER_DEEPSEEK_NOTE =
+  '‡DeepSeek V4 Flash priced at Fireworks rates ($0.14 / task uncached, $0.04 cached).';
 export const ZAPIER_DEDICATED_NOTE =
   '†Dedicated-deployment pricing; not directly comparable to per-token API cost.';
 
@@ -47,6 +57,8 @@ export interface ParsedZapierModule {
   version: string;
   rows: ZapierLeaderboardRow[];
   promoNote: string | null;
+  fallbackNote: string | null;
+  deepseekPricingNote: string | null;
   dedicatedDeploymentNote: string | null;
 }
 
@@ -77,6 +89,8 @@ export interface MaterializeZapierResult {
   excludedCandidatesCount: number;
   missingCostRowsCount: number;
   starredCostRowsCount: number;
+  fallbackCostRowsCount: number;
+  deepseekPriceRowsCount: number;
   dedicatedCostRowsCount: number;
 }
 
@@ -108,21 +122,24 @@ export async function findZapierRouteModule(
   html: string,
   loadModule: (url: string) => Promise<string>,
   pageUrl = ZAPIER_PAGE_URL,
+  budget = new AcquisitionBudget(),
 ): Promise<FoundZapierRouteModule> {
   const urls = extractZapierModuleUrls(html, pageUrl);
   if (urls.length === 0) {
     throw new Error('Zapier benchmarks page contains no .mjs module URLs');
   }
 
-  const loaded = await Promise.all(
-    urls.map(async (url) => {
-      try {
-        return { url, text: await loadModule(url) };
-      } catch {
-        return null;
-      }
-    }),
-  );
+  // Validate literal destinations and discovery count before dispatching anything.
+  urls.forEach((url) => publicHttpsUrl(url));
+  const loaded = await mapAcquisitionItems(urls, budget, async (url) => {
+    try {
+      const text = await loadModule(url);
+      return text.includes(ZAPIER_ROUTE_FEATURE) ? { url, text } : null;
+    } catch (error) {
+      if (error instanceof AcquisitionLimitError) throw error;
+      return null;
+    }
+  });
   const matches = loaded.filter(
     (entry): entry is { url: string; text: string } =>
       entry !== null && entry.text.includes(ZAPIER_ROUTE_FEATURE),
@@ -145,6 +162,28 @@ export async function findZapierRouteModule(
 const leaderboardRowPattern =
   /\[\s*(\d+)\s*,\s*`([^`]*)`\s*,\s*`([0-9]+(?:\.[0-9]+)?%)`\s*,\s*`([^`]*)`\s*\]/gu;
 
+const footnotePattern = /`([*§‡†][^`\r\n]*)`/gu;
+
+function findUniqueZapierFootnote(
+  moduleText: string,
+  marker: string,
+  label: string,
+): string | null {
+  const notes = [
+    ...new Set(
+      [...moduleText.matchAll(footnotePattern)]
+        .map((match) => match[1]!)
+        .filter((note) => note.startsWith(marker)),
+    ),
+  ];
+  if (notes.length > 1) {
+    throw new Error(
+      `Multiple Zapier ${label} footnotes were found: ${notes.join(' | ')}`,
+    );
+  }
+  return notes[0] ?? null;
+}
+
 export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
   if (!moduleText.includes(ZAPIER_ROUTE_FEATURE)) {
     throw new Error(
@@ -162,6 +201,10 @@ export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
   if (rows.length === 0) {
     throw new Error('Zapier route module contains no leaderboard rows');
   }
+  // Validate every visible price while parsing the source. The exact parser
+  // below deliberately rejects unknown or combined markers instead of making a
+  // potentially incomparable amount look like an ordinary task cost.
+  for (const row of rows) parseZapierCost(row.rawCost);
 
   const firstRowOffset = rowMatches[0]?.index ?? 0;
   const nearbyPrefix = moduleText.slice(
@@ -191,15 +234,82 @@ export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
     throw new Error('Zapier leaderboard ranks are not a unique 1..N sequence');
   }
 
-  const promoNote = moduleText.includes(ZAPIER_PROMO_NOTE)
-    ? ZAPIER_PROMO_NOTE
-    : null;
-  const dedicatedDeploymentNote = moduleText.includes(ZAPIER_DEDICATED_NOTE)
-    ? ZAPIER_DEDICATED_NOTE
-    : null;
+  // The Framer module is versioned independently of this parser. Extract the
+  // displayed note text so a wording update (such as the Gemini 3.8 addition)
+  // remains evidence rather than being mistaken for a missing footnote.
+  const promoNote = findUniqueZapierFootnote(
+    moduleText,
+    '*',
+    'promotional pricing',
+  );
+  const fallbackNote = findUniqueZapierFootnote(
+    moduleText,
+    '§',
+    'fallback pricing',
+  );
+  const deepseekPricingNote = findUniqueZapierFootnote(
+    moduleText,
+    '‡',
+    'DeepSeek pricing',
+  );
+  const dedicatedDeploymentNote = findUniqueZapierFootnote(
+    moduleText,
+    '†',
+    'dedicated-deployment pricing',
+  );
+  if (
+    promoNote !== null &&
+    (!/gemini\s+(?:3\.7|3\.8)/iu.test(promoNote) ||
+      !/(?:promo|promotional)/iu.test(promoNote) ||
+      !/standard list pricing/iu.test(promoNote))
+  ) {
+    throw new Error(
+      `Zapier promotional pricing footnote has unsupported semantics: ${promoNote}`,
+    );
+  }
+  if (
+    fallbackNote !== null &&
+    (!/fallback/iu.test(fallbackNote) ||
+      !/excludes fallback tokens/iu.test(fallbackNote))
+  ) {
+    throw new Error(
+      `Zapier fallback pricing footnote has unsupported semantics: ${fallbackNote}`,
+    );
+  }
+  if (
+    deepseekPricingNote !== null &&
+    (!/deepseek/iu.test(deepseekPricingNote) ||
+      !/fireworks rates/iu.test(deepseekPricingNote))
+  ) {
+    throw new Error(
+      `Zapier DeepSeek pricing footnote has unsupported semantics: ${deepseekPricingNote}`,
+    );
+  }
+  if (
+    dedicatedDeploymentNote !== null &&
+    (!/dedicated-deployment pricing/iu.test(dedicatedDeploymentNote) ||
+      !/not directly comparable/iu.test(dedicatedDeploymentNote))
+  ) {
+    throw new Error(
+      `Zapier dedicated-deployment pricing footnote has unsupported semantics: ${dedicatedDeploymentNote}`,
+    );
+  }
   if (rows.some(({ rawCost }) => rawCost.endsWith('*')) && !promoNote) {
     throw new Error(
       'Zapier starred cost exists but its promo footnote is missing',
+    );
+  }
+  if (rows.some(({ rawCost }) => rawCost.endsWith('§')) && !fallbackNote) {
+    throw new Error(
+      'Zapier fallback cost exists but its fallback footnote is missing',
+    );
+  }
+  if (
+    rows.some(({ rawCost }) => rawCost.endsWith('‡')) &&
+    !deepseekPricingNote
+  ) {
+    throw new Error(
+      'Zapier DeepSeek-marked cost exists but its pricing footnote is missing',
     );
   }
   if (
@@ -215,19 +325,33 @@ export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
     version,
     rows: rows.toSorted((left, right) => left.rank - right.rank),
     promoNote,
+    fallbackNote,
+    deepseekPricingNote,
     dedicatedDeploymentNote,
   };
 }
 
 interface ParsedCost {
   value: number | null;
-  kind: 'STANDARD' | 'STARRED_STANDARD' | 'MISSING' | 'DEDICATED';
+  kind:
+    | 'STANDARD'
+    | 'STARRED_STANDARD'
+    | 'MISSING'
+    | 'DEDICATED'
+    | 'FALLBACK_EXCLUDED'
+    | 'FIREWORKS_STANDARD';
 }
 
 export function parseZapierCost(rawCost: string): ParsedCost {
   if (rawCost === '—') return { value: null, kind: 'MISSING' };
   const dedicated = rawCost.match(/^\$(\d+(?:\.\d+)?)†$/u);
   if (dedicated) return { value: null, kind: 'DEDICATED' };
+  const fallback = rawCost.match(/^\$(\d+(?:\.\d+)?)§$/u);
+  if (fallback) return { value: null, kind: 'FALLBACK_EXCLUDED' };
+  const fireworks = rawCost.match(/^\$(\d+(?:\.\d+)?)‡$/u);
+  if (fireworks) {
+    return { value: Number(fireworks[1]), kind: 'FIREWORKS_STANDARD' };
+  }
   const starred = rawCost.match(/^\$(\d+(?:\.\d+)?)\*$/u);
   if (starred) {
     return { value: Number(starred[1]), kind: 'STARRED_STANDARD' };
@@ -252,7 +376,10 @@ const parseEffort = (
   if (segment === null) {
     return { effort: null, minimal: false, low: false, recognized: true };
   }
-  const normalized = normalizeSourceEffort(segment);
+  const normalized =
+    segment.trim().toLowerCase() === 'none'
+      ? 'non-reasoning'
+      : normalizeSourceEffort(segment);
   if (normalized === 'minimal') {
     return { effort: 'low', minimal: true, low: false, recognized: true };
   }
@@ -332,7 +459,22 @@ export function materializeZapier(
     };
     const rowSlug = `${slugify(row.model)}-rank-${row.rank}`;
     const rawCost = parseZapierCost(row.rawCost);
-    const rawCostLocator = `leaderboard rank ${row.rank} raw Cost / task ${JSON.stringify(row.rawCost)}`;
+    const costFootnote =
+      rawCost.kind === 'STARRED_STANDARD'
+        ? parsed.promoNote
+        : rawCost.kind === 'FALLBACK_EXCLUDED'
+          ? parsed.fallbackNote
+          : rawCost.kind === 'FIREWORKS_STANDARD'
+            ? parsed.deepseekPricingNote
+            : rawCost.kind === 'DEDICATED'
+              ? parsed.dedicatedDeploymentNote
+              : null;
+    const rawCostLocator = [
+      `leaderboard rank ${row.rank} raw Cost / task ${JSON.stringify(row.rawCost)}`,
+      costFootnote === null ? null : `footnote ${JSON.stringify(costFootnote)}`,
+    ]
+      .filter((part): part is string => part !== null)
+      .join('; ');
 
     const candidate = CandidateResultSchema.parse({
       schemaVersion: 'candidate-result-v1',
@@ -477,6 +619,12 @@ export function materializeZapier(
   const starredCostRowsCount = parsed.rows.filter(
     ({ rawCost }) => parseZapierCost(rawCost).kind === 'STARRED_STANDARD',
   ).length;
+  const fallbackCostRowsCount = parsed.rows.filter(
+    ({ rawCost }) => parseZapierCost(rawCost).kind === 'FALLBACK_EXCLUDED',
+  ).length;
+  const deepseekPriceRowsCount = parsed.rows.filter(
+    ({ rawCost }) => parseZapierCost(rawCost).kind === 'FIREWORKS_STANDARD',
+  ).length;
   const dedicatedCostRowsCount = parsed.rows.filter(
     ({ rawCost }) => parseZapierCost(rawCost).kind === 'DEDICATED',
   ).length;
@@ -500,6 +648,8 @@ export function materializeZapier(
     `| Cost records emitted | ${costs.length} |`,
     `| Missing-cost rows (—) | ${missingCostRowsCount} |`,
     `| Starred standard-price rows | ${starredCostRowsCount} |`,
+    `| Fallback-composite rows with excluded fallback cost (§) | ${fallbackCostRowsCount} |`,
+    `| Fireworks-marked standard-price rows (‡) | ${deepseekPriceRowsCount} |`,
     `| Dedicated-deployment cost rows excluded from costs | ${dedicatedCostRowsCount} |`,
     `| Canonically resolved rows | ${resolvedRowsCount} |`,
     `| Canonically unresolved rows | ${unresolvedRowsCount} |`,
@@ -524,9 +674,11 @@ export function materializeZapier(
     '## Cost policy',
     '',
     `- Starred raw value: \`$0.61*\` → numeric cost \`0.61\` by user ruling 2026-08-22. Source note: ${parsed.promoNote ?? 'MISSING'}`,
+    `- Fallback-composite raw value: \`$2.45§\` → no CostRecord because the displayed amount excludes Opus fallback tokens. Source note: ${parsed.fallbackNote ?? 'MISSING'}`,
+    `- Fireworks-marked raw value: \`$0.14‡\` → numeric per-task cost, with the source's Fireworks pricing note preserved. Source note: ${parsed.deepseekPricingNote ?? 'MISSING'}`,
     `- Missing raw value: \`—\` → no CostRecord; it is never written as zero.`,
     `- Dedicated raw value: \`$0.09†\` → no CostRecord by user ruling 2026-08-22. Source note: ${parsed.dedicatedDeploymentNote ?? 'MISSING'}`,
-    '- Every raw Cost / task string remains in the CandidateResult provenance locator, including `*`, `†`, and `—`.',
+    '- Every raw Cost / task string remains in the CandidateResult provenance locator, including `*`, `§`, `‡`, `†`, and `—`.',
     '',
     '## Excluded rows',
     '',
@@ -562,6 +714,8 @@ export function materializeZapier(
     excludedCandidatesCount: excluded.length,
     missingCostRowsCount,
     starredCostRowsCount,
+    fallbackCostRowsCount,
+    deepseekPriceRowsCount,
     dedicatedCostRowsCount,
   };
 }

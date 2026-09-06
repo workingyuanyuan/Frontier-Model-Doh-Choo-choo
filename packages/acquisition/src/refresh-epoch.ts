@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
-import AdmZip from 'adm-zip';
+import { AcquisitionArchive } from './safe-archive.js';
 import {
   SourceManifestSchema,
   deterministicJson,
@@ -80,14 +80,16 @@ const liveVersionsByTask = (csv: string): Map<string, Set<string>> => {
   return byTask;
 };
 
-const compareChannels = (zip: AdmZip, liveCsv: string): VisibleComparison[] => {
+const compareChannels = (
+  zip: AcquisitionArchive,
+  liveCsv: string,
+): VisibleComparison[] => {
   const live = liveVersionsByTask(liveCsv);
   return EPOCH_DIRECT_FILES.map((file) => {
-    const entry = zip.getEntry(file.name);
-    if (!entry) throw new Error(`${file.name} is missing from ${ZIP_URL}`);
-    const exportVersions = distinctScoredVersions(
-      parseCsv(entry.getData().toString('utf8')),
-    );
+    const text = zip.text(file.name);
+    if (text === undefined)
+      throw new Error(`${file.name} is missing from ${ZIP_URL}`);
+    const exportVersions = distinctScoredVersions(parseCsv(text));
     const liveVersions = live.get(file.liveTaskName) ?? new Set<string>();
     return {
       benchmark: file.liveTaskName,
@@ -217,8 +219,8 @@ async function main() {
     }),
   ]);
 
-  const zip = new AdmZip(Buffer.from(archive.bytes));
-  const entries = zip.getEntries().map(({ entryName }) => entryName);
+  const zip = new AcquisitionArchive(Buffer.from(archive.bytes));
+  const entries = zip.names();
   const externalMirrors = entries.filter((name) =>
     name.includes('_external'),
   ).length;

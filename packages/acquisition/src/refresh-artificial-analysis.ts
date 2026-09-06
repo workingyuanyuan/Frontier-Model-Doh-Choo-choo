@@ -1,3 +1,5 @@
+import { AcquisitionLimitError } from './acquisition-policy.js';
+import { acquisitionClient } from './safe-network.js';
 import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -63,14 +65,13 @@ const capture = async (
   method: EvidenceRecord['method'],
   metadata: Record<string, unknown>,
 ): Promise<CaptureResult> => {
-  const response = await fetch(url, {
+  const response = await acquisitionClient.get(url, {
     headers: { Accept: 'text/html,application/json;q=0.9,*/*;q=0.8' },
-    signal: AbortSignal.timeout(120_000),
   });
   if (!response.ok) {
     throw new Error(`${url} returned HTTP ${response.status}`);
   }
-  const bytes = new Uint8Array(await response.arrayBuffer());
+  const bytes = response.bytes;
   const mediaType = responseMediaType(
     response.headers.get('content-type'),
     url.endsWith('.json') ? 'application/json' : 'text/html',
@@ -122,6 +123,7 @@ const captureDetailPages = async (
   records: EvidenceRecord[];
   warnings: string[];
 }> => {
+  acquisitionClient.budget.checkItems(slugs.length);
   const pages: ArtificialAnalysisPage[] = [];
   const records: EvidenceRecord[] = [];
   const warnings: string[] = [];
@@ -146,6 +148,7 @@ const captureDetailPages = async (
     for (const [offset, result] of results.entries()) {
       const slug = batch[offset]!;
       if (result.status === 'rejected') {
+        if (result.reason instanceof AcquisitionLimitError) throw result.reason;
         warnings.push(`Model detail ${slug} failed: ${String(result.reason)}`);
         continue;
       }
@@ -184,9 +187,8 @@ const fetchApi = async (
     };
   }
   try {
-    const response = await fetch(API_URL, {
+    const response = await acquisitionClient.get(API_URL, {
       headers: { Accept: 'application/json', 'x-api-key': key },
-      signal: AbortSignal.timeout(120_000),
     });
     if (!response.ok) {
       return {
@@ -195,7 +197,7 @@ const fetchApi = async (
         warning: `API cross-validation returned HTTP ${response.status}; page pipeline continued.`,
       };
     }
-    const bytes = new Uint8Array(await response.arrayBuffer());
+    const bytes = response.bytes;
     const stored = await writeContentAddressedArtifact(
       join(root, 'artifacts', 'sha256'),
       bytes,
@@ -227,6 +229,7 @@ const fetchApi = async (
       warning: null,
     };
   } catch (error) {
+    if (error instanceof AcquisitionLimitError) throw error;
     return {
       page: null,
       record: null,

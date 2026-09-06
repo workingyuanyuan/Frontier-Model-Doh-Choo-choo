@@ -1,9 +1,12 @@
+import { mapAcquisitionItems } from './acquisition-policy.js';
+import { acquisitionClient } from './safe-network.js';
 import { join, resolve } from 'node:path';
 
 import {
   BenchmarkDimensionMappingSchema,
   type CandidateResult,
   type CostRecord,
+  type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
 import {
@@ -11,6 +14,8 @@ import {
   VALS_SOURCE_ID,
   extractValsBenchmarkSlugs,
   materializeVals,
+  parseValsBenchmarkPage,
+  type ParsedValsPage,
 } from './vals-materializer.js';
 import { writeValsSnapshot } from './vals-snapshot.js';
 import {
@@ -18,42 +23,43 @@ import {
   getWorkspaceRoot,
   readJson,
   readText,
-  type CapturedArtifact,
 } from './refresh-utils.js';
 
 const PAGE_URL = (slug: string): string =>
-  `https://www.vals.ai/benchmarks/${slug}`;
+  `https://www.vals.ai/benchmarks/${encodeURIComponent(slug)}`;
 
 async function capturePagesInBatches(input: {
   root: string;
   retrievedAt: string;
   slugs: string[];
-}): Promise<Array<{ slug: string; artifact: CapturedArtifact }>> {
-  const captures: Array<{ slug: string; artifact: CapturedArtifact }> = [];
-  const batchSize = 6;
-  for (let offset = 0; offset < input.slugs.length; offset += batchSize) {
-    const batch = input.slugs.slice(offset, offset + batchSize);
-    const capturedBatch = await Promise.all(
-      batch.map(async (slug) => ({
+}): Promise<
+  Array<{ slug: string; record: EvidenceRecord; parsed: ParsedValsPage | null }>
+> {
+  return mapAcquisitionItems(
+    input.slugs,
+    acquisitionClient.budget,
+    async (slug) => {
+      const artifact = await captureArtifact({
+        root: input.root,
+        sourceId: VALS_SOURCE_ID,
+        url: PAGE_URL(slug),
+        retrievedAt: input.retrievedAt,
+        mediaType: 'text/html',
+        method: 'EMBEDDED_JSON',
+        metadata: {
+          captureScope:
+            'official Vals BenchmarkView Astro island and visible methodology page',
+          benchmarkSlug: slug,
+        },
+      });
+      // Drop full response bytes/HTML after each page; retain only parsed data.
+      return {
         slug,
-        artifact: await captureArtifact({
-          root: input.root,
-          sourceId: VALS_SOURCE_ID,
-          url: PAGE_URL(slug),
-          retrievedAt: input.retrievedAt,
-          mediaType: 'text/html',
-          method: 'EMBEDDED_JSON',
-          metadata: {
-            captureScope:
-              'official Vals BenchmarkView Astro island and visible methodology page',
-            benchmarkSlug: slug,
-          },
-        }),
-      })),
-    );
-    captures.push(...capturedBatch);
-  }
-  return captures;
+        record: artifact.record,
+        parsed: parseValsBenchmarkPage(artifact.text),
+      };
+    },
+  );
 }
 
 async function main() {
@@ -98,10 +104,10 @@ async function main() {
     slugs,
   });
   const result = materializeVals(
-    pageCaptures.map(({ slug, artifact }) => ({
+    pageCaptures.map(({ slug, record, parsed }) => ({
       slug,
-      html: artifact.text,
-      evidenceId: artifact.record.id,
+      parsed,
+      evidenceId: record.id,
       sourceUrl: PAGE_URL(slug),
     })),
     {
@@ -116,9 +122,9 @@ async function main() {
     retrievedAt,
     slugs,
     indexRecord: index.record,
-    pageRecords: pageCaptures.map(({ slug, artifact }) => ({
+    pageRecords: pageCaptures.map(({ slug, record }) => ({
       slug,
-      record: artifact.record,
+      record,
     })),
     result,
     benchmarkMapping,
