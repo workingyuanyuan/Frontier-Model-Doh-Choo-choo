@@ -16,7 +16,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json",
-    "data:generate-display-set": "tsx src/generate-display-set.ts"
+    "data:generate-display-set": "tsx src/generate-display-set.ts",
+    "report:aa-index": "tsx src/report-aa-index.ts"
   },
   "dependencies": {
     "zod": "catalog:"

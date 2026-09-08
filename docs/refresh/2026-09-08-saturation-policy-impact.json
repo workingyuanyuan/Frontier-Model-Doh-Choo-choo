@@ -1,0 +1,591 @@
+{
+  "before": "sha256:33135a904f652e3d4daad088a9859b368b5b5231538b57e54f9690771ca24d7a",
+  "after": "sha256:33eb6a23e693e9a9e2bf85786ff1a7cbeed966021548c1bbb7667a1ccb2dec27",
+  "evidenceUnchanged": true,
+  "removed": ["aime", "legal-bench", "tax-eval-v2"],
+  "added": [],
+  "defaultChanges": [
+    {
+      "model": "anthropic-claude-fable-5",
+      "oldRank": 1,
+      "newRank": 1,
+      "oldProfile": "anthropic-claude-fable-5-max",
+      "newProfile": "anthropic-claude-fable-5-max",
+      "oldScore": 71.41283193985899,
+      "newScore": 69.90135715966409
+    },
+    {
+      "model": "anthropic-claude-opus-5",
+      "oldRank": 2,
+      "newRank": 2,
+      "oldProfile": "anthropic-claude-opus-5-max",
+      "newProfile": "anthropic-claude-opus-5-max",
+      "oldScore": 70.32351082774407,
+      "newScore": 68.92705382226741
+    },
+    {
+      "model": "openai-gpt-5-6-sol",
+      "oldRank": 3,
+      "newRank": 3,
+      "oldProfile": "openai-gpt-5-6-sol-max",
+      "newProfile": "openai-gpt-5-6-sol-max",
+      "oldScore": 68.93912858602235,
+      "newScore": 67.47980639274374
+    },
+    {
+      "model": "xai-grok-4-6",
+      "oldRank": 4,
+      "newRank": 4,
+      "oldProfile": "xai-grok-4-6-high",
+      "newProfile": "xai-grok-4-6-high",
+      "oldScore": 66.78358442347185,
+      "newScore": 65.0506017524581
+    },
+    {
+      "model": "google-gemini-3-7-flash",
+      "oldRank": 5,
+      "newRank": 5,
+      "oldProfile": "google-gemini-3-7-flash-high",
+      "newProfile": "google-gemini-3-7-flash-high",
+      "oldScore": 66.4007440425182,
+      "newScore": 64.75840256422853
+    },
+    {
+      "model": "xai-grok-4-5",
+      "oldRank": 6,
+      "newRank": 6,
+      "oldProfile": "xai-grok-4-5-high",
+      "newProfile": "xai-grok-4-5-high",
+      "oldScore": 63.4677340114931,
+      "newScore": 61.626413194664906
+    },
+    {
+      "model": "alibaba-qwen3-8-max",
+      "oldRank": 7,
+      "newRank": 7,
+      "oldProfile": "alibaba-qwen3-8-max-xhigh",
+      "newProfile": "alibaba-qwen3-8-max-xhigh",
+      "oldScore": 63.2325326427185,
+      "newScore": 61.013666754936594
+    },
+    {
+      "model": "google-gemini-3-6-flash",
+      "oldRank": 8,
+      "newRank": 8,
+      "oldProfile": "google-gemini-3-6-flash-high",
+      "newProfile": "google-gemini-3-6-flash-high",
+      "oldScore": 62.800410529263125,
+      "newScore": 60.91864154447616
+    },
+    {
+      "model": "google-gemini-3-1-pro-preview",
+      "oldRank": 9,
+      "newRank": 9,
+      "oldProfile": "google-gemini-3-1-pro-preview-high",
+      "newProfile": "google-gemini-3-1-pro-preview-high",
+      "oldScore": 60.897883028100374,
+      "newScore": 59.42158068026581
+    },
+    {
+      "model": "deepseek-deepseek-v4-pro",
+      "oldRank": 10,
+      "newRank": 10,
+      "oldProfile": "deepseek-deepseek-v4-pro-max",
+      "newProfile": "deepseek-deepseek-v4-pro-max",
+      "oldScore": 60.1483371667792,
+      "newScore": 58.43383661302573
+    },
+    {
+      "model": "minimax-minimax-m3",
+      "oldRank": 11,
+      "newRank": 11,
+      "oldProfile": "minimax-minimax-m3-max",
+      "newProfile": "minimax-minimax-m3-max",
+      "oldScore": 53.33272978669247,
+      "newScore": 51.24562750347535
+    },
+    {
+      "model": "google-gemini-3-5-flash-lite",
+      "oldRank": 13,
+      "newRank": 12,
+      "oldProfile": "google-gemini-3-5-flash-lite-high",
+      "newProfile": "google-gemini-3-5-flash-lite-high",
+      "oldScore": 50.03434124049936,
+      "newScore": 47.65784729342902
+    },
+    {
+      "model": "nvidia-nemotron-3-ultra",
+      "oldRank": 12,
+      "newRank": 13,
+      "oldProfile": "nvidia-nemotron-3-ultra-default",
+      "newProfile": "nvidia-nemotron-3-ultra-default",
+      "oldScore": 50.120023893899784,
+      "newScore": 47.5976968787145
+    }
+  ],
+  "presetChanges": [
+    {
+      "id": "free-sources-22",
+      "oldCount": 17,
+      "newCount": 14,
+      "models": [
+        "openai-gpt-6-astra",
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "moonshot-kimi-k3",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-terra",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-1-pro-preview",
+        "google-gemini-3-6-flash",
+        "deepseek-deepseek-v4-flash",
+        "deepseek-deepseek-v4-pro",
+        "openai-gpt-5-6-luna",
+        "zai-glm-5-2",
+        "thinking-machines-inkling",
+        "moonshot-kimi-k2-7-code",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite",
+        "alibaba-qwen3-6-27b"
+      ]
+    },
+    {
+      "id": "free-sources-21",
+      "oldCount": 18,
+      "newCount": 15,
+      "models": [
+        "openai-gpt-6-astra",
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "moonshot-kimi-k3",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-terra",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-flash",
+        "deepseek-deepseek-v4-pro",
+        "openai-gpt-5-6-luna",
+        "thinking-machines-inkling",
+        "moonshot-kimi-k2-7-code",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite",
+        "alibaba-qwen3-6-27b"
+      ]
+    },
+    {
+      "id": "free-sources-20",
+      "newCount": 17,
+      "models": [
+        "anthropic-claude-fable-5",
+        "openai-gpt-6-astra",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "meta-muse-spark-1-3",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-6",
+        "meta-muse-spark-1-2",
+        "openai-gpt-5-6-terra",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "zai-glm-5-2",
+        "alibaba-qwen3-8-27b",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "id": "free-sources-19",
+      "oldCount": 19,
+      "newCount": 18,
+      "models": [
+        "anthropic-claude-fable-5",
+        "openai-gpt-6-astra",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-terra",
+        "meta-muse-spark-1-2",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "zai-glm-5-2",
+        "alibaba-qwen3-8-27b",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "id": "free-sources-18",
+      "oldCount": 21,
+      "newCount": 19,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-terra",
+        "meta-muse-spark-1-2",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "zai-glm-5-2",
+        "alibaba-qwen3-8-27b",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "id": "free-sources-17",
+      "oldCount": 24,
+      "newCount": 21,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "meta-muse-spark-1-2",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "zai-glm-5-2",
+        "alibaba-qwen3-8-27b",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "id": "free-sources-16",
+      "oldCount": 25,
+      "newCount": 22,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "meta-muse-spark-1-2",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "alibaba-qwen3-8-27b",
+        "minimax-minimax-m3",
+        "nvidia-nemotron-3-ultra",
+        "google-gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "id": "free-sources-15",
+      "oldCount": 26,
+      "newCount": 23,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-5",
+        "google-gemini-3-6-flash",
+        "alibaba-qwen3-8-max",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "zai-glm-5-2",
+        "minimax-minimax-m3",
+        "google-gemini-3-5-flash-lite",
+        "nvidia-nemotron-3-ultra"
+      ]
+    },
+    {
+      "id": "free-sources-14",
+      "oldCount": 27,
+      "newCount": 24,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "minimax-minimax-m3",
+        "google-gemini-3-5-flash-lite",
+        "nvidia-nemotron-3-ultra"
+      ]
+    },
+    {
+      "id": "free-sources-13",
+      "oldCount": 28,
+      "newCount": 25,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "minimax-minimax-m3",
+        "google-gemini-3-5-flash-lite",
+        "nvidia-nemotron-3-ultra"
+      ]
+    },
+    {
+      "id": "free-sources-12",
+      "oldCount": 29,
+      "newCount": 26,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "google-gemini-3-6-flash",
+        "google-gemini-3-1-pro-preview",
+        "deepseek-deepseek-v4-pro",
+        "minimax-minimax-m3",
+        "google-gemini-3-5-flash-lite"
+      ]
+    },
+    {
+      "id": "free-sources-11",
+      "newCount": 27,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash",
+        "deepseek-deepseek-v4-pro",
+        "google-gemini-3-1-pro-preview",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "all-sources-10",
+      "oldCount": 19,
+      "newCount": 18,
+      "models": [
+        "openai-gpt-6-astra",
+        "anthropic-claude-fable-5",
+        "openai-gpt-5-6-sol",
+        "anthropic-claude-opus-5",
+        "google-gemini-3-7-flash",
+        "moonshot-kimi-k3",
+        "openai-gpt-5-6-terra",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "free-sources-10",
+      "oldCount": 30,
+      "newCount": 28,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "xai-grok-4-6",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-5",
+        "alibaba-qwen3-8-max",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash",
+        "deepseek-deepseek-v4-pro",
+        "google-gemini-3-1-pro-preview"
+      ]
+    },
+    {
+      "id": "all-sources-9",
+      "oldCount": 26,
+      "newCount": 24,
+      "models": [
+        "openai-gpt-6-astra",
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-terra",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "free-sources-9",
+      "oldCount": 31,
+      "newCount": 29,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-6",
+        "xai-grok-4-5",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash",
+        "deepseek-deepseek-v4-pro",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "all-sources-8",
+      "oldCount": 28,
+      "newCount": 26,
+      "models": [
+        "openai-gpt-6-astra",
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "free-sources-8",
+      "oldCount": 32,
+      "newCount": 30,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-6",
+        "xai-grok-4-5",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash",
+        "deepseek-deepseek-v4-pro"
+      ]
+    },
+    {
+      "id": "all-sources-7",
+      "oldCount": 32,
+      "newCount": 28,
+      "models": [
+        "anthropic-claude-fable-5",
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "free-sources-7",
+      "oldCount": 34,
+      "newCount": 33,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-6",
+        "xai-grok-4-5",
+        "openai-gpt-5-6-luna",
+        "deepseek-deepseek-v4-pro"
+      ]
+    },
+    {
+      "id": "all-sources-6",
+      "oldCount": 33,
+      "newCount": 30,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "google-gemini-3-6-flash",
+        "openai-gpt-5-6-luna",
+        "zai-glm-5-2"
+      ]
+    },
+    {
+      "id": "free-sources-6",
+      "oldCount": 35,
+      "newCount": 34,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "xai-grok-4-6",
+        "xai-grok-4-5",
+        "deepseek-deepseek-v4-pro"
+      ]
+    },
+    {
+      "id": "all-sources-5",
+      "oldCount": 34,
+      "newCount": 31,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-luna",
+        "google-gemini-3-6-flash"
+      ]
+    },
+    {
+      "id": "all-sources-4",
+      "oldCount": 36,
+      "newCount": 34,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash",
+        "openai-gpt-5-6-luna"
+      ]
+    },
+    {
+      "id": "all-sources-3",
+      "oldCount": 37,
+      "newCount": 35,
+      "models": [
+        "anthropic-claude-opus-5",
+        "openai-gpt-5-6-sol",
+        "google-gemini-3-7-flash"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "verifiedRawScores": 56,
+  "verifiedArtifacts": 35,
+  "aaChartModels": 28,
+  "aaChartPoints": 50,
+  "aaChartVersion": "v4.3",
+  "rebuiltVersionId": "sha256:33135a904f652e3d4daad088a9859b368b5b5231538b57e54f9690771ca24d7a",
+  "oldVerifiedRawScores": 45,
+  "oldVerifiedArtifacts": 32,
+  "oldVersionId": "sha256:5bf4721707f3da52313bc0a75a8116b772dabdb2161bc174bb92e6329e52a39e"
+}

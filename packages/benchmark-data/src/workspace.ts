@@ -7,6 +7,7 @@ import {
   CandidateResultSchema,
   CostRecordSchema,
   DisplaySetSchema,
+  DisplaySetPolicySchema,
   EvidenceRecordSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
@@ -86,7 +87,11 @@ export const buildWorkspaceProduct = async (
   const displaySet = DisplaySetSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'display-set.json')),
   );
-  validateDisplaySet(displaySet, benchmarkMapping);
+  const policyPath = join(dataRoot, 'mappings', 'display-set-policy.json');
+  const quality = existsSync(policyPath)
+    ? DisplaySetPolicySchema.parse(await readJson(policyPath)).benchmarkQuality
+    : undefined;
+  validateDisplaySet(displaySet, benchmarkMapping, quality);
   const benchmarkDimensions = new Map(
     benchmarkMapping.benchmarks.map(({ id, primaryDimension }) => [
       id,

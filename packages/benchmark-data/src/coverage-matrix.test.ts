@@ -92,6 +92,140 @@ const createMockCandidate = ({
   },
 });
 
+describe('quality-constrained coverage search', () => {
+  const ids = [
+    'a-low',
+    'b-other',
+    'c-other',
+    'd-low',
+    'e-other',
+    'f-other',
+    'z-excluded',
+  ];
+  const quality = {
+    reviewedAt: '2026-09-08',
+    evidencePath: 'audit.json',
+    excludedBenchmarkIds: ['z-excluded'],
+    limitedBenchmarkIds: ['a-low', 'd-low'],
+    minOtherBenchmarksPerLimited: 2,
+  };
+  const build = (
+    requireAllSources: boolean,
+    requiredBenchmarkIds: string[] = [],
+  ) =>
+    analyzeCoverageMatrix({
+      catalog: {
+        schemaVersion: 'model-catalog-v1',
+        models: ['m1', 'm2'].map((modelId) => ({
+          modelId,
+          providerId: 'p',
+          displayName: modelId,
+          releaseDate: '2026-06-01',
+          pricing: [],
+          profilePricing: {},
+        })),
+      },
+      frontierConfig: {
+        schemaVersion: 'frontier-config-v2',
+        manualModels: [],
+        qualificationWindowMonths: 12,
+      },
+      benchmarkMapping: {
+        schemaVersion: 'benchmark-dimensions-v1',
+        dimensions: [...DIMENSION_IDS],
+        benchmarks: ids.map((id, i) => ({
+          id,
+          primaryDimension: i < 3 ? 'reasoning' : 'knowledge',
+          secondaryDimensions: [],
+        })),
+      },
+      profilePolicy: mockProfilePolicy,
+      whitelist: ['src-a', 'src-b'],
+      sourceCandidates: ids.flatMap((benchmarkId, i) =>
+        ['m1', 'm2']
+          .filter((m) => m === 'm1' || i !== 2)
+          .map((modelId) =>
+            createMockCandidate({
+              id: `${benchmarkId}-${modelId}`,
+              benchmarkId,
+              modelId,
+              rawName: modelId,
+              sourceId: i % 2 ? 'src-a' : 'src-b',
+            }),
+          ),
+      ),
+      referenceDate: '2026-09-08',
+      benchmarkQuality: quality,
+      requireAllSources,
+      requiredBenchmarkIds,
+      requiredModelIds: ['m1'],
+      candidatesPerScale: 1,
+    });
+  it.each([false, true])(
+    'matches exhaustive feasible maxima, all sources=%s',
+    (allSources) => {
+      const result = build(allSources);
+      const exhaustive = new Map<number, number>();
+      for (let mask = 1; mask < 1 << ids.length; mask++) {
+        const selected = ids.filter((_, i) => mask & (1 << i));
+        if (selected.includes('z-excluded')) continue;
+        if (
+          allSources &&
+          (!selected.some((id) => ids.indexOf(id) % 2) ||
+            !selected.some((id) => ids.indexOf(id) % 2 === 0))
+        )
+          continue;
+        if (
+          [ids.slice(0, 3), ids.slice(3)].some((group) => {
+            const chosen = selected.filter((id) => group.includes(id));
+            return (
+              chosen.filter((id) => quality.limitedBenchmarkIds.includes(id))
+                .length *
+                3 >
+              chosen.length
+            );
+          })
+        )
+          continue;
+        const count = selected.includes('c-other') ? 1 : 2;
+        exhaustive.set(
+          selected.length,
+          Math.max(exhaustive.get(selected.length) ?? 0, count),
+        );
+      }
+      expect(
+        result.tradeoffs.map((t) => [
+          t.benchmarkCount,
+          t.candidates[0]!.completeModelCount,
+        ]),
+      ).toEqual([...exhaustive].sort((a, b) => a[0] - b[0]));
+      for (const t of result.tradeoffs)
+        for (const c of t.candidates) {
+          expect(c.benchmarkIds).not.toContain('z-excluded');
+          for (const group of [ids.slice(0, 3), ids.slice(3)]) {
+            const selected = c.benchmarkIds.filter((id) => group.includes(id));
+            expect(
+              selected.filter((id) => quality.limitedBenchmarkIds.includes(id))
+                .length * 3,
+            ).toBeLessThanOrEqual(selected.length);
+          }
+        }
+    },
+  );
+  it('repairs early quality deficits with later benchmarks even with k=1', () => {
+    const result = build(false, ['a-low']);
+    expect(result.tradeoffs[0]?.candidates[0]?.benchmarkIds).toEqual(
+      ids.slice(0, 3),
+    );
+    expect(result.tradeoffs.at(-1)?.benchmarkCount).toBe(6);
+  });
+  it('rejects a required benchmark excluded by policy', () => {
+    expect(() => build(false, ['z-excluded'])).toThrow(
+      /excluded by quality policy/,
+    );
+  });
+});
+
 describe('coverage-matrix', () => {
   describe('qualification and active source isolation', () => {
     it('enforces exact qualification and whitelist rules', () => {

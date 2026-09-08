@@ -926,7 +926,14 @@ test('renders refreshed Astra with complete scores and the audited version', asy
     .locator('[data-ranked-row]')
     .filter({ hasText: 'GPT-6 Astra' });
   await expect(row).toHaveCount(1);
-  await expect(row).toContainText('68.0');
+  const preset = currentProduct.presets.find(
+    (p) => p.id === 'free-sources-19',
+  )!;
+  const expected = preset.leaderboard.find(
+    (r) => r.profileId === 'openai-gpt-6-astra-max',
+  )!;
+  expect(expected.overallScore).not.toBeNull();
+  await expect(row).toContainText(expected.overallScore!.toFixed(1));
   await expect(row).not.toContainText('N/A');
   await expect(page.locator('footer')).toContainText(currentProduct.versionId);
   await row.getByRole('button').first().click();

@@ -573,6 +573,41 @@ describe('cost chart view model', () => {
       buildAdvancedCostSeries(product, ['artificial-analysis'])[0]?.points[0]
         ?.sources[0],
     ).toMatchObject({ cost: 2, score: 50, scoreBenchmarkVersion: 'v4.3' });
+
+    // A newer score with only an older/unknown-version cost must not leak in.
+    for (const costs of [
+      product.costs.slice(0, 1),
+      [{ ...baseCost, profileId, benchmarkVersion: null }],
+      [],
+    ]) {
+      const incomplete = { ...product, costs };
+      expect(
+        buildAdvancedCostSeries(incomplete, ['artificial-analysis']),
+      ).toEqual([]);
+      expect(buildWeightedCostCurve(incomplete)).toEqual([]);
+    }
+    // A missing profile score cannot borrow another profile's index.
+    const missingScore = {
+      ...product,
+      evidence: evidence.map((row) => ({
+        ...row,
+        model: { ...row.model, profileId: 'other-profile' },
+      })),
+    };
+    expect(
+      getSourceScore(missingScore, 'artificial-analysis', profileId),
+    ).toBeNull();
+    expect(
+      buildAdvancedCostSeries(missingScore, ['artificial-analysis']),
+    ).toEqual([]);
+    expect(
+      buildWeightedCostCurve(missingScore)[0]?.sourceCosts[0],
+    ).toMatchObject({
+      cost: 2,
+      sourceScore: null,
+      scoreBasis: 'NONE',
+      scoreBenchmarkVersion: null,
+    });
   });
 
   it('declares one score basis, or an explicit none, for every weighted cost source', () => {

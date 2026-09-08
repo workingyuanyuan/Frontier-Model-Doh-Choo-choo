@@ -180,6 +180,9 @@ export const generateCoverageMatrixReport = async (
     ...workspaceData,
     referenceDate,
     requiredModelIds: policy.requiredModelIds,
+    ...(policy.benchmarkQuality
+      ? { benchmarkQuality: policy.benchmarkQuality }
+      : {}),
     requiredBenchmarkIds: options.requiredBenchmarkIds ?? [],
     // A subset that cannot fill all eight dimensions is not a display-set
     // candidate, so offering it would inflate the curve with unrankable rows.

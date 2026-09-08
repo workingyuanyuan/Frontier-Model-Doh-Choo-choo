@@ -228,6 +228,19 @@ pnpm e2e           # playwright 端對端測試（必須排在 build 之後）
 pnpm audit --audit-level high  # CI 的相依套件公告門檻
 ```
 
+### AA 指數分版報告
+
+從已驗證的 ProductVersion 產生逐列可追溯的 JSON 與 Markdown：
+
+```bash
+pnpm --filter @llm-bench/benchmark-data report:aa-index ../../data/product/current.json ../../docs/refresh/2026-09-08-aa-index.json ../../docs/refresh/2026-09-08-aa-index.md
+```
+
+輸出檔名依本次資料日期設定。比較兩次產品時，分別對保存的新舊 ProductVersion 執行。
+AA 指數使用 `rawScore`（index points）；`normalizedScore` 為 null，不能用作報告分數。
+排名只涵蓋產品收錄的同版本配置，以完整精度降冪排序，同分並列並跳號；版本未明不排名。
+JSON 保留 result ID、Evidence ID、來源 URL 與 locator，缺少有效原始分數時直接拒絕產生報告。
+
 ### Display-Set 取捨報告
 
 ```bash

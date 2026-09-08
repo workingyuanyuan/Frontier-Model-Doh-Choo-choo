@@ -395,6 +395,26 @@ export type SourcesConfig = z.infer<typeof SourcesConfigSchema>;
  * Committed inputs to the display-set generator, so regenerating is
  * reproducible from the repository rather than from remembered CLI flags.
  */
+export const BenchmarkQualityPolicySchema = z
+  .object({
+    reviewedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    evidencePath: z.string().min(1),
+    excludedBenchmarkIds: z.array(SlugSchema),
+    limitedBenchmarkIds: z.array(SlugSchema),
+    /** Two other benchmarks per limited benchmark means at most 1/3 weight. */
+    minOtherBenchmarksPerLimited: z.int().min(1).max(10),
+  })
+  .strict()
+  .refine(
+    (p) =>
+      new Set([...p.excludedBenchmarkIds, ...p.limitedBenchmarkIds]).size ===
+      p.excludedBenchmarkIds.length + p.limitedBenchmarkIds.length,
+    { message: 'Quality benchmark IDs must be unique and disjoint' },
+  );
+export type BenchmarkQualityPolicy = z.infer<
+  typeof BenchmarkQualityPolicySchema
+>;
+
 export const DisplaySetPolicySchema = z
   .object({
     schemaVersion: z.literal('display-set-policy-v1'),
@@ -404,6 +424,7 @@ export const DisplaySetPolicySchema = z
     minModelCount: z.int().positive(),
     maxModelCount: z.int().positive(),
     defaultPresetId: SlugSchema,
+    benchmarkQuality: BenchmarkQualityPolicySchema.optional(),
   })
   .strict()
   .refine(
@@ -447,7 +468,11 @@ export type DisplaySet = z.infer<typeof DisplaySetSchema>;
 export const validateDisplaySet = (
   displaySetInput: DisplaySet,
   benchmarkMappingInput: BenchmarkDimensionMapping,
+  qualityInput?: BenchmarkQualityPolicy,
 ): void => {
+  const quality = qualityInput
+    ? BenchmarkQualityPolicySchema.parse(qualityInput)
+    : undefined;
   const displaySet = DisplaySetSchema.parse(displaySetInput);
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
     benchmarkMappingInput,
@@ -457,6 +482,13 @@ export const validateDisplaySet = (
   );
 
   const seenPresetIds = new Set<string>();
+  for (const id of [
+    ...(quality?.excludedBenchmarkIds ?? []),
+    ...(quality?.limitedBenchmarkIds ?? []),
+  ]) {
+    if (!knownBenchmarks.has(id))
+      throw new Error(`Unknown quality benchmark: ${id}`);
+  }
   for (const preset of displaySet.presets) {
     if (seenPresetIds.has(preset.id)) {
       throw new Error(`Display set has duplicate preset id: ${preset.id}`);
@@ -494,6 +526,28 @@ export const validateDisplaySet = (
       throw new Error(
         `Display set preset ${preset.id} leaves dimensions with no benchmark: ${uncovered.join(', ')}`,
       );
+    }
+    if (quality) {
+      if (
+        preset.benchmarkIds.some((id) =>
+          quality.excludedBenchmarkIds.includes(id),
+        )
+      )
+        throw new Error(
+          `Preset ${preset.id} contains a quality-excluded benchmark; regenerate display set`,
+        );
+      for (const dimension of DIMENSION_IDS) {
+        const ids = preset.benchmarkIds.filter(
+          (id) => knownBenchmarks.get(id)!.primaryDimension === dimension,
+        );
+        const limited = ids.filter((id) =>
+          quality.limitedBenchmarkIds.includes(id),
+        ).length;
+        if (limited * (quality.minOtherBenchmarksPerLimited + 1) > ids.length)
+          throw new Error(
+            `Preset ${preset.id} exceeds quality share in ${dimension}; regenerate display set`,
+          );
+      }
     }
   }
 

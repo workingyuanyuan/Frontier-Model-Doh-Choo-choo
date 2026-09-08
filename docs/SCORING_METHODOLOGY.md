@@ -65,6 +65,27 @@ Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profile
 
 ## 顯示門檻與 Developer mode
 
+### Benchmark 區辨力政策（2026-09-08）
+
+`display-set-policy.json` 的 `benchmarkQuality` 保存固定審查名單、審查日期與證據路徑。
+集合搜尋及產品建置均驗證此政策：AIME 的前段天花板效應、ProgramBench 的地板效應，
+使兩者不再納入 preset。AA-LCR、GPQA Diamond、LegalBench、MMLU-Pro、Tax Eval v2
+列為受限項目；每一項必須在同一主要維度搭配至少兩項其他 benchmark，故合計權重至多 1/3。
+這是名目計分權重上限，不代表排名變異的占比。
+
+分類依據為 [2026-09-08 分布審查](refresh/2026-09-08-benchmark-saturation.json)。
+低分差與接近滿分分開判讀；LiveBench Mathematics 等僅在前五名壓縮的測驗繼續觀察。
+名單隨明確版本與固定模型群的定期審查更新，不依每次榜單的標準差自動改權重。
+此上限是選集政策，並非統計顯著性門檻。
+
+搜尋先滿足模型、來源、五維與品質限制，再選取可行的最大 benchmark 數。
+品質條件加入 DP 狀態及支配剪枝；中間集合暫時超標時，若後續項目仍可補足，必須保留。
+若指定預設集合無可行解，生成器報錯並要求重新檢視政策，不會發布不符合限制的集合。
+產品建置也會攔截過期或手動改壞的 display set。
+
+目前預設 `free-sources-13` 為 25 benchmark／13 模型，受限項目的 Reasoning 權重為 2/6，
+Knowledge 為 1/4。完整變化見 [政策實作驗證](refresh/2026-09-08-saturation-policy.md)。
+
 - `data/mappings/display-set-policy.json` 保存使用者核准的集合生成政策；`pnpm data:generate-display-set` 依來源覆蓋率產生 `display-set.json` 的多組 presets。
 - 每次刷新先依現有政策重產集合，再重建產品。來源約束、模型數範圍、必留模型與預設選擇政策的變更需使用者裁決；流程見 [操作手冊](OPERATIONS.md)。
 - 每個 preset 同時決定展示資格與計分基準：同表模型只使用該集合內的 benchmark，集合改變可能改變五維、Overall 與排名。每個 preset 在建置時獨立計分。

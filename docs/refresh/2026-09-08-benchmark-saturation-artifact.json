@@ -1,0 +1,309 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "title": "Benchmark Saturation Review",
+    "surface": "report",
+    "sources": [
+      {
+        "id": "local-audit",
+        "label": "2026-09-08 benchmark saturation audit",
+        "path": "docs/refresh/2026-09-08-benchmark-saturation.json",
+        "query": {
+          "description": "Complete preset cohorts, one highest-overall profile per model; normalized scores 0–100. Reproduce with node scripts/report-benchmark-saturation.mjs.",
+          "language": "sql",
+          "sql": "SELECT json_extract(value, '$.id') AS benchmark,\n  json_extract(value, '$.p90p10') AS spread,\n  json_extract(value, '$.median') AS median,\n  json_extract(value, '$.n') AS n,\n  json_extract(value, '$.dimension') AS dimension\nFROM json_each(?, '$.defaultPreset.benchmarks') ORDER BY spread",
+          "engine": "SQLite; bind the audit JSON text as the single parameter"
+        }
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Benchmark Saturation Review"
+      },
+      {
+        "id": "summary",
+        "type": "markdown",
+        "body": "## 審查結果\nAIME 對預設榜前五名呈現明顯天花板效應。較小集合的主要問題是低區辨力項目集中在同一維度：17 項集合的 Knowledge 有 2/3 權重落在 MMLU-Pro 與 Tax Eval v2。",
+        "sourceId": "local-audit"
+      },
+      {
+        "id": "findings",
+        "type": "markdown",
+        "sourceId": "local-audit",
+        "body": "## AIME 的前段飽和最明確，其餘需分層處理\n預設集合 13 模型中，AIME 中位數 97.78，9/13 達 95 分；前五名為 97.22–100，僅差 2.78 分，但全體 P90−P10 仍有 25.44 分，因此它仍能區分較弱模型。\n\nGPQA Diamond 中位數 93.69，全體 P90−P10 為 8.36，前五名全距 2.02 分；LiveBench Mathematics 前五名全距 3.63，但全體 P90−P10 為 17.10，屬前段壓縮。\n\nLegalBench、AA-LCR、Tax Eval v2 的中位數分別為 86.31、80.33、73.10；P90−P10 分別只有 4.99、4.33、3.72。它們具有低區辨力訊號，不能僅據此認定天花板飽和。MMLU-Pro 的中位數 89.22、分差 5.62，也應降低小集合優先級。LiveCodeBench 的分差 6.71、前五名全距 7.17，屬次級觀察。"
+      },
+      {
+        "id": "weights",
+        "type": "markdown",
+        "sourceId": "local-audit",
+        "body": "## 17 項集合的集中程度比預設集合更嚴重\n預設 free-sources-13 實際為 28 benchmark／13 模型。Reasoning 有 8 項，每項占該維 12.5%；Knowledge 有 5 項，每項 20%。MMLU-Pro＋Tax Eval v2 合占 Knowledge 40%。\n\n最小的 free-sources-22 為 17 benchmark／22 模型。Knowledge 只剩 MMLU-Pro、Tax Eval v2、MedCode，前兩者合占 66.7%，分差分別 5.13、4.40；MedCode 分差 17.41。\n\n該集合 Reasoning 只剩 GPQA、LegalBench、LiveBench Mathematics、LiveBench Reasoning，對此集合前五名的全距依序為 2.02、2.25、3.63、3.86 分。前兩者占 50%；四項全部對前五名呈現窄分差。前五名依現行 Overall 選出，這是樣本內現象。\n\n權重集中壓縮可見分差；近似常數項本身不會改變名次。不能把名目權重直接解讀成排名影響占比。"
+      },
+      {
+        "id": "recommendations",
+        "type": "markdown",
+        "body": "## 建議把區辨力納入選集政策\n1. 小集合先降低 AIME 的優先級；GPQA、LegalBench、MMLU-Pro、Tax Eval v2 需評估替換或合計占比。AA-LCR 雖分差小，仍代表長脈絡能力，替換時須保留該能力覆蓋。\n2. 同時報告天花板比例、全體／前段分差、樣本數與維度權重。分差小的項目在單一維度合計權重以 1/3 作為候選政策上限，先試算可行性；這是政策起點，並非已驗證的統計門檻。\n3. 每維優先保留具能力代表性且分差較大的測驗，再考慮 benchmark 總數。比較固定模型與固定 effort 下的分數、排名、模型覆蓋，以及來源與能力範圍，再選集合。\n4. 以固定參考模型群和指定 benchmark 版本定期複核；避免依每次榜單的標準差直接放大分數，否則可能把量測噪聲放大。\n\n現行 coverage-matrix.ts:275 的候選排序依完整模型數、維度覆蓋、獨佔來源數、最大來源占比、ID 字典序；generate-display-set.ts:67 優先最大 benchmark 數；index.ts:1139 的 scoreProfiles 逐維等權平均。"
+      },
+      {
+        "id": "sensitivity",
+        "type": "markdown",
+        "sourceId": "local-audit",
+        "body": "## 固定模型的刪除試算：AIME 對榜首順序影響有限\n固定預設 13 個模型及其代表 effort，移除 AIME 並在 Reasoning 內重新等權：前 11 名順序一致，原第 12、13 名互換。此為刪除敏感度分析，不能解讀成新的選集結果或準確度證明。\n\n廣泛掃描涵蓋目前有 INCLUDED 有效分數的 45 項 benchmark，每 benchmark 每模型取最高觀測值，與預設固定代表 profile 的分析分開。ProgramBench 的 27 個模型中位數 0、P90−P10 為 1.70，屬地板效應；已被 8 個其他 preset 採用，也應纳入低區辨力檢查。"
+      },
+      {
+        "id": "external",
+        "type": "markdown",
+        "body": "## 測驗版本與能力覆蓋\n本地 AIME 證據的 benchmarkVersion 為 null，本次結論限定目前快照中的 aime 欄位，不能延伸到所有 AIME／Mock AIME 版本。Epoch 說明其採用較難的 Mock AIME 是因 MATH Level 5 接近飽和：[Epoch methodology](https://epoch.ai/benchmarks/about)。AA-LCR 評估長文件間資訊整合與推理，因此低分差仍須配合能力覆蓋判讀：[AA-LCR methodology](https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning)。"
+      },
+      {
+        "id": "chart-heading",
+        "type": "markdown",
+        "body": "## 預設集合各 benchmark 的模型分差"
+      },
+      {
+        "id": "chart",
+        "type": "chart",
+        "chartId": "spread"
+      },
+      {
+        "id": "limits",
+        "type": "markdown",
+        "body": "## 方法與判讀\n2026-09-08 本地產品快照；預設 free-sources-13 含 28 項 benchmark、13 個完整模型。分差為 P90−P10，使用線性插值。低分差並不等於滿分飽和；前五名樣本只作描述，沒有逐題／重複測試誤差，不能據此宣稱統計上無差異。"
+      }
+    ],
+    "charts": [
+      {
+        "id": "spread",
+        "title": "預設集合 P90−P10 分差（0–100 分）",
+        "type": "bar",
+        "encodings": {
+          "x": {
+            "field": "benchmark"
+          },
+          "y": {
+            "field": "spread"
+          }
+        },
+        "sourceId": "local-audit",
+        "dataset": "spread",
+        "source": {
+          "id": "local-audit",
+          "label": "2026-09-08 benchmark saturation audit",
+          "path": "docs/refresh/2026-09-08-benchmark-saturation.json",
+          "query": {
+            "description": "Complete preset cohorts, one highest-overall profile per model; normalized scores 0–100. Reproduce with node scripts/report-benchmark-saturation.mjs.",
+            "language": "sql",
+            "sql": "SELECT json_extract(value, '$.id') AS benchmark,\n  json_extract(value, '$.p90p10') AS spread,\n  json_extract(value, '$.median') AS median,\n  json_extract(value, '$.n') AS n,\n  json_extract(value, '$.dimension') AS dimension\nFROM json_each(?, '$.defaultPreset.benchmarks') ORDER BY spread",
+            "engine": "SQLite; bind the audit JSON text as the single parameter"
+          }
+        }
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "status": "ready",
+    "datasets": {
+      "spread": [
+        {
+          "benchmark": "tax-eval-v2",
+          "spread": 3.720399999999998,
+          "median": 73.099,
+          "n": 13,
+          "dimension": "knowledge"
+        },
+        {
+          "benchmark": "aa-lcr",
+          "spread": 4.333333333333357,
+          "median": 80.3333333333333,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "legal-bench",
+          "spread": 4.99499999999999,
+          "median": 86.307,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "mmlu-pro",
+          "spread": 5.623000000000005,
+          "median": 89.216,
+          "n": 13,
+          "dimension": "knowledge"
+        },
+        {
+          "benchmark": "livecodebench",
+          "spread": 6.712800000000001,
+          "median": 87.852,
+          "n": 13,
+          "dimension": "coding"
+        },
+        {
+          "benchmark": "gpqa-diamond",
+          "spread": 8.357846464646457,
+          "median": 93.686,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "hlab",
+          "spread": 12.500200000000001,
+          "median": 4.167,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "livebench-instruction-following",
+          "spread": 13.973399999999998,
+          "median": 71.8665,
+          "n": 13,
+          "dimension": "language"
+        },
+        {
+          "benchmark": "finance-agent-v2",
+          "spread": 14.967000000000006,
+          "median": 50.593,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "livebench-language",
+          "spread": 15.663733333333312,
+          "median": 83.697,
+          "n": 13,
+          "dimension": "language"
+        },
+        {
+          "benchmark": "scicode",
+          "spread": 15.902777777777843,
+          "median": 54.976851851851805,
+          "n": 13,
+          "dimension": "coding"
+        },
+        {
+          "benchmark": "livebench-reasoning",
+          "spread": 16.5471,
+          "median": 87.173,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "livebench-mathematics",
+          "spread": 17.0963,
+          "median": 91.31225,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "medcode",
+          "spread": 17.966,
+          "median": 44.712,
+          "n": 13,
+          "dimension": "knowledge"
+        },
+        {
+          "benchmark": "swe-bench",
+          "spread": 21.08,
+          "median": 80.8,
+          "n": 13,
+          "dimension": "coding"
+        },
+        {
+          "benchmark": "humanitys-last-exam",
+          "spread": 23.271547729379016,
+          "median": 42.9101019462465,
+          "n": 13,
+          "dimension": "knowledge"
+        },
+        {
+          "benchmark": "aime",
+          "spread": 25.444444444444443,
+          "median": 97.77777777777777,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "critpt",
+          "spread": 25.771428571142827,
+          "median": 17.1428571428571,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "gdpval-aa",
+          "spread": 28.5942,
+          "median": 46.657000000000004,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "emb",
+          "spread": 29.176000000000002,
+          "median": 60.066,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "legal-research",
+          "spread": 32.788000000000004,
+          "median": 34.615,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "chess-puzzles",
+          "spread": 33,
+          "median": 40,
+          "n": 13,
+          "dimension": "reasoning"
+        },
+        {
+          "benchmark": "tau3-banking",
+          "spread": 33.731958762886606,
+          "median": 38.144329896907195,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "terminal-bench-2-1",
+          "spread": 34.382400000000004,
+          "median": 70.787,
+          "n": 13,
+          "dimension": "coding"
+        },
+        {
+          "benchmark": "aa-omniscience",
+          "spread": 36.61333333333334,
+          "median": 49.96666666666666,
+          "n": 13,
+          "dimension": "knowledge"
+        },
+        {
+          "benchmark": "aa-briefcase",
+          "spread": 39.05050505050506,
+          "median": 40.707070707070706,
+          "n": 13,
+          "dimension": "agentic"
+        },
+        {
+          "benchmark": "code-migration",
+          "spread": 46.2542,
+          "median": 30.928,
+          "n": 13,
+          "dimension": "coding"
+        },
+        {
+          "benchmark": "vibe-code-bench",
+          "spread": 53.762800000000006,
+          "median": 64.696,
+          "n": 13,
+          "dimension": "coding"
+        }
+      ]
+    }
+  }
+}

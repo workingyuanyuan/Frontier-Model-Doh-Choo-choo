@@ -3,6 +3,7 @@ import { join, resolve } from 'node:path';
 
 import {
   BenchmarkDimensionMappingSchema,
+  BenchmarkQualityPolicySchema,
   CandidateResultSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
@@ -18,6 +19,7 @@ import {
   type FrontierConfig,
   type ModelCatalog,
   type ProfilePolicy,
+  type BenchmarkQualityPolicy,
 } from './index.js';
 
 export interface QualifiedModel {
@@ -83,6 +85,7 @@ export interface BenchmarkDimensionInfo {
 }
 
 export interface CoverageMatrixAnalysis {
+  benchmarkQuality?: BenchmarkQualityPolicy;
   referenceDate: string;
   qualificationWindowMonths: number;
   whitelist: string[];
@@ -102,6 +105,7 @@ export interface CoverageMatrixAnalysis {
 }
 
 export interface CoverageAnalysisInput {
+  benchmarkQuality?: BenchmarkQualityPolicy;
   catalog: ModelCatalog;
   frontierConfig: FrontierConfig;
   benchmarkMapping: BenchmarkDimensionMapping;
@@ -643,6 +647,27 @@ export const analyzeCoverageMatrix = (
   }
 
   const whitelist = [...whitelistSet].sort();
+  const quality = input.benchmarkQuality
+    ? BenchmarkQualityPolicySchema.parse(input.benchmarkQuality)
+    : undefined;
+  const excludedQuality = new Set(quality?.excludedBenchmarkIds ?? []);
+  const limitedQuality = new Set(quality?.limitedBenchmarkIds ?? []);
+  for (const id of [...excludedQuality, ...limitedQuality]) {
+    if (!input.benchmarkMapping.benchmarks.some((b) => b.id === id))
+      throw new Error(`Unknown quality benchmark: ${id}`);
+    if (excludedQuality.has(id) && requiredBenchmarkIds.includes(id))
+      throw new Error(
+        `Required benchmark is excluded by quality policy: ${id}`,
+      );
+  }
+  const qualityDimensions = DIMENSION_IDS.filter((d) =>
+    activeBenchmarkIds.some(
+      (id) =>
+        limitedQuality.has(id) &&
+        benchmarkDimensions[id]?.primaryDimension === d,
+    ),
+  );
+  const qualityCost = quality?.minOtherBenchmarksPerLimited ?? 0;
 
   if (M > 0) {
     const requiredSet = new Set(requiredBenchmarkIds);
@@ -738,6 +763,7 @@ export const analyzeCoverageMatrix = (
     });
 
     interface SubsetState {
+      qualityBalance: number[];
       benchmarkIds: string[];
       supportMask: bigint;
       dimensionMask: number;
@@ -760,6 +786,7 @@ export const analyzeCoverageMatrix = (
             [
               {
                 benchmarkIds: [],
+                qualityBalance: qualityDimensions.map(() => 0),
                 supportMask: allModelSupport,
                 dimensionMask: 0,
                 sourceSpanMask: 0,
@@ -779,17 +806,52 @@ export const analyzeCoverageMatrix = (
     for (let benchmarkIndex = 0; benchmarkIndex < M; benchmarkIndex += 1) {
       const benchmarkId = activeBenchmarkIds[benchmarkIndex]!;
       const mustInclude = requiredSet.has(benchmarkId);
+      const remaining = activeBenchmarkIds
+        .slice(benchmarkIndex + 1)
+        .filter((id) => !excludedQuality.has(id));
+      const remainingLimited = qualityDimensions.map(
+        (d) =>
+          remaining.filter(
+            (id) =>
+              limitedQuality.has(id) &&
+              benchmarkDimensions[id]?.primaryDimension === d,
+          ).length,
+      );
+      const remainingOther = qualityDimensions.map(
+        (d) =>
+          remaining.filter(
+            (id) =>
+              !limitedQuality.has(id) &&
+              benchmarkDimensions[id]?.primaryDimension === d,
+          ).length,
+      );
       const nextByCount = new Map<number, Map<string, SubsetState[]>>();
 
       const retain = (count: number, state: SubsetState): void => {
+        // A partial deficit may be repaired by later benchmarks. Prune only
+        // when even all remaining unrestricted components cannot repair it.
+        if (
+          state.qualityBalance.some(
+            (balance, i) => balance + remainingOther[i]! < 0,
+          )
+        )
+          return;
+        // Credit beyond the cost of every remaining limited item is equivalent.
+        state = {
+          ...state,
+          qualityBalance: state.qualityBalance.map((balance, i) =>
+            Math.min(balance, qualityCost * remainingLimited[i]!),
+          ),
+        };
         for (const profileMask of requiredModelProfileMasks) {
           if ((state.supportMask & profileMask) === 0n) return;
         }
         const bucket =
           nextByCount.get(count) ?? new Map<string, SubsetState[]>();
-        const key = requireAllSources
+        const baseKey = requireAllSources
           ? `${state.supportMask.toString(16)}:${state.dimensionMask}:${state.sourceSpanMask}`
           : `${state.supportMask.toString(16)}:${state.dimensionMask}`;
+        const key = `${baseKey}:${state.qualityBalance.join(',')}`;
         const existingList = bucket.get(key);
         if (!existingList) {
           bucket.set(key, [state]);
@@ -817,6 +879,7 @@ export const analyzeCoverageMatrix = (
             if (!mustInclude) {
               retain(count, state);
             }
+            if (excludedQuality.has(benchmarkId)) continue;
 
             const nextCount = count + 1;
             const nextSupportMask =
@@ -849,6 +912,16 @@ export const analyzeCoverageMatrix = (
             const nextCoveredDimensionCount = popcount(nextDimensionMask);
 
             retain(nextCount, {
+              qualityBalance: state.qualityBalance.map(
+                (balance, i) =>
+                  balance +
+                  (benchmarkDimensions[benchmarkId]?.primaryDimension ===
+                  qualityDimensions[i]
+                    ? limitedQuality.has(benchmarkId)
+                      ? -qualityCost
+                      : 1
+                    : 0),
+              ),
               benchmarkIds: [...state.benchmarkIds, benchmarkId],
               supportMask: nextSupportMask,
               dimensionMask: nextDimensionMask,
@@ -882,7 +955,7 @@ export const analyzeCoverageMatrix = (
         >();
         for (const [key, states] of bucket) {
           const state = states[0]!;
-          const supportKey = state.supportMask.toString(16);
+          const supportKey = `${state.supportMask.toString(16)}:${state.qualityBalance.join(',')}`;
           const group = bySupport.get(supportKey) ?? [];
           group.push({
             key,
@@ -929,6 +1002,7 @@ export const analyzeCoverageMatrix = (
             continue;
           if (requireAllDimensions && state.dimensionMask !== allDimensionMask)
             continue;
+          if (state.qualityBalance.some((balance) => balance < 0)) continue;
           allStatesForN.push(state);
         }
       }
@@ -964,6 +1038,7 @@ export const analyzeCoverageMatrix = (
   }
 
   return {
+    ...(quality ? { benchmarkQuality: quality } : {}),
     referenceDate: input.referenceDate,
     qualificationWindowMonths,
     whitelist,
@@ -1102,6 +1177,15 @@ export const formatCoverageMatrixMarkdown = (
     `- **Qualified Canonical Base Models**: ${analysis.qualifiedModels.length}`,
   );
   lines.push(`- **Active Benchmarks**: ${analysis.activeBenchmarkIds.length}`);
+  if (analysis.benchmarkQuality) {
+    const q = analysis.benchmarkQuality;
+    lines.push(
+      `- **Benchmark quality policy (${q.reviewedAt})**: excluded from presets: ${q.excludedBenchmarkIds.join(', ')}; limited: ${q.limitedBenchmarkIds.join(', ')}. Each limited benchmark requires ${q.minOtherBenchmarksPerLimited} other benchmarks in its primary dimension (maximum share 1/${q.minOtherBenchmarksPerLimited + 1}). Evidence: ${q.evidencePath}.`,
+    );
+    lines.push(
+      '- Quality balances join the DP state and dominance groups. Partial deficits remain eligible while future benchmarks can repair them; excess credit is capped only when it cannot affect future feasibility.',
+    );
+  }
   lines.push(
     `- **Candidates per Scale ($k$)**: ${analysis.candidatesPerScale}`,
   );
