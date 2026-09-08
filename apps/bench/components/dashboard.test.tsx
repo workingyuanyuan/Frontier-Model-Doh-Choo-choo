@@ -270,6 +270,7 @@ describe('Dashboard Redesign', () => {
         ...sourceRows.map((row, index) => ({
           ...baseEvidence,
           id: `e3-dashboard:${row.sourceId}:${index}`,
+          benchmarkVersion: baseCost.benchmarkVersion,
           sourceId: row.sourceId,
           benchmarkId: row.benchmarkId,
           inclusion: row.inclusion,

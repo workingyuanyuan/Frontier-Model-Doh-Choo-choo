@@ -22,7 +22,7 @@
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 50.339999999999996,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -74,7 +74,7 @@
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 49.82,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -126,7 +126,7 @@
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 50.28,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -178,7 +178,7 @@
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 50.91,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -230,7 +230,7 @@
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 48.730000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -282,7 +282,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 52.73,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -334,7 +334,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 48.010000000000005,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -386,7 +386,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 51.57000000000001,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -438,7 +438,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 49.82,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -490,7 +490,7 @@
       "rawName": "Claude Fable 5"
     },
     "normalizedScore": 53.480000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -542,7 +542,7 @@
       "rawName": "Claude Opus 4.6"
     },
     "normalizedScore": 26.640000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -594,7 +594,7 @@
       "rawName": "Claude Opus 4.6"
     },
     "normalizedScore": 18.310000000000002,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -646,7 +646,7 @@
       "rawName": "Claude Opus 4.6"
     },
     "normalizedScore": 23.669999999999998,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -698,7 +698,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 35.17,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -750,7 +750,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 27.61,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -802,7 +802,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 38.54,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -854,7 +854,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 28.910000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -906,7 +906,7 @@
       "rawName": "Claude Opus 4.7"
     },
     "normalizedScore": 34.910000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -958,7 +958,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 41.02,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1010,7 +1010,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 35.14,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1062,7 +1062,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 46.5,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1114,7 +1114,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 40.46,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1166,7 +1166,7 @@
       "rawName": "Claude Opus 4.8"
     },
     "normalizedScore": 45.49,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1218,7 +1218,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 47.99,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1270,7 +1270,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 41.949999999999996,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1322,7 +1322,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 48.04,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1374,7 +1374,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 53.38,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1426,7 +1426,7 @@
       "rawName": "Claude Opus 5"
     },
     "normalizedScore": 43.65,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1478,7 +1478,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 23.47,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1530,7 +1530,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 15.03,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1582,7 +1582,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 24.310000000000002,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1634,7 +1634,7 @@
       "rawName": "Claude Sonnet 4.6"
     },
     "normalizedScore": 21.099999999999998,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1686,7 +1686,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 39.35,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1738,7 +1738,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 28.71,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1790,7 +1790,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 42.36,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1842,7 +1842,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 35.199999999999996,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1894,7 +1894,7 @@
       "rawName": "Claude Sonnet 5"
     },
     "normalizedScore": 42.730000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1946,7 +1946,7 @@
       "rawName": "Composer 2.5"
     },
     "normalizedScore": 25.64,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -1998,7 +1998,7 @@
       "rawName": "DeepSeek V4 Flash 0731"
     },
     "normalizedScore": 18.8,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2050,7 +2050,7 @@
       "rawName": "DeepSeek V4 Pro 0813"
     },
     "normalizedScore": 28.549999999999997,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2102,7 +2102,7 @@
       "rawName": "DeepSeek V4 Pro"
     },
     "normalizedScore": 17.64,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2154,7 +2154,7 @@
       "rawName": "Gemini 3.6 Flash"
     },
     "normalizedScore": 33.69,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2206,7 +2206,7 @@
       "rawName": "Gemini 3.6 Flash"
     },
     "normalizedScore": 22.82,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2258,7 +2258,7 @@
       "rawName": "Gemini 3.6 Flash"
     },
     "normalizedScore": 34.37,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2310,7 +2310,7 @@
       "rawName": "Gemini 3.7 Flash"
     },
     "normalizedScore": 42.230000000000004,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2362,7 +2362,7 @@
       "rawName": "Gemini 3.7 Flash"
     },
     "normalizedScore": 36.91,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2414,7 +2414,7 @@
       "rawName": "Gemini 3.7 Flash"
     },
     "normalizedScore": 43.59,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2466,7 +2466,7 @@
       "rawName": "Gemini 3.8 Flash"
     },
     "normalizedScore": 37.96,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2518,7 +2518,7 @@
       "rawName": "Gemini 3.8 Flash"
     },
     "normalizedScore": 41.19,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2570,7 +2570,7 @@
       "rawName": "GLM 5.2"
     },
     "normalizedScore": 24.5,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2622,7 +2622,7 @@
       "rawName": "GLM 5.3 Flash"
     },
     "normalizedScore": 31.830000000000002,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2674,7 +2674,7 @@
       "rawName": "GLM 5.3"
     },
     "normalizedScore": 40.14,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2726,7 +2726,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 23.080000000000002,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2778,7 +2778,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 9.25,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2830,7 +2830,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 20.78,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2882,7 +2882,7 @@
       "rawName": "GPT-5.4-mini"
     },
     "normalizedScore": 27.04,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2934,7 +2934,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 40.56,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -2986,7 +2986,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 30.55,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3038,7 +3038,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 36.6,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3090,7 +3090,7 @@
       "rawName": "GPT-5.5"
     },
     "normalizedScore": 42.96,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3142,7 +3142,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 35.89,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3194,7 +3194,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 15.379999999999999,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3246,7 +3246,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 39.81,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3298,7 +3298,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 25.740000000000002,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3350,7 +3350,7 @@
       "rawName": "GPT-5.6 Luna"
     },
     "normalizedScore": 38.91,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3402,7 +3402,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 45.06,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3454,7 +3454,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 35.44,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3506,7 +3506,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 47.49,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3558,7 +3558,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 39.93,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3610,7 +3610,7 @@
       "rawName": "GPT-5.6 Sol"
     },
     "normalizedScore": 46.839999999999996,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3662,7 +3662,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 36.89,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3714,7 +3714,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 24.11,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3766,7 +3766,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 41.31,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3818,7 +3818,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 33.879999999999995,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3870,7 +3870,7 @@
       "rawName": "GPT-5.6 Terra"
     },
     "normalizedScore": 38.75,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3922,7 +3922,7 @@
       "rawName": "GPT-6 Astra"
     },
     "normalizedScore": 50.94,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -3974,7 +3974,7 @@
       "rawName": "GPT-6 Astra"
     },
     "normalizedScore": 45.269999999999996,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4026,7 +4026,7 @@
       "rawName": "GPT-6 Astra"
     },
     "normalizedScore": 53.26,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4078,7 +4078,7 @@
       "rawName": "GPT-6 Astra"
     },
     "normalizedScore": 48.83,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4130,7 +4130,7 @@
       "rawName": "GPT-6 Astra"
     },
     "normalizedScore": 50.62,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4182,7 +4182,7 @@
       "rawName": "Grok 4.5"
     },
     "normalizedScore": 42.44,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4234,7 +4234,7 @@
       "rawName": "Grok 4.5"
     },
     "normalizedScore": 37.86,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4286,7 +4286,7 @@
       "rawName": "Grok 4.5"
     },
     "normalizedScore": 41.93,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4338,7 +4338,7 @@
       "rawName": "Grok 4.6"
     },
     "normalizedScore": 48.010000000000005,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4390,7 +4390,7 @@
       "rawName": "Grok 4.6"
     },
     "normalizedScore": 40.11,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4442,7 +4442,7 @@
       "rawName": "Grok 4.6"
     },
     "normalizedScore": 46.06,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4494,7 +4494,7 @@
       "rawName": "Inkling"
     },
     "normalizedScore": 14.000000000000002,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4546,7 +4546,7 @@
       "rawName": "Kimi K2.7"
     },
     "normalizedScore": 30.06,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4598,7 +4598,7 @@
       "rawName": "Kimi K3"
     },
     "normalizedScore": 44.17,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4650,7 +4650,7 @@
       "rawName": "MiniMax M3"
     },
     "normalizedScore": 14.7,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4702,7 +4702,7 @@
       "rawName": "Mistral 3.5 Medium"
     },
     "normalizedScore": 8,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4754,7 +4754,7 @@
       "rawName": "Nemotron 3 Ultra"
     },
     "normalizedScore": 13.61,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4806,7 +4806,7 @@
       "rawName": "Qwen 3.7 Plus"
     },
     "normalizedScore": 10.2,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4858,7 +4858,7 @@
       "rawName": "SWE-1.6"
     },
     "normalizedScore": 9.39,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,
@@ -4910,7 +4910,7 @@
       "rawName": "SWE-1.7"
     },
     "normalizedScore": 41.99,
-    "observedAt": "2026-09-06T03:22:08.259Z",
+    "observedAt": "2026-09-08T00:57:23.505Z",
     "profile": {
       "attempts": null,
       "contextWindowTokens": null,

@@ -1,5 +1,9 @@
 {
-  "accessMethods": ["NEXT_RSC", "API_RESPONSE", "DOM"],
+  "accessMethods": [
+    "NEXT_RSC",
+    "API_RESPONSE",
+    "DOM"
+  ],
   "baseUrl": "https://artificialanalysis.ai/",
   "benchmarkIds": [
     "artificial-analysis-intelligence-index",
@@ -23,20 +27,23 @@
     "visibleComparisonRequired": true
   },
   "displayName": "Artificial Analysis",
-  "fallbackMethods": ["VISUAL", "MANUAL"],
+  "fallbackMethods": [
+    "VISUAL",
+    "MANUAL"
+  ],
   "fieldMapping": {
     "article heading": "sourcePublishedAt",
     "named evaluation": "benchmarkId",
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-09-06T03:20:45.076Z",
+  "lastVerifiedAt": "2026-09-08T01:03:14.259Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; detail pages are fetched for every active profile to obtain intelligenceIndexCostPerTask and token prices.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
     "`$undefined` and null are both treated as missing values.",
-    "Capture observed 80 unique profiles, 66 active profiles, 52 task-cost rows, and 64 token-price rows.",
-    "Materialized 65 Intelligence Index candidates (all EXCLUDED) and 53 GDPval-AA normalized candidates."
+    "Capture observed 134 unique profiles, 99 active profiles, 92 task-cost rows, and 98 token-price rows.",
+    "Materialized 98 Intelligence Index candidates (all EXCLUDED) and 92 GDPval-AA normalized candidates."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",

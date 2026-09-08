@@ -4,7 +4,7 @@
 - Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.BaX_1WYu.mjs>
 - Module evidence: `sha256:e8377b3a254f87733d8070c5399c39feda6974b668db9d1e65972e73bf5b8f69`
 - Page evidence: `sha256:19774a7f462d72c48df077b78ed9fcbd1338dddd3089b393513b37ef421b21a1`
-- Observed at: 2026-09-06T03:20:03.737Z
+- Observed at: 2026-09-08T00:57:21.361Z
 
 ## Exact counts
 
@@ -75,9 +75,9 @@
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate rows | 84 | 95 | +11 |
+| Candidate rows | 95 | 95 | +0 |
 | Cost records | 82 | 93 | +11 |
-| Canonically unresolved rows | 9 | 14 | +5 |
+| Canonically unresolved rows | 14 | 14 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

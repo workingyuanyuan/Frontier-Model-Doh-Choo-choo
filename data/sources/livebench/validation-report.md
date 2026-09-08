@@ -1,19 +1,19 @@
 # LiveBench acquisition validation
 
-- Release: `2026-06-25` (cacheVersion `1788552585`) dynamically extracted from `https://livebench.ai/static/js/main.4035919d.js`
-- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1788552585` and `https://livebench.ai/categories_2026_06_25.json?v=1788552585`
+- Release: `2026-06-25` (cacheVersion `1788809517`) dynamically extracted from `https://livebench.ai/static/js/main.fc2107c4.js`
+- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1788809517` and `https://livebench.ai/categories_2026_06_25.json?v=1788809517`
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Raw model rows in table CSV | 54 |
+| Raw model rows in table CSV | 56 |
 | Approved scoring categories | 4 (Reasoning, Mathematics, Language, IF) |
 | Excluded/Unapproved categories | 3 (Coding, Agentic Coding, Data Analysis) |
-| Generated CandidateResults | 216 |
-| Canonically resolved candidates | 172 |
-| Canonically unresolved candidates | 44 |
-| Distinct unresolved raw model names | 11 |
+| Generated CandidateResults | 224 |
+| Canonically resolved candidates | 184 |
+| Canonically unresolved candidates | 40 |
+| Distinct unresolved raw model names | 10 |
 
 ## Model identity resolution
 
@@ -26,7 +26,6 @@ Full raw-name catalog matches are attempted first. Remaining names use only exac
 - `gemini-3.8-flash-high`: no exact catalog match; effort-suffix transform produced "gemini-3-8-flash", which is not an exact catalog slug
 - `glm-5.3`: full slug "glm-5-3" has no documented exact LiveBench transform to a catalog slug
 - `glm-5.3-flash`: full slug "glm-5-3-flash" has no documented exact LiveBench transform to a catalog slug
-- `muse-spark-1.3-xhigh`: no exact catalog match; effort-suffix transform produced "muse-spark-1-3", which is not an exact catalog slug
 - `ox-alpha-max`: no exact catalog match; effort-suffix transform produced "ox-alpha", which is not an exact catalog slug
 - `qwen3.8-flash-next`: full slug "qwen3-8-flash-next" has no documented exact LiveBench transform to a catalog slug
 - `smaug-agentic`: full slug "smaug-agentic" has no documented exact LiveBench transform to a catalog slug
@@ -37,23 +36,23 @@ Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathemat
 
 ## Discrepancies and notes
 
-- None. All 54 model rows have complete task coverage across the 4 approved categories.
+- None. All 56 model rows have complete task coverage across the 4 approved categories.
 
 ## Visible comparison
 
-- Fresh rendered page profile count (Include finetunes enabled): 52
-- Complete table export profile count: 54
+- Fresh rendered page profile count (Include finetunes enabled): 54
+- Complete table export profile count: 56
 - Superseded export-only names, absent from the current rendered leaderboard: deepseek-v4-flash, deepseek-v4-pro
-- Current export profiles after the existing superseded-build policy: 52
+- Current export profiles after the existing superseded-build policy: 54
 - Result: current profiles matched; raw export-only rows remain traceable and unresolved.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 44 | 54 | +10 |
-| Candidate results | 176 | 216 | +40 |
-| Cost export profiles | 44 | 54 | +10 |
+| Raw model profiles | 44 | 56 | +12 |
+| Candidate results | 176 | 224 | +48 |
+| Cost export profiles | 44 | 56 | +12 |
 | Materialized costs | 44 | 46 | +2 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
@@ -144,5 +143,13 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | qwen3.7-max | `livebench-2026-06-25:livebench-language:qwen3-7-max` | — | `default` | — | — |
 | qwen3.7-max | `livebench-2026-06-25:livebench-mathematics:qwen3-7-max` | — | `default` | — | — |
 | qwen3.7-max | `livebench-2026-06-25:livebench-reasoning:qwen3-7-max` | — | `default` | — | — |
+| smaug-flash | `livebench-2026-06-25:livebench-instruction-following:smaug-flash` | — | `default` | — | — |
+| smaug-flash | `livebench-2026-06-25:livebench-language:smaug-flash` | — | `default` | — | — |
+| smaug-flash | `livebench-2026-06-25:livebench-mathematics:smaug-flash` | — | `default` | — | — |
+| smaug-flash | `livebench-2026-06-25:livebench-reasoning:smaug-flash` | — | `default` | — | — |
+| smaug-mini | `livebench-2026-06-25:livebench-instruction-following:smaug-mini` | — | `default` | — | — |
+| smaug-mini | `livebench-2026-06-25:livebench-language:smaug-mini` | — | `default` | — | — |
+| smaug-mini | `livebench-2026-06-25:livebench-mathematics:smaug-mini` | — | `default` | — | — |
+| smaug-mini | `livebench-2026-06-25:livebench-reasoning:smaug-mini` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

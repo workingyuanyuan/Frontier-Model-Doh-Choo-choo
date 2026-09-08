@@ -385,12 +385,17 @@ const parseArtificialAnalysisVersionMetadata = (
 
   const directVersions: ReadonlyArray<readonly [string, string]> = [
     ['gdpval-aa', 'GDPval-AA'],
-    ['terminal-bench-2-1', 'Terminal-Bench'],
     ['aa-lcr', 'AA-LCR'],
   ];
   for (const [benchmarkId, label] of directVersions) {
     const version = versionAfterLabel(text, label);
     if (version) benchmarkVersions[benchmarkId] = version;
+  }
+
+  // Model pages mention multiple generations in navigation and index summaries.
+  // A v4.0 mention cannot version the explicitly v2.1 score field.
+  if (/Terminal-Bench\s+[vV]2\.1(?!\d|\.\d)/u.test(text)) {
+    benchmarkVersions['terminal-bench-2-1'] = 'v2.1';
   }
 
   const scicodeVersion = text.match(
@@ -558,6 +563,9 @@ const benchmarkVersionFor = (
   row: ArtificialAnalysisRow,
   benchmarkId: string,
 ): string | null => {
+  // This benchmark is read exclusively from terminalbenchV21 / terminalbench_v2_1.
+  // The field itself identifies its version, including on mixed-version pages.
+  if (benchmarkId === 'terminal-bench-2-1') return 'v2.1';
   const metadata = versionMetadataFor(observation, row);
   return metadata?.benchmarkVersions[benchmarkId] ?? null;
 };

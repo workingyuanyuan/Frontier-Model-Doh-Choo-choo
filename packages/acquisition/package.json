@@ -22,7 +22,7 @@
     "materialize:vals": "tsx src/refresh-vals.ts",
     "rematerialize:vals": "tsx src/rematerialize-vals.ts",
     "materialize:livebench": "tsx src/refresh-livebench.ts",
-    "materialize:artificial-analysis": "node --env-file=../../.env.local --import tsx/esm src/refresh-artificial-analysis.ts",
+    "materialize:artificial-analysis": "node --env-file-if-exists=../../.env.local --import tsx/esm src/refresh-artificial-analysis.ts",
     "test": "vitest",
     "test:run": "vitest run",
     "typecheck": "tsc -p tsconfig.json"

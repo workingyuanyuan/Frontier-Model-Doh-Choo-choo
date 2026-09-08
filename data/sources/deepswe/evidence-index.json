@@ -13,7 +13,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://deepswe.datacurve.ai/",
-    "retrievedAt": "2026-09-06T03:26:52.394Z",
+    "retrievedAt": "2026-09-08T00:58:54.395Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7",
     "sourceId": "deepswe"
@@ -33,7 +33,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "retrievedAt": "2026-09-06T03:26:52.394Z",
+    "retrievedAt": "2026-09-08T00:58:54.395Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
     "sourceId": "deepswe"

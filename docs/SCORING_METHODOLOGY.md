@@ -44,8 +44,6 @@ Leaderboard 與 Category score table 使用上表 UI 順序，雷達圖為對應
 4. Overall 是五個維度分數的算術平均；缺失維度不會被填零。
 5. 產品主畫面只使用五個維度皆非 null 且通過顯示清單完整矩陣的 Profile。
 
-缺格資料仍保留在 ProductVersion 供追溯，但不會以聚合數值呈現在主畫面或 Developer mode。
-
 ## 完整性閘門與 partial-coverage 清單（R19）
 
 `overallScore` 與 `rank` 只給五個維度全部非 null 的 Profile。判準見

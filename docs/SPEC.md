@@ -83,21 +83,6 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 
 **建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
-### 3.3 擷取程式碼的去留
-
-| 保留                                          | 刪除                                                                                               |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `materializeArtificialAnalysis`（期一要重寫） | `materializeVals`（約 406 行）                                                                     |
-| `materializeEpoch`（期二要用，約 284 行）     | `organizer-materializers.ts` 中的 arc-prize、scale-hle、zapier、osworld、lech-writing（約 613 行） |
-|                                               | `materialize-organizers.ts` 的整個擷取層（約 733 行）                                              |
-
-刪除的程式碼在 Git 歷史中可取回，期三需要時再恢復。
-
-期三的 ARC、Zapier 與 Vals 擷取器均依重新驗證後的現行網站契約從頭實作，不直接恢復遭刪除的
-舊擷取器；其中 Vals 使用逐 benchmark 頁面的 BenchmarkView 資料島，不沿用舊首頁矩陣。
-
-`materializers.ts` 目前 1,929 行，必須按來源拆成獨立模組，每個模組有自己的測試。
-
 ## 4. 五維與計分
 
 ### 4.1 維度定義
@@ -548,18 +533,9 @@ pnpm report:coverage-matrix -- --min-n=12
 要在無約束曲線上恢復全域精確性必須把 `exclusiveSources` 併入 DP 鍵，實測代價是狀態數 2.21×、
 記憶體 2.68×，需使用者裁決後才可實作。
 
-下段是 R7 之前的做法，保留為沿革：
-
-**必選 benchmark（2026-08-22 新增，已由 R7 取代）**：報告接受 `--require`，把指定的 benchmark 釘進每一個候選組合。未加約束時最佳化可以靠**移除整個來源**來衝高模型數——實例是 2026-08-22 的 N=17，它把 `frontier-code-1-1` 拿掉才到 15 個模型。使用者已裁決 `deepswe-1-1` 與 `frontier-code-1-1` 是必要來源，因此期二之後的審核以
-`--require=deepswe-1-1,frontier-code-1-1` 執行。R7 之後這個旗標仍在，但語意改為「基準曲線」，
-不再約束主曲線。
-
 ### 5.4 開發者模式
 
-只負責一件事：顯示被排除的模型缺哪些格子。
-
-- 顯示模型 × benchmark 矩陣，每格顯示該 benchmark 的**原始 normalized 分數**（有資料時）。
-- **不做任何加總**：不算維度分數、不算總分。缺格的模型與主畫面模型的分母不同，聚合出來的數字會被誤用。
+缺格清單與獨立 partial-coverage 清單依 R19／R20 顯示；資格、分數與排名規則統一見 [計分方法](SCORING_METHODOLOGY.md#顯示門檻與-developer-mode)。
 
 ### 5.5 ProductVersion 的 `frontier` 是模型集合，不帶 profile
 
@@ -875,23 +851,7 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 
 ## 8. 刪除清單
 
-| 對象                                                            | 數量             | 說明                                                                                          |
-| --------------------------------------------------------------- | ---------------- | --------------------------------------------------------------------------------------------- |
-| `data/product/versions/*.json`                                  | 21 個，14 MB     | 舊格式，改版後讀不出來。它們是**算出來的結果**不是原始資料，且 Git 有紀錄可取回               |
-| `packages/{connectors,contracts,db,presentation,radar,scoring}` | 6 個目錄，1.3 MB | Git 未追蹤，內容只有 `dist`／`.turbo`／`node_modules`，原始碼在 Git 歷史（各 3–11 個 commit） |
-| Vals 與 5 個 organizer 的擷取程式                               | 約 1,346 行      | 見 §3.3                                                                                       |
-| Coverage／ESTIMATED 相關程式                                    | 約 100 處        | 見 §5.2                                                                                       |
-| `evidence-detail.tsx`                                           | 282 行           | 功能併入模型明細面板                                                                          |
-| `data/product/pointers/`                                        | 整個目錄         | 發布機制簡化，見 §11                                                                          |
-| `LLM_BENCH_CHANNEL` 環境變數與 DRAFT／PUBLISHED 雙軌            | —                | 同上                                                                                          |
-| publish／rollback 指令與其狀態機、測試、CI 步驟                 | —                | 同上                                                                                          |
-
-**不刪除**：
-
-- `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend`（在倉庫外，內容未經檢視）。
-- §3.2 的凍結來源目錄。
-
-**歷史背景**：重構已將多版本 Draft 移為單一產品檔。當時交接紀錄見 [封存交接](history/PROJECT_HANDOFF.md)，現行生命周期以 [架構](ARCHITECTURE.md) 為準。
+已移除架構與契約統一見 [移除項目](REFACTOR_DISCARD_LIST.md)；目前資料流見 [架構](ARCHITECTURE.md)。
 
 ## 9. 各來源的擷取契約
 

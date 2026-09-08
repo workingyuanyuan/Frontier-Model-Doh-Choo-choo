@@ -19,7 +19,7 @@
       "profileId": "openai-gpt-6-astra-xhigh",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -63,7 +63,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -107,7 +107,7 @@
       "profileId": "openai-gpt-6-astra-high",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -151,7 +151,7 @@
       "profileId": "openai-gpt-6-astra-max",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -195,7 +195,7 @@
       "profileId": "anthropic-claude-opus-5-xhigh",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -239,7 +239,7 @@
       "profileId": "anthropic-claude-opus-5-high",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -283,7 +283,7 @@
       "profileId": "openai-gpt-6-astra-medium",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -327,7 +327,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -371,7 +371,7 @@
       "profileId": "openai-gpt-5-6-sol-xhigh",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -415,7 +415,7 @@
       "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -459,7 +459,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -503,7 +503,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -547,7 +547,7 @@
       "profileId": "openai-gpt-5-6-sol-high",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -591,7 +591,7 @@
       "profileId": "anthropic-claude-opus-5-medium",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -635,7 +635,7 @@
       "profileId": "anthropic-claude-fable-5-high",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -679,7 +679,7 @@
       "profileId": "moonshot-kimi-k3-max",
       "rawName": "kimi-k3"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -723,7 +723,7 @@
       "profileId": "xai-grok-4-6-medium",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -767,7 +767,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -811,7 +811,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -855,7 +855,7 @@
       "profileId": "openai-gpt-6-astra-low",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -899,7 +899,7 @@
       "profileId": "xai-grok-4-6-xhigh",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -943,7 +943,7 @@
       "profileId": "google-gemini-3-7-flash-medium",
       "rawName": "gemini-3-7-flash"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -987,7 +987,7 @@
       "profileId": "anthropic-claude-fable-5-medium",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1031,7 +1031,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "gemini-3-7-flash"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1075,7 +1075,7 @@
       "profileId": "xai-grok-4-6-high",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1119,7 +1119,7 @@
       "profileId": "openai-gpt-5-5-high",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1163,7 +1163,7 @@
       "profileId": "deepseek-deepseek-v4-pro-max",
       "rawName": "deepseek-v4-pro"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1207,7 +1207,7 @@
       "profileId": "openai-gpt-5-6-sol-medium",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1251,7 +1251,7 @@
       "profileId": "openai-gpt-5-6-terra-xhigh",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1295,7 +1295,7 @@
       "profileId": "anthropic-claude-fable-5-low",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1339,7 +1339,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1383,7 +1383,7 @@
       "profileId": "anthropic-claude-opus-5-low",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1427,7 +1427,7 @@
       "profileId": "alibaba-qwen3-8-max-xhigh",
       "rawName": "qwen3-8-max"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1471,7 +1471,7 @@
       "profileId": "openai-gpt-5-6-luna-xhigh",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1515,7 +1515,7 @@
       "profileId": "meta-muse-spark-1-2-xhigh",
       "rawName": "muse-spark-1-2"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1559,7 +1559,7 @@
       "profileId": "anthropic-claude-opus-4-8-xhigh",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1603,7 +1603,7 @@
       "profileId": "openai-gpt-5-5-medium",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1647,7 +1647,7 @@
       "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1691,7 +1691,7 @@
       "profileId": "google-gemini-3-7-flash-low",
       "rawName": "gemini-3-7-flash"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1735,7 +1735,7 @@
       "profileId": "openai-gpt-5-6-terra-high",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1779,7 +1779,7 @@
       "profileId": "xai-grok-4-5-high",
       "rawName": "grok-4-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1823,7 +1823,7 @@
       "profileId": "deepseek-deepseek-v4-flash-max",
       "rawName": "deepseek-v4-flash"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1867,7 +1867,7 @@
       "profileId": "meta-muse-spark-1-1-xhigh",
       "rawName": "muse-spark-1-1"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1911,7 +1911,7 @@
       "profileId": "anthropic-claude-opus-4-8-high",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1955,7 +1955,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "gpt-5-4"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1999,7 +1999,7 @@
       "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2043,7 +2043,7 @@
       "profileId": "anthropic-claude-opus-4-8-medium",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2087,7 +2087,7 @@
       "profileId": "anthropic-claude-sonnet-5-high",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2131,7 +2131,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "gemini-3-6-flash"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2175,7 +2175,7 @@
       "profileId": "openai-gpt-5-6-sol-low",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2219,7 +2219,7 @@
       "profileId": "openai-gpt-5-6-luna-high",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2263,7 +2263,7 @@
       "profileId": "zai-glm-5-2-max",
       "rawName": "glm-5-2"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2307,7 +2307,7 @@
       "profileId": "xai-grok-4-6-low",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2351,7 +2351,7 @@
       "profileId": "anthropic-claude-opus-4-8-low",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2395,7 +2395,7 @@
       "profileId": "anthropic-claude-sonnet-5-medium",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2439,7 +2439,7 @@
       "profileId": "zai-glm-5-2-high",
       "rawName": "glm-5-2"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2483,7 +2483,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "gemini-3-5-flash"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2527,7 +2527,7 @@
       "profileId": "openai-gpt-5-6-terra-medium",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2571,7 +2571,7 @@
       "profileId": null,
       "rawName": "kimi-k2-7-code"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2615,7 +2615,7 @@
       "profileId": "anthropic-claude-sonnet-5-low",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2659,7 +2659,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-high",
       "rawName": "claude-sonnet-4-6"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2703,7 +2703,7 @@
       "profileId": "openai-gpt-5-5-low",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2747,7 +2747,7 @@
       "profileId": "openai-gpt-5-6-terra-low",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2791,7 +2791,7 @@
       "profileId": "google-gemini-3-1-pro-preview-high",
       "rawName": "gemini-3-1-pro-preview"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2835,7 +2835,7 @@
       "profileId": "openai-gpt-5-6-luna-medium",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2879,7 +2879,7 @@
       "profileId": "openai-gpt-5-6-luna-low",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-06T03:26:52.394Z",
+    "observedAt": "2026-09-08T00:58:54.395Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,

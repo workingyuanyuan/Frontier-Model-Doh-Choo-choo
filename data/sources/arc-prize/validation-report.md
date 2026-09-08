@@ -8,7 +8,7 @@
 - Models evidence: `sha256:2a3ac802eeda90b7fa5e0d79466d2b16306f686b08dca7dd5380a1987ac27179`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
 - Page evidence: `sha256:1af05c4fcbbcb33dff6098211db029f6fd446da75028cb0438e1033c01dc75cf`
-- Observed at: 2026-09-06T03:20:00.257Z
+- Observed at: 2026-09-08T00:57:18.013Z
 
 ## Exact counts
 
@@ -200,7 +200,7 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 |---|---:|---:|---:|
 | Candidate rows | 26 | 225 | +199 |
 | Cost records | 0 | 225 | +225 |
-| Canonically unresolved models | 122 | 127 | +5 |
+| Canonically unresolved models | 127 | 127 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

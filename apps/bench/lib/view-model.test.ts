@@ -530,6 +530,51 @@ describe('leaderboard view model', () => {
 });
 
 describe('cost chart view model', () => {
+  it('compares AA scores and task costs only within the selected index version', () => {
+    const template = productFixture.evidence[0]!;
+    const profileId = 'openai-gpt-5-6-sol-max';
+    const evidence = ['v4.2', 'v4.3'].map((version, i) => ({
+      ...template,
+      id: `aa-${version}`,
+      sourceId: 'artificial-analysis',
+      benchmarkId: 'artificial-analysis-intelligence-index',
+      benchmarkVersion: version,
+      inclusion: 'EXCLUDED' as const,
+      rawScore: i === 0 ? 80 : 50,
+      normalizedScore: null,
+      model: { ...template.model, profileId },
+    }));
+    const baseCost = productFixture.costs.find(
+      (c) => c.sourceId === 'artificial-analysis' && c.unit === 'USD_PER_TASK',
+    )!;
+    const product: PresetProductVersion = {
+      ...productFixture,
+      evidence,
+      costs: ['v4.2', 'v4.3'].map((version, i) => ({
+        ...baseCost,
+        profileId,
+        benchmarkVersion: version,
+        cost: i === 0 ? 100 : 2,
+      })),
+    };
+    expect(
+      getSourceScore(product, 'artificial-analysis', profileId),
+    ).toMatchObject({ score: 50, benchmarkVersion: 'v4.3' });
+    expect(
+      getSourceScore(product, 'artificial-analysis', profileId, 'v4.2'),
+    ).toMatchObject({ score: 80, benchmarkVersion: 'v4.2' });
+    const point = buildWeightedCostCurve(product)[0];
+    expect(point?.sourceCosts[0]).toMatchObject({
+      cost: 2,
+      sourceScore: 50,
+      scoreBenchmarkVersion: 'v4.3',
+    });
+    expect(
+      buildAdvancedCostSeries(product, ['artificial-analysis'])[0]?.points[0]
+        ?.sources[0],
+    ).toMatchObject({ cost: 2, score: 50, scoreBenchmarkVersion: 'v4.3' });
+  });
+
   it('declares one score basis, or an explicit none, for every weighted cost source', () => {
     // A source missing from this table would fall back to whatever the caller
     // did by default; the whole point of N11 is that there is no default.
@@ -567,6 +612,7 @@ describe('cost chart view model', () => {
         {
           ...template,
           id: 'aa-index:max',
+          benchmarkVersion: null,
           sourceId: 'artificial-analysis',
           benchmarkId: 'artificial-analysis-intelligence-index',
           inclusion: 'EXCLUDED',
@@ -604,6 +650,7 @@ describe('cost chart view model', () => {
       basis: 'AA_INTELLIGENCE_INDEX',
       benchmarkId: 'artificial-analysis-intelligence-index',
       sourceEffort: 'max',
+      benchmarkVersion: null,
     });
 
     const aaSource = buildWeightedCostCurve(product)
@@ -945,6 +992,7 @@ describe('cost chart view model', () => {
         id: `e3:${sourceId}:${profileId}:${index}`,
         sourceId,
         benchmarkId,
+        benchmarkVersion: isAa ? null : baseEvidence.benchmarkVersion,
         inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
         exclusionReason: isAa
           ? 'External composite is used for display only.'
@@ -1227,6 +1275,7 @@ describe('cost chart view model', () => {
         id: `e-mean:${sourceId}`,
         sourceId,
         benchmarkId,
+        benchmarkVersion: isAa ? null : baseEvidence.benchmarkVersion,
         inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
         exclusionReason: isAa
           ? 'External composite is used for display only.'
@@ -1339,6 +1388,7 @@ describe('cost chart view model', () => {
               : sourceId === 'frontier-code'
                 ? 'frontier-code-1-1'
                 : 'arc-agi-2',
+        benchmarkVersion: isAa ? null : baseEvidence.benchmarkVersion,
         inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
         exclusionReason: isAa ? 'External composite' : null,
         model: { ...baseEvidence.model, canonicalModelId: modelId, profileId },

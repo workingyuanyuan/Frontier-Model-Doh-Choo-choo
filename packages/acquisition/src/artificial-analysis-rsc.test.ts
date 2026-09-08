@@ -12,6 +12,43 @@ const evidenceId =
   'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 describe('Artificial Analysis RSC parser', () => {
+  it('keeps Terminal-Bench generations separate on v4.3 pages', () => {
+    const metadata = extractArtificialAnalysisVersionMetadata(
+      'Artificial Analysis Intelligence Index v4.3 includes Terminal-Bench v4.0. Legacy evaluation: Terminal-Bench v2.1.',
+    );
+    expect(metadata.benchmarkVersions['terminal-bench-2-1']).toBe('v2.1');
+    expect(
+      extractArtificialAnalysisVersionMetadata('Terminal-Bench v4.0')
+        .benchmarkVersions['terminal-bench-2-1'],
+    ).toBeUndefined();
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'model-detail',
+        slug: 'claude-opus-5-high',
+        sourceUrl: 'https://artificialanalysis.ai/models/claude-opus-5-high',
+        evidenceId,
+        retrievedAt: '2026-09-08T00:00:00.000Z',
+        versionMetadata: {
+          intelligenceIndexVersion: 'v4.3',
+          benchmarkVersions: { 'terminal-bench-2-1': 'v4.0' },
+        },
+        rows: [
+          {
+            slug: 'claude-opus-5-high',
+            name: 'Claude Opus 5 (High)',
+            releaseDate: '2026-07-24',
+            deprecated: false,
+            terminalbenchV21: 0.8764,
+            terminalbenchV40: 0.4242,
+          },
+        ],
+      },
+    ]);
+    expect(
+      result.candidates.find((c) => c.benchmarkId === 'terminal-bench-2-1'),
+    ).toMatchObject({ rawScore: 0.8764, benchmarkVersion: 'v2.1' });
+  });
+
   it('extracts the current index and directly published benchmark versions', () => {
     const metadata = extractArtificialAnalysisVersionMetadata(
       'Artificial Analysis Intelligence Index v4.2 includes GDPval-AA v2, Terminal-Bench v2.1, and AA-LCR v1.1.',

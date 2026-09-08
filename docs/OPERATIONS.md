@@ -127,7 +127,7 @@ pnpm --filter @llm-bench/bench dev
 pnpm --filter @llm-bench/bench build
 ```
 
-Dashboard 建置固定讀取 `data/product/current.json`，不讀取來源、artifact、網路或資料庫。**頁尾直接顯示完整 `versionId`；頁首顯示的是縮寫，完整值在該元素的 `title` 屬性上**（見 `apps/bench/components/version-header.tsx`），核對時請以頁尾為準。目前資料沒有預覽通道，也不產生 noindex metadata。
+Dashboard 建置固定讀取 `data/product/current.json`，不讀取來源、artifact、網路或資料庫。**頁尾顯示完整 `versionId`**（見 `apps/bench/components/dashboard.tsx`），核對時請以頁尾為準。目前資料沒有預覽通道，也不產生 noindex metadata。
 
 ## 5. 代理驗證與異動判斷
 
@@ -236,17 +236,7 @@ pnpm report:coverage-matrix
 
 此命令輸出模型 × benchmark 矩陣與集合取捨曲線。依 §3 以核准政策生成集合，依 §5 比較影響；需要改變政策時才交由使用者裁決。
 
-**`--require`：把必選 benchmark 釘死。**
-
-```bash
-pnpm report:coverage-matrix -- --require=deepswe-1-1,frontier-code-1-1
-```
-
-可重複 `--require <id>`，也可用逗號分隔。給定之後，曲線上**每一個**組合都會包含這些 benchmark，低於必選數量的規模不再產生列。
-
-沒有這個選項時，最佳化回答的是「挑哪些 benchmark 能讓完整模型數最多」，而那不一定是實際要問的問題。2026-08-22 的實例：未加約束的 N=17 之所以能到 15 個模型，是因為它把 `frontier-code-1-1` 整個拿掉——對它被問的問題來說是正確答案，對真正的問題來說是錯的，因為那等於讓一整個來源退出主畫面的資格判定。釘死必須繼續把關的來源之後，曲線回答的才是「在不掉模型的前提下門檻能拉多嚴」。
-
-不是現行 active benchmark 的 ID 會直接讓命令失敗，而不是被忽略——打錯字若被忽略，產出的會是未加約束的曲線，而且看不出來。
+日常報告依核准政策產生無約束與全來源曲線。`--require=a,b` 僅供探索指定 benchmark 必選時的影響，會約束兩條曲線，不作為日常集合生成政策。
 
 CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜態 build、瀏覽器／無障礙與依賴安全檢查；不得啟動 DB service、Docker、舊 Web fixture、Worker 或影片 render。
 

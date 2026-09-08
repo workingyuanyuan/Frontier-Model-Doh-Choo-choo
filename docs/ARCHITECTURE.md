@@ -35,7 +35,7 @@ packages/benchmark-data
 
 ### `apps/bench`
 
-- 英文、單一淺色主題、單頁 Dashboard。
+- 英文、單頁 Dashboard。
 - 顯示 `current.json` 的 ProductVersion 與完整 `versionId`。
 - Leaderboard、Quality vs. Cost、Five Dimensions 與 Included／Excluded Evidence。
 - 主畫面只顯示通過 `display-set.json` 完整矩陣且五個維度皆非 null 的模型；Developer mode 提供缺格清單及獨立 partial-coverage 清單；後者顯示已有維度分數，不提供 Overall 或排名。
@@ -98,7 +98,7 @@ data/product/current.json ──► apps/bench static build
 
 | Superseded 項目                                        | 現行替代                                       |
 | ------------------------------------------------------ | ---------------------------------------------- |
-| 舊 `apps/web` 多頁、雙語、雙主題 UI                    | `apps/bench` 單頁英文淺色 Dashboard            |
+| 舊 `apps/web` 多頁、雙語、雙主題 UI                    | `apps/bench` 單頁英文 Dashboard                |
 | `apps/worker` 與 LiveBench 專用 ingest／score／promote | 通用 `packages/acquisition` + `benchmark-data` |
 | PostgreSQL、Drizzle、migration、seed、Compose          | Git 內 `data` 靜態資料與 JSON                  |
 | Edition、PREVIEW／FORMAL、revision／publication 契約   | 單一 `current.json` 與內容 hash                |

@@ -1,30 +1,7 @@
 {
   "accessMethods": ["DOM", "EMBEDDED_JSON"],
   "baseUrl": "https://www.vals.ai",
-  "benchmarkIds": [
-    "code-migration",
-    "corpfin",
-    "cyber",
-    "emb",
-    "finance-agent-v2",
-    "gpqa-diamond",
-    "hlab",
-    "ioi",
-    "legal-bench",
-    "legal-research",
-    "livecodebench",
-    "medcode",
-    "medscribe",
-    "mmlu-pro",
-    "programbench",
-    "proofbench",
-    "public-benefits-bench",
-    "skillsbench",
-    "swe-bench",
-    "tax-eval-v2",
-    "terminal-bench-2-1",
-    "vibe-code-bench"
-  ],
+  "benchmarkIds": ["code-migration", "corpfin", "cyber", "emb", "finance-agent-v2", "gpqa-diamond", "hlab", "ioi", "legal-bench", "legal-research", "livecodebench", "medcode", "medscribe", "mmlu-pro", "programbench", "proofbench", "public-benefits-bench", "skillsbench", "swe-bench", "tax-eval-v2", "terminal-bench-2-1", "vibe-code-bench"],
   "completeness": {
     "expectedCountMethod": "Enumerate every /benchmarks/<slug> link from the official index, capture every page, parse the unique BenchmarkView Astro island when present, and require metadata.total_models to equal tasks.overall row count.",
     "pagination": null,
@@ -39,7 +16,7 @@
     "BenchmarkView.tasks.overall.*.reasoning_effort / compute_effort": "profile.effort when legal",
     "index /benchmarks/<slug> links": "complete page enumeration"
   },
-  "lastVerifiedAt": "2026-09-06T03:20:07.171Z",
+  "lastVerifiedAt": "2026-09-08T00:58:59.698Z",
   "notes": [
     "42 benchmark slugs were discovered dynamically; 41 exposed BenchmarkView data.",
     "Only the explicit approved benchmark table may produce INCLUDED capability scores; new pages are visible in validation but remain EXCLUDED.",

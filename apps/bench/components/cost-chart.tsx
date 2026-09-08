@@ -84,10 +84,11 @@ const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
 const scoreBasisNote = (
   basis: CostSourceScoreBasisId,
   score: number | null,
+  version?: string | null,
 ): string =>
   basis === 'NONE' || score === null
     ? SCORE_BASIS_NAMES.NONE
-    : `${SCORE_BASIS_NAMES[basis]} ${score.toFixed(1)}`;
+    : `${SCORE_BASIS_NAMES[basis]}${version ? ` ${version}` : ''} ${score.toFixed(1)}`;
 
 /** Sources carrying a weight, i.e. the largest source count a point can have. */
 const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
@@ -611,6 +612,7 @@ export function DefaultCostPlot({
                               {scoreBasisNote(
                                 source.scoreBasis,
                                 source.sourceScore,
+                                source.scoreBenchmarkVersion,
                               )}
                             </span>
                           </li>
@@ -673,7 +675,12 @@ export function DefaultCostPlot({
                           {sourceName(source.sourceId)}
                         </a>{' '}
                         ({source.profileId}, ${source.cost.toFixed(3)},{' '}
-                        {scoreBasisNote(source.scoreBasis, source.sourceScore)})
+                        {scoreBasisNote(
+                          source.scoreBasis,
+                          source.sourceScore,
+                          source.scoreBenchmarkVersion,
+                        )}
+                        )
                       </span>
                     ))}
                   </td>
@@ -1001,7 +1008,13 @@ export function AdvancedCostPlot({
                         key={source.sourceId}
                         className="cost-hover-card-source-item"
                       >
-                        <span>{sourceName(source.sourceId)}:</span>
+                        <span>
+                          {sourceName(source.sourceId)}
+                          {source.scoreBenchmarkVersion
+                            ? ` ${source.scoreBenchmarkVersion}`
+                            : ''}
+                          :
+                        </span>
                         <span>
                           score {source.score.toFixed(1)} · $
                           {source.cost.toFixed(3)}

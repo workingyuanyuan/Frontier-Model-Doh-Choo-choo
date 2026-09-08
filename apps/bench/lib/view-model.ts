@@ -118,6 +118,7 @@ export interface WeightedCostPoint {
     sourceScore: number | null;
     scoreBasis: CostSourceScoreBasisId;
     scoreBenchmarkId: string | null;
+    scoreBenchmarkVersion?: string | null;
     metricName: string;
     sourceUrl: string;
   }>;
@@ -132,6 +133,7 @@ export interface AdvancedCostSourceDetail {
   scoreBasis:
     'AA_INTELLIGENCE_INDEX' | 'DEEPSWE_1_1' | 'FRONTIER_CODE_1_1' | 'ARC_AGI';
   scoreBenchmarkId: string;
+  scoreBenchmarkVersion?: string | null;
   metricName: string;
   sourceUrl: string;
   benchmarkId: string | null;
@@ -185,18 +187,6 @@ export const compareDefaultLeaderboardRows = (
     (left.overallScore ?? Number.NEGATIVE_INFINITY) ||
   left.profileId.localeCompare(right.profileId);
 
-const compareRepresentativeCandidates = (
-  left: LeaderboardRow,
-  right: LeaderboardRow,
-): number => {
-  const leftScore = left.overallScore ?? Number.NEGATIVE_INFINITY;
-  const rightScore = right.overallScore ?? Number.NEGATIVE_INFINITY;
-  if (leftScore !== rightScore) {
-    return rightScore - leftScore;
-  }
-  return left.profileId.localeCompare(right.profileId);
-};
-
 export const profileById = (
   product: ProductVersion,
   profileId: string,
@@ -217,7 +207,7 @@ export const getRepresentativeRows = (
   const rows = new Map<string, LeaderboardRow>();
   product.leaderboard.forEach((row) => {
     const current = rows.get(row.modelId);
-    if (!current || compareRepresentativeCandidates(row, current) < 0) {
+    if (!current || compareDefaultLeaderboardRows(row, current) < 0) {
       rows.set(row.modelId, row);
     }
   });
@@ -582,7 +572,29 @@ interface SourceScore {
   basis: CostSourceScoreBasisId;
   benchmarkId: string | null;
   sourceEffort: string | null;
+  benchmarkVersion: string | null;
 }
+
+/** Compare AA models only within one explicitly published index generation. */
+export const latestAaIndexVersion = (product: ProductVersion): string | null =>
+  product.evidence
+    .filter(
+      (row) =>
+        row.sourceId === 'artificial-analysis' &&
+        row.benchmarkId === 'artificial-analysis-intelligence-index' &&
+        row.benchmarkVersion !== null,
+    )
+    .toSorted((a, b) =>
+      (b.benchmarkVersion ?? '').localeCompare(
+        a.benchmarkVersion ?? '',
+        undefined,
+        { numeric: true },
+      ),
+    )[0]?.benchmarkVersion ?? null;
+
+const currentAaCost = (product: ProductVersion, point: CostPoint): boolean =>
+  point.sourceId !== 'artificial-analysis' ||
+  point.benchmarkVersion === latestAaIndexVersion(product);
 
 const normalizeSourceEffort = (effort: string | null): string =>
   effort !== null && COST_EFFORT_RANK.has(effort) ? effort : 'default';
@@ -600,6 +612,9 @@ export const getSourceScore = (
   product: ProductVersion,
   sourceId: string,
   profileId: string,
+  benchmarkVersion: string | null = sourceId === 'artificial-analysis'
+    ? latestAaIndexVersion(product)
+    : null,
 ): SourceScore | null => {
   const basis = COST_SOURCE_SCORE_BASES[sourceId];
   if (!basis) return null;
@@ -609,7 +624,9 @@ export const getSourceScore = (
         result.inclusion === basis.inclusion &&
         result.sourceId === sourceId &&
         result.model.profileId === profileId &&
-        result.benchmarkId === basis.benchmarkId,
+        result.benchmarkId === basis.benchmarkId &&
+        (sourceId !== 'artificial-analysis' ||
+          result.benchmarkVersion === benchmarkVersion),
     )
     .toSorted((left, right) => left.id.localeCompare(right.id))[0];
   if (!evidence) return null;
@@ -622,6 +639,7 @@ export const getSourceScore = (
         basis: basis.basis,
         benchmarkId: basis.benchmarkId,
         sourceEffort: evidence.profile.effort,
+        benchmarkVersion: evidence.benchmarkVersion,
       };
 };
 
@@ -722,6 +740,7 @@ export const buildWeightedCostCurve = (
   const taskCosts = product.costs.filter(
     (point) =>
       isTaskCost(point) &&
+      currentAaCost(product, point) &&
       point.cost > 0 &&
       (weights[point.sourceId] ?? 0) > 0 &&
       point.performance !== null,
@@ -729,7 +748,7 @@ export const buildWeightedCostCurve = (
   const sourceRanges = new Map<string, { min: number; max: number }>();
   Object.keys(weights).forEach((sourceId) => {
     const logs = taskCosts
-      .filter((point) => point.sourceId === sourceId && point.cost > 0)
+      .filter((point) => point.sourceId === sourceId)
       .map(({ cost }) => Math.log(cost));
     if (logs.length > 0) {
       sourceRanges.set(sourceId, {
@@ -779,6 +798,8 @@ export const buildWeightedCostCurve = (
             sourceScore: candidate.sourceScore?.score ?? null,
             scoreBasis: candidate.sourceScore?.basis ?? 'NONE',
             scoreBenchmarkId: candidate.sourceScore?.benchmarkId ?? null,
+            scoreBenchmarkVersion:
+              candidate.sourceScore?.benchmarkVersion ?? null,
             metricName: exemplar.metricName,
             sourceUrl: exemplar.sourceUrl,
           },
@@ -876,16 +897,20 @@ export const buildAdvancedCostSeries = (
   );
   if (activeSourceIds.length === 0) return [];
 
+  const taskCosts = product.costs.filter(
+    (point) =>
+      isTaskCost(point) &&
+      currentAaCost(product, point) &&
+      point.cost > 0 &&
+      (activeSourceIds as readonly string[]).includes(point.sourceId),
+  );
   const sourceRanges = new Map<
     AdvancedCostSourceId,
     { min: number; max: number }
   >();
   activeSourceIds.forEach((sourceId) => {
-    const logs = product.costs
-      .filter(
-        (point) =>
-          isTaskCost(point) && point.cost > 0 && point.sourceId === sourceId,
-      )
+    const logs = taskCosts
+      .filter((point) => point.sourceId === sourceId)
       .map(({ cost }) => Math.log(cost));
     if (logs.length > 0) {
       sourceRanges.set(sourceId, {
@@ -896,19 +921,12 @@ export const buildAdvancedCostSeries = (
   });
 
   const grouped = new Map<string, CostPoint[]>();
-  product.costs
-    .filter(
-      (point) =>
-        isTaskCost(point) &&
-        point.cost > 0 &&
-        (activeSourceIds as readonly string[]).includes(point.sourceId),
-    )
-    .forEach((point) => {
-      const key = `${point.modelId}\u0000${point.profileId}\u0000${point.sourceId}`;
-      const rows = grouped.get(key) ?? [];
-      rows.push(point);
-      grouped.set(key, rows);
-    });
+  taskCosts.forEach((point) => {
+    const key = `${point.modelId}\u0000${point.profileId}\u0000${point.sourceId}`;
+    const rows = grouped.get(key) ?? [];
+    rows.push(point);
+    grouped.set(key, rows);
+  });
 
   const candidatePoints: AdvancedCostPoint[] = [];
 
@@ -954,6 +972,7 @@ export const buildAdvancedCostSeries = (
         score: sourceScore.score,
         scoreBasis: sourceScore.basis,
         scoreBenchmarkId: sourceScore.benchmarkId,
+        scoreBenchmarkVersion: sourceScore.benchmarkVersion,
         metricName: exemplar.metricName,
         sourceUrl: exemplar.sourceUrl,
         benchmarkId: exemplar.benchmarkId,
