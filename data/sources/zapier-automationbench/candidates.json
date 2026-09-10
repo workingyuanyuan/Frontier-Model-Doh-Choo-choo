@@ -302,8 +302,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1 (Max)"
     },
     "normalizedScore": 22.37,
@@ -416,8 +416,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1 (XHigh)"
     },
     "normalizedScore": 21.31,
@@ -2753,8 +2753,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash (High)"
     },
     "normalizedScore": 29.68,
@@ -2810,8 +2810,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "Gemini 3.8 Flash (Medium)"
     },
     "normalizedScore": 29.68,

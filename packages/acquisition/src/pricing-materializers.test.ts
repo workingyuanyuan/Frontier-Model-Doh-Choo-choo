@@ -15,6 +15,17 @@ const context = {
 };
 
 describe('pricing materializers', () => {
+  it.each([
+    ['gemini-3.8-flash-high', 'google-gemini-3-8-flash-high'],
+    ['claude-fable-5-1-max-effort', 'anthropic-claude-fable-5-1-max'],
+  ])('resolves captured LiveBench costs for %s', (name, profileId) => {
+    const rows = materializeLiveBenchCosts(
+      `model,input_price_per_million,output_price_per_million,cost_per_successful_task\n${name},10,50,0.75\n`,
+      context,
+    );
+    expect(rows).toHaveLength(2);
+    expect(rows.every((row) => row.model.profileId === profileId)).toBe(true);
+  });
   it('retains both published Astra max LiveBench costs and provenance', () => {
     const rows = materializeLiveBenchCosts(
       'model,input_price_per_million,output_price_per_million,cost_per_successful_task\n' +

@@ -11,19 +11,17 @@
 | Approved scoring categories | 4 (Reasoning, Mathematics, Language, IF) |
 | Excluded/Unapproved categories | 3 (Coding, Agentic Coding, Data Analysis) |
 | Generated CandidateResults | 224 |
-| Canonically resolved candidates | 184 |
-| Canonically unresolved candidates | 40 |
-| Distinct unresolved raw model names | 10 |
+| Canonically resolved candidates | 192 |
+| Canonically unresolved candidates | 32 |
+| Distinct unresolved raw model names | 8 |
 
 ## Model identity resolution
 
 Full raw-name catalog matches are attempted first. Remaining names use only exact effort-suffix, Claude thinking/date, dated-effort, thinking-marker, or dated-model-alias transforms; no fuzzy matching is performed.
 
-- `claude-fable-5-1-max-effort`: no exact catalog match; effort-suffix transform produced "claude-fable-5-1", which is not an exact catalog slug
 - `deepseek-v4-flash`: full slug "deepseek-v4-flash" has no documented exact LiveBench transform to a catalog slug
 - `deepseek-v4-flash-vision-exp`: full slug "deepseek-v4-flash-vision-exp" has no documented exact LiveBench transform to a catalog slug
 - `deepseek-v4-pro`: full slug "deepseek-v4-pro" has no documented exact LiveBench transform to a catalog slug
-- `gemini-3.8-flash-high`: no exact catalog match; effort-suffix transform produced "gemini-3-8-flash", which is not an exact catalog slug
 - `glm-5.3`: full slug "glm-5-3" has no documented exact LiveBench transform to a catalog slug
 - `glm-5.3-flash`: full slug "glm-5-3-flash" has no documented exact LiveBench transform to a catalog slug
 - `ox-alpha-max`: no exact catalog match; effort-suffix transform produced "ox-alpha", which is not an exact catalog slug
@@ -37,25 +35,6 @@ Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathemat
 ## Discrepancies and notes
 
 - None. All 56 model rows have complete task coverage across the 4 approved categories.
-
-## Visible comparison
-
-- Fresh rendered page profile count (Include finetunes enabled): 54
-- Complete table export profile count: 56
-- Superseded export-only names, absent from the current rendered leaderboard: deepseek-v4-flash, deepseek-v4-pro
-- Current export profiles after the existing superseded-build policy: 54
-- Result: current profiles matched; raw export-only rows remain traceable and unresolved.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Raw model profiles | 44 | 56 | +12 |
-| Candidate results | 176 | 224 | +48 |
-| Cost export profiles | 44 | 56 | +12 |
-| Materialized costs | 44 | 46 | +2 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

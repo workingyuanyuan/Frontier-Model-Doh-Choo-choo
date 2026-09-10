@@ -15,8 +15,8 @@
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 2550 |
 | Included vals_index CostRecords | 54 |
-| Canonically unresolved rows | 1797 |
-| Distinct canonically unresolved models | 191 |
+| Canonically unresolved rows | 1747 |
+| Distinct canonically unresolved models | 189 |
 
 ## Per-page completeness
 
@@ -159,7 +159,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - anthropic/claude-3-5-sonnet-20241022
 - anthropic/claude-3-7-sonnet-20250219
 - anthropic/claude-3-7-sonnet-20250219-thinking
-- anthropic/claude-fable-5-1
 - anthropic/claude-fable-5-exa
 - anthropic/claude-haiku-4-5-20251001
 - anthropic/claude-haiku-4-5-20251001-thinking
@@ -227,7 +226,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - google/gemini-3-flash-preview
 - google/gemini-3.1-flash-lite-preview
 - google/gemini-3.5-flash-exa
-- google/gemini-3.8-flash
 - google/gemma-4-31b-it
 - grok/grok-2-1212
 - grok/grok-2-vision-1212
@@ -371,7 +369,7 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Benchmark slugs discovered from index | 42 | 42 | +0 |
 | CandidateResults | 2686 | 2686 | +0 |
 | CostRecords retained | 2550 | 2550 | +0 |
-| Canonically unresolved rows | 1813 | 1797 | -16 |
+| Canonically unresolved rows | 1797 | 1747 | -50 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

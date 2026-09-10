@@ -31,6 +31,12 @@ export type LeaderboardProps = {
   onSelectPreset: (presetId: string) => void;
   initialExpandedModelIds?: string[] | undefined;
   developerMode: boolean;
+  pickerProduct?: PresetProductVersion;
+  onResetModels?: () => void;
+  selectedProfiles?: Record<string, string>;
+  onSelectedProfileChange?: (modelId: string, profileId: string) => void;
+  commonMode?: boolean;
+  controlPreset?: ProductPreset;
 };
 
 export function Leaderboard({
@@ -44,6 +50,12 @@ export function Leaderboard({
   onSelectPreset,
   initialExpandedModelIds,
   developerMode,
+  pickerProduct = product,
+  onResetModels,
+  selectedProfiles,
+  onSelectedProfileChange,
+  commonMode = false,
+  controlPreset,
 }: LeaderboardProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
     initialExpandedModelIds ?? [],
@@ -61,26 +73,28 @@ export function Leaderboard({
     direction: SortDirection;
   }>({ key: 'overall', direction: 'descending' });
 
-  const [modelProfiles, setModelProfiles] = useState<Record<string, string>>(
-    () => {
-      const initialProfiles: Record<string, string> = {};
-      const allRepresentatives = getRepresentativeRows(product);
-      allRepresentatives.forEach((row) => {
+  const [localModelProfiles, setModelProfiles] = useState<
+    Record<string, string>
+  >(() => {
+    const initialProfiles: Record<string, string> = {};
+    const allRepresentatives = getRepresentativeRows(product);
+    allRepresentatives.forEach((row) => {
+      initialProfiles[row.modelId] = row.profileId;
+    });
+    product.leaderboard.forEach((row) => {
+      if (!initialProfiles[row.modelId]) {
         initialProfiles[row.modelId] = row.profileId;
-      });
-      product.leaderboard.forEach((row) => {
-        if (!initialProfiles[row.modelId]) {
-          initialProfiles[row.modelId] = row.profileId;
-        }
-      });
-      return initialProfiles;
-    },
-  );
+      }
+    });
+    return initialProfiles;
+  });
 
   const handleProfileChange = (modelId: string, profileId: string) => {
+    onSelectedProfileChange?.(modelId, profileId);
     setModelProfiles((prev) => ({ ...prev, [modelId]: profileId }));
   };
 
+  const modelProfiles = selectedProfiles ?? localModelProfiles;
   const activeRows = useMemo(
     () =>
       rows.map((representative) => {
@@ -150,18 +164,26 @@ export function Leaderboard({
           <div className="leaderboard-toolbar">
             <PresetControls
               presets={product.presets}
-              activePreset={product.activePreset}
+              activePreset={controlPreset ?? product.activePreset}
               onSelectPreset={onSelectPreset}
             />
             <ModelPicker
-              product={product}
+              product={pickerProduct}
               representatives={representatives}
               checkedModelIds={checkedModelIds}
               setCheckedModelIds={setCheckedModelIds}
+              onReset={onResetModels}
             />
           </div>
         </div>
 
+        {commonMode ? (
+          <p className="comparison-summary" role="status">
+            Comparing {rows.length} models on {preset?.benchmarkIds.length ?? 0}{' '}
+            common benchmarks. Scores use the selected profiles. Overall
+            requires all five dimensions.
+          </p>
+        ) : null}
         <LeaderboardTable
           developerMode={developerMode}
           product={product}

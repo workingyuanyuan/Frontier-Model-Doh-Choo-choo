@@ -26,6 +26,14 @@ const AA_MODELS: Record<string, Identity> = {
 };
 
 const LIVEBENCH_MODELS: Record<string, Identity> = {
+  'gemini-3.8-flash-high': {
+    modelId: 'google-gemini-3-8-flash',
+    effort: 'high',
+  },
+  'claude-fable-5-1-max-effort': {
+    modelId: 'anthropic-claude-fable-5-1',
+    effort: 'max',
+  },
   'gpt-6-astra-max': { modelId: 'openai-gpt-6-astra', effort: 'max' },
   'minimax-m3': { modelId: 'minimax-minimax-m3', effort: 'max' },
   'kimi-k2.6-thinking': { modelId: 'moonshot-kimi-k2-6', effort: 'max' },

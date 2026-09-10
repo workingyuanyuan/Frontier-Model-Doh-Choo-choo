@@ -13,7 +13,7 @@
 | External-source mirrors (`_external`) | 66 |
 | Epoch Capabilities Index rows | 267 |
 | CandidateResults | 1480 |
-| Rows without a canonical identity | 1037 |
+| Rows without a canonical identity | 1033 |
 
 ## CandidateResults per benchmark
 
@@ -77,6 +77,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | Claude Fable 5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-default-epoch-inspect-row-2` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-max:arc-agi-2-v2-semi-private |
+| Claude Fable 5.1 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-1-default-epoch-inspect-row-3` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-1-max:arc-agi-2-v2-semi-private |
 | Claude Opus 4.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-5-default-epoch-inspect-row-44` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:claude-opus-4-5-20251101-thinking-64k-high-effort |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:aime:anthropic-claude-opus-4-5-default-epoch-inspect-row-185` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:claude-opus-4-5-20251101-thinking-64k-high-effort |
 | Claude Opus 4.5 (16k thinking) | `epoch-ai:frontiermath-tier-4:anthropic-claude-opus-4-5-default-epoch-inspect-row-41:tier-4` | — | `high` | livebench | livebench-2026-06-25:livebench-instruction-following:claude-opus-4-5-20251101-thinking-64k-high-effort |

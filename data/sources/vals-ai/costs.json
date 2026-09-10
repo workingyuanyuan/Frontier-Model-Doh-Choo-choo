@@ -4371,8 +4371,8 @@
     "metricId": "cost-per-test",
     "metricName": "BioMysteryBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -7363,8 +7363,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -8111,8 +8111,8 @@
     "metricId": "cost-per-test",
     "metricName": "Code Migration cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -15723,8 +15723,8 @@
     "metricId": "cost-per-test",
     "metricName": "CyberBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -16559,8 +16559,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -17307,8 +17307,8 @@
     "metricId": "cost-per-test",
     "metricName": "EMB cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -18935,8 +18935,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -19683,8 +19683,8 @@
     "metricId": "cost-per-test",
     "metricName": "Finance Agent (v2) cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -21883,8 +21883,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -23819,8 +23819,8 @@
     "metricId": "cost-per-test",
     "metricName": "GPQA Diamond cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -27339,8 +27339,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -28087,8 +28087,8 @@
     "metricId": "cost-per-test",
     "metricName": "Harvey's Legal Agent Benchmark cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -32663,8 +32663,8 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -33543,8 +33543,8 @@
     "metricId": "cost-per-test",
     "metricName": "LegalBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -35523,8 +35523,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -36271,8 +36271,8 @@
     "metricId": "cost-per-test",
     "metricName": "Legal Research Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -38427,8 +38427,8 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -40451,8 +40451,8 @@
     "metricId": "cost-per-test",
     "metricName": "LiveCodeBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -46831,8 +46831,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -48327,8 +48327,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedCode cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -54883,8 +54883,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -56423,8 +56423,8 @@
     "metricId": "cost-per-test",
     "metricName": "MedScribe cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -62583,8 +62583,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -64519,8 +64519,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMLU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -68171,8 +68171,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMMU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -69623,8 +69623,8 @@
     "metricId": "cost-per-test",
     "metricName": "MMMU Pro cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -72351,8 +72351,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -73891,8 +73891,8 @@
     "metricId": "cost-per-test",
     "metricName": "MortgageTax cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -77059,8 +77059,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -77543,8 +77543,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProgramBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -78423,8 +78423,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -78819,8 +78819,8 @@
     "metricId": "cost-per-test",
     "metricName": "ProofBench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -80315,8 +80315,8 @@
     "metricId": "cost-per-test",
     "metricName": "Public Benefits Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -80799,8 +80799,8 @@
     "metricId": "cost-per-test",
     "metricName": "Public Benefits Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -81943,8 +81943,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -83307,8 +83307,8 @@
     "metricId": "cost-per-test",
     "metricName": "SAGE cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -85243,8 +85243,8 @@
     "metricId": "cost-per-test",
     "metricName": "SkillsBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -85683,8 +85683,8 @@
     "metricId": "cost-per-test",
     "metricName": "SkillsBench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -86519,8 +86519,8 @@
     "metricId": "cost-per-test",
     "metricName": "SRE Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -88323,8 +88323,8 @@
     "metricId": "cost-per-test",
     "metricName": "SWE-bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -90655,8 +90655,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -90875,8 +90875,8 @@
     "metricId": "cost-per-test",
     "metricName": "Tax Agent Bench cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -92195,8 +92195,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -94263,8 +94263,8 @@
     "metricId": "cost-per-test",
     "metricName": "TaxEval v2 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -97915,8 +97915,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -98707,8 +98707,8 @@
     "metricId": "cost-per-test",
     "metricName": "Terminal-Bench 2.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -103723,8 +103723,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -104471,8 +104471,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vals Index cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -107683,8 +107683,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "anthropic/claude-fable-5-1"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",
@@ -108827,8 +108827,8 @@
     "metricId": "cost-per-test",
     "metricName": "Vibe Code Bench v1.1 cost per test",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "google/gemini-3.8-flash"
     },
     "observedAt": "2026-09-08T00:58:59.698Z",

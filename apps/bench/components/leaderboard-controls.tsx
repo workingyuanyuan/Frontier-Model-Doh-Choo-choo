@@ -43,11 +43,13 @@ export function ModelPicker({
   representatives,
   checkedModelIds,
   setCheckedModelIds,
+  onReset,
 }: {
   product: ProductVersion;
   representatives: LeaderboardRow[];
   checkedModelIds: string[];
   setCheckedModelIds: React.Dispatch<React.SetStateAction<string[]>>;
+  onReset?: (() => void) | undefined;
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -192,7 +194,9 @@ export function ModelPicker({
             </button>
             <button
               type="button"
-              onClick={() => setCheckedModelIds(defaultCheckedIds)}
+              onClick={() =>
+                onReset ? onReset() : setCheckedModelIds(defaultCheckedIds)
+              }
             >
               Default
             </button>

@@ -241,8 +241,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1 (Max)"
     },
     "observedAt": "2026-09-08T00:57:21.361Z",
@@ -286,8 +286,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1 (XHigh)"
     },
     "observedAt": "2026-09-08T00:57:21.361Z",
@@ -2131,8 +2131,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash (High)"
     },
     "observedAt": "2026-09-08T00:57:21.361Z",
@@ -2176,8 +2176,8 @@
     "metricId": "cost-per-task",
     "metricName": "AutomationBench cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "Gemini 3.8 Flash (Medium)"
     },
     "observedAt": "2026-09-08T00:57:21.361Z",

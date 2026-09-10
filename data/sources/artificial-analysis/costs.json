@@ -147,8 +147,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -191,8 +191,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -235,8 +235,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -279,8 +279,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -323,8 +323,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -1247,8 +1247,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -1291,8 +1291,8 @@
     "metricId": "token-price",
     "metricName": "Artificial Analysis API token price",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -4459,8 +4459,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -4503,8 +4503,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -4547,8 +4547,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -4591,8 +4591,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -4635,8 +4635,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -5471,8 +5471,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",
@@ -5515,8 +5515,8 @@
     "metricId": "cost-per-intelligence-index-task",
     "metricName": "Cost per Intelligence Index task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "observedAt": "2026-09-08T01:03:14.259Z",

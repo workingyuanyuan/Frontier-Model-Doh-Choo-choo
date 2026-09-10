@@ -19,9 +19,9 @@
 | Fallback-composite rows with excluded fallback cost (§) | 1 |
 | Fireworks-marked standard-price rows (‡) | 1 |
 | Dedicated-deployment cost rows excluded from costs | 1 |
-| Canonically resolved rows | 81 |
-| Canonically unresolved rows | 14 |
-| Distinct canonically unresolved names | 14 |
+| Canonically resolved rows | 85 |
+| Canonically unresolved rows | 10 |
+| Distinct canonically unresolved names | 10 |
 | Excluded candidate rows | 1 |
 | Excluded cost records | 1 |
 
@@ -56,30 +56,16 @@
 
 ## Unresolved model names
 
-- Claude Fable 5.1 (Max)
-- Claude Fable 5.1 (XHigh)
 - Claude Fable 5.1 with Opus 5 Fallback (Max)
 - Claude Haiku 4.5
 - Gemini 3.1 Pro (preview) (High)
 - Gemini 3.1 Pro (preview) (Low)
 - Gemini 3.1 Pro (preview) (Medium)
-- Gemini 3.8 Flash (High)
-- Gemini 3.8 Flash (Medium)
 - Gemma 4 31B (Max)
 - GPT-OSS 120B (High)
 - Minimax M2.7 (High)
 - Qwen 3.6+ (High)
 - Qwen 3.7+
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 95 | 95 | +0 |
-| Cost records | 82 | 93 | +11 |
-| Canonically unresolved rows | 14 | 14 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

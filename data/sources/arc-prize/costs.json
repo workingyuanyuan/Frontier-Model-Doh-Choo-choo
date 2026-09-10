@@ -61,8 +61,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
       "rawName": "Claude Fable 5.1 (High)"
     },
     "observedAt": "2026-09-08T00:57:18.013Z",
@@ -106,8 +106,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
       "rawName": "Claude Fable 5.1 (Low)"
     },
     "observedAt": "2026-09-08T00:57:18.013Z",
@@ -151,8 +151,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1 (Max)"
     },
     "observedAt": "2026-09-08T00:57:18.013Z",
@@ -196,8 +196,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
       "rawName": "Claude Fable 5.1 (Medium)"
     },
     "observedAt": "2026-09-08T00:57:18.013Z",
@@ -241,8 +241,8 @@
     "metricId": "cost-per-task",
     "metricName": "ARC-AGI-2 cost per task",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1 (XHigh)"
     },
     "observedAt": "2026-09-08T00:57:18.013Z",

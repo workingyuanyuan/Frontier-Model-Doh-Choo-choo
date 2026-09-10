@@ -17,8 +17,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 50.339999999999996,
@@ -69,8 +69,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 49.82,
@@ -121,8 +121,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 50.28,
@@ -173,8 +173,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 50.91,
@@ -225,8 +225,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1"
     },
     "normalizedScore": 48.730000000000004,
@@ -2461,8 +2461,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash"
     },
     "normalizedScore": 37.96,
@@ -2513,8 +2513,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "Gemini 3.8 Flash"
     },
     "normalizedScore": 41.19,

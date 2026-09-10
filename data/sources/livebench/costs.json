@@ -1945,6 +1945,182 @@
       "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d"
     ],
     "exclusionReason": null,
+    "id": "livebench:api-token-price:anthropic-claude-fable-5-1-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 10,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "rawName": "claude-fable-5-1-max-effort"
+    },
+    "observedAt": "2026-09-08T01:03:24.699Z",
+    "outputPerMillionTokens": 50,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d",
+        "locator": "model=claude-fable-5-1-max-effort; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1788809517",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": 1.2117,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-successful-task:anthropic-claude-fable-5-1-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "rawName": "claude-fable-5-1-max-effort"
+    },
+    "observedAt": "2026-09-08T01:03:24.699Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d",
+        "locator": "model=claude-fable-5-1-max-effort; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1788809517",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:google-gemini-3-8-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 0.75,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
+      "rawName": "gemini-3.8-flash-high"
+    },
+    "observedAt": "2026-09-08T01:03:24.699Z",
+    "outputPerMillionTokens": 3.75,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d",
+        "locator": "model=gemini-3.8-flash-high; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1788809517",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": 0.3073,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-successful-task:google-gemini-3-8-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-successful-task",
+    "metricName": "LiveBench cost per successful task",
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
+      "rawName": "gemini-3.8-flash-high"
+    },
+    "observedAt": "2026-09-08T01:03:24.699Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d",
+        "locator": "model=gemini-3.8-flash-high; cost_per_successful_task",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1788809517",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-06-25",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:c8c24e6f50913fe7be63694fc5de37dcd0242f2b51bb9848727dd47e1c355c3d"
+    ],
+    "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-6-astra-max",
     "inclusion": "INCLUDED",
     "inputPerMillionTokens": 10,

@@ -21,9 +21,11 @@ import {
 export function RadarChart({
   product,
   comparisonProduct,
+  fixedProfileIds,
 }: {
   product: PresetProductVersion;
   comparisonProduct?: PresetProductVersion;
+  fixedProfileIds?: string[] | undefined;
 }) {
   const center = 140;
   const radius = 92;
@@ -49,10 +51,10 @@ export function RadarChart({
   };
 
   const seriesList = useMemo(() => {
-    return seriesProfileIds
+    return (fixedProfileIds ?? seriesProfileIds)
       .map((id) => getSeriesData(id))
       .filter((data): data is NonNullable<typeof data> => data !== null);
-  }, [seriesProfileIds, product]);
+  }, [seriesProfileIds, fixedProfileIds, product]);
 
   const handleRemoveSeries = (profileId: string) => {
     setSeriesProfileIds((prev) => prev.filter((id) => id !== profileId));
@@ -105,67 +107,71 @@ export function RadarChart({
           <div>
             <h2 id="profile-title">Five Dimensions</h2>
             <div className="series-controls">
-              {seriesList.length < 3 && availableComparisonRows.length > 0 && (
-                <div className="add-model-container">
-                  <label htmlFor="add-model-select" className="sr-only">
-                    Add model for comparison
-                  </label>
-                  <select
-                    id="add-model-select"
-                    data-add-model
-                    data-max-series="3"
-                    className="add-model-select"
-                    value=""
-                    onChange={(e) => {
-                      const val = e.target.value;
-                      if (
-                        val &&
-                        !seriesProfileIds.includes(val) &&
-                        seriesProfileIds.length < 3
-                      ) {
-                        setSeriesProfileIds((prev) => [...prev, val]);
-                      }
-                    }}
-                  >
-                    <option value="" disabled>
-                      Add model...
-                    </option>
-                    {availableComparisonRows.map((row) => {
-                      const profile = product.profiles.find(
-                        (p) => p.id === row.profileId,
-                      );
-                      const displayName = profile
-                        ? getProfileDisplayName(profile)
-                        : row.modelId;
-                      return (
-                        <option key={row.modelId} value={row.profileId}>
-                          {displayName}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
-              )}
+              {!fixedProfileIds &&
+                seriesList.length < 3 &&
+                availableComparisonRows.length > 0 && (
+                  <div className="add-model-container">
+                    <label htmlFor="add-model-select" className="sr-only">
+                      Add model for comparison
+                    </label>
+                    <select
+                      id="add-model-select"
+                      data-add-model
+                      data-max-series="3"
+                      className="add-model-select"
+                      value=""
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        if (
+                          val &&
+                          !seriesProfileIds.includes(val) &&
+                          seriesProfileIds.length < 3
+                        ) {
+                          setSeriesProfileIds((prev) => [...prev, val]);
+                        }
+                      }}
+                    >
+                      <option value="" disabled>
+                        Add model...
+                      </option>
+                      {availableComparisonRows.map((row) => {
+                        const profile = product.profiles.find(
+                          (p) => p.id === row.profileId,
+                        );
+                        const displayName = profile
+                          ? getProfileDisplayName(profile)
+                          : row.modelId;
+                        return (
+                          <option key={row.modelId} value={row.profileId}>
+                            {displayName}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                )}
               <div className="series-legend">
                 {seriesList.map((series, sIndex) => (
                   <div
                     key={series.profileId}
-                    className={`legend-chip series-tone-${sIndex + 1}`}
+                    className={`legend-chip series-tone-${(sIndex % 3) + 1}`}
                   >
                     <span
-                      className={`legend-chip-color series-tone-${sIndex + 1}`}
+                      className={`legend-chip-color series-tone-${(sIndex % 3) + 1}`}
                     />
                     <span className="legend-chip-name">
                       {series.displayName}
                     </span>
-                    <button
-                      type="button"
-                      className="remove-series-btn"
-                      onClick={() => handleRemoveSeries(series.profileId)}
-                      aria-label={`Remove ${series.displayName} from radar chart`}
-                    >
-                      ×
-                    </button>
+                    {!fixedProfileIds ? (
+                      <button
+                        type="button"
+                        className="remove-series-btn"
+                        onClick={() => handleRemoveSeries(series.profileId)}
+                        aria-label={`Remove ${series.displayName} from radar chart`}
+                      >
+                        ×
+                      </button>
+                    ) : null}
                   </div>
                 ))}
               </div>
@@ -269,7 +275,7 @@ export function RadarChart({
                   ).map((segment, segmentIndex) => (
                     <polyline
                       key={`${series.profileId}-segment-${segmentIndex}`}
-                      className={`radar-area series-tone-${sIndex + 1}`}
+                      className={`radar-area series-tone-${(sIndex % 3) + 1}`}
                       points={pointsAttribute(segment)}
                       fill="none"
                     />
@@ -278,7 +284,7 @@ export function RadarChart({
                 return (
                   <polygon
                     key={series.profileId}
-                    className={`radar-area series-tone-${sIndex + 1}`}
+                    className={`radar-area series-tone-${(sIndex % 3) + 1}`}
                     points={pointsAttribute(
                       values.filter(
                         (point): point is NonNullable<typeof point> =>
@@ -300,7 +306,7 @@ export function RadarChart({
                   point ? (
                     <circle
                       key={`${series.profileId}-${UI_DIMENSION_IDS[index]}`}
-                      className={`radar-point series-tone-${sIndex + 1}`}
+                      className={`radar-point series-tone-${(sIndex % 3) + 1}`}
                       cx={point.x}
                       cy={point.y}
                       r="4"
@@ -331,7 +337,7 @@ export function RadarChart({
                             <progress
                               max="100"
                               value={scoreVal}
-                              className={`series-tone-${sIndex + 1}`}
+                              className={`series-tone-${(sIndex % 3) + 1}`}
                               aria-label={`${series.displayName} - ${dimensionId}: ${scoreVal.toFixed(1)}`}
                             />
                           ) : (

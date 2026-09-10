@@ -16,7 +16,7 @@
 | Generated CandidateResults | 1212 |
 | Intelligence Index candidates (EXCLUDED) | 98 |
 | GDPval-AA normalized candidates | 92 |
-| Canonically unresolved candidates | 535 |
+| Canonically unresolved candidates | 451 |
 | MEASURED_TASK cost rows | 92 |
 | API_STANDARDIZED token-price rows | 98 |
 
@@ -31,30 +31,13 @@
 
 - API source unavailable; page pipeline remains authoritative.
 - No real API differences recorded beyond rounding.
-- Warning: ARTIFICIAL_ANALYSIS_API_KEY is not set; API cross-validation skipped.
+- Warning: API cross-validation was not attempted.
 
 ## Scope and semantics
 
 - Artificial Analysis composite indices remain `EXCLUDED`; direct evaluation scores are the only AA rows eligible for the eight-dimensional product score.
 - Token prices are `API_STANDARDIZED` and task costs are `MEASURED_TASK`; the two cost semantics are emitted as separate records.
 - No missing score, identity, or cost is inferred.
-
-## Visible comparison
-
-- Fresh rendered models page catalog total: 644
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 134
-- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Unique source profiles | 482 | 134 | -348 |
-| Active source profiles | 223 | 99 | -124 |
-| Candidate results | 2194 | 1212 | -982 |
-| Materialized costs | 307 | 190 | -117 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

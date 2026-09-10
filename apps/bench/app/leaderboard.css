@@ -1,6 +1,35 @@
 /* Leaderboard layout and controls. Kept separate from the page-wide styles so
    table interaction changes remain local to the leaderboard feature. */
 
+.comparison-summary {
+  padding: 0 1.5rem;
+}
+.common-benchmark-panel {
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.5rem;
+  min-width: 0;
+}
+.common-benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+.common-benchmark-table th,
+.common-benchmark-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  min-width: 11rem;
+  vertical-align: top;
+}
+.common-benchmark-table td a {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 0.4rem;
+}
+.common-best-score {
+  color: var(--accent);
+}
+
 .table-scroll {
   overflow-x: auto;
   overflow-y: auto;
@@ -502,10 +531,16 @@
     grid-row: 1 / span 4;
   }
 
+  .leaderboard-toolbar,
+  .picker-container {
+    width: 100%;
+  }
+
   .picker-popover {
-    max-width: calc(100vw - 1.5rem);
-    right: -0.75rem;
-    width: min(20rem, calc(100vw - 1.5rem));
+    left: 0;
+    right: auto;
+    width: min(20rem, 100%);
+    max-width: 100%;
   }
 }
 

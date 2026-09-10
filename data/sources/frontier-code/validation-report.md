@@ -15,7 +15,7 @@
 | Main configurations with costs | 95 |
 | Models with multiple efforts | 19 |
 | Models with five efforts | 10 |
-| Canonically unresolved models | 9 |
+| Canonically unresolved models | 7 |
 
 The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontier-code-1-1`.
 
@@ -28,23 +28,13 @@ The official export contains both `main` and `extended` results. This source mat
 
 ## Identity and missing-value policy
 
-Exact catalog resolution succeeded for 26/35 models. Unresolved names are retained with null canonical/profile identity: Claude Fable 5.1, Composer 2.5, GLM 5.3, GLM 5.3 Flash, Gemini 3.8 Flash, Kimi K2.7, Mistral 3.5 Medium, SWE-1.6, SWE-1.7.
+Exact catalog resolution succeeded for 28/35 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, SWE-1.6, SWE-1.7.
 
 Source effort `none` is preserved as null effort and null profile ID. It is not guessed as max/default. Missing costs would be omitted rather than written as zero; this snapshot has a finite cost for every Main configuration.
 
 ## Known documentation conflict
 
 Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `SPEC.md` §4.2.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Distinct models | 28 | 35 | +7 |
-| Main configurations | 77 | 95 | +18 |
-| Materialized costs | 77 | 95 | +18 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

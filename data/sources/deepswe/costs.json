@@ -47,6 +47,50 @@
     "assumptionId": null,
     "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
+    "cost": 2.362349413758389,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_8_flash_high:google-gemini-3-8-flash-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
+      "rawName": "gemini-3-8-flash"
+    },
+    "observedAt": "2026-09-08T00:58:54.395Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "locator": "rows[config=mini_swe_agent_gemini_3_8_flash_high].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
     "cost": 11.837583271396396,
     "costType": "AGENT_TASK",
     "evidenceIds": [
@@ -342,6 +386,50 @@
       "cost": {
         "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_max].mean_cost_usd",
+        "method": "API_RESPONSE"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "deepswe",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe",
+    "benchmarkVersion": "1.1",
+    "cost": 1.9671024789823006,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+    ],
+    "exclusionReason": null,
+    "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_8_flash_medium:google-gemini-3-8-flash-medium",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-cost-usd",
+    "metricName": "Mean DeepSWE agent task cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
+      "rawName": "gemini-3-8-flash"
+    },
+    "observedAt": "2026-09-08T00:58:54.395Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "locator": "rows[config=mini_swe_agent_gemini_3_8_flash_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
     },

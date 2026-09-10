@@ -15,8 +15,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
       "rawName": "Claude Fable 5.1"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",
@@ -59,8 +59,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
       "rawName": "Claude Fable 5.1"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",
@@ -103,8 +103,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "Claude Fable 5.1"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",
@@ -147,8 +147,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
       "rawName": "Claude Fable 5.1"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",
@@ -191,8 +191,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
       "rawName": "Claude Fable 5.1"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",
@@ -2083,8 +2083,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
       "rawName": "Gemini 3.8 Flash"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",
@@ -2127,8 +2127,8 @@
     "metricId": "mean-rollout-cost",
     "metricName": "Mean FrontierCode rollout cost",
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "Gemini 3.8 Flash"
     },
     "observedAt": "2026-09-08T00:57:23.505Z",

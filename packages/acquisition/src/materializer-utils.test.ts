@@ -15,6 +15,40 @@ import {
 } from './materializer-utils.js';
 
 describe('materializer utilities', () => {
+  it.each([
+    ['Gemini 3.8 Flash', 'google-gemini-3-8-flash'],
+    ['gemini-3-8-flash', 'google-gemini-3-8-flash'],
+    ['google/gemini-3.8-flash', 'google-gemini-3-8-flash'],
+    ['Claude Fable 5.1', 'anthropic-claude-fable-5-1'],
+    ['claude-fable-5-1', 'anthropic-claude-fable-5-1'],
+    ['anthropic/claude-fable-5-1', 'anthropic-claude-fable-5-1'],
+  ])('resolves the captured model name %s', (name, id) => {
+    expect(resolveCatalogModel(name!).canonicalModelId).toBe(id);
+  });
+  it('resolves configured new models while preserving efforts and exact version identity', () => {
+    for (const effort of ['max', 'xhigh', 'high', 'medium', 'low']) {
+      const result = resolveModel(
+        `Claude Fable 5.1 (Adaptive Reasoning, ${effort} Effort, Default Fallback)`,
+        'artificial-analysis',
+      );
+      expect(result.canonicalModelId).toBe('anthropic-claude-fable-5-1');
+      expect(result.profileId).toContain(`-5-1-${effort}-`);
+    }
+    expect(
+      resolveModel('Gemini 3.8 Flash (medium)', 'artificial-analysis')
+        .profileId,
+    ).toBe('google-gemini-3-8-flash-medium-aa-index');
+    expect(resolveCatalogModel('Claude Fable 5').canonicalModelId).toBe(
+      'anthropic-claude-fable-5',
+    );
+    expect(resolveCatalogModel('Gemini 3.7 Flash').canonicalModelId).toBe(
+      'google-gemini-3-7-flash',
+    );
+    expect(
+      resolveCatalogModel('Claude Fable 5.1 with Opus 5 Fallback')
+        .canonicalModelId,
+    ).toBeNull();
+  });
   it.each(['GPT-6 Astra', 'GPT 6 Astra', 'gpt-6-astra', 'openai/gpt-6-astra'])(
     'resolves the reviewed Astra catalog name %s',
     (name) => {

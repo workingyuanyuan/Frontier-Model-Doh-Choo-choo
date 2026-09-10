@@ -11,8 +11,8 @@
 | Configuration rows extracted | 70 |
 | Distinct models represented | 28 |
 | Models with multi-effort reasoning ladders | 13 |
-| Canonically resolved candidates | 66 |
-| Canonically unresolved candidates | 4 |
+| Canonically resolved candidates | 68 |
+| Canonically unresolved candidates | 2 |
 
 ## Multi-effort reasoning ladders preserved
 
@@ -36,22 +36,6 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 
 - DeepSWE is an organizer-run agent benchmark (`ORGANIZER`).
 - `mean_cost_usd` is preserved as `AGENT_TASK` cost with harness in provenance.
-
-## Visible comparison
-
-- Fresh rendered page model count: 28
-- Complete export distinct model count: 28
-- Result: matched
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Configuration rows | 53 | 70 | +17 |
-| Distinct models | 21 | 28 | +7 |
-| Materialized costs | 43 | 66 | +23 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

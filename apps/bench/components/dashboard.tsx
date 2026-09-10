@@ -10,6 +10,11 @@ import { Leaderboard } from './leaderboard';
 import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
 import {
+  buildCommonComparison,
+  comparisonOptions,
+} from '../lib/common-benchmarks';
+import { CommonBenchmarkTable } from './common-benchmark-table';
+import {
   getDeveloperModelRows,
   getPartialCoverageRows,
   getRepresentativeRows,
@@ -46,6 +51,10 @@ export function Dashboard({
   const [presetId, setPresetId] = useState(
     initialPresetId ?? rawProduct.defaultPresetId,
   );
+  const [commonMode, setCommonMode] = useState(false);
+  const [selectedProfiles, setSelectedProfiles] = useState<
+    Record<string, string>
+  >({});
 
   // Ruling D-N10-5: the preset lives in a query parameter, not a route. Read
   // once on mount so a shared link opens on the right scores, and write with
@@ -143,6 +152,42 @@ export function Dashboard({
   );
   const [checkedModelIds, setCheckedModelIds] =
     useState<string[]>(defaultCheckedIds);
+  const options = useMemo(
+    () => comparisonOptions(product, benchmarkDimensions),
+    [product, benchmarkDimensions],
+  );
+  const comparison = useMemo(
+    () =>
+      buildCommonComparison(
+        product,
+        checkedModelIds,
+        selectedProfiles,
+        benchmarkDimensions,
+        options,
+      ),
+    [product, checkedModelIds, selectedProfiles, benchmarkDimensions, options],
+  );
+  const updateCheckedModels: React.Dispatch<React.SetStateAction<string[]>> = (
+    value,
+  ) => {
+    if (!commonMode) {
+      setSelectedProfiles(
+        Object.fromEntries(
+          representatives.map((row) => [
+            row.modelId,
+            selectedProfiles[row.modelId] ?? row.profileId,
+          ]),
+        ),
+      );
+    }
+    setCommonMode(true);
+    setCheckedModelIds(value);
+  };
+  const selectPreset = (id: string) => {
+    setCommonMode(false);
+    setPresetId(id);
+    setCheckedModelIds(defaultCheckedIds);
+  };
 
   const rows = useMemo(() => {
     return representatives.filter((row) =>
@@ -168,17 +213,29 @@ export function Dashboard({
         </section>
 
         <Leaderboard
-          product={visibleProduct}
-          rows={rows}
-          representatives={representatives}
+          product={commonMode ? comparison.product : visibleProduct}
+          pickerProduct={product}
+          rows={commonMode ? comparison.product.leaderboard : rows}
+          representatives={options}
           checkedModelIds={checkedModelIds}
-          setCheckedModelIds={setCheckedModelIds}
+          setCheckedModelIds={updateCheckedModels}
+          onResetModels={() => selectPreset(presetId)}
+          selectedProfiles={selectedProfiles}
+          onSelectedProfileChange={(modelId, profileId) =>
+            setSelectedProfiles((current) => ({
+              ...current,
+              [modelId]: profileId,
+            }))
+          }
+          commonMode={commonMode}
           benchmarkDimensions={benchmarkDimensions}
-          preset={activePreset}
-          onSelectPreset={setPresetId}
+          preset={commonMode ? comparison.product.activePreset : activePreset}
+          controlPreset={activePreset}
+          onSelectPreset={selectPreset}
           initialExpandedModelIds={initialExpandedModelIds}
           developerMode={developerMode}
         />
+        {commonMode ? <CommonBenchmarkTable comparison={comparison} /> : null}
 
         {developerMode ? (
           <>
@@ -192,7 +249,15 @@ export function Dashboard({
           </>
         ) : null}
 
-        <RadarChart product={product} comparisonProduct={visibleProduct} />
+        <RadarChart
+          product={commonMode ? comparison.product : product}
+          comparisonProduct={commonMode ? comparison.product : visibleProduct}
+          fixedProfileIds={
+            commonMode
+              ? comparison.profiles.map((profile) => profile.id)
+              : undefined
+          }
+        />
 
         <CostChart
           defaultProduct={visibleProduct}

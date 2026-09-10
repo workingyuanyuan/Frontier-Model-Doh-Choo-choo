@@ -169,8 +169,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 61.51515151515151,
@@ -220,8 +220,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 57.17171717171718,
@@ -271,8 +271,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 55.35353535353536,
@@ -322,8 +322,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 56.060606060606055,
@@ -373,8 +373,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 60.60606060606061,
@@ -1342,8 +1342,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 42.12121212121212,
@@ -1393,8 +1393,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 41.11111111111111,
@@ -4912,8 +4912,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 85.3333333333333,
@@ -4963,8 +4963,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 83.6666666666667,
@@ -5014,8 +5014,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 82.3333333333333,
@@ -5065,8 +5065,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 84.6666666666667,
@@ -5116,8 +5116,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 83,
@@ -6187,8 +6187,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 81.3333333333333,
@@ -6238,8 +6238,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 84,
@@ -10002,8 +10002,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 67.23333333333333,
@@ -10053,8 +10053,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 64.93333333333334,
@@ -10104,8 +10104,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": null,
@@ -10150,8 +10150,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 60.23333333333334,
@@ -10201,8 +10201,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": null,
@@ -10247,8 +10247,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 63.1,
@@ -10298,8 +10298,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": null,
@@ -10344,8 +10344,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 66.21666666666667,
@@ -10395,8 +10395,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": null,
@@ -10441,8 +10441,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": null,
@@ -12473,8 +12473,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 54.6,
@@ -12524,8 +12524,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 52.983333333333334,
@@ -12575,8 +12575,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": null,
@@ -12621,8 +12621,8 @@
       "unit": "index-points"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": null,
@@ -19506,6 +19506,261 @@
     "benchmarkId": "artificial-analysis-intelligence-index",
     "benchmarkVersion": "v4.3",
     "evidenceIds": [
+      "sha256:18f5784c8b4e4ac02d228afa5401a941cf2b470db37ee22d12cd2aca5257fdb9"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-fable-5-1-high-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
+      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:18f5784c8b4e4ac02d228afa5401a941cf2b470db37ee22d12cd2aca5257fdb9",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:18f5784c8b4e4ac02d228afa5401a941cf2b470db37ee22d12cd2aca5257fdb9",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 51.2094958852237,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-high"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
+      "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-fable-5-1-low-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
+      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 47.0391672014862,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
+      "sha256:9be6e3fb1f81669ddef313838bb8a9976e79ea0bd2f2bae6d20743d9e993589b"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-fable-5-1-max-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
+      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:9be6e3fb1f81669ddef313838bb8a9976e79ea0bd2f2bae6d20743d9e993589b",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:9be6e3fb1f81669ddef313838bb8a9976e79ea0bd2f2bae6d20743d9e993589b",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 53.3737509623252,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
+      "sha256:c77ceb1089b85be1ed79795a2d6eac5e3b64fc686fa4aec689fcb8cd9810c72c"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-fable-5-1-medium-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
+      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:c77ceb1089b85be1ed79795a2d6eac5e3b64fc686fa4aec689fcb8cd9810c72c",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:c77ceb1089b85be1ed79795a2d6eac5e3b64fc686fa4aec689fcb8cd9810c72c",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 49.0591662609523,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-medium"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
+      "sha256:d5465920c3b811f10031aae9ec28a4c35b062f346d09c22e7abc1435b34baa42"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:anthropic-claude-fable-5-1-xhigh-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
+      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:d5465920c3b811f10031aae9ec28a4c35b062f346d09c22e7abc1435b34baa42",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:d5465920c3b811f10031aae9ec28a4c35b062f346d09c22e7abc1435b34baa42",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 53.1840337538944,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-xhigh"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
       "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5"
     ],
     "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
@@ -20526,261 +20781,6 @@
     "benchmarkId": "artificial-analysis-intelligence-index",
     "benchmarkVersion": "v4.3",
     "evidenceIds": [
-      "sha256:18f5784c8b4e4ac02d228afa5401a941cf2b470db37ee22d12cd2aca5257fdb9"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-fable-5-1-adaptive-reasoning-high-effort-default-fallback:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:18f5784c8b4e4ac02d228afa5401a941cf2b470db37ee22d12cd2aca5257fdb9",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:18f5784c8b4e4ac02d228afa5401a941cf2b470db37ee22d12cd2aca5257fdb9",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 51.2094958852237,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-high"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
-      "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-fable-5-1-adaptive-reasoning-low-effort-default-fallback:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "low",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 47.0391672014862,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
-      "sha256:9be6e3fb1f81669ddef313838bb8a9976e79ea0bd2f2bae6d20743d9e993589b"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-fable-5-1-adaptive-reasoning-max-effort-default-fallback:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "max",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:9be6e3fb1f81669ddef313838bb8a9976e79ea0bd2f2bae6d20743d9e993589b",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:9be6e3fb1f81669ddef313838bb8a9976e79ea0bd2f2bae6d20743d9e993589b",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 53.3737509623252,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
-      "sha256:c77ceb1089b85be1ed79795a2d6eac5e3b64fc686fa4aec689fcb8cd9810c72c"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-fable-5-1-adaptive-reasoning-medium-effort-default-fallback:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:c77ceb1089b85be1ed79795a2d6eac5e3b64fc686fa4aec689fcb8cd9810c72c",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:c77ceb1089b85be1ed79795a2d6eac5e3b64fc686fa4aec689fcb8cd9810c72c",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 49.0591662609523,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-medium"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
-      "sha256:d5465920c3b811f10031aae9ec28a4c35b062f346d09c22e7abc1435b34baa42"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:claude-fable-5-1-adaptive-reasoning-xhigh-effort-default-fallback:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "xhigh",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:d5465920c3b811f10031aae9ec28a4c35b062f346d09c22e7abc1435b34baa42",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:d5465920c3b811f10031aae9ec28a4c35b062f346d09c22e7abc1435b34baa42",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 53.1840337538944,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-xhigh"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
       "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5"
     ],
     "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
@@ -20997,8 +20997,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 29.714285714285698,
@@ -21048,8 +21048,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 30.2857142857143,
@@ -21099,8 +21099,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 27.7142857142857,
@@ -21150,8 +21150,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 29.1428571428571,
@@ -21201,8 +21201,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 31.1428571428571,
@@ -22272,8 +22272,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 18.2857142857143,
@@ -22323,8 +22323,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 12.285714285714299,
@@ -26301,8 +26301,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 63.173500000000004,
@@ -26352,8 +26352,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 57.488499999999995,
@@ -26403,8 +26403,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 50.186,
@@ -26454,8 +26454,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 53.9655,
@@ -26505,8 +26505,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 62.2645,
@@ -27474,8 +27474,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 48.1905,
@@ -27525,8 +27525,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 47.769000000000005,
@@ -30828,108 +30828,6 @@
     "benchmarkId": "artificial-analysis-intelligence-index",
     "benchmarkVersion": "v4.3",
     "evidenceIds": [
-      "sha256:e8bff94e831f036dcea6dc1a4d71d1fe97a7082019be0f5d9b93730c27f05d48"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:gemini-3-8-flash-high:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Gemini 3.8 Flash (high)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "high",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:e8bff94e831f036dcea6dc1a4d71d1fe97a7082019be0f5d9b93730c27f05d48",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:e8bff94e831f036dcea6dc1a4d71d1fe97a7082019be0f5d9b93730c27f05d48",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 41.1863571765904,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
-      "sha256:3a0ee70a5308fe203576f472036990a4aec184ac159b9b7f3677767e342a2b3d"
-    ],
-    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
-    "id": "artificial-analysis:gemini-3-8-flash-medium:intelligence-index-v4-3",
-    "inclusion": "EXCLUDED",
-    "metric": {
-      "higherIsBetter": true,
-      "id": "index-score",
-      "name": "Artificial Analysis Intelligence Index",
-      "unit": "index points"
-    },
-    "model": {
-      "canonicalModelId": null,
-      "profileId": null,
-      "rawName": "Gemini 3.8 Flash (medium)"
-    },
-    "normalizedScore": null,
-    "observedAt": "2026-09-08T01:03:14.259Z",
-    "profile": {
-      "attempts": null,
-      "contextWindowTokens": null,
-      "effort": "medium",
-      "harness": null,
-      "quantization": null,
-      "thinking": "reasoning",
-      "tools": null
-    },
-    "provenance": {
-      "model.rawName": {
-        "evidenceId": "sha256:3a0ee70a5308fe203576f472036990a4aec184ac159b9b7f3677767e342a2b3d",
-        "locator": "intelligenceIndex; model.name",
-        "method": "NEXT_RSC"
-      },
-      "rawScore": {
-        "evidenceId": "sha256:3a0ee70a5308fe203576f472036990a4aec184ac159b9b7f3677767e342a2b3d",
-        "locator": "intelligenceIndex",
-        "method": "NEXT_RSC"
-      }
-    },
-    "rawScore": 39.9993187061926,
-    "schemaVersion": "candidate-result-v1",
-    "sourceId": "artificial-analysis",
-    "sourcePublishedAt": null,
-    "sourceRole": "ORGANIZER",
-    "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash-medium"
-  },
-  {
-    "acquisitionStatus": "PARTIAL_SOURCE",
-    "benchmarkId": "artificial-analysis-intelligence-index",
-    "benchmarkVersion": "v4.3",
-    "evidenceIds": [
       "sha256:a0d81b221525c3b733924a9b7e817688391624b0cb231f76fb105c249b67c8a5"
     ],
     "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
@@ -31386,6 +31284,108 @@
   },
   {
     "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
+      "sha256:e8bff94e831f036dcea6dc1a4d71d1fe97a7082019be0f5d9b93730c27f05d48"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:google-gemini-3-8-flash-high-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
+      "rawName": "Gemini 3.8 Flash (high)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:e8bff94e831f036dcea6dc1a4d71d1fe97a7082019be0f5d9b93730c27f05d48",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:e8bff94e831f036dcea6dc1a4d71d1fe97a7082019be0f5d9b93730c27f05d48",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 41.1863571765904,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "benchmarkVersion": "v4.3",
+    "evidenceIds": [
+      "sha256:3a0ee70a5308fe203576f472036990a4aec184ac159b9b7f3677767e342a2b3d"
+    ],
+    "exclusionReason": "External composite is used for frontier selection and display only; including it would double-count constituent benchmarks.",
+    "id": "artificial-analysis:google-gemini-3-8-flash-medium-aa-index:intelligence-index-v4-3",
+    "inclusion": "EXCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "index-score",
+      "name": "Artificial Analysis Intelligence Index",
+      "unit": "index points"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
+      "rawName": "Gemini 3.8 Flash (medium)"
+    },
+    "normalizedScore": null,
+    "observedAt": "2026-09-08T01:03:14.259Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": "reasoning",
+      "tools": null
+    },
+    "provenance": {
+      "model.rawName": {
+        "evidenceId": "sha256:3a0ee70a5308fe203576f472036990a4aec184ac159b9b7f3677767e342a2b3d",
+        "locator": "intelligenceIndex; model.name",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:3a0ee70a5308fe203576f472036990a4aec184ac159b9b7f3677767e342a2b3d",
+        "locator": "intelligenceIndex",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 39.9993187061926,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "artificial-analysis",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash-medium"
+  },
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
     "benchmarkId": "gpqa-diamond",
     "benchmarkVersion": null,
     "evidenceIds": [
@@ -31554,8 +31554,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 93.7373737373737,
@@ -31605,8 +31605,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 90.6060606060606,
@@ -31656,8 +31656,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 88.0808080808081,
@@ -31707,8 +31707,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 88.5858585858586,
@@ -31758,8 +31758,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 93.4343434343434,
@@ -32727,8 +32727,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 95.2525252525253,
@@ -32778,8 +32778,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 93.53535353535351,
@@ -36552,8 +36552,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 59.1288229842447,
@@ -36603,8 +36603,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 55.9314179796108,
@@ -36654,8 +36654,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 48.887859128823,
@@ -36705,8 +36705,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 53.79981464318811,
@@ -36756,8 +36756,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 58.7117701575533,
@@ -37827,8 +37827,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 47.8220574606117,
@@ -37878,8 +37878,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 42.122335495829496,
@@ -46344,8 +46344,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 63.078703703703695,
@@ -46395,8 +46395,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 58.6805555555556,
@@ -46446,8 +46446,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 56.712962962963,
@@ -46497,8 +46497,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 56.3657407407407,
@@ -46548,8 +46548,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 60.8796296296296,
@@ -47619,8 +47619,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 56.5972222222222,
@@ -47670,8 +47670,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 55.0925925925926,
@@ -51291,8 +51291,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 47.2164948453608,
@@ -51342,8 +51342,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 43.0927835051546,
@@ -51393,8 +51393,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 38.9690721649485,
@@ -51444,8 +51444,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 41.0309278350515,
@@ -51495,8 +51495,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 45.7731958762887,
@@ -52464,8 +52464,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 44.948453608247405,
@@ -52515,8 +52515,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 45.7731958762887,
@@ -56085,8 +56085,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Max Effort, Default Fallback)"
     },
     "normalizedScore": 91.3857677902622,
@@ -56136,8 +56136,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, High Effort, Default Fallback)"
     },
     "normalizedScore": 89.8876404494382,
@@ -56187,8 +56187,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Low Effort, Default Fallback)"
     },
     "normalizedScore": 85.0187265917603,
@@ -56238,8 +56238,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Medium Effort, Default Fallback)"
     },
     "normalizedScore": 88.0149812734082,
@@ -56289,8 +56289,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh-aa-index",
       "rawName": "Claude Fable 5.1 (Adaptive Reasoning, Xhigh Effort, Default Fallback)"
     },
     "normalizedScore": 91.01123595505621,
@@ -57258,8 +57258,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high-aa-index",
       "rawName": "Gemini 3.8 Flash (high)"
     },
     "normalizedScore": 87.6404494382023,
@@ -57309,8 +57309,8 @@
       "unit": "percent"
     },
     "model": {
-      "canonicalModelId": null,
-      "profileId": null,
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-medium-aa-index",
       "rawName": "Gemini 3.8 Flash (medium)"
     },
     "normalizedScore": 83.8951310861423,

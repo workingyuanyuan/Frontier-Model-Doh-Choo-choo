@@ -7,6 +7,15 @@ import {
 } from './artificial-analysis-rsc.js';
 import { materializeLiveBench } from './livebench-materializer.js';
 import { materializeDeepSwe } from './deepswe-materializer.js';
+import { materializeEpoch } from './epoch-materializer.js';
+import {
+  materializeArcPrize,
+  ARC_PRIZE_EVALUATIONS_URL,
+  ARC_PRIZE_MODELS_URL,
+  ARC_PRIZE_DATASETS_URL,
+  ARC_PRIZE_PAGE_URL,
+} from './arc-prize-materializer.js';
+import { materializeZapier, ZAPIER_PAGE_URL } from './zapier-materializer.js';
 import {
   FRONTIER_CODE_DATA_URL,
   FRONTIER_CODE_PAGE_URL,
@@ -139,6 +148,9 @@ function main() {
     { id: 'livebench', reportFn: null },
     { id: 'deepswe', reportFn: null },
     { id: 'frontier-code', reportFn: null },
+    { id: 'epoch-ai', reportFn: null },
+    { id: 'arc-prize', reportFn: null },
+    { id: 'zapier-automationbench', reportFn: null },
   ];
 
   for (const src of sources) {
@@ -153,8 +165,82 @@ function main() {
     let candidates: CandidateResult[] = [];
     let customReportText: string | null = null;
     let materializedCosts: unknown[] | null = null;
+    const evidenceFor = (url: string): EvidenceRecord => {
+      const record = evidenceList.find((record) => record.requestUrl === url);
+      if (!record) throw new Error(`Missing ${src.id} evidence: ${url}`);
+      return record;
+    };
+    const evidenceText = (record: EvidenceRecord) =>
+      readFileSync(join(repoRoot, record.artifactPath), 'utf8');
 
-    if (src.id === 'artificial-analysis') {
+    if (src.id === 'epoch-ai') {
+      const archive = evidenceFor('https://epoch.ai/data/benchmark_data.zip');
+      candidates = materializeEpoch(
+        readFileSync(join(repoRoot, archive.artifactPath)),
+        archive.retrievedAt,
+        { evidenceId: archive.id, sourceUrl: archive.requestUrl },
+      );
+      // The archived capture report contains cross-channel checks that an
+      // offline identity replay cannot recreate. Retain those checks and update
+      // only current materialization counts; effort reports are upserted below.
+      const unresolved = candidates.filter(
+        (candidate) => candidate.model.canonicalModelId === null,
+      ).length;
+      customReportText = readFileSync(
+        join(sourceDir, 'validation-report.md'),
+        'utf8',
+      )
+        .replace(
+          /^\| CandidateResults \| \d+ \|\r?$/m,
+          `| CandidateResults | ${candidates.length} |`,
+        )
+        .replace(
+          /^\| Rows without a canonical identity \| \d+ \|\r?$/m,
+          `| Rows without a canonical identity | ${unresolved} |`,
+        );
+    } else if (src.id === 'arc-prize') {
+      const evaluations = evidenceFor(ARC_PRIZE_EVALUATIONS_URL);
+      const models = evidenceFor(ARC_PRIZE_MODELS_URL);
+      const datasets = evidenceFor(ARC_PRIZE_DATASETS_URL);
+      const page = evidenceFor(ARC_PRIZE_PAGE_URL);
+      const result = materializeArcPrize(
+        evidenceText(evaluations),
+        evidenceText(models),
+        evidenceText(datasets),
+        {
+          evaluationsEvidenceId: evaluations.id,
+          modelsEvidenceId: models.id,
+          datasetsEvidenceId: datasets.id,
+          pageEvidenceId: page.id,
+          observedAt: evaluations.retrievedAt,
+        },
+      );
+      if (result.missingModelIds.length)
+        throw new Error(
+          `Missing ARC models: ${result.missingModelIds.join(', ')}`,
+        );
+      candidates = result.candidates;
+      materializedCosts = result.costs;
+      customReportText = result.validationReport;
+    } else if (src.id === 'zapier-automationbench') {
+      const page = evidenceFor(ZAPIER_PAGE_URL);
+      const moduleRecord = evidenceList.find(
+        (record) => record.mediaType === 'text/javascript',
+      );
+      if (!moduleRecord) throw new Error('Missing Zapier route module');
+      const result = materializeZapier(evidenceText(moduleRecord), {
+        moduleEvidenceId: moduleRecord.id,
+        pageEvidenceId: page.id,
+        moduleUrl: moduleRecord.requestUrl,
+        observedAt: moduleRecord.retrievedAt,
+        discoveredModuleCount: Number(
+          page.metadata?.discoveredModuleCount ?? 1,
+        ),
+      });
+      candidates = result.candidates;
+      materializedCosts = result.costs;
+      customReportText = result.validationReport;
+    } else if (src.id === 'artificial-analysis') {
       const aaPageRecords = evidenceList.filter(
         ({ requestUrl }) =>
           requestUrl === 'https://artificialanalysis.ai/models' ||
@@ -335,7 +421,16 @@ function main() {
 
     // Write candidates.json using deterministicJson
     const candidatesPath = join(sourceDir, 'candidates.json');
-    writeFileSync(candidatesPath, deterministicJson(candidates), 'utf8');
+    const pretty =
+      existsSync(candidatesPath) &&
+      /\n\s+\{/.test(readFileSync(candidatesPath, 'utf8'));
+    writeFileSync(
+      candidatesPath,
+      pretty
+        ? prettyDeterministicJson(candidates)
+        : deterministicJson(candidates),
+      'utf8',
+    );
     if (materializedCosts !== null) {
       writeFileSync(
         join(sourceDir, 'costs.json'),

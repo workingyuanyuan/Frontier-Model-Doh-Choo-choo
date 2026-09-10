@@ -400,6 +400,51 @@ const displaySetFor = (
 });
 
 describe('buildProduct', () => {
+  it('publishes current comparison measurements and profiles beyond the presets', () => {
+    const first = makeCandidate({ id: 'older', sourceRole: 'ORGANIZER' });
+    const winner = {
+      ...first,
+      id: 'newer',
+      sourcePublishedAt: '2026-07-15T00:00:00.000Z',
+    };
+    const extra = makeCandidate({
+      id: 'outside-preset',
+      benchmarkId: 'frontiermath',
+      model: { ...first.model, profileId: 'openai-gpt-5-6-sol-low' },
+      profile: { ...first.profile, effort: 'low' },
+    });
+    const excluded = {
+      ...first,
+      id: 'excluded',
+      inclusion: 'EXCLUDED' as const,
+      exclusionReason: 'Not comparable',
+    };
+    const candidates = [first, winner, extra, excluded];
+    const catalog: ModelCatalog = {
+      schemaVersion: 'model-catalog-v1',
+      models: [],
+    };
+    const product = buildProduct({
+      generatedAt: '2026-07-16T00:00:00.000Z',
+      sourceSnapshotIds: ['test:snapshot'],
+      candidates,
+      profiles: deriveModelProfiles(candidates, catalog),
+      catalog,
+      manualModels: [{ modelId: 'openai-gpt-5-6-sol', reason: 'Fixture' }],
+      benchmarkDimensions: new Map([
+        ['terminal-bench-2-1', 'coding'],
+        ['frontiermath', 'reasoning'],
+      ]),
+      displaySet: displaySetFor(['terminal-bench-2-1']),
+    });
+    expect(product.comparisonEvidenceIds).toEqual(['newer', 'outside-preset']);
+    expect(product.profiles.map((profile) => profile.id)).toContain(
+      'openai-gpt-5-6-sol-low',
+    );
+    expect(
+      product.presets[0]!.leaderboard.map((row) => row.profileId),
+    ).not.toContain('openai-gpt-5-6-sol-low');
+  });
   it('selects the frontier from qualified models in catalog and scores from direct evidence', () => {
     const catalog: ModelCatalog = {
       schemaVersion: 'model-catalog-v1',
@@ -490,6 +535,7 @@ describe('buildProduct', () => {
     });
     expect(product.presets[0]!.leaderboard[0]?.overallScore).toBeNull();
     expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
+    expect(product.comparisonEvidenceIds).toEqual(['direct']);
     expect(product.costs).toEqual(
       expect.arrayContaining([
         expect.objectContaining({

@@ -4,7 +4,7 @@
   "requiredModelIds": ["google-gemini-3-7-flash"],
   "minModelCount": 2,
   "maxModelCount": 22,
-  "defaultPresetId": "free-sources-13",
+  "defaultPresetId": "free-sources-14",
   "benchmarkQuality": {
     "reviewedAt": "2026-09-08",
     "evidencePath": "docs/refresh/2026-09-08-benchmark-saturation.json",

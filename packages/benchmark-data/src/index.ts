@@ -923,6 +923,8 @@ export const ProductVersionSchema = z.object({
     .min(1),
   costs: z.array(ProductCostSchema),
   evidence: z.array(ProductEvidenceSchema),
+  /** Current, comparable measurements selected before publication metadata is stripped. */
+  comparisonEvidenceIds: z.array(z.string().min(1)).optional(),
 });
 export type ProductVersion = z.infer<typeof ProductVersionSchema>;
 
@@ -1467,13 +1469,19 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     );
   }
   const evidence = scoringEvidence.map(toProductEvidence);
+  const comparisonResults = selectCurrentResults(scoringEvidence).filter(
+    (result) =>
+      result.normalizedScore !== null &&
+      input.benchmarkDimensions.has(result.benchmarkId),
+  );
   // Every preset ranks the same universe of profiles, so the catalog check
   // below has to see all of them, not just the default preset's.
-  const leaderboardProfileIds = new Set(
-    presets.flatMap(({ leaderboard: rows }) =>
+  const leaderboardProfileIds = new Set([
+    ...comparisonResults.map((result) => result.model.profileId as string),
+    ...presets.flatMap(({ leaderboard: rows }) =>
       rows.map(({ profileId }) => profileId),
     ),
-  );
+  ]);
   const profiles = input.profiles
     .filter(({ id }) => leaderboardProfileIds.has(id))
     .toSorted((left, right) => left.id.localeCompare(right.id));
@@ -1550,6 +1558,7 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     presets,
     costs,
     evidence,
+    comparisonEvidenceIds: comparisonResults.map(({ id }) => id).toSorted(),
   });
 };
 
