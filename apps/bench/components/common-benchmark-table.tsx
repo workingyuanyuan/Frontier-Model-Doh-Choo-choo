@@ -19,12 +19,12 @@ export function CommonBenchmarkTable({
       <div className="section-heading">
         <h2 id="common-benchmarks-title">Common benchmarks</h2>
         <span>
-          {benchmarkIds.length} benchmarks · {profiles.length} models
+          {benchmarkIds.length} benchmarks · {profiles.length} profiles
         </span>
       </div>
       {profiles.length < 2 ? (
         <p role="status">
-          Select at least two models to compare. A single selection shows that
+          Select at least two profiles to compare. A single selection shows that
           profile’s available benchmarks.
         </p>
       ) : null}

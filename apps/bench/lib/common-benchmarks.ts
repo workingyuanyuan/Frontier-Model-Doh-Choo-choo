@@ -90,6 +90,7 @@ export function buildCommonComparison(
   selectedProfiles: Record<string, string>,
   dimensions: Record<string, DimensionId>,
   options = comparisonOptions(product, dimensions),
+  pinnedProfileIds: readonly string[] = [],
 ) {
   const evidence = comparisonEvidence(product, dimensions);
   const profiles = [...new Set(modelIds)].flatMap((modelId) => {
@@ -100,6 +101,12 @@ export function buildCommonComparison(
       ) ?? product.profiles.find((p) => p.id === fallback);
     return profile ? [profile] : [];
   });
+  for (const id of pinnedProfileIds) {
+    const profile = product.profiles.find(
+      (p) => p.id === id && modelIds.includes(p.modelId),
+    );
+    if (profile && !profiles.some((p) => p.id === id)) profiles.push(profile);
+  }
   const byProfile = profiles.map((profile) =>
     evidence.filter((e) => e.model.profileId === profile.id),
   );

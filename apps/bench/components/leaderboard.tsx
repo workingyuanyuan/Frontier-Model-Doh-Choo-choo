@@ -37,6 +37,9 @@ export type LeaderboardProps = {
   onSelectedProfileChange?: (modelId: string, profileId: string) => void;
   commonMode?: boolean;
   controlPreset?: ProductPreset;
+  pinnedProfileIds?: string[];
+  onPinProfile?: (modelId: string, profileId: string) => void;
+  onRemovePinnedProfile?: (profileId: string) => void;
 };
 
 export function Leaderboard({
@@ -56,6 +59,9 @@ export function Leaderboard({
   onSelectedProfileChange,
   commonMode = false,
   controlPreset,
+  pinnedProfileIds = [],
+  onPinProfile,
+  onRemovePinnedProfile,
 }: LeaderboardProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
     initialExpandedModelIds ?? [],
@@ -98,6 +104,7 @@ export function Leaderboard({
   const activeRows = useMemo(
     () =>
       rows.map((representative) => {
+        if (commonMode) return representative;
         const profileId = resolveSelectedProfileId(
           product,
           representative.modelId,
@@ -111,7 +118,7 @@ export function Leaderboard({
           ? { ...selected, rank: representative.rank }
           : representative;
       }),
-    [modelProfiles, product.leaderboard, rows],
+    [modelProfiles, product.leaderboard, rows, commonMode],
   );
 
   const sortedRows = useMemo(
@@ -159,7 +166,11 @@ export function Leaderboard({
       >
         <div className="section-heading">
           <div>
-            <h2 id="leaderboard-title">One row per base model.</h2>
+            <h2 id="leaderboard-title">
+              {pinnedProfileIds.length
+                ? 'Compare reasoning efforts.'
+                : 'One row per base model.'}
+            </h2>
           </div>
           <div className="leaderboard-toolbar">
             <PresetControls
@@ -179,9 +190,9 @@ export function Leaderboard({
 
         {commonMode ? (
           <p className="comparison-summary" role="status">
-            Comparing {rows.length} models on {preset?.benchmarkIds.length ?? 0}{' '}
-            common benchmarks. Scores use the selected profiles. Overall
-            requires all five dimensions.
+            Comparing {rows.length} profiles on{' '}
+            {preset?.benchmarkIds.length ?? 0} common benchmarks. Scores use the
+            selected profiles. Overall requires all five dimensions.
           </p>
         ) : null}
         <LeaderboardTable
@@ -197,6 +208,10 @@ export function Leaderboard({
           preset={preset}
           expandedModelIds={expandedModelIds}
           onToggleExpand={toggleExpand}
+          commonMode={commonMode}
+          pinnedProfileIds={pinnedProfileIds}
+          onPinProfile={onPinProfile}
+          onRemovePinnedProfile={onRemovePinnedProfile}
         />
 
         {rows.length === 0 ? (

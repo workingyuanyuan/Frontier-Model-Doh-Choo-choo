@@ -36,6 +36,10 @@ export function LeaderboardTable({
   expandedModelIds,
   onToggleExpand,
   developerMode,
+  commonMode = false,
+  pinnedProfileIds = [],
+  onPinProfile,
+  onRemovePinnedProfile,
 }: {
   product: PresetProductVersion;
   rows: LeaderboardRow[];
@@ -49,6 +53,10 @@ export function LeaderboardTable({
   expandedModelIds: string[];
   onToggleExpand: (modelId: string) => void;
   developerMode: boolean;
+  commonMode?: boolean;
+  pinnedProfileIds?: string[];
+  onPinProfile?: ((modelId: string, profileId: string) => void) | undefined;
+  onRemovePinnedProfile?: ((profileId: string) => void) | undefined;
 }) {
   return (
     <div
@@ -121,14 +129,18 @@ export function LeaderboardTable({
               row.modelId,
               row.profileId,
             );
-            const chosenProfileId = resolveSelectedProfileId(
-              product,
-              row.modelId,
-              modelProfiles[row.modelId],
-              row.profileId,
-            );
+            const pinned = pinnedProfileIds.includes(row.profileId);
+            const chosenProfileId = commonMode
+              ? row.profileId
+              : resolveSelectedProfileId(
+                  product,
+                  row.modelId,
+                  modelProfiles[row.modelId],
+                  row.profileId,
+                );
             const profile = profileById(product, chosenProfileId);
-            const isExpanded = expandedModelIds.includes(row.modelId);
+            const rowKey = commonMode ? row.profileId : row.modelId;
+            const isExpanded = expandedModelIds.includes(rowKey);
             const activeRow =
               product.leaderboard.find(
                 (candidateRow) => candidateRow.profileId === chosenProfileId,
@@ -141,8 +153,12 @@ export function LeaderboardTable({
             );
 
             return (
-              <Fragment key={row.modelId}>
-                <tr data-ranked-row>
+              <Fragment key={rowKey}>
+                <tr
+                  data-ranked-row
+                  data-profile-id={chosenProfileId}
+                  data-pinned={pinned || undefined}
+                >
                   <td className="rank-cell" data-label="Rank">
                     {row.rank ?? '—'}
                   </td>
@@ -154,32 +170,84 @@ export function LeaderboardTable({
                           type="button"
                           aria-expanded={isExpanded}
                           onClick={() => {
-                            onToggleExpand(row.modelId);
+                            onToggleExpand(rowKey);
                           }}
                         >
                           <strong>
                             {profile?.baseModelName ?? row.modelId}
                           </strong>
                         </button>
-                        <label className="profile-select-label">
-                          <span className="sr-only">
-                            Select profile for {profile?.baseModelName}
-                          </span>
-                          <select
-                            className="profile-table-select"
-                            name={`profile-${row.modelId}`}
-                            value={chosenProfileId}
-                            onChange={(event) =>
-                              onProfileChange(row.modelId, event.target.value)
-                            }
-                          >
-                            {profiles.map((candidate) => (
-                              <option key={candidate.id} value={candidate.id}>
-                                {getProfileIdentity(candidate)}
-                              </option>
-                            ))}
-                          </select>
-                        </label>
+                        {pinned ? (
+                          <>
+                            <span className="pinned-profile-label">
+                              {profile
+                                ? getProfileIdentity(profile)
+                                : chosenProfileId}
+                            </span>
+                            <button
+                              type="button"
+                              className="profile-compare-button"
+                              aria-label={`Remove ${profile?.baseModelName} ${profile ? getProfileIdentity(profile) : ''} from comparison`}
+                              onClick={() =>
+                                onRemovePinnedProfile?.(chosenProfileId)
+                              }
+                            >
+                              ×
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            {onPinProfile ? (
+                              <button
+                                type="button"
+                                className="profile-compare-button"
+                                title="Keep this effort and compare another"
+                                aria-label={`Keep ${profile?.baseModelName} ${profile ? getProfileIdentity(profile) : ''} for comparison`}
+                                disabled={
+                                  !product.profiles.some(
+                                    (p) =>
+                                      p.modelId === row.modelId &&
+                                      p.id !== chosenProfileId &&
+                                      !pinnedProfileIds.includes(p.id),
+                                  )
+                                }
+                                onClick={() =>
+                                  onPinProfile(row.modelId, chosenProfileId)
+                                }
+                              >
+                                +
+                              </button>
+                            ) : null}
+                            <label className="profile-select-label">
+                              <span className="sr-only">
+                                Select profile for {profile?.baseModelName}
+                              </span>
+                              <select
+                                className="profile-table-select"
+                                name={`profile-${row.modelId}`}
+                                value={chosenProfileId}
+                                onChange={(event) =>
+                                  onProfileChange(
+                                    row.modelId,
+                                    event.target.value,
+                                  )
+                                }
+                              >
+                                {profiles.map((candidate) => (
+                                  <option
+                                    key={candidate.id}
+                                    value={candidate.id}
+                                    disabled={pinnedProfileIds.includes(
+                                      candidate.id,
+                                    )}
+                                  >
+                                    {getProfileIdentity(candidate)}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                          </>
+                        )}
                       </div>
                     ) : (
                       <button
@@ -187,7 +255,7 @@ export function LeaderboardTable({
                         type="button"
                         aria-expanded={isExpanded}
                         onClick={() => {
-                          onToggleExpand(row.modelId);
+                          onToggleExpand(rowKey);
                         }}
                       >
                         <strong>{profile?.baseModelName ?? row.modelId}</strong>

@@ -1,5 +1,7 @@
 # 共同 Benchmark 比較
 
+推理強度選單左側的「+」會保留目前 profile，並將可切換列移到另一個尚未保留的 profile。可重複保留不同強度，例如 Astra medium 與 high。保留列以「×」移除；取消勾選模型或回到 Default 時清除該模型的保留列。每列按 profile ID 獨立計分與展開，共同 Benchmark 表及雷達圖同步呈現所有選定強度。
+
 在 Search Models 勾選模型後，排行榜進入共同 Benchmark 比較模式。模型選單涵蓋產品快照中有有效量測的模型，包含不符合目前 preset 完整矩陣的模型。Default 或切換 Models preset 可回到預設計分。
 
 每個模型固定使用一個 profile。已顯示的模型沿用目前 profile，新加入的模型預設選擇 Benchmark 覆蓋最多的 profile；覆蓋相同時按 profile ID 排序。使用者可在模型列切換 profile，所有共同項目、維度分數、總分、名次和雷達圖隨之更新。

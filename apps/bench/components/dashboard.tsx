@@ -52,6 +52,7 @@ export function Dashboard({
     initialPresetId ?? rawProduct.defaultPresetId,
   );
   const [commonMode, setCommonMode] = useState(false);
+  const [pinnedProfileIds, setPinnedProfileIds] = useState<string[]>([]);
   const [selectedProfiles, setSelectedProfiles] = useState<
     Record<string, string>
   >({});
@@ -164,8 +165,16 @@ export function Dashboard({
         selectedProfiles,
         benchmarkDimensions,
         options,
+        pinnedProfileIds,
       ),
-    [product, checkedModelIds, selectedProfiles, benchmarkDimensions, options],
+    [
+      product,
+      checkedModelIds,
+      selectedProfiles,
+      benchmarkDimensions,
+      options,
+      pinnedProfileIds,
+    ],
   );
   const updateCheckedModels: React.Dispatch<React.SetStateAction<string[]>> = (
     value,
@@ -181,10 +190,40 @@ export function Dashboard({
       );
     }
     setCommonMode(true);
-    setCheckedModelIds(value);
+    const nextIds =
+      typeof value === 'function' ? value(checkedModelIds) : value;
+    setCheckedModelIds(nextIds);
+    setPinnedProfileIds((ids) =>
+      ids.filter((id) =>
+        product.profiles.some(
+          (p) => p.id === id && nextIds.includes(p.modelId),
+        ),
+      ),
+    );
+  };
+  const pinProfile = (modelId: string, profileId: string) => {
+    const next = product.profiles.find(
+      (p) =>
+        p.modelId === modelId &&
+        p.id !== profileId &&
+        !pinnedProfileIds.includes(p.id),
+    );
+    if (!next || pinnedProfileIds.includes(profileId)) return;
+    const defaults = commonMode
+      ? selectedProfiles
+      : Object.fromEntries(
+          representatives.map((row) => [
+            row.modelId,
+            selectedProfiles[row.modelId] ?? row.profileId,
+          ]),
+        );
+    setSelectedProfiles({ ...defaults, [modelId]: next.id });
+    setPinnedProfileIds((ids) => [...ids, profileId]);
+    setCommonMode(true);
   };
   const selectPreset = (id: string) => {
     setCommonMode(false);
+    setPinnedProfileIds([]);
     setPresetId(id);
     setCheckedModelIds(defaultCheckedIds);
   };
@@ -228,6 +267,11 @@ export function Dashboard({
             }))
           }
           commonMode={commonMode}
+          pinnedProfileIds={pinnedProfileIds}
+          onPinProfile={pinProfile}
+          onRemovePinnedProfile={(id) =>
+            setPinnedProfileIds((ids) => ids.filter((p) => p !== id))
+          }
           benchmarkDimensions={benchmarkDimensions}
           preset={commonMode ? comparison.product.activePreset : activePreset}
           controlPreset={activePreset}

@@ -46,6 +46,47 @@ function fixture() {
 }
 
 describe('common benchmark comparison', () => {
+  it('compares two efforts of the same model on their intersection', () => {
+    const p = fixture();
+    const result = buildCommonComparison(
+      p,
+      ['a'],
+      { a: 'a-high' },
+      dimensions,
+      undefined,
+      ['a-low'],
+    );
+    expect(result.profiles.map((profile) => profile.id)).toEqual([
+      'a-high',
+      'a-low',
+    ]);
+    expect(result.benchmarkIds).toEqual(['b']);
+    expect(result.product.leaderboard).toHaveLength(2);
+    expect(
+      result.product.leaderboard.every(
+        (row) => row.evidenceResultIds.length === 1,
+      ),
+    ).toBe(true);
+  });
+  it('deduplicates pinned profiles and omits pins from deselected models', () => {
+    const p = fixture();
+    const result = buildCommonComparison(
+      p,
+      ['a'],
+      { a: 'a-high' },
+      dimensions,
+      undefined,
+      ['a-high', 'a-low', 'a-low', 'b-high', 'unknown'],
+    );
+    expect(result.profiles.map((profile) => profile.id)).toEqual([
+      'a-high',
+      'a-low',
+    ]);
+    expect(
+      buildCommonComparison(p, [], {}, dimensions, undefined, ['a-low'])
+        .profiles,
+    ).toEqual([]);
+  });
   it('uses the same complete basis, arithmetic means and relative ranks', () => {
     const result = buildCommonComparison(fixture(), ['a', 'b'], {}, dimensions);
     expect(result.benchmarkIds).toEqual(['a', 'b', 'c', 'd', 'e']);

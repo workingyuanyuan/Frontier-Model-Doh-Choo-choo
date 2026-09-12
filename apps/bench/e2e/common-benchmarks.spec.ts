@@ -7,6 +7,70 @@ const product = JSON.parse(
 ) as ProductVersion;
 const selectedIds = new Set(product.comparisonEvidenceIds);
 
+test('keeps Astra medium while comparing high and removes the saved effort', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page.getByRole('button', { name: 'Clear', exact: true }).click();
+  await page
+    .getByRole('checkbox', { name: 'GPT-6 Astra', exact: true })
+    .check();
+  await page.keyboard.press('Escape');
+  const effort = page.getByRole('combobox', {
+    name: 'Select profile for GPT-6 Astra',
+    exact: true,
+  });
+  await effort.selectOption('openai-gpt-6-astra-medium');
+  await page
+    .getByRole('button', {
+      name: 'Keep GPT-6 Astra medium for comparison',
+      exact: true,
+    })
+    .click();
+  await effort.selectOption('openai-gpt-6-astra-high');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(2);
+  await expect(page.locator('[data-pinned="true"]')).toHaveAttribute(
+    'data-profile-id',
+    'openai-gpt-6-astra-medium',
+  );
+  await expect(
+    effort.locator('option[value="openai-gpt-6-astra-medium"]'),
+  ).toHaveJSProperty('disabled', true);
+  const comparison = page.getByRole('region', {
+    name: 'Common benchmarks',
+    exact: true,
+  });
+  await expect(comparison.locator('thead')).toContainText(
+    'GPT-6 Astra · medium',
+  );
+  await expect(comparison.locator('thead')).toContainText('GPT-6 Astra · high');
+  await expect(
+    comparison.getByRole('columnheader', { name: /Difference/ }),
+  ).toBeVisible();
+  await expect(page.locator('.series-legend')).toContainText(
+    'GPT-6 Astra · medium',
+  );
+  const pinned = page.locator('[data-pinned="true"]');
+  await pinned
+    .getByRole('button', { name: 'GPT-6 Astra', exact: true })
+    .click();
+  await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(1);
+  await page
+    .getByRole('button', {
+      name: 'Remove GPT-6 Astra medium from comparison',
+      exact: true,
+    })
+    .click();
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(1);
+  await expect(page.locator('.leaderboard-expansion-row')).toHaveCount(0);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    ),
+  ).toBe(false);
+});
+
 test('compares selected models on their shared measurements and updates profiles', async ({
   page,
 }) => {
