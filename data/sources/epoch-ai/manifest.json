@@ -1,7 +1,17 @@
 {
   "accessMethods": ["EXPORT", "DOM"],
   "baseUrl": "https://epoch.ai",
-  "benchmarkIds": ["aime", "chess-puzzles", "epoch-capabilities-index", "frontiermath", "frontiermath-tier-4", "gpqa-diamond", "math-level-5", "simpleqa-verified", "swe-bench"],
+  "benchmarkIds": [
+    "aime",
+    "chess-puzzles",
+    "epoch-capabilities-index",
+    "frontiermath",
+    "frontiermath-tier-4",
+    "gpqa-diamond",
+    "math-level-5",
+    "simpleqa-verified",
+    "swe-bench"
+  ],
   "completeness": {
     "expectedCountMethod": "Enumerate every ZIP entry, separate the Epoch-run files from the _external mirrors, then compare each promoted file against the same task in the live benchmarks.csv the rendered pages read.",
     "pagination": null,

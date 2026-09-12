@@ -949,7 +949,35 @@ test('renders refreshed Astra with complete scores and the audited version', asy
 test('discloses partial-coverage profiles in developer mode, outside the ranked table', async ({
   page,
 }) => {
+  const product = withActivePreset(currentProduct);
+  const eligibleRows = product.leaderboard.filter((row) =>
+    isMainEligibleRow(product, row, product.activePreset),
+  );
+  const expectedModelIds = [
+    ...new Set(eligibleRows.map((row) => row.modelId)),
+  ].toSorted();
+  const expectedPartialProfileIds = getPartialCoverageRows(product)
+    .map((row) => row.profileId)
+    .toSorted();
+  expect(expectedModelIds.length).toBeGreaterThan(0);
+  expect(expectedPartialProfileIds.length).toBeGreaterThan(0);
+
   await page.goto('/');
+
+  const rankedRows = page.locator('[data-ranked-row]');
+  const rankedModelIds = async () => {
+    const profileIds = await rankedRows.evaluateAll((nodes) =>
+      nodes.map((node) => node.getAttribute('data-profile-id')),
+    );
+    // Resolving through eligible profiles also rejects an incomplete profile
+    // belonging to an otherwise eligible model.
+    return profileIds
+      .map((id) => eligibleRows.find((row) => row.profileId === id)?.modelId)
+      .toSorted();
+  };
+  await expect(rankedRows).toHaveCount(expectedModelIds.length);
+  await expect.poll(rankedModelIds).toEqual(expectedModelIds);
+  const modelsBeforeDeveloperMode = await rankedModelIds();
 
   const panel = page.locator('[data-partial-coverage]');
   await expect(panel).toHaveCount(0);
@@ -957,11 +985,18 @@ test('discloses partial-coverage profiles in developer mode, outside the ranked 
   await page.getByRole('switch', { name: 'Developer mode' }).click();
   await expect(panel).toBeVisible();
 
-  const partialRows = page.locator('[data-partial-coverage-row]');
-  const partialCount = await partialRows.count();
-  expect(partialCount).toBe(
-    getPartialCoverageRows(withActivePreset(currentProduct)).length,
-  );
+  const partialRows = panel.locator('[data-partial-coverage-row]');
+  const partialCount = expectedPartialProfileIds.length;
+  await expect(partialRows).toHaveCount(partialCount);
+  await expect
+    .poll(async () =>
+      (
+        await partialRows.evaluateAll((nodes) =>
+          nodes.map((node) => node.getAttribute('data-partial-coverage-row')),
+        )
+      ).toSorted(),
+    )
+    .toEqual(expectedPartialProfileIds);
   await expect(
     page.locator(`[data-partial-coverage-count="${partialCount}"]`),
   ).toBeVisible();
@@ -970,10 +1005,17 @@ test('discloses partial-coverage profiles in developer mode, outside the ranked 
   await expect(panel).not.toContainText('Overall');
   await expect(panel).not.toContainText('Rank');
 
-  // The ranked table is one row per model at the preset's target count, and it
-  // never shows an N/A cell; every profile listed above has one.
-  const rankedRows = page.locator('[data-ranked-row]');
-  expect(await rankedRows.count()).toBe(13);
+  // Developer mode preserves one eligible profile per model in the ranked
+  // table; partial coverage is disclosed separately, even for the same model.
+  await expect(rankedRows).toHaveCount(expectedModelIds.length);
+  await expect.poll(rankedModelIds).toEqual(modelsBeforeDeveloperMode);
+  await expect(panel.locator('[data-ranked-row]')).toHaveCount(0);
+  const rankedProfileIds = await rankedRows.evaluateAll((nodes) =>
+    nodes.map((node) => node.getAttribute('data-profile-id')),
+  );
+  expect(
+    expectedPartialProfileIds.filter((id) => rankedProfileIds.includes(id)),
+  ).toEqual([]);
   expect(
     (await rankedRows.allTextContents()).every((text) => !text.includes('N/A')),
   ).toBe(true);

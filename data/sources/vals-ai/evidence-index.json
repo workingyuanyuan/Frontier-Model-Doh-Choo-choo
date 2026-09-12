@@ -9,9 +9,7 @@
       "captureScope": "official benchmark index used to enumerate every page slug",
       "discoveredBenchmarkSlugs": 42,
       "parsedBenchmarkPages": 41,
-      "unavailableBenchmarkPages": [
-        "rsi_index"
-      ]
+      "unavailableBenchmarkPages": ["rsi_index"]
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
