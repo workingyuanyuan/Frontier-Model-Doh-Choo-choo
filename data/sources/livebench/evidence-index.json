@@ -8,10 +8,7 @@
     "metadata": {
       "application": "JavaScript SPA",
       "latestRelease": "2026-06-25",
-      "supersededExportNames": [
-        "deepseek-v4-flash",
-        "deepseek-v4-pro"
-      ],
+      "supersededExportNames": ["deepseek-v4-flash", "deepseek-v4-pro"],
       "visibleComparisonMatched": true,
       "visibleProfiles": 54
     },

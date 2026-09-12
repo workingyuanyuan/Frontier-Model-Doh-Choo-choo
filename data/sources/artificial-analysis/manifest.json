@@ -1,9 +1,5 @@
 {
-  "accessMethods": [
-    "NEXT_RSC",
-    "API_RESPONSE",
-    "DOM"
-  ],
+  "accessMethods": ["NEXT_RSC", "API_RESPONSE", "DOM"],
   "baseUrl": "https://artificialanalysis.ai/",
   "benchmarkIds": [
     "artificial-analysis-intelligence-index",
@@ -27,10 +23,7 @@
     "visibleComparisonRequired": true
   },
   "displayName": "Artificial Analysis",
-  "fallbackMethods": [
-    "VISUAL",
-    "MANUAL"
-  ],
+  "fallbackMethods": ["VISUAL", "MANUAL"],
   "fieldMapping": {
     "article heading": "sourcePublishedAt",
     "named evaluation": "benchmarkId",
