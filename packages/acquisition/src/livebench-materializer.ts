@@ -27,6 +27,31 @@ export const liveBenchExportOnlyNames = (csv: string): string[] => {
     .filter((name) => ['deepseek-v4-flash', 'deepseek-v4-pro'].includes(name));
 };
 
+/** The rendered leaderboard collapses explicitly declared effort variants. */
+export function liveBenchCollapsedVariants(
+  mainJs: string,
+  csv: string,
+): string[][] {
+  const rows = parseCsv(csv.trim());
+  const column = rows[0]?.indexOf('model') ?? -1;
+  if (column < 0) throw new Error('LiveBench table is missing model column');
+  const names = new Set(rows.slice(1).map((row) => row[column]));
+  const groups: string[][] = [];
+  const pattern = /"([^"\\]+)":\{[^{}]*?variants:\[([^\]]*)\]/gu;
+  for (const match of mainJs.matchAll(pattern)) {
+    const members = [
+      match[1]!,
+      ...Array.from(
+        match[2]!.matchAll(/rawName:"([^"\\]+)"/gu),
+        (item) => item[1]!,
+      ),
+    ];
+    const present = [...new Set(members)].filter((name) => names.has(name));
+    if (present.length > 1) groups.push(present);
+  }
+  return groups;
+}
+
 export const APPROVED_LIVEBENCH_CATEGORIES: Record<
   string,
   { benchmarkId: string; metricName: string }

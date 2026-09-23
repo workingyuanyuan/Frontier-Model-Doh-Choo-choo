@@ -13,6 +13,7 @@ import {
 import {
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
   extractArtificialAnalysisRscRows,
+  extractArtificialAnalysisVariantSlugs,
   isArtificialAnalysisActiveRow,
   materializeArtificialAnalysisRsc,
   type ArtificialAnalysisApiPage,
@@ -122,11 +123,13 @@ const captureDetailPages = async (
   pages: ArtificialAnalysisPage[];
   records: EvidenceRecord[];
   warnings: string[];
+  variantSlugs: string[];
 }> => {
   acquisitionClient.budget.checkItems(slugs.length);
   const pages: ArtificialAnalysisPage[] = [];
   const records: EvidenceRecord[] = [];
   const warnings: string[] = [];
+  const variantSlugs = new Set<string>();
   for (let index = 0; index < slugs.length; index += DETAIL_CONCURRENCY) {
     const batch = slugs.slice(index, index + DETAIL_CONCURRENCY);
     const results = await Promise.allSettled(
@@ -140,6 +143,7 @@ const captureDetailPages = async (
         return {
           record: result.record,
           rows: parseRows(result),
+          variantSlugs: extractArtificialAnalysisVariantSlugs(result.body),
           sourceUrl,
           slug,
         };
@@ -153,6 +157,8 @@ const captureDetailPages = async (
         continue;
       }
       records.push(result.value.record);
+      for (const variant of result.value.variantSlugs)
+        variantSlugs.add(variant);
       pages.push({
         kind: 'model-detail',
         slug: result.value.slug,
@@ -166,7 +172,12 @@ const captureDetailPages = async (
       `Captured model details ${Math.min(index + DETAIL_CONCURRENCY, slugs.length)}/${slugs.length}`,
     );
   }
-  return { pages, records, warnings };
+  return {
+    pages,
+    records,
+    warnings,
+    variantSlugs: [...variantSlugs].toSorted(),
+  };
 };
 
 const fetchApi = async (
@@ -319,13 +330,29 @@ const main = async () => {
   }
 
   const allPageRows = pages.flatMap(({ rows }) => rows ?? []);
-  const detail = await captureDetailPages(
-    root,
-    activeDetailSlugs(allPageRows),
-    retrievedAt,
-  );
+  // Chart selections rotate when new models launch. Re-fetch previously
+  // discovered detail URLs so a selection change cannot erase known coverage.
+  // The materializer still applies the live deprecated/release-date filter.
+  const detailSlugs = [
+    ...new Set([
+      ...activeDetailSlugs(allPageRows),
+      ...existingEvidence
+        .filter(({ requestUrl }) => requestUrl.startsWith(`${MODELS_URL}/`))
+        .map(({ requestUrl }) =>
+          decodeURIComponent(requestUrl.slice(MODELS_URL.length + 1)),
+        ),
+    ]),
+  ].toSorted();
+  const detail = await captureDetailPages(root, detailSlugs, retrievedAt);
   pages.push(...detail.pages);
   records.push(...detail.records);
+  const variants = await captureDetailPages(
+    root,
+    detail.variantSlugs.filter((slug) => !detailSlugs.includes(slug)),
+    retrievedAt,
+  );
+  pages.push(...variants.pages);
+  records.push(...variants.records);
 
   const api = await fetchApi(root, retrievedAt);
   if (api.record) records.push(api.record);
@@ -342,7 +369,7 @@ const main = async () => {
     visibleComparisonCompleted: true,
     visibleComparisonScopeComparable: false,
   };
-  const warnings = [...detail.warnings];
+  const warnings = [...detail.warnings, ...variants.warnings];
   if (api.warning) warnings.push(api.warning);
   let baseReport = result.validationReport.trimEnd();
   if (api.warning) {
@@ -454,7 +481,7 @@ const main = async () => {
     lastVerifiedAt: retrievedAt,
     benchmarkIds,
     notes: [
-      'Evaluation pages are unioned by profile slug; detail pages are fetched for every active profile to obtain intelligenceIndexCostPerTask and token prices.',
+      'Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Live deprecated and release-date filters still apply.',
       'The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.',
       '`$undefined` and null are both treated as missing values.',
       `Capture observed ${result.pageRows} unique profiles, ${result.activeRows} active profiles, ${result.taskCostRows} task-cost rows, and ${result.tokenPriceRows} token-price rows.`,

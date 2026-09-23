@@ -3,10 +3,10 @@
     "assumptionId": null,
     "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 6.52377356460177,
+    "cost": 4.429117203539823,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_6_astra_xhigh:openai-gpt-6-astra-xhigh",
@@ -19,7 +19,7 @@
       "profileId": "openai-gpt-6-astra-xhigh",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -32,7 +32,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_6_astra_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -50,7 +50,7 @@
     "cost": 2.362349413758389,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_8_flash_high:google-gemini-3-8-flash-high",
@@ -63,7 +63,7 @@
       "profileId": "google-gemini-3-8-flash-high",
       "rawName": "gemini-3-8-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -76,7 +76,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_8_flash_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -94,7 +94,7 @@
     "cost": 11.837583271396396,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_max:anthropic-claude-opus-5-max",
@@ -107,7 +107,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -120,7 +120,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_5_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -135,10 +135,10 @@
     "assumptionId": null,
     "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 5.723721956194691,
+    "cost": 3.9237237909292038,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_6_astra_high:openai-gpt-6-astra-high",
@@ -151,7 +151,7 @@
       "profileId": "openai-gpt-6-astra-high",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -164,7 +164,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_6_astra_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -179,10 +179,10 @@
     "assumptionId": null,
     "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 12.369032401327434,
+    "cost": 7.497827996681416,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_6_astra_max:openai-gpt-6-astra-max",
@@ -195,7 +195,7 @@
       "profileId": "openai-gpt-6-astra-max",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -208,7 +208,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_6_astra_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -226,7 +226,7 @@
     "cost": 9.07220232326622,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_xhigh:anthropic-claude-opus-5-xhigh",
@@ -239,7 +239,7 @@
       "profileId": "anthropic-claude-opus-5-xhigh",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -252,7 +252,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_5_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -270,7 +270,7 @@
     "cost": 6.076084489977728,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_high:anthropic-claude-opus-5-high",
@@ -283,7 +283,7 @@
       "profileId": "anthropic-claude-opus-5-high",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -296,7 +296,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_5_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -311,10 +311,10 @@
     "assumptionId": null,
     "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 4.379527705752213,
+    "cost": 3.0754742975663714,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_6_astra_medium:openai-gpt-6-astra-medium",
@@ -327,7 +327,7 @@
       "profileId": "openai-gpt-6-astra-medium",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -340,7 +340,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_6_astra_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -358,7 +358,7 @@
     "cost": 8.386436346666667,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_max:openai-gpt-5-6-sol-max",
@@ -371,7 +371,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -384,7 +384,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -402,7 +402,7 @@
     "cost": 1.9671024789823006,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_8_flash_medium:google-gemini-3-8-flash-medium",
@@ -415,7 +415,7 @@
       "profileId": "google-gemini-3-8-flash-medium",
       "rawName": "gemini-3-8-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -428,7 +428,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_8_flash_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -446,7 +446,7 @@
     "cost": 4.703663860310422,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_xhigh:openai-gpt-5-6-sol-xhigh",
@@ -459,7 +459,7 @@
       "profileId": "openai-gpt-5-6-sol-xhigh",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -472,7 +472,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -490,7 +490,7 @@
     "cost": 13.414521495535714,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_xhigh:anthropic-claude-fable-5-xhigh",
@@ -503,7 +503,7 @@
       "profileId": "anthropic-claude-fable-5-xhigh",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -516,7 +516,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_fable_5_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -534,7 +534,7 @@
     "cost": 21.634702092592594,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_max:anthropic-claude-fable-5-max",
@@ -547,7 +547,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -560,7 +560,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_fable_5_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -578,7 +578,7 @@
     "cost": 4.945847263858093,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_max:openai-gpt-5-6-terra-max",
@@ -591,7 +591,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -604,7 +604,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -622,7 +622,7 @@
     "cost": 3.4698331108647453,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_high:openai-gpt-5-6-sol-high",
@@ -635,7 +635,7 @@
       "profileId": "openai-gpt-5-6-sol-high",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -648,7 +648,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -666,7 +666,7 @@
     "cost": 3.28978764541387,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_medium:anthropic-claude-opus-5-medium",
@@ -679,7 +679,7 @@
       "profileId": "anthropic-claude-opus-5-medium",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -692,7 +692,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_5_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -710,7 +710,7 @@
     "cost": 9.177638214788733,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_high:anthropic-claude-fable-5-high",
@@ -723,7 +723,7 @@
       "profileId": "anthropic-claude-fable-5-high",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -736,7 +736,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_fable_5_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -754,7 +754,7 @@
     "cost": 4.654682129933482,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_kimi_k3_max:moonshot-kimi-k3-max",
@@ -767,7 +767,7 @@
       "profileId": "moonshot-kimi-k3-max",
       "rawName": "kimi-k3"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -780,7 +780,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_kimi_k3_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -798,7 +798,7 @@
     "cost": 3.4489837522123894,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_medium:xai-grok-4-6-medium",
@@ -811,7 +811,7 @@
       "profileId": "xai-grok-4-6-medium",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -824,7 +824,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_grok_4_6_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -842,7 +842,7 @@
     "cost": 3.028116810267857,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_max:openai-gpt-5-6-luna-max",
@@ -855,7 +855,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -868,7 +868,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -886,7 +886,7 @@
     "cost": 7.226236674778761,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_xhigh:openai-gpt-5-5-xhigh",
@@ -899,7 +899,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -912,7 +912,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_5_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -927,10 +927,10 @@
     "assumptionId": null,
     "benchmarkId": "deepswe",
     "benchmarkVersion": "1.1",
-    "cost": 2.188762706637168,
+    "cost": 1.595223439159292,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_6_astra_low:openai-gpt-6-astra-low",
@@ -943,7 +943,7 @@
       "profileId": "openai-gpt-6-astra-low",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -956,7 +956,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_6_astra_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -974,7 +974,7 @@
     "cost": 5.497668745011087,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_xhigh:xai-grok-4-6-xhigh",
@@ -987,7 +987,7 @@
       "profileId": "xai-grok-4-6-xhigh",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1000,7 +1000,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_grok_4_6_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1018,7 +1018,7 @@
     "cost": 2.0251351826880533,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_7_flash_medium:google-gemini-3-7-flash-medium",
@@ -1031,7 +1031,7 @@
       "profileId": "google-gemini-3-7-flash-medium",
       "rawName": "gemini-3-7-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1044,7 +1044,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_7_flash_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1062,7 +1062,7 @@
     "cost": 6.088186528935186,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_medium:anthropic-claude-fable-5-medium",
@@ -1075,7 +1075,7 @@
       "profileId": "anthropic-claude-fable-5-medium",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1088,7 +1088,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_fable_5_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1106,7 +1106,7 @@
     "cost": 2.1762860351216813,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_7_flash_high:google-gemini-3-7-flash-high",
@@ -1119,7 +1119,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "gemini-3-7-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1132,7 +1132,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_7_flash_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1150,7 +1150,7 @@
     "cost": 4.3848732239467845,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_high:xai-grok-4-6-high",
@@ -1163,7 +1163,7 @@
       "profileId": "xai-grok-4-6-high",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1176,7 +1176,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_grok_4_6_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1194,7 +1194,7 @@
     "cost": 5.100437004424779,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_high:openai-gpt-5-5-high",
@@ -1207,7 +1207,7 @@
       "profileId": "openai-gpt-5-5-high",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1220,7 +1220,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_5_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1238,7 +1238,7 @@
     "cost": 0.24138687892256638,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_deepseek_v4_pro_max:deepseek-deepseek-v4-pro-max",
@@ -1251,7 +1251,7 @@
       "profileId": "deepseek-deepseek-v4-pro-max",
       "rawName": "deepseek-v4-pro"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1264,7 +1264,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_deepseek_v4_pro_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1282,7 +1282,7 @@
     "cost": 1.8620318075221238,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_medium:openai-gpt-5-6-sol-medium",
@@ -1295,7 +1295,7 @@
       "profileId": "openai-gpt-5-6-sol-medium",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1308,7 +1308,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1326,7 +1326,7 @@
     "cost": 2.127191725663717,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_xhigh:openai-gpt-5-6-terra-xhigh",
@@ -1339,7 +1339,7 @@
       "profileId": "openai-gpt-5-6-terra-xhigh",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1352,7 +1352,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1370,7 +1370,7 @@
     "cost": 3.757873125874126,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_fable_5_low:anthropic-claude-fable-5-low",
@@ -1383,7 +1383,7 @@
       "profileId": "anthropic-claude-fable-5-low",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1396,7 +1396,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_fable_5_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1414,7 +1414,7 @@
     "cost": 13.222583593240094,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_max:anthropic-claude-opus-4-8-max",
@@ -1427,7 +1427,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1440,7 +1440,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_4_8_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1458,7 +1458,7 @@
     "cost": 1.6626223919821828,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_5_low:anthropic-claude-opus-5-low",
@@ -1471,7 +1471,7 @@
       "profileId": "anthropic-claude-opus-5-low",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1484,7 +1484,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_5_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1502,7 +1502,7 @@
     "cost": 3.7290646500445437,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_qwen3_8_max_xhigh:alibaba-qwen3-8-max-xhigh",
@@ -1515,7 +1515,7 @@
       "profileId": "alibaba-qwen3-8-max-xhigh",
       "rawName": "qwen3-8-max"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1528,7 +1528,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_qwen3_8_max_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1546,7 +1546,7 @@
     "cost": 1.5356192685840708,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_xhigh:openai-gpt-5-6-luna-xhigh",
@@ -1559,7 +1559,7 @@
       "profileId": "openai-gpt-5-6-luna-xhigh",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1572,7 +1572,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1590,7 +1590,7 @@
     "cost": 3.6955048180309733,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_muse_spark_1_2_xhigh:meta-muse-spark-1-2-xhigh",
@@ -1603,7 +1603,7 @@
       "profileId": "meta-muse-spark-1-2-xhigh",
       "rawName": "muse-spark-1-2"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1616,7 +1616,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_muse_spark_1_2_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1634,7 +1634,7 @@
     "cost": 8.006355704138702,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_xhigh:anthropic-claude-opus-4-8-xhigh",
@@ -1647,7 +1647,7 @@
       "profileId": "anthropic-claude-opus-4-8-xhigh",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1660,7 +1660,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_4_8_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1678,7 +1678,7 @@
     "cost": 2.749342734513274,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_medium:openai-gpt-5-5-medium",
@@ -1691,7 +1691,7 @@
       "profileId": "openai-gpt-5-5-medium",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1704,7 +1704,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_5_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1722,7 +1722,7 @@
     "cost": 26.399858950791852,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_max:anthropic-claude-sonnet-5-max",
@@ -1735,7 +1735,7 @@
       "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1748,7 +1748,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_sonnet_5_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1766,7 +1766,7 @@
     "cost": 1.8322645629424779,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_7_flash_low:google-gemini-3-7-flash-low",
@@ -1779,7 +1779,7 @@
       "profileId": "google-gemini-3-7-flash-low",
       "rawName": "gemini-3-7-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1792,7 +1792,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_7_flash_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1810,7 +1810,7 @@
     "cost": 1.1343762765486725,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_high:openai-gpt-5-6-terra-high",
@@ -1823,7 +1823,7 @@
       "profileId": "openai-gpt-5-6-terra-high",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1836,7 +1836,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1854,7 +1854,7 @@
     "cost": 2.4157481725663716,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_grok_4_5_high:xai-grok-4-5-high",
@@ -1867,7 +1867,7 @@
       "profileId": "xai-grok-4-5-high",
       "rawName": "grok-4-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1880,7 +1880,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_grok_4_5_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1898,7 +1898,7 @@
     "cost": 0.10023560370265487,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_deepseek_v4_flash_max:deepseek-deepseek-v4-flash-max",
@@ -1911,7 +1911,7 @@
       "profileId": "deepseek-deepseek-v4-flash-max",
       "rawName": "deepseek-v4-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1924,7 +1924,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_deepseek_v4_flash_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1942,7 +1942,7 @@
     "cost": 2.361142644469026,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_muse_spark_1_1_xhigh:meta-muse-spark-1-1-xhigh",
@@ -1955,7 +1955,7 @@
       "profileId": "meta-muse-spark-1-1-xhigh",
       "rawName": "muse-spark-1-1"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -1968,7 +1968,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_muse_spark_1_1_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -1986,7 +1986,7 @@
     "cost": 4.281940017699115,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_high:anthropic-claude-opus-4-8-high",
@@ -1999,7 +1999,7 @@
       "profileId": "anthropic-claude-opus-4-8-high",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2012,7 +2012,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_4_8_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2030,7 +2030,7 @@
     "cost": 5.6524577245575225,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_4_xhigh:openai-gpt-5-4-xhigh",
@@ -2043,7 +2043,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "gpt-5-4"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2056,7 +2056,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_4_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2074,7 +2074,7 @@
     "cost": 11.890634540022173,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_xhigh:anthropic-claude-sonnet-5-xhigh",
@@ -2087,7 +2087,7 @@
       "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2100,7 +2100,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_sonnet_5_xhigh].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2118,7 +2118,7 @@
     "cost": 3.4438571028761062,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_medium:anthropic-claude-opus-4-8-medium",
@@ -2131,7 +2131,7 @@
       "profileId": "anthropic-claude-opus-4-8-medium",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2144,7 +2144,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_4_8_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2162,7 +2162,7 @@
     "cost": 7.425560161197339,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_high:anthropic-claude-sonnet-5-high",
@@ -2175,7 +2175,7 @@
       "profileId": "anthropic-claude-sonnet-5-high",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2188,7 +2188,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_sonnet_5_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2206,7 +2206,7 @@
     "cost": 4.419013277333334,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_6_flash_high:google-gemini-3-6-flash-high",
@@ -2219,7 +2219,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "gemini-3-6-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2232,7 +2232,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_6_flash_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2250,7 +2250,7 @@
     "cost": 1.0742664646017699,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_sol_low:openai-gpt-5-6-sol-low",
@@ -2263,7 +2263,7 @@
       "profileId": "openai-gpt-5-6-sol-low",
       "rawName": "gpt-5-6-sol"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2276,7 +2276,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_sol_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2294,7 +2294,7 @@
     "cost": 0.7779007499999999,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_high:openai-gpt-5-6-luna-high",
@@ -2307,7 +2307,7 @@
       "profileId": "openai-gpt-5-6-luna-high",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2320,7 +2320,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2338,7 +2338,7 @@
     "cost": 3.9199075743111114,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_glm_5_2_max:zai-glm-5-2-max",
@@ -2351,7 +2351,7 @@
       "profileId": "zai-glm-5-2-max",
       "rawName": "glm-5-2"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2364,7 +2364,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_glm_5_2_max].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2382,7 +2382,7 @@
     "cost": 1.0423604231625836,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_grok_4_6_low:xai-grok-4-6-low",
@@ -2395,7 +2395,7 @@
       "profileId": "xai-grok-4-6-low",
       "rawName": "grok-4-6"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2408,7 +2408,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_grok_4_6_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2426,7 +2426,7 @@
     "cost": 2.293369216740577,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_opus_4_8_low:anthropic-claude-opus-4-8-low",
@@ -2439,7 +2439,7 @@
       "profileId": "anthropic-claude-opus-4-8-low",
       "rawName": "claude-opus-4-8"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2452,7 +2452,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_opus_4_8_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2470,7 +2470,7 @@
     "cost": 4.079036229,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_medium:anthropic-claude-sonnet-5-medium",
@@ -2483,7 +2483,7 @@
       "profileId": "anthropic-claude-sonnet-5-medium",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2496,7 +2496,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_sonnet_5_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2514,7 +2514,7 @@
     "cost": 2.8355164725663715,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_glm_5_2_high:zai-glm-5-2-high",
@@ -2527,7 +2527,7 @@
       "profileId": "zai-glm-5-2-high",
       "rawName": "glm-5-2"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2540,7 +2540,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_glm_5_2_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2558,7 +2558,7 @@
     "cost": 3.4467114588691796,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_5_flash_high:google-gemini-3-5-flash-high",
@@ -2571,7 +2571,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "gemini-3-5-flash"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2584,7 +2584,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_5_flash_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2602,7 +2602,7 @@
     "cost": 0.5832493688888889,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_medium:openai-gpt-5-6-terra-medium",
@@ -2615,7 +2615,7 @@
       "profileId": "openai-gpt-5-6-terra-medium",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2628,7 +2628,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2646,7 +2646,7 @@
     "cost": 2.815536243274336,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_kimi_k2_7_code_default:moonshot-kimi-k2-7-code-unlabelled",
@@ -2659,7 +2659,7 @@
       "profileId": null,
       "rawName": "kimi-k2-7-code"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2672,7 +2672,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_kimi_k2_7_code_default].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2690,7 +2690,7 @@
     "cost": 2.1865550832962137,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_5_low:anthropic-claude-sonnet-5-low",
@@ -2703,7 +2703,7 @@
       "profileId": "anthropic-claude-sonnet-5-low",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2716,7 +2716,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_sonnet_5_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2734,7 +2734,7 @@
     "cost": 5.5223517987804875,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_claude_sonnet_4_6_high:anthropic-claude-sonnet-4-6-high",
@@ -2747,7 +2747,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-high",
       "rawName": "claude-sonnet-4-6"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2760,7 +2760,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_claude_sonnet_4_6_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2778,7 +2778,7 @@
     "cost": 1.2002025442477877,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_5_low:openai-gpt-5-5-low",
@@ -2791,7 +2791,7 @@
       "profileId": "openai-gpt-5-5-low",
       "rawName": "gpt-5-5"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2804,7 +2804,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_5_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2822,7 +2822,7 @@
     "cost": 0.4277452605790646,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_terra_low:openai-gpt-5-6-terra-low",
@@ -2835,7 +2835,7 @@
       "profileId": "openai-gpt-5-6-terra-low",
       "rawName": "gpt-5-6-terra"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2848,7 +2848,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_terra_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2866,7 +2866,7 @@
     "cost": 2.1434045568888886,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gemini_3_1_pro_preview_high:google-gemini-3-1-pro-preview-high",
@@ -2879,7 +2879,7 @@
       "profileId": "google-gemini-3-1-pro-preview-high",
       "rawName": "gemini-3-1-pro-preview"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2892,7 +2892,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gemini_3_1_pro_preview_high].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2910,7 +2910,7 @@
     "cost": 0.21630978982300886,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_medium:openai-gpt-5-6-luna-medium",
@@ -2923,7 +2923,7 @@
       "profileId": "openai-gpt-5-6-luna-medium",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2936,7 +2936,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_medium].mean_cost_usd",
         "method": "API_RESPONSE"
       }
@@ -2954,7 +2954,7 @@
     "cost": 0.07240623938053097,
     "costType": "AGENT_TASK",
     "evidenceIds": [
-      "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415"
+      "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
     ],
     "exclusionReason": null,
     "id": "deepswe:mean-cost-mini_swe_agent_gpt_5_6_luna_low:openai-gpt-5-6-luna-low",
@@ -2967,7 +2967,7 @@
       "profileId": "openai-gpt-5-6-luna-low",
       "rawName": "gpt-5-6-luna"
     },
-    "observedAt": "2026-09-08T00:58:54.395Z",
+    "observedAt": "2026-09-23T04:16:15.340Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -2980,7 +2980,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+        "evidenceId": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
         "locator": "rows[config=mini_swe_agent_gpt_5_6_luna_low].mean_cost_usd",
         "method": "API_RESPONSE"
       }

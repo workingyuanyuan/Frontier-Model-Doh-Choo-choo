@@ -56,6 +56,14 @@ Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models`
 `/models/<slug>` detail 頁面補齊任務成本與 token 單價。`null` 與字串
 `$undefined` 都表示缺值；API 只做交叉驗證，失效時保留 warning 並繼續使用頁面管道。
 
+AA 刷新也會重新擷取前次已發現的模型 detail URL，避免首頁圖表更換選取模型時漏掉既有成績；是否現役仍以本次 payload 的 deprecated 與 release date 判定。解析器保留完整指數版本（含 v4.3.2）、Briefcase 與 GDPval 的明示版本，並支援新版 `omniscienceAccuracy`、`terminalBench21` 欄位；Terminal-Bench 4.0 不會混入 2.1。
+
+AA 只有具已審核日期版本 alias 的模型才使用最新 build 日期篩選；同一發行版本的各 effort 日期不同，不構成淘汰理由。模型 detail 頁公開的 effort 選單連結也會額外擷取一層，補齊未出現在預設圖表選取中的檔位。連結必須來自來源明示的 label 與 href，不以模型名稱猜測網址。
+
+LiveBench 主表會將來源 bundle 明示的 variants 合併成一列。母體核對先扣除既有的兩個過期 DeepSeek bare slugs，再計算同組實際出現在 CSV 的檔位；所有匯出檔位仍保存。成本匯入沿用已核准的精確對應，並以分數相同的 catalog resolver 支援新模型，保留原始 effort 與成本證據。
+
+Vals 僅將檔名為 `BenchmarkView` 的 Astro 元件當作一般評測表；`RsiBenchmarkView` 採另一種 schema，會記錄為尚未解析的頁面。
+
 Frontier Code 以頁面使用的官方靜態 JSON 取得 FrontierCode 1.1 Main 全部
 模型 × effort 設定、`new_score` 與平均 rollout `cost`，並以頁面 JSON-LD
 Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，不混入 Main；

@@ -11,6 +11,7 @@ import {
 import {
   extractLiveBenchMetadata,
   liveBenchExportOnlyNames,
+  liveBenchCollapsedVariants,
   materializeLiveBench,
 } from './livebench-materializer.js';
 import { materializeLiveBenchCosts } from './pricing-materializers.js';
@@ -129,10 +130,16 @@ async function main() {
     },
   );
   const supersededNames = liveBenchExportOnlyNames(table.text);
-  const expectedVisibleRows = result.populationRows - supersededNames.length;
+  const collapsedVariants = liveBenchCollapsedVariants(script.text, table.text);
+  const collapsedCount = collapsedVariants.reduce(
+    (sum, group) => sum + group.length - 1,
+    0,
+  );
+  const expectedVisibleRows =
+    result.populationRows - supersededNames.length - collapsedCount;
   if (visualProfileCount !== expectedVisibleRows) {
     throw new Error(
-      `Visible LiveBench profile count ${visualProfileCount} does not match current export count ${expectedVisibleRows} (raw ${result.populationRows}; superseded ${supersededNames.join(', ')})`,
+      `Visible LiveBench profile count ${visualProfileCount} does not match current export count ${expectedVisibleRows} (raw ${result.populationRows}; superseded ${supersededNames.join(', ')}; collapsed variants ${collapsedCount})`,
     );
   }
   const costs = materializeLiveBenchCosts(cost.text, {
@@ -145,6 +152,7 @@ async function main() {
   table.record.metadata = {
     ...table.record.metadata,
     rows: result.populationRows,
+    collapsedVariants,
   };
   categories.record.metadata = {
     ...categories.record.metadata,
@@ -164,7 +172,7 @@ async function main() {
   const previousProfiles = new Set(
     previousCandidates.map(({ model }) => model.rawName),
   ).size;
-  const report = `${result.validationReport.trimEnd()}\n\n## Visible comparison\n\n- Fresh rendered page profile count (Include finetunes enabled): ${visualProfileCount}\n- Complete table export profile count: ${result.populationRows}\n- Superseded export-only names, absent from the current rendered leaderboard: ${supersededNames.join(', ') || 'none'}\n- Current export profiles after the existing superseded-build policy: ${expectedVisibleRows}\n- Result: current profiles matched; raw export-only rows remain traceable and unresolved.\n\n${snapshotDeltaMarkdown(
+  const report = `${result.validationReport.trimEnd()}\n\n## Visible comparison\n\n- Fresh rendered page profile count (Include finetunes enabled): ${visualProfileCount}\n- Complete table export profile count: ${result.populationRows}\n- Superseded export-only names, absent from the current rendered leaderboard: ${supersededNames.join(', ') || 'none'}\n- Rendered groups after superseded-build and declared-variant grouping: ${expectedVisibleRows}\n- Collapsed variant groups: ${JSON.stringify(collapsedVariants)}\n- Result: rendered groups matched; all exported effort rows remain preserved.\n\n${snapshotDeltaMarkdown(
     [
       {
         label: 'Raw model profiles',

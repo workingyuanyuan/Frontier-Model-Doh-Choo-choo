@@ -93,6 +93,18 @@ describe('Vals Astro parsing', () => {
     ]);
   });
 
+  it('ignores RSI views while preserving duplicate benchmark detection', () => {
+    const rsi =
+      '<astro-island component-url="/_astro/RsiBenchmarkView._8slnq0o.js" props="{}"></astro-island>';
+    expect(parseValsBenchmarkPage(rsi + rsi)).toBeNull();
+    expect(parseValsBenchmarkPage(rsi + fixture())).toEqual(
+      parseValsBenchmarkPage(fixture()),
+    );
+    expect(() => parseValsBenchmarkPage(fixture() + fixture())).toThrow(
+      /found 2/u,
+    );
+  });
+
   it('fails when metadata.total_models differs from overall rows', () => {
     expect(() => parseValsBenchmarkPage(fixture(3))).toThrow(
       /total_models mismatch/u,

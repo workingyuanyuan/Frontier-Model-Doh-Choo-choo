@@ -16,6 +16,10 @@ const context = {
 
 describe('pricing materializers', () => {
   it.each([
+    ['gpt-6-sol-max', 'openai-gpt-6-sol-max'],
+    ['gpt-6-luna-max', 'openai-gpt-6-luna-max'],
+    ['claude-opus-5-5-xhigh-effort', 'anthropic-claude-opus-5-5-xhigh'],
+    ['claude-opus-5-5-max-effort', 'anthropic-claude-opus-5-5-max'],
     ['gemini-3.8-flash-high', 'google-gemini-3-8-flash-high'],
     ['claude-fable-5-1-max-effort', 'anthropic-claude-fable-5-1-max'],
   ])('resolves captured LiveBench costs for %s', (name, profileId) => {

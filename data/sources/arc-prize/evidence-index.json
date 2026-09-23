@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/1a/1af05c4fcbbcb33dff6098211db029f6fd446da75028cb0438e1033c01dc75cf.html",
+    "artifactPath": "artifacts/sha256/b6/b67083b9ac3e01a4cce44acad4dd9ddfaeea7fda9b3f1c1934b11612b229e71f.html",
     "byteLength": 47291,
     "finalUrl": "https://arcprize.org/leaderboard",
-    "id": "sha256:1af05c4fcbbcb33dff6098211db029f6fd446da75028cb0438e1033c01dc75cf",
+    "id": "sha256:b67083b9ac3e01a4cce44acad4dd9ddfaeea7fda9b3f1c1934b11612b229e71f",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "official leaderboard page",
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://arcprize.org/leaderboard",
-    "retrievedAt": "2026-09-08T00:57:18.013Z",
+    "retrievedAt": "2026-09-23T04:19:13.821Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:1af05c4fcbbcb33dff6098211db029f6fd446da75028cb0438e1033c01dc75cf",
+    "sha256": "sha256:b67083b9ac3e01a4cce44acad4dd9ddfaeea7fda9b3f1c1934b11612b229e71f",
     "sourceId": "arc-prize"
   },
   {
@@ -28,47 +28,47 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/datasets.json",
-    "retrievedAt": "2026-09-08T00:57:18.013Z",
+    "retrievedAt": "2026-09-23T04:19:13.821Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6",
     "sourceId": "arc-prize"
   },
   {
-    "artifactPath": "artifacts/sha256/17/17b35f029522ca4ffee541e5dabecf9e311d81ee80a2b08e8912f2947d4ce334.json",
-    "byteLength": 179164,
+    "artifactPath": "artifacts/sha256/e3/e3905c70b9b61c49585db6f65bf22fbebbb6a396030a7770a921dd32af74ca03.json",
+    "byteLength": 192373,
     "finalUrl": "https://arcprize.org/media/data/evaluations.json",
-    "id": "sha256:17b35f029522ca4ffee541e5dabecf9e311d81ee80a2b08e8912f2947d4ce334",
+    "id": "sha256:e3905c70b9b61c49585db6f65bf22fbebbb6a396030a7770a921dd32af74ca03",
     "mediaType": "application/json",
     "metadata": {
       "captureScope": "all evaluations across splits",
-      "promotedCosts": 225,
-      "promotedRows": 225,
-      "totalEvaluations": 925,
-      "v2Evaluations": 232
+      "promotedCosts": 237,
+      "promotedRows": 237,
+      "totalEvaluations": 982,
+      "v2Evaluations": 244
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/evaluations.json",
-    "retrievedAt": "2026-09-08T00:57:18.013Z",
+    "retrievedAt": "2026-09-23T04:19:13.821Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:17b35f029522ca4ffee541e5dabecf9e311d81ee80a2b08e8912f2947d4ce334",
+    "sha256": "sha256:e3905c70b9b61c49585db6f65bf22fbebbb6a396030a7770a921dd32af74ca03",
     "sourceId": "arc-prize"
   },
   {
-    "artifactPath": "artifacts/sha256/2a/2a3ac802eeda90b7fa5e0d79466d2b16306f686b08dca7dd5380a1987ac27179.json",
-    "byteLength": 114533,
+    "artifactPath": "artifacts/sha256/8a/8acda6a2df4d4738e5f09ee14ee0b13e5010664c2e0149b6721f7733f4212b34.json",
+    "byteLength": 124275,
     "finalUrl": "https://arcprize.org/media/data/models.json",
-    "id": "sha256:2a3ac802eeda90b7fa5e0d79466d2b16306f686b08dca7dd5380a1987ac27179",
+    "id": "sha256:8acda6a2df4d4738e5f09ee14ee0b13e5010664c2e0149b6721f7733f4212b34",
     "mediaType": "application/json",
     "metadata": {
       "captureScope": "model metadata catalog",
-      "totalModels": 266,
-      "unresolvedModels": 127
+      "totalModels": 284,
+      "unresolvedModels": 123
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/models.json",
-    "retrievedAt": "2026-09-08T00:57:18.013Z",
+    "retrievedAt": "2026-09-23T04:19:13.821Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:2a3ac802eeda90b7fa5e0d79466d2b16306f686b08dca7dd5380a1987ac27179",
+    "sha256": "sha256:8acda6a2df4d4738e5f09ee14ee0b13e5010664c2e0149b6721f7733f4212b34",
     "sourceId": "arc-prize"
   }
 ]

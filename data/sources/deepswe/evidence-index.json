@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/8f/8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7.html",
-    "byteLength": 268313,
+    "artifactPath": "artifacts/sha256/14/14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1.html",
+    "byteLength": 268036,
     "finalUrl": "https://deepswe.datacurve.ai/",
-    "id": "sha256:8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7",
+    "id": "sha256:14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "leaderboard page",
@@ -13,29 +13,29 @@
     },
     "method": "DOM",
     "requestUrl": "https://deepswe.datacurve.ai/",
-    "retrievedAt": "2026-09-08T00:58:54.395Z",
+    "retrievedAt": "2026-09-23T04:16:15.340Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:8fdbb59257d00cbb0772248bb602aafc1d20a51822388cd4eaf4625505182be7",
+    "sha256": "sha256:14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1",
     "sourceId": "deepswe"
   },
   {
-    "artifactPath": "artifacts/sha256/00/005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415.json",
-    "byteLength": 94738,
+    "artifactPath": "artifacts/sha256/a7/a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019.json",
+    "byteLength": 94758,
     "finalUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "id": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+    "id": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
     "mediaType": "application/json",
     "metadata": {
       "captureScope": "complete leaderboard export",
       "configurationRows": 70,
       "distinctModels": 28,
-      "generatedAt": "2026-09-03T22:24:37.984682+00:00",
+      "generatedAt": "2026-09-22T06:27:15.860279+00:00",
       "version": "1.1"
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-    "retrievedAt": "2026-09-08T00:58:54.395Z",
+    "retrievedAt": "2026-09-23T04:16:15.340Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415",
+    "sha256": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
     "sourceId": "deepswe"
   }
 ]

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import {
   compareArtificialAnalysisApi,
   extractArtificialAnalysisRscRows,
+  extractArtificialAnalysisVariantSlugs,
   extractArtificialAnalysisVersionMetadata,
   isArtificialAnalysisValuePresent,
   materializeArtificialAnalysisRsc,
@@ -12,6 +13,28 @@ const evidenceId =
   'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 describe('Artificial Analysis RSC parser', () => {
+  it('discovers explicit effort links in escaped RSC without treating score or provider links as variants', () => {
+    const links = JSON.stringify([
+      { label: 'xhigh', href: '/models/claude-opus-5-5-xhigh' },
+      { label: 'low', href: '/models/claude-opus-5-5-low' },
+      { label: 'Provider', href: '/models/other' },
+      { label: 'max', href: '/models/other/providers' },
+    ]);
+    expect(
+      extractArtificialAnalysisVariantSlugs(JSON.stringify(links)),
+    ).toEqual(['claude-opus-5-5-low', 'claude-opus-5-5-xhigh']);
+  });
+  it('preserves patch index releases and the published Briefcase version', () => {
+    expect(
+      extractArtificialAnalysisVersionMetadata(
+        'Artificial Analysis Intelligence Index v4.3.2 includes AA-Briefcase v1.1 and GDPval-AA v2.1.',
+      ),
+    ).toEqual({
+      intelligenceIndexVersion: 'v4.3.2',
+      benchmarkVersions: { 'aa-briefcase': 'v1.1', 'gdpval-aa': 'v2.1' },
+    });
+  });
+
   it('keeps Terminal-Bench generations separate on v4.3 pages', () => {
     const metadata = extractArtificialAnalysisVersionMetadata(
       'Artificial Analysis Intelligence Index v4.3 includes Terminal-Bench v4.0. Legacy evaluation: Terminal-Bench v2.1.',
@@ -180,6 +203,47 @@ describe('Artificial Analysis API cross-validation', () => {
 });
 
 describe('Artificial Analysis RSC materializer', () => {
+  it('reads current accuracy and Terminal-Bench aliases with exact provenance', () => {
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'model-detail',
+        slug: 'grok-4-7',
+        sourceUrl: 'https://artificialanalysis.ai/models/grok-4-7',
+        evidenceId,
+        retrievedAt: '2026-09-22T00:00:00.000Z',
+        rows: [
+          {
+            slug: 'grok-4-7',
+            name: 'Grok 4.7 (xhigh)',
+            releaseDate: '2026-09-21',
+            deprecated: false,
+            omniscience: 32.0333,
+            omniscienceAccuracy: 0.4745,
+            terminalBench21: 0.73408,
+            terminalBench40: 0.257575,
+          },
+        ],
+      },
+    ]);
+    const accuracy = result.candidates.find(
+      (c) => c.benchmarkId === 'aa-omniscience' && c.inclusion === 'INCLUDED',
+    );
+    expect(accuracy).toMatchObject({ normalizedScore: 47.449999999999996 });
+    expect(accuracy?.provenance.rawScore?.locator).toContain(
+      'field=omniscienceAccuracy',
+    );
+    const terminal = result.candidates.find(
+      (c) => c.benchmarkId === 'terminal-bench-2-1',
+    );
+    expect(terminal).toMatchObject({
+      rawScore: 0.73408,
+      benchmarkVersion: 'v2.1',
+    });
+    expect(terminal?.provenance.rawScore?.locator).toContain(
+      'field=terminalBench21',
+    );
+  });
+
   it('keeps missing sentinels out of candidates and emits separate cost semantics', () => {
     const html =
       '<script>self.__next_f.push([1,"21:[{\\"model_creator_id\\":\\"creator\\",\\"slug\\":\\"gpt-5-6-sol\\",\\"name\\":\\"GPT-5.6 Sol (max)\\",\\"release_date\\":\\"2026-08-01\\",\\"deprecated\\":false,\\"gpqa\\":0.9,\\"hle\\":\\"$undefined\\",\\"lcr\\":0.8,\\"omniscience\\":42,\\"omniscience_breakdown\\":{\\"total\\":{\\"accuracy\\":0.7}},\\"intelligenceIndexCostPerTask\\":{\\"cost\\":{\\"total\\":1.25}},\\"price1mInputTokens\\":5,\\"price1mOutputTokens\\":30}]")])</script>';
@@ -484,6 +548,39 @@ describe('Artificial Analysis provenance URLs', () => {
 });
 
 describe('Artificial Analysis superseded builds', () => {
+  it('retains same-release efforts whose AA row dates differ', () => {
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'evaluation',
+        slug: 'gpqa-diamond',
+        sourceUrl: 'https://artificialanalysis.ai/evaluations/gpqa-diamond',
+        evidenceId,
+        retrievedAt: '2026-09-23T00:00:00.000Z',
+        rows: [
+          {
+            slug: 'claude-opus-5-5',
+            name: 'Claude Opus 5.5 (Adaptive Reasoning, Max Effort, Default Fallback)',
+            releaseDate: '2026-09-22',
+            deprecated: false,
+            gpqa: 0.9,
+          },
+          {
+            slug: 'claude-opus-5-5-xhigh',
+            name: 'Claude Opus 5.5 (Adaptive Reasoning, Xhigh Effort, Default Fallback)',
+            releaseDate: '2026-09-17',
+            deprecated: false,
+            gpqa: 0.8,
+          },
+        ],
+      },
+    ]);
+    expect(
+      result.candidates
+        .filter((x) => x.benchmarkId === 'gpqa-diamond')
+        .map((x) => x.profile.effort)
+        .sort(),
+    ).toEqual(['max', 'xhigh']);
+  });
   it('keeps only the newest release_date for a model', () => {
     // AA lists the April build beside the current one and the display names do
     // not always say which is which, so the row's own release_date decides.

@@ -17,21 +17,21 @@
     "table CSV model": "model.rawName/profile",
     "table CSV task columns": "raw subtask scores"
   },
-  "lastVerifiedAt": "2026-09-08T01:03:24.699Z",
+  "lastVerifiedAt": "2026-09-23T04:20:07.545Z",
   "notes": [
-    "Bundle declares 2026-06-25; refreshed exports contain 56 profiles and 7 categories.",
+    "Bundle declares 2026-06-25; refreshed exports contain 63 profiles and 7 categories.",
     "Exact identities only; 10 profile names remain unresolved without fuzzy matching.",
     "Four approved category families are materialized; Coding, Agentic Coding and Data Analysis stay excluded.",
-    "56 cost rows emit 46 CostRecords from exact identities."
+    "63 cost rows emit 106 CostRecords from exact identities."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "livebench",
   "targetUrls": [
     "https://livebench.ai/",
-    "https://livebench.ai/static/js/main.fc2107c4.js",
-    "https://livebench.ai/table_2026_06_25.csv?v=1788809517",
-    "https://livebench.ai/categories_2026_06_25.json?v=1788809517",
-    "https://livebench.ai/cost_2026_06_25.csv?v=1788809517"
+    "https://livebench.ai/static/js/main.20d28c99.js",
+    "https://livebench.ai/table_2026_06_25.csv?v=1790110244",
+    "https://livebench.ai/categories_2026_06_25.json?v=1790110244",
+    "https://livebench.ai/cost_2026_06_25.csv?v=1790110244"
   ]
 }

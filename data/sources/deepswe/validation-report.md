@@ -1,8 +1,8 @@
 # DeepSWE acquisition validation
 
 - Source: `https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json`
-- Evidence ID: `sha256:005cbedb49f988ba3f0d9636300862ad7ace93ce1992b37faf9945fe5b383415`
-- Generated at: `2026-09-03T22:24:37.984Z`
+- Evidence ID: `sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019`
+- Generated at: `2026-09-22T06:27:15.860Z`
 
 ## Exact counts
 
@@ -36,6 +36,22 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 
 - DeepSWE is an organizer-run agent benchmark (`ORGANIZER`).
 - `mean_cost_usd` is preserved as `AGENT_TASK` cost with harness in provenance.
+
+## Visible comparison
+
+- Fresh rendered page model count: 28
+- Complete export distinct model count: 28
+- Result: matched
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Configuration rows | 70 | 70 | +0 |
+| Distinct models | 28 | 28 | +0 |
+| Materialized costs | 68 | 68 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

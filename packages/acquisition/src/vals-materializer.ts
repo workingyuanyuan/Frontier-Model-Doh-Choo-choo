@@ -179,7 +179,9 @@ export function parseValsBenchmarkPage(html: string): ParsedValsPage | null {
   const benchmarkTags = [...html.matchAll(/<astro-island\b[^>]*>/gu)]
     .map(([tag]) => tag)
     .filter((tag) =>
-      attributeValue(tag, 'component-url')?.includes('BenchmarkView'),
+      /\/BenchmarkView(?:\.[^/]+)?\.js(?:\?.*)?$/u.test(
+        attributeValue(tag, 'component-url') ?? '',
+      ),
     );
   if (benchmarkTags.length === 0) return null;
   if (benchmarkTags.length !== 1) {

@@ -1,5 +1,6 @@
 import { CostRecordSchema, type CostRecord } from '@llm-bench/benchmark-data';
 import { DEEPSWE_MODELS } from './deepswe-materializer.js';
+import { resolveLiveBenchModel } from './livebench-materializer.js';
 import {
   isSupersededBuild,
   normalizeSourceEffort,
@@ -286,7 +287,12 @@ export function materializeLiveBenchCosts(
     const row = parseCsvLine(line);
     const rawName = row[columns.model]!;
     if (isSupersededBuild('livebench', rawName)) return [];
-    const identity = LIVEBENCH_MODELS[rawName];
+    const resolved = resolveLiveBenchModel(rawName);
+    const identity =
+      LIVEBENCH_MODELS[rawName] ??
+      (resolved.canonicalModelId
+        ? { modelId: resolved.canonicalModelId, effort: resolved.effort }
+        : undefined);
     if (!identity) return [];
     const input = Number(row[columns.input]);
     const output = Number(row[columns.output]);

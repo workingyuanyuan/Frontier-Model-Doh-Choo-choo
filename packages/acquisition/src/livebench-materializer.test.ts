@@ -6,11 +6,25 @@ import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 import {
   extractLiveBenchMetadata,
   liveBenchExportOnlyNames,
+  liveBenchCollapsedVariants,
   materializeLiveBench,
   resolveLiveBenchModel,
 } from './livebench-materializer.js';
 
 describe('LiveBench materializer', () => {
+  it('counts only declared variants present together in the export as collapsed rows', () => {
+    const js =
+      '"opus-xhigh":{displayName:"Opus",variants:[{rawName:"opus-max",displayName:"Opus Max"},{rawName:"opus-high"}]}';
+    expect(
+      liveBenchCollapsedVariants(
+        js,
+        'model,score\nopus-xhigh,82\nopus-max,83\nother-max,80',
+      ),
+    ).toEqual([['opus-xhigh', 'opus-max']]);
+    expect(
+      liveBenchCollapsedVariants(js, 'model,score\nopus-max,83\nother-max,80'),
+    ).toEqual([]);
+  });
   it('counts only the two retired bare slugs as export-only, retaining Vision Exp', () => {
     expect(
       liveBenchExportOnlyNames(

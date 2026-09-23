@@ -889,6 +889,7 @@ export function AdvancedCostPlot({
                         key={point.profileId}
                         className={`advanced-cost-point${selected ? ' is-selected' : ''}${point.isDefaultEffort ? ' is-default' : ''}`}
                         data-series-id={line.seriesId}
+                        data-profile-id={point.profileId}
                         data-cost-index={point.costIndex.toFixed(2)}
                         cx={x(point.costIndex)}
                         cy={y(point.score)}

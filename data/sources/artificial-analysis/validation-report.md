@@ -8,36 +8,53 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 134 |
-| Unique profile rows in evaluation-page payloads | 63 |
-| Unique profile rows in model-detail payloads | 124 |
-| Profile rows in the /models payload | 24 |
-| Active profile rows (2025-08-17 cutoff, not deprecated) | 99 |
-| Generated CandidateResults | 1212 |
-| Intelligence Index candidates (EXCLUDED) | 98 |
-| GDPval-AA normalized candidates | 92 |
-| Canonically unresolved candidates | 451 |
-| MEASURED_TASK cost rows | 92 |
-| API_STANDARDIZED token-price rows | 98 |
+| Unique profile rows across all captured page payloads | 167 |
+| Unique profile rows in evaluation-page payloads | 66 |
+| Unique profile rows in model-detail payloads | 157 |
+| Profile rows in the /models payload | 25 |
+| Active profile rows (2025-08-17 cutoff, not deprecated) | 102 |
+| Generated CandidateResults | 1178 |
+| Intelligence Index candidates (EXCLUDED) | 101 |
+| GDPval-AA normalized candidates | 100 |
+| Canonically unresolved candidates | 474 |
+| MEASURED_TASK cost rows | 99 |
+| API_STANDARDIZED token-price rows | 100 |
 
 ## Page composition finding
 
-- The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 24 selected profile rows in this capture.
-- The evaluation-page payload union exposes 63 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 124 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 25 selected profile rows in this capture.
+- The evaluation-page payload union exposes 66 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 157 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
 - API source unavailable; page pipeline remains authoritative.
 - No real API differences recorded beyond rounding.
-- Warning: API cross-validation was not attempted.
+- Warning: ARTIFICIAL_ANALYSIS_API_KEY is not set; API cross-validation skipped.
 
 ## Scope and semantics
 
 - Artificial Analysis composite indices remain `EXCLUDED`; direct evaluation scores are the only AA rows eligible for the eight-dimensional product score.
 - Token prices are `API_STANDARDIZED` and task costs are `MEASURED_TASK`; the two cost semantics are emitted as separate records.
 - No missing score, identity, or cost is inferred.
+
+## Visible comparison
+
+- Fresh rendered models page catalog total: 673
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 167
+- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Unique source profiles | 152 | 167 | +15 |
+| Active source profiles | 101 | 102 | +1 |
+| Candidate results | 1223 | 1178 | -45 |
+| Materialized costs | 197 | 199 | +2 |
+
+This report compares the verified September 22 workspace snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -55,7 +72,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Gemini 3.1 Pro Preview | `artificial-analysis:apex-agents:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:critpt:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:gdpval-aa:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
-| Gemini 3.1 Pro Preview | `artificial-analysis:google-gemini-3-1-pro-preview-aa-index:intelligence-index-v4-3` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
+| Gemini 3.1 Pro Preview | `artificial-analysis:google-gemini-3-1-pro-preview-aa-index:intelligence-index-v4-3-2` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:gpqa-diamond:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:humanitys-last-exam:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
 | Gemini 3.1 Pro Preview | `artificial-analysis:ifbench:gemini-3-1-pro-preview` | — | `high` | deepswe | deepswe-1-1:mini-swe-agent-gemini-3-1-pro-preview-high |
@@ -68,37 +85,37 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Gemini 3.5 Flash-Lite | `artificial-analysis:aa-omniscience:gemini-3-5-flash-lite:index` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:critpt:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:gdpval-aa:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v4-3` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v4-3-2` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:gpqa-diamond:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:humanitys-last-exam:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:scicode:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:tau3-banking:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:terminal-bench-2-1:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
-| MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3:index` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:critpt:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:gdpval-aa:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:gpqa-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v4-3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-70:1-0-6 |
-| Qwen3.8 Max | `artificial-analysis:aa-briefcase:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:aa-lcr:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:aa-omniscience:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:aa-omniscience:qwen3-8-max:index` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:alibaba-qwen3-8-max-aa-index:intelligence-index-v4-3` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:critpt:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:gdpval-aa:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:gpqa-diamond:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:humanitys-last-exam:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:scicode:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:tau3-banking:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max | `artificial-analysis:terminal-bench-2-1:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3:index` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:critpt:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gdpval-aa:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gpqa-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v4-3-2` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| Qwen3.8 Max (0902) | `artificial-analysis:aa-briefcase:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:aa-lcr:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:aa-omniscience:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:aa-omniscience:qwen3-8-max:index` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:alibaba-qwen3-8-max-aa-index:intelligence-index-v4-3-2` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:critpt:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:gdpval-aa:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:gpqa-diamond:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:humanitys-last-exam:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:scicode:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:tau3-banking:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:terminal-bench-2-1:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
@@ -113,7 +130,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Kimi K2.7 Code | `artificial-analysis:gpqa-diamond:kimi-k2-7-code` | — | `default` | — | — |
 | Kimi K2.7 Code | `artificial-analysis:humanitys-last-exam:kimi-k2-7-code` | — | `default` | — | — |
 | Kimi K2.7 Code | `artificial-analysis:ifbench:kimi-k2-7-code` | — | `default` | — | — |
-| Kimi K2.7 Code | `artificial-analysis:moonshot-kimi-k2-7-code-aa-index:intelligence-index-v4-3` | — | `default` | — | — |
+| Kimi K2.7 Code | `artificial-analysis:moonshot-kimi-k2-7-code-aa-index:intelligence-index-v4-3-2` | — | `default` | — | — |
 | Kimi K2.7 Code | `artificial-analysis:scicode:kimi-k2-7-code` | — | `default` | — | — |
 | Kimi K2.7 Code | `artificial-analysis:tau3-banking:kimi-k2-7-code` | — | `default` | — | — |
 | Kimi K2.7 Code | `artificial-analysis:terminal-bench-2-1:kimi-k2-7-code` | — | `default` | — | — |
@@ -130,7 +147,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | MiMo-V2.5-Pro | `artificial-analysis:scicode:mimo-v2-5-pro` | — | `default` | — | — |
 | MiMo-V2.5-Pro | `artificial-analysis:tau3-banking:mimo-v2-5-pro` | — | `default` | — | — |
 | MiMo-V2.5-Pro | `artificial-analysis:terminal-bench-2-1:mimo-v2-5-pro` | — | `default` | — | — |
-| MiMo-V2.5-Pro | `artificial-analysis:xiaomi-mimo-v2-5-pro-aa-index:intelligence-index-v4-3` | — | `default` | — | — |
+| MiMo-V2.5-Pro | `artificial-analysis:xiaomi-mimo-v2-5-pro-aa-index:intelligence-index-v4-3-2` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-briefcase:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-lcr:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-omniscience:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
@@ -140,28 +157,15 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:gpqa-diamond:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:humanitys-last-exam:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:ifbench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:nvidia-nemotron-3-ultra-aa-index:intelligence-index-v4-3` | — | `default` | — | — |
+| Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:nvidia-nemotron-3-ultra-aa-index:intelligence-index-v4-3-2` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:scicode:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:tau3-banking:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:terminal-bench-2-1:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:aa-briefcase:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:aa-lcr:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:aa-omniscience:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:aa-omniscience:qwen3-6-27b:index` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:alibaba-qwen3-6-27b-aa-index:intelligence-index-v4-3` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:critpt:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:gdpval-aa:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:gpqa-diamond:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:humanitys-last-exam:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:ifbench:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:scicode:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:tau3-banking:qwen3-6-27b` | — | `default` | — | — |
-| Qwen3.6 27B (Reasoning) | `artificial-analysis:terminal-bench-2-1:qwen3-6-27b` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:aa-briefcase:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:aa-lcr:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:aa-omniscience:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:aa-omniscience:qwen3-7-plus:index` | — | `default` | — | — |
-| Qwen3.7 Plus | `artificial-analysis:alibaba-qwen3-7-plus-aa-index:intelligence-index-v4-3` | — | `default` | — | — |
+| Qwen3.7 Plus | `artificial-analysis:alibaba-qwen3-7-plus-aa-index:intelligence-index-v4-3-2` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:apex-agents:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:critpt:qwen3-7-plus` | — | `default` | — | — |
 | Qwen3.7 Plus | `artificial-analysis:gdpval-aa:qwen3-7-plus` | — | `default` | — | — |

@@ -6,10 +6,12 @@ import {
 } from '@llm-bench/benchmark-data';
 
 import {
+  currentBuildCanonicalId,
   normalizeSourceEffort,
   parseEffort,
   resolveModel,
   slugify,
+  stripTrailingConfiguration,
 } from './materializer-utils.js';
 
 export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
@@ -148,6 +150,7 @@ const APPROVED_SCORE_FIELDS = [
   'apexAgents',
   'terminalbench_v2_1',
   'terminalbenchV21',
+  'terminalBench21',
   'tau_banking',
   'tauBanking',
   'livecodebench',
@@ -242,7 +245,7 @@ const SCORE_MAPPING: readonly ScoreMapping[] = [
   },
   {
     field: 'terminalbench_v2_1',
-    aliases: ['terminalbench_v2_1', 'terminalbenchV21'],
+    aliases: ['terminalbench_v2_1', 'terminalbenchV21', 'terminalBench21'],
     benchmarkId: 'terminal-bench-2-1',
     metricId: 'accuracy',
     metricName: 'Accuracy',
@@ -386,6 +389,7 @@ const parseArtificialAnalysisVersionMetadata = (
   const directVersions: ReadonlyArray<readonly [string, string]> = [
     ['gdpval-aa', 'GDPval-AA'],
     ['aa-lcr', 'AA-LCR'],
+    ['aa-briefcase', 'AA-Briefcase'],
   ];
   for (const [benchmarkId, label] of directVersions) {
     const version = versionAfterLabel(text, label);
@@ -517,6 +521,21 @@ const modelRowKey = (row: ArtificialAnalysisRow): string | null => {
   }
   return null;
 };
+
+/** Discover source-published effort menu links in HTML and escaped RSC. */
+export const extractArtificialAnalysisVariantSlugs = (html: string): string[] =>
+  [
+    ...new Set(
+      Array.from(
+        html
+          .replaceAll('\\"', '"')
+          .matchAll(
+            /"label":"(?:low|medium|high|xhigh|max|non-reasoning)","href":"\/models\/([a-z0-9-]+)"/gu,
+          ),
+        (match) => match[1]!,
+      ),
+    ),
+  ].toSorted();
 
 /** Extract full model rows from both the model objects and initialModels arrays. */
 export const extractArtificialAnalysisRscRows = (
@@ -701,7 +720,7 @@ export const isArtificialAnalysisActiveRow = (
 };
 
 /**
- * Keep only the newest build of each model.
+ * Keep only the newest build of models with reviewed dated-build aliases.
  *
  * Artificial Analysis lists superseded builds alongside the current one and its
  * display names do not always say which is which: `DeepSeek V4 Pro` is the
@@ -710,20 +729,36 @@ export const isArtificialAnalysisActiveRow = (
  * `DeepSeek V4 Flash 0731` is current. Resolving on the display name merged
  * them under one identity.
  *
- * `release_date` is published per row, so the newest build is selected from the
- * source's own field rather than from a hand-maintained slug list. A list had
- * to enumerate every configuration suffix and still missed the Flash rows.
+ * Per-effort dates can differ within a single release (Opus 5.5). Only models
+ * with a reviewed dated-build alias use this filter; dates alone cannot prove
+ * that another effort belongs to a superseded build.
  */
 const newestBuildRows = (
   rows: ReadonlyMap<string, RowObservation[]>,
 ): Map<string, RowObservation[]> => {
+  const datedModels = new Set<string>();
+  for (const observations of rows.values()) {
+    for (const { row } of observations) {
+      const rawName = readRowField(row, ['name', 'shortName']);
+      if (typeof rawName !== 'string') continue;
+      const canonical = currentBuildCanonicalId(
+        stripTrailingConfiguration(rawName),
+      );
+      if (canonical) datedModels.add(canonical);
+    }
+  }
   const newestByModel = new Map<string, string>();
   for (const observations of rows.values()) {
     for (const { row } of observations) {
       const identity = modelIdentity(row);
       const canonical = identity?.resolved.canonicalModelId;
       const released = readRowField(row, ['release_date', 'releaseDate']);
-      if (!canonical || typeof released !== 'string') continue;
+      if (
+        !canonical ||
+        !datedModels.has(canonical) ||
+        typeof released !== 'string'
+      )
+        continue;
       const current = newestByModel.get(canonical);
       if (current === undefined || released > current) {
         newestByModel.set(canonical, released);
@@ -971,6 +1006,9 @@ interface ReadWithPath {
 const readOmniscienceAccuracy = (
   row: ArtificialAnalysisRow,
 ): ReadWithPath | null => {
+  const topLevel = readNumber(row.omniscienceAccuracy);
+  if (topLevel !== null)
+    return { value: topLevel, path: 'omniscienceAccuracy' };
   const breakdown = readRowField(row, [
     'omniscience_breakdown',
     'omniscienceBreakdown',
@@ -1266,7 +1304,7 @@ export const materializeArtificialAnalysisRsc = (
         observation.row,
         mapping,
         value,
-        `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=${mapping.field}`,
+        `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=${mapping.aliases.find((alias) => isArtificialAnalysisValuePresent(observation.row[alias])) ?? mapping.field}`,
       );
       if (candidate && !candidateIds.has(candidate.id)) {
         candidateIds.add(candidate.id);

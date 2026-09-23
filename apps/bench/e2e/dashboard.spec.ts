@@ -3,6 +3,8 @@ import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import type { ProductVersion } from '@llm-bench/benchmark-data';
 import {
+  ADVANCED_COST_SOURCE_IDS,
+  buildAdvancedCostSeries,
   withActivePreset,
   getPartialCoverageRows,
   isMainEligibleRow,
@@ -542,6 +544,25 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
     }
   }
 
+  // Keep only the cheapest effort, since another effort in its model may
+  // still set the original rounded axis bound.
+  const surviving = await page
+    .locator('.advanced-cost-point')
+    .evaluateAll((nodes) =>
+      nodes.map((node) => ({
+        id: node.getAttribute('data-profile-id')!,
+        cost: Number(node.getAttribute('data-cost-index')),
+      })),
+    );
+  surviving.sort((a, b) => a.cost - b.cost);
+  for (const point of surviving.slice(1)) {
+    const button = page.locator(
+      `.cost-effort-toggle[data-profile-id="${point.id}"]`,
+    );
+    await button.focus();
+    await page.keyboard.press('Space');
+  }
+
   const finalXTitle = (await xAxisTitle.textContent()) ?? '';
   const finalMatch = finalXTitle.match(/–(\d+(?:\.\d+)?)/);
   expect(finalMatch).not.toBeNull();
@@ -551,64 +572,64 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
 test('recomputes source eligibility and supports model and effort controls', async ({
   page,
 }) => {
+  const before = buildAdvancedCostSeries(currentProduct);
+  const after = buildAdvancedCostSeries(
+    currentProduct,
+    ADVANCED_COST_SOURCE_IDS.filter((id) => id !== 'arc-prize'),
+  );
+  const model = after.find(
+    (line) =>
+      line.points.length >= 2 &&
+      line.points.length >
+        (before.find((old) => old.seriesId === line.seriesId)?.points.length ??
+          0),
+  );
+  expect(model).toBeDefined();
+  const oldPoints =
+    before.find((line) => line.seriesId === model!.seriesId)?.points ?? [];
+  const gained = model!.points.find(
+    (point) => !oldPoints.some((old) => old.profileId === point.profileId),
+  )!;
   await page.goto('/');
   await page.locator('.cost-mode-toggle').click();
   await page.locator('.cost-model-overflow-trigger').click();
-
-  const opusRow = page.locator(
-    '.cost-model-menu-list li[data-series-id="anthropic-claude-opus-5"]',
+  const row = page.locator(
+    `.cost-model-menu-list li[data-series-id="${model!.seriesId}"]`,
   );
-  await expect(opusRow).toContainText('2/5');
-  const opusCheckbox = opusRow.locator('input[type="checkbox"]');
-  await expect(opusCheckbox).toHaveJSProperty('indeterminate', true);
-
-  const low = opusRow.locator(
-    '.cost-effort-toggle[data-profile-id="anthropic-claude-opus-5-low"]',
+  const total = await row.locator('.cost-effort-toggle').count();
+  await expect(row).toContainText(`${oldPoints.length}/${total}`);
+  const effort = row.locator(
+    `.cost-effort-toggle[data-profile-id="${gained.profileId}"]`,
   );
-  await expect(low).toBeDisabled();
-
+  await expect(effort).toBeDisabled();
   const arc = page.locator(
     '.advanced-source-toggle[data-source-id="arc-prize"]',
   );
   await arc.focus();
   await page.keyboard.press('Enter');
   await expect(arc).toHaveAttribute('aria-pressed', 'false');
-
-  await expect(opusRow).toContainText('5/5');
-  await expect(opusCheckbox).toBeChecked();
-  await expect(opusCheckbox).toHaveJSProperty('indeterminate', false);
-  await expect(low).toBeEnabled();
-  await expect(low).toHaveAttribute('aria-pressed', 'true');
-  await expect(
-    page.locator(
-      '.advanced-cost-point[data-series-id="anthropic-claude-opus-5"]',
-    ),
-  ).toHaveCount(5);
+  await expect(effort).toBeEnabled();
+  await expect(effort).toHaveAttribute('aria-pressed', 'true');
+  const points = page.locator(
+    `.advanced-cost-point[data-series-id="${model!.seriesId}"]`,
+  );
+  await expect(points).toHaveCount(model!.points.length);
   await expect(
     page.locator('.advanced-cost-chart .cost-axis-title').last(),
   ).toContainText('3-source mean score');
-
-  await opusCheckbox.focus();
+  const checkbox = row.locator('input[type="checkbox"]');
+  await checkbox.focus();
   await page.keyboard.press('Space');
-  await expect(opusRow).toContainText('0/5');
-  await expect(
-    page.locator(
-      '.advanced-cost-point[data-series-id="anthropic-claude-opus-5"]',
-    ),
-  ).toHaveCount(0);
-
-  await opusCheckbox.focus();
+  await expect(points).toHaveCount(0);
+  await expect(row).toContainText(`0/${total}`);
+  await checkbox.focus();
   await page.keyboard.press('Space');
-  await expect(opusRow).toContainText('5/5');
-
-  const medium = opusRow.locator(
-    '.cost-effort-toggle[data-profile-id="anthropic-claude-opus-5-medium"]',
-  );
-  await medium.focus();
+  await expect(points).toHaveCount(model!.points.length);
+  await effort.focus();
   await page.keyboard.press('Space');
-  await expect(medium).toHaveAttribute('aria-pressed', 'false');
-  await expect(opusRow).toContainText('4/5');
-  await expect(opusCheckbox).toHaveJSProperty('indeterminate', true);
+  await expect(effort).toHaveAttribute('aria-pressed', 'false');
+  await expect(points).toHaveCount(model!.points.length - 1);
+  await expect(checkbox).toHaveJSProperty('indeterminate', true);
 });
 
 test('has no serious accessibility violations or page-level mobile overflow', async ({
@@ -921,15 +942,23 @@ test('falls back when a preset removes the selected model profile', async ({
 test('renders refreshed Astra with complete scores and the audited version', async ({
   page,
 }) => {
-  await page.goto('/?preset=free-sources-19');
+  const preset = currentProduct.presets.find((candidate) =>
+    candidate.leaderboard.some(
+      (row) =>
+        row.profileId === 'openai-gpt-6-astra-max' &&
+        isMainEligibleRow(currentProduct, row, candidate),
+    ),
+  );
+  expect(
+    preset,
+    'Astra must have a complete preset in the refreshed data',
+  ).toBeDefined();
+  await page.goto(`/?preset=${preset!.id}`);
   const row = page
     .locator('[data-ranked-row]')
     .filter({ hasText: 'GPT-6 Astra' });
   await expect(row).toHaveCount(1);
-  const preset = currentProduct.presets.find(
-    (p) => p.id === 'free-sources-19',
-  )!;
-  const expected = preset.leaderboard.find(
+  const expected = preset!.leaderboard.find(
     (r) => r.profileId === 'openai-gpt-6-astra-max',
   )!;
   expect(expected.overallScore).not.toBeNull();
@@ -941,9 +970,15 @@ test('renders refreshed Astra with complete scores and the audited version', asy
   await expect(detail).toBeVisible();
   await expect(detail).toContainText('max');
   await page.goto('/');
+  const defaultPreset = withActivePreset(currentProduct).activePreset;
+  const astraInDefault = defaultPreset.leaderboard.some(
+    (candidate) =>
+      candidate.modelId === 'openai-gpt-6-astra' &&
+      isMainEligibleRow(currentProduct, candidate, defaultPreset),
+  );
   await expect(
     page.locator('[data-ranked-row]').filter({ hasText: 'GPT-6 Astra' }),
-  ).toHaveCount(0);
+  ).toHaveCount(astraInDefault ? 1 : 0);
 });
 
 test('discloses partial-coverage profiles in developer mode, outside the ranked table', async ({
@@ -973,7 +1008,9 @@ test('discloses partial-coverage profiles in developer mode, outside the ranked 
   // The ranked table is one row per model at the preset's target count, and it
   // never shows an N/A cell; every profile listed above has one.
   const rankedRows = page.locator('[data-ranked-row]');
-  expect(await rankedRows.count()).toBe(13);
+  expect(await rankedRows.count()).toBe(
+    withActivePreset(currentProduct).activePreset.targetModelCount,
+  );
   expect(
     (await rankedRows.allTextContents()).every((text) => !text.includes('N/A')),
   ).toBe(true);

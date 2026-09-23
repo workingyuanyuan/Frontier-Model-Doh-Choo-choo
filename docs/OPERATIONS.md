@@ -82,6 +82,8 @@ JSON-LD 與官方靜態 JSON；未提供 DOM 核對結果時會拒絕標記完�
 
 LiveBench 的可見母體以啟用 Include finetunes 後的頁面核對。2026-09-06 匯出仍保留兩個已不在畫面的 bare slugs：`deepseek-v4-flash`、`deepseek-v4-pro`；腳本僅精確扣除這兩筆再比對可見數，不能用前綴排除仍可見的 Vision Exp。原始匯出列仍保留。若來源改變此關係，重新查核畫面與匯出，不調整人工數字以繞過檢查。
 
+2026-09-23 起亦核對來源 bundle 明示的 variants 分組：同組有多個 CSV 檔位時，主表只顯示一列，核對數量按分組折算，候選成績與成本仍各自保留。
+
 Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabilities_index/eci_scores.csv`；目前格式必須有 `model_metadata.csv` 對照 direct benchmark run version。family-level ECI 的日期是模型日期，不是檔位或 benchmark 版本；未宣告版本保存 null，綜合指數保持 EXCLUDED。
 
 刷新完成後逐站檢查：

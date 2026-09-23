@@ -2,6 +2,47 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "anthropic-claude-opus-5-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Opus 5.5",
+      "aliases": [
+        "Opus 5.5",
+        "claude-opus-5-5",
+        "claude-opus-5.5",
+        "anthropic/claude-opus-5-5"
+      ],
+      "releaseDate": "2026-09-22",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-6-sol",
+      "providerId": "openai",
+      "displayName": "GPT-6 Sol",
+      "aliases": ["gpt-6-sol", "openai/gpt-6-sol"],
+      "releaseDate": "2026-09-22",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-6-luna",
+      "providerId": "openai",
+      "displayName": "GPT-6 Luna",
+      "aliases": ["gpt-6-luna", "openai/gpt-6-luna"],
+      "releaseDate": "2026-09-22",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "xai-grok-4-7",
+      "providerId": "xai",
+      "displayName": "Grok 4.7",
+      "aliases": ["grok-4.7", "grok-4-7", "xai/grok-4.7", "grok/grok-4.7"],
+      "releaseDate": "2026-09-21",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "google-gemini-3-8-flash",
       "providerId": "google",
       "displayName": "Gemini 3.8 Flash",
