@@ -1,7 +1,12 @@
 {
   "accessMethods": ["EXPORT", "API_RESPONSE", "DOM"],
   "baseUrl": "https://livebench.ai",
-  "benchmarkIds": ["livebench-reasoning", "livebench-mathematics", "livebench-language", "livebench-instruction-following"],
+  "benchmarkIds": [
+    "livebench-reasoning",
+    "livebench-mathematics",
+    "livebench-language",
+    "livebench-instruction-following"
+  ],
   "completeness": {
     "expectedCountMethod": "Read the latest release/cache version from the official bundle, then count every table, category and cost-export row.",
     "pagination": null,

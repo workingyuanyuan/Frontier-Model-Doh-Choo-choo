@@ -52,7 +52,12 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
         <p data-partial-coverage-count={rows.length}>{rows.length} profiles</p>
       </div>
       {rows.length > 0 ? (
-        <div className="table-scroll">
+        <div
+          className="table-scroll"
+          role="region"
+          aria-label="Partial coverage scores"
+          tabIndex={0}
+        >
           <table className="compact-data-table">
             <caption>
               Profiles missing one capability dimension, without an overall
