@@ -39,7 +39,7 @@
     "BenchmarkView.tasks.overall.*.reasoning_effort / compute_effort": "profile.effort when legal",
     "index /benchmarks/<slug> links": "complete page enumeration"
   },
-  "lastVerifiedAt": "2026-09-23T04:14:59.688Z",
+  "lastVerifiedAt": "2026-09-25T11:19:46.737Z",
   "notes": [
     "47 benchmark slugs were discovered dynamically; 46 exposed BenchmarkView data.",
     "Only the explicit approved benchmark table may produce INCLUDED capability scores; new pages are visible in validation but remain EXCLUDED.",

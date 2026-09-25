@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:e86669e9db44d685594932953520223b882a47f92d3915b360a3b7f71c68ba6c`
-- Observed at: 2026-09-23T04:14:59.688Z
+- Index evidence: `sha256:f292fc22a7dece1b7696ecc1ee8f9e5e0ac96adbb09856de66c010b391bb4545`
+- Observed at: 2026-09-25T11:19:46.737Z
 
 ## Exact counts
 
@@ -9,13 +9,13 @@
 |---|---:|
 | Benchmark slugs discovered from index | 47 |
 | Benchmark pages with BenchmarkView data | 46 |
-| CandidateResults | 2889 |
-| Included CandidateResults | 1847 |
-| Excluded CandidateResults | 1042 |
+| CandidateResults | 2907 |
+| Included CandidateResults | 1858 |
+| Excluded CandidateResults | 1049 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 2754 |
+| CostRecords retained | 2772 |
 | Included vals_index CostRecords | 64 |
-| Canonically unresolved rows | 1810 |
+| Canonically unresolved rows | 1825 |
 | Distinct canonically unresolved models | 196 |
 
 ## Per-page completeness
@@ -25,15 +25,15 @@
 | `aime` | 96 | EXCLUDED |
 | `biomysterybench` | 16 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
-| `code-migration` | 67 | APPROVED |
+| `code-migration` | 68 | APPROVED |
 | `corp_fin_v2` | 134 | APPROVED |
 | `cua_bench` | 5 | EXCLUDED |
-| `cyber` | 7 | APPROVED |
+| `cyber` | 9 | APPROVED |
 | `emb` | 65 | APPROVED |
 | `fabv2` | 68 | APPROVED |
 | `gpqa` | 138 | APPROVED |
 | `hlab` | 69 | APPROVED |
-| `ioi` | 32 | APPROVED |
+| `ioi` | 33 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 147 | APPROVED |
 | `legal_research` | 68 | APPROVED |
@@ -45,23 +45,23 @@
 | `mmlu_pro` | 138 | APPROVED |
 | `mmmu` | 93 | EXCLUDED |
 | `mortgage_tax` | 98 | EXCLUDED |
-| `mysterymechanism` | 14 | EXCLUDED |
+| `mysterymechanism` | 16 | EXCLUDED |
 | `poker_agent` | 17 | EXCLUDED |
-| `programbench` | 49 | APPROVED |
-| `proof_bench` | 40 | APPROVED |
-| `public-benefits-bench` | 40 | APPROVED |
+| `programbench` | 52 | APPROVED |
+| `proof_bench` | 42 | APPROVED |
+| `public-benefits-bench` | 42 | APPROVED |
 | `public-benefits-bench-v1` | 13 | EXCLUDED |
 | `rsi_index` | 0 | EXCLUDED |
 | `sage` | 85 | EXCLUDED |
 | `skillsbench` | 35 | APPROVED |
 | `srebench` | 11 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
-| `tax_agent_bench` | 26 | EXCLUDED |
+| `tax_agent_bench` | 28 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 73 | APPROVED |
-| `terminal-bench-4` | 32 | EXCLUDED |
-| `terminal-bench-science` | 29 | EXCLUDED |
+| `terminal-bench-4` | 34 | EXCLUDED |
+| `terminal-bench-science` | 30 | EXCLUDED |
 | `time_horizon_index` | 11 | EXCLUDED |
 | `vals_index` | 65 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
@@ -389,9 +389,9 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Benchmark slugs discovered from index | 47 | 47 | +0 |
-| CandidateResults | 2889 | 2889 | +0 |
-| CostRecords retained | 2754 | 2754 | +0 |
-| Canonically unresolved rows | 1864 | 1810 | -54 |
+| CandidateResults | 2889 | 2907 | +18 |
+| CostRecords retained | 2754 | 2772 | +18 |
+| Canonically unresolved rows | 1810 | 1825 | +15 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

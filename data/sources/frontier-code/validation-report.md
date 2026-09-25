@@ -3,7 +3,7 @@
 - Page: <https://cognition.com/frontiercode>
 - Official static export: <https://cognition.com/data/frontiercode-leaderboard/data.json>
 - Export evidence: `sha256:edba28c872b94a4abf665ed5443c52a001c75646eb4ae01a2c83a794128893bc`
-- Page/JSON-LD evidence: `sha256:4b20185c223296122d3f9c07d8be6d279764bbe62fcce6057c52496bfd52e6d4`
+- Page/JSON-LD evidence: `sha256:524108d82bac8cf1f536b4044afcbebb1f3605dd540aa51c55bd2485795004fb`
 
 ## Acquirable scope
 

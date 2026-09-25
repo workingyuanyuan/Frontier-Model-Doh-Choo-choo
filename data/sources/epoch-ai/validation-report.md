@@ -1,6 +1,6 @@
 # Epoch AI acquisition validation
 
-- Retrieved at: 2026-09-23T04:14:44.162Z
+- Retrieved at: 2026-09-25T11:19:57.596Z
 - Export: https://epoch.ai/data/benchmark_data.zip
 - Live comparison channel: https://epoch.ai/data/benchmarks.csv
 - Page: https://epoch.ai/benchmarks/use-this-data
@@ -9,7 +9,7 @@
 
 | Check | Count |
 |---|---:|
-| ZIP entries | 87 |
+| ZIP entries | 88 |
 | External-source mirrors (`_external`) | 66 |
 | Epoch Capabilities Index rows | 268 |
 | CandidateResults | 1492 |
@@ -145,7 +145,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Gemini 3.5 Flash-Lite | `epoch-ai:epoch-capabilities-index:google-gemini-3-5-flash-lite-default-epoch-inspect-row-80` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.6 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-6-flash-default-epoch-inspect-row-32` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-6-flash-high:arc-agi-2-v2-semi-private |
 | Gemini 3.7 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-7-flash-default-epoch-inspect-row-11` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-7-flash-high:arc-agi-2-v2-semi-private |
-| Gemini 3.8 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-8-flash-default-epoch-inspect-row-13` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-3-8-flash |
+| Gemini 3.8 Flash | `epoch-ai:epoch-capabilities-index:google-gemini-3-8-flash-default-epoch-inspect-row-13` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private |
 | GLM-5.1 | `epoch-ai:aime:zai-glm-5-1-default-epoch-inspect-row-64` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-79:1-0-6 |
 | GLM-5.1 | `epoch-ai:chess-puzzles:zai-glm-5-1-default-epoch-inspect-row-70` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-79:1-0-6 |
 | GLM-5.1 | `epoch-ai:epoch-capabilities-index:zai-glm-5-1-default-epoch-inspect-row-50` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-79:1-0-6 |

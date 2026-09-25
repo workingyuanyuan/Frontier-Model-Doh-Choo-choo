@@ -26,7 +26,7 @@
     "Release date": "model release metadata",
     "Started at": "sourcePublishedAt"
   },
-  "lastVerifiedAt": "2026-09-23T04:14:44.162Z",
+  "lastVerifiedAt": "2026-09-25T11:19:57.596Z",
   "notes": [
     "Only files without the _external suffix are treated as Epoch-run evidence.",
     "ECI is an Epoch-owned composite and stays EXCLUDED: selection-only evidence, never a ninth dimension.",

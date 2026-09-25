@@ -348,4 +348,22 @@ describe('Zapier AutomationBench materializer', () => {
     expect(deepseekCost.provenance.cost?.locator).toContain('$0.14‡');
     expect(deepseekCost.provenance.cost?.locator).toContain('Fireworks rates');
   });
+
+  it('recognizes default fallbacks modifier alongside effort tiers', () => {
+    const customRoute = routeFixture.replace(
+      'Gemini 3.7 Flash (High)',
+      'Claude Opus 5.5 (default fallbacks, Max)',
+    );
+    const result = materializeZapier(customRoute, mockContext);
+    const opus = result.candidates.find(
+      ({ model }) =>
+        model.rawName === 'Claude Opus 5.5 (default fallbacks, Max)',
+    )!;
+    expect(opus).toBeDefined();
+    expect(opus.model.canonicalModelId).toBe('anthropic-claude-opus-5-5');
+    expect(opus.profile.effort).toBe('max');
+    expect(opus.model.profileId).toBe('anthropic-claude-opus-5-5-max');
+    expect(opus.inclusion).toBe('INCLUDED');
+    expect(opus.exclusionReason).toBeNull();
+  });
 });

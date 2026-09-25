@@ -376,22 +376,40 @@ const parseEffort = (
   if (segment === null) {
     return { effort: null, minimal: false, low: false, recognized: true };
   }
-  const normalized =
-    segment.trim().toLowerCase() === 'none'
-      ? 'non-reasoning'
-      : normalizeSourceEffort(segment);
-  if (normalized === 'minimal') {
-    return { effort: 'low', minimal: true, low: false, recognized: true };
+  const parts = segment.split(',').map((part) => part.trim());
+  let effort: string | null = null;
+  let minimal = false;
+  let low = false;
+  let allPartsRecognized = true;
+
+  for (const part of parts) {
+    const lower = part.toLowerCase();
+    if (lower === 'default fallbacks' || lower === 'default fallback') {
+      continue;
+    }
+    const normalized =
+      lower === 'none' ? 'non-reasoning' : normalizeSourceEffort(part);
+    if (normalized === 'minimal') {
+      effort = 'low';
+      minimal = true;
+    } else if (normalized !== null) {
+      effort = normalized;
+      low = normalized === 'low';
+    } else {
+      allPartsRecognized = false;
+    }
   }
-  if (normalized !== null) {
-    return {
-      effort: normalized,
-      minimal: false,
-      low: normalized === 'low',
-      recognized: true,
-    };
+
+  if (!allPartsRecognized || effort === null) {
+    return { effort: null, minimal: false, low: false, recognized: false };
   }
-  return { effort: null, minimal: false, low: false, recognized: false };
+
+  return {
+    effort,
+    minimal,
+    low,
+    recognized: true,
+  };
 };
 
 const profileIdFor = (
