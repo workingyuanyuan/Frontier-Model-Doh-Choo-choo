@@ -18,8 +18,8 @@ import { materializeLiveBenchCosts } from './pricing-materializers.js';
 import {
   captureArtifact,
   getWorkspaceRoot,
-  manifestJson,
   prettyDeterministicJson,
+  writeMetadataJson,
   previousSnapshotValue,
   readJson,
   readText,
@@ -263,10 +263,7 @@ async function main() {
   ].toSorted((left, right) => left.requestUrl.localeCompare(right.requestUrl));
 
   await Promise.all([
-    writeFile(
-      join(sourceDirectory, 'evidence-index.json'),
-      prettyDeterministicJson(evidence),
-    ),
+    writeMetadataJson(join(sourceDirectory, 'evidence-index.json'), evidence),
     writeFile(
       join(sourceDirectory, 'candidates.json'),
       deterministicJson(result.candidates),
@@ -276,7 +273,7 @@ async function main() {
       prettyDeterministicJson(costs),
     ),
     writeFile(join(sourceDirectory, 'validation-report.md'), report),
-    writeFile(join(sourceDirectory, 'manifest.json'), manifestJson(manifest)),
+    writeMetadataJson(join(sourceDirectory, 'manifest.json'), manifest),
   ]);
   console.log(
     JSON.stringify({

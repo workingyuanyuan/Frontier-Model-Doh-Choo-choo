@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@llm-bench/benchmark-data": "workspace:*",
-    "adm-zip": "^0.6.1"
+    "adm-zip": "^0.6.1",
+    "prettier": "3.9.5"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",

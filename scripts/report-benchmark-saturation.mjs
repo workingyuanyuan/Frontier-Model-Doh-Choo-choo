@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { DatabaseSync } from 'node:sqlite';
+import { format, resolveConfig } from 'prettier';
 
 // Run from the repository root; optional positional args: input.json output.json.
 const inputPath = process.argv[2] ?? 'data/product/current.json';
@@ -194,7 +195,14 @@ const report = {
   broad,
   ablations,
 };
-writeFileSync(outputPath, JSON.stringify(report, null, 2) + '\n');
+writeFileSync(
+  outputPath,
+  await format(JSON.stringify(report, null, 2) + '\n', {
+    ...(await resolveConfig(outputPath)),
+    filepath: outputPath,
+    parser: 'json',
+  }),
+);
 const chartQuery = `SELECT json_extract(value, '$.id') AS benchmark,
   json_extract(value, '$.p90p10') AS spread,
   json_extract(value, '$.median') AS median,

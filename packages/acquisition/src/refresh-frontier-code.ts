@@ -21,34 +21,11 @@ import { writeContentAddressedArtifact } from './index.js';
 import {
   previousSnapshotValue,
   snapshotDeltaMarkdown,
+  writeMetadataJson,
 } from './refresh-utils.js';
 
 const prettyDeterministicJson = (value: unknown): string =>
   `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
-
-const manifestJson = (
-  manifest: Record<
-    'accessMethods' | 'benchmarkIds' | 'fallbackMethods',
-    string[]
-  > &
-    object,
-): string => {
-  let json = prettyDeterministicJson(manifest);
-  for (const key of [
-    'accessMethods',
-    'benchmarkIds',
-    'fallbackMethods',
-  ] as const) {
-    const expanded = `  ${JSON.stringify(key)}: [\n${manifest[key]
-      .map((value) => `    ${JSON.stringify(value)}`)
-      .join(',\n')}\n  ]`;
-    const compact = `  ${JSON.stringify(key)}: [${manifest[key]
-      .map((value) => JSON.stringify(value))
-      .join(', ')}]`;
-    json = json.replace(expanded, compact);
-  }
-  return json;
-};
 
 const getWorkspaceRoot = (): string => {
   let directory = process.cwd();
@@ -231,8 +208,8 @@ async function main() {
   });
 
   await Promise.all([
-    writeFile(join(sourceDir, 'manifest.json'), manifestJson(manifest)),
-    writeFile(evidencePath, prettyDeterministicJson(evidence)),
+    writeMetadataJson(join(sourceDir, 'manifest.json'), manifest),
+    writeMetadataJson(evidencePath, evidence),
     writeFile(
       join(sourceDir, 'candidates.json'),
       prettyDeterministicJson(result.candidates),

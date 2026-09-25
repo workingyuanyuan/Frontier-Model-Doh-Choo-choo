@@ -16,8 +16,8 @@ import {
   type MaterializeValsResult,
 } from './vals-materializer.js';
 import {
-  manifestJson,
   prettyDeterministicJson,
+  writeMetadataJson,
   previousSnapshotValue,
   snapshotDeltaMarkdown,
 } from './refresh-utils.js';
@@ -193,10 +193,7 @@ export async function writeValsSnapshot({
     ...pageRecords.map(({ record }) => record),
   ].toSorted((left, right) => left.requestUrl.localeCompare(right.requestUrl));
   await Promise.all([
-    writeFile(
-      join(sourceDirectory, 'evidence-index.json'),
-      prettyDeterministicJson(evidence),
-    ),
+    writeMetadataJson(join(sourceDirectory, 'evidence-index.json'), evidence),
     writeFile(
       join(sourceDirectory, 'candidates.json'),
       prettyDeterministicJson(result.candidates),
@@ -209,6 +206,6 @@ export async function writeValsSnapshot({
       join(sourceDirectory, 'validation-report.md'),
       `${result.validationReport.trimEnd()}\n\n${dimensionMappingMarkdown}${delta}`,
     ),
-    writeFile(join(sourceDirectory, 'manifest.json'), manifestJson(manifest)),
+    writeMetadataJson(join(sourceDirectory, 'manifest.json'), manifest),
   ]);
 }

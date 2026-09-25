@@ -24,6 +24,7 @@ import { writeContentAddressedArtifact } from './index.js';
 import {
   previousSnapshotValue,
   snapshotDeltaMarkdown,
+  writeMetadataJson,
 } from './refresh-utils.js';
 
 const MODELS_URL = 'https://artificialanalysis.ai/models';
@@ -444,9 +445,9 @@ const main = async () => {
       left.id.localeCompare(right.id),
   );
 
-  await writeFile(
+  await writeMetadataJson(
     join(sourceDirectory, 'evidence-index.json'),
-    prettyDeterministicJson(mergedEvidence),
+    mergedEvidence,
   );
   await writeFile(
     join(sourceDirectory, 'candidates.json'),
@@ -488,9 +489,9 @@ const main = async () => {
       `Materialized ${result.intelligenceIndexRows} Intelligence Index candidates (all EXCLUDED) and ${result.gdpvalRows} GDPval-AA normalized candidates.`,
     ],
   };
-  await writeFile(
+  await writeMetadataJson(
     join(sourceDirectory, 'manifest.json'),
-    prettyDeterministicJson(updatedManifest),
+    updatedManifest,
   );
 
   console.log(

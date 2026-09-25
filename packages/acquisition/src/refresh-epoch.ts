@@ -17,8 +17,7 @@ import { parseCsv } from './materializer-utils.js';
 import {
   captureArtifact,
   getWorkspaceRoot,
-  manifestJson,
-  prettyDeterministicJson,
+  writeMetadataJson,
   readJson,
   readText,
   previousSnapshotValue,
@@ -345,12 +344,10 @@ async function main() {
   });
 
   await Promise.all([
-    writeFile(
+    writeMetadataJson(
       join(sourceDirectory, 'evidence-index.json'),
-      prettyDeterministicJson(
-        [archive.record, live.record, page.record].toSorted((left, right) =>
-          left.requestUrl.localeCompare(right.requestUrl),
-        ),
+      [archive.record, live.record, page.record].toSorted((left, right) =>
+        left.requestUrl.localeCompare(right.requestUrl),
       ),
     ),
     writeFile(
@@ -358,7 +355,7 @@ async function main() {
       deterministicJson(candidates),
     ),
     writeFile(join(sourceDirectory, 'validation-report.md'), report),
-    writeFile(join(sourceDirectory, 'manifest.json'), manifestJson(manifest)),
+    writeMetadataJson(join(sourceDirectory, 'manifest.json'), manifest),
   ]);
 
   console.log(

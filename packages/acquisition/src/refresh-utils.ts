@@ -1,7 +1,8 @@
 import { acquisitionClient } from './safe-network.js';
 import { existsSync } from 'node:fs';
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { format, resolveConfig } from 'prettier';
 
 import {
   EvidenceRecordSchema,
@@ -42,28 +43,21 @@ export const previousSnapshotValue = (
 export const prettyDeterministicJson = (value: unknown): string =>
   `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
 
-export const manifestJson = (
-  manifest: Record<
-    'accessMethods' | 'benchmarkIds' | 'fallbackMethods',
-    string[]
-  > &
-    object,
-): string => {
-  let json = prettyDeterministicJson(manifest);
-  for (const key of [
-    'accessMethods',
-    'benchmarkIds',
-    'fallbackMethods',
-  ] as const) {
-    const expanded = `  ${JSON.stringify(key)}: [\n${manifest[key]
-      .map((value) => `    ${JSON.stringify(value)}`)
-      .join(',\n')}\n  ]`;
-    const compact = `  ${JSON.stringify(key)}: [${manifest[key]
-      .map((value) => JSON.stringify(value))
-      .join(', ')}]`;
-    json = json.replace(expanded, compact);
-  }
-  return json;
+export const formatMetadataJson = async (
+  value: unknown,
+  path: string,
+): Promise<string> =>
+  format(prettyDeterministicJson(value), {
+    ...(await resolveConfig(path)),
+    filepath: path,
+    parser: 'json',
+  });
+
+export const writeMetadataJson = async (
+  path: string,
+  value: unknown,
+): Promise<void> => {
+  await writeFile(path, await formatMetadataJson(value, path));
 };
 
 export interface CapturedArtifact {

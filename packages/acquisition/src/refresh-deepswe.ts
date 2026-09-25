@@ -13,8 +13,8 @@ import { materializeDeepSweCosts } from './pricing-materializers.js';
 import {
   captureArtifact,
   getWorkspaceRoot,
-  manifestJson,
   prettyDeterministicJson,
+  writeMetadataJson,
   readJson,
   readText,
   previousSnapshotValue,
@@ -169,12 +169,10 @@ async function main() {
   });
 
   await Promise.all([
-    writeFile(
+    writeMetadataJson(
       join(sourceDirectory, 'evidence-index.json'),
-      prettyDeterministicJson(
-        [data.record, page.record].toSorted((left, right) =>
-          left.requestUrl.localeCompare(right.requestUrl),
-        ),
+      [data.record, page.record].toSorted((left, right) =>
+        left.requestUrl.localeCompare(right.requestUrl),
       ),
     ),
     writeFile(
@@ -186,7 +184,7 @@ async function main() {
       prettyDeterministicJson(costs),
     ),
     writeFile(join(sourceDirectory, 'validation-report.md'), report),
-    writeFile(join(sourceDirectory, 'manifest.json'), manifestJson(manifest)),
+    writeMetadataJson(join(sourceDirectory, 'manifest.json'), manifest),
   ]);
   console.log(
     JSON.stringify({

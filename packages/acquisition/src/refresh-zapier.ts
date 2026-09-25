@@ -21,8 +21,8 @@ import {
 import {
   captureArtifact,
   getWorkspaceRoot,
-  manifestJson,
   prettyDeterministicJson,
+  writeMetadataJson,
   previousSnapshotValue,
   readJson,
   readText,
@@ -187,9 +187,9 @@ async function main() {
     (left, right) => left.requestUrl.localeCompare(right.requestUrl),
   );
   await Promise.all([
-    writeFile(
+    writeMetadataJson(
       join(sourceDirectory, 'evidence-index.json'),
-      prettyDeterministicJson(evidenceRecords),
+      evidenceRecords,
     ),
     writeFile(
       join(sourceDirectory, 'candidates.json'),
@@ -203,7 +203,7 @@ async function main() {
       join(sourceDirectory, 'validation-report.md'),
       `${result.validationReport.trimEnd()}\n\n${delta}`,
     ),
-    writeFile(join(sourceDirectory, 'manifest.json'), manifestJson(manifest)),
+    writeMetadataJson(join(sourceDirectory, 'manifest.json'), manifest),
   ]);
 
   console.log(
