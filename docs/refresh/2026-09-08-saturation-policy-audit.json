@@ -100,9 +100,7 @@
           "sd": 8.252934632691453,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -129,9 +127,7 @@
           "sd": 1.6138291249213719,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -158,9 +154,7 @@
           "sd": 5.773204386550754,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -187,9 +181,7 @@
           "sd": 7.386474125047758,
           "fraction95": 0
         },
-        "sources": [
-          "epoch-ai"
-        ],
+        "sources": ["epoch-ai"],
         "flag": "other"
       },
       {
@@ -216,9 +208,7 @@
           "sd": 8.308455196966522,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -245,9 +235,7 @@
           "sd": 7.169094668429061,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -274,9 +262,7 @@
           "sd": 4.088966099150249,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -303,9 +289,7 @@
           "sd": 2.2928778074725225,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -332,9 +316,7 @@
           "sd": 4.930353612064756,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -361,10 +343,7 @@
           "sd": 0.7292087413955611,
           "fraction95": 0.2
         },
-        "sources": [
-          "vals-ai",
-          "epoch-ai"
-        ],
+        "sources": ["vals-ai", "epoch-ai"],
         "flag": "compressed-high"
       },
       {
@@ -391,9 +370,7 @@
           "sd": 4.461115959039845,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -420,9 +397,7 @@
           "sd": 4.6598532923381875,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -449,9 +424,7 @@
           "sd": 6.792319674455847,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -478,9 +451,7 @@
           "sd": 5.344980423256944,
           "fraction95": 0
         },
-        "sources": [
-          "livebench"
-        ],
+        "sources": ["livebench"],
         "flag": "other"
       },
       {
@@ -507,9 +478,7 @@
           "sd": 2.4451479446264837,
           "fraction95": 0
         },
-        "sources": [
-          "livebench"
-        ],
+        "sources": ["livebench"],
         "flag": "other"
       },
       {
@@ -536,9 +505,7 @@
           "sd": 1.4820274676941774,
           "fraction95": 0.6
         },
-        "sources": [
-          "livebench"
-        ],
+        "sources": ["livebench"],
         "flag": "other"
       },
       {
@@ -565,9 +532,7 @@
           "sd": 1.363399000659748,
           "fraction95": 0
         },
-        "sources": [
-          "livebench"
-        ],
+        "sources": ["livebench"],
         "flag": "other"
       },
       {
@@ -594,9 +559,7 @@
           "sd": 2.578229345888377,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -623,9 +586,7 @@
           "sd": 7.338999779261476,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -652,9 +613,7 @@
           "sd": 1.0377250888361502,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       },
       {
@@ -681,9 +640,7 @@
           "sd": 1.7188961310867734,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -710,10 +667,7 @@
           "sd": 6.096031495981628,
           "fraction95": 0.8
         },
-        "sources": [
-          "vals-ai",
-          "epoch-ai"
-        ],
+        "sources": ["vals-ai", "epoch-ai"],
         "flag": "other"
       },
       {
@@ -740,9 +694,7 @@
           "sd": 6.0090271129784885,
           "fraction95": 0
         },
-        "sources": [
-          "artificial-analysis"
-        ],
+        "sources": ["artificial-analysis"],
         "flag": "other"
       },
       {
@@ -769,10 +721,7 @@
           "sd": 4.49198979149949,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai",
-          "artificial-analysis"
-        ],
+        "sources": ["vals-ai", "artificial-analysis"],
         "flag": "other"
       },
       {
@@ -799,9 +748,7 @@
           "sd": 7.449975114052395,
           "fraction95": 0
         },
-        "sources": [
-          "vals-ai"
-        ],
+        "sources": ["vals-ai"],
         "flag": "other"
       }
     ]
@@ -949,9 +896,7 @@
             "sd": 5.398413479412993,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -978,9 +923,7 @@
             "sd": 3.2386554137309806,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1007,9 +950,7 @@
             "sd": 6.117830043769148,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1036,9 +977,7 @@
             "sd": 14.000000000000002,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -1065,9 +1004,7 @@
             "sd": 3.143376580493006,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1094,11 +1031,7 @@
             "sd": 1.0864732324470927,
             "fraction95": 0.4
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -1125,9 +1058,7 @@
             "sd": 3.4463907980283075,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1154,9 +1085,7 @@
             "sd": 4.351712246346255,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1183,9 +1112,7 @@
             "sd": 1.7391578498418927,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1212,9 +1139,7 @@
             "sd": 4.710806671898133,
             "fraction95": 0.8
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1241,9 +1166,7 @@
             "sd": 0.9983255806599369,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1270,9 +1193,7 @@
             "sd": 1.8451847577203428,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1299,9 +1220,7 @@
             "sd": 2.6711974830023464,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1328,10 +1247,7 @@
             "sd": 2.8779419716892454,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         }
       ]
@@ -1473,9 +1389,7 @@
             "sd": 5.398413479412993,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1502,9 +1416,7 @@
             "sd": 3.2386554137309806,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1531,9 +1443,7 @@
             "sd": 6.117830043769148,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1560,9 +1470,7 @@
             "sd": 14.000000000000002,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -1589,9 +1497,7 @@
             "sd": 3.143376580493006,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1618,9 +1524,7 @@
             "sd": 2.8034995880149505,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1647,11 +1551,7 @@
             "sd": 1.0864732324470927,
             "fraction95": 0.4
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -1678,9 +1578,7 @@
             "sd": 3.4463907980283075,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1707,9 +1605,7 @@
             "sd": 4.351712246346255,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1736,9 +1632,7 @@
             "sd": 1.7391578498418927,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1765,9 +1659,7 @@
             "sd": 4.710806671898133,
             "fraction95": 0.8
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1794,9 +1686,7 @@
             "sd": 0.9983255806599369,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -1823,9 +1713,7 @@
             "sd": 1.8451847577203428,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1852,9 +1740,7 @@
             "sd": 2.6711974830023464,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -1881,10 +1767,7 @@
             "sd": 2.8779419716892454,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         }
       ]
@@ -2021,9 +1904,7 @@
             "sd": 5.389710961251405,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2050,9 +1931,7 @@
             "sd": 8.450400384991628,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2079,9 +1958,7 @@
             "sd": 2.275692314606523,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2108,9 +1985,7 @@
             "sd": 4.108615611127425,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2137,9 +2012,7 @@
             "sd": 2.29226851830234,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2166,11 +2039,7 @@
             "sd": 1.0181126547456922,
             "fraction95": 0.4
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "artificial-analysis", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -2197,9 +2066,7 @@
             "sd": 6.856477072083009,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2226,9 +2093,7 @@
             "sd": 3.2755753168669526,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2255,9 +2120,7 @@
             "sd": 5.840840199834265,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2284,9 +2147,7 @@
             "sd": 5.019159858482293,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -2313,9 +2174,7 @@
             "sd": 2.7139012755318404,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -2342,9 +2201,7 @@
             "sd": 0.3672130376225763,
             "fraction95": 1
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -2371,9 +2228,7 @@
             "sd": 1.1683978817166694,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -2400,9 +2255,7 @@
             "sd": 1.8825579269766257,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2429,9 +2282,7 @@
             "sd": 3.02580393036604,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2458,10 +2309,7 @@
             "sd": 6.074280829678284,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2488,9 +2336,7 @@
             "sd": 3.930041699524318,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -2622,9 +2468,7 @@
             "sd": 5.406677203526056,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2651,9 +2495,7 @@
             "sd": 5.872436556584591,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2680,9 +2522,7 @@
             "sd": 7.483096188076161,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2709,9 +2549,7 @@
             "sd": 5.502949116531504,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2738,9 +2576,7 @@
             "sd": 4.102714057791501,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2767,9 +2603,7 @@
             "sd": 2.0085029250663293,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2796,11 +2630,7 @@
             "sd": 1.0039560739822693,
             "fraction95": 0.4
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "artificial-analysis", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -2827,9 +2657,7 @@
             "sd": 4.6917243994079625,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2856,9 +2684,7 @@
             "sd": 4.796051541403386,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -2885,9 +2711,7 @@
             "sd": 5.078771520751842,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -2914,9 +2738,7 @@
             "sd": 4.349379076374003,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -2943,9 +2765,7 @@
             "sd": 2.380468889385733,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -2972,9 +2792,7 @@
             "sd": 1.4879621550966988,
             "fraction95": 0.8
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -3001,9 +2819,7 @@
             "sd": 1.0165526720244258,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -3030,9 +2846,7 @@
             "sd": 1.7759322017422936,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3059,9 +2873,7 @@
             "sd": 4.187953207375865,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3088,10 +2900,7 @@
             "sd": 4.1193029984456215,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3118,9 +2927,7 @@
             "sd": 5.628226910848564,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -3247,9 +3054,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3276,9 +3081,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3305,9 +3108,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -3334,9 +3135,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3363,9 +3162,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -3392,9 +3189,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -3421,11 +3216,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "epoch-ai", "artificial-analysis"],
           "flag": "compressed-high"
         },
         {
@@ -3452,9 +3243,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -3481,9 +3270,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3510,9 +3297,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -3539,9 +3324,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -3568,9 +3351,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -3597,9 +3378,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -3626,9 +3405,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -3655,9 +3432,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3684,10 +3459,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -3714,9 +3486,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3743,10 +3513,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3773,9 +3540,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -3897,9 +3662,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3926,9 +3689,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -3955,9 +3716,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -3984,9 +3743,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4013,9 +3770,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4042,9 +3797,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4071,11 +3824,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "epoch-ai", "artificial-analysis"],
           "flag": "compressed-high"
         },
         {
@@ -4102,9 +3851,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4131,9 +3878,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4160,9 +3905,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4189,9 +3932,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -4218,9 +3959,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -4247,9 +3986,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -4276,9 +4013,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -4305,9 +4040,7 @@
             "sd": 7.338999779261476,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4334,9 +4067,7 @@
             "sd": 1.0377250888361502,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4363,9 +4094,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4392,10 +4121,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -4422,9 +4148,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4451,10 +4175,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4481,9 +4202,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -4600,9 +4319,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4629,9 +4346,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4658,9 +4373,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4687,9 +4400,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4716,9 +4427,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4745,9 +4454,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4774,9 +4481,7 @@
             "sd": 4.930353612064756,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4803,11 +4508,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "epoch-ai", "artificial-analysis"],
           "flag": "compressed-high"
         },
         {
@@ -4834,9 +4535,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4863,9 +4562,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -4892,9 +4589,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -4921,9 +4616,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -4950,9 +4643,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -4979,9 +4670,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -5008,9 +4697,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -5037,9 +4724,7 @@
             "sd": 7.338999779261476,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5066,9 +4751,7 @@
             "sd": 1.0377250888361502,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5095,9 +4778,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5124,10 +4805,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -5154,9 +4832,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5183,10 +4859,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5213,9 +4886,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -5327,9 +4998,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5356,9 +5025,7 @@
             "sd": 1.6138291249213719,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5385,9 +5052,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5414,9 +5079,7 @@
             "sd": 7.386474125047758,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -5443,9 +5106,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5472,9 +5133,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5501,9 +5160,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5530,9 +5187,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5559,10 +5214,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -5589,9 +5241,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5618,9 +5268,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5647,9 +5295,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5676,9 +5322,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -5705,9 +5349,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -5734,9 +5376,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -5763,9 +5403,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -5792,9 +5430,7 @@
             "sd": 7.338999779261476,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5821,9 +5457,7 @@
             "sd": 1.0377250888361502,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -5850,9 +5484,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5879,10 +5511,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -5909,9 +5538,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5938,10 +5565,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -5968,9 +5592,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -6077,9 +5699,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6106,9 +5726,7 @@
             "sd": 1.6138291249213719,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6135,9 +5753,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6164,9 +5780,7 @@
             "sd": 7.386474125047758,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -6193,9 +5807,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6222,9 +5834,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6251,9 +5861,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6280,9 +5888,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6309,9 +5915,7 @@
             "sd": 4.930353612064756,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6338,10 +5942,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -6368,9 +5969,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6397,9 +5996,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6426,9 +6023,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6455,9 +6050,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -6484,9 +6077,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -6513,9 +6104,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -6542,9 +6131,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -6571,9 +6158,7 @@
             "sd": 7.338999779261476,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6600,9 +6185,7 @@
             "sd": 1.0377250888361502,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6629,9 +6212,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6658,10 +6239,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -6688,9 +6266,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6717,10 +6293,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6747,9 +6320,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -6851,9 +6422,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6880,9 +6449,7 @@
             "sd": 1.6138291249213719,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6909,9 +6476,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -6938,9 +6503,7 @@
             "sd": 7.386474125047758,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -6967,9 +6530,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -6996,9 +6557,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7025,9 +6584,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7054,9 +6611,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7083,9 +6638,7 @@
             "sd": 4.930353612064756,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7112,10 +6665,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -7142,9 +6692,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7171,9 +6719,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7200,9 +6746,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7229,9 +6773,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -7258,9 +6800,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -7287,9 +6827,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -7316,9 +6854,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -7345,9 +6881,7 @@
             "sd": 2.578229345888377,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7374,9 +6908,7 @@
             "sd": 7.338999779261476,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7403,9 +6935,7 @@
             "sd": 1.0377250888361502,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7432,9 +6962,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7461,10 +6989,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -7491,9 +7016,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7520,10 +7043,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7550,9 +7070,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -7649,9 +7167,7 @@
             "sd": 8.252934632691453,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7678,9 +7194,7 @@
             "sd": 1.6138291249213719,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7707,9 +7221,7 @@
             "sd": 5.773204386550754,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7736,9 +7248,7 @@
             "sd": 7.386474125047758,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -7765,9 +7275,7 @@
             "sd": 8.308455196966522,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7794,9 +7302,7 @@
             "sd": 7.169094668429061,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7823,9 +7329,7 @@
             "sd": 4.088966099150249,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7852,9 +7356,7 @@
             "sd": 2.2928778074725225,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7881,9 +7383,7 @@
             "sd": 4.930353612064756,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7910,10 +7410,7 @@
             "sd": 0.7292087413955611,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -7940,9 +7437,7 @@
             "sd": 4.461115959039845,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -7969,9 +7464,7 @@
             "sd": 4.6598532923381875,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -7998,9 +7491,7 @@
             "sd": 6.792319674455847,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8027,9 +7518,7 @@
             "sd": 5.344980423256944,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8056,9 +7545,7 @@
             "sd": 2.4451479446264837,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8085,9 +7572,7 @@
             "sd": 1.4820274676941774,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8114,9 +7599,7 @@
             "sd": 1.363399000659748,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8143,9 +7626,7 @@
             "sd": 2.578229345888377,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8172,9 +7653,7 @@
             "sd": 7.338999779261476,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8201,9 +7680,7 @@
             "sd": 2.4850829684338525,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8230,9 +7707,7 @@
             "sd": 1.0377250888361502,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8259,9 +7734,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8288,10 +7761,7 @@
             "sd": 6.096031495981628,
             "fraction95": 0.8
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -8318,9 +7788,7 @@
             "sd": 6.0090271129784885,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8347,10 +7815,7 @@
             "sd": 4.49198979149949,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8377,9 +7842,7 @@
             "sd": 7.449975114052395,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -8471,9 +7934,7 @@
             "sd": 7.865233720991719,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8500,9 +7961,7 @@
             "sd": 1.756258649642616,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8529,9 +7988,7 @@
             "sd": 4.723165134619887,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8558,9 +8015,7 @@
             "sd": 7.934733769950952,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -8587,9 +8042,7 @@
             "sd": 8.862515390113577,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8616,9 +8069,7 @@
             "sd": 7.51683824109959,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8645,9 +8096,7 @@
             "sd": 7.12572403344017,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -8674,9 +8123,7 @@
             "sd": 7.823579830231169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8703,9 +8150,7 @@
             "sd": 3.913663889503034,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8732,10 +8177,7 @@
             "sd": 0.6507098227294491,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "compressed-high"
         },
         {
@@ -8762,9 +8204,7 @@
             "sd": 4.6740215917344665,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8791,9 +8231,7 @@
             "sd": 4.530884142231891,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -8820,9 +8258,7 @@
             "sd": 7.506108168685018,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8849,9 +8285,7 @@
             "sd": 5.111472765749613,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8878,9 +8312,7 @@
             "sd": 2.2523608808931495,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8907,9 +8339,7 @@
             "sd": 1.997535040994276,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -8936,9 +8366,7 @@
             "sd": 1.830608420717003,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -8965,9 +8393,7 @@
             "sd": 7.806373129693456,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -8994,9 +8420,7 @@
             "sd": 2.3740291994834446,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -9023,9 +8447,7 @@
             "sd": 0.9235952793296411,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -9052,9 +8474,7 @@
             "sd": 0.7836255036949566,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9081,9 +8501,7 @@
             "sd": 9.246923812814721,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -9110,10 +8528,7 @@
             "sd": 6.439130376067875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -9140,9 +8555,7 @@
             "sd": 5.756381995708643,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9169,9 +8582,7 @@
             "sd": 1.731003108027248,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -9198,10 +8609,7 @@
             "sd": 7.409425998231252,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "other"
         },
         {
@@ -9228,9 +8636,7 @@
             "sd": 7.076667944732182,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -9317,9 +8723,7 @@
             "sd": 8.180735466591916,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9346,9 +8750,7 @@
             "sd": 1.569146972791979,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9375,9 +8777,7 @@
             "sd": 3.3445577684750267,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9404,9 +8804,7 @@
             "sd": 3.4900814380819902,
             "fraction95": 0.2
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "other"
         },
         {
@@ -9433,9 +8831,7 @@
             "sd": 7.783323197709317,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "other"
         },
         {
@@ -9462,9 +8858,7 @@
             "sd": 13.32066064427737,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -9491,9 +8885,7 @@
             "sd": 6.613282861279854,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9520,9 +8912,7 @@
             "sd": 3.1379656607493227,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -9549,9 +8939,7 @@
             "sd": 3.811180394575937,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "other"
         },
         {
@@ -9578,11 +8966,7 @@
             "sd": 1.0075687073680695,
             "fraction95": 0.4
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -9609,9 +8993,7 @@
             "sd": 3.1516926814695716,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9638,9 +9020,7 @@
             "sd": 5.443603422825728,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -9667,9 +9047,7 @@
             "sd": 1.7633685869191815,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -9696,9 +9074,7 @@
             "sd": 1.1416310152584346,
             "fraction95": 0.8
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -9725,9 +9101,7 @@
             "sd": 1.6999195466256631,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -9754,9 +9128,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9783,9 +9155,7 @@
             "sd": 4.007432779630957,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9812,10 +9182,7 @@
             "sd": 4.339512054782464,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         }
       ]
@@ -9902,9 +9269,7 @@
             "sd": 7.865233720991719,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9931,9 +9296,7 @@
             "sd": 1.756258649642616,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9960,9 +9323,7 @@
             "sd": 4.723165134619887,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -9989,9 +9350,7 @@
             "sd": 7.934733769950952,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -10018,9 +9377,7 @@
             "sd": 8.862515390113577,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10047,9 +9404,7 @@
             "sd": 7.51683824109959,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10076,9 +9431,7 @@
             "sd": 7.12572403344017,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -10105,9 +9458,7 @@
             "sd": 7.823579830231169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10134,9 +9485,7 @@
             "sd": 3.913663889503034,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10163,9 +9512,7 @@
             "sd": 6.078823052203444,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10192,10 +9539,7 @@
             "sd": 0.6507098227294491,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "compressed-high"
         },
         {
@@ -10222,9 +9566,7 @@
             "sd": 4.6740215917344665,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10251,9 +9593,7 @@
             "sd": 4.530884142231891,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10280,9 +9620,7 @@
             "sd": 7.506108168685018,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10309,9 +9647,7 @@
             "sd": 5.111472765749613,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -10338,9 +9674,7 @@
             "sd": 2.2523608808931495,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -10367,9 +9701,7 @@
             "sd": 1.997535040994276,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -10396,9 +9728,7 @@
             "sd": 1.830608420717003,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -10425,9 +9755,7 @@
             "sd": 7.806373129693456,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10454,9 +9782,7 @@
             "sd": 2.3740291994834446,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10483,9 +9809,7 @@
             "sd": 0.9235952793296411,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10512,9 +9836,7 @@
             "sd": 0.7836255036949566,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10541,9 +9863,7 @@
             "sd": 9.246923812814721,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -10570,10 +9890,7 @@
             "sd": 6.439130376067875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -10600,9 +9917,7 @@
             "sd": 5.756381995708643,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10629,9 +9944,7 @@
             "sd": 1.731003108027248,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10658,10 +9971,7 @@
             "sd": 7.409425998231252,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "other"
         },
         {
@@ -10688,9 +9998,7 @@
             "sd": 7.076667944732182,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -10772,9 +10080,7 @@
             "sd": 8.180735466591916,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10801,9 +10107,7 @@
             "sd": 1.569146972791979,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10830,9 +10134,7 @@
             "sd": 3.3445577684750267,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -10859,9 +10161,7 @@
             "sd": 3.4900814380819902,
             "fraction95": 0.2
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "other"
         },
         {
@@ -10888,9 +10188,7 @@
             "sd": 7.783323197709317,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "other"
         },
         {
@@ -10917,9 +10215,7 @@
             "sd": 13.32066064427737,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -10946,9 +10242,7 @@
             "sd": 10.686382014507997,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -10975,9 +10269,7 @@
             "sd": 6.613282861279854,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11004,9 +10296,7 @@
             "sd": 3.1379656607493227,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -11033,9 +10323,7 @@
             "sd": 0.950513040415543,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11062,9 +10350,7 @@
             "sd": 2.3255941176396204,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11091,9 +10377,7 @@
             "sd": 3.811180394575937,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "other"
         },
         {
@@ -11120,11 +10404,7 @@
             "sd": 1.0075687073680692,
             "fraction95": 0.4
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -11151,9 +10431,7 @@
             "sd": 2.965035136385402,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11180,9 +10458,7 @@
             "sd": 3.1516926814695716,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11209,9 +10485,7 @@
             "sd": 7.401953407040602,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11238,9 +10512,7 @@
             "sd": 5.443603422825728,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -11267,9 +10539,7 @@
             "sd": 1.7633685869191815,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -11296,9 +10566,7 @@
             "sd": 1.1416310152584346,
             "fraction95": 0.8
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -11325,9 +10593,7 @@
             "sd": 1.6999195466256631,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -11354,9 +10620,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11383,9 +10647,7 @@
             "sd": 4.007432779630956,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11412,10 +10674,7 @@
             "sd": 4.339512054782464,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11442,9 +10701,7 @@
             "sd": 7.593437772181978,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -11526,9 +10783,7 @@
             "sd": 7.865233720991718,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11555,9 +10810,7 @@
             "sd": 1.756258649642616,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11584,9 +10837,7 @@
             "sd": 4.723165134619887,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11613,9 +10864,7 @@
             "sd": 15.568769838095909,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "other"
         },
         {
@@ -11642,9 +10891,7 @@
             "sd": 7.934733769950952,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -11671,9 +10918,7 @@
             "sd": 8.862515390113577,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11700,9 +10945,7 @@
             "sd": 7.51683824109959,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11729,9 +10972,7 @@
             "sd": 7.12572403344017,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -11758,9 +10999,7 @@
             "sd": 7.823579830231169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11787,9 +11026,7 @@
             "sd": 3.9136638895030336,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11816,9 +11053,7 @@
             "sd": 2.7080428357025674,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "other"
         },
         {
@@ -11845,10 +11080,7 @@
             "sd": 0.6507098227294491,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "compressed-high"
         },
         {
@@ -11875,9 +11107,7 @@
             "sd": 4.6740215917344665,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11904,9 +11134,7 @@
             "sd": 4.530884142231891,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -11933,9 +11161,7 @@
             "sd": 7.506108168685018,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -11962,9 +11188,7 @@
             "sd": 5.111472765749613,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -11991,9 +11215,7 @@
             "sd": 2.2523608808931495,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -12020,9 +11242,7 @@
             "sd": 1.997535040994276,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -12049,9 +11269,7 @@
             "sd": 1.8306084207170032,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -12078,9 +11296,7 @@
             "sd": 7.806373129693456,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12107,9 +11323,7 @@
             "sd": 2.3740291994834446,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12136,9 +11350,7 @@
             "sd": 0.9235952793296411,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12165,9 +11377,7 @@
             "sd": 0.7836255036949566,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12194,9 +11404,7 @@
             "sd": 9.246923812814721,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -12223,10 +11431,7 @@
             "sd": 6.439130376067875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -12253,9 +11458,7 @@
             "sd": 5.756381995708643,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12282,9 +11485,7 @@
             "sd": 1.731003108027248,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12311,10 +11512,7 @@
             "sd": 7.409425998231253,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "other"
         },
         {
@@ -12341,9 +11539,7 @@
             "sd": 7.076667944732182,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -12420,9 +11616,7 @@
             "sd": 8.180735466591916,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12449,9 +11643,7 @@
             "sd": 1.569146972791979,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12478,9 +11670,7 @@
             "sd": 3.3445577684750267,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12507,9 +11697,7 @@
             "sd": 3.4900814380819902,
             "fraction95": 0.2
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "other"
         },
         {
@@ -12536,9 +11724,7 @@
             "sd": 7.783323197709317,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "other"
         },
         {
@@ -12565,9 +11751,7 @@
             "sd": 13.32066064427737,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -12594,9 +11778,7 @@
             "sd": 10.686382014507997,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12623,9 +11805,7 @@
             "sd": 6.613282861279854,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12652,9 +11832,7 @@
             "sd": 3.1379656607493227,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -12681,9 +11859,7 @@
             "sd": 0.950513040415543,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12710,9 +11886,7 @@
             "sd": 2.3255941176396204,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12739,9 +11913,7 @@
             "sd": 3.811180394575937,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "other"
         },
         {
@@ -12768,11 +11940,7 @@
             "sd": 1.0075687073680692,
             "fraction95": 0.4
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai", "epoch-ai"],
           "flag": "compressed-high"
         },
         {
@@ -12799,9 +11967,7 @@
             "sd": 2.965035136385402,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12828,9 +11994,7 @@
             "sd": 3.1516926814695716,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -12857,9 +12021,7 @@
             "sd": 7.401953407040602,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -12886,9 +12048,7 @@
             "sd": 5.443603422825728,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -12915,9 +12075,7 @@
             "sd": 1.7633685869191815,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -12944,9 +12102,7 @@
             "sd": 1.1416310152584346,
             "fraction95": 0.8
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -12973,9 +12129,7 @@
             "sd": 1.6999195466256631,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -13002,9 +12156,7 @@
             "sd": 6.679801673702597,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13031,9 +12183,7 @@
             "sd": 2.489546384384113,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13060,9 +12210,7 @@
             "sd": 1.7188961310867734,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13089,9 +12237,7 @@
             "sd": 4.007432779630956,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13118,10 +12264,7 @@
             "sd": 4.339512054782464,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13148,9 +12291,7 @@
             "sd": 7.593437772181978,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -13227,9 +12368,7 @@
             "sd": 7.865233720991718,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13256,9 +12395,7 @@
             "sd": 1.756258649642616,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13285,9 +12422,7 @@
             "sd": 4.723165134619887,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13314,9 +12449,7 @@
             "sd": 15.568769838095909,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "other"
         },
         {
@@ -13343,9 +12476,7 @@
             "sd": 7.934733769950952,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -13372,9 +12503,7 @@
             "sd": 8.862515390113577,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13401,9 +12530,7 @@
             "sd": 7.51683824109959,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13430,9 +12557,7 @@
             "sd": 7.12572403344017,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "other"
         },
         {
@@ -13459,9 +12584,7 @@
             "sd": 7.823579830231169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13488,9 +12611,7 @@
             "sd": 3.9136638895030336,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13517,9 +12638,7 @@
             "sd": 2.7080428357025674,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "other"
         },
         {
@@ -13546,9 +12665,7 @@
             "sd": 6.078823052203444,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13575,10 +12692,7 @@
             "sd": 0.6507098227294491,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "compressed-high"
         },
         {
@@ -13605,9 +12719,7 @@
             "sd": 4.6740215917344665,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13634,9 +12746,7 @@
             "sd": 4.530884142231891,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13663,9 +12773,7 @@
             "sd": 7.506108168685018,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13692,9 +12800,7 @@
             "sd": 5.111472765749613,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -13721,9 +12827,7 @@
             "sd": 2.2523608808931495,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -13750,9 +12854,7 @@
             "sd": 1.997535040994276,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "compressed-high"
         },
         {
@@ -13779,9 +12881,7 @@
             "sd": 1.8306084207170032,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "other"
         },
         {
@@ -13808,9 +12908,7 @@
             "sd": 7.806373129693456,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13837,9 +12935,7 @@
             "sd": 2.3740291994834446,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13866,9 +12962,7 @@
             "sd": 0.9235952793296411,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -13895,9 +12989,7 @@
             "sd": 0.7836255036949566,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -13924,9 +13016,7 @@
             "sd": 9.246923812814721,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "other"
         },
         {
@@ -13953,10 +13043,7 @@
             "sd": 6.439130376067875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "other"
         },
         {
@@ -13983,9 +13070,7 @@
             "sd": 5.756381995708643,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "other"
         },
         {
@@ -14012,9 +13097,7 @@
             "sd": 1.731003108027248,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         },
         {
@@ -14041,10 +13124,7 @@
             "sd": 7.409425998231253,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "other"
         },
         {
@@ -14071,9 +13151,7 @@
             "sd": 7.076667944732182,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "other"
         }
       ]
@@ -14145,9 +13223,7 @@
             "sd": 8.925560982371197,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14174,9 +13250,7 @@
             "sd": 1.6679994670929217,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14203,9 +13277,7 @@
             "sd": 7.699992784989403,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14232,9 +13304,7 @@
             "sd": 12.131940506136864,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -14261,9 +13331,7 @@
             "sd": 5.821728265730032,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "small-sample"
         },
         {
@@ -14290,9 +13358,7 @@
             "sd": 7.386474125047758,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -14319,9 +13385,7 @@
             "sd": 8.310786085563748,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14348,9 +13412,7 @@
             "sd": 6.593998508073333,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14377,9 +13439,7 @@
             "sd": 3.173991350934093,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -14406,9 +13466,7 @@
             "sd": 2.400905795736267,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14435,9 +13493,7 @@
             "sd": 2.0336576309693837,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14464,9 +13520,7 @@
             "sd": 4.23763330173813,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -14493,10 +13547,7 @@
             "sd": 1.2602978869621404,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -14523,9 +13574,7 @@
             "sd": 3.750936181808483,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14552,9 +13601,7 @@
             "sd": 5.7866811431461995,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14581,9 +13628,7 @@
             "sd": 7.937259340603656,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14610,9 +13655,7 @@
             "sd": 7.365627309672952,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -14639,9 +13682,7 @@
             "sd": 6.448202452708131,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -14668,9 +13709,7 @@
             "sd": 3.4023832110742602,
             "fraction95": 0.6
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -14697,9 +13736,7 @@
             "sd": 2.230765434777938,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -14726,9 +13763,7 @@
             "sd": 7.861784174091783,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14755,9 +13790,7 @@
             "sd": 2.7105194040995175,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14784,9 +13817,7 @@
             "sd": 2.0386624046172996,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14813,9 +13844,7 @@
             "sd": 2.367909602323044,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14842,9 +13871,7 @@
             "sd": 5.9544941010970875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -14871,9 +13898,7 @@
             "sd": 5.108078372685201,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14900,10 +13925,7 @@
             "sd": 4.367869719478409,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai",
-            "artificial-analysis"
-          ],
+          "sources": ["vals-ai", "artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -14930,9 +13952,7 @@
             "sd": 7.348258498447099,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -15004,9 +14024,7 @@
             "sd": 7.865233720991718,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15033,9 +14051,7 @@
             "sd": 1.756258649642616,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15062,9 +14078,7 @@
             "sd": 4.723165134619887,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15091,9 +14105,7 @@
             "sd": 15.568769838095909,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -15120,9 +14132,7 @@
             "sd": 7.934733769950952,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -15149,9 +14159,7 @@
             "sd": 8.862515390113577,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15178,9 +14186,7 @@
             "sd": 7.51683824109959,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15207,9 +14213,7 @@
             "sd": 7.12572403344017,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -15236,9 +14240,7 @@
             "sd": 7.823579830231169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15265,9 +14267,7 @@
             "sd": 3.9136638895030336,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15294,9 +14294,7 @@
             "sd": 2.7080428357025674,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -15323,9 +14321,7 @@
             "sd": 6.078823052203444,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15352,10 +14348,7 @@
             "sd": 0.6507098227294491,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15382,9 +14375,7 @@
             "sd": 4.6740215917344665,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15411,9 +14402,7 @@
             "sd": 4.530884142231891,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15440,9 +14429,7 @@
             "sd": 0.47935231302247777,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15469,9 +14456,7 @@
             "sd": 7.506108168685018,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15498,9 +14483,7 @@
             "sd": 5.111472765749613,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -15527,9 +14510,7 @@
             "sd": 2.2523608808931495,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -15556,9 +14537,7 @@
             "sd": 1.997535040994276,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -15585,9 +14564,7 @@
             "sd": 1.8306084207170032,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -15614,9 +14591,7 @@
             "sd": 7.806373129693456,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15643,9 +14618,7 @@
             "sd": 2.3740291994834446,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15672,9 +14645,7 @@
             "sd": 0.9235952793296411,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15701,9 +14672,7 @@
             "sd": 23.996666435153028,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15730,9 +14699,7 @@
             "sd": 0.7836255036949566,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15759,9 +14726,7 @@
             "sd": 9.246923812814721,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -15788,9 +14753,7 @@
             "sd": 4.960804555714731,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15817,10 +14780,7 @@
             "sd": 6.439130376067875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -15847,9 +14807,7 @@
             "sd": 5.756381995708643,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -15876,9 +14834,7 @@
             "sd": 1.731003108027248,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15905,10 +14861,7 @@
             "sd": 7.409425998231253,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -15935,9 +14888,7 @@
             "sd": 7.076667944732182,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -16004,9 +14955,7 @@
             "sd": 9.562830973765257,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16033,9 +14982,7 @@
             "sd": 1.878533707147398,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16062,9 +15009,7 @@
             "sd": 6.6432053842838386,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16091,9 +15036,7 @@
             "sd": 14.536172597275314,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -16120,9 +15063,7 @@
             "sd": 5.821728265730032,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "small-sample"
         },
         {
@@ -16149,9 +15090,7 @@
             "sd": 7.456540752922902,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -16178,9 +15117,7 @@
             "sd": 10.166095525815207,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16207,9 +15144,7 @@
             "sd": 8.330715234992153,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16236,9 +15171,7 @@
             "sd": 9.736145169268486,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -16265,9 +15198,7 @@
             "sd": 3.1380888833810925,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16294,9 +15225,7 @@
             "sd": 2.0341019050185283,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16323,9 +15252,7 @@
             "sd": 5.295456165430888,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -16352,10 +15279,7 @@
             "sd": 1.2315453616751122,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16382,9 +15306,7 @@
             "sd": 2.7814664477573694,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16411,9 +15333,7 @@
             "sd": 5.696865548560106,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16440,9 +15360,7 @@
             "sd": 10.629186960440576,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16469,9 +15387,7 @@
             "sd": 7.3069985948404295,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -16498,9 +15414,7 @@
             "sd": 5.793165315553608,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -16527,9 +15441,7 @@
             "sd": 4.191927882848174,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -16556,9 +15468,7 @@
             "sd": 2.718746252411211,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -16585,9 +15495,7 @@
             "sd": 7.634069284464218,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16614,9 +15522,7 @@
             "sd": 3.6261685344175603,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16643,9 +15549,7 @@
             "sd": 1.8214674743184385,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16672,9 +15576,7 @@
             "sd": 1.6877524197738847,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16701,9 +15603,7 @@
             "sd": 10.686252851210284,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -16730,9 +15630,7 @@
             "sd": 7.575328375720754,
             "fraction95": 0.4
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16759,9 +15657,7 @@
             "sd": 5.956443739469796,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16788,9 +15684,7 @@
             "sd": 0.5349224242822495,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16817,10 +15711,7 @@
             "sd": 5.603479973349565,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -16847,9 +15738,7 @@
             "sd": 8.371956196732041,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -16916,9 +15805,7 @@
             "sd": 7.865233720991718,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16945,9 +15832,7 @@
             "sd": 1.756258649642616,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -16974,9 +15859,7 @@
             "sd": 4.723165134619887,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17003,9 +15886,7 @@
             "sd": 15.568769838095909,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -17032,9 +15913,7 @@
             "sd": 7.934733769950952,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -17061,9 +15940,7 @@
             "sd": 8.862515390113577,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17090,9 +15967,7 @@
             "sd": 7.51683824109959,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17119,9 +15994,7 @@
             "sd": 7.12572403344017,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -17148,9 +16021,7 @@
             "sd": 7.823579830231169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17177,9 +16048,7 @@
             "sd": 3.9136638895030336,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17206,9 +16075,7 @@
             "sd": 2.7080428357025674,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -17235,9 +16102,7 @@
             "sd": 6.078823052203444,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17264,10 +16129,7 @@
             "sd": 0.6507098227294491,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17294,9 +16156,7 @@
             "sd": 4.6740215917344665,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17323,9 +16183,7 @@
             "sd": 4.530884142231891,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17352,9 +16210,7 @@
             "sd": 0.47935231302247777,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17381,9 +16237,7 @@
             "sd": 7.506108168685018,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17410,9 +16264,7 @@
             "sd": 5.111472765749613,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -17439,9 +16291,7 @@
             "sd": 2.2523608808931495,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -17468,9 +16318,7 @@
             "sd": 1.997535040994276,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -17497,9 +16345,7 @@
             "sd": 1.8306084207170032,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -17526,9 +16372,7 @@
             "sd": 2.351981581560537,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17555,9 +16399,7 @@
             "sd": 7.806373129693456,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17584,9 +16426,7 @@
             "sd": 2.3740291994834446,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17613,9 +16453,7 @@
             "sd": 0.9235952793296411,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17642,9 +16480,7 @@
             "sd": 23.996666435153028,
             "fraction95": 0.2
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17671,9 +16507,7 @@
             "sd": 0.7836255036949566,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17700,9 +16534,7 @@
             "sd": 9.246923812814721,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -17729,9 +16561,7 @@
             "sd": 4.960804555714731,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17758,10 +16588,7 @@
             "sd": 6.439130376067875,
             "fraction95": 0.6
           },
-          "sources": [
-            "vals-ai",
-            "epoch-ai"
-          ],
+          "sources": ["vals-ai", "epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -17788,9 +16615,7 @@
             "sd": 5.756381995708643,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17817,9 +16642,7 @@
             "sd": 1.731003108027248,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17846,10 +16669,7 @@
             "sd": 7.409425998231253,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -17876,9 +16696,7 @@
             "sd": 7.076667944732182,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -17940,9 +16758,7 @@
             "sd": 9.562830973765259,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17969,9 +16785,7 @@
             "sd": 1.8785337071473978,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -17998,9 +16812,7 @@
             "sd": 6.6432053842838386,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18027,9 +16839,7 @@
             "sd": 14.536172597275314,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -18056,9 +16866,7 @@
             "sd": 5.821728265730032,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "small-sample"
         },
         {
@@ -18085,9 +16893,7 @@
             "sd": 7.456540752922902,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -18114,9 +16920,7 @@
             "sd": 10.166095525815209,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18143,9 +16947,7 @@
             "sd": 8.330715234992153,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18172,9 +16974,7 @@
             "sd": 9.736145169268486,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -18201,9 +17001,7 @@
             "sd": 3.1380888833810925,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18230,9 +17028,7 @@
             "sd": 2.0341019050185283,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18259,9 +17055,7 @@
             "sd": 5.295456165430888,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -18288,9 +17082,7 @@
             "sd": 7.111089131771588,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18317,10 +17109,7 @@
             "sd": 1.2315453616751122,
             "fraction95": 0.2
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18347,9 +17136,7 @@
             "sd": 2.7814664477573694,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18376,9 +17163,7 @@
             "sd": 5.696865548560106,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18405,9 +17190,7 @@
             "sd": 10.629186960440578,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18434,9 +17217,7 @@
             "sd": 7.3069985948404295,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -18463,9 +17244,7 @@
             "sd": 5.793165315553608,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -18492,9 +17271,7 @@
             "sd": 4.191927882848174,
             "fraction95": 0.4
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -18521,9 +17298,7 @@
             "sd": 2.718746252411211,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -18550,9 +17325,7 @@
             "sd": 7.634069284464219,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18579,9 +17352,7 @@
             "sd": 3.6261685344175603,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18608,9 +17379,7 @@
             "sd": 1.8214674743184385,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18637,9 +17406,7 @@
             "sd": 1.6877524197738847,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18666,9 +17433,7 @@
             "sd": 10.686252851210284,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -18695,9 +17460,7 @@
             "sd": 7.575328375720755,
             "fraction95": 0.4
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18724,9 +17487,7 @@
             "sd": 5.956443739469796,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18753,9 +17514,7 @@
             "sd": 0.5349224242822495,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18782,10 +17541,7 @@
             "sd": 5.6034799733495655,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -18812,9 +17568,7 @@
             "sd": 8.371956196732041,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -18871,9 +17625,7 @@
             "sd": 8.230168757780522,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18900,9 +17652,7 @@
             "sd": 1.8633899812498418,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18929,9 +17679,7 @@
             "sd": 7.135137768272048,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -18958,9 +17706,7 @@
             "sd": 13.15335326383859,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -18987,9 +17733,7 @@
             "sd": 5.20126426938682,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "small-sample"
         },
         {
@@ -19016,9 +17760,7 @@
             "sd": 8.16624148553054,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -19045,9 +17787,7 @@
             "sd": 8.642471503424238,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19074,9 +17814,7 @@
             "sd": 7.09232122849516,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19103,9 +17841,7 @@
             "sd": 3.5486000867137446,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -19132,9 +17868,7 @@
             "sd": 2.42329304614609,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19161,9 +17895,7 @@
             "sd": 2.2696100298289146,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19190,9 +17922,7 @@
             "sd": 3.484769540443097,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -19219,9 +17949,7 @@
             "sd": 5.885374429199471,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19248,10 +17976,7 @@
             "sd": 1.3728271232201652,
             "fraction95": 0.25
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19278,9 +18003,7 @@
             "sd": 3.040576292004527,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19307,9 +18030,7 @@
             "sd": 5.521017533156972,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19336,9 +18057,7 @@
             "sd": 1.3176667588961921,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19365,9 +18084,7 @@
             "sd": 8.47424717895342,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19394,9 +18111,7 @@
             "sd": 7.642935527692798,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -19423,9 +18138,7 @@
             "sd": 6.475572974970375,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -19452,9 +18165,7 @@
             "sd": 3.586259857515207,
             "fraction95": 0.5
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -19481,9 +18192,7 @@
             "sd": 2.480692660956815,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -19510,9 +18219,7 @@
             "sd": 8.471756765128472,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19539,9 +18246,7 @@
             "sd": 2.8366731724856846,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19568,9 +18273,7 @@
             "sd": 2.0362614026691146,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19597,9 +18300,7 @@
             "sd": 16.98528775146303,
             "fraction95": 0.25
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19626,9 +18327,7 @@
             "sd": 1.4533991151474748,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19655,9 +18354,7 @@
             "sd": 11.616044937929601,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -19684,9 +18381,7 @@
             "sd": 4.174775764936365,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19713,9 +18408,7 @@
             "sd": 6.496729946673174,
             "fraction95": 0.5
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19742,9 +18435,7 @@
             "sd": 5.705372966660662,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19771,9 +18462,7 @@
             "sd": 0.5775173157577169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19800,10 +18489,7 @@
             "sd": 4.769870661746714,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -19830,9 +18516,7 @@
             "sd": 6.4897773603953475,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -19884,9 +18568,7 @@
             "sd": 8.805699519140028,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19913,9 +18595,7 @@
             "sd": 1.9051586888313743,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19942,9 +18622,7 @@
             "sd": 2.3482197091560932,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -19971,9 +18649,7 @@
             "sd": 3.3510643232808066,
             "fraction95": 0
           },
-          "sources": [
-            "arc-prize"
-          ],
+          "sources": ["arc-prize"],
           "flag": "small-sample"
         },
         {
@@ -20000,9 +18676,7 @@
             "sd": 1.4293666040903883,
             "fraction95": 0
           },
-          "sources": [
-            "zapier-automationbench"
-          ],
+          "sources": ["zapier-automationbench"],
           "flag": "small-sample"
         },
         {
@@ -20029,9 +18703,7 @@
             "sd": 9.092121131323907,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -20058,9 +18730,7 @@
             "sd": 9.792404278600612,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20087,9 +18757,7 @@
             "sd": 7.850068965712325,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -20116,9 +18784,7 @@
             "sd": 3.7419418155555197,
             "fraction95": 0
           },
-          "sources": [
-            "deepswe"
-          ],
+          "sources": ["deepswe"],
           "flag": "small-sample"
         },
         {
@@ -20145,9 +18811,7 @@
             "sd": 0.9116625837812307,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20174,9 +18838,7 @@
             "sd": 2.4012544406807232,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20203,9 +18865,7 @@
             "sd": 2.6188674396896565,
             "fraction95": 0
           },
-          "sources": [
-            "frontier-code"
-          ],
+          "sources": ["frontier-code"],
           "flag": "small-sample"
         },
         {
@@ -20232,9 +18892,7 @@
             "sd": 6.235202567323337,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -20261,10 +18919,7 @@
             "sd": 0.5575537985070642,
             "fraction95": 0.3333333333333333
           },
-          "sources": [
-            "epoch-ai",
-            "vals-ai"
-          ],
+          "sources": ["epoch-ai", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20291,9 +18946,7 @@
             "sd": 2.5984028855347963,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20320,9 +18973,7 @@
             "sd": 2.990464719366386,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -20349,9 +19000,7 @@
             "sd": 0.13510736471413975,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20378,9 +19027,7 @@
             "sd": 8.567359855223128,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20407,9 +19054,7 @@
             "sd": 6.596782063796121,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -20436,9 +19081,7 @@
             "sd": 1.3510460784787581,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -20465,9 +19108,7 @@
             "sd": 1.1921297293779212,
             "fraction95": 0.6666666666666666
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -20494,9 +19135,7 @@
             "sd": 1.7228650355020718,
             "fraction95": 0
           },
-          "sources": [
-            "livebench"
-          ],
+          "sources": ["livebench"],
           "flag": "small-sample"
         },
         {
@@ -20523,9 +19162,7 @@
             "sd": 2.944967571977662,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20552,9 +19189,7 @@
             "sd": 8.002059957008294,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20581,9 +19216,7 @@
             "sd": 3.0615180330461347,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20610,9 +19243,7 @@
             "sd": 1.0224383708675169,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20639,9 +19270,7 @@
             "sd": 16.87206764645835,
             "fraction95": 0.3333333333333333
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20668,9 +19297,7 @@
             "sd": 0.3577784913385823,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -20697,9 +19324,7 @@
             "sd": 4.506538459714823,
             "fraction95": 0
           },
-          "sources": [
-            "epoch-ai"
-          ],
+          "sources": ["epoch-ai"],
           "flag": "small-sample"
         },
         {
@@ -20726,9 +19351,7 @@
             "sd": 4.818234600625698,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20755,9 +19378,7 @@
             "sd": 7.455348564770278,
             "fraction95": 0.6666666666666666
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20784,9 +19405,7 @@
             "sd": 4.995008195355764,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis"
-          ],
+          "sources": ["artificial-analysis"],
           "flag": "small-sample"
         },
         {
@@ -20813,9 +19432,7 @@
             "sd": 0.18390396044312615,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20842,10 +19459,7 @@
             "sd": 4.876974027281132,
             "fraction95": 0
           },
-          "sources": [
-            "artificial-analysis",
-            "vals-ai"
-          ],
+          "sources": ["artificial-analysis", "vals-ai"],
           "flag": "small-sample"
         },
         {
@@ -20872,9 +19486,7 @@
             "sd": 7.370258264734615,
             "fraction95": 0
           },
-          "sources": [
-            "vals-ai"
-          ],
+          "sources": ["vals-ai"],
           "flag": "small-sample"
         }
       ]
@@ -21469,9 +20081,7 @@
   ],
   "ablations": [
     {
-      "removed": [
-        "aime"
-      ],
+      "removed": ["aime"],
       "cohort": "fixed original representative profiles",
       "changes": [
         {

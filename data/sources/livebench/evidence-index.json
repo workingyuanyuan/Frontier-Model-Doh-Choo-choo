@@ -8,10 +8,7 @@
     "metadata": {
       "application": "JavaScript SPA",
       "latestRelease": "2026-06-25",
-      "supersededExportNames": [
-        "deepseek-v4-flash",
-        "deepseek-v4-pro"
-      ],
+      "supersededExportNames": ["deepseek-v4-flash", "deepseek-v4-pro"],
       "visibleComparisonMatched": true,
       "visibleProfiles": 60
     },
@@ -81,10 +78,7 @@
     "mediaType": "text/csv",
     "metadata": {
       "collapsedVariants": [
-        [
-          "claude-opus-5-5-xhigh-effort",
-          "claude-opus-5-5-max-effort"
-        ]
+        ["claude-opus-5-5-xhigh-effort", "claude-opus-5-5-max-effort"]
       ],
       "release": "2026-06-25",
       "rows": 63
