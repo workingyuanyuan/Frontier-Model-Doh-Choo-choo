@@ -142,6 +142,27 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
   const developerModelButton = page
     .locator('[data-developer-model] button')
     .first();
+  const partialCoverageRegion = page.getByRole('region', {
+    name: 'Partial coverage scores',
+  });
+  await expect(partialCoverageRegion).toBeVisible();
+  await developerModelButton.focus();
+  await page.keyboard.press('Shift+Tab');
+  await expect(partialCoverageRegion).toBeFocused();
+  const isHorizontallyScrollable = await partialCoverageRegion.evaluate(
+    (element) => {
+      element.scrollLeft = 0;
+      return element.scrollWidth > element.clientWidth;
+    },
+  );
+  if (isHorizontallyScrollable) {
+    await page.keyboard.press('ArrowRight');
+    await expect
+      .poll(() =>
+        partialCoverageRegion.evaluate((element) => element.scrollLeft),
+      )
+      .toBeGreaterThan(0);
+  }
   await expect(developerModelButton).toHaveAttribute('aria-expanded', 'false');
   await developerModelButton.click();
   await expect(developerModelButton).toHaveAttribute('aria-expanded', 'true');
