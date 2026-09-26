@@ -328,6 +328,56 @@ summary:focus-visible {
   gap: 0.875rem;
 }
 
+.copy-markdown-control {
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.copy-markdown-button {
+  align-items: center;
+  background: var(--surface-subtle);
+  border: 0.0625rem solid var(--line);
+  border-radius: 0.625rem;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  height: 2.75rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+
+.copy-markdown-button:hover {
+  color: var(--accent);
+}
+
+.copy-markdown-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.copy-markdown-button svg {
+  fill: none;
+  height: 1.125rem;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  width: 1.125rem;
+}
+
+.copy-markdown-status:not(:empty) {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  font-size: 0.8125rem;
+  padding: 0.5rem 0.75rem;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  width: max-content;
+  max-width: 12rem;
+  z-index: 10;
+}
+
 .theme-switcher {
   align-items: center;
   background: var(--surface-subtle);

@@ -1,5 +1,6 @@
 import type { DimensionId } from '@llm-bench/benchmark-data';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
 
 import { UI_DIMENSION_IDS } from '../lib/ui-contract';
 import {
@@ -126,6 +127,32 @@ export function Leaderboard({
     [activeRows, product, sort],
   );
 
+  const [copyStatus, setCopyStatus] = useState('');
+  const [copying, setCopying] = useState(false);
+
+  useEffect(() => {
+    if (!copyStatus) return;
+    const timer = window.setTimeout(() => setCopyStatus(''), 4000);
+    return () => window.clearTimeout(timer);
+  }, [copyStatus]);
+
+  const copyMarkdown = async () => {
+    setCopying(true);
+    setCopyStatus('');
+    try {
+      await navigator.clipboard.writeText(
+        leaderboardMarkdown(product, sortedRows),
+      );
+      setCopyStatus('Copied!');
+    } catch {
+      setCopyStatus(
+        'Copy failed. Please allow clipboard access and try again.',
+      );
+    } finally {
+      setCopying(false);
+    }
+  };
+
   const onSort = (key: LeaderboardSortKey) =>
     setSort((current) => ({
       key,
@@ -178,13 +205,33 @@ export function Leaderboard({
               activePreset={controlPreset ?? product.activePreset}
               onSelectPreset={onSelectPreset}
             />
-            <ModelPicker
-              product={pickerProduct}
-              representatives={representatives}
-              checkedModelIds={checkedModelIds}
-              setCheckedModelIds={setCheckedModelIds}
-              onReset={onResetModels}
-            />
+            <div className="leaderboard-table-actions">
+              <ModelPicker
+                product={pickerProduct}
+                representatives={representatives}
+                checkedModelIds={checkedModelIds}
+                setCheckedModelIds={setCheckedModelIds}
+                onReset={onResetModels}
+              />
+              <div className="copy-markdown-control">
+                <button
+                  type="button"
+                  className="copy-markdown-button"
+                  aria-label="Copy table as Markdown"
+                  title="Copy table as Markdown"
+                  disabled={copying}
+                  onClick={copyMarkdown}
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="8" y="8" width="12" height="13" rx="2" />
+                    <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
+                  </svg>
+                </button>
+                <span className="copy-markdown-status" role="status">
+                  {copyStatus}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 

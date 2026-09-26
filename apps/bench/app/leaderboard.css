@@ -582,6 +582,17 @@
   gap: 0.75rem;
 }
 
+.leaderboard-table-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  max-width: 100%;
+}
+
+.leaderboard-table-actions .picker-container {
+  min-width: 0;
+}
+
 .preset-controls {
   align-items: center;
   display: flex;
