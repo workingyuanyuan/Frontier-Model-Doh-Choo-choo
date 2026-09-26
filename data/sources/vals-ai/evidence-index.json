@@ -13,7 +13,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f292fc22a7dece1b7696ecc1ee8f9e5e0ac96adbb09856de66c010b391bb4545",
     "sourceId": "vals-ai"
@@ -32,7 +32,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/aime",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:57cdb01f2b24cb6d6f08e2d54c90ccb49841f5f46c4344afdab1f989c6bd9b23",
     "sourceId": "vals-ai"
@@ -51,7 +51,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/biomysterybench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:06f9fdd85857806df7853954b7541c8bfc647af884c436f5b5c8f785a827593a",
     "sourceId": "vals-ai"
@@ -70,7 +70,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/case_law_v2",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7e04a8bd682a0a514a9932fbb2ed07ac59b8e652a4652351022cf15fdb8a5192",
     "sourceId": "vals-ai"
@@ -89,7 +89,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/code-migration",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ddb9e02cc24fd853ce172f000f2acc42d1ff50352a3fac9b021b6240184027ed",
     "sourceId": "vals-ai"
@@ -108,7 +108,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/corp_fin_v2",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d1ba938c33c3e6555abc0d593c7d9aafdba9607024120f2fecb30aaeac1288c7",
     "sourceId": "vals-ai"
@@ -127,7 +127,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/cua_bench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:62ceda8d6d69b107fac0cba06f981560e960a2c8fd973edc928db785b171fae9",
     "sourceId": "vals-ai"
@@ -146,7 +146,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/cyber",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c6d43db4bb4a9c6a02a78dfb0811438fb5a73cc7c799bc258c2230c21838470f",
     "sourceId": "vals-ai"
@@ -165,7 +165,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/emb",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:aaaa1d84ce58c9c5d5e88fab6fe8afd3715f45f31f778e7dd5963f3cbe6ffdcb",
     "sourceId": "vals-ai"
@@ -184,7 +184,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/fabv2",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ad99dddb97a61e076cabdc113bf5d2775402cf1339446e081afc95b9b902a6e7",
     "sourceId": "vals-ai"
@@ -203,7 +203,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/gpqa",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2a5f8ce27df46a3af672738d0619d89d17e6ad0c51b7418c23b8356595f611e5",
     "sourceId": "vals-ai"
@@ -222,7 +222,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/hlab",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5963323c999b70d65f72c651bbaa0495ac7bd5af36aca004005a999cd463fcaa",
     "sourceId": "vals-ai"
@@ -241,7 +241,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/ioi",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9daa2dc909a58417e3dc834d019d81e87e7ce291cb8dc2e45cc345d62b7f11b6",
     "sourceId": "vals-ai"
@@ -260,7 +260,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/lcb",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dd653587734f5dd49840cdb07300c092012938ff3d47301fb8c1160792cd12af",
     "sourceId": "vals-ai"
@@ -279,7 +279,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/legal_bench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:36350bdfe5a165b87f25cb8c04a70d9970a5e3aca8586b55ce4f64d1977ffee1",
     "sourceId": "vals-ai"
@@ -298,7 +298,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/legal_research",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0dfa5f2f26ac084af46a3f6ebee877e33636224ca7e1b81f442906b3dc7f4941",
     "sourceId": "vals-ai"
@@ -317,7 +317,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/math500",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:359d63824e3d210bee5a0bfb31116204b39ceeaaef75ab7669d61c4110d04d2a",
     "sourceId": "vals-ai"
@@ -336,7 +336,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/medcode",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ff36a029386330bc843a65c13cdb0f8e3595e38940b99d6fd4e0717bed483ebc",
     "sourceId": "vals-ai"
@@ -355,7 +355,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/medqa",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:afefced4cd93a1b79fd00e5f11d84908b86a082ea402a1b9b350b1832fa310e4",
     "sourceId": "vals-ai"
@@ -374,7 +374,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/medscribe",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:93f812438da7d67d4e2f3390d81a406e5476332279feac9dc11cc0a32e748a0e",
     "sourceId": "vals-ai"
@@ -393,7 +393,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/mgsm",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e38dd3129fb1d61f9f40be538d76da1189ec8158f45eb7d5667da326e261dd02",
     "sourceId": "vals-ai"
@@ -412,7 +412,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/mmlu_pro",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3442686816d177b30792ad4b6c2ae970fa5fc42bfcbff40efd22c8d8b49ef390",
     "sourceId": "vals-ai"
@@ -431,7 +431,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/mmmu",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:46d2b4be88043b821f00d48f32a76e5473caa05b9e8ba23a12078e1348d65cf9",
     "sourceId": "vals-ai"
@@ -450,7 +450,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/mortgage_tax",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:01b6f384fede72ec8626c7be88ea499b16a7cde12bc6d7004fc69f7781afca1c",
     "sourceId": "vals-ai"
@@ -469,7 +469,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/mysterymechanism",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:59d0562d7cafde8986f3e05ce5cdf693490b790636754ec0cf20a6f6490026a9",
     "sourceId": "vals-ai"
@@ -488,7 +488,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/poker_agent",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e45727a8487389257b5659710991b702f741465dc5639b9b8526677365c61f48",
     "sourceId": "vals-ai"
@@ -507,7 +507,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/programbench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e16766dbcf0adcefe93f651754ced5e649a1e9e4743e2b290ea47eaa23179da6",
     "sourceId": "vals-ai"
@@ -526,7 +526,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/proof_bench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:86822e2dd89bca61459b283f520bfa6990d5157d65c98592ca6588c6155a8cdf",
     "sourceId": "vals-ai"
@@ -545,7 +545,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/public-benefits-bench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d5154a7b872ee3a4e303e18756a13c6fc18921320311ed2ba6c9975b3308f978",
     "sourceId": "vals-ai"
@@ -564,7 +564,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7cdb4fbc1e5d8ed3aaaa16aed7b1f27ebb54d6f47db02ff1ecaf66c3791f83a8",
     "sourceId": "vals-ai"
@@ -583,7 +583,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/rsi_index",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7cf04b00d6625220a8878d782cc2b3ba5cd16668986f44def9ee41ab5bb63c29",
     "sourceId": "vals-ai"
@@ -602,7 +602,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/sage",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:70c38ed303014958459d12551a2fc632be40bc9b6a7150638dc46716943edecb",
     "sourceId": "vals-ai"
@@ -621,7 +621,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/skillsbench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:07fd233de53bc860d2850347f0fb92cb9d3de06943c7aa6e2eb762c25201f071",
     "sourceId": "vals-ai"
@@ -640,7 +640,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/srebench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:710a683181f8f2a06cf2c8c8ca9fd6f5743b8ea3ae8fed03e1ae3bfd381b240a",
     "sourceId": "vals-ai"
@@ -659,7 +659,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/swebench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3cb42cc65478a1da65bfc41a7275edb7fc47b07be7b2a981230fd669a418f114",
     "sourceId": "vals-ai"
@@ -678,7 +678,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/tax_agent_bench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:03d4f34866d713d9dd1294fa193b1f6573e992312dd37c1eb4a1a2e25e5c4415",
     "sourceId": "vals-ai"
@@ -697,7 +697,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/tax_eval_v2",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2e4cb6e4e8de009f2f0126843d17884d81494068b9aeabe81f0ded82f9ca75b1",
     "sourceId": "vals-ai"
@@ -716,7 +716,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/terminal-bench-2",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7067b7301071d6cf7caccdad4625bc4561943b5a910273d6fca035d641cbd795",
     "sourceId": "vals-ai"
@@ -735,7 +735,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/terminal-bench-2-1",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2ffc7754eae2d01da6fbda66c9dcffe41085e837d13fdacec71550d0eb57866a",
     "sourceId": "vals-ai"
@@ -754,7 +754,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/terminal-bench-4",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:29bf3f713226ab68791b2f87744c59ff605103e05546ed6c38048fe578a66d16",
     "sourceId": "vals-ai"
@@ -773,7 +773,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/terminal-bench-science",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:170afcd1fba3430c627cb318d78f9798706aa4f6fa05ed053e04bf8684ce9ca3",
     "sourceId": "vals-ai"
@@ -792,7 +792,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/time_horizon_index",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:fde2ffce2d0ffbefc36f5184a9cc00049debe11db55dd98ca0d81716f52fff04",
     "sourceId": "vals-ai"
@@ -811,7 +811,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/vals_index",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b99902ee631d2073658f65a28eec15013cf11be39f753d97d3d492f103bbfd5f",
     "sourceId": "vals-ai"
@@ -830,7 +830,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/vals_multimodal_index",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6430812d13a1b258fecb5c8415a94afb6cb8a33ab8981ad86660e9b2a7942ba4",
     "sourceId": "vals-ai"
@@ -849,7 +849,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/vcb-1-100",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e2e348669ef3f6c6b36732f12117dfb74686648174d3796895ad6a5d127afad3",
     "sourceId": "vals-ai"
@@ -868,7 +868,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/vibe-code",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6faab3d82cdb8509739a017ceb383fc50ed8008b1797d6e31d03bad586f81eef",
     "sourceId": "vals-ai"
@@ -887,7 +887,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/voice-code-bench",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5718d93fd8ce200b5a6e4490495b6538d41c247861d99ff9ebe19a7dbb277d18",
     "sourceId": "vals-ai"
@@ -906,7 +906,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://www.vals.ai/benchmarks/web_search",
-    "retrievedAt": "2026-09-25T11:19:46.737Z",
+    "retrievedAt": "2026-09-26T01:46:56.139Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:49e9b6f6e1d0ada2a8413dc110f39875190da6ea78f93086834e30894d955e0a",
     "sourceId": "vals-ai"

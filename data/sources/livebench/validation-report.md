@@ -51,12 +51,13 @@ Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathemat
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 56 | 63 | +7 |
-| Candidate results | 224 | 252 | +28 |
-| Cost export profiles | 56 | 63 | +7 |
-| Materialized costs | 50 | 106 | +56 |
+| Raw model profiles | 63 | 63 | +0 |
+| Candidate results | 252 | 252 | +0 |
+| Cost export profiles | 63 | 63 | +0 |
+| Materialized costs | 106 | 106 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

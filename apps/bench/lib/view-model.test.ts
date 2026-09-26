@@ -1016,7 +1016,9 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi-2';
+              : sourceId === 'zapier-automationbench'
+                ? 'automationbench'
+                : 'arc-agi-2';
       const sourceEffort = profileId.endsWith('-non-reasoning')
         ? 'non-reasoning'
         : profileId.endsWith('-default')
@@ -1072,7 +1074,9 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi-2',
+              : sourceId === 'zapier-automationbench'
+                ? 'automationbench'
+                : 'arc-agi-2',
       evidenceIds: [`sha256:${String(index).padStart(64, '0')}`],
     });
 
@@ -1127,7 +1131,7 @@ describe('cost chart view model', () => {
         ),
     );
 
-    // Claude: low profile has all 4 sources (single qualifying effort), incomplete profile has only 1 source
+    // Claude: low profile has all 5 sources (single qualifying effort), incomplete profile has only 1 source
     const claudeLowCosts = ADVANCED_COST_SOURCE_IDS.map((sourceId, index) =>
       taskCost(
         sourceId,
@@ -1242,12 +1246,13 @@ describe('cost chart view model', () => {
 
     // Detail breakdown is preserved on every point
     for (const point of [...solSeries.points, ...claudeSeries.points]) {
-      expect(point.sources).toHaveLength(4);
+      expect(point.sources).toHaveLength(5);
       expect(point.sources.map(({ sourceId }) => sourceId)).toEqual([
         'artificial-analysis',
         'deepswe',
         'frontier-code',
         'arc-prize',
+        'zapier-automationbench',
       ]);
     }
 
@@ -1285,7 +1290,7 @@ describe('cost chart view model', () => {
     expect(buildAdvancedCostSeries(product, [])).toEqual([]);
   });
 
-  it('computes Y as the plain arithmetic mean of the four source scores without min-max normalization', () => {
+  it('computes Y as the plain arithmetic mean of the five source scores without min-max normalization', () => {
     const baseEvidence = productFixture.evidence[0]!;
     const profile = {
       ...productFixture.profiles[0]!,
@@ -1304,7 +1309,9 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi-2';
+              : sourceId === 'zapier-automationbench'
+                ? 'automationbench'
+                : 'arc-agi-2';
       return {
         ...baseEvidence,
         id: `e-mean:${sourceId}`,
@@ -1349,7 +1356,9 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi-2',
+              : sourceId === 'zapier-automationbench'
+                ? 'automationbench'
+                : 'arc-agi-2',
       evidenceIds: [
         'sha256:1111111111111111111111111111111111111111111111111111111111111111',
       ],
@@ -1368,12 +1377,14 @@ describe('cost chart view model', () => {
         taskCost('deepswe', 2.0),
         taskCost('frontier-code', 3.0),
         taskCost('arc-prize', 4.0),
+        taskCost('zapier-automationbench', 5.0),
       ],
       evidence: [
         sourceEvidence('artificial-analysis', aaScore),
         sourceEvidence('deepswe', deepsweScore),
         sourceEvidence('frontier-code', frontierCodeScore),
         sourceEvidence('arc-prize', arcScore),
+        sourceEvidence('zapier-automationbench', 30),
       ],
     };
 
@@ -1381,8 +1392,46 @@ describe('cost chart view model', () => {
     expect(series).toHaveLength(1);
     const point = series[0]!.points[0]!;
 
-    // Expected Y = (60 + 75 + 90 + 95) / 4 = 80.0
-    expect(point.score).toBeCloseTo(80.0, 5);
+    // Expected Y = (60 + 75 + 90 + 95 + 30) / 5 = 70.0
+    expect(point.score).toBeCloseTo(70.0, 5);
+    expect(point.sources.at(-1)).toMatchObject({
+      sourceId: 'zapier-automationbench',
+      scoreBasis: 'ZAPIER_AUTOMATIONBENCH',
+      scoreBenchmarkId: 'automationbench',
+      score: 30,
+      cost: 5,
+    });
+    expect(point.costIndex).toBeCloseTo(
+      point.sources.reduce((sum, source) => sum + source.normalizedCost, 0) / 5,
+      5,
+    );
+
+    const withoutZapierCost = {
+      ...product,
+      costs: product.costs.filter(
+        (row) => row.sourceId !== 'zapier-automationbench',
+      ),
+    };
+    expect(buildAdvancedCostSeries(withoutZapierCost)).toEqual([]);
+    const fourSources = ADVANCED_COST_SOURCE_IDS.filter(
+      (id) => id !== 'zapier-automationbench',
+    );
+    expect(
+      buildAdvancedCostSeries(withoutZapierCost, fourSources)[0]?.points[0]
+        ?.score,
+    ).toBeCloseTo(80, 5);
+    expect(
+      buildAdvancedCostSeries({
+        ...product,
+        evidence: product.evidence.filter(
+          (row) => row.sourceId !== 'zapier-automationbench',
+        ),
+      }),
+    ).toEqual([]);
+    expect(
+      buildAdvancedCostSeries(product, ['zapier-automationbench'])[0]?.points[0]
+        ?.score,
+    ).toBe(30);
   });
 
   it('keeps point X values untouched when another model is removed from the product', () => {
@@ -1422,7 +1471,9 @@ describe('cost chart view model', () => {
               ? 'deepswe-1-1'
               : sourceId === 'frontier-code'
                 ? 'frontier-code-1-1'
-                : 'arc-agi-2',
+                : sourceId === 'zapier-automationbench'
+                  ? 'automationbench'
+                  : 'arc-agi-2',
         benchmarkVersion: isAa ? null : baseEvidence.benchmarkVersion,
         inclusion: isAa ? ('EXCLUDED' as const) : ('INCLUDED' as const),
         exclusionReason: isAa ? 'External composite' : null,
@@ -1458,7 +1509,9 @@ describe('cost chart view model', () => {
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
               ? 'frontier-code-1-1'
-              : 'arc-agi-2',
+              : sourceId === 'zapier-automationbench'
+                ? 'automationbench'
+                : 'arc-agi-2',
       evidenceIds: [
         'sha256:2222222222222222222222222222222222222222222222222222222222222222',
       ],
@@ -1516,8 +1569,14 @@ describe('cost chart view model', () => {
       evidence: [...modelAEvidence],
     };
 
-    const seriesFull = buildAdvancedCostSeries(fullProduct);
-    const seriesWithoutB = buildAdvancedCostSeries(withoutModelBProduct);
+    const sources = ADVANCED_COST_SOURCE_IDS.filter(
+      (id) => id !== 'zapier-automationbench',
+    );
+    const seriesFull = buildAdvancedCostSeries(fullProduct, sources);
+    const seriesWithoutB = buildAdvancedCostSeries(
+      withoutModelBProduct,
+      sources,
+    );
 
     const modelAPointFull = seriesFull.find(
       ({ modelId }) => modelId === 'model-a',

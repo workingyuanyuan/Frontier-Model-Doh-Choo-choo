@@ -30,7 +30,7 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-09-25T11:20:29.712Z",
+  "lastVerifiedAt": "2026-09-26T01:46:36.755Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Live deprecated and release-date filters still apply.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",

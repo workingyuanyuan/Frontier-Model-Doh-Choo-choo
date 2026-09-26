@@ -33,10 +33,19 @@ export const previousSnapshotValue = (
   label: string,
   fallback: number,
 ): number => {
-  const prefix = `| ${label} |`;
-  const line = report.split(/\r?\n/u).find((row) => row.startsWith(prefix));
-  if (!line) return fallback;
-  const previous = Number(line.split('|')[2]?.trim());
+  const cells = report
+    .split(/\r?\n/u)
+    .map((row) =>
+      row
+        .split('|')
+        .slice(1, -1)
+        .map((cell) => cell.trim()),
+    )
+    .find((row) => row[0] === label && row.length === 4);
+  // The prior report's Refreshed value is this run's starting snapshot.
+  const value = cells?.[2];
+  if (!value) return fallback;
+  const previous = Number(value);
   return Number.isFinite(previous) ? previous : fallback;
 };
 

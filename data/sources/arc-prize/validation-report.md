@@ -8,7 +8,7 @@
 - Models evidence: `sha256:4536d187f57e0df43698115854317473d69e729150239bd37cedb3f08d4d73a7`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
 - Page evidence: `sha256:4cd0f842f6c3bcd67352bd0cae9abd84a17fdda5422f63419d6dec5d3172560b`
-- Observed at: 2026-09-25T11:19:25.166Z
+- Observed at: 2026-09-26T01:46:49.825Z
 
 ## Exact counts
 
@@ -194,11 +194,12 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate rows | 225 | 240 | +15 |
-| Cost records | 225 | 240 | +15 |
+| Candidate rows | 240 | 240 | +0 |
+| Cost records | 240 | 240 | +0 |
 | Canonically unresolved models | 123 | 123 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

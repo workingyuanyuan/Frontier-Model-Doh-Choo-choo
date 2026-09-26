@@ -1,6 +1,6 @@
 # Coverage Matrix Report
 
-- **Reference Date**: `2026-09-25`
+- **Reference Date**: `2026-09-26`
 - **Qualification Window**: 12 months
 - **Active Sources (8)**: `arc-prize`, `artificial-analysis`, `deepswe`, `epoch-ai`, `frontier-code`, `livebench`, `vals-ai`, `zapier-automationbench`
 - **Qualified Canonical Base Models**: 63

@@ -3,7 +3,7 @@
 - Page: <https://cognition.com/frontiercode>
 - Official static export: <https://cognition.com/data/frontiercode-leaderboard/data.json>
 - Export evidence: `sha256:edba28c872b94a4abf665ed5443c52a001c75646eb4ae01a2c83a794128893bc`
-- Page/JSON-LD evidence: `sha256:524108d82bac8cf1f536b4044afcbebb1f3605dd540aa51c55bd2485795004fb`
+- Page/JSON-LD evidence: `sha256:6f8eff1aea83bec6b2cb071b367e7be7e9bf8707b06dc6ac99ea209b399a1082`
 
 ## Acquirable scope
 
@@ -23,7 +23,7 @@ The official export contains both `main` and `extended` results. This source mat
 
 - JSON-LD Top 10 exact rank/name/one-decimal-score matches: 10/10.
 - JSON-LD mismatches: none.
-- Rendered DOM rows observed: 40; the visible leaderboard showed the same Top 10: yes.
+- Rendered DOM rows observed: 115; the visible leaderboard showed the same Top 10: yes.
 - The rendered UI labels `cost` as mean USD cost per rollout; it is preserved as `AGENT_TASK` / `USD_PER_TASK`.
 
 ## Identity and missing-value policy
@@ -40,11 +40,12 @@ Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Distinct models | 35 | 40 | +5 |
-| Main configurations | 95 | 115 | +20 |
-| Materialized costs | 95 | 115 | +20 |
+| Distinct models | 40 | 40 | +0 |
+| Main configurations | 115 | 115 | +0 |
+| Materialized costs | 115 | 115 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

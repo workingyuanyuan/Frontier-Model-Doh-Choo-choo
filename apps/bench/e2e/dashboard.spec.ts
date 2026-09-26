@@ -421,10 +421,23 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
       .getByText('Lower cost is better. Higher Overall Score is better.'),
   ).toBeVisible();
   const sourceButtons = page.locator('.advanced-source-toggle');
-  await expect(sourceButtons).toHaveCount(4);
+  await expect(sourceButtons).toHaveCount(5);
   for (let i = 0; i < (await sourceButtons.count()); i++) {
     await expect(sourceButtons.nth(i)).toHaveAttribute('aria-pressed', 'true');
   }
+  const zapier = page.locator(
+    '.advanced-source-toggle[data-source-id="zapier-automationbench"]',
+  );
+  await expect(zapier).toHaveText('Zapier');
+  const scoreAxis = page
+    .locator('.advanced-cost-chart .cost-axis-title')
+    .last();
+  await expect(scoreAxis).toContainText('5-source mean score');
+  await zapier.press('Enter');
+  await expect(zapier).toHaveAttribute('aria-pressed', 'false');
+  await expect(scoreAxis).toContainText('4-source mean score');
+  await zapier.press('Enter');
+  await expect(scoreAxis).toContainText('5-source mean score');
   await toggle.press('Enter');
   await expect(toggle).toHaveAttribute('aria-expanded', 'false');
   await expect(page.locator('.cost-curve-chart')).toBeVisible();
@@ -637,7 +650,7 @@ test('recomputes source eligibility and supports model and effort controls', asy
   await expect(points).toHaveCount(model!.points.length);
   await expect(
     page.locator('.advanced-cost-chart .cost-axis-title').last(),
-  ).toContainText('3-source mean score');
+  ).toContainText('4-source mean score');
   const checkbox = row.locator('input[type="checkbox"]');
   await checkbox.focus();
   await page.keyboard.press('Space');

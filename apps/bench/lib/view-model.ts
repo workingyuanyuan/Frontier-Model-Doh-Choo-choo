@@ -75,6 +75,7 @@ export const ADVANCED_COST_SOURCE_IDS = [
   'deepswe',
   'frontier-code',
   'arc-prize',
+  'zapier-automationbench',
 ] as const;
 
 export type AdvancedCostSourceId = (typeof ADVANCED_COST_SOURCE_IDS)[number];
@@ -131,7 +132,11 @@ export interface AdvancedCostSourceDetail {
   score: number;
   /** The score is intentionally source-local; it is never ProductCost.performance. */
   scoreBasis:
-    'AA_INTELLIGENCE_INDEX' | 'DEEPSWE_1_1' | 'FRONTIER_CODE_1_1' | 'ARC_AGI';
+    | 'AA_INTELLIGENCE_INDEX'
+    | 'DEEPSWE_1_1'
+    | 'FRONTIER_CODE_1_1'
+    | 'ARC_AGI'
+    | 'ZAPIER_AUTOMATIONBENCH';
   scoreBenchmarkId: string;
   scoreBenchmarkVersion?: string | null;
   metricName: string;
@@ -148,11 +153,11 @@ export interface AdvancedCostPoint {
   effort: string;
   isDefaultEffort: boolean;
   /**
-   * The four-source blended cost index (0-100), NOT dollars. Per-source USD
+   * The selected sources' blended cost index (0-100), NOT dollars. Per-source USD
    * lives on `sources[].cost`; the two must never be confused on an axis.
    */
   costIndex: number;
-  /** Arithmetic mean of the four sources' own scores, raw and unnormalized. */
+  /** Arithmetic mean of the selected sources' own scores, raw and unnormalized. */
   score: number;
   sources: AdvancedCostSourceDetail[];
 }

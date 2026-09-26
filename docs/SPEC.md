@@ -663,21 +663,20 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
 現行定義是：進階圖與預設圖是**同一張圖的兩種聚合**，兩者都把各來源的成本與分數聚合成單一
 座標，差別只有兩點。
 
-1. **來源與權重**：預設圖用本節「預設圖」段落所定的全部來源等權重；進階圖依 2026-08-22
-   D5 裁決只用 **Artificial Analysis、DeepSWE、Frontier Code、ARC Prize 四個來源，各 1/4**。
-   ARC 同時提供可精確配對的 `arc-agi-2` 分數、任務成本與思考強度階梯。排除 LiveBench 的理由見
-   下方；Vals 一模型只有一列，實測加入後為 9 個孤立點、0 個可連線模型；Zapier 依 N2 複審
-   裁決延後採用。完整量測見 `docs/history/ADVANCED_CHART_SOURCES_2026-08-22.md`。
+1. **來源與權重**：預設圖用本節「預設圖」段落所定的全部來源等權重；進階圖依 2026-09-26
+   使用者裁決採用 **Artificial Analysis、DeepSWE、Frontier Code、ARC Prize、Zapier AutomationBench
+   五個來源，各 1/5**。AutomationBench 提供多個 reasoning effort 的 `automationbench` 分數與
+   每任務成本。各來源以同一 profile 的分數與成本配對。
 2. **思考強度**：預設圖每個模型只畫**一種**強度（§4.3 的代表 profile）；進階圖畫出**所有
-   具備四來源分數的強度**，同一模型的各強度點連成一條線，讓思考強度的邊際效應看得出來。
+   具備啟用來源分數與成本的強度**，同一模型的各強度點連成一條線，讓思考強度的邊際效應看得出來。
 
-**R21（2026-08-26 使用者裁決，動態來源與逐 effort 控制）**：四個來源維持為進階圖的來源
-母體，改由使用者個別開啟或關閉，預設四個全部開啟。每個 profile 的入選門檻是「在**目前啟用
+**R21（2026-08-26 使用者裁決，2026-09-26 擴充至五來源）**：五個來源為進階圖的來源
+母體，改由使用者個別開啟或關閉，預設五個全部開啟。每個 profile 的入選門檻是「在**目前啟用
 的每個來源**都有可配對的分數與成本」；聚合權重在啟用來源間等分。關閉來源後，資格、來源平均
 分數、成本指數與圖表軸域全部即時重算。來源內的成本正規化母體仍是產品檔內該來源的全部任務
 成本，不隨按鈕狀態改變。
 
-固定權重說明改為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize 四個可聚焦按鈕。
+固定權重說明改為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize、Zapier 五個可聚焦按鈕。
 進階模式的標題說明與預設模式相同：`Lower cost is better. Higher Overall Score is better.`；進階圖
 Y 軸本身仍如本節所定，是啟用來源各自分數的算術平均，軸標題與無障礙文字必須如實寫成
 `N-source mean score`，不得因此改用 Overall Score。
@@ -688,26 +687,28 @@ Y 軸本身仍如本節所定，是啟用來源各自分數的算術平均，軸
 checkbox 使用 mixed 狀態。模型層的關閉意圖涵蓋當下不可用的 effort，避免來源切換後意外亮起。
 
 - **入選條件逐 profile 判定**：一個 (模型 × 思考強度) 必須在目前啟用來源上**都**有可配對的分數
-  與成本才出點；缺任一啟用來源的該強度不出點，缺了什麼由控制列與開發者模式揭露。預設四個
+  與成本才出點；缺任一啟用來源的該強度不出點，缺了什麼由控制列與開發者模式揭露。預設五個
   來源全部啟用。這與預設圖的
   `sourceWeight` 重正規化（缺來源不受懲罰）**不同**，是刻意的：進階圖一條線上的各點必須落在
   同一個座標系，否則不同強度會因為來源組成不同而不可比，線的斜率隨即失去意義。
 - 一個模型只有一個合格強度時仍以**孤立的點**呈現，不因為連不成線而剔除——它在同一個座標系
   上仍然可比。
+- 實測（2026-09-26）：預設五來源交集有 13 個 profile、4 個模型，其中 3 個模型有多個合格
+  effort；僅啟用 Zapier 時有 96 個 profile、28 個模型，其中 20 個模型有多個 effort。
 - 實測（2026-08-22）：四來源合格 profile 27 個、模型 12 個，其中 5 個模型有兩個以上強度可
   連線（Claude Opus 5、Gemini 3.7 Flash、GPT-5.6 Luna／Sol／Terra），其餘 7 個為孤立點。
 
 **進階圖的軸定義**（2026-08-21 改定，取代 2026-08-20 的 per-source 軸）
 
-- **X 軸＝啟用來源等權加權的正規化成本指數**；預設四來源各 1/4，關閉一個後三來源各 1/3。
+- **X 軸＝啟用來源等權加權的正規化成本指數**；預設五來源各 1/5，關閉一個後四來源各 1/4。
   與預設圖同一套 per-source log min-max 正規化。
   正規化的母體是該來源在產品檔內的全部任務成本，不是當前繪製的點，因此關閉序列不會讓既有
   點的 X 值移動。
 - **Y 軸＝啟用來源各自分數的等權算術平均**。各來源「自己的分數」的定義不變，見下方。
 - **聚合只發生在 per-source 配對之後。**AA 的分數配 AA 的成本、DeepSWE 配 DeepSWE、
-  Frontier Code 配 Frontier Code、ARC Prize 配 `arc-agi-2`；目前啟用的各組成立之後才做等權平均。任一來源內部的成本與效能
+  Frontier Code 配 Frontier Code、ARC Prize 配 `arc-agi-2`、Zapier 配 `automationbench`；目前啟用的各組成立之後才做等權平均。任一來源內部的成本與效能
   仍必須來自同一次量測——2026-08-20 的這條規則沒有放寬，只是套用層級從「一個點」下移到
-  「一個點的四個組成」。同樣不得為了湊出 Y 軸而回頭放寬 §5.2。
+  「一個點的啟用來源組成」。同樣不得為了湊出 Y 軸而回頭放寬 §5.2。
 - 點依思考強度階梯排序（§4.4 的 `non-reasoning < low < medium < high < xhigh < max`，
   `default` 不上梯子、單獨標示）。
 
@@ -721,7 +722,7 @@ checkbox 使用 mixed 狀態。模型層的關閉意圖涵蓋當下不可用的 
 
 **為何採用原始分數平均，而非先正規化再平均**（2026-08-21 決定）
 
-Y 軸用四來源原始分數的算術平均。已知代價：四來源的離散度不同（2026-08-22 實測於 27 個
+Y 軸用啟用來源原始分數的算術平均。已知代價：來源的離散度不同（2026-08-22 實測於 27 個
 繪製點，AA sd 7.00、DeepSWE 18.43、Frontier Code 9.29、ARC Prize 25.51），因此 **ARC Prize
 與 DeepSWE 對 Y 的變異貢獻大於名目上的 1/4**。仍採用原始平均的理由：
 
@@ -736,8 +737,8 @@ Y 軸用四來源原始分數的算術平均。已知代價：四來源的離散
 若日後判定離散度失衡不可接受，處置方式是改為「各來源先在**產品檔全母體**（非當前繪製集合）
 內正規化」，而不是調整權重去補償。
 
-**DeepSWE、Frontier Code 與 ARC Prize** 各自一個分數對一個成本，該來源的分數直接用對應
-benchmark（`deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2`）的 normalized 分數。
+**DeepSWE、Frontier Code、ARC Prize 與 Zapier AutomationBench** 各自一個分數對一個成本，該來源的分數直接用對應
+benchmark（`deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2`、`automationbench`）的 normalized 分數。
 
 **Artificial Analysis 的 Y 軸＝AA 發布的 Intelligence Index 數值本身**（2026-08-20 決定）
 
@@ -778,11 +779,11 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
 **軸的縮放規則**（2026-08-21 補定）
 
 兩張圖的四根軸都**依當前繪製的資料動態縮放**，沒有任何一根寫死 0–100：預設圖的 Y
-（Overall Score）與 X（成本指數）、進階圖的 Y（四來源平均分數）與 X（四來源成本指數）。
+（Overall Score）與 X（成本指數）、進階圖的 Y（啟用來源平均分數）與 X（啟用來源成本指數）。
 
 2026-08-21 進階圖改為聚合圖後，它的 X 從 USD 變成與預設圖同單位的成本指數（見上方「進階圖
 的軸定義」），因此兩張圖的 X 軸可以直接對照解讀；但兩者的權重組成不同（七來源各 1/7 vs.
-四來源各 1/4），數值不等價，軸標題必須各自寫出自己的實際範圍。
+五來源各 1/5），數值不等價，軸標題必須各自寫出自己的實際範圍。
 
 - 定義域取自**當前實際畫出來的點**，不是全體資料。進階圖有序列被關閉時（見下），關閉的
   序列不參與定義域計算，軸要跟著重算。
@@ -1103,8 +1104,8 @@ Overall Score、排行榜資格／名次或成本圖。原因是 AutomationBench
   `minimax-minimax-m3-max`、`zai-glm-5-1-max`），並取代兩個 `-default` profile。
 - **主畫面不受影響**：`display-set.json` 未含 `automationbench`，完整性門檻不變。
 - **成本圖一併納入（2026-08-23 使用者裁決）**：`COST_SOURCE_WEIGHTS` 由六個來源各 1/6 改為
-  **七個來源各 1/7**，Zapier 加入權重表。進階成本圖的四來源（D5 裁決）不受影響——它要求
-  一個 profile 在四個來源上都有可配對的分數與成本，Zapier 不在那四個之內。
+  **七個來源各 1/7**，Zapier 加入權重表。進階成本圖於 2026-09-26 使用者裁決納入 Zapier 為第五來源；它要求
+  一個 profile 在每個啟用來源上都有可配對的分數與成本。
 
 ### 9.8 Vals AI（期三，2026-08-22 實測）
 
@@ -1197,7 +1198,7 @@ Git commit 保存接受的資料版本；目前 Pages workflow 由 `main` push �
 
 以下 1–10 保留重構時期的風險盤點與當時數量；接手時需以後續實作、刷新及審核證據確認是否仍存在。11–12 是等待更多資料後重驗的研究問題，維持可追蹤。
 
-1. **Frontier Code 的成本與思考強度已驗證可取得**：FrontierCode 1.1 Main 有 28 個模型、77 組設定，全部有分數與成本；15 個模型有多 effort。D5 後進階圖採 AA／DeepSWE／Frontier Code／ARC Prize 四來源。
+1. **Frontier Code 的成本與思考強度已驗證可取得**：FrontierCode 1.1 Main 有 28 個模型、77 組設定，全部有分數與成本；15 個模型有多 effort。進階圖採 AA／DeepSWE／Frontier Code／ARC Prize／Zapier AutomationBench 五來源（2026-09-26）。
 2. **Frontier Code 完整榜長度已確認為 28 個模型**；目前 9 個名稱尚無可精確解析的 catalog identity，保持 null，不影響原始 Candidate／CostRecord 的保存。
 3. **Artificial Analysis 的頁面組合已於 C3 確認**：18 個 evaluation 頁面聯集取得完整現役 profile 母體，任務成本則必須另外抓 `/models/<slug>` 明細頁；`/evaluations/omniscience` 的成本欄位對現役模型是稀疏的。
 4. **Artificial Analysis 的 API 交叉驗證目前無效**：3,680 次比對報出 2,335 次不一致，全部是精度差（頁面全精度 vs API 三位小數）。63% 的比對都在報警，真正的結構漂移會被雜訊淹沒。必須加容差後才具備煙霧偵測器的作用。

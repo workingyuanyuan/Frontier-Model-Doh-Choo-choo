@@ -2,7 +2,32 @@ import { join } from 'node:path';
 import { check, resolveConfig } from 'prettier';
 import { describe, expect, it } from 'vitest';
 
-import { formatMetadataJson, getWorkspaceRoot } from './refresh-utils.js';
+import {
+  formatMetadataJson,
+  getWorkspaceRoot,
+  previousSnapshotValue,
+} from './refresh-utils.js';
+
+describe('snapshot comparison baseline', () => {
+  it('compares the next refresh against the prior refreshed count', () => {
+    const prior = '| Candidate results | 1223 | 1167 | -56 |';
+    expect(previousSnapshotValue(prior, 'Candidate results', 0)).toBe(1167);
+    const repeated = '| Candidate results   | 1167 | 1167 | 0 |';
+    expect(previousSnapshotValue(repeated, 'Candidate results', 0)).toBe(1167);
+  });
+
+  it('preserves a zero count and falls back for missing or invalid rows', () => {
+    expect(previousSnapshotValue('| Costs | 5 | 0 | -5 |', 'Costs', 9)).toBe(0);
+    for (const report of [
+      '',
+      '| Costs | 5 | | -5 |',
+      '| Costs | 5 | unknown | 0 |',
+      '| Costs | 5 |',
+    ]) {
+      expect(previousSnapshotValue(report, 'Costs', 9)).toBe(9);
+    }
+  });
+});
 
 const cases = [
   {

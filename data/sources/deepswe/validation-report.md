@@ -53,6 +53,7 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
+
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

@@ -4,7 +4,7 @@
 - Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.cZm9uPli.mjs>
 - Module evidence: `sha256:b5c968e366bce1a326d33cffacf09492a562a7d66881c69d772c68eeddcba2da`
 - Page evidence: `sha256:2f51b26450006237ea35c6fd35e77add6e942cc41f6055d8083f0fffddbada04`
-- Observed at: 2026-09-25T11:19:40.036Z
+- Observed at: 2026-09-26T01:46:53.638Z
 
 ## Exact counts
 
@@ -72,10 +72,11 @@
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Candidate rows | 112 | 112 | +0 |
-| Cost records | 93 | 111 | +18 |
-| Canonically unresolved rows | 10 | 9 | -1 |
+| Cost records | 111 | 111 | +0 |
+| Canonically unresolved rows | 9 | 9 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

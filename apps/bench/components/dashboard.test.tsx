@@ -246,6 +246,15 @@ describe('Dashboard Redesign', () => {
         inclusion: 'INCLUDED' as const,
         exclusionReason: null,
       },
+      {
+        sourceId: 'zapier-automationbench',
+        benchmarkId: 'automationbench',
+        costType: 'AGENT_TASK' as const,
+        normalizedScore: 30,
+        rawScore: 30,
+        inclusion: 'INCLUDED' as const,
+        exclusionReason: null,
+      },
     ] as const;
     const fullProduct = {
       ...productFixture,

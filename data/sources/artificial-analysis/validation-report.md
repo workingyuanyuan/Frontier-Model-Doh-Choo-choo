@@ -38,7 +38,6 @@
 - Artificial Analysis composite indices remain `EXCLUDED`; direct evaluation scores are the only AA rows eligible for the eight-dimensional product score.
 - Token prices are `API_STANDARDIZED` and task costs are `MEASURED_TASK`; the two cost semantics are emitted as separate records.
 - No missing score, identity, or cost is inferred.
-- Warning: Model detail agnes-3-0-flash failed: Error: https://artificialanalysis.ai/models/agnes-3-0-flash returned HTTP 404
 
 ## Visible comparison
 
@@ -50,12 +49,13 @@
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 152 | 166 | +14 |
-| Active source profiles | 101 | 102 | +1 |
-| Candidate results | 1223 | 1167 | -56 |
-| Materialized costs | 197 | 200 | +3 |
+| Unique source profiles | 166 | 166 | +0 |
+| Active source profiles | 102 | 102 | +0 |
+| Candidate results | 1167 | 1167 | +0 |
+| Materialized costs | 200 | 200 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
