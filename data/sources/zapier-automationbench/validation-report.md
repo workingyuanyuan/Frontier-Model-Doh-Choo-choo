@@ -1,10 +1,10 @@
 # Zapier AutomationBench acquisition validation
 
 - Page: <https://zapier.com/benchmarks>
-- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.cZm9uPli.mjs>
-- Module evidence: `sha256:b5c968e366bce1a326d33cffacf09492a562a7d66881c69d772c68eeddcba2da`
-- Page evidence: `sha256:2f51b26450006237ea35c6fd35e77add6e942cc41f6055d8083f0fffddbada04`
-- Observed at: 2026-09-26T01:46:53.638Z
+- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.CveD9o1f.mjs>
+- Module evidence: `sha256:732faa6b26c0babb35202945bd225987c7c985be6565ad644e73f7e8d1d34eb0`
+- Page evidence: `sha256:f18efd5c5fa5200434b0eccd8665b8eec098d7277181bcc24eb968c3eb9141dd`
+- Observed at: 2026-09-29T00:30:07.648Z
 
 ## Exact counts
 
@@ -76,7 +76,6 @@
 | Canonically unresolved rows | 9 | 9 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

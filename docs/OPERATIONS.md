@@ -47,6 +47,11 @@ pnpm install --frozen-lockfile
 重新導向。HTTP 要求 identity encoding，遇到其他編碼會終止擷取；回應串流
 即時計算位元組，即使沒有 Content-Length 仍會套用上限。
 
+讀取連線遭 `ECONNRESET` 重設時，同一次 GET 最多重試兩次（包含重新導向的
+整條請求鏈）。每次重試重新驗證公開 DNS 目的地，並計入請求次數；已讀取的
+位元組不退回下載額度。重試共用原請求截止時間，不重試 HTTP 錯誤、其他網路
+錯誤或安全／預算限制錯誤。
+
 ZIP 使用 `safe-archive.ts` 的 `AcquisitionArchive`，同時檢查宣告大小與實際
 解壓縮量。探索頁面使用 `mapAcquisitionItems`，在發送請求前限制項目數，並在
 回呼內完成解析，只回傳後續需要的結構化資料。Vals 即採用此方式釋放每頁原始

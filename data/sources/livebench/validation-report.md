@@ -1,19 +1,19 @@
 # LiveBench acquisition validation
 
-- Release: `2026-06-25` (cacheVersion `1790110244`) dynamically extracted from `https://livebench.ai/static/js/main.20d28c99.js`
-- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1790110244` and `https://livebench.ai/categories_2026_06_25.json?v=1790110244`
+- Release: `2026-06-25` (cacheVersion `1790624334`) dynamically extracted from `https://livebench.ai/static/js/main.52a67e23.js`
+- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1790624334` and `https://livebench.ai/categories_2026_06_25.json?v=1790624334`
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Raw model rows in table CSV | 63 |
+| Raw model rows in table CSV | 64 |
 | Approved scoring categories | 4 (Reasoning, Mathematics, Language, IF) |
 | Excluded/Unapproved categories | 3 (Coding, Agentic Coding, Data Analysis) |
-| Generated CandidateResults | 252 |
-| Canonically resolved candidates | 212 |
-| Canonically unresolved candidates | 40 |
-| Distinct unresolved raw model names | 10 |
+| Generated CandidateResults | 256 |
+| Canonically resolved candidates | 220 |
+| Canonically unresolved candidates | 36 |
+| Distinct unresolved raw model names | 9 |
 
 ## Model identity resolution
 
@@ -28,7 +28,6 @@ Full raw-name catalog matches are attempted first. Remaining names use only exac
 - `ox-alpha-max`: no exact catalog match; effort-suffix transform produced "ox-alpha", which is not an exact catalog slug
 - `qwen3.8-flash-next`: full slug "qwen3-8-flash-next" has no documented exact LiveBench transform to a catalog slug
 - `smaug-agentic`: full slug "smaug-agentic" has no documented exact LiveBench transform to a catalog slug
-- `union-alpha`: full slug "union-alpha" has no documented exact LiveBench transform to a catalog slug
 
 ## Category scope boundary
 
@@ -36,28 +35,27 @@ Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathemat
 
 ## Discrepancies and notes
 
-- None. All 63 model rows have complete task coverage across the 4 approved categories.
+- None. All 64 model rows have complete task coverage across the 4 approved categories.
 
 ## Visible comparison
 
 - Fresh rendered page profile count (Include finetunes enabled): 60
-- Complete table export profile count: 63
+- Complete table export profile count: 64
 - Superseded export-only names, absent from the current rendered leaderboard: deepseek-v4-flash, deepseek-v4-pro
 - Rendered groups after superseded-build and declared-variant grouping: 60
-- Collapsed variant groups: [["claude-opus-5-5-xhigh-effort","claude-opus-5-5-max-effort"]]
+- Collapsed variant groups: [["claude-opus-5-5-xhigh-effort","claude-opus-5-5-max-effort"],["claude-sonnet-5-5-xhigh-effort","claude-sonnet-5-5-max-effort"]]
 - Result: rendered groups matched; all exported effort rows remain preserved.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 63 | 63 | +0 |
-| Candidate results | 252 | 252 | +0 |
-| Cost export profiles | 63 | 63 | +0 |
-| Materialized costs | 106 | 106 | +0 |
+| Raw model profiles | 63 | 64 | +1 |
+| Candidate results | 252 | 256 | +4 |
+| Cost export profiles | 63 | 64 | +1 |
+| Materialized costs | 106 | 110 | +4 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

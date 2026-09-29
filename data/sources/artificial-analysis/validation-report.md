@@ -8,23 +8,23 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 166 |
-| Unique profile rows in evaluation-page payloads | 65 |
-| Unique profile rows in model-detail payloads | 157 |
+| Unique profile rows across all captured page payloads | 173 |
+| Unique profile rows in evaluation-page payloads | 66 |
+| Unique profile rows in model-detail payloads | 163 |
 | Profile rows in the /models payload | 25 |
-| Active profile rows (2025-08-17 cutoff, not deprecated) | 102 |
-| Generated CandidateResults | 1167 |
-| Intelligence Index candidates (EXCLUDED) | 101 |
-| GDPval-AA normalized candidates | 101 |
-| Canonically unresolved candidates | 463 |
-| MEASURED_TASK cost rows | 100 |
-| API_STANDARDIZED token-price rows | 100 |
+| Active profile rows (2025-08-17 cutoff, not deprecated) | 110 |
+| Generated CandidateResults | 1247 |
+| Intelligence Index candidates (EXCLUDED) | 109 |
+| GDPval-AA normalized candidates | 109 |
+| Canonically unresolved candidates | 498 |
+| MEASURED_TASK cost rows | 107 |
+| API_STANDARDIZED token-price rows | 108 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 25 selected profile rows in this capture.
-- The evaluation-page payload union exposes 65 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 157 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The evaluation-page payload union exposes 66 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 163 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
@@ -41,21 +41,20 @@
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 673
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 166
+- Fresh rendered models page catalog total: 679
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 173
 - Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 166 | 166 | +0 |
-| Active source profiles | 102 | 102 | +0 |
-| Candidate results | 1167 | 1167 | +0 |
-| Materialized costs | 200 | 200 | +0 |
+| Unique source profiles | 166 | 173 | +7 |
+| Active source profiles | 102 | 110 | +8 |
+| Candidate results | 1167 | 1247 | +80 |
+| Materialized costs | 200 | 215 | +15 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

@@ -109,6 +109,23 @@ export type HttpsTransport = (
   signal: AbortSignal,
 ) => Promise<IncomingMessage>;
 
+const MAX_READ_RESET_RETRIES = 2;
+
+function isRetryableReadReset(error: unknown): boolean {
+  if (typeof error !== 'object' || error === null) return false;
+  const candidate = error as {
+    code?: unknown;
+    syscall?: unknown;
+    message?: unknown;
+  };
+  return (
+    candidate.code === 'ECONNRESET' &&
+    (candidate.syscall === 'read' ||
+      (typeof candidate.message === 'string' &&
+        /^read ECONNRESET(?:\b|$)/u.test(candidate.message)))
+  );
+}
+
 const pinnedHttps: HttpsTransport = (url, destination, headers, signal) =>
   new Promise((resolve, reject) => {
     const pinnedLookup: LookupFunction = (_hostname, options, callback) => {
@@ -237,20 +254,57 @@ export class AcquisitionClient {
     );
     const { signal } = controller;
     try {
+      let retriesUsed = 0;
       for (let redirects = 0; ; redirects++) {
-        this.budget.request();
-        const destination = await abortable(
-          publicDestination(url, this.resolveAddresses),
-          signal,
-        );
-        signal.throwIfAborted();
-        const response = await this.transport(
-          url,
-          destination,
-          headers,
-          signal,
-        );
-        const status = response.statusCode ?? 0;
+        let response!: IncomingMessage;
+        let status = 0;
+        while (true) {
+          // Each retry consumes the shared request budget and revalidates DNS.
+          this.budget.request();
+          const destination = await abortable(
+            publicDestination(url, this.resolveAddresses),
+            signal,
+          );
+          signal.throwIfAborted();
+          try {
+            response = await this.transport(url, destination, headers, signal);
+            status = response.statusCode ?? 0;
+            if ([301, 302, 303, 307, 308].includes(status)) break;
+            if (status < 200 || status >= 300) break;
+
+            const bytes = await readAcquisitionBody(
+              response,
+              this.budget,
+              signal,
+            );
+            const responseHeaders = new Headers();
+            for (const [name, value] of Object.entries(response.headers)) {
+              if (value !== undefined)
+                responseHeaders.set(
+                  name,
+                  Array.isArray(value) ? value.join(', ') : value,
+                );
+            }
+            return {
+              url: url.href,
+              status,
+              ok: true,
+              headers: responseHeaders,
+              bytes,
+            };
+          } catch (error) {
+            if (
+              retriesUsed < MAX_READ_RESET_RETRIES &&
+              !signal.aborted &&
+              isRetryableReadReset(error)
+            ) {
+              retriesUsed++;
+              continue;
+            }
+            throw error;
+          }
+        }
+
         if ([301, 302, 303, 307, 308].includes(status)) {
           response.destroy();
           if (
@@ -284,14 +338,6 @@ export class AcquisitionClient {
             bytes: new Uint8Array(),
           };
         }
-        const bytes = await readAcquisitionBody(response, this.budget, signal);
-        return {
-          url: url.href,
-          status,
-          ok: true,
-          headers: responseHeaders,
-          bytes,
-        };
       }
     } finally {
       clearTimeout(timer);

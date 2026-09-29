@@ -83,8 +83,9 @@ Leaderboard 以 Overall 由高至低排序，最後使用 deterministic `profile
 若指定預設集合無可行解，生成器報錯並要求重新檢視政策，不會發布不符合限制的集合。
 產品建置也會攔截過期或手動改壞的 display set。
 
-目前預設 `free-sources-13` 為 25 benchmark／13 模型，受限項目的 Reasoning 權重為 2/6，
-Knowledge 為 1/4。完整變化見 [政策實作驗證](refresh/2026-09-08-saturation-policy.md)。
+目前核准的預設集合為 `free-sources-12`；實際評測組成由每次刷新後的
+`display-set.json` 決定。品質政策的實作依據見
+[政策實作驗證](refresh/2026-09-08-saturation-policy.md)。
 
 - `data/mappings/display-set-policy.json` 保存使用者核准的集合生成政策；`pnpm data:generate-display-set` 依來源覆蓋率產生 `display-set.json` 的多組 presets。
 - 每次刷新先依現有政策重產集合，再重建產品。來源約束、模型數範圍、必留模型與預設選擇政策的變更需使用者裁決；流程見 [操作手冊](OPERATIONS.md)。

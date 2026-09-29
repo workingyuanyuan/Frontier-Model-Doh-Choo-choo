@@ -26,6 +26,11 @@ function response(
 }
 
 const dns = async () => [{ address: '93.184.216.34', family: 4 }];
+const readReset = () =>
+  Object.assign(new Error('read ECONNRESET'), {
+    code: 'ECONNRESET',
+    syscall: 'read',
+  });
 
 describe('public HTTPS destination policy', () => {
   it.each([
@@ -220,6 +225,95 @@ describe('redirect and deadline enforcement', () => {
       'deadline',
     );
     expect(stream.destroyed).toBe(true);
+  });
+});
+
+describe('transient socket read resets', () => {
+  it('retries a read ECONNRESET and succeeds within the request budget', async () => {
+    const transport = vi
+      .fn<HttpsTransport>()
+      .mockRejectedValueOnce(readReset())
+      .mockResolvedValueOnce(response('ok'));
+    const resolve = vi.fn(dns);
+    const budget = new AcquisitionBudget({ requests: 2 });
+    const client = new AcquisitionClient(budget, resolve, transport);
+
+    expect(
+      new TextDecoder().decode(
+        (await client.get('https://source.example/data')).bytes,
+      ),
+    ).toBe('ok');
+    expect(transport).toHaveBeenCalledTimes(2);
+    expect(resolve).toHaveBeenCalledTimes(2);
+    await expect(client.get('https://source.example/next')).rejects.toThrow(
+      'request budget',
+    );
+  });
+
+  it('stops after two retries when each socket read resets', async () => {
+    const reset = readReset();
+    const transport = vi.fn<HttpsTransport>().mockRejectedValue(reset);
+    const client = new AcquisitionClient(
+      new AcquisitionBudget(),
+      dns,
+      transport,
+    );
+
+    await expect(client.get('https://source.example/data')).rejects.toBe(reset);
+    expect(transport).toHaveBeenCalledTimes(3);
+  });
+
+  it('shares the two-retry allowance across redirects', async () => {
+    const reset = readReset();
+    const transport = vi
+      .fn<HttpsTransport>()
+      .mockRejectedValueOnce(readReset())
+      .mockResolvedValueOnce(response('', 302, { location: '/next' }))
+      .mockRejectedValueOnce(readReset())
+      .mockRejectedValueOnce(reset);
+    const client = new AcquisitionClient(
+      new AcquisitionBudget(),
+      dns,
+      transport,
+    );
+
+    await expect(client.get('https://source.example/data')).rejects.toBe(reset);
+    expect(transport).toHaveBeenCalledTimes(4);
+  });
+
+  it('does not retry after the request budget is exhausted', async () => {
+    const transport = vi.fn<HttpsTransport>().mockRejectedValue(readReset());
+    const client = new AcquisitionClient(
+      new AcquisitionBudget({ requests: 1 }),
+      dns,
+      transport,
+    );
+
+    await expect(client.get('https://source.example/data')).rejects.toThrow(
+      'request budget',
+    );
+    expect(transport).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps partial response bytes charged when retrying a body read reset', async () => {
+    const partial = new PassThrough();
+    Object.assign(partial, { statusCode: 200, headers: {} });
+    partial.write('abc');
+    setImmediate(() => partial.destroy(readReset()));
+    const transport = vi
+      .fn<HttpsTransport>()
+      .mockResolvedValueOnce(partial as unknown as IncomingMessage)
+      .mockResolvedValueOnce(response('xy'));
+    const client = new AcquisitionClient(
+      new AcquisitionBudget({ totalBytes: 4, responseBytes: 10 }),
+      dns,
+      transport,
+    );
+
+    await expect(client.get('https://source.example/data')).rejects.toThrow(
+      'total byte budget',
+    );
+    expect(transport).toHaveBeenCalledTimes(2);
   });
 });
 

@@ -2,6 +2,20 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "anthropic-claude-sonnet-5-5",
+      "providerId": "anthropic",
+      "displayName": "Claude Sonnet 5.5",
+      "aliases": [
+        "Sonnet 5.5",
+        "claude-sonnet-5-5",
+        "claude-sonnet-5.5",
+        "anthropic/claude-sonnet-5-5"
+      ],
+      "releaseDate": "2026-09-28",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "anthropic-claude-opus-5-5",
       "providerId": "anthropic",
       "displayName": "Claude Opus 5.5",
