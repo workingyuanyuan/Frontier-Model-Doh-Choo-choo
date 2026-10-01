@@ -1,28 +1,28 @@
 [
   {
-    "artifactPath": "artifacts/sha256/c1/c13a3a4b86f7be05105ae768c18ae1e1d745e3e9e0cf6e72fabaedc9909a9988.html",
+    "artifactPath": "artifacts/sha256/a6/a60bd35053dfe4b4c81e8745d1a1a888138aa5d8bccc6551d5e2ca0348839c23.html",
     "byteLength": 1066,
     "finalUrl": "https://livebench.ai/",
-    "id": "sha256:c13a3a4b86f7be05105ae768c18ae1e1d745e3e9e0cf6e72fabaedc9909a9988",
+    "id": "sha256:a60bd35053dfe4b4c81e8745d1a1a888138aa5d8bccc6551d5e2ca0348839c23",
     "mediaType": "text/html",
     "metadata": {
       "application": "JavaScript SPA",
       "latestRelease": "2026-06-25",
       "supersededExportNames": ["deepseek-v4-flash", "deepseek-v4-pro"],
       "visibleComparisonMatched": true,
-      "visibleProfiles": 60
+      "visibleProfiles": 61
     },
     "method": "DOM",
     "requestUrl": "https://livebench.ai/",
-    "retrievedAt": "2026-09-29T00:30:06.977Z",
+    "retrievedAt": "2026-10-01T00:51:23.601Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:c13a3a4b86f7be05105ae768c18ae1e1d745e3e9e0cf6e72fabaedc9909a9988",
+    "sha256": "sha256:a60bd35053dfe4b4c81e8745d1a1a888138aa5d8bccc6551d5e2ca0348839c23",
     "sourceId": "livebench"
   },
   {
     "artifactPath": "artifacts/sha256/da/dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3.json",
     "byteLength": 725,
-    "finalUrl": "https://livebench.ai/categories_2026_06_25.json?v=1790624334",
+    "finalUrl": "https://livebench.ai/categories_2026_06_25.json?v=1790708459",
     "id": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
     "mediaType": "application/json",
     "metadata": {
@@ -30,65 +30,66 @@
       "release": "2026-06-25"
     },
     "method": "EXPORT",
-    "requestUrl": "https://livebench.ai/categories_2026_06_25.json?v=1790624334",
-    "retrievedAt": "2026-09-29T00:30:06.977Z",
+    "requestUrl": "https://livebench.ai/categories_2026_06_25.json?v=1790708459",
+    "retrievedAt": "2026-10-01T00:51:23.601Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts/sha256/0d/0db5806513fd40ca2435a0c0e835a7533f49b487191d1e17be4a79d75470bd53.csv",
-    "byteLength": 28034,
-    "finalUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1790624334",
-    "id": "sha256:0db5806513fd40ca2435a0c0e835a7533f49b487191d1e17be4a79d75470bd53",
+    "artifactPath": "artifacts/sha256/d5/d572014a891e76ef3f30896f66cc873ec02eb5c7d10909a6796efe450ad05ba9.csv",
+    "byteLength": 28845,
+    "finalUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1790708459",
+    "id": "sha256:d572014a891e76ef3f30896f66cc873ec02eb5c7d10909a6796efe450ad05ba9",
     "mediaType": "text/csv",
     "metadata": {
       "release": "2026-06-25",
-      "rows": 64
+      "rows": 66
     },
     "method": "EXPORT",
-    "requestUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1790624334",
-    "retrievedAt": "2026-09-29T00:30:06.977Z",
+    "requestUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1790708459",
+    "retrievedAt": "2026-10-01T00:51:23.601Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:0db5806513fd40ca2435a0c0e835a7533f49b487191d1e17be4a79d75470bd53",
+    "sha256": "sha256:d572014a891e76ef3f30896f66cc873ec02eb5c7d10909a6796efe450ad05ba9",
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts/sha256/36/367531b4d03ea2b1357842623bfffb12847b105ff08f6ad516ceb0b08368bac5.js",
-    "byteLength": 320517,
-    "finalUrl": "https://livebench.ai/static/js/main.52a67e23.js",
-    "id": "sha256:367531b4d03ea2b1357842623bfffb12847b105ff08f6ad516ceb0b08368bac5",
+    "artifactPath": "artifacts/sha256/80/801eb2b85b66866a0cea5f3c50c24f1fd6f11dbaf37509a2096a54a5da39536f.js",
+    "byteLength": 320752,
+    "finalUrl": "https://livebench.ai/static/js/main.b9b5570a.js",
+    "id": "sha256:801eb2b85b66866a0cea5f3c50c24f1fd6f11dbaf37509a2096a54a5da39536f",
     "mediaType": "text/javascript",
     "metadata": {
-      "cacheVersion": "1790624334",
+      "cacheVersion": "1790708459",
       "latestRelease": "2026-06-25"
     },
     "method": "API_RESPONSE",
-    "requestUrl": "https://livebench.ai/static/js/main.52a67e23.js",
-    "retrievedAt": "2026-09-29T00:30:06.977Z",
+    "requestUrl": "https://livebench.ai/static/js/main.b9b5570a.js",
+    "retrievedAt": "2026-10-01T00:51:23.601Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:367531b4d03ea2b1357842623bfffb12847b105ff08f6ad516ceb0b08368bac5",
+    "sha256": "sha256:801eb2b85b66866a0cea5f3c50c24f1fd6f11dbaf37509a2096a54a5da39536f",
     "sourceId": "livebench"
   },
   {
-    "artifactPath": "artifacts/sha256/73/73f9d484f35433485463bae9566cd1602228bec219e1ffac8a655b2a8488b1b1.csv",
-    "byteLength": 10746,
-    "finalUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790624334",
-    "id": "sha256:73f9d484f35433485463bae9566cd1602228bec219e1ffac8a655b2a8488b1b1",
+    "artifactPath": "artifacts/sha256/10/1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d.csv",
+    "byteLength": 11069,
+    "finalUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459",
+    "id": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
     "mediaType": "text/csv",
     "metadata": {
       "collapsedVariants": [
         ["claude-opus-5-5-xhigh-effort", "claude-opus-5-5-max-effort"],
-        ["claude-sonnet-5-5-xhigh-effort", "claude-sonnet-5-5-max-effort"]
+        ["claude-sonnet-5-5-xhigh-effort", "claude-sonnet-5-5-max-effort"],
+        ["gpt-6.1-sol-max", "gpt-6.1-sol-xhigh"]
       ],
       "release": "2026-06-25",
-      "rows": 64
+      "rows": 66
     },
     "method": "EXPORT",
-    "requestUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790624334",
-    "retrievedAt": "2026-09-29T00:30:06.977Z",
+    "requestUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459",
+    "retrievedAt": "2026-10-01T00:51:23.601Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:73f9d484f35433485463bae9566cd1602228bec219e1ffac8a655b2a8488b1b1",
+    "sha256": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
     "sourceId": "livebench"
   }
 ]

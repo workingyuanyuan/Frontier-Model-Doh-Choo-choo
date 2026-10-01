@@ -127,6 +127,56 @@ describe('Artificial Analysis RSC parser', () => {
       gpqa: 0.9,
     });
   });
+
+  it('retains the selected detail variant when the catalog list omits it', () => {
+    const html = JSON.stringify({
+      currentModel: {
+        slug: 'claude-sonnet-5-5-low',
+        name: 'Claude Sonnet 5.5 (Low)',
+        releaseDate: '2026-09-28',
+        deprecated: false,
+        lcr: 0.76,
+      },
+      initialModels: [
+        {
+          slug: 'claude-sonnet-5-5',
+          name: 'Claude Sonnet 5.5 (Max)',
+          releaseDate: '2026-09-28',
+          deprecated: false,
+          lcr: 0.82,
+        },
+      ],
+    });
+    const rows = extractArtificialAnalysisRscRows(html);
+    expect(rows).toHaveLength(2);
+    expect(
+      rows.find((row) => row.slug === 'claude-sonnet-5-5-low'),
+    ).toMatchObject({
+      deprecated: false,
+      lcr: 0.76,
+    });
+  });
+
+  it('deduplicates a selected detail row also listed in initialModels', () => {
+    const row = {
+      slug: 'claude-sonnet-5-5-low',
+      name: 'Claude Sonnet 5.5 (Low)',
+      releaseDate: '2026-09-28',
+      deprecated: false,
+      lcr: 0.76,
+    };
+    const rows = extractArtificialAnalysisRscRows(
+      JSON.stringify({ currentModel: row, initialModels: [row] }),
+    );
+    expect(rows).toHaveLength(1);
+  });
+
+  it('does not scan past a null currentModel into an unrelated object', () => {
+    const rows = extractArtificialAnalysisRscRows(
+      JSON.stringify({ currentModel: null, other: { slug: 'unrelated' } }),
+    );
+    expect(rows).toHaveLength(0);
+  });
 });
 
 describe('Artificial Analysis API cross-validation', () => {

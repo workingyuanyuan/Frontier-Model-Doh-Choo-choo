@@ -1,44 +1,44 @@
 [
   {
-    "artifactPath": "artifacts/sha256/6c/6ce2c88dcae8efc2104cf477660a9cfd7a931d4c3fb36c033a7cac915eaf2ccf.json",
-    "byteLength": 80900,
+    "artifactPath": "artifacts/sha256/e6/e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e.json",
+    "byteLength": 83796,
     "finalUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
-    "id": "sha256:6ce2c88dcae8efc2104cf477660a9cfd7a931d4c3fb36c033a7cac915eaf2ccf",
+    "id": "sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e",
     "mediaType": "application/json",
     "metadata": {
-      "configurationRows": 120,
-      "costRows": 120,
+      "configurationRows": 125,
+      "costRows": 125,
       "dataset": "Main",
-      "distinctModels": 41,
+      "distinctModels": 42,
       "format": "official-static-json",
-      "modelsWithMultipleEfforts": 25,
+      "modelsWithMultipleEfforts": 26,
       "version": "1.1"
     },
     "method": "EXPORT",
     "requestUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
-    "retrievedAt": "2026-09-29T00:30:07.318Z",
+    "retrievedAt": "2026-10-01T00:51:24.255Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:6ce2c88dcae8efc2104cf477660a9cfd7a931d4c3fb36c033a7cac915eaf2ccf",
+    "sha256": "sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e",
     "sourceId": "frontier-code"
   },
   {
-    "artifactPath": "artifacts/sha256/fc/fc3914dfcc20e3d9f927e1dba20fd94afd048a05c6b56f2309d4883f91c817ea.html",
-    "byteLength": 148345,
+    "artifactPath": "artifacts/sha256/26/26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006.html",
+    "byteLength": 150810,
     "finalUrl": "https://cognition.com/frontiercode",
-    "id": "sha256:fc3914dfcc20e3d9f927e1dba20fd94afd048a05c6b56f2309d4883f91c817ea",
+    "id": "sha256:26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006",
     "mediaType": "text/html",
     "metadata": {
       "dataset": "Main",
       "jsonLdLeaderboardRows": 10,
-      "renderedRows": 41,
+      "renderedRows": 42,
       "renderedTopTenMatched": true,
       "version": "1.1"
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://cognition.com/frontiercode",
-    "retrievedAt": "2026-09-29T00:30:07.318Z",
+    "retrievedAt": "2026-10-01T00:51:24.255Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:fc3914dfcc20e3d9f927e1dba20fd94afd048a05c6b56f2309d4883f91c817ea",
+    "sha256": "sha256:26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006",
     "sourceId": "frontier-code"
   }
 ]

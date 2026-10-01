@@ -1,17 +1,17 @@
 # LiveBench acquisition validation
 
-- Release: `2026-06-25` (cacheVersion `1790624334`) dynamically extracted from `https://livebench.ai/static/js/main.52a67e23.js`
-- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1790624334` and `https://livebench.ai/categories_2026_06_25.json?v=1790624334`
+- Release: `2026-06-25` (cacheVersion `1790708459`) dynamically extracted from `https://livebench.ai/static/js/main.b9b5570a.js`
+- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1790708459` and `https://livebench.ai/categories_2026_06_25.json?v=1790708459`
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Raw model rows in table CSV | 64 |
+| Raw model rows in table CSV | 66 |
 | Approved scoring categories | 4 (Reasoning, Mathematics, Language, IF) |
 | Excluded/Unapproved categories | 3 (Coding, Agentic Coding, Data Analysis) |
-| Generated CandidateResults | 256 |
-| Canonically resolved candidates | 220 |
+| Generated CandidateResults | 264 |
+| Canonically resolved candidates | 228 |
 | Canonically unresolved candidates | 36 |
 | Distinct unresolved raw model names | 9 |
 
@@ -35,25 +35,25 @@ Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathemat
 
 ## Discrepancies and notes
 
-- None. All 64 model rows have complete task coverage across the 4 approved categories.
+- None. All 66 model rows have complete task coverage across the 4 approved categories.
 
 ## Visible comparison
 
-- Fresh rendered page profile count (Include finetunes enabled): 60
-- Complete table export profile count: 64
+- Fresh rendered page profile count (Include finetunes enabled): 61
+- Complete table export profile count: 66
 - Superseded export-only names, absent from the current rendered leaderboard: deepseek-v4-flash, deepseek-v4-pro
-- Rendered groups after superseded-build and declared-variant grouping: 60
-- Collapsed variant groups: [["claude-opus-5-5-xhigh-effort","claude-opus-5-5-max-effort"],["claude-sonnet-5-5-xhigh-effort","claude-sonnet-5-5-max-effort"]]
+- Rendered groups after superseded-build and declared-variant grouping: 61
+- Collapsed variant groups: [["claude-opus-5-5-xhigh-effort","claude-opus-5-5-max-effort"],["claude-sonnet-5-5-xhigh-effort","claude-sonnet-5-5-max-effort"],["gpt-6.1-sol-max","gpt-6.1-sol-xhigh"]]
 - Result: rendered groups matched; all exported effort rows remain preserved.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 63 | 64 | +1 |
-| Candidate results | 252 | 256 | +4 |
-| Cost export profiles | 63 | 64 | +1 |
-| Materialized costs | 106 | 110 | +4 |
+| Raw model profiles | 66 | 66 | +0 |
+| Candidate results | 264 | 264 | +0 |
+| Cost export profiles | 66 | 66 | +0 |
+| Materialized costs | 114 | 114 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -94,10 +94,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-reasoning:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| minimax-m3 | `livebench-2026-06-25:livebench-instruction-following:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-instruction-following:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-27b` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:qwen3-8-27b |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-language:qwen3-8-27b` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:qwen3-8-27b |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-8-27b` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:qwen3-8-27b |

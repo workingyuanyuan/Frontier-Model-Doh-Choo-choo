@@ -176,7 +176,7 @@ async function main() {
       `AutomationBench version ${result.version}; ${result.rowCount} rows and maximum rank ${result.maxRank}.`,
       `The route module is discovered by the content feature ${ZAPIER_ROUTE_FEATURE}; deployment hashes are never hard-coded.`,
       'API-mode task_completed_correctly is the strict headline metric; partial_credit is diagnostic-only and not materialized.',
-      'User ruling 2026-08-22: all Zapier scores and costs remain EXCLUDED until a separate source-adoption review after the N phase.',
+      'User ruling 2026-08-23: Zapier AutomationBench is ADOPTED; comparable scores and standard-list task costs are INCLUDED under the approved source policy.',
       `Starred standard price ruling: ${ZAPIER_PROMO_NOTE}`,
       'Raw — means missing cost and emits no CostRecord.',
       `Dedicated-deployment price ruling: ${ZAPIER_DEDICATED_NOTE} The score value remains preserved in the excluded candidate, but the incomparable cost emits no CostRecord.`,

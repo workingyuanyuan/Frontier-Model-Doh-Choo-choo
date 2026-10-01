@@ -58,6 +58,8 @@ Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models`
 
 AA 刷新也會重新擷取前次已發現的模型 detail URL，避免首頁圖表更換選取模型時漏掉既有成績；是否現役仍以本次 payload 的 deprecated 與 release date 判定。解析器保留完整指數版本（含 v4.3.2）、Briefcase 與 GDPval 的明示版本，並支援新版 `omniscienceAccuracy`、`terminalBench21` 欄位；Terminal-Bench 4.0 不會混入 2.1。
 
+模型詳細頁的 `currentModel` 物件亦納入解析；來源未提供 `model_creator_id`，或該檔位未出現在 `initialModels` 圖表選取陣列時，仍以詳細頁明示的模型資料建立候選。擷取後按來源 slug 去重，沿用現役篩選與缺值規則。
+
 AA 只有具已審核日期版本 alias 的模型才使用最新 build 日期篩選；同一發行版本的各 effort 日期不同，不構成淘汰理由。模型 detail 頁公開的 effort 選單連結也會額外擷取一層，補齊未出現在預設圖表選取中的檔位。連結必須來自來源明示的 label 與 href，不以模型名稱猜測網址。
 
 LiveBench 主表會將來源 bundle 明示的 variants 合併成一列。母體核對先扣除既有的兩個過期 DeepSeek bare slugs，再計算同組實際出現在 CSV 的檔位；所有匯出檔位仍保存。成本匯入沿用已核准的精確對應，並以分數相同的 catalog resolver 支援新模型，保留原始 effort 與成本證據。

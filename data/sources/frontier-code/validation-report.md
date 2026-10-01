@@ -2,19 +2,19 @@
 
 - Page: <https://cognition.com/frontiercode>
 - Official static export: <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Export evidence: `sha256:6ce2c88dcae8efc2104cf477660a9cfd7a931d4c3fb36c033a7cac915eaf2ccf`
-- Page/JSON-LD evidence: `sha256:fc3914dfcc20e3d9f927e1dba20fd94afd048a05c6b56f2309d4883f91c817ea`
+- Export evidence: `sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e`
+- Page/JSON-LD evidence: `sha256:26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006`
 
 ## Acquirable scope
 
 | Check | Count |
 |---|---:|
-| Models in FrontierCode 1.1 | 41 |
-| Main effort configurations | 120 |
-| Main configurations with scores | 120 |
-| Main configurations with costs | 120 |
-| Models with multiple efforts | 25 |
-| Models with five efforts | 14 |
+| Models in FrontierCode 1.1 | 42 |
+| Main effort configurations | 125 |
+| Main configurations with scores | 125 |
+| Main configurations with costs | 125 |
+| Models with multiple efforts | 26 |
+| Models with five efforts | 15 |
 | Canonically unresolved models | 8 |
 
 The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontier-code-1-1`.
@@ -23,12 +23,12 @@ The official export contains both `main` and `extended` results. This source mat
 
 - JSON-LD Top 10 exact rank/name/one-decimal-score matches: 10/10.
 - JSON-LD mismatches: none.
-- Rendered DOM rows observed: 41; the visible leaderboard showed the same Top 10: yes.
+- Rendered DOM rows observed: 42; the visible leaderboard showed the same Top 10: yes.
 - The rendered UI labels `cost` as mean USD cost per rollout; it is preserved as `AGENT_TASK` / `USD_PER_TASK`.
 
 ## Identity and missing-value policy
 
-Exact catalog resolution succeeded for 33/41 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, SWE-1.6, SWE-1.7, SWE-2.
+Exact catalog resolution succeeded for 34/42 models. Unresolved names are retained with null canonical/profile identity: Composer 2.5, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, SWE-1.6, SWE-1.7, SWE-2.
 
 Source effort `none` is preserved as null effort and null profile ID. It is not guessed as max/default. Missing costs would be omitted rather than written as zero; this snapshot has a finite cost for every Main configuration.
 
@@ -40,9 +40,9 @@ Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Distinct models | 40 | 41 | +1 |
-| Main configurations | 115 | 120 | +5 |
-| Materialized costs | 115 | 120 | +5 |
+| Distinct models | 42 | 42 | +0 |
+| Main configurations | 125 | 125 | +0 |
+| Materialized costs | 125 | 125 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -59,7 +59,7 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
 | Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-85:1-0-6 |
+| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

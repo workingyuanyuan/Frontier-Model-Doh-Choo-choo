@@ -16,11 +16,11 @@
     "v1_1.harness[model]": "profile.harness",
     "v1_1.models[]": "model.rawName"
   },
-  "lastVerifiedAt": "2026-09-29T00:30:07.318Z",
+  "lastVerifiedAt": "2026-10-01T00:51:24.255Z",
   "notes": [
-    "41 models and 120 Main effort configurations; all have scores and costs.",
-    "25 models have multiple efforts; 14 have five efforts.",
-    "JSON-LD Top 10 matches the export 10/10; rendered DOM showed 41 rows and the same Top 10.",
+    "42 models and 125 Main effort configurations; all have scores and costs.",
+    "26 models have multiple efforts; 15 have five efforts.",
+    "JSON-LD Top 10 matches the export 10/10; rendered DOM showed 42 rows and the same Top 10.",
     "Extended data is retained in the raw artifact but not materialized into the Main benchmark.",
     "Exact identities only; unresolved models and source effort none remain null."
   ],

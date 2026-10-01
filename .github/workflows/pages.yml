@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies from lockfile
         run: pnpm install --frozen-lockfile
 
+      - name: Reject high or critical dependency advisories
+        run: pnpm audit --audit-level high
+
       - name: Build static export
         # A project site is served from /<repo>, so the export needs that prefix.
         env:

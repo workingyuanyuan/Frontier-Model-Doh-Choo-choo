@@ -39,6 +39,9 @@ jobs:
       - name: Install dependencies from lockfile
         run: pnpm install --frozen-lockfile
 
+      - name: Reject high or critical dependency advisories
+        run: pnpm audit --audit-level high
+
       - name: Check formatting
         run: pnpm format
 
@@ -71,6 +74,3 @@ jobs:
             playwright-report
             test-results
           retention-days: 7
-
-      - name: Reject high or critical dependency advisories
-        run: pnpm audit --audit-level high

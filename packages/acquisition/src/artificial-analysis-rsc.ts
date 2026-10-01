@@ -514,6 +514,33 @@ const extractInitialModels = (text: string): ArtificialAnalysisRow[] => {
   return arrays.toSorted((left, right) => right.length - left.length)[0] ?? [];
 };
 
+/** Model detail pages expose their selected variant outside initialModels. */
+const extractCurrentModels = (text: string): ArtificialAnalysisRow[] => {
+  const rows: ArtificialAnalysisRow[] = [];
+  const markerText = '"currentModel":';
+  let from = 0;
+  while (true) {
+    const marker = text.indexOf(markerText, from);
+    if (marker < 0) break;
+    const following = text.slice(marker + markerText.length);
+    const opening = following.match(/^\s*\{/u);
+    if (opening) {
+      const start = marker + markerText.length + opening[0].length - 1;
+      const candidate = balancedSlice(text, start, '{', '}');
+      if (candidate) {
+        try {
+          const row = asRecord(JSON.parse(candidate));
+          if (row && typeof row.slug === 'string') rows.push(row);
+        } catch {
+          // An unrelated RSC object is not a model row.
+        }
+      }
+    }
+    from = marker + markerText.length;
+  }
+  return rows;
+};
+
 const modelRowKey = (row: ArtificialAnalysisRow): string | null => {
   for (const key of ['slug', 'id', 'model_creator_id']) {
     const value = row[key];
@@ -537,13 +564,14 @@ export const extractArtificialAnalysisVariantSlugs = (html: string): string[] =>
     ),
   ].toSorted();
 
-/** Extract full model rows from both the model objects and initialModels arrays. */
+/** Extract full model rows from model objects, selected details and lists. */
 export const extractArtificialAnalysisRscRows = (
   html: string,
 ): ArtificialAnalysisRow[] => {
   const text = decodeArtificialAnalysisRsc(html);
   const versionMetadata = parseArtificialAnalysisVersionMetadata(text);
   const rows = [
+    ...extractCurrentModels(text),
     ...extractObjectsWithMarker(text, 'model_creator_id', 'model_creator_id'),
     ...extractInitialModels(text),
     ...extractObjectsWithMarker(

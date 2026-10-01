@@ -2,6 +2,24 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "google-gemini-4-argon",
+      "providerId": "google",
+      "displayName": "Gemini 4 Argon",
+      "aliases": ["gemini-4-argon", "google/gemini-4-argon"],
+      "releaseDate": "2026-09-30",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "openai-gpt-6-1-sol",
+      "providerId": "openai",
+      "displayName": "GPT-6.1 Sol",
+      "aliases": ["gpt-6.1-sol", "gpt-6-1-sol", "openai/gpt-6.1-sol"],
+      "releaseDate": "2026-09-29",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "anthropic-claude-sonnet-5-5",
       "providerId": "anthropic",
       "displayName": "Claude Sonnet 5.5",

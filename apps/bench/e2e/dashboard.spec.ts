@@ -607,28 +607,28 @@ test('recomputes source eligibility and supports model and effort controls', asy
   page,
 }) => {
   const before = buildAdvancedCostSeries(currentProduct);
-  const after = buildAdvancedCostSeries(
-    currentProduct,
-    ADVANCED_COST_SOURCE_IDS.filter((id) => id !== 'arc-prize'),
-  );
-  const model = after.find(
-    (line) =>
-      line.points.length >= 2 &&
-      line.points.length >
-        (before.find((old) => old.seriesId === line.seriesId)?.points.length ??
-          0),
-  );
-  expect(model).toBeDefined();
-  const oldPoints =
-    before.find((line) => line.seriesId === model!.seriesId)?.points ?? [];
-  const gained = model!.points.find(
-    (point) => !oldPoints.some((old) => old.profileId === point.profileId),
-  )!;
+  const scenario = ADVANCED_COST_SOURCE_IDS.flatMap((sourceId) =>
+    buildAdvancedCostSeries(
+      currentProduct,
+      ADVANCED_COST_SOURCE_IDS.filter((id) => id !== sourceId),
+    ).flatMap((model) => {
+      const oldPoints =
+        before.find((line) => line.seriesId === model.seriesId)?.points ?? [];
+      const gained = model.points.find(
+        (point) => !oldPoints.some((old) => old.profileId === point.profileId),
+      );
+      return model.points.length >= 2 && gained
+        ? [{ sourceId, model, oldPoints, gained }]
+        : [];
+    }),
+  )[0];
+  expect(scenario).toBeDefined();
+  const { sourceId, model, oldPoints, gained } = scenario!;
   await page.goto('/');
   await page.locator('.cost-mode-toggle').click();
   await page.locator('.cost-model-overflow-trigger').click();
   const row = page.locator(
-    `.cost-model-menu-list li[data-series-id="${model!.seriesId}"]`,
+    `.cost-model-menu-list li[data-series-id="${model.seriesId}"]`,
   );
   const total = await row.locator('.cost-effort-toggle').count();
   await expect(row).toContainText(`${oldPoints.length}/${total}`);
@@ -636,21 +636,21 @@ test('recomputes source eligibility and supports model and effort controls', asy
     `.cost-effort-toggle[data-profile-id="${gained.profileId}"]`,
   );
   await expect(effort).toBeDisabled();
-  const arc = page.locator(
-    '.advanced-source-toggle[data-source-id="arc-prize"]',
+  const source = page.locator(
+    `.advanced-source-toggle[data-source-id="${sourceId}"]`,
   );
-  await arc.focus();
+  await source.focus();
   await page.keyboard.press('Enter');
-  await expect(arc).toHaveAttribute('aria-pressed', 'false');
+  await expect(source).toHaveAttribute('aria-pressed', 'false');
   await expect(effort).toBeEnabled();
   await expect(effort).toHaveAttribute('aria-pressed', 'true');
   const points = page.locator(
-    `.advanced-cost-point[data-series-id="${model!.seriesId}"]`,
+    `.advanced-cost-point[data-series-id="${model.seriesId}"]`,
   );
-  await expect(points).toHaveCount(model!.points.length);
+  await expect(points).toHaveCount(model.points.length);
   await expect(
     page.locator('.advanced-cost-chart .cost-axis-title').last(),
-  ).toContainText('4-source mean score');
+  ).toContainText(`${ADVANCED_COST_SOURCE_IDS.length - 1}-source mean score`);
   const checkbox = row.locator('input[type="checkbox"]');
   await checkbox.focus();
   await page.keyboard.press('Space');
@@ -658,11 +658,11 @@ test('recomputes source eligibility and supports model and effort controls', asy
   await expect(row).toContainText(`0/${total}`);
   await checkbox.focus();
   await page.keyboard.press('Space');
-  await expect(points).toHaveCount(model!.points.length);
+  await expect(points).toHaveCount(model.points.length);
   await effort.focus();
   await page.keyboard.press('Space');
   await expect(effort).toHaveAttribute('aria-pressed', 'false');
-  await expect(points).toHaveCount(model!.points.length - 1);
+  await expect(points).toHaveCount(model.points.length - 1);
   await expect(checkbox).toHaveJSProperty('indeterminate', true);
 });
 
