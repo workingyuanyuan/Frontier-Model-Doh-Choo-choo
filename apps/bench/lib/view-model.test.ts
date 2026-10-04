@@ -377,7 +377,9 @@ describe('leaderboard view model', () => {
       benchmarkIds: ['bm-1', 'bm-2', 'bm-3', 'bm-4'],
     };
 
-    const multiProfileExcludedProduct: PresetProductVersion = {
+    const multiProfileExcludedProduct: PresetProductVersion<
+      typeof productFixture
+    > = {
       ...productFixture,
       frontier: [],
       profiles: [
@@ -453,13 +455,8 @@ describe('leaderboard view model', () => {
           acquisitionStatus: 'FULL',
           inclusion: 'INCLUDED',
           exclusionReason: null,
-          sourceUrl: 'https://example.com',
-          observedAt: '2026-08-01T00:00:00.000Z',
-          sourcePublishedAt: '2026-08-01T00:00:00.000Z',
-          evidenceIds: ['ev-1'],
           provenance: {
             sourceUrl: 'https://example.com',
-            rawScore: 80,
             locator: '$.score',
             retrievedAt: '2026-08-01T00:00:00.000Z',
             method: 'EMBEDDED_JSON',

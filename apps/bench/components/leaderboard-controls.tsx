@@ -1,4 +1,4 @@
-import type { ProductVersion } from '@llm-bench/benchmark-data';
+import type { DashboardProduct as ProductVersion } from '../lib/dashboard-data';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import {

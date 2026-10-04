@@ -1,4 +1,5 @@
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import type { DashboardProduct as ProductVersion } from '../lib/dashboard-data';
+import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useState } from 'react';
 
 import {

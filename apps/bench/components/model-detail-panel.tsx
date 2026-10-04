@@ -2,9 +2,17 @@ import type {
   DimensionId,
   ModelProfile,
   ProductEvidence,
-  ProductVersion,
 } from '@llm-bench/benchmark-data';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
+import type {
+  DashboardEvidence,
+  DashboardProduct,
+} from '../lib/dashboard-data';
+import {
+  loadProfileEvidence,
+  profileEvidenceKey,
+} from '../lib/profile-evidence';
 
 import {
   UI_DIMENSION_ABBREVIATIONS,
@@ -15,7 +23,7 @@ import { getProfileDisplayName, type ProductPreset } from '../lib/view-model';
 
 export interface ModelDetailPanelProps {
   profile: ModelProfile;
-  product: ProductVersion;
+  product: DashboardProduct;
   benchmarkDimensions: Record<string, DimensionId>;
   selectedResult?:
     | {
@@ -125,7 +133,7 @@ export const getSourceDisplayName = (sourceId: string): string => {
 
 export const getBenchmarkDisplayName = (
   benchmarkId: string,
-  evidence?: ProductEvidence,
+  evidence?: DashboardEvidence,
 ): string => {
   if (BENCHMARK_DISPLAY_NAMES[benchmarkId]) {
     return BENCHMARK_DISPLAY_NAMES[benchmarkId];
@@ -153,6 +161,65 @@ export function ModelDetailPanel({
   developerMode = false,
 }: ModelDetailPanelProps) {
   const [openProvenanceId, setOpenProvenanceId] = useState<string | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
+  const [details, setDetails] = useState<{
+    key: string;
+    status: 'loading' | 'ready' | 'error';
+    evidence?: ProductEvidence[];
+  } | null>(null);
+  const needsDetails = Boolean(product.evidenceDetails);
+  const detailsKey = profileEvidenceKey(product.versionId, profile.id);
+
+  useEffect(() => {
+    if (!needsDetails) return;
+    let active = true;
+    setDetails({ key: detailsKey, status: 'loading' });
+    const expectedEvidenceIds = product.evidence
+      .filter(
+        (row) =>
+          row.inclusion === 'INCLUDED' && row.model.profileId === profile.id,
+      )
+      .map((row) => row.id);
+    loadProfileEvidence(
+      product.versionId,
+      profile.id,
+      expectedEvidenceIds,
+    ).then(
+      ({ evidence }) => {
+        if (active) setDetails({ key: detailsKey, status: 'ready', evidence });
+      },
+      () => {
+        if (active) setDetails({ key: detailsKey, status: 'error' });
+      },
+    );
+    return () => {
+      active = false;
+    };
+  }, [
+    detailsKey,
+    needsDetails,
+    product.versionId,
+    product.evidence,
+    profile.id,
+    retryCount,
+  ]);
+
+  // Gate data by the current key during render as well as cancelling effects:
+  // a new profile can render before its effect has cleared the previous state.
+  const currentDetails = details?.key === detailsKey ? details : null;
+  const detailsStatus = needsDetails
+    ? (currentDetails?.status ?? 'loading')
+    : 'ready';
+  const detailedEvidenceById = useMemo(
+    () =>
+      new Map(
+        (needsDetails
+          ? (currentDetails?.evidence ?? [])
+          : (product.evidence as ProductEvidence[])
+        ).map((evidence) => [evidence.id, evidence]),
+      ),
+    [needsDetails, currentDetails?.evidence, product.evidence],
+  );
 
   const profileEvidence = useMemo(() => {
     return product.evidence.filter(
@@ -164,7 +231,7 @@ export function ModelDetailPanel({
   }, [product.evidence, profile.id]);
 
   const evidenceByBenchmark = useMemo(() => {
-    const map = new Map<string, ProductEvidence>();
+    const map = new Map<string, DashboardEvidence>();
     const contributingEvidenceIds = new Set(
       selectedResult?.evidenceResultIds ?? [],
     );
@@ -280,6 +347,20 @@ export function ModelDetailPanel({
         </div>
       </div>
 
+      {detailsStatus === 'loading' ? (
+        <p role="status">Loading evidence details…</p>
+      ) : detailsStatus === 'error' ? (
+        <div role="alert">
+          <p>Could not load evidence details.</p>
+          <button
+            type="button"
+            onClick={() => setRetryCount((count) => count + 1)}
+          >
+            Retry evidence details
+          </button>
+        </div>
+      ) : null}
+
       <div className="model-detail-dimensions-grid">
         {displayedDimensionIds.map((dimension) => {
           const dimLabel = DIMENSION_DISPLAY_NAMES[dimension];
@@ -307,6 +388,9 @@ export function ModelDetailPanel({
                 {benchmarkIds.length > 0 ? (
                   benchmarkIds.map((bmId, idx) => {
                     const evidence = evidenceByBenchmark.get(bmId);
+                    const detailedEvidence = evidence
+                      ? detailedEvidenceById.get(evidence.id)
+                      : undefined;
                     const isLast = idx === benchmarkIds.length - 1;
                     const treePrefix = isLast ? '└ ' : '├ ';
                     const bmName = getBenchmarkDisplayName(bmId, evidence);
@@ -316,7 +400,7 @@ export function ModelDetailPanel({
                     const scoreText = evidence
                       ? formatScore(evidence.normalizedScore)
                       : '—';
-                    const provKey = `${profile.id}:${bmId}`;
+                    const provKey = `${detailsKey}:${bmId}`;
                     const isProvOpen = openProvenanceId === provKey;
                     const isScored = scoringBasisIds.has(bmId);
 
@@ -395,17 +479,32 @@ export function ModelDetailPanel({
                                   </span>
                                 </dd>
                               </div>
-                              <div>
-                                <dt>Locator</dt>
-                                <dd>
-                                  <code>{evidence.provenance.locator}</code>
-                                </dd>
-                              </div>
-                              <div>
-                                <dt>Retrieved At</dt>
-                                <dd>{evidence.provenance.retrievedAt}</dd>
-                              </div>
+                              {detailedEvidence ? (
+                                <>
+                                  <div>
+                                    <dt>Locator</dt>
+                                    <dd>
+                                      <code>
+                                        {detailedEvidence.provenance.locator}
+                                      </code>
+                                    </dd>
+                                  </div>
+                                  <div>
+                                    <dt>Retrieved At</dt>
+                                    <dd>
+                                      {detailedEvidence.provenance.retrievedAt}
+                                    </dd>
+                                  </div>
+                                </>
+                              ) : null}
                             </dl>
+                            {!detailedEvidence ? (
+                              <p>
+                                {detailsStatus === 'loading'
+                                  ? 'Loading evidence details…'
+                                  : 'Evidence details are unavailable.'}
+                              </p>
+                            ) : null}
                           </div>
                         ) : null}
                       </li>

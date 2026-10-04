@@ -1,8 +1,5 @@
-import type {
-  DimensionId,
-  ProductEvidence,
-  ProductVersion,
-} from '@llm-bench/benchmark-data';
+import type { DashboardProduct as ProductVersion } from './dashboard-data';
+import type { DimensionId, ProductEvidence } from '@llm-bench/benchmark-data';
 
 import { UI_DIMENSION_IDS } from './ui-contract';
 import { type LeaderboardRow } from './view-model';

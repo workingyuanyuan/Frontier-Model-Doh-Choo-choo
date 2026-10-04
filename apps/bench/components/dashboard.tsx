@@ -1,6 +1,12 @@
 'use client';
 
-import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
+import {
+  unpackDashboardProduct,
+  type DashboardPayload,
+  type DashboardProduct as ProductVersion,
+} from '../lib/dashboard-data';
+
+import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useState } from 'react';
 
 import { CostChart } from './cost-chart';
@@ -34,17 +40,24 @@ const formatGeneratedAt = (generatedAt: string): string =>
 
 export function Dashboard({
   benchmarkDimensions,
-  product: rawProduct,
+  product: inputProduct,
   initialExpandedModelIds,
   initialPresetId,
   initialDeveloperMode,
 }: {
   benchmarkDimensions: Record<string, DimensionId>;
-  product: ProductVersion;
+  product: ProductVersion | DashboardPayload;
   initialExpandedModelIds?: string[] | undefined;
   initialPresetId?: string | undefined;
   initialDeveloperMode?: boolean | undefined;
 }) {
+  const rawProduct = useMemo(
+    () =>
+      inputProduct.schemaVersion === 'dashboard-payload-v1'
+        ? unpackDashboardProduct(inputProduct)
+        : inputProduct,
+    [inputProduct],
+  );
   const [developerMode, setDeveloperMode] = useState(
     initialDeveloperMode ?? false,
   );

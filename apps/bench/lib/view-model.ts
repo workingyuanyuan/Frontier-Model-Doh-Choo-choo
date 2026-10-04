@@ -1,9 +1,8 @@
 import type {
-  DimensionId,
-  ModelProfile,
-  ProductEvidence,
-  ProductVersion,
-} from '@llm-bench/benchmark-data';
+  DashboardProduct as ProductVersion,
+  DashboardEvidence as ProductEvidence,
+} from './dashboard-data';
+import type { DimensionId, ModelProfile } from '@llm-bench/benchmark-data';
 
 export type ProductPreset = ProductVersion['presets'][number];
 export type LeaderboardRow = ProductPreset['leaderboard'][number];
@@ -16,10 +15,11 @@ export type LeaderboardRow = ProductPreset['leaderboard'][number];
  * preset id through every component, keeps a single place where "which scores
  * am I looking at" is decided.
  */
-export type PresetProductVersion = ProductVersion & {
-  activePreset: ProductPreset;
-  leaderboard: LeaderboardRow[];
-};
+export type PresetProductVersion<T extends ProductVersion = ProductVersion> =
+  T & {
+    activePreset: ProductPreset;
+    leaderboard: LeaderboardRow[];
+  };
 
 /**
  * The preset a view is rendered under.
@@ -44,10 +44,10 @@ export const resolveActivePreset = (
   return preset;
 };
 
-export const withActivePreset = (
-  product: ProductVersion,
+export const withActivePreset = <T extends ProductVersion>(
+  product: T,
   presetId?: string | undefined,
-): PresetProductVersion => {
+): PresetProductVersion<T> => {
   const activePreset = resolveActivePreset(product, presetId);
   return { ...product, activePreset, leaderboard: activePreset.leaderboard };
 };
@@ -486,10 +486,10 @@ export const resolveSelectedProfileId = (
     ? requestedProfileId
     : representativeProfileId;
 
-export const getEvidenceForProfile = (
-  product: ProductVersion,
+export const getEvidenceForProfile = <T extends ProductEvidence>(
+  product: Omit<ProductVersion, 'evidence'> & { evidence: T[] },
   profileId: string,
-): ProductEvidence[] => {
+): T[] => {
   const profile = profileById(product, profileId);
   if (!profile) return [];
 

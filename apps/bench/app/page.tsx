@@ -1,3 +1,7 @@
+import {
+  packDashboardProduct,
+  toDashboardProduct,
+} from '../lib/dashboard-data';
 import { Dashboard } from '../components/dashboard';
 import { loadProductVersion } from '../lib/load-product-version';
 
@@ -8,6 +12,9 @@ export default function Page() {
   // carries the scored presets, so the dashboard reads those.
   const { benchmarkDimensions, product } = loadProductVersion();
   return (
-    <Dashboard benchmarkDimensions={benchmarkDimensions} product={product} />
+    <Dashboard
+      benchmarkDimensions={benchmarkDimensions}
+      product={packDashboardProduct(toDashboardProduct(product))}
+    />
   );
 }
