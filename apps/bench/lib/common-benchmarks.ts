@@ -33,25 +33,29 @@ function scoreRow(
   evidence: ProductEvidence[],
   dimensions: Record<string, DimensionId>,
 ): LeaderboardRow {
+  const byBenchmark = new Map<string, { sum: number; count: number }>();
+  for (const item of evidence) {
+    const aggregate = byBenchmark.get(item.benchmarkId) ?? { sum: 0, count: 0 };
+    aggregate.sum += item.normalizedScore!;
+    aggregate.count += 1;
+    byBenchmark.set(item.benchmarkId, aggregate);
+  }
+  const byDimension = new Map<DimensionId, number[]>();
+  for (const [id, aggregate] of byBenchmark) {
+    const dimension = dimensions[id]!;
+    const means = byDimension.get(dimension) ?? [];
+    means.push(aggregate.sum / aggregate.count);
+    byDimension.set(dimension, means);
+  }
   const scores = UI_DIMENSION_IDS.flatMap((dimension) => {
-    const items = evidence.filter(
-      (e) => dimensions[e.benchmarkId] === dimension,
-    );
-    if (!items.length) return [];
+    const means = byDimension.get(dimension);
+    if (!means?.length) return [];
     // Each benchmark design contributes once, regardless of metric count.
-    const benchmarks = [...new Set(items.map((e) => e.benchmarkId))];
-    const means = benchmarks.map((id) => {
-      const measurements = items.filter((e) => e.benchmarkId === id);
-      return (
-        measurements.reduce((sum, e) => sum + e.normalizedScore!, 0) /
-        measurements.length
-      );
-    });
     return [
       {
         dimension,
         score: means.reduce((sum, score) => sum + score, 0) / means.length,
-        componentCount: benchmarks.length,
+        componentCount: means.length,
       },
     ];
   });
@@ -73,14 +77,26 @@ function scoreRow(
   };
 }
 
+function evidenceByProfile(evidence: ProductEvidence[]) {
+  const grouped = new Map<string, ProductEvidence[]>();
+  for (const item of evidence) {
+    const profileId = item.model.profileId!;
+    const items = grouped.get(profileId) ?? [];
+    items.push(item);
+    grouped.set(profileId, items);
+  }
+  return grouped;
+}
+
 export function comparisonOptions(
   product: ProductVersion,
   dimensions: Record<string, DimensionId>,
 ): LeaderboardRow[] {
   const evidence = comparisonEvidence(product, dimensions);
+  const grouped = evidenceByProfile(evidence);
   const coverage = new Map<string, number>();
   const rows = product.profiles.flatMap((profile) => {
-    const items = evidence.filter((e) => e.model.profileId === profile.id);
+    const items = grouped.get(profile.id) ?? [];
     coverage.set(profile.id, new Set(items.map((e) => e.benchmarkId)).size);
     return items.length ? [scoreRow(profile, items, dimensions)] : [];
   });
@@ -109,38 +125,46 @@ export function buildCommonComparison(
   pinnedProfileIds: readonly string[] = [],
 ) {
   const evidence = comparisonEvidence(product, dimensions);
+  const grouped = evidenceByProfile(evidence);
+  const profileById = new Map(product.profiles.map((p) => [p.id, p]));
+  const optionByModel = new Map(options.map((row) => [row.modelId, row]));
+  const selectedModelIds = new Set(modelIds);
   const profiles = [...new Set(modelIds)].flatMap((modelId) => {
-    const fallback = options.find((row) => row.modelId === modelId)?.profileId;
+    const fallback = optionByModel.get(modelId)?.profileId;
+    const requested = profileById.get(selectedProfiles[modelId] ?? '');
     const profile =
-      product.profiles.find(
-        (p) => p.modelId === modelId && p.id === selectedProfiles[modelId],
-      ) ?? product.profiles.find((p) => p.id === fallback);
+      (requested?.modelId === modelId ? requested : undefined) ??
+      profileById.get(fallback ?? '');
     return profile ? [profile] : [];
   });
   for (const id of pinnedProfileIds) {
-    const profile = product.profiles.find(
-      (p) => p.id === id && modelIds.includes(p.modelId),
-    );
-    if (profile && !profiles.some((p) => p.id === id)) profiles.push(profile);
+    const profile = profileById.get(id);
+    if (
+      profile &&
+      selectedModelIds.has(profile.modelId) &&
+      !profiles.some((p) => p.id === id)
+    )
+      profiles.push(profile);
   }
-  const byProfile = profiles.map((profile) =>
-    evidence.filter((e) => e.model.profileId === profile.id),
-  );
-  const sharedBenchmarkIds = [
-    ...new Set(byProfile[0]?.map((e) => e.benchmarkId) ?? []),
-  ]
+  const byProfile = profiles.map((profile) => grouped.get(profile.id) ?? []);
+  const metricKeysByProfile = byProfile.map((items) => {
+    const metrics = new Map<string, string[]>();
+    for (const item of items) {
+      const keys = metrics.get(item.benchmarkId) ?? [];
+      keys.push(
+        `${item.metric.id}:${item.metric.unit}:${item.metric.higherIsBetter}`,
+      );
+      metrics.set(item.benchmarkId, keys);
+    }
+    return new Map(
+      [...metrics].map(([id, keys]) => [id, keys.toSorted().join('|')]),
+    );
+  });
+  const sharedBenchmarkIds = [...(metricKeysByProfile[0]?.keys() ?? [])]
     .filter((id) => {
       // Different metrics of one benchmark must not become an apparent like-for-like comparison.
-      const metricKeys = (items: ProductEvidence[]) =>
-        items
-          .filter((e) => e.benchmarkId === id)
-          .map(
-            (e) => `${e.metric.id}:${e.metric.unit}:${e.metric.higherIsBetter}`,
-          )
-          .toSorted()
-          .join('|');
-      const key = metricKeys(byProfile[0]!);
-      return byProfile.every((items) => metricKeys(items) === key);
+      const key = metricKeysByProfile[0]!.get(id);
+      return metricKeysByProfile.every((keys) => keys.get(id) === key);
     })
     .toSorted();
   // The quality share is evaluated on this intersection, not on the picker universe.

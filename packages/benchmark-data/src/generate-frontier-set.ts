@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format } from 'prettier';
 import { loadWorkspaceCoverageData } from './coverage-matrix.js';
-import { selectAaFrontier } from './frontier-selection.js';
+import { selectAaTopTen } from './frontier-selection.js';
 import {
   FrontierIdentitiesSchema,
   resolveFrontierIdentities,
@@ -134,7 +134,7 @@ export async function generateFrontierSet(repositoryRoot: string) {
     input.profilePolicy,
     getComparisonOnlyBenchmarkIds(mapping),
   );
-  const selection = selectAaFrontier(candidates);
+  const selection = selectAaTopTen(candidates);
   const auditPath = join(root, 'data/mappings/frontier-selection-audit.json');
   const write = async (path: string, value: unknown) =>
     writeFile(
@@ -146,14 +146,9 @@ export async function generateFrontierSet(repositoryRoot: string) {
     await write(auditPath, selection);
     throw new Error(`AA frontier needs review; see ${auditPath}`);
   }
-  let common: ReturnType<typeof commonQualityBenchmarks>;
+  let cohorts: ReturnType<typeof createAaCohorts>;
   try {
-    common = commonQualityBenchmarks(
-      candidates,
-      selection.selectedProfileIds,
-      mapping,
-      quality,
-    );
+    cohorts = createAaCohorts(candidates, selection.topTen, mapping, quality);
   } catch (error) {
     await write(auditPath, {
       ...selection,
@@ -163,8 +158,10 @@ export async function generateFrontierSet(repositoryRoot: string) {
     throw error;
   }
   const artifact = {
-    schemaVersion: 'frontier-set-v1',
+    schemaVersion: 'frontier-set-v2',
     selection,
+    cohortPolicy: { minModels: 2, maxModels: 10, defaultModelCount: 8 },
+    defaultPresetId: 'aa-frontier',
     benchmarkQuality: quality,
     models: selection.selectedModelIds.map((modelId) => ({
       modelId,
@@ -172,12 +169,36 @@ export async function generateFrontierSet(repositoryRoot: string) {
         input.catalog.models.find((m) => m.modelId === modelId)?.displayName ??
         modelId,
     })),
-    ...common,
+    ...cohorts.find(({ targetModelCount }) => targetModelCount === 8)!,
+    cohorts,
   };
   const outputPath = join(root, 'data/mappings/frontier-set.json');
   await write(outputPath, artifact);
   await write(auditPath, selection);
   return { outputPath, artifact };
+}
+
+/** Each prefix uses exactly its AA-winning profiles and their own common tests. */
+export function createAaCohorts(
+  candidates: CandidateResult[],
+  topTen: ReturnType<typeof selectAaTopTen>['topTen'],
+  mapping: BenchmarkDimensionMapping,
+  quality: BenchmarkQualityPolicy,
+) {
+  if (topTen.length !== 10 || topTen.some(({ profileId }) => !profileId))
+    throw new Error('Expected ten resolved AA leaders');
+  return Array.from({ length: 9 }, (_, index) => {
+    const targetModelCount = index + 2;
+    const leaders = topTen.slice(0, targetModelCount);
+    const profileIds = leaders.map(({ profileId }) => profileId!);
+    return {
+      id: targetModelCount === 8 ? 'aa-frontier' : `aa-top-${targetModelCount}`,
+      targetModelCount,
+      modelIds: leaders.map(({ modelId }) => modelId),
+      profileIds,
+      ...commonQualityBenchmarks(candidates, profileIds, mapping, quality),
+    };
+  });
 }
 
 if (

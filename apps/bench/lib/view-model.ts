@@ -311,9 +311,37 @@ export const getDeveloperModelRows = (
   product: PresetProductVersion,
   displaySet: { benchmarkIds: readonly string[] } | null,
 ): DeveloperModelRow[] => {
+  const availableByProfile = new Map<string, Set<string>>();
+  for (const result of product.evidence) {
+    if (
+      result.inclusion !== 'INCLUDED' ||
+      result.normalizedScore === null ||
+      result.model.profileId === null
+    )
+      continue;
+    const available =
+      availableByProfile.get(result.model.profileId) ?? new Set<string>();
+    available.add(result.benchmarkId);
+    availableByProfile.set(result.model.profileId, available);
+  }
+  const missingForProfile = (profileId: string) =>
+    displaySet?.benchmarkIds.filter(
+      (id) => !availableByProfile.get(profileId)?.has(id),
+    ) ?? [];
+  const leaderboardByProfile = new Map(
+    product.leaderboard.map((row) => [row.profileId, row]),
+  );
+  const profilesById = new Map(
+    product.profiles.map((profile) => [profile.id, profile]),
+  );
   const eligibleModelIds = new Set(
     product.leaderboard
-      .filter((row) => isMainEligibleRow(product, row, displaySet))
+      .filter(
+        (row) =>
+          displaySet !== null &&
+          missingForProfile(row.profileId).length === 0 &&
+          hasCompleteDimensionScores(row),
+      )
       .map(({ modelId }) => modelId),
   );
 
@@ -331,10 +359,8 @@ export const getDeveloperModelRows = (
 
   for (const [modelId, profileIds] of modelProfilesMap.entries()) {
     const candidateRankings = profileIds.map((pId) => {
-      const missing = getMissingDisplaySetBenchmarks(product, pId, displaySet);
-      const score =
-        product.leaderboard.find((r) => r.profileId === pId)?.overallScore ??
-        null;
+      const missing = missingForProfile(pId);
+      const score = leaderboardByProfile.get(pId)?.overallScore ?? null;
       return {
         profileId: pId,
         missingBenchmarkIds: missing,
@@ -357,7 +383,7 @@ export const getDeveloperModelRows = (
 
     const best = candidateRankings[0];
     if (best) {
-      const profile = profileById(product, best.profileId);
+      const profile = profilesById.get(best.profileId);
       rows.push({
         modelId,
         profileId: best.profileId,
@@ -616,9 +642,39 @@ export const latestAaIndexVersion = (product: ProductVersion): string | null =>
       ),
     )[0]?.benchmarkVersion ?? null;
 
-const currentAaCost = (product: ProductVersion, point: CostPoint): boolean =>
+interface CostScoreContext {
+  latestAaVersion: string | null;
+  byProfileSourceBenchmark: Map<string, ProductEvidence[]>;
+}
+
+const sourceEvidenceKey = (
+  profileId: string | null,
+  sourceId: string,
+  benchmarkId: string,
+) => JSON.stringify([profileId, sourceId, benchmarkId]);
+
+// Build once per calculation so changing evidence is reflected on the next call.
+const costScoreContext = (product: ProductVersion): CostScoreContext => {
+  const byProfileSourceBenchmark = new Map<string, ProductEvidence[]>();
+  for (const row of product.evidence) {
+    const key = sourceEvidenceKey(
+      row.model.profileId,
+      row.sourceId,
+      row.benchmarkId,
+    );
+    const rows = byProfileSourceBenchmark.get(key) ?? [];
+    rows.push(row);
+    byProfileSourceBenchmark.set(key, rows);
+  }
+  return {
+    latestAaVersion: latestAaIndexVersion(product),
+    byProfileSourceBenchmark,
+  };
+};
+
+const currentAaCost = (context: CostScoreContext, point: CostPoint): boolean =>
   point.sourceId !== 'artificial-analysis' ||
-  point.benchmarkVersion === latestAaIndexVersion(product);
+  point.benchmarkVersion === context.latestAaVersion;
 
 const normalizeSourceEffort = (effort: string | null): string =>
   effort !== null && COST_EFFORT_RANK.has(effort) ? effort : 'default';
@@ -641,10 +697,27 @@ export const getSourceScore = (
     : null,
   reportedSourceId: string = sourceId,
   reportedSourceUrl?: string,
+): SourceScore | null =>
+  sourceScoreFromEvidence(
+    product.evidence,
+    sourceId,
+    profileId,
+    benchmarkVersion,
+    reportedSourceId,
+    reportedSourceUrl,
+  );
+
+const sourceScoreFromEvidence = (
+  rows: ProductEvidence[],
+  sourceId: string,
+  profileId: string,
+  benchmarkVersion: string | null,
+  reportedSourceId: string,
+  reportedSourceUrl?: string,
 ): SourceScore | null => {
   const basis = COST_SOURCE_SCORE_BASES[sourceId];
   if (!basis) return null;
-  const evidence = product.evidence
+  const evidence = rows
     .filter(
       (result) =>
         result.inclusion === basis.inclusion &&
@@ -671,16 +744,42 @@ export const getSourceScore = (
       };
 };
 
+const indexedSourceScore = (
+  context: CostScoreContext,
+  sourceId: string,
+  profileId: string,
+  benchmarkVersion: string | null = sourceId === 'artificial-analysis'
+    ? context.latestAaVersion
+    : null,
+  reportedSourceId: string = sourceId,
+  reportedSourceUrl?: string,
+): SourceScore | null => {
+  const basis = COST_SOURCE_SCORE_BASES[sourceId];
+  if (!basis) return null;
+  const rows =
+    context.byProfileSourceBenchmark.get(
+      sourceEvidenceKey(profileId, reportedSourceId, basis.benchmarkId),
+    ) ?? [];
+  return sourceScoreFromEvidence(
+    rows,
+    sourceId,
+    profileId,
+    benchmarkVersion,
+    reportedSourceId,
+    reportedSourceUrl,
+  );
+};
+
 /** Every source eligible for the advanced chart declares a score basis. */
 const getAdvancedSourceScore = (
-  product: ProductVersion,
+  context: CostScoreContext,
   sourceId: AdvancedCostSourceId,
   profileId: string,
   cost: CostPoint,
 ):
   (SourceScore & { basis: AdvancedScoreBasis; benchmarkId: string }) | null => {
-  const score = getSourceScore(
-    product,
+  const score = indexedSourceScore(
+    context,
     sourceId,
     profileId,
     cost.benchmarkVersion,
@@ -712,13 +811,16 @@ const VENDOR_COST_BENCHMARKS: Readonly<
 
 /** Use one publisher's score/cost pair per benchmark and effort. Vendor
  * previews fill missing organizer pairs without adding a duplicate weight. */
-const chartCostRows = (product: ProductVersion): CostPoint[] => {
+const chartCostRows = (
+  product: ProductVersion,
+  context: CostScoreContext,
+): CostPoint[] => {
   const groups = new Map<string, CostPoint[]>();
   for (const original of product.costs) {
     if (
       !isTaskCost(original) ||
       original.cost <= 0 ||
-      !currentAaCost(product, original)
+      !currentAaCost(context, original)
     )
       continue;
     const vendor =
@@ -741,8 +843,8 @@ const chartCostRows = (product: ProductVersion): CostPoint[] => {
       : original;
     if (
       vendor &&
-      !getSourceScore(
-        product,
+      !indexedSourceScore(
+        context,
         row.sourceId,
         row.profileId,
         row.benchmarkVersion,
@@ -763,8 +865,8 @@ const chartCostRows = (product: ProductVersion): CostPoint[] => {
       .toSorted(compareCostRows);
     if (vendors.length === 0) return organizer;
     const pairedOrganizer = organizer.filter((row) =>
-      getSourceScore(
-        product,
+      indexedSourceScore(
+        context,
         row.sourceId,
         row.profileId,
         row.benchmarkVersion,
@@ -776,12 +878,6 @@ const chartCostRows = (product: ProductVersion): CostPoint[] => {
     return vendors[0] ? [vendors[0]] : organizer;
   });
 };
-
-const representativeProfileForModel = (
-  product: PresetProductVersion,
-  modelId: string,
-): LeaderboardRow | undefined =>
-  getRepresentativeRows(product).find((row) => row.modelId === modelId);
 
 const normalizeCost = (
   cost: number,
@@ -801,7 +897,7 @@ interface SourceCostCandidate {
 }
 
 const chooseBestSourceCandidate = (
-  product: ProductVersion,
+  context: CostScoreContext,
   rows: CostPoint[],
 ): SourceCostCandidate | undefined => {
   const grouped = new Map<string, CostPoint[]>();
@@ -830,8 +926,8 @@ const chooseBestSourceCandidate = (
         sourceId: first.sourceId,
         profileId: first.profileId,
         rows: performanceRows,
-        sourceScore: getSourceScore(
-          product,
+        sourceScore: indexedSourceScore(
+          context,
           first.sourceId,
           first.profileId,
           first.reportedSourceId ? first.benchmarkVersion : undefined,
@@ -856,10 +952,17 @@ export const buildWeightedCostCurve = (
   product: PresetProductVersion,
   weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
 ): WeightedCostPoint[] => {
-  const taskCosts = chartCostRows(product).filter(
+  const context = costScoreContext(product);
+  const representatives = new Map(
+    getRepresentativeRows(product).map((row) => [row.modelId, row]),
+  );
+  const profiles = new Map(
+    product.profiles.map((profile) => [profile.id, profile]),
+  );
+  const taskCosts = chartCostRows(product, context).filter(
     (point) =>
       isTaskCost(point) &&
-      currentAaCost(product, point) &&
+      currentAaCost(context, point) &&
       point.cost > 0 &&
       (weights[point.sourceId] ?? 0) > 0 &&
       point.performance !== null,
@@ -887,7 +990,7 @@ export const buildWeightedCostCurve = (
 
   const selectedByModel = new Map<string, SourceCostCandidate[]>();
   byModelSource.forEach((rows) => {
-    const candidate = chooseBestSourceCandidate(product, rows);
+    const candidate = chooseBestSourceCandidate(context, rows);
     if (!candidate) return;
     const sourceCandidates = selectedByModel.get(candidate.modelId) ?? [];
     sourceCandidates.push(candidate);
@@ -896,7 +999,7 @@ export const buildWeightedCostCurve = (
 
   return [...selectedByModel.entries()]
     .flatMap(([modelId, sourceCandidates]) => {
-      const representative = representativeProfileForModel(product, modelId);
+      const representative = representatives.get(modelId);
       if (!representative || representative.overallScore === null) return [];
 
       const sourceCosts = sourceCandidates.flatMap((candidate) => {
@@ -935,7 +1038,7 @@ export const buildWeightedCostCurve = (
       const selectedProfileIds = sourceCosts
         .map(({ profileId }) => profileId)
         .toSorted();
-      const displayProfile = profileById(product, representative.profileId);
+      const displayProfile = profiles.get(representative.profileId);
       if (!displayProfile) return [];
       return [
         {
@@ -1013,16 +1116,23 @@ const compareAdvancedPoints = (
 export const buildAdvancedCostSeries = (
   product: ProductVersion,
   selectedSourceIds: readonly AdvancedCostSourceId[] = ADVANCED_COST_SOURCE_IDS,
+): AdvancedCostSeries[] =>
+  advancedCostSeries(product, selectedSourceIds, costScoreContext(product));
+
+const advancedCostSeries = (
+  product: ProductVersion,
+  selectedSourceIds: readonly AdvancedCostSourceId[],
+  context: CostScoreContext,
 ): AdvancedCostSeries[] => {
   const activeSourceIds = AVAILABLE_ADVANCED_COST_SOURCE_IDS.filter(
     (sourceId) => selectedSourceIds.includes(sourceId),
   );
   if (activeSourceIds.length === 0) return [];
 
-  const taskCosts = chartCostRows(product).filter(
+  const taskCosts = chartCostRows(product, context).filter(
     (point) =>
       isTaskCost(point) &&
-      currentAaCost(product, point) &&
+      currentAaCost(context, point) &&
       point.cost > 0 &&
       (activeSourceIds as readonly string[]).includes(point.sourceId),
   );
@@ -1072,7 +1182,7 @@ export const buildAdvancedCostSeries = (
         break;
       }
       const sourceScore = getAdvancedSourceScore(
-        product,
+        context,
         sourceId,
         profileId,
         exemplar,
@@ -1180,9 +1290,10 @@ export const buildAdvancedCostModelOptions = (
   product: ProductVersion,
 ): AdvancedCostModelOption[] => {
   const byModel = new Map<string, AdvancedCostModelOption>();
+  const context = costScoreContext(product);
 
   AVAILABLE_ADVANCED_COST_SOURCE_IDS.forEach((sourceId) => {
-    buildAdvancedCostSeries(product, [sourceId]).forEach((line) => {
+    advancedCostSeries(product, [sourceId], context).forEach((line) => {
       const existing = byModel.get(line.modelId) ?? {
         seriesId: line.seriesId,
         modelId: line.modelId,

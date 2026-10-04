@@ -756,7 +756,9 @@ const chooseObservationWithField = (
 export const isArtificialAnalysisActiveRow = (
   row: ArtificialAnalysisRow,
 ): boolean => {
-  if (row.deprecated === true || row.deleted === true) return false;
+  // Deprecated models remain useful generation baselines. Index-version
+  // matching governs score/cost comparability in the chart.
+  if (row.deleted === true) return false;
   const rawDate = readRowField(row, ['release_date', 'releaseDate']);
   if (typeof rawDate !== 'string') return false;
   const date = new Date(rawDate);
@@ -1530,7 +1532,7 @@ export const materializeArtificialAnalysisRsc = (
     '# Artificial Analysis acquisition validation',
     '',
     `- Evaluation pages combined: ${ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.map((slug) => `\`${slug}\``).join(', ')}`,
-    '- Model-set composition: union every page row, keep only non-deprecated rows released on or after 2025-08-17, then fetch `/models/<slug>` detail payloads for task cost and token-price fields.',
+    '- Model-set composition: union every page row, keep non-deleted rows released on or after 2025-08-17 including deprecated models, then fetch `/models/<slug>` detail payloads for task cost and token-price fields.',
     '- `$undefined` is treated as missing data together with `null`; it never creates a CandidateResult or CostRecord.',
     '',
     '## Exact counts',
@@ -1541,7 +1543,7 @@ export const materializeArtificialAnalysisRsc = (
     `| Unique profile rows in evaluation-page payloads | ${evaluationPayloadRows} |`,
     `| Unique profile rows in model-detail payloads | ${detailPayloadRows} |`,
     `| Profile rows in the /models payload | ${modelsPayloadRows} |`,
-    `| Active profile rows (2025-08-17 cutoff, not deprecated) | ${activeRows} |`,
+    `| Eligible profile rows (2025-08-17 cutoff, including deprecated) | ${activeRows} |`,
     `| Generated CandidateResults | ${candidates.length} |`,
     `| Intelligence Index candidates (EXCLUDED) | ${intelligenceIndexRows} |`,
     `| GDPval-AA normalized candidates | ${gdpvalRows} |`,

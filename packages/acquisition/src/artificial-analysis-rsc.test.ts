@@ -13,6 +13,47 @@ const evidenceId =
   'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 describe('Artificial Analysis RSC parser', () => {
+  it('materializes deprecated generation baselines with versioned scores and costs', () => {
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'model-detail',
+        slug: 'gpt-6-sol',
+        sourceUrl: 'https://artificialanalysis.ai/models/gpt-6-sol',
+        evidenceId,
+        retrievedAt: '2026-10-04T00:00:00.000Z',
+        versionMetadata: {
+          intelligenceIndexVersion: 'v4.3.2',
+          benchmarkVersions: {},
+        },
+        rows: [
+          {
+            slug: 'gpt-6-sol',
+            name: 'GPT-6 Sol (Max)',
+            releaseDate: '2026-09-22',
+            deprecated: true,
+            intelligenceIndex: 47.63,
+            intelligenceIndexCostPerTask: { cost: { total: 1.0447 } },
+          },
+        ],
+      },
+    ]);
+    expect(result.candidates).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          benchmarkId: 'artificial-analysis-intelligence-index',
+          benchmarkVersion: 'v4.3.2',
+          rawScore: 47.63,
+        }),
+      ]),
+    );
+    expect(result.costs).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ benchmarkVersion: 'v4.3.2' }),
+      ]),
+    );
+    expect(result.taskCostRows).toBe(1);
+  });
+
   it('discovers explicit effort links in escaped RSC without treating score or provider links as variants', () => {
     const links = JSON.stringify([
       { label: 'xhigh', href: '/models/claude-opus-5-5-xhigh' },

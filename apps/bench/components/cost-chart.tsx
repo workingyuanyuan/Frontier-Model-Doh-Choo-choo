@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import { getChartDomain } from '../lib/chart-scale';
 import {
@@ -370,7 +370,7 @@ export function CostModelMenu({
   );
 }
 
-export function DefaultCostPlot({
+export const DefaultCostPlot = memo(function DefaultCostPlot({
   points,
   selectedProfileId = null,
   onToggleSelect,
@@ -386,13 +386,19 @@ export function DefaultCostPlot({
   const [activePoint, setActivePoint] = useState<WeightedCostPoint | null>(
     initialActivePoint,
   );
-  const frontier = getCostParetoFrontier(points);
+  const frontier = useMemo(() => getCostParetoFrontier(points), [points]);
   const left = 58;
   const right = 610;
   const top = 28;
   const bottom = 350;
-  const xDomain = getChartDomain(points.map((point) => point.normalizedCost));
-  const yDomain = getChartDomain(points.map((point) => point.performance));
+  const xDomain = useMemo(
+    () => getChartDomain(points.map((point) => point.normalizedCost)),
+    [points],
+  );
+  const yDomain = useMemo(
+    () => getChartDomain(points.map((point) => point.performance)),
+    [points],
+  );
   const x = (cost: number) =>
     left +
     ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left);
@@ -704,9 +710,9 @@ export function DefaultCostPlot({
       ) : null}
     </>
   );
-}
+});
 
-export function AdvancedCostPlot({
+export const AdvancedCostPlot = memo(function AdvancedCostPlot({
   series,
   modelOptions,
   selectedSourceCount,
@@ -758,15 +764,23 @@ export function AdvancedCostPlot({
   const scoreAxisLabel =
     sourceCount <= 1 ? 'Source score' : `${sourceCount}-source mean score`;
 
-  const visibleSeries = series.flatMap((line) => {
-    const points = line.points.filter(
-      ({ profileId }) => !hiddenProfileIds.has(profileId),
-    );
-    return points.length > 0 ? [{ ...line, points }] : [];
-  });
-  const visiblePoints = visibleSeries.flatMap(({ points }) => points);
-  const visibleProfileIds = new Set(
-    visiblePoints.map(({ profileId }) => profileId),
+  const visibleSeries = useMemo(
+    () =>
+      series.flatMap((line) => {
+        const points = line.points.filter(
+          ({ profileId }) => !hiddenProfileIds.has(profileId),
+        );
+        return points.length > 0 ? [{ ...line, points }] : [];
+      }),
+    [series, hiddenProfileIds],
+  );
+  const visiblePoints = useMemo(
+    () => visibleSeries.flatMap(({ points }) => points),
+    [visibleSeries],
+  );
+  const visibleProfileIds = useMemo(
+    () => new Set(visiblePoints.map(({ profileId }) => profileId)),
+    [visiblePoints],
   );
   const currentActivePoint = activePoint
     ? (series.flatMap((line) =>
@@ -775,8 +789,14 @@ export function AdvancedCostPlot({
           .map((point) => ({ series: line, point })),
       )[0] ?? null)
     : null;
-  const xDomain = getChartDomain(visiblePoints.map((point) => point.costIndex));
-  const yDomain = getChartDomain(visiblePoints.map((point) => point.score));
+  const xDomain = useMemo(
+    () => getChartDomain(visiblePoints.map((point) => point.costIndex)),
+    [visiblePoints],
+  );
+  const yDomain = useMemo(
+    () => getChartDomain(visiblePoints.map((point) => point.score)),
+    [visiblePoints],
+  );
   const x = (cost: number) =>
     left +
     ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left);
@@ -1058,9 +1078,9 @@ export function AdvancedCostPlot({
       </span>
     </div>
   );
-}
+});
 
-export function CostChart({
+export const CostChart = memo(function CostChart({
   defaultProduct,
   advancedProduct,
   developerMode = false,
@@ -1082,20 +1102,29 @@ export function CostChart({
     () => new Set<string>(),
   );
   const [modelMenuOpen, setModelMenuOpen] = useState(false);
-  const points = buildWeightedCostCurve(defaultProduct);
-  const selectedAdvancedSourceIds = AVAILABLE_ADVANCED_COST_SOURCE_IDS.filter(
-    (sourceId) => advancedSourceIds.has(sourceId),
+  const points = useMemo(
+    () => buildWeightedCostCurve(defaultProduct),
+    [defaultProduct],
   );
-  const series = buildAdvancedCostSeries(
-    advancedProduct,
-    selectedAdvancedSourceIds,
+  const selectedAdvancedSourceIds = useMemo(
+    () =>
+      AVAILABLE_ADVANCED_COST_SOURCE_IDS.filter((sourceId) =>
+        advancedSourceIds.has(sourceId),
+      ),
+    [advancedSourceIds],
   );
-  const advancedModelOptions = buildAdvancedCostModelOptions(advancedProduct);
+  const series = useMemo(
+    () =>
+      advanced
+        ? buildAdvancedCostSeries(advancedProduct, selectedAdvancedSourceIds)
+        : [],
+    [advanced, advancedProduct, selectedAdvancedSourceIds],
+  );
+  const advancedModelOptions = useMemo(
+    () => (advanced ? buildAdvancedCostModelOptions(advancedProduct) : []),
+    [advanced, advancedProduct],
+  );
   const advancedPanelId = 'advanced-cost-chart-panel';
-
-  const handleToggleSelect = (profileId: string | null) => {
-    setSelectedProfileId(profileId);
-  };
 
   const toggleAdvancedSource = (sourceId: AdvancedCostSourceId) => {
     setAdvancedSourceIds((current) => {
@@ -1175,7 +1204,7 @@ export function CostChart({
                 selectedProfileId={selectedProfileId}
                 hiddenProfileIds={advancedHiddenProfileIds}
                 onToggleOpen={() => setModelMenuOpen((current) => !current)}
-                onToggleSelect={handleToggleSelect}
+                onToggleSelect={setSelectedProfileId}
                 onUpdateHiddenProfileIds={(update) =>
                   setAdvancedHiddenProfileIds(update)
                 }
@@ -1191,14 +1220,14 @@ export function CostChart({
               modelOptions={advancedModelOptions}
               selectedSourceCount={selectedAdvancedSourceIds.length}
               selectedProfileId={selectedProfileId}
-              onToggleSelect={handleToggleSelect}
+              onToggleSelect={setSelectedProfileId}
               hiddenProfileIds={advancedHiddenProfileIds}
             />
           ) : (
             <DefaultCostPlot
               points={points}
               selectedProfileId={selectedProfileId}
-              onToggleSelect={handleToggleSelect}
+              onToggleSelect={setSelectedProfileId}
               developerMode={developerMode}
             />
           )}
@@ -1216,4 +1245,4 @@ export function CostChart({
       </section>
     </div>
   );
-}
+});

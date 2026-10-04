@@ -136,20 +136,31 @@ describe('buildWorkspaceProduct', () => {
     ) as {
       selection: { selectedModelIds: string[]; selectedProfileIds: string[] };
       benchmarkIds: string[];
+      cohorts: { id: string; profileIds: string[]; modelIds: string[] }[];
     };
     expect(product.frontier.map(({ modelId }) => modelId)).toEqual(
       artifact.selection.selectedModelIds,
     );
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
-    expect(defaultPreset!.benchmarkIds).toHaveLength(20);
+    expect(product.defaultPresetId).toBe('aa-frontier');
+    expect(product.frontier).toHaveLength(10);
+    expect(
+      product.presets.map(({ targetModelCount }) => targetModelCount),
+    ).toEqual([2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(defaultPreset!.targetModelCount).toBe(8);
+    expect(defaultPreset!.benchmarkIds).toHaveLength(17);
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
-    ).toEqual(artifact.selection.selectedProfileIds.toSorted());
+    ).toEqual(artifact.selection.selectedProfileIds.slice(0, 8).toSorted());
 
     for (const preset of product.presets) {
       const completeModels = completeModelsFor(preset.benchmarkIds);
       expect(preset.leaderboard).toHaveLength(preset.targetModelCount);
-      for (const modelId of artifact.selection.selectedModelIds) {
+      const cohort = artifact.cohorts.find(({ id }) => id === preset.id)!;
+      expect(
+        preset.leaderboard.map(({ profileId }) => profileId).sort(),
+      ).toEqual(cohort.profileIds.toSorted());
+      for (const modelId of cohort.modelIds) {
         expect({
           preset: preset.id,
           modelId,
@@ -164,6 +175,20 @@ describe('buildWorkspaceProduct', () => {
         product.evidence.map((row) => [row.id, row]),
       );
       for (const row of preset.leaderboard) {
+        const axes = row.dimensions.filter(({ score }) => score !== null);
+        const effectiveWeight = axes.reduce(
+          (sum, axis) => sum + (axis.componentCount === 1 ? 0.5 : 1),
+          0,
+        );
+        const weightedTotal = axes.reduce(
+          (sum, axis) =>
+            sum + axis.score! * (axis.componentCount === 1 ? 0.5 : 1),
+          0,
+        );
+        expect(row.overallScore).toBeCloseTo(
+          weightedTotal / effectiveWeight,
+          10,
+        );
         for (const evidenceId of row.evidenceResultIds) {
           expect(allowed.has(evidenceById.get(evidenceId)!.benchmarkId)).toBe(
             true,

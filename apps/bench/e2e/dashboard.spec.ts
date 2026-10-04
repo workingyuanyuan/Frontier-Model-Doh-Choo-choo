@@ -364,13 +364,14 @@ test('switching effort updates the selected model scores', async ({ page }) => {
   await page.goto('/');
   const select = page.getByRole('combobox', {
     name: 'Select profile for Claude Fable 5',
+    exact: true,
   });
   test.skip(
     (await select.count()) === 0,
     'Current product has no alternative Fable profile',
   );
 
-  const row = page.getByRole('row', { name: /Claude Fable 5/ });
+  const row = page.locator('[data-ranked-row]').filter({ has: select });
   const before = await row.innerText();
   const values = await select
     .locator('option')
@@ -378,7 +379,8 @@ test('switching effort updates the selected model scores', async ({ page }) => {
       options.map((option) => (option as HTMLOptionElement).value),
     );
   expect(values.length).toBeGreaterThan(1);
-  await select.selectOption(values[1]!);
+  const current = await select.inputValue();
+  await select.selectOption(values.find((value) => value !== current)!);
   await expect.poll(() => row.innerText()).not.toBe(before);
 });
 
@@ -757,7 +759,7 @@ test('keeps the model picker visible on wide screens', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
   await expect(page.locator('.picker-trigger-btn')).toBeVisible();
-  await expect(page.locator('.preset-controls')).toHaveCount(0);
+  await expect(page.locator('.preset-slider')).toBeVisible();
 });
 
 test('uses an equal-width cost toolbar and full-width charts in both modes', async ({
@@ -866,14 +868,55 @@ test('shows cost chart source contributions only in developer mode', async ({
   await expect(sourceContributions).toBeVisible();
 });
 
-test('loads the sole frontier preset from a shared URL', async ({ page }) => {
-  expect(currentProduct.presets).toHaveLength(1);
-  expect(currentProduct.defaultPresetId).toBe('aa-frontier');
-  await page.goto('/?preset=aa-frontier');
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
-  await expect(page.locator('.preset-controls')).toHaveCount(0);
+test('restores the AA model-count slider and persists each cohort in the URL', async ({
+  page,
+}, info) => {
+  test.setTimeout(90_000);
+  expect(currentProduct.presets).toHaveLength(9);
+  await page.goto('/');
+  const slider = page.locator('#preset-model-count');
+  await expect(slider).toHaveAttribute('min', '2');
+  await expect(slider).toHaveAttribute('max', '10');
+  await expect(slider).toHaveValue('8');
+  for (const count of [2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+    await slider.fill(String(count));
+    const preset = currentProduct.presets.find(
+      (p) => p.targetModelCount === count,
+    )!;
+    await expect(page.locator('[data-ranked-row]')).toHaveCount(count);
+    expect(
+      (
+        await page
+          .locator('[data-ranked-row]')
+          .evaluateAll((rows) =>
+            rows.map((r) => r.getAttribute('data-profile-id')),
+          )
+      ).sort(),
+    ).toEqual(preset.leaderboard.map((r) => r.profileId).sort());
+    const axes = preset.leaderboard[0]!.dimensions.filter(
+      (d) => d.score !== null,
+    ).length;
+    await expect(page.locator('.radar-axis')).toHaveCount(axes);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth - innerWidth,
+      ),
+    ).toBeLessThanOrEqual(1);
+  }
+  await expect(page).toHaveURL(/preset=aa-top-10/);
   await page.reload();
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
+  await expect(slider).toHaveValue('10');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(10);
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page.getByRole('button', { name: 'Clear', exact: true }).click();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(0);
+  await slider.fill('8');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(8);
+  await page.screenshot({
+    path: info.outputPath('restored-slider.png'),
+    fullPage: true,
+  });
 });
 
 test('restores the frontier profiles after a manual effort comparison', async ({
@@ -901,7 +944,7 @@ test('restores the frontier profiles after a manual effort comparison', async ({
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Default', exact: true }).click();
   await page.keyboard.press('Escape');
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(8);
   expect(
     await page
       .locator('[data-ranked-row]')

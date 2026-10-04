@@ -78,7 +78,9 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
   });
   await page.goto('/');
   await axes(page, 5);
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    product.leaderboard.length,
+  );
   await expect(page.locator('.radar-label')).toHaveText([
     'AGT',
     'COD',
@@ -188,4 +190,41 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
     ).sort(),
   ).toEqual(product.leaderboard.map((r) => r.profileId).sort());
   expect(errors).toEqual([]);
+});
+
+test('keeps the AA tenth model when the ninth is manually excluded', async ({
+  page,
+}) => {
+  const ranking = JSON.parse(
+    readFileSync('data/mappings/frontier-selection-audit.json', 'utf8'),
+  ).topTen as { profileId: string }[];
+  const ninth = raw.profiles.find((p) => p.id === ranking[8]!.profileId)!;
+  await page.goto('/?preset=aa-top-10');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(10);
+  await picker(page, async () => {
+    await page
+      .getByRole('checkbox', { name: ninth.baseModelName, exact: true })
+      .uncheck();
+  });
+  const ids = ranking.filter((_, i) => i !== 8).map((p) => p.profileId);
+  const expected = compare(ids);
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(9);
+  for (const row of expected.product.leaderboard) {
+    await expect(
+      page.locator(
+        `[data-ranked-row][data-profile-id="${row.profileId}"] .overall-score`,
+      ),
+    ).toHaveText(row.overallScore!.toFixed(1));
+  }
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
+  await expect(
+    page
+      .getByRole('region', { name: 'Common benchmarks', exact: true })
+      .locator('tbody tr'),
+  ).toHaveCount(expected.benchmarkIds.length);
+  await picker(page, async () => {
+    await page.getByRole('button', { name: 'Default', exact: true }).click();
+  });
+  await expect(page.locator('#preset-model-count')).toHaveValue('8');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(8);
 });

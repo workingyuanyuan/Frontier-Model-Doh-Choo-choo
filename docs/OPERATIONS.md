@@ -2,7 +2,7 @@
 
 ## 前沿集合政策產物
 
-正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生 `aa-frontier` 預設；判定失敗時停止，不使用先前成功的集合。
+正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生前 2～10 名的拉桿集合，`aa-frontier` 預設為前 8 名；排名資料驗證失敗時停止。
 
 執行 `pnpm data:generate-frontier-set`，依 [前沿政策](FRONTIER_POLICY.md) 產生 `data/mappings/frontier-set.json` 及 `frontier-selection-audit.json`。輸入為已儲存的來源快照、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`。先確認稽核狀態為 `selected`，再使用集合產物；`needs-review` 表示本次判定需要使用者稽核。
 

@@ -333,7 +333,7 @@ const main = async () => {
   const allPageRows = pages.flatMap(({ rows }) => rows ?? []);
   // Chart selections rotate when new models launch. Re-fetch previously
   // discovered detail URLs so a selection change cannot erase known coverage.
-  // The materializer still applies the live deprecated/release-date filter.
+  // The materializer still applies the deleted/release-date filter.
   const detailSlugs = [
     ...new Set([
       ...activeDetailSlugs(allPageRows),
@@ -468,7 +468,7 @@ const main = async () => {
     completeness: {
       ...(manifest.completeness as Record<string, unknown>),
       expectedCountMethod:
-        'Union every listed evaluation page by profile slug, filter active non-deprecated profiles, then compare score coverage and detail-page task costs; $undefined and null are missing.',
+        'Union every listed evaluation page by profile slug, filter eligible non-deleted profiles including deprecated models, then compare score coverage and detail-page task costs; $undefined and null are missing.',
     },
     targetUrls: [
       MODELS_URL,
@@ -482,7 +482,7 @@ const main = async () => {
     lastVerifiedAt: retrievedAt,
     benchmarkIds,
     notes: [
-      'Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Live deprecated and release-date filters still apply.',
+      'Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.',
       'The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.',
       '`$undefined` and null are both treated as missing values.',
       `Capture observed ${result.pageRows} unique profiles, ${result.activeRows} active profiles, ${result.taskCostRows} task-cost rows, and ${result.tokenPriceRows} token-price rows.`,

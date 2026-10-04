@@ -87,12 +87,12 @@ export function Dashboard({
   );
   const activePreset = product.activePreset;
   const developerRows = useMemo(
-    () => getDeveloperModelRows(product, activePreset),
-    [activePreset, product],
+    () => (developerMode ? getDeveloperModelRows(product, activePreset) : []),
+    [activePreset, product, developerMode],
   );
   const partialCoverageRows = useMemo(
-    () => getPartialCoverageRows(product),
-    [product],
+    () => (developerMode ? getPartialCoverageRows(product) : []),
+    [product, developerMode],
   );
   const mainProfileIds = useMemo(
     () =>
@@ -151,22 +151,47 @@ export function Dashboard({
     () => representatives.map((r) => r.modelId),
     [representatives],
   );
-  const [checkedModelIds, setCheckedModelIds] =
-    useState<string[]>(defaultCheckedIds);
+  // Derive a new preset's default selection in the same render. An effect
+  // would first render stale selections and then repeat the entire update.
+  const [selection, setSelection] = useState(() => ({
+    defaults: defaultCheckedIds,
+    ids: defaultCheckedIds,
+  }));
+  const checkedModelIds =
+    selection.defaults === defaultCheckedIds
+      ? selection.ids
+      : defaultCheckedIds;
+  const setCheckedModelIds: React.Dispatch<React.SetStateAction<string[]>> = (
+    value,
+  ) => {
+    setSelection((current) => ({
+      defaults: defaultCheckedIds,
+      ids:
+        typeof value === 'function'
+          ? value(
+              current.defaults === defaultCheckedIds
+                ? current.ids
+                : defaultCheckedIds,
+            )
+          : value,
+    }));
+  };
   const options = useMemo(
-    () => comparisonOptions(product, benchmarkDimensions),
-    [product, benchmarkDimensions],
+    () => comparisonOptions(rawProduct, benchmarkDimensions),
+    [rawProduct, benchmarkDimensions],
   );
   const comparison = useMemo(
     () =>
-      buildCommonComparison(
-        product,
-        checkedModelIds,
-        selectedProfiles,
-        benchmarkDimensions,
-        options,
-        pinnedProfileIds,
-      ),
+      commonMode
+        ? buildCommonComparison(
+            product,
+            checkedModelIds,
+            selectedProfiles,
+            benchmarkDimensions,
+            options,
+            pinnedProfileIds,
+          )
+        : null,
     [
       product,
       checkedModelIds,
@@ -174,6 +199,7 @@ export function Dashboard({
       benchmarkDimensions,
       options,
       pinnedProfileIds,
+      commonMode,
     ],
   );
   const updateCheckedModels: React.Dispatch<React.SetStateAction<string[]>> = (
@@ -237,9 +263,10 @@ export function Dashboard({
 
   const generated = formatGeneratedAt(product.generatedAt);
 
-  useEffect(() => {
-    setCheckedModelIds(defaultCheckedIds);
-  }, [defaultCheckedIds]);
+  const fixedProfileIds = useMemo(
+    () => comparison?.profiles.map((profile) => profile.id),
+    [comparison],
+  );
 
   return (
     <div id="top">
@@ -254,18 +281,18 @@ export function Dashboard({
 
         <Leaderboard
           product={
-            commonMode
+            comparison
               ? comparison.product
               : product.benchmarkQuality
                 ? product
                 : visibleProduct
           }
           pickerProduct={product}
-          rows={commonMode ? comparison.product.leaderboard : rows}
+          rows={comparison ? comparison.product.leaderboard : rows}
           representatives={options}
           checkedModelIds={checkedModelIds}
           setCheckedModelIds={updateCheckedModels}
-          onResetModels={() => selectPreset(presetId)}
+          onResetModels={() => selectPreset(rawProduct.defaultPresetId)}
           selectedProfiles={selectedProfiles}
           onSelectedProfileChange={(modelId, profileId) => {
             setSelectedProfiles((current) => ({
@@ -284,13 +311,13 @@ export function Dashboard({
             setPinnedProfileIds((ids) => ids.filter((p) => p !== id))
           }
           benchmarkDimensions={benchmarkDimensions}
-          preset={commonMode ? comparison.product.activePreset : activePreset}
+          preset={comparison ? comparison.product.activePreset : activePreset}
           controlPreset={activePreset}
           onSelectPreset={selectPreset}
           initialExpandedModelIds={initialExpandedModelIds}
           developerMode={developerMode}
         />
-        {commonMode && developerMode ? (
+        {comparison && developerMode ? (
           <CommonBenchmarkTable comparison={comparison} />
         ) : null}
 
@@ -307,13 +334,10 @@ export function Dashboard({
         ) : null}
 
         <RadarChart
-          product={commonMode ? comparison.product : product}
-          comparisonProduct={commonMode ? comparison.product : visibleProduct}
-          fixedProfileIds={
-            commonMode
-              ? comparison.profiles.map((profile) => profile.id)
-              : undefined
-          }
+          key={presetId}
+          product={comparison ? comparison.product : product}
+          comparisonProduct={comparison ? comparison.product : visibleProduct}
+          fixedProfileIds={fixedProfileIds}
         />
 
         <CostChart

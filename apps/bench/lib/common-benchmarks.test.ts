@@ -46,6 +46,34 @@ function fixture() {
 }
 
 describe('common benchmark comparison', () => {
+  it('matches metric sets independently of measurement order and retains metric multiplicity', () => {
+    const p = fixture();
+    for (const profileId of ['a-high', 'b-high']) {
+      const first = p.evidence.find((e) => e.id === `${profileId}-a`)!;
+      const second = {
+        ...first,
+        id: `${profileId}-a-second`,
+        metric: { ...first.metric, id: 'second-score' },
+        normalizedScore: 20,
+      };
+      if (profileId === 'a-high') p.evidence.push(second);
+      else p.evidence.unshift(second);
+      p.comparisonEvidenceIds.push(second.id);
+    }
+    const result = buildCommonComparison(p, ['a', 'b'], {}, dimensions);
+    expect(result.benchmarkIds).toContain('a');
+    expect(
+      result.product.leaderboard[0]!.dimensions.find(
+        (d) => d.dimension === 'agentic',
+      )?.score,
+    ).toBe(50);
+    const duplicate = { ...p.evidence[0]!, id: 'extra-b-metric' };
+    p.evidence.push(duplicate);
+    p.comparisonEvidenceIds.push(duplicate.id);
+    expect(
+      buildCommonComparison(p, ['a', 'b'], {}, dimensions).benchmarkIds,
+    ).not.toContain('a');
+  });
   it('renormalizes half weight for single-test dimensions and counts each design once', () => {
     const p = fixture();
     p.evidence = p.evidence.filter(

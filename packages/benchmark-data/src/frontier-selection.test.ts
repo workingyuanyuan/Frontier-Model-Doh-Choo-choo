@@ -12,6 +12,7 @@ import {
 import {
   AA_FRONTIER_POLICY,
   selectAaFrontier,
+  selectAaTopTen,
   type FrontierSelectionEvidence,
 } from './frontier-selection.js';
 import type { CandidateResult, ProductEvidence } from './index.js';
@@ -81,22 +82,9 @@ const candidate = (value: ProductEvidence): CandidateResult => {
 };
 
 describe('AA frontier selection', () => {
-  it('selects the expected six from the complete saved source population after identity and effort mapping', async () => {
+  it('ranks the complete saved source population after identity and effort mapping', async () => {
     const root = fileURLToPath(new URL('../../../', import.meta.url));
     const input = await loadWorkspaceCoverageData(root);
-    const unresolvedResult = selectAaFrontier(
-      applyProductProfilePolicy(
-        input.sourceCandidates,
-        input.catalog,
-        input.profilePolicy,
-        new Set([AA_FRONTIER_POLICY.benchmarkId]),
-      ),
-    );
-    expect(unresolvedResult.status).toBe('needs-review');
-    expect(unresolvedResult.issues[0]).toMatchObject({
-      code: 'unresolved-leaders',
-    });
-    expect(unresolvedResult.issues[0]?.resultIds).toHaveLength(3);
     const identities = FrontierIdentitiesSchema.parse(
       JSON.parse(
         await readFile(
@@ -122,7 +110,7 @@ describe('AA frontier selection', () => {
     expect(
       aaPopulation.some(({ model }) => model.canonicalModelId === null),
     ).toBe(true);
-    const result = selectAaFrontier(mapped);
+    const result = selectAaTopTen(mapped);
     expect(result.status).toBe('selected');
     expect(result.issues).toEqual([]);
     expect(result.selectedModelIds).toEqual([
@@ -132,6 +120,10 @@ describe('AA frontier selection', () => {
       'openai-gpt-6-astra',
       'google-gemini-4-argon',
       'openai-gpt-6-1-sol',
+      'anthropic-claude-opus-5',
+      'anthropic-claude-fable-5',
+      'meta-muse-spark-1-3',
+      'openai-gpt-6-sol',
     ]);
     expect(result.selectedProfileIds).toEqual([
       'anthropic-claude-opus-5-5-max',
@@ -140,10 +132,15 @@ describe('AA frontier selection', () => {
       'openai-gpt-6-astra-max',
       'google-gemini-4-argon-high',
       'openai-gpt-6-1-sol-max',
+      'anthropic-claude-opus-5-max',
+      'anthropic-claude-fable-5-max',
+      'meta-muse-spark-1-3-max',
+      'openai-gpt-6-sol-max',
     ]);
-    expect(result.resolvedModelCount).toBe(25);
-    expect(result.topTen[8]?.modelId).toBe('xiaomi-mimo-v2-6-pro');
-    expect(result.boundary?.gapRatio).toBeCloseTo(4.572437814863763, 12);
+    expect(result.resolvedModelCount).toBe(52);
+    expect(result.topTen[8]?.modelId).toBe('meta-muse-spark-1-3');
+    expect(result.boundary?.afterRank).toBe(2);
+    expect(result.gapAudit.selectedModelIds).toHaveLength(2);
   });
 
   it('selects the models above the gap and preserves version, scores and evidence', () => {
@@ -349,5 +346,48 @@ describe('AA frontier selection', () => {
       'missing-evidence',
     ]);
     expect(result.selectedModelIds).toEqual([]);
+  });
+});
+
+describe('AA ranked top-ten policy', () => {
+  it.each([
+    [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+    [20, 19, 18, 17, 16, 15, 14, 13, 12, 11],
+    [20, 19, 18, 17, 16, 15, 14, 13, 12, 10.5],
+  ])(
+    'accepts valid rankings despite an inconclusive gap audit (%s)',
+    (...scores) => {
+      const result = selectAaTopTen(rows(scores));
+      expect(result.status).toBe('selected');
+      expect(result.issues).toEqual([]);
+      expect(result.selectedModelIds).toHaveLength(10);
+      expect(result.selectedProfileIds).toHaveLength(10);
+      expect(result.gapAudit.status).toBe('needs-review');
+      expect(result.gapAudit.issues).toHaveLength(1);
+    },
+  );
+
+  it('retains version, identity, profile and evidence failures as blockers', () => {
+    for (const mutate of [
+      (input: ProductEvidence[]) => {
+        input[0]!.benchmarkVersion = 'other';
+      },
+      (input: ProductEvidence[]) => {
+        input[0]!.model.canonicalModelId = null;
+      },
+      (input: ProductEvidence[]) => {
+        input[0]!.model.profileId = null;
+      },
+      (input: ProductEvidence[]) => {
+        input[0]!.provenance.evidenceId = '';
+      },
+    ]) {
+      const input = separated();
+      mutate(input);
+      const result = selectAaTopTen(input);
+      expect(result.status).toBe('needs-review');
+      expect(result.issues.length).toBeGreaterThan(0);
+      expect(result.selectedProfileIds).toEqual([]);
+    }
   });
 });

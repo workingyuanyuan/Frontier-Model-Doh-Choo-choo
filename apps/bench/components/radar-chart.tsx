@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 
 import {
   buildRadarPoints,
@@ -18,7 +18,7 @@ import {
   type PresetProductVersion,
 } from '../lib/view-model';
 
-export function RadarChart({
+export const RadarChart = memo(function RadarChart({
   product,
   comparisonProduct,
   fixedProfileIds,
@@ -31,32 +31,83 @@ export function RadarChart({
   const radius = 92;
 
   const targetProduct = comparisonProduct ?? product;
-  const initialSeriesIds = useMemo(() => {
-    const reps = getRepresentativeRows(targetProduct);
-    return reps[0] ? [reps[0].profileId] : [];
-  }, [targetProduct]);
+  const fixedComparison = fixedProfileIds !== undefined;
+  const representativeRows = useMemo(
+    () => (fixedComparison ? [] : getRepresentativeRows(targetProduct)),
+    [targetProduct, fixedComparison],
+  );
 
-  const [seriesProfileIds, setSeriesProfileIds] =
-    useState<string[]>(initialSeriesIds);
-
-  const getSeriesData = (profileId: string) => {
-    const profile = product.profiles.find((p) => p.id === profileId);
-    const result = product.leaderboard.find((l) => l.profileId === profileId);
-    if (!profile || !result) return null;
-    return {
-      profileId,
-      displayName: getProfileDisplayName(profile),
-      dimensions: result.dimensions,
-    };
-  };
+  const [seriesProfileIds, setSeriesProfileIds] = useState<string[]>(() => {
+    // Preserve the default selection when a fixed comparison later becomes editable.
+    const firstRow = (
+      fixedComparison
+        ? getRepresentativeRows(targetProduct)
+        : representativeRows
+    )[0];
+    return firstRow ? [firstRow.profileId] : [];
+  });
 
   const seriesList = useMemo(() => {
+    const profiles = new Map(
+      product.profiles.map((profile) => [profile.id, profile]),
+    );
+    const results = new Map(
+      product.leaderboard.map((row) => [row.profileId, row]),
+    );
     return (fixedProfileIds ?? seriesProfileIds)
-      .map((id) => getSeriesData(id))
+      .map((profileId) => {
+        const profile = profiles.get(profileId);
+        const result = results.get(profileId);
+        return profile && result
+          ? {
+              profileId,
+              displayName: getProfileDisplayName(profile),
+              dimensions: result.dimensions,
+            }
+          : null;
+      })
       .filter((data): data is NonNullable<typeof data> => data !== null);
-  }, [seriesProfileIds, fixedProfileIds, product]);
+  }, [
+    seriesProfileIds,
+    fixedProfileIds,
+    product.profiles,
+    product.leaderboard,
+  ]);
 
-  const dimensionIds = getActiveDimensionIds(seriesList);
+  const dimensionIds = useMemo(
+    () => getActiveDimensionIds(seriesList),
+    [seriesList],
+  );
+  const plottedSeries = useMemo(
+    () =>
+      seriesList.map((series) => {
+        const values = buildRadarPoints(
+          series.dimensions,
+          dimensionIds,
+          center,
+          center,
+          radius,
+        );
+        const segmented =
+          dimensionIds.length < 3 || values.some((point) => point === null);
+        return {
+          ...series,
+          values,
+          segmented,
+          segments:
+            segmented && dimensionIds.length >= 2
+              ? buildRadarSegments(
+                  series.dimensions,
+                  dimensionIds,
+                  center,
+                  center,
+                  radius,
+                )
+              : [],
+        };
+      }),
+    [seriesList, dimensionIds],
+  );
   const dimensionTitle = dimensionIds.length
     ? `${['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six'][dimensionIds.length]} ${dimensionIds.length === 1 ? 'Dimension' : 'Dimensions'}`
     : 'Dimensions';
@@ -75,9 +126,10 @@ export function RadarChart({
   }, [seriesList, product.profiles]);
 
   const availableComparisonRows = useMemo(() => {
-    const reps = getRepresentativeRows(targetProduct);
-    return reps.filter((row) => !seriesModelIds.includes(row.modelId));
-  }, [targetProduct, seriesModelIds]);
+    return representativeRows.filter(
+      (row) => !seriesModelIds.includes(row.modelId),
+    );
+  }, [representativeRows, seriesModelIds]);
 
   const modelNames = seriesList.map((s) => s.displayName).join(' vs ');
   const textualSummary = seriesList
@@ -268,26 +320,11 @@ export function RadarChart({
                   </g>
                 );
               })}
-              {seriesList.map((series, sIndex) => {
-                const values = buildRadarPoints(
-                  series.dimensions,
-                  dimensionIds,
-                  center,
-                  center,
-                  radius,
-                );
+              {plottedSeries.map((series, sIndex) => {
+                const values = series.values;
                 if (dimensionIds.length < 2) return null;
-                if (
-                  dimensionIds.length < 3 ||
-                  values.some((point) => point === null)
-                ) {
-                  return buildRadarSegments(
-                    series.dimensions,
-                    dimensionIds,
-                    center,
-                    center,
-                    radius,
-                  ).map((segment, segmentIndex) => (
+                if (series.segmented) {
+                  return series.segments.map((segment, segmentIndex) => (
                     <polyline
                       key={`${series.profileId}-segment-${segmentIndex}`}
                       className={`radar-area series-tone-${(sIndex % 3) + 1}`}
@@ -309,15 +346,8 @@ export function RadarChart({
                   />
                 );
               })}
-              {seriesList.flatMap((series, sIndex) => {
-                const values = buildRadarPoints(
-                  series.dimensions,
-                  dimensionIds,
-                  center,
-                  center,
-                  radius,
-                );
-                return values.map((point, index) =>
+              {plottedSeries.flatMap((series, sIndex) => {
+                return series.values.map((point, index) =>
                   point ? (
                     <circle
                       key={`${series.profileId}-${dimensionIds[index]}`}
@@ -379,4 +409,4 @@ export function RadarChart({
       </section>
     </div>
   );
-}
+});

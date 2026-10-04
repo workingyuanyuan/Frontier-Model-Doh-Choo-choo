@@ -145,18 +145,15 @@ export const buildWorkspaceProduct = async (
   // Regenerate from saved captures on every build. A needs-review audit fails
   // the build instead of publishing an older successful frontier artifact.
   const { artifact } = await generateFrontierSet(repositoryRoot);
-  const presetId = 'aa-frontier';
   const displaySet = {
     schemaVersion: 'display-set-v2' as const,
-    defaultPresetId: presetId,
-    presets: [
-      {
-        id: presetId,
-        targetModelCount: artifact.selection.selectedModelIds.length,
-        requireAllSources: false,
-        benchmarkIds: artifact.benchmarkIds,
-      },
-    ],
+    defaultPresetId: artifact.defaultPresetId,
+    presets: artifact.cohorts.map((cohort) => ({
+      id: cohort.id,
+      targetModelCount: cohort.targetModelCount,
+      requireAllSources: false,
+      benchmarkIds: cohort.benchmarkIds,
+    })),
   };
   validateDisplaySet(displaySet, benchmarkMapping, quality);
 
@@ -169,18 +166,14 @@ export const buildWorkspaceProduct = async (
     comparisonOnlyBenchmarkIds,
     catalog,
     displaySet,
-    frontier: artifact.selection.topTen
-      .slice(0, artifact.selection.selectedModelIds.length)
-      .map((row) => ({
-        modelId: row.modelId,
-        reasons: [
-          'Selected by the Artificial Analysis Intelligence Index frontier gap',
-        ],
-        externalCompositeScores: { 'artificial-analysis': row.score },
-      })),
-    presetProfileIds: new Map([
-      [presetId, artifact.selection.selectedProfileIds],
-    ]),
+    frontier: artifact.selection.topTen.map((row) => ({
+      modelId: row.modelId,
+      reasons: ['Artificial Analysis Intelligence Index top ten'],
+      externalCompositeScores: { 'artificial-analysis': row.score },
+    })),
+    presetProfileIds: new Map(
+      artifact.cohorts.map(({ id, profileIds }) => [id, profileIds]),
+    ),
     benchmarkQuality: quality,
     costRecords,
   });

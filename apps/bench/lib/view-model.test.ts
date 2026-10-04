@@ -76,6 +76,64 @@ const selectRepresentativeProfileId = (
   getRepresentativeRows({ ...productFixture, leaderboard: rows })[0]?.profileId;
 
 describe('leaderboard view model', () => {
+  it('bounds evidence inspection when many cost measurements share one source and profile', () => {
+    const profile = productFixture.profiles[0]!;
+    let evidenceSourceReads = 0;
+    const evidence = {
+      ...productFixture.evidence[0]!,
+      id: 'aa-score',
+      get sourceId() {
+        evidenceSourceReads += 1;
+        return 'artificial-analysis';
+      },
+      benchmarkId: 'artificial-analysis-intelligence-index',
+      benchmarkVersion: '5.10',
+      inclusion: 'EXCLUDED' as const,
+      rawScore: 75,
+      normalizedScore: null,
+      model: {
+        rawName: profile.id,
+        canonicalModelId: profile.modelId,
+        profileId: profile.id,
+      },
+    };
+    const product = {
+      ...productFixture,
+      profiles: [profile],
+      evidence: [evidence],
+      costs: Array.from({ length: 100 }, (_, i) => ({
+        ...productFixture.costs[0]!,
+        metricId: `cost-${i}`,
+        modelId: profile.modelId,
+        profileId: profile.id,
+        sourceId: 'artificial-analysis',
+        benchmarkId: 'artificial-analysis-intelligence-index',
+        benchmarkVersion: '5.10',
+        costType: 'MEASURED_TASK' as const,
+        unit: 'USD_PER_TASK' as const,
+        cost: 2,
+        performance: 80,
+      })),
+    };
+    expect(
+      buildAdvancedCostSeries(product, ['artificial-analysis'])[0]?.points[0]
+        ?.score,
+    ).toBe(75);
+    expect(evidenceSourceReads).toBeLessThan(10);
+    evidence.rawScore = 90;
+    expect(
+      buildAdvancedCostSeries(product, ['artificial-analysis'])[0]?.points[0]
+        ?.score,
+    ).toBe(90);
+    evidenceSourceReads = 0;
+    expect(buildAdvancedCostModelOptions(product)).toHaveLength(1);
+    expect(evidenceSourceReads).toBeLessThan(20);
+    evidenceSourceReads = 0;
+    expect(
+      buildWeightedCostCurve(product)[0]?.sourceCosts[0]?.sourceScore,
+    ).toBe(90);
+    expect(evidenceSourceReads).toBeLessThan(10);
+  });
   it('renders exactly one highest-ranked representative per base model', () => {
     const rows = getRepresentativeRows(productFixture);
 

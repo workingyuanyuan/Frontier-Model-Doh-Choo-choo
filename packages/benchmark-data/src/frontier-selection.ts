@@ -269,3 +269,31 @@ export const selectAaFrontier = (
   result.selectedProfileIds = selected.map(({ profileId }) => profileId!);
   return result;
 };
+
+/** Validate the ranked population while retaining the gap calculation as audit. */
+export const selectAaTopTen = (
+  evidence: readonly FrontierSelectionEvidence[],
+) => {
+  const audit = selectAaFrontier(evidence);
+  const gapCodes = new Set<AaFrontierIssue['code']>([
+    'no-positive-gap',
+    'tied-largest-gap',
+    'gap-below-threshold',
+  ]);
+  const issues = audit.issues.filter(({ code }) => !gapCodes.has(code));
+  const valid = issues.length === 0 && audit.topTen.length === 10;
+  return {
+    ...audit,
+    status: valid ? ('selected' as const) : ('needs-review' as const),
+    selectedModelIds: valid ? audit.topTen.map(({ modelId }) => modelId) : [],
+    selectedProfileIds: valid
+      ? audit.topTen.map(({ profileId }) => profileId!)
+      : [],
+    issues,
+    gapAudit: {
+      status: audit.status,
+      selectedModelIds: audit.selectedModelIds,
+      issues: audit.issues.filter(({ code }) => gapCodes.has(code)),
+    },
+  };
+};
