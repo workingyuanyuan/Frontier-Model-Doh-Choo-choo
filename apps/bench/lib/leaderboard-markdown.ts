@@ -1,4 +1,4 @@
-import { UI_DIMENSION_IDS } from './ui-contract';
+import { getActiveDimensionIds } from './ui-contract';
 import {
   getProfileIdentity,
   profileById,
@@ -21,15 +21,14 @@ export function leaderboardMarkdown(
   product: PresetProductVersion,
   rows: LeaderboardRow[],
 ): string {
+  const dimensionIds = getActiveDimensionIds(rows);
   const headers = [
     'Model',
     'Reasoning Effort',
     'Overall',
-    'Agentic',
-    'Coding',
-    'Reasoning',
-    'Knowledge',
-    'Language',
+    ...dimensionIds.map(
+      (dimension) => dimension[0]!.toUpperCase() + dimension.slice(1),
+    ),
   ];
   const line = (cells: string[]) => `| ${cells.join(' | ')} |`;
   return [
@@ -41,7 +40,7 @@ export function leaderboardMarkdown(
         escapeCell(profile?.baseModelName ?? row.modelId),
         escapeCell(profile ? getProfileIdentity(profile) : row.profileId),
         score(row.overallScore),
-        ...UI_DIMENSION_IDS.map((dimension) =>
+        ...dimensionIds.map((dimension) =>
           score(
             row.dimensions.find((entry) => entry.dimension === dimension)
               ?.score,

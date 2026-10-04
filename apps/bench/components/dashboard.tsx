@@ -224,6 +224,7 @@ export function Dashboard({
   const selectPreset = (id: string) => {
     setCommonMode(false);
     setPinnedProfileIds([]);
+    setSelectedProfiles({});
     setPresetId(id);
     setCheckedModelIds(defaultCheckedIds);
   };
@@ -252,7 +253,13 @@ export function Dashboard({
         </section>
 
         <Leaderboard
-          product={commonMode ? comparison.product : visibleProduct}
+          product={
+            commonMode
+              ? comparison.product
+              : product.benchmarkQuality
+                ? product
+                : visibleProduct
+          }
           pickerProduct={product}
           rows={commonMode ? comparison.product.leaderboard : rows}
           representatives={options}
@@ -260,12 +267,16 @@ export function Dashboard({
           setCheckedModelIds={updateCheckedModels}
           onResetModels={() => selectPreset(presetId)}
           selectedProfiles={selectedProfiles}
-          onSelectedProfileChange={(modelId, profileId) =>
+          onSelectedProfileChange={(modelId, profileId) => {
             setSelectedProfiles((current) => ({
+              ...Object.fromEntries(
+                representatives.map((row) => [row.modelId, row.profileId]),
+              ),
               ...current,
               [modelId]: profileId,
-            }))
-          }
+            }));
+            setCommonMode(true);
+          }}
           commonMode={commonMode}
           pinnedProfileIds={pinnedProfileIds}
           onPinProfile={pinProfile}
@@ -279,7 +290,9 @@ export function Dashboard({
           initialExpandedModelIds={initialExpandedModelIds}
           developerMode={developerMode}
         />
-        {commonMode ? <CommonBenchmarkTable comparison={comparison} /> : null}
+        {commonMode && developerMode ? (
+          <CommonBenchmarkTable comparison={comparison} />
+        ) : null}
 
         {developerMode ? (
           <>

@@ -1,0 +1,90 @@
+{
+  "catalog": null,
+  "checkedAt": "2026-10-03T04:19:00.937Z",
+  "evidence": null,
+  "schemaVersion": "source-monitor-state-v1",
+  "snapshot": {
+    "benchmarks": [
+      {
+        "id": "automationbench",
+        "includedRows": 15,
+        "metrics": ["task-completed-correctly:percent:true"],
+        "models": [
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-sol"
+        ],
+        "profiles": [
+          "[\"Fable 5.1（以 Opus 5 作為備援）\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Opus 5.5（含備援機制）\",\"high\",null,null,null,null,null,null]",
+          "[\"Opus 5.5（含備援機制）\",\"low\",null,null,null,null,null,null]",
+          "[\"Opus 5.5（含備援機制）\",\"max\",null,null,null,null,null,null]",
+          "[\"Opus 5.5（含備援機制）\",\"medium\",null,null,null,null,null,null]",
+          "[\"Opus 5.5（含備援機制）\",\"xhigh\",null,null,null,null,null,null]"
+        ],
+        "rawLabels": [
+          "Fable 5.1（以 Opus 5 作為備援）",
+          "GPT-6 Astra",
+          "GPT-6 Sol",
+          "GPT-6.1 Sol",
+          "Opus 5.5（含備援機制）"
+        ],
+        "rows": 21,
+        "sourceUrls": [
+          "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/"
+        ],
+        "versions": ["1.0.6"]
+      },
+      {
+        "id": "deepswe-1-1",
+        "includedRows": 15,
+        "metrics": ["pass-at-1:percent:true"],
+        "models": [
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-sol"
+        ],
+        "profiles": [
+          "[\"GPT-6 Astra\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6 Astra\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6.1 Sol\",\"xhigh\",null,null,null,null,null,null]"
+        ],
+        "rawLabels": ["GPT-6 Astra", "GPT-6 Sol", "GPT-6.1 Sol"],
+        "rows": 15,
+        "sourceUrls": [
+          "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/"
+        ],
+        "versions": ["1.1"]
+      }
+    ],
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "sourceId": "openai-releases"
+  }
+}

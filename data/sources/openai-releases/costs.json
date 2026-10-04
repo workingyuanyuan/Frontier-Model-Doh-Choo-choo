@@ -1,0 +1,3026 @@
+[
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 2.45,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": "Multi-model fallback configuration; single-model identity unavailable",
+    "id": "openai-releases:automationbench:0:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Fable 5.1（以 Opus 5 作為備援）"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0].cost; captured=2.45",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0].model; captured=\"Fable 5.1 w/ Opus 5 fallback\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0].modelLabel; captured=\"Fable 5.1（以 Opus 5 作為備援）\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[0].score; captured=0.314; fraction * 100 = 31.4 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[0].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.08,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:1:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1].cost; captured=1.08",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[1].score; captured=0.303; fraction * 100 = 30.3 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[1].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.2989,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:10:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10].cost; captured=0.2989",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[10].score; captured=0.361; fraction * 100 = 36.1 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[10].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.1861,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:11:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-low",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11].cost; captured=0.1861",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[11].score; captured=0.2116; fraction * 100 = 21.16 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[11].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.2098,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:12:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-medium",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12].cost; captured=0.2098",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[12].score; captured=0.2694; fraction * 100 = 26.94 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[12].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.2368,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:13:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-high",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13].cost; captured=0.2368",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[13].score; captured=0.312; fraction * 100 = 31.2 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[13].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.2746,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:14:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-xhigh",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14].cost; captured=0.2746",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[14].score; captured=0.3318; fraction * 100 = 33.18 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[14].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.3406,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:15:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-max",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15].cost; captured=0.3406",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[15].score; captured=0.3196; fraction * 100 = 31.96 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[15].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.51,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": "Multi-model fallback configuration; single-model identity unavailable",
+    "id": "openai-releases:automationbench:16:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Opus 5.5（含備援機制）"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16].cost; captured=0.51",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16].model; captured=\"Opus 5.5 w/ fallbacks\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16].modelLabel; captured=\"Opus 5.5（含備援機制）\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[16].score; captured=0.242; fraction * 100 = 24.2 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[16].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.65,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": "Multi-model fallback configuration; single-model identity unavailable",
+    "id": "openai-releases:automationbench:17:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Opus 5.5（含備援機制）"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17].cost; captured=0.65",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17].model; captured=\"Opus 5.5 w/ fallbacks\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17].modelLabel; captured=\"Opus 5.5（含備援機制）\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[17].score; captured=0.2953; fraction * 100 = 29.53 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[17].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.71,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": "Multi-model fallback configuration; single-model identity unavailable",
+    "id": "openai-releases:automationbench:18:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Opus 5.5（含備援機制）"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18].cost; captured=0.71",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18].model; captured=\"Opus 5.5 w/ fallbacks\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18].modelLabel; captured=\"Opus 5.5（含備援機制）\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[18].score; captured=0.3303; fraction * 100 = 33.03 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[18].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.89,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": "Multi-model fallback configuration; single-model identity unavailable",
+    "id": "openai-releases:automationbench:19:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Opus 5.5（含備援機制）"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19].cost; captured=0.89",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19].model; captured=\"Opus 5.5 w/ fallbacks\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19].modelLabel; captured=\"Opus 5.5（含備援機制）\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[19].score; captured=0.3577; fraction * 100 = 35.77 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[19].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.27,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:2:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2].cost; captured=1.27",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[2].score; captured=0.341; fraction * 100 = 34.1 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[2].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.44,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": "Multi-model fallback configuration; single-model identity unavailable",
+    "id": "openai-releases:automationbench:20:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Opus 5.5（含備援機制）"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20].cost; captured=1.44",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20].model; captured=\"Opus 5.5 w/ fallbacks\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20].modelLabel; captured=\"Opus 5.5（含備援機制）\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[20].score; captured=0.4247; fraction * 100 = 42.47 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[20].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.44,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:3:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3].cost; captured=1.44",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[3].score; captured=0.371; fraction * 100 = 37.1 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[3].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.5,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:4:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4].cost; captured=1.5",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[4].score; captured=0.39; fraction * 100 = 39 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[4].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 1.73,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:5:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5].cost; captured=1.73",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[5].score; captured=0.414; fraction * 100 = 41.4 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[5].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.157,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:6:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-low",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6].cost; captured=0.157",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[6].score; captured=0.247; fraction * 100 = 24.7 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[6].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.1917,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:7:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-medium",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7].cost; captured=0.1917",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[7].score; captured=0.317; fraction * 100 = 31.7 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[7].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.2255,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:8:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-high",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8].cost; captured=0.2255",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[8].score; captured=0.332; fraction * 100 = 33.2 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[8].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "automationbench",
+    "benchmarkVersion": "1.0.6",
+    "cost": 0.2508,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:automationbench:9:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-xhigh",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.automationbench; captured=\"1.0.6\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9].cost; captured=0.2508",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[1].values[9].score; captured=0.355; fraction * 100 = 35.5 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed automationbench 1.0.6 release chart cost axis: USD per task; $.charts[1].values[9].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.5952,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:0:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0].cost; captured=1.5952",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[0].score; captured=0.6704; fraction * 100 = 67.04 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[0].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.0755,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:1:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1].cost; captured=3.0755",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[1].score; captured=0.7279; fraction * 100 = 72.79 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[1].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.1623,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:10:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-low",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10].cost; captured=0.1623",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[10].score; captured=0.3717; fraction * 100 = 37.17 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[10].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.3798,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:11:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-medium",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11].cost; captured=0.3798",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[11].score; captured=0.5664; fraction * 100 = 56.64 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[11].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.6404,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:12:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-high",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12].cost; captured=0.6404",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[12].score; captured=0.6527; fraction * 100 = 65.27 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[12].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.0033,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:13:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-xhigh",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13].cost; captured=1.0033",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[13].score; captured=0.6659; fraction * 100 = 66.59 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[13].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.7439,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:14:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-sol",
+      "profileId": "openai-gpt-6-sol-max",
+      "rawName": "GPT-6 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14].cost; captured=2.7439",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14].model; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14].modelLabel; captured=\"GPT-6 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[14].score; captured=0.6881; fraction * 100 = 68.81 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[14].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.9237,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:2:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2].cost; captured=3.9237",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[2].score; captured=0.7323; fraction * 100 = 73.23 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[2].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 4.4291,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:3:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3].cost; captured=4.4291",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[3].score; captured=0.7412; fraction * 100 = 74.12 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[3].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 7.4978,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:4:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4].cost; captured=7.4978",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4].model; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4].modelLabel; captured=\"GPT-6 Astra\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[4].score; captured=0.7323; fraction * 100 = 73.23 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[4].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.1714,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:5:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-low",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5].cost; captured=0.1714",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5].order; captured=0",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5].effortLabel; captured=\"低\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[5].score; captured=0.6438; fraction * 100 = 64.38 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[5].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.4196,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:6:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-medium",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6].cost; captured=0.4196",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6].order; captured=1",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6].effortLabel; captured=\"中\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[6].score; captured=0.7301; fraction * 100 = 73.01 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[6].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.6461,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:7:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-high",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7].cost; captured=0.6461",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7].order; captured=2",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7].effortLabel; captured=\"高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[7].score; captured=0.7522; fraction * 100 = 75.22 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[7].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.7886,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:8:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-xhigh",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8].cost; captured=0.7886",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8].order; captured=3",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8].effortLabel; captured=\"極高\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[8].score; captured=0.719; fraction * 100 = 71.9 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[8].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.5711,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+    ],
+    "exclusionReason": null,
+    "id": "openai-releases:deepswe:9:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "observedAt": "2026-10-02T14:56:49.000Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "benchmarkVersion": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.chartVersions.deepswe; captured=\"1.1\"",
+        "method": "DOM"
+      },
+      "cost": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9].cost; captured=1.5711",
+        "method": "DOM"
+      },
+      "effortOrder": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9].order; captured=4",
+        "method": "DOM"
+      },
+      "model": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9].model; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9].modelLabel; captured=\"GPT-6.1 Sol\"",
+        "method": "DOM"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9].effortLabel; captured=\"Max\"",
+        "method": "DOM"
+      },
+      "profile.harness": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9]; harness not specified by release",
+        "method": "DOM"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "$.charts[0].values[9].score; captured=0.719; fraction * 100 = 71.9 percent",
+        "method": "DOM"
+      },
+      "unit": {
+        "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+        "locator": "Reviewed deepswe 1.1 release chart cost axis: USD per task; $.charts[0].values[9].cost",
+        "method": "DOM"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "openai-releases",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "unit": "USD_PER_TASK"
+  }
+]

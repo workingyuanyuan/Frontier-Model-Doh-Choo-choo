@@ -1,0 +1,28 @@
+{
+  "accessMethods": ["NEXT_RSC"],
+  "baseUrl": "https://openai.com/",
+  "benchmarkIds": ["automationbench", "deepswe-1-1"],
+  "completeness": {
+    "expectedCountMethod": "Selected release charts only; compare chart counts, named model/effort pairs and organizer references.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "OpenAI model releases",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "chart effort label": "profile.effort",
+    "chart model/series": "model.rawName",
+    "chart release heading": "benchmarkVersion",
+    "chart score/y": "rawScore"
+  },
+  "lastVerifiedAt": "2026-10-02T14:56:49.000Z",
+  "notes": [
+    "PARTIAL_SOURCE: bounded, individually reviewed release charts. VENDOR remains lower priority than organizer and independent results.",
+    "Matching numbers establish citation consistency only; evaluator identity and unpublished preview scores are not independently confirmed.",
+    "Review details: docs/refresh/2026-10-02-vendor-releases.md"
+  ],
+  "role": "VENDOR",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "openai-releases",
+  "targetUrls": ["https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/"]
+}

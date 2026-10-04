@@ -4,6 +4,7 @@ import { join } from 'node:path';
 
 import * as z from 'zod';
 
+/** Legacy product scoring order; replaced by selection-scoped axes in Phase 2. */
 export const DIMENSION_IDS = [
   'reasoning',
   'knowledge',
@@ -12,39 +13,76 @@ export const DIMENSION_IDS = [
   'language',
 ] as const;
 
-export const DimensionIdSchema = z.enum(DIMENSION_IDS);
+export const CATALOG_DIMENSION_IDS = [
+  'reasoning',
+  'knowledge',
+  'comprehension',
+  'coding',
+  'agentic',
+  'language',
+] as const;
+
+export const DimensionIdSchema = z.enum(CATALOG_DIMENSION_IDS);
 export type DimensionId = z.infer<typeof DimensionIdSchema>;
 
-export const BenchmarkDimensionMappingSchema = z.object({
-  schemaVersion: z.literal('benchmark-dimensions-v1'),
-  dimensions: z
-    .array(DimensionIdSchema)
-    .length(DIMENSION_IDS.length)
-    .superRefine((dimensions, context) => {
-      DIMENSION_IDS.forEach((dimension, index) => {
-        if (dimensions[index] !== dimension) {
-          context.addIssue({
-            code: 'custom',
-            message: `Expected ${dimension} at dimension index ${index}`,
-            path: [index],
-          });
-        }
+export const BenchmarkDimensionMappingSchema = z
+  .object({
+    schemaVersion: z.enum([
+      'benchmark-dimensions-v1',
+      'benchmark-dimensions-v2',
+    ]),
+    dimensions: z.array(DimensionIdSchema),
+    benchmarks: z.array(
+      z.object({
+        id: z
+          .string()
+          .min(1)
+          .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/u),
+        primaryDimension: DimensionIdSchema,
+        secondaryDimensions: z.array(DimensionIdSchema),
+        /** Eligible for manual profile comparison, outside preset scoring and inference. */
+        comparisonOnly: z.boolean().optional(),
+      }),
+    ),
+  })
+  .superRefine((mapping, context) => {
+    const expected =
+      mapping.schemaVersion === 'benchmark-dimensions-v2'
+        ? CATALOG_DIMENSION_IDS
+        : DIMENSION_IDS;
+    if (mapping.dimensions.join(',') !== expected.join(',')) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Dimensions must match taxonomy version',
+        path: ['dimensions'],
       });
-    }),
-  benchmarks: z.array(
-    z.object({
-      id: z
-        .string()
-        .min(1)
-        .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/u),
-      primaryDimension: DimensionIdSchema,
-      secondaryDimensions: z.array(DimensionIdSchema),
-    }),
-  ),
-});
+    }
+    mapping.benchmarks.forEach((benchmark, index) => {
+      if (
+        ![benchmark.primaryDimension, ...benchmark.secondaryDimensions].every(
+          (id) => (expected as readonly DimensionId[]).includes(id),
+        )
+      ) {
+        context.addIssue({
+          code: 'custom',
+          message: 'Benchmark dimension is outside taxonomy version',
+          path: ['benchmarks', index],
+        });
+      }
+    });
+  });
 export type BenchmarkDimensionMapping = z.infer<
   typeof BenchmarkDimensionMappingSchema
 >;
+
+export const getComparisonOnlyBenchmarkIds = (
+  mapping: BenchmarkDimensionMapping,
+): ReadonlySet<string> =>
+  new Set(
+    mapping.benchmarks
+      .filter(({ comparisonOnly }) => comparisonOnly)
+      .map(({ id }) => id),
+  );
 
 export const SlugSchema = z
   .string()
@@ -503,6 +541,13 @@ export const validateDisplaySet = (
         `Display set preset ${preset.id} contains unknown benchmark IDs: ${missing.join(', ')}`,
       );
     }
+    if (
+      preset.benchmarkIds.some((id) => knownBenchmarks.get(id)?.comparisonOnly)
+    ) {
+      throw new Error(
+        `Display set preset ${preset.id} contains a comparison-only benchmark`,
+      );
+    }
     const duplicates = preset.benchmarkIds.filter(
       (id, index) => preset.benchmarkIds.indexOf(id) !== index,
     );
@@ -519,9 +564,11 @@ export const validateDisplaySet = (
         (id) => knownBenchmarks.get(id)!.primaryDimension,
       ),
     );
-    const uncovered = DIMENSION_IDS.filter(
-      (dimension) => !covered.has(dimension),
-    );
+    const uncovered = (
+      benchmarkMapping.schemaVersion === 'benchmark-dimensions-v2'
+        ? []
+        : DIMENSION_IDS
+    ).filter((dimension) => !covered.has(dimension));
     if (uncovered.length > 0) {
       throw new Error(
         `Display set preset ${preset.id} leaves dimensions with no benchmark: ${uncovered.join(', ')}`,
@@ -536,7 +583,7 @@ export const validateDisplaySet = (
         throw new Error(
           `Preset ${preset.id} contains a quality-excluded benchmark; regenerate display set`,
         );
-      for (const dimension of DIMENSION_IDS) {
+      for (const dimension of CATALOG_DIMENSION_IDS) {
         const ids = preset.benchmarkIds.filter(
           (id) => knownBenchmarks.get(id)!.primaryDimension === dimension,
         );
@@ -757,6 +804,7 @@ export const applyProductProfilePolicy = (
   candidates: CandidateResult[],
   catalogInput: ModelCatalog,
   policyInput: ProfilePolicy,
+  comparisonOnlyBenchmarkIds: ReadonlySet<string> = new Set(),
 ): CandidateResult[] => {
   ModelCatalogSchema.parse(catalogInput);
   const policy = ProfilePolicySchema.parse(policyInput);
@@ -765,7 +813,9 @@ export const applyProductProfilePolicy = (
   // highest-tier decision remains correct if the JSON is presented in the
   // older highest-first order.
   void policy;
-  const evidence: readonly EffortResolutionInput[] = candidates;
+  const evidence: readonly EffortResolutionInput[] = candidates.filter(
+    ({ benchmarkId }) => !comparisonOnlyBenchmarkIds.has(benchmarkId),
+  );
 
   return candidates.map((candidate) => {
     const modelId = candidate.model.canonicalModelId;
@@ -794,11 +844,14 @@ export const applyProductProfilePolicyToCosts = (
   candidates: readonly CandidateResult[],
   catalogInput: ModelCatalog,
   policyInput: ProfilePolicy,
+  comparisonOnlyBenchmarkIds: ReadonlySet<string> = new Set(),
 ): CostRecord[] => {
   ModelCatalogSchema.parse(catalogInput);
   const policy = ProfilePolicySchema.parse(policyInput);
   void policy;
-  const evidence: readonly EffortResolutionInput[] = candidates;
+  const evidence: readonly EffortResolutionInput[] = candidates.filter(
+    ({ benchmarkId }) => !comparisonOnlyBenchmarkIds.has(benchmarkId),
+  );
   const decisionByCandidate = new Map(
     candidates.map((candidate) => [
       candidate.id,
@@ -846,16 +899,18 @@ export const OrderedDimensionScoresSchema = z
       componentCount: z.int().nonnegative(),
     }),
   )
-  .length(DIMENSION_IDS.length)
   .superRefine((scores, context) => {
-    DIMENSION_IDS.forEach((dimension, index) => {
-      if (scores[index]?.dimension !== dimension) {
+    let previousIndex = -1;
+    scores.forEach(({ dimension }, index) => {
+      const dimensionIndex = CATALOG_DIMENSION_IDS.indexOf(dimension);
+      if (dimensionIndex <= previousIndex) {
         context.addIssue({
           code: 'custom',
-          message: `Expected ${dimension} at dimension index ${index}`,
+          message: 'Active dimensions must be unique and in taxonomy order',
           path: [index, 'dimension'],
         });
       }
+      previousIndex = dimensionIndex;
     });
   });
 
@@ -925,6 +980,8 @@ export const ProductVersionSchema = z.object({
   evidence: z.array(ProductEvidenceSchema),
   /** Current, comparable measurements selected before publication metadata is stripped. */
   comparisonEvidenceIds: z.array(z.string().min(1)).optional(),
+  /** Applied after the selected profiles' benchmark intersection. */
+  benchmarkQuality: BenchmarkQualityPolicySchema.optional(),
 });
 export type ProductVersion = z.infer<typeof ProductVersionSchema>;
 
@@ -1011,8 +1068,9 @@ export const selectCurrentResults = (
       result.acquisitionStatus === current.acquisitionStatus;
 
     if (
-      (result.sourceId !== current.sourceId && equalStanding) ||
-      sourceHarnessKey(result) !== sourceHarnessKey(current)
+      equalStanding &&
+      (result.sourceId !== current.sourceId ||
+        sourceHarnessKey(result) !== sourceHarnessKey(current))
     ) {
       const scoreDifference =
         comparableScore(result) - comparableScore(current);
@@ -1204,6 +1262,18 @@ export const scoreProfiles = (
       : results.filter(({ benchmarkId }) => benchmarkIds.has(benchmarkId));
   const selected = selectCurrentResults(scoped);
   const byProfile = groupBy(selected, ({ model }) => model.profileId as string);
+  const activeBenchmarkIds =
+    benchmarkIds ??
+    new Set(
+      selected
+        .filter(({ normalizedScore }) => normalizedScore !== null)
+        .map(({ benchmarkId }) => benchmarkId),
+    );
+  const activeDimensions = CATALOG_DIMENSION_IDS.filter((dimension) =>
+    [...activeBenchmarkIds].some(
+      (id) => benchmarkDimensions.get(id) === dimension,
+    ),
+  );
 
   const entries = [...byProfile.entries()].map(
     ([profileId, profileResults]): LeaderboardEntry => {
@@ -1212,18 +1282,26 @@ export const scoreProfiles = (
         throw new Error(`profile ${profileId} has no canonical model`);
       }
 
-      const dimensionComponents = new Map<DimensionId, number[]>();
+      const dimensionComponents = new Map<DimensionId, Map<string, number[]>>();
       profileResults.forEach((result) => {
         const dimension = benchmarkDimensions.get(result.benchmarkId);
         if (dimension && result.normalizedScore !== null) {
-          const components = dimensionComponents.get(dimension) ?? [];
-          components.push(result.normalizedScore);
+          const components =
+            dimensionComponents.get(dimension) ?? new Map<string, number[]>();
+          const scores = components.get(result.benchmarkId) ?? [];
+          scores.push(result.normalizedScore);
+          components.set(result.benchmarkId, scores);
           dimensionComponents.set(dimension, components);
         }
       });
 
-      const dimensions = DIMENSION_IDS.map((dimension) => {
-        const components = dimensionComponents.get(dimension) ?? [];
+      const dimensions = activeDimensions.map((dimension) => {
+        const components = [
+          ...(dimensionComponents.get(dimension)?.values() ?? []),
+        ].map(
+          (scores) =>
+            scores.reduce((sum, score) => sum + score, 0) / scores.length,
+        );
         return {
           dimension,
           score:
@@ -1234,8 +1312,11 @@ export const scoreProfiles = (
           componentCount: components.length,
         };
       });
-      const completeScores = dimensions.flatMap(({ score }) =>
-        score === null ? [] : [score],
+      const weight = (componentCount: number) =>
+        componentCount === 1 ? 0.5 : 1;
+      const weightSum = dimensions.reduce(
+        (sum, row) => sum + weight(row.componentCount),
+        0,
       );
 
       return {
@@ -1243,9 +1324,12 @@ export const scoreProfiles = (
         profileId,
         rank: null,
         overallScore:
-          completeScores.length === DIMENSION_IDS.length
-            ? completeScores.reduce((sum, score) => sum + score, 0) /
-              completeScores.length
+          dimensions.length > 0 &&
+          dimensions.every(({ score }) => score !== null)
+            ? dimensions.reduce(
+                (sum, row) => sum + row.score! * weight(row.componentCount),
+                0,
+              ) / weightSum
             : null,
         dimensions,
         evidenceResultIds: profileResults.map(({ id }) => id).toSorted(),
@@ -1258,7 +1342,7 @@ export const scoreProfiles = (
     if (right.overallScore === null) return -1;
     return (
       right.overallScore - left.overallScore ||
-      left.modelId.localeCompare(right.modelId)
+      left.profileId.localeCompare(right.profileId)
     );
   });
   let rank = 0;
@@ -1398,6 +1482,12 @@ export interface ProductInput {
   manualModels?: ManualFrontierModel[] | undefined;
   qualificationWindowMonths?: number | undefined;
   costRecords?: CostRecord[] | undefined;
+  comparisonOnlyBenchmarkIds?: ReadonlySet<string> | undefined;
+  /** AA-selected models for the live product. */
+  frontier?: FrontierModel[] | undefined;
+  /** Exact approved profile IDs for each preset; comparison evidence is broader. */
+  presetProfileIds?: ReadonlyMap<string, readonly string[]> | undefined;
+  benchmarkQuality?: BenchmarkQualityPolicy | undefined;
 }
 
 export const toProductEvidence = (
@@ -1435,18 +1525,30 @@ export const toProductEvidence = (
 };
 
 export const buildProduct = (input: ProductInput): ProductVersion => {
-  const frontier = buildFrontierSet({
-    catalog: input.catalog,
-    manualModels: input.manualModels ?? [],
-    referenceDate: input.generatedAt,
-    qualificationWindowMonths: input.qualificationWindowMonths ?? 12,
-  });
+  const comparisonOnlyBenchmarkIds =
+    input.comparisonOnlyBenchmarkIds ?? new Set();
+  for (const preset of input.displaySet.presets) {
+    if (preset.benchmarkIds.some((id) => comparisonOnlyBenchmarkIds.has(id))) {
+      throw new Error(
+        `Preset ${preset.id} contains a comparison-only benchmark`,
+      );
+    }
+  }
+  const frontier =
+    input.frontier ??
+    buildFrontierSet({
+      catalog: input.catalog,
+      manualModels: input.manualModels ?? [],
+      referenceDate: input.generatedAt,
+      qualificationWindowMonths: input.qualificationWindowMonths ?? 12,
+    });
   const frontierModelIds = new Set(frontier.map(({ modelId }) => modelId));
   const scoringEvidence = input.candidates
     .filter(
       ({ model }) =>
-        model.canonicalModelId !== null &&
-        frontierModelIds.has(model.canonicalModelId),
+        input.frontier !== undefined ||
+        (model.canonicalModelId !== null &&
+          frontierModelIds.has(model.canonicalModelId)),
     )
     .toSorted((left, right) => left.id.localeCompare(right.id));
   const presets = input.displaySet.presets.map((preset) => ({
@@ -1456,9 +1558,19 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     benchmarkIds: [...preset.benchmarkIds].toSorted((left, right) =>
       left.localeCompare(right),
     ),
-    leaderboard: scoreProfiles(scoringEvidence, input.benchmarkDimensions, {
-      benchmarkIds: new Set(preset.benchmarkIds),
-    }),
+    leaderboard: scoreProfiles(
+      scoringEvidence.filter(({ model }) => {
+        const ids = input.presetProfileIds?.get(preset.id);
+        return (
+          ids === undefined ||
+          (model.profileId !== null && ids.includes(model.profileId))
+        );
+      }),
+      input.benchmarkDimensions,
+      {
+        benchmarkIds: new Set(preset.benchmarkIds),
+      },
+    ),
   }));
   const defaultPreset = presets.find(
     ({ id }) => id === input.displaySet.defaultPresetId,
@@ -1472,10 +1584,13 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
   const comparisonResults = selectCurrentResults(scoringEvidence).filter(
     (result) =>
       result.normalizedScore !== null &&
-      input.benchmarkDimensions.has(result.benchmarkId),
+      input.benchmarkDimensions.has(result.benchmarkId) &&
+      !input.benchmarkQuality?.excludedBenchmarkIds.includes(
+        result.benchmarkId,
+      ),
   );
-  // Every preset ranks the same universe of profiles, so the catalog check
-  // below has to see all of them, not just the default preset's.
+  // The picker uses current eligible measurements beyond the approved preset.
+  // Limited tests remain here so quality can be applied after intersection.
   const leaderboardProfileIds = new Set([
     ...comparisonResults.map((result) => result.model.profileId as string),
     ...presets.flatMap(({ leaderboard: rows }) =>
@@ -1559,6 +1674,9 @@ export const buildProduct = (input: ProductInput): ProductVersion => {
     costs,
     evidence,
     comparisonEvidenceIds: comparisonResults.map(({ id }) => id).toSorted(),
+    ...(input.benchmarkQuality
+      ? { benchmarkQuality: input.benchmarkQuality }
+      : {}),
   });
 };
 

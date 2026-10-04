@@ -300,7 +300,7 @@ describe('buildFrontierSet', () => {
 });
 
 describe('scoreProfiles', () => {
-  it('renormalizes over available dimensions and preserves missing axes', () => {
+  it('scores only active dimensions and normalizes their weights', () => {
     const scored = scoreProfiles(
       [
         makeCandidate(),
@@ -324,12 +324,11 @@ describe('scoreProfiles', () => {
       ]),
     );
 
-    expect(scored[0]?.overallScore).toBeNull();
+    expect(scored[0]?.overallScore).toBe(86);
     expect(scored[0]?.dimensions).toEqual(
       expect.arrayContaining([
         { dimension: 'reasoning', score: 90, componentCount: 1 },
         { dimension: 'coding', score: 82, componentCount: 1 },
-        { dimension: 'knowledge', score: null, componentCount: 0 },
       ]),
     );
   });
@@ -341,6 +340,73 @@ describe('scoreProfiles', () => {
     );
 
     expect(scored[0]?.overallScore).toBeNull();
+  });
+
+  it('weights a single independent benchmark at half a dimension with two designs', () => {
+    const scored = scoreProfiles(
+      [
+        makeCandidate({
+          id: 'r1',
+          benchmarkId: 'reason-one',
+          normalizedScore: 90,
+        }),
+        makeCandidate({
+          id: 'r2',
+          benchmarkId: 'reason-two',
+          normalizedScore: 70,
+        }),
+        makeCandidate({
+          id: 'c1',
+          benchmarkId: 'comprehension-one',
+          normalizedScore: 20,
+        }),
+      ],
+      new Map([
+        ['reason-one', 'reasoning'],
+        ['reason-two', 'reasoning'],
+        ['comprehension-one', 'comprehension'],
+      ]),
+    );
+    expect(scored[0]!.dimensions).toEqual([
+      { dimension: 'reasoning', score: 80, componentCount: 2 },
+      { dimension: 'comprehension', score: 20, componentCount: 1 },
+    ]);
+    expect(scored[0]!.overallScore).toBe(60);
+  });
+
+  it('averages metrics within a benchmark without adding an independent design', () => {
+    const first = makeCandidate({
+      id: 'first',
+      benchmarkId: 'same-design',
+      normalizedScore: 100,
+    });
+    const second = makeCandidate({
+      id: 'second',
+      benchmarkId: 'same-design',
+      normalizedScore: 0,
+      metric: { ...first.metric, id: 'second-metric' },
+    });
+    const scored = scoreProfiles(
+      [first, second],
+      new Map([['same-design', 'knowledge']]),
+    );
+    expect(scored[0]!.dimensions).toEqual([
+      { dimension: 'knowledge', score: 50, componentCount: 1 },
+    ]);
+    expect(scored[0]!.overallScore).toBe(50);
+  });
+
+  it('activates language when scored evidence is present and returns no axes for an empty set', () => {
+    const candidates = [
+      makeCandidate({ benchmarkId: 'writing', normalizedScore: 75 }),
+    ];
+    const mapping = new Map([['writing', 'language' as const]]);
+    expect(scoreProfiles(candidates, mapping)[0]!.dimensions).toEqual([
+      { dimension: 'language', score: 75, componentCount: 1 },
+    ]);
+    expect(
+      scoreProfiles(candidates, mapping, { benchmarkIds: new Set() }),
+    ).toEqual([]);
   });
 });
 
@@ -400,6 +466,112 @@ const displaySetFor = (
 });
 
 describe('buildProduct', () => {
+  it('keeps preset scores, ranks, profiles and costs stable when comparison evidence is added', () => {
+    const catalog: ModelCatalog = {
+      schemaVersion: 'model-catalog-v1',
+      models: [],
+    };
+    const unlabelled = makeCandidate({
+      id: 'unlabelled',
+      sourceId: 'livebench',
+      model: {
+        ...makeCandidate().model,
+        rawName: 'GPT-5.6 Sol',
+        profileId: null,
+      },
+      profile: { ...makeCandidate().profile, effort: null },
+    });
+    const high = makeCandidate({
+      id: 'established-high',
+      sourceId: 'deepswe',
+      benchmarkId: 'deepswe-1-1',
+      profile: { ...makeCandidate().profile, effort: 'high' },
+    });
+    const comparison = makeCandidate({
+      id: 'comparison-max',
+      sourceId: 'frontier-swe',
+      benchmarkId: 'frontier-swe-v2',
+      normalizedScore: 1,
+    });
+    const comparisonOnly = new Set(['frontier-swe-v2']);
+    const baselineCandidates = applyProductProfilePolicy(
+      [unlabelled, high],
+      catalog,
+      profilePolicy,
+    );
+    const candidates = applyProductProfilePolicy(
+      [unlabelled, high, comparison],
+      catalog,
+      profilePolicy,
+      comparisonOnly,
+    );
+    expect(candidates.slice(0, 2)).toEqual(baselineCandidates);
+    expect(candidates[0]!.model.profileId).toBe('openai-gpt-5-6-sol-high');
+    // Without the comparison boundary, a new max-effort source wins the tie.
+    expect(
+      applyProductProfilePolicy(
+        [unlabelled, high, comparison],
+        catalog,
+        profilePolicy,
+      )[0]!.model.profileId,
+    ).toBe('openai-gpt-5-6-sol-max');
+    const cost = makeCost({ sourceId: 'livebench' });
+    const costs = applyProductProfilePolicyToCosts(
+      [cost],
+      [unlabelled, high, comparison],
+      catalog,
+      profilePolicy,
+      comparisonOnly,
+    );
+    expect(costs).toEqual(
+      applyProductProfilePolicyToCosts(
+        [cost],
+        [unlabelled, high],
+        catalog,
+        profilePolicy,
+      ),
+    );
+    const input = {
+      generatedAt: '2026-07-16T00:00:00.000Z',
+      sourceSnapshotIds: [],
+      catalog,
+      manualModels: [{ modelId: 'openai-gpt-5-6-sol', reason: 'Fixture' }],
+      benchmarkDimensions: new Map([
+        ['terminal-bench-2-1', 'coding' as const],
+        ['deepswe-1-1', 'coding' as const],
+        ['frontier-swe-v2', 'coding' as const],
+      ]),
+      displaySet: displaySetFor(['terminal-bench-2-1', 'deepswe-1-1']),
+      costRecords: costs,
+      comparisonOnlyBenchmarkIds: comparisonOnly,
+    };
+    const baseline = buildProduct({
+      ...input,
+      candidates: baselineCandidates,
+      profiles: deriveModelProfiles(baselineCandidates, catalog),
+    });
+    const added = buildProduct({
+      ...input,
+      candidates,
+      profiles: deriveModelProfiles(candidates, catalog),
+    });
+    expect(added.presets).toEqual(baseline.presets);
+    expect(added.costs).toEqual(baseline.costs);
+    expect(added.frontier).toEqual(baseline.frontier);
+    expect(added.comparisonEvidenceIds).toContain('comparison-max');
+    expect(added.profiles.map(({ id }) => id)).toContain(
+      'openai-gpt-5-6-sol-max',
+    );
+    expect(() =>
+      buildProduct({
+        ...input,
+        candidates,
+        profiles: deriveModelProfiles(candidates, catalog),
+        displaySet: displaySetFor(['frontier-swe-v2']),
+      }),
+    ).toThrow('comparison-only benchmark');
+  });
+
   it('publishes current comparison measurements and profiles beyond the presets', () => {
     const first = makeCandidate({ id: 'older', sourceRole: 'ORGANIZER' });
     const winner = {
@@ -533,7 +705,7 @@ describe('buildProduct', () => {
     product.frontier.forEach((entry) => {
       expect(entry).not.toHaveProperty('profileId');
     });
-    expect(product.presets[0]!.leaderboard[0]?.overallScore).toBeNull();
+    expect(product.presets[0]!.leaderboard[0]?.overallScore).toBe(91);
     expect(product.evidence.map(({ id }) => id)).toEqual(['direct']);
     expect(product.comparisonEvidenceIds).toEqual(['direct']);
     expect(product.costs).toEqual(
@@ -541,7 +713,7 @@ describe('buildProduct', () => {
         expect.objectContaining({
           sourceId: 'artificial-analysis',
           cost: 0.42,
-          performance: null,
+          performance: 91,
         }),
       ]),
     );
@@ -857,12 +1029,12 @@ describe('deriveModelProfiles', () => {
     ]);
     expect(product.presets[0]!.leaderboard).toHaveLength(1);
     expect(product.presets[0]!.leaderboard[0]).toMatchObject({
-      overallScore: null,
+      overallScore: 91,
       dimensions: expect.arrayContaining([
         expect.objectContaining({
           dimension: 'coding',
           componentCount: 1,
-          score: 95,
+          score: 91,
         }),
       ]),
     });

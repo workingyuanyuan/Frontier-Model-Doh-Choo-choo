@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/9e/9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731.html",
+    "byteLength": 678322,
+    "finalUrl": "https://surgehq.ai/benchmarks/gdp-xlsx",
+    "id": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 20,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/gdp-xlsx",
+    "retrievedAt": "2026-10-03T11:18:03.837Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+    "sourceId": "surge-gdp-xlsx"
+  }
+]

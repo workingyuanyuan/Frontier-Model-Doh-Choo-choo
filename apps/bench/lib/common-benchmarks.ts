@@ -33,24 +33,40 @@ function scoreRow(
   evidence: ProductEvidence[],
   dimensions: Record<string, DimensionId>,
 ): LeaderboardRow {
-  const scores = UI_DIMENSION_IDS.map((dimension) => {
+  const scores = UI_DIMENSION_IDS.flatMap((dimension) => {
     const items = evidence.filter(
       (e) => dimensions[e.benchmarkId] === dimension,
     );
-    return {
-      dimension,
-      score: items.length
-        ? items.reduce((sum, e) => sum + e.normalizedScore!, 0) / items.length
-        : null,
-      componentCount: items.length,
-    };
+    if (!items.length) return [];
+    // Each benchmark design contributes once, regardless of metric count.
+    const benchmarks = [...new Set(items.map((e) => e.benchmarkId))];
+    const means = benchmarks.map((id) => {
+      const measurements = items.filter((e) => e.benchmarkId === id);
+      return (
+        measurements.reduce((sum, e) => sum + e.normalizedScore!, 0) /
+        measurements.length
+      );
+    });
+    return [
+      {
+        dimension,
+        score: means.reduce((sum, score) => sum + score, 0) / means.length,
+        componentCount: benchmarks.length,
+      },
+    ];
   });
+  const weight = (count: number) => (count === 1 ? 0.5 : 1);
+  const totalWeight = scores.reduce(
+    (sum, d) => sum + weight(d.componentCount),
+    0,
+  );
   return {
     modelId: profile.modelId,
     profileId: profile.id,
     rank: null,
-    overallScore: scores.every((d) => d.score !== null)
-      ? scores.reduce((sum, d) => sum + d.score!, 0) / scores.length
+    overallScore: totalWeight
+      ? scores.reduce((sum, d) => sum + d.score * weight(d.componentCount), 0) /
+        totalWeight
       : null,
     dimensions: scores,
     evidenceResultIds: evidence.map((e) => e.id).toSorted(),
@@ -110,7 +126,7 @@ export function buildCommonComparison(
   const byProfile = profiles.map((profile) =>
     evidence.filter((e) => e.model.profileId === profile.id),
   );
-  const benchmarkIds = [
+  const sharedBenchmarkIds = [
     ...new Set(byProfile[0]?.map((e) => e.benchmarkId) ?? []),
   ]
     .filter((id) => {
@@ -127,6 +143,25 @@ export function buildCommonComparison(
       return byProfile.every((items) => metricKeys(items) === key);
     })
     .toSorted();
+  // The quality share is evaluated on this intersection, not on the picker universe.
+  const quality = product.benchmarkQuality;
+  const eligible = sharedBenchmarkIds.filter(
+    (id) => !quality?.excludedBenchmarkIds.includes(id),
+  );
+  const benchmarkIds = UI_DIMENSION_IDS.flatMap((dimension) => {
+    const members = eligible.filter((id) => dimensions[id] === dimension);
+    if (!quality) return members;
+    const regular = members.filter(
+      (id) => !quality.limitedBenchmarkIds.includes(id),
+    );
+    const limited = members.filter((id) =>
+      quality.limitedBenchmarkIds.includes(id),
+    );
+    const cap = Math.floor(
+      regular.length / quality.minOtherBenchmarksPerLimited,
+    );
+    return [...regular, ...limited.slice(0, cap)];
+  }).toSorted();
   const common = new Set(benchmarkIds);
   const leaderboard = profiles.map((profile, i) =>
     scoreRow(
@@ -138,7 +173,7 @@ export function buildCommonComparison(
   leaderboard.sort(
     (a, b) =>
       (b.overallScore ?? -Infinity) - (a.overallScore ?? -Infinity) ||
-      a.modelId.localeCompare(b.modelId),
+      a.profileId.localeCompare(b.profileId),
   );
   let rank = 0;
   leaderboard.forEach((row) => {

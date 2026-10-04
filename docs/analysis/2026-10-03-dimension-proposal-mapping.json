@@ -1,0 +1,491 @@
+{
+  "status": "proposal-for-user-review",
+  "rows": [
+    {
+      "benchmarkId": "aa-briefcase",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "aa-lcr",
+      "currentDimension": "reasoning",
+      "proposedDimension": "資料理解與整合",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": true,
+      "note": ""
+    },
+    {
+      "benchmarkId": "aa-omniscience",
+      "currentDimension": "knowledge",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "本專案計分採 Accuracy，不是 Omniscience Index。"
+    },
+    {
+      "benchmarkId": "aime",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": true,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "apex-agents",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "arc-agi-2",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "automationbench",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "chartography",
+      "currentDimension": "reasoning",
+      "proposedDimension": "資料理解與整合",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "chess-puzzles",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "code-migration",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "complex-constraints",
+      "currentDimension": "language",
+      "proposedDimension": "語言與指令遵循",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "corpfin",
+      "currentDimension": "reasoning",
+      "proposedDimension": "資料理解與整合",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "依財報材料抽取與推導公司財務結果；專業知識次要。"
+    },
+    {
+      "benchmarkId": "critpt",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "cyber",
+      "currentDimension": "agentic",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "漏洞重現及修補屬軟體安全工程；與一般 Coding 的弱相關列為異質性限制。"
+    },
+    {
+      "benchmarkId": "dayjob-finance",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "dayjob-healthcare",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "deepswe-1-1",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "emb",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "enterprisebench-corecraft",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "finance-agent-v2",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "frontiermath",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "frontiermath-tier-4",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "gdp-pdf",
+      "currentDimension": "reasoning",
+      "proposedDimension": "資料理解與整合",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "gdp-xlsx",
+      "currentDimension": "reasoning",
+      "proposedDimension": "資料理解與整合",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "gdpval-aa",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "gpqa-diamond",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": true,
+      "note": "研究級科学問答需知識及推導，主歸推理；邊界案例。"
+    },
+    {
+      "benchmarkId": "hlab",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "humanitys-last-exam",
+      "currentDimension": "knowledge",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "廣泛專家題目；本分類以知識為主，推理交叉。"
+    },
+    {
+      "benchmarkId": "ifbench",
+      "currentDimension": "language",
+      "proposedDimension": "語言與指令遵循",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "ioi",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "legal-bench",
+      "currentDimension": "reasoning",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": true,
+      "note": "法律規則應用與分類判斷；主歸專業判斷，推理次要。"
+    },
+    {
+      "benchmarkId": "legal-research",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "livebench-instruction-following",
+      "currentDimension": "language",
+      "proposedDimension": "語言與指令遵循",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "livebench-language",
+      "currentDimension": "language",
+      "proposedDimension": "語言與指令遵循",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "livebench-mathematics",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "livebench-reasoning",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "livecodebench",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "medcode",
+      "currentDimension": "knowledge",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "醫療分類標準應用；與程式碼生成無關。"
+    },
+    {
+      "benchmarkId": "medscribe",
+      "currentDimension": "language",
+      "proposedDimension": "資料理解與整合",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "提供的逐字稿轉為結構化 SOAP 紀錄；資料轉換主要，語言次要。"
+    },
+    {
+      "benchmarkId": "mmlu-pro",
+      "currentDimension": "knowledge",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": true,
+      "note": ""
+    },
+    {
+      "benchmarkId": "programbench",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": true,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "proofbench",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "Lean 為證明媒介；本次六模型 99–100，建議品質再審。"
+    },
+    {
+      "benchmarkId": "public-benefits-bench",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "riemann-bench",
+      "currentDimension": "reasoning",
+      "proposedDimension": "推理與解題",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "scicode",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "simpleqa-verified",
+      "currentDimension": "knowledge",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "skillsbench",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "跨領域工具／技能任務，主歸工作流程。"
+    },
+    {
+      "benchmarkId": "swe-bench",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "tau3-banking",
+      "currentDimension": "agentic",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    },
+    {
+      "benchmarkId": "tax-eval-v2",
+      "currentDimension": "knowledge",
+      "proposedDimension": "知識與專業判斷",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": true,
+      "note": ""
+    },
+    {
+      "benchmarkId": "terminal-bench-2-1",
+      "currentDimension": "coding",
+      "proposedDimension": "工具與工作流程",
+      "commonToFrontierSix": false,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": "終端環境包含軟體、系統與資料工作；整體測試主歸工具任務完成，程式為次要。"
+    },
+    {
+      "benchmarkId": "vibe-code-bench",
+      "currentDimension": "coding",
+      "proposedDimension": "程式與軟體工程",
+      "commonToFrontierSix": true,
+      "qualityExcluded": false,
+      "qualityLimited": false,
+      "note": ""
+    }
+  ]
+}

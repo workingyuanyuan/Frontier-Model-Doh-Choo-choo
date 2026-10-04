@@ -11,6 +11,7 @@ import {
   type CoverageMatrixAnalysis,
 } from './coverage-matrix.js';
 import { parseReportArgs } from './report-coverage-matrix.js';
+import { buildDisplaySetFromCurves } from './generate-display-set.js';
 import { DIMENSION_IDS } from './index.js';
 import type {
   BenchmarkDimensionMapping,
@@ -222,6 +223,106 @@ describe('quality-constrained coverage search', () => {
   it('rejects a required benchmark excluded by policy', () => {
     expect(() => build(false, ['z-excluded'])).toThrow(
       /excluded by quality policy/,
+    );
+  });
+});
+
+describe('comparison-only coverage boundary', () => {
+  it('keeps both tradeoff curves and future presets identical after a new comparison source', () => {
+    const sourceCandidates = DIMENSION_IDS.map((dimension) =>
+      createMockCandidate({
+        id: `base-${dimension}`,
+        sourceId: 'existing',
+        modelId: 'model-a',
+        rawName: 'Model A',
+        benchmarkId: `base-${dimension}`,
+        effort: null,
+      }),
+    );
+    const input = {
+      catalog: {
+        schemaVersion: 'model-catalog-v1' as const,
+        models: [
+          {
+            modelId: 'model-a',
+            providerId: 'provider',
+            displayName: 'Model A',
+            releaseDate: '2026-08-01',
+            pricing: [],
+            profilePricing: {},
+          },
+        ],
+      },
+      frontierConfig: {
+        schemaVersion: 'frontier-config-v2' as const,
+        qualificationWindowMonths: 12,
+        manualModels: [],
+      },
+      benchmarkMapping: {
+        schemaVersion: 'benchmark-dimensions-v1' as const,
+        dimensions: [...DIMENSION_IDS],
+        benchmarks: DIMENSION_IDS.map((dimension) => ({
+          id: `base-${dimension}`,
+          primaryDimension: dimension,
+          secondaryDimensions: [],
+        })),
+      },
+      profilePolicy: mockProfilePolicy,
+      whitelist: ['existing'],
+      sourceCandidates,
+      referenceDate: '2026-10-01',
+      requireAllDimensions: true,
+    };
+    const extended = {
+      ...input,
+      whitelist: ['existing', 'frontier-swe'],
+      benchmarkMapping: {
+        ...input.benchmarkMapping,
+        benchmarks: [
+          ...input.benchmarkMapping.benchmarks,
+          {
+            id: 'frontier-swe-v2',
+            primaryDimension: 'coding' as const,
+            secondaryDimensions: [],
+            comparisonOnly: true,
+          },
+        ],
+      },
+      sourceCandidates: [
+        ...sourceCandidates,
+        createMockCandidate({
+          id: 'new-max',
+          sourceId: 'frontier-swe',
+          modelId: 'model-a',
+          rawName: 'Model A',
+          benchmarkId: 'frontier-swe-v2',
+          effort: 'max',
+        }),
+      ],
+    };
+    const free = analyzeCoverageMatrix(input);
+    const all = analyzeCoverageMatrix({ ...input, requireAllSources: true });
+    const newFree = analyzeCoverageMatrix(extended);
+    const newAll = analyzeCoverageMatrix({
+      ...extended,
+      requireAllSources: true,
+    });
+    for (const [baseline, added] of [
+      [free, newFree],
+      [all, newAll],
+    ]) {
+      expect(added!.tradeoffs).toEqual(baseline!.tradeoffs);
+      expect(added!.matrix).toEqual(baseline!.matrix);
+      expect(added!.activeBenchmarkIds).toEqual(baseline!.activeBenchmarkIds);
+      expect(added!.coverableSourceIds).toEqual(['existing']);
+    }
+    const options = {
+      minModelCount: 1,
+      maxModelCount: 1,
+      defaultPresetId: 'all-sources-1',
+    };
+    expect(buildDisplaySetFromCurves(newFree, newAll, options)).toEqual(
+      buildDisplaySetFromCurves(free, all, options),
     );
   });
 });
@@ -756,6 +857,88 @@ describe('coverage-matrix', () => {
         completeModelCount: 1,
       });
       expect(analysis.maskFrequencies[0]?.mask).toBe(2 ** 31 - 1);
+    });
+
+    it('keeps distinct masks and feasible curves beyond 53 benchmarks through JSON roundtrips', () => {
+      const benchmarkIds = Array.from(
+        { length: 55 },
+        (_, index) => `bench-${String(index).padStart(2, '0')}`,
+      );
+      const modelBenchmarks = {
+        wide: benchmarkIds,
+        high: [benchmarkIds[54]!],
+        'high-low': [benchmarkIds[0]!, benchmarkIds[54]!],
+        low: [benchmarkIds[0]!],
+      };
+      const analysis = analyzeCoverageMatrix({
+        catalog: {
+          schemaVersion: 'model-catalog-v1',
+          models: Object.keys(modelBenchmarks).map((modelId) => ({
+            modelId,
+            providerId: 'provider',
+            displayName: modelId,
+            releaseDate: '2026-01-01',
+            pricing: [],
+            profilePricing: {},
+          })),
+        },
+        frontierConfig: {
+          schemaVersion: 'frontier-config-v2',
+          qualificationWindowMonths: 12,
+          manualModels: [],
+        },
+        benchmarkMapping: {
+          schemaVersion: 'benchmark-dimensions-v1',
+          dimensions: [...DIMENSION_IDS],
+          benchmarks: benchmarkIds.map((id) => ({
+            id,
+            primaryDimension: 'reasoning' as const,
+            secondaryDimensions: [],
+          })),
+        },
+        profilePolicy: mockProfilePolicy,
+        whitelist: ['source'],
+        sourceCandidates: Object.entries(modelBenchmarks).flatMap(
+          ([modelId, owned]) =>
+            owned.map((benchmarkId) =>
+              createMockCandidate({
+                id: `${modelId}-${benchmarkId}`,
+                sourceId: 'source',
+                modelId,
+                rawName: modelId,
+                benchmarkId,
+              }),
+            ),
+        ),
+        referenceDate: '2026-08-20',
+      });
+
+      // These two distinct bitsets collide if represented as Number.
+      const highMask = 1n << 54n;
+      expect(Number(highMask)).toBe(Number(highMask + 1n));
+      expect(analysis.maskFrequencies).toEqual([
+        { mask: 1, count: 1, modelIds: ['low'] },
+        { mask: highMask.toString(), count: 1, modelIds: ['high'] },
+        { mask: (highMask + 1n).toString(), count: 1, modelIds: ['high-low'] },
+        { mask: ((1n << 55n) - 1n).toString(), count: 1, modelIds: ['wide'] },
+      ]);
+      expect(
+        analysis.matrix.find((row) => row.model.modelId === 'high-low'),
+      ).toMatchObject({
+        mask: (highMask + 1n).toString(),
+        presentBenchmarkCount: 2,
+      });
+      expect(analysis.tradeoffs).toHaveLength(55);
+      expect(analysis.tradeoffs[1]?.candidates[0]).toMatchObject({
+        benchmarkIds: [benchmarkIds[0], benchmarkIds[54]],
+        completeModelCount: 2,
+      });
+      expect(analysis.tradeoffs[54]?.candidates[0]).toMatchObject({
+        benchmarkIds,
+        completeModelCount: 1,
+        matchingModels: [{ modelId: 'wide', displayName: 'wide' }],
+      });
+      expect(JSON.parse(JSON.stringify(analysis))).toEqual(analysis);
     });
   });
 
@@ -1813,12 +1996,22 @@ describe('coverage-matrix', () => {
       const data = await loadWorkspaceCoverageData(repoRoot);
 
       expect(data.whitelist).toEqual([
+        'anthropic-releases',
         'arc-prize',
         'artificial-analysis',
         'deepswe',
         'epoch-ai',
         'frontier-code',
+        'frontier-swe',
         'livebench',
+        'openai-releases',
+        'surge-chartography',
+        'surge-complex-constraints',
+        'surge-corecraft',
+        'surge-dayjob-finance',
+        'surge-dayjob-healthcare',
+        'surge-gdp-xlsx',
+        'surge-riemann',
         'vals-ai',
         'zapier-automationbench',
       ]);

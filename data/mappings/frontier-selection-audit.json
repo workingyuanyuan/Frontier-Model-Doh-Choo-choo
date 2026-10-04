@@ -1,0 +1,142 @@
+{
+  "status": "selected",
+  "policy": {
+    "sourceId": "artificial-analysis",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "searchWindowModels": 10,
+    "gapToOtherMedianMultiplier": 2
+  },
+  "benchmarkVersion": "v4.3.2",
+  "resolvedModelCount": 25,
+  "topTen": [
+    {
+      "rank": 1,
+      "modelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "score": 57.6223698102963,
+      "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07"
+      ]
+    },
+    {
+      "rank": 2,
+      "modelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "score": 56.0001286580794,
+      "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e"
+      ]
+    },
+    {
+      "rank": 3,
+      "modelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "score": 53.3549259623252,
+      "resultId": "artificial-analysis:anthropic-claude-fable-5-1-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9"
+      ]
+    },
+    {
+      "rank": 4,
+      "modelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "score": 52.673669395513,
+      "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759"
+      ]
+    },
+    {
+      "rank": 5,
+      "modelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "score": 52.5605655745982,
+      "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec"
+      ]
+    },
+    {
+      "rank": 6,
+      "modelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "score": 51.8332597011541,
+      "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c"
+      ]
+    },
+    {
+      "rank": 7,
+      "modelId": "meta-muse-spark-1-3",
+      "profileId": "meta-muse-spark-1-3-max",
+      "score": 48.0923107719685,
+      "resultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:68d587c150524ed17ef5d2deedee439bf8defa7d3b1142c69282db15503c4487"
+      ]
+    },
+    {
+      "rank": 8,
+      "modelId": "xai-grok-4-7",
+      "profileId": "xai-grok-4-7-xhigh",
+      "score": 46.4465506302286,
+      "resultId": "artificial-analysis:xai-grok-4-7-xhigh-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:670c1f7df1d9c0845e4d437a3fb8356c49440ba8fb199373147b7be7af30173e"
+      ]
+    },
+    {
+      "rank": 9,
+      "modelId": "xiaomi-mimo-v2-6-pro",
+      "profileId": "xiaomi-mimo-v2-6-pro-default",
+      "score": 46.3242065310383,
+      "resultId": "artificial-analysis:mimo-v2-6-pro:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:7397bf08ce03a4e8294c0dcc959db755cc5d7915e5a4becdfcab0ea3c100a7f0"
+      ]
+    },
+    {
+      "rank": 10,
+      "modelId": "alibaba-qwen3-8-max",
+      "profileId": "alibaba-qwen3-8-max-xhigh",
+      "score": 45.4152084980521,
+      "resultId": "artificial-analysis:alibaba-qwen3-8-max-aa-index:intelligence-index-v4-3-2",
+      "evidenceIds": [
+        "sha256:1b1548aee001c2cbac972e0d56af617a1dc0072393523db1ce6424d60cb68371"
+      ]
+    }
+  ],
+  "gaps": [
+    1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+    0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+    1.645760141739899, 0.12234409919030043, 0.9089980329861973
+  ],
+  "boundary": {
+    "afterRank": 6,
+    "largestGap": 3.740948929185599,
+    "otherGapMedian": 0.8181519532151498,
+    "gapRatio": 4.572437814863763,
+    "multiplier": 2
+  },
+  "selectedModelIds": [
+    "anthropic-claude-opus-5-5",
+    "anthropic-claude-sonnet-5-5",
+    "anthropic-claude-fable-5-1",
+    "openai-gpt-6-astra",
+    "google-gemini-4-argon",
+    "openai-gpt-6-1-sol"
+  ],
+  "selectedProfileIds": [
+    "anthropic-claude-opus-5-5-max",
+    "anthropic-claude-sonnet-5-5-max",
+    "anthropic-claude-fable-5-1-max",
+    "openai-gpt-6-astra-max",
+    "google-gemini-4-argon-high",
+    "openai-gpt-6-1-sol-max"
+  ],
+  "issues": []
+}

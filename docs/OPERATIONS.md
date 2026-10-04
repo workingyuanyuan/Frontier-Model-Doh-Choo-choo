@@ -1,5 +1,11 @@
 # 操作與資料流程
 
+## 前沿集合政策產物
+
+正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生 `aa-frontier` 預設；判定失敗時停止，不使用先前成功的集合。
+
+執行 `pnpm data:generate-frontier-set`，依 [前沿政策](FRONTIER_POLICY.md) 產生 `data/mappings/frontier-set.json` 及 `frontier-selection-audit.json`。輸入為已儲存的來源快照、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`。先確認稽核狀態為 `selected`，再使用集合產物；`needs-review` 表示本次判定需要使用者稽核。
+
 本文件負責日常工作流程、完成證據、異動判斷與審核交接。共用文件入口見 [文件索引](README.md)。
 
 ## 任務觸發與完成標準
@@ -67,12 +73,53 @@ pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
+pnpm --filter @llm-bench/acquisition materialize:frontier-swe
+pnpm --filter @llm-bench/acquisition materialize:chartography -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:complex-constraints -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:corecraft -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:riemann -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:dayjob-finance -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:dayjob-healthcare -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:gdp-xlsx -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:epoch
 pnpm --filter @llm-bench/acquisition materialize:arc-prize
 pnpm --filter @llm-bench/acquisition materialize:zapier
 pnpm --filter @llm-bench/acquisition materialize:vals
 pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
+
+### 來源變更監測
+
+上述 17 個線上刷新命令已透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
+
+AA、Vals、Surge 另擷取即時官方 benchmark 目錄，比較新增、移除連結及名稱／版本異動。Vals 既有的動態頁面擷取照常運作。其他現役來源目前比較刷新前後的已物化快照；報告的 `scope` 明確標示此範圍，不能據此宣稱已掃描其上游所有新 benchmark。
+
+```bash
+pnpm report:source-changes
+pnpm report:source-changes -- --sources=artificial-analysis,vals-ai
+pnpm report:source-changes -- --offline
+pnpm report:source-changes -- --check
+```
+
+獨立命令檢查目錄與現有快照，不刷新模型成績。`--offline` 不存取網路、不推進即時目錄基準；`--check` 在本次檢查有待審閱項目時回傳非零狀態，適合排程要求明確回報。一般模式在待審閱項目存在時仍完成報告；擷取或解析失敗一律回傳非零狀態，保留該來源上次成功的監測基準。
+
+輸出為 `data/source-monitoring/REPORT.md`、`current.json` 及 `state/<source-id>.json`；原始目錄回應保存到內容定址 artifact，每次完整報告另留存於 `artifacts/source-monitoring/`。初次執行建立基準，既有未整合項目列入清單，但不冒稱是本次才新增。子集檢查保留其他來源報告及各自檢查時間。
+
+目錄清單區分是否登記擷取，以及 `scored`、`captured-not-scored`、`supported-no-scores`、`unintegrated`、`reviewed-deferred`。`scored` 指來源已有 INCLUDED 候選列，不保證其模型已通過產品的 identity、前沿資格與共同集合條件。版本只採官方目錄明示值；缺失保持 unknown。模型覆蓋使用 canonical ID；設定覆蓋保留來源名稱、effort、thinking、harness、tools、quantization、attempts 與 context window，總數不變的成員流失也會回報。
+
+`data/mappings/source-monitoring.json` 保存明確的暫緩決定與原因。新 benchmark 的發現不會自動改變維度、來源優先序或計分政策；依使用者決定完成整合及驗證後再採用。暫緩項目若發生目錄版本變動仍會出現在差異報告中。
+
+### 模型發布頁
+
+OpenAI 頁面以瀏覽器讀取已載入的 DOM／RSC，擷取 `linkId=deepswe` 與 `linkId=automationbench` 的 Vega `data.values`，同時核對圖說的 1.1 與 1.0.6 版本。保存成 `vendor-chart-capture-v1` JSON；格式見 `data/sources/openai-releases/reviewed-capture.json`。每列保留 `model`、`modelLabel`、`effortLabel`、`order`、`score`、`cost`。這是有界、正規化的瀏覽器擷取摘錄，artifact metadata 明確標示，不冒充完整 HTTP bytes。`--openai-observed-at` 必須使用實際讀取時間，離線重跑不可更新成當前時間。
+
+```bash
+pnpm --filter @llm-bench/acquisition materialize:vendor-releases -- --openai-capture ../../data/sources/openai-releases/reviewed-capture.json --openai-observed-at 2026-10-02T14:56:49.000Z
+```
+
+命令使用共用安全擷取器取得 Anthropic 原始 HTML 與 Cursor 官方核對頁；解析 FrontierCode Main 與 CursorBench 的內嵌 CSV，再以現有 DeepSWE、Zapier、FrontierCode 官方快照核對。各來源在寫入前必須完成全部檢查，分數不一致即停止；經研究確認需保留的衝突列明確排除。`cross-checks.json` 保存逐列分數、來源與比較結論。新增圖表、版本或模型需要重新審核解析器與核對依據。
+
+`materialize:snapshots` 可由內容定址 artifact 離線重建兩個來源，使用原取得時間並重新執行交叉檢查。接續執行 effort report、coverage report、集合生成及產品建置，交付逐集合影響報告。
 
 上述 AA、LiveBench、DeepSWE、Frontier Code 四個命令必須先核對渲染後頁面的可見母體數，並把實測值傳入。Artificial Analysis 的命令會組合 evaluation RSC、`/models` 與現役 profile 的
 `/models/<slug>` detail payload；`ARTIFICIAL_ANALYSIS_API_KEY` 僅從 gitignored
@@ -84,6 +131,10 @@ JSON-LD 與官方靜態 JSON；未提供 DOM 核對結果時會拒絕標記完�
 
 本次範圍內各站完成後執行 `materialize:effort-reports`；它只替換 validation report 中
 標記過的推測區段，保留每站刷新產生的可見母體核對與前後 delta。
+
+Chartography 先核對主榜的渲染列數，再傳入 `--visual-row-count=<count>`。解析器限定主榜區塊，逐列比對 `data-score` 與文字百分比；相關評測卡片及另一份成本圖資料不屬於該主榜快照。來源 HTML 保存於 artifact store，可由 `materialize:snapshots` 離線重建。
+
+FrontierSWE V2 擷取官方頁面的完整 `entries.abs.mean`，以 coverage matrix 的模型／harness 清單確認母體，並核對伺服器渲染榜單的 mean@5 分數。`frontier-swe-v2` 在 benchmark mapping 設定 `comparisonOnly: true`，僅用於手動 profiles 的共同 benchmark 比較。重產預設集合時會套用此範圍設定。
 
 LiveBench 的可見母體以啟用 Include finetunes 後的頁面核對。2026-09-06 匯出仍保留兩個已不在畫面的 bare slugs：`deepseek-v4-flash`、`deepseek-v4-pro`；腳本僅精確扣除這兩筆再比對可見數，不能用前綴排除仍可見的 Vision Exp。原始匯出列仍保留。若來源改變此關係，重新查核畫面與匯出，不調整人工數字以繞過檢查。
 
@@ -111,6 +162,8 @@ pnpm report:coverage-matrix
 pnpm data:generate-display-set
 pnpm data:build-current
 ```
+
+覆蓋率的模型 presence mask 以 BigInt 精確計算；報告 JSON 在安全整數範圍內使用 number，超出時使用十進位字串，避免評測數超過 53 項時遺失低位元。
 
 coverage 報告與 generator 應使用相同資料及參考日期；跨日執行時明確固定日期。記錄使用的政策、日期、預設集合與輸出。`data:build-current` 只讀取現有 `display-set.json`，不會替代前兩步。
 

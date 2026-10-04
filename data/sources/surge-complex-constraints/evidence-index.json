@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/92/924dff79ccaa2e1371f82e93fb1615b603b017ebedbb0bbd6d4c11345082967c.html",
+    "byteLength": 731059,
+    "finalUrl": "https://surgehq.ai/benchmarks/complex-constraints",
+    "id": "sha256:924dff79ccaa2e1371f82e93fb1615b603b017ebedbb0bbd6d4c11345082967c",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 56,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/complex-constraints",
+    "retrievedAt": "2026-10-03T06:07:59.884Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:924dff79ccaa2e1371f82e93fb1615b603b017ebedbb0bbd6d4c11345082967c",
+    "sourceId": "surge-complex-constraints"
+  }
+]

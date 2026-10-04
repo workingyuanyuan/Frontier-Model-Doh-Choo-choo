@@ -1,12 +1,78 @@
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { DIMENSION_IDS, DisplaySetPolicySchema } from './index.js';
-import { buildWorkspaceProduct } from './workspace.js';
+import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
+import { buildWorkspaceProduct, writeWorkspaceCurrent } from './workspace.js';
 
 describe('buildWorkspaceProduct', () => {
+  it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
+    const root = resolve(import.meta.dirname, '../../..');
+    const baselineRoot = await mkdtemp(join(tmpdir(), 'comparison-baseline-'));
+    const sourceConfig = SourcesConfigSchema.parse(
+      JSON.parse(
+        await readFile(join(root, 'data', 'mappings', 'sources.json'), 'utf8'),
+      ),
+    );
+    try {
+      await cp(
+        join(root, 'data', 'mappings'),
+        join(baselineRoot, 'data', 'mappings'),
+        {
+          recursive: true,
+        },
+      );
+      const whitelist = sourceConfig.whitelist.filter(
+        (source) => source !== 'frontier-swe',
+      );
+      await writeFile(
+        join(baselineRoot, 'data', 'mappings', 'sources.json'),
+        JSON.stringify({
+          ...sourceConfig,
+          whitelist,
+        }),
+      );
+      for (const source of whitelist) {
+        const destination = join(baselineRoot, 'data', 'sources', source);
+        await mkdir(destination, { recursive: true });
+        for (const file of [
+          'manifest.json',
+          'candidates.json',
+          'costs.json',
+          'evidence-index.json',
+        ]) {
+          const origin = join(root, 'data', 'sources', source, file);
+          if (existsSync(origin)) await cp(origin, join(destination, file));
+        }
+      }
+      const generatedAt = '2026-10-01T00:00:00.000Z';
+      const baseline = await buildWorkspaceProduct(baselineRoot, generatedAt);
+      const added = await buildWorkspaceProduct(root, generatedAt);
+      expect(added.presets).toEqual(baseline.presets);
+      expect(added.defaultPresetId).toEqual(baseline.defaultPresetId);
+      expect(added.costs).toEqual(baseline.costs);
+      expect(added.frontier).toEqual(baseline.frontier);
+      expect(
+        added.evidence.filter((row) => row.sourceId !== 'frontier-swe'),
+      ).toEqual(baseline.evidence);
+      const comparisonIds = new Set(added.comparisonEvidenceIds);
+      expect(
+        added.evidence.some(
+          (row) => row.sourceId === 'frontier-swe' && comparisonIds.has(row.id),
+        ),
+      ).toBe(true);
+      const existingProfiles = new Set(baseline.profiles.map(({ id }) => id));
+      expect(
+        added.profiles.filter(({ id }) => existingProfiles.has(id)),
+      ).toEqual(baseline.profiles);
+    } finally {
+      await rm(baselineRoot, { recursive: true, force: true });
+    }
+  });
+
   it('assembles the verified workspace sources into a frontier ProductVersion', async () => {
     const root = resolve(import.meta.dirname, '../../..');
     const product = await buildWorkspaceProduct(
@@ -22,10 +88,7 @@ describe('buildWorkspaceProduct', () => {
     expect(defaultLeaderboard.length).toBeGreaterThan(0);
     expect(product.schemaVersion).toBe('product-version-v4');
 
-    // Every preset is scored on its own benchmarks (R1), and each one's
-    // `targetModelCount` is the coverage report's promise: exactly that many
-    // qualified base models carry every benchmark in the preset. Checking it
-    // here is what stops a stale display-set.json going unnoticed.
+    // The live preset is tied to the freshly selected AA winning profiles.
     expect(product.presets.length).toBeGreaterThan(0);
     const defaultPreset = product.presets.find(
       ({ id }) => id === product.defaultPresetId,
@@ -65,26 +128,28 @@ describe('buildWorkspaceProduct', () => {
       }
       return models;
     };
-    // Every model named in display-set-policy.json must survive every preset.
-    // This is what stops the optimiser reaching its model count by dropping a
-    // model the leaderboard exists to show.
-    const policy = DisplaySetPolicySchema.parse(
-      JSON.parse(
-        await readFile(
-          join(root, 'data', 'mappings', 'display-set-policy.json'),
-          'utf8',
-        ),
+    const artifact = JSON.parse(
+      await readFile(
+        join(root, 'data', 'mappings', 'frontier-set.json'),
+        'utf8',
       ),
+    ) as {
+      selection: { selectedModelIds: string[]; selectedProfileIds: string[] };
+      benchmarkIds: string[];
+    };
+    expect(product.frontier.map(({ modelId }) => modelId)).toEqual(
+      artifact.selection.selectedModelIds,
     );
+    expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
+    expect(defaultPreset!.benchmarkIds).toHaveLength(20);
+    expect(
+      defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
+    ).toEqual(artifact.selection.selectedProfileIds.toSorted());
 
     for (const preset of product.presets) {
       const completeModels = completeModelsFor(preset.benchmarkIds);
-      expect({
-        id: preset.id,
-        completeModels: completeModels.size,
-      }).toEqual({ id: preset.id, completeModels: preset.targetModelCount });
-
-      for (const modelId of policy.requiredModelIds) {
+      expect(preset.leaderboard).toHaveLength(preset.targetModelCount);
+      for (const modelId of artifact.selection.selectedModelIds) {
         expect({
           preset: preset.id,
           modelId,
@@ -109,9 +174,49 @@ describe('buildWorkspaceProduct', () => {
     expect(
       defaultLeaderboard.every((row) => !Object.hasOwn(row, 'status')),
     ).toBe(true);
-    expect(defaultLeaderboard[0]?.dimensions).toHaveLength(
-      DIMENSION_IDS.length,
+    expect(
+      defaultLeaderboard[0]?.dimensions.map(({ dimension }) => dimension),
+    ).toEqual(['reasoning', 'knowledge', 'comprehension', 'coding', 'agentic']);
+    for (const row of defaultLeaderboard) {
+      expect(row.dimensions[0]!.componentCount).toBe(1);
+      const weightedTotal = row.dimensions.reduce(
+        (sum, axis) =>
+          sum + axis.score! * (axis.componentCount === 1 ? 0.5 : 1),
+        0,
+      );
+      expect(row.overallScore).toBeCloseTo(weightedTotal / 4.5, 10);
+    }
+    const comparisonIds = new Set(product.comparisonEvidenceIds);
+    const comparisonBenchmarks = new Set(
+      product.evidence
+        .filter(({ id }) => comparisonIds.has(id))
+        .map(({ benchmarkId }) => benchmarkId),
     );
+    expect(product.benchmarkQuality!.excludedBenchmarkIds).toEqual([
+      'aime',
+      'programbench',
+      'proofbench',
+    ]);
+    for (const id of ['aime', 'programbench', 'proofbench'])
+      expect(comparisonBenchmarks.has(id)).toBe(false);
+    expect(comparisonBenchmarks.has('frontier-swe-v2')).toBe(true);
+    // Limited tests remain available; ratios apply after selection intersection.
+    expect(comparisonBenchmarks.has('gpqa-diamond')).toBe(true);
+    expect(comparisonBenchmarks.has('mmlu-pro')).toBe(true);
+    const mapping = JSON.parse(
+      await readFile(join(root, 'data/mappings/benchmarks-v2.json'), 'utf8'),
+    ) as { benchmarks: { id: string; primaryDimension: string }[] };
+    expect(
+      mapping.benchmarks.some(
+        ({ id, primaryDimension }) =>
+          primaryDimension === 'language' && comparisonBenchmarks.has(id),
+      ),
+    ).toBe(true);
+    expect(
+      product.profiles.some(
+        ({ modelId }) => !artifact.selection.selectedModelIds.includes(modelId),
+      ),
+    ).toBe(true);
     expect(
       product.evidence.some(({ inclusion }) => inclusion === 'INCLUDED'),
     ).toBe(true);
@@ -236,6 +341,62 @@ describe('buildWorkspaceProduct', () => {
       );
     } finally {
       await rm(dummyDir, { recursive: true, force: true });
+    }
+  });
+
+  it('fails a fresh AA needs-review audit and preserves the current product', async () => {
+    const root = resolve(import.meta.dirname, '../../..');
+    const temporaryRoot = await mkdtemp(join(tmpdir(), 'aa-review-build-'));
+    try {
+      await cp(
+        join(root, 'data/mappings'),
+        join(temporaryRoot, 'data/mappings'),
+        { recursive: true },
+      );
+      const sourceRoot = join(
+        temporaryRoot,
+        'data/sources/artificial-analysis',
+      );
+      await mkdir(sourceRoot, { recursive: true });
+      await cp(
+        join(root, 'data/sources/artificial-analysis/manifest.json'),
+        join(sourceRoot, 'manifest.json'),
+      );
+      const candidates = CandidateResultSchema.array().parse(
+        JSON.parse(
+          await readFile(
+            join(root, 'data/sources/artificial-analysis/candidates.json'),
+            'utf8',
+          ),
+        ),
+      );
+      candidates.find(
+        ({ benchmarkId }) =>
+          benchmarkId === 'artificial-analysis-intelligence-index',
+      )!.benchmarkVersion = 'incompatible-index-version';
+      await writeFile(
+        join(sourceRoot, 'candidates.json'),
+        JSON.stringify(candidates),
+      );
+      const productRoot = join(temporaryRoot, 'data/product');
+      await mkdir(productRoot, { recursive: true });
+      const currentPath = join(productRoot, 'current.json');
+      await writeFile(currentPath, 'preserved current bytes');
+      await expect(
+        writeWorkspaceCurrent(temporaryRoot, '2026-10-04T00:00:00.000Z'),
+      ).rejects.toThrow('AA frontier needs review');
+      const audit = JSON.parse(
+        await readFile(
+          join(temporaryRoot, 'data/mappings/frontier-selection-audit.json'),
+          'utf8',
+        ),
+      ) as { status: string };
+      expect(audit.status).toBe('needs-review');
+      expect(await readFile(currentPath, 'utf8')).toBe(
+        'preserved current bytes',
+      );
+    } finally {
+      await rm(temporaryRoot, { recursive: true, force: true });
     }
   });
 });

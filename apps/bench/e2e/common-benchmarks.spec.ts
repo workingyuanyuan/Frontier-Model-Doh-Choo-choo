@@ -1,16 +1,81 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import type { ProductVersion } from '@llm-bench/benchmark-data';
+import { buildCommonComparison } from '../lib/common-benchmarks';
+import { loadProductVersion } from '../lib/load-product-version';
+import { withActivePreset } from '../lib/view-model';
 
 const product = JSON.parse(
   readFileSync('data/product/current.json', 'utf8'),
 ) as ProductVersion;
 const selectedIds = new Set(product.comparisonEvidenceIds);
+const { benchmarkDimensions } = loadProductVersion();
+
+test('shows FrontierSWE V2 for manually selected shared profiles', async ({
+  page,
+}) => {
+  expect(
+    product.presets.every(
+      (preset) => !preset.benchmarkIds.includes('frontier-swe-v2'),
+    ),
+  ).toBe(true);
+  await page.goto('/');
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
+  const section = page.getByRole('region', {
+    name: 'Common benchmarks',
+    exact: true,
+  });
+  await expect(section).toHaveCount(0);
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page.getByRole('button', { name: 'Clear', exact: true }).click();
+  for (const name of ['GPT-6 Astra', 'Gemini 3.8 Flash']) {
+    await page.getByRole('checkbox', { name, exact: true }).check();
+  }
+  await page.keyboard.press('Escape');
+  const astra = page.getByRole('combobox', {
+    name: 'Select profile for GPT-6 Astra',
+    exact: true,
+  });
+  await astra.selectOption('openai-gpt-6-astra-max');
+  await page
+    .getByRole('combobox', {
+      name: 'Select profile for Gemini 3.8 Flash',
+      exact: true,
+    })
+    .selectOption('google-gemini-3-8-flash-high');
+  const row = section.getByRole('row').filter({
+    has: page.getByRole('rowheader', { name: 'FrontierSWE V2', exact: true }),
+  });
+  await expect(row).toBeVisible();
+  const scores = ['openai-gpt-6-astra-max', 'google-gemini-3-8-flash-high'].map(
+    (profileId) =>
+      product.evidence
+        .find(
+          (e) =>
+            selectedIds.has(e.id) &&
+            e.benchmarkId === 'frontier-swe-v2' &&
+            e.model.profileId === profileId,
+        )!
+        .normalizedScore!.toFixed(1),
+  );
+  await expect(row.locator('strong')).toHaveText(scores);
+  await expect(row.getByRole('link')).toHaveCount(2);
+  for (const link of await row.getByRole('link').all()) {
+    await expect(link).toHaveAttribute('href', 'https://www.frontierswe.com/');
+  }
+  await astra.selectOption('openai-gpt-6-astra-low');
+  await expect(row).toHaveCount(0);
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page.getByRole('button', { name: 'Default', exact: true }).click();
+  await page.keyboard.press('Escape');
+  await expect(section).toHaveCount(0);
+});
 
 test('keeps Astra medium while comparing high and removes the saved effort', async ({
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   await page
@@ -75,6 +140,7 @@ test('compares selected models on their shared measurements and updates profiles
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   await page
@@ -100,18 +166,16 @@ test('compares selected models on their shared measurements and updates profiles
   });
   const checkBasis = async () => {
     const ids = [await astra.inputValue(), await gemini.inputValue()];
-    const measurements = ids.map((id) =>
-      product.evidence.filter(
-        (e) => selectedIds.has(e.id) && e.model.profileId === id,
-      ),
+    const selectedProfiles = Object.fromEntries(
+      ids.map((id) => [product.profiles.find((p) => p.id === id)!.modelId, id]),
     );
-    const common = [
-      ...new Set(measurements[0]!.map((e) => e.benchmarkId)),
-    ].filter((id) => measurements[1]!.some((e) => e.benchmarkId === id));
+    const common = buildCommonComparison(
+      withActivePreset(product),
+      Object.keys(selectedProfiles),
+      selectedProfiles,
+      benchmarkDimensions,
+    ).benchmarkIds;
     await expect(section.locator('tbody tr')).toHaveCount(common.length);
-    await expect(page.locator('.comparison-summary')).toContainText(
-      `${common.length} common benchmarks`,
-    );
     await expect(
       section.getByRole('columnheader', { name: /Difference/ }),
     ).toBeVisible();
@@ -142,14 +206,13 @@ test('compares selected models on their shared measurements and updates profiles
   await expect(section).toHaveCount(0);
 });
 
-test('shows selection guidance after clearing models', async ({ page }) => {
+test('clears the comparison rows and radar axes', async ({ page }) => {
   await page.goto('/');
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   await page.keyboard.press('Escape');
-  await expect(
-    page.getByText('Select models in Search Models to begin.'),
-  ).toBeVisible();
+  await expect(page.locator('.radar-axis')).toHaveCount(0);
   await expect(page.locator('[data-ranked-row]')).toHaveCount(0);
 });
 
@@ -157,6 +220,7 @@ test('compares the newly resolved Fable, Gemini and Astra models together', asyn
   page,
 }) => {
   await page.goto('/');
+  await page.getByRole('switch', { name: 'Developer mode' }).click();
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   for (const name of ['GPT-6 Astra', 'Gemini 3.8 Flash', 'Claude Fable 5.1']) {

@@ -43,6 +43,7 @@ const renderPanel = (props: Partial<ModelDetailPanelProps> = {}) => {
       product: props.product ?? productFixture,
       benchmarkDimensions: props.benchmarkDimensions ?? benchmarkDimensions,
       selectedResult,
+      activeDimensionIds: props.activeDimensionIds,
       preset: props.preset !== undefined ? props.preset : preset,
       developerMode: props.developerMode ?? false,
     }),
@@ -94,10 +95,10 @@ describe('ModelDetailPanel (Task E1)', () => {
     expect(html).toContain('GPT-5.6 Sol · max');
     expect(html).toContain('Overall 88.1');
 
-    // Groups by all 8 dimensions
+    // Groups by the selected result's active dimensions.
     expect(html.match(/data-dimension-group/g)).toHaveLength(5);
     expect(html).toContain('Coding');
-    expect(html).toContain('Math');
+    expect(html).toContain('Knowledge');
     expect(html).toContain('Reasoning');
 
     // Lists benchmark
@@ -126,6 +127,7 @@ describe('ModelDetailPanel (Task E1)', () => {
     const html = renderPanel({
       profile: devProfile,
       selectedResult: devResult,
+      developerMode: true,
     });
 
     // Same component data attribute

@@ -78,18 +78,26 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
 | glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
 | glm-5.2 | `livebench-2026-06-25:livebench-reasoning:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `high` | vals-ai | vals-ai:swe-bench:openai-gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
+| grok-4.3 | `livebench-2026-06-25:livebench-instruction-following:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
+| grok-4.3 | `livebench-2026-06-25:livebench-language:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
+| grok-4.3 | `livebench-2026-06-25:livebench-mathematics:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
+| grok-4.3 | `livebench-2026-06-25:livebench-reasoning:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
 | grok-4.5 | `livebench-2026-06-25:livebench-instruction-following:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | grok-4.5 | `livebench-2026-06-25:livebench-language:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | grok-4.5 | `livebench-2026-06-25:livebench-mathematics:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | grok-4.5 | `livebench-2026-06-25:livebench-reasoning:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
-| grok-4.6 | `livebench-2026-06-25:livebench-instruction-following:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
-| grok-4.6 | `livebench-2026-06-25:livebench-language:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
-| grok-4.6 | `livebench-2026-06-25:livebench-mathematics:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
-| grok-4.6 | `livebench-2026-06-25:livebench-reasoning:grok-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-high:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-instruction-following:grok-4-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-language:grok-4-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-mathematics:grok-4-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
+| grok-4.6 | `livebench-2026-06-25:livebench-reasoning:grok-4-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
+| kimi-k2.7-code | `livebench-2026-06-25:livebench-instruction-following:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
+| kimi-k2.7-code | `livebench-2026-06-25:livebench-language:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
+| kimi-k2.7-code | `livebench-2026-06-25:livebench-mathematics:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
+| kimi-k2.7-code | `livebench-2026-06-25:livebench-reasoning:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | kimi-k3 | `livebench-2026-06-25:livebench-instruction-following:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
@@ -111,10 +119,6 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| grok-4.3 | `livebench-2026-06-25:livebench-instruction-following:grok-4-3` | — | `default` | — | — |
-| grok-4.3 | `livebench-2026-06-25:livebench-language:grok-4-3` | — | `default` | — | — |
-| grok-4.3 | `livebench-2026-06-25:livebench-mathematics:grok-4-3` | — | `default` | — | — |
-| grok-4.3 | `livebench-2026-06-25:livebench-reasoning:grok-4-3` | — | `default` | — | — |
 | grok-build-0.1 | `livebench-2026-06-25:livebench-instruction-following:grok-build-0-1` | — | `default` | — | — |
 | grok-build-0.1 | `livebench-2026-06-25:livebench-language:grok-build-0-1` | — | `default` | — | — |
 | grok-build-0.1 | `livebench-2026-06-25:livebench-mathematics:grok-build-0-1` | — | `default` | — | — |
@@ -123,10 +127,6 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | kimi-k2.6-thinking | `livebench-2026-06-25:livebench-language:kimi-k2-6-thinking` | — | `default` | — | — |
 | kimi-k2.6-thinking | `livebench-2026-06-25:livebench-mathematics:kimi-k2-6-thinking` | — | `default` | — | — |
 | kimi-k2.6-thinking | `livebench-2026-06-25:livebench-reasoning:kimi-k2-6-thinking` | — | `default` | — | — |
-| kimi-k2.7-code | `livebench-2026-06-25:livebench-instruction-following:kimi-k2-7-code` | — | `default` | — | — |
-| kimi-k2.7-code | `livebench-2026-06-25:livebench-language:kimi-k2-7-code` | — | `default` | — | — |
-| kimi-k2.7-code | `livebench-2026-06-25:livebench-mathematics:kimi-k2-7-code` | — | `default` | — | — |
-| kimi-k2.7-code | `livebench-2026-06-25:livebench-reasoning:kimi-k2-7-code` | — | `default` | — | — |
 | nemotron-3-ultra-550b-a55b | `livebench-2026-06-25:livebench-instruction-following:nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | nemotron-3-ultra-550b-a55b | `livebench-2026-06-25:livebench-language:nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | nemotron-3-ultra-550b-a55b | `livebench-2026-06-25:livebench-mathematics:nemotron-3-ultra-550b-a55b` | — | `default` | — | — |

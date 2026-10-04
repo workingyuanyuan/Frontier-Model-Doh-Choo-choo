@@ -48,7 +48,12 @@ export const loadProductVersion = (): LoadedProductVersion => {
   let benchmarkMapping: BenchmarkDimensionMapping | null = null;
   let displaySet: DisplaySet | null = null;
   try {
-    const mappingPath = resolve(root, '..', 'mappings', 'benchmarks.json');
+    const mappingPath = resolve(
+      root,
+      '..',
+      'mappings',
+      product.benchmarkQuality ? 'benchmarks-v2.json' : 'benchmarks.json',
+    );
     const mapping = BenchmarkDimensionMappingSchema.parse(
       JSON.parse(readFileSync(mappingPath, 'utf8')),
     );
@@ -58,10 +63,32 @@ export const loadProductVersion = (): LoadedProductVersion => {
     });
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+    if (product.benchmarkQuality)
+      throw new Error('v2 benchmark mapping does not exist', { cause: error });
     // Temporary product-loader fixtures do not include the workspace mapping.
   }
 
   if (benchmarkMapping !== null) {
+    if (product.benchmarkQuality) {
+      displaySet = DisplaySetSchema.parse({
+        schemaVersion: 'display-set-v2',
+        defaultPresetId: product.defaultPresetId,
+        presets: product.presets.map(
+          ({ id, targetModelCount, requireAllSources, benchmarkIds }) => ({
+            id,
+            targetModelCount,
+            requireAllSources,
+            benchmarkIds,
+          }),
+        ),
+      });
+      for (const preset of product.presets) {
+        if (preset.benchmarkIds.some((id) => !benchmarkDimensions[id])) {
+          throw new Error(`Unknown benchmark in preset ${preset.id}`);
+        }
+      }
+      return { benchmarkDimensions, displaySet, product };
+    }
     const displaySetPath = resolve(root, '..', 'mappings', 'display-set.json');
     try {
       displaySet = DisplaySetSchema.parse(

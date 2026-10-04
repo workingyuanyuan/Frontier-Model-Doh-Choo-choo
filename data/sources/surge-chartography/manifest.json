@@ -1,0 +1,26 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://surgehq.ai/benchmarks/chartography",
+  "benchmarkIds": ["chartography"],
+  "completeness": {
+    "expectedCountMethod": "Compare main leaderboard rows with rendered browser count and cross-check each data-score attribute against visible text.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Surge AI Chartography",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
+    "[data-score]": "rawScore / normalizedScore"
+  },
+  "lastVerifiedAt": "2026-10-02T14:00:14.368Z",
+  "notes": [
+    "Main leaderboard pass@1 percentages; reasoning primary, knowledge secondary.",
+    "Separate cost/token chart configurations are outside this snapshot.",
+    "Per-row trial count, benchmark version and publication date are unpublished."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "surge-chartography",
+  "targetUrls": ["https://surgehq.ai/benchmarks/chartography"]
+}

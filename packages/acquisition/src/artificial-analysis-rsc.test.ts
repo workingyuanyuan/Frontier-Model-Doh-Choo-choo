@@ -253,6 +253,133 @@ describe('Artificial Analysis API cross-validation', () => {
 });
 
 describe('Artificial Analysis RSC materializer', () => {
+  it.each([
+    [0.425, 42.5],
+    [0, 0],
+    [1, 100],
+  ])(
+    'normalizes GDP.pdf All-pass %s to %s percent',
+    (rawScore, normalizedScore) => {
+      const result = materializeArtificialAnalysisRsc([
+        {
+          kind: 'evaluation',
+          slug: 'gdp-pdf',
+          sourceUrl: 'https://artificialanalysis.ai/evaluations/gdp-pdf',
+          evidenceId,
+          retrievedAt: '2026-10-03T00:00:00.000Z',
+          html: JSON.stringify({
+            initialModels: [
+              {
+                slug: 'grok-4-7',
+                name: 'Grok 4.7 (xhigh)',
+                releaseDate: '2026-09-21',
+                deprecated: false,
+                gdpPdfAllPass: rawScore,
+                gdpPdfBreakdown: { total: 0.99 },
+              },
+            ],
+          }),
+        },
+      ]);
+      expect(result.activeRows).toBe(1);
+      expect(result.candidates).toHaveLength(1);
+      expect(result.candidates[0]).toMatchObject({
+        benchmarkId: 'gdp-pdf',
+        metric: { id: 'all-pass', name: 'All-pass', unit: 'percent' },
+        sourceRole: 'INDEPENDENT',
+        profile: { harness: 'Artificial Analysis GDP.pdf', attempts: 5 },
+        rawScore,
+        normalizedScore,
+        inclusion: 'INCLUDED',
+      });
+    },
+  );
+
+  it.each([null, '$undefined', undefined])(
+    'omits missing GDP.pdf All-pass %s even when a breakdown exists',
+    (gdpPdfAllPass) => {
+      const result = materializeArtificialAnalysisRsc([
+        {
+          kind: 'evaluation',
+          slug: 'gdp-pdf',
+          sourceUrl: 'https://artificialanalysis.ai/evaluations/gdp-pdf',
+          evidenceId,
+          retrievedAt: '2026-10-03T00:00:00.000Z',
+          rows: [
+            {
+              slug: 'grok-4-7',
+              name: 'Grok 4.7 (xhigh)',
+              releaseDate: '2026-09-21',
+              deprecated: false,
+              gpqa: 0.9,
+              gdpPdfAllPass,
+              gdpPdfBreakdown: { allPass: 0.99 },
+            },
+          ],
+        },
+      ]);
+      expect(result.activeRows).toBe(1);
+      expect(
+        result.candidates.map((candidate) => candidate.benchmarkId),
+      ).toEqual(['gpqa-diamond']);
+    },
+  );
+
+  it('credits the preferred GDP.pdf page and falls back to the detail page carrying All-pass', () => {
+    const row = {
+      slug: 'grok-4-7',
+      name: 'Grok 4.7 (xhigh)',
+      releaseDate: '2026-09-21',
+      deprecated: false,
+    };
+    const detailPage = {
+      kind: 'model-detail' as const,
+      slug: row.slug,
+      sourceUrl: `https://artificialanalysis.ai/models/${row.slug}`,
+      evidenceId,
+      retrievedAt: '2026-10-02T00:00:00.000Z',
+      rows: [{ ...row, gdpPdfAllPass: 0.25 }],
+    };
+    const evaluationEvidenceId =
+      'sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+    const evaluationPage = {
+      kind: 'evaluation' as const,
+      slug: 'gdp-pdf',
+      sourceUrl: 'https://artificialanalysis.ai/evaluations/gdp-pdf',
+      evidenceId: evaluationEvidenceId,
+      retrievedAt: '2026-10-03T00:00:00.000Z',
+      rows: [{ ...row, gdpPdfAllPass: 0.5 }],
+    };
+    const preferred = materializeArtificialAnalysisRsc([
+      detailPage,
+      evaluationPage,
+    ]).candidates[0];
+    expect(preferred).toMatchObject({
+      rawScore: 0.5,
+      sourceUrl: detailPage.sourceUrl,
+      observedAt: evaluationPage.retrievedAt,
+      evidenceIds: [evaluationEvidenceId],
+      provenance: {
+        rawScore: {
+          evidenceId: evaluationEvidenceId,
+          method: 'NEXT_RSC',
+          locator: 'model slug=grok-4-7; field=gdpPdfAllPass',
+        },
+      },
+    });
+    const fallback = materializeArtificialAnalysisRsc([
+      { ...evaluationPage, rows: [{ ...row, gdpPdfAllPass: null }] },
+      detailPage,
+    ]).candidates[0];
+    expect(fallback).toMatchObject({
+      rawScore: 0.25,
+      sourceUrl: detailPage.sourceUrl,
+      observedAt: detailPage.retrievedAt,
+      evidenceIds: [evidenceId],
+      provenance: { rawScore: { evidenceId, method: 'NEXT_RSC' } },
+    });
+  });
+
   it('reads current accuracy and Terminal-Bench aliases with exact provenance', () => {
     const result = materializeArtificialAnalysisRsc([
       {

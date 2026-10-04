@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/bf/bf6ce3c7e1305e7677eeeb022f4c123e6a663fe0c625b03ffc505ddd7159c8d5.html",
+    "byteLength": 623681,
+    "finalUrl": "https://surgehq.ai/benchmarks/riemann-bench",
+    "id": "sha256:bf6ce3c7e1305e7677eeeb022f4c123e6a663fe0c625b03ffc505ddd7159c8d5",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 44,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/riemann-bench",
+    "retrievedAt": "2026-10-03T06:41:42.680Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:bf6ce3c7e1305e7677eeeb022f4c123e6a663fe0c625b03ffc505ddd7159c8d5",
+    "sourceId": "surge-riemann"
+  }
+]

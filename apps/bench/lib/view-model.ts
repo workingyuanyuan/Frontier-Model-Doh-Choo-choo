@@ -52,22 +52,24 @@ export const withActivePreset = (
   return { ...product, activePreset, leaderboard: activePreset.leaderboard };
 };
 
-type CostPoint = ProductVersion['costs'][number];
+type CostPoint = ProductVersion['costs'][number] & {
+  /** Original publisher when a vendor supplements a benchmark's chart. */
+  reportedSourceId?: string;
+};
 
 /**
- * Equal weight per source, renormalised per model over the sources it actually
- * has. Zapier joined on 2026-08-23 when the source was adopted, taking the
- * table from six sources to seven; the value is the source count, never a
- * judgement about a site.
+ * Equal weight per benchmark cost group, renormalised over the groups a model
+ * has. Vendor previews supplement a group's data without adding another weight.
  */
 export const COST_SOURCE_WEIGHTS = {
-  'artificial-analysis': 1 / 7,
-  livebench: 1 / 7,
-  deepswe: 1 / 7,
-  'frontier-code': 1 / 7,
-  'arc-prize': 1 / 7,
-  'vals-ai': 1 / 7,
-  'zapier-automationbench': 1 / 7,
+  'artificial-analysis': 1 / 8,
+  livebench: 1 / 8,
+  deepswe: 1 / 8,
+  'frontier-code': 1 / 8,
+  'arc-prize': 1 / 8,
+  'vals-ai': 1 / 8,
+  'zapier-automationbench': 1 / 8,
+  cursorbench: 1 / 8,
 } as const;
 
 export const ADVANCED_COST_SOURCE_IDS = [
@@ -78,7 +80,14 @@ export const ADVANCED_COST_SOURCE_IDS = [
   'zapier-automationbench',
 ] as const;
 
-export type AdvancedCostSourceId = (typeof ADVANCED_COST_SOURCE_IDS)[number];
+/** CursorBench is selectable independently; the initial intersection stays stable. */
+export const AVAILABLE_ADVANCED_COST_SOURCE_IDS = [
+  ...ADVANCED_COST_SOURCE_IDS,
+  'cursorbench',
+] as const;
+
+export type AdvancedCostSourceId =
+  (typeof AVAILABLE_ADVANCED_COST_SOURCE_IDS)[number];
 
 export const COST_EFFORT_ORDER = [
   'non-reasoning',
@@ -110,6 +119,7 @@ export interface WeightedCostPoint {
   sourceWeight: number;
   sourceCosts: Array<{
     sourceId: string;
+    reportedSourceId?: string;
     cost: number;
     normalizedCost: number;
     weight: number;
@@ -127,6 +137,7 @@ export interface WeightedCostPoint {
 
 export interface AdvancedCostSourceDetail {
   sourceId: AdvancedCostSourceId;
+  reportedSourceId?: string;
   cost: number;
   normalizedCost: number;
   score: number;
@@ -136,7 +147,8 @@ export interface AdvancedCostSourceDetail {
     | 'DEEPSWE_1_1'
     | 'FRONTIER_CODE_1_1'
     | 'ARC_AGI'
-    | 'ZAPIER_AUTOMATIONBENCH';
+    | 'ZAPIER_AUTOMATIONBENCH'
+    | 'CURSORBENCH_4';
   scoreBenchmarkId: string;
   scoreBenchmarkVersion?: string | null;
   metricName: string;
@@ -521,6 +533,7 @@ export type CostSourceScoreBasisId =
   | 'ARC_AGI'
   | 'VALS_INDEX'
   | 'ZAPIER_AUTOMATIONBENCH'
+  | 'CURSORBENCH_4'
   | 'NONE';
 
 export const COST_SOURCE_SCORE_BASES: Readonly<
@@ -559,6 +572,12 @@ export const COST_SOURCE_SCORE_BASES: Readonly<
   'zapier-automationbench': {
     benchmarkId: 'automationbench',
     basis: 'ZAPIER_AUTOMATIONBENCH',
+    field: 'normalized',
+    inclusion: 'INCLUDED',
+  },
+  cursorbench: {
+    benchmarkId: 'cursorbench-4',
+    basis: 'CURSORBENCH_4',
     field: 'normalized',
     inclusion: 'INCLUDED',
   },
@@ -620,6 +639,7 @@ export const getSourceScore = (
   benchmarkVersion: string | null = sourceId === 'artificial-analysis'
     ? latestAaIndexVersion(product)
     : null,
+  reportedSourceId: string = sourceId,
 ): SourceScore | null => {
   const basis = COST_SOURCE_SCORE_BASES[sourceId];
   if (!basis) return null;
@@ -627,10 +647,10 @@ export const getSourceScore = (
     .filter(
       (result) =>
         result.inclusion === basis.inclusion &&
-        result.sourceId === sourceId &&
+        result.sourceId === reportedSourceId &&
         result.model.profileId === profileId &&
         result.benchmarkId === basis.benchmarkId &&
-        (sourceId !== 'artificial-analysis' ||
+        ((sourceId !== 'artificial-analysis' && benchmarkVersion === null) ||
           result.benchmarkVersion === benchmarkVersion),
     )
     .toSorted((left, right) => left.id.localeCompare(right.id))[0];
@@ -653,9 +673,16 @@ const getAdvancedSourceScore = (
   product: ProductVersion,
   sourceId: AdvancedCostSourceId,
   profileId: string,
+  cost: CostPoint,
 ):
   (SourceScore & { basis: AdvancedScoreBasis; benchmarkId: string }) | null => {
-  const score = getSourceScore(product, sourceId, profileId);
+  const score = getSourceScore(
+    product,
+    sourceId,
+    profileId,
+    cost.benchmarkVersion,
+    cost.reportedSourceId ?? sourceId,
+  );
   return score === null || score.basis === 'NONE' || score.benchmarkId === null
     ? null
     : {
@@ -669,6 +696,80 @@ const compareCostRows = (left: CostPoint, right: CostPoint): number =>
   left.metricId.localeCompare(right.metricId) ||
   left.sourceUrl.localeCompare(right.sourceUrl) ||
   left.profileId.localeCompare(right.profileId);
+
+const VENDOR_COST_BENCHMARKS: Readonly<
+  Record<string, { sourceId: AdvancedCostSourceId; version: string }>
+> = {
+  'deepswe-1-1': { sourceId: 'deepswe', version: '1.1' },
+  automationbench: { sourceId: 'zapier-automationbench', version: '1.0.6' },
+  'frontier-code-1-1': { sourceId: 'frontier-code', version: '1.1' },
+  'cursorbench-4': { sourceId: 'cursorbench', version: '4.0' },
+};
+
+/** Use one publisher's score/cost pair per benchmark and effort. Vendor
+ * previews fill missing organizer pairs without adding a duplicate weight. */
+const chartCostRows = (product: ProductVersion): CostPoint[] => {
+  const groups = new Map<string, CostPoint[]>();
+  for (const original of product.costs) {
+    if (
+      !isTaskCost(original) ||
+      original.cost <= 0 ||
+      !currentAaCost(product, original)
+    )
+      continue;
+    const vendor =
+      original.sourceId === 'openai-releases' ||
+      original.sourceId === 'anthropic-releases';
+    const definition = VENDOR_COST_BENCHMARKS[original.benchmarkId ?? ''];
+    if (
+      vendor &&
+      (!definition || original.benchmarkVersion !== definition.version)
+    )
+      continue;
+    const row: CostPoint = vendor
+      ? {
+          ...original,
+          sourceId: definition!.sourceId,
+          reportedSourceId: original.sourceId,
+        }
+      : original;
+    if (
+      vendor &&
+      !getSourceScore(
+        product,
+        row.sourceId,
+        row.profileId,
+        row.benchmarkVersion,
+        row.reportedSourceId,
+      )
+    )
+      continue;
+    const key = `${row.modelId}\u0000${row.profileId}\u0000${row.sourceId}`;
+    const rows = groups.get(key) ?? [];
+    rows.push(row);
+    groups.set(key, rows);
+  }
+  return [...groups.values()].flatMap((rows) => {
+    const organizer = rows.filter((row) => !row.reportedSourceId);
+    const vendors = rows
+      .filter((row) => row.reportedSourceId)
+      .toSorted(compareCostRows);
+    if (vendors.length === 0) return organizer;
+    const pairedOrganizer = organizer.filter((row) =>
+      getSourceScore(
+        product,
+        row.sourceId,
+        row.profileId,
+        row.benchmarkVersion,
+      ),
+    );
+    if (pairedOrganizer.length > 0) return pairedOrganizer;
+    const publisher = vendors[0]?.reportedSourceId;
+    return publisher
+      ? vendors.filter((row) => row.reportedSourceId === publisher)
+      : organizer;
+  });
+};
 
 const representativeProfileForModel = (
   product: PresetProductVersion,
@@ -723,7 +824,13 @@ const chooseBestSourceCandidate = (
         sourceId: first.sourceId,
         profileId: first.profileId,
         rows: performanceRows,
-        sourceScore: getSourceScore(product, first.sourceId, first.profileId),
+        sourceScore: getSourceScore(
+          product,
+          first.sourceId,
+          first.profileId,
+          first.reportedSourceId ? first.benchmarkVersion : undefined,
+          first.reportedSourceId,
+        ),
         overallScore,
       },
     ];
@@ -742,7 +849,7 @@ export const buildWeightedCostCurve = (
   product: PresetProductVersion,
   weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
 ): WeightedCostPoint[] => {
-  const taskCosts = product.costs.filter(
+  const taskCosts = chartCostRows(product).filter(
     (point) =>
       isTaskCost(point) &&
       currentAaCost(product, point) &&
@@ -795,6 +902,9 @@ export const buildWeightedCostCurve = (
         return [
           {
             sourceId: candidate.sourceId,
+            ...(exemplar.reportedSourceId
+              ? { reportedSourceId: exemplar.reportedSourceId }
+              : {}),
             cost,
             normalizedCost: normalizeCost(cost, range),
             weight,
@@ -897,12 +1007,12 @@ export const buildAdvancedCostSeries = (
   product: ProductVersion,
   selectedSourceIds: readonly AdvancedCostSourceId[] = ADVANCED_COST_SOURCE_IDS,
 ): AdvancedCostSeries[] => {
-  const activeSourceIds = ADVANCED_COST_SOURCE_IDS.filter((sourceId) =>
-    selectedSourceIds.includes(sourceId),
+  const activeSourceIds = AVAILABLE_ADVANCED_COST_SOURCE_IDS.filter(
+    (sourceId) => selectedSourceIds.includes(sourceId),
   );
   if (activeSourceIds.length === 0) return [];
 
-  const taskCosts = product.costs.filter(
+  const taskCosts = chartCostRows(product).filter(
     (point) =>
       isTaskCost(point) &&
       currentAaCost(product, point) &&
@@ -949,7 +1059,17 @@ export const buildAdvancedCostSeries = (
         hasAllSources = false;
         break;
       }
-      const sourceScore = getAdvancedSourceScore(product, sourceId, profileId);
+      const exemplar = rows.toSorted(compareCostRows)[0];
+      if (!exemplar) {
+        hasAllSources = false;
+        break;
+      }
+      const sourceScore = getAdvancedSourceScore(
+        product,
+        sourceId,
+        profileId,
+        exemplar,
+      );
       if (sourceScore === null) {
         hasAllSources = false;
         break;
@@ -964,14 +1084,12 @@ export const buildAdvancedCostSeries = (
         hasAllSources = false;
         break;
       }
-      const exemplar = rows.toSorted(compareCostRows)[0];
-      if (!exemplar) {
-        hasAllSources = false;
-        break;
-      }
       const normalizedCost = normalizeCost(sourceCost, range);
       sourceDetails.push({
         sourceId,
+        ...(exemplar.reportedSourceId
+          ? { reportedSourceId: exemplar.reportedSourceId }
+          : {}),
         cost: sourceCost,
         normalizedCost,
         score: sourceScore.score,
@@ -1056,7 +1174,7 @@ export const buildAdvancedCostModelOptions = (
 ): AdvancedCostModelOption[] => {
   const byModel = new Map<string, AdvancedCostModelOption>();
 
-  ADVANCED_COST_SOURCE_IDS.forEach((sourceId) => {
+  AVAILABLE_ADVANCED_COST_SOURCE_IDS.forEach((sourceId) => {
     buildAdvancedCostSeries(product, [sourceId]).forEach((line) => {
       const existing = byModel.get(line.modelId) ?? {
         seriesId: line.seriesId,

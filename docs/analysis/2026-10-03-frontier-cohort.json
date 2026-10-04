@@ -1,0 +1,3976 @@
+{
+  "productVersion": "sha256:6a99450fc3752140953ad09ab251038ed08540b91545de496d02d00ada9553c1",
+  "productSha256": "0e524b8226ceb142c2b113a8e9ac31ca18edc92972e05bf47438dc3ebebdc47d",
+  "referenceDate": "2026-10-03",
+  "approvedSelectionPolicy": {
+    "source": "artificial-analysis",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "searchWindowModels": 10,
+    "gapToOtherMedianMultiplier": 2,
+    "deduplication": "one canonical model, highest AA score",
+    "audit": "retain source version, scores, boundary and threshold; user audit guides future revisions"
+  },
+  "analysisProfileConvention": "Use each selected model's AA highest-score product profile for the common-core analysis.",
+  "sourcePopulationScope": "Canonical identities resolved in this saved product snapshot; not a fresh full AA leaderboard scrape.",
+  "aaVersion": "v4.3.2",
+  "resolvedAAModels": 22,
+  "boundary": {
+    "status": "selected",
+    "modelCount": 6,
+    "largestGap": 3.740948929185599,
+    "otherGapMedian": 1.3267916421966994,
+    "gapRatio": 2.8195451419877093,
+    "multiplier": 2.0,
+    "gaps": [
+      1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+      0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+      1.645760141739899, 1.0313421321764977, 1.8213855461739001
+    ]
+  },
+  "topTen": [
+    {
+      "modelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "score": 57.6223698102963
+    },
+    {
+      "modelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "score": 56.0001286580794
+    },
+    {
+      "modelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "score": 53.3549259623252
+    },
+    {
+      "modelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "score": 52.673669395513
+    },
+    {
+      "modelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "score": 52.5605655745982
+    },
+    {
+      "modelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "score": 51.8332597011541
+    },
+    {
+      "modelId": "meta-muse-spark-1-3",
+      "profileId": "meta-muse-spark-1-3-max",
+      "score": 48.0923107719685
+    },
+    {
+      "modelId": "xai-grok-4-7",
+      "profileId": "xai-grok-4-7-xhigh",
+      "score": 46.4465506302286
+    },
+    {
+      "modelId": "alibaba-qwen3-8-max",
+      "profileId": "alibaba-qwen3-8-max-xhigh",
+      "score": 45.4152084980521
+    },
+    {
+      "modelId": "moonshot-kimi-k3",
+      "profileId": "moonshot-kimi-k3-max",
+      "score": 43.5938229518782
+    }
+  ],
+  "thresholdSensitivity": [
+    {
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.3267916421966994,
+      "gapRatio": 2.8195451419877093,
+      "multiplier": 1.5,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001
+      ]
+    },
+    {
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.3267916421966994,
+      "gapRatio": 2.8195451419877093,
+      "multiplier": 2,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001
+      ]
+    },
+    {
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.3267916421966994,
+      "gapRatio": 2.8195451419877093,
+      "multiplier": 2.5,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001
+      ]
+    },
+    {
+      "status": "review",
+      "modelCount": null,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.3267916421966994,
+      "gapRatio": 2.8195451419877093,
+      "multiplier": 3,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001
+      ]
+    }
+  ],
+  "windowSensitivity": [
+    {
+      "window": 8,
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.1747735128305017,
+      "gapRatio": 3.1844001318791646,
+      "multiplier": 2.0,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899
+      ]
+    },
+    {
+      "window": 10,
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.3267916421966994,
+      "gapRatio": 2.8195451419877093,
+      "multiplier": 2.0,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001
+      ]
+    },
+    {
+      "window": 12,
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.3337953876438995,
+      "gapRatio": 2.8047397403239245,
+      "multiplier": 2.0,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001,
+        1.5108981279288045, 1.1566926473589945
+      ]
+    },
+    {
+      "window": 15,
+      "status": "selected",
+      "modelCount": 6,
+      "largestGap": 3.740948929185599,
+      "otherGapMedian": 1.6222411522169011,
+      "gapRatio": 2.3060374988474073,
+      "multiplier": 2.0,
+      "gaps": [
+        1.6222411522169011, 2.6452026957542003, 0.6812565668121948,
+        0.11310382091480164, 0.7273058734441022, 3.740948929185599,
+        1.645760141739899, 1.0313421321764977, 1.8213855461739001,
+        1.5108981279288045, 1.1566926473589945, 2.8017134896166027,
+        2.1277395591336017, 2.300493322092599
+      ]
+    }
+  ],
+  "commonBeforeQuality": [
+    "aa-briefcase",
+    "aa-lcr",
+    "aa-omniscience",
+    "automationbench",
+    "code-migration",
+    "critpt",
+    "cyber",
+    "emb",
+    "finance-agent-v2",
+    "gdp-pdf",
+    "gdp-xlsx",
+    "gdpval-aa",
+    "hlab",
+    "humanitys-last-exam",
+    "ioi",
+    "legal-research",
+    "medcode",
+    "medscribe",
+    "proofbench",
+    "scicode",
+    "vibe-code-bench"
+  ],
+  "qualityExcluded": [],
+  "commonBenchmarkIds": [
+    "aa-briefcase",
+    "aa-lcr",
+    "aa-omniscience",
+    "automationbench",
+    "code-migration",
+    "critpt",
+    "cyber",
+    "emb",
+    "finance-agent-v2",
+    "gdp-pdf",
+    "gdp-xlsx",
+    "gdpval-aa",
+    "hlab",
+    "humanitys-last-exam",
+    "ioi",
+    "legal-research",
+    "medcode",
+    "medscribe",
+    "proofbench",
+    "scicode",
+    "vibe-code-bench"
+  ],
+  "commonByCurrentDimension": {
+    "agentic": [
+      "aa-briefcase",
+      "automationbench",
+      "cyber",
+      "emb",
+      "finance-agent-v2",
+      "gdpval-aa",
+      "hlab",
+      "legal-research"
+    ],
+    "reasoning": ["aa-lcr", "critpt", "gdp-pdf", "gdp-xlsx", "proofbench"],
+    "knowledge": ["aa-omniscience", "humanitys-last-exam", "medcode"],
+    "coding": ["code-migration", "ioi", "scicode", "vibe-code-bench"],
+    "language": ["medscribe"]
+  },
+  "matrix": [
+    {
+      "modelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "name": "Claude Opus 5.5",
+      "aaScore": 57.6223698102963,
+      "benchmarks": {
+        "aa-briefcase": {
+          "benchmarkId": "aa-briefcase",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 61.212121212121204,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-briefcase:claude-opus-5-5",
+          "metricId": "rubric-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=briefcaseBreakdown.rubricPassRate; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=briefcaseBreakdown.rubricPassRate"
+            }
+          },
+          "evidenceIds": [
+            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+          ]
+        },
+        "aa-lcr": {
+          "benchmarkId": "aa-lcr",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 84.6666666666667,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-lcr:claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=lcr; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=lcr"
+            }
+          },
+          "evidenceIds": [
+            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+          ]
+        },
+        "aa-omniscience": {
+          "benchmarkId": "aa-omniscience",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 66.21666666666667,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-omniscience:claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=omniscienceAccuracy; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=omniscienceAccuracy"
+            }
+          },
+          "evidenceIds": [
+            "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07"
+          ]
+        },
+        "automationbench": {
+          "benchmarkId": "automationbench",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 42.47,
+          "sourceId": "zapier-automationbench",
+          "id": "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-4:1-0-6",
+          "metricId": "task-completed-correctly",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "cost": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 4 raw Cost / task \"$1.44\""
+            },
+            "profile": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 4 model \"Claude Opus 5.5 (default fallbacks, Max)\"; API mode"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 4 score \"42.47%\""
+            }
+          },
+          "evidenceIds": [
+            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+          ]
+        },
+        "code-migration": {
+          "benchmarkId": "code-migration",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 66.646,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:code-migration:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"code-migration\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+          ]
+        },
+        "critpt": {
+          "benchmarkId": "critpt",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 31.7142857142857,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:critpt:claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=critpt; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=critpt"
+            }
+          },
+          "evidenceIds": [
+            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+          ]
+        },
+        "cyber": {
+          "benchmarkId": "cyber",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 55.357,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:cyber:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"cyber\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+          ]
+        },
+        "emb": {
+          "benchmarkId": "emb",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 75.938,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:emb:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"emb\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+          ]
+        },
+        "finance-agent-v2": {
+          "benchmarkId": "finance-agent-v2",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 58.587,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:finance-agent-v2:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"fabv2\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+          ]
+        },
+        "gdp-pdf": {
+          "benchmarkId": "gdp-pdf",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 26.200000000000003,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdp-pdf:claude-opus-5-5",
+          "metricId": "all-pass",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=gdpPdfAllPass; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=gdpPdfAllPass"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+          ]
+        },
+        "gdp-xlsx": {
+          "benchmarkId": "gdp-xlsx",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 30.3,
+          "sourceId": "surge-gdp-xlsx",
+          "id": "surge-gdp-xlsx:gdp-xlsx:claude-opus-5-5-adaptive-max",
+          "metricId": "mean-reward",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 1) .head-rank-table-name (row 2: Claude Opus 5.5 (Adaptive/Max))"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 1) [data-score] (row 2: Claude Opus 5.5 (Adaptive/Max))"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+          ]
+        },
+        "gdpval-aa": {
+          "benchmarkId": "gdpval-aa",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 68.35249999999999,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdpval-aa:claude-opus-5-5",
+          "metricId": "normalized-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=gdpvalNormalized; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=gdpvalNormalized"
+            }
+          },
+          "evidenceIds": [
+            "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07"
+          ]
+        },
+        "hlab": {
+          "benchmarkId": "hlab",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 3.75,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:hlab:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"hlab\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+          ]
+        },
+        "humanitys-last-exam": {
+          "benchmarkId": "humanitys-last-exam",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 61.353104726598694,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:humanitys-last-exam:claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=hle; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=hle"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+          ]
+        },
+        "ioi": {
+          "benchmarkId": "ioi",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 95.056,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:ioi:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"ioi\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+          ]
+        },
+        "legal-research": {
+          "benchmarkId": "legal-research",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 50.481,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:legal-research:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"legal_research\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+          ]
+        },
+        "medcode": {
+          "benchmarkId": "medcode",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 49.797,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medcode:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medcode\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+          ]
+        },
+        "medscribe": {
+          "benchmarkId": "medscribe",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 91.43,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medscribe:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "language",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medscribe\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+          ]
+        },
+        "proofbench": {
+          "benchmarkId": "proofbench",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 100,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:proofbench:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"proof_bench\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1"
+          ]
+        },
+        "scicode": {
+          "benchmarkId": "scicode",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 66.8981481481482,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:scicode:claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=scicode; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-opus-5-5; field=scicode"
+            }
+          },
+          "evidenceIds": [
+            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+          ]
+        },
+        "vibe-code-bench": {
+          "benchmarkId": "vibe-code-bench",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "modelId": "anthropic-claude-opus-5-5",
+          "score": 90.294,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"vibe-code\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "name": "Claude Sonnet 5.5",
+      "aaScore": 56.0001286580794,
+      "benchmarks": {
+        "aa-briefcase": {
+          "benchmarkId": "aa-briefcase",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 65.15151515151516,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+          "metricId": "rubric-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=briefcaseBreakdown.rubricPassRate; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=briefcaseBreakdown.rubricPassRate"
+            }
+          },
+          "evidenceIds": [
+            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+          ]
+        },
+        "aa-lcr": {
+          "benchmarkId": "aa-lcr",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 82.6666666666667,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-lcr:claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=lcr; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=lcr"
+            }
+          },
+          "evidenceIds": [
+            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+          ]
+        },
+        "aa-omniscience": {
+          "benchmarkId": "aa-omniscience",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 53.949999999999996,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=omniscienceAccuracy; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=omniscienceAccuracy"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e"
+          ]
+        },
+        "automationbench": {
+          "benchmarkId": "automationbench",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 44.75,
+          "sourceId": "zapier-automationbench",
+          "id": "zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-max-rank-3:1-0-6",
+          "metricId": "task-completed-correctly",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "cost": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 3 raw Cost / task \"$1.14\""
+            },
+            "profile": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 3 model \"Claude Sonnet 5.5 (default fallbacks, Max)\"; API mode"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 3 score \"44.75%\""
+            }
+          },
+          "evidenceIds": [
+            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+          ]
+        },
+        "code-migration": {
+          "benchmarkId": "code-migration",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 69.825,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:code-migration:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"code-migration\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+          ]
+        },
+        "critpt": {
+          "benchmarkId": "critpt",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 31.4285714285714,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:critpt:claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=critpt; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=critpt"
+            }
+          },
+          "evidenceIds": [
+            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+          ]
+        },
+        "cyber": {
+          "benchmarkId": "cyber",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 59.584,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:cyber:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"cyber\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+          ]
+        },
+        "emb": {
+          "benchmarkId": "emb",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 75.713,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:emb:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"emb\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+          ]
+        },
+        "finance-agent-v2": {
+          "benchmarkId": "finance-agent-v2",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 58.103,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:finance-agent-v2:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"fabv2\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+          ]
+        },
+        "gdp-pdf": {
+          "benchmarkId": "gdp-pdf",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 25.8,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+          "metricId": "all-pass",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=gdpPdfAllPass; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=gdpPdfAllPass"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+          ]
+        },
+        "gdp-xlsx": {
+          "benchmarkId": "gdp-xlsx",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 29.1,
+          "sourceId": "surge-gdp-xlsx",
+          "id": "surge-gdp-xlsx:gdp-xlsx:claude-sonnet-5-5-adaptive-max",
+          "metricId": "mean-reward",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 2) .head-rank-table-name (row 3: Claude Sonnet 5.5 (Adaptive/Max))"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 2) [data-score] (row 3: Claude Sonnet 5.5 (Adaptive/Max))"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+          ]
+        },
+        "gdpval-aa": {
+          "benchmarkId": "gdpval-aa",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 67.00399999999999,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+          "metricId": "normalized-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=gdpvalNormalized; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=gdpvalNormalized"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e"
+          ]
+        },
+        "hlab": {
+          "benchmarkId": "hlab",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 2.917,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"hlab\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+          ]
+        },
+        "humanitys-last-exam": {
+          "benchmarkId": "humanitys-last-exam",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 54.9582947173309,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:humanitys-last-exam:claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=hle; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=hle"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+          ]
+        },
+        "ioi": {
+          "benchmarkId": "ioi",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 83.056,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"ioi\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+          ]
+        },
+        "legal-research": {
+          "benchmarkId": "legal-research",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 48.077,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"legal_research\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+          ]
+        },
+        "medcode": {
+          "benchmarkId": "medcode",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 52.92,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medcode:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medcode\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+          ]
+        },
+        "medscribe": {
+          "benchmarkId": "medscribe",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 91.101,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medscribe:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "language",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medscribe\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+          ]
+        },
+        "proofbench": {
+          "benchmarkId": "proofbench",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 100,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:proofbench:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"proof_bench\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1"
+          ]
+        },
+        "scicode": {
+          "benchmarkId": "scicode",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 60.9953703703704,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:scicode:claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=scicode; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-sonnet-5-5; field=scicode"
+            }
+          },
+          "evidenceIds": [
+            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+          ]
+        },
+        "vibe-code-bench": {
+          "benchmarkId": "vibe-code-bench",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "score": 92.392,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"vibe-code\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "name": "Claude Fable 5.1",
+      "aaScore": 53.3549259623252,
+      "benchmarks": {
+        "aa-briefcase": {
+          "benchmarkId": "aa-briefcase",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 61.51515151515151,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-briefcase:claude-fable-5-1",
+          "metricId": "rubric-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=briefcaseBreakdown.rubricPassRate; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=briefcaseBreakdown.rubricPassRate"
+            }
+          },
+          "evidenceIds": [
+            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+          ]
+        },
+        "aa-lcr": {
+          "benchmarkId": "aa-lcr",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 85.3333333333333,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-lcr:claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=lcr; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=lcr"
+            }
+          },
+          "evidenceIds": [
+            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+          ]
+        },
+        "aa-omniscience": {
+          "benchmarkId": "aa-omniscience",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 67.23333333333333,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-omniscience:claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=omniscienceAccuracy; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=omniscienceAccuracy"
+            }
+          },
+          "evidenceIds": [
+            "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9"
+          ]
+        },
+        "automationbench": {
+          "benchmarkId": "automationbench",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 22.37,
+          "sourceId": "zapier-automationbench",
+          "id": "zapier-automationbench:automationbench:claude-fable-5-1-max-rank-34:1-0-6",
+          "metricId": "task-completed-correctly",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "cost": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 34 raw Cost / task \"$2.45\""
+            },
+            "profile": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 34 model \"Claude Fable 5.1 (Max)\"; API mode"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 34 score \"22.37%\""
+            }
+          },
+          "evidenceIds": [
+            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+          ]
+        },
+        "code-migration": {
+          "benchmarkId": "code-migration",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 54.607,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:code-migration:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"code-migration\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+          ]
+        },
+        "critpt": {
+          "benchmarkId": "critpt",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 29.714285714285698,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:critpt:claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=critpt; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=critpt"
+            }
+          },
+          "evidenceIds": [
+            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+          ]
+        },
+        "cyber": {
+          "benchmarkId": "cyber",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 70.416,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:cyber:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"cyber\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+          ]
+        },
+        "emb": {
+          "benchmarkId": "emb",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 76.67,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:emb:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"emb\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+          ]
+        },
+        "finance-agent-v2": {
+          "benchmarkId": "finance-agent-v2",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 58.877,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:finance-agent-v2:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"fabv2\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+          ]
+        },
+        "gdp-pdf": {
+          "benchmarkId": "gdp-pdf",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 26.200000000000003,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdp-pdf:claude-fable-5-1",
+          "metricId": "all-pass",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=gdpPdfAllPass; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=gdpPdfAllPass"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+          ]
+        },
+        "gdp-xlsx": {
+          "benchmarkId": "gdp-xlsx",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 23.1,
+          "sourceId": "surge-gdp-xlsx",
+          "id": "surge-gdp-xlsx:gdp-xlsx:claude-fable-5-1-adaptive-max",
+          "metricId": "mean-reward",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 3) .head-rank-table-name (row 4: Claude Fable 5.1 (Adaptive/Max))"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 3) [data-score] (row 4: Claude Fable 5.1 (Adaptive/Max))"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+          ]
+        },
+        "gdpval-aa": {
+          "benchmarkId": "gdpval-aa",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 62.8885,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdpval-aa:claude-fable-5-1",
+          "metricId": "normalized-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=gdpvalNormalized; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=gdpvalNormalized"
+            }
+          },
+          "evidenceIds": [
+            "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9"
+          ]
+        },
+        "hlab": {
+          "benchmarkId": "hlab",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 6.667,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:hlab:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"hlab\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+          ]
+        },
+        "humanitys-last-exam": {
+          "benchmarkId": "humanitys-last-exam",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 59.1288229842447,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:humanitys-last-exam:claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=hle; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=hle"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+          ]
+        },
+        "ioi": {
+          "benchmarkId": "ioi",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 90.778,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:ioi:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"ioi\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+          ]
+        },
+        "legal-research": {
+          "benchmarkId": "legal-research",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 55.288,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:legal-research:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"legal_research\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+          ]
+        },
+        "medcode": {
+          "benchmarkId": "medcode",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 53.509,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medcode:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medcode\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+          ]
+        },
+        "medscribe": {
+          "benchmarkId": "medscribe",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 91.294,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medscribe:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "language",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medscribe\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+          ]
+        },
+        "proofbench": {
+          "benchmarkId": "proofbench",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 100,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:proofbench:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"proof_bench\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1"
+          ]
+        },
+        "scicode": {
+          "benchmarkId": "scicode",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 63.078703703703695,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:scicode:claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=scicode; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=claude-fable-5-1; field=scicode"
+            }
+          },
+          "evidenceIds": [
+            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+          ]
+        },
+        "vibe-code-bench": {
+          "benchmarkId": "vibe-code-bench",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "modelId": "anthropic-claude-fable-5-1",
+          "score": 90.263,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"vibe-code\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "name": "GPT-6 Astra",
+      "aaScore": 52.673669395513,
+      "benchmarks": {
+        "aa-briefcase": {
+          "benchmarkId": "aa-briefcase",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 52.02020202020202,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-briefcase:gpt-6-astra",
+          "metricId": "rubric-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=briefcaseBreakdown.rubricPassRate; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=briefcaseBreakdown.rubricPassRate"
+            }
+          },
+          "evidenceIds": [
+            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+          ]
+        },
+        "aa-lcr": {
+          "benchmarkId": "aa-lcr",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 80.6666666666667,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-lcr:gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=lcr; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=lcr"
+            }
+          },
+          "evidenceIds": [
+            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+          ]
+        },
+        "aa-omniscience": {
+          "benchmarkId": "aa-omniscience",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 62.6,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-omniscience:gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=omniscienceAccuracy; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=omniscienceAccuracy"
+            }
+          },
+          "evidenceIds": [
+            "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759"
+          ]
+        },
+        "automationbench": {
+          "benchmarkId": "automationbench",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 41.4,
+          "sourceId": "zapier-automationbench",
+          "id": "zapier-automationbench:automationbench:gpt-6-astra-max-rank-5:1-0-6",
+          "metricId": "task-completed-correctly",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "cost": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 5 raw Cost / task \"$1.73\""
+            },
+            "profile": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 5 model \"GPT 6 Astra (Max)\"; API mode"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 5 score \"41.4%\""
+            }
+          },
+          "evidenceIds": [
+            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+          ]
+        },
+        "code-migration": {
+          "benchmarkId": "code-migration",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 67.74,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:code-migration:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"code-migration\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+          ]
+        },
+        "critpt": {
+          "benchmarkId": "critpt",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 31.7142857142857,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:critpt:gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=critpt; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=critpt"
+            }
+          },
+          "evidenceIds": [
+            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+          ]
+        },
+        "cyber": {
+          "benchmarkId": "cyber",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 41.072,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:cyber:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"cyber\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+          ]
+        },
+        "emb": {
+          "benchmarkId": "emb",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 71.7,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:emb:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"emb\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+          ]
+        },
+        "finance-agent-v2": {
+          "benchmarkId": "finance-agent-v2",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 53.54,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:finance-agent-v2:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"fabv2\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+          ]
+        },
+        "gdp-pdf": {
+          "benchmarkId": "gdp-pdf",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 31,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdp-pdf:gpt-6-astra",
+          "metricId": "all-pass",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=gdpPdfAllPass; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=gdpPdfAllPass"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+          ]
+        },
+        "gdp-xlsx": {
+          "benchmarkId": "gdp-xlsx",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 22.9,
+          "sourceId": "surge-gdp-xlsx",
+          "id": "surge-gdp-xlsx:gdp-xlsx:gpt-6-astra-max-reasoning",
+          "metricId": "mean-reward",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 4) .head-rank-table-name (row 5: GPT 6 Astra (Max reasoning))"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 4) [data-score] (row 5: GPT 6 Astra (Max reasoning))"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+          ]
+        },
+        "gdpval-aa": {
+          "benchmarkId": "gdpval-aa",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 52.09450000000001,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdpval-aa:gpt-6-astra",
+          "metricId": "normalized-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=gdpvalNormalized; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=gdpvalNormalized"
+            }
+          },
+          "evidenceIds": [
+            "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759"
+          ]
+        },
+        "hlab": {
+          "benchmarkId": "hlab",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 5.417,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:hlab:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"hlab\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+          ]
+        },
+        "humanitys-last-exam": {
+          "benchmarkId": "humanitys-last-exam",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 54.6802594995366,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:humanitys-last-exam:gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=hle; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=hle"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+          ]
+        },
+        "ioi": {
+          "benchmarkId": "ioi",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 100,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:ioi:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"ioi\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+          ]
+        },
+        "legal-research": {
+          "benchmarkId": "legal-research",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 39.423,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:legal-research:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"legal_research\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+          ]
+        },
+        "medcode": {
+          "benchmarkId": "medcode",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 48.486,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medcode:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medcode\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+          ]
+        },
+        "medscribe": {
+          "benchmarkId": "medscribe",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 87.908,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medscribe:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "language",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medscribe\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+          ]
+        },
+        "proofbench": {
+          "benchmarkId": "proofbench",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 99,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:proofbench:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"proof_bench\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1"
+          ]
+        },
+        "scicode": {
+          "benchmarkId": "scicode",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 56.4814814814815,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:scicode:gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=scicode; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-astra; field=scicode"
+            }
+          },
+          "evidenceIds": [
+            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+          ]
+        },
+        "vibe-code-bench": {
+          "benchmarkId": "vibe-code-bench",
+          "profileId": "openai-gpt-6-astra-max",
+          "modelId": "openai-gpt-6-astra",
+          "score": 89.594,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"vibe-code\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "name": "Gemini 4 Argon",
+      "aaScore": 52.5605655745982,
+      "benchmarks": {
+        "aa-briefcase": {
+          "benchmarkId": "aa-briefcase",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 64.63414634146342,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-briefcase:gemini-4-argon",
+          "metricId": "rubric-score",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=briefcaseBreakdown.rubricPassRate; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=briefcaseBreakdown.rubricPassRate"
+            }
+          },
+          "evidenceIds": [
+            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+          ]
+        },
+        "aa-lcr": {
+          "benchmarkId": "aa-lcr",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 79.6666666666667,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-lcr:gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=lcr; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=lcr"
+            }
+          },
+          "evidenceIds": [
+            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+          ]
+        },
+        "aa-omniscience": {
+          "benchmarkId": "aa-omniscience",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 49.9,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-omniscience:gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=omniscienceAccuracy; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=omniscienceAccuracy"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec"
+          ]
+        },
+        "automationbench": {
+          "benchmarkId": "automationbench",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 51.29,
+          "sourceId": "zapier-automationbench",
+          "id": "zapier-automationbench:automationbench:gemini-4-argon-high-rank-1:1-0-6",
+          "metricId": "task-completed-correctly",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "cost": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 1 raw Cost / task \"$1.70*\"; footnote \"*These Gemini models have promotional pricing; ranking and Cost / task use standard list pricing. Gemini 4 Argon: $0.85 (High), $0.77 (Medium). Gemini 3.8 Flash: $0.27 (Medium), $0.31 (High). Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026.\""
+            },
+            "profile": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 1 model \"Gemini 4 Argon (High)\"; API mode"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+              "method": "EMBEDDED_JSON",
+              "locator": "leaderboard rank 1 score \"51.29%\""
+            }
+          },
+          "evidenceIds": [
+            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+          ]
+        },
+        "code-migration": {
+          "benchmarkId": "code-migration",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 68.173,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:code-migration:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"code-migration\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+          ]
+        },
+        "critpt": {
+          "benchmarkId": "critpt",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 27.142857142857103,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:critpt:gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=critpt; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=critpt"
+            }
+          },
+          "evidenceIds": [
+            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+          ]
+        },
+        "cyber": {
+          "benchmarkId": "cyber",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 77.857,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:cyber:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"cyber\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+          ]
+        },
+        "emb": {
+          "benchmarkId": "emb",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 75.244,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:emb:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"emb\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+          ]
+        },
+        "finance-agent-v2": {
+          "benchmarkId": "finance-agent-v2",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 65.401,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:finance-agent-v2:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"fabv2\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+          ]
+        },
+        "gdp-pdf": {
+          "benchmarkId": "gdp-pdf",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 21.8,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdp-pdf:gemini-4-argon",
+          "metricId": "all-pass",
+          "primaryDimension": "reasoning",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=gdpPdfAllPass; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=gdpPdfAllPass"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+          ]
+        },
+        "gdp-xlsx": {
+          "benchmarkId": "gdp-xlsx",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 38.3,
+          "sourceId": "surge-gdp-xlsx",
+          "id": "surge-gdp-xlsx:gdp-xlsx:gemini-4-argon-high-reasoning",
+          "metricId": "mean-reward",
+          "primaryDimension": "reasoning",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 0) .head-rank-table-name (row 1: Gemini 4 Argon (High reasoning))"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 0) [data-score] (row 1: Gemini 4 Argon (High reasoning))"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+          ]
+        },
+        "gdpval-aa": {
+          "benchmarkId": "gdpval-aa",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 56.351,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdpval-aa:gemini-4-argon",
+          "metricId": "normalized-score",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=gdpvalNormalized; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=gdpvalNormalized"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec"
+          ]
+        },
+        "hlab": {
+          "benchmarkId": "hlab",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 19.583,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:hlab:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"hlab\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+          ]
+        },
+        "humanitys-last-exam": {
+          "benchmarkId": "humanitys-last-exam",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 57.089898053753494,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:humanitys-last-exam:gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=hle; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=hle"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+          ]
+        },
+        "ioi": {
+          "benchmarkId": "ioi",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 100,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:ioi:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"ioi\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+          ]
+        },
+        "legal-research": {
+          "benchmarkId": "legal-research",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 54.808,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:legal-research:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"legal_research\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+          ]
+        },
+        "medcode": {
+          "benchmarkId": "medcode",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 58.801,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medcode:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medcode\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+          ]
+        },
+        "medscribe": {
+          "benchmarkId": "medscribe",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 87.427,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medscribe:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "language",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medscribe\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+          ]
+        },
+        "proofbench": {
+          "benchmarkId": "proofbench",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 99,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:proofbench:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"proof_bench\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1"
+          ]
+        },
+        "scicode": {
+          "benchmarkId": "scicode",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 61.8055555555556,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:scicode:gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "high",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=scicode; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gemini-4-argon; field=scicode"
+            }
+          },
+          "evidenceIds": [
+            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+          ]
+        },
+        "vibe-code-bench": {
+          "benchmarkId": "vibe-code-bench",
+          "profileId": "google-gemini-4-argon-high",
+          "modelId": "google-gemini-4-argon",
+          "score": 91.906,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:vibe-code-bench:google-gemini-4-argon",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "high",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"vibe-code\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+          ]
+        }
+      }
+    },
+    {
+      "modelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "name": "GPT-6.1 Sol",
+      "aaScore": 51.8332597011541,
+      "benchmarks": {
+        "aa-briefcase": {
+          "benchmarkId": "aa-briefcase",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 55.65656565656566,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+          "metricId": "rubric-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=briefcaseBreakdown.rubricPassRate; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=briefcaseBreakdown.rubricPassRate"
+            }
+          },
+          "evidenceIds": [
+            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+          ]
+        },
+        "aa-lcr": {
+          "benchmarkId": "aa-lcr",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 83,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-lcr:gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=lcr; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=lcr"
+            }
+          },
+          "evidenceIds": [
+            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+          ]
+        },
+        "aa-omniscience": {
+          "benchmarkId": "aa-omniscience",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 62.1,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=omniscienceAccuracy; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=omniscienceAccuracy"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c"
+          ]
+        },
+        "automationbench": {
+          "benchmarkId": "automationbench",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 36.1,
+          "sourceId": "openai-releases",
+          "id": "openai-releases:automationbench:10",
+          "metricId": "task-completed-correctly",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "benchmarkVersion": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.chartVersions.automationbench; captured=\"1.0.6\""
+            },
+            "cost": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10].cost; captured=0.2989"
+            },
+            "effortOrder": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10].order; captured=4"
+            },
+            "model": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10].model; captured=\"GPT-6.1 Sol\""
+            },
+            "model.rawName": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10].modelLabel; captured=\"GPT-6.1 Sol\""
+            },
+            "profile.effort": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10].effortLabel; captured=\"Max\""
+            },
+            "profile.harness": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10]; harness not specified by release"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+              "method": "DOM",
+              "locator": "$.charts[1].values[10].score; captured=0.361; fraction * 100 = 36.1 percent"
+            }
+          },
+          "evidenceIds": [
+            "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+          ]
+        },
+        "code-migration": {
+          "benchmarkId": "code-migration",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 65.122,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:code-migration:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"code-migration\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+          ]
+        },
+        "critpt": {
+          "benchmarkId": "critpt",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 31.7142857142857,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:critpt:gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=critpt; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=critpt"
+            }
+          },
+          "evidenceIds": [
+            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+          ]
+        },
+        "cyber": {
+          "benchmarkId": "cyber",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 39.286,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:cyber:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"cyber\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+          ]
+        },
+        "emb": {
+          "benchmarkId": "emb",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 70.773,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:emb:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"emb\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+          ]
+        },
+        "finance-agent-v2": {
+          "benchmarkId": "finance-agent-v2",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 52.033,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"fabv2\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+          ]
+        },
+        "gdp-pdf": {
+          "benchmarkId": "gdp-pdf",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 31,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+          "metricId": "all-pass",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=gdpPdfAllPass; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=gdpPdfAllPass"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+          ]
+        },
+        "gdp-xlsx": {
+          "benchmarkId": "gdp-xlsx",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 22,
+          "sourceId": "surge-gdp-xlsx",
+          "id": "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+          "metricId": "mean-reward",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 7) .head-rank-table-name (row 8: GPT 6.1 Sol (Max reasoning))"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731",
+              "method": "DOM",
+              "locator": ".lead-main [data-leaderboard-row] (zero-based index 7) [data-score] (row 8: GPT 6.1 Sol (Max reasoning))"
+            }
+          },
+          "evidenceIds": [
+            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+          ]
+        },
+        "gdpval-aa": {
+          "benchmarkId": "gdpval-aa",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 53.75449999999999,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+          "metricId": "normalized-score",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=gdpvalNormalized; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=gdpvalNormalized"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c"
+          ]
+        },
+        "hlab": {
+          "benchmarkId": "hlab",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 5.417,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:hlab:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"hlab\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+          ]
+        },
+        "humanitys-last-exam": {
+          "benchmarkId": "humanitys-last-exam",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 52.919369786839695,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:humanitys-last-exam:gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=hle; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=hle"
+            }
+          },
+          "evidenceIds": [
+            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+          ]
+        },
+        "ioi": {
+          "benchmarkId": "ioi",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 96.889,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:ioi:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"ioi\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+          ]
+        },
+        "legal-research": {
+          "benchmarkId": "legal-research",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 38.462,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:legal-research:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "agentic",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"legal_research\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+          ]
+        },
+        "medcode": {
+          "benchmarkId": "medcode",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 48.839,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medcode:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "knowledge",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medcode\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+          ]
+        },
+        "medscribe": {
+          "benchmarkId": "medscribe",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 86.453,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:medscribe:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "language",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"medscribe\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+          ]
+        },
+        "proofbench": {
+          "benchmarkId": "proofbench",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 99,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:proofbench:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "reasoning",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"proof_bench\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1"
+          ]
+        },
+        "scicode": {
+          "benchmarkId": "scicode",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 54.1666666666667,
+          "sourceId": "artificial-analysis",
+          "id": "artificial-analysis:scicode:gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "model.rawName": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=scicode; model.name"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526",
+              "method": "NEXT_RSC",
+              "locator": "model slug=gpt-6-1-sol; field=scicode"
+            }
+          },
+          "evidenceIds": [
+            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+          ]
+        },
+        "vibe-code-bench": {
+          "benchmarkId": "vibe-code-bench",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "modelId": "openai-gpt-6-1-sol",
+          "score": 88.931,
+          "sourceId": "vals-ai",
+          "id": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
+          "metricId": "accuracy",
+          "primaryDimension": "coding",
+          "effort": "max",
+          "provenance": {
+            "profile": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].{reasoning_effort,compute_effort,harness}"
+            },
+            "rawScore": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "EMBEDDED_JSON",
+              "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+            },
+            "sourceRole": {
+              "evidenceId": "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e",
+              "method": "MANUAL",
+              "locator": "approved benchmark role table[\"vibe-code\"]"
+            }
+          },
+          "evidenceIds": [
+            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+          ]
+        }
+      }
+    }
+  ]
+}

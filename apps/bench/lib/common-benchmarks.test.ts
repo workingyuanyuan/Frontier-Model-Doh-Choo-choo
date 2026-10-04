@@ -46,6 +46,143 @@ function fixture() {
 }
 
 describe('common benchmark comparison', () => {
+  it('renormalizes half weight for single-test dimensions and counts each design once', () => {
+    const p = fixture();
+    p.evidence = p.evidence.filter(
+      (e) =>
+        e.model.profileId === 'a-high' && ['a', 'b'].includes(e.benchmarkId),
+    );
+    p.evidence[0]!.normalizedScore = 100;
+    p.evidence[1]!.normalizedScore = 20;
+    p.evidence.push({
+      ...p.evidence[1]!,
+      id: 'second-coding',
+      benchmarkId: 'b2',
+      normalizedScore: 40,
+    });
+    p.comparisonEvidenceIds = p.evidence.map((e) => e.id);
+    const result = buildCommonComparison(
+      p,
+      ['a'],
+      {},
+      { ...dimensions, b2: 'coding' },
+    );
+    expect(result.product.leaderboard[0]!.overallScore).toBeCloseTo(
+      (100 * 0.5 + 30) / 1.5,
+    );
+    expect(result.product.leaderboard[0]!.dimensions).toHaveLength(2);
+    // A second metric from the same benchmark cannot earn a full dimension weight.
+    p.evidence[2]!.benchmarkId = 'b';
+    p.evidence[2]!.metric = { ...p.evidence[2]!.metric, id: 'second-metric' };
+    const multiMetric = buildCommonComparison(p, ['a'], {}, dimensions);
+    expect(multiMetric.product.leaderboard[0]!.overallScore).toBe(65);
+    expect(
+      multiMetric.product.leaderboard[0]!.dimensions.find(
+        (d) => d.dimension === 'coding',
+      )!.componentCount,
+    ).toBe(1);
+  });
+
+  it('applies exclusions and limited shares after the selected profiles intersect', () => {
+    const p = {
+      ...fixture(),
+      benchmarkQuality: {
+        reviewedAt: '2026-10-04',
+        evidencePath: 'fixture',
+        excludedBenchmarkIds: ['a'],
+        limitedBenchmarkIds: ['c'],
+        minOtherBenchmarksPerLimited: 2,
+      },
+    };
+    const mapping = { ...dimensions, b: 'reasoning', d: 'reasoning' } as const;
+    expect(
+      buildCommonComparison(p, ['a', 'b'], {}, mapping).benchmarkIds,
+    ).toEqual(['b', 'c', 'd', 'e']);
+    p.evidence = p.evidence.filter(
+      (e) => !(e.model.profileId === 'b-high' && e.benchmarkId === 'd'),
+    );
+    expect(
+      buildCommonComparison(p, ['a', 'b'], {}, mapping).benchmarkIds,
+    ).toEqual(['b', 'e']);
+    expect(buildCommonComparison(p, ['a'], {}, mapping).benchmarkIds).toEqual([
+      'b',
+      'c',
+      'd',
+      'e',
+    ]);
+  });
+
+  it('rebuilds five or six dimensions after empty, single and multi-model selections', () => {
+    const p = fixture();
+    const mapping = { ...dimensions, f: 'comprehension' } as const;
+    for (const id of ['a-high', 'b-high']) {
+      const row = p.evidence.find((e) => e.model.profileId === id)!;
+      p.evidence.push({ ...row, id: `${id}-f`, benchmarkId: 'f' });
+      p.comparisonEvidenceIds.push(`${id}-f`);
+    }
+    p.evidence = p.evidence.filter(
+      (e) => !(e.model.profileId === 'b-high' && e.benchmarkId === 'e'),
+    );
+    const compare = (ids: string[]) =>
+      buildCommonComparison(p, ids, {}, mapping);
+    expect(compare([]).product.leaderboard).toEqual([]);
+    expect(compare(['a']).product.leaderboard[0]!.dimensions).toHaveLength(6);
+    expect(compare(['a', 'b']).product.leaderboard[0]!.dimensions).toHaveLength(
+      5,
+    );
+    expect(
+      compare(['a', 'b']).product.leaderboard[0]!.dimensions.some(
+        (d) => d.dimension === 'language',
+      ),
+    ).toBe(false);
+    expect(compare(['a']).product.leaderboard[0]!.dimensions).toHaveLength(6);
+  });
+
+  it('includes FrontierSWE V2 only when every selected profile carries its measurement', () => {
+    const p = fixture();
+    const extendedDimensions = {
+      ...dimensions,
+      'frontier-swe-v2': 'coding' as const,
+    };
+    for (const profileId of ['a-high', 'b-high']) {
+      const first = p.evidence.find((e) => e.model.profileId === profileId)!;
+      const id = `${profileId}-frontier-swe-v2`;
+      p.evidence.push({
+        ...first,
+        id,
+        sourceId: 'frontier-swe',
+        benchmarkId: 'frontier-swe-v2',
+        normalizedScore: profileId === 'a-high' ? 20 : 40,
+      });
+      p.comparisonEvidenceIds.push(id);
+    }
+    const presetRows = structuredClone(p.presets);
+    const compared = buildCommonComparison(
+      p,
+      ['a', 'b'],
+      { a: 'a-high', b: 'b-high' },
+      extendedDimensions,
+    );
+    expect(compared.benchmarkIds).toContain('frontier-swe-v2');
+    expect(
+      compared.evidence.filter((e) => e.benchmarkId === 'frontier-swe-v2'),
+    ).toHaveLength(2);
+    expect(
+      compared.product.leaderboard
+        .find((r) => r.modelId === 'a')!
+        .dimensions.find((d) => d.dimension === 'coding')!.score,
+    ).toBe(50.5);
+    expect(
+      buildCommonComparison(
+        p,
+        ['a', 'b'],
+        { a: 'a-low', b: 'b-high' },
+        extendedDimensions,
+      ).benchmarkIds,
+    ).not.toContain('frontier-swe-v2');
+    expect(compared.product.presets).toEqual(presetRows);
+  });
+
   it('compares two efforts of the same model on their intersection', () => {
     const p = fixture();
     const result = buildCommonComparison(
@@ -104,7 +241,7 @@ describe('common benchmark comparison', () => {
       result.product.leaderboard.every((r) => r.evidenceResultIds.length === 5),
     ).toBe(true);
   });
-  it('changes the intersection with a profile and keeps incomplete models with null overall', () => {
+  it('scores the remaining active dimension after a profile change', () => {
     const result = buildCommonComparison(
       fixture(),
       ['a', 'b'],
@@ -114,7 +251,10 @@ describe('common benchmark comparison', () => {
     expect(result.benchmarkIds).toEqual(['b']);
     expect(
       result.product.leaderboard.every(
-        (r) => r.overallScore === null && r.rank === null,
+        (r) =>
+          r.overallScore !== null &&
+          r.rank !== null &&
+          r.dimensions.length === 1,
       ),
     ).toBe(true);
     expect(

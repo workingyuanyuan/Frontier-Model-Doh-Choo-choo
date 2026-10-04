@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "frontier-identities-v1",
+  "mappings": [
+    {
+      "sourceId": "artificial-analysis",
+      "canonicalModelId": "zai-glm-5-3",
+      "aliases": ["GLM-5.3 (Low)", "GLM-5.3 (Max)"],
+      "justification": "Saved AA model labels name the same GLM-5.3 base model with explicit Low and Max efforts. The zai provider prefix follows the committed GLM-5.1 and GLM-5.2 catalog entries. Exact names distinguish GLM-5.3 Flash.",
+      "evidence": [
+        {
+          "candidateId": "artificial-analysis:glm-5-3-low:intelligence-index-v4-3-2",
+          "rawName": "GLM-5.3 (Low)",
+          "evidenceId": "sha256:f658b31835d1b8b309aed5f5208a10c7e2d39f442f05907f6c40d80e598dd1d9",
+          "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-low"
+        },
+        {
+          "candidateId": "artificial-analysis:glm-5-3-max:intelligence-index-v4-3-2",
+          "rawName": "GLM-5.3 (Max)",
+          "evidenceId": "sha256:84a75e2b0670295f07c431b69b240b1b00edfd7877572a0ea95ce320e4723e48",
+          "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3"
+        }
+      ]
+    },
+    {
+      "sourceId": "artificial-analysis",
+      "canonicalModelId": "xiaomi-mimo-v2-6-pro",
+      "aliases": ["MiMo-V2.6-Pro"],
+      "justification": "The saved AA label and /models/mimo-v2-6-pro detail URL identify MiMo-V2.6-Pro exactly. The xiaomi provider prefix follows the committed MiMo-V2.5-Pro catalog entry.",
+      "evidence": [
+        {
+          "candidateId": "artificial-analysis:mimo-v2-6-pro:intelligence-index-v4-3-2",
+          "rawName": "MiMo-V2.6-Pro",
+          "evidenceId": "sha256:7397bf08ce03a4e8294c0dcc959db755cc5d7915e5a4becdfcab0ea3c100a7f0",
+          "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-6-pro"
+        }
+      ]
+    },
+    {
+      "sourceId": "artificial-analysis",
+      "canonicalModelId": "stepfun-step-5-preview",
+      "aliases": ["Step 5 Preview"],
+      "justification": "The saved AA Step 5 Preview label and /models/step-5 detail artifact agree. That artifact's description explicitly identifies StepFun as the provider.",
+      "evidence": [
+        {
+          "candidateId": "artificial-analysis:step-5-preview:intelligence-index-v4-3-2",
+          "rawName": "Step 5 Preview",
+          "evidenceId": "sha256:05f9a5ca7f62f25ba501109241fc18a357f9814117c01a9dc01c37e0d6ec8674",
+          "sourceUrl": "https://artificialanalysis.ai/models/step-5"
+        }
+      ]
+    }
+  ]
+}

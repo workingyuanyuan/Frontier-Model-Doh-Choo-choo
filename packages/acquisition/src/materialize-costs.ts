@@ -4,6 +4,7 @@ import { dirname, join, resolve } from 'node:path';
 
 import {
   EvidenceRecordSchema,
+  CandidateResultSchema,
   deterministicJson,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
@@ -22,6 +23,9 @@ import {
   FRONTIER_CODE_PAGE_URL,
   materializeFrontierCode,
 } from './frontier-code-materializer.js';
+import { materializeOpenAIRelease } from './vendor-openai.js';
+import { materializeAnthropicRelease } from './vendor-anthropic.js';
+import { auditVendorReleases } from './vendor-release-audit.js';
 
 const readJson = async <T>(path: string): Promise<T> =>
   JSON.parse(await readFile(path, 'utf8')) as T;
@@ -51,6 +55,58 @@ const findEvidence = (
 async function main() {
   const root = resolve(process.argv[2] ?? getWorkspaceRoot());
   const sourcesRoot = join(root, 'data', 'sources');
+  const vendorCounts: Record<string, number> = {};
+  const vendors = [];
+  let cursorRecord: EvidenceRecord | undefined;
+  for (const sourceId of ['openai-releases', 'anthropic-releases']) {
+    const evidence = EvidenceRecordSchema.array().parse(
+      await readJson<unknown>(
+        join(sourcesRoot, sourceId, 'evidence-index.json'),
+      ),
+    );
+    const record = findEvidence(
+      evidence,
+      sourceId === 'openai-releases'
+        ? 'https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/'
+        : 'https://www.anthropic.com/claude-opus-5-5',
+    );
+    if (sourceId === 'anthropic-releases') {
+      cursorRecord = findEvidence(evidence, 'https://prod.cursor.com/evals');
+    }
+    const text = await readFile(join(root, record.artifactPath), 'utf8');
+    const context = { evidenceId: record.id, observedAt: record.retrievedAt };
+    const result =
+      sourceId === 'openai-releases'
+        ? materializeOpenAIRelease(text, context)
+        : materializeAnthropicRelease(text, context);
+    vendors.push({ sourceId, result });
+    vendorCounts[sourceId] = result.costs.length;
+  }
+  if (!cursorRecord)
+    throw new Error('Missing stored Cursor organizer evidence');
+  const organizerCandidates = (
+    await Promise.all(
+      ['deepswe', 'zapier-automationbench', 'frontier-code'].map(
+        async (sourceId) =>
+          CandidateResultSchema.array().parse(
+            await readJson<unknown>(
+              join(sourcesRoot, sourceId, 'candidates.json'),
+            ),
+          ),
+      ),
+    )
+  ).flat();
+  auditVendorReleases(
+    vendors.flatMap(({ result }) => result.candidates),
+    organizerCandidates,
+    await readFile(join(root, cursorRecord.artifactPath), 'utf8'),
+  );
+  for (const { sourceId, result } of vendors) {
+    await writeFile(
+      join(sourcesRoot, sourceId, 'costs.json'),
+      prettyDeterministicJson(result.costs),
+    );
+  }
 
   const aaIndexPath = join(
     sourcesRoot,
@@ -195,6 +251,7 @@ async function main() {
       liveBench: liveCosts.length,
       liveBenchArtifact: liveRecord.id,
       frontierCode: frontierResult.costs.length,
+      vendorReleases: vendorCounts,
     }),
   );
 }

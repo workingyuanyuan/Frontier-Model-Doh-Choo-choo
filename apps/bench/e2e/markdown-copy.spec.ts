@@ -9,6 +9,15 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
   await page.goto('/');
   const copy = page.getByRole('button', { name: 'Copy table as Markdown' });
   const checkCopy = async () => {
+    const dimensions = await page
+      .locator('.leaderboard-table thead th[aria-label]')
+      .evaluateAll((cells) =>
+        cells.map((cell) => {
+          const id = cell.getAttribute('aria-label')!;
+          return id[0]!.toUpperCase() + id.slice(1);
+        }),
+      );
+    const headers = ['Model', 'Reasoning Effort', 'Overall', ...dimensions];
     const expectedRows = await page
       .locator('[data-ranked-row]')
       .evaluateAll((rows) =>
@@ -30,8 +39,8 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
     ).toBeVisible();
     const markdown = await page.evaluate(() => navigator.clipboard.readText());
     expect(markdown.split(/\r?\n/)).toEqual([
-      '| Model | Reasoning Effort | Overall | Agentic | Coding | Reasoning | Knowledge | Language |',
-      '| --- | --- | --- | --- | --- | --- | --- | --- |',
+      `| ${headers.join(' | ')} |`,
+      `| ${headers.map(() => '---').join(' | ')} |`,
       ...expectedRows,
     ]);
   };

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "benchmark-quality-review-v1",
+  "reviewedAt": "2026-10-03",
+  "decision": "exclude-from-scoring",
+  "benchmarkId": "proofbench",
+  "approvedBy": "user",
+  "reason": "The approved frontier cohort has scores of 99–100 with only two distinct values; exclude ProofBench from benchmark scoring for insufficient discrimination.",
+  "previousEvidencePath": "docs/refresh/2026-09-08-benchmark-saturation.json",
+  "cohortEvidencePath": "docs/analysis/2026-10-03-frontier-cohort.json",
+  "productVersion": "sha256:6a99450fc3752140953ad09ab251038ed08540b91545de496d02d00ada9553c1",
+  "productSha256": "0e524b8226ceb142c2b113a8e9ac31ca18edc92972e05bf47438dc3ebebdc47d",
+  "selectionPolicy": {
+    "source": "artificial-analysis",
+    "benchmarkId": "artificial-analysis-intelligence-index",
+    "searchWindowModels": 10,
+    "gapToOtherMedianMultiplier": 2,
+    "deduplication": "one canonical model, highest AA score",
+    "audit": "retain source version, scores, boundary and threshold; user audit guides future revisions"
+  },
+  "profileConvention": "Use each selected model's AA highest-score product profile for the common-core analysis.",
+  "sourcePopulationScope": "Canonical identities resolved in this saved product snapshot; not a fresh full AA leaderboard scrape.",
+  "sourceUrl": "https://www.vals.ai/benchmarks/proof_bench",
+  "statistics": {
+    "modelCount": 6,
+    "min": 99,
+    "max": 100,
+    "mean": 99.5,
+    "range": 1,
+    "populationStandardDeviation": 0.5,
+    "distinctScoreCount": 2
+  },
+  "rows": [
+    {
+      "modelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "score": 100,
+      "candidateId": "vals-ai:proofbench:anthropic-claude-opus-5-5",
+      "sourceId": "vals-ai",
+      "metricId": "accuracy",
+      "scoreProvenance": {
+        "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+        "method": "EMBEDDED_JSON",
+        "locator": "benchmarkView.tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy"
+      }
+    },
+    {
+      "modelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "score": 100,
+      "candidateId": "vals-ai:proofbench:anthropic-claude-sonnet-5-5",
+      "sourceId": "vals-ai",
+      "metricId": "accuracy",
+      "scoreProvenance": {
+        "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+        "method": "EMBEDDED_JSON",
+        "locator": "benchmarkView.tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy"
+      }
+    },
+    {
+      "modelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "score": 100,
+      "candidateId": "vals-ai:proofbench:anthropic-claude-fable-5-1",
+      "sourceId": "vals-ai",
+      "metricId": "accuracy",
+      "scoreProvenance": {
+        "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+        "method": "EMBEDDED_JSON",
+        "locator": "benchmarkView.tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy"
+      }
+    },
+    {
+      "modelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "score": 99,
+      "candidateId": "vals-ai:proofbench:openai-gpt-6-astra",
+      "sourceId": "vals-ai",
+      "metricId": "accuracy",
+      "scoreProvenance": {
+        "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+        "method": "EMBEDDED_JSON",
+        "locator": "benchmarkView.tasks.overall[\"openai/gpt-6-astra\"].accuracy"
+      }
+    },
+    {
+      "modelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-high",
+      "score": 99,
+      "candidateId": "vals-ai:proofbench:google-gemini-4-argon",
+      "sourceId": "vals-ai",
+      "metricId": "accuracy",
+      "scoreProvenance": {
+        "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+        "method": "EMBEDDED_JSON",
+        "locator": "benchmarkView.tasks.overall[\"google/gemini-4-argon\"].accuracy"
+      }
+    },
+    {
+      "modelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-max",
+      "score": 99,
+      "candidateId": "vals-ai:proofbench:openai-gpt-6-1-sol",
+      "sourceId": "vals-ai",
+      "metricId": "accuracy",
+      "scoreProvenance": {
+        "evidenceId": "sha256:4c931ec6d50c6ecb73b58dd45b47406122d451316d9ff135da52b87f98d399e1",
+        "method": "EMBEDDED_JSON",
+        "locator": "benchmarkView.tasks.overall[\"openai/gpt-6.1-sol\"].accuracy"
+      }
+    }
+  ],
+  "qualityPolicy": {
+    "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2
+  }
+}

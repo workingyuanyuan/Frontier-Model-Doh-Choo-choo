@@ -2,7 +2,7 @@ import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useState } from 'react';
 import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
 
-import { UI_DIMENSION_IDS } from '../lib/ui-contract';
+import { getActiveDimensionIds, UI_DIMENSION_IDS } from '../lib/ui-contract';
 import {
   sortLeaderboardRows,
   type LeaderboardSortKey,
@@ -122,9 +122,21 @@ export function Leaderboard({
     [modelProfiles, product.leaderboard, rows, commonMode],
   );
 
+  const dimensionIds = useMemo(
+    () => getActiveDimensionIds(activeRows),
+    [activeRows],
+  );
+  const effectiveSort =
+    UI_DIMENSION_IDS.some((dimension) => dimension === sort.key) &&
+    !dimensionIds.some((dimension) => dimension === sort.key)
+      ? { key: 'overall' as const, direction: 'descending' as const }
+      : sort;
+  useEffect(() => {
+    if (effectiveSort !== sort) setSort(effectiveSort);
+  }, [effectiveSort, sort]);
   const sortedRows = useMemo(
-    () => sortLeaderboardRows(product, activeRows, sort),
-    [activeRows, product, sort],
+    () => sortLeaderboardRows(product, activeRows, effectiveSort),
+    [activeRows, product, effectiveSort],
   );
 
   const [copyStatus, setCopyStatus] = useState('');
@@ -164,7 +176,7 @@ export function Leaderboard({
 
   const heatMap = useMemo<HeatMap>(() => {
     const map: HeatMap = {};
-    UI_DIMENSION_IDS.forEach((dimensionId) => {
+    dimensionIds.forEach((dimensionId) => {
       const values = activeRows
         .map(
           (row) =>
@@ -182,7 +194,7 @@ export function Leaderboard({
       map[dimensionId] = dimensionMap;
     });
     return map;
-  }, [activeRows]);
+  }, [activeRows, dimensionIds]);
 
   return (
     <div className="dashboard-section">
@@ -235,18 +247,11 @@ export function Leaderboard({
           </div>
         </div>
 
-        {commonMode ? (
-          <p className="comparison-summary" role="status">
-            Comparing {rows.length} profiles on{' '}
-            {preset?.benchmarkIds.length ?? 0} common benchmarks. Scores use the
-            selected profiles. Overall requires all five dimensions.
-          </p>
-        ) : null}
         <LeaderboardTable
           developerMode={developerMode}
           product={product}
           rows={sortedRows}
-          sort={sort}
+          sort={effectiveSort}
           onSort={onSort}
           heatMap={heatMap}
           modelProfiles={modelProfiles}

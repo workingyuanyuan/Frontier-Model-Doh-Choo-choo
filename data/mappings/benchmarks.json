@@ -3,6 +3,51 @@
   "dimensions": ["reasoning", "knowledge", "coding", "agentic", "language"],
   "benchmarks": [
     {
+      "id": "gdp-xlsx",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "knowledge"]
+    },
+    {
+      "id": "dayjob-healthcare",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "dayjob-finance",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "riemann-bench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge", "agentic"]
+    },
+    {
+      "id": "enterprisebench-corecraft",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "complex-constraints",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "gdp-pdf",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "knowledge"]
+    },
+    {
+      "id": "cursorbench-4",
+      "primaryDimension": "coding",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "chartography",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
       "id": "arc-agi-2",
       "primaryDimension": "reasoning",
       "secondaryDimensions": []
@@ -186,6 +231,12 @@
       "id": "frontier-code-1-1",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "frontier-swe-v2",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"],
+      "comparisonOnly": true
     },
     {
       "id": "terminal-bench-2-1",

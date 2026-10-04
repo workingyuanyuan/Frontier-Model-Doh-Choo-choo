@@ -145,23 +145,29 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
   const partialCoverageRegion = page.getByRole('region', {
     name: 'Partial coverage scores',
   });
-  await expect(partialCoverageRegion).toBeVisible();
-  await developerModelButton.focus();
-  await page.keyboard.press('Shift+Tab');
-  await expect(partialCoverageRegion).toBeFocused();
-  const isHorizontallyScrollable = await partialCoverageRegion.evaluate(
-    (element) => {
-      element.scrollLeft = 0;
-      return element.scrollWidth > element.clientWidth;
-    },
-  );
-  if (isHorizontallyScrollable) {
-    await page.keyboard.press('ArrowRight');
-    await expect
-      .poll(() =>
-        partialCoverageRegion.evaluate((element) => element.scrollLeft),
-      )
-      .toBeGreaterThan(0);
+  if (getPartialCoverageRows(withActivePreset(currentProduct)).length > 0) {
+    await expect(partialCoverageRegion).toBeVisible();
+    await developerModelButton.focus();
+    await page.keyboard.press('Shift+Tab');
+    await expect(partialCoverageRegion).toBeFocused();
+    const isHorizontallyScrollable = await partialCoverageRegion.evaluate(
+      (element) => {
+        element.scrollLeft = 0;
+        return element.scrollWidth > element.clientWidth;
+      },
+    );
+    if (isHorizontallyScrollable) {
+      await page.keyboard.press('ArrowRight');
+      await expect
+        .poll(() =>
+          partialCoverageRegion.evaluate((element) => element.scrollLeft),
+        )
+        .toBeGreaterThan(0);
+    }
+  } else {
+    await expect(page.locator('[data-partial-coverage]')).toContainText(
+      'No profile is missing exactly one dimension.',
+    );
   }
   await expect(developerModelButton).toHaveAttribute('aria-expanded', 'false');
   await developerModelButton.click();
@@ -326,7 +332,7 @@ test('every cost point discloses its source count and each source score basis', 
   await point.hover();
   const count = page.getByTestId('cost-hover-source-count');
   await expect(count).toBeVisible({ timeout: 300 });
-  await expect(count).toHaveText(/^[1-7] of 7$/);
+  await expect(count).toHaveText(/^[1-8] of 8$/);
 
   // Table: the same count per row, plus a named basis for every source.
   await page.getByRole('switch', { name: 'Developer mode' }).click();
@@ -336,7 +342,7 @@ test('every cost point discloses its source count and each source score basis', 
   const total = await counts.count();
   expect(total).toBeGreaterThan(0);
   for (let index = 0; index < total; index += 1) {
-    await expect(counts.nth(index)).toHaveText(/^[1-7] of 7$/);
+    await expect(counts.nth(index)).toHaveText(/^[1-8] of 8$/);
   }
 
   // No source may contribute an unnamed, floating average. LiveBench is in
@@ -421,9 +427,14 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
       .getByText('Lower cost is better. Higher Overall Score is better.'),
   ).toBeVisible();
   const sourceButtons = page.locator('.advanced-source-toggle');
-  await expect(sourceButtons).toHaveCount(5);
+  await expect(sourceButtons).toHaveCount(6);
   for (let i = 0; i < (await sourceButtons.count()); i++) {
-    await expect(sourceButtons.nth(i)).toHaveAttribute('aria-pressed', 'true');
+    const button = sourceButtons.nth(i);
+    const sourceId = await button.getAttribute('data-source-id');
+    await expect(button).toHaveAttribute(
+      'aria-pressed',
+      sourceId === 'cursorbench' ? 'false' : 'true',
+    );
   }
   const zapier = page.locator(
     '.advanced-source-toggle[data-source-id="zapier-automationbench"]',
@@ -742,25 +753,11 @@ test('keeps leaderboard sort, search, and effort controls keyboard reachable', a
   }
 });
 
-test('keeps leaderboard controls ordered and equal-height on wide screens', async ({
-  page,
-}) => {
+test('keeps the model picker visible on wide screens', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
-
-  const sources = await page.locator('.preset-sources-switch').boundingBox();
-  const slider = await page.locator('.preset-slider').boundingBox();
-  const picker = await page.locator('.picker-trigger-btn').boundingBox();
-
-  expect(sources).not.toBeNull();
-  expect(slider).not.toBeNull();
-  expect(picker).not.toBeNull();
-  if (sources && slider && picker) {
-    expect(sources.x).toBeLessThan(slider.x);
-    expect(slider.x).toBeLessThan(picker.x);
-    expect(Math.abs(sources.height - slider.height)).toBeLessThanOrEqual(1);
-    expect(Math.abs(slider.height - picker.height)).toBeLessThanOrEqual(1);
-  }
+  await expect(page.locator('.picker-trigger-btn')).toBeVisible();
+  await expect(page.locator('.preset-controls')).toHaveCount(0);
 });
 
 test('uses an equal-width cost toolbar and full-width charts in both modes', async ({
@@ -869,150 +866,84 @@ test('shows cost chart source contributions only in developer mode', async ({
   await expect(sourceContributions).toBeVisible();
 });
 
-test('switches the scored preset from the model-count slider and keeps it in the URL', async ({
+test('loads the sole frontier preset from a shared URL', async ({ page }) => {
+  expect(currentProduct.presets).toHaveLength(1);
+  expect(currentProduct.defaultPresetId).toBe('aa-frontier');
+  await page.goto('/?preset=aa-frontier');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
+  await expect(page.locator('.preset-controls')).toHaveCount(0);
+  await page.reload();
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
+});
+
+test('restores the frontier profiles after a manual effort comparison', async ({
   page,
 }) => {
   await page.goto('/');
-
-  const slider = page.locator('#preset-model-count');
-  const count = page.getByTestId('preset-model-count');
-  const sourcesSwitch = page.locator('.preset-sources-switch');
-
-  // Which mode the default preset is in is a user ruling and changes; what
-  // must always hold is that the switch's label and its state agree, since the
-  // label is the only thing a reader sees.
-  const requiresAllSources =
-    (await sourcesSwitch.getAttribute('aria-checked')) === 'true';
-  await expect(sourcesSwitch).toHaveText(
-    requiresAllSources ? 'All sources' : 'Any sources',
-  );
-  const defaultCount = (await count.textContent()) ?? '';
-  const defaultRows = await page
-    .locator('.leaderboard-table tbody tr[data-ranked-row]')
-    .count();
-
-  // Completeness is judged per profile, so the number on the slider is the
-  // number of rows, not an upper bound on it.
-  expect(defaultRows).toBe(Number(defaultCount));
-
-  const max = Number(await slider.getAttribute('max'));
-  await slider.fill(String(max));
-  await expect(count).not.toHaveText(defaultCount);
-  await expect(page).toHaveURL(/preset=/u);
-
-  const switchedRows = await page
-    .locator('.leaderboard-table tbody tr[data-ranked-row]')
-    .count();
-  expect(switchedRows).toBe(Number(await count.textContent()));
-  expect(switchedRows).not.toBe(defaultRows);
-
-  // The preset survives a reload, which is the point of putting it in the URL.
-  const url = page.url();
-  await page.goto(url);
-  await expect(count).not.toHaveText(defaultCount);
+  const expectedProfiles = await page
+    .locator('[data-ranked-row]')
+    .evaluateAll((rows) =>
+      rows.map((row) => row.getAttribute('data-profile-id')),
+    );
+  const effort = page.locator('.profile-table-select').first();
+  const original = await effort.inputValue();
+  const alternative = await effort
+    .locator('option')
+    .evaluateAll(
+      (options, selected) =>
+        options
+          .map((option) => (option as HTMLOptionElement).value)
+          .find((value) => value !== selected),
+      original,
+    );
+  expect(alternative).toBeDefined();
+  await effort.selectOption(alternative!);
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page.getByRole('button', { name: 'Default', exact: true }).click();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(6);
+  expect(
+    await page
+      .locator('[data-ranked-row]')
+      .evaluateAll((rows) =>
+        rows.map((row) => row.getAttribute('data-profile-id')),
+      ),
+  ).toEqual(expectedProfiles);
 });
 
-test('falls back when a preset removes the selected model profile', async ({
+test('renders a complete refreshed ranking and the audited version', async ({
   page,
 }) => {
-  const presets = currentProduct.presets.filter(
-    (preset) => !preset.requireAllSources,
-  );
-  const eligible = (preset: (typeof presets)[number]) =>
-    preset.leaderboard.filter((row) =>
-      isMainEligibleRow(currentProduct, row, preset),
-    );
-  const transition = presets.flatMap((from) =>
-    presets.flatMap((to) => {
-      if (from.id === to.id) return [];
-      const target = eligible(to);
-      return eligible(from)
-        .filter(
-          (row) =>
-            eligible(from).filter((other) => other.modelId === row.modelId)
-              .length > 1 &&
-            !target.some((other) => other.profileId === row.profileId) &&
-            target.some((other) => other.modelId === row.modelId),
-        )
-        .map((row) => ({ from, to, row }));
-    }),
-  )[0];
-  test.skip(
-    !transition,
-    'Current free-source presets have no multi-effort profile-removal transition; covered by dashboard unit fixtures.',
-  );
-  const { from, to, row: selected } = transition!;
-  const profile = currentProduct.profiles.find(
-    (profile) => profile.id === selected.profileId,
-  )!;
-  await page.goto(`/?preset=${from.id}`);
-  const profileSelect = page.getByRole('combobox', {
-    name: `Select profile for ${profile.baseModelName}`,
-  });
-  await profileSelect.selectOption(selected.profileId);
-  await expect(profileSelect).toHaveValue(selected.profileId);
-  // The slider's ordered positions follow the free-source model-count curve.
-  const ordered = [
-    ...new Set(currentProduct.presets.map((preset) => preset.targetModelCount)),
-  ].toSorted((a, b) => a - b);
-  await page
-    .locator('#preset-model-count')
-    .fill(String(ordered.indexOf(to.targetModelCount)));
-  await expect(page).toHaveURL(new RegExp(`preset=${to.id}(?:&|$)`));
-  const expected = eligible(to)
-    .filter((row) => row.modelId === selected.modelId)
+  const preset = withActivePreset(currentProduct).activePreset;
+  const expected = preset.leaderboard
+    .filter((row) => isMainEligibleRow(currentProduct, row, preset))
     .toSorted((a, b) => b.overallScore! - a.overallScore!)[0]!;
-  if (await profileSelect.count())
-    await expect(profileSelect).toHaveValue(expected.profileId);
+  expect(
+    expected,
+    'The refreshed default must have a complete model',
+  ).toBeDefined();
+  const profile = currentProduct.profiles.find(
+    (candidate) => candidate.id === expected.profileId,
+  )!;
+  await page.goto(`/?preset=${preset.id}`);
   const row = page
     .locator('[data-ranked-row]')
     .filter({ hasText: profile.baseModelName });
-  await row.getByRole('button').first().click();
-  await expect(
-    page.locator(`[data-model-detail="${selected.modelId}"]`),
-  ).toBeVisible();
-});
-
-test('renders refreshed Astra with complete scores and the audited version', async ({
-  page,
-}) => {
-  const preset = currentProduct.presets.find((candidate) =>
-    candidate.leaderboard.some(
-      (row) =>
-        row.profileId === 'openai-gpt-6-astra-max' &&
-        isMainEligibleRow(currentProduct, row, candidate),
-    ),
-  );
-  expect(
-    preset,
-    'Astra must have a complete preset in the refreshed data',
-  ).toBeDefined();
-  await page.goto(`/?preset=${preset!.id}`);
-  const row = page
-    .locator('[data-ranked-row]')
-    .filter({ hasText: 'GPT-6 Astra' });
   await expect(row).toHaveCount(1);
-  const expected = preset!.leaderboard.find(
-    (r) => r.profileId === 'openai-gpt-6-astra-max',
-  )!;
   expect(expected.overallScore).not.toBeNull();
   await expect(row).toContainText(expected.overallScore!.toFixed(1));
   await expect(row).not.toContainText('N/A');
   await expect(page.locator('footer')).toContainText(currentProduct.versionId);
   await row.getByRole('button').first().click();
-  const detail = page.locator('[data-model-detail="openai-gpt-6-astra"]');
+  const detail = page.locator(`[data-model-detail="${expected.modelId}"]`);
   await expect(detail).toBeVisible();
-  await expect(detail).toContainText('max');
+  await expect(detail).toContainText(profile.attributes.effort ?? 'default');
   await page.goto('/');
-  const defaultPreset = withActivePreset(currentProduct).activePreset;
-  const astraInDefault = defaultPreset.leaderboard.some(
-    (candidate) =>
-      candidate.modelId === 'openai-gpt-6-astra' &&
-      isMainEligibleRow(currentProduct, candidate, defaultPreset),
-  );
   await expect(
-    page.locator('[data-ranked-row]').filter({ hasText: 'GPT-6 Astra' }),
-  ).toHaveCount(astraInDefault ? 1 : 0);
+    page
+      .locator('[data-ranked-row]')
+      .filter({ hasText: profile.baseModelName }),
+  ).toHaveCount(1);
 });
 
 test('discloses partial-coverage profiles in developer mode, outside the ranked table', async ({

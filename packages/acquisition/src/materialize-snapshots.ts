@@ -1,5 +1,33 @@
+import {
+  GDP_XLSX_PAGE_URL,
+  materializeGdpXlsx,
+} from './surge-gdp-xlsx-materializer.js';
+import {
+  DAYJOB_HEALTHCARE_PAGE_URL,
+  materializeDayjobHealthcare,
+} from './surge-dayjob-healthcare-materializer.js';
+import {
+  DAYJOB_FINANCE_PAGE_URL,
+  materializeDayjobFinance,
+} from './surge-dayjob-finance-materializer.js';
+import {
+  RIEMANN_PAGE_URL,
+  materializeRiemann,
+} from './surge-riemann-materializer.js';
+import {
+  CORECRAFT_PAGE_URL,
+  materializeCorecraft,
+} from './surge-corecraft-materializer.js';
+import {
+  COMPLEX_CONSTRAINTS_PAGE_URL,
+  materializeComplexConstraints,
+} from './surge-complex-constraints-materializer.js';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
+import {
+  CHARTOGRAPHY_PAGE_URL,
+  materializeChartography,
+} from './surge-chartography-materializer.js';
 import {
   extractArtificialAnalysisRscRows,
   materializeArtificialAnalysisRsc,
@@ -7,6 +35,13 @@ import {
 } from './artificial-analysis-rsc.js';
 import { materializeLiveBench } from './livebench-materializer.js';
 import { materializeDeepSwe } from './deepswe-materializer.js';
+import { materializeOpenAIRelease } from './vendor-openai.js';
+import { materializeAnthropicRelease } from './vendor-anthropic.js';
+import { auditVendorReleases } from './vendor-release-audit.js';
+import {
+  FRONTIER_SWE_PAGE_URL,
+  materializeFrontierSwe,
+} from './frontier-swe-materializer.js';
 import { materializeEpoch } from './epoch-materializer.js';
 import {
   materializeArcPrize,
@@ -25,6 +60,8 @@ import {
   CandidateResultSchema,
   deterministicJson,
   ProfilePolicySchema,
+  BenchmarkDimensionMappingSchema,
+  getComparisonOnlyBenchmarkIds,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
 import {
@@ -102,6 +139,19 @@ const appendEffortInferenceReports = (
       ),
     ),
   );
+  const comparisonOnlyIds = getComparisonOnlyBenchmarkIds(
+    BenchmarkDimensionMappingSchema.parse(
+      JSON.parse(
+        readFileSync(
+          join(repoRoot, 'data', 'mappings', 'benchmarks.json'),
+          'utf8',
+        ),
+      ),
+    ),
+  );
+  const inferenceCandidates = allCandidates.filter(
+    ({ benchmarkId }) => !comparisonOnlyIds.has(benchmarkId),
+  );
 
   for (const sourceId of sourceIds) {
     const sourceDirectory = join(sourceRoot, sourceId);
@@ -115,7 +165,7 @@ const appendEffortInferenceReports = (
     const section = renderEffortInferenceSection(
       sourceId,
       candidates,
-      allCandidates,
+      inferenceCandidates,
       policy,
     );
     writeFileSync(
@@ -148,10 +198,73 @@ function main() {
     { id: 'livebench', reportFn: null },
     { id: 'deepswe', reportFn: null },
     { id: 'frontier-code', reportFn: null },
+    { id: 'frontier-swe', reportFn: null },
+    { id: 'surge-chartography', reportFn: null },
+    { id: 'surge-complex-constraints', reportFn: null },
+    { id: 'surge-corecraft', reportFn: null },
+    { id: 'surge-riemann', reportFn: null },
+    { id: 'surge-dayjob-finance', reportFn: null },
+    { id: 'surge-dayjob-healthcare', reportFn: null },
+    { id: 'surge-gdp-xlsx', reportFn: null },
     { id: 'epoch-ai', reportFn: null },
     { id: 'arc-prize', reportFn: null },
     { id: 'zapier-automationbench', reportFn: null },
+    { id: 'openai-releases', reportFn: null },
+    { id: 'anthropic-releases', reportFn: null },
   ];
+
+  // Audit both vendor snapshots against captured references before any files
+  // are replaced, including when only one vendor contains a discrepancy.
+  const vendorResults = new Map(
+    ['openai-releases', 'anthropic-releases'].map((sourceId) => {
+      const evidence = JSON.parse(
+        readFileSync(
+          join(repoRoot, 'data', 'sources', sourceId, 'evidence-index.json'),
+          'utf8',
+        ),
+      ) as EvidenceRecord[];
+      const release = evidence[0];
+      if (!release || release.sourceId !== sourceId) {
+        throw new Error(`Missing ${sourceId} release evidence`);
+      }
+      const text = readFileSync(join(repoRoot, release.artifactPath), 'utf8');
+      const context = {
+        evidenceId: release.id,
+        observedAt: release.retrievedAt,
+      };
+      const result =
+        sourceId === 'openai-releases'
+          ? materializeOpenAIRelease(text, context)
+          : materializeAnthropicRelease(text, context);
+      return [sourceId, { result, evidence }] as const;
+    }),
+  );
+  const cursorEvidence = vendorResults
+    .get('anthropic-releases')!
+    .evidence.find(
+      ({ requestUrl, mediaType }) =>
+        requestUrl === 'https://prod.cursor.com/evals' &&
+        mediaType === 'text/html',
+    );
+  if (!cursorEvidence)
+    throw new Error('Missing stored Cursor organizer evidence');
+  const references = ['deepswe', 'zapier-automationbench', 'frontier-code'].map(
+    (sourceId) => ({
+      sourceId,
+      evidence: JSON.parse(
+        readFileSync(
+          join(repoRoot, 'data', 'sources', sourceId, 'evidence-index.json'),
+          'utf8',
+        ),
+      ) as EvidenceRecord[],
+    }),
+  );
+  const stagedSources: {
+    src: (typeof sources)[number];
+    candidates: CandidateResult[];
+    customReportText: string | null;
+    materializedCosts: unknown[] | null;
+  }[] = [];
 
   for (const src of sources) {
     const sourceDir = join(repoRoot, 'data', 'sources', src.id);
@@ -173,7 +286,83 @@ function main() {
     const evidenceText = (record: EvidenceRecord) =>
       readFileSync(join(repoRoot, record.artifactPath), 'utf8');
 
-    if (src.id === 'epoch-ai') {
+    const vendor = vendorResults.get(src.id);
+    if (vendor) {
+      candidates = vendor.result.candidates;
+      customReportText = vendor.result.validationReport;
+      materializedCosts = vendor.result.costs;
+    } else if (src.id === 'surge-chartography') {
+      const page = evidenceFor(CHARTOGRAPHY_PAGE_URL);
+      const result = materializeChartography(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'surge-complex-constraints') {
+      const page = evidenceFor(COMPLEX_CONSTRAINTS_PAGE_URL);
+      const result = materializeComplexConstraints(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'surge-corecraft') {
+      const page = evidenceFor(CORECRAFT_PAGE_URL);
+      const result = materializeCorecraft(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'surge-riemann') {
+      const page = evidenceFor(RIEMANN_PAGE_URL);
+      const result = materializeRiemann(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'surge-dayjob-finance') {
+      const page = evidenceFor(DAYJOB_FINANCE_PAGE_URL);
+      const result = materializeDayjobFinance(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'surge-dayjob-healthcare') {
+      const page = evidenceFor(DAYJOB_HEALTHCARE_PAGE_URL);
+      const result = materializeDayjobHealthcare(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'surge-gdp-xlsx') {
+      const page = evidenceFor(GDP_XLSX_PAGE_URL);
+      const result = materializeGdpXlsx(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+        visualRowCount: Number(page.metadata?.renderedRows),
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'frontier-swe') {
+      const page = evidenceFor(FRONTIER_SWE_PAGE_URL);
+      const result = materializeFrontierSwe(evidenceText(page), {
+        evidenceId: page.id,
+        observedAt: page.retrievedAt,
+      });
+      candidates = result.candidates;
+      customReportText = result.validationReport;
+    } else if (src.id === 'epoch-ai') {
       const archive = evidenceFor('https://epoch.ai/data/benchmark_data.zip');
       candidates = materializeEpoch(
         readFileSync(join(repoRoot, archive.artifactPath)),
@@ -418,6 +607,40 @@ function main() {
 
     // Deterministic sort by id
     candidates.sort((a, b) => a.id.localeCompare(b.id));
+    stagedSources.push({
+      src,
+      candidates,
+      customReportText,
+      materializedCosts,
+    });
+  }
+
+  const organizerCandidates = references.flatMap(({ sourceId }) => {
+    const staged = stagedSources.find(({ src }) => src.id === sourceId);
+    if (!staged)
+      throw new Error(`Missing staged organizer source: ${sourceId}`);
+    return staged.candidates;
+  });
+  const vendorChecks = auditVendorReleases(
+    [...vendorResults.values()].flatMap(({ result }) => result.candidates),
+    organizerCandidates,
+    readFileSync(join(repoRoot, cursorEvidence.artifactPath), 'utf8'),
+  );
+
+  // Publish exactly the arrays audited above, after all source extraction and
+  // vendor/organizer comparisons have passed.
+  for (const {
+    src,
+    candidates,
+    customReportText,
+    materializedCosts,
+  } of stagedSources) {
+    const sourceDir = join(repoRoot, 'data', 'sources', src.id);
+    const vendor = vendorResults.get(src.id);
+    const candidateIds = new Set(candidates.map(({ id }) => id));
+    const checks = vendorChecks.filter(({ candidateId }) =>
+      candidateIds.has(candidateId),
+    );
 
     // Write candidates.json using deterministicJson
     const candidatesPath = join(sourceDir, 'candidates.json');
@@ -438,6 +661,18 @@ function main() {
         'utf8',
       );
     }
+    if (vendor) {
+      writeFileSync(
+        join(sourceDir, 'cross-checks.json'),
+        prettyDeterministicJson({
+          observedAt: cursorEvidence.retrievedAt,
+          checks,
+          references,
+          cursorEvidence,
+        }),
+        'utf8',
+      );
+    }
 
     // Counts
     const unresolvedCount = candidates.filter(
@@ -446,11 +681,14 @@ function main() {
     const validationReportPath = join(sourceDir, 'validation-report.md');
 
     // Write validation-report.md
-    const reportText =
+    let reportText =
       customReportText ??
       (src.reportFn
         ? src.reportFn(candidates.length, candidates.length, unresolvedCount)
         : '');
+    if (vendor) {
+      reportText += `\n## Organizer cross-check\n\n- Matched: ${checks.filter(({ status }) => status === 'MATCH').length}\n- Vendor preview rows absent from reference: ${checks.filter(({ status }) => status === 'SUPPLEMENT').length}\n- Excluded: ${checks.filter(({ status }) => status === 'EXCLUDED').length}\n- Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).\n`;
+    }
     writeFileSync(validationReportPath, reportText, 'utf8');
 
     console.log(

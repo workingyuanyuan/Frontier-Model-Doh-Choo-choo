@@ -5,6 +5,8 @@ import {
   CandidateResultSchema,
   ProfilePolicySchema,
   SourcesConfigSchema,
+  BenchmarkDimensionMappingSchema,
+  getComparisonOnlyBenchmarkIds,
 } from '@llm-bench/benchmark-data';
 
 import {
@@ -52,6 +54,19 @@ async function main() {
   const allCandidates = sourceIds.flatMap(
     (sourceId) => candidatesBySource.get(sourceId) ?? [],
   );
+  const comparisonOnlyIds = getComparisonOnlyBenchmarkIds(
+    BenchmarkDimensionMappingSchema.parse(
+      JSON.parse(
+        await readFile(
+          join(root, 'data', 'mappings', 'benchmarks.json'),
+          'utf8',
+        ),
+      ),
+    ),
+  );
+  const inferenceCandidates = allCandidates.filter(
+    ({ benchmarkId }) => !comparisonOnlyIds.has(benchmarkId),
+  );
   const policy = ProfilePolicySchema.parse(
     JSON.parse(
       await readFile(
@@ -67,7 +82,7 @@ async function main() {
     const section = renderEffortInferenceSection(
       sourceId,
       candidatesBySource.get(sourceId) ?? [],
-      allCandidates,
+      inferenceCandidates,
       policy,
     );
     await writeFile(

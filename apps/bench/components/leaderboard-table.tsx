@@ -12,7 +12,7 @@ import {
 } from '../lib/view-model';
 import {
   UI_DIMENSION_ABBREVIATIONS,
-  UI_DIMENSION_IDS,
+  getActiveDimensionIds,
 } from '../lib/ui-contract';
 import { SortHeader } from './leaderboard-controls';
 import type { LeaderboardSortKey, SortDirection } from '../lib/table-sort';
@@ -58,6 +58,7 @@ export function LeaderboardTable({
   onPinProfile?: ((modelId: string, profileId: string) => void) | undefined;
   onRemovePinnedProfile?: ((profileId: string) => void) | undefined;
 }) {
+  const dimensionIds = getActiveDimensionIds(rows);
   return (
     <div
       className="table-scroll"
@@ -104,7 +105,7 @@ export function LeaderboardTable({
                 onSort={onSort}
               />
             </th>
-            {UI_DIMENSION_IDS.map((dimension) => (
+            {dimensionIds.map((dimension) => (
               <th
                 key={dimension}
                 scope="col"
@@ -141,10 +142,6 @@ export function LeaderboardTable({
             const profile = profileById(product, chosenProfileId);
             const rowKey = commonMode ? row.profileId : row.modelId;
             const isExpanded = expandedModelIds.includes(rowKey);
-            const activeRow =
-              product.leaderboard.find(
-                (candidateRow) => candidateRow.profileId === chosenProfileId,
-              ) ?? row;
             const scoreByDimension = new Map(
               row.dimensions.map(({ dimension, score: dimensionScore }) => [
                 dimension,
@@ -272,7 +269,7 @@ export function LeaderboardTable({
                       {score(row.overallScore)}
                     </strong>
                   </td>
-                  {UI_DIMENSION_IDS.map((dimension, index) => {
+                  {dimensionIds.map((dimension, index) => {
                     const scoreValue = scoreByDimension.get(dimension) ?? null;
                     const heatRank =
                       scoreValue !== null
@@ -296,14 +293,15 @@ export function LeaderboardTable({
                     data-model-detail={row.modelId}
                   >
                     <td
-                      colSpan={3 + UI_DIMENSION_IDS.length}
+                      colSpan={3 + dimensionIds.length}
                       className="leaderboard-expansion-cell"
                     >
                       <ModelDetailPanel
                         profile={profile}
                         product={product}
                         benchmarkDimensions={benchmarkDimensions}
-                        selectedResult={activeRow}
+                        selectedResult={row}
+                        activeDimensionIds={dimensionIds}
                         preset={preset}
                         developerMode={developerMode}
                       />

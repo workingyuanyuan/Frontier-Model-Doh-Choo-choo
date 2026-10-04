@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { getChartDomain } from '../lib/chart-scale';
 import {
   ADVANCED_COST_SOURCE_IDS,
+  AVAILABLE_ADVANCED_COST_SOURCE_IDS,
   COST_SOURCE_SCORE_BASES,
   COST_SOURCE_WEIGHTS,
   buildAdvancedCostModelOptions,
@@ -43,6 +44,9 @@ const SOURCE_NAMES: Record<string, string> = {
   'arc-prize': 'ARC Prize',
   'vals-ai': 'Vals AI',
   'zapier-automationbench': 'Zapier',
+  cursorbench: 'CursorBench',
+  'openai-releases': 'OpenAI (vendor)',
+  'anthropic-releases': 'Anthropic (vendor)',
 };
 
 /**
@@ -78,6 +82,7 @@ const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
   ARC_AGI: 'ARC-AGI-2',
   VALS_INDEX: 'Vals Index',
   ZAPIER_AUTOMATIONBENCH: 'AutomationBench',
+  CURSORBENCH_4: 'CursorBench 4.0',
   NONE: 'cost only, no pairable score',
 };
 
@@ -111,6 +116,12 @@ const providerColor = (providerId: string): string =>
 
 const sourceName = (sourceId: string): string =>
   SOURCE_NAMES[sourceId] ?? sourceId;
+
+const costSourceName = (source: {
+  sourceId: string;
+  reportedSourceId?: string;
+}): string =>
+  `${sourceName(source.sourceId)}${source.reportedSourceId ? ` · ${sourceName(source.reportedSourceId)}` : ''}`;
 
 const defaultPointIsSelected = (
   point: WeightedCostPoint,
@@ -604,8 +615,7 @@ export function DefaultCostPlot({
                             className="cost-hover-card-source-item"
                           >
                             <span>
-                              {sourceName(source.sourceId)} ({source.profileId})
-                              :
+                              {costSourceName(source)} ({source.profileId}) :
                             </span>
                             <span>${source.cost.toFixed(3)}</span>
                             <span className="cost-hover-card-source-basis">
@@ -672,7 +682,7 @@ export function DefaultCostPlot({
                       <span key={source.sourceId}>
                         {index > 0 ? ' · ' : ''}
                         <a href={source.sourceUrl}>
-                          {sourceName(source.sourceId)}
+                          {costSourceName(source)}
                         </a>{' '}
                         ({source.profileId}, ${source.cost.toFixed(3)},{' '}
                         {scoreBasisNote(
@@ -1010,7 +1020,9 @@ export function AdvancedCostPlot({
                         className="cost-hover-card-source-item"
                       >
                         <span>
-                          {sourceName(source.sourceId)}
+                          <a href={source.sourceUrl}>
+                            {costSourceName(source)}
+                          </a>
                           {source.scoreBenchmarkVersion
                             ? ` ${source.scoreBenchmarkVersion}`
                             : ''}
@@ -1069,7 +1081,7 @@ export function CostChart({
   );
   const [modelMenuOpen, setModelMenuOpen] = useState(false);
   const points = buildWeightedCostCurve(defaultProduct);
-  const selectedAdvancedSourceIds = ADVANCED_COST_SOURCE_IDS.filter(
+  const selectedAdvancedSourceIds = AVAILABLE_ADVANCED_COST_SOURCE_IDS.filter(
     (sourceId) => advancedSourceIds.has(sourceId),
   );
   const series = buildAdvancedCostSeries(
@@ -1116,7 +1128,7 @@ export function CostChart({
                 role="group"
                 aria-label="Sources used in the advanced cost chart"
               >
-                {ADVANCED_COST_SOURCE_IDS.map((sourceId) => {
+                {AVAILABLE_ADVANCED_COST_SOURCE_IDS.map((sourceId) => {
                   const enabled = advancedSourceIds.has(sourceId);
                   return (
                     <button

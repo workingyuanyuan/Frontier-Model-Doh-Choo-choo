@@ -1,0 +1,9 @@
+{
+  "deferred": {
+    "surge-chartography": {
+      "hemingway-bench": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+      "handbook": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+      "antidote": "User decision: prioritize current frontier model coverage; defer this benchmark."
+    }
+  }
+}

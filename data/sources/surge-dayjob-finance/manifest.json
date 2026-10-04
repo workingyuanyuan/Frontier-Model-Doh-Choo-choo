@@ -1,0 +1,26 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://surgehq.ai/benchmarks/dayjob-finance",
+  "benchmarkIds": ["dayjob-finance"],
+  "completeness": {
+    "expectedCountMethod": "Compare main leaderboard rows with rendered browser count, validate one numeric score and percent marker per row, and cross-check any numeric data-score attributes against visible text.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Surge AI DAYJOB Finance",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
+    "[data-score] numeric displayed text": "rawScore / normalizedScore"
+  },
+  "lastVerifiedAt": "2026-10-03T07:48:50.202Z",
+  "notes": [
+    "Main leaderboard domain mean reward percentages. Finance tasks span corporate finance, banking, credit, investing, and real assets.",
+    "Official methodology: https://surgehq.ai/blog/dayjob and https://github.com/surge-ai/dayjob#grading. Domain score is the unweighted mean of task scores, each averaging five trial rewards excluding errored trials. The README explicitly identifies five attempts per task for leaderboard runs.",
+    "Published harness uses Harbor and OpenHands SDK, with Claude Opus 4.8 grading; exact current per-row tools and harness remain unconfirmed and null. Benchmark version and leaderboard publication date are unpublished."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "surge-dayjob-finance",
+  "targetUrls": ["https://surgehq.ai/benchmarks/dayjob-finance"]
+}

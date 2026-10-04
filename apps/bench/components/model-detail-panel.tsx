@@ -9,6 +9,7 @@ import { useMemo, useState } from 'react';
 import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
+  getActiveDimensionIds,
 } from '../lib/ui-contract';
 import { getProfileDisplayName, type ProductPreset } from '../lib/view-model';
 
@@ -27,6 +28,7 @@ export interface ModelDetailPanelProps {
       }
     | undefined;
   preset?: ProductPreset | null | undefined;
+  activeDimensionIds?: readonly DimensionId[] | undefined;
   /**
    * Show measurements the preset does not score. Off by default: a benchmark
    * that does not contribute to the number above it does not belong on the
@@ -36,6 +38,7 @@ export interface ModelDetailPanelProps {
 }
 
 export const DIMENSION_DISPLAY_NAMES: Record<DimensionId, string> = {
+  comprehension: 'Comprehension',
   agentic: 'Agentic',
   coding: 'Coding',
   reasoning: 'Reasoning',
@@ -47,6 +50,14 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'aa-lcr': 'AA-LCR',
   'aa-omniscience': 'AA-Omniscience',
   'arc-agi-2': 'ARC-AGI 2',
+  chartography: 'Chartography',
+  'complex-constraints': 'ComplexConstraints',
+  'enterprisebench-corecraft': 'EnterpriseBench: CoreCraft',
+  'riemann-bench': 'Riemann-bench',
+  'dayjob-finance': 'DAYJOB: Finance',
+  'dayjob-healthcare': 'DAYJOB: Healthcare',
+  'gdp-xlsx': 'GDP.xlsx',
+  'cursorbench-4': 'CursorBench 4.0',
   critpt: 'CritPt',
   'gpqa-diamond': 'GPQA Diamond',
   'humanitys-last-exam': 'Humanity’s Last Exam',
@@ -59,6 +70,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'livebench-instruction-following': 'LiveBench Instruction Following',
   'deepswe-1-1': 'DeepSWE 1.1',
   'frontier-code-1-1': 'Frontier Code 1.1',
+  'frontier-swe-v2': 'FrontierSWE V2',
   'math-level-5': 'MATH Level 5',
   aime: 'AIME',
   frontiermath: 'FrontierMath',
@@ -69,6 +81,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'aa-briefcase': 'AA-Briefcase',
   'apex-agents': 'APEX-Agents',
   'gdpval-aa': 'GDPval-AA',
+  'gdp-pdf': 'GDP.pdf',
   ifbench: 'IFBench',
   automationbench: 'AutomationBench',
 };
@@ -83,6 +96,20 @@ export const getSourceDisplayName = (sourceId: string): string => {
       return 'LiveBench';
     case 'frontier-code':
       return 'Frontier Code';
+    case 'frontier-swe':
+      return 'FrontierSWE';
+    case 'surge-chartography':
+    case 'surge-complex-constraints':
+    case 'surge-corecraft':
+    case 'surge-riemann':
+    case 'surge-dayjob-finance':
+    case 'surge-dayjob-healthcare':
+    case 'surge-gdp-xlsx':
+      return 'Surge AI';
+    case 'openai-releases':
+      return 'OpenAI (vendor)';
+    case 'anthropic-releases':
+      return 'Anthropic (vendor)';
     case 'epoch-ai':
       return 'Epoch AI';
     case 'zapier-automationbench':
@@ -118,6 +145,7 @@ export function ModelDetailPanel({
   benchmarkDimensions,
   selectedResult,
   preset,
+  activeDimensionIds,
   developerMode = false,
 }: ModelDetailPanelProps) {
   const [openProvenanceId, setOpenProvenanceId] = useState<string | null>(null);
@@ -209,6 +237,16 @@ export function ModelDetailPanel({
   }, [benchmarkDimensions, developerMode, preset, profileEvidence]);
 
   const modelDisplayName = getProfileDisplayName(profile);
+  const dimensionIds =
+    activeDimensionIds ??
+    getActiveDimensionIds(selectedResult ? [selectedResult] : []);
+  const displayedDimensionIds = developerMode
+    ? UI_DIMENSION_IDS.filter(
+        (dimension) =>
+          dimensionIds.includes(dimension) ||
+          (benchmarksByDimension.get(dimension)?.length ?? 0) > 0,
+      )
+    : dimensionIds;
   const overallText =
     selectedResult?.overallScore !== null &&
     selectedResult?.overallScore !== undefined
@@ -235,15 +273,11 @@ export function ModelDetailPanel({
             <h2 id={titleId}>{modelDisplayName}</h2>
             <span className="model-detail-overall-badge">{overallText}</span>
           </div>
-          <p>
-            Five capability dimensions and underlying source-verified
-            benchmarks.
-          </p>
         </div>
       </div>
 
       <div className="model-detail-dimensions-grid">
-        {UI_DIMENSION_IDS.map((dimension) => {
+        {displayedDimensionIds.map((dimension) => {
           const dimLabel = DIMENSION_DISPLAY_NAMES[dimension];
           const dimAbbr = UI_DIMENSION_ABBREVIATIONS[dimension];
           const dimScore = dimensionScoreMap.get(dimension);

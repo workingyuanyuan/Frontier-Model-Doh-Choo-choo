@@ -217,7 +217,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
 
       // How many of the seven sources actually placed this point.
-      expect(html).toContain('2 of 7');
+      expect(html).toContain('2 of 8');
       // What each of them contributed, named rather than averaged.
       expect(html).toContain('Intelligence Index 61.2');
       expect(html).toContain('cost only, no pairable score');
@@ -430,13 +430,13 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain(firstPoint.costIndex.toFixed(1));
 
       // Source breakdown
-      expect(html).toContain('Artificial Analysis:');
+      expect(html).toContain('Artificial Analysis</a>:');
       expect(html).toContain('score 82.0 · $1.250');
-      expect(html).toContain('DeepSWE:');
+      expect(html).toContain('DeepSWE</a>:');
       expect(html).toContain('score 85.6 · $2.360');
-      expect(html).toContain('Frontier Code:');
+      expect(html).toContain('Frontier Code</a>:');
       expect(html).toContain('score 89.2 · $3.100');
-      expect(html).toContain('ARC Prize:');
+      expect(html).toContain('ARC Prize</a>:');
       expect(html).toContain('score 85.6 · $2.800');
     });
 
@@ -467,7 +467,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('3-source mean score (');
       expect(html).toContain('higher is better)');
       expect(html).toContain('87.4');
-      expect(html).not.toContain('ARC Prize:');
+      expect(html).not.toContain('ARC Prize</a>:');
     });
 
     it('renders native checkbox for each advanced model in the shared menu', () => {
@@ -703,11 +703,11 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('Quality vs. Cost');
       expect(html).toContain('cost-curve-chart');
       expect(html).toContain('Lower cost is better.');
-      expect(html).toContain('Source weights: 14.3% each.');
+      expect(html).toContain('Source weights: 12.5% each.');
       expect(html).toContain('The frontier connects best score at each cost.');
       expect(html).toContain('>Advanced</button>');
       expect(html).toContain('>Models</span>');
-      expect(html.indexOf('Source weights: 14.3% each.')).toBeLessThan(
+      expect(html.indexOf('Source weights: 12.5% each.')).toBeLessThan(
         html.indexOf('>Advanced</button>'),
       );
       expect(html.indexOf('>Advanced</button>')).toBeLessThan(

@@ -1,6 +1,7 @@
 import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
+  getActiveDimensionIds,
 } from '../lib/ui-contract';
 import { DIMENSION_DISPLAY_NAMES } from './model-detail-panel';
 import type { PartialCoverageRow } from '../lib/view-model';
@@ -13,13 +14,19 @@ const formatScore = (score: number | null) =>
   score === null ? 'N/A' : score.toFixed(1);
 
 /**
- * Ruling R19: a profile holding four of the five dimensions is disclosed here
+ * Ruling R19: a profile missing one scored dimension is disclosed here
  * instead of ranked. No overall score, no rank, and no shared ordering with the
  * main table -- the two sets are not measured on the same basis. Like the
  * excluded-cells list, this is a developer-mode diagnostic: it reports a gap in
  * the data, so it does not belong beside the numbers the main screen publishes.
  */
 export function PartialCoverageList({ rows }: PartialCoverageListProps) {
+  const scoredDimensionIds = getActiveDimensionIds(rows);
+  const dimensionIds = UI_DIMENSION_IDS.filter(
+    (dimension) =>
+      scoredDimensionIds.includes(dimension) ||
+      rows.some((row) => row.missingDimension === dimension),
+  );
   const dominantGap = [...UI_DIMENSION_IDS]
     .map((dimension) => ({
       dimension,
@@ -38,15 +45,11 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
           <p className="eyebrow">Developer diagnostics</p>
           <h2 id="partial-coverage-title">Partial coverage</h2>
           <p>
-            These profiles carry four of the five dimensions, so they get no
-            overall score and no rank. The gap is not random: on the benchmarks
-            they do hold, profiles covering all five average +0.114 standard
-            deviations and those covering four average −0.188
+            These profiles are missing one scored dimension
             {dominantGap && dominantGap.count > 0
               ? `, and ${dominantGap.count} of the ${rows.length} here are missing ${DIMENSION_DISPLAY_NAMES[dominantGap.dimension]}`
               : ''}
-            . Scoring them on what they have would place a different measurement
-            beside the ranked table.
+            .
           </p>
         </div>
         <p data-partial-coverage-count={rows.length}>{rows.length} profiles</p>
@@ -67,7 +70,7 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
               <tr>
                 <th scope="col">Model</th>
                 <th scope="col">Missing</th>
-                {UI_DIMENSION_IDS.map((dimension) => (
+                {dimensionIds.map((dimension) => (
                   <th key={dimension} scope="col">
                     <abbr title={DIMENSION_DISPLAY_NAMES[dimension]}>
                       {UI_DIMENSION_ABBREVIATIONS[dimension]}
@@ -94,7 +97,7 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
                     <td data-missing-dimension={row.missingDimension}>
                       {DIMENSION_DISPLAY_NAMES[row.missingDimension]}
                     </td>
-                    {UI_DIMENSION_IDS.map((dimension) => (
+                    {dimensionIds.map((dimension) => (
                       <td key={dimension}>
                         {formatScore(scoreByDimension.get(dimension) ?? null)}
                       </td>

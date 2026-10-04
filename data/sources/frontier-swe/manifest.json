@@ -1,0 +1,26 @@
+{
+  "accessMethods": ["EMBEDDED_JSON", "DOM"],
+  "baseUrl": "https://www.frontierswe.com/",
+  "benchmarkIds": ["frontier-swe-v2"],
+  "completeness": {
+    "expectedCountMethod": "Cross-check all entries.abs.mean model/harness identities against the coverage matrix and server-rendered leaderboard scores.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "FrontierSWE V2",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "entries.abs.mean[].harness": "profile.harness",
+    "entries.abs.mean[].model": "model.rawName",
+    "entries.abs.mean[].overall": "normalizedScore"
+  },
+  "lastVerifiedAt": "2026-10-01T03:28:35.622Z",
+  "notes": [
+    "Mean@5 percentage across V2 tasks; benchmark scope is manual profile comparisons.",
+    "Source reasoning effort is unpublished and preserved as null."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "frontier-swe",
+  "targetUrls": ["https://www.frontierswe.com/"]
+}

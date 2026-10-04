@@ -3,19 +3,26 @@
 > 最後清單時效核驗：2026-08-13（Asia/Taipei）
 > 最後主辦方逐列深度核驗：2026-08-13
 > 下次例行核驗：2026-09-13
+> 本次局部核驗：2026-10-02，OpenAI／Anthropic 發布頁與四項 benchmark，見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 > 適用範圍：模型排行榜、五維能力分數、Quality vs. Cost、Category Profile
 
 本文件是「來源分類與時效登錄」，不是一般連結收藏，也**不是匯入授權**。來源分類採 **Benchmark 主辦方／獨立評測者／廠商自報**，且分類單位是「一筆結果」，不是整個網站。
 
-**允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json`**，目前有 Artificial Analysis、LiveBench、DeepSWE、Cognition Frontier Code、Epoch AI、ARC Prize、Zapier AutomationBench 與 Vals AI 八個來源（見 [重構規格 §3](SPEC.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
+**允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json`**，目前有 Artificial Analysis、LiveBench、DeepSWE、Cognition Frontier Code、Proximal FrontierSWE、Surge AI Chartography、ComplexConstraints、EnterpriseBench: CoreCraft、Riemann-bench、DAYJOB: Finance、DAYJOB: Healthcare、GDP.xlsx、Epoch AI、ARC Prize、Zapier AutomationBench 、Vals AI、OpenAI releases 與 Anthropic releases 十八個來源（見 [重構規格 §3](SPEC.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
 
 ## 採用與覆蓋規則
 
+2026-10-03 納入 **GDP.pdf（Artificial Analysis）**（`gdp-pdf`）：採用 [AA 評測頁](https://artificialanalysis.ai/evaluations/gdp-pdf) 的 All-pass 百分比，角色為 INDEPENDENT，主要維度為 Reasoning。選擇 AA 的依據為最新前沿模型覆蓋。AA 每題進行 5 次獨立嘗試；保留其 harness 與原始欄位證據。AA 與 Surge 的文件輸入、harness 及 judge 不同，GDP.pdf 的分數採 AA 實作。
+
+2026-10-02 納入 **OpenAI releases**（`openai-releases`）與 **Anthropic releases**（`anthropic-releases`），逐圖表維護可採用範圍。前者為 DeepSWE 1.1、AutomationBench 1.0.6；後者為 FrontierCode 1.1 Main、CursorBench 4.0。來源角色為 VENDOR，重疊列與主辦方核對、缺列保留預覽標示，詳細值、設定差異與採用理由見 [發布頁研究](refresh/2026-10-02-vendor-releases.md)。
+
+2026-10-02 新增 **Surge AI Chartography**（`surge-chartography`）：採用 [官方主榜](https://surgehq.ai/benchmarks/chartography) 的 42 筆 Pass@1 百分比，角色為 ORGANIZER。明示 reasoning 強度隨列保存；`chartography` 對應 Reasoning，Knowledge 為次要關聯。來源版本、逐列日期與試驗次數未明時保存 null。完整性與模型對應詳見 [來源驗證報告](../data/sources/surge-chartography/validation-report.md)。
+
 1. 同一 Benchmark、版本、資料切分、指標、模型 Profile 與評測配置完全一致時，來源優先序為：**主辦方實測 > 獨立評測 > 廠商自報**。
 2. 模型初上市可先保留廠商自報分數與出處；是否進入產品主畫面仍由固定 display set 完整矩陣決定。
-3. 後續出現相同 Product Profile 與相同 Benchmark 的主辦方或獨立實測時，通常依來源優先級取代廠商自報值。Product Profile 只按 reasoning effort 分離；不同 Harness／No Harness 的同 Benchmark 候選合併後取可比較分數較高者。未標 effort 只可從其他來源同一 canonical model 的明示／名稱可判定 effort 推測，規則為**每個其他來源對該模型發布過的每個具名檔位各投一票，取眾數，平手取較高檔位**（見 [重構規格 §4.5](SPEC.md)），不是直接取所有來源中的最高檔；沒有依據時使用階梯外的 `default`，不建立 unspecified，也不把缺值當 `max`。thinking、tools、harness、context、量化或 sampling 仍保存於原始來源配置，不得在 provenance 中遺失。
-4. 同一頁的競品欄不能自動視為該廠商自報；若註明取自 Artificial Analysis、Scale、DataCurve 或其他執行者，必須回溯並歸類到實際執行者。
-5. 網站只聚合或轉貼結果時，不是終端證據。必須保存原始 URL、Benchmark 版本、模型 Profile、指標、分數、執行者及來源日期。
+3. 後續出現相同 Product Profile 與相同 Benchmark 的主辦方或獨立實測時，通常依來源優先級取代廠商自報值。Product Profile 只按 reasoning effort 分離；不同 Harness／No Harness 的同 Benchmark 候選只有在來源角色與完整性相同時才取可比較分數較高者。未標 effort 只可從其他來源同一 canonical model 的明示／名稱可判定 effort 推測，規則為**每個其他來源對該模型發布過的每個具名檔位各投一票，取眾數，平手取較高檔位**（見 [重構規格 §4.5](SPEC.md)），不是直接取所有來源中的最高檔；沒有依據時使用階梯外的 `default`，不建立 unspecified，也不把缺值當 `max`。thinking、tools、harness、context、量化或 sampling 仍保存於原始來源配置，不得在 provenance 中遺失。
+4. 同一頁的競品欄需回溯原始執行者。發布頁補充來源使用保守的 VENDOR 證據優先級，另記實際執行者、引用網址及核對結果；直接取得主辦方結果才提升為 ORGANIZER，詳見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。
+5. 一般聚合站只供發現來源；經逐項核對的官方模型發布頁可補足缺格。保存原始 URL、版本、模型與 effort、指標、執行者說明、取得日期及主辦方交叉核對，未驗證的新列仍屬廠商預覽。
 6. 官方沒有逐列日期時寫「未公開」，並另記核驗日；不得把核驗日冒充網站更新日。
 
 ## 時效狀態
@@ -41,7 +48,8 @@
 | [Ai2／AllenAI IFBench](https://github.com/allenai/IFBench)                                                                                      | IFBench                                                                                                            | **WATCH** — o3、Gemini 2.5 Pro、Claude 4 Sonnet；逐列日期未公開，模型約 2025。新模型優先採獨立重跑。                                                                                                                  |
 | [SciCode](https://github.com/scicode-bench/SciCode)                                                                                             | SciCode                                                                                                            | **FROZEN** — o3-mini、DeepSeek-R1／V3；最後明示更新 2025-02-01。只保留官方歷史列。                                                                                                                                    |
 | [Terminal-Bench／Harbor](https://www.tbench.ai/leaderboard/terminal-bench/2.1)                                                                  | Terminal-Bench 2.1；2.0 分版；1.0 Legacy                                                                           | **ACTIVE** — GPT-5.6 Terra／Luna max，2026-07-11。優先採團隊執行並驗證的 2.1 rows，保存 agent、effort、PR、cost。                                                                                                     |
-| [Proximal — FrontierSWE](https://www.frontierswe.com/)                                                                                          | FrontierSWE                                                                                                        | **ACTIVE** — Claude Fable 5、Grok 4.5、Claude Opus 4.8、GLM-5.2、GPT-5.5；逐列日期未公開，核驗 2026-08-13。結果是 model+harness 的 avg rank／dominance。                                                              |
+| [Proximal — FrontierSWE V1](https://www.frontierswe.com/)                                                                                       | FrontierSWE                                                                                                        | **ACTIVE** — Claude Fable 5、Grok 4.5、Claude Opus 4.8、GLM-5.2、GPT-5.5；逐列日期未公開，核驗 2026-08-13。結果是 model+harness 的 avg rank／dominance。                                                              |
+| [Proximal — FrontierSWE V2](https://www.frontierswe.com/)                                                                                       | FrontierSWE V2 (`frontier-swe-v2`)                                                                                 | **ACTIVE / 手動 profiles 比較** — mean@5 百分比分數，完整擷取 18 個模型／harness 組合；核驗 2026-10-01。                                                                                                              |
 | [Cognition — FrontierCode](https://cognition.com/frontiercode)                                                                                  | FrontierCode 1.1（benchmark ID `frontier-code-1-1`）                                                               | **ACTIVE** — 28 個模型、77 組 model×effort，全部有加權 rubric 百分比分數與每次 rollout 平均成本；官方靜態 export，核驗 2026-08-18。**與 Proximal FrontierSWE 是不同 benchmark，不得合併。**                           |
 | [AlgoTune](https://algotune.io/)                                                                                                                | AlgoTune                                                                                                           | **ACTIVE** — GPT-5.2 high、Gemini 3.1 Pro Preview high、GPT-5.4 high；現行 2026，逐列日期未公開。採 harmonic-mean AlgoTune Score，保存 agent／effort／task set。                                                      |
 | [XLANG Lab — OSWorld](https://osworld-v2.xlang.ai/)                                                                                             | OSWorld、OSWorld-Verified、OSWorld 2.0                                                                             | **ACTIVE** — OSWorld 2.0 v2026.06.24 官方榜仍由 Claude Opus 4.8 max（20.6% binary）領先，GPT-5.5 xhigh 為 13.0%；官方 JSON 更新 2026-06-25，核驗 2026-08-13。GPT-5.6 的模型卡結果不得冒充主辦方榜列。                 |
@@ -60,7 +68,7 @@
 
 - **Tasteful Solve Rate** 屬 Snorkel AI 的 Senior SWE-Bench，不屬 Lech Mazur。
 - **Fiction.liveBench**、LiveBench 與 Lech Mazur Writing 是三個不同專案。
-- **FrontierSWE**（benchmark ID `frontierswe`）主辦方是 Proximal，指標是 model+harness 的 avg rank／dominance；**Cognition 的 FrontierCode**（benchmark ID `frontier-code-1-1`）是另一個主辦方、另一種指標（加權 rubric 百分比），兩者名稱相近但不可共用識別碼或互相取代。**APEX** 是 Mercor 的 benchmark family；**IFBench** 應寫 Ai2／AllenAI（UW 是共同作者機構）。
+- **FrontierSWE**（benchmark ID `frontierswe`）V1 主辦方是 Proximal，指標是 model+harness 的 avg rank／dominance；**Cognition 的 FrontierCode**（benchmark ID `frontier-code-1-1`）是另一個主辦方、另一種指標（加權 rubric 百分比），兩者名稱相近但不可共用識別碼或互相取代。**APEX** 是 Mercor 的 benchmark family；**IFBench** 應寫 Ai2／AllenAI（UW 是共同作者機構）。
 - 官方已停止更新的 GDPval 與 SciCode 不再刷新，但已核實歷史列仍可保留。
 
 ## 2. 獨立評測者
@@ -146,3 +154,27 @@
 - Poolside Laguna XS 2.1 的最新圖表需人工視覺覆核；在此之前不匯入文字抽取的 0.0。
 - AA-LCR 已改採 2026-08-12 models payload 的結構化逐模型 accuracy；摘要文案或未標版本圖表不得覆寫該 payload。
 - SWE-bench、FrontierSWE、AlgoTune、Mercor APEX、Zapier AutomationBench、部分 AA／DRB II 與 Kaggle 榜未公開逐列加入日期；只記「未公開」與核驗日。
+
+## ComplexConstraints adoption (2026-10-03)
+
+採用 [Surge AI 主辦方主榜](https://surgehq.ai/benchmarks/complex-constraints)的 Pass@1 百分比，來源 ID 為 `surge-complex-constraints`。主榜以所有 rubric 條件皆通過計算任務成功率。保留明示 reasoning、Adaptive 與 Thinking 設定；版本與逐列重試次數未公布時保持 null。使用獨立刷新命令與共用來源變更監測，原始 HTML 保存於內容定址 artifact。
+
+## EnterpriseBench: CoreCraft adoption (2026-10-03)
+
+採用 [Surge AI 官方主榜](https://surgehq.ai/benchmarks/enterprisebench-corecraft)，來源 `surge-corecraft`、角色 ORGANIZER；主榜 50 筆模型設定，百分比原值直接投入 Agentic 維度。指標為所有 rubric 條件皆通過的任務通過率。方法見 [官方說明](https://surgehq.ai/blog/enterprisebench-corecraft) 與 [論文](https://arxiv.org/html/2602.16179v5)；論文訓練評估切分的數字不混入主榜。來源版本、逐列日期及重複試驗數未公開時保留 null。檔位與未解模型見 [來源驗證報告](../data/sources/surge-corecraft/validation-report.md)。
+
+## Riemann-bench adoption (2026-10-03)
+
+採用 [Surge AI 官方主榜](https://surgehq.ai/benchmarks/riemann-bench)，來源 `surge-riemann`、角色 ORGANIZER；主榜 44 筆設定，通過率百分比直接投入 Reasoning 維度。研究級數學問題以可驗證答案為端點。方法見 [官方說明](https://surgehq.ai/blog/riemann-bench-a-benchmark-for-moonshot-mathematics) 與 [論文](https://arxiv.org/html/2604.06802v3)。官方說明已補註取消原本的一小時限時；論文的歷史重複試驗設定不自動套用至目前榜單，逐列 attempts、tools、harness、版本與日期未確認時保留 null。檔位與未解模型見 [來源驗證報告](../data/sources/surge-riemann/validation-report.md)。
+
+## DAYJOB: Finance adoption (2026-10-03)
+
+採用 [Surge AI 官方主榜](https://surgehq.ai/benchmarks/dayjob-finance)，來源 `surge-dayjob-finance`、角色 ORGANIZER；主榜 32 筆設定，平均 reward 百分比直接投入 Agentic 維度。依 [官方評分文件](https://github.com/surge-ai/dayjob#grading)，每題執行五次，排除錯誤試驗後平均 reward，再對各題取等權平均。官方發布 Harbor／OpenHands 執行框架與 Claude Opus 4.8 評審資訊；逐列未公開的確切 harness 版本、工具設定、context、benchmark 版本與發布日期保留 null。檔位與未解模型見 [來源驗證報告](../data/sources/surge-dayjob-finance/validation-report.md)。
+
+## DAYJOB: Healthcare adoption (2026-10-03)
+
+採用 [Surge AI 官方主榜](https://surgehq.ai/benchmarks/dayjob-healthcare)，來源 `surge-dayjob-healthcare`、角色 ORGANIZER；主榜 32 筆設定，平均 reward 百分比投入 Agentic 維度。依 [官方評分文件](https://github.com/surge-ai/dayjob#grading)，每題五次試驗，排除錯誤後平均 reward，再對各題取等權平均。逐列未公開的確切 harness 版本、工具設定、context、benchmark 版本與發布日期保留 null。模型對應與檔位見 [來源驗證報告](../data/sources/surge-dayjob-healthcare/validation-report.md)。
+
+## GDP.xlsx adoption (2026-10-03)
+
+採用 [Surge AI 官方主榜](https://surgehq.ai/benchmarks/gdp-xlsx)，來源 `surge-gdp-xlsx`、角色 ORGANIZER；主榜 20 筆設定。平均 reward 百分比投入 Reasoning 維度。[官方評分文件](https://github.com/surge-ai/gdp-xlsx#grading)定義逐條 rubric 二元評分的平均 reward，每題五次試驗並排除錯誤，再對各題等權平均。逐列未明示的版本、工具、context 與發布日期保留 null。模型對應及設定見 [來源驗證報告](../data/sources/surge-gdp-xlsx/validation-report.md)。

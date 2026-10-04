@@ -1,0 +1,2882 @@
+[
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 9.08,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:fable51-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 8 (series=fable51, effort=High); x=9.08; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 8 (series=fable51, effort=High); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 8 (series=fable51, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 8 (series=fable51, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 8 (series=fable51, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 5.44,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:fable51-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 6 (series=fable51, effort=Low); x=5.44; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 6 (series=fable51, effort=Low); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 6 (series=fable51, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 6 (series=fable51, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 6 (series=fable51, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 17.28,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:fable51-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 10 (series=fable51, effort=Max); x=17.28; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 10 (series=fable51, effort=Max); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 10 (series=fable51, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 10 (series=fable51, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 10 (series=fable51, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 7.05,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:fable51-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 7 (series=fable51, effort=Med); x=7.05; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 7 (series=fable51, effort=Med); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 7 (series=fable51, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 7 (series=fable51, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 7 (series=fable51, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 13.01,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:fable51-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 9 (series=fable51, effort=Xhigh); x=13.01; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 9 (series=fable51, effort=Xhigh); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 9 (series=fable51, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 9 (series=fable51, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 9 (series=fable51, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 2.85,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:gpt56sol-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-high",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 18 (series=gpt56sol, effort=High); x=2.85; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 18 (series=gpt56sol, effort=High); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 18 (series=gpt56sol, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 18 (series=gpt56sol, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 18 (series=gpt56sol, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 0.87,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:gpt56sol-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-low",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 16 (series=gpt56sol, effort=Low); x=0.87; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 16 (series=gpt56sol, effort=Low); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 16 (series=gpt56sol, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 16 (series=gpt56sol, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 16 (series=gpt56sol, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 8.23,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:gpt56sol-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 20 (series=gpt56sol, effort=Max); x=8.23; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 20 (series=gpt56sol, effort=Max); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 20 (series=gpt56sol, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 20 (series=gpt56sol, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 20 (series=gpt56sol, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 1.77,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:gpt56sol-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-medium",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 17 (series=gpt56sol, effort=Med); x=1.77; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 17 (series=gpt56sol, effort=Med); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 17 (series=gpt56sol, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 17 (series=gpt56sol, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 17 (series=gpt56sol, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 4.4,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:gpt56sol-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-xhigh",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 19 (series=gpt56sol, effort=Xhigh); x=4.4; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 19 (series=gpt56sol, effort=Xhigh); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 19 (series=gpt56sol, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 19 (series=gpt56sol, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 19 (series=gpt56sol, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 9,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus5-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-high",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 13 (series=opus5, effort=High); x=9; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 13 (series=opus5, effort=High); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 13 (series=opus5, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 13 (series=opus5, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 13 (series=opus5, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 4.87,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus5-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-low",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 11 (series=opus5, effort=Low); x=4.87; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 11 (series=opus5, effort=Low); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 11 (series=opus5, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 11 (series=opus5, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 11 (series=opus5, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 11.95,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus5-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-max",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 15 (series=opus5, effort=Max); x=11.95; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 15 (series=opus5, effort=Max); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 15 (series=opus5, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 15 (series=opus5, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 15 (series=opus5, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 6.94,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus5-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-medium",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 12 (series=opus5, effort=Med); x=6.94; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 12 (series=opus5, effort=Med); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 12 (series=opus5, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 12 (series=opus5, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 12 (series=opus5, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 11.43,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus5-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-xhigh",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 14 (series=opus5, effort=Xhigh); x=11.43; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 14 (series=opus5, effort=Xhigh); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 14 (series=opus5, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 14 (series=opus5, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 14 (series=opus5, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 3.97,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus55-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-high",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 3 (series=opus55, effort=High); x=3.97; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 3 (series=opus55, effort=High); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 3 (series=opus55, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 3 (series=opus55, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 3 (series=opus55, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 1.18,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus55-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-low",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 1 (series=opus55, effort=Low); x=1.18; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 1 (series=opus55, effort=Low); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 1 (series=opus55, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 1 (series=opus55, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 1 (series=opus55, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 13.43,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus55-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 5 (series=opus55, effort=Max); x=13.43; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 5 (series=opus55, effort=Max); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 5 (series=opus55, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 5 (series=opus55, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 5 (series=opus55, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 2.9,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus55-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-medium",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 2 (series=opus55, effort=Med); x=2.9; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 2 (series=opus55, effort=Med); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 2 (series=opus55, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 2 (series=opus55, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 2 (series=opus55, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "cursorbench-4",
+    "benchmarkVersion": "4.0",
+    "cost": 6.99,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:cursorbench-4:opus55-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-xhigh",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 4 (series=opus55, effort=Xhigh); x=6.99; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 4 (series=opus55, effort=Xhigh); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 4 (series=opus55, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench CSV row 4 (series=opus55, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartcursorbench xAxis.label=Cost per task (USD, log scale); RSC tuskchartcursorbench CSV row 4 (series=opus55, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 5.2741,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:fable51-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-high",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 8 (series=fable51, effort=High); x=5.2741; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 8 (series=fable51, effort=High); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 8 (series=fable51, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 8 (series=fable51, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 8 (series=fable51, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.4665,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": "Known cross-source conflict: Anthropic reports 52.8%, while Cognition's FrontierCode 1.1 leaderboard reports 49.82% for this row. Excluded pending configuration reconciliation. https://cognition.com/frontiercode",
+    "id": "anthropic-releases:frontier-code-1-1:fable51-low:cost",
+    "inclusion": "EXCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-low",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 6 (series=fable51, effort=Low); x=2.4665; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 6 (series=fable51, effort=Low); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 6 (series=fable51, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 6 (series=fable51, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 6 (series=fable51, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 12.8218,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:fable51-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 10 (series=fable51, effort=Max); x=12.8218; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 10 (series=fable51, effort=Max); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 10 (series=fable51, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 10 (series=fable51, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 10 (series=fable51, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.2845,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:fable51-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-medium",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 7 (series=fable51, effort=Med); x=3.2845; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 7 (series=fable51, effort=Med); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 7 (series=fable51, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 7 (series=fable51, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 7 (series=fable51, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 9.2739,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:fable51-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-xhigh",
+      "rawName": "Claude Fable 5.1"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 9 (series=fable51, effort=Xhigh); x=9.2739; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 9 (series=fable51, effort=Xhigh); explicit series-key mapping to Claude Fable 5.1",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 9 (series=fable51, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 9 (series=fable51, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 9 (series=fable51, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.2488,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt56sol-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-high",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 18 (series=gpt56sol, effort=High); x=3.2488; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 18 (series=gpt56sol, effort=High); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 18 (series=gpt56sol, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 18 (series=gpt56sol, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 18 (series=gpt56sol, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.7476,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt56sol-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-low",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 16 (series=gpt56sol, effort=Low); x=1.7476; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 16 (series=gpt56sol, effort=Low); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 16 (series=gpt56sol, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 16 (series=gpt56sol, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 16 (series=gpt56sol, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 4.8477,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt56sol-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 20 (series=gpt56sol, effort=Max); x=4.8477; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 20 (series=gpt56sol, effort=Max); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 20 (series=gpt56sol, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 20 (series=gpt56sol, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 20 (series=gpt56sol, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.4986,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt56sol-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-medium",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 17 (series=gpt56sol, effort=Med); x=2.4986; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 17 (series=gpt56sol, effort=Med); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 17 (series=gpt56sol, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 17 (series=gpt56sol, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 17 (series=gpt56sol, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.8806,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt56sol-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-xhigh",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 19 (series=gpt56sol, effort=Xhigh); x=3.8806; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 19 (series=gpt56sol, effort=Xhigh); explicit series-key mapping to GPT-5.6 Sol",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 19 (series=gpt56sol, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 19 (series=gpt56sol, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 19 (series=gpt56sol, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.847,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt6astra-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-high",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 23 (series=gpt6astra, effort=High); x=2.847; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 23 (series=gpt6astra, effort=High); explicit series-key mapping to GPT-6 Astra",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 23 (series=gpt6astra, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 23 (series=gpt6astra, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 23 (series=gpt6astra, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.5927,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt6astra-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-low",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 21 (series=gpt6astra, effort=Low); x=1.5927; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 21 (series=gpt6astra, effort=Low); explicit series-key mapping to GPT-6 Astra",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 21 (series=gpt6astra, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 21 (series=gpt6astra, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 21 (series=gpt6astra, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 4.3632,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt6astra-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-max",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 25 (series=gpt6astra, effort=Max); x=4.3632; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 25 (series=gpt6astra, effort=Max); explicit series-key mapping to GPT-6 Astra",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 25 (series=gpt6astra, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 25 (series=gpt6astra, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 25 (series=gpt6astra, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.2845,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt6astra-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-medium",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 22 (series=gpt6astra, effort=Med); x=2.2845; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 22 (series=gpt6astra, effort=Med); explicit series-key mapping to GPT-6 Astra",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 22 (series=gpt6astra, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 22 (series=gpt6astra, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 22 (series=gpt6astra, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 3.0961,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:gpt6astra-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 24 (series=gpt6astra, effort=Xhigh); x=3.0961; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 24 (series=gpt6astra, effort=Xhigh); explicit series-key mapping to GPT-6 Astra",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 24 (series=gpt6astra, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 24 (series=gpt6astra, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 24 (series=gpt6astra, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 7.615,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus5-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-high",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 13 (series=opus5, effort=High); x=7.615; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 13 (series=opus5, effort=High); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 13 (series=opus5, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 13 (series=opus5, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 13 (series=opus5, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.6415,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus5-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-low",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 11 (series=opus5, effort=Low); x=2.6415; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 11 (series=opus5, effort=Low); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 11 (series=opus5, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 11 (series=opus5, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 11 (series=opus5, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 12.2814,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus5-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-max",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 15 (series=opus5, effort=Max); x=12.2814; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 15 (series=opus5, effort=Max); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 15 (series=opus5, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 15 (series=opus5, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 15 (series=opus5, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 4.6066,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus5-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-medium",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 12 (series=opus5, effort=Med); x=4.6066; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 12 (series=opus5, effort=Med); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 12 (series=opus5, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 12 (series=opus5, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 12 (series=opus5, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 8.9885,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus5-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-xhigh",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 14 (series=opus5, effort=Xhigh); x=8.9885; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 14 (series=opus5, effort=Xhigh); explicit series-key mapping to Claude Opus 5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 14 (series=opus5, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 14 (series=opus5, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 14 (series=opus5, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 1.0896,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus55-high:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-high",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 3 (series=opus55, effort=High); x=1.0896; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 3 (series=opus55, effort=High); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 3 (series=opus55, effort=High); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 3 (series=opus55, effort=High); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 3 (series=opus55, effort=High)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.4036,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus55-low:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-low",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "low",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 1 (series=opus55, effort=Low); x=0.4036; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 1 (series=opus55, effort=Low); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 1 (series=opus55, effort=Low); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 1 (series=opus55, effort=Low); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 1 (series=opus55, effort=Low)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 6.191,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus55-max:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 5 (series=opus55, effort=Max); x=6.191; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 5 (series=opus55, effort=Max); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 5 (series=opus55, effort=Max); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 5 (series=opus55, effort=Max); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 5 (series=opus55, effort=Max)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 0.8016,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus55-medium:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-medium",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "medium",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 2 (series=opus55, effort=Med); x=0.8016; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 2 (series=opus55, effort=Med); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 2 (series=opus55, effort=Med); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 2 (series=opus55, effort=Med); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 2 (series=opus55, effort=Med)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "frontier-code-1-1",
+    "benchmarkVersion": "1.1",
+    "cost": 2.2545,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+    ],
+    "exclusionReason": null,
+    "id": "anthropic-releases:frontier-code-1-1:opus55-xhigh:cost",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "Cost per task",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-xhigh",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-10-02T14:57:02.279Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 4 (series=opus55, effort=Xhigh); x=2.2545; xAxis.label=Cost per task (USD, log scale)",
+        "method": "NEXT_RSC"
+      },
+      "model": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 4 (series=opus55, effort=Xhigh); explicit series-key mapping to Claude Opus 5.5",
+        "method": "NEXT_RSC"
+      },
+      "profile": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 4 (series=opus55, effort=Xhigh); effort taken from explicit CSV label",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode CSV row 4 (series=opus55, effort=Xhigh); y is the plotted score percentage; Anthropic states that Claude Opus 5.5 figures use adaptive thinking at max effort unless noted; each selected chart row has an explicit effort label. Claude Opus 5.5 was evaluated with production safeguards enabled; when they intervened, cybersecurity tasks were completed by Claude Opus 4.8, and biology and frontier LLM development tasks were completed by Claude Opus 5, which Anthropic says likely lowers these scores. The charts do not state a harness, so harness is unknown.",
+        "method": "NEXT_RSC"
+      },
+      "unit": {
+        "evidenceId": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+        "locator": "RSC tuskchartfrontiercode xAxis.label=Cost per task (USD, log scale); RSC tuskchartfrontiercode CSV row 4 (series=opus55, effort=Xhigh)",
+        "method": "NEXT_RSC"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "anthropic-releases",
+    "sourcePublishedAt": "2026-09-22T00:00:00.000Z",
+    "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "unit": "USD_PER_TASK"
+  }
+]

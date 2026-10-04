@@ -17,6 +17,7 @@ import {
 export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
   'omniscience',
   'gdpval-aa',
+  'gdp-pdf',
   'apex-agents-aa',
   'aa-briefcase',
   'critpt',
@@ -122,6 +123,7 @@ const INTELLIGENCE_INDEX_EXCLUSION_REASON =
 const EVALUATION_PRIORITY = new Map<string, number>([
   ['omniscience', 0],
   ['gdpval-aa', 0],
+  ['gdp-pdf', 0],
   ['apex-agents-aa', 0],
   ['aa-briefcase', 0],
   ['critpt', 0],
@@ -156,6 +158,7 @@ const APPROVED_SCORE_FIELDS = [
   'livecodebench',
   'gdpval_normalized',
   'gdpvalNormalized',
+  'gdpPdfAllPass',
   'ifbench',
   'mmlu_pro',
   'mmluPro',
@@ -174,9 +177,11 @@ interface ScoreMapping {
   sourceRole: CandidateResult['sourceRole'];
   normalize: boolean;
   preferredPage: string;
+  harness?: string;
+  attempts?: number;
 }
 
-const SCORE_MAPPING: readonly ScoreMapping[] = [
+export const SCORE_MAPPING: readonly ScoreMapping[] = [
   {
     field: 'lcr',
     aliases: ['lcr'],
@@ -275,6 +280,19 @@ const SCORE_MAPPING: readonly ScoreMapping[] = [
     sourceRole: 'INDEPENDENT' as const,
     normalize: true,
     preferredPage: 'models',
+  },
+  {
+    field: 'gdpPdfAllPass',
+    aliases: ['gdpPdfAllPass'],
+    benchmarkId: 'gdp-pdf',
+    metricId: 'all-pass',
+    metricName: 'All-pass',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'gdp-pdf',
+    harness: 'Artificial Analysis GDP.pdf',
+    attempts: 5,
   },
   {
     field: 'gdpval_normalized',
@@ -859,13 +877,13 @@ const makeScoreCandidate = (
           ? 'reasoning'
           : null,
       tools: null,
-      harness: null,
+      harness: mapping.harness ?? null,
       contextWindowTokens:
         readNumber(
           readRowField(row, ['context_window_tokens', 'contextWindowTokens']),
         ) ?? null,
       quantization: null,
-      attempts: null,
+      attempts: mapping.attempts ?? null,
     },
     metric: {
       id: mapping.metricId,

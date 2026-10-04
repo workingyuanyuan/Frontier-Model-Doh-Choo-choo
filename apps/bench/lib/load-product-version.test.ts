@@ -4,7 +4,11 @@ import { join } from 'node:path';
 
 import { afterEach, describe, expect, it } from 'vitest';
 
-import { DIMENSION_IDS } from '@llm-bench/benchmark-data';
+import {
+  DIMENSION_IDS,
+  CATALOG_DIMENSION_IDS,
+  buildProductVersion,
+} from '@llm-bench/benchmark-data';
 
 import { loadProductVersion } from './load-product-version';
 import { productFixture } from '../test/fixture';
@@ -20,6 +24,60 @@ afterEach(() => {
 });
 
 describe('loadProductVersion', () => {
+  it('loads the v2 taxonomy and embedded preset for a frontier product', () => {
+    const root = mkdtempSync(join(tmpdir(), 'llm-bench-frontier-'));
+    temporaryRoots.push(root);
+    const productRoot = join(root, 'data', 'product');
+    const mappingRoot = join(root, 'data', 'mappings');
+    mkdirSync(productRoot, { recursive: true });
+    mkdirSync(mappingRoot, { recursive: true });
+    const {
+      versionId: _version,
+      schemaVersion: _schema,
+      activePreset: _active,
+      leaderboard: _rows,
+      ...content
+    } = productFixture;
+    const modern = buildProductVersion({
+      ...content,
+      benchmarkQuality: {
+        reviewedAt: '2026-10-04',
+        evidencePath: 'fixture',
+        excludedBenchmarkIds: ['proofbench'],
+        limitedBenchmarkIds: [],
+        minOtherBenchmarksPerLimited: 2,
+      },
+    });
+    writeFileSync(join(productRoot, 'current.json'), JSON.stringify(modern));
+    writeFileSync(
+      join(mappingRoot, 'benchmarks-v2.json'),
+      JSON.stringify({
+        schemaVersion: 'benchmark-dimensions-v2',
+        dimensions: CATALOG_DIMENSION_IDS,
+        benchmarks: [
+          ...new Set(modern.presets.flatMap((p) => p.benchmarkIds)),
+        ].map((id) => ({
+          id,
+          primaryDimension: 'comprehension',
+          secondaryDimensions: [],
+        })),
+      }),
+    );
+    process.chdir(root);
+    const loaded = loadProductVersion();
+    expect(
+      Object.values(loaded.benchmarkDimensions).every(
+        (d) => d === 'comprehension',
+      ),
+    ).toBe(true);
+    expect(loaded.displaySet?.defaultPresetId).toBe(modern.defaultPresetId);
+    expect(loaded.product).toEqual(modern);
+    rmSync(join(mappingRoot, 'benchmarks-v2.json'));
+    expect(() => loadProductVersion()).toThrow(
+      'v2 benchmark mapping does not exist',
+    );
+  });
+
   it('loads and validates the fixed current product path synchronously', () => {
     const root = mkdtempSync(join(tmpdir(), 'llm-bench-product-'));
     temporaryRoots.push(root);

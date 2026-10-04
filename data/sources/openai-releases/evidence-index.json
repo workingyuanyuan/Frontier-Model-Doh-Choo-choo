@@ -1,0 +1,22 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/09/09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b.json",
+    "byteLength": 7667,
+    "finalUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "id": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+    "mediaType": "application/json",
+    "metadata": {
+      "chartRows": {
+        "automationbench": 21,
+        "deepswe": 15
+      },
+      "scope": "Reviewed two-chart excerpt extracted from browser DOM script elements; normalized JSON, not a full HTTP response."
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "retrievedAt": "2026-10-02T14:56:49.000Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+    "sourceId": "openai-releases"
+  }
+]

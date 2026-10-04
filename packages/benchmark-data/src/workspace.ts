@@ -4,12 +4,10 @@ import { join, resolve } from 'node:path';
 
 import {
   BenchmarkDimensionMappingSchema,
+  BenchmarkQualityPolicySchema,
   CandidateResultSchema,
   CostRecordSchema,
-  DisplaySetSchema,
-  DisplaySetPolicySchema,
   EvidenceRecordSchema,
-  FrontierConfigSchema,
   ModelCatalogSchema,
   ProfilePolicySchema,
   SourceManifestSchema,
@@ -18,12 +16,18 @@ import {
   applyProductProfilePolicyToCosts,
   buildProduct,
   deriveModelProfiles,
+  getComparisonOnlyBenchmarkIds,
   validateDisplaySet,
   writeCurrentProductVersion,
   type CandidateResult,
   type CostRecord,
   type ProductVersion,
 } from './index.js';
+import {
+  FrontierIdentitiesSchema,
+  resolveFrontierIdentities,
+} from './frontier-identities.js';
+import { generateFrontierSet } from './generate-frontier-set.js';
 
 const readJson = async (path: string): Promise<unknown> =>
   JSON.parse(await readFile(path, 'utf8'));
@@ -82,16 +86,11 @@ export const buildWorkspaceProduct = async (
   }
 
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
-    await readJson(join(dataRoot, 'mappings', 'benchmarks.json')),
+    await readJson(join(dataRoot, 'mappings', 'benchmarks-v2.json')),
   );
-  const displaySet = DisplaySetSchema.parse(
-    await readJson(join(dataRoot, 'mappings', 'display-set.json')),
+  const quality = BenchmarkQualityPolicySchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'benchmark-quality-v2.json')),
   );
-  const policyPath = join(dataRoot, 'mappings', 'display-set-policy.json');
-  const quality = existsSync(policyPath)
-    ? DisplaySetPolicySchema.parse(await readJson(policyPath)).benchmarkQuality
-    : undefined;
-  validateDisplaySet(displaySet, benchmarkMapping, quality);
   const benchmarkDimensions = new Map(
     benchmarkMapping.benchmarks.map(({ id, primaryDimension }) => [
       id,
@@ -104,16 +103,27 @@ export const buildWorkspaceProduct = async (
   const profilePolicy = ProfilePolicySchema.parse(
     await readJson(join(dataRoot, 'mappings', 'profile-policy.json')),
   );
-  const candidates = applyProductProfilePolicy(
+  const comparisonOnlyBenchmarkIds =
+    getComparisonOnlyBenchmarkIds(benchmarkMapping);
+  const identities = FrontierIdentitiesSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'frontier-identities.json')),
+  );
+  const resolvedCandidates = resolveFrontierIdentities(
     sourceCandidates,
+    identities,
+  );
+  const candidates = applyProductProfilePolicy(
+    resolvedCandidates,
     catalog,
     profilePolicy,
+    comparisonOnlyBenchmarkIds,
   );
   const costRecords = applyProductProfilePolicyToCosts(
     sourceCosts,
-    sourceCandidates,
+    resolvedCandidates,
     catalog,
     profilePolicy,
+    comparisonOnlyBenchmarkIds,
   );
   const missingMappings = [
     ...new Set(
@@ -132,9 +142,23 @@ export const buildWorkspaceProduct = async (
     );
   }
 
-  const frontierConfig = FrontierConfigSchema.parse(
-    await readJson(join(dataRoot, 'mappings', 'frontier.json')),
-  );
+  // Regenerate from saved captures on every build. A needs-review audit fails
+  // the build instead of publishing an older successful frontier artifact.
+  const { artifact } = await generateFrontierSet(repositoryRoot);
+  const presetId = 'aa-frontier';
+  const displaySet = {
+    schemaVersion: 'display-set-v2' as const,
+    defaultPresetId: presetId,
+    presets: [
+      {
+        id: presetId,
+        targetModelCount: artifact.selection.selectedModelIds.length,
+        requireAllSources: false,
+        benchmarkIds: artifact.benchmarkIds,
+      },
+    ],
+  };
+  validateDisplaySet(displaySet, benchmarkMapping, quality);
 
   return buildProduct({
     generatedAt,
@@ -142,10 +166,22 @@ export const buildWorkspaceProduct = async (
     candidates,
     profiles: deriveModelProfiles(candidates, catalog),
     benchmarkDimensions,
+    comparisonOnlyBenchmarkIds,
     catalog,
     displaySet,
-    manualModels: frontierConfig.manualModels,
-    qualificationWindowMonths: frontierConfig.qualificationWindowMonths,
+    frontier: artifact.selection.topTen
+      .slice(0, artifact.selection.selectedModelIds.length)
+      .map((row) => ({
+        modelId: row.modelId,
+        reasons: [
+          'Selected by the Artificial Analysis Intelligence Index frontier gap',
+        ],
+        externalCompositeScores: { 'artificial-analysis': row.score },
+      })),
+    presetProfileIds: new Map([
+      [presetId, artifact.selection.selectedProfileIds],
+    ]),
+    benchmarkQuality: quality,
     costRecords,
   });
 };

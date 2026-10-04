@@ -213,8 +213,8 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `high` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-high-epoch-inspect-row-187 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `high` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-high-epoch-inspect-row-187 |
+| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-184 |
+| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-184 |
 | Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default
@@ -222,7 +222,6 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 - None.
 
 <!-- C6-EFFORT-INFERENCE:END -->
-
 ## Refresh verification — 2026-10-01
 
 All content-addressed artifact files referenced by this snapshot were read back from disk. SHA-256 and byte length matched every EvidenceRecord; CandidateResult and CostRecord evidence IDs and provenance evidence IDs resolve in this source evidence index.

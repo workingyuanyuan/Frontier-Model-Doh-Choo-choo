@@ -5,9 +5,19 @@
     "livebench",
     "deepswe",
     "frontier-code",
+    "frontier-swe",
+    "surge-chartography",
+    "surge-complex-constraints",
+    "surge-corecraft",
+    "surge-riemann",
+    "surge-dayjob-finance",
+    "surge-dayjob-healthcare",
+    "surge-gdp-xlsx",
     "epoch-ai",
     "arc-prize",
     "zapier-automationbench",
-    "vals-ai"
+    "vals-ai",
+    "openai-releases",
+    "anthropic-releases"
   ]
 }

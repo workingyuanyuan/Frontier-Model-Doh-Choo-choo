@@ -12,7 +12,7 @@ import {
 import { COST_SOURCE_WEIGHTS } from '../lib/view-model';
 import {
   UI_DIMENSION_ABBREVIATIONS,
-  UI_DIMENSION_IDS,
+  getActiveDimensionIds,
 } from '../lib/ui-contract';
 import { productFixture } from '../test/fixture';
 
@@ -141,8 +141,8 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Weighted normalized task cost index');
     expect(html).toContain('Overall Score');
     expect(html).toContain('higher is better');
-    expect(html).toContain('Source weights: 14.3% each.');
-    expect(html.match(/14\.3%/g)).toHaveLength(1);
+    expect(html).toContain('Source weights: 12.5% each.');
+    expect(html.match(/Source weights: 12\.5% each\./g)).toHaveLength(1);
     Object.keys(COST_SOURCE_WEIGHTS).forEach((sourceId) => {
       expect(html).toContain(sourceId);
     });
@@ -154,12 +154,11 @@ describe('Dashboard Redesign', () => {
 
   it('draws one radar axis per scored dimension', () => {
     const html = renderToStaticMarkup(dashboard());
+    const dimensionIds = getActiveDimensionIds(productFixture.leaderboard);
 
-    expect(html.match(/class="radar-axis"/g)).toHaveLength(
-      UI_DIMENSION_IDS.length,
-    );
+    expect(html.match(/class="radar-axis"/g)).toHaveLength(dimensionIds.length);
     expect(html.match(/class="radar-grid"/g)).toHaveLength(4);
-    UI_DIMENSION_IDS.forEach((dimension) => {
+    dimensionIds.forEach((dimension) => {
       expect(html).toContain(
         `>${UI_DIMENSION_ABBREVIATIONS[dimension]}</text>`,
       );
@@ -466,7 +465,7 @@ describe('Dashboard Redesign', () => {
     expect(html).toContain('Remove GPT-5.6 Sol · max from radar chart');
   });
 
-  it('keeps an explicit N/A textual equivalent for incomplete radar data', () => {
+  it('omits an axis that has no available score in the radar selection', () => {
     const incompleteProduct = withLeaderboard(productFixture, [
       {
         ...productFixture.leaderboard[0]!,
@@ -482,10 +481,10 @@ describe('Dashboard Redesign', () => {
       }),
     );
 
-    expect(html).toContain('Missing values are shown as N/A');
-    expect(html).toContain('LNG: N/A');
-    expect(html).toContain('<polyline');
-    expect(html).not.toContain('<polygon class="radar-area');
+    expect(html.match(/class="radar-axis"/g)).toHaveLength(4);
+    expect(html).not.toContain('LNG: N/A');
+    expect(html).not.toContain('>LNG</text>');
+    expect(html).toContain('<polygon class="radar-area');
     expect(html).not.toContain('bar-src');
   });
 

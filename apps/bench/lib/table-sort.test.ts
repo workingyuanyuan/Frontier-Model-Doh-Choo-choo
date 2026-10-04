@@ -13,6 +13,24 @@ const benchmarkDimensions = {
 } as const;
 
 describe('sortable product tables', () => {
+  it('sorts comprehension scores and retains missing scores at the end', () => {
+    const rows = productFixture.leaderboard.slice(0, 3).map((row, index) => ({
+      ...row,
+      dimensions: [
+        {
+          dimension: 'comprehension' as const,
+          score: index === 1 ? null : 60 + index,
+          componentCount: index === 1 ? 0 : 1,
+        },
+      ],
+    }));
+    expect(
+      sortLeaderboardRows(productFixture, rows, {
+        key: 'comprehension',
+        direction: 'descending',
+      }).map((row) => row.profileId),
+    ).toEqual([rows[2]!.profileId, rows[0]!.profileId, rows[1]!.profileId]);
+  });
   it('sorts every leaderboard value deterministically', () => {
     const byModel = sortLeaderboardRows(
       productFixture,
@@ -83,7 +101,17 @@ describe('sortable product tables', () => {
 });
 
 describe('evidence categories', () => {
-  it('always returns the five product dimensions in UI order', () => {
+  it('places comprehension evidence in its mapped catalog group', () => {
+    const { groups, unmapped } = groupEvidenceByDimension(
+      [productFixture.evidence[0]!],
+      { 'terminal-bench-2-1': 'comprehension' },
+    );
+    expect(
+      groups.find((group) => group.dimension === 'comprehension')?.rows,
+    ).toEqual([productFixture.evidence[0]!]);
+    expect(unmapped).toEqual([]);
+  });
+  it('returns the catalog dimensions in UI order', () => {
     const { groups } = groupEvidenceByDimension(
       productFixture.evidence,
       benchmarkDimensions,
@@ -94,6 +122,7 @@ describe('evidence categories', () => {
       'coding',
       'reasoning',
       'knowledge',
+      'comprehension',
       'language',
     ]);
     expect(

@@ -11,6 +11,7 @@ import {
   DisplaySetSchema,
   FrontierConfigSchema,
   ModelCatalogSchema,
+  OrderedDimensionScoresSchema,
   ProductCostSchema,
   ProductEvidenceSchema,
   ProductVersionSchema,
@@ -172,6 +173,33 @@ describe('BenchmarkDimensionMappingSchema', () => {
 });
 
 describe('ProductVersionSchema', () => {
+  it('accepts any ordered subset of active dimensions, including an empty custom selection', () => {
+    expect(OrderedDimensionScoresSchema.parse([])).toEqual([]);
+    const row = (dimension: 'reasoning' | 'comprehension' | 'language') => ({
+      dimension,
+      score: 75,
+      componentCount: 1,
+    });
+    expect(
+      OrderedDimensionScoresSchema.parse([
+        row('reasoning'),
+        row('comprehension'),
+        row('language'),
+      ]),
+    ).toHaveLength(3);
+    expect(() =>
+      OrderedDimensionScoresSchema.parse([
+        row('language'),
+        row('comprehension'),
+      ]),
+    ).toThrow();
+    expect(() =>
+      OrderedDimensionScoresSchema.parse([
+        row('comprehension'),
+        row('comprehension'),
+      ]),
+    ).toThrow();
+  });
   it('keeps all five dimensions in canonical order', () => {
     const evidence = toProductEvidence(CandidateResultSchema.parse(candidate));
     const product = ProductVersionSchema.parse({
@@ -323,10 +351,20 @@ describe('SourcesConfigSchema', () => {
       'livebench',
       'deepswe',
       'frontier-code',
+      'frontier-swe',
+      'surge-chartography',
+      'surge-complex-constraints',
+      'surge-corecraft',
+      'surge-riemann',
+      'surge-dayjob-finance',
+      'surge-dayjob-healthcare',
+      'surge-gdp-xlsx',
       'epoch-ai',
       'arc-prize',
       'zapier-automationbench',
       'vals-ai',
+      'openai-releases',
+      'anthropic-releases',
     ]);
   });
 
@@ -381,6 +419,23 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
       parsed.presets.map(({ id }) => id).includes(parsed.defaultPresetId),
     ).toBe(true);
     expect(() => validateDisplaySet(parsed, mapping())).not.toThrow();
+  });
+
+  it('rejects comparison-only benchmarks in every preset', () => {
+    expect(() =>
+      validateDisplaySet(
+        DisplaySetSchema.parse(
+          displaySet({
+            presets: [
+              preset({
+                benchmarkIds: [...allDimensionIds, 'frontier-swe-v2'],
+              }),
+            ],
+          }),
+        ),
+        mapping(),
+      ),
+    ).toThrow('comparison-only benchmark');
   });
 
   it('rejects an empty benchmark list, an invalid slug, or no presets', () => {

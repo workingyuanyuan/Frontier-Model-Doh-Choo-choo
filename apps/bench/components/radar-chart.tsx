@@ -9,7 +9,7 @@ import {
   polarPoint,
 } from '../lib/visualization';
 import {
-  UI_DIMENSION_IDS,
+  getActiveDimensionIds,
   UI_DIMENSION_ABBREVIATIONS,
 } from '../lib/ui-contract';
 import {
@@ -56,6 +56,11 @@ export function RadarChart({
       .filter((data): data is NonNullable<typeof data> => data !== null);
   }, [seriesProfileIds, fixedProfileIds, product]);
 
+  const dimensionIds = getActiveDimensionIds(seriesList);
+  const dimensionTitle = dimensionIds.length
+    ? `${['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six'][dimensionIds.length]} ${dimensionIds.length === 1 ? 'Dimension' : 'Dimensions'}`
+    : 'Dimensions';
+
   const handleRemoveSeries = (profileId: string) => {
     setSeriesProfileIds((prev) => prev.filter((id) => id !== profileId));
   };
@@ -77,17 +82,19 @@ export function RadarChart({
   const modelNames = seriesList.map((s) => s.displayName).join(' vs ');
   const textualSummary = seriesList
     .map((series) => {
-      const values = UI_DIMENSION_IDS.map((dimensionId) => {
-        const value = series.dimensions.find(
-          (dimension) => dimension.dimension === dimensionId,
-        )?.score;
-        return `${UI_DIMENSION_ABBREVIATIONS[dimensionId]}: ${value === null || value === undefined ? 'N/A' : value.toFixed(1)}`;
-      }).join(', ');
+      const values = dimensionIds
+        .map((dimensionId) => {
+          const value = series.dimensions.find(
+            (dimension) => dimension.dimension === dimensionId,
+          )?.score;
+          return `${UI_DIMENSION_ABBREVIATIONS[dimensionId]}: ${value === null || value === undefined ? 'N/A' : value.toFixed(1)}`;
+        })
+        .join(', ');
       return `${series.displayName}: ${values}`;
     })
     .join('. ');
   const hasMissingValues = seriesList.some((series) =>
-    UI_DIMENSION_IDS.some(
+    dimensionIds.some(
       (dimensionId) =>
         series.dimensions.find(
           (dimension) => dimension.dimension === dimensionId,
@@ -105,7 +112,7 @@ export function RadarChart({
       >
         <div className="section-heading compact">
           <div>
-            <h2 id="profile-title">Five Dimensions</h2>
+            <h2 id="profile-title">{dimensionTitle}</h2>
             <div className="series-controls">
               {!fixedProfileIds &&
                 seriesList.length < 3 &&
@@ -187,51 +194,55 @@ export function RadarChart({
               role="img"
               aria-label={
                 modelNames
-                  ? `Five Dimensions radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`
-                  : 'Five Dimensions radar chart. Missing values are omitted rather than drawn at zero.'
+                  ? `${dimensionTitle} radar chart for ${modelNames}. Missing values are omitted rather than drawn at zero.`
+                  : `${dimensionTitle} radar chart.`
               }
               aria-describedby="radar-chart-description"
             >
               <title id="radar-chart-title">
                 {modelNames
-                  ? `Five Dimensions radar chart for ${modelNames}`
-                  : 'Five Dimensions radar chart'}
+                  ? `${dimensionTitle} radar chart for ${modelNames}`
+                  : `${dimensionTitle} radar chart`}
               </title>
               <desc id="radar-chart-description">
                 {textualSummary ? `${textualSummary}. ` : ''}
-                {hasMissingValues
-                  ? 'Missing values are shown as N/A and omitted from the plotted shape.'
-                  : 'All five dimensions have available values.'}
+                {dimensionIds.length === 0
+                  ? ''
+                  : hasMissingValues
+                    ? 'Missing values are shown as N/A and omitted from the plotted shape.'
+                    : 'All plotted dimensions have available values.'}
               </desc>
-              {[25, 50, 75, 100].map((level) => {
-                const grid = UI_DIMENSION_IDS.map((_, index) =>
-                  polarPoint(
-                    index,
-                    UI_DIMENSION_IDS.length,
-                    radius * (level / 100),
-                    center,
-                    center,
-                  ),
-                );
-                return (
-                  <polygon
-                    key={level}
-                    className="radar-grid"
-                    points={pointsAttribute(grid)}
-                  />
-                );
-              })}
-              {UI_DIMENSION_IDS.map((dimension, index) => {
+              {(dimensionIds.length > 2 ? [25, 50, 75, 100] : []).map(
+                (level) => {
+                  const grid = dimensionIds.map((_, index) =>
+                    polarPoint(
+                      index,
+                      dimensionIds.length,
+                      radius * (level / 100),
+                      center,
+                      center,
+                    ),
+                  );
+                  return (
+                    <polygon
+                      key={level}
+                      className="radar-grid"
+                      points={pointsAttribute(grid)}
+                    />
+                  );
+                },
+              )}
+              {dimensionIds.map((dimension, index) => {
                 const endpoint = polarPoint(
                   index,
-                  UI_DIMENSION_IDS.length,
+                  dimensionIds.length,
                   radius,
                   center,
                   center,
                 );
                 const textPoint = polarPoint(
                   index,
-                  UI_DIMENSION_IDS.length,
+                  dimensionIds.length,
                   radius + 25,
                   center,
                   center,
@@ -260,15 +271,19 @@ export function RadarChart({
               {seriesList.map((series, sIndex) => {
                 const values = buildRadarPoints(
                   series.dimensions,
-                  UI_DIMENSION_IDS,
+                  dimensionIds,
                   center,
                   center,
                   radius,
                 );
-                if (values.some((point) => point === null)) {
+                if (dimensionIds.length < 2) return null;
+                if (
+                  dimensionIds.length < 3 ||
+                  values.some((point) => point === null)
+                ) {
                   return buildRadarSegments(
                     series.dimensions,
-                    UI_DIMENSION_IDS,
+                    dimensionIds,
                     center,
                     center,
                     radius,
@@ -297,7 +312,7 @@ export function RadarChart({
               {seriesList.flatMap((series, sIndex) => {
                 const values = buildRadarPoints(
                   series.dimensions,
-                  UI_DIMENSION_IDS,
+                  dimensionIds,
                   center,
                   center,
                   radius,
@@ -305,7 +320,7 @@ export function RadarChart({
                 return values.map((point, index) =>
                   point ? (
                     <circle
-                      key={`${series.profileId}-${UI_DIMENSION_IDS[index]}`}
+                      key={`${series.profileId}-${dimensionIds[index]}`}
                       className={`radar-point series-tone-${(sIndex % 3) + 1}`}
                       cx={point.x}
                       cy={point.y}
@@ -319,7 +334,7 @@ export function RadarChart({
           </div>
 
           <div className="horizontal-score-bars">
-            {UI_DIMENSION_IDS.map((dimensionId) => {
+            {dimensionIds.map((dimensionId) => {
               return (
                 <div className="dimension-bar-row" key={dimensionId}>
                   <span className="dimension-bar-label">

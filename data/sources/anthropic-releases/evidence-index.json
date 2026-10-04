@@ -1,0 +1,34 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/1c/1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600.html",
+    "byteLength": 664452,
+    "finalUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "id": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Full release HTML; selected FrontierCode 1.1 Main and CursorBench 4.0 charts"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://www.anthropic.com/claude-opus-5-5",
+    "retrievedAt": "2026-10-02T14:57:02.279Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600",
+    "sourceId": "anthropic-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/a0/a0a04495745873c78d8e685236f8d6184cab888649c65deac594870df3c58f8e.html",
+    "byteLength": 350155,
+    "finalUrl": "https://prod.cursor.com/evals",
+    "id": "sha256:a0a04495745873c78d8e685236f8d6184cab888649c65deac594870df3c58f8e",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Organizer cross-check; visible chart aria-label score/effort pairs"
+    },
+    "method": "DOM",
+    "requestUrl": "https://prod.cursor.com/evals",
+    "retrievedAt": "2026-10-02T14:57:02.279Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:a0a04495745873c78d8e685236f8d6184cab888649c65deac594870df3c58f8e",
+    "sourceId": "anthropic-releases"
+  }
+]

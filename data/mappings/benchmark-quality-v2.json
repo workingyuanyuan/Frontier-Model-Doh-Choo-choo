@@ -1,0 +1,13 @@
+{
+  "reviewedAt": "2026-10-03",
+  "evidencePath": "docs/analysis/2026-10-03-proofbench-quality-review.json",
+  "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+  "limitedBenchmarkIds": [
+    "aa-lcr",
+    "gpqa-diamond",
+    "legal-bench",
+    "mmlu-pro",
+    "tax-eval-v2"
+  ],
+  "minOtherBenchmarksPerLimited": 2
+}

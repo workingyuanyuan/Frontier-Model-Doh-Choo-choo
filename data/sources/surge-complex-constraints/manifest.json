@@ -1,0 +1,26 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://surgehq.ai/benchmarks/complex-constraints",
+  "benchmarkIds": ["complex-constraints"],
+  "completeness": {
+    "expectedCountMethod": "Compare main leaderboard rows with rendered browser count, validate one numeric score and percent marker per row, and cross-check any numeric data-score attributes against visible text.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Surge AI ComplexConstraints",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
+    "[data-score] numeric displayed text": "rawScore / normalizedScore"
+  },
+  "lastVerifiedAt": "2026-10-03T06:07:59.884Z",
+  "notes": [
+    "Main leaderboard all-criteria task pass@1 percentages; professional instruction following.",
+    "The official harness defines all_pass/mean as the leaderboard task pass rate; mean_criteria/mean is separate.",
+    "Per-row trial count, benchmark version and publication date are unpublished."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "surge-complex-constraints",
+  "targetUrls": ["https://surgehq.ai/benchmarks/complex-constraints"]
+}

@@ -1,0 +1,1108 @@
+{
+  "date": "2026-10-04",
+  "beforeVersion": "sha256:36bf3de9984f8eac4c7b7754f3d898d00a72cfb1b8b76a4ee905fde2bca3c553",
+  "afterVersion": "sha256:10008c8fdd762b6782163a2179f7301a7eeda3dcc01598b3f6ef2024411a910a",
+  "generatedAt": "2026-10-03T16:50:12.834Z",
+  "beforeCostCount": 620,
+  "afterCostCount": 694,
+  "addedCostCount": 74,
+  "groups": [
+    {
+      "sourceId": "artificial-analysis",
+      "beforeModels": 21,
+      "afterModels": 21,
+      "beforePoints": 60,
+      "afterPoints": 60,
+      "vendorPoints": []
+    },
+    {
+      "sourceId": "deepswe",
+      "beforeModels": 26,
+      "afterModels": 28,
+      "beforePoints": 68,
+      "afterPoints": 78,
+      "vendorPoints": [
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-low",
+          "providerId": "openai",
+          "displayName": "GPT-6 Sol · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 13.683309513081884,
+          "score": 37.17,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.1623,
+              "normalizedCost": 13.683309513081884,
+              "score": 37.17,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-medium",
+          "providerId": "openai",
+          "displayName": "GPT-6 Sol · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 28.09632960502248,
+          "score": 56.64,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.3798,
+              "normalizedCost": 28.09632960502248,
+              "score": 56.64,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-high",
+          "providerId": "openai",
+          "displayName": "GPT-6 Sol · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 36.9531527056916,
+          "score": 65.27,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.6404,
+              "normalizedCost": 36.9531527056916,
+              "score": 65.27,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-xhigh",
+          "providerId": "openai",
+          "displayName": "GPT-6 Sol · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 44.56411138595169,
+          "score": 66.59,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 1.0033,
+              "normalizedCost": 44.56411138595169,
+              "score": 66.59,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-max",
+          "providerId": "openai",
+          "displayName": "GPT-6 Sol · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 61.61981825863588,
+          "score": 68.81,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 2.7439,
+              "normalizedCost": 61.61981825863588,
+              "score": 68.81,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-low",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 14.60813037616143,
+          "score": 64.38,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.1714,
+              "normalizedCost": 14.60813037616143,
+              "score": 64.38,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-medium",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 29.78577009118538,
+          "score": 73.01,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.4196,
+              "normalizedCost": 29.78577009118538,
+              "score": 73.01,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-high",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 37.103374398017,
+          "score": 75.22,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.6461,
+              "normalizedCost": 37.103374398017,
+              "score": 75.22,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-xhigh",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 40.48209897624695,
+          "score": 71.9,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.7886,
+              "normalizedCost": 40.48209897624695,
+              "score": 71.9,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 52.167010476862785,
+          "score": 71.9,
+          "sources": [
+            {
+              "sourceId": "deepswe",
+              "reportedSourceId": "openai-releases",
+              "cost": 1.5711,
+              "normalizedCost": 52.167010476862785,
+              "score": 71.9,
+              "scoreBasis": "DEEPSWE_1_1",
+              "scoreBenchmarkId": "deepswe-1-1",
+              "scoreBenchmarkVersion": "1.1",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "deepswe-1-1",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceId": "frontier-code",
+      "beforeModels": 33,
+      "afterModels": 33,
+      "beforePoints": 115,
+      "afterPoints": 115,
+      "vendorPoints": []
+    },
+    {
+      "sourceId": "arc-prize",
+      "beforeModels": 34,
+      "afterModels": 34,
+      "beforePoints": 123,
+      "afterPoints": 123,
+      "vendorPoints": []
+    },
+    {
+      "sourceId": "zapier-automationbench",
+      "beforeModels": 31,
+      "afterModels": 32,
+      "beforePoints": 104,
+      "afterPoints": 109,
+      "vendorPoints": [
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-low",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 48.13829769935016,
+          "score": 24.7,
+          "sources": [
+            {
+              "sourceId": "zapier-automationbench",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.157,
+              "normalizedCost": 48.13829769935016,
+              "score": 24.7,
+              "scoreBasis": "ZAPIER_AUTOMATIONBENCH",
+              "scoreBenchmarkId": "automationbench",
+              "scoreBenchmarkVersion": "1.0.6",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "automationbench",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-medium",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 51.62911869830138,
+          "score": 31.7,
+          "sources": [
+            {
+              "sourceId": "zapier-automationbench",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.1917,
+              "normalizedCost": 51.62911869830138,
+              "score": 31.7,
+              "scoreBasis": "ZAPIER_AUTOMATIONBENCH",
+              "scoreBenchmarkId": "automationbench",
+              "scoreBenchmarkVersion": "1.0.6",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "automationbench",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-high",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 54.46792391089843,
+          "score": 33.2,
+          "sources": [
+            {
+              "sourceId": "zapier-automationbench",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.2255,
+              "normalizedCost": 54.46792391089843,
+              "score": 33.2,
+              "scoreBasis": "ZAPIER_AUTOMATIONBENCH",
+              "scoreBenchmarkId": "automationbench",
+              "scoreBenchmarkVersion": "1.0.6",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "automationbench",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-xhigh",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 56.32683744513761,
+          "score": 35.5,
+          "sources": [
+            {
+              "sourceId": "zapier-automationbench",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.2508,
+              "normalizedCost": 56.32683744513761,
+              "score": 35.5,
+              "scoreBasis": "ZAPIER_AUTOMATIONBENCH",
+              "scoreBenchmarkId": "automationbench",
+              "scoreBenchmarkVersion": "1.0.6",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "automationbench",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "providerId": "openai",
+          "displayName": "GPT-6.1 Sol · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 59.39403495784353,
+          "score": 36.1,
+          "sources": [
+            {
+              "sourceId": "zapier-automationbench",
+              "reportedSourceId": "openai-releases",
+              "cost": 0.2989,
+              "normalizedCost": 59.39403495784353,
+              "score": 36.1,
+              "scoreBasis": "ZAPIER_AUTOMATIONBENCH",
+              "scoreBenchmarkId": "automationbench",
+              "scoreBenchmarkVersion": "1.0.6",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+              "benchmarkId": "automationbench",
+              "evidenceIds": [
+                "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourceId": "cursorbench",
+      "beforeModels": 0,
+      "afterModels": 4,
+      "beforePoints": 0,
+      "afterPoints": 20,
+      "vendorPoints": [
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-low",
+          "providerId": "anthropic",
+          "displayName": "Claude Fable 5.1 · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 61.33009476766802,
+          "score": 45.1,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 5.44,
+              "normalizedCost": 61.33009476766802,
+              "score": 45.1,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-medium",
+          "providerId": "anthropic",
+          "displayName": "Claude Fable 5.1 · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 70.00406190379218,
+          "score": 46.8,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 7.05,
+              "normalizedCost": 70.00406190379218,
+              "score": 46.8,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-high",
+          "providerId": "anthropic",
+          "displayName": "Claude Fable 5.1 · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 78.47052249488809,
+          "score": 49.2,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 9.08,
+              "normalizedCost": 78.47052249488809,
+              "score": 49.2,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-xhigh",
+          "providerId": "anthropic",
+          "displayName": "Claude Fable 5.1 · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 90.50353495207739,
+          "score": 51.6,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 13.01,
+              "normalizedCost": 90.50353495207739,
+              "score": 51.6,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "providerId": "anthropic",
+          "displayName": "Claude Fable 5.1 · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 100,
+          "score": 51.8,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 17.28,
+              "normalizedCost": 100,
+              "score": 51.8,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-low",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5 · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 57.62677953597339,
+          "score": 40.7,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 4.87,
+              "normalizedCost": 57.62677953597339,
+              "score": 40.7,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-medium",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5 · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 69.47790491579165,
+          "score": 43.3,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 6.94,
+              "normalizedCost": 69.47790491579165,
+              "score": 43.3,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-high",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5 · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 78.17443107869204,
+          "score": 44.7,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 9,
+              "normalizedCost": 78.17443107869204,
+              "score": 44.7,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-xhigh",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5 · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 86.17148522625165,
+          "score": 46.1,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 11.43,
+              "normalizedCost": 86.17148522625165,
+              "score": 46.1,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5 · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 87.66002994203727,
+          "score": 46.6,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 11.95,
+              "normalizedCost": 87.66002994203727,
+              "score": 46.6,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-low",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5.5 · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 10.197246366585077,
+          "score": 43.7,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 1.18,
+              "normalizedCost": 10.197246366585077,
+              "score": 43.7,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-medium",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5.5 · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 40.282656537804314,
+          "score": 52.5,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 2.9,
+              "normalizedCost": 40.282656537804314,
+              "score": 52.5,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-high",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5.5 · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 50.79035576730474,
+          "score": 56,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 3.97,
+              "normalizedCost": 50.79035576730474,
+              "score": 56,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-xhigh",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5.5 · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 69.7180933964864,
+          "score": 56,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 6.99,
+              "normalizedCost": 69.7180933964864,
+              "score": 56,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "providerId": "anthropic",
+          "displayName": "Claude Opus 5.5 · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 91.5665900994197,
+          "score": 57.8,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 13.43,
+              "normalizedCost": 91.5665900994197,
+              "score": 57.8,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-5-6-sol",
+          "profileId": "openai-gpt-5-6-sol-low",
+          "providerId": "openai",
+          "displayName": "GPT-5.6 Sol · low",
+          "effort": "low",
+          "isDefaultEffort": false,
+          "costIndex": 0,
+          "score": 24.6,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 0.87,
+              "normalizedCost": 0,
+              "score": 24.6,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-5-6-sol",
+          "profileId": "openai-gpt-5-6-sol-medium",
+          "providerId": "openai",
+          "displayName": "GPT-5.6 Sol · medium",
+          "effort": "medium",
+          "isDefaultEffort": false,
+          "costIndex": 23.7633432329751,
+          "score": 31.1,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 1.77,
+              "normalizedCost": 23.7633432329751,
+              "score": 31.1,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-5-6-sol",
+          "profileId": "openai-gpt-5-6-sol-high",
+          "providerId": "openai",
+          "displayName": "GPT-5.6 Sol · high",
+          "effort": "high",
+          "isDefaultEffort": false,
+          "costIndex": 39.70076166797101,
+          "score": 35.7,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 2.85,
+              "normalizedCost": 39.70076166797101,
+              "score": 35.7,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-5-6-sol",
+          "profileId": "openai-gpt-5-6-sol-xhigh",
+          "providerId": "openai",
+          "displayName": "GPT-5.6 Sol · xHigh",
+          "effort": "xhigh",
+          "isDefaultEffort": false,
+          "costIndex": 54.23113598533228,
+          "score": 37.7,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 4.4,
+              "normalizedCost": 54.23113598533228,
+              "score": 37.7,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        },
+        {
+          "modelId": "openai-gpt-5-6-sol",
+          "profileId": "openai-gpt-5-6-sol-max",
+          "providerId": "openai",
+          "displayName": "GPT-5.6 Sol · max",
+          "effort": "max",
+          "isDefaultEffort": false,
+          "costIndex": 75.1819856618117,
+          "score": 41.7,
+          "sources": [
+            {
+              "sourceId": "cursorbench",
+              "reportedSourceId": "anthropic-releases",
+              "cost": 8.23,
+              "normalizedCost": 75.1819856618117,
+              "score": 41.7,
+              "scoreBasis": "CURSORBENCH_4",
+              "scoreBenchmarkId": "cursorbench-4",
+              "scoreBenchmarkVersion": "4.0",
+              "metricName": "Cost per task",
+              "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+              "benchmarkId": "cursorbench-4",
+              "evidenceIds": [
+                "sha256:1c3bebd841ce19d533bc8cc7d17d1b04f1f214305fc8005ab90c0941b8150600"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "weightedVendorContributions": [
+    {
+      "modelId": "openai-gpt-6-1-sol",
+      "sourceId": "zapier-automationbench",
+      "reportedSourceId": "openai-releases",
+      "cost": 0.2989,
+      "normalizedCost": 0,
+      "weight": 0.125,
+      "profileId": "openai-gpt-6-1-sol-max",
+      "performance": 53.23738238600609,
+      "sourceScore": 36.1,
+      "scoreBasis": "ZAPIER_AUTOMATIONBENCH",
+      "scoreBenchmarkId": "automationbench",
+      "scoreBenchmarkVersion": "1.0.6",
+      "metricName": "Cost per task",
+      "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/"
+    },
+    {
+      "modelId": "openai-gpt-6-1-sol",
+      "sourceId": "deepswe",
+      "reportedSourceId": "openai-releases",
+      "cost": 1.5711,
+      "normalizedCost": 0,
+      "weight": 0.125,
+      "profileId": "openai-gpt-6-1-sol-max",
+      "performance": 53.23738238600609,
+      "sourceScore": 71.9,
+      "scoreBasis": "DEEPSWE_1_1",
+      "scoreBenchmarkId": "deepswe-1-1",
+      "scoreBenchmarkVersion": "1.1",
+      "metricName": "Cost per task",
+      "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/"
+    },
+    {
+      "modelId": "anthropic-claude-opus-5-5",
+      "sourceId": "cursorbench",
+      "reportedSourceId": "anthropic-releases",
+      "cost": 13.43,
+      "normalizedCost": 0,
+      "weight": 0.125,
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "performance": 57.67118080012109,
+      "sourceScore": 57.8,
+      "scoreBasis": "CURSORBENCH_4",
+      "scoreBenchmarkId": "cursorbench-4",
+      "scoreBenchmarkVersion": "4.0",
+      "metricName": "Cost per task",
+      "sourceUrl": "https://www.anthropic.com/claude-opus-5-5"
+    },
+    {
+      "modelId": "anthropic-claude-fable-5-1",
+      "sourceId": "cursorbench",
+      "reportedSourceId": "anthropic-releases",
+      "cost": 17.28,
+      "normalizedCost": 100,
+      "weight": 0.125,
+      "profileId": "anthropic-claude-fable-5-1-max",
+      "performance": 56.51262332618049,
+      "sourceScore": 51.8,
+      "scoreBasis": "CURSORBENCH_4",
+      "scoreBenchmarkId": "cursorbench-4",
+      "scoreBenchmarkVersion": "4.0",
+      "metricName": "Cost per task",
+      "sourceUrl": "https://www.anthropic.com/claude-opus-5-5"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/a0/a0f705d60b185c0d57165d6941580a66a5b85c8c3291175fcb2f7c1f9981f190.html",
+    "byteLength": 719695,
+    "finalUrl": "https://surgehq.ai/benchmarks/dayjob-finance",
+    "id": "sha256:a0f705d60b185c0d57165d6941580a66a5b85c8c3291175fcb2f7c1f9981f190",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 32,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/dayjob-finance",
+    "retrievedAt": "2026-10-03T07:48:50.202Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:a0f705d60b185c0d57165d6941580a66a5b85c8c3291175fcb2f7c1f9981f190",
+    "sourceId": "surge-dayjob-finance"
+  }
+]

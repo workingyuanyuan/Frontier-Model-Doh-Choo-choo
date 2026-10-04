@@ -60,12 +60,12 @@ This tagged section is generated deterministically for `deepswe`. Raw `profile.e
 
 ### Cross-source inferences — PENDING USER REVIEW
 
-- None.
+| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
+|---|---|---|---|---|---|
+| kimi-k2-7-code | `deepswe-1-1:mini-swe-agent-kimi-k2-7-code-default` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
-| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
-|---|---|---|---|---|---|
-| kimi-k2-7-code | `deepswe-1-1:mini-swe-agent-kimi-k2-7-code-default` | — | `default` | — | — |
+- None.
 
 <!-- C6-EFFORT-INFERENCE:END -->

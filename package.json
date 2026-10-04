@@ -21,7 +21,9 @@
     "test": "node --test scripts/serve-static.test.mjs && turbo run test",
     "typecheck": "turbo run typecheck",
     "web": "pnpm --filter @llm-bench/bench dev",
-    "data:generate-display-set": "pnpm --filter @llm-bench/benchmark-data data:generate-display-set"
+    "data:generate-display-set": "pnpm --filter @llm-bench/benchmark-data data:generate-display-set",
+    "data:generate-frontier-set": "pnpm --filter @llm-bench/benchmark-data data:generate-frontier-set",
+    "report:source-changes": "pnpm --filter @llm-bench/acquisition report:source-changes"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

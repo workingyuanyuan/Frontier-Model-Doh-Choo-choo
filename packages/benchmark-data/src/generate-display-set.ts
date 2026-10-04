@@ -100,12 +100,10 @@ export const buildDisplaySetFromCurves = (
   const allByCount = largestScaleByModelCount(allSources);
 
   // Emit every model count each curve can actually reach, not only the ones
-  // both reach. Pinning a model narrows the two curves by different amounts --
-  // with google-gemini-3-7-flash pinned the all-sources curve tops out at ten
-  // complete models while the unconstrained one still reaches twenty-four --
-  // and intersecting them would delete exactly the range that makes the second
-  // curve worth having. Which positions the slider offers, and what the toggle
-  // does where only one curve has a preset, is a UI ruling (N10c).
+  // both reach. Source constraints and any policy-required models can narrow
+  // the curves by different amounts. Intersecting their reachable counts would
+  // discard useful unconstrained presets. Slider positions and toggle behavior
+  // where only one curve has a preset are governed by UI ruling N10c.
   const sharedModelCounts: number[] = [];
   const allSourcesOnlyModelCounts: number[] = [];
   const unconstrainedOnlyModelCounts: number[] = [];

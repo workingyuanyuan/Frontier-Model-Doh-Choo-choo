@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/f8/f87277cabca34965bf6be3d6f2a84f20eebd33289fbcbe465538d7a3a9b5343a.html",
+    "byteLength": 627134,
+    "finalUrl": "https://surgehq.ai/benchmarks/chartography",
+    "id": "sha256:f87277cabca34965bf6be3d6f2a84f20eebd33289fbcbe465538d7a3a9b5343a",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 42,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/chartography",
+    "retrievedAt": "2026-10-02T14:00:14.368Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f87277cabca34965bf6be3d6f2a84f20eebd33289fbcbe465538d7a3a9b5343a",
+    "sourceId": "surge-chartography"
+  }
+]

@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "benchmark-dimensions-v2",
+  "dimensions": [
+    "reasoning",
+    "knowledge",
+    "comprehension",
+    "coding",
+    "agentic",
+    "language"
+  ],
+  "benchmarks": [
+    {
+      "id": "gdp-xlsx",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning", "agentic", "knowledge"]
+    },
+    {
+      "id": "dayjob-healthcare",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "dayjob-finance",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "riemann-bench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge", "agentic"]
+    },
+    {
+      "id": "enterprisebench-corecraft",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "complex-constraints",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "gdp-pdf",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning", "agentic", "knowledge"]
+    },
+    {
+      "id": "cursorbench-4",
+      "primaryDimension": "coding",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "chartography",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "arc-agi-2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "simplebench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge", "language"]
+    },
+    {
+      "id": "chess-puzzles",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "livebench-reasoning",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "critpt",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "gpqa-diamond",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "drop",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "graphwalks",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "legal-bench",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "frontiermath",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "frontiermath-tier-4",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "aime",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "math-level-5",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "livebench-mathematics",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "hmmt",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "imo-answer-bench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "proofbench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["coding"]
+    },
+    {
+      "id": "simpleqa-verified",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "aa-omniscience",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "humanitys-last-exam",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "mmlu-pro",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "supergpqa",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "medcode",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "tax-eval-v2",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "livebench-language",
+      "primaryDimension": "language",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "lech-mazur-writing",
+      "primaryDimension": "language",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "wmt24-plus-plus",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["knowledge"]
+    },
+    {
+      "id": "medscribe",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning", "knowledge", "language"]
+    },
+    {
+      "id": "ifbench",
+      "primaryDimension": "language",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "ifeval",
+      "primaryDimension": "language",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "livebench-instruction-following",
+      "primaryDimension": "language",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "tasteful-solve-rate",
+      "primaryDimension": "language",
+      "secondaryDimensions": ["coding"]
+    },
+    {
+      "id": "swe-bench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "swe-bench-pro",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "scicode",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "frontierswe",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "frontier-code-1-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "frontier-swe-v2",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"],
+      "comparisonOnly": true
+    },
+    {
+      "id": "terminal-bench-2-1",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding"]
+    },
+    {
+      "id": "deepswe-1-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "algotune",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "livecodebench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "programbench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "ioi",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "code-migration",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "osworld",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "gdpval",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding", "reasoning"]
+    },
+    {
+      "id": "finance-agent-v2",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding", "reasoning"]
+    },
+    {
+      "id": "gdpval-aa",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding", "reasoning"]
+    },
+    {
+      "id": "apex-agents",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "coding"]
+    },
+    {
+      "id": "aa-briefcase",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "reasoning"]
+    },
+    {
+      "id": "automationbench",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["language", "reasoning"]
+    },
+    {
+      "id": "agents-last-exam",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "tau3-banking",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["language", "reasoning"]
+    },
+    {
+      "id": "skillsbench",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding", "language"]
+    },
+    {
+      "id": "hlab",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge", "language"]
+    },
+    {
+      "id": "emb",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "legal-research",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "reasoning"]
+    },
+    {
+      "id": "public-benefits-bench",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "language"]
+    },
+    {
+      "id": "cyber",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "reverse-eng",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "coding"]
+    },
+    {
+      "id": "aa-lcr",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "cl-bench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "mrcr-v2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "longbench-v2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "deepresearchbench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "knowledge"]
+    },
+    {
+      "id": "fiction-livebench",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["language"]
+    },
+    {
+      "id": "ruler-1m",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "corpfin",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
+      "id": "vibe-code-bench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    }
+  ]
+}

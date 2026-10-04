@@ -24,6 +24,7 @@ export function PresetControls({
   activePreset: ProductPreset;
   onSelectPreset: (presetId: string) => void;
 }) {
+  if (presets.length < 2) return null;
   const modelCounts = [
     ...new Set(presets.map(({ targetModelCount }) => targetModelCount)),
   ].toSorted((left, right) => left - right);

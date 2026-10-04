@@ -878,15 +878,16 @@ describe('cost chart view model', () => {
     });
   });
 
-  it('uses seven equal source weights and excludes model-catalog costs', () => {
+  it('uses eight equal benchmark weights and excludes model-catalog costs', () => {
     expect(COST_SOURCE_WEIGHTS).toEqual({
-      'artificial-analysis': 1 / 7,
-      livebench: 1 / 7,
-      deepswe: 1 / 7,
-      'frontier-code': 1 / 7,
-      'arc-prize': 1 / 7,
-      'vals-ai': 1 / 7,
-      'zapier-automationbench': 1 / 7,
+      'artificial-analysis': 1 / 8,
+      livebench: 1 / 8,
+      deepswe: 1 / 8,
+      'frontier-code': 1 / 8,
+      'arc-prize': 1 / 8,
+      'vals-ai': 1 / 8,
+      'zapier-automationbench': 1 / 8,
+      cursorbench: 1 / 8,
     });
 
     const taskTemplate = productFixture.costs.find(
@@ -922,11 +923,11 @@ describe('cost chart view model', () => {
         .map(({ sourceId, weight }) => [sourceId, weight] as const)
         .toSorted(([left], [right]) => left.localeCompare(right)),
     ).toEqual([
-      ['arc-prize', 1 / 7],
-      ['artificial-analysis', 1 / 7],
-      ['frontier-code', 1 / 7],
-      ['livebench', 1 / 7],
-      ['vals-ai', 1 / 7],
+      ['arc-prize', 1 / 8],
+      ['artificial-analysis', 1 / 8],
+      ['frontier-code', 1 / 8],
+      ['livebench', 1 / 8],
+      ['vals-ai', 1 / 8],
     ]);
     expect(
       sol?.sourceCosts.some(({ sourceId }) => sourceId === 'model-catalog'),
@@ -1635,9 +1636,10 @@ describe('radar geometry', () => {
       coding: 20,
       reasoning: 30,
       knowledge: 50,
+      comprehension: 55,
       language: 60,
     };
-    const storedOrder: DimensionId[] = [...DIMENSION_IDS];
+    const storedOrder: DimensionId[] = [...DIMENSION_IDS, 'comprehension'];
     const dimensions = storedOrder.map((dimension) => ({
       dimension,
       score: scores[dimension]!,
@@ -1654,7 +1656,8 @@ describe('radar geometry', () => {
         0,
         0,
       );
-      expect(points[index]).toEqual(expected);
+      expect(points[index]?.x).toBeCloseTo(expected.x, 10);
+      expect(points[index]?.y).toBeCloseTo(expected.y, 10);
     });
   });
 });

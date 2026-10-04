@@ -1,0 +1,653 @@
+{
+  "checks": [
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:fable51-high",
+      "effort": "high",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 49.2,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 49.2
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:fable51-low",
+      "effort": "low",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 45.1,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 45.1
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:fable51-max",
+      "effort": "max",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 51.8,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 51.8
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:fable51-medium",
+      "effort": "medium",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 46.8,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 46.8
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:fable51-xhigh",
+      "effort": "xhigh",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 51.6,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 51.6
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:gpt56sol-high",
+      "effort": "high",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 35.7,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 35.7
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:gpt56sol-low",
+      "effort": "low",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 24.6,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 24.6
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:gpt56sol-max",
+      "effort": "max",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 41.7,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 41.7
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:gpt56sol-medium",
+      "effort": "medium",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 31.1,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 31.1
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:gpt56sol-xhigh",
+      "effort": "xhigh",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 37.7,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 37.7
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus5-high",
+      "effort": "high",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "SUPPLEMENT",
+      "vendorScore": 44.7
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus5-low",
+      "effort": "low",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "SUPPLEMENT",
+      "vendorScore": 40.7
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus5-max",
+      "effort": "max",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "SUPPLEMENT",
+      "vendorScore": 46.6
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus5-medium",
+      "effort": "medium",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "SUPPLEMENT",
+      "vendorScore": 43.3
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus5-xhigh",
+      "effort": "xhigh",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+      "referenceScore": null,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "SUPPLEMENT",
+      "vendorScore": 46.1
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus55-high",
+      "effort": "high",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 56,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 56
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus55-low",
+      "effort": "low",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 43.7,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 43.7
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus55-max",
+      "effort": "max",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 57.8,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 57.8
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus55-medium",
+      "effort": "medium",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 52.5,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 52.5
+    },
+    {
+      "benchmarkId": "cursorbench-4",
+      "candidateId": "anthropic-releases:cursorbench-4:opus55-xhigh",
+      "effort": "xhigh",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 56,
+      "referenceUrl": "https://prod.cursor.com/evals",
+      "status": "MATCH",
+      "vendorScore": 56
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:fable51-high",
+      "effort": "high",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 50.339999999999996,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 50.34
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:fable51-low",
+      "effort": "low",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Known cross-source conflict: Anthropic reports 52.8%, while Cognition's FrontierCode 1.1 leaderboard reports 49.82% for this row. Excluded pending configuration reconciliation. https://cognition.com/frontiercode",
+      "referenceScore": null,
+      "referenceUrl": null,
+      "status": "EXCLUDED",
+      "vendorScore": 52.8
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:fable51-max",
+      "effort": "max",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 50.28,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 50.28
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:fable51-medium",
+      "effort": "medium",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 50.91,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 50.91
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:fable51-xhigh",
+      "effort": "xhigh",
+      "modelId": "anthropic-claude-fable-5-1",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 48.730000000000004,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 48.73
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt56sol-high",
+      "effort": "high",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 45.06,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 45.06
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt56sol-low",
+      "effort": "low",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 35.44,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 35.44
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt56sol-max",
+      "effort": "max",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 47.49,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 47.49
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt56sol-medium",
+      "effort": "medium",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 39.93,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 39.93
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt56sol-xhigh",
+      "effort": "xhigh",
+      "modelId": "openai-gpt-5-6-sol",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 46.839999999999996,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 46.84
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt6astra-high",
+      "effort": "high",
+      "modelId": "openai-gpt-6-astra",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 50.94,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 50.94
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt6astra-low",
+      "effort": "low",
+      "modelId": "openai-gpt-6-astra",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 45.269999999999996,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 45.27
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt6astra-max",
+      "effort": "max",
+      "modelId": "openai-gpt-6-astra",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 53.26,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 53.26
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt6astra-medium",
+      "effort": "medium",
+      "modelId": "openai-gpt-6-astra",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 48.83,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 48.83
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:gpt6astra-xhigh",
+      "effort": "xhigh",
+      "modelId": "openai-gpt-6-astra",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 50.62,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 50.62
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus5-high",
+      "effort": "high",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 47.99,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 47.99
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus5-low",
+      "effort": "low",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 41.949999999999996,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 41.95
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus5-max",
+      "effort": "max",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 48.04,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 48.04
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus5-medium",
+      "effort": "medium",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 53.38,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 53.38
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus5-xhigh",
+      "effort": "xhigh",
+      "modelId": "anthropic-claude-opus-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 43.65,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 43.65
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus55-high",
+      "effort": "high",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 53.99,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 53.99
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus55-low",
+      "effort": "low",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 47.3,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 47.3
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus55-max",
+      "effort": "max",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 54.43,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 54.43
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus55-medium",
+      "effort": "medium",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 54.64,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 54.64
+    },
+    {
+      "benchmarkId": "frontier-code-1-1",
+      "candidateId": "anthropic-releases:frontier-code-1-1:opus55-xhigh",
+      "effort": "xhigh",
+      "modelId": "anthropic-claude-opus-5-5",
+      "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+      "referenceScore": 51.42,
+      "referenceUrl": "https://cognition.com/frontiercode",
+      "status": "MATCH",
+      "vendorScore": 51.42
+    }
+  ],
+  "cursorEvidence": {
+    "artifactPath": "artifacts/sha256/a0/a0a04495745873c78d8e685236f8d6184cab888649c65deac594870df3c58f8e.html",
+    "byteLength": 350155,
+    "finalUrl": "https://prod.cursor.com/evals",
+    "id": "sha256:a0a04495745873c78d8e685236f8d6184cab888649c65deac594870df3c58f8e",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Organizer cross-check; visible chart aria-label score/effort pairs"
+    },
+    "method": "DOM",
+    "requestUrl": "https://prod.cursor.com/evals",
+    "retrievedAt": "2026-10-02T14:57:02.279Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:a0a04495745873c78d8e685236f8d6184cab888649c65deac594870df3c58f8e",
+    "sourceId": "anthropic-releases"
+  },
+  "observedAt": "2026-10-02T14:57:02.279Z",
+  "references": [
+    {
+      "evidence": [
+        {
+          "artifactPath": "artifacts/sha256/14/14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1.html",
+          "byteLength": 268036,
+          "finalUrl": "https://deepswe.datacurve.ai/",
+          "id": "sha256:14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1",
+          "mediaType": "text/html",
+          "metadata": {
+            "captureScope": "leaderboard page",
+            "version": "1.1",
+            "visibleComparisonMatched": true,
+            "visibleModels": 28
+          },
+          "method": "DOM",
+          "requestUrl": "https://deepswe.datacurve.ai/",
+          "retrievedAt": "2026-10-01T00:51:23.896Z",
+          "schemaVersion": "evidence-record-v1",
+          "sha256": "sha256:14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1",
+          "sourceId": "deepswe"
+        },
+        {
+          "artifactPath": "artifacts/sha256/a7/a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019.json",
+          "byteLength": 94758,
+          "finalUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+          "id": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
+          "mediaType": "application/json",
+          "metadata": {
+            "captureScope": "complete leaderboard export",
+            "configurationRows": 70,
+            "distinctModels": 28,
+            "generatedAt": "2026-09-22T06:27:15.860279+00:00",
+            "version": "1.1"
+          },
+          "method": "API_RESPONSE",
+          "requestUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+          "retrievedAt": "2026-10-01T00:51:23.896Z",
+          "schemaVersion": "evidence-record-v1",
+          "sha256": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
+          "sourceId": "deepswe"
+        }
+      ],
+      "sourceId": "deepswe"
+    },
+    {
+      "evidence": [
+        {
+          "artifactPath": "artifacts/sha256/01/01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116.js",
+          "byteLength": 60586,
+          "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs",
+          "id": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+          "mediaType": "text/javascript",
+          "metadata": {
+            "automationBenchVersion": "1.0.6",
+            "captureScope": "Framer route module containing AutomationBench table",
+            "costRecords": 120,
+            "maximumRank": 121,
+            "parsedRows": 121,
+            "selectedByContentFeature": "task_completed_correctly"
+          },
+          "method": "EMBEDDED_JSON",
+          "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs",
+          "retrievedAt": "2026-10-01T00:51:25.318Z",
+          "schemaVersion": "evidence-record-v1",
+          "sha256": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+          "sourceId": "zapier-automationbench"
+        },
+        {
+          "artifactPath": "artifacts/sha256/69/69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc.html",
+          "byteLength": 224193,
+          "finalUrl": "https://zapier.com/benchmarks",
+          "id": "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc",
+          "mediaType": "text/html",
+          "metadata": {
+            "captureScope": "official AutomationBench page and module list",
+            "discoveredModuleCount": 15,
+            "selectedModuleUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs"
+          },
+          "method": "DOM",
+          "requestUrl": "https://zapier.com/benchmarks",
+          "retrievedAt": "2026-10-01T00:51:25.318Z",
+          "schemaVersion": "evidence-record-v1",
+          "sha256": "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc",
+          "sourceId": "zapier-automationbench"
+        }
+      ],
+      "sourceId": "zapier-automationbench"
+    },
+    {
+      "evidence": [
+        {
+          "artifactPath": "artifacts/sha256/e6/e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e.json",
+          "byteLength": 83796,
+          "finalUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
+          "id": "sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e",
+          "mediaType": "application/json",
+          "metadata": {
+            "configurationRows": 125,
+            "costRows": 125,
+            "dataset": "Main",
+            "distinctModels": 42,
+            "format": "official-static-json",
+            "modelsWithMultipleEfforts": 26,
+            "version": "1.1"
+          },
+          "method": "EXPORT",
+          "requestUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
+          "retrievedAt": "2026-10-01T00:51:24.255Z",
+          "schemaVersion": "evidence-record-v1",
+          "sha256": "sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e",
+          "sourceId": "frontier-code"
+        },
+        {
+          "artifactPath": "artifacts/sha256/26/26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006.html",
+          "byteLength": 150810,
+          "finalUrl": "https://cognition.com/frontiercode",
+          "id": "sha256:26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006",
+          "mediaType": "text/html",
+          "metadata": {
+            "dataset": "Main",
+            "jsonLdLeaderboardRows": 10,
+            "renderedRows": 42,
+            "renderedTopTenMatched": true,
+            "version": "1.1"
+          },
+          "method": "EMBEDDED_JSON",
+          "requestUrl": "https://cognition.com/frontiercode",
+          "retrievedAt": "2026-10-01T00:51:24.255Z",
+          "schemaVersion": "evidence-record-v1",
+          "sha256": "sha256:26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006",
+          "sourceId": "frontier-code"
+        }
+      ],
+      "sourceId": "frontier-code"
+    }
+  ]
+}

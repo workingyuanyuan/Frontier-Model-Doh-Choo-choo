@@ -1,5 +1,7 @@
 # 產品設計與詳細契約
 
+> 2026-10-03 核定：[前沿模型集合政策](FRONTIER_POLICY.md) 定義 AA 斷層選模、六類測試分類、ProofBench 排除及三階段執行範圍，優先於本文較早的模型集合及五維分類裁決。
+
 > 現行文件分工見 [文件入口](README.md)。本文件保留產品互動、來源擷取的詳細契約與裁決依據。
 > 架構、資料、計分與操作的現行規則由各主題文件維護；常態更新與審核以 [OPERATIONS.md](OPERATIONS.md) 為準。
 > 起始規格確認於 2026-08-17，後續裁決按日期保留。文中的重構期別、任務編號與當時數量屬演進背景。
@@ -34,16 +36,30 @@
 
 ### 3.1 現行來源
 
-| 來源 ID                  | 網站                               | 角色              | 進入期別 |
-| ------------------------ | ---------------------------------- | ----------------- | -------- |
-| `artificial-analysis`    | https://artificialanalysis.ai/     | ORGANIZER         | 期一     |
-| `livebench`              | https://livebench.ai/              | ORGANIZER         | 期一     |
-| `deepswe`                | https://deepswe.datacurve.ai/      | ORGANIZER         | 期一     |
-| `frontier-code`          | https://cognition.com/frontiercode | ORGANIZER（新建） | 期一     |
-| `epoch-ai`               | https://epoch.ai/                  | INDEPENDENT       | 期二     |
-| `arc-prize`              | https://arcprize.org/leaderboard   | ORGANIZER         | 期三     |
-| `zapier-automationbench` | https://zapier.com/benchmarks      | ORGANIZER         | 期三     |
-| `vals-ai`                | https://www.vals.ai/benchmarks     | 逐 benchmark 判定 | 期三     |
+| 來源 ID                     | 網站                                                    | 角色              | 進入期別   |
+| --------------------------- | ------------------------------------------------------- | ----------------- | ---------- |
+| `artificial-analysis`       | https://artificialanalysis.ai/                          | ORGANIZER         | 期一       |
+| `livebench`                 | https://livebench.ai/                                   | ORGANIZER         | 期一       |
+| `deepswe`                   | https://deepswe.datacurve.ai/                           | ORGANIZER         | 期一       |
+| `frontier-code`             | https://cognition.com/frontiercode                      | ORGANIZER（新建） | 期一       |
+| `frontier-swe`              | https://www.frontierswe.com/                            | ORGANIZER         | 2026-10-01 |
+| `epoch-ai`                  | https://epoch.ai/                                       | INDEPENDENT       | 期二       |
+| `arc-prize`                 | https://arcprize.org/leaderboard                        | ORGANIZER         | 期三       |
+| `zapier-automationbench`    | https://zapier.com/benchmarks                           | ORGANIZER         | 期三       |
+| `vals-ai`                   | https://www.vals.ai/benchmarks                          | 逐 benchmark 判定 | 期三       |
+| `surge-chartography`        | https://surgehq.ai/benchmarks/chartography              | ORGANIZER         | 2026-10-02 |
+| `surge-complex-constraints` | https://surgehq.ai/benchmarks/complex-constraints       | ORGANIZER         | 2026-10-03 |
+| `surge-corecraft`           | https://surgehq.ai/benchmarks/enterprisebench-corecraft | ORGANIZER         | 2026-10-03 |
+| `surge-riemann`             | https://surgehq.ai/benchmarks/riemann-bench             | ORGANIZER         | 2026-10-03 |
+| `surge-dayjob-finance`      | https://surgehq.ai/benchmarks/dayjob-finance            | ORGANIZER         | 2026-10-03 |
+| `surge-dayjob-healthcare`   | https://surgehq.ai/benchmarks/dayjob-healthcare         | ORGANIZER         | 2026-10-03 |
+| `surge-gdp-xlsx`            | https://surgehq.ai/benchmarks/gdp-xlsx                  | ORGANIZER         | 2026-10-03 |
+| `openai-releases`           | https://openai.com/                                     | VENDOR            | 2026-10-02 |
+| `anthropic-releases`        | https://www.anthropic.com/                              | VENDOR            | 2026-10-02 |
+
+Chartography 使用獨立 benchmark ID `chartography`，主要維度為 Reasoning、次要關聯為 Knowledge。採主榜 Pass@1 百分比及其明示的 reasoning 設定，依既有完整矩陣與集合生成政策參與計分。來源沒有逐列試驗次數、版本及發布日期時保存 null。
+
+模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 
 ### 3.2 凍結（不刪除，但不參與建置）
 
@@ -118,7 +134,7 @@ DeepSWE、Frontier Code（`frontier-code-1-1`）、Terminal-Bench 屬 `coding`�
 因此：
 
 - **新增 benchmark `frontier-code-1-1`**，primary dimension = `coding`，secondary = `agentic, context`。Cognition 的分數全部歸到這個 ID。
-- **`frontierswe` 保留給 Proximal**，期一不擷取，留待期三。
+- **`frontierswe` 保留給 Proximal V1** 的 rank／dominance。V2 使用 **`frontier-swe-v2`**，來源 ID 為 `frontier-swe`，擷取 mean@5 百分比分數。2026-10-01 決定以 `comparisonOnly: true` 限定為手動 profiles 比較；預設集合生成與計分依此限制執行。
 - `docs/BENCHMARK_DIMENSION_MAPPING.md` 與 `docs/BENCHMARK_SCORE_SOURCES.md` 要同時反映這兩個是不同的 benchmark。
 
 ### 4.3 代表 profile 的選法
@@ -367,6 +383,8 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 
 ### 5.3 coverage-matrix 報告指令
 
+**現行模型必選政策（2026-10-03）**：依使用者裁決，`requiredModelIds` 為空，所有集合均不釘住特定模型。集合依完整 profile 覆蓋、五維覆蓋、benchmark 品質限制及既有最佳化規則生成。下文 R10 的 Gemini 3.7 Flash 必選規則為歷史裁決，已由本政策取代。
+
 新增一個報告指令（建議 `pnpm report:coverage-matrix`），輸出兩份內容：
 
 1. **模型 × benchmark 的有無矩陣**。
@@ -601,21 +619,19 @@ Language    71.0
 
 **預設圖**
 
-- 六個已採用且具任務成本的來源加權合併，X 軸為混合後的正規化成本，Y 軸為 Overall Score。
+- 八個已採用且具任務成本的 benchmark 群組加權合併，X 軸為混合後的正規化成本，Y 軸為 Overall Score。
 - 每個模型每個來源取**最佳表現**那一筆（與 §4.3 同一套選法）。
 - 未來新增來源時可直接擴充。
 
-**權重：七個來源各 1/7**（2026-08-22 D4；2026-08-23 因 Zapier 採用由六改七）
+**權重：八個 benchmark 群組各 1/8**
 
-來源為 Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、
-Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成本圖，七個來源各 1/7。**
-這符合下列第 4 點——來源採用裁決完成後直接按來源數重算，不對特定站點另給權重。Epoch 沒有成本，
-同樣不在權重表。Vals 每個 benchmark 都發布成本，但只有 `vals_index` 的 `cost_per_test` 可作為
-來源成本，沒有該列就不以其他 benchmark 成本頂替。
+Artificial Analysis、LiveBench、DeepSWE、Frontier Code、ARC Prize、Vals AI、Zapier AutomationBench、CursorBench。Vals 僅使用 `vals_index` 的 `cost_per_test`。
+
+OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。同一模型與 effort 優先採用有配對分數的官方紀錄；缺少官方配對時，採用通過交叉核對的供應商分數與成本。供應商配對必須具有相同發布者、benchmark 版本及 profile，並保留 vendor 標示、原始連結與證據。每個群組只計算一次權重。
 
 原本的 40／40／20 是三來源時代的遺留值，沒有任何依據，不是決策結果。採等權重的理由：
 
-1. 七個來源都提供每次 task／test 的美元成本；任務大小造成的量級差距由 per-source 的 log min-max 正規化吸收。
+1. 八個群組都提供每次 task／test 的美元成本；任務大小造成的量級差距由 per-source 的 log min-max 正規化吸收。
 2. 權重混合的是「模型在該來源內部的相對貴賤位置」，不是美元。沒有可辯護的證據能對這些來源的量測品質排序。
 3. `sourceWeight` 會對該模型**實際具備的來源**重新正規化，缺來源不受懲罰。因此權重只在同一模型有兩個以上來源且排名不一致時才起作用。
 4. 等權重讓擴充成為機械操作；來源採用裁決完成後直接按來源數重算，不任意調高特定站點。
@@ -626,7 +642,7 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
 
 原本非進階來源的「該來源分數」取的是「該 profile 在該來源所有 INCLUDED 列的 normalized 平均」。
 這個定義的**分母會浮動**：Vals 平均二十幾個榜單，ARC／DeepSWE／Frontier Code 各只平均一個，
-同一個欄位在不同列代表不同的東西。改為**七個來源各自宣告一個基準**，宣告表在
+同一個欄位在不同列代表不同的東西。改為**八個群組各自宣告一個基準**，宣告表在
 `apps/bench/lib/view-model.ts` 的 `COST_SOURCE_SCORE_BASES`：
 
 | 來源                | 基準 benchmark                           | 取值              | 理由                                         |
@@ -637,6 +653,7 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
 | Frontier Code       | `frontier-code-1-1`                      | `normalizedScore` | 該來源唯一 benchmark                         |
 | ARC Prize           | `arc-agi-2`                              | `normalizedScore` | 該來源唯一 benchmark                         |
 | Zapier              | `automationbench`                        | `normalizedScore` | 該來源唯一 benchmark                         |
+| CursorBench         | `cursorbench-4`                          | `normalizedScore` | Anthropic 發布頁的同列分數與美元任務成本     |
 | LiveBench           | **無**                                   | `null`            | 見上方「LiveBench 的成本為何不能與分數配對」 |
 
 - 兩個 composite index（AA、Vals）都是 `EXCLUDED`，值只在 `rawScore`，因此**不會**進入維度分數
@@ -651,12 +668,11 @@ Zapier AutomationBench。**2026-08-23 使用者裁決：Zapier 一併納入成�
 
 **R14 — 預設圖每個點必須揭露它由幾個來源構成（2026-08-23，N11 落實）**
 
-`sourceWeight` 會對模型實際具備的來源重新正規化，缺來源不受懲罰；代價是「七個來源都有」與
-「只有一個來源」的兩個點外觀完全相同。因此每個點在懸停卡與資料表都要寫出 `N of 7`，並逐來源
-列出成本與分數基準。實測預設 preset（`all-sources-9`）的 9 個點為 7/7 五個、6/7 三個、
-5/7 一個。
+`sourceWeight` 依模型實際具備的群組重新正規化。懸停卡與資料表顯示 `N of 8`，並逐群組列出成本、分數基準及供應商標示。
 
 **進階圖**（按鈕開啟）
+
+可選來源包含 AA、DeepSWE、Frontier Code、ARC Prize、Zapier AutomationBench 與 CursorBench。初始啟用前五項；CursorBench 可獨立啟用。每個點都需要目前所選群組的完整成本／分數配對。選擇 DeepSWE 時，OpenAI 發布頁補充的 GPT-6 Sol 與 GPT-6.1 Sol 五個 effort 皆可出點。
 
 **2026-08-21 改定：進階圖從「三個來源的原始散點拼貼」改為「與預設圖同構的聚合圖」。**
 原本每個模型每個來源各畫一條線，一張圖上同時存在三套座標系，只能逐條讀、無法互相比較。

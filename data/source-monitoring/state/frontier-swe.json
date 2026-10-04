@@ -1,0 +1,77 @@
+{
+  "catalog": null,
+  "checkedAt": "2026-10-03T04:19:00.937Z",
+  "evidence": null,
+  "schemaVersion": "source-monitor-state-v1",
+  "snapshot": {
+    "benchmarks": [
+      {
+        "id": "frontier-swe-v2",
+        "includedRows": 18,
+        "metrics": ["mean-at-5:percent:true"],
+        "models": [
+          "alibaba-qwen3-8-max",
+          "anthropic-claude-fable-5",
+          "anthropic-claude-fable-5-1",
+          "anthropic-claude-opus-5",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "google-gemini-3-7-flash",
+          "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
+          "meta-muse-spark-1-2",
+          "moonshot-kimi-k3",
+          "openai-gpt-6-astra",
+          "thinking-machines-inkling",
+          "xai-grok-4-6",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"Claude Fable 5\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Claude Fable 5.1\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Claude Opus 5\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Claude Opus 5.5\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Claude Sonnet 5.5\",null,null,\"proximus\",null,null,5,null]",
+          "[\"DeepSeek V4 Flash Vision Exp\",null,null,\"proximus\",null,null,5,null]",
+          "[\"GLM-5.3\",null,null,\"proximus\",null,null,5,null]",
+          "[\"GPT-5.6\",null,null,\"proximus\",null,null,5,null]",
+          "[\"GPT-6 Astra\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Gemini 3.7 Flash\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Gemini 3.8 Flash\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Gemini 4 Argon\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Grok 4.6\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Grok 4.7\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Inkling\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Kimi K3\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Muse Spark 1.2\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Qwen3.8-Max\",null,null,\"proximus\",null,null,5,null]"
+        ],
+        "rawLabels": [
+          "Claude Fable 5",
+          "Claude Fable 5.1",
+          "Claude Opus 5",
+          "Claude Opus 5.5",
+          "Claude Sonnet 5.5",
+          "DeepSeek V4 Flash Vision Exp",
+          "GLM-5.3",
+          "GPT-5.6",
+          "GPT-6 Astra",
+          "Gemini 3.7 Flash",
+          "Gemini 3.8 Flash",
+          "Gemini 4 Argon",
+          "Grok 4.6",
+          "Grok 4.7",
+          "Inkling",
+          "Kimi K3",
+          "Muse Spark 1.2",
+          "Qwen3.8-Max"
+        ],
+        "rows": 18,
+        "sourceUrls": ["https://www.frontierswe.com/"],
+        "versions": ["2"]
+      }
+    ],
+    "observedAt": "2026-10-01T03:28:35.622Z",
+    "sourceId": "frontier-swe"
+  }
+}

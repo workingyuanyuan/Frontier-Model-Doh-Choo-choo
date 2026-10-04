@@ -443,15 +443,15 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.8-max | `vals-ai:vals-multimodal-index:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:vcb-1-100:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:vibe-code-bench:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| anthropic/claude-opus-4-7 | `vals-ai:aime:anthropic-claude-opus-4-7` | — | `xhigh` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-xhigh-epoch-inspect-row-170 |
-| anthropic/claude-opus-4-7 | `vals-ai:case-law-v2:anthropic-claude-opus-4-7` | — | `xhigh` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-xhigh-epoch-inspect-row-170 |
-| anthropic/claude-opus-5 | `vals-ai:corpfin:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
-| anthropic/claude-opus-5 | `vals-ai:gpqa-diamond:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
-| anthropic/claude-opus-5 | `vals-ai:mortgage-tax:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
-| anthropic/claude-opus-5 | `vals-ai:swe-bench:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
-| anthropic/claude-opus-5 | `vals-ai:tax-eval-v2:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
-| anthropic/claude-opus-5 | `vals-ai:vals-multimodal-index:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
-| anthropic/claude-opus-5 | `vals-ai:vibe-code-bench:anthropic-claude-opus-5` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-opus-5-max:arc-agi-2-v2-semi-private |
+| anthropic/claude-opus-4-7 | `vals-ai:aime:anthropic-claude-opus-4-7` | — | `max` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-max-epoch-inspect-row-127 |
+| anthropic/claude-opus-4-7 | `vals-ai:case-law-v2:anthropic-claude-opus-4-7` | — | `max` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-max-epoch-inspect-row-127 |
+| anthropic/claude-opus-5 | `vals-ai:corpfin:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:gpqa-diamond:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:mortgage-tax:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:swe-bench:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:tax-eval-v2:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:vals-multimodal-index:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
+| anthropic/claude-opus-5 | `vals-ai:vibe-code-bench:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-sonnet-4-6 | `vals-ai:aime:anthropic-claude-sonnet-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-high:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:case-law-v2:anthropic-claude-sonnet-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-high:arc-agi-2-v2-semi-private |
 | anthropic/claude-sonnet-4-6 | `vals-ai:medqa:anthropic-claude-sonnet-4-6` | — | `high` | arc-prize | arc-prize:arc-agi-2:claude-sonnet-4-6-high:arc-agi-2-v2-semi-private |
@@ -488,6 +488,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | minimax/MiniMax-M3 | `vals-ai:vals-multimodal-index:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:vcb-1-100:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:vibe-code-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
+| openai/gpt-5.2-codex | `vals-ai:livecodebench:openai-gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
 | openai/gpt-5.4 | `vals-ai:vibe-code-bench:openai-gpt-5-4` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-88:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-88:1-0-6 |
@@ -647,7 +648,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:tax-eval-v2:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:terminal-bench-2-1:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:vibe-code-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| openai/gpt-5.2-codex | `vals-ai:livecodebench:openai-gpt-5-2-codex` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:code-migration:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:corpfin:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:emb:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
@@ -670,7 +670,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.5-pro | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->
-
 ## Refresh verification — 2026-10-01
 
 All content-addressed artifact files referenced by this snapshot were read back from disk. SHA-256 and byte length matched every EvidenceRecord; CandidateResult and CostRecord evidence IDs and provenance evidence IDs resolve in this source evidence index.

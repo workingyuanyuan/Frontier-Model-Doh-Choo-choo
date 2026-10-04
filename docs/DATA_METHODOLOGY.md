@@ -17,6 +17,14 @@
 
 來源網站、角色、Benchmark 與最近更新狀態由 [可採用成績來源](BENCHMARK_SCORE_SOURCES.md) 維護。
 
+### 模型發布頁補充分數
+
+`openai-releases` 與 `anthropic-releases` 採逐圖表審核：先核對 benchmark 版本、資料切分、指標、模型與明示 effort，再比對主辦方的重疊列。容許差距只能來自公開的小數位精度。通過核對的評測可補入官方快照尚缺的模型／檔位，這些新列仍標為 `VENDOR`、`PARTIAL_SOURCE`，不能宣稱該列已被獨立驗證。
+
+發布頁的競品引用也保留 `VENDOR` 作為保守的證據優先級；實際執行者與交叉核對網址另存在來源報告及 `cross-checks.json`。這個角色表示本專案取得證據的管道，不表示該廠商親自執行了每一列。只有直接取得主辦方正式收錄的結果，才使用 `ORGANIZER`。跨站數字相同不能單獨證明測試環境或執行者相同。
+
+已知的版本、資料集、tools、fallback 與 metric 差異必須先裁決；不能只因名稱相近就共用 benchmark ID。混合多模型的 fallback 列、未解的數值衝突保留為 `EXCLUDED`。廠商較高分也不能越過主辦方／獨立來源的角色優先級；harness 差異只有在來源角色與完整性相同時才比較分數。逐項研究與採用範圍見 [發布頁研究](refresh/2026-10-02-vendor-releases.md)。
+
 ## 來源資料單位
 
 每個 `data/sources/<source>/` 目錄包含：
@@ -164,3 +172,11 @@ X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。�
 ## Dashboard 資料邊界
 
 產品視圖由 `data/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外五個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。
+
+## 模型發布頁的 Quality vs. Cost 資料
+
+OpenAI 與 Anthropic 發布頁中通過交叉核對的圖表，同列成本寫入 `CostRecord`，單位為 `USD_PER_TASK`。成本沿用分數的模型、明確 effort、benchmark 版本、納入狀態及 Evidence；已排除的混合模型 fallback 與分數衝突列，其成本也排除。
+
+圖表按 benchmark 群組配對：OpenAI 的 DeepSWE 1.1、AutomationBench 1.0.6；Anthropic 的 FrontierCode 1.1 Main、CursorBench 4.0。每個 profile 優先使用官方分數／成本配對，供應商配對補充缺漏。每個群組只計算一次權重，UI 保留供應商名稱與連結。預設成本圖有八個等權群組；進階圖新增可單獨啟用的 CursorBench。
+
+`pnpm data:materialize-costs`、離線 snapshot materialization 與 vendor refresh 都可重建成本；供應商與官方分數交叉核對失敗時，供應商成本不發布。

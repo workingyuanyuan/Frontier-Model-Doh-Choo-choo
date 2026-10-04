@@ -11,6 +11,7 @@ import {
   SourcesConfigSchema,
   applyProductProfilePolicy,
   buildFrontierSet,
+  getComparisonOnlyBenchmarkIds,
   selectCurrentResults,
   DIMENSION_IDS,
   type BenchmarkDimensionMapping,
@@ -29,7 +30,8 @@ export interface QualifiedModel {
 
 export interface ModelBenchmarkPresence {
   model: QualifiedModel;
-  mask: number;
+  /** Exact bitset: safe integers stay numeric; larger values use decimal strings. */
+  mask: number | string;
   /** Benchmarks any of the model's profiles has. */
   presentBenchmarks: string[];
   presence: Record<string, boolean>;
@@ -73,7 +75,7 @@ export interface TradeoffResult {
 }
 
 export interface MaskFrequency {
-  mask: number;
+  mask: number | string;
   count: number;
   modelIds: string[];
 }
@@ -453,8 +455,13 @@ export const analyzeCoverageMatrix = (
 
   // 2. Filter candidates strictly to whitelisted sources
   const whitelistSet = new Set(input.whitelist);
-  const whitelistedCandidates = input.sourceCandidates.filter((c) =>
-    whitelistSet.has(c.sourceId),
+  const comparisonOnlyBenchmarkIds = getComparisonOnlyBenchmarkIds(
+    input.benchmarkMapping,
+  );
+  const whitelistedCandidates = input.sourceCandidates.filter(
+    (c) =>
+      whitelistSet.has(c.sourceId) &&
+      !comparisonOnlyBenchmarkIds.has(c.benchmarkId),
   );
 
   // 3. Apply product profile policy
@@ -479,6 +486,7 @@ export const analyzeCoverageMatrix = (
   // 6. Benchmark dimension lookup
   const benchmarkDimensions: Record<string, BenchmarkDimensionInfo> = {};
   for (const b of input.benchmarkMapping.benchmarks) {
+    if (b.comparisonOnly) continue;
     const all = [
       ...new Set([b.primaryDimension, ...b.secondaryDimensions]),
     ].toSorted((left, right) => left.localeCompare(right));
@@ -563,13 +571,13 @@ export const analyzeCoverageMatrix = (
       left.localeCompare(right),
     );
     const presence: Record<string, boolean> = {};
-    let mask = 0;
+    let mask = 0n;
     for (const bId of activeBenchmarkIds) {
       const isPresent = presentSet.has(bId);
       presence[bId] = isPresent;
       if (isPresent) {
         const bit = benchmarkIndexMap.get(bId)!;
-        mask += 2 ** bit;
+        mask |= 1n << BigInt(bit);
       }
     }
     const modelProfiles = eligibleProfileIds.filter(
@@ -587,7 +595,10 @@ export const analyzeCoverageMatrix = (
 
     return {
       model,
-      mask,
+      mask:
+        mask <= BigInt(Number.MAX_SAFE_INTEGER)
+          ? Number(mask)
+          : mask.toString(),
       presentBenchmarks,
       presence,
       presentBenchmarkCount: presentBenchmarks.length,
@@ -598,23 +609,31 @@ export const analyzeCoverageMatrix = (
 
   // 9. Compress identical model availability masks to frequency counts
   const maskFrequencyMap = new Map<
-    number,
+    bigint,
     { count: number; modelIds: string[] }
   >();
   for (const row of matrix) {
-    const entry = maskFrequencyMap.get(row.mask) ?? { count: 0, modelIds: [] };
+    const exactMask = BigInt(row.mask);
+    const entry = maskFrequencyMap.get(exactMask) ?? { count: 0, modelIds: [] };
     entry.count += 1;
     entry.modelIds.push(row.model.modelId);
-    maskFrequencyMap.set(row.mask, entry);
+    maskFrequencyMap.set(exactMask, entry);
   }
 
   const maskFrequencies: MaskFrequency[] = [...maskFrequencyMap.entries()]
     .map(([mask, { count, modelIds }]) => ({
-      mask,
+      mask:
+        mask <= BigInt(Number.MAX_SAFE_INTEGER)
+          ? Number(mask)
+          : mask.toString(),
       count,
       modelIds: modelIds.toSorted((left, right) => left.localeCompare(right)),
     }))
-    .toSorted((left, right) => left.mask - right.mask);
+    .toSorted((left, right) => {
+      const leftMask = BigInt(left.mask);
+      const rightMask = BigInt(right.mask);
+      return leftMask < rightMask ? -1 : leftMask > rightMask ? 1 : 0;
+    });
 
   // 10. Exact tradeoff search with DP keeping top-k candidates per (count, key)
   const M = activeBenchmarkIds.length;
@@ -638,11 +657,6 @@ export const analyzeCoverageMatrix = (
   if (unknownRequiredModels.length > 0) {
     throw new Error(
       `required models are not qualified: ${unknownRequiredModels.join(', ')}`,
-    );
-  }
-  if (M > 53) {
-    throw new Error(
-      `coverage-matrix supports at most 53 active benchmarks in its exact numeric presence masks; received ${M}`,
     );
   }
 
@@ -730,7 +744,7 @@ export const analyzeCoverageMatrix = (
     const benchmarkDimMaskByIndex = activeBenchmarkIds.map((bId) => {
       const primary = benchmarkDimensions[bId]?.primaryDimension;
       if (primary === undefined) return 0;
-      const idx = DIMENSION_IDS.indexOf(primary);
+      const idx = (DIMENSION_IDS as readonly DimensionId[]).indexOf(primary);
       return idx >= 0 ? 1 << idx : 0;
     });
     const allDimensionMask = (1 << DIMENSION_IDS.length) - 1;
