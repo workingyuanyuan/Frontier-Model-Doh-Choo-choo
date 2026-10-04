@@ -5,12 +5,80 @@ import {
   decodeHtmlEntities,
   decodeValsEffort,
   extractValsBenchmarkSlugs,
+  extractValsBenchmarkDataUrl,
+  parseValsBenchmarkData,
   materializeVals,
   parseValsBenchmarkPage,
   unwrapAstroValue,
 } from './vals-materializer.js';
 
 const evidenceId = `sha256:${'a'.repeat(64)}`;
+
+describe('Vals external loader data', () => {
+  const loader = (url: string) =>
+    `<astro-island component-url="/_astro/BenchmarkViewLoader.ABC.js" props="${JSON.stringify({ benchmarkViewUrl: [0, url] }).replaceAll('"', '&quot;')}">`;
+  it('resolves the published JSON URL and rejects foreign origins or non-data paths', () => {
+    expect(
+      extractValsBenchmarkDataUrl(
+        loader('/_astro/benchmark_view_gpqa.abc.json'),
+      ),
+    ).toBe('https://www.vals.ai/_astro/benchmark_view_gpqa.abc.json');
+    for (const url of [
+      'https://other.test/_astro/benchmark_view_gpqa.abc.json',
+      '/_astro/code.js',
+      '//other.test/a.json',
+    ])
+      expect(() => extractValsBenchmarkDataUrl(loader(url))).toThrow();
+    expect(
+      extractValsBenchmarkDataUrl(
+        '<astro-island component-url="/_astro/RsiBenchmarkView.A.js">',
+      ),
+    ).toBeNull();
+  });
+  it('checks external JSON population and gives score/cost locators at the JSON root', () => {
+    const payload = {
+      metadata: { total_models: 1, benchmark: 'GPQA Diamond', version: '1' },
+      tasks: {
+        overall: {
+          'openai/gpt-6-sol': {
+            accuracy: 91,
+            cost_per_test: 0.5,
+            reasoning_effort: 'high',
+          },
+        },
+      },
+    };
+    const parsed = parseValsBenchmarkData(payload);
+    expect(() =>
+      parseValsBenchmarkData({ ...payload, metadata: { total_models: 2 } }),
+    ).toThrow('total_models mismatch');
+    expect(() =>
+      parseValsBenchmarkData({ metadata: { total_models: 0 } }),
+    ).toThrow('tasks');
+    const result = materializeVals(
+      [
+        {
+          slug: 'gpqa',
+          sourceUrl: 'https://www.vals.ai/benchmarks/gpqa',
+          evidenceId,
+          parsed,
+          dataRoot: 'document',
+        },
+      ],
+      {
+        observedAt: '2026-10-04T00:00:00.000Z',
+        indexEvidenceId: evidenceId,
+        discoveredSlugs: ['gpqa'],
+      },
+    );
+    expect(result.candidates[0]?.provenance.rawScore?.locator).toBe(
+      'tasks.overall["openai/gpt-6-sol"].accuracy',
+    );
+    expect(result.costs[0]?.provenance.cost?.locator).toBe(
+      'tasks.overall["openai/gpt-6-sol"].cost_per_test',
+    );
+  });
+});
 
 const fixture = (totalModels = 2): string => {
   const props = {

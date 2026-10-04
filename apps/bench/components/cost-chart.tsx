@@ -47,6 +47,8 @@ const SOURCE_NAMES: Record<string, string> = {
   cursorbench: 'CursorBench',
   'openai-releases': 'OpenAI (vendor)',
   'anthropic-releases': 'Anthropic (vendor)',
+  'xai-releases': 'xAI (vendor)',
+  'google-releases': 'Google (vendor)',
 };
 
 /**

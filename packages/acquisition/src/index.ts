@@ -15,6 +15,7 @@ const EXTENSIONS: Record<string, string> = {
   'application/zip': '.zip',
   'application/octet-stream': '.bin',
   'application/pdf': '.pdf',
+  'image/webp': '.webp',
   'text/html': '.html',
   'text/csv': '.csv',
   'text/plain': '.txt',

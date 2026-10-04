@@ -2003,6 +2003,7 @@ describe('coverage-matrix', () => {
         'epoch-ai',
         'frontier-code',
         'frontier-swe',
+        'google-releases',
         'livebench',
         'openai-releases',
         'surge-chartography',
@@ -2013,6 +2014,7 @@ describe('coverage-matrix', () => {
         'surge-gdp-xlsx',
         'surge-riemann',
         'vals-ai',
+        'xai-releases',
         'zapier-automationbench',
       ]);
       expect(data.sourceCandidates.length).toBeGreaterThan(0);

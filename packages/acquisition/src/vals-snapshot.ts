@@ -156,12 +156,18 @@ export async function writeValsSnapshot({
     displayName: 'Vals AI benchmark pages',
     role: 'INDEPENDENT',
     baseUrl: 'https://www.vals.ai',
-    targetUrls: [VALS_INDEX_URL, ...slugs.map(PAGE_URL)],
+    targetUrls: [
+      ...new Set([
+        VALS_INDEX_URL,
+        ...slugs.map(PAGE_URL),
+        ...pageRecords.map(({ record }) => record.requestUrl),
+      ]),
+    ],
     benchmarkIds,
     accessMethods: ['DOM', 'EMBEDDED_JSON'],
     completeness: {
       expectedCountMethod:
-        'Enumerate every /benchmarks/<slug> link from the official index, capture every page, parse the unique BenchmarkView Astro island when present, and require metadata.total_models to equal tasks.overall row count.',
+        'Enumerate every /benchmarks/<slug> link from the official index, capture every page and its published BenchmarkViewLoader JSON when present, parse the unique BenchmarkView data, and require metadata.total_models to equal tasks.overall row count.',
       pagination: null,
       visibleComparisonRequired: true,
     },

@@ -1,7 +1,7 @@
 {
   "accessMethods": ["NEXT_RSC"],
   "baseUrl": "https://openai.com/",
-  "benchmarkIds": ["automationbench", "deepswe-1-1"],
+  "benchmarkIds": ["automationbench", "deepswe-1-1", "frontier-code-1-1"],
   "completeness": {
     "expectedCountMethod": "Selected release charts only; compare chart counts, named model/effort pairs and organizer references.",
     "pagination": null,
@@ -15,7 +15,7 @@
     "chart release heading": "benchmarkVersion",
     "chart score/y": "rawScore"
   },
-  "lastVerifiedAt": "2026-10-02T14:56:49.000Z",
+  "lastVerifiedAt": "2026-10-04T04:31:17.114Z",
   "notes": [
     "PARTIAL_SOURCE: bounded, individually reviewed release charts. VENDOR remains lower priority than organizer and independent results.",
     "Matching numbers establish citation consistency only; evaluator identity and unpublished preview scores are not independently confirmed.",
@@ -24,5 +24,10 @@
   "role": "VENDOR",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "openai-releases",
-  "targetUrls": ["https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/"]
+  "targetUrls": [
+    "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
+    "https://openai.com/zh-Hant/index/introducing-gpt-6-sol-and-luna/",
+    "https://openai.com/zh-Hant/index/gpt-6-astra/",
+    "https://openai.com/zh-Hant/index/gpt-5-6/"
+  ]
 }

@@ -36,6 +36,13 @@ export function auditVendorReleases(
     'Fable 5.1': 'anthropic-claude-fable-5-1',
     'Opus 5': 'anthropic-claude-opus-5',
     'GPT-5.6 Sol': 'openai-gpt-5-6-sol',
+    'GPT-5.6 Terra': 'openai-gpt-5-6-terra',
+    'GPT-5.6 Luna': 'openai-gpt-5-6-luna',
+    'Sonnet 5': 'anthropic-claude-sonnet-5',
+    'Sonnet 5.5': 'anthropic-claude-sonnet-5-5',
+    'Grok 4.7': 'xai-grok-4-7',
+    'Gemini 3.8 Flash': 'google-gemini-3-8-flash',
+    'Muse Spark 1.3': 'meta-muse-spark-1-3',
   };
   for (const match of cursorHtml.matchAll(
     /aria-label="([^"<>]+?) (Extra High|Medium|High|Low|Max): ([\d.]+)%,/gu,
@@ -104,12 +111,27 @@ export function auditVendorReleases(
       };
     // AutomationBench is displayed to 0.1 points on one side of the comparison;
     // DeepSWE's release chart has 2 decimal points; other selected charts are exact.
-    const tolerance =
+    const baseTolerance =
       row.benchmarkId === 'automationbench'
         ? 0.05
-        : row.benchmarkId === 'deepswe-1-1'
-          ? 0.005
-          : 0.000001;
+        : row.benchmarkId === 'frontier-code-1-1' &&
+            row.sourceUrl === 'https://www.anthropic.com/claude-sonnet-5-5'
+          ? 0.05
+          : row.benchmarkId === 'deepswe-1-1'
+            ? 0.005
+            : 0.000001;
+    const precision =
+      row.sourceId === 'openai-releases'
+        ? Number(
+            /captured=([\d.]+)/u.exec(
+              row.provenance.scorePrecisionPercent?.locator ?? '',
+            )?.[1],
+          )
+        : NaN;
+    const tolerance =
+      Number.isFinite(precision) && precision > 0 && precision <= 0.1
+        ? Math.max(baseTolerance, precision / 2)
+        : baseTolerance;
     if (Math.abs(row.normalizedScore! - referenceScore) > tolerance + 1e-9) {
       throw new Error(
         `Vendor/organizer mismatch: ${row.id}: ${row.normalizedScore} vs ${referenceScore}`,

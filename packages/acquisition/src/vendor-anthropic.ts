@@ -9,6 +9,18 @@ import { resolveCatalogModel } from './materializer-utils.js';
 
 export const ANTHROPIC_OPUS_5_5_RELEASE_URL =
   'https://www.anthropic.com/claude-opus-5-5';
+export const ANTHROPIC_SONNET_5_5_RELEASE_URL =
+  'https://www.anthropic.com/claude-sonnet-5-5';
+export const ANTHROPIC_FABLE_MYTHOS_5_1_RELEASE_URL =
+  'https://www.anthropic.com/claude-fable-and-mythos-5-1';
+export const ANTHROPIC_OPUS_5_RELEASE_URL =
+  'https://www.anthropic.com/news/claude-opus-5';
+export const ANTHROPIC_RELEASE_URLS = [
+  ANTHROPIC_OPUS_5_5_RELEASE_URL,
+  ANTHROPIC_SONNET_5_5_RELEASE_URL,
+  ANTHROPIC_FABLE_MYTHOS_5_1_RELEASE_URL,
+  ANTHROPIC_OPUS_5_RELEASE_URL,
+] as const;
 
 const SOURCE_ID = 'anthropic-releases';
 const SOURCE_PUBLISHED_AT = '2026-09-22T00:00:00.000Z';
@@ -31,12 +43,12 @@ interface AnthropicSeriesModel {
 interface AnthropicChartDefinition {
   key: string;
   benchmarkId: string;
-  benchmarkVersion: string;
+  benchmarkVersion: string | null;
   benchmarkMarker: string;
   metric: {
     id: string;
     name: string;
-    unit: 'percent';
+    unit: 'percent' | 'elo';
     higherIsBetter: true;
   };
   series: Readonly<Record<string, AnthropicSeriesModel>>;
@@ -54,6 +66,21 @@ interface AnthropicChartRow {
 export interface MaterializeAnthropicReleaseContext {
   evidenceId: string;
   observedAt: string;
+}
+
+export interface AnthropicReleasePage extends MaterializeAnthropicReleaseContext {
+  sourceUrl: string;
+  text: string;
+}
+
+interface ReleaseMetadata {
+  sourceUrl: string;
+  publishedAt: string | null;
+  idScope: string;
+  note: string;
+  exclusionReason?: string;
+  tools?: Readonly<Record<string, boolean>>;
+  costAxisLabel?: string;
 }
 
 export interface MaterializeAnthropicReleaseResult {
@@ -201,7 +228,9 @@ function parseChartRows(
       );
     }
 
-    const effort = EFFORT_LABELS[sourceEffort];
+    const effort =
+      EFFORT_LABELS[sourceEffort] ??
+      EFFORT_LABELS[sourceEffort[0]!.toUpperCase() + sourceEffort.slice(1)];
     if (!effort) {
       throw new Error(
         `Unknown effort label ${JSON.stringify(sourceEffort)} in Anthropic chart ${chart.key}`,
@@ -226,7 +255,11 @@ function parseChartRows(
         `Anthropic chart ${chart.key} row ${index + 1} has an out-of-range cost coordinate`,
       );
     }
-    if (!Number.isFinite(score) || score < 0 || score > 100) {
+    if (
+      !Number.isFinite(score) ||
+      score < 0 ||
+      (chart.metric.unit === 'percent' && score > 100)
+    ) {
       throw new Error(
         `Anthropic chart ${chart.key} row ${index + 1} score must be between 0 and 100`,
       );
@@ -308,6 +341,21 @@ function materializeChart(
     }
   }
 
+  return materializeReviewedRows(chart, rows, context, costs, {
+    sourceUrl: ANTHROPIC_OPUS_5_5_RELEASE_URL,
+    publishedAt: SOURCE_PUBLISHED_AT,
+    idScope: '',
+    note: SOURCE_NOTE,
+  });
+}
+
+function materializeReviewedRows(
+  chart: AnthropicChartDefinition,
+  rows: AnthropicChartRow[],
+  context: MaterializeAnthropicReleaseContext,
+  costs: CostRecord[],
+  release: ReleaseMetadata,
+): CandidateResult[] {
   return rows.map((row) => {
     const seriesModel = chart.series[row.series]!;
     const resolvedModel = resolveCatalogModel(seriesModel.rawName);
@@ -321,19 +369,22 @@ function materializeChart(
 
     const modelId = seriesModel.expectedCanonicalModelId;
     const isReviewedConflict =
+      release.sourceUrl === ANTHROPIC_OPUS_5_5_RELEASE_URL &&
       chart.benchmarkId === FRONTIER_CODE_CONFLICT.benchmarkId &&
       row.series === FRONTIER_CODE_CONFLICT.series &&
       row.effort === FRONTIER_CODE_CONFLICT.effort &&
       row.score === FRONTIER_CODE_CONFLICT.anthropicScore;
-    const exclusionReason = isReviewedConflict
-      ? `Known cross-source conflict: Anthropic reports ${FRONTIER_CODE_CONFLICT.anthropicScore}%, while Cognition's FrontierCode 1.1 leaderboard reports ${FRONTIER_CODE_CONFLICT.organizerScore}% for this row. Excluded pending configuration reconciliation. ${FRONTIER_CODE_CONFLICT.organizerUrl}`
-      : null;
+    const exclusionReason =
+      release.exclusionReason ??
+      (isReviewedConflict
+        ? `Known cross-source conflict: Anthropic reports ${FRONTIER_CODE_CONFLICT.anthropicScore}%, while Cognition's FrontierCode 1.1 leaderboard reports ${FRONTIER_CODE_CONFLICT.organizerScore}% for this row. Excluded pending configuration reconciliation. ${FRONTIER_CODE_CONFLICT.organizerUrl}`
+        : null);
     const rowLocator = `RSC ${chart.key} CSV row ${row.sourceRow} (series=${row.series}, effort=${row.sourceEffort})`;
-    const caveatLocator = `${rowLocator}; y is the plotted score percentage; ${SOURCE_NOTE}`;
+    const caveatLocator = `${rowLocator}; y is the plotted ${chart.metric.unit} score; ${release.note}`;
 
     const candidate = CandidateResultSchema.parse({
       schemaVersion: 'candidate-result-v1',
-      id: `${SOURCE_ID}:${chart.benchmarkId}:${row.series}-${row.effort}`,
+      id: `${SOURCE_ID}:${release.idScope}${chart.benchmarkId}:${row.series}-${row.effort}`,
       sourceId: SOURCE_ID,
       sourceRole: 'VENDOR',
       benchmarkId: chart.benchmarkId,
@@ -346,7 +397,7 @@ function materializeChart(
       profile: {
         effort: row.effort,
         thinking: null,
-        tools: null,
+        tools: release.tools?.[row.series] ?? null,
         harness: null,
         contextWindowTokens: null,
         quantization: null,
@@ -354,13 +405,13 @@ function materializeChart(
       },
       metric: chart.metric,
       rawScore: row.score,
-      normalizedScore: row.score,
+      normalizedScore: chart.metric.unit === 'percent' ? row.score : null,
       acquisitionStatus: 'PARTIAL_SOURCE',
-      inclusion: isReviewedConflict ? 'EXCLUDED' : 'INCLUDED',
+      inclusion: exclusionReason !== null ? 'EXCLUDED' : 'INCLUDED',
       exclusionReason,
-      sourceUrl: ANTHROPIC_OPUS_5_5_RELEASE_URL,
+      sourceUrl: release.sourceUrl,
       observedAt: context.observedAt,
-      sourcePublishedAt: SOURCE_PUBLISHED_AT,
+      sourcePublishedAt: release.publishedAt,
       evidenceIds: [context.evidenceId],
       provenance: {
         model: {
@@ -370,7 +421,7 @@ function materializeChart(
         },
         profile: {
           evidenceId: context.evidenceId,
-          locator: `${rowLocator}; effort taken from explicit CSV label`,
+          locator: `${rowLocator}; effort taken from explicit CSV label; tools=${release.tools?.[row.series] ?? 'unknown'}; ${release.note}`,
           method: 'NEXT_RSC',
         },
         rawScore: {
@@ -380,7 +431,7 @@ function materializeChart(
         },
         cost: {
           evidenceId: context.evidenceId,
-          locator: `${rowLocator}; x=${row.cost}; xAxis.label=Cost per task (USD, log scale)`,
+          locator: `${rowLocator}; x=${row.cost}; xAxis.label=${release.costAxisLabel ?? 'Cost per task (USD, log scale)'}`,
           method: 'NEXT_RSC',
         },
       },
@@ -389,7 +440,7 @@ function materializeChart(
       materializeVendorTaskCost(
         candidate,
         row.cost,
-        `RSC ${chart.key} xAxis.label=Cost per task (USD, log scale); ${rowLocator}`,
+        `RSC ${chart.key} xAxis.label=${release.costAxisLabel ?? 'Cost per task (USD, log scale)'}; ${rowLocator}`,
       ),
     );
     return candidate;
@@ -438,5 +489,295 @@ export function materializeAnthropicRelease(
       '',
     ].join('\n'),
     chartCounts,
+  };
+}
+
+export interface AnthropicEmbeddedChart {
+  _key: string;
+  _type: 'chart';
+  title: string;
+  data: string;
+  series?: { id: string; name: string }[];
+  xAxis?: { label: string };
+  yAxis?: { label: string; format: string };
+}
+
+/** Parse serialized RSC values as data, without evaluating page scripts. */
+export function extractAnthropicReleaseCharts(
+  html: string,
+): AnthropicEmbeddedChart[] {
+  let payload = '';
+  for (const match of html.matchAll(
+    /<script[^>]*>self\.__next_f\.push\((\[[\s\S]*?\])\)<\/script>/gu,
+  )) {
+    const entry: unknown = JSON.parse(match[1]!);
+    if (Array.isArray(entry) && typeof entry[1] === 'string')
+      payload += entry[1];
+  }
+  const charts: AnthropicEmbeddedChart[] = [];
+  const walk = (value: unknown): void => {
+    if (Array.isArray(value)) {
+      value.forEach(walk);
+    } else if (value !== null && typeof value === 'object') {
+      const object = value as Record<string, unknown>;
+      if (object._type === 'chart') {
+        if (
+          typeof object._key !== 'string' ||
+          typeof object.title !== 'string' ||
+          typeof object.data !== 'string'
+        ) {
+          throw new Error('Anthropic embedded chart schema changed');
+        }
+        charts.push(object as unknown as AnthropicEmbeddedChart);
+      }
+      Object.values(object).forEach(walk);
+    }
+  };
+  for (const line of payload.split('\n')) {
+    const delimiter = line.indexOf(':');
+    if (delimiter < 0) continue;
+    let value: unknown;
+    try {
+      value = JSON.parse(line.slice(delimiter + 1));
+    } catch {
+      // RSC also carries non-JSON import/text records. Only JSON records count.
+      continue;
+    }
+    walk(value);
+  }
+  return charts;
+}
+
+const SONNET_MODELS: Readonly<Record<string, AnthropicSeriesModel>> = {
+  sonnet55: {
+    rawName: 'Claude Sonnet 5.5',
+    expectedCanonicalModelId: 'anthropic-claude-sonnet-5-5',
+  },
+  sonnet5: {
+    rawName: 'Claude Sonnet 5',
+    expectedCanonicalModelId: 'anthropic-claude-sonnet-5',
+  },
+  opus55: SERIES_MODELS.opus55!,
+  gpt6sol: {
+    rawName: 'GPT-6 Sol',
+    expectedCanonicalModelId: 'openai-gpt-6-sol',
+  },
+};
+const FABLE_5_MODEL: AnthropicSeriesModel = {
+  rawName: 'Claude Fable 5',
+  expectedCanonicalModelId: 'anthropic-claude-fable-5',
+};
+const FABLE_NOTE =
+  'Fable 5.1 and Fable 5 were evaluated with production safeguards enabled. The page says cybersecurity interventions fall back to Claude Opus 4.8 and biology interventions to Claude Opus 5; these mixed-model HLE rows are excluded. The chart separates with-tools and no-tools series. No HLE dataset version or harness is stated. The displayed release date is September 2026, so no exact day is inferred.';
+const SONNET_NOTE =
+  'Each CSV row explicitly labels effort. Sonnet 5.5 FrontierCode Max (46.2%) is lower than Xhigh (52.1%); the footnote attributes this to code-review subagents causing timeouts or extra changes in two examined cases. The page discusses production cyber fallback to Sonnet 5; no per-task intervention counts are provided for these coding charts. No harness is named for each chart row. Sonnet 5.5 AA-Briefcase was run by Artificial Analysis on a pre-release deployment with a structured-output bug since fixed; GPT-6 Sol may predate an image-understanding fix.';
+
+function materializeExpandedRelease(
+  page: AnthropicReleasePage,
+): MaterializeAnthropicReleaseResult {
+  const isSonnet = page.sourceUrl === ANTHROPIC_SONNET_5_5_RELEASE_URL;
+  const isFable = page.sourceUrl === ANTHROPIC_FABLE_MYTHOS_5_1_RELEASE_URL;
+  if (!isSonnet && !isFable) {
+    if (
+      page.sourceUrl !== ANTHROPIC_OPUS_5_RELEASE_URL ||
+      !page.text.includes('Introducing Claude Opus 5') ||
+      !page.text.includes('Frontier-Bench v0.1')
+    ) {
+      throw new Error(
+        `Unreviewed Anthropic release URL or page markers: ${page.sourceUrl}`,
+      );
+    }
+    return {
+      candidates: [],
+      costs: [],
+      chartCounts: {},
+      validationReport: `# Claude Opus 5 release review\n\n- Source: <${page.sourceUrl}>.\n- Evidence: \`${page.evidenceId}\`.\n- Benchmark comparisons are raster images without exact embedded chart coordinates; research findings and quarantine are recorded in docs/research/anthropic-release-expansion.md.\n- Frontier-Bench v0.1 uses mini-SWE-agent, GKE, mean reward over five attempts, and Opus 4.8 fallback for Opus 5/Fable 5.\n`,
+    };
+  }
+  if (
+    !page.text.includes(isSonnet ? 'September 28, 2026' : 'September 2026') ||
+    !page.text.includes(isSonnet ? 'Claude Sonnet 5.5' : 'Fable 5.1')
+  ) {
+    throw new Error(
+      `Anthropic release identity/date marker is missing: ${page.sourceUrl}`,
+    );
+  }
+  if (
+    isFable &&
+    (!page.text.includes(
+      'cybersecurity tasks were completed by Claude Opus 4.8',
+    ) ||
+      !page.text.includes('biology tasks were completed by Claude Opus 5'))
+  ) {
+    throw new Error(
+      'Anthropic Fable release fallback disclosure changed; re-audit exclusions',
+    );
+  }
+  const embedded = extractAnthropicReleaseCharts(page.text);
+  const percentMetric = {
+    id: 'accuracy',
+    name: 'Accuracy',
+    unit: 'percent',
+    higherIsBetter: true,
+  } as const;
+  const definitions: Omit<AnthropicChartDefinition, 'key'>[] = isSonnet
+    ? [
+        {
+          ...CHARTS[0]!,
+          benchmarkMarker: 'FrontierCode v1.1, main set',
+          series: SONNET_MODELS,
+        },
+        {
+          ...CHARTS[1]!,
+          series: {
+            sonnet55: SONNET_MODELS.sonnet55!,
+            sonnet5: SONNET_MODELS.sonnet5!,
+            opus55: SERIES_MODELS.opus55!,
+            gpt56sol: SERIES_MODELS.gpt56sol!,
+          },
+        },
+        {
+          benchmarkId: 'aa-briefcase',
+          benchmarkVersion: '1.1',
+          benchmarkMarker: 'AA-Briefcase v1.1',
+          metric: { id: 'elo', name: 'Elo', unit: 'elo', higherIsBetter: true },
+          series: SONNET_MODELS,
+        },
+      ]
+    : [
+        {
+          benchmarkId: 'humanitys-last-exam',
+          benchmarkVersion: null,
+          benchmarkMarker: "Humanity's Last Exam",
+          metric: percentMetric,
+          series: {
+            f51tools: SERIES_MODELS.fable51!,
+            f51notools: SERIES_MODELS.fable51!,
+            f5tools: FABLE_5_MODEL,
+            f5notools: FABLE_5_MODEL,
+          },
+        },
+      ];
+  const costs: CostRecord[] = [];
+  const chartCounts: Record<string, number> = {};
+  const candidates = definitions.flatMap((definition) => {
+    const matching = embedded.filter(
+      ({ title }) => title === definition.benchmarkMarker,
+    );
+    if (matching.length !== 1)
+      throw new Error(
+        `Expected exactly one Anthropic chart ${definition.benchmarkMarker}; found ${matching.length}`,
+      );
+    const chart = matching[0]!;
+    const expectedAxis = isSonnet
+      ? 'Cost per task (USD, log scale)'
+      : 'Mean cost per task (USD, log scale)';
+    if (chart.xAxis?.label !== expectedAxis)
+      throw new Error(`Anthropic chart ${chart._key} cost unit drift`);
+    if (
+      chart.yAxis?.label !==
+      (definition.metric.unit === 'elo'
+        ? 'Elo'
+        : isFable
+          ? 'Pass rate (%)'
+          : 'Score (%)')
+    )
+      throw new Error(`Anthropic chart ${chart._key} score metric drift`);
+    const expectedSeries = Object.keys(definition.series).sort();
+    if (
+      JSON.stringify(chart.series?.map(({ id }) => id).sort()) !==
+      JSON.stringify(expectedSeries)
+    )
+      throw new Error(`Anthropic chart ${chart._key} series mapping drift`);
+    for (const series of chart.series!) {
+      const expectedName = definition.series[series.id]!.rawName.replace(
+        /^Claude /u,
+        '',
+      );
+      if (series.name.replaceAll('**', '').split(' (')[0] !== expectedName)
+        throw new Error(
+          `Anthropic chart ${chart._key} model name drift: ${series.id}`,
+        );
+      if (
+        isFable &&
+        !series.name.endsWith(
+          series.id.endsWith('notools') ? '(no tools)' : '(with tools)',
+        )
+      )
+        throw new Error(
+          `Anthropic chart ${chart._key} tools mapping drift: ${series.id}`,
+        );
+    }
+    const reviewed = { ...definition, key: chart._key };
+    const rows = parseChartRows(chart.data, reviewed);
+    chartCounts[chart._key] = rows.length;
+    const exclusionReason = isFable
+      ? 'Mixed-model fallback: HLE safeguards may route cybersecurity tasks to Claude Opus 4.8 and biology tasks to Claude Opus 5; no per-row intervention counts or dataset version are disclosed.'
+      : definition.metric.unit === 'elo'
+        ? 'AA-Briefcase v1.1 Elo is not the rubric pass-rate metric used by this project; no approved Elo normalization.'
+        : undefined;
+    const materialized = materializeReviewedRows(reviewed, rows, page, costs, {
+      sourceUrl: page.sourceUrl,
+      publishedAt: isSonnet ? '2026-09-28T00:00:00.000Z' : null,
+      idScope: isSonnet ? 'sonnet-5-5:' : 'fable-mythos-5-1:',
+      note: isSonnet ? SONNET_NOTE : FABLE_NOTE,
+      costAxisLabel: expectedAxis,
+      ...(exclusionReason ? { exclusionReason } : {}),
+      ...(isFable
+        ? {
+            tools: {
+              f51tools: true,
+              f5tools: true,
+              f51notools: false,
+              f5notools: false,
+            },
+          }
+        : {}),
+    });
+    return materialized;
+  });
+  return {
+    candidates,
+    costs,
+    chartCounts,
+    validationReport: `# Anthropic expanded release acquisition\n\n- Source: <${page.sourceUrl}>.\n- Evidence: \`${page.evidenceId}\`.\n- Selected charts: ${Object.entries(
+      chartCounts,
+    )
+      .map(([key, count]) => `${key} (${count} rows)`)
+      .join(
+        '; ',
+      )}.\n- Included: ${candidates.filter(({ inclusion }) => inclusion === 'INCLUDED').length}; excluded: ${candidates.filter(({ inclusion }) => inclusion === 'EXCLUDED').length}.\n- Explicit effort labels, tools configuration, chart score units, task-cost units, and source notes are retained in provenance.\n- ${isSonnet ? SONNET_NOTE : FABLE_NOTE}\n- Full page findings and chart quarantine: docs/research/anthropic-release-expansion.md.\n`,
+  };
+}
+
+/** Page identity remains part of every candidate ID and its evidence lineage. */
+export function materializeAnthropicReleases(
+  pages: readonly AnthropicReleasePage[],
+): MaterializeAnthropicReleaseResult {
+  if (pages.length === 0) throw new Error('No Anthropic release pages');
+  if (new Set(pages.map(({ sourceUrl }) => sourceUrl)).size !== pages.length)
+    throw new Error('Duplicate Anthropic release URL');
+  const results = pages.map((page) =>
+    page.sourceUrl === ANTHROPIC_OPUS_5_5_RELEASE_URL
+      ? materializeAnthropicRelease(page.text, page)
+      : materializeExpandedRelease(page),
+  );
+  const candidates = results
+    .flatMap(({ candidates }) => candidates)
+    .sort((a, b) => a.id.localeCompare(b.id));
+  if (new Set(candidates.map(({ id }) => id)).size !== candidates.length)
+    throw new Error('Duplicate Anthropic candidate IDs');
+  return {
+    candidates,
+    costs: results
+      .flatMap(({ costs }) => costs)
+      .sort((a, b) => a.id.localeCompare(b.id)),
+    chartCounts: Object.assign(
+      {},
+      ...results.map(({ chartCounts }) => chartCounts),
+    ),
+    validationReport: results
+      .map(({ validationReport }) => validationReport)
+      .join('\n'),
   };
 }

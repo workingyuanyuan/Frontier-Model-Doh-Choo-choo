@@ -13,6 +13,8 @@ import {
   VALS_INDEX_URL,
   VALS_SOURCE_ID,
   extractValsBenchmarkSlugs,
+  extractValsBenchmarkDataUrl,
+  parseValsBenchmarkData,
   materializeVals,
   parseValsBenchmarkPage,
   type ParsedValsPage,
@@ -33,7 +35,12 @@ async function capturePagesInBatches(input: {
   retrievedAt: string;
   slugs: string[];
 }): Promise<
-  Array<{ slug: string; record: EvidenceRecord; parsed: ParsedValsPage | null }>
+  Array<{
+    slug: string;
+    record: EvidenceRecord;
+    pageRecord?: EvidenceRecord;
+    parsed: ParsedValsPage | null;
+  }>
 > {
   return mapAcquisitionItems(
     input.slugs,
@@ -52,6 +59,29 @@ async function capturePagesInBatches(input: {
           benchmarkSlug: slug,
         },
       });
+      const dataUrl = extractValsBenchmarkDataUrl(artifact.text);
+      if (dataUrl) {
+        const data = await captureArtifact({
+          root: input.root,
+          sourceId: VALS_SOURCE_ID,
+          url: dataUrl,
+          retrievedAt: input.retrievedAt,
+          mediaType: 'application/json',
+          method: 'EMBEDDED_JSON',
+          metadata: {
+            captureScope: 'official BenchmarkViewLoader JSON',
+            benchmarkSlug: slug,
+            pageUrl: PAGE_URL(slug),
+            pageEvidenceId: artifact.record.id,
+          },
+        });
+        return {
+          slug,
+          record: data.record,
+          pageRecord: artifact.record,
+          parsed: parseValsBenchmarkData(JSON.parse(data.text)),
+        };
+      }
       // Drop full response bytes/HTML after each page; retain only parsed data.
       return {
         slug,
@@ -104,11 +134,12 @@ async function main() {
     slugs,
   });
   const result = materializeVals(
-    pageCaptures.map(({ slug, record, parsed }) => ({
+    pageCaptures.map(({ slug, record, parsed, pageRecord }) => ({
       slug,
       parsed,
       evidenceId: record.id,
       sourceUrl: PAGE_URL(slug),
+      ...(pageRecord ? { dataRoot: 'document' as const } : {}),
     })),
     {
       observedAt: retrievedAt,
@@ -117,15 +148,32 @@ async function main() {
     },
   );
 
+  if (result.parsedPages === 0 || result.candidates.length === 0) {
+    throw new Error(
+      'Vals refresh produced no benchmark data; refusing to replace the snapshot',
+    );
+  }
+  const previousSlugs = new Set(previousCandidates.map((row) => row.sourceUrl));
+  for (const page of pageCaptures) {
+    if (
+      (!page.parsed || Object.keys(page.parsed.rows).length === 0) &&
+      previousSlugs.has(PAGE_URL(page.slug))
+    ) {
+      throw new Error(
+        `Previously populated Vals page is unavailable: ${page.slug}`,
+      );
+    }
+  }
+
   await writeValsSnapshot({
     sourceDirectory,
     retrievedAt,
     slugs,
     indexRecord: index.record,
-    pageRecords: pageCaptures.map(({ slug, record }) => ({
-      slug,
-      record,
-    })),
+    pageRecords: pageCaptures.flatMap(({ slug, record, pageRecord }) => [
+      { slug, record },
+      ...(pageRecord ? [{ slug, record: pageRecord }] : []),
+    ]),
     result,
     benchmarkMapping,
     previousReport,

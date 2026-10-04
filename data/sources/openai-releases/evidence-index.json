@@ -1,22 +1,66 @@
 [
   {
-    "artifactPath": "artifacts/sha256/09/09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b.json",
-    "byteLength": 7667,
+    "artifactPath": "artifacts/sha256/33/33f7689cc3fd869510e899690ba278b679ec7ca755e5bdc66e6f8300c88f6e03.json",
+    "byteLength": 7759,
     "finalUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
-    "id": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+    "id": "sha256:33f7689cc3fd869510e899690ba278b679ec7ca755e5bdc66e6f8300c88f6e03",
     "mediaType": "application/json",
     "metadata": {
-      "chartRows": {
-        "automationbench": 21,
-        "deepswe": 15
-      },
-      "scope": "Reviewed two-chart excerpt extracted from browser DOM script elements; normalized JSON, not a full HTTP response."
+      "scope": "Reviewed release chart excerpt; bounded capture with per-page validation"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/",
-    "retrievedAt": "2026-10-02T14:56:49.000Z",
+    "retrievedAt": "2026-10-04T03:25:28.149Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b",
+    "sha256": "sha256:33f7689cc3fd869510e899690ba278b679ec7ca755e5bdc66e6f8300c88f6e03",
+    "sourceId": "openai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/6e/6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b.json",
+    "byteLength": 60907,
+    "finalUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-sol-and-luna/",
+    "id": "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b",
+    "mediaType": "application/json",
+    "metadata": {
+      "scope": "Reviewed release chart excerpt; bounded capture with per-page validation"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-sol-and-luna/",
+    "retrievedAt": "2026-10-04T04:26:16.028Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b",
+    "sourceId": "openai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/7c/7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf.json",
+    "byteLength": 26763,
+    "finalUrl": "https://openai.com/zh-Hant/index/gpt-6-astra/",
+    "id": "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf",
+    "mediaType": "application/json",
+    "metadata": {
+      "scope": "Reviewed release chart excerpt; bounded capture with per-page validation"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://openai.com/zh-Hant/index/gpt-6-astra/",
+    "retrievedAt": "2026-10-04T04:26:55.430Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf",
+    "sourceId": "openai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/c7/c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75.json",
+    "byteLength": 21010,
+    "finalUrl": "https://openai.com/zh-Hant/index/gpt-5-6/",
+    "id": "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75",
+    "mediaType": "application/json",
+    "metadata": {
+      "scope": "Reviewed release chart excerpt; bounded capture with per-page validation"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://openai.com/zh-Hant/index/gpt-5-6/",
+    "retrievedAt": "2026-10-04T04:31:17.114Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75",
     "sourceId": "openai-releases"
   }
 ]

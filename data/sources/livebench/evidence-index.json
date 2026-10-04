@@ -14,7 +14,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://livebench.ai/",
-    "retrievedAt": "2026-10-01T00:51:23.601Z",
+    "retrievedAt": "2026-10-04T03:26:02.621Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a60bd35053dfe4b4c81e8745d1a1a888138aa5d8bccc6551d5e2ca0348839c23",
     "sourceId": "livebench"
@@ -31,7 +31,7 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://livebench.ai/categories_2026_06_25.json?v=1790708459",
-    "retrievedAt": "2026-10-01T00:51:23.601Z",
+    "retrievedAt": "2026-10-04T03:26:02.621Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3",
     "sourceId": "livebench"
@@ -48,7 +48,7 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://livebench.ai/cost_2026_06_25.csv?v=1790708459",
-    "retrievedAt": "2026-10-01T00:51:23.601Z",
+    "retrievedAt": "2026-10-04T03:26:02.621Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d572014a891e76ef3f30896f66cc873ec02eb5c7d10909a6796efe450ad05ba9",
     "sourceId": "livebench"
@@ -65,7 +65,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://livebench.ai/static/js/main.b9b5570a.js",
-    "retrievedAt": "2026-10-01T00:51:23.601Z",
+    "retrievedAt": "2026-10-04T03:26:02.621Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:801eb2b85b66866a0cea5f3c50c24f1fd6f11dbaf37509a2096a54a5da39536f",
     "sourceId": "livebench"
@@ -87,7 +87,7 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459",
-    "retrievedAt": "2026-10-01T00:51:23.601Z",
+    "retrievedAt": "2026-10-04T03:26:02.621Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
     "sourceId": "livebench"

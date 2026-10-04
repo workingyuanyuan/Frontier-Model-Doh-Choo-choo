@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-03T06:28:33.754Z",
+  "lastVerifiedAt": "2026-10-04T03:22:53.981Z",
   "notes": [
     "Main leaderboard task pass rate percentages; enterprise customer support agent tasks requiring every rubric criterion to pass.",
     "Official methodology: https://surgehq.ai/blog/enterprisebench-corecraft and https://arxiv.org/html/2602.16179v5. Current per-row harness and tool metadata remain null.",

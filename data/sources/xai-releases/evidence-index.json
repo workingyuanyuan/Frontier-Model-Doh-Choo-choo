@@ -1,0 +1,50 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/5c/5ce5ddfa12daeea65af0362bcf9c58f354e5b28dbbc38e37730dd7b33d309185.html",
+    "byteLength": 293215,
+    "finalUrl": "https://x.ai/news/grok-4-7",
+    "id": "sha256:5ce5ddfa12daeea65af0362bcf9c58f354e5b28dbbc38e37730dd7b33d309185",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://x.ai/news/grok-4-7",
+    "retrievedAt": "2026-10-04T04:31:01.893Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5ce5ddfa12daeea65af0362bcf9c58f354e5b28dbbc38e37730dd7b33d309185",
+    "sourceId": "xai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/0d/0dbdfbf6e0ab7f5aef41c60f30a57d50150f53c306892e5998342c781e885691.js",
+    "byteLength": 66973,
+    "finalUrl": "https://x.ai/_next/static/chunks/0f6ega5q11hd-.js?dpl=367c525206561a36400b25e02c25ed7db42517e5",
+    "id": "sha256:0dbdfbf6e0ab7f5aef41c60f30a57d50150f53c306892e5998342c781e885691",
+    "mediaType": "application/javascript",
+    "metadata": {
+      "scope": "Release page chart bundle; read-only source inspection"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://x.ai/_next/static/chunks/0f6ega5q11hd-.js?dpl=367c525206561a36400b25e02c25ed7db42517e5",
+    "retrievedAt": "2026-10-04T04:32:16.572Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:0dbdfbf6e0ab7f5aef41c60f30a57d50150f53c306892e5998342c781e885691",
+    "sourceId": "xai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/67/679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0.html",
+    "byteLength": 349671,
+    "finalUrl": "https://prod.cursor.com/evals",
+    "id": "sha256:679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Organizer cross-check; visible chart aria-label score/effort pairs"
+    },
+    "method": "DOM",
+    "requestUrl": "https://prod.cursor.com/evals",
+    "retrievedAt": "2026-10-04T03:29:03.639Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0",
+    "sourceId": "anthropic-releases"
+  }
+]

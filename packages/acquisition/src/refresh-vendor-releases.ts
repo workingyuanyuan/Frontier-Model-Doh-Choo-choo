@@ -1,5 +1,5 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import {
   CandidateResultSchema,
   SourceManifestSchema,
@@ -12,77 +12,88 @@ import {
   readJson,
   writeMetadataJson,
 } from './refresh-utils.js';
-import { materializeOpenAIRelease } from './vendor-openai.js';
-import { materializeAnthropicRelease } from './vendor-anthropic.js';
+import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
+import {
+  materializeAnthropicReleases,
+  ANTHROPIC_RELEASE_URLS,
+} from './vendor-anthropic.js';
 import { auditVendorReleases } from './vendor-release-audit.js';
 
 const root = getWorkspaceRoot();
 const args = process.argv.slice(2).filter((a) => a !== '--');
-const captureIndex = args.indexOf('--openai-capture');
-const observedIndex = args.indexOf('--openai-observed-at');
-if (
-  captureIndex < 0 ||
-  !args[captureIndex + 1] ||
-  observedIndex < 0 ||
-  !args[observedIndex + 1]
-) {
-  throw new Error(
-    'Provide --openai-capture <reviewed DOM/RSC excerpt.json> --openai-observed-at <actual browser capture ISO time>. See docs/OPERATIONS.md.',
-  );
-}
-const openaiObservedAt = args[observedIndex + 1]!;
-if (
-  !/^\d{4}-\d{2}-\d{2}T/.test(openaiObservedAt) ||
-  !Number.isFinite(Date.parse(openaiObservedAt))
-)
-  throw new Error('Invalid browser capture timestamp');
 const observedAt = new Date().toISOString();
-const captureBytes = await readFile(resolve(args[captureIndex + 1]!));
-const capture = JSON.parse(captureBytes.toString('utf8')) as {
-  sourceUrl: string;
-};
-const artifact = await writeContentAddressedArtifact(
-  join(root, 'artifacts', 'sha256'),
-  captureBytes,
-  'application/json',
-);
-const openaiEvidence = buildArtifactRecord(
-  captureBytes,
-  'application/json',
-  `artifacts/sha256/${artifact.record.artifactPath}`,
-  {
-    sourceId: 'openai-releases',
-    retrievedAt: openaiObservedAt,
-    requestUrl: capture.sourceUrl,
-    finalUrl: capture.sourceUrl,
-    method: 'NEXT_RSC',
-    metadata: {
-      scope:
-        'Reviewed two-chart excerpt extracted from browser DOM script elements; normalized JSON, not a full HTTP response.',
-      chartRows: { deepswe: 15, automationbench: 21 },
+const indexPosition = args.indexOf('--openai-capture-index');
+const indexPath =
+  indexPosition >= 0
+    ? resolve(args[indexPosition + 1]!)
+    : join(root, 'data/sources/openai-releases/reviewed-capture-index.json');
+const captureIndex = await readJson<{
+  schemaVersion: string;
+  captures: { path: string; observedAt: string }[];
+}>(indexPath);
+if (captureIndex.schemaVersion !== 'openai-release-capture-index-v1')
+  throw new Error('Invalid capture index');
+const openaiEvidence = [];
+const openaiCaptures = [];
+for (const entry of captureIndex.captures) {
+  if (!Number.isFinite(Date.parse(entry.observedAt)))
+    throw new Error('Invalid capture time');
+  const captureBytes = await readFile(resolve(dirname(indexPath), entry.path));
+  const capture = JSON.parse(captureBytes.toString('utf8')) as {
+    sourceUrl: string;
+  };
+  const artifact = await writeContentAddressedArtifact(
+    join(root, 'artifacts/sha256'),
+    captureBytes,
+    'application/json',
+  );
+  const record = buildArtifactRecord(
+    captureBytes,
+    'application/json',
+    `artifacts/sha256/${artifact.record.artifactPath}`,
+    {
+      sourceId: 'openai-releases',
+      retrievedAt: entry.observedAt,
+      requestUrl: capture.sourceUrl,
+      finalUrl: capture.sourceUrl,
+      method: 'NEXT_RSC',
+      metadata: {
+        scope:
+          'Reviewed release chart excerpt; bounded capture with per-page validation',
+      },
     },
-  },
+  );
+  openaiEvidence.push(record);
+  openaiCaptures.push({
+    captureText: captureBytes.toString('utf8'),
+    context: { evidenceId: record.id, observedAt: entry.observedAt },
+  });
+}
+const openai = materializeOpenAIReleaseCaptures(openaiCaptures);
+const anthropicPages = [];
+for (const url of ANTHROPIC_RELEASE_URLS)
+  anthropicPages.push(
+    await captureArtifact({
+      root,
+      sourceId: 'anthropic-releases',
+      url,
+      retrievedAt: observedAt,
+      mediaType: 'text/html',
+      method: 'NEXT_RSC',
+      metadata: {
+        scope:
+          'Full official model release HTML; individually reviewed benchmark charts',
+      },
+    }),
+  );
+const anthropic = materializeAnthropicReleases(
+  anthropicPages.map((page) => ({
+    sourceUrl: page.record.requestUrl,
+    text: page.text,
+    evidenceId: page.record.id,
+    observedAt: page.record.retrievedAt,
+  })),
 );
-const openai = materializeOpenAIRelease(captureBytes.toString('utf8'), {
-  evidenceId: openaiEvidence.id,
-  observedAt: openaiObservedAt,
-});
-const anthropicPage = await captureArtifact({
-  root,
-  sourceId: 'anthropic-releases',
-  url: 'https://www.anthropic.com/claude-opus-5-5',
-  retrievedAt: observedAt,
-  mediaType: 'text/html',
-  method: 'NEXT_RSC',
-  metadata: {
-    scope:
-      'Full release HTML; selected FrontierCode 1.1 Main and CursorBench 4.0 charts',
-  },
-});
-const anthropic = materializeAnthropicRelease(anthropicPage.text, {
-  evidenceId: anthropicPage.record.id,
-  observedAt,
-});
 const cursorPage = await captureArtifact({
   root,
   sourceId: 'anthropic-releases',
@@ -123,16 +134,16 @@ for (const source of [
     id: 'openai-releases',
     name: 'OpenAI model releases',
     result: openai,
-    evidence: [openaiEvidence],
-    urls: [capture.sourceUrl],
+    evidence: openaiEvidence,
+    urls: openaiEvidence.map((record) => record.requestUrl),
     baseUrl: 'https://openai.com/',
   },
   {
     id: 'anthropic-releases',
     name: 'Anthropic model releases',
     result: anthropic,
-    evidence: [anthropicPage.record, cursorPage.record],
-    urls: ['https://www.anthropic.com/claude-opus-5-5'],
+    evidence: [...anthropicPages.map((page) => page.record), cursorPage.record],
+    urls: [...ANTHROPIC_RELEASE_URLS],
     baseUrl: 'https://www.anthropic.com/',
   },
 ]) {
@@ -165,7 +176,10 @@ for (const source of [
       'chart release heading': 'benchmarkVersion',
     },
     fallbackMethods: ['DOM', 'VISUAL'],
-    lastVerifiedAt: source.evidence[0]!.retrievedAt,
+    lastVerifiedAt: source.evidence
+      .map((record) => record.retrievedAt)
+      .sort()
+      .at(-1)!,
     notes: [
       'PARTIAL_SOURCE: bounded, individually reviewed release charts. VENDOR remains lower priority than organizer and independent results.',
       'Matching numbers establish citation consistency only; evaluator identity and unpublished preview scores are not independently confirmed.',

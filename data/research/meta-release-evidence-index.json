@@ -1,0 +1,50 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/3c/3cc51df0c805f14376c1e7ab8768f089bf13820eeaecc0aaec009637b488a83b.html",
+    "byteLength": 183876,
+    "finalUrl": "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+    "id": "sha256:3cc51df0c805f14376c1e7ab8768f089bf13820eeaecc0aaec009637b488a83b",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Reviewed Muse Spark 1.3 release, methodology and scorecard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+    "retrievedAt": "2026-10-04T05:05:42.284Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:3cc51df0c805f14376c1e7ab8768f089bf13820eeaecc0aaec009637b488a83b",
+    "sourceId": "meta-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/31/315a5d1de2932bf772caf1945aa2c7460a1e040c5df3d8b6bbfb53eddea864fe.pdf",
+    "byteLength": 584759,
+    "finalUrl": "https://research.meta.ai/static/muse-spark-1-3-multimodal-evaluation-methodology",
+    "id": "sha256:315a5d1de2932bf772caf1945aa2c7460a1e040c5df3d8b6bbfb53eddea864fe",
+    "mediaType": "application/pdf",
+    "metadata": {
+      "scope": "Reviewed Muse Spark 1.3 release, methodology and scorecard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://research.meta.ai/static/muse-spark-1-3-multimodal-evaluation-methodology",
+    "retrievedAt": "2026-10-04T05:05:43.167Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:315a5d1de2932bf772caf1945aa2c7460a1e040c5df3d8b6bbfb53eddea864fe",
+    "sourceId": "meta-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/f3/f3ebe2a54d79082c9b5cfacfade4fda6f809ade61e86218fe74045fd76cce92a.webp",
+    "byteLength": 59720,
+    "finalUrl": "https://research.meta.ai/articles/introducing-muse-1-3/benchmarks/benchmark-scorecard-v6.webp",
+    "id": "sha256:f3ebe2a54d79082c9b5cfacfade4fda6f809ade61e86218fe74045fd76cce92a",
+    "mediaType": "image/webp",
+    "metadata": {
+      "scope": "Reviewed Muse Spark 1.3 release, methodology and scorecard"
+    },
+    "method": "VISUAL",
+    "requestUrl": "https://research.meta.ai/articles/introducing-muse-1-3/benchmarks/benchmark-scorecard-v6.webp",
+    "retrievedAt": "2026-10-04T05:05:43.334Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f3ebe2a54d79082c9b5cfacfade4fda6f809ade61e86218fe74045fd76cce92a",
+    "sourceId": "meta-releases"
+  }
+]

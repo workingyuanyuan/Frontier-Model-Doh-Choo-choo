@@ -8,53 +8,36 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 191 |
+| Unique profile rows across all captured page payloads | 192 |
 | Unique profile rows in evaluation-page payloads | 63 |
-| Unique profile rows in model-detail payloads | 188 |
+| Unique profile rows in model-detail payloads | 189 |
 | Profile rows in the /models payload | 24 |
-| Active profile rows (2025-08-17 cutoff, not deprecated) | 108 |
-| Generated CandidateResults | 1334 |
-| Intelligence Index candidates (EXCLUDED) | 107 |
-| GDPval-AA normalized candidates | 107 |
-| Canonically unresolved candidates | 590 |
-| MEASURED_TASK cost rows | 105 |
-| API_STANDARDIZED token-price rows | 107 |
+| Active profile rows (2025-08-17 cutoff, not deprecated) | 109 |
+| Generated CandidateResults | 1344 |
+| Intelligence Index candidates (EXCLUDED) | 108 |
+| GDPval-AA normalized candidates | 108 |
+| Canonically unresolved candidates | 600 |
+| MEASURED_TASK cost rows | 106 |
+| API_STANDARDIZED token-price rows | 108 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 24 selected profile rows in this capture.
 - The evaluation-page payload union exposes 63 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 188 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The model-detail payload union exposes 189 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
 - API source unavailable; page pipeline remains authoritative.
 - No real API differences recorded beyond rounding.
-- Warning: ARTIFICIAL_ANALYSIS_API_KEY is not set; API cross-validation skipped.
+- Warning: API cross-validation was not attempted.
 
 ## Scope and semantics
 
 - Artificial Analysis composite indices remain `EXCLUDED`; direct evaluation scores are the only AA rows eligible for the eight-dimensional product score.
 - Token prices are `API_STANDARDIZED` and task costs are `MEASURED_TASK`; the two cost semantics are emitted as separate records.
 - No missing score, identity, or cost is inferred.
-
-## Visible comparison
-
-- Fresh rendered models page catalog total: 689
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 191
-- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Unique source profiles | 190 | 191 | +1 |
-| Active source profiles | 113 | 108 | -5 |
-| Candidate results | 1270 | 1334 | +64 |
-| Materialized costs | 219 | 212 | -7 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

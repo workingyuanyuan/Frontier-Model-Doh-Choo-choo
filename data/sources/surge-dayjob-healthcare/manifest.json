@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-03T08:01:53.254Z",
+  "lastVerifiedAt": "2026-10-04T03:22:54.445Z",
   "notes": [
     "Main leaderboard domain mean reward percentages. Healthcare tasks are published in the official DAYJOB repository.",
     "Official methodology: https://surgehq.ai/blog/dayjob and https://github.com/surge-ai/dayjob#grading. Domain score is the unweighted mean of task scores, each averaging five trial rewards excluding errored trials. The README explicitly identifies five attempts per task for leaderboard runs.",

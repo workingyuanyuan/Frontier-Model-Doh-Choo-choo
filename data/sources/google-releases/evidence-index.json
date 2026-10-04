@@ -1,0 +1,66 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/fd/fdb1aca4a987142423910456a610f7e6bd9e7d8d1c3b0922b565544aa64194d6.html",
+    "byteLength": 413557,
+    "finalUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+    "id": "sha256:fdb1aca4a987142423910456a610f7e6bd9e7d8d1c3b0922b565544aa64194d6",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+    "retrievedAt": "2026-10-04T04:30:57.697Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:fdb1aca4a987142423910456a610f7e6bd9e7d8d1c3b0922b565544aa64194d6",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/6c/6c9a1793455330efece88254fd0342d8d0680c560f506f67f982bbabc3eed07a.pdf",
+    "byteLength": 635167,
+    "finalUrl": "https://storage.googleapis.com/deepmind-media/gemini/gemini_3-8_flash_model_evaluation.pdf",
+    "id": "sha256:6c9a1793455330efece88254fd0342d8d0680c560f506f67f982bbabc3eed07a",
+    "mediaType": "application/pdf",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://deepmind.google/models/evals-methodology/gemini-3-8-flash",
+    "retrievedAt": "2026-10-04T04:30:58.476Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:6c9a1793455330efece88254fd0342d8d0680c560f506f67f982bbabc3eed07a",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/12/122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1.html",
+    "byteLength": 405965,
+    "finalUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "id": "sha256:122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "retrievedAt": "2026-10-04T04:31:00.008Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/ff/ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7.pdf",
+    "byteLength": 352830,
+    "finalUrl": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_argon_model_evaluation.pdf",
+    "id": "sha256:ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7",
+    "mediaType": "application/pdf",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://deepmind.google/models/evals-methodology/gemini-4-argon",
+    "retrievedAt": "2026-10-04T04:31:00.702Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7",
+    "sourceId": "google-releases"
+  }
+]

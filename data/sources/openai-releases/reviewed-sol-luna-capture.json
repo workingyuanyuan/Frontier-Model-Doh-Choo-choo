@@ -1,0 +1,1981 @@
+{
+  "schemaVersion": "vendor-chart-capture-v1",
+  "sourceUrl": "https://openai.com/zh-Hant/index/introducing-gpt-6-sol-and-luna/",
+  "pageId": "sol-luna",
+  "chartVersions": {
+    "automationbench": "1.0.6",
+    "frontiercode-extended": "1.1",
+    "deepswe": "1.1"
+  },
+  "charts": [
+    {
+      "id": "automationbench",
+      "values": [
+        {
+          "model": "Claude Fable 5.1 w/ Opus 5 Fallback",
+          "modelLabel": "Claude Fable 5.1（備援：Opus 5）",
+          "effortLabel": "Max",
+          "order": 0,
+          "score": 0.314,
+          "cost": 2.45,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[0]",
+          "rawRow": {
+            "cost": 2.45,
+            "cost_label": "$$2.45",
+            "effortLabel": "Max",
+            "model": "Claude Fable 5.1 w/ Opus 5 Fallback",
+            "modelLabel": "Claude Fable 5.1（備援：Opus 5）",
+            "order": 0,
+            "score": 0.314
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.204,
+          "cost": 1.64,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[1]",
+          "rawRow": {
+            "cost": 1.64,
+            "cost_label": "$$1.64",
+            "effortLabel": "低",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 0,
+            "score": 0.204
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.239,
+          "cost": 2.22,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[2]",
+          "rawRow": {
+            "cost": 2.22,
+            "cost_label": "$$2.22",
+            "effortLabel": "中",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 1,
+            "score": 0.239
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.205,
+          "cost": 2.27,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[3]",
+          "rawRow": {
+            "cost": 2.27,
+            "cost_label": "$$2.27",
+            "effortLabel": "高",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 2,
+            "score": 0.205
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.253,
+          "cost": 2.71,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[4]",
+          "rawRow": {
+            "cost": 2.71,
+            "cost_label": "$$2.71",
+            "effortLabel": "極高",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 3,
+            "score": 0.253
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.269,
+          "cost": 3.05,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[5]",
+          "rawRow": {
+            "cost": 3.05,
+            "cost_label": "$$3.05",
+            "effortLabel": "Max",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 4,
+            "score": 0.269
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.018,
+          "cost": 0.01,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[6]",
+          "rawRow": {
+            "cost": 0.01,
+            "cost_label": "$$0.010",
+            "effortLabel": "低",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 0,
+            "score": 0.018
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.043,
+          "cost": 0.02,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[7]",
+          "rawRow": {
+            "cost": 0.02,
+            "cost_label": "$$0.020",
+            "effortLabel": "中",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 1,
+            "score": 0.043
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.091,
+          "cost": 0.05,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[8]",
+          "rawRow": {
+            "cost": 0.05,
+            "cost_label": "$$0.050",
+            "effortLabel": "高",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 2,
+            "score": 0.091
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.129,
+          "cost": 0.06,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[9]",
+          "rawRow": {
+            "cost": 0.06,
+            "cost_label": "$$0.060",
+            "effortLabel": "極高",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 3,
+            "score": 0.129
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.17,
+          "cost": 0.07,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[10]",
+          "rawRow": {
+            "cost": 0.07,
+            "cost_label": "$$0.070",
+            "effortLabel": "Max",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 4,
+            "score": 0.17
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.117,
+          "cost": 0.31,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[11]",
+          "rawRow": {
+            "cost": 0.31,
+            "cost_label": "$$0.31",
+            "effortLabel": "低",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 0,
+            "score": 0.117
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.196,
+          "cost": 0.42,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[12]",
+          "rawRow": {
+            "cost": 0.42,
+            "cost_label": "$$0.42",
+            "effortLabel": "中",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 1,
+            "score": 0.196
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.248,
+          "cost": 0.47,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[13]",
+          "rawRow": {
+            "cost": 0.47,
+            "cost_label": "$$0.47",
+            "effortLabel": "高",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 2,
+            "score": 0.248
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.263,
+          "cost": 0.54,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[14]",
+          "rawRow": {
+            "cost": 0.54,
+            "cost_label": "$$0.54",
+            "effortLabel": "極高",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 3,
+            "score": 0.263
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.288,
+          "cost": 0.67,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[15]",
+          "rawRow": {
+            "cost": 0.67,
+            "cost_label": "$$0.67",
+            "effortLabel": "Max",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 4,
+            "score": 0.288
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.303,
+          "cost": 1.08,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[16]",
+          "rawRow": {
+            "cost": 1.08,
+            "cost_label": "$$1.08",
+            "effortLabel": "低",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 0,
+            "score": 0.303
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.341,
+          "cost": 1.27,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[17]",
+          "rawRow": {
+            "cost": 1.27,
+            "cost_label": "$$1.27",
+            "effortLabel": "中",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 1,
+            "score": 0.341
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.371,
+          "cost": 1.44,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[18]",
+          "rawRow": {
+            "cost": 1.44,
+            "cost_label": "$$1.44",
+            "effortLabel": "高",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 2,
+            "score": 0.371
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.39,
+          "cost": 1.5,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[19]",
+          "rawRow": {
+            "cost": 1.5,
+            "cost_label": "$$1.50",
+            "effortLabel": "極高",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 3,
+            "score": 0.39
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.414,
+          "cost": 1.73,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[20]",
+          "rawRow": {
+            "cost": 1.73,
+            "cost_label": "$$1.73",
+            "effortLabel": "Max",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 4,
+            "score": 0.414
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.012,
+          "cost": 0.006,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[21]",
+          "rawRow": {
+            "cost": 0.006,
+            "cost_label": "$$0.0060",
+            "effortLabel": "低",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 0,
+            "score": 0.012
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.094,
+          "cost": 0.0163,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[22]",
+          "rawRow": {
+            "cost": 0.0163,
+            "cost_label": "$$0.016",
+            "effortLabel": "中",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 1,
+            "score": 0.094
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.145,
+          "cost": 0.0208,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[23]",
+          "rawRow": {
+            "cost": 0.0208,
+            "cost_label": "$$0.021",
+            "effortLabel": "高",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 2,
+            "score": 0.145
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.126,
+          "cost": 0.0245,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[24]",
+          "rawRow": {
+            "cost": 0.0245,
+            "cost_label": "$$0.025",
+            "effortLabel": "極高",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 3,
+            "score": 0.126
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.207,
+          "cost": 0.0367,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[25]",
+          "rawRow": {
+            "cost": 0.0367,
+            "cost_label": "$$0.037",
+            "effortLabel": "Max",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 4,
+            "score": 0.207
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.2116,
+          "cost": 0.1861,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[26]",
+          "rawRow": {
+            "cost": 0.1861,
+            "cost_label": "$$0.19",
+            "effortLabel": "低",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 0,
+            "score": 0.2116
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.2694,
+          "cost": 0.2098,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[27]",
+          "rawRow": {
+            "cost": 0.2098,
+            "cost_label": "$$0.21",
+            "effortLabel": "中",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 1,
+            "score": 0.2694
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.312,
+          "cost": 0.2368,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[28]",
+          "rawRow": {
+            "cost": 0.2368,
+            "cost_label": "$$0.24",
+            "effortLabel": "高",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 2,
+            "score": 0.312
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.3318,
+          "cost": 0.2746,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[29]",
+          "rawRow": {
+            "cost": 0.2746,
+            "cost_label": "$$0.27",
+            "effortLabel": "極高",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 3,
+            "score": 0.3318
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.3196,
+          "cost": 0.3406,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[0].vegaLiteSpec.data.values[30]",
+          "rawRow": {
+            "cost": 0.3406,
+            "cost_label": "$$0.34",
+            "effortLabel": "Max",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 4,
+            "score": 0.3196
+          }
+        }
+      ]
+    },
+    {
+      "id": "frontiercode-extended",
+      "values": [
+        {
+          "model": "Claude Fable 5.1",
+          "modelLabel": "Claude Fable 5.1",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.498,
+          "cost": 2.38,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[0]",
+          "rawRow": {
+            "cost": 2.38,
+            "cost_label": "$$2.38",
+            "effortLabel": "低",
+            "model": "Claude Fable 5.1",
+            "modelLabel": "Claude Fable 5.1",
+            "order": 0,
+            "score": 0.498
+          }
+        },
+        {
+          "model": "Claude Fable 5.1",
+          "modelLabel": "Claude Fable 5.1",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.509,
+          "cost": 3.28,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[1]",
+          "rawRow": {
+            "cost": 3.28,
+            "cost_label": "$$3.28",
+            "effortLabel": "中",
+            "model": "Claude Fable 5.1",
+            "modelLabel": "Claude Fable 5.1",
+            "order": 1,
+            "score": 0.509
+          }
+        },
+        {
+          "model": "Claude Fable 5.1",
+          "modelLabel": "Claude Fable 5.1",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.503,
+          "cost": 5.27,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[2]",
+          "rawRow": {
+            "cost": 5.27,
+            "cost_label": "$$5.27",
+            "effortLabel": "高",
+            "model": "Claude Fable 5.1",
+            "modelLabel": "Claude Fable 5.1",
+            "order": 2,
+            "score": 0.503
+          }
+        },
+        {
+          "model": "Claude Fable 5.1",
+          "modelLabel": "Claude Fable 5.1",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.487,
+          "cost": 9.27,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[3]",
+          "rawRow": {
+            "cost": 9.27,
+            "cost_label": "$$9.27",
+            "effortLabel": "極高",
+            "model": "Claude Fable 5.1",
+            "modelLabel": "Claude Fable 5.1",
+            "order": 3,
+            "score": 0.487
+          }
+        },
+        {
+          "model": "Claude Fable 5.1",
+          "modelLabel": "Claude Fable 5.1",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.503,
+          "cost": 12.83,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[4]",
+          "rawRow": {
+            "cost": 12.83,
+            "cost_label": "$$12.83",
+            "effortLabel": "Max",
+            "model": "Claude Fable 5.1",
+            "modelLabel": "Claude Fable 5.1",
+            "order": 4,
+            "score": 0.503
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.419,
+          "cost": 2.68,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[5]",
+          "rawRow": {
+            "cost": 2.68,
+            "cost_label": "$$2.68",
+            "effortLabel": "低",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 0,
+            "score": 0.419
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.534,
+          "cost": 4.31,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[6]",
+          "rawRow": {
+            "cost": 4.31,
+            "cost_label": "$$4.31",
+            "effortLabel": "中",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 1,
+            "score": 0.534
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.48,
+          "cost": 7.24,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[7]",
+          "rawRow": {
+            "cost": 7.24,
+            "cost_label": "$$7.24",
+            "effortLabel": "高",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 2,
+            "score": 0.48
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.436,
+          "cost": 9.14,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[8]",
+          "rawRow": {
+            "cost": 9.14,
+            "cost_label": "$$9.14",
+            "effortLabel": "極高",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 3,
+            "score": 0.436
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.48,
+          "cost": 11.42,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[9]",
+          "rawRow": {
+            "cost": 11.42,
+            "cost_label": "$$11.42",
+            "effortLabel": "Max",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 4,
+            "score": 0.48
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.154,
+          "cost": 0.06,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[10]",
+          "rawRow": {
+            "cost": 0.06,
+            "cost_label": "$$0.060",
+            "effortLabel": "低",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 0,
+            "score": 0.154
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.257,
+          "cost": 0.13,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[11]",
+          "rawRow": {
+            "cost": 0.13,
+            "cost_label": "$$0.13",
+            "effortLabel": "中",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 1,
+            "score": 0.257
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.359,
+          "cost": 0.23,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[12]",
+          "rawRow": {
+            "cost": 0.23,
+            "cost_label": "$$0.23",
+            "effortLabel": "高",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 2,
+            "score": 0.359
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.389,
+          "cost": 0.31,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[13]",
+          "rawRow": {
+            "cost": 0.31,
+            "cost_label": "$$0.31",
+            "effortLabel": "極高",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 3,
+            "score": 0.389
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.398,
+          "cost": 0.37,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[14]",
+          "rawRow": {
+            "cost": 0.37,
+            "cost_label": "$$0.37",
+            "effortLabel": "Max",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 4,
+            "score": 0.398
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.354,
+          "cost": 1.89,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[15]",
+          "rawRow": {
+            "cost": 1.89,
+            "cost_label": "$$1.89",
+            "effortLabel": "低",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 0,
+            "score": 0.354
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.399,
+          "cost": 2.69,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[16]",
+          "rawRow": {
+            "cost": 2.69,
+            "cost_label": "$$2.69",
+            "effortLabel": "中",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 1,
+            "score": 0.399
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.451,
+          "cost": 3.48,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[17]",
+          "rawRow": {
+            "cost": 3.48,
+            "cost_label": "$$3.48",
+            "effortLabel": "高",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 2,
+            "score": 0.451
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.468,
+          "cost": 4.15,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[18]",
+          "rawRow": {
+            "cost": 4.15,
+            "cost_label": "$$4.15",
+            "effortLabel": "極高",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 3,
+            "score": 0.468
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.475,
+          "cost": 5.19,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[19]",
+          "rawRow": {
+            "cost": 5.19,
+            "cost_label": "$$5.19",
+            "effortLabel": "Max",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 4,
+            "score": 0.475
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.453,
+          "cost": 1.7,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[20]",
+          "rawRow": {
+            "cost": 1.7,
+            "cost_label": "$$1.70",
+            "effortLabel": "低",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 0,
+            "score": 0.453
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.488,
+          "cost": 2.43,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[21]",
+          "rawRow": {
+            "cost": 2.43,
+            "cost_label": "$$2.43",
+            "effortLabel": "中",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 1,
+            "score": 0.488
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.509,
+          "cost": 3.01,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[22]",
+          "rawRow": {
+            "cost": 3.01,
+            "cost_label": "$$3.01",
+            "effortLabel": "高",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 2,
+            "score": 0.509
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.506,
+          "cost": 3.28,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[23]",
+          "rawRow": {
+            "cost": 3.28,
+            "cost_label": "$$3.28",
+            "effortLabel": "極高",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 3,
+            "score": 0.506
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.533,
+          "cost": 4.59,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[24]",
+          "rawRow": {
+            "cost": 4.59,
+            "cost_label": "$$4.59",
+            "effortLabel": "Max",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 4,
+            "score": 0.533
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.2566,
+          "cost": 0.021,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[25]",
+          "rawRow": {
+            "cost": 0.021,
+            "cost_label": "$$0.021",
+            "effortLabel": "低",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 0,
+            "score": 0.2566
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.3553,
+          "cost": 0.0533,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[26]",
+          "rawRow": {
+            "cost": 0.0533,
+            "cost_label": "$$0.053",
+            "effortLabel": "中",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 1,
+            "score": 0.3553
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.3726,
+          "cost": 0.0672,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[27]",
+          "rawRow": {
+            "cost": 0.0672,
+            "cost_label": "$$0.067",
+            "effortLabel": "高",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 2,
+            "score": 0.3726
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.371,
+          "cost": 0.0728,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[28]",
+          "rawRow": {
+            "cost": 0.0728,
+            "cost_label": "$$0.073",
+            "effortLabel": "極高",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 3,
+            "score": 0.371
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.4242,
+          "cost": 0.1072,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[29]",
+          "rawRow": {
+            "cost": 0.1072,
+            "cost_label": "$$0.11",
+            "effortLabel": "Max",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 4,
+            "score": 0.4242
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.3728,
+          "cost": 0.453,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[30]",
+          "rawRow": {
+            "cost": 0.453,
+            "cost_label": "$$0.45",
+            "effortLabel": "低",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 0,
+            "score": 0.3728
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.4592,
+          "cost": 0.7966,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[31]",
+          "rawRow": {
+            "cost": 0.7966,
+            "cost_label": "$$0.80",
+            "effortLabel": "中",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 1,
+            "score": 0.4592
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.477,
+          "cost": 1.0793,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[32]",
+          "rawRow": {
+            "cost": 1.0793,
+            "cost_label": "$$1.08",
+            "effortLabel": "高",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 2,
+            "score": 0.477
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.4845,
+          "cost": 1.3748,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[33]",
+          "rawRow": {
+            "cost": 1.3748,
+            "cost_label": "$$1.37",
+            "effortLabel": "極高",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 3,
+            "score": 0.4845
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.4927,
+          "cost": 2.137,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[3].vegaLiteSpec.data.values[34]",
+          "rawRow": {
+            "cost": 2.137,
+            "cost_label": "$$2.14",
+            "effortLabel": "Max",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 4,
+            "score": 0.4927
+          }
+        }
+      ]
+    },
+    {
+      "id": "deepswe",
+      "values": [
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.5958,
+          "cost": 3.7579,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[0]",
+          "rawRow": {
+            "cost": 3.7579,
+            "cost_label": "$$3.76",
+            "effortLabel": "低",
+            "model": "Claude Fable 5",
+            "modelLabel": "Claude Fable 5",
+            "order": 0,
+            "score": 0.5958
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.6537,
+          "cost": 6.0882,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[1]",
+          "rawRow": {
+            "cost": 6.0882,
+            "cost_label": "$$6.09",
+            "effortLabel": "中",
+            "model": "Claude Fable 5",
+            "modelLabel": "Claude Fable 5",
+            "order": 1,
+            "score": 0.6537
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.686,
+          "cost": 9.1776,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[2]",
+          "rawRow": {
+            "cost": 9.1776,
+            "cost_label": "$$9.18",
+            "effortLabel": "高",
+            "model": "Claude Fable 5",
+            "modelLabel": "Claude Fable 5",
+            "order": 2,
+            "score": 0.686
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.6991,
+          "cost": 13.4145,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[3]",
+          "rawRow": {
+            "cost": 13.4145,
+            "cost_label": "$$13.41",
+            "effortLabel": "極高",
+            "model": "Claude Fable 5",
+            "modelLabel": "Claude Fable 5",
+            "order": 3,
+            "score": 0.6991
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.6972,
+          "cost": 21.6347,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[4]",
+          "rawRow": {
+            "cost": 21.6347,
+            "cost_label": "$$21.63",
+            "effortLabel": "Max",
+            "model": "Claude Fable 5",
+            "modelLabel": "Claude Fable 5",
+            "order": 4,
+            "score": 0.6972
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.5813,
+          "cost": 1.66,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[5]",
+          "rawRow": {
+            "cost": 1.66,
+            "cost_label": "$$1.66",
+            "effortLabel": "低",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 0,
+            "score": 0.5813
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.689,
+          "cost": 3.29,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[6]",
+          "rawRow": {
+            "cost": 3.29,
+            "cost_label": "$$3.29",
+            "effortLabel": "中",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 1,
+            "score": 0.689
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.7283,
+          "cost": 6.08,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[7]",
+          "rawRow": {
+            "cost": 6.08,
+            "cost_label": "$$6.08",
+            "effortLabel": "高",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 2,
+            "score": 0.7283
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.7315,
+          "cost": 9.07,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[8]",
+          "rawRow": {
+            "cost": 9.07,
+            "cost_label": "$$9.07",
+            "effortLabel": "極高",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 3,
+            "score": 0.7315
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.7365,
+          "cost": 11.84,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[9]",
+          "rawRow": {
+            "cost": 11.84,
+            "cost_label": "$$11.84",
+            "effortLabel": "Max",
+            "model": "Claude Opus 5",
+            "modelLabel": "Claude Opus 5",
+            "order": 4,
+            "score": 0.7365
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.0122,
+          "cost": 0.0106,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[10]",
+          "rawRow": {
+            "cost": 0.0106,
+            "cost_label": "$$0.011",
+            "effortLabel": "低",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 0,
+            "score": 0.0122
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "deepswe-1-1:mini-swe-agent-gpt-5-6-luna-low",
+            "referenceScore": 1.5486725663716814,
+            "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.0929,
+          "cost": 0.0313,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[11]",
+          "rawRow": {
+            "cost": 0.0313,
+            "cost_label": "$$0.031",
+            "effortLabel": "中",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 1,
+            "score": 0.0929
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "deepswe-1-1:mini-swe-agent-gpt-5-6-luna-medium",
+            "referenceScore": 11.283185840707963,
+            "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.4237,
+          "cost": 0.1272,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[12]",
+          "rawRow": {
+            "cost": 0.1272,
+            "cost_label": "$$0.13",
+            "effortLabel": "高",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 2,
+            "score": 0.4237
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "deepswe-1-1:mini-swe-agent-gpt-5-6-luna-high",
+            "referenceScore": 44.24778761061947,
+            "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.5619,
+          "cost": 0.2737,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[13]",
+          "rawRow": {
+            "cost": 0.2737,
+            "cost_label": "$$0.27",
+            "effortLabel": "極高",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 3,
+            "score": 0.5619
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "deepswe-1-1:mini-swe-agent-gpt-5-6-luna-xhigh",
+            "referenceScore": 56.85840707964602,
+            "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
+          }
+        },
+        {
+          "model": "GPT-5.6 Luna",
+          "modelLabel": "GPT-5.6 Luna",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.6217,
+          "cost": 0.532,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[14]",
+          "rawRow": {
+            "cost": 0.532,
+            "cost_label": "$$0.53",
+            "effortLabel": "Max",
+            "model": "GPT-5.6 Luna",
+            "modelLabel": "GPT-5.6 Luna",
+            "order": 4,
+            "score": 0.6217
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "deepswe-1-1:mini-swe-agent-gpt-5-6-luna-max",
+            "referenceScore": 67.1875,
+            "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.4535,
+          "cost": 0.82,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[15]",
+          "rawRow": {
+            "cost": 0.82,
+            "cost_label": "$$0.82",
+            "effortLabel": "低",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 0,
+            "score": 0.4535
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.6106,
+          "cost": 1.42,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[16]",
+          "rawRow": {
+            "cost": 1.42,
+            "cost_label": "$$1.42",
+            "effortLabel": "中",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 1,
+            "score": 0.6106
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.694,
+          "cost": 2.66,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[17]",
+          "rawRow": {
+            "cost": 2.66,
+            "cost_label": "$$2.66",
+            "effortLabel": "高",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 2,
+            "score": 0.694
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.7073,
+          "cost": 3.6,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[18]",
+          "rawRow": {
+            "cost": 3.6,
+            "cost_label": "$$3.60",
+            "effortLabel": "極高",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 3,
+            "score": 0.7073
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.7267,
+          "cost": 6.46,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[19]",
+          "rawRow": {
+            "cost": 6.46,
+            "cost_label": "$$6.46",
+            "effortLabel": "Max",
+            "model": "GPT-5.6 Sol",
+            "modelLabel": "GPT-5.6 Sol",
+            "order": 4,
+            "score": 0.7267
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.6704,
+          "cost": 1.5952,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[20]",
+          "rawRow": {
+            "cost": 1.5952,
+            "cost_label": "$$1.60",
+            "effortLabel": "低",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 0,
+            "score": 0.6704
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.7279,
+          "cost": 3.0755,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[21]",
+          "rawRow": {
+            "cost": 3.0755,
+            "cost_label": "$$3.08",
+            "effortLabel": "中",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 1,
+            "score": 0.7279
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.7323,
+          "cost": 3.9237,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[22]",
+          "rawRow": {
+            "cost": 3.9237,
+            "cost_label": "$$3.92",
+            "effortLabel": "高",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 2,
+            "score": 0.7323
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.7412,
+          "cost": 4.4291,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[23]",
+          "rawRow": {
+            "cost": 4.4291,
+            "cost_label": "$$4.43",
+            "effortLabel": "極高",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 3,
+            "score": 0.7412
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.7323,
+          "cost": 7.4978,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[24]",
+          "rawRow": {
+            "cost": 7.4978,
+            "cost_label": "$$7.50",
+            "effortLabel": "Max",
+            "model": "GPT-6 Astra",
+            "modelLabel": "GPT-6 Astra",
+            "order": 4,
+            "score": 0.7323
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.0243,
+          "cost": 0.0057,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[25]",
+          "rawRow": {
+            "cost": 0.0057,
+            "cost_label": "$$0.0057",
+            "effortLabel": "低",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 0,
+            "score": 0.0243
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.4447,
+          "cost": 0.0518,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[26]",
+          "rawRow": {
+            "cost": 0.0518,
+            "cost_label": "$$0.052",
+            "effortLabel": "中",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 1,
+            "score": 0.4447
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.5929,
+          "cost": 0.0838,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[27]",
+          "rawRow": {
+            "cost": 0.0838,
+            "cost_label": "$$0.084",
+            "effortLabel": "高",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 2,
+            "score": 0.5929
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.6128,
+          "cost": 0.1096,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[28]",
+          "rawRow": {
+            "cost": 0.1096,
+            "cost_label": "$$0.11",
+            "effortLabel": "極高",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 3,
+            "score": 0.6128
+          }
+        },
+        {
+          "model": "GPT-6 Luna",
+          "modelLabel": "GPT-6 Luna",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.6659,
+          "cost": 0.2169,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[29]",
+          "rawRow": {
+            "cost": 0.2169,
+            "cost_label": "$$0.22",
+            "effortLabel": "Max",
+            "model": "GPT-6 Luna",
+            "modelLabel": "GPT-6 Luna",
+            "order": 4,
+            "score": 0.6659
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "低",
+          "order": 0,
+          "score": 0.3717,
+          "cost": 0.1623,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[30]",
+          "rawRow": {
+            "cost": 0.1623,
+            "cost_label": "$$0.16",
+            "effortLabel": "低",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 0,
+            "score": 0.3717
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "中",
+          "order": 1,
+          "score": 0.5664,
+          "cost": 0.3798,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[31]",
+          "rawRow": {
+            "cost": 0.3798,
+            "cost_label": "$$0.38",
+            "effortLabel": "中",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 1,
+            "score": 0.5664
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "高",
+          "order": 2,
+          "score": 0.6527,
+          "cost": 0.6404,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[32]",
+          "rawRow": {
+            "cost": 0.6404,
+            "cost_label": "$$0.64",
+            "effortLabel": "高",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 2,
+            "score": 0.6527
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "極高",
+          "order": 3,
+          "score": 0.6659,
+          "cost": 1.0033,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[33]",
+          "rawRow": {
+            "cost": 1.0033,
+            "cost_label": "$$1.00",
+            "effortLabel": "極高",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 3,
+            "score": 0.6659
+          }
+        },
+        {
+          "model": "GPT-6 Sol",
+          "modelLabel": "GPT-6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.6881,
+          "cost": 2.7439,
+          "scorePrecisionPercent": 0.01,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[34]",
+          "rawRow": {
+            "cost": 2.7439,
+            "cost_label": "$$2.74",
+            "effortLabel": "Max",
+            "model": "GPT-6 Sol",
+            "modelLabel": "GPT-6 Sol",
+            "order": 4,
+            "score": 0.6881
+          }
+        }
+      ]
+    }
+  ],
+  "observedAt": "2026-10-04T04:26:16.028Z",
+  "method": "DOM_RSC",
+  "notes": [
+    "Normalized excerpt extracted from DOM script RSC. Raw row retains source fields."
+  ]
+}

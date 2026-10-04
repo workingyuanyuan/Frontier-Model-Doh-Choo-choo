@@ -110,6 +110,10 @@ export const getSourceDisplayName = (sourceId: string): string => {
       return 'OpenAI (vendor)';
     case 'anthropic-releases':
       return 'Anthropic (vendor)';
+    case 'xai-releases':
+      return 'xAI (vendor)';
+    case 'google-releases':
+      return 'Google (vendor)';
     case 'epoch-ai':
       return 'Epoch AI';
     case 'zapier-automationbench':

@@ -18,6 +18,8 @@
     "zapier-automationbench",
     "vals-ai",
     "openai-releases",
-    "anthropic-releases"
+    "anthropic-releases",
+    "google-releases",
+    "xai-releases"
   ]
 }

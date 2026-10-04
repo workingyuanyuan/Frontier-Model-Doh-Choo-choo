@@ -1,0 +1,76 @@
+# Anthropic release benchmark expansion
+
+Reviewed 2026-10-04. Full official HTML captures, original plotted CSVs, model-series labels, axes, comparison tables and quarantine dispositions are saved in [expansion-research.json](../../data/sources/anthropic-releases/expansion-research.json). [expansion-capture-index.json](../../data/sources/anthropic-releases/expansion-capture-index.json) retains this research capture's content-addressed evidence. The current acquisition evidence is in [evidence-index.json](../../data/sources/anthropic-releases/evidence-index.json).
+
+## Adopted score and task-cost curves
+
+The [Claude Sonnet 5.5 release](https://www.anthropic.com/claude-sonnet-5-5), dated September 28, 2026, provides two supported benchmark curves: FrontierCode v1.1 Main and CursorBench 4.0. Both state `Cost per task (USD, log scale)`, contain four model series and explicitly label Low, Med, High, Xhigh and Max. These add 40 score/cost pairs. Harness is null because the charts do not identify one for each row. Each source page receives distinct candidate IDs, preserving overlapping Opus 5.5 and GPT-5.6 Sol measurements with their own costs and precision.
+
+| Benchmark             | Series                                      | Rows | Acceptance                                                                                                            |
+| --------------------- | ------------------------------------------- | ---: | --------------------------------------------------------------------------------------------------------------------- |
+| FrontierCode 1.1 Main | Sonnet 5.5, Opus 5.5, Sonnet 5, GPT-6 Sol   |   20 | Included; overlap checked against captured Cognition organizer results within the published 0.1-point score precision |
+| CursorBench 4.0       | Sonnet 5.5, Opus 5.5, Sonnet 5, GPT-5.6 Sol |   20 | Included; overlap checked against rendered Cursor organizer aria-label scores                                         |
+
+Sonnet 5.5 FrontierCode retains High 49.4%/$0.4175, Xhigh 52.1%/$1.5881 and Max 46.2%/$20.7818. The release footnote explains the lower Max result: in two cases examined by Cognition, code-review subagents led to timeout or changes beyond the requested scope. No monotonic correction is applied. The release also describes cyber fallback to Sonnet 5; it gives no per-task intervention counts for these two coding charts, so that statement is preserved as a caveat without inventing interventions.
+
+The complete Anthropic snapshot now holds 125 candidates and 125 task-cost records: 84 included and 41 excluded. The per-row audit finds 74 organizer matches, 10 supplemental rows absent from the captured organizer snapshot and 41 exclusions. Of the 80 expansion candidates, 40 are included and 40 excluded. Existing Opus 5.5 FrontierCode/CursorBench rows retain their page evidence and the reviewed Fable 5.1 Low conflict.
+
+## Preserved excluded candidates
+
+| Source and chart                                                                                         | Rows | Preserved configuration                                                                                                  | Exclusion                                                                                                                                |
+| -------------------------------------------------------------------------------------------------------- | ---: | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Sonnet 5.5 / AA-Briefcase v1.1                                                                           |   20 | Four series × five efforts; raw Elo values and same-row USD task cost                                                    | Project AA-Briefcase uses rubric pass rate. Elo is retained with `normalizedScore: null`; no Elo-to-percent conversion is approved       |
+| [Fable/Mythos 5.1 release](https://www.anthropic.com/claude-fable-and-mythos-5-1) / Humanity's Last Exam |   20 | Fable 5.1 and Fable 5, with-tools and no-tools × five efforts; explicit tools boolean; raw pass rate; mean USD task cost | Production safeguards can route cybersecurity tasks to Opus 4.8 and biology tasks to Opus 5; per-row intervention counts are unavailable |
+
+AA-Briefcase Sonnet 5.5 Max is 1811 Elo/$29.194. Its page says Artificial Analysis evaluated a pre-release deployment with a structured-output bug that has since been fixed; it also notes GPT-6 Sol scores may predate an image-understanding fix. Those qualifiers remain in provenance.
+
+Fable HLE with-tools Max is 65.0%/$3.1957, and no-tools Max is 60.92%/$2.2327. Tool variants remain separate candidate IDs while sharing the model's explicit effort profile. HLE dataset version and harness remain null. The Fable page displays September 2026 without an exact day; `sourcePublishedAt` remains null. Its reference to August 2 is a watermark policy date and is not used as publication metadata.
+
+## Page findings and raw quarantine
+
+### Sonnet 5.5
+
+All four rendered SVGs were inspected in the browser. Each exposes 20 point aria labels; score, effort and rounded dollar displays agree with the embedded RSC CSV. The raw task cost retains the CSV coordinate rather than reconstructing it from the rounded tooltip. The Terminal-Bench chart axis says **cost per attempt**, a distinct denominator from the adopted task-cost charts.
+
+| Finding               | Saved evidence                                                                           | Disposition                                                                                                                           |
+| --------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Terminal-Bench 4.0    | 20 explicit-effort CSV rows; Sonnet 5.5 Max 70.6%, Opus 5.5 Xhigh 66.4%; USD per attempt | Quarantined: separate version from supported Terminal-Bench 2.1; requires version mapping, denominator treatment and organizer anchor |
+| GDPval-AA v2.1        | Table: Sonnet 5.5 1844, Sonnet 5 1449, Opus 5.5 1846, GPT-6 Sol 1487                     | Quarantined Elo; table lacks explicit row efforts and carries deployment caveats                                                      |
+| HLE with tools        | Table: Sonnet 5.5 64.5%, Sonnet 5 54.9%, Opus 5.5 67.7%                                  | Quarantined: table lacks explicit effort, dataset version and per-row safeguard details                                               |
+| OSWorld 2.1 partial   | Table: 80.1%, 57.0%, 81.8%                                                               | Quarantined: partial-credit metric and task version require separate reconciliation                                                   |
+| Chartography no tools | Table: Sonnet 5.5 61.6%, Sonnet 5 15.6%, Opus 5.5 64.4%, GPT-6 Sol 53.6%                 | Quarantined: no table effort or task-release date; GPT-6 Sol image-fix caveat retained                                                |
+| Token pricing         | Sonnet 5.5 input $2, output $10, cache read $0.20, cache write $2.50 per million tokens  | Saved in research; task costs use explicit chart coordinates                                                                          |
+
+### Fable 5.1 and Mythos 5.1
+
+The browser confirms separate Fable and Mythos series and the release's safeguards statement. The HLE with-tools/no-tools chart was inspected visually; the CursorBench 3.2.0 rendered SVG provides ten explicit effort labels matching its RSC chart. Machine-readable raw coordinates are preserved for every chart.
+
+| Finding                                        | Saved evidence                                                                                          | Disposition                                                                                                                                                                                                                        |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Terminal-Bench-Science 0.1                     | Ten rows: Fable 5.1 Max 52.6%/$37.9, Fable 5 Max 24.7%/$44.1                                            | Quarantined: unsupported benchmark. The public leaderboard uses three trials/task and Claude Code, while the release's setup differs; 29.0% Opus 5 and 24.7% Fable 5 reproductions are explicitly distinct from public 30.0%/21.4% |
+| Terminal-Bench 4.0                             | 15 rows: Mythos 5.1 Max 60.9%/$18.0, Fable 5.1 Max 55.8%/$19.5, Mythos 5 Max 45.8%/$26.7; mean USD/task | Quarantined: no approved organizer anchor; Fable mixed-model fallback; cost denominator differs from Sonnet page's per-attempt chart                                                                                               |
+| CursorBench 3.2.0                              | Ten rows: Fable 5.1 Max 73.4%/$9.64, Fable 5 Max 70.5%/$17.32                                           | Quarantined: retain version 3.2.0, separate from adopted CursorBench 4.0                                                                                                                                                           |
+| GDPval-AA v2                                   | Table: Fable 5.1 1853, Fable 5 1723, Opus 5 1824, GPT-5.6 Sol 1711                                      | Quarantined Elo; no explicit table effort                                                                                                                                                                                          |
+| OSWorld 2.0 August 2026 release                | Partial 77.9%/72.9%/75.4%; strict 41.7%/36.1%/39.6%; Fable 5.1/Fable 5/Opus 5                           | Quarantined: footnote says task files differ from prior releases; partial and strict remain separate. Safeguard interventions score zero for Fable rows                                                                            |
+| AutomationBench                                | Table 31.4%/17.1%/26.9%/19.6%                                                                           | Quarantined: no explicit version/effort; Fable 5 safeguard interventions score zero and other interventions use fallback                                                                                                           |
+| Scientific speedup and genome-wide GPU savings | Exact chart data retained                                                                               | Research examples, not benchmark model scores                                                                                                                                                                                      |
+| Indexed Fable workload cost                    | Fable 5=100, Fable 5.1≈75 typical/≈55 agentic                                                           | Relative workload costs; no conversion to USD/task                                                                                                                                                                                 |
+| Token pricing                                  | Fable 5.1 input $10, output $50, cache read $0.25 per million tokens                                    | Saved in research                                                                                                                                                                                                                  |
+
+The source explicitly says Fable 5.1 and Mythos 5.1 share an underlying model but have different safeguards. Their identities are not merged.
+
+### Opus 5
+
+The [July 24, 2026 Opus 5 release](https://www.anthropic.com/news/claude-opus-5) presents benchmark tables and cost curves as raster images; no exact chart CSV is embedded. The original table image was inspected directly in the browser and captured as content-addressed bytes, with actual `image/png` metadata in [expansion-research.json](../../data/sources/anthropic-releases/expansion-research.json). Its complete 14-row transcription is quarantined there. The figure's unlabeled efforts are not borrowed from the model's defaults or from another page.
+
+Potentially useful supported benchmark table rows include DeepSWE v1.1 (Opus 5 68.8%, Fable 5 69.7%, Opus 4.8 59.0%, GPT-5.6 Sol 72.7%) and FrontierCode 1.1 Main (53.4%, 53.5%, 46.5%, 47.5%). Other table rows cover Frontier-Bench v0.1, GDPval-AA v2 Elo, ARC-AGI 3, BrowseComp, HLE with/no tools, OSWorld 2.0, AutomationBench, Legal Agent held-out, HealthBench Professional and BioMysteryBench. The HealthBench and human-solved biology columns explicitly substitute Mythos 5 for Fable 5.
+
+The cost-curve carousel covers Frontier-Bench v0.1, CursorBench 3.2, AA Coding Agent Index, ARC-AGI 3, GDPval-AA v2, OSWorld 2.0, HLE, AutomationBench and DeepSearchQA. Exact score/cost coordinates are not inferred from raster position. Frontier-Bench's explicit footnote identifies an internal run using mini-SWE-agent, GKE, mean reward over **five attempts/task**, and Opus 4.8 fallback for Opus 5/Fable 5. That cannot be merged with FrontierCode or a single-model organizer result. The release lists Opus 5 input/output token prices of $5/$25 per million and twice the base price for Fast mode.
+
+## Reproduction and checks
+
+`materializeAnthropicReleases(pages)` accepts `{sourceUrl, text, evidenceId, observedAt}` for each reviewed page. It retains the original single-page Opus 5.5 entry point, enforces release identity, benchmark title, model-series mapping, complete explicit effort coverage, score unit, task-cost axis and Fable fallback disclosure. Cost records inherit candidate exclusions. The shared vendor refresh and offline snapshot/cost materializers load all matching release evidence.
+
+Run the standard vendor release refresh with the reviewed OpenAI capture and actual capture timestamp, then run the standard snapshot/cost/product commands as documented in [OPERATIONS.md](../OPERATIONS.md). A refresh executes the organizer audit before source writes. No chart-name alias maps Terminal-Bench 4.0, CursorBench 3.2.0, Frontier-Bench or Elo values into the adopted benchmark definitions.
+
+Focused validation: 11 Anthropic unit tests pass, including overlapping page identity, exact task costs, nonmonotonic efforts, Elo exclusion, HLE tools/fallback preservation, and rejection of axis/version/model/tools/disclosure drift. Current cross-check details are recorded in [cross-checks.json](../../data/sources/anthropic-releases/cross-checks.json).

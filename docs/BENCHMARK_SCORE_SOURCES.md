@@ -3,7 +3,7 @@
 > 最後清單時效核驗：2026-08-13（Asia/Taipei）
 > 最後主辦方逐列深度核驗：2026-08-13
 > 下次例行核驗：2026-09-13
-> 本次局部核驗：2026-10-02，OpenAI／Anthropic 發布頁與四項 benchmark，見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
+> 本次局部核驗：2026-10-04，OpenAI／Anthropic 多頁、Google／xAI 新增來源及其他供應商方法，見 [採用查核](research/2026-10-04-release-adoption.md)。
 > 適用範圍：模型排行榜、五維能力分數、Quality vs. Cost、Category Profile
 
 本文件是「來源分類與時效登錄」，不是一般連結收藏，也**不是匯入授權**。來源分類採 **Benchmark 主辦方／獨立評測者／廠商自報**，且分類單位是「一筆結果」，不是整個網站。
@@ -11,6 +11,8 @@
 **允許進入 ProductVersion 的來源白名單是 `data/mappings/sources.json`**，目前有 Artificial Analysis、LiveBench、DeepSWE、Cognition Frontier Code、Proximal FrontierSWE、Surge AI Chartography、ComplexConstraints、EnterpriseBench: CoreCraft、Riemann-bench、DAYJOB: Finance、DAYJOB: Healthcare、GDP.xlsx、Epoch AI、ARC Prize、Zapier AutomationBench 、Vals AI、OpenAI releases 與 Anthropic releases 十八個來源（見 [重構規格 §3](SPEC.md)）。本文件列出的其他站台是候選與時效追蹤對象；標為 ACTIVE 只表示該站仍在更新、值得續追，不表示它的成績可以匯入。要新增匯入來源必須改 `sources.json` 並更新規格，不是在本文件加一列。
 
 ## 採用與覆蓋規則
+
+模型發布頁候選、評測附件與後續查核條件見 [2026-10-04 發布頁研究](research/2026-10-04-model-release-candidates.md)；資料收集代理依 [主動探索流程](OPERATIONS.md#主動尋找補充來源) 尋找新模型與現役模型缺項的官方證據。
 
 2026-10-03 納入 **GDP.pdf（Artificial Analysis）**（`gdp-pdf`）：採用 [AA 評測頁](https://artificialanalysis.ai/evaluations/gdp-pdf) 的 All-pass 百分比，角色為 INDEPENDENT，主要維度為 Reasoning。選擇 AA 的依據為最新前沿模型覆蓋。AA 每題進行 5 次獨立嘗試；保留其 harness 與原始欄位證據。AA 與 Surge 的文件輸入、harness 及 judge 不同，GDP.pdf 的分數採 AA 實作。
 

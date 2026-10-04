@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-03T06:41:42.680Z",
+  "lastVerifiedAt": "2026-10-04T03:22:54.168Z",
   "notes": [
     "Main leaderboard pass rate percentages; private research mathematics problems with programmatically verified answers.",
     "Official methodology: https://surgehq.ai/blog/riemann-bench-a-benchmark-for-moonshot-mathematics and https://arxiv.org/html/2604.06802v3. Historical paper pass@1 uses 100 runs per problem; the blog records removal of an initial one-hour timeout. Current per-row estimator, run count, harness and tools are unconfirmed and remain null.",

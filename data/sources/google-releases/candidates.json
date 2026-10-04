@@ -1,0 +1,54 @@
+[
+  {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "benchmarkId": "deepswe-1-1",
+    "benchmarkVersion": "1.1",
+    "evidenceIds": [
+      "sha256:122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1",
+      "sha256:ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7"
+    ],
+    "exclusionReason": null,
+    "id": "google-releases:argon:deepswe",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "pass-at-1",
+      "name": "Pass@1",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-argon",
+      "profileId": null,
+      "rawName": "Gemini 4 Argon"
+    },
+    "normalizedScore": 77.9,
+    "observedAt": "2026-10-04T04:31:00.008Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": "mini-swe-agent",
+      "quantization": null,
+      "thinking": null,
+      "tools": true
+    },
+    "provenance": {
+      "profile": {
+        "evidenceId": "sha256:ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7",
+        "locator": "Methodology p2: highest thinking settings; Coding DeepSWE v1.1 self-computed mini-swe agent. Literal effort label unspecified; kept null for product effort policy.",
+        "method": "MANUAL"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1",
+        "locator": "Enabling coding and enterprise workflows across domains; DeepSWE v1.1 (77.9%)",
+        "method": "DOM"
+      }
+    },
+    "rawScore": 77.9,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "google-releases",
+    "sourcePublishedAt": null,
+    "sourceRole": "VENDOR",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+  }
+]

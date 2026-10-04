@@ -187,21 +187,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-03T05:52:00.387Z",
+  "checkedAt": "2026-10-04T03:31:14.887Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/23/239e575fa2c32265247b6c840216bc302da4fea3c028d4126f6047a16f3f3f88.html",
-    "byteLength": 386024,
+    "artifactPath": "artifacts/sha256/69/69da2533793b2984466ac6b852c63eb595af871e4521b818e08d38d514b57ddc.html",
+    "byteLength": 386331,
     "finalUrl": "https://artificialanalysis.ai/evaluations",
-    "id": "sha256:239e575fa2c32265247b6c840216bc302da4fea3c028d4126f6047a16f3f3f88",
+    "id": "sha256:69da2533793b2984466ac6b852c63eb595af871e4521b818e08d38d514b57ddc",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/evaluations",
-    "retrievedAt": "2026-10-03T05:52:00.387Z",
+    "retrievedAt": "2026-10-04T03:31:14.887Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:239e575fa2c32265247b6c840216bc302da4fea3c028d4126f6047a16f3f3f88",
+    "sha256": "sha256:69da2533793b2984466ac6b852c63eb595af871e4521b818e08d38d514b57ddc",
     "sourceId": "artificial-analysis"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -209,7 +209,7 @@
     "benchmarks": [
       {
         "id": "aa-briefcase",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": ["rubric-score:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -306,6 +306,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,1000000]",
@@ -415,6 +416,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -453,7 +455,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -525,6 +527,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -567,7 +570,7 @@
       },
       {
         "id": "aa-lcr",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -664,6 +667,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,1000000]",
@@ -773,6 +777,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -811,7 +816,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -883,6 +888,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -925,7 +931,7 @@
       },
       {
         "id": "aa-omniscience",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": [
           "accuracy:percent:true",
           "omniscience-index:index-points:true"
@@ -1095,6 +1101,8 @@
           "[\"Kimi K3 (Max)\",\"max\",null,null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
           "[\"Ling 3.0 Tiny\",null,null,null,null,null,null,null]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
+          "[\"Ling 3.1 Flash\",null,null,null,null,null,null,null]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,null,null,null,null,null,null]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
@@ -1241,6 +1249,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -1279,7 +1288,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 214,
+        "rows": 216,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -1351,6 +1360,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -1537,6 +1547,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,null]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,null]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,null]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,null]",
@@ -1646,6 +1657,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -1684,7 +1696,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
@@ -1765,7 +1777,7 @@
       },
       {
         "id": "critpt",
-        "includedRows": 108,
+        "includedRows": 109,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -1864,6 +1876,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,1000000]",
@@ -1974,6 +1987,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -2012,7 +2026,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 108,
+        "rows": 109,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -2085,6 +2099,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -2127,7 +2142,7 @@
       },
       {
         "id": "gdp-pdf",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": ["all-pass:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -2224,6 +2239,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
@@ -2333,6 +2349,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -2371,7 +2388,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -2443,6 +2460,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -2485,7 +2503,7 @@
       },
       {
         "id": "gdpval-aa",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": ["normalized-score:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -2582,6 +2600,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,1000000]",
@@ -2691,6 +2710,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -2729,7 +2749,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
@@ -3060,7 +3080,7 @@
       },
       {
         "id": "humanitys-last-exam",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -3157,6 +3177,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,1000000]",
@@ -3266,6 +3287,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -3304,7 +3326,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -3376,6 +3398,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -3558,7 +3581,7 @@
       },
       {
         "id": "scicode",
-        "includedRows": 107,
+        "includedRows": 108,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -3655,6 +3678,7 @@
           "[\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1048576]",
           "[\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144]",
+          "[\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000]",
           "[\"MiMo-V2.6-Flash\",null,\"reasoning\",null,null,null,null,1000000]",
@@ -3764,6 +3788,7 @@
           "Kimi K3 (Low)",
           "Kimi K3 (Max)",
           "Ling 3.0 Tiny",
+          "Ling 3.1 Flash",
           "LongCat 2.0",
           "Mercury 2.5",
           "MiMo-V2.6-Flash",
@@ -3802,7 +3827,7 @@
           "Step 5 Preview",
           "Trinity Large Thinking"
         ],
-        "rows": 107,
+        "rows": 108,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/celeris-1",
@@ -3874,6 +3899,7 @@
           "https://artificialanalysis.ai/models/kimi-k3",
           "https://artificialanalysis.ai/models/kimi-k3-low",
           "https://artificialanalysis.ai/models/ling-3-0-tiny",
+          "https://artificialanalysis.ai/models/ling-3-1-flash",
           "https://artificialanalysis.ai/models/longcat-2-0",
           "https://artificialanalysis.ai/models/mercury-2-5",
           "https://artificialanalysis.ai/models/mimo-v2-6-flash",
@@ -4415,7 +4441,7 @@
         "versions": ["v2.1"]
       }
     ],
-    "observedAt": "2026-10-03T05:51:23.777Z",
+    "observedAt": "2026-10-04T03:20:33.732Z",
     "sourceId": "artificial-analysis"
   }
 }

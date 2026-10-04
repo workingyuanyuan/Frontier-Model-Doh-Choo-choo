@@ -15,6 +15,24 @@ test('plots vendor score and task cost pairs for DeepSWE, AutomationBench and Cu
     '.advanced-cost-point[data-series-id="openai-gpt-6-1-sol"]',
   );
   await expect(points).toHaveCount(5);
+  const luna = page.locator(
+    '.advanced-cost-point[data-series-id="openai-gpt-6-luna"]',
+  );
+  await expect(luna).toHaveCount(5);
+  await page
+    .locator('.advanced-cost-point[data-profile-id="openai-gpt-6-luna-max"]')
+    .focus();
+  await expect(
+    page.getByRole('tooltip', { includeHidden: true }),
+  ).toContainText('score 66.6 · $0.217');
+  await expect(
+    page
+      .getByRole('tooltip', { includeHidden: true })
+      .getByRole('link', { name: /OpenAI \(vendor\)/, includeHidden: true }),
+  ).toHaveAttribute(
+    'href',
+    'https://openai.com/zh-Hant/index/introducing-gpt-6-sol-and-luna/',
+  );
   // Each SVG point is focusable, including on touch-sized viewports.
   const highPoint = page.locator(
     '.advanced-cost-point[data-profile-id="openai-gpt-6-1-sol-high"]',
@@ -113,7 +131,7 @@ test('compares vendor previews with organizer measurements and preserves source 
   await expect(automation.locator('strong')).toHaveText(['33.2', '39.0']);
 });
 
-test('shows CursorBench 4.0 with Anthropic release provenance', async ({
+test('shows CursorBench 4.0 with each selected publisher provenance', async ({
   page,
 }) => {
   await page.goto('/');
@@ -149,11 +167,8 @@ test('shows CursorBench 4.0 with Anthropic release provenance', async ({
   await expect(row.locator('strong')).toHaveText(['57.8', '51.8']);
   await expect(
     row.getByRole('link', { name: /Anthropic \(vendor\)/ }),
-  ).toHaveCount(2);
-  for (const link of await row.getByRole('link').all()) {
-    await expect(link).toHaveAttribute(
-      'href',
-      'https://www.anthropic.com/claude-opus-5-5',
-    );
-  }
+  ).toHaveAttribute('href', 'https://www.anthropic.com/claude-sonnet-5-5');
+  await expect(
+    row.getByRole('link', { name: /xAI \(vendor\)/ }),
+  ).toHaveAttribute('href', 'https://x.ai/news/grok-4-7');
 });

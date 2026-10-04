@@ -1,7 +1,11 @@
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
-import { materializeOpenAIRelease } from './vendor-openai.js';
+import {
+  materializeOpenAIRelease,
+  materializeOpenAIReleaseCaptures,
+} from './vendor-openai.js';
 
 const context = {
   evidenceId: `sha256:${'a'.repeat(64)}`,
@@ -263,4 +267,169 @@ describe('OpenAI release chart materializer', () => {
     if (kind === 'count') value.charts[0]!.values.pop();
     expect(() => materialize(value)).toThrow();
   });
+});
+
+describe('reviewed multi-page OpenAI release captures', () => {
+  const readCapture = (page: string) =>
+    readFileSync(
+      new URL(
+        `../../../data/sources/openai-releases/reviewed-${page}-capture.json`,
+        import.meta.url,
+      ),
+      'utf8',
+    );
+  const expandedCapture = (page: string) =>
+    JSON.parse(readCapture(page)) as {
+      pageId: string;
+      sourceUrl: string;
+      charts: Array<{ id: string; values: Array<Record<string, unknown>> }>;
+    };
+
+  it('preserves exact Luna score/task cost pairs and complete selected chart populations', () => {
+    const result = materializeOpenAIRelease(readCapture('sol-luna'), context);
+    expect(result.chartCounts).toEqual({
+      automationbench: 31,
+      'frontiercode-extended': 35,
+      deepswe: 35,
+    });
+    const luna = result.candidates.filter(
+      (row) =>
+        row.benchmarkId === 'deepswe-1-1' &&
+        row.model.canonicalModelId === 'openai-gpt-6-luna',
+    );
+    expect(
+      luna.map((row) => [
+        row.profile.effort,
+        row.normalizedScore,
+        result.costs.find((cost) => cost.id === `${row.id}:cost`)?.cost,
+      ]),
+    ).toEqual([
+      ['low', 2.43, 0.0057],
+      ['medium', 44.47, 0.0518],
+      ['high', 59.29, 0.0838],
+      ['xhigh', 61.28, 0.1096],
+      ['max', 66.59, 0.2169],
+    ]);
+    expect(
+      luna.every(
+        (row) =>
+          row.inclusion === 'INCLUDED' &&
+          row.evidenceIds[0] === context.evidenceId,
+      ),
+    ).toBe(true);
+    expect(
+      result.candidates.filter(
+        (row) => row.benchmarkId === 'frontier-code-1-1',
+      ),
+    ).toHaveLength(35);
+  });
+
+  it('preserves all source rows while excluding pinned historical score conflicts and their costs', () => {
+    const result = materializeOpenAIRelease(readCapture('astra'), context);
+    expect(result.candidates).toHaveLength(37);
+    expect(
+      result.candidates.filter((row) => row.inclusion === 'EXCLUDED'),
+    ).toHaveLength(7);
+    const astraMax = result.candidates.find(
+      (row) =>
+        row.benchmarkId === 'deepswe-1-1' &&
+        row.model.canonicalModelId === 'openai-gpt-6-astra' &&
+        row.profile.effort === 'max',
+    )!;
+    expect(astraMax).toMatchObject({
+      normalizedScore: 73,
+      inclusion: 'EXCLUDED',
+    });
+    expect(astraMax.provenance.exclusionReason?.locator).toContain(
+      '73.23008849557522',
+    );
+    expect(
+      result.costs.find((row) => row.id === `${astraMax.id}:cost`),
+    ).toMatchObject({ cost: 7.5, inclusion: 'EXCLUDED' });
+  });
+
+  it('keeps none effort distinct and source simulation costs at full precision', () => {
+    const result = materializeOpenAIRelease(readCapture('gpt56'), context);
+    const none = result.candidates.find(
+      (row) =>
+        row.model.canonicalModelId === 'openai-gpt-5-6-sol' &&
+        row.profile.effort === 'none',
+    )!;
+    expect(none).toMatchObject({
+      normalizedScore: 44.469,
+      model: { profileId: 'openai-gpt-5-6-sol-none' },
+    });
+    expect(result.costs.find((row) => row.id === `${none.id}:cost`)?.cost).toBe(
+      2.430281475,
+    );
+  });
+
+  it('aggregates distinct pages without losing original IDs, evidence or observation times', () => {
+    const old = JSON.stringify(capture());
+    const result = materializeOpenAIReleaseCaptures([
+      { captureText: old, context },
+      {
+        captureText: readCapture('sol-luna'),
+        context: {
+          ...context,
+          evidenceId: `sha256:${'b'.repeat(64)}`,
+          observedAt: '2026-10-04T04:26:16.028Z',
+        },
+      },
+      { captureText: readCapture('astra'), context },
+      { captureText: readCapture('gpt56'), context },
+    ]);
+    expect(result.candidates).toHaveLength(207);
+    expect(result.costs).toHaveLength(207);
+    expect(
+      result.candidates.filter((row) => row.inclusion === 'INCLUDED'),
+    ).toHaveLength(187);
+    expect(
+      result.candidates.find((row) => row.id === 'openai-releases:deepswe:0'),
+    ).toMatchObject({
+      observedAt: context.observedAt,
+      evidenceIds: [context.evidenceId],
+    });
+    expect(
+      result.candidates.find(
+        (row) => row.id === 'openai-releases:sol-luna:deepswe:25',
+      ),
+    ).toMatchObject({
+      observedAt: '2026-10-04T04:26:16.028Z',
+      evidenceIds: [`sha256:${'b'.repeat(64)}`],
+    });
+    expect(() =>
+      materializeOpenAIReleaseCaptures([
+        { captureText: old, context },
+        { captureText: old, context },
+      ]),
+    ).toThrow('Duplicate OpenAI release page');
+    expect(() => materializeOpenAIReleaseCaptures([])).toThrow(
+      'cannot be empty',
+    );
+  });
+
+  it.each(['page', 'precision', 'source', 'exclusion', 'score'])(
+    'rejects %s changes outside the reviewed page contract',
+    (kind) => {
+      const cap = expandedCapture('astra');
+      const row = cap.charts
+        .find((chart) => chart.id === 'deepswe')!
+        .values.find(
+          (value) =>
+            value.model === 'GPT-6 Astra' && value.effortLabel === 'Max',
+        )!;
+      if (kind === 'page') cap.pageId = 'sol-luna';
+      if (kind === 'precision') row.scorePrecisionPercent = 100;
+      if (kind === 'source') row.cost = 8;
+      if (kind === 'exclusion') delete row.reviewExclusion;
+      if (kind === 'score') {
+        row.score = 0.75;
+        (row.rawRow as Record<string, unknown>).score = 0.75;
+      }
+      expect(() =>
+        materializeOpenAIRelease(JSON.stringify(cap), context),
+      ).toThrow();
+    },
+  );
 });

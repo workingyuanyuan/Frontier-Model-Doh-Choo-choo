@@ -1,7 +1,12 @@
 {
   "accessMethods": ["NEXT_RSC"],
   "baseUrl": "https://www.anthropic.com/",
-  "benchmarkIds": ["cursorbench-4", "frontier-code-1-1"],
+  "benchmarkIds": [
+    "cursorbench-4",
+    "humanitys-last-exam",
+    "frontier-code-1-1",
+    "aa-briefcase"
+  ],
   "completeness": {
     "expectedCountMethod": "Selected release charts only; compare chart counts, named model/effort pairs and organizer references.",
     "pagination": null,
@@ -15,7 +20,7 @@
     "chart release heading": "benchmarkVersion",
     "chart score/y": "rawScore"
   },
-  "lastVerifiedAt": "2026-10-02T14:57:02.279Z",
+  "lastVerifiedAt": "2026-10-04T04:43:52.621Z",
   "notes": [
     "PARTIAL_SOURCE: bounded, individually reviewed release charts. VENDOR remains lower priority than organizer and independent results.",
     "Matching numbers establish citation consistency only; evaluator identity and unpublished preview scores are not independently confirmed.",
@@ -24,5 +29,10 @@
   "role": "VENDOR",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "anthropic-releases",
-  "targetUrls": ["https://www.anthropic.com/claude-opus-5-5"]
+  "targetUrls": [
+    "https://www.anthropic.com/claude-opus-5-5",
+    "https://www.anthropic.com/claude-sonnet-5-5",
+    "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    "https://www.anthropic.com/news/claude-opus-5"
+  ]
 }

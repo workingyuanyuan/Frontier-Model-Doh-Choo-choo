@@ -111,10 +111,22 @@ pnpm report:source-changes -- --check
 
 ### 模型發布頁
 
-OpenAI 頁面以瀏覽器讀取已載入的 DOM／RSC，擷取 `linkId=deepswe` 與 `linkId=automationbench` 的 Vega `data.values`，同時核對圖說的 1.1 與 1.0.6 版本。保存成 `vendor-chart-capture-v1` JSON；格式見 `data/sources/openai-releases/reviewed-capture.json`。每列保留 `model`、`modelLabel`、`effortLabel`、`order`、`score`、`cost`。這是有界、正規化的瀏覽器擷取摘錄，artifact metadata 明確標示，不冒充完整 HTTP bytes。`--openai-observed-at` 必須使用實際讀取時間，離線重跑不可更新成當前時間。
+已接入的逐頁清單、方法差異與重建步驟見 [2026-10-04 採用查核](research/2026-10-04-release-adoption.md)。OpenAI／Anthropic 的 snapshots 與 costs 會處理各自全部已保存發布頁；Google／xAI 使用各自的離線重建器。
+
+#### 主動尋找補充來源
+
+資料收集代理在來源快照、排行榜或官方公告發現新模型、新 checkpoint／別名改指，或現役模型缺少 benchmark／effort／任務成本時，應在同次研究中主動搜尋模型供應商的官方發布頁。搜尋範圍包含模型目錄與來源新出現的模型；以當期前沿集合、已知缺口和新發布模型安排優先序。
+
+從官方公告查到原始推出文章後，沿文內連結查找 model card、system card、技術報告、評測方法與更新公告。也檢查其他供應商新文章中的同模型比較列。用 canonical model、checkpoint、發布日期核對身分，保存原始 URL、語言版本、觀測日期、benchmark／版本、metric、effort、harness、tools、attempts、fallback 與成本單位；未知設定明確保留缺值。
+
+在本次研究／刷新報告中維護候選清單：模型、官方連結、能補充的項目、現有缺口、已讀證據及後續查核條件。依序標示「已定位」「已讀方法」「已完成逐列核對」「已整合」。搜尋摘要與文章比較圖只作發現依據；逐 benchmark 套用 [發布頁採用方法](DATA_METHODOLOGY.md#模型發布頁補充分數)，並檢查官方主辦方重疊列。分數相同只能證明數值一致；執行者與環境需有方法註腳支持。Quality vs. Cost 所需的任務成本須與同模型、同檔位、同版本的分數一起查找和驗證。
+
+候選探索紀錄見 [2026-10-04 模型發布頁研究](research/2026-10-04-model-release-candidates.md)。此步驟由執行資料收集任務的代理完成；來源變更監測命令的實際探索範圍仍以其輸出 `scope` 為準。
+
+OpenAI 頁面以瀏覽器讀取已載入的 DOM／RSC，擷取 `linkId=deepswe` 與 `linkId=automationbench` 的 Vega `data.values`，同時核對圖說的 1.1 與 1.0.6 版本。保存成 `vendor-chart-capture-v1` JSON；格式見 `data/sources/openai-releases/reviewed-capture.json`。每列保留 `model`、`modelLabel`、`effortLabel`、`order`、`score`、`cost`。這是有界、正規化的瀏覽器擷取摘錄，artifact metadata 明確標示，不冒充完整 HTTP bytes。`reviewed-capture-index.json` 為每頁保存實際 `observedAt`，離線重跑保持原始時間。
 
 ```bash
-pnpm --filter @llm-bench/acquisition materialize:vendor-releases -- --openai-capture ../../data/sources/openai-releases/reviewed-capture.json --openai-observed-at 2026-10-02T14:56:49.000Z
+pnpm --filter @llm-bench/acquisition materialize:vendor-releases -- --openai-capture-index ../../data/sources/openai-releases/reviewed-capture-index.json
 ```
 
 命令使用共用安全擷取器取得 Anthropic 原始 HTML 與 Cursor 官方核對頁；解析 FrontierCode Main 與 CursorBench 的內嵌 CSV，再以現有 DeepSWE、Zapier、FrontierCode 官方快照核對。各來源在寫入前必須完成全部檢查，分數不一致即停止；經研究確認需保留的衝突列明確排除。`cross-checks.json` 保存逐列分數、來源與比較結論。新增圖表、版本或模型需要重新審核解析器與核對依據。

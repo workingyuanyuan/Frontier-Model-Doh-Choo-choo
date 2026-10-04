@@ -1,0 +1,2738 @@
+[
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:0",
+    "effort": "low",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 12.48,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 12.5,
+    "cost": 2.649622,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:1",
+    "effort": "medium",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 13.7,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 13.7,
+    "cost": 3.014049,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:10",
+    "effort": "low",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 30.29,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 30.3,
+    "cost": 1.087119,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:11",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 34.09,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 34.1,
+    "cost": 1.2853265,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:12",
+    "effort": "high",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 37.14,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 37.1,
+    "cost": 1.4558175,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:13",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 38.96,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 39,
+    "cost": 1.5305975,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:14",
+    "effort": "max",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 41.4,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 41.4,
+    "cost": 1.770966,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:2",
+    "effort": "high",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 16.13,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 16.1,
+    "cost": 3.298673,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:3",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 15.22,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 15.2,
+    "cost": 3.70418,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:4",
+    "effort": "max",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 17.4,
+    "cost": 3.672,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:5",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 9.6,
+    "cost": 0.2499676,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:6",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 12.6,
+    "cost": 0.40334,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:7",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 12.3,
+    "cost": 0.4294594000000001,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:8",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 17,
+    "cost": 0.6065448,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:astra:automationbench:9",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 18.1,
+    "cost": 0.9044604,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:0",
+    "effort": "low",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 67.03539823008849,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 67,
+    "cost": 1.6,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:1",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.78761061946902,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.8,
+    "cost": 3.1,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:10",
+    "effort": "low",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 59.58429561200924,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 59.58,
+    "cost": 3.76,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:11",
+    "effort": "medium",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 65.36697247706422,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 65.37,
+    "cost": 6.09,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:12",
+    "effort": "high",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 68.6046511627907,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 68.6,
+    "cost": 9.18,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:13",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.91150442477876,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.91,
+    "cost": 13.41,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:14",
+    "effort": "max",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.72477064220183,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.72,
+    "cost": 21.63,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:15",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 45.35398230088495,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 45.35,
+    "cost": 0.82,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:16",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 61.06194690265486,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 61.06,
+    "cost": 1.42,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:17",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.40133037694012,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.4,
+    "cost": 2.66,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:18",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 70.73170731707317,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 70.73,
+    "cost": 3.6,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:19",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.66666666666667,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.67,
+    "cost": 6.46,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:2",
+    "effort": "high",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.23008849557522,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.2,
+    "cost": 3.9,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:20",
+    "effort": "medium",
+    "modelId": "google-gemini-3-8-flash",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 71.01769911504425,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 71.02,
+    "cost": 1.97,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:21",
+    "effort": "high",
+    "modelId": "google-gemini-3-8-flash",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.8255033557047,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.83,
+    "cost": 2.36,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:3",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 74.11504424778761,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 74.1,
+    "cost": 4.4,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:4",
+    "effort": "max",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 73,
+    "cost": 7.5,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:5",
+    "effort": "low",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 58.12917594654788,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 58.13,
+    "cost": 1.66,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:6",
+    "effort": "medium",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 68.90380313199105,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 68.9,
+    "cost": 3.29,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:7",
+    "effort": "high",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.82850779510022,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.83,
+    "cost": 6.08,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:8",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.15436241610739,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.15,
+    "cost": 9.07,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:astra:deepswe:9",
+    "effort": "max",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.64864864864865,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.65,
+    "cost": 11.84,
+    "evidenceIds": [
+      "sha256:7c8d70c336361b32ef5f0d0550f981764739755513ea5fb4e91ac010cb527caf"
+    ],
+    "observedAt": "2026-10-04T04:26:55.430Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:0",
+    "effort": "low",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 59.58429561200924,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 59.5843,
+    "cost": 3.757873,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:1",
+    "effort": "medium",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 65.36697247706422,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 65.367,
+    "cost": 6.088187,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:10",
+    "effort": "none",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 44.469,
+    "cost": 2.430281475,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:11",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 45.35398230088495,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 45.354,
+    "cost": 1.185608855,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:12",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 61.06194690265486,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 61.0619,
+    "cost": 2.01193171,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:13",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.40133037694012,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.4013,
+    "cost": 3.8106407850000004,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:14",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 70.73170731707317,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 70.7317,
+    "cost": 5.031163927500001,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:15",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.66666666666667,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.6667,
+    "cost": 8.5614837575,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:16",
+    "effort": "none",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 2.2124,
+    "cost": 0.18669413149999997,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:17",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 1.5486725663716814,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 1.5487,
+    "cost": 0.0831385895,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:18",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 11.283185840707963,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 11.2832,
+    "cost": 0.24560134400000005,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:19",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 44.24778761061947,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 44.2478,
+    "cost": 0.856313667,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:2",
+    "effort": "high",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 68.6046511627907,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 68.6047,
+    "cost": 9.177638,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:20",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 56.85840707964602,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 56.8584,
+    "cost": 1.6207141099999998,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:21",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 67.1875,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 67.1875,
+    "cost": 2.8781184060000005,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:22",
+    "effort": "none",
+    "modelId": "openai-gpt-5-6-terra",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 14,
+    "cost": 0.40919845875,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:23",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-terra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 24.053452115812917,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 24.0535,
+    "cost": 0.4774730025,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:24",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-terra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 35.11111111111111,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 35.1111,
+    "cost": 0.6459648499999999,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:25",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-terra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 53.76106194690266,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 53.7611,
+    "cost": 1.25169781,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:26",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-terra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 60.17699115044248,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 60.177,
+    "cost": 2.32498108,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:27",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-terra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.62305986696231,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.6231,
+    "cost": 5.0495011925,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:28",
+    "effort": "low",
+    "modelId": "anthropic-claude-opus-4-8",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 40.79822616407982,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 40.7982,
+    "cost": 2.293369,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:29",
+    "effort": "medium",
+    "modelId": "anthropic-claude-opus-4-8",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 48.67256637168141,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 48.6726,
+    "cost": 3.443857,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:3",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.91150442477876,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.9115,
+    "cost": 13.414521,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:30",
+    "effort": "high",
+    "modelId": "anthropic-claude-opus-4-8",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 51.76991150442478,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 51.7699,
+    "cost": 4.28194,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:31",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-opus-4-8",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 54.36241610738255,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 54.3624,
+    "cost": 8.006356,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:32",
+    "effort": "max",
+    "modelId": "anthropic-claude-opus-4-8",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 58.97435897435898,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 58.9744,
+    "cost": 13.222584,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:4",
+    "effort": "max",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.72477064220183,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.7248,
+    "cost": 21.634702,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:5",
+    "effort": "high",
+    "modelId": "google-gemini-3-1-pro-preview",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 11.7517,
+    "cost": 9.481519,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:6",
+    "effort": "low",
+    "modelId": "openai-gpt-5-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 26.991150442477874,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 26.9912,
+    "cost": 1.23150607345,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:7",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 53.98230088495575,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 53.9823,
+    "cost": 2.8496637604499995,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:8",
+    "effort": "high",
+    "modelId": "openai-gpt-5-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 64.38053097345133,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 64.3805,
+    "cost": 5.286541539799999,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:gpt56:deepswe:9",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 67.03539823008849,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 67.0354,
+    "cost": 7.4690677174,
+    "evidenceIds": [
+      "sha256:c7b8ee1f28459713f7180d17f9ec371491f9898b759ad674c6b74789d5a15a75"
+    ],
+    "observedAt": "2026-10-04T04:31:17.114Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:0",
+    "effort": "max",
+    "modelId": null,
+    "note": "Multi-model fallback configuration; single-model identity unavailable",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 31.4,
+    "cost": 2.45,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:1",
+    "effort": "low",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 20.4,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 20.4,
+    "cost": 1.64,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:10",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 17.05,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 17,
+    "cost": 0.07,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:11",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 11.72,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 11.7,
+    "cost": 0.31,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:12",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 19.63,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 19.6,
+    "cost": 0.42,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:13",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 24.81,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 24.8,
+    "cost": 0.47,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:14",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 26.33,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 26.3,
+    "cost": 0.54,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:15",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 28.77,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 28.8,
+    "cost": 0.67,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:16",
+    "effort": "low",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 30.29,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 30.3,
+    "cost": 1.08,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:17",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 34.09,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 34.1,
+    "cost": 1.27,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:18",
+    "effort": "high",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 37.14,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 37.1,
+    "cost": 1.44,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:19",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 38.96,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 39,
+    "cost": 1.5,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:2",
+    "effort": "medium",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 23.9,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 23.9,
+    "cost": 2.22,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:20",
+    "effort": "max",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 41.4,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 41.4,
+    "cost": 1.73,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:21",
+    "effort": "low",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 1.22,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 1.2,
+    "cost": 0.006,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:22",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 9.44,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 9.4,
+    "cost": 0.0163,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:23",
+    "effort": "high",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 14.46,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 14.5,
+    "cost": 0.0208,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:24",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 12.63,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 12.6,
+    "cost": 0.0245,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:25",
+    "effort": "max",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 20.7,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 20.7,
+    "cost": 0.0367,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:26",
+    "effort": "low",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 21.2,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 21.16,
+    "cost": 0.1861,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:27",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 26.9,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 26.94,
+    "cost": 0.2098,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:28",
+    "effort": "high",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 31.2,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 31.2,
+    "cost": 0.2368,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:29",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 33.2,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 33.18,
+    "cost": 0.2746,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:3",
+    "effort": "high",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 20.55,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 20.5,
+    "cost": 2.27,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:30",
+    "effort": "max",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 32,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 31.96,
+    "cost": 0.3406,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:4",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 25.27,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 25.3,
+    "cost": 2.71,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:5",
+    "effort": "max",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 26.94,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 26.9,
+    "cost": 3.05,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:6",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 1.83,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 1.8,
+    "cost": 0.01,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:7",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 4.26,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 4.3,
+    "cost": 0.02,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:8",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 9.13,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 9.1,
+    "cost": 0.05,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "automationbench",
+    "candidateId": "openai-releases:sol-luna:automationbench:9",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 12.94,
+    "referenceUrl": "https://zapier.com/benchmarks",
+    "status": "MATCH",
+    "vendorScore": 12.9,
+    "cost": 0.06,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:0",
+    "effort": "low",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 59.58429561200924,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 59.58,
+    "cost": 3.7579,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:1",
+    "effort": "medium",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 65.36697247706422,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 65.37,
+    "cost": 6.0882,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:10",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 1.22,
+    "cost": 0.0106,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:11",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 9.29,
+    "cost": 0.0313,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:12",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 42.37,
+    "cost": 0.1272,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:13",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 56.19,
+    "cost": 0.2737,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:14",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "EXCLUDED",
+    "vendorScore": 62.17,
+    "cost": 0.532,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:15",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 45.35398230088495,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 45.35,
+    "cost": 0.82,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:16",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 61.06194690265486,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 61.06,
+    "cost": 1.42,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:17",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.40133037694012,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.4,
+    "cost": 2.66,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:18",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 70.73170731707317,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 70.73,
+    "cost": 3.6,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:19",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.66666666666667,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.67,
+    "cost": 6.46,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:2",
+    "effort": "high",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 68.6046511627907,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 68.6,
+    "cost": 9.1776,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:20",
+    "effort": "low",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 67.03539823008849,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 67.04,
+    "cost": 1.5952,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:21",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.78761061946902,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.79,
+    "cost": 3.0755,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:22",
+    "effort": "high",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.23008849557522,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.23,
+    "cost": 3.9237,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:23",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 74.11504424778761,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 74.12,
+    "cost": 4.4291,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:24",
+    "effort": "max",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.23008849557522,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.23,
+    "cost": 7.4978,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:25",
+    "effort": "low",
+    "modelId": "openai-gpt-6-luna",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 2.43,
+    "cost": 0.0057,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:26",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-luna",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 44.47,
+    "cost": 0.0518,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:27",
+    "effort": "high",
+    "modelId": "openai-gpt-6-luna",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 59.29,
+    "cost": 0.0838,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:28",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-luna",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 61.28,
+    "cost": 0.1096,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:29",
+    "effort": "max",
+    "modelId": "openai-gpt-6-luna",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 66.59,
+    "cost": 0.2169,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:3",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.91150442477876,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.91,
+    "cost": 13.4145,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:30",
+    "effort": "low",
+    "modelId": "openai-gpt-6-sol",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 37.17,
+    "cost": 0.1623,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:31",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-sol",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 56.64,
+    "cost": 0.3798,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:32",
+    "effort": "high",
+    "modelId": "openai-gpt-6-sol",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 65.27,
+    "cost": 0.6404,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:33",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-sol",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 66.59,
+    "cost": 1.0033,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:34",
+    "effort": "max",
+    "modelId": "openai-gpt-6-sol",
+    "note": "No matching row in the captured organizer snapshot; retained as a vendor-reported preview, not independent verification of this row.",
+    "referenceScore": null,
+    "referenceUrl": null,
+    "status": "SUPPLEMENT",
+    "vendorScore": 68.81,
+    "cost": 2.7439,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:4",
+    "effort": "max",
+    "modelId": "anthropic-claude-fable-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 69.72477064220183,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 69.72,
+    "cost": 21.6347,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:5",
+    "effort": "low",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 58.12917594654788,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 58.13,
+    "cost": 1.66,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:6",
+    "effort": "medium",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 68.90380313199105,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 68.9,
+    "cost": 3.29,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:7",
+    "effort": "high",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 72.82850779510022,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 72.83,
+    "cost": 6.08,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:8",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.15436241610739,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.15,
+    "cost": 9.07,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "deepswe-1-1",
+    "candidateId": "openai-releases:sol-luna:deepswe:9",
+    "effort": "max",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 73.64864864864865,
+    "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
+    "status": "MATCH",
+    "vendorScore": 73.65,
+    "cost": 11.84,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:0",
+    "effort": "low",
+    "modelId": "anthropic-claude-fable-5-1",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 49.82,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 49.8,
+    "cost": 2.38,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:1",
+    "effort": "medium",
+    "modelId": "anthropic-claude-fable-5-1",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 50.91,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 50.9,
+    "cost": 3.28,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:10",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 15.379999999999999,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 15.4,
+    "cost": 0.06,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:11",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 25.740000000000002,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 25.7,
+    "cost": 0.13,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:12",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 35.89,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 35.9,
+    "cost": 0.23,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:13",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 38.91,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 38.9,
+    "cost": 0.31,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:14",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 39.81,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 39.8,
+    "cost": 0.37,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:15",
+    "effort": "low",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 35.44,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 35.4,
+    "cost": 1.89,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:16",
+    "effort": "medium",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 39.93,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 39.9,
+    "cost": 2.69,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:17",
+    "effort": "high",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 45.06,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 45.1,
+    "cost": 3.48,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:18",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 46.839999999999996,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 46.8,
+    "cost": 4.15,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:19",
+    "effort": "max",
+    "modelId": "openai-gpt-5-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 47.49,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 47.5,
+    "cost": 5.19,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:2",
+    "effort": "high",
+    "modelId": "anthropic-claude-fable-5-1",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 50.339999999999996,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 50.3,
+    "cost": 5.27,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:20",
+    "effort": "low",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 45.269999999999996,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 45.3,
+    "cost": 1.7,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:21",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 48.83,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 48.8,
+    "cost": 2.43,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:22",
+    "effort": "high",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 50.94,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 50.9,
+    "cost": 3.01,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:23",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 50.62,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 50.6,
+    "cost": 3.28,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:24",
+    "effort": "max",
+    "modelId": "openai-gpt-6-astra",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 53.26,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 53.3,
+    "cost": 4.59,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:25",
+    "effort": "low",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 25.66,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 25.66,
+    "cost": 0.021,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:26",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 35.53,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 35.53,
+    "cost": 0.0533,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:27",
+    "effort": "high",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 37.26,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 37.26,
+    "cost": 0.0672,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:28",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 37.1,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 37.1,
+    "cost": 0.0728,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:29",
+    "effort": "max",
+    "modelId": "openai-gpt-6-luna",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 42.42,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 42.42,
+    "cost": 0.1072,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:3",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-fable-5-1",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 48.730000000000004,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 48.7,
+    "cost": 9.27,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:30",
+    "effort": "low",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 37.28,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 37.28,
+    "cost": 0.453,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:31",
+    "effort": "medium",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 45.92,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 45.92,
+    "cost": 0.7966,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:32",
+    "effort": "high",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 47.699999999999996,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 47.7,
+    "cost": 1.0793,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:33",
+    "effort": "xhigh",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 48.449999999999996,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 48.45,
+    "cost": 1.3748,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:34",
+    "effort": "max",
+    "modelId": "openai-gpt-6-sol",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 49.27,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 49.27,
+    "cost": 2.137,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:4",
+    "effort": "max",
+    "modelId": "anthropic-claude-fable-5-1",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 50.28,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 50.3,
+    "cost": 12.83,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:5",
+    "effort": "low",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 41.949999999999996,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 41.9,
+    "cost": 2.68,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:6",
+    "effort": "medium",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 53.38,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 53.4,
+    "cost": 4.31,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:7",
+    "effort": "high",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 47.99,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 48,
+    "cost": 7.24,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:8",
+    "effort": "xhigh",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 43.65,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 43.6,
+    "cost": 9.14,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  },
+  {
+    "benchmarkId": "frontier-code-1-1",
+    "candidateId": "openai-releases:sol-luna:frontiercode-extended:9",
+    "effort": "max",
+    "modelId": "anthropic-claude-opus-5",
+    "note": "Same benchmark release, metric, model and explicit effort; score agrees within published rounding precision. This does not establish a common evaluator.",
+    "referenceScore": 48.04,
+    "referenceUrl": "https://cognition.com/frontiercode",
+    "status": "MATCH",
+    "vendorScore": 48,
+    "cost": 11.42,
+    "evidenceIds": [
+      "sha256:6ed5eba27d53ac1e2e4ff839e715306e98fe8d6d277cd6c552f31bd7af83d10b"
+    ],
+    "observedAt": "2026-10-04T04:26:16.028Z"
+  }
+]

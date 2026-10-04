@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:276d26a747504eb0c214c3e4c24dd6200654f002a0864c93b00045a2831a5482`
-- Observed at: 2026-10-01T00:51:25.754Z
+- Index evidence: `sha256:aa64024b23ff3d03cb8ca717dfbd269c9797a80ad20741feab83fab7f2c66d28`
+- Observed at: 2026-10-04T03:24:57.763Z
 
 ## Exact counts
 
@@ -9,34 +9,34 @@
 |---|---:|
 | Benchmark slugs discovered from index | 47 |
 | Benchmark pages with BenchmarkView data | 46 |
-| CandidateResults | 3043 |
-| Included CandidateResults | 1946 |
-| Excluded CandidateResults | 1097 |
+| CandidateResults | 3079 |
+| Included CandidateResults | 1969 |
+| Excluded CandidateResults | 1110 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 2908 |
-| Included vals_index CostRecords | 41 |
-| Canonically unresolved rows | 1862 |
-| Distinct canonically unresolved models | 203 |
+| CostRecords retained | 2946 |
+| Included vals_index CostRecords | 43 |
+| Canonically unresolved rows | 1889 |
+| Distinct canonically unresolved models | 204 |
 
 ## Per-page completeness
 
 | Slug | Parsed overall rows | Scoring status |
 |---|---:|---|
 | `aime` | 96 | EXCLUDED |
-| `biomysterybench` | 21 | EXCLUDED |
+| `biomysterybench` | 23 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
-| `code-migration` | 71 | APPROVED |
+| `code-migration` | 73 | APPROVED |
 | `corp_fin_v2` | 134 | APPROVED |
 | `cua_bench` | 8 | EXCLUDED |
-| `cyber` | 43 | APPROVED |
-| `emb` | 69 | APPROVED |
-| `fabv2` | 73 | APPROVED |
+| `cyber` | 44 | APPROVED |
+| `emb` | 70 | APPROVED |
+| `fabv2` | 74 | APPROVED |
 | `gpqa` | 138 | APPROVED |
-| `hlab` | 73 | APPROVED |
-| `ioi` | 38 | APPROVED |
+| `hlab` | 74 | APPROVED |
+| `ioi` | 40 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 149 | APPROVED |
-| `legal_research` | 72 | APPROVED |
+| `legal_research` | 73 | APPROVED |
 | `math500` | 60 | EXCLUDED |
 | `medcode` | 104 | APPROVED |
 | `medqa` | 95 | EXCLUDED |
@@ -45,28 +45,28 @@
 | `mmlu_pro` | 138 | APPROVED |
 | `mmmu` | 93 | EXCLUDED |
 | `mortgage_tax` | 98 | EXCLUDED |
-| `mysterymechanism` | 21 | EXCLUDED |
+| `mysterymechanism` | 23 | EXCLUDED |
 | `poker_agent` | 17 | EXCLUDED |
-| `programbench` | 54 | APPROVED |
-| `proof_bench` | 46 | APPROVED |
-| `public-benefits-bench` | 45 | APPROVED |
+| `programbench` | 62 | APPROVED |
+| `proof_bench` | 48 | APPROVED |
+| `public-benefits-bench` | 47 | APPROVED |
 | `public-benefits-bench-v1` | 13 | EXCLUDED |
 | `rsi_index` | 0 | EXCLUDED |
 | `sage` | 90 | EXCLUDED |
 | `skillsbench` | 35 | APPROVED |
 | `srebench` | 16 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
-| `tax_agent_bench` | 64 | EXCLUDED |
+| `tax_agent_bench` | 65 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 76 | APPROVED |
-| `terminal-bench-4` | 42 | EXCLUDED |
-| `terminal-bench-science` | 34 | EXCLUDED |
-| `time_horizon_index` | 11 | EXCLUDED |
-| `vals_index` | 41 | EXCLUDED |
+| `terminal-bench-4` | 43 | EXCLUDED |
+| `terminal-bench-science` | 38 | EXCLUDED |
+| `time_horizon_index` | 12 | EXCLUDED |
+| `vals_index` | 43 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vcb-1-100` | 20 | EXCLUDED |
-| `vibe-code` | 106 | APPROVED |
+| `vibe-code` | 108 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 8 | EXCLUDED |
 
@@ -328,6 +328,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - poolside/laguna-m.1
 - poolside/laguna-xs.2
 - reson8/resonant-1
+- stepfun/step-5-preview
 - tencent/hy4-preview
 - thinkingmachines/inkling
 - thinkingmachines/inkling-small
@@ -396,11 +397,9 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Benchmark slugs discovered from index | 47 | 47 | +0 |
-| CandidateResults | 2999 | 3043 | +44 |
-| CostRecords retained | 2865 | 2908 | +43 |
-| Canonically unresolved rows | 1855 | 1862 | +7 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+| CandidateResults | 3043 | 3079 | +36 |
+| CostRecords retained | 2908 | 2946 | +38 |
+| Canonically unresolved rows | 1862 | 1889 | +27 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -443,8 +442,8 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.8-max | `vals-ai:vals-multimodal-index:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:vcb-1-100:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:vibe-code-bench:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| anthropic/claude-opus-4-7 | `vals-ai:aime:anthropic-claude-opus-4-7` | — | `max` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-max-epoch-inspect-row-127 |
-| anthropic/claude-opus-4-7 | `vals-ai:case-law-v2:anthropic-claude-opus-4-7` | — | `max` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-max-epoch-inspect-row-127 |
+| anthropic/claude-opus-4-7 | `vals-ai:aime:anthropic-claude-opus-4-7` | — | `max` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-max-epoch-inspect-row-128 |
+| anthropic/claude-opus-4-7 | `vals-ai:case-law-v2:anthropic-claude-opus-4-7` | — | `max` | epoch-ai | epoch-ai:aime:anthropic-claude-opus-4-7-max-epoch-inspect-row-128 |
 | anthropic/claude-opus-5 | `vals-ai:corpfin:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:gpqa-diamond:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | anthropic/claude-opus-5 | `vals-ai:mortgage-tax:anthropic-claude-opus-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
@@ -670,11 +669,3 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.5-pro | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->
-## Refresh verification — 2026-10-01
-
-All content-addressed artifact files referenced by this snapshot were read back from disk. SHA-256 and byte length matched every EvidenceRecord; CandidateResult and CostRecord evidence IDs and provenance evidence IDs resolve in this source evidence index.
-Rendered Vals Index v2.1 declares Systems (41); expanding VIEW 25 MORE MODELS after the initial 16 rows displays all 41, matching the parsed overall population. Gemini 4 Argon is the visible model name for source identifier google/gemini-4-argon: Accuracy 68.90%, Cost / Test $15.68. All 23 Argon candidate rows carry explicit high reasoning effort in source parameter settings; 14 use approved INCLUDED benchmarks and nine remain EXCLUDED. All 23 task costs are preserved; only the vals_index cost is INCLUDED. The benchmark index still exposes 47 slugs and every one was captured; 46 strict BenchmarkView pages parsed, with rsi_index remaining the disclosed unsupported RsiBenchmarkView component.
-
-The rendered Vals Index Key Takeaways prose still names Claude Sonnet 5.5 and Claude Opus 5.5 as leaders, while the current table places Gemini 4 Argon first at 68.90%. The page header remains UPDATED 9/29/2026 despite the new Argon table entry. The snapshot uses the captured table values and records this source prose/date discrepancy.
-
-Human check: https://www.vals.ai/benchmarks/vals_index, Vals Index leaderboard, Gemini 4 Argon, Accuracy: 68.90%; Cost / Test: $15.68.

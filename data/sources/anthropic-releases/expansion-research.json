@@ -1,0 +1,708 @@
+{
+  "imageEvidence": [
+    {
+      "artifactPath": "artifacts/sha256/92/924165396ca8913080e6254b6562954e9083e2ce63903fa8d3f2bb7852241b1d.bin",
+      "byteLength": 222558,
+      "finalUrl": "https://www-cdn.anthropic.com/images/4zrzovbb/website/a8fb4f77a9fe240e6f27f3bdc47a137f3c74a29d-2600x2578.png",
+      "id": "sha256:924165396ca8913080e6254b6562954e9083e2ce63903fa8d3f2bb7852241b1d",
+      "mediaType": "application/octet-stream",
+      "metadata": {
+        "actualMediaType": "image/png",
+        "scope": "Opus 5 benchmark table; original official image visually inspected in browser"
+      },
+      "method": "VISUAL",
+      "requestUrl": "https://www-cdn.anthropic.com/images/4zrzovbb/website/a8fb4f77a9fe240e6f27f3bdc47a137f3c74a29d-2600x2578.png",
+      "retrievedAt": "2026-10-04T04:35:05.892Z",
+      "schemaVersion": "evidence-record-v1",
+      "sha256": "sha256:924165396ca8913080e6254b6562954e9083e2ce63903fa8d3f2bb7852241b1d",
+      "sourceId": "anthropic-releases"
+    }
+  ],
+  "pages": [
+    {
+      "benchmarkGrids": [
+        {
+          "_key": "e8a5618b29de",
+          "_type": "benchmarkGrid",
+          "caption": [
+            {
+              "_key": "1a3257bd4df9",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "f820de768d24",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "For details on how we run our evaluations, see the "
+                },
+                {
+                  "_key": "81f6a7118804",
+                  "_type": "span",
+                  "marks": ["0333de7f62af"],
+                  "text": "Sonnet 5.5 System Card"
+                },
+                {
+                  "_key": "11b48ac63384",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "."
+                }
+              ],
+              "markDefs": [
+                {
+                  "_key": "0333de7f62af",
+                  "_type": "link",
+                  "blank": true,
+                  "href": "https://www.anthropic.com/claude-sonnet-5-5-system-card"
+                }
+              ],
+              "style": "left"
+            }
+          ],
+          "competitorModels": "GPT-6 Sol",
+          "data": "category,benchmark,qualifier,Sonnet 5.5,Sonnet 5,Opus 5.5,GPT-6 Sol\nAgentic coding,Terminal-Bench 4.0,,70.6%,10.3%,66.4%¹,—\nAgentic coding,FrontierCode 1.1 (Main),,46.2% | Max²,42.4%,54.4%,49.3%\nAgentic coding,FrontierCode 1.1 (Main),,52.1% | Xhigh,,,\nAgentic coding,CursorBench 4.0,,55.5%,34.1%,57.8%,—\nKnowledge work,GDPval-AA v2.1³,,1844,1449,1846,1487⁴\nKnowledge work,AA-Briefcase v1.1³,,1811,1359,1822,1483⁴\nMultidisciplinary reasoning,Humanity’s Last Exam,with tools,64.5%,54.9%,67.7%,—\nComputer use,OSWorld 2.1,partial,80.1%,57.0%,81.8%,—\nVisual chart recognition,Chartography,no tools,61.6%,15.6%,64.4%,53.6%⁴",
+          "highlightModel": "Sonnet 5.5",
+          "markDefs": null,
+          "palette": "cloud"
+        }
+      ],
+      "charts": [
+        {
+          "data": "series,x,y,label,labelPlacement\nsonnet55,0.7572,20,Low,below\nsonnet55,0.8347,28.8,Med,\nsonnet55,1.9401,43,High,\nsonnet55,5.298,61.5,Xhigh,\nsonnet55,12.5406,70.6,Max,\nopus55,1.2911,38.5,Low,hidden\nopus55,2.9365,57.6,Med,hidden\nopus55,3.8843,64.2,High,hidden\nopus55,7.3534,66.4,Xhigh,hidden\nopus55,11.2418,64.8,Max,hidden\nsonnet5,3.7767,3.2,Low,hidden\nsonnet5,4.829,4.4,Med,hidden\nsonnet5,8.1997,4.5,High,hidden\nsonnet5,9.9546,7,Xhigh,hidden\nsonnet5,11.6228,10.3,Max,hidden\ngpt56sol,1.4609,7.9,Low,hidden\ngpt56sol,2.6906,20.9,Med,hidden\ngpt56sol,4.1225,26.1,High,hidden\ngpt56sol,5.3852,28.5,Xhigh,hidden\ngpt56sol,7.8945,37.3,Max,hidden",
+          "disposition": "QUARANTINED",
+          "key": "8edc9c9f5e3b",
+          "series": [
+            {
+              "_key": "mtersonnet55",
+              "_type": "series",
+              "color": "sky",
+              "fill": "solid",
+              "id": "sonnet55",
+              "name": "**Sonnet 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "mteropus55",
+              "_type": "series",
+              "color": "orange",
+              "fill": "solid",
+              "id": "opus55",
+              "name": "**Opus 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "mtersonnet5",
+              "_type": "series",
+              "color": "cactus",
+              "fill": "solid",
+              "id": "sonnet5",
+              "name": "**Sonnet 5**",
+              "outline": false
+            },
+            {
+              "_key": "mtergpt56sol",
+              "_type": "series",
+              "color": "gray-300",
+              "fill": "solid",
+              "id": "gpt56sol",
+              "name": "**GPT-5.6 Sol**",
+              "outline": false
+            }
+          ],
+          "title": "Terminal-Bench 4.0",
+          "xAxis": {
+            "format": "currency",
+            "label": "Cost per attempt (USD, log scale)",
+            "max": 17,
+            "min": 0.62,
+            "scale": "log",
+            "ticks": "1,2,5,10"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Score (%)",
+            "max": 78,
+            "min": 0,
+            "scale": "linear",
+            "ticks": "0,10,20,30,40,50,60,70"
+          }
+        },
+        {
+          "data": "series,x,y,label,labelPlacement\nsonnet55,0.194,29.3,Low,below\nsonnet55,0.2364,36.5,Med,\nsonnet55,0.4175,49.4,High,\nsonnet55,1.5881,52.1,Xhigh,\nsonnet55,20.7818,46.2,Max,\nopus55,0.4039,47.3,Low,hidden\nopus55,0.8021,54.6,Med,hidden\nopus55,1.0901,54,High,hidden\nopus55,2.25,51.4,Xhigh,hidden\nopus55,6.1918,54.4,Max,hidden\nsonnet5,2.39,28.7,Low,hidden\nsonnet5,3.81,35.2,Med,hidden\nsonnet5,6.1,39.4,High,hidden\nsonnet5,10.07,42.7,Xhigh,hidden\nsonnet5,17.12,42.4,Max,hidden\ngpt6sol,0.4324,37.3,Low,hidden\ngpt6sol,0.7659,45.9,Med,hidden\ngpt6sol,1.0393,47.7,High,hidden\ngpt6sol,1.325,48.4,Xhigh,hidden\ngpt6sol,2.0651,49.3,Max,hidden",
+          "disposition": "INCLUDED",
+          "key": "5767a19c590d",
+          "series": [
+            {
+              "_key": "mfrsonnet55",
+              "_type": "series",
+              "color": "sky",
+              "fill": "solid",
+              "id": "sonnet55",
+              "name": "**Sonnet 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "mfropus55",
+              "_type": "series",
+              "color": "orange",
+              "fill": "solid",
+              "id": "opus55",
+              "name": "**Opus 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "mfrsonnet5",
+              "_type": "series",
+              "color": "cactus",
+              "fill": "solid",
+              "id": "sonnet5",
+              "name": "**Sonnet 5**",
+              "outline": false
+            },
+            {
+              "_key": "mfrgpt6sol",
+              "_type": "series",
+              "color": "gray-550",
+              "fill": "solid",
+              "id": "gpt6sol",
+              "name": "**GPT-6 Sol**",
+              "outline": false
+            }
+          ],
+          "title": "FrontierCode v1.1, main set",
+          "xAxis": {
+            "format": "currency",
+            "label": "Cost per task (USD, log scale)",
+            "max": 27,
+            "min": 0.15,
+            "scale": "log",
+            "ticks": "0.25,0.5,1,2,5,10,20"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Score (%)",
+            "max": 57,
+            "min": 27,
+            "scale": "linear",
+            "ticks": "30,35,40,45,50,55"
+          }
+        },
+        {
+          "data": "series,x,y,label,labelPlacement\nsonnet55,0.5,35.8,Low,below\nsonnet55,0.7,39.2,Med,\nsonnet55,1.67,47.8,High,\nsonnet55,3.88,53.1,Xhigh,\nsonnet55,9.67,55.5,Max,\nopus55,1.17,43.7,Low,hidden\nopus55,2.91,52.5,Med,hidden\nopus55,3.97,56,High,hidden\nopus55,6.98,56,Xhigh,hidden\nopus55,13.43,57.8,Max,hidden\nsonnet5,1.39,24.1,Low,hidden\nsonnet5,2.31,28,Med,hidden\nsonnet5,3.48,30.8,High,hidden\nsonnet5,4.55,32,Xhigh,hidden\nsonnet5,7.17,34.1,Max,hidden\ngpt56sol,0.87,24.6,Low,hidden\ngpt56sol,1.77,31.1,Med,hidden\ngpt56sol,2.85,35.7,High,hidden\ngpt56sol,4.4,37.7,Xhigh,hidden\ngpt56sol,8.23,41.7,Max,hidden",
+          "disposition": "INCLUDED",
+          "key": "d41fb6b3ae01",
+          "series": [
+            {
+              "_key": "mcusonnet55",
+              "_type": "series",
+              "color": "sky",
+              "fill": "solid",
+              "id": "sonnet55",
+              "name": "**Sonnet 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "mcuopus55",
+              "_type": "series",
+              "color": "orange",
+              "fill": "solid",
+              "id": "opus55",
+              "name": "**Opus 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "mcusonnet5",
+              "_type": "series",
+              "color": "cactus",
+              "fill": "solid",
+              "id": "sonnet5",
+              "name": "**Sonnet 5**",
+              "outline": false
+            },
+            {
+              "_key": "mcugpt56sol",
+              "_type": "series",
+              "color": "gray-300",
+              "fill": "solid",
+              "id": "gpt56sol",
+              "name": "**GPT-5.6 Sol**",
+              "outline": false
+            }
+          ],
+          "title": "CursorBench 4.0",
+          "xAxis": {
+            "format": "currency",
+            "label": "Cost per task (USD, log scale)",
+            "max": 18,
+            "min": 0.42,
+            "scale": "log",
+            "ticks": "0.5,1,2,5,10"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Score (%)",
+            "max": 62,
+            "min": 20,
+            "scale": "linear",
+            "ticks": "20,30,40,50,60"
+          }
+        },
+        {
+          "data": "series,x,y,label,labelPlacement\nsonnet55,0.8685,1264,Low,below\nsonnet55,1.6431,1461,Med,\nsonnet55,3.9546,1634,High,\nsonnet55,9.6309,1746,Xhigh,\nsonnet55,29.194,1811,Max,\nopus55,1.1528,1285,Low,hidden\nopus55,4.3982,1642,Med,hidden\nopus55,6.2708,1705,High,hidden\nopus55,12.2662,1780,Xhigh,hidden\nopus55,21.046,1822,Max,hidden\nsonnet5,0.8175,923,Low,hidden\nsonnet5,1.7322,1056,Med,hidden\nsonnet5,3.7647,1177,High,hidden\nsonnet5,7.5572,1274,Xhigh,hidden\nsonnet5,14.4292,1359,Max,hidden\ngpt6sol,0.12,905,Low,hidden\ngpt6sol,0.34,1142,Med,hidden\ngpt6sol,0.63,1289,High,hidden\ngpt6sol,1.19,1364,Xhigh,hidden\ngpt6sol,2.67,1483,Max,hidden",
+          "disposition": "EXCLUDED_CANDIDATE",
+          "key": "5270a8faea1f",
+          "series": [
+            {
+              "_key": "maasonnet55",
+              "_type": "series",
+              "color": "sky",
+              "fill": "solid",
+              "id": "sonnet55",
+              "name": "**Sonnet 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "maaopus55",
+              "_type": "series",
+              "color": "orange",
+              "fill": "solid",
+              "id": "opus55",
+              "name": "**Opus 5.5**",
+              "outline": false
+            },
+            {
+              "_key": "maasonnet5",
+              "_type": "series",
+              "color": "cactus",
+              "fill": "solid",
+              "id": "sonnet5",
+              "name": "**Sonnet 5**",
+              "outline": false
+            },
+            {
+              "_key": "maagpt6sol",
+              "_type": "series",
+              "color": "gray-550",
+              "fill": "solid",
+              "id": "gpt6sol",
+              "name": "**GPT-6 Sol**",
+              "outline": false
+            }
+          ],
+          "title": "AA-Briefcase v1.1",
+          "xAxis": {
+            "format": "currency",
+            "label": "Cost per task (USD, log scale)",
+            "max": 40,
+            "min": 0.09,
+            "scale": "log",
+            "ticks": "0.1,0.2,0.5,1,2,5,10,20"
+          },
+          "yAxis": {
+            "format": "number",
+            "label": "Elo",
+            "max": 1920,
+            "min": 850,
+            "scale": "linear",
+            "ticks": "900,1100,1300,1500,1700,1900"
+          }
+        }
+      ],
+      "evidenceId": "sha256:cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d",
+      "observedAt": "2026-10-04T04:26:03.054Z",
+      "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5"
+    },
+    {
+      "benchmarkGrids": [
+        {
+          "_key": "1ff33c052127",
+          "_type": "benchmarkGrid",
+          "caption": [
+            {
+              "_key": "note",
+              "_type": "block",
+              "children": [
+                {
+                  "_key": "note0",
+                  "_type": "span",
+                  "marks": [],
+                  "text": "Fable 5.1 was evaluated with its production safeguards enabled. On tasks where these safeguards intervened, Fable 5.1 and Fable 5 scored a zero on OSWorld 2.0, and Fable 5 scored a zero on AutomationBench. In all other interventions from our safeguards, cybersecurity tasks were completed by Claude Opus 4.8, and biology tasks were completed by Claude Opus 5. This likely reduces the performance of Fable 5.1 and Fable 5 on these benchmarks."
+                }
+              ],
+              "markDefs": [],
+              "style": "normal"
+            }
+          ],
+          "competitorModels": "GPT-5.6 Sol",
+          "data": "category,benchmark,qualifier,Fable 5.1,Fable 5,Opus 5,GPT-5.6 Sol\nAgentic scientific research,Terminal-Bench-Science 0.1 [1],,52.6%,24.7%,29.0%,22.4%\nAgentic coding,Terminal-Bench 4.0,,55.8% | 60.9% (Mythos 5.1),42.0%,52.3%,37.3%\nKnowledge work,GDPval-AA v2,,1853,1723,1824,1711\nComputer use,OSWorld 2.0 [2],partial,77.9%,72.9%,75.4%,—\nComputer use,OSWorld 2.0,strict,41.7%,36.1%,39.6%,—\nMultidisciplinary reasoning,Humanity's Last Exam,no tools,60.9%,57.8%,56.6%,—\nMultidisciplinary reasoning,Humanity's Last Exam,with tools,65.0%,63.8%,63.6%,—\nBusiness workflows,AutomationBench,,31.4%,17.1%,26.9%,19.6%\nAgentic coding,CursorBench 3.2.0,,73.4%,70.5%,70.0%,67.2%",
+          "highlightModel": "Fable 5.1",
+          "markDefs": null
+        }
+      ],
+      "charts": [
+        {
+          "data": "series,x,y,label,labelPlacement\nfable51,11.1,26.3,low,\nfable51,14.9,35.7,med,\nfable51,20.3,40.0,high,\nfable51,31.8,49.5,xhigh,\nfable51,37.9,52.6,max,\nfable5,17.1,12.3,low,\nfable5,25.0,21.4,med,\nfable5,34.3,25.0,high,\nfable5,36.0,23.4,xhigh,below\nfable5,44.1,24.7,max,below",
+          "disposition": "QUARANTINED",
+          "key": "lc0chart",
+          "series": [
+            {
+              "_key": "lc0fable51",
+              "_type": "series",
+              "color": "matcha",
+              "fill": "solid",
+              "id": "fable51",
+              "name": "**Fable 5.1**",
+              "outline": false
+            },
+            {
+              "_key": "lc0fable5",
+              "_type": "series",
+              "color": "cloud",
+              "fill": "solid",
+              "id": "fable5",
+              "name": "**Fable 5**",
+              "outline": false
+            }
+          ],
+          "title": "Terminal-Bench-Science 0.1",
+          "xAxis": {
+            "format": "currency",
+            "label": "Mean cost per task (USD, log scale)",
+            "max": 50,
+            "min": 8,
+            "scale": "log",
+            "ticks": "10,15,20,30,40,50"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Score (%)",
+            "max": 60,
+            "min": 0
+          }
+        },
+        {
+          "data": "series,x,y,label,labelPlacement\nmythos51,5.4,41.7,low,\nmythos51,7.4,46.7,med,\nmythos51,10.1,57.1,high,\nmythos51,15.0,59.7,xhigh,\nmythos51,18.0,60.9,max,\nfable51,5.7,40.2,low,below\nfable51,7.8,43.4,med,below\nfable51,10.5,49.4,high,below\nfable51,15.8,51.3,xhigh,below\nfable51,19.5,55.8,max,below\nmythos5,12.3,21.5,low,below\nmythos5,15.4,32.6,med,below\nmythos5,17.9,38.9,high,below\nmythos5,22.7,43.4,xhigh,below\nmythos5,26.7,45.8,max,below",
+          "disposition": "QUARANTINED",
+          "key": "lc1chart",
+          "series": [
+            {
+              "_key": "lc1mythos51",
+              "_type": "series",
+              "color": "matcha",
+              "fill": "dots",
+              "id": "mythos51",
+              "name": "**Mythos 5.1**",
+              "outline": false
+            },
+            {
+              "_key": "lc1fable51",
+              "_type": "series",
+              "color": "matcha",
+              "fill": "solid",
+              "id": "fable51",
+              "name": "**Fable 5.1**",
+              "outline": false
+            },
+            {
+              "_key": "lc1mythos5",
+              "_type": "series",
+              "color": "cloud",
+              "fill": "dots",
+              "id": "mythos5",
+              "name": "**Mythos 5**",
+              "outline": false
+            }
+          ],
+          "title": "Terminal-Bench 4.0",
+          "xAxis": {
+            "format": "currency",
+            "label": "Mean cost per task (USD, log scale)",
+            "max": 32,
+            "min": 4,
+            "scale": "log",
+            "ticks": "5,8,10,15,20,30"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Score (%)",
+            "max": 70,
+            "min": 10,
+            "ticks": "10,20,30,40,50,60,70"
+          }
+        },
+        {
+          "data": "series,x,y,label,labelPlacement\nf51tools,0.5237,60.0,low,\nf51tools,0.6719,62.96,med,hidden\nf51tools,1.0498,64.76,high,hidden\nf51tools,2.2783,65.08,xhigh,hidden\nf51tools,3.1957,65.0,max,\nf5tools,0.6092,59.64,low,below\nf5tools,1.0108,61.4,med,hidden\nf5tools,1.4184,63.16,high,hidden\nf5tools,1.9219,63.52,xhigh,hidden\nf5tools,3.4373,63.8,max,below\nf51notools,0.3002,53.16,low,below\nf51notools,0.4632,55.92,med,hidden\nf51notools,0.7517,57.96,high,hidden\nf51notools,1.5282,60.36,xhigh,hidden\nf51notools,2.2327,60.92,max,\nf5notools,0.1721,50.6,low,below\nf5notools,0.4009,55.88,med,hidden\nf5notools,0.6181,56.88,high,hidden\nf5notools,0.9079,57.44,xhigh,hidden\nf5notools,1.6986,57.76,max,below",
+          "disposition": "EXCLUDED_CANDIDATE",
+          "key": "lc2chart",
+          "series": [
+            {
+              "_key": "lc2f51tools",
+              "_type": "series",
+              "color": "matcha",
+              "fill": "hatch",
+              "id": "f51tools",
+              "line": "slate",
+              "name": "**Fable 5.1** (with tools)",
+              "outline": false
+            },
+            {
+              "_key": "lc2f51notools",
+              "_type": "series",
+              "color": "matcha",
+              "fill": "solid",
+              "id": "f51notools",
+              "name": "**Fable 5.1** (no tools)",
+              "outline": false
+            },
+            {
+              "_key": "lc2f5tools",
+              "_type": "series",
+              "color": "cloud",
+              "fill": "hatch",
+              "id": "f5tools",
+              "line": "slate",
+              "name": "**Fable 5** (with tools)",
+              "outline": false
+            },
+            {
+              "_key": "lc2f5notools",
+              "_type": "series",
+              "color": "cloud",
+              "fill": "solid",
+              "id": "f5notools",
+              "name": "**Fable 5** (no tools)",
+              "outline": false
+            }
+          ],
+          "title": "Humanity's Last Exam",
+          "xAxis": {
+            "format": "currency",
+            "label": "Mean cost per task (USD, log scale)",
+            "max": 4,
+            "min": 0.15,
+            "scale": "log",
+            "ticks": "0.2,0.5,1,2,4"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Pass rate (%)",
+            "max": 68,
+            "min": 48,
+            "ticks": "50,55,60,65"
+          }
+        },
+        {
+          "data": "series,x,y,label,labelPlacement\nfable51,2.90,66.2,low,below\nfable51,3.53,68.0,med,\nfable51,4.80,69.4,high,below\nfable51,6.96,72.8,xhigh,\nfable51,9.64,73.4,max,\nfable5,4.46,62.1,low,below\nfable5,6.8,65.2,med,below\nfable5,8.77,66.5,high,below\nfable5,11.73,68.4,xhigh,below\nfable5,17.32,70.5,max,below",
+          "disposition": "QUARANTINED",
+          "key": "lc3chart",
+          "series": [
+            {
+              "_key": "lc3fable51",
+              "_type": "series",
+              "color": "matcha",
+              "fill": "solid",
+              "id": "fable51",
+              "name": "**Fable 5.1**",
+              "outline": false
+            },
+            {
+              "_key": "lc3fable5",
+              "_type": "series",
+              "color": "cloud",
+              "fill": "solid",
+              "id": "fable5",
+              "name": "**Fable 5**",
+              "outline": false
+            }
+          ],
+          "title": "CursorBench 3.2.0",
+          "xAxis": {
+            "format": "currency",
+            "label": "Cost per task (USD, log scale)",
+            "max": 25,
+            "min": 1.5,
+            "scale": "log",
+            "ticks": "2,3,5,10,20"
+          },
+          "yAxis": {
+            "format": "percent",
+            "label": "Score (%)",
+            "max": 76,
+            "min": 58,
+            "ticks": "60,65,70,75"
+          }
+        },
+        {
+          "data": "group,groupNote,series,value,label\n**ChromBPNet** (6M),2.1-kb DNA sequence,speedup,1.6,1.6×\n**Flashzoi** (200M),524-kb DNA sequence,speedup,1.8,1.8×\n**Enformer** (250M),196-kb DNA sequence,speedup,1.4,1.4×\n**Profluent-E1** (600M),\"1,024-amino-acid protein\",speedup,1.6,1.6×\n**ProGen2** (6.4B),512-amino-acid protein,speedup,2.5,2.5×\n**Evo 2** (7B),8-kb DNA sequence,speedup,1.6,1.6×\n**Evo 2** (40B),8-kb DNA sequence,speedup,1.4,1.4×",
+          "disposition": "QUARANTINED",
+          "key": "speedupchart",
+          "series": [
+            {
+              "_key": "spd",
+              "_type": "series",
+              "color": "heather",
+              "fill": "solid",
+              "id": "speedup",
+              "name": "Optimized"
+            }
+          ],
+          "title": "Inference speedup",
+          "yAxis": {
+            "label": "Speedup on an NVIDIA H100 (×)",
+            "max": 3,
+            "min": 0,
+            "ticks": "0,1,2,3"
+          }
+        },
+        {
+          "data": "group,groupNote,series,value,label\n**Enformer** (250M),\"every mutation, 10-kb window around 20,000 genes\",original,30,$30k\n**Enformer** (250M),,optimized,21,$21k\n**Flashzoi** (200M),\"every mutation, 10-kb window around 20,000 genes\",original,14,$14k\n**Flashzoi** (200M),,optimized,7,$7k\n**Evo 2** (40B),3 million ClinVar variants,original,18,$18k\n**Evo 2** (40B),,optimized,8,$8k",
+          "disposition": "QUARANTINED",
+          "key": "costchart",
+          "series": [
+            {
+              "_key": "orig",
+              "_type": "series",
+              "color": "coral",
+              "fill": "solid",
+              "id": "original",
+              "name": "Original implementation"
+            },
+            {
+              "_key": "opt",
+              "_type": "series",
+              "color": "heather",
+              "fill": "solid",
+              "id": "optimized",
+              "name": "Optimized"
+            }
+          ],
+          "title": "Estimated cost savings on genome-wide analyses",
+          "yAxis": {
+            "label": "Estimated GPU cost (NVIDIA H100, cloud list price, USD thousands)",
+            "max": 35,
+            "min": 0,
+            "ticks": "0,10,20,30"
+          }
+        },
+        {
+          "data": "panel,panelTitle,group,series,value,stack,ground,label\ntypical,Typical workload,**Fable 5**,reads,40,yes,cloud,100\ntypical,,**Fable 5**,other,60,yes,,\ntypical,,**Fable 5.1**,reads,11,yes,matcha,75 (~25% less)\ntypical,,**Fable 5.1**,other,64,yes,,\nagentic,Highly agentic workload,**Fable 5**,reads,65,yes,cloud,100\nagentic,,**Fable 5**,other,35,yes,,\nagentic,,**Fable 5.1**,reads,17,yes,matcha,55 (~45% less)\nagentic,,**Fable 5.1**,other,38,yes,,",
+          "disposition": "QUARANTINED",
+          "key": "workloadchart",
+          "series": [
+            {
+              "_key": "wlreads",
+              "_type": "series",
+              "color": "paper",
+              "fill": "hatch",
+              "id": "reads",
+              "name": "Cache reads"
+            },
+            {
+              "_key": "wlother",
+              "_type": "series",
+              "color": "paper",
+              "fill": "solid",
+              "id": "other",
+              "name": "All other tokens"
+            }
+          ],
+          "title": "Indexed cost of Fable usage",
+          "yAxis": {
+            "label": "Indexed cost (Fable 5 = 100)",
+            "max": 110,
+            "min": 0,
+            "ticks": "0,25,50,75,100"
+          }
+        }
+      ],
+      "evidenceId": "sha256:11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b",
+      "observedAt": "2026-10-04T04:26:03.059Z",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    },
+    {
+      "benchmarkGrids": [],
+      "benchmarkTable": {
+        "disposition": "QUARANTINED",
+        "effort": null,
+        "evidenceId": "sha256:924165396ca8913080e6254b6562954e9083e2ce63903fa8d3f2bb7852241b1d",
+        "harness": null,
+        "locator": "Official table image; columns Opus 5, Fable 5, Opus 4.8, GPT-5.6 Sol",
+        "rows": [
+          {
+            "benchmark": "Frontier-Bench v0.1",
+            "scores": [43.3, 33.7, 21.1, 34.4]
+          },
+          {
+            "benchmark": "GDPval-AA v2",
+            "scores": [1861, 1747, 1593, 1736],
+            "unit": "elo"
+          },
+          {
+            "benchmark": "ARC-AGI 3",
+            "scores": [30.2, null, 1.5, 7.8]
+          },
+          {
+            "benchmark": "BrowseComp",
+            "scores": [90.8, 87.4, 84.3, 90.4]
+          },
+          {
+            "benchmark": "Humanity's Last Exam",
+            "scores": [56.3, 56.5, 49.8, null],
+            "tools": false
+          },
+          {
+            "benchmark": "Humanity's Last Exam",
+            "scores": [64.7, 63.9, 57.9, null],
+            "tools": true
+          },
+          {
+            "benchmark": "OSWorld 2.0",
+            "scores": [70.6, 66.1, 55.7, 62.6]
+          },
+          {
+            "benchmark": "DeepSWE v1.1",
+            "scores": [68.8, 69.7, 59, 72.7]
+          },
+          {
+            "benchmark": "FrontierCode v1.1 Main",
+            "scores": [53.4, 53.5, 46.5, 47.5]
+          },
+          {
+            "benchmark": "AutomationBench",
+            "scores": [26, 17.4, 17, 18.1]
+          },
+          {
+            "benchmark": "Legal Agent Benchmark Held-out",
+            "scores": [11.7, 13.3, 10.4, 2.5]
+          },
+          {
+            "benchmark": "HealthBench Professional",
+            "modelOverride": {
+              "1": "Claude Mythos 5"
+            },
+            "scores": [59.8, 66, 57.4, 60.5]
+          },
+          {
+            "benchmark": "BioMysteryBench",
+            "qualifier": "hard",
+            "scores": [49.4, 46.5, 42.4, null]
+          },
+          {
+            "benchmark": "BioMysteryBench",
+            "modelOverride": {
+              "1": "Claude Mythos 5"
+            },
+            "qualifier": "human solved",
+            "scores": [90.1, 89, 88.5, null]
+          }
+        ],
+        "sourceUrl": "https://www-cdn.anthropic.com/images/4zrzovbb/website/a8fb4f77a9fe240e6f27f3bdc47a137f3c74a29d-2600x2578.png"
+      },
+      "charts": [],
+      "evidenceId": "sha256:bd6d30c5f7c0361a0c3a933a70fb161095da5b3789d5b3d70c533ec0ac0a48c7",
+      "observedAt": "2026-10-04T04:26:03.059Z",
+      "sourceUrl": "https://www.anthropic.com/news/claude-opus-5"
+    }
+  ],
+  "schemaVersion": "anthropic-release-research-v1"
+}

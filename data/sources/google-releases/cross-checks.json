@@ -1,0 +1,26 @@
+{
+  "checks": [
+    {
+      "benchmark": "DeepSWE 1.1",
+      "method": "Self-computed mini-swe-agent; exact effort unspecified",
+      "model": "Gemini 4 Argon",
+      "score": 77.9,
+      "status": "SUPPLEMENT"
+    },
+    {
+      "benchmark": "DeepSWE 1.1",
+      "model": "Gemini 3.8 Flash",
+      "organizerScore": 73.8255033557047,
+      "status": "CONFLICT",
+      "vendorScore": 73.7
+    },
+    {
+      "benchmark": "AutomationBench",
+      "model": "Gemini 4 Argon",
+      "note": "Google methodology explicitly cites private organizer set; organizer retained",
+      "organizerScore": 51.29,
+      "status": "MATCH",
+      "vendorScore": 51.3
+    }
+  ]
+}

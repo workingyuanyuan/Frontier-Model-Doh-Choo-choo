@@ -640,6 +640,7 @@ export const getSourceScore = (
     ? latestAaIndexVersion(product)
     : null,
   reportedSourceId: string = sourceId,
+  reportedSourceUrl?: string,
 ): SourceScore | null => {
   const basis = COST_SOURCE_SCORE_BASES[sourceId];
   if (!basis) return null;
@@ -648,6 +649,8 @@ export const getSourceScore = (
       (result) =>
         result.inclusion === basis.inclusion &&
         result.sourceId === reportedSourceId &&
+        (reportedSourceUrl === undefined ||
+          result.provenance.sourceUrl === reportedSourceUrl) &&
         result.model.profileId === profileId &&
         result.benchmarkId === basis.benchmarkId &&
         ((sourceId !== 'artificial-analysis' && benchmarkVersion === null) ||
@@ -682,6 +685,7 @@ const getAdvancedSourceScore = (
     profileId,
     cost.benchmarkVersion,
     cost.reportedSourceId ?? sourceId,
+    cost.reportedSourceId ? cost.sourceUrl : undefined,
   );
   return score === null || score.basis === 'NONE' || score.benchmarkId === null
     ? null
@@ -719,7 +723,9 @@ const chartCostRows = (product: ProductVersion): CostPoint[] => {
       continue;
     const vendor =
       original.sourceId === 'openai-releases' ||
-      original.sourceId === 'anthropic-releases';
+      original.sourceId === 'anthropic-releases' ||
+      original.sourceId === 'xai-releases' ||
+      original.sourceId === 'google-releases';
     const definition = VENDOR_COST_BENCHMARKS[original.benchmarkId ?? ''];
     if (
       vendor &&
@@ -741,6 +747,7 @@ const chartCostRows = (product: ProductVersion): CostPoint[] => {
         row.profileId,
         row.benchmarkVersion,
         row.reportedSourceId,
+        row.sourceUrl,
       )
     )
       continue;
@@ -764,10 +771,9 @@ const chartCostRows = (product: ProductVersion): CostPoint[] => {
       ),
     );
     if (pairedOrganizer.length > 0) return pairedOrganizer;
-    const publisher = vendors[0]?.reportedSourceId;
-    return publisher
-      ? vendors.filter((row) => row.reportedSourceId === publisher)
-      : organizer;
+    // One release supplies the paired measurement; repeated publications are
+    // corroborating evidence, not additional trials whose costs may be averaged.
+    return vendors[0] ? [vendors[0]] : organizer;
   });
 };
 
@@ -830,6 +836,7 @@ const chooseBestSourceCandidate = (
           first.profileId,
           first.reportedSourceId ? first.benchmarkVersion : undefined,
           first.reportedSourceId,
+          first.reportedSourceId ? first.sourceUrl : undefined,
         ),
         overallScore,
       },

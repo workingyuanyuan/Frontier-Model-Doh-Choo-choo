@@ -365,6 +365,8 @@ describe('SourcesConfigSchema', () => {
       'vals-ai',
       'openai-releases',
       'anthropic-releases',
+      'google-releases',
+      'xai-releases',
     ]);
   });
 

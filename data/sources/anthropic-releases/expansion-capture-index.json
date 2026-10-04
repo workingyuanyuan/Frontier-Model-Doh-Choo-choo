@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "claude-sonnet-5-5",
+    "record": {
+      "schemaVersion": "evidence-record-v1",
+      "id": "sha256:cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d",
+      "sourceId": "anthropic-releases",
+      "retrievedAt": "2026-10-04T04:26:03.054Z",
+      "requestUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+      "finalUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+      "mediaType": "text/html",
+      "byteLength": 282141,
+      "sha256": "sha256:cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d",
+      "artifactPath": "artifacts/sha256/cd/cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d.html",
+      "method": "NEXT_RSC",
+      "metadata": {
+        "scope": "Full official release HTML; expansion research capture"
+      }
+    }
+  },
+  {
+    "slug": "claude-fable-and-mythos-5-1",
+    "record": {
+      "schemaVersion": "evidence-record-v1",
+      "id": "sha256:11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b",
+      "sourceId": "anthropic-releases",
+      "retrievedAt": "2026-10-04T04:26:03.059Z",
+      "requestUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "finalUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "mediaType": "text/html",
+      "byteLength": 355018,
+      "sha256": "sha256:11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b",
+      "artifactPath": "artifacts/sha256/11/11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b.html",
+      "method": "NEXT_RSC",
+      "metadata": {
+        "scope": "Full official release HTML; expansion research capture"
+      }
+    }
+  },
+  {
+    "slug": "news/claude-opus-5",
+    "record": {
+      "schemaVersion": "evidence-record-v1",
+      "id": "sha256:bd6d30c5f7c0361a0c3a933a70fb161095da5b3789d5b3d70c533ec0ac0a48c7",
+      "sourceId": "anthropic-releases",
+      "retrievedAt": "2026-10-04T04:26:03.059Z",
+      "requestUrl": "https://www.anthropic.com/news/claude-opus-5",
+      "finalUrl": "https://www.anthropic.com/news/claude-opus-5",
+      "mediaType": "text/html",
+      "byteLength": 315824,
+      "sha256": "sha256:bd6d30c5f7c0361a0c3a933a70fb161095da5b3789d5b3d70c533ec0ac0a48c7",
+      "artifactPath": "artifacts/sha256/bd/bd6d30c5f7c0361a0c3a933a70fb161095da5b3789d5b3d70c533ec0ac0a48c7.html",
+      "method": "NEXT_RSC",
+      "metadata": {
+        "scope": "Full official release HTML; expansion research capture"
+      }
+    }
+  }
+]

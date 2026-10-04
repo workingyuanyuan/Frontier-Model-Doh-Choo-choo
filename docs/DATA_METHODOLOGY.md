@@ -74,6 +74,8 @@ LiveBench 主表會將來源 bundle 明示的 variants 合併成一列。母體�
 
 Vals 僅將檔名為 `BenchmarkView` 的 Astro 元件當作一般評測表；`RsiBenchmarkView` 採另一種 schema，會記錄為尚未解析的頁面。
 
+Vals 的 `BenchmarkViewLoader` 頁面依來源明示的 `benchmarkViewUrl` 取得同站 `/_astro/benchmark_view_*.json`。HTML 與 JSON 各自保存原始 artifact，成績及成本的 Evidence 指向 JSON 的實際欄位；離線重建沿用這組已保存資料。每頁仍核對 `metadata.total_models` 與 `tasks.overall` 筆數；刷新為空或原有成績頁無法解析時停止寫入快照。
+
 Frontier Code 以頁面使用的官方靜態 JSON 取得 FrontierCode 1.1 Main 全部
 模型 × effort 設定、`new_score` 與平均 rollout `cost`，並以頁面 JSON-LD
 Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，不混入 Main；

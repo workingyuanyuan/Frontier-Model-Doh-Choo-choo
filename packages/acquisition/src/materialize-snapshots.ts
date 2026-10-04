@@ -35,8 +35,11 @@ import {
 } from './artificial-analysis-rsc.js';
 import { materializeLiveBench } from './livebench-materializer.js';
 import { materializeDeepSwe } from './deepswe-materializer.js';
-import { materializeOpenAIRelease } from './vendor-openai.js';
-import { materializeAnthropicRelease } from './vendor-anthropic.js';
+import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
+import {
+  materializeAnthropicReleases,
+  ANTHROPIC_RELEASE_URLS,
+} from './vendor-anthropic.js';
 import { auditVendorReleases } from './vendor-release-audit.js';
 import {
   FRONTIER_SWE_PAGE_URL,
@@ -223,19 +226,30 @@ function main() {
           'utf8',
         ),
       ) as EvidenceRecord[];
-      const release = evidence[0];
-      if (!release || release.sourceId !== sourceId) {
+      const releases = evidence.filter(
+        (r) =>
+          r.sourceId === sourceId &&
+          (sourceId === 'openai-releases'
+            ? r.mediaType === 'application/json' &&
+              r.requestUrl.startsWith('https://openai.com/')
+            : (ANTHROPIC_RELEASE_URLS as readonly string[]).includes(
+                r.requestUrl,
+              )),
+      );
+      if (releases.length === 0)
         throw new Error(`Missing ${sourceId} release evidence`);
-      }
-      const text = readFileSync(join(repoRoot, release.artifactPath), 'utf8');
-      const context = {
+      const pages = releases.map((release) => ({
+        sourceUrl: release.requestUrl,
+        text: readFileSync(join(repoRoot, release.artifactPath), 'utf8'),
         evidenceId: release.id,
         observedAt: release.retrievedAt,
-      };
+      }));
       const result =
         sourceId === 'openai-releases'
-          ? materializeOpenAIRelease(text, context)
-          : materializeAnthropicRelease(text, context);
+          ? materializeOpenAIReleaseCaptures(
+              pages.map((page) => ({ captureText: page.text, context: page })),
+            )
+          : materializeAnthropicReleases(pages);
       return [sourceId, { result, evidence }] as const;
     }),
   );

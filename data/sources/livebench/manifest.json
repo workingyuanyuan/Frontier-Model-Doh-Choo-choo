@@ -22,7 +22,7 @@
     "table CSV model": "model.rawName/profile",
     "table CSV task columns": "raw subtask scores"
   },
-  "lastVerifiedAt": "2026-10-01T00:51:23.601Z",
+  "lastVerifiedAt": "2026-10-04T03:26:02.621Z",
   "notes": [
     "Bundle declares 2026-06-25; refreshed exports contain 66 profiles and 7 categories.",
     "Exact identities only; 9 profile names remain unresolved without fuzzy matching.",

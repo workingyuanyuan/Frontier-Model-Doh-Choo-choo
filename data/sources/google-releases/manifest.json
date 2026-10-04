@@ -1,0 +1,30 @@
+{
+  "accessMethods": ["DOM"],
+  "baseUrl": "https://blog.google/",
+  "benchmarkIds": ["deepswe-1-1"],
+  "completeness": {
+    "expectedCountMethod": "One reviewed Argon DeepSWE self-reported row; methods and release evidence retained",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Google model releases",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    "DeepSWE v1.1": "rawScore"
+  },
+  "lastVerifiedAt": "2026-10-04T04:31:00.008Z",
+  "notes": [
+    "PARTIAL_SOURCE. Argon self-evaluation; highest thinking has no literal effort label in PDF.",
+    "Gemini 3.8 Flash release 73.7 differs from current organizer 73.825503; organizer retained.",
+    "Cross-source numerical agreement does not establish common execution."
+  ],
+  "role": "VENDOR",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "google-releases",
+  "targetUrls": [
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+    "https://deepmind.google/models/evals-methodology/gemini-3-8-flash",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "https://deepmind.google/models/evals-methodology/gemini-4-argon"
+  ]
+}

@@ -43,6 +43,7 @@ function fixture(
     rawScore: score,
     normalizedScore: score,
     sourceUrl,
+    provenance: { ...templateEvidence.provenance, sourceUrl },
   };
   const taskCost = {
     ...templateCost,
@@ -71,6 +72,31 @@ const pointFor = (
 ) => buildAdvancedCostSeries(product, [channel])[0]?.points[0];
 
 describe('vendor benchmark quality and cost pairing', () => {
+  it('keeps repeated release pages as separate pairs instead of averaging their costs', () => {
+    const product = fixture('deepswe-1-1', '1.1');
+    const second = fixture('deepswe-1-1', '1.1', publisher, 60, 2);
+    second.evidence[0]!.provenance.sourceUrl =
+      'https://openai.com/another-release';
+    second.costs[0]!.sourceUrl = 'https://openai.com/another-release';
+    product.evidence.push(...second.evidence);
+    product.costs.push(...second.costs);
+    expect(pointFor(product, 'deepswe')).toMatchObject({
+      score: 60,
+      sources: [expect.objectContaining({ cost: 2 })],
+    });
+  });
+  it('includes xAI CursorBench score and cost provenance', () => {
+    const product = fixture('cursorbench-4', '4.0', 'xai-releases', 46.3, 6.01);
+    expect(pointFor(product, 'cursorbench')).toMatchObject({
+      score: 46.3,
+      sources: [
+        expect.objectContaining({
+          reportedSourceId: 'xai-releases',
+          cost: 6.01,
+        }),
+      ],
+    });
+  });
   it.each(definitions)(
     'shows a vendor pair under %s with original publisher provenance',
     (channel, benchmarkId, version) => {

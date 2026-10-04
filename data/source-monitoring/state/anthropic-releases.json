@@ -1,18 +1,62 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-03T04:19:00.937Z",
+  "checkedAt": "2026-10-04T04:43:56.241Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
+        "id": "aa-briefcase",
+        "includedRows": 0,
+        "metrics": ["elo:elo:true"],
+        "models": [
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5",
+          "anthropic-claude-sonnet-5-5",
+          "openai-gpt-6-sol"
+        ],
+        "profiles": [
+          "[\"Claude Opus 5.5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Opus 5.5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Opus 5.5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Opus 5.5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Opus 5.5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"xhigh\",null,null,null,null,null,null]"
+        ],
+        "rawLabels": [
+          "Claude Opus 5.5",
+          "Claude Sonnet 5",
+          "Claude Sonnet 5.5",
+          "GPT-6 Sol"
+        ],
+        "rows": 20,
+        "sourceUrls": ["https://www.anthropic.com/claude-sonnet-5-5"],
+        "versions": ["1.1"]
+      },
+      {
         "id": "cursorbench-4",
-        "includedRows": 20,
+        "includedRows": 40,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-fable-5-1",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5",
+          "anthropic-claude-sonnet-5-5",
           "openai-gpt-5-6-sol"
         ],
         "profiles": [
@@ -31,6 +75,16 @@
           "[\"Claude Opus 5.5\",\"max\",null,null,null,null,null,null]",
           "[\"Claude Opus 5.5\",\"medium\",null,null,null,null,null,null]",
           "[\"Claude Opus 5.5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"xhigh\",null,null,null,null,null,null]",
           "[\"GPT-5.6 Sol\",\"high\",null,null,null,null,null,null]",
           "[\"GPT-5.6 Sol\",\"low\",null,null,null,null,null,null]",
           "[\"GPT-5.6 Sol\",\"max\",null,null,null,null,null,null]",
@@ -41,22 +95,30 @@
           "Claude Fable 5.1",
           "Claude Opus 5",
           "Claude Opus 5.5",
+          "Claude Sonnet 5",
+          "Claude Sonnet 5.5",
           "GPT-5.6 Sol"
         ],
-        "rows": 20,
-        "sourceUrls": ["https://www.anthropic.com/claude-opus-5-5"],
+        "rows": 40,
+        "sourceUrls": [
+          "https://www.anthropic.com/claude-opus-5-5",
+          "https://www.anthropic.com/claude-sonnet-5-5"
+        ],
         "versions": ["4.0"]
       },
       {
         "id": "frontier-code-1-1",
-        "includedRows": 24,
+        "includedRows": 44,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "anthropic-claude-fable-5-1",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5",
+          "anthropic-claude-sonnet-5-5",
           "openai-gpt-5-6-sol",
-          "openai-gpt-6-astra"
+          "openai-gpt-6-astra",
+          "openai-gpt-6-sol"
         ],
         "profiles": [
           "[\"Claude Fable 5.1\",\"high\",null,null,null,null,null,null]",
@@ -74,6 +136,16 @@
           "[\"Claude Opus 5.5\",\"max\",null,null,null,null,null,null]",
           "[\"Claude Opus 5.5\",\"medium\",null,null,null,null,null,null]",
           "[\"Claude Opus 5.5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Sonnet 5.5\",\"xhigh\",null,null,null,null,null,null]",
           "[\"GPT-5.6 Sol\",\"high\",null,null,null,null,null,null]",
           "[\"GPT-5.6 Sol\",\"low\",null,null,null,null,null,null]",
           "[\"GPT-5.6 Sol\",\"max\",null,null,null,null,null,null]",
@@ -83,21 +155,64 @@
           "[\"GPT-6 Astra\",\"low\",null,null,null,null,null,null]",
           "[\"GPT-6 Astra\",\"max\",null,null,null,null,null,null]",
           "[\"GPT-6 Astra\",\"medium\",null,null,null,null,null,null]",
-          "[\"GPT-6 Astra\",\"xhigh\",null,null,null,null,null,null]"
+          "[\"GPT-6 Astra\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"high\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"low\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"max\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"medium\",null,null,null,null,null,null]",
+          "[\"GPT-6 Sol\",\"xhigh\",null,null,null,null,null,null]"
         ],
         "rawLabels": [
           "Claude Fable 5.1",
           "Claude Opus 5",
           "Claude Opus 5.5",
+          "Claude Sonnet 5",
+          "Claude Sonnet 5.5",
           "GPT-5.6 Sol",
-          "GPT-6 Astra"
+          "GPT-6 Astra",
+          "GPT-6 Sol"
         ],
-        "rows": 25,
-        "sourceUrls": ["https://www.anthropic.com/claude-opus-5-5"],
+        "rows": 45,
+        "sourceUrls": [
+          "https://www.anthropic.com/claude-opus-5-5",
+          "https://www.anthropic.com/claude-sonnet-5-5"
+        ],
         "versions": ["1.1"]
+      },
+      {
+        "id": "humanitys-last-exam",
+        "includedRows": 0,
+        "metrics": ["accuracy:percent:true"],
+        "models": ["anthropic-claude-fable-5", "anthropic-claude-fable-5-1"],
+        "profiles": [
+          "[\"Claude Fable 5\",\"high\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5\",\"high\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5\",\"low\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5\",\"low\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5\",\"max\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5\",\"max\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5\",\"medium\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5\",\"medium\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5\",\"xhigh\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5\",\"xhigh\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5.1\",\"high\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5.1\",\"high\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5.1\",\"low\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5.1\",\"low\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5.1\",\"max\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5.1\",\"max\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5.1\",\"medium\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5.1\",\"medium\",null,null,true,null,null,null]",
+          "[\"Claude Fable 5.1\",\"xhigh\",null,null,false,null,null,null]",
+          "[\"Claude Fable 5.1\",\"xhigh\",null,null,true,null,null,null]"
+        ],
+        "rawLabels": ["Claude Fable 5", "Claude Fable 5.1"],
+        "rows": 20,
+        "sourceUrls": ["https://www.anthropic.com/claude-fable-and-mythos-5-1"],
+        "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-02T14:57:02.279Z",
+    "observedAt": "2026-10-04T04:43:52.621Z",
     "sourceId": "anthropic-releases"
   }
 }

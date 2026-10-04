@@ -1,0 +1,815 @@
+{
+  "schemaVersion": "vendor-chart-capture-v1",
+  "sourceUrl": "https://openai.com/zh-Hant/index/gpt-6-astra/",
+  "pageId": "astra",
+  "chartVersions": {
+    "automationbench": "1.0.6",
+    "deepswe": "1.1"
+  },
+  "charts": [
+    {
+      "id": "automationbench",
+      "values": [
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "低",
+          "order": 1,
+          "score": 0.125,
+          "cost": 2.649622,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[31]",
+          "rawRow": {
+            "effort_display": "低",
+            "mode": "Cost",
+            "model_display": "Claude Fable 5",
+            "score": 0.125,
+            "series_order": 1,
+            "x_label": "$$2.65",
+            "x_value": 2.649622
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "中",
+          "order": 2,
+          "score": 0.137,
+          "cost": 3.014049,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[32]",
+          "rawRow": {
+            "effort_display": "中",
+            "mode": "Cost",
+            "model_display": "Claude Fable 5",
+            "score": 0.137,
+            "series_order": 2,
+            "x_label": "$$3.01",
+            "x_value": 3.014049
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "高",
+          "order": 3,
+          "score": 0.161,
+          "cost": 3.298673,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[33]",
+          "rawRow": {
+            "effort_display": "高",
+            "mode": "Cost",
+            "model_display": "Claude Fable 5",
+            "score": 0.161,
+            "series_order": 3,
+            "x_label": "$$3.3",
+            "x_value": 3.298673
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "Xhigh",
+          "order": 4,
+          "score": 0.152,
+          "cost": 3.70418,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[34]",
+          "rawRow": {
+            "effort_display": "Xhigh",
+            "mode": "Cost",
+            "model_display": "Claude Fable 5",
+            "score": 0.152,
+            "series_order": 4,
+            "x_label": "$$3.7",
+            "x_value": 3.70418
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "Max",
+          "order": 5,
+          "score": 0.174,
+          "cost": 3.672,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[35]",
+          "rawRow": {
+            "effort_display": "Max",
+            "mode": "Cost",
+            "model_display": "Claude Fable 5",
+            "score": 0.174,
+            "series_order": 5,
+            "x_label": "$$3.67",
+            "x_value": 3.672
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "zapier-automationbench:automationbench:claude-fable-5-0-max-rank-47:1-0-6",
+            "referenceScore": 17.05,
+            "referenceUrl": "https://zapier.com/benchmarks"
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "低",
+          "order": 1,
+          "score": 0.096,
+          "cost": 0.2499676,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[36]",
+          "rawRow": {
+            "effort_display": "低",
+            "mode": "Cost",
+            "model_display": "GPT-5.6 Sol",
+            "score": 0.096,
+            "series_order": 1,
+            "x_label": "$$0.25",
+            "x_value": 0.2499676
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "zapier-automationbench:automationbench:gpt-5-6-sol-low-rank-68:1-0-6",
+            "referenceScore": 11.72,
+            "referenceUrl": "https://zapier.com/benchmarks"
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "中",
+          "order": 2,
+          "score": 0.126,
+          "cost": 0.40334,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[37]",
+          "rawRow": {
+            "effort_display": "中",
+            "mode": "Cost",
+            "model_display": "GPT-5.6 Sol",
+            "score": 0.126,
+            "series_order": 2,
+            "x_label": "$$0.4",
+            "x_value": 0.40334
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "zapier-automationbench:automationbench:gpt-5-6-sol-medium-rank-41:1-0-6",
+            "referenceScore": 19.63,
+            "referenceUrl": "https://zapier.com/benchmarks"
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "高",
+          "order": 3,
+          "score": 0.123,
+          "cost": 0.4294594000000001,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[38]",
+          "rawRow": {
+            "effort_display": "高",
+            "mode": "Cost",
+            "model_display": "GPT-5.6 Sol",
+            "score": 0.123,
+            "series_order": 3,
+            "x_label": "$$0.43",
+            "x_value": 0.4294594000000001
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "zapier-automationbench:automationbench:gpt-5-6-sol-high-rank-28:1-0-6",
+            "referenceScore": 24.81,
+            "referenceUrl": "https://zapier.com/benchmarks"
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Xhigh",
+          "order": 4,
+          "score": 0.17,
+          "cost": 0.6065448,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[39]",
+          "rawRow": {
+            "effort_display": "Xhigh",
+            "mode": "Cost",
+            "model_display": "GPT-5.6 Sol",
+            "score": 0.17,
+            "series_order": 4,
+            "x_label": "$$0.61",
+            "x_value": 0.6065448
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "zapier-automationbench:automationbench:gpt-5-6-sol-xhigh-rank-25:1-0-6",
+            "referenceScore": 26.33,
+            "referenceUrl": "https://zapier.com/benchmarks"
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Max",
+          "order": 5,
+          "score": 0.181,
+          "cost": 0.9044604,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[40]",
+          "rawRow": {
+            "effort_display": "Max",
+            "mode": "Cost",
+            "model_display": "GPT-5.6 Sol",
+            "score": 0.181,
+            "series_order": 5,
+            "x_label": "$$0.9",
+            "x_value": 0.9044604
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "zapier-automationbench:automationbench:gpt-5-6-sol-max-rank-22:1-0-6",
+            "referenceScore": 28.77,
+            "referenceUrl": "https://zapier.com/benchmarks"
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "低",
+          "order": 1,
+          "score": 0.303,
+          "cost": 1.087119,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[41]",
+          "rawRow": {
+            "effort_display": "低",
+            "mode": "Cost",
+            "model_display": "GPT-6 Astra",
+            "score": 0.303,
+            "series_order": 1,
+            "x_label": "$$1.09",
+            "x_value": 1.087119
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "中",
+          "order": 2,
+          "score": 0.341,
+          "cost": 1.2853265,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[42]",
+          "rawRow": {
+            "effort_display": "中",
+            "mode": "Cost",
+            "model_display": "GPT-6 Astra",
+            "score": 0.341,
+            "series_order": 2,
+            "x_label": "$$1.29",
+            "x_value": 1.2853265
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "高",
+          "order": 3,
+          "score": 0.371,
+          "cost": 1.4558175,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[43]",
+          "rawRow": {
+            "effort_display": "高",
+            "mode": "Cost",
+            "model_display": "GPT-6 Astra",
+            "score": 0.371,
+            "series_order": 3,
+            "x_label": "$$1.46",
+            "x_value": 1.4558175
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Xhigh",
+          "order": 4,
+          "score": 0.39,
+          "cost": 1.5305975,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[44]",
+          "rawRow": {
+            "effort_display": "Xhigh",
+            "mode": "Cost",
+            "model_display": "GPT-6 Astra",
+            "score": 0.39,
+            "series_order": 4,
+            "x_label": "$$1.53",
+            "x_value": 1.5305975
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Max",
+          "order": 5,
+          "score": 0.414,
+          "cost": 1.770966,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[4].vegaLiteSpec.data.values[45]",
+          "rawRow": {
+            "effort_display": "Max",
+            "mode": "Cost",
+            "model_display": "GPT-6 Astra",
+            "score": 0.414,
+            "series_order": 5,
+            "x_label": "$$1.77",
+            "x_value": 1.770966
+          }
+        }
+      ]
+    },
+    {
+      "id": "deepswe",
+      "values": [
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Low",
+          "order": 0,
+          "score": 0.67,
+          "cost": 1.6,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[27]",
+          "rawRow": {
+            "code_mode": "true",
+            "dataset": "api_cost_usd",
+            "effort_display": "Low",
+            "model": "GPT-6 Astra",
+            "pointOrder": 0,
+            "record_type": "series",
+            "score": 0.67,
+            "x_label": "$$1.60",
+            "x_value": 1.6
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Medium",
+          "order": 1,
+          "score": 0.728,
+          "cost": 3.1,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[28]",
+          "rawRow": {
+            "code_mode": "true",
+            "dataset": "api_cost_usd",
+            "effort_display": "Medium",
+            "model": "GPT-6 Astra",
+            "pointOrder": 1,
+            "record_type": "series",
+            "score": 0.728,
+            "x_label": "$$3.10",
+            "x_value": 3.1
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "High",
+          "order": 2,
+          "score": 0.732,
+          "cost": 3.9,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[29]",
+          "rawRow": {
+            "code_mode": "true",
+            "dataset": "api_cost_usd",
+            "effort_display": "High",
+            "model": "GPT-6 Astra",
+            "pointOrder": 2,
+            "record_type": "series",
+            "score": 0.732,
+            "x_label": "$$3.90",
+            "x_value": 3.9
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "XHigh",
+          "order": 3,
+          "score": 0.741,
+          "cost": 4.4,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[30]",
+          "rawRow": {
+            "code_mode": "true",
+            "dataset": "api_cost_usd",
+            "effort_display": "XHigh",
+            "model": "GPT-6 Astra",
+            "pointOrder": 3,
+            "record_type": "series",
+            "score": 0.741,
+            "x_label": "$$4.40",
+            "x_value": 4.4
+          }
+        },
+        {
+          "model": "GPT-6 Astra",
+          "modelLabel": "GPT-6 Astra",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.73,
+          "cost": 7.5,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[31]",
+          "rawRow": {
+            "code_mode": "true",
+            "dataset": "api_cost_usd",
+            "effort_display": "Max",
+            "model": "GPT-6 Astra",
+            "pointOrder": 4,
+            "record_type": "series",
+            "score": 0.73,
+            "x_label": "$$7.50",
+            "x_value": 7.5
+          },
+          "reviewExclusion": {
+            "reason": "Published release score conflicts with captured organizer result for the same benchmark version, model and explicit effort; historical evaluation configuration unresolved.",
+            "referenceId": "deepswe-1-1:mini-swe-agent-gpt-6-astra-max",
+            "referenceScore": 73.23008849557522,
+            "referenceUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json"
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "Low",
+          "order": 0,
+          "score": 0.5813,
+          "cost": 1.66,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[32]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Low",
+            "model": "Claude Opus 5",
+            "pointOrder": 0,
+            "record_type": "series",
+            "score": 0.5813,
+            "x_label": "$$1.66",
+            "x_value": 1.66
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "Medium",
+          "order": 1,
+          "score": 0.689,
+          "cost": 3.29,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[33]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Medium",
+            "model": "Claude Opus 5",
+            "pointOrder": 1,
+            "record_type": "series",
+            "score": 0.689,
+            "x_label": "$$3.29",
+            "x_value": 3.29
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "High",
+          "order": 2,
+          "score": 0.7283,
+          "cost": 6.08,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[34]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "High",
+            "model": "Claude Opus 5",
+            "pointOrder": 2,
+            "record_type": "series",
+            "score": 0.7283,
+            "x_label": "$$6.08",
+            "x_value": 6.08
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "XHigh",
+          "order": 3,
+          "score": 0.7315,
+          "cost": 9.07,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[35]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "XHigh",
+            "model": "Claude Opus 5",
+            "pointOrder": 3,
+            "record_type": "series",
+            "score": 0.7315,
+            "x_label": "$$9.07",
+            "x_value": 9.07
+          }
+        },
+        {
+          "model": "Claude Opus 5",
+          "modelLabel": "Claude Opus 5",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.7365,
+          "cost": 11.84,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[36]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Max",
+            "model": "Claude Opus 5",
+            "pointOrder": 4,
+            "record_type": "series",
+            "score": 0.7365,
+            "x_label": "$$11.84",
+            "x_value": 11.84
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "Low",
+          "order": 0,
+          "score": 0.5958,
+          "cost": 3.76,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[37]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Low",
+            "model": "Claude Fable 5",
+            "pointOrder": 0,
+            "record_type": "series",
+            "score": 0.5958,
+            "x_label": "$$3.76",
+            "x_value": 3.76
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "Medium",
+          "order": 1,
+          "score": 0.6537,
+          "cost": 6.09,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[38]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Medium",
+            "model": "Claude Fable 5",
+            "pointOrder": 1,
+            "record_type": "series",
+            "score": 0.6537,
+            "x_label": "$$6.09",
+            "x_value": 6.09
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "High",
+          "order": 2,
+          "score": 0.686,
+          "cost": 9.18,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[39]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "High",
+            "model": "Claude Fable 5",
+            "pointOrder": 2,
+            "record_type": "series",
+            "score": 0.686,
+            "x_label": "$$9.18",
+            "x_value": 9.18
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "XHigh",
+          "order": 3,
+          "score": 0.6991,
+          "cost": 13.41,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[40]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "XHigh",
+            "model": "Claude Fable 5",
+            "pointOrder": 3,
+            "record_type": "series",
+            "score": 0.6991,
+            "x_label": "$$13.41",
+            "x_value": 13.41
+          }
+        },
+        {
+          "model": "Claude Fable 5",
+          "modelLabel": "Claude Fable 5",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.6972,
+          "cost": 21.63,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[41]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Max",
+            "model": "Claude Fable 5",
+            "pointOrder": 4,
+            "record_type": "series",
+            "score": 0.6972,
+            "x_label": "$$21.63",
+            "x_value": 21.63
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Low",
+          "order": 0,
+          "score": 0.4535,
+          "cost": 0.82,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[43]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Low",
+            "model": "GPT-5.6 Sol",
+            "pointOrder": 0,
+            "record_type": "series",
+            "score": 0.4535,
+            "x_label": "$$0.82",
+            "x_value": 0.82
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Medium",
+          "order": 1,
+          "score": 0.6106,
+          "cost": 1.42,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[44]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Medium",
+            "model": "GPT-5.6 Sol",
+            "pointOrder": 1,
+            "record_type": "series",
+            "score": 0.6106,
+            "x_label": "$$1.42",
+            "x_value": 1.42
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "High",
+          "order": 2,
+          "score": 0.694,
+          "cost": 2.66,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[45]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "High",
+            "model": "GPT-5.6 Sol",
+            "pointOrder": 2,
+            "record_type": "series",
+            "score": 0.694,
+            "x_label": "$$2.66",
+            "x_value": 2.66
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "XHigh",
+          "order": 3,
+          "score": 0.7073,
+          "cost": 3.6,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[46]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "XHigh",
+            "model": "GPT-5.6 Sol",
+            "pointOrder": 3,
+            "record_type": "series",
+            "score": 0.7073,
+            "x_label": "$$3.60",
+            "x_value": 3.6
+          }
+        },
+        {
+          "model": "GPT-5.6 Sol",
+          "modelLabel": "GPT-5.6 Sol",
+          "effortLabel": "Max",
+          "order": 4,
+          "score": 0.7267,
+          "cost": 6.46,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[47]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Max",
+            "model": "GPT-5.6 Sol",
+            "pointOrder": 4,
+            "record_type": "series",
+            "score": 0.7267,
+            "x_label": "$$6.46",
+            "x_value": 6.46
+          }
+        },
+        {
+          "model": "Gemini 3.8 Flash",
+          "modelLabel": "Gemini 3.8 Flash",
+          "effortLabel": "Medium",
+          "order": 0,
+          "score": 0.7102,
+          "cost": 1.97,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[48]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "Medium",
+            "model": "Gemini 3.8 Flash",
+            "pointOrder": 0,
+            "record_type": "series",
+            "score": 0.7102,
+            "x_label": "$$1.97",
+            "x_value": 1.97
+          }
+        },
+        {
+          "model": "Gemini 3.8 Flash",
+          "modelLabel": "Gemini 3.8 Flash",
+          "effortLabel": "High",
+          "order": 1,
+          "score": 0.7383,
+          "cost": 2.36,
+          "scorePrecisionPercent": 0.1,
+          "sourceLocator": "$.charts[21].vegaLiteSpec.data.values[49]",
+          "rawRow": {
+            "code_mode": "false",
+            "dataset": "api_cost_usd",
+            "effort_display": "High",
+            "model": "Gemini 3.8 Flash",
+            "pointOrder": 1,
+            "record_type": "series",
+            "score": 0.7383,
+            "x_label": "$$2.36",
+            "x_value": 2.36
+          }
+        }
+      ]
+    }
+  ],
+  "observedAt": "2026-10-04T04:26:55.430Z",
+  "method": "DOM_RSC",
+  "notes": [
+    "Normalized excerpt extracted from DOM script RSC. Raw row retains source fields."
+  ]
+}

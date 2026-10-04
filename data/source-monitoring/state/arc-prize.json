@@ -1,15 +1,16 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-03T04:19:00.937Z",
+  "checkedAt": "2026-10-04T03:31:14.887Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "arc-agi-2",
-        "includedRows": 246,
+        "includedRows": 250,
         "metrics": ["score:fraction:true"],
         "models": [
+          "alibaba-qwen3-8-27b",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
           "anthropic-claude-opus-4-6",
@@ -285,6 +286,10 @@
           "[\"Opus 4.5 (Thinking, 8K)\",null,null,null,null,null,null,null]",
           "[\"Opus 4.5 (Thinking, None)\",\"non-reasoning\",null,null,null,null,null,null]",
           "[\"Qwen3-235b-a22b Instruct (25/07)\",null,null,null,null,null,null,null]",
+          "[\"Qwen3.8-27B (Low)\",\"low\",null,null,null,null,null,null]",
+          "[\"Qwen3.8-27B (Medium)\",\"medium\",null,null,null,null,null,null]",
+          "[\"Qwen3.8-27B (None)\",\"non-reasoning\",null,null,null,null,null,null]",
+          "[\"Qwen3.8-27B (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
           "[\"Tiny Recursion Model (TRM)\",null,null,null,null,null,null,null]",
           "[\"o1-mini\",null,null,null,null,null,null,null]",
           "[\"o3 (High)\",\"high\",null,null,null,null,null,null]",
@@ -540,6 +545,10 @@
           "Opus 4.5 (Thinking, 8K)",
           "Opus 4.5 (Thinking, None)",
           "Qwen3-235b-a22b Instruct (25/07)",
+          "Qwen3.8-27B (Low)",
+          "Qwen3.8-27B (Medium)",
+          "Qwen3.8-27B (None)",
+          "Qwen3.8-27B (XHigh)",
           "Tiny Recursion Model (TRM)",
           "o1-mini",
           "o3 (High)",
@@ -555,12 +564,12 @@
           "o4-mini (Low)",
           "o4-mini (Medium)"
         ],
-        "rows": 254,
+        "rows": 258,
         "sourceUrls": ["https://arcprize.org/leaderboard"],
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-10-01T00:51:25.353Z",
+    "observedAt": "2026-10-04T03:27:00.029Z",
     "sourceId": "arc-prize"
   }
 }

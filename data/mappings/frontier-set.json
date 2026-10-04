@@ -18,7 +18,7 @@
         "score": 57.6223698102963,
         "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07"
+          "sha256:056b14ac802fbfe5ef0ede6734203407d2b2f19f7383768e08b00eaf337a5d62"
         ]
       },
       {
@@ -28,7 +28,7 @@
         "score": 56.0001286580794,
         "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e"
+          "sha256:ab0bc8c7f69bc5b3a0d33baa903ca1abb341da8636f5408edc34651c2592b198"
         ]
       },
       {
@@ -38,7 +38,7 @@
         "score": 53.3549259623252,
         "resultId": "artificial-analysis:anthropic-claude-fable-5-1-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9"
+          "sha256:248562ec7a240c0165da6d78f41a1dc4ed8454bcb0e2c4b6adaf4b4588f6367b"
         ]
       },
       {
@@ -48,7 +48,7 @@
         "score": 52.673669395513,
         "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759"
+          "sha256:59a496050370415ac08f85dd74770bf108b83e9b01c57d9423e50eeca1ab0939"
         ]
       },
       {
@@ -58,7 +58,7 @@
         "score": 52.5605655745982,
         "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec"
+          "sha256:d2b86c2eb470c9e147b47866003cdb925d93abef607fd0f6801d7c29af51b5a6"
         ]
       },
       {
@@ -68,7 +68,7 @@
         "score": 51.8332597011541,
         "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c"
+          "sha256:08288655ffce3b2253c2b531d7393ebf955f568df06e0db026c4638cbbe0a41e"
         ]
       },
       {
@@ -78,7 +78,7 @@
         "score": 48.0923107719685,
         "resultId": "artificial-analysis:meta-muse-spark-1-3-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:68d587c150524ed17ef5d2deedee439bf8defa7d3b1142c69282db15503c4487"
+          "sha256:f445a8affee8c4999373ee7730a07d36415e79fe2edbdc1637e846aad1e3a38e"
         ]
       },
       {
@@ -88,7 +88,7 @@
         "score": 46.4465506302286,
         "resultId": "artificial-analysis:xai-grok-4-7-xhigh-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:670c1f7df1d9c0845e4d437a3fb8356c49440ba8fb199373147b7be7af30173e"
+          "sha256:3386024d33ec1e9234026918c6340a0afd4a211ec2f42c2dd24d9d1e89c26957"
         ]
       },
       {
@@ -98,7 +98,7 @@
         "score": 46.3242065310383,
         "resultId": "artificial-analysis:mimo-v2-6-pro:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:7397bf08ce03a4e8294c0dcc959db755cc5d7915e5a4becdfcab0ea3c100a7f0"
+          "sha256:9fc0ecff64f8c64596af5cf41a34eb2649d6de76675ed85b90695a8f54c73447"
         ]
       },
       {
@@ -108,7 +108,7 @@
         "score": 45.4152084980521,
         "resultId": "artificial-analysis:alibaba-qwen3-8-max-aa-index:intelligence-index-v4-3-2",
         "evidenceIds": [
-          "sha256:1b1548aee001c2cbac972e0d56af617a1dc0072393523db1ce6424d60cb68371"
+          "sha256:d9f96af259ba16fbd061395aad0333b5ac4bad8a5c6a4c0d9ca99068edde1189"
         ]
       }
     ],
@@ -191,11 +191,12 @@
     "legal-research",
     "medcode",
     "medscribe",
+    "programbench",
     "proofbench",
     "scicode",
     "vibe-code-bench"
   ],
-  "excludedBenchmarkIds": ["proofbench"],
+  "excludedBenchmarkIds": ["programbench", "proofbench"],
   "qualityShareRemovedBenchmarkIds": [],
   "benchmarkIds": [
     "aa-briefcase",
@@ -269,7 +270,7 @@
           "score": 61.212121212121204,
           "resultId": "artificial-analysis:aa-briefcase:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+            "sha256:f077d9508185704410a511c13051f8964214064096f8ae37037b948656d3ffb0"
           ]
         },
         {
@@ -277,7 +278,7 @@
           "score": 84.6666666666667,
           "resultId": "artificial-analysis:aa-lcr:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+            "sha256:5b721ad5885e91b1023559c1bd5e302b27436d7e23162eb439e25de8e91e15f0"
           ]
         },
         {
@@ -285,7 +286,7 @@
           "score": 66.21666666666667,
           "resultId": "artificial-analysis:aa-omniscience:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07"
+            "sha256:056b14ac802fbfe5ef0ede6734203407d2b2f19f7383768e08b00eaf337a5d62"
           ]
         },
         {
@@ -293,8 +294,8 @@
           "score": 42.47,
           "resultId": "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-4:1-0-6",
           "evidenceIds": [
-            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
-            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+            "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+            "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee"
           ]
         },
         {
@@ -302,7 +303,7 @@
           "score": 66.646,
           "resultId": "vals-ai:code-migration:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+            "sha256:d1ecd1f1802d2ad94274470d9d32feee3782c10522079d7e925d62777e8ab299"
           ]
         },
         {
@@ -310,7 +311,7 @@
           "score": 31.7142857142857,
           "resultId": "artificial-analysis:critpt:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+            "sha256:2ea11c3b91f9eb1afebadd1654ed3ba831f9dd2242202cdd123aac564b170b9c"
           ]
         },
         {
@@ -318,7 +319,7 @@
           "score": 55.357,
           "resultId": "vals-ai:cyber:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+            "sha256:341257de295091433e8eb2f939a44463cfdaf2a4ae0525db667582e4c1e8c5a1"
           ]
         },
         {
@@ -326,7 +327,7 @@
           "score": 75.938,
           "resultId": "vals-ai:emb:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+            "sha256:576d5f4484ed7c6c4f6ad0169126073273a84e8c36039eaf93d2bfdc7c207425"
           ]
         },
         {
@@ -334,7 +335,7 @@
           "score": 58.587,
           "resultId": "vals-ai:finance-agent-v2:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+            "sha256:5f865eeef45db4cb5b1293d3883fad2d267e5be5b2e08b5bba98455d1be7da2e"
           ]
         },
         {
@@ -342,7 +343,7 @@
           "score": 26.200000000000003,
           "resultId": "artificial-analysis:gdp-pdf:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+            "sha256:a0e38bc2eee2a147a7a27efd05a340c8281ef421910316f436a672346864e3f5"
           ]
         },
         {
@@ -350,7 +351,7 @@
           "score": 30.3,
           "resultId": "surge-gdp-xlsx:gdp-xlsx:claude-opus-5-5-adaptive-max",
           "evidenceIds": [
-            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+            "sha256:d67e58a77b33049197f3f9f0fe78403b862ac2ed0be3a794af6499340f2d384d"
           ]
         },
         {
@@ -358,7 +359,7 @@
           "score": 68.35249999999999,
           "resultId": "artificial-analysis:gdpval-aa:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:071514e451849be02c3832178fdec3ddb7d57f8e0d1529aeaa55ce311ae0ba07"
+            "sha256:056b14ac802fbfe5ef0ede6734203407d2b2f19f7383768e08b00eaf337a5d62"
           ]
         },
         {
@@ -366,7 +367,7 @@
           "score": 3.75,
           "resultId": "vals-ai:hlab:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+            "sha256:571277e31c896765d77db73fd47d7eb3a5f2447208001c032ec90c761c618935"
           ]
         },
         {
@@ -374,7 +375,7 @@
           "score": 61.353104726598694,
           "resultId": "artificial-analysis:humanitys-last-exam:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+            "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
           ]
         },
         {
@@ -382,7 +383,7 @@
           "score": 95.056,
           "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+            "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
           ]
         },
         {
@@ -390,7 +391,7 @@
           "score": 50.481,
           "resultId": "vals-ai:legal-research:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+            "sha256:7cee19c04b6f56b1b758b0d27d8462ba6ad8af39b8db7f5fff0b22c827ac90fd"
           ]
         },
         {
@@ -398,7 +399,7 @@
           "score": 49.797,
           "resultId": "vals-ai:medcode:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+            "sha256:7a10326d8efc4030bc0762020cf43a1d7a1750b299b573b625920a7b1bec326b"
           ]
         },
         {
@@ -406,7 +407,7 @@
           "score": 91.43,
           "resultId": "vals-ai:medscribe:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+            "sha256:788294a41dbbcaf2515cfa7ee07312f40fca6b56ab548e1cc2ea40b8d798ffa3"
           ]
         },
         {
@@ -414,7 +415,7 @@
           "score": 66.8981481481482,
           "resultId": "artificial-analysis:scicode:claude-opus-5-5",
           "evidenceIds": [
-            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+            "sha256:78ec5aa2747430809efac7637594e2e4d7583f0326d4f37b8d99d80fbf9d2c5b"
           ]
         },
         {
@@ -422,7 +423,7 @@
           "score": 90.294,
           "resultId": "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
           "evidenceIds": [
-            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+            "sha256:c439a3a6f0c390b20a9bc6407fc66eb646a4994f132dc06423b4323c5fb46b76"
           ]
         }
       ]
@@ -435,7 +436,7 @@
           "score": 65.15151515151516,
           "resultId": "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+            "sha256:f077d9508185704410a511c13051f8964214064096f8ae37037b948656d3ffb0"
           ]
         },
         {
@@ -443,7 +444,7 @@
           "score": 82.6666666666667,
           "resultId": "artificial-analysis:aa-lcr:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+            "sha256:5b721ad5885e91b1023559c1bd5e302b27436d7e23162eb439e25de8e91e15f0"
           ]
         },
         {
@@ -451,7 +452,7 @@
           "score": 53.949999999999996,
           "resultId": "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e"
+            "sha256:ab0bc8c7f69bc5b3a0d33baa903ca1abb341da8636f5408edc34651c2592b198"
           ]
         },
         {
@@ -459,8 +460,8 @@
           "score": 44.75,
           "resultId": "zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-max-rank-3:1-0-6",
           "evidenceIds": [
-            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
-            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+            "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+            "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee"
           ]
         },
         {
@@ -468,7 +469,7 @@
           "score": 69.825,
           "resultId": "vals-ai:code-migration:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+            "sha256:d1ecd1f1802d2ad94274470d9d32feee3782c10522079d7e925d62777e8ab299"
           ]
         },
         {
@@ -476,7 +477,7 @@
           "score": 31.4285714285714,
           "resultId": "artificial-analysis:critpt:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+            "sha256:2ea11c3b91f9eb1afebadd1654ed3ba831f9dd2242202cdd123aac564b170b9c"
           ]
         },
         {
@@ -484,7 +485,7 @@
           "score": 59.584,
           "resultId": "vals-ai:cyber:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+            "sha256:341257de295091433e8eb2f939a44463cfdaf2a4ae0525db667582e4c1e8c5a1"
           ]
         },
         {
@@ -492,7 +493,7 @@
           "score": 75.713,
           "resultId": "vals-ai:emb:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+            "sha256:576d5f4484ed7c6c4f6ad0169126073273a84e8c36039eaf93d2bfdc7c207425"
           ]
         },
         {
@@ -500,7 +501,7 @@
           "score": 58.103,
           "resultId": "vals-ai:finance-agent-v2:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+            "sha256:5f865eeef45db4cb5b1293d3883fad2d267e5be5b2e08b5bba98455d1be7da2e"
           ]
         },
         {
@@ -508,7 +509,7 @@
           "score": 25.8,
           "resultId": "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+            "sha256:a0e38bc2eee2a147a7a27efd05a340c8281ef421910316f436a672346864e3f5"
           ]
         },
         {
@@ -516,7 +517,7 @@
           "score": 29.1,
           "resultId": "surge-gdp-xlsx:gdp-xlsx:claude-sonnet-5-5-adaptive-max",
           "evidenceIds": [
-            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+            "sha256:d67e58a77b33049197f3f9f0fe78403b862ac2ed0be3a794af6499340f2d384d"
           ]
         },
         {
@@ -524,7 +525,7 @@
           "score": 67.00399999999999,
           "resultId": "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:9e669bf44b7fe74f0083399747b51f797b228e9240a3d176a2881e89f39bc60e"
+            "sha256:ab0bc8c7f69bc5b3a0d33baa903ca1abb341da8636f5408edc34651c2592b198"
           ]
         },
         {
@@ -532,7 +533,7 @@
           "score": 2.917,
           "resultId": "vals-ai:hlab:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+            "sha256:571277e31c896765d77db73fd47d7eb3a5f2447208001c032ec90c761c618935"
           ]
         },
         {
@@ -540,7 +541,7 @@
           "score": 54.9582947173309,
           "resultId": "artificial-analysis:humanitys-last-exam:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+            "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
           ]
         },
         {
@@ -548,7 +549,7 @@
           "score": 83.056,
           "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+            "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
           ]
         },
         {
@@ -556,7 +557,7 @@
           "score": 48.077,
           "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+            "sha256:7cee19c04b6f56b1b758b0d27d8462ba6ad8af39b8db7f5fff0b22c827ac90fd"
           ]
         },
         {
@@ -564,7 +565,7 @@
           "score": 52.92,
           "resultId": "vals-ai:medcode:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+            "sha256:7a10326d8efc4030bc0762020cf43a1d7a1750b299b573b625920a7b1bec326b"
           ]
         },
         {
@@ -572,7 +573,7 @@
           "score": 91.101,
           "resultId": "vals-ai:medscribe:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+            "sha256:788294a41dbbcaf2515cfa7ee07312f40fca6b56ab548e1cc2ea40b8d798ffa3"
           ]
         },
         {
@@ -580,7 +581,7 @@
           "score": 60.9953703703704,
           "resultId": "artificial-analysis:scicode:claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+            "sha256:78ec5aa2747430809efac7637594e2e4d7583f0326d4f37b8d99d80fbf9d2c5b"
           ]
         },
         {
@@ -588,7 +589,7 @@
           "score": 92.392,
           "resultId": "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
           "evidenceIds": [
-            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+            "sha256:c439a3a6f0c390b20a9bc6407fc66eb646a4994f132dc06423b4323c5fb46b76"
           ]
         }
       ]
@@ -601,7 +602,7 @@
           "score": 61.51515151515151,
           "resultId": "artificial-analysis:aa-briefcase:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+            "sha256:f077d9508185704410a511c13051f8964214064096f8ae37037b948656d3ffb0"
           ]
         },
         {
@@ -609,7 +610,7 @@
           "score": 85.3333333333333,
           "resultId": "artificial-analysis:aa-lcr:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+            "sha256:5b721ad5885e91b1023559c1bd5e302b27436d7e23162eb439e25de8e91e15f0"
           ]
         },
         {
@@ -617,7 +618,7 @@
           "score": 67.23333333333333,
           "resultId": "artificial-analysis:aa-omniscience:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9"
+            "sha256:248562ec7a240c0165da6d78f41a1dc4ed8454bcb0e2c4b6adaf4b4588f6367b"
           ]
         },
         {
@@ -625,8 +626,8 @@
           "score": 22.37,
           "resultId": "zapier-automationbench:automationbench:claude-fable-5-1-max-rank-34:1-0-6",
           "evidenceIds": [
-            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
-            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+            "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+            "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee"
           ]
         },
         {
@@ -634,7 +635,7 @@
           "score": 54.607,
           "resultId": "vals-ai:code-migration:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+            "sha256:d1ecd1f1802d2ad94274470d9d32feee3782c10522079d7e925d62777e8ab299"
           ]
         },
         {
@@ -642,7 +643,7 @@
           "score": 29.714285714285698,
           "resultId": "artificial-analysis:critpt:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+            "sha256:2ea11c3b91f9eb1afebadd1654ed3ba831f9dd2242202cdd123aac564b170b9c"
           ]
         },
         {
@@ -650,7 +651,7 @@
           "score": 70.416,
           "resultId": "vals-ai:cyber:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+            "sha256:341257de295091433e8eb2f939a44463cfdaf2a4ae0525db667582e4c1e8c5a1"
           ]
         },
         {
@@ -658,7 +659,7 @@
           "score": 76.67,
           "resultId": "vals-ai:emb:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+            "sha256:576d5f4484ed7c6c4f6ad0169126073273a84e8c36039eaf93d2bfdc7c207425"
           ]
         },
         {
@@ -666,7 +667,7 @@
           "score": 58.877,
           "resultId": "vals-ai:finance-agent-v2:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+            "sha256:5f865eeef45db4cb5b1293d3883fad2d267e5be5b2e08b5bba98455d1be7da2e"
           ]
         },
         {
@@ -674,7 +675,7 @@
           "score": 26.200000000000003,
           "resultId": "artificial-analysis:gdp-pdf:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+            "sha256:a0e38bc2eee2a147a7a27efd05a340c8281ef421910316f436a672346864e3f5"
           ]
         },
         {
@@ -682,7 +683,7 @@
           "score": 23.1,
           "resultId": "surge-gdp-xlsx:gdp-xlsx:claude-fable-5-1-adaptive-max",
           "evidenceIds": [
-            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+            "sha256:d67e58a77b33049197f3f9f0fe78403b862ac2ed0be3a794af6499340f2d384d"
           ]
         },
         {
@@ -690,7 +691,7 @@
           "score": 62.8885,
           "resultId": "artificial-analysis:gdpval-aa:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:67f1571803b9782fd86066a23debc7517a14c0e5be2a537e6c7bbaf3195372e9"
+            "sha256:248562ec7a240c0165da6d78f41a1dc4ed8454bcb0e2c4b6adaf4b4588f6367b"
           ]
         },
         {
@@ -698,7 +699,7 @@
           "score": 6.667,
           "resultId": "vals-ai:hlab:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+            "sha256:571277e31c896765d77db73fd47d7eb3a5f2447208001c032ec90c761c618935"
           ]
         },
         {
@@ -706,7 +707,7 @@
           "score": 59.1288229842447,
           "resultId": "artificial-analysis:humanitys-last-exam:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+            "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
           ]
         },
         {
@@ -714,7 +715,7 @@
           "score": 90.778,
           "resultId": "vals-ai:ioi:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+            "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
           ]
         },
         {
@@ -722,7 +723,7 @@
           "score": 55.288,
           "resultId": "vals-ai:legal-research:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+            "sha256:7cee19c04b6f56b1b758b0d27d8462ba6ad8af39b8db7f5fff0b22c827ac90fd"
           ]
         },
         {
@@ -730,7 +731,7 @@
           "score": 53.509,
           "resultId": "vals-ai:medcode:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+            "sha256:7a10326d8efc4030bc0762020cf43a1d7a1750b299b573b625920a7b1bec326b"
           ]
         },
         {
@@ -738,7 +739,7 @@
           "score": 91.294,
           "resultId": "vals-ai:medscribe:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+            "sha256:788294a41dbbcaf2515cfa7ee07312f40fca6b56ab548e1cc2ea40b8d798ffa3"
           ]
         },
         {
@@ -746,7 +747,7 @@
           "score": 63.078703703703695,
           "resultId": "artificial-analysis:scicode:claude-fable-5-1",
           "evidenceIds": [
-            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+            "sha256:78ec5aa2747430809efac7637594e2e4d7583f0326d4f37b8d99d80fbf9d2c5b"
           ]
         },
         {
@@ -754,7 +755,7 @@
           "score": 90.263,
           "resultId": "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1",
           "evidenceIds": [
-            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+            "sha256:c439a3a6f0c390b20a9bc6407fc66eb646a4994f132dc06423b4323c5fb46b76"
           ]
         }
       ]
@@ -767,7 +768,7 @@
           "score": 52.02020202020202,
           "resultId": "artificial-analysis:aa-briefcase:gpt-6-astra",
           "evidenceIds": [
-            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+            "sha256:f077d9508185704410a511c13051f8964214064096f8ae37037b948656d3ffb0"
           ]
         },
         {
@@ -775,7 +776,7 @@
           "score": 80.6666666666667,
           "resultId": "artificial-analysis:aa-lcr:gpt-6-astra",
           "evidenceIds": [
-            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+            "sha256:5b721ad5885e91b1023559c1bd5e302b27436d7e23162eb439e25de8e91e15f0"
           ]
         },
         {
@@ -783,7 +784,7 @@
           "score": 62.6,
           "resultId": "artificial-analysis:aa-omniscience:gpt-6-astra",
           "evidenceIds": [
-            "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759"
+            "sha256:59a496050370415ac08f85dd74770bf108b83e9b01c57d9423e50eeca1ab0939"
           ]
         },
         {
@@ -791,8 +792,8 @@
           "score": 41.4,
           "resultId": "zapier-automationbench:automationbench:gpt-6-astra-max-rank-5:1-0-6",
           "evidenceIds": [
-            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
-            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+            "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+            "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee"
           ]
         },
         {
@@ -800,7 +801,7 @@
           "score": 67.74,
           "resultId": "vals-ai:code-migration:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+            "sha256:d1ecd1f1802d2ad94274470d9d32feee3782c10522079d7e925d62777e8ab299"
           ]
         },
         {
@@ -808,7 +809,7 @@
           "score": 31.7142857142857,
           "resultId": "artificial-analysis:critpt:gpt-6-astra",
           "evidenceIds": [
-            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+            "sha256:2ea11c3b91f9eb1afebadd1654ed3ba831f9dd2242202cdd123aac564b170b9c"
           ]
         },
         {
@@ -816,7 +817,7 @@
           "score": 41.072,
           "resultId": "vals-ai:cyber:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+            "sha256:341257de295091433e8eb2f939a44463cfdaf2a4ae0525db667582e4c1e8c5a1"
           ]
         },
         {
@@ -824,7 +825,7 @@
           "score": 71.7,
           "resultId": "vals-ai:emb:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+            "sha256:576d5f4484ed7c6c4f6ad0169126073273a84e8c36039eaf93d2bfdc7c207425"
           ]
         },
         {
@@ -832,7 +833,7 @@
           "score": 53.54,
           "resultId": "vals-ai:finance-agent-v2:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+            "sha256:5f865eeef45db4cb5b1293d3883fad2d267e5be5b2e08b5bba98455d1be7da2e"
           ]
         },
         {
@@ -840,7 +841,7 @@
           "score": 31,
           "resultId": "artificial-analysis:gdp-pdf:gpt-6-astra",
           "evidenceIds": [
-            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+            "sha256:a0e38bc2eee2a147a7a27efd05a340c8281ef421910316f436a672346864e3f5"
           ]
         },
         {
@@ -848,7 +849,7 @@
           "score": 22.9,
           "resultId": "surge-gdp-xlsx:gdp-xlsx:gpt-6-astra-max-reasoning",
           "evidenceIds": [
-            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+            "sha256:d67e58a77b33049197f3f9f0fe78403b862ac2ed0be3a794af6499340f2d384d"
           ]
         },
         {
@@ -856,7 +857,7 @@
           "score": 52.09450000000001,
           "resultId": "artificial-analysis:gdpval-aa:gpt-6-astra",
           "evidenceIds": [
-            "sha256:53d2dac1d7ac9e3c257748ee2357c11325c7e21ae55f1a8bbf085fe3c0859759"
+            "sha256:59a496050370415ac08f85dd74770bf108b83e9b01c57d9423e50eeca1ab0939"
           ]
         },
         {
@@ -864,7 +865,7 @@
           "score": 5.417,
           "resultId": "vals-ai:hlab:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+            "sha256:571277e31c896765d77db73fd47d7eb3a5f2447208001c032ec90c761c618935"
           ]
         },
         {
@@ -872,7 +873,7 @@
           "score": 54.6802594995366,
           "resultId": "artificial-analysis:humanitys-last-exam:gpt-6-astra",
           "evidenceIds": [
-            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+            "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
           ]
         },
         {
@@ -880,7 +881,7 @@
           "score": 100,
           "resultId": "vals-ai:ioi:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+            "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
           ]
         },
         {
@@ -888,7 +889,7 @@
           "score": 39.423,
           "resultId": "vals-ai:legal-research:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+            "sha256:7cee19c04b6f56b1b758b0d27d8462ba6ad8af39b8db7f5fff0b22c827ac90fd"
           ]
         },
         {
@@ -896,7 +897,7 @@
           "score": 48.486,
           "resultId": "vals-ai:medcode:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+            "sha256:7a10326d8efc4030bc0762020cf43a1d7a1750b299b573b625920a7b1bec326b"
           ]
         },
         {
@@ -904,7 +905,7 @@
           "score": 87.908,
           "resultId": "vals-ai:medscribe:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+            "sha256:788294a41dbbcaf2515cfa7ee07312f40fca6b56ab548e1cc2ea40b8d798ffa3"
           ]
         },
         {
@@ -912,7 +913,7 @@
           "score": 56.4814814814815,
           "resultId": "artificial-analysis:scicode:gpt-6-astra",
           "evidenceIds": [
-            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+            "sha256:78ec5aa2747430809efac7637594e2e4d7583f0326d4f37b8d99d80fbf9d2c5b"
           ]
         },
         {
@@ -920,7 +921,7 @@
           "score": 89.594,
           "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-astra",
           "evidenceIds": [
-            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+            "sha256:c439a3a6f0c390b20a9bc6407fc66eb646a4994f132dc06423b4323c5fb46b76"
           ]
         }
       ]
@@ -933,7 +934,7 @@
           "score": 64.63414634146342,
           "resultId": "artificial-analysis:aa-briefcase:gemini-4-argon",
           "evidenceIds": [
-            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+            "sha256:f077d9508185704410a511c13051f8964214064096f8ae37037b948656d3ffb0"
           ]
         },
         {
@@ -941,7 +942,7 @@
           "score": 79.6666666666667,
           "resultId": "artificial-analysis:aa-lcr:gemini-4-argon",
           "evidenceIds": [
-            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+            "sha256:5b721ad5885e91b1023559c1bd5e302b27436d7e23162eb439e25de8e91e15f0"
           ]
         },
         {
@@ -949,7 +950,7 @@
           "score": 49.9,
           "resultId": "artificial-analysis:aa-omniscience:gemini-4-argon",
           "evidenceIds": [
-            "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec"
+            "sha256:d2b86c2eb470c9e147b47866003cdb925d93abef607fd0f6801d7c29af51b5a6"
           ]
         },
         {
@@ -957,8 +958,8 @@
           "score": 51.29,
           "resultId": "zapier-automationbench:automationbench:gemini-4-argon-high-rank-1:1-0-6",
           "evidenceIds": [
-            "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
-            "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc"
+            "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+            "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee"
           ]
         },
         {
@@ -966,7 +967,7 @@
           "score": 68.173,
           "resultId": "vals-ai:code-migration:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+            "sha256:d1ecd1f1802d2ad94274470d9d32feee3782c10522079d7e925d62777e8ab299"
           ]
         },
         {
@@ -974,7 +975,7 @@
           "score": 27.142857142857103,
           "resultId": "artificial-analysis:critpt:gemini-4-argon",
           "evidenceIds": [
-            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+            "sha256:2ea11c3b91f9eb1afebadd1654ed3ba831f9dd2242202cdd123aac564b170b9c"
           ]
         },
         {
@@ -982,7 +983,7 @@
           "score": 77.857,
           "resultId": "vals-ai:cyber:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+            "sha256:341257de295091433e8eb2f939a44463cfdaf2a4ae0525db667582e4c1e8c5a1"
           ]
         },
         {
@@ -990,7 +991,7 @@
           "score": 75.244,
           "resultId": "vals-ai:emb:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+            "sha256:576d5f4484ed7c6c4f6ad0169126073273a84e8c36039eaf93d2bfdc7c207425"
           ]
         },
         {
@@ -998,7 +999,7 @@
           "score": 65.401,
           "resultId": "vals-ai:finance-agent-v2:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+            "sha256:5f865eeef45db4cb5b1293d3883fad2d267e5be5b2e08b5bba98455d1be7da2e"
           ]
         },
         {
@@ -1006,7 +1007,7 @@
           "score": 21.8,
           "resultId": "artificial-analysis:gdp-pdf:gemini-4-argon",
           "evidenceIds": [
-            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+            "sha256:a0e38bc2eee2a147a7a27efd05a340c8281ef421910316f436a672346864e3f5"
           ]
         },
         {
@@ -1014,7 +1015,7 @@
           "score": 38.3,
           "resultId": "surge-gdp-xlsx:gdp-xlsx:gemini-4-argon-high-reasoning",
           "evidenceIds": [
-            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+            "sha256:d67e58a77b33049197f3f9f0fe78403b862ac2ed0be3a794af6499340f2d384d"
           ]
         },
         {
@@ -1022,7 +1023,7 @@
           "score": 56.351,
           "resultId": "artificial-analysis:gdpval-aa:gemini-4-argon",
           "evidenceIds": [
-            "sha256:ab7b529aead095a17751972e30823dcd0c5e4157a143c3d150fc6c3d146791ec"
+            "sha256:d2b86c2eb470c9e147b47866003cdb925d93abef607fd0f6801d7c29af51b5a6"
           ]
         },
         {
@@ -1030,7 +1031,7 @@
           "score": 19.583,
           "resultId": "vals-ai:hlab:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+            "sha256:571277e31c896765d77db73fd47d7eb3a5f2447208001c032ec90c761c618935"
           ]
         },
         {
@@ -1038,7 +1039,7 @@
           "score": 57.089898053753494,
           "resultId": "artificial-analysis:humanitys-last-exam:gemini-4-argon",
           "evidenceIds": [
-            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+            "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
           ]
         },
         {
@@ -1046,7 +1047,7 @@
           "score": 100,
           "resultId": "vals-ai:ioi:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+            "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
           ]
         },
         {
@@ -1054,7 +1055,7 @@
           "score": 54.808,
           "resultId": "vals-ai:legal-research:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+            "sha256:7cee19c04b6f56b1b758b0d27d8462ba6ad8af39b8db7f5fff0b22c827ac90fd"
           ]
         },
         {
@@ -1062,7 +1063,7 @@
           "score": 58.801,
           "resultId": "vals-ai:medcode:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+            "sha256:7a10326d8efc4030bc0762020cf43a1d7a1750b299b573b625920a7b1bec326b"
           ]
         },
         {
@@ -1070,7 +1071,7 @@
           "score": 87.427,
           "resultId": "vals-ai:medscribe:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+            "sha256:788294a41dbbcaf2515cfa7ee07312f40fca6b56ab548e1cc2ea40b8d798ffa3"
           ]
         },
         {
@@ -1078,7 +1079,7 @@
           "score": 61.8055555555556,
           "resultId": "artificial-analysis:scicode:gemini-4-argon",
           "evidenceIds": [
-            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+            "sha256:78ec5aa2747430809efac7637594e2e4d7583f0326d4f37b8d99d80fbf9d2c5b"
           ]
         },
         {
@@ -1086,7 +1087,7 @@
           "score": 91.906,
           "resultId": "vals-ai:vibe-code-bench:google-gemini-4-argon",
           "evidenceIds": [
-            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+            "sha256:c439a3a6f0c390b20a9bc6407fc66eb646a4994f132dc06423b4323c5fb46b76"
           ]
         }
       ]
@@ -1099,7 +1100,7 @@
           "score": 55.65656565656566,
           "resultId": "artificial-analysis:aa-briefcase:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:7abbaf2acb4d184156effbe0ebfcdbc6cb54ae16045f0abfcff6beceec0a6425"
+            "sha256:f077d9508185704410a511c13051f8964214064096f8ae37037b948656d3ffb0"
           ]
         },
         {
@@ -1107,7 +1108,7 @@
           "score": 83,
           "resultId": "artificial-analysis:aa-lcr:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:8b85e561f1cb6120c0b30c8edf288c088bf599df310aaa5037f4a519dd0bdbc3"
+            "sha256:5b721ad5885e91b1023559c1bd5e302b27436d7e23162eb439e25de8e91e15f0"
           ]
         },
         {
@@ -1115,7 +1116,7 @@
           "score": 62.1,
           "resultId": "artificial-analysis:aa-omniscience:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c"
+            "sha256:08288655ffce3b2253c2b531d7393ebf955f568df06e0db026c4638cbbe0a41e"
           ]
         },
         {
@@ -1123,7 +1124,7 @@
           "score": 36.1,
           "resultId": "openai-releases:automationbench:10",
           "evidenceIds": [
-            "sha256:09acc7bb91d0abdebfcfc07d196c94c98861da690a9c6d05543da7308c9cb36b"
+            "sha256:33f7689cc3fd869510e899690ba278b679ec7ca755e5bdc66e6f8300c88f6e03"
           ]
         },
         {
@@ -1131,7 +1132,7 @@
           "score": 65.122,
           "resultId": "vals-ai:code-migration:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:5b5bd69c744243969985fc2db039a33d9171fd511294c6148df6122bb6ed9dc3"
+            "sha256:d1ecd1f1802d2ad94274470d9d32feee3782c10522079d7e925d62777e8ab299"
           ]
         },
         {
@@ -1139,7 +1140,7 @@
           "score": 31.7142857142857,
           "resultId": "artificial-analysis:critpt:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:e7cbbe7611806d7f9fbd2c30b7f03ce3b08450dba469046ba6c3df7d99e99f81"
+            "sha256:2ea11c3b91f9eb1afebadd1654ed3ba831f9dd2242202cdd123aac564b170b9c"
           ]
         },
         {
@@ -1147,7 +1148,7 @@
           "score": 39.286,
           "resultId": "vals-ai:cyber:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:5995a364b20a643d5e8acaf7e563eb4e3986c4365998f49f2ebb9255297af608"
+            "sha256:341257de295091433e8eb2f939a44463cfdaf2a4ae0525db667582e4c1e8c5a1"
           ]
         },
         {
@@ -1155,7 +1156,7 @@
           "score": 70.773,
           "resultId": "vals-ai:emb:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:52892beede6f75cdf4c65265e5568994a3f991c1dec60239b5d47f741b339f15"
+            "sha256:576d5f4484ed7c6c4f6ad0169126073273a84e8c36039eaf93d2bfdc7c207425"
           ]
         },
         {
@@ -1163,7 +1164,7 @@
           "score": 52.033,
           "resultId": "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:045728d2056687c801640efea028e44008dc64aa39471740c96b568aa9e9b7fb"
+            "sha256:5f865eeef45db4cb5b1293d3883fad2d267e5be5b2e08b5bba98455d1be7da2e"
           ]
         },
         {
@@ -1171,7 +1172,7 @@
           "score": 31,
           "resultId": "artificial-analysis:gdp-pdf:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:4e759d4fed34175f8dceef59bb5a906e7c9882fb55d068ba22ba0ad9c5da1f80"
+            "sha256:a0e38bc2eee2a147a7a27efd05a340c8281ef421910316f436a672346864e3f5"
           ]
         },
         {
@@ -1179,7 +1180,7 @@
           "score": 22,
           "resultId": "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
           "evidenceIds": [
-            "sha256:9efa15b091a54cc95c51fdaec5019d464d3949b242bcffacbdf051ff697ec731"
+            "sha256:d67e58a77b33049197f3f9f0fe78403b862ac2ed0be3a794af6499340f2d384d"
           ]
         },
         {
@@ -1187,7 +1188,7 @@
           "score": 53.75449999999999,
           "resultId": "artificial-analysis:gdpval-aa:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:42a425b3cb3f332e0879701a66dc3f627f3af3fb73a80b03c853ee9e7d7b2d3c"
+            "sha256:08288655ffce3b2253c2b531d7393ebf955f568df06e0db026c4638cbbe0a41e"
           ]
         },
         {
@@ -1195,7 +1196,7 @@
           "score": 5.417,
           "resultId": "vals-ai:hlab:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:a1945a2fe1b84510b98afc5af6754e1d117bfaf558ad6381ae03dc00a0d0fd9d"
+            "sha256:571277e31c896765d77db73fd47d7eb3a5f2447208001c032ec90c761c618935"
           ]
         },
         {
@@ -1203,7 +1204,7 @@
           "score": 52.919369786839695,
           "resultId": "artificial-analysis:humanitys-last-exam:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:ea38c500d8dfb146fbb419624c1a12cf295a897506da3ca1e79f51719bd97d41"
+            "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
           ]
         },
         {
@@ -1211,7 +1212,7 @@
           "score": 96.889,
           "resultId": "vals-ai:ioi:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:c88c01e24664e87076cfd59d16916fa9d91d5ebc34c8ebb8c507307304130ff0"
+            "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
           ]
         },
         {
@@ -1219,7 +1220,7 @@
           "score": 38.462,
           "resultId": "vals-ai:legal-research:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:37e9582bd38f456cd9fd86b74afd86a1eed7e6682d1aa7c01792993703059917"
+            "sha256:7cee19c04b6f56b1b758b0d27d8462ba6ad8af39b8db7f5fff0b22c827ac90fd"
           ]
         },
         {
@@ -1227,7 +1228,7 @@
           "score": 48.839,
           "resultId": "vals-ai:medcode:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:42a8462615754248ab70fdfb92b2d50121de79a70831ff02b74c8790d33e606f"
+            "sha256:7a10326d8efc4030bc0762020cf43a1d7a1750b299b573b625920a7b1bec326b"
           ]
         },
         {
@@ -1235,7 +1236,7 @@
           "score": 86.453,
           "resultId": "vals-ai:medscribe:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:516257806c987300697db298501476625176d1af83698d21729330a684d27b9c"
+            "sha256:788294a41dbbcaf2515cfa7ee07312f40fca6b56ab548e1cc2ea40b8d798ffa3"
           ]
         },
         {
@@ -1243,7 +1244,7 @@
           "score": 54.1666666666667,
           "resultId": "artificial-analysis:scicode:gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:119618caa233855832b056e9f8fe999a2150c39a2c62c93fc0db84cef9091526"
+            "sha256:78ec5aa2747430809efac7637594e2e4d7583f0326d4f37b8d99d80fbf9d2c5b"
           ]
         },
         {
@@ -1251,7 +1252,7 @@
           "score": 88.931,
           "resultId": "vals-ai:vibe-code-bench:openai-gpt-6-1-sol",
           "evidenceIds": [
-            "sha256:975ce64810104009827f71b5a520f4b735cc3fbe5f0df7a2855192de4b8ac62e"
+            "sha256:c439a3a6f0c390b20a9bc6407fc66eb646a4994f132dc06423b4323c5fb46b76"
           ]
         }
       ]

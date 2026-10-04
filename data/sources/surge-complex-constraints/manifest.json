@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-03T06:07:59.884Z",
+  "lastVerifiedAt": "2026-10-04T03:22:53.795Z",
   "notes": [
     "Main leaderboard all-criteria task pass@1 percentages; professional instruction following.",
     "The official harness defines all_pass/mean as the leaderboard task pass rate; mean_criteria/mean is separate.",

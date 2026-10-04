@@ -1,0 +1,178 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/fd/fdb1aca4a987142423910456a610f7e6bd9e7d8d1c3b0922b565544aa64194d6.html",
+    "byteLength": 413557,
+    "finalUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+    "id": "sha256:fdb1aca4a987142423910456a610f7e6bd9e7d8d1c3b0922b565544aa64194d6",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+    "retrievedAt": "2026-10-04T04:30:57.697Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:fdb1aca4a987142423910456a610f7e6bd9e7d8d1c3b0922b565544aa64194d6",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/6c/6c9a1793455330efece88254fd0342d8d0680c560f506f67f982bbabc3eed07a.pdf",
+    "byteLength": 635167,
+    "finalUrl": "https://storage.googleapis.com/deepmind-media/gemini/gemini_3-8_flash_model_evaluation.pdf",
+    "id": "sha256:6c9a1793455330efece88254fd0342d8d0680c560f506f67f982bbabc3eed07a",
+    "mediaType": "application/pdf",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://deepmind.google/models/evals-methodology/gemini-3-8-flash",
+    "retrievedAt": "2026-10-04T04:30:58.476Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:6c9a1793455330efece88254fd0342d8d0680c560f506f67f982bbabc3eed07a",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/12/122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1.html",
+    "byteLength": 405965,
+    "finalUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "id": "sha256:122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    "retrievedAt": "2026-10-04T04:31:00.008Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:122e72a91d408b2ae484e1bdb165dabee718c873e15365b158c1f082f900f6a1",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/ff/ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7.pdf",
+    "byteLength": 352830,
+    "finalUrl": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_argon_model_evaluation.pdf",
+    "id": "sha256:ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7",
+    "mediaType": "application/pdf",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://deepmind.google/models/evals-methodology/gemini-4-argon",
+    "retrievedAt": "2026-10-04T04:31:00.702Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:ff1df6bdeddc4c0f48840c09a8a7813b10ae7ad9e053892da68dabf64f09bff7",
+    "sourceId": "google-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/5c/5ce5ddfa12daeea65af0362bcf9c58f354e5b28dbbc38e37730dd7b33d309185.html",
+    "byteLength": 293215,
+    "finalUrl": "https://x.ai/news/grok-4-7",
+    "id": "sha256:5ce5ddfa12daeea65af0362bcf9c58f354e5b28dbbc38e37730dd7b33d309185",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://x.ai/news/grok-4-7",
+    "retrievedAt": "2026-10-04T04:31:01.893Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5ce5ddfa12daeea65af0362bcf9c58f354e5b28dbbc38e37730dd7b33d309185",
+    "sourceId": "xai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/24/240cedb6d23b13b8bdd177e51410dbe1c7783fbd0cfca98be1e0af26688878c0.html",
+    "byteLength": 598,
+    "finalUrl": "https://z.ai/blog/glm-5.3",
+    "id": "sha256:240cedb6d23b13b8bdd177e51410dbe1c7783fbd0cfca98be1e0af26688878c0",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://z.ai/blog/glm-5.3",
+    "retrievedAt": "2026-10-04T04:31:02.639Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:240cedb6d23b13b8bdd177e51410dbe1c7783fbd0cfca98be1e0af26688878c0",
+    "sourceId": "zai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/9d/9ddfe5f09b29ff92c40e7b4e26bcb0369aea05ab97e4a8a26619b9c4e4430717.html",
+    "byteLength": 33620,
+    "finalUrl": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
+    "id": "sha256:9ddfe5f09b29ff92c40e7b4e26bcb0369aea05ab97e4a8a26619b9c4e4430717",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
+    "retrievedAt": "2026-10-04T04:31:03.193Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:9ddfe5f09b29ff92c40e7b4e26bcb0369aea05ab97e4a8a26619b9c4e4430717",
+    "sourceId": "zai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/42/424abe4cdbb18499cd5f60ae2788aea6cbc1927e8cfae5086b3cec0fc1c9b40e.html",
+    "byteLength": 333408,
+    "finalUrl": "https://www.kimi.com/en/blog/kimi-k3",
+    "id": "sha256:424abe4cdbb18499cd5f60ae2788aea6cbc1927e8cfae5086b3cec0fc1c9b40e",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://www.kimi.com/en/blog/kimi-k3",
+    "retrievedAt": "2026-10-04T04:31:04.004Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:424abe4cdbb18499cd5f60ae2788aea6cbc1927e8cfae5086b3cec0fc1c9b40e",
+    "sourceId": "kimi-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/29/2922113bc4e0e970fa6d3c4065c3cff3ec661a4db03d671cc2310545c5b5bb71.html",
+    "byteLength": 48079,
+    "finalUrl": "https://api-docs.deepseek.com/updates/",
+    "id": "sha256:2922113bc4e0e970fa6d3c4065c3cff3ec661a4db03d671cc2310545c5b5bb71",
+    "mediaType": "text/html",
+    "metadata": {
+      "scope": "Official release research; adoption requires individual row review."
+    },
+    "method": "DOM",
+    "requestUrl": "https://api-docs.deepseek.com/updates/",
+    "retrievedAt": "2026-10-04T04:31:04.600Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:2922113bc4e0e970fa6d3c4065c3cff3ec661a4db03d671cc2310545c5b5bb71",
+    "sourceId": "deepseek-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/f8/f809bf586f74b40a01ecd8d674f9ec3de469a5abeae125e2a849c9805605d0f3.js",
+    "byteLength": 30414,
+    "finalUrl": "https://z.ai/blog/assets/glm-5.3-BIDw01m9.js",
+    "id": "sha256:f809bf586f74b40a01ecd8d674f9ec3de469a5abeae125e2a849c9805605d0f3",
+    "mediaType": "application/javascript",
+    "metadata": {
+      "scope": "Release page chart bundle; read-only source inspection"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://z.ai/blog/assets/glm-5.3-BIDw01m9.js",
+    "retrievedAt": "2026-10-04T04:32:16.567Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f809bf586f74b40a01ecd8d674f9ec3de469a5abeae125e2a849c9805605d0f3",
+    "sourceId": "zai-releases"
+  },
+  {
+    "artifactPath": "artifacts/sha256/0d/0dbdfbf6e0ab7f5aef41c60f30a57d50150f53c306892e5998342c781e885691.js",
+    "byteLength": 66973,
+    "finalUrl": "https://x.ai/_next/static/chunks/0f6ega5q11hd-.js?dpl=367c525206561a36400b25e02c25ed7db42517e5",
+    "id": "sha256:0dbdfbf6e0ab7f5aef41c60f30a57d50150f53c306892e5998342c781e885691",
+    "mediaType": "application/javascript",
+    "metadata": {
+      "scope": "Release page chart bundle; read-only source inspection"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://x.ai/_next/static/chunks/0f6ega5q11hd-.js?dpl=367c525206561a36400b25e02c25ed7db42517e5",
+    "retrievedAt": "2026-10-04T04:32:16.572Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:0dbdfbf6e0ab7f5aef41c60f30a57d50150f53c306892e5998342c781e885691",
+    "sourceId": "xai-releases"
+  }
+]

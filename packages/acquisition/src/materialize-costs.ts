@@ -23,8 +23,11 @@ import {
   FRONTIER_CODE_PAGE_URL,
   materializeFrontierCode,
 } from './frontier-code-materializer.js';
-import { materializeOpenAIRelease } from './vendor-openai.js';
-import { materializeAnthropicRelease } from './vendor-anthropic.js';
+import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
+import {
+  materializeAnthropicReleases,
+  ANTHROPIC_RELEASE_URLS,
+} from './vendor-anthropic.js';
 import { auditVendorReleases } from './vendor-release-audit.js';
 
 const readJson = async <T>(path: string): Promise<T> =>
@@ -64,21 +67,28 @@ async function main() {
         join(sourcesRoot, sourceId, 'evidence-index.json'),
       ),
     );
-    const record = findEvidence(
-      evidence,
-      sourceId === 'openai-releases'
-        ? 'https://openai.com/zh-Hant/index/introducing-gpt-6-1-sol/'
-        : 'https://www.anthropic.com/claude-opus-5-5',
-    );
-    if (sourceId === 'anthropic-releases') {
+    if (sourceId === 'anthropic-releases')
       cursorRecord = findEvidence(evidence, 'https://prod.cursor.com/evals');
-    }
-    const text = await readFile(join(root, record.artifactPath), 'utf8');
-    const context = { evidenceId: record.id, observedAt: record.retrievedAt };
+    const releases = evidence.filter((r) =>
+      sourceId === 'openai-releases'
+        ? r.mediaType === 'application/json' &&
+          r.requestUrl.startsWith('https://openai.com/')
+        : (ANTHROPIC_RELEASE_URLS as readonly string[]).includes(r.requestUrl),
+    );
+    const pages = await Promise.all(
+      releases.map(async (record) => ({
+        sourceUrl: record.requestUrl,
+        text: await readFile(join(root, record.artifactPath), 'utf8'),
+        evidenceId: record.id,
+        observedAt: record.retrievedAt,
+      })),
+    );
     const result =
       sourceId === 'openai-releases'
-        ? materializeOpenAIRelease(text, context)
-        : materializeAnthropicRelease(text, context);
+        ? materializeOpenAIReleaseCaptures(
+            pages.map((page) => ({ captureText: page.text, context: page })),
+          )
+        : materializeAnthropicReleases(pages);
     vendors.push({ sourceId, result });
     vendorCounts[sourceId] = result.costs.length;
   }

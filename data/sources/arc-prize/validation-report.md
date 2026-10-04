@@ -4,23 +4,23 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:7a796b9d398108da17aa66a74727acd3be5674c6dbe5b5b0434d44f003893b4e`
-- Models evidence: `sha256:dc6d6e28955fa5c5ec49832b491c5010524bd440f3e8f9d1ef20cfc45f3d4114`
+- Evaluations evidence: `sha256:937f3d67a04063e4e2802c73b701f5b413ae48898d209a1827480bb85e6f02b9`
+- Models evidence: `sha256:9ddc96a7925c5c73155584f6fd1874359bfbc2b39a2358933f6892f2402997ed`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:878dbbc035df2ac3eb37e61cc19c46e0c0cc4a3b6dd99d862d111efdf285e50f`
-- Observed at: 2026-10-01T00:51:25.353Z
+- Page evidence: `sha256:149ef7999ce2ec0eb3349a800bf2ef24762f01e331114eaa6bff77143be95e0b`
+- Observed at: 2026-10-04T03:27:00.029Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1078 |
-| Total models in models.json | 315 |
+| Total evaluation rows (all splits) | 1094 |
+| Total models in models.json | 319 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 261 |
-| Promoted v2_Semi_Private rows (display=true) | 254 |
-| Promoted cost records (USD/task) | 254 |
-| Canonically resolved rows | 127 |
+| Total v2_Semi_Private evaluations | 265 |
+| Promoted v2_Semi_Private rows (display=true) | 258 |
+| Promoted cost records (USD/task) | 258 |
+| Canonically resolved rows | 131 |
 | Canonically unresolved rows | 127 |
 | Canonically unresolved models | 126 |
 | Excluded candidate rows | 8 |
@@ -29,18 +29,18 @@
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 254 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 258 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 254/254 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 258/258 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 254/254 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 258/258 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 127/254 promoted rows (127 unresolved rows across 126 distinct model names).
+Exact catalog resolution succeeded for 131/258 promoted rows (127 unresolved rows across 126 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -193,16 +193,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
 
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 249 | 254 | +5 |
-| Cost records | 249 | 254 | +5 |
-| Canonically unresolved models | 126 | 126 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
@@ -213,8 +203,8 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-184 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-184 |
+| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-185 |
+| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-185 |
 | Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default
@@ -222,9 +212,3 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 - None.
 
 <!-- C6-EFFORT-INFERENCE:END -->
-## Refresh verification — 2026-10-01
-
-All content-addressed artifact files referenced by this snapshot were read back from disk. SHA-256 and byte length matched every EvidenceRecord; CandidateResult and CostRecord evidence IDs and provenance evidence IDs resolve in this source evidence index.
-Rendered ARC-AGI-2 Leaderboard Breakdown has 270 model rows, including 260 rows with a numeric ARC-AGI-2 value. The v2_Semi_Private export has 261 evaluation objects: an identical GPT-5 (Low) evaluation appears twice and renders once. Seven display=false export evaluations are still visible in the breakdown table; they remain outside the approved display=true materialization. The 254 promoted evaluation objects thus correspond to 253 distinct displayed rows, plus the preserved duplicate. No pagination is exposed. Gemini 4 Argon is absent from both the export model catalog and rendered table.
-
-Human check: https://arcprize.org/leaderboard, Leaderboard Breakdown, GPT-6.1 Sol (Max), ARC-AGI-2: 94.2% and $0.254/task.

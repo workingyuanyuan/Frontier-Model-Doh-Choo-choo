@@ -1,10 +1,10 @@
 # Zapier AutomationBench acquisition validation
 
 - Page: <https://zapier.com/benchmarks>
-- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs>
-- Module evidence: `sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116`
-- Page evidence: `sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc`
-- Observed at: 2026-10-01T00:51:25.318Z
+- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs>
+- Module evidence: `sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584`
+- Page evidence: `sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee`
+- Observed at: 2026-10-04T03:27:07.379Z
 
 ## Exact counts
 
@@ -68,16 +68,6 @@
 - Qwen 3.6+ (High)
 - Qwen 3.7+
 
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 118 | 121 | +3 |
-| Cost records | 117 | 120 | +3 |
-| Canonically unresolved rows | 9 | 9 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
@@ -88,7 +78,7 @@ This tagged section is generated deterministically for `zapier-automationbench`.
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | Claude Fable 5.1 (with Opus 5 Fallback) | `zapier-automationbench:automationbench:claude-fable-5-1-with-opus-5-fallback-rank-14:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
-| Claude Sonnet 5.5 (default fallbacks, Between tools) | `zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-between-tools-rank-42:1-0-6` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:claude-sonnet-5-5 |
+| Claude Sonnet 5.5 (default fallbacks, Between tools) | `zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-between-tools-rank-42:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
 | GPT-5.4 | `zapier-automationbench:automationbench:gpt-5-4-rank-120:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.5 | `zapier-automationbench:automationbench:gpt-5-5-rank-113:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-5-2026-04-22-thinking-xhigh:arc-agi-2-v2-semi-private |
 | GPT-5.6 Luna | `zapier-automationbench:automationbench:gpt-5-6-luna-rank-119:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
@@ -104,9 +94,3 @@ This tagged section is generated deterministically for `zapier-automationbench`.
 | Kimi K2.6 | `zapier-automationbench:automationbench:kimi-k2-6-rank-106:1-0-6` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->
-## Refresh verification — 2026-10-01
-
-All content-addressed artifact files referenced by this snapshot were read back from disk. SHA-256 and byte length matched every EvidenceRecord; CandidateResult and CostRecord evidence IDs and provenance evidence IDs resolve in this source evidence index.
-Rendered Leaderboard version 1.0.6 initially shows ten rows and a See 111 more control. Expanding it reveals ranks 1 through 121, matching the parsed module population and maximum rank. Gemini 4 Argon (High) is 51.29% with $1.70* Cost / task; Gemini 4 Argon (Medium) is 50.08% with $1.54*. The footnote distinguishes promotional $0.85/$0.77 from the standard list values used by the leaderboard. The stored costs retain the standard list values, consistent with the approved comparability policy.
-
-Human check: https://zapier.com/benchmarks, Leaderboard, Gemini 4 Argon (High), Score: 51.29%; Gemini 4 Argon (Medium), Score: 50.08%.

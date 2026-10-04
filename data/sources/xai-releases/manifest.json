@@ -1,0 +1,25 @@
+{
+  "accessMethods": ["NEXT_RSC"],
+  "baseUrl": "https://x.ai/",
+  "benchmarkIds": ["cursorbench-4", "deepswe-1-1"],
+  "completeness": {
+    "expectedCountMethod": "43 literal CursorBench rows and one reviewed DeepSWE row",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "xAI model releases",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "runs.avgCost": "cost",
+    "runs.effort": "profile.effort",
+    "runs.score": "rawScore"
+  },
+  "lastVerifiedAt": "2026-10-04T04:31:01.893Z",
+  "notes": [
+    "PARTIAL_SOURCE: reviewed Grok 4.7 release. CursorBench chart scores cross-checked with organizer; DeepSWE high is vendor supplement."
+  ],
+  "role": "VENDOR",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "xai-releases",
+  "targetUrls": ["https://x.ai/news/grok-4-7"]
+}

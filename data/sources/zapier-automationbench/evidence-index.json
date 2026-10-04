@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/01/01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116.js",
+    "artifactPath": "artifacts/sha256/dd/dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584.js",
     "byteLength": 60586,
-    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs",
-    "id": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+    "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs",
+    "id": "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
     "mediaType": "text/javascript",
     "metadata": {
       "automationBenchVersion": "1.0.6",
@@ -14,28 +14,28 @@
       "selectedByContentFeature": "task_completed_correctly"
     },
     "method": "EMBEDDED_JSON",
-    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs",
-    "retrievedAt": "2026-10-01T00:51:25.318Z",
+    "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs",
+    "retrievedAt": "2026-10-04T03:27:07.379Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:01b82cefdad77e2726b726ee62d928a492cfd9bc1bc135c327428d187925d116",
+    "sha256": "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
     "sourceId": "zapier-automationbench"
   },
   {
-    "artifactPath": "artifacts/sha256/69/69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc.html",
-    "byteLength": 224193,
+    "artifactPath": "artifacts/sha256/2e/2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee.html",
+    "byteLength": 224576,
     "finalUrl": "https://zapier.com/benchmarks",
-    "id": "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc",
+    "id": "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "official AutomationBench page and module list",
       "discoveredModuleCount": 15,
-      "selectedModuleUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.Dney8qmj.mjs"
+      "selectedModuleUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs"
     },
     "method": "DOM",
     "requestUrl": "https://zapier.com/benchmarks",
-    "retrievedAt": "2026-10-01T00:51:25.318Z",
+    "retrievedAt": "2026-10-04T03:27:07.379Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:69bca51eedfec01e6c173a51421f5fcb9243b51500207fc4d5577572bdd765fc",
+    "sha256": "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee",
     "sourceId": "zapier-automationbench"
   }
 ]

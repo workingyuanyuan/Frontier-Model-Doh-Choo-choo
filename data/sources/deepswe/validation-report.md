@@ -37,22 +37,6 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 - DeepSWE is an organizer-run agent benchmark (`ORGANIZER`).
 - `mean_cost_usd` is preserved as `AGENT_TASK` cost with harness in provenance.
 
-## Visible comparison
-
-- Fresh rendered page model count: 28
-- Complete export distinct model count: 28
-- Result: matched
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Configuration rows | 70 | 70 | +0 |
-| Distinct models | 28 | 28 | +0 |
-| Materialized costs | 68 | 68 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-03T04:19:00.937Z",
+  "checkedAt": "2026-10-04T03:31:14.887Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -814,7 +814,7 @@
         "versions": ["2026-06-25"]
       }
     ],
-    "observedAt": "2026-10-01T00:51:23.601Z",
+    "observedAt": "2026-10-04T03:26:02.621Z",
     "sourceId": "livebench"
   }
 }

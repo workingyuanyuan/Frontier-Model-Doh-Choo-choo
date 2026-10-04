@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-03T11:18:03.837Z",
+  "lastVerifiedAt": "2026-10-04T03:22:54.597Z",
   "notes": [
     "Main leaderboard benchmark mean reward percentages. GDP.xlsx covers 70 professional spreadsheet tasks across 12 domains.",
     "Official methodology: https://surgehq.ai/blog/gdp-xlsx and https://github.com/surge-ai/gdp-xlsx#grading. Benchmark score is the unweighted mean of task scores, each averaging five trial rewards excluding errored trials. A trial reward is the mean of binary rubric verdicts. The README explicitly specifies five attempts per task.",

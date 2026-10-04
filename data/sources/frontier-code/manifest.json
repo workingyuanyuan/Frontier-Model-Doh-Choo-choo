@@ -16,7 +16,7 @@
     "v1_1.harness[model]": "profile.harness",
     "v1_1.models[]": "model.rawName"
   },
-  "lastVerifiedAt": "2026-10-01T00:51:24.255Z",
+  "lastVerifiedAt": "2026-10-04T03:26:22.920Z",
   "notes": [
     "42 models and 125 Main effort configurations; all have scores and costs.",
     "26 models have multiple efforts; 15 have five efforts.",

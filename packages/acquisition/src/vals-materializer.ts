@@ -97,6 +97,8 @@ export type ValsPageInput = {
   slug: string;
   evidenceId: string;
   sourceUrl: string;
+  /** External loader JSON places tasks at the document root. */
+  dataRoot?: 'document';
 } & (
   | { html: string; parsed?: never }
   | { parsed: ParsedValsPage | null; html?: never }
@@ -204,6 +206,44 @@ export function parseValsBenchmarkPage(html: string): ParsedValsPage | null {
     typeof maybeDefault === 'object' && maybeDefault !== null
       ? (maybeDefault as Record<string, unknown>)
       : (wrappedView as Record<string, unknown>);
+  return parseValsBenchmarkData(view);
+}
+
+/** Resolve only the same-origin static data URL explicitly published by the loader. */
+export function extractValsBenchmarkDataUrl(html: string): string | null {
+  const tags = [...html.matchAll(/<astro-island\b[^>]*>/gu)]
+    .map(([tag]) => tag)
+    .filter((tag) =>
+      /\/BenchmarkViewLoader(?:\.[^/]+)?\.js(?:\?.*)?$/u.test(
+        attributeValue(tag, 'component-url') ?? '',
+      ),
+    );
+  if (!tags.length) return null;
+  if (tags.length !== 1)
+    throw new Error('Expected one BenchmarkViewLoader island');
+  const props = attributeValue(tags[0]!, 'props');
+  if (!props) throw new Error('BenchmarkViewLoader has no props');
+  const root = unwrapAstroValue(
+    JSON.parse(decodeHtmlEntities(props)),
+  ) as Record<string, unknown>;
+  if (typeof root.benchmarkViewUrl !== 'string')
+    throw new Error('BenchmarkViewLoader has no data URL');
+  const url = new URL(root.benchmarkViewUrl, VALS_INDEX_URL);
+  if (
+    url.origin !== 'https://www.vals.ai' ||
+    !/^\/_astro\/benchmark_view_[a-zA-Z0-9_.-]+\.json$/u.test(url.pathname) ||
+    url.search ||
+    url.hash
+  ) {
+    throw new Error('Invalid Vals benchmark data URL');
+  }
+  return url.href;
+}
+
+export function parseValsBenchmarkData(payload: unknown): ParsedValsPage {
+  if (typeof payload !== 'object' || payload === null || Array.isArray(payload))
+    throw new Error('BenchmarkView data must be an object');
+  const view = payload as Record<string, unknown>;
   const metadata = view.metadata;
   const tasks = view.tasks;
   if (typeof metadata !== 'object' || metadata === null) {
@@ -361,7 +401,7 @@ export function materializeVals(
         attempts: null,
       };
       const model = { rawName, canonicalModelId, profileId };
-      const locatorBase = `benchmarkView.tasks.overall[${JSON.stringify(rawName)}]`;
+      const locatorBase = `${page.dataRoot === 'document' ? '' : 'benchmarkView.'}tasks.overall[${JSON.stringify(rawName)}]`;
       candidates.push(
         CandidateResultSchema.parse({
           schemaVersion: 'candidate-result-v1',

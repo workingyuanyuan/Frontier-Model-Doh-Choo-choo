@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score]": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-02T14:00:14.368Z",
+  "lastVerifiedAt": "2026-10-04T03:22:53.727Z",
   "notes": [
     "Main leaderboard pass@1 percentages; reasoning primary, knowledge secondary.",
     "Separate cost/token chart configurations are outside this snapshot.",

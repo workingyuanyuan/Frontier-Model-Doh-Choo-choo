@@ -3,7 +3,7 @@
 - Page: <https://cognition.com/frontiercode>
 - Official static export: <https://cognition.com/data/frontiercode-leaderboard/data.json>
 - Export evidence: `sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e`
-- Page/JSON-LD evidence: `sha256:26172d9f49ee635f31855a840142f342091bb6fd6f4d53eed3308ead4e8b3006`
+- Page/JSON-LD evidence: `sha256:d5dfe41d2ccf102dc013c38dd682e9d879402a831df3abb038017b8cc6469748`
 
 ## Acquirable scope
 
@@ -35,16 +35,6 @@ Source effort `none` is preserved as null effort and null profile ID. It is not 
 ## Known documentation conflict
 
 Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `SPEC.md` §4.2.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Distinct models | 42 | 42 | +0 |
-| Main configurations | 125 | 125 | +0 |
-| Materialized costs | 125 | 125 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

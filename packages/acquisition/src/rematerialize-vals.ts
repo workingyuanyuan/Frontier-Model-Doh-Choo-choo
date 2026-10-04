@@ -14,6 +14,9 @@ import {
   VALS_SOURCE_ID,
   extractValsBenchmarkSlugs,
   materializeVals,
+  parseValsBenchmarkData,
+  parseValsBenchmarkPage,
+  extractValsBenchmarkDataUrl,
 } from './vals-materializer.js';
 import { writeValsSnapshot } from './vals-snapshot.js';
 import { getWorkspaceRoot, readJson, readText } from './refresh-utils.js';
@@ -95,12 +98,27 @@ export async function rematerializeVals(root: string): Promise<{
   }
 
   const result = materializeVals(
-    pages.map(({ slug, artifact }) => ({
-      slug,
-      html: artifact.text,
-      evidenceId: artifact.record.id,
-      sourceUrl: artifact.record.requestUrl,
-    })),
+    pages
+      .filter(({ artifact }) => artifact.record.mediaType === 'text/html')
+      .map(({ slug, artifact }) => {
+        const url = extractValsBenchmarkDataUrl(artifact.text);
+        const data = url
+          ? pages.find(
+              (p) => p.slug === slug && p.artifact.record.requestUrl === url,
+            )
+          : null;
+        if (url && !data)
+          throw new Error(`Missing stored Vals loader JSON: ${url}`);
+        return {
+          slug,
+          parsed: data
+            ? parseValsBenchmarkData(JSON.parse(data.artifact.text))
+            : parseValsBenchmarkPage(artifact.text),
+          evidenceId: data?.artifact.record.id ?? artifact.record.id,
+          sourceUrl: artifact.record.requestUrl,
+          ...(data ? { dataRoot: 'document' as const } : {}),
+        };
+      }),
     {
       observedAt: indexRecord.retrievedAt,
       indexEvidenceId: indexRecord.id,
