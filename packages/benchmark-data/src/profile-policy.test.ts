@@ -32,7 +32,11 @@ const candidate = (
   sourceRole: 'INDEPENDENT',
   benchmarkId: 'benchmark',
   benchmarkVersion: null,
-  model: { rawName: modelId ?? 'Unknown', canonicalModelId: modelId, profileId: null },
+  model: {
+    rawName: modelId ?? 'Unknown',
+    canonicalModelId: modelId,
+    profileId: null,
+  },
   profile: {
     effort,
     thinking: null,
@@ -52,7 +56,9 @@ const candidate = (
   observedAt: '2026-07-16T00:00:00.000Z',
   sourcePublishedAt: null,
   evidenceIds: [evidenceId],
-  provenance: { rawScore: { evidenceId, method: 'MANUAL', locator: '$.score' } },
+  provenance: {
+    rawScore: { evidenceId, method: 'MANUAL', locator: '$.score' },
+  },
   ...overrides,
 });
 
@@ -88,7 +94,8 @@ describe('product profile evidence indexing', () => {
       candidate('shared', 'foreign', 'alpha', 'max'),
       candidate('same-source', 'target', 'alpha', 'max'),
       candidate('excluded', 'excluded-source', 'alpha', 'max', {
-        inclusion: 'EXCLUDED', exclusionReason: 'Excluded fixture',
+        inclusion: 'EXCLUDED',
+        exclusionReason: 'Excluded fixture',
       }),
       candidate('comparison', 'comparison-source', 'alpha', 'max', {
         benchmarkId: 'comparison',
@@ -99,7 +106,11 @@ describe('product profile evidence indexing', () => {
       candidate('beta-target', 'target', 'beta'),
       candidate('gamma-target', 'target', 'gamma'),
       candidate('gamma-name', 'source-a', 'gamma', null, {
-        model: { rawName: 'Gamma (xhigh)', canonicalModelId: 'gamma', profileId: null },
+        model: {
+          rawName: 'Gamma (xhigh)',
+          canonicalModelId: 'gamma',
+          profileId: null,
+        },
       }),
       candidate('delta-target', 'target', 'delta'),
       candidate('delta-mode', 'source-a', 'delta', 'non-reasoning'),
@@ -112,15 +123,26 @@ describe('product profile evidence indexing', () => {
       const decision = decideProductEffort(row, evidence);
       return {
         ...row,
-        model: { ...row.model, profileId: `${row.model.canonicalModelId}-${decision.effort}` },
+        model: {
+          ...row.model,
+          profileId: `${row.model.canonicalModelId}-${decision.effort}`,
+        },
         productProfile: { effort: decision.effort, harness: null },
       };
     });
 
-    const actual = applyProductProfilePolicy(rows, catalog, policy, comparisonOnly);
+    const actual = applyProductProfilePolicy(
+      rows,
+      catalog,
+      policy,
+      comparisonOnly,
+    );
     expect(actual).toEqual(expected);
-    expect([actual[0], actual[8], actual[9], actual[11]].map((row) => row?.productProfile?.effort))
-      .toEqual(['high', 'low', 'xhigh', 'default']);
+    expect(
+      [actual[0], actual[8], actual[9], actual[11]].map(
+        (row) => row?.productProfile?.effort,
+      ),
+    ).toEqual(['high', 'low', 'xhigh', 'default']);
     expect(actual[13]).toBe(rows[13]);
   });
 
@@ -128,22 +150,42 @@ describe('product profile evidence indexing', () => {
     const target = candidate('target', 'target-source', 'alpha');
     const evidence = candidate('evidence', 'other-source', 'alpha', 'low');
     const rows = [target, evidence];
-    const projectedEffort = () => applyProductProfilePolicy(rows, catalog, policy)[0]?.productProfile?.effort;
+    const projectedEffort = () =>
+      applyProductProfilePolicy(rows, catalog, policy)[0]?.productProfile
+        ?.effort;
 
     expect(projectedEffort()).toBe('low');
     evidence.profile.effort = 'max';
     expect(projectedEffort()).toBe('max');
-    expect(applyProductProfilePolicy(rows, catalog, policy, new Set(['benchmark']))[0]?.productProfile?.effort)
-      .toBe('default');
+    expect(
+      applyProductProfilePolicy(
+        rows,
+        catalog,
+        policy,
+        new Set(['benchmark']),
+      )[0]?.productProfile?.effort,
+    ).toBe('default');
     rows.pop();
     expect(projectedEffort()).toBe('default');
 
     const unmatched = cost(candidate('unmatched', 'cost-source', 'alpha'));
-    expect(applyProductProfilePolicyToCosts([unmatched], [target, evidence], catalog, policy)[0]?.model.profileId)
-      .toBe('alpha-max');
+    expect(
+      applyProductProfilePolicyToCosts(
+        [unmatched],
+        [target, evidence],
+        catalog,
+        policy,
+      )[0]?.model.profileId,
+    ).toBe('alpha-max');
     evidence.profile.effort = 'medium';
-    expect(applyProductProfilePolicyToCosts([unmatched], [target, evidence], catalog, policy)[0]?.model.profileId)
-      .toBe('alpha-medium');
+    expect(
+      applyProductProfilePolicyToCosts(
+        [unmatched],
+        [target, evidence],
+        catalog,
+        policy,
+      )[0]?.model.profileId,
+    ).toBe('alpha-medium');
   });
 
   it('keeps matched and unmatched cost profile selection equivalent to full-list decisions', () => {
@@ -151,16 +193,38 @@ describe('product profile evidence indexing', () => {
     const direct = candidate('direct', 'target', 'alpha', 'low');
     const duplicate = candidate('shared', 'duplicate-source', 'alpha');
     const foreignDuplicate = candidate('shared', 'other-source', 'beta', 'max');
-    const comparison = candidate('comparison', 'comparison-source', 'alpha', 'max', {
-      benchmarkId: 'comparison',
-    });
-    const rows = [plain, direct, candidate('high', 'evidence', 'alpha', 'high'), duplicate, foreignDuplicate, comparison];
+    const comparison = candidate(
+      'comparison',
+      'comparison-source',
+      'alpha',
+      'max',
+      {
+        benchmarkId: 'comparison',
+      },
+    );
+    const rows = [
+      plain,
+      direct,
+      candidate('high', 'evidence', 'alpha', 'high'),
+      duplicate,
+      foreignDuplicate,
+      comparison,
+    ];
     const evidence = rows.filter((row) => !comparisonOnly.has(row.benchmarkId));
     const unmatched = cost(candidate('unmatched', 'cost-source', 'alpha'));
     const nullCost = cost(candidate('unknown', 'cost-source', null));
-    const costs = [cost(plain), cost(direct), cost(duplicate), cost(comparison), unmatched, nullCost];
+    const costs = [
+      cost(plain),
+      cost(direct),
+      cost(duplicate),
+      cost(comparison),
+      unmatched,
+      nullCost,
+    ];
     // Compare with the existing full-list decision lookup for matched costs.
-    const decisions = new Map(rows.map((row) => [row.id, decideProductEffort(row, evidence)]));
+    const decisions = new Map(
+      rows.map((row) => [row.id, decideProductEffort(row, evidence)]),
+    );
     const expectedEfforts = [
       decisions.get(plain.id)!.effort,
       decisions.get(direct.id)!.effort,
@@ -168,11 +232,20 @@ describe('product profile evidence indexing', () => {
       decisions.get(comparison.id)!.effort,
       decideProductEffort(unmatched, evidence).effort,
     ];
-    const actual = applyProductProfilePolicyToCosts(costs, rows, catalog, policy, comparisonOnly);
+    const actual = applyProductProfilePolicyToCosts(
+      costs,
+      rows,
+      catalog,
+      policy,
+      comparisonOnly,
+    );
 
-    expect(actual.slice(0, 5).map((row) => row.model.profileId))
-      .toEqual(expectedEfforts.map((effort) => `alpha-${effort}`));
-    expect(actual.map((row) => row.profile)).toEqual(costs.map((row) => row.profile));
+    expect(actual.slice(0, 5).map((row) => row.model.profileId)).toEqual(
+      expectedEfforts.map((effort) => `alpha-${effort}`),
+    );
+    expect(actual.map((row) => row.profile)).toEqual(
+      costs.map((row) => row.profile),
+    );
     expect(actual[5]).toBe(nullCost);
   });
 });

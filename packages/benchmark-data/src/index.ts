@@ -800,6 +800,23 @@ export const decideProductEffort = (
 const productProfileId = (modelId: string, effort: ProductEffort): string =>
   `${modelId}-${profileIdSegment(effort)}`;
 
+// Inference only uses evidence from the same canonical model. Build this index
+// per invocation so source edits and comparison-policy changes remain visible.
+const indexEffortEvidence = (
+  candidates: readonly CandidateResult[],
+  comparisonOnlyBenchmarkIds: ReadonlySet<string>,
+): Map<string | null, EffortResolutionInput[]> => {
+  const byModel = new Map<string | null, EffortResolutionInput[]>();
+  for (const candidate of candidates) {
+    if (comparisonOnlyBenchmarkIds.has(candidate.benchmarkId)) continue;
+    const modelId = candidate.model.canonicalModelId;
+    const rows = byModel.get(modelId) ?? [];
+    rows.push(candidate);
+    byModel.set(modelId, rows);
+  }
+  return byModel;
+};
+
 export const applyProductProfilePolicy = (
   candidates: CandidateResult[],
   catalogInput: ModelCatalog,
@@ -813,15 +830,16 @@ export const applyProductProfilePolicy = (
   // highest-tier decision remains correct if the JSON is presented in the
   // older highest-first order.
   void policy;
-  const evidence: readonly EffortResolutionInput[] = candidates.filter(
-    ({ benchmarkId }) => !comparisonOnlyBenchmarkIds.has(benchmarkId),
-  );
+  const evidence = indexEffortEvidence(candidates, comparisonOnlyBenchmarkIds);
 
   return candidates.map((candidate) => {
     const modelId = candidate.model.canonicalModelId;
     if (modelId === null) return candidate;
 
-    const decision = decideProductEffort(candidate, evidence);
+    const decision = decideProductEffort(
+      candidate,
+      evidence.get(modelId) ?? [],
+    );
     return CandidateResultSchema.parse({
       ...candidate,
       model: {
@@ -849,13 +867,14 @@ export const applyProductProfilePolicyToCosts = (
   ModelCatalogSchema.parse(catalogInput);
   const policy = ProfilePolicySchema.parse(policyInput);
   void policy;
-  const evidence: readonly EffortResolutionInput[] = candidates.filter(
-    ({ benchmarkId }) => !comparisonOnlyBenchmarkIds.has(benchmarkId),
-  );
+  const evidence = indexEffortEvidence(candidates, comparisonOnlyBenchmarkIds);
   const decisionByCandidate = new Map(
     candidates.map((candidate) => [
       candidate.id,
-      decideProductEffort(candidate, evidence),
+      decideProductEffort(
+        candidate,
+        evidence.get(candidate.model.canonicalModelId) ?? [],
+      ),
     ]),
   );
 
@@ -879,7 +898,7 @@ export const applyProductProfilePolicyToCosts = (
     const matchingCandidate = matchingEffort ?? matching[0];
     const decision = matchingCandidate
       ? (decisionByCandidate.get(matchingCandidate.id) as EffortDecision)
-      : decideProductEffort(cost, evidence);
+      : decideProductEffort(cost, evidence.get(modelId) ?? []);
 
     return CostRecordSchema.parse({
       ...cost,

@@ -275,10 +275,20 @@ try {
         }
       }
       const stages = phases[0]?.stages;
+      const expectedStages = [
+        'setup',
+        'baseline-build',
+        'added-build',
+        'assertions',
+        'cleanup',
+      ];
       const validStages =
         Array.isArray(stages) &&
-        stages.length > 0 &&
-        stages.every(({ wallMs }) => Number.isFinite(wallMs));
+        stages.length === expectedStages.length &&
+        expectedStages.every((name) =>
+          stages.some(({ stage }) => stage === name),
+        ) &&
+        stages.every(({ wallMs }) => Number.isFinite(wallMs) && wallMs >= 0);
       if (!validStages)
         phaseErrors.push('Missing or invalid workspace test stage records');
       report.runs.push({
