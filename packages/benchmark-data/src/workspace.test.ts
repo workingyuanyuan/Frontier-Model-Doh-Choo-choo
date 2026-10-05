@@ -9,6 +9,7 @@ import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
 import { buildWorkspaceProduct, writeWorkspaceCurrent } from './workspace.js';
 
 describe('buildWorkspaceProduct', () => {
+  // Full-workspace assembly needs headroom on shared CI runners.
   it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
     const root = resolve(import.meta.dirname, '../../..');
     const baselineRoot = await mkdtemp(join(tmpdir(), 'comparison-baseline-'));
@@ -71,7 +72,7 @@ describe('buildWorkspaceProduct', () => {
     } finally {
       await rm(baselineRoot, { recursive: true, force: true });
     }
-  });
+  }, 15_000);
 
   it('assembles the verified workspace sources into a frontier ProductVersion', async () => {
     const root = resolve(import.meta.dirname, '../../..');
@@ -329,7 +330,7 @@ describe('buildWorkspaceProduct', () => {
     expect(
       product.costs.every(({ sourceUrl }) => sourceUrl.startsWith('https://')),
     ).toBe(true);
-  });
+  }, 15_000);
 
   it('ignores frozen or non-whitelisted source directories in data/sources without error', async () => {
     const root = resolve(import.meta.dirname, '../../..');
