@@ -3,32 +3,16 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { materializeXaiRelease } from './vendor-xai.js';
 
-const root = resolve(import.meta.dirname, '../../..');
-const records = JSON.parse(
-  readFileSync(
-    resolve(root, 'data/research/release-evidence-index.json'),
-    'utf8',
-  ),
-) as {
-  sourceId: string;
-  mediaType: string;
-  artifactPath: string;
-  id: string;
-  retrievedAt: string;
-}[];
-const page = records.find(
-  (r) => r.sourceId === 'xai-releases' && r.mediaType === 'text/html',
-)!;
-const bundle = records.find(
-  (r) =>
-    r.sourceId === 'xai-releases' && r.mediaType === 'application/javascript',
-)!;
-const html = readFileSync(resolve(root, page.artifactPath), 'utf8');
-const js = readFileSync(resolve(root, bundle.artifactPath), 'utf8');
+const fixtures = resolve(import.meta.dirname, '../test-fixtures');
+const html = readFileSync(resolve(fixtures, 'xai-release.html'), 'utf8');
+const js = readFileSync(resolve(fixtures, 'xai-release-chart.js'), 'utf8');
+// IDs identify these reduced fixtures, not the original captures.
 const context = {
-  evidenceId: bundle.id,
-  pageEvidenceId: page.id,
-  observedAt: page.retrievedAt,
+  evidenceId:
+    'sha256:2f3da629a2cb2be11e7dd3814c06f50987dcb62f81f74ab46ca5154bd9b29ecd',
+  pageEvidenceId:
+    'sha256:97006302e883111553ff1154fd35adc4270a58cb86726dd85acbcfc526e6de11',
+  observedAt: '2026-10-04T00:00:00.000Z',
 };
 describe('xAI reviewed release', () => {
   it('preserves score/cost pairing and the DeepSWE effort override', () => {
