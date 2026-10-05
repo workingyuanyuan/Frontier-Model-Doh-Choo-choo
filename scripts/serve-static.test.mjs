@@ -45,10 +45,11 @@ const sendRawRequest = (port, requestString) =>
     });
   });
 
-const spawnServer = async (rootDir) => {
+const spawnServer = async (rootDir, basePath = '') => {
   const scriptPath = resolve('scripts/serve-static.mjs');
   const child = spawn(process.execPath, [scriptPath, rootDir, '0'], {
     stdio: ['ignore', 'pipe', 'pipe'],
+    env: { ...process.env, NEXT_PUBLIC_BASE_PATH: basePath },
   });
 
   const port = await new Promise((resolvePromise, rejectPromise) => {
@@ -348,7 +349,7 @@ describe('scripts/serve-static.mjs integration tests', () => {
   });
 
   test('createStaticServer exports and behaves correctly', async () => {
-    const inProcServer = createStaticServer(fixtureDir);
+    const inProcServer = createStaticServer(fixtureDir, '');
     await new Promise((r) => inProcServer.listen(0, '127.0.0.1', r));
     const dynamicPort = inProcServer.address().port;
 
@@ -368,5 +369,92 @@ describe('scripts/serve-static.mjs integration tests', () => {
     } finally {
       await new Promise((r) => inProcServer.close(r));
     }
+  });
+
+  describe('repository base path', () => {
+    let mountedServer;
+    const basePath = '/Frontier-Model-Doh-Choo-choo';
+    const request = (path) =>
+      sendRawRequest(
+        mountedServer.port,
+        `GET ${path} HTTP/1.1\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n`,
+      );
+
+    before(async () => {
+      mountedServer = await spawnServer(fixtureDir, basePath);
+    });
+
+    after(async () => {
+      if (mountedServer) await mountedServer.stop();
+    });
+
+    test('redirects root navigation to the mount while preserving queries', async () => {
+      for (const path of ['/', '/?preset=aa-top-10&value=a%2Fb', basePath]) {
+        const response = await request(path);
+        assert.equal(response.status, 302);
+        const queryStart = path.indexOf('?');
+        const query = queryStart === -1 ? '' : path.slice(queryStart);
+        assert.equal(response.headers.location, `${basePath}/${query}`);
+      }
+    });
+
+    test('serves mounted HTML, assets and evidence data from the export', async () => {
+      for (const [path, contentType, body] of [
+        ['/', '.html', '<h1>Hello Index</h1>'],
+        ['/style.css', '.css', 'body { margin: 0; }'],
+        ['/app.js', '.js', 'console.log("static");'],
+        ['/data.json?revision=current', '.json', '{"bench": true}'],
+        ['/sub/nested.html', '.html', '<h1>Nested</h1>'],
+      ]) {
+        const response = await request(`${basePath}${path}`);
+        assert.equal(response.status, 200, path);
+        assert.equal(
+          response.headers['content-type'],
+          CONTENT_TYPES.get(contentType),
+        );
+        assert.ok(response.body.includes(body), path);
+      }
+    });
+
+    test('rejects root assets and sibling mounts', async () => {
+      for (const path of [
+        '/app.js',
+        `${basePath}-other/app.js`,
+        '/other/data.json',
+      ]) {
+        const response = await request(path);
+        assert.equal(response.status, 404, path);
+      }
+    });
+
+    test('retains containment and malformed-path handling within the mount', async () => {
+      for (const path of [
+        '/../outside.txt',
+        '/sub/../../outside.txt',
+        '/%2e%2e%2foutside.txt',
+        '/..%5coutside.txt',
+      ]) {
+        const response = await request(`${basePath}${path}`);
+        assert.equal(response.status, 404, path);
+        assert.ok(!response.body.includes('secret outside root'), path);
+      }
+      assert.equal((await request(`${basePath}/%ff`)).status, 400);
+      assert.equal((await request(`${basePath}/`)).status, 200);
+    });
+
+    test('accepts an explicit base path with a trailing slash', async () => {
+      const server = createStaticServer(fixtureDir, `${basePath}/`);
+      await new Promise((r) => server.listen(0, '127.0.0.1', r));
+      try {
+        const response = await sendRawRequest(
+          server.address().port,
+          `GET ${basePath}/ HTTP/1.1\r\nHost: 127.0.0.1\r\nConnection: close\r\n\r\n`,
+        );
+        assert.equal(response.status, 200);
+        assert.ok(response.body.includes('<h1>Hello Index</h1>'));
+      } finally {
+        await new Promise((r) => server.close(r));
+      }
+    });
   });
 });

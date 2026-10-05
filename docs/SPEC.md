@@ -1198,7 +1198,7 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 
 資料刷新預設完成至可審核、可部署。資料 commit 需使用者審核後明確指示；具體完成證據、異動判斷、提交與部署流程統一由 [OPERATIONS.md §5–6](OPERATIONS.md#5-代理驗證與異動判斷) 維護。
 
-Git commit 保存接受的資料版本；目前 Pages workflow 由 `main` push 或手動觸發部署，commit 與實際部署為不同步驟。
+Git commit 保存接受的資料版本。CI 在同一 SHA 完成 audit、format、lint、typecheck、tests、production build 與 browser／accessibility 檢查後，上傳已驗證的 Pages 靜態輸出。正式部署限本 repository 的 `main` push，且部署前須確認該 SHA 仍為目前 `main`；建置與部署 SHA 記錄於 workflow summary。重新執行 run 也必須通過相同條件，API 查核失敗或 SHA 不符時停止發布。
 
 ### 11.3 為什麼可以這樣簡化
 

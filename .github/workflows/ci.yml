@@ -9,22 +9,32 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   quality:
     name: Static data and Dashboard
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    concurrency:
+      group: ci-${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    outputs:
+      sha: ${{ steps.verified.outputs.sha }}
+      artifact: ${{ steps.verified.outputs.artifact }}
 
     env:
       CI: true
+      NEXT_PUBLIC_BASE_PATH: ${{ format('/{0}', github.event.repository.name) }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Record source SHA
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          echo "Quality and Pages build SHA: $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Install pnpm
         uses: pnpm/action-setup@b0f76dfb45f55f8421693e4803ac7bb65143bd34 # v6
@@ -74,3 +84,58 @@ jobs:
             playwright-report
             test-results
           retention-days: 7
+
+      - name: Prepare verified Pages artifact
+        id: verified
+        run: |
+          touch apps/bench/out/.nojekyll
+          echo "sha=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
+          echo "artifact=github-pages-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+          echo "All quality gates passed for $GITHUB_SHA" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          name: ${{ steps.verified.outputs.artifact }}
+          path: apps/bench/out
+
+  deploy:
+    name: Deploy verified dashboard
+    needs: quality
+    if: >-
+      github.event_name == 'push' &&
+      github.repository == 'workingyuanyuan/Frontier-Model-Doh-Choo-choo' &&
+      github.ref == 'refs/heads/main' &&
+      needs.quality.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out verified source
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      # Check inside the deployment lock: an older rerun must never replace main.
+      - name: Verify current main and artifact SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QUALITY_RESULT: ${{ needs.quality.result }}
+          VERIFIED_SHA: ${{ needs.quality.outputs.sha }}
+        run: node scripts/verify-pages-deployment.mjs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+        with:
+          artifact_name: ${{ needs.quality.outputs.artifact }}

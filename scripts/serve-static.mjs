@@ -4,6 +4,7 @@
  * build. Written against node:http so the e2e gate adds no dependency.
  *
  * Usage: node scripts/serve-static.mjs <root> <port>
+ * NEXT_PUBLIC_BASE_PATH mounts the export at the same path used by Next.js.
  */
 import { createServer } from 'node:http';
 import { createReadStream, realpathSync } from 'node:fs';
@@ -50,7 +51,11 @@ export const fileFor = async (candidate) => {
   return (await stat(html).catch(() => null))?.isFile() ? html : null;
 };
 
-export const createStaticServer = (rootDir = root) => {
+export const createStaticServer = (
+  rootDir = root,
+  basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '',
+) => {
+  const mount = basePath.replace(/\/+$/, '');
   const server = createServer((request, response) => {
     request.on('error', () => {});
     response.on('error', () => {});
@@ -58,7 +63,26 @@ export const createStaticServer = (rootDir = root) => {
     const handle = async () => {
       let candidate;
       try {
-        candidate = resolveWithin(request.url ?? '/', rootDir);
+        const url = request.url ?? '/';
+        const queryStart = url.indexOf('?');
+        const pathname = queryStart === -1 ? url : url.slice(0, queryStart);
+        const query = queryStart === -1 ? '' : url.slice(queryStart);
+
+        if (mount && (pathname === '/' || pathname === mount)) {
+          response.writeHead(302, { location: `${mount}/${query}` });
+          response.end();
+          return;
+        }
+
+        // Match the whole mount segment before resolving paths inside the export.
+        // A sibling such as /repo-other must never fall through to root files.
+        const mountedPath = mount
+          ? pathname.startsWith(`${mount}/`)
+            ? pathname.slice(mount.length)
+            : null
+          : pathname;
+        candidate =
+          mountedPath === null ? null : resolveWithin(mountedPath, rootDir);
       } catch (err) {
         if (err instanceof URIError) {
           response.writeHead(400, {
