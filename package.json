@@ -18,7 +18,7 @@
     "format:write": "prettier --write .",
     "lint": "eslint . --max-warnings 0",
     "report:coverage-matrix": "pnpm --filter @llm-bench/benchmark-data report:coverage-matrix",
-    "test": "node --test scripts/serve-static.test.mjs && turbo run test",
+    "test": "node --test scripts/*.test.mjs && turbo run test",
     "typecheck": "turbo run typecheck",
     "web": "pnpm --filter @llm-bench/bench dev",
     "data:generate-display-set": "pnpm --filter @llm-bench/benchmark-data data:generate-display-set",
@@ -36,6 +36,7 @@
     "turbo": "2.10.4",
     "typescript": "catalog:",
     "typescript-eslint": "8.63.0",
-    "vitest": "catalog:"
+    "vitest": "catalog:",
+    "yaml": "2.8.3"
   }
 }

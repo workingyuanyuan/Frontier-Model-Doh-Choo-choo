@@ -3,7 +3,8 @@ import type { NextConfig } from 'next';
 /**
  * The dashboard is a single prerendered page with no server behaviour, so it
  * ships as a static export. GitHub Pages serves a project site from a
- * subpath, which the workflow passes in; local builds and e2e leave it empty.
+ * subpath, which CI passes to both the build and browser gates. Local builds
+ * default to the root path.
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
