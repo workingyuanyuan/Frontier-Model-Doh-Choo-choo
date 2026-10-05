@@ -1,4 +1,12 @@
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import {
+  appendFile,
+  cp,
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  writeFile,
+} from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -9,8 +17,36 @@ import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
 import { buildWorkspaceProduct, writeWorkspaceCurrent } from './workspace.js';
 
 describe('buildWorkspaceProduct', () => {
-  // Full-workspace assembly needs headroom on shared CI runners.
+  // Measured integration budget: docs/analysis/2026-10-05-workspace-timing.md.
   it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
+    const timingOutput = process.env.WORKSPACE_TIMING_OUTPUT;
+    const stages: {
+      stage: string;
+      wallMs: number;
+      cpuUserMs: number;
+      cpuSystemMs: number;
+      fsRead: number;
+      fsWrite: number;
+    }[] = [];
+    let stageStart = performance.now();
+    let stageCpu = process.cpuUsage();
+    let stageResources = process.resourceUsage();
+    const mark = (stage: string) => {
+      const now = performance.now();
+      const cpu = process.cpuUsage(stageCpu);
+      const resources = process.resourceUsage();
+      stages.push({
+        stage,
+        wallMs: now - stageStart,
+        cpuUserMs: cpu.user / 1000,
+        cpuSystemMs: cpu.system / 1000,
+        fsRead: resources.fsRead - stageResources.fsRead,
+        fsWrite: resources.fsWrite - stageResources.fsWrite,
+      });
+      stageStart = now;
+      stageCpu = process.cpuUsage();
+      stageResources = resources;
+    };
     const root = resolve(import.meta.dirname, '../../..');
     const baselineRoot = await mkdtemp(join(tmpdir(), 'comparison-baseline-'));
     const sourceConfig = SourcesConfigSchema.parse(
@@ -49,9 +85,12 @@ describe('buildWorkspaceProduct', () => {
           if (existsSync(origin)) await cp(origin, join(destination, file));
         }
       }
+      mark('setup');
       const generatedAt = '2026-10-01T00:00:00.000Z';
       const baseline = await buildWorkspaceProduct(baselineRoot, generatedAt);
+      mark('baseline-build');
       const added = await buildWorkspaceProduct(root, generatedAt);
+      mark('added-build');
       expect(added.presets).toEqual(baseline.presets);
       expect(added.defaultPresetId).toEqual(baseline.defaultPresetId);
       expect(added.costs).toEqual(baseline.costs);
@@ -69,8 +108,19 @@ describe('buildWorkspaceProduct', () => {
       expect(
         added.profiles.filter(({ id }) => existingProfiles.has(id)),
       ).toEqual(baseline.profiles);
+      mark('assertions');
     } finally {
+      const cleanupStart = performance.now();
+      const cleanupCpu = process.cpuUsage();
+      const cleanupResources = process.resourceUsage();
       await rm(baselineRoot, { recursive: true, force: true });
+      stageStart = cleanupStart;
+      stageCpu = cleanupCpu;
+      stageResources = cleanupResources;
+      mark('cleanup');
+      if (timingOutput) {
+        await appendFile(timingOutput, `${JSON.stringify({ stages })}\n`);
+      }
     }
   }, 15_000);
 
