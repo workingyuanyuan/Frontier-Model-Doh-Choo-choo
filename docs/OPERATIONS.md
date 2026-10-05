@@ -4,7 +4,7 @@
 
 正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生前 2～10 名的拉桿集合，`aa-frontier` 預設為前 8 名；排名資料驗證失敗時停止。
 
-執行 `pnpm data:generate-frontier-set`，依 [前沿政策](FRONTIER_POLICY.md) 產生 `data/mappings/frontier-set.json` 及 `frontier-selection-audit.json`。輸入為已儲存的來源快照、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`。先確認稽核狀態為 `selected`，再使用集合產物；`needs-review` 表示本次判定需要使用者稽核。
+依 [前沿政策](FRONTIER_POLICY.md)，先執行 `pnpm data:generate-frontier-set` 產生並審閱 `data/mappings/frontier-set.json` 及同目錄的 `frontier-selection-audit.json`。產品建置會再次呼叫同一生成器並寫入這兩份檔案，再由本次 cohorts 建立記憶體中的 display set，驗證後建立產品。完整輸入、寫入範圍與停止條件見 §3。
 
 本文件負責日常工作流程、完成證據、異動判斷與審核交接。共用文件入口見 [文件索引](README.md)。
 
@@ -14,7 +14,7 @@
 
 **查核來源 → 匯入／重新物化快照 → 依核准政策重產 benchmark 集合 → 重建產品 → 驗證展示 → 比較異動 → 交付審核報告。**
 
-先記錄任務工作目錄、起始 commit、既有變更，以及更新前 `current.json`、display set 與來源版本。比較基準應保存在本次操作不會覆寫的位置；不可把另一個 checkout 的未提交修改當成本任務已具備的輸入。
+先記錄任務工作目錄、起始 commit、既有變更，以及更新前 `current.json` 的完整 `versionId`、frontier 集合、selection audit、政策與來源版本。比較基準應保存在本次操作不會覆寫的位置；不可把另一個 checkout 的未提交修改當成本任務已具備的輸入。
 
 全站更新以 `data/mappings/sources.json` 的現役來源為範圍；指定來源或離線修正則記錄範圍與其餘快照日期。擷取修正必須以修正後的程式重新物化受影響資料。只讀來源、改好 parser、通過單元測試或成功建置舊產品，都不足以宣告更新完成。
 
@@ -131,7 +131,7 @@ pnpm --filter @llm-bench/acquisition materialize:vendor-releases -- --openai-cap
 
 命令使用共用安全擷取器取得 Anthropic 原始 HTML 與 Cursor 官方核對頁；解析 FrontierCode Main 與 CursorBench 的內嵌 CSV，再以現有 DeepSWE、Zapier、FrontierCode 官方快照核對。各來源在寫入前必須完成全部檢查，分數不一致即停止；經研究確認需保留的衝突列明確排除。`cross-checks.json` 保存逐列分數、來源與比較結論。新增圖表、版本或模型需要重新審核解析器與核對依據。
 
-`materialize:snapshots` 可由內容定址 artifact 離線重建兩個來源，使用原取得時間並重新執行交叉檢查。接續執行 effort report、coverage report、集合生成及產品建置，交付逐集合影響報告。
+`materialize:snapshots` 可由內容定址 artifact 離線重建兩個來源，使用原取得時間並重新執行交叉檢查。接續執行 effort report、§3 的 frontier 生成及產品建置，交付逐集合影響報告；需要分析覆蓋取捨時另產 coverage report。
 
 上述 AA、LiveBench、DeepSWE、Frontier Code 四個命令必須先核對渲染後頁面的可見母體數，並把實測值傳入。Artificial Analysis 的命令會組合 evaluation RSC、`/models` 與現役 profile 的
 `/models/<slug>` detail payload；`ARTIFICIAL_ANALYSIS_API_KEY` 僅從 gitignored
@@ -167,30 +167,61 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ## 3. 重產集合與建立目前版本
 
-每次刷新都依 `data/mappings/display-set-policy.json` 的核准政策重產集合，再建立產品。集合決定展示資格與計分基準，必須納入前後比較。
+正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照重新選取同版 AA Intelligence Index 前十名，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、AA 勝出 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets，預設前 8 名的 ID 為 `aa-frontier`。
+
+模型數範圍 2～10 與預設 8 是目前核准設定；2026-10-04 基準資料的預設集合含 17 項共同測試，是快照與品質政策計算的結果。後續依本次輸入重算，報告實際增減及 evidence，不把 17 當成固定門檻。
+
+### 輸入與命令的寫入範圍
+
+從 repository 根目錄執行下列命令。共同 loader 讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`benchmarks.json`、`frontier.json`，以及白名單來源目錄中的 `candidates.json`。後兩份 mapping 仍須通過 loader 的 schema 檢查；AA frontier 的選模、分類與品質判定另外使用 `frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`。
+
+| 命令                              | 用途與輸出                                                                                                                                                                                                                                                                                             |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `pnpm data:generate-frontier-set` | 讀取上述快照與 mapping，成功時寫入 `data/mappings/frontier-set.json` 及 `frontier-selection-audit.json`，供建置前審閱。                                                                                                                                                                                |
+| `pnpm data:build-current`         | 另讀各來源 `manifest.json`，有 `costs.json` 時讀取成本及 `evidence-index.json` 並檢查成本 evidence 參照。重新呼叫 frontier 生成器，具有相同集合／audit 寫入效果；由回傳的 `artifact.cohorts` 建立並驗證記憶體中的 `displaySet`，計算產品、驗證 schema 與內容 hash 後寫入 `data/product/current.json`。 |
+
+`data:build-current` 不讀取既有 `display-set.json`，也不將記憶體中的 `displaySet` 寫成該檔案。它會重新產生 frontier，不能只憑上一次 `selected` audit 宣告本次成功。實作依據為 [frontier 生成器](../packages/benchmark-data/src/generate-frontier-set.ts)、[workspace builder](../packages/benchmark-data/src/workspace.ts) 與 [產品 CLI](../packages/benchmark-data/src/cli.ts)。
+
+### 必要操作順序
+
+1. **保存比較基準。** 記錄 `git rev-parse HEAD`、`git status --short`、工作目錄及來源日期；將現有 `current.json`、frontier 集合、audit、政策與來源版本保存在本次命令不會覆寫的位置，記下產品完整 `versionId`。既有未提交輸入也要保存；只記 commit 無法還原它們。
+2. **確認輸入。** 完成 §2 的來源快照與 evidence 驗證，核對上述 mapping 及核准政策。缺檔、schema 錯誤、identity 未解析或政策不符時先停止，保留現有產品並交付錯誤證據。
+3. **產生並審閱 frontier。** 執行下列第一個命令，確認退出碼為 0、當次 audit 為 `selected`，核對指標版本、前十名、AA 分數與來源證據；再核對集合的九組 cohorts、profiles、共同測試、品質排除及預設集合。保存本次審閱結果後才執行第二個命令。
 
 ```bash
-pnpm report:coverage-matrix
-pnpm data:generate-display-set
+pnpm data:generate-frontier-set
+# 審閱本次 audit 與 cohorts 後繼續
 pnpm data:build-current
 ```
 
-覆蓋率的模型 presence mask 以 BigInt 精確計算；報告 JSON 在安全整數範圍內使用 number，超出時使用十進位字串，避免評測數超過 53 項時遺失低位元。
+4. **核對重建結果。** 確認建置退出碼及本次重寫的 audit／frontier；期間若輸入改變，重新審閱。記錄新 `versionId`，依 §5 比較各 cohort 的模型、profiles、benchmark，以及產品 presets、scores、costs 和 evidence 的前後差異。`selected` 只證明集合判定成功，仍須檢查產品是否成功寫入。
+5. **建置與瀏覽器驗證。** 依 §7 先完成 production build 再跑 e2e，按 §4–5 核對頁尾完整 `versionId`、預設及其他模型數集合、分數、成本與 Evidence，保存結果。失敗時排除問題後重驗，未完成前不交付為可部署產品。
+6. **交付審查。** 依 §6 保存來源版本、政策、audit、逐集合差異及驗證證據，提出可由使用者核對的抽查項目，再依資料提交與部署審核流程處理。
 
-coverage 報告與 generator 應使用相同資料及參考日期；跨日執行時明確固定日期。記錄使用的政策、日期、預設集合與輸出。`data:build-current` 只讀取現有 `display-set.json`，不會替代前兩步。
+### 停止條件與保存
 
-允許依現有政策重算 `presets`，不代表可以改變 `requiredModelIds`、模型數範圍、預設集合選擇規則、來源約束或選集演算法。若現有政策無法產生合法集合，先排除資料／實作問題；確需政策裁決時，提供失敗證據及可行方案，不以放寬門檻讓流程通過。
+判定是否繼續以 audit 最外層 `status` 為準：`selected` 表示本次排名及共同集合已通過生成器檢查，`needs-review` 表示停止並處理問題。內層 `gapAudit` 僅保存斷層計算供參考，其 `needs-review` 不會單獨阻擋目前固定前 2～10 名的政策。
 
-產品建立命令會：
+AA 版本不可比較、前十名身分未解析、樣本不足或無法產生共同合格測試時，生成器寫入 `needs-review` audit 並回傳非零狀態，保留原成功的 `frontier-set.json`。較早的讀檔／schema 錯誤可能尚未寫入新 audit，因此既有 `selected` 不能抵銷本次命令失敗。停止產品建立，保存命令、退出碼、錯誤及本次 audit，先排除資料／實作問題；仍需政策裁決時交付具體證據。
 
-1. 驗證所有 manifest、Evidence、Candidate、CostRecord 與 mapping schema。
-2. 套用 canonical identity、effort-only Profile 與來源衝突規則。
-3. 依據來源資料與人工指定清單建立 Frontier 模型集合。
-4. 計算五維、Overall 與 cost point；主畫面另依 display set 驗證完整矩陣。
-5. 產生 canonical deterministic JSON 及內容 `versionId`。
-6. 驗證內容 hash 後寫入 `data/product/current.json`。
+產品驗證失敗發生在 `current.json` 寫入之前，保留現有產品；但成功生成的 frontier／audit 可能已更新。這些檔案與產品不是一次原子寫入，遇到 I/O 失敗須比對保存基準確認各檔案狀態。兩個命令都會覆寫目前集合／audit，沒有自動歷史封存；步驟 1 的獨立副本及 Git 中已保存的歷史版本必須保留，不以新結果覆蓋歷史審核證據。
 
-`current.json` 是單一可變工作區輸出；使用者審核前不得提交。固定資料、設定與 `generatedAt` 才會產生相同內容與 `versionId`；僅時間戳造成的 hash 改變不代表來源已刷新。
+依政策重算 presets 時，模型數範圍、預設模型數、identity、來源約束、分類、品質及計分規則都須沿用核准設定。不得以放寬門檻讓失敗流程通過。
+
+`current.json` 是單一可變工作區輸出；使用者審核前不得提交。CLI 使用執行當時的時間作為 `generatedAt`。固定資料、設定與 `generatedAt` 才會產生相同內容與 `versionId`；僅時間戳造成的 hash 改變不代表來源已刷新。
+
+### 輔助覆蓋分析與相容產物
+
+以下命令保留覆蓋最佳化分析與舊 display-set 產物的相容用途，按分析需要執行：
+
+| 命令                             | 輸入與預設輸出                                                                                                                            |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm report:coverage-matrix`    | 使用共同 loader 的快照／mapping 及 `display-set-policy.json`，分析無來源約束與全來源兩條取捨曲線，寫入 `docs/COVERAGE_MATRIX_REPORT.md`。 |
+| `pnpm data:generate-display-set` | 使用相同輸入與政策，在記憶體中重算兩條曲線、驗證後寫入 `data/mappings/display-set.json`；不讀取前一命令的 Markdown 報告。                 |
+
+正式 AA frontier 流程的必要命令見上方步驟 3。輔助分析的 `requiredModelIds`、來源約束與預設選擇使用 `display-set-policy.json`，不能據此替代 AA 前沿政策。比較 coverage 報告與 display-set generator 時使用相同資料及 `--reference-date=YYYY-MM-DD`，記錄政策、日期與輸出路徑；兩者預設以當日 UTC 日期分析，跨日應明確固定日期。分析失敗時保留錯誤證據，不以舊報告宣稱本次分析成功。
+
+覆蓋率的模型 presence mask 以 BigInt 精確計算；分析結果在安全整數範圍內使用 number，超出時使用十進位字串，避免評測數超過 53 項時遺失低位元。
 
 ## 4. 開發與建置
 
@@ -217,13 +248,13 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 - canonical identity、alias 與 effort 歸屬可由證據支持。
 - Harness、tools、attempt、thinking、context 沒有拆成 Product Profile。
 - Included Benchmark 皆有主要維度映射；Excluded 不計分。
-- 缺值不是零，Composite index 未重複投入五維。
-- Representative Profile 取最高 Overall，且 display set 的每個 benchmark 都有 INCLUDED、非 null 分數。
+- 缺值不是零，Composite index 未重複投入能力維度。
+- AA preset 使用該 cohort 的 AA 勝出 profiles，每個 profile 自身持有全部共同合格 benchmark 的 INCLUDED、非 null 分數。
 
 ### UI
 
-- 主畫面五個維度不出現 N/A；Developer mode 的缺格與 partial-coverage 清單分開，後者只顯示已有維度，不給 Overall 或排名。
-- Profile selector 只提供仍通過完整矩陣與 no-N/A 門檻的 Profile，並同步更新雷達與 Evidence。
+- 核對目前選定 profiles 的共同合格測試與有效維度；沒有測試的維度不顯示欄位或雷達軸，沒有共同合格測試時不給 Overall 或排名。
+- 切換模型數、模型或 effort 後，依 [計分方法](SCORING_METHODOLOGY.md) 重新求共同測試並套用品質政策，確認表格、雷達與 Evidence 同步；預設、清空及五軸／六軸切換均需驗證。
 - Leaderboard／Evidence 排序與 Included／Excluded 出處正確。
 - 桌面、行動、鍵盤與無障礙檢查通過。
 
@@ -231,13 +262,13 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 先在相同 benchmark 集合、相同模型與 effort 下比較新舊資料，再比較本次重產集合的最終展示，將資料變化與集合變化分開說明。比較涵蓋預設集合與其他可選集合；集合 ID 相同也要核對實際 benchmark 組成。
 
-來源 delta 以上一次實際物化結果為基準；讀取上一份差異報告時取 `Refreshed` 欄，不能沿用其 `Previous` 欄。主畫面比較先套用完整評測矩陣與五維門檻，再選代表檔位並重排名次；產品中所有非 null Overall 列不等於主榜完整模型。
+來源 delta 以上一次實際物化結果為基準；讀取上一份差異報告時取 `Refreshed` 欄，不能沿用其 `Previous` 欄。預設畫面比較使用各 cohort 的 AA 勝出 profiles 及共同合格測試，依有效維度重算分數與名次；手動選取則記錄實際模型及 effort，產品中所有非 null Overall 列不等於當次主榜模型。
 
 - 列出模型新進、退出與缺格原因，並檢查代表 profile／effort 是否改變。
-- 列出既有模型的舊／新五維與 Overall、分數差、舊／新排名及名次差；區分新模型加入造成的名次平移與既有模型相對順序改變。
+- 列出既有模型的舊／新有效維度與 Overall、分數差、舊／新排名及名次差；區分新模型加入造成的名次平移與既有模型相對順序改變。
 - 列出集合的 benchmark／來源增減、模型數選項及預設集合變化。
 - 區分來源數值更新、來源 benchmark／指數版本切換、集合組成改變、identity／effort 修正的影響；結論需指回具體證據。
-- AA Intelligence Index 不直接投入五維 Overall，但可能影響外部指標、進階成本圖或 Frontier 選模。換版時逐一查證實際受影響的視圖及底層 benchmark，不把指數變動直接當成主榜分數變動。
+- AA Intelligence Index 不直接投入能力維度 Overall，但可能影響外部指標、進階成本圖或 Frontier 選模。換版時逐一查證實際受影響的視圖及底層 benchmark，不把指數變動直接當成主榜分數變動。
 
 ### 繼續與交接
 
@@ -321,7 +352,7 @@ JSON 保留 result ID、Evidence ID、來源 URL 與 locator，缺少有效原�
 pnpm report:coverage-matrix
 ```
 
-此命令輸出模型 × benchmark 矩陣與集合取捨曲線。依 §3 以核准政策生成集合，依 §5 比較影響；需要改變政策時才交由使用者裁決。
+此命令輸出模型 × benchmark 矩陣與集合取捨曲線，用途及輸入見 §3 的輔助覆蓋分析。正式 AA frontier 依 §3 的必要步驟生成，依 §5 比較影響；需要改變政策時才交由使用者裁決。
 
 日常報告依核准政策產生無約束與全來源曲線。`--require=a,b` 僅供探索指定 benchmark 必選時的影響，會約束兩條曲線，不作為日常集合生成政策。
 
