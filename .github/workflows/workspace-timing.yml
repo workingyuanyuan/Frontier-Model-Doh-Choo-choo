@@ -1,0 +1,53 @@
+name: Workspace integration timing
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'packages/benchmark-data/**'
+      - 'data/**'
+      - 'scripts/measure-workspace-tests.mjs'
+      - '.github/workflows/workspace-timing.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - 'turbo.json'
+
+permissions:
+  contents: read
+
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: true
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.sha }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@b0f76dfb45f55f8421693e4803ac7bb65143bd34 # v6
+
+      - name: Install Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24.18.0
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Measure workspace integration tests
+        run: node scripts/measure-workspace-tests.mjs
+
+      - name: Upload timing records and test logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: workspace-timing-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/workspace-timing/
+          retention-days: 14
