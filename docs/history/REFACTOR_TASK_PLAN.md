@@ -1,5 +1,7 @@
 # 第二次重構任務計畫
 
+> `<external-design-dir>` 代表當時使用的倉庫外設計文件目錄；其中的設計檔未收錄於本 repository。
+
 > 歷史封存（2026-09-06）。原路徑：`tasks/claude-code-plan.md`。本文保留當時的指令、狀態與數量，供考證；現行規則見 [文件入口](../README.md) 與 [操作手冊](../OPERATIONS.md)。
 > 結案證據：O1–O5、P1–P3、Q1–Q4 均已標記完成；提交 `e859b72` 記錄使用者在審核關卡 O 指示發布五維資料。下文關卡 O 的「未開始」是當時漏更新，保留原文供追溯。
 
@@ -196,7 +198,7 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 
 狀態：完成
 
-**目的**：在 Header 的開發者模式切換器左側新增圖示式三主題控制，提供淺色、黑暗與藍色主題；現行視覺歸為藍色主題，淺色主題依 `N:\Markdown\Desing\anthropic-DESIGN.md` 建立。
+**目的**：在 Header 的開發者模式切換器左側新增圖示式三主題控制，提供淺色、黑暗與藍色主題；現行視覺歸為藍色主題，淺色主題依 `<external-design-dir>/anthropic-DESIGN.md` 建立。
 
 **範圍**：`apps/bench` 的主題狀態、Header 控制、設計 token、持久化與對應測試。不改動產品資料、mapping 或計分邏輯。
 
@@ -206,7 +208,7 @@ O5 完成後暫停，由使用者審核以下四項後才決定是否 commit `cu
 
 狀態：完成
 
-**目的**：淺色主題改依 `N:\Markdown\Design\claude-DESIGN.md`，黑暗主題改依 `N:\Markdown\Design\Kage-DESIGN.md`；將 Representative profiles、Capability profile、Price efficiency 移至各自 Section 正上方，建立清楚的區段節奏。
+**目的**：淺色主題改依 `<external-design-dir>/claude-DESIGN.md`，黑暗主題改依 `<external-design-dir>/Kage-DESIGN.md`；將 Representative profiles、Capability profile、Price efficiency 移至各自 Section 正上方，建立清楚的區段節奏。
 
 **範圍**：`apps/bench` 的淺色／黑暗主題 token、背景材質、排版、區段結構與對應測試。不改動藍色主題、產品資料、mapping 或計分邏輯。
 

@@ -1,5 +1,7 @@
 # 第二次重構 A–N 階段紀錄
 
+> `<external-worktrees>` 與 `<external-archive-dir>` 代表當時的倉庫外工作目錄及封存目錄；外部檔案未收錄於本 repository。
+
 > 歷史階段紀錄。後續 O–Q 計畫見 [封存計畫](REFACTOR_TASK_PLAN.md)；現行入口見 [文件索引](../README.md)。
 > 下文保留原任務狀態，包含 N6／N7 的未開始標記；實際審核與刷新需對照後續提交及報告，不據此宣告通過或重啟舊任務。
 
@@ -946,11 +948,11 @@ G4 重跑 F2 於 2026-08-21 再次判定不通過，獨立第三方代理得到�
 ## H 階段期間完成的使用者項目
 
 **倉庫外舊 worktree 已於 2026-08-21 依使用者指示移除。**
-`N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend` 是本 repository 的
+`<external-worktrees>/llm-bench-frontend` 是本 repository 的
 detached worktree（HEAD `85e87db`，為 `main` 的祖先，無獨有 commit）。唯一的獨有內容是
 未追蹤的 `apps/bench/`——21 個原始檔（96 KB）加上 `node_modules`／`.next` 產物，共 24 MB。
 那 21 個檔案的 blob 不存在於任何 Git 歷史中，因此**先封存再刪除**：
-`N:/Coding/LLM Bench Project/llm-bench-frontend-worktree-apps-bench-2026-08-21.zip`（19,486 bytes）。
+`<external-archive-dir>/llm-bench-frontend-worktree-apps-bench-2026-08-21.zip`（19,486 bytes）。
 封存檔刻意放在 repository 之外，不進 Git；確認不需要後可自行刪除。
 `git worktree remove --force` 已解除註冊但因 `node_modules` 路徑過長無法刪目錄，改以
 `rm -rf` 完成，再跑 `git worktree prune`。現在 `git worktree list` 只剩主線。
@@ -990,12 +992,12 @@ H5 於 2026-08-21 判定**通過**（[驗收報告](F2_ACCEPTANCE.md)），
 
 狀態：完成
 
-`N:/Coding/codex-gemini-orchestrator/worktrees/` 底下兩個非 worktree 目錄依 frontend 的
+`<external-worktrees>/` 底下兩個非 worktree 目錄依 frontend 的
 同一套處理：先找出不在本 repository 物件庫中的獨有內容，封存後再刪除。
 
 - `llm-bench-model-column-20260718`：228 個非建置檔中**獨有 0 個**，全部可由 Git 復原，直接刪除。
 - `llm-bench-materializers-20260718`：獨有 4 個檔（78,605 bytes），為較早的 materializer 實作，
-  封存於 `N:/Coding/LLM Bench Project/llm-bench-materializers-20260718-unique-2026-08-21.zip`（17,531 bytes）後刪除。
+  封存於 `<external-archive-dir>/llm-bench-materializers-20260718-unique-2026-08-21.zip`（17,531 bytes）後刪除。
 
 `worktrees/` 目錄現為空。其上層 `codex-gemini-orchestrator` 是使用者另一個獨立
 repository（有自己的 `.git`、README、LICENSE），**未觸碰**。

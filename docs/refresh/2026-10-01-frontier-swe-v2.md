@@ -4,7 +4,7 @@ FrontierSWE V2 已加入來源名單，以 mean@5 百分比分數供手動 profi
 
 ## 產品與資料
 
-- 工作目錄：`C:/Users/YYuan/Workspace/Coding/Frontier-Model-Doh-Choo-choo`。
+- 工作目錄：repository 根目錄（`.`）。
 - 起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`；工作目錄起始為乾淨狀態。
 - 舊 versionId：`sha256:5d9050c1117ae2751f4d4b91dbf730f5400ee79578ad4a567ae34f30f40ffede`。
 - 新 versionId：`sha256:e61cff5ba049d50ed5158607b9817e1fc7c67edd4f784832ccb21a1d9e334a99`。

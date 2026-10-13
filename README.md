@@ -36,15 +36,28 @@ cd Frontier-Model-Doh-Choo-choo
 # 安裝依賴套件
 pnpm install --frozen-lockfile
 
+# 編譯看板使用的共用套件
+pnpm --filter @llm-bench/benchmark-data build
+
 # 啟動開發伺服器
 pnpm dev
 ```
 
 啟動後，在瀏覽器打開 `http://localhost:3000` 即可檢視看板。
 
-### 一鍵開啟本地審查頁面
+### 本地審查啟動腳本
 
-直接執行專案根目錄的 `start-bench-review.cmd`。腳本會使用 4000 port 啟動開發伺服器，並在服務就緒後自動開啟瀏覽器：
+Linux／WSL Ubuntu 在專案根目錄執行：
+
+```bash
+./start-bench-review.sh
+```
+
+腳本會安裝鎖定版本的依賴、編譯共用套件，並在 `http://localhost:4000` 啟動開發伺服器。看到 Ready 後，在瀏覽器開啟該網址；WSL 使用者可直接使用 Windows 瀏覽器。保持終端機開啟，按 `Ctrl+C` 停止服務。可用 `./start-bench-review.sh 4001` 指定其他 port；執行前先停止同一份專案已啟動的開發伺服器。
+
+腳本會依自身位置定位專案，可從其他工作目錄呼叫。Linux 環境需求與資料搬移注意事項見[操作手冊](docs/OPERATIONS.md#1-安裝)。
+
+Windows 使用者直接執行專案根目錄的 `start-bench-review.cmd`。腳本會使用 4000 port 啟動開發伺服器，並在服務就緒後自動開啟瀏覽器：
 
 ```text
 http://localhost:4000

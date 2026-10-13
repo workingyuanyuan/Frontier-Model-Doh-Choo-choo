@@ -3,7 +3,7 @@
 使用者裁決：移除每組集合必須包含 Gemini 3.7 Flash 的限制。`requiredModelIds` 設為空陣列，依完整 profile、五維覆蓋與 benchmark 品質政策重新生成集合。
 
 - 起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`
-- 工作目錄：`C:/Users/YYuan/Workspace/Coding/Frontier-Model-Doh-Choo-choo`
+- 工作目錄：repository 根目錄（`.`）
 - 範圍：集合政策修改；以工作區既有來源快照重算。開始時的變更清單與基準產物保存在 `tmp/remove-model-pin-2026-10-03/`。
 - 舊版本：`sha256:9a472a2b886807149d025c5f9d07c3c2c6709a3323f3ba6fb0c3368c252231fa`
 - 新版本：`sha256:6a99450fc3752140953ad09ab251038ed08540b91545de496d02d00ada9553c1`

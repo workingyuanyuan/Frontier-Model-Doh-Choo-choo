@@ -80,7 +80,7 @@ Anthropic 的 Opus 5.5 40.0% 明確是 Zapier 提前測試、沒有 fallback 的
 
 ## 產品與集合影響
 
-- 工作目錄：`C:\Users\YYuan\Workspace\Coding\Frontier-Model-Doh-Choo-choo`。起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`。
+- 工作目錄：repository 根目錄（`.`）。起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`。
 - 比較基準為任務開始時的工作區資料，包含已完成的 FrontierSWE V2 與 Chartography 整合；基準檔保存於 `artifacts/vendor-review-2026-10-02/`，SHA-256 記錄於 JSON。
 - 基準版本：`sha256:4b6499482044bd12154c49bd153b4407ced99eb6261e865f58f7ca4b2cf44cd2`。
 - 本次版本：`sha256:6219563f6c6cbd0670715f849a7c3550a02e1691c1271dc298c9007e99a788d7`。

@@ -1,5 +1,7 @@
 # H5 — F2 最終驗收重跑（第三次，2026-08-21）
 
+> 路徑以可攜佔位符表示：`<repo-root>` 是當時主工作目錄，`<external-clone-dir>` 是當時驗收 clone 的上層目錄，`<external-worktrees>` 與 `<external-archive-dir>` 是當時的倉庫外工作目錄及封存目錄；輸出中的日期、名稱與數值保留原紀錄。
+
 ## 1. 結論
 
 **通過。** 目前 `main`（驗收起點 `eb46d648fb435a90df08cf6ec5b28b00be7e2fb0`）在乾淨 clone 依 `CLAUDE.md` 的不可換序命令全綠；G4 七項阻擋均已解除或有明確使用者裁決；H1–H4 的文件、程式、schema 與已發布資料經獨立重算一致。
@@ -17,9 +19,9 @@
 從主工作目錄的已提交 `main` 建立本機 clone：
 
 ```text
-Cloning into 'N:\Coding\LLM Bench Project\h5-clean-bbcd791cda394dfca71814539b76e59c'...
+Cloning into '<external-clone-dir>/h5-clean-bbcd791cda394dfca71814539b76e59c'...
 done.
-H5_CLONE=N:\Coding\LLM Bench Project\h5-clean-bbcd791cda394dfca71814539b76e59c
+H5_CLONE=<external-clone-dir>/h5-clean-bbcd791cda394dfca71814539b76e59c
 eb46d648fb435a90df08cf6ec5b28b00be7e2fb0
 ## main...origin/main
 .env=False
@@ -192,8 +194,8 @@ H5_EXIT_CODE=0
 依驗收指示，在主工作目錄以同磁碟 rename 暫時改名，`try/finally` 保證還原。改名前後皆為 597 檔、1,659,324,830 bytes：
 
 ```text
-H5_ARTIFACT_SOURCE=N:\Coding\LLM Bench Project\LLM Bench Codex\artifacts-v2
-H5_ARTIFACT_HIDDEN=N:\Coding\LLM Bench Project\LLM Bench Codex\artifacts-v2.h5-hidden-20260821
+H5_ARTIFACT_SOURCE=<repo-root>/artifacts-v2
+H5_ARTIFACT_HIDDEN=<repo-root>/artifacts-v2.h5-hidden-20260821
 H5_BEFORE_FILES=597
 H5_BEFORE_BYTES=1659324830
 H5_RENAMED_SOURCE_EXISTS=False
@@ -224,7 +226,7 @@ H5_AFTER_BYTES=1659324830
 
 ```text
 ## main...origin/main [ahead 72]
-N:/Coding/LLM Bench Project/LLM Bench Codex eb46d64 [main]
+<repo-root> eb46d64 [main]
 DIFF_CHECK_EXIT=0
 ```
 
@@ -377,12 +379,12 @@ H5 直接匯入 `apps/bench/lib/view-model.ts:574-677` 的 `buildWeightedCostCur
 1. **首次部署**：`origin/main` 仍停在 `9ab96b26…`，本地 `main` ahead 72；H5 沒有 push 或 deploy。
 2. **Artificial Analysis 金鑰輪換**：撤銷曾出現在對話中的舊 key，建立新 key，只更新 gitignored `.env.local`。
 3. **兩個非 worktree 目錄**：
-   - `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-materializers-20260718`
-   - `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-model-column-20260718`
+   - `<external-worktrees>/llm-bench-materializers-20260718`
+   - `<external-worktrees>/llm-bench-model-column-20260718`
 
    兩者實測存在且都沒有 `.git`，未被 `git worktree list` 註冊；是否保存或刪除由使用者決定。
 
-舊 `llm-bench-frontend` worktree 已移除；封存檔 `N:/Coding/LLM Bench Project/llm-bench-frontend-worktree-apps-bench-2026-08-21.zip` 存在，19,486 bytes。`CLAUDE.md:22` 的警告依指示視為刻意保留，不是殘留缺陷。
+舊 `llm-bench-frontend` worktree 已移除；封存檔 `<external-archive-dir>/llm-bench-frontend-worktree-apps-bench-2026-08-21.zip` 存在，19,486 bytes。`CLAUDE.md:22` 的警告依指示視為刻意保留，不是殘留缺陷。
 
 ## 10. 任務回報
 

@@ -3,7 +3,7 @@
 採用 [Surge EnterpriseBench CoreCraft](https://surgehq.ai/benchmarks/enterprisebench-corecraft) 主榜；原始值與 normalizedScore 均為百分比，來源角色 ORGANIZER，主要維度 agentic。官方未明示 benchmark 版本，保存 null。
 
 - 起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`
-- 工作目錄：`C:\Users\YYuan\Workspace\Coding\Frontier-Model-Doh-Choo-choo`
+- 工作目錄：repository 根目錄（`.`）
 - 舊版本：`sha256:89a756c8b4f273baff9f44ab77ddd89f57715532a48a8b316ce1a98aca197268`
 - 新版本：`sha256:b731ff72f0b1853e9288fef63bc6bc566574ac36a659ec657356aa32ab7a0ada`
 - 生成時間：2026-10-03T06:28:57.960Z

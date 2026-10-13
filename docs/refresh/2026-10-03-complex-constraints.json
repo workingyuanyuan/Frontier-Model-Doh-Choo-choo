@@ -1,12 +1,12 @@
 {
   "baselineCommit": "838da8e59a0968a586f4d521628d3854521bdc6c",
-  "workspace": "C:\\Users\\YYuan\\Workspace\\Coding\\Frontier-Model-Doh-Choo-choo",
+  "workspace": ".",
   "baselineVersionId": "sha256:063d8dedb7cb58a70a33e693f20b648adefe3998321275b16f38271077c3347e",
   "versionId": "sha256:89a756c8b4f273baff9f44ab77ddd89f57715532a48a8b316ce1a98aca197268",
   "generatedAt": "2026-10-03T06:12:32.768Z",
   "proposal": {
     "status": "FINAL",
-    "productPath": "C:\\Users\\YYuan\\Workspace\\Coding\\Frontier-Model-Doh-Choo-choo\\data\\product\\current.json",
+    "productPath": "data/product/current.json",
     "alternatives": []
   },
   "approval": {

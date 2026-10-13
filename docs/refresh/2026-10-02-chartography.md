@@ -2,7 +2,7 @@
 
 已接入 [Surge AI Chartography 主榜](https://surgehq.ai/benchmarks/chartography)，主要維度為 Reasoning，Knowledge 為次要關聯。
 
-- 工作目錄：`C:\Users\YYuan\Workspace\Coding\Frontier-Model-Doh-Choo-choo`
+- 工作目錄：repository 根目錄（`.`）
 - 起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`
 - 起始版本：`sha256:e61cff5ba049d50ed5158607b9817e1fc7c67edd4f784832ccb21a1d9e334a99`
 - 本次版本：`sha256:4b6499482044bd12154c49bd153b4407ced99eb6261e865f58f7ca4b2cf44cd2`

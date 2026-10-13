@@ -1,5 +1,7 @@
 # LLM Bench 專案交接
 
+> `<external-worktrees>` 代表當時的倉庫外工作目錄；該目錄未收錄於本 repository。
+
 > 歷史封存（2026-09-06）。原路徑：`docs/PROJECT_HANDOFF.md`。本文保留當時的指令、狀態與數量，供考證；現行規則見 [文件入口](../README.md) 與 [操作手冊](../OPERATIONS.md)。
 > 本文起始於 2026-08-17，曾在後續迭代補寫，並非該日期的完整不可變快照。
 
@@ -15,7 +17,7 @@
 
 - 只在本地 `main` 主線工作；除非使用者明確要求，不 push、不開 PR、不 release。
 - repository 因擁有者曾是 `CodexSandboxOffline`，部分環境需對單次 Git 指令使用 `-c safe.directory=<repo>`；不要擅自修改全域 Git 設定。
-- 額外存在 detached worktree `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend`。它不是有效來源；未經使用者確認不要刪除或修改。
+- 額外存在 detached worktree `<external-worktrees>/llm-bench-frontend`。它不是有效來源；未經使用者確認不要刪除或修改。
 
 ## 3. 產品輸出
 

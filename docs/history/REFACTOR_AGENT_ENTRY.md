@@ -1,5 +1,7 @@
 # Claude Code 接手入口
 
+> `<external-worktrees>` 代表當時的倉庫外工作目錄；該目錄未收錄於本 repository。
+
 > 歷史封存（2026-09-06）。原路徑：`CLAUDE.md`。本文保留當時的指令、狀態與數量，供考證；現行規則見 [文件入口](../README.md) 與 [操作手冊](../OPERATIONS.md)。
 
 這個 repository 已完成一次大幅靜態化重構，目前正在執行第二次重構。開始工作前，依序完整閱讀：
@@ -22,7 +24,7 @@
 - Agent 不得 push、deploy 或 release。
 - Agent 不得 commit `data/product/current.json`；那是發布動作，需使用者審核後明確指示（`SPEC.md` §11.2）。**這條規則只針對這一個檔案，不是不要 commit 的意思**：每個 task 完成時仍必須 commit 其餘檔案，做法見 `tasks/claude-code-plan.md` 共同契約。用 `git add` 逐一列出檔案，不要用 `git add -A`。
 - 規格未涵蓋的情況不得自行決定；先向使用者確認，再把決定寫回文件與測試。
-- 不要把 `N:/Coding/codex-gemini-orchestrator/worktrees/llm-bench-frontend` 當成工作來源。那是 detached 的舊代理 worktree，含未追蹤的較早 UI 與建置產物。
+- 不要把 `<external-worktrees>/llm-bench-frontend` 當成工作來源。那是 detached 的舊代理 worktree，含未追蹤的較早 UI 與建置產物。
 
 ## 工作方式
 

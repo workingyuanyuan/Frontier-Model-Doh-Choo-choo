@@ -30,6 +30,20 @@ pnpm install --frozen-lockfile
 
 只需要 Node.js 24+ 與 pnpm 11+。不要設定 `DATABASE_URL`，也不要啟動容器或 migration。
 
+### Linux／WSL 開發環境
+
+使用 Linux 內安裝的 Node.js 與專案指定的 pnpm 11.7.0。在專案根目錄執行 `./start-bench-review.sh`，腳本會依 lockfile 安裝依賴、編譯 `benchmark-data`，再啟動 `http://localhost:4000`；可傳入 port 作為第一個參數。開啟瀏覽器驗收，按 `Ctrl+C` 停止服務。
+
+跨作業系統搬移時，在目標環境重新安裝依賴與產生建置輸出。WSL 專案建議放在 Linux 檔案系統中。來源作業需要的 `artifacts/` 與 `.env.local` 受 Git 忽略，須另外搬移；其中 artifact 保存規則見 §8，AA API 金鑰用途見 §2。
+
+Linux 瀏覽器測試首次執行前，安裝 Chromium 與系統函式庫；系統套件安裝可能要求 sudo 密碼：
+
+```bash
+pnpm exec playwright install --with-deps chromium
+```
+
+之後依 §7 先完成 production build，再執行 `pnpm e2e`。
+
 ## 2. 刷新來源
 
 ### 共用擷取安全政策
@@ -360,6 +374,8 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 
 ## 8. Artifact 保存
 
+看板在建置時讀取已整理的 `data/product/current.json` 與 mapping，瀏覽器使用建置產物，因此 `artifacts/` 缺少時，既有產品仍可建置與正常瀏覽。`artifacts/` 保存採集端的原始證據，供核對來源內容、驗證雜湊，以及使用新版解析器離線重新物化快照；只有產品 JSON 無法還原完整原始回應。遷移後若要延續這些作業，須另外搬回原始 artifact store。
+
 本流程的「耐久儲存」指既有本機 artifact store：工作目錄下的 `artifacts/sha256/<SHA-256 前兩碼>/<完整 SHA-256><副檔名>`。擷取程序將來源回傳的原始 bytes 依內容 SHA-256 寫入此處，供後續溯源與重新物化；檔案須在程序結束後持續保留，不作為可隨任務清除的暫存。架構依據見 [ARCHITECTURE 的 artifacts 說明](ARCHITECTURE.md#artifacts)，寫入實作見 [`writeContentAddressedArtifact`](../packages/acquisition/src/index.ts) 與 [`captureArtifact`](../packages/acquisition/src/refresh-utils.ts)。
 
 每次成功擷取後，依本次快照 Evidence 的 `artifactPath` 回讀本機原始檔，核對 SHA-256 與 `byteLength`；全部相符才算完成 artifact 保存驗證。`artifacts/` 不進 Git，Evidence metadata 不能取代原始 artifact。若本次快照所需檔案缺失、無法讀寫或完整性不符，新快照不得標為驗證完成；報告須列出具體路徑與失敗證據。
@@ -378,6 +394,7 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 - 沿用三個 workspace 與靜態資料邊界；詳見 [架構](ARCHITECTURE.md) 與 [移除項目](REFACTOR_DISCARD_LIST.md)。現役來源按刷新流程維護，凍結來源保持歷史資料；不得用猜測 identity、補零或綜合指數替代缺失成績。
 - 變更架構、產品行為、schema、mapping、計分、來源或操作命令時，同一次任務同步負責的權威文件與必要測試。其他入口使用連結，避免複製流程。
 - 對純文件變更檢查格式、連結、指令／路徑存在性及契約一致性；程式與資料變更按受影響範圍驗證，完整發布驗證依 §7。建置舊資料成功不能取代刷新完成證據。
+- 儲存在專案內的文件使用相對於該文件的連結；命令範例使用專案根目錄相對路徑，必要的外部位置使用有說明的佔位符。不得寫入個人電腦的磁碟代號、使用者家目錄或 worktree 絕對路徑。
 - 結案前核對任務狀態、使用者審核證據與實際輸出；機械驗證通過與人工接受分別記錄。仍有效的待辦移入現行文件，再將完成計畫或一次性報告標記歷史、移至 `history/` 並修正引用。
 - 歷史文件保留當時內容；新增封存說明、來源路徑與結案證據，不把舊數量或舊契約更新成假造的歷史。產出報告標示資料日期與生成依據。
 - 已授權提交時，逐一加入本任務檔案、檢視 diff，以單一目的 commit 保存可回復邊界。`current.json` 與刷新審核材料依 §6 的資料審核閘門處理。

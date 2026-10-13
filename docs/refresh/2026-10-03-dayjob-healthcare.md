@@ -5,7 +5,7 @@
 [官方 grading 說明](https://github.com/surge-ai/dayjob#grading)：榜單每題執行五次，先對未發生錯誤的 trial reward 求平均，再對各題平均值取等權平均。榜單顯示此 mean reward 的百分比。
 
 - 起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`
-- 工作目錄：`C:\Users\YYuan\Workspace\Coding\Frontier-Model-Doh-Choo-choo`
+- 工作目錄：repository 根目錄（`.`）
 - 舊版本：`sha256:1f538285637dc46e084386fbf27d738269b8293e3ec19111a21236678b68b57c`
 - 新版本：`sha256:91ecfdaed7e334a72fb2b0110807a4a539255b7f9a5dd31793c937b63bd6ff16`
 - 生成時間：2026-10-03T08:02:30.629Z

@@ -3,7 +3,7 @@
 採用 [Surge ComplexConstraints](https://surgehq.ai/benchmarks/complex-constraints) 主榜 Pass@1；原始值與 normalizedScore 均為百分比，來源角色 ORGANIZER，主要維度 language。官方未明示 benchmark 版本，保存 null。
 
 - 起始 commit：`838da8e59a0968a586f4d521628d3854521bdc6c`
-- 工作目錄：`C:\Users\YYuan\Workspace\Coding\Frontier-Model-Doh-Choo-choo`
+- 工作目錄：repository 根目錄（`.`）
 - 舊版本：`sha256:063d8dedb7cb58a70a33e693f20b648adefe3998321275b16f38271077c3347e`
 - 新版本：`sha256:89a756c8b4f273baff9f44ab77ddd89f57715532a48a8b316ce1a98aca197268`
 - 生成時間：2026-10-03T06:12:32.768Z
