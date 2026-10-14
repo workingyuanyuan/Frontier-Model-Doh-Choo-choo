@@ -1,57 +1,117 @@
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import {
+  appendFile,
+  cp,
+  mkdir,
+  mkdtemp,
+  readFile,
+  rm,
+  writeFile,
+} from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 
-import { describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
 import { buildWorkspaceProduct, writeWorkspaceCurrent } from './workspace.js';
 
-describe('buildWorkspaceProduct', () => {
-  // Full-workspace assembly needs headroom on shared CI runners.
-  it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
-    const root = resolve(import.meta.dirname, '../../..');
-    const baselineRoot = await mkdtemp(join(tmpdir(), 'comparison-baseline-'));
-    const sourceConfig = SourcesConfigSchema.parse(
-      JSON.parse(
-        await readFile(join(root, 'data', 'mappings', 'sources.json'), 'utf8'),
-      ),
+// Copy the saved build inputs; generated frontier artifacts must be private to
+// this test file because every build rewrites them.
+const copyWorkspaceInputs = async (
+  from: string,
+  to: string,
+  omitFrontierSwe = false,
+) => {
+  const sourceConfig = SourcesConfigSchema.parse(
+    JSON.parse(
+      await readFile(join(from, 'data/mappings/sources.json'), 'utf8'),
+    ),
+  );
+  await cp(join(from, 'data/mappings'), join(to, 'data/mappings'), {
+    recursive: true,
+  });
+  const whitelist = sourceConfig.whitelist.filter(
+    (source) => !omitFrontierSwe || source !== 'frontier-swe',
+  );
+  if (omitFrontierSwe) {
+    await writeFile(
+      join(to, 'data/mappings/sources.json'),
+      JSON.stringify({ ...sourceConfig, whitelist }),
     );
+  }
+  for (const source of whitelist) {
+    const destination = join(to, 'data/sources', source);
+    await mkdir(destination, { recursive: true });
+    for (const file of [
+      'manifest.json',
+      'candidates.json',
+      'costs.json',
+      'evidence-index.json',
+    ]) {
+      const origin = join(from, 'data/sources', source, file);
+      if (existsSync(origin)) await cp(origin, join(destination, file));
+    }
+  }
+};
+
+describe('buildWorkspaceProduct', () => {
+  let root: string;
+  let fixtureSetupMs = 0;
+  beforeAll(async () => {
+    const started = performance.now();
+    root = await mkdtemp(join(tmpdir(), 'workspace-inputs-'));
     try {
-      await cp(
-        join(root, 'data', 'mappings'),
-        join(baselineRoot, 'data', 'mappings'),
-        {
-          recursive: true,
-        },
-      );
-      const whitelist = sourceConfig.whitelist.filter(
-        (source) => source !== 'frontier-swe',
-      );
-      await writeFile(
-        join(baselineRoot, 'data', 'mappings', 'sources.json'),
-        JSON.stringify({
-          ...sourceConfig,
-          whitelist,
-        }),
-      );
-      for (const source of whitelist) {
-        const destination = join(baselineRoot, 'data', 'sources', source);
-        await mkdir(destination, { recursive: true });
-        for (const file of [
-          'manifest.json',
-          'candidates.json',
-          'costs.json',
-          'evidence-index.json',
-        ]) {
-          const origin = join(root, 'data', 'sources', source, file);
-          if (existsSync(origin)) await cp(origin, join(destination, file));
-        }
-      }
+      await copyWorkspaceInputs(resolve(import.meta.dirname, '../../..'), root);
+    } catch (error) {
+      await rm(root, { recursive: true, force: true });
+      throw error;
+    }
+    fixtureSetupMs = performance.now() - started;
+  });
+  afterAll(async () => {
+    if (root) await rm(root, { recursive: true, force: true });
+  });
+
+  // Measured integration budget: docs/analysis/2026-10-05-workspace-timing.md.
+  it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
+    const timingOutput = process.env.WORKSPACE_TIMING_OUTPUT;
+    const stages: {
+      stage: string;
+      wallMs: number;
+      cpuUserMs: number;
+      cpuSystemMs: number;
+      fsRead: number;
+      fsWrite: number;
+    }[] = [];
+    let stageStart = performance.now();
+    let stageCpu = process.cpuUsage();
+    let stageResources = process.resourceUsage();
+    const mark = (stage: string) => {
+      const now = performance.now();
+      const cpu = process.cpuUsage(stageCpu);
+      const resources = process.resourceUsage();
+      stages.push({
+        stage,
+        wallMs: now - stageStart,
+        cpuUserMs: cpu.user / 1000,
+        cpuSystemMs: cpu.system / 1000,
+        fsRead: resources.fsRead - stageResources.fsRead,
+        fsWrite: resources.fsWrite - stageResources.fsWrite,
+      });
+      stageStart = now;
+      stageCpu = process.cpuUsage();
+      stageResources = resources;
+    };
+    const baselineRoot = await mkdtemp(join(tmpdir(), 'comparison-baseline-'));
+    try {
+      await copyWorkspaceInputs(root, baselineRoot, true);
+      mark('setup');
       const generatedAt = '2026-10-01T00:00:00.000Z';
       const baseline = await buildWorkspaceProduct(baselineRoot, generatedAt);
+      mark('baseline-build');
       const added = await buildWorkspaceProduct(root, generatedAt);
+      mark('added-build');
       expect(added.presets).toEqual(baseline.presets);
       expect(added.defaultPresetId).toEqual(baseline.defaultPresetId);
       expect(added.costs).toEqual(baseline.costs);
@@ -69,13 +129,26 @@ describe('buildWorkspaceProduct', () => {
       expect(
         added.profiles.filter(({ id }) => existingProfiles.has(id)),
       ).toEqual(baseline.profiles);
+      mark('assertions');
     } finally {
+      const cleanupStart = performance.now();
+      const cleanupCpu = process.cpuUsage();
+      const cleanupResources = process.resourceUsage();
       await rm(baselineRoot, { recursive: true, force: true });
+      stageStart = cleanupStart;
+      stageCpu = cleanupCpu;
+      stageResources = cleanupResources;
+      mark('cleanup');
+      if (timingOutput) {
+        await appendFile(
+          timingOutput,
+          `${JSON.stringify({ fixtureSetupMs, stages })}\n`,
+        );
+      }
     }
   }, 15_000);
 
   it('assembles the verified workspace sources into a frontier ProductVersion', async () => {
-    const root = resolve(import.meta.dirname, '../../..');
     const product = await buildWorkspaceProduct(
       root,
       '2026-07-16T14:00:00.000Z',
@@ -333,7 +406,6 @@ describe('buildWorkspaceProduct', () => {
   }, 15_000);
 
   it('ignores frozen or non-whitelisted source directories in data/sources without error', async () => {
-    const root = resolve(import.meta.dirname, '../../..');
     const baseline = await buildWorkspaceProduct(
       root,
       '2026-07-16T14:00:00.000Z',
@@ -371,7 +443,6 @@ describe('buildWorkspaceProduct', () => {
   });
 
   it('fails a fresh AA needs-review audit and preserves the current product', async () => {
-    const root = resolve(import.meta.dirname, '../../..');
     const temporaryRoot = await mkdtemp(join(tmpdir(), 'aa-review-build-'));
     try {
       await cp(
