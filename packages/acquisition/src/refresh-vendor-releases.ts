@@ -1,3 +1,4 @@
+import { recordCapturedEvidence } from './source-processing.js';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import {
@@ -63,6 +64,7 @@ for (const entry of captureIndex.captures) {
       },
     },
   );
+  recordCapturedEvidence(root, record);
   openaiEvidence.push(record);
   openaiCaptures.push({
     captureText: captureBytes.toString('utf8'),

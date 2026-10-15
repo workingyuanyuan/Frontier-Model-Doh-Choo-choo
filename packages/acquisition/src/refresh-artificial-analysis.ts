@@ -1,3 +1,8 @@
+import {
+  acquireEvidenceResponse,
+  EvidencePersistenceError,
+  recordCapturedEvidence,
+} from './source-processing.js';
 import { AcquisitionLimitError } from './acquisition-policy.js';
 import { acquisitionClient } from './safe-network.js';
 import { readFile, writeFile } from 'node:fs/promises';
@@ -67,9 +72,12 @@ const capture = async (
   method: EvidenceRecord['method'],
   metadata: Record<string, unknown>,
 ): Promise<CaptureResult> => {
-  const response = await acquisitionClient.get(url, {
-    headers: { Accept: 'text/html,application/json;q=0.9,*/*;q=0.8' },
-  });
+  const response = await acquireEvidenceResponse(
+    { root, sourceId: SOURCE_ID, url, retrievedAt },
+    {
+      headers: { Accept: 'text/html,application/json;q=0.9,*/*;q=0.8' },
+    },
+  );
   if (!response.ok) {
     throw new Error(`${url} returned HTTP ${response.status}`);
   }
@@ -92,6 +100,10 @@ const capture = async (
     artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
     method,
     metadata,
+  });
+  recordCapturedEvidence(root, record, {
+    status: response.status,
+    headers: Object.fromEntries(response.headers),
   });
   return {
     record,
@@ -153,7 +165,11 @@ const captureDetailPages = async (
     for (const [offset, result] of results.entries()) {
       const slug = batch[offset]!;
       if (result.status === 'rejected') {
-        if (result.reason instanceof AcquisitionLimitError) throw result.reason;
+        if (
+          result.reason instanceof AcquisitionLimitError ||
+          result.reason instanceof EvidencePersistenceError
+        )
+          throw result.reason;
         warnings.push(`Model detail ${slug} failed: ${String(result.reason)}`);
         continue;
       }
@@ -199,9 +215,12 @@ const fetchApi = async (
     };
   }
   try {
-    const response = await acquisitionClient.get(API_URL, {
-      headers: { Accept: 'application/json', 'x-api-key': key },
-    });
+    const response = await acquireEvidenceResponse(
+      { root, sourceId: SOURCE_ID, url: API_URL, retrievedAt },
+      {
+        headers: { Accept: 'application/json', 'x-api-key': key },
+      },
+    );
     if (!response.ok) {
       return {
         page: null,
@@ -225,11 +244,15 @@ const fetchApi = async (
       method: 'API_RESPONSE',
       metadata: {
         captureScope: 'complete API response; request credentials excluded',
-        rowCount: Array.isArray(JSON.parse(new TextDecoder().decode(bytes)))
-          ? (JSON.parse(new TextDecoder().decode(bytes)) as unknown[]).length
-          : null,
+        rowCount: null,
       },
     });
+    recordCapturedEvidence(root, record, {
+      status: response.status,
+      headers: Object.fromEntries(response.headers),
+    });
+    const payload: unknown = JSON.parse(new TextDecoder().decode(bytes));
+    record.metadata.rowCount = Array.isArray(payload) ? payload.length : null;
     return {
       page: {
         sourceUrl: API_URL,
@@ -241,7 +264,11 @@ const fetchApi = async (
       warning: null,
     };
   } catch (error) {
-    if (error instanceof AcquisitionLimitError) throw error;
+    if (
+      error instanceof AcquisitionLimitError ||
+      error instanceof EvidencePersistenceError
+    )
+      throw error;
     return {
       page: null,
       record: null,

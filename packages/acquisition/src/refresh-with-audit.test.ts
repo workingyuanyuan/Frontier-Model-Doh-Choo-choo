@@ -9,6 +9,13 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock('node:child_process', () => ({ spawn: mocks.spawn }));
+vi.mock('./process-source-command.js', () => ({
+  runSourceCommand: (
+    _root: string,
+    _sources: string[],
+    run: () => Promise<unknown>,
+  ) => run(),
+}));
 vi.mock('./refresh-utils.js', () => ({
   getWorkspaceRoot: () => resolve('workspace'),
 }));
