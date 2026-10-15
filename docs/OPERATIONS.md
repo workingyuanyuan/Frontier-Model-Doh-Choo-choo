@@ -28,7 +28,7 @@
 pnpm install --frozen-lockfile
 ```
 
-只需要 Node.js 24+ 與 pnpm 11+。不要設定 `DATABASE_URL`，也不要啟動容器或 migration。
+使用 Node.js 24+ 與 pnpm 11+。採集紀錄使用 Node.js 內建 SQLite；首次初始化、查詢、匯出與備份還原見 [證據儲存與操作](EVIDENCE_STORE.md)。
 
 ### Linux／WSL 開發環境
 
@@ -376,7 +376,7 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 
 看板在建置時讀取已整理的 `data/product/current.json` 與 mapping，瀏覽器使用建置產物，因此 `artifacts/` 缺少時，既有產品仍可建置與正常瀏覽。`artifacts/` 保存採集端的原始證據，供核對來源內容、驗證雜湊，以及使用新版解析器離線重新物化快照；只有產品 JSON 無法還原完整原始回應。遷移後若要延續這些作業，須另外搬回原始 artifact store。
 
-本流程的「耐久儲存」指既有本機 artifact store：工作目錄下的 `artifacts/sha256/<SHA-256 前兩碼>/<完整 SHA-256><副檔名>`。擷取程序將來源回傳的原始 bytes 依內容 SHA-256 寫入此處，供後續溯源與重新物化；檔案須在程序結束後持續保留，不作為可隨任務清除的暫存。架構依據見 [ARCHITECTURE 的 artifacts 說明](ARCHITECTURE.md#artifacts)，寫入實作見 [`writeContentAddressedArtifact`](../packages/acquisition/src/index.ts) 與 [`captureArtifact`](../packages/acquisition/src/refresh-utils.ts)。
+本流程的「耐久儲存」包含 SQLite 採集紀錄與本機 artifact store；完整備份與還原見 [證據儲存](EVIDENCE_STORE.md#備份還原與中斷恢復)。原始內容位於：工作目錄下的 `artifacts/sha256/<SHA-256 前兩碼>/<完整 SHA-256><副檔名>`。擷取程序將來源回傳的原始 bytes 依內容 SHA-256 寫入此處，供後續溯源與重新物化；檔案須在程序結束後持續保留，不作為可隨任務清除的暫存。架構依據見 [ARCHITECTURE 的 artifacts 說明](ARCHITECTURE.md#artifacts)，寫入實作見 [`writeContentAddressedArtifact`](../packages/acquisition/src/index.ts) 與 [`captureArtifact`](../packages/acquisition/src/refresh-utils.ts)。
 
 每次成功擷取後，依本次快照 Evidence 的 `artifactPath` 回讀本機原始檔，核對 SHA-256 與 `byteLength`；全部相符才算完成 artifact 保存驗證。`artifacts/` 不進 Git，Evidence metadata 不能取代原始 artifact。若本次快照所需檔案缺失、無法讀寫或完整性不符，新快照不得標為驗證完成；報告須列出具體路徑與失敗證據。
 
@@ -391,7 +391,7 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 開始工作先讀 [文件入口](README.md)，再讀受影響的主題契約。每個任務保持單一目的與可驗證的完成條件；延續既有授權，日常可逆實作與可由證據裁決的問題由代理完成，產品政策與無法裁決的衝突交給使用者。
 
 - 保留使用者既有變更。辨識當前 worktree 與起始 commit；舊 worktree、歷史文件及對話交接不能替代實際輸入。
-- 沿用三個 workspace 與靜態資料邊界；詳見 [架構](ARCHITECTURE.md) 與 [移除項目](REFACTOR_DISCARD_LIST.md)。現役來源按刷新流程維護，凍結來源保持歷史資料；不得用猜測 identity、補零或綜合指數替代缺失成績。
+- 沿用三個 workspace 與靜態資料邊界；詳見 [架構](ARCHITECTURE.md) 與 [移除項目](REFACTOR_DISCARD_LIST.md)。現役來源按刷新流程維護；不得用猜測 identity、補零或綜合指數替代缺失成績。
 - 變更架構、產品行為、schema、mapping、計分、來源或操作命令時，同一次任務同步負責的權威文件與必要測試。其他入口使用連結，避免複製流程。
 - 對純文件變更檢查格式、連結、指令／路徑存在性及契約一致性；程式與資料變更按受影響範圍驗證，完整發布驗證依 §7。建置舊資料成功不能取代刷新完成證據。
 - 儲存在專案內的文件使用相對於該文件的連結；命令範例使用專案根目錄相對路徑，必要的外部位置使用有說明的佔位符。不得寫入個人電腦的磁碟代號、使用者家目錄或 worktree 絕對路徑。

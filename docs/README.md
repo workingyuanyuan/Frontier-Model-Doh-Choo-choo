@@ -17,6 +17,8 @@
 | 查已移除架構的邊界             | [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)：架構邊界的補充清單                                                                |
 | 檢視集合覆蓋率                 | [COVERAGE_MATRIX_REPORT.md](COVERAGE_MATRIX_REPORT.md)：有日期的產出報告，重產方式見操作手冊                                            |
 
+證據查詢、取得歷史、快取與備份還原見 [證據儲存與操作](EVIDENCE_STORE.md)。
+
 ## 權威與維護方式
 
 - 使用者已確認的新決定，必須同步到其所屬主題文件。上表定義各文件的權責；同一條規則只在負責的文件維護，其他入口連結引用。

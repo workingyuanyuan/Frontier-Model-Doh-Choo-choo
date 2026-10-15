@@ -1,0 +1,130 @@
+{
+  "parserSourcesHash": "8964d89af722b1f92ef47a066f42bda1f098e4a84452f133833e1a5beecc677f",
+  "sourceCount": 17,
+  "equivalence": {
+    "warmBytes": true,
+    "warmVersionId": true,
+    "changedBytes": true,
+    "changedVersionId": true
+  },
+  "changedInput": {
+    "sourceId": "deepswe",
+    "previousHash": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
+    "newHash": "sha256:4351a36f5ca4548812af2b0c02f8d7fbff483a1c055cd1f69baf5bf0d956edac",
+    "change": "Append newline to stored JSON; update evidence hash, byteLength and artifactPath"
+  },
+  "runs": [
+    {
+      "name": "full",
+      "force": true,
+      "elapsedMs": 8643,
+      "reads": 783,
+      "bytes": 565991665,
+      "parses": 22950,
+      "processing": {
+        "hits": 0,
+        "misses": 17,
+        "parsedSources": 17,
+        "elapsedMs": 8461
+      },
+      "versionId": "sha256:8c1d5969e9399508c2f8dc77968e978719a27dfd738dbc68af70ae601b1192ce"
+    },
+    {
+      "name": "warm",
+      "force": false,
+      "elapsedMs": 2423,
+      "reads": 617,
+      "bytes": 54805021,
+      "parses": 734,
+      "processing": {
+        "hits": 17,
+        "misses": 0,
+        "parsedSources": 0,
+        "elapsedMs": 2302
+      },
+      "versionId": "sha256:8c1d5969e9399508c2f8dc77968e978719a27dfd738dbc68af70ae601b1192ce"
+    },
+    {
+      "name": "one-source-change",
+      "force": false,
+      "elapsedMs": 2456,
+      "reads": 618,
+      "bytes": 54899780,
+      "parses": 802,
+      "processing": {
+        "hits": 16,
+        "misses": 1,
+        "parsedSources": 1,
+        "elapsedMs": 2342
+      },
+      "versionId": "sha256:e58fa98cc8dd4252d7ab252d378ecb0ed509fdca994b3e395cbb4f3f75549ad3"
+    },
+    {
+      "name": "changed-full",
+      "force": true,
+      "elapsedMs": 8372,
+      "reads": 786,
+      "bytes": 566177106,
+      "parses": 22850,
+      "processing": {
+        "hits": 0,
+        "misses": 17,
+        "parsedSources": 17,
+        "elapsedMs": 8258
+      },
+      "versionId": "sha256:e58fa98cc8dd4252d7ab252d378ecb0ed509fdca994b3e395cbb4f3f75549ad3"
+    }
+  ],
+  "environment": {
+    "os": "Linux WSL2 6.18.54.1",
+    "cpu": "Intel Core Ultra 9 285HX",
+    "node": "24.18.0",
+    "pnpm": "11.7.0",
+    "cacheConditions": "OS cache not flushed; first processing cache empty, subsequent warm. Single observation per run."
+  },
+  "baseline": {
+    "commit": "69a71f1f1ff43282f92463653d815654fef0db19",
+    "elapsedMs": 6911,
+    "readFileSyncCalls": 409,
+    "readFileSyncBytes": 539540598,
+    "jsonParseCalls": 21996
+  },
+  "queries": {
+    "find": {
+      "ms": 357,
+      "bytes": 4405,
+      "exit": 0
+    },
+    "diff": {
+      "ms": 261,
+      "bytes": 356,
+      "exit": 0
+    },
+    "references": {
+      "ms": 256,
+      "bytes": 5167,
+      "exit": 0
+    }
+  },
+  "migration": {
+    "history": {
+      "requested": true,
+      "scope": "Reachable Git revisions of retained source directories with available verified inputs",
+      "head": "69a71f1f1ff43282f92463653d815654fef0db19",
+      "shallow": false,
+      "limit": null,
+      "commitsVisited": 15,
+      "importedSnapshots": 104,
+      "skippedUnavailableSnapshots": 13
+    },
+    "verification": {
+      "ok": true,
+      "blobs": 2020,
+      "captures": 1590,
+      "snapshots": 126,
+      "unknown": 0,
+      "issues": []
+    },
+    "elapsedMs": 32133
+  }
+}

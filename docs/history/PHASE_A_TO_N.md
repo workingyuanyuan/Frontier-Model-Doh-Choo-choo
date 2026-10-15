@@ -50,13 +50,13 @@ A 清理  ──┐
 **刪除**：
 
 - `packages/acquisition/src/materializers.ts` 中的 `materializeVals`（約 406 行）
-- `packages/acquisition/src/organizer-materializers.ts`（arc-prize、scale-hle、zapier、osworld、lech-writing，約 613 行）
+- `packages/acquisition/src/organizer-materializers.ts`（約 613 行）
 - `packages/acquisition/src/materialize-organizers.ts`（約 733 行）
 - 上述對應的測試、export、script、CI 步驟
 
 **保留**：`materializeArtificialAnalysis`、`materializeEpoch`。
 
-**完成條件**：全域搜尋 `vals`、`arc-prize`、`scale-hle`、`zapier`、`osworld`、`lech-writing` 在 `packages/` 與 `apps/` 下沒有現行程式碼引用（`data/sources/` 的凍結資料不算）；`packages/acquisition` 的 export 面只剩保留項；基準驗證通過。
+**完成條件**：全域搜尋已移除的來源擷取函式，在 `packages/` 與 `apps/` 下沒有現行程式碼引用；`packages/acquisition` 的 export 面只剩保留項；基準驗證通過。
 
 ## A3 — 拆分 `materializers.ts`
 
@@ -149,7 +149,7 @@ A 清理  ──┐
 
 - 白名單以設定檔表示，不是硬編碼的條件判斷。
 - 期一內容：`artificial-analysis`、`livebench`、`deepswe`、`frontier-code`。
-- 凍結目錄存在但不在白名單時，建置必須完全忽略它們，且不得報錯。
+- 不在白名單的目錄，建置必須完全忽略它們，且不得報錯。
 
 **完成條件**：有一個測試證明「在 `data/sources/` 放入一個不在白名單的目錄，建置結果不變」。
 
@@ -1996,13 +1996,7 @@ FrontierMath Tier 4 與標準版難度不同，塌成一列等於**同一個維�
   情況並在 validation report 中列表；沒有難度差異的（`gpqa-diamond`、`swe-bench`、
   `terminal-bench-2-1`、`livecodebench`、`mmlu-pro` 的 `(null)` 與 `1`／`2.1`，以及 `aime`
   的 Vals 全 EXCLUDED 版）維持共用 ID，那是同一個測驗的不同寫法。
-- **統計不得混入凍結來源。** `SPEC.md` §3.2 凍結的六個目錄（`lech-writing`、
-  `llm-stats`、`openai`、`osworld`、`scale-hle`、`terminal-bench`）不在白名單內、不參與建置，
-  `workspace.ts` 以 `sources.json` 的 whitelist 過濾目錄，實測 `current.json` 的 2463 筆證據
-  只來自那八個來源。審查時一度把 `openai` 的 `frontiermath` 兩列與 `scale-hle` 的
-  `humanitys-last-exam`、`openai` 的 `mrcr-v2`、`osworld` 當成待處理項目，那是**錯的**：
-  它們是期一遺留的靜態快照，內容不得修改，也不影響計分。凡涉及 benchmark 版本、來源數、
-  覆蓋率的統計，一律先過白名單再算。
+- benchmark 版本、來源數與覆蓋率的統計，一律先過來源白名單再計算。
 - `arc-agi` 不在 `display-set.json` 中，改名不觸及該檔；若 N10 之後改名會觸及顯示清單，
   必須先交使用者裁決。
 

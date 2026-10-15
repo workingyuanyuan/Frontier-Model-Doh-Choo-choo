@@ -1,4 +1,3 @@
-import { acquisitionClient } from './safe-network.js';
 import { existsSync } from 'node:fs';
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -11,6 +10,10 @@ import {
 } from '@llm-bench/benchmark-data';
 
 import { writeContentAddressedArtifact } from './index.js';
+import {
+  acquireEvidenceResponse,
+  recordCapturedEvidence,
+} from './source-processing.js';
 
 export const getWorkspaceRoot = (): string => {
   let directory = process.cwd();
@@ -84,7 +87,7 @@ export const captureArtifact = async (input: {
   method: EvidenceRecord['method'];
   metadata: Record<string, unknown>;
 }): Promise<CapturedArtifact> => {
-  const response = await acquisitionClient.get(input.url);
+  const response = await acquireEvidenceResponse(input);
   if (!response.ok) {
     throw new Error(`${input.url} returned HTTP ${response.status}`);
   }
@@ -94,20 +97,21 @@ export const captureArtifact = async (input: {
     bytes,
     input.mediaType,
   );
-  return {
-    bytes,
-    text: new TextDecoder().decode(bytes),
-    record: EvidenceRecordSchema.parse({
-      ...stored.record,
-      sourceId: input.sourceId,
-      retrievedAt: input.retrievedAt,
-      requestUrl: input.url,
-      finalUrl: response.url || input.url,
-      artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
-      method: input.method,
-      metadata: input.metadata,
-    }),
-  };
+  const record = EvidenceRecordSchema.parse({
+    ...stored.record,
+    sourceId: input.sourceId,
+    retrievedAt: input.retrievedAt,
+    requestUrl: input.url,
+    finalUrl: response.url || input.url,
+    artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
+    method: input.method,
+    metadata: input.metadata,
+  });
+  recordCapturedEvidence(input.root, record, {
+    status: response.status,
+    headers: Object.fromEntries(response.headers),
+  });
+  return { bytes, text: new TextDecoder().decode(bytes), record };
 };
 
 export const snapshotDeltaMarkdown = (

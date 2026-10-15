@@ -1,4 +1,7 @@
-import { acquisitionClient } from './safe-network.js';
+import {
+  acquireEvidenceResponse,
+  recordCapturedEvidence,
+} from './source-processing.js';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
@@ -55,7 +58,12 @@ const fetchArtifact = async (
   retrievedAt: string,
   metadata: Record<string, unknown>,
 ): Promise<{ bytes: Uint8Array; evidence: EvidenceRecord }> => {
-  const response = await acquisitionClient.get(url);
+  const response = await acquireEvidenceResponse({
+    root,
+    sourceId,
+    url,
+    retrievedAt,
+  });
   if (!response.ok) {
     throw new Error(`${url} returned HTTP ${response.status}`);
   }
@@ -65,19 +73,21 @@ const fetchArtifact = async (
     bytes,
     mediaType,
   );
-  return {
-    bytes,
-    evidence: EvidenceRecordSchema.parse({
-      ...stored.record,
-      sourceId,
-      retrievedAt,
-      requestUrl: url,
-      finalUrl: response.url || url,
-      artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
-      method,
-      metadata,
-    }),
-  };
+  const evidence = EvidenceRecordSchema.parse({
+    ...stored.record,
+    sourceId,
+    retrievedAt,
+    requestUrl: url,
+    finalUrl: response.url || url,
+    artifactPath: `artifacts/sha256/${stored.record.artifactPath}`,
+    method,
+    metadata,
+  });
+  recordCapturedEvidence(root, evidence, {
+    status: response.status,
+    headers: Object.fromEntries(response.headers),
+  });
+  return { bytes, evidence };
 };
 
 const option = (name: string): string | null => {

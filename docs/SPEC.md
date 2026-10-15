@@ -61,16 +61,7 @@ Chartography 使用獨立 benchmark ID `chartography`，主要維度為 Reasonin
 
 模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 
-### 3.2 凍結（不刪除，但不參與建置）
-
-`data/sources/` 底下這些目錄**原地保留、內容不得修改**：
-
-```
-lech-writing  llm-stats  openai  osworld
-scale-hle  terminal-bench
-```
-
-理由：原始快照是某個時間點的實況，重抓不回來。凍結成本為零。
+### 3.2 來源白名單與快照更新
 
 **`epoch-ai` 於 2026-08-21 移出凍結清單**（使用者裁決）。期二正式納入這個來源，因此它的
 `candidates.json`、`manifest.json`、`validation-report.md`、`evidence-index.json` 由
@@ -97,7 +88,7 @@ scale-hle  terminal-bench
 benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個檔案（含 `costs.json`）；舊快照
 留在 git 歷史與內容定址 artifact store 供對照。
 
-**建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。凍結目錄即使存在也不可能被誤讀進計分。白名單以設定檔表示，不是硬編碼的 if 判斷。
+**建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
 ## 4. 五維與計分
 
@@ -1180,7 +1171,6 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
   未解析完整名單寫入各來源 validation report；任何新增身分必須另開資料品質 task，由使用者
   逐項裁決。
 - 綜合指數（AA Intelligence Index、Epoch ECI、Vals Index、LLM Stats Coding Index）不投入五維總分。
-- 不重寫或刪除凍結的來源資料。
 - 發布授權、資料提交與審核程序見 [OPERATIONS.md](OPERATIONS.md)。
 - production build 不需要網路、artifact store、資料庫、Docker 或背景程序。
 

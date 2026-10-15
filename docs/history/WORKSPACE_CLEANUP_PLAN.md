@@ -65,6 +65,3 @@
 | 審核關卡 O                            | O5 完成後由使用者執行                                     |
 | `docs/history/PHASE_A_TO_N.md` N6、N7 | 期三審核關卡與其後的刷新報告，狀態停在未開始              |
 | 規格 §12 第 11、12 項                 | `medscribe` 歸屬與 Reasoning 內部結構，待資料量足夠後重驗 |
-
-`data/sources/` 下 `lech-writing`、`llm-stats`、`openai`、`osworld`、`scale-hle`、
-`terminal-bench` 六個來源依規格 §3.2 為凍結狀態，保留不動。

@@ -29,12 +29,6 @@ import {
   snapshotDeltaMarkdown,
 } from './refresh-utils.js';
 
-async function fetchModuleText(url: string): Promise<string> {
-  const response = await acquisitionClient.get(url);
-  if (!response.ok) throw new Error(`${url} returned HTTP ${response.status}`);
-  return new TextDecoder().decode(response.bytes);
-}
-
 async function main() {
   const rootArgument = process.argv
     .slice(2)
@@ -64,7 +58,18 @@ async function main() {
   });
   const found = await findZapierRouteModule(
     page.text,
-    fetchModuleText,
+    async (url) =>
+      (
+        await captureArtifact({
+          root,
+          sourceId: ZAPIER_SOURCE_ID,
+          url,
+          retrievedAt,
+          mediaType: 'text/javascript',
+          method: 'EMBEDDED_JSON',
+          metadata: { captureScope: 'route module discovery' },
+        })
+      ).text,
     ZAPIER_PAGE_URL,
     acquisitionClient.budget,
   );

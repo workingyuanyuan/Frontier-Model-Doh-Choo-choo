@@ -4,7 +4,7 @@
 
 ## 系統邊界
 
-LLM Bench 是一套靜態資料產品，不是資料庫應用。唯一支援中的應用與資料路徑為：
+LLM Bench 是一套靜態資料產品。採集端使用本機 SQLite 保存取得與處理歷史，產品執行期只使用靜態資料。支援中的資料路徑為：
 
 ```text
 公開來源／官方匯出
@@ -12,6 +12,8 @@ LLM Bench 是一套靜態資料產品，不是資料庫應用。唯一支援中�
         ▼
 packages/acquisition
   擷取、物化、hash、列數與完整性驗證
+        │
+        ├── artifacts/evidence/store.sqlite  取得、依賴與快照
         │
         ├── artifacts/sha256/...       原始 bytes（Git 外）
         └── data/sources/<source>/     可審查的結構化結果（Git 內）
@@ -54,6 +56,7 @@ packages/benchmark-data
 - 保存真實 artifact bytes、SHA-256、byte length、locator 與取得方法。
 - 對照來源母體、分頁或人眼可見列數，產生完整性報告。
 - 驗證 Candidate／CostRecord 引用的 Evidence 存在。
+- SQLite 保存每次取得與處理快照，來源 JSON 由完整快照匯出；共同介面提供輸入驗證、快取與中斷恢復。操作與維護責任見 [證據儲存](EVIDENCE_STORE.md)。
 - 來源刷新只產生候選資料，不直接改變產品資料檔。常態任務接著依核准政策重產集合、重建產品及驗證展示，由操作手冊定義完整交付。
 
 ### `data`
@@ -83,7 +86,7 @@ data/product/current.json ──► apps/bench static build
 - 每次修正都重建 deterministic ProductVersion，並以內容 SHA-256 產生新的 `versionId`。
 - `current.json` 是可覆寫的工作區輸出；使用者審核後才提交資料 commit。
 - 建置、頁尾與審核材料都使用同一個完整 `versionId`。
-- Git 歷史保存已部署資料版本；失敗安全由資料驗證與 Git 歷史共同提供。
+- Git 歷史保存已部署資料版本；SQLite 保存本機採集與處理歷史，交易與可恢復匯出保護來源快照。切換 Git 分支後明確初始化目前快照，匯出以 snapshot ID 選取。
 
 ## 離線與失敗安全
 
