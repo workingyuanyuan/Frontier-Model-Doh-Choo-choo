@@ -1,0 +1,638 @@
+{
+  "reviewedAt": "2026-10-16",
+  "oldVersionId": "sha256:aa2ec4e72506c2494c04e0ca3635dcb6b83e27af655c3795dd57fdd17d0e0b96",
+  "newVersionId": "sha256:6fa91f222b86daf7ef9aacb6773c07fedbae885548ae5e91ccdc1fb7647d4c35",
+  "generatedAt": "2026-10-16T00:07:04.535Z",
+  "sourceSnapshotIds": [
+    "anthropic-releases:2026-10-04T04:43:52.621Z",
+    "arc-prize:2026-10-04T03:27:00.029Z",
+    "artificial-analysis:2026-10-04T03:20:33.732Z",
+    "deepswe:2026-10-04T03:26:10.895Z",
+    "epoch-ai:2026-10-04T03:26:53.658Z",
+    "frontier-code:2026-10-04T03:26:22.920Z",
+    "frontier-swe:2026-10-04T03:26:46.220Z",
+    "google-releases:2026-10-04T04:31:00.008Z",
+    "livebench:2026-10-04T03:26:02.621Z",
+    "openai-releases:2026-10-04T04:31:17.114Z",
+    "surge-chartography:2026-10-04T03:22:53.727Z",
+    "surge-complex-constraints:2026-10-04T03:22:53.795Z",
+    "surge-corecraft:2026-10-04T03:22:53.981Z",
+    "surge-dayjob-finance:2026-10-04T03:22:54.301Z",
+    "surge-dayjob-healthcare:2026-10-04T03:22:54.445Z",
+    "surge-gdp-xlsx:2026-10-04T03:22:54.597Z",
+    "surge-riemann:2026-10-04T03:22:54.168Z",
+    "vals-ai:2026-10-04T03:24:57.763Z",
+    "xai-releases:2026-10-04T04:31:01.893Z",
+    "zapier-automationbench:2026-10-04T03:27:07.379Z"
+  ],
+  "benchmarkQuality": {
+    "evidencePath": "docs/analysis/2026-10-16-benchmark-exclusions.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi"
+    ],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2,
+    "reviewedAt": "2026-10-16"
+  },
+  "counts": {
+    "profiles": {
+      "before": 214,
+      "after": 214
+    },
+    "frontier": {
+      "before": 10,
+      "after": 10
+    },
+    "evidence": {
+      "before": 8351,
+      "after": 8351
+    },
+    "costs": {
+      "before": 992,
+      "after": 992
+    },
+    "comparisonEvidenceIds": {
+      "before": 3156,
+      "after": 3073
+    }
+  },
+  "cohorts": [
+    {
+      "presetId": "aa-top-2",
+      "modelCount": 2,
+      "oldBenchmarkCount": 29,
+      "newBenchmarkCount": 27,
+      "removedBenchmarkIds": ["ioi", "livebench-mathematics"],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 66.3091852598725,
+          "newScore": 64.5329572572938,
+          "scoreDelta": -1.776228002578705
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 62.622660242651335,
+          "newScore": 61.20218632857672,
+          "scoreDelta": -1.4204739140746128
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-3",
+      "modelCount": 3,
+      "oldBenchmarkCount": 29,
+      "newBenchmarkCount": 27,
+      "removedBenchmarkIds": ["ioi", "livebench-mathematics"],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 66.34502989687039,
+          "newScore": 64.63529856236127,
+          "scoreDelta": -1.7097313345091152
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 66.3091852598725,
+          "newScore": 64.5329572572938,
+          "scoreDelta": -1.776228002578705
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 62.622660242651335,
+          "newScore": 61.20218632857672,
+          "scoreDelta": -1.4204739140746128
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-4",
+      "modelCount": 4,
+      "oldBenchmarkCount": 27,
+      "newBenchmarkCount": 25,
+      "removedBenchmarkIds": ["ioi", "livebench-mathematics"],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 66.24030645377542,
+          "newScore": 64.48644766482774,
+          "scoreDelta": -1.7538587889476815
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 66.2363087283536,
+          "newScore": 64.38307302442277,
+          "scoreDelta": -1.8532357039308351
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 65.13512074781285,
+          "newScore": 63.093155196800076,
+          "scoreDelta": -2.0419655510127726
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 62.613246578897396,
+          "newScore": 61.1651796019186,
+          "scoreDelta": -1.4480669769787937
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-5",
+      "modelCount": 5,
+      "oldBenchmarkCount": 20,
+      "newBenchmarkCount": 19,
+      "removedBenchmarkIds": ["ioi"],
+      "rows": [
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 57.980433954857126,
+          "newScore": 56.86645123880774,
+          "scoreDelta": -1.1139827160493851
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 57.67118080012109,
+          "newScore": 56.54863800176719,
+          "scoreDelta": -1.122542798353905
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 56.51262332618049,
+          "newScore": 55.57098670066609,
+          "scoreDelta": -0.9416366255143984
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 55.92624141832187,
+          "newScore": 55.37704553354821,
+          "scoreDelta": -0.5491958847736598
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldScore": 53.954151796609366,
+          "newScore": 52.341790479736936,
+          "scoreDelta": -1.6123613168724305
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-6",
+      "modelCount": 6,
+      "oldBenchmarkCount": 20,
+      "newBenchmarkCount": 19,
+      "removedBenchmarkIds": ["ioi"],
+      "rows": [
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 57.980433954857126,
+          "newScore": 56.86645123880774,
+          "scoreDelta": -1.1139827160493851
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 57.67118080012109,
+          "newScore": 56.54863800176719,
+          "scoreDelta": -1.122542798353905
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 56.51262332618049,
+          "newScore": 55.57098670066609,
+          "scoreDelta": -0.9416366255143984
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 55.92624141832187,
+          "newScore": 55.37704553354821,
+          "scoreDelta": -0.5491958847736598
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldScore": 53.954151796609366,
+          "newScore": 52.341790479736936,
+          "scoreDelta": -1.6123613168724305
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldScore": 53.23738238600609,
+          "newScore": 51.68126757119127,
+          "scoreDelta": -1.5561148148148192
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-7",
+      "modelCount": 7,
+      "oldBenchmarkCount": 19,
+      "newBenchmarkCount": 18,
+      "removedBenchmarkIds": ["ioi"],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 59.734082034688996,
+          "newScore": 58.611539236335084,
+          "scoreDelta": -1.122542798353912
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 59.35068704127688,
+          "newScore": 58.23670432522749,
+          "scoreDelta": -1.1139827160493851
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 58.98535172124221,
+          "newScore": 58.04371509572781,
+          "scoreDelta": -0.9416366255143984
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 58.0052722825194,
+          "newScore": 57.45607639774575,
+          "scoreDelta": -0.5491958847736527
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldScore": 57.15631721487892,
+          "newScore": 56.381514334220476,
+          "scoreDelta": -0.7748028806584415
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldScore": 56.37775673488097,
+          "newScore": 54.76539541800854,
+          "scoreDelta": -1.6123613168724305
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldScore": 55.72725275637645,
+          "newScore": 54.17113794156163,
+          "scoreDelta": -1.5561148148148192
+        }
+      ]
+    },
+    {
+      "presetId": "aa-frontier",
+      "modelCount": 8,
+      "oldBenchmarkCount": 17,
+      "newBenchmarkCount": 17,
+      "removedBenchmarkIds": [],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 59.68130123907857,
+          "newScore": 59.68130123907857,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 58.27941658978963,
+          "newScore": 58.27941658978963,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 58.02028868736741,
+          "newScore": 58.02028868736741,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 57.98261701616676,
+          "newScore": 57.98261701616676,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldScore": 56.495805829419375,
+          "newScore": 56.495805829419375,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldScore": 56.443163593591535,
+          "newScore": 56.443163593591535,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-fable-5",
+          "profileId": "anthropic-claude-fable-5-max",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldScore": 56.14035339089301,
+          "newScore": 56.14035339089301,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 8,
+          "newRank": 8,
+          "oldScore": 55.8445021390925,
+          "newScore": 55.8445021390925,
+          "scoreDelta": 0.0
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-9",
+      "modelCount": 9,
+      "oldBenchmarkCount": 14,
+      "newBenchmarkCount": 14,
+      "removedBenchmarkIds": [],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 54.7240654797939,
+          "newScore": 54.7240654797939,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 52.40917287864226,
+          "newScore": 52.40917287864226,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 52.286550387846574,
+          "newScore": 52.286550387846574,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 51.81451496997251,
+          "newScore": 51.81451496997251,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldScore": 51.588514299715605,
+          "newScore": 51.588514299715605,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldScore": 50.718205314264054,
+          "newScore": 50.718205314264054,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-fable-5",
+          "profileId": "anthropic-claude-fable-5-max",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldScore": 50.2815375348916,
+          "newScore": 50.2815375348916,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "oldRank": 8,
+          "newRank": 8,
+          "oldScore": 49.78926557107178,
+          "newScore": 49.78926557107178,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "meta-muse-spark-1-3",
+          "profileId": "meta-muse-spark-1-3-max",
+          "oldRank": 9,
+          "newRank": 9,
+          "oldScore": 46.295660172175744,
+          "newScore": 46.295660172175744,
+          "scoreDelta": 0.0
+        }
+      ]
+    },
+    {
+      "presetId": "aa-top-10",
+      "modelCount": 10,
+      "oldBenchmarkCount": 14,
+      "newBenchmarkCount": 14,
+      "removedBenchmarkIds": [],
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldScore": 54.7240654797939,
+          "newScore": 54.7240654797939,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldScore": 52.40917287864226,
+          "newScore": 52.40917287864226,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldScore": 52.286550387846574,
+          "newScore": 52.286550387846574,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldScore": 51.81451496997251,
+          "newScore": 51.81451496997251,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldScore": 51.588514299715605,
+          "newScore": 51.588514299715605,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldScore": 50.718205314264054,
+          "newScore": 50.718205314264054,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-fable-5",
+          "profileId": "anthropic-claude-fable-5-max",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldScore": 50.2815375348916,
+          "newScore": 50.2815375348916,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "oldRank": 8,
+          "newRank": 8,
+          "oldScore": 49.78926557107178,
+          "newScore": 49.78926557107178,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-max",
+          "oldRank": 9,
+          "newRank": 9,
+          "oldScore": 46.688259852485764,
+          "newScore": 46.688259852485764,
+          "scoreDelta": 0.0
+        },
+        {
+          "modelId": "meta-muse-spark-1-3",
+          "profileId": "meta-muse-spark-1-3-max",
+          "oldRank": 10,
+          "newRank": 10,
+          "oldScore": 46.295660172175744,
+          "newScore": 46.295660172175744,
+          "scoreDelta": 0.0
+        }
+      ]
+    }
+  ]
+}

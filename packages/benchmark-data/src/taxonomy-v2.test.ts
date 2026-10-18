@@ -86,12 +86,14 @@ describe('approved capability taxonomy v2', () => {
   });
 });
 
-describe('approved ProofBench quality review', () => {
-  it('excludes ProofBench while retaining the reviewed limitation rule', () => {
+describe('approved benchmark quality reviews', () => {
+  it('applies the approved exclusions and limitation rule', () => {
     expect(qualityPolicy.excludedBenchmarkIds).toEqual([
       'aime',
       'programbench',
       'proofbench',
+      'livebench-mathematics',
+      'ioi',
     ]);
     expect(qualityPolicy.limitedBenchmarkIds).toEqual([
       'aa-lcr',
@@ -101,15 +103,24 @@ describe('approved ProofBench quality review', () => {
       'tax-eval-v2',
     ]);
     expect(qualityPolicy.minOtherBenchmarksPerLimited).toBe(2);
-    expect(qualityPolicy.reviewedAt).toBe('2026-10-03');
+    expect(qualityPolicy.reviewedAt).toBe('2026-10-16');
+    const review = readArtifact('2026-10-16-benchmark-exclusions.json');
+    expect(qualityPolicy.evidencePath).toBe(
+      'docs/analysis/2026-10-16-benchmark-exclusions.json',
+    );
+    expect(review.qualityPolicy).toEqual(qualityPolicy);
+    expect(review.addedExcludedBenchmarkIds).toEqual([
+      'livebench-mathematics',
+      'ioi',
+    ]);
   });
 
   it('ties the exclusion to six exact frontier scores and source evidence locators', () => {
     const review = readArtifact('2026-10-03-proofbench-quality-review.json');
     const cohort = readArtifact('2026-10-03-frontier-cohort.json');
-    expect(qualityPolicy.evidencePath).toBe(
-      'docs/analysis/2026-10-03-proofbench-quality-review.json',
-    );
+    expect(
+      readArtifact('2026-10-16-benchmark-exclusions.json').previousEvidencePath,
+    ).toBe('docs/analysis/2026-10-03-proofbench-quality-review.json');
     expect(review.productVersion).toBe(cohort.productVersion);
     expect(review.productSha256).toBe(cohort.productSha256);
     expect(review.rows).toHaveLength(6);

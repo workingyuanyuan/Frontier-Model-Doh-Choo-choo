@@ -1,0 +1,440 @@
+{
+  "schemaVersion": "benchmark-quality-review-v1",
+  "reviewedAt": "2026-10-16",
+  "approvedBy": "user",
+  "approval": "新增排除 LiveBench Mathematics 和 IOI",
+  "decision": "exclude-from-scoring",
+  "addedExcludedBenchmarkIds": ["livebench-mathematics", "ioi"],
+  "previousEvidencePath": "docs/analysis/2026-10-03-proofbench-quality-review.json",
+  "productVersion": "sha256:aa2ec4e72506c2494c04e0ca3635dcb6b83e27af655c3795dd57fdd17d0e0b96",
+  "productSha256": "ed3abea0076c9f594b4272d0278ddcf80b71d09d6efec72c947c90c72ecc01bb",
+  "sourceSnapshotIds": [
+    "anthropic-releases:2026-10-04T04:43:52.621Z",
+    "arc-prize:2026-10-04T03:27:00.029Z",
+    "artificial-analysis:2026-10-04T03:20:33.732Z",
+    "deepswe:2026-10-04T03:26:10.895Z",
+    "epoch-ai:2026-10-04T03:26:53.658Z",
+    "frontier-code:2026-10-04T03:26:22.920Z",
+    "frontier-swe:2026-10-04T03:26:46.220Z",
+    "google-releases:2026-10-04T04:31:00.008Z",
+    "livebench:2026-10-04T03:26:02.621Z",
+    "openai-releases:2026-10-04T04:31:17.114Z",
+    "surge-chartography:2026-10-04T03:22:53.727Z",
+    "surge-complex-constraints:2026-10-04T03:22:53.795Z",
+    "surge-corecraft:2026-10-04T03:22:53.981Z",
+    "surge-dayjob-finance:2026-10-04T03:22:54.301Z",
+    "surge-dayjob-healthcare:2026-10-04T03:22:54.445Z",
+    "surge-gdp-xlsx:2026-10-04T03:22:54.597Z",
+    "surge-riemann:2026-10-04T03:22:54.168Z",
+    "vals-ai:2026-10-04T03:24:57.763Z",
+    "xai-releases:2026-10-04T04:31:01.893Z",
+    "zapier-automationbench:2026-10-04T03:27:07.379Z"
+  ],
+  "profileConvention": "Use the fixed AA top-ten product profiles from the saved frontier selection; include only winning comparison evidence, and omit missing benchmark cells.",
+  "reviews": [
+    {
+      "benchmarkId": "livebench-mathematics",
+      "decision": "exclude-from-scoring",
+      "reason": "All eight available fixed AA top-ten profiles score above 95 with a range of approximately 1.35 points.",
+      "statistics": {
+        "modelCount": 8,
+        "min": 95.731,
+        "max": 97.07749999999999,
+        "median": 96.58112499999999,
+        "range": 1.3464999999999918
+      },
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "score": 97.07749999999999,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:claude-opus-5-5-max-effort",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"claude-opus-5-5-max-effort\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "score": 96.13175,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:claude-sonnet-5-5-max-effort",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"claude-sonnet-5-5-max-effort\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "score": 97.00675,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:claude-fable-5-1-max-effort",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"claude-fable-5-1-max-effort\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "score": 96.80624999999999,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:gpt-6-astra-max",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"gpt-6-astra-max\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "score": 96.83175,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:gpt-6-1-sol-max",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"gpt-6.1-sol-max\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "score": 95.731,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:claude-opus-5-max-effort",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"claude-opus-5-max-effort\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-fable-5",
+          "profileId": "anthropic-claude-fable-5-max",
+          "score": 95.98575,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:claude-fable-5-max-effort",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"claude-fable-5-max-effort\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-max",
+          "score": 96.356,
+          "candidateId": "livebench-2026-06-25:livebench-mathematics:gpt-6-sol-max",
+          "benchmarkVersion": "2026-06-25",
+          "sourceId": "livebench",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "category-average",
+            "name": "Mathematics category average",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
+            "locator": "row[model=\"gpt-6-sol-max\"] averaged over Mathematics task columns",
+            "method": "EXPORT",
+            "retrievedAt": "2026-10-04T03:26:02.621Z",
+            "sourceUrl": "https://livebench.ai/table_2026_06_25.csv?v=1790708459"
+          }
+        }
+      ]
+    },
+    {
+      "benchmarkId": "ioi",
+      "decision": "exclude-from-scoring",
+      "reason": "User-approved exclusion after reviewing ceiling effects among leading models. The available fixed AA top-ten profiles still span 56.56–100; this decision does not assert saturation across the whole cohort.",
+      "statistics": {
+        "modelCount": 9,
+        "min": 56.556,
+        "max": 100,
+        "median": 90.778,
+        "range": 43.444
+      },
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "score": 95.056,
+          "candidateId": "vals-ai:ioi:anthropic-claude-opus-5-5",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"anthropic/claude-opus-5-5\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "score": 83.056,
+          "candidateId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"anthropic/claude-sonnet-5-5\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "score": 90.778,
+          "candidateId": "vals-ai:ioi:anthropic-claude-fable-5-1",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"anthropic/claude-fable-5-1\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "score": 100,
+          "candidateId": "vals-ai:ioi:openai-gpt-6-astra",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"openai/gpt-6-astra\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "score": 100,
+          "candidateId": "vals-ai:ioi:google-gemini-4-argon",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"google/gemini-4-argon\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "score": 96.889,
+          "candidateId": "vals-ai:ioi:openai-gpt-6-1-sol",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"openai/gpt-6.1-sol\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "anthropic-claude-opus-5",
+          "profileId": "anthropic-claude-opus-5-max",
+          "score": 84.333,
+          "candidateId": "vals-ai:ioi:anthropic-claude-opus-5",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"anthropic/claude-opus-5\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "meta-muse-spark-1-3",
+          "profileId": "meta-muse-spark-1-3-max",
+          "score": 56.556,
+          "candidateId": "vals-ai:ioi:meta-muse-spark-1-3-max",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"meta/muse_spark_1_3_max\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        },
+        {
+          "modelId": "openai-gpt-6-sol",
+          "profileId": "openai-gpt-6-sol-max",
+          "score": 82.611,
+          "candidateId": "vals-ai:ioi:openai-gpt-6-sol",
+          "benchmarkVersion": "2",
+          "sourceId": "vals-ai",
+          "metric": {
+            "higherIsBetter": true,
+            "id": "accuracy",
+            "name": "IOI accuracy",
+            "unit": "percent"
+          },
+          "scoreProvenance": {
+            "evidenceId": "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342",
+            "locator": "tasks.overall[\"openai/gpt-6-sol\"].accuracy",
+            "method": "EMBEDDED_JSON",
+            "retrievedAt": "2026-10-04T03:24:57.763Z",
+            "sourceUrl": "https://www.vals.ai/benchmarks/ioi"
+          }
+        }
+      ]
+    }
+  ],
+  "qualityPolicy": {
+    "reviewedAt": "2026-10-16",
+    "evidencePath": "docs/analysis/2026-10-16-benchmark-exclusions.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi"
+    ],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2
+  }
+}

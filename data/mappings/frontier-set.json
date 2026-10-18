@@ -161,9 +161,15 @@
   "cohortPolicy": { "minModels": 2, "maxModels": 10, "defaultModelCount": 8 },
   "defaultPresetId": "aa-frontier",
   "benchmarkQuality": {
-    "reviewedAt": "2026-10-03",
-    "evidencePath": "docs/analysis/2026-10-03-proofbench-quality-review.json",
-    "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+    "reviewedAt": "2026-10-16",
+    "evidencePath": "docs/analysis/2026-10-16-benchmark-exclusions.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi"
+    ],
     "limitedBenchmarkIds": [
       "aa-lcr",
       "gpqa-diamond",
@@ -1473,7 +1479,13 @@
         "simpleqa-verified",
         "vibe-code-bench"
       ],
-      "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+      "excludedBenchmarkIds": [
+        "aime",
+        "ioi",
+        "livebench-mathematics",
+        "programbench",
+        "proofbench"
+      ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -1493,11 +1505,9 @@
         "gpqa-diamond",
         "hlab",
         "humanitys-last-exam",
-        "ioi",
         "legal-research",
         "livebench-instruction-following",
         "livebench-language",
-        "livebench-mathematics",
         "livebench-reasoning",
         "medcode",
         "medscribe",
@@ -1509,12 +1519,7 @@
       "dimensions": [
         {
           "id": "reasoning",
-          "benchmarkIds": [
-            "critpt",
-            "gpqa-diamond",
-            "livebench-mathematics",
-            "livebench-reasoning"
-          ]
+          "benchmarkIds": ["critpt", "gpqa-diamond", "livebench-reasoning"]
         },
         {
           "id": "knowledge",
@@ -1536,7 +1541,6 @@
             "cursorbench-4",
             "cyber",
             "frontier-code-1-1",
-            "ioi",
             "scicode",
             "vibe-code-bench"
           ]
@@ -1713,14 +1717,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 95.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 50.481,
               "resultId": "vals-ai:legal-research:anthropic-claude-opus-5-5",
@@ -1741,15 +1737,6 @@
               "benchmarkId": "livebench-language",
               "score": 86.27,
               "resultId": "livebench-2026-06-25:livebench-language:claude-opus-5-5-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 97.07749999999999,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-opus-5-5-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -1956,14 +1943,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 83.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 48.077,
               "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
@@ -1984,15 +1963,6 @@
               "benchmarkId": "livebench-language",
               "score": 77.984,
               "resultId": "livebench-2026-06-25:livebench-language:claude-sonnet-5-5-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 96.13175,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-sonnet-5-5-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -2106,7 +2076,13 @@
         "simpleqa-verified",
         "vibe-code-bench"
       ],
-      "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+      "excludedBenchmarkIds": [
+        "aime",
+        "ioi",
+        "livebench-mathematics",
+        "programbench",
+        "proofbench"
+      ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -2126,11 +2102,9 @@
         "gpqa-diamond",
         "hlab",
         "humanitys-last-exam",
-        "ioi",
         "legal-research",
         "livebench-instruction-following",
         "livebench-language",
-        "livebench-mathematics",
         "livebench-reasoning",
         "medcode",
         "medscribe",
@@ -2142,12 +2116,7 @@
       "dimensions": [
         {
           "id": "reasoning",
-          "benchmarkIds": [
-            "critpt",
-            "gpqa-diamond",
-            "livebench-mathematics",
-            "livebench-reasoning"
-          ]
+          "benchmarkIds": ["critpt", "gpqa-diamond", "livebench-reasoning"]
         },
         {
           "id": "knowledge",
@@ -2169,7 +2138,6 @@
             "cursorbench-4",
             "cyber",
             "frontier-code-1-1",
-            "ioi",
             "scicode",
             "vibe-code-bench"
           ]
@@ -2346,14 +2314,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 95.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 50.481,
               "resultId": "vals-ai:legal-research:anthropic-claude-opus-5-5",
@@ -2374,15 +2334,6 @@
               "benchmarkId": "livebench-language",
               "score": 86.27,
               "resultId": "livebench-2026-06-25:livebench-language:claude-opus-5-5-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 97.07749999999999,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-opus-5-5-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -2589,14 +2540,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 83.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 48.077,
               "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
@@ -2617,15 +2560,6 @@
               "benchmarkId": "livebench-language",
               "score": 77.984,
               "resultId": "livebench-2026-06-25:livebench-language:claude-sonnet-5-5-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 96.13175,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-sonnet-5-5-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -2832,14 +2766,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 90.778,
-              "resultId": "vals-ai:ioi:anthropic-claude-fable-5-1",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 55.288,
               "resultId": "vals-ai:legal-research:anthropic-claude-fable-5-1",
@@ -2860,15 +2786,6 @@
               "benchmarkId": "livebench-language",
               "score": 89.50099999999999,
               "resultId": "livebench-2026-06-25:livebench-language:claude-fable-5-1-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 97.00675,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-fable-5-1-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -2982,7 +2899,13 @@
         "simpleqa-verified",
         "vibe-code-bench"
       ],
-      "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+      "excludedBenchmarkIds": [
+        "aime",
+        "ioi",
+        "livebench-mathematics",
+        "programbench",
+        "proofbench"
+      ],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -3001,11 +2924,9 @@
         "gpqa-diamond",
         "hlab",
         "humanitys-last-exam",
-        "ioi",
         "legal-research",
         "livebench-instruction-following",
         "livebench-language",
-        "livebench-mathematics",
         "livebench-reasoning",
         "medcode",
         "medscribe",
@@ -3016,12 +2937,7 @@
       "dimensions": [
         {
           "id": "reasoning",
-          "benchmarkIds": [
-            "critpt",
-            "gpqa-diamond",
-            "livebench-mathematics",
-            "livebench-reasoning"
-          ]
+          "benchmarkIds": ["critpt", "gpqa-diamond", "livebench-reasoning"]
         },
         {
           "id": "knowledge",
@@ -3042,7 +2958,6 @@
             "code-migration",
             "cyber",
             "frontier-code-1-1",
-            "ioi",
             "scicode",
             "vibe-code-bench"
           ]
@@ -3210,14 +3125,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 95.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 50.481,
               "resultId": "vals-ai:legal-research:anthropic-claude-opus-5-5",
@@ -3238,15 +3145,6 @@
               "benchmarkId": "livebench-language",
               "score": 86.27,
               "resultId": "livebench-2026-06-25:livebench-language:claude-opus-5-5-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 97.07749999999999,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-opus-5-5-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -3437,14 +3335,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 83.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 48.077,
               "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
@@ -3465,15 +3355,6 @@
               "benchmarkId": "livebench-language",
               "score": 77.984,
               "resultId": "livebench-2026-06-25:livebench-language:claude-sonnet-5-5-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 96.13175,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-sonnet-5-5-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -3664,14 +3545,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 90.778,
-              "resultId": "vals-ai:ioi:anthropic-claude-fable-5-1",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 55.288,
               "resultId": "vals-ai:legal-research:anthropic-claude-fable-5-1",
@@ -3692,15 +3565,6 @@
               "benchmarkId": "livebench-language",
               "score": 89.50099999999999,
               "resultId": "livebench-2026-06-25:livebench-language:claude-fable-5-1-max-effort",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 97.00675,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:claude-fable-5-1-max-effort",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -3891,14 +3755,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:openai-gpt-6-astra",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 39.423,
               "resultId": "vals-ai:legal-research:openai-gpt-6-astra",
@@ -3919,15 +3775,6 @@
               "benchmarkId": "livebench-language",
               "score": 89.43066666666668,
               "resultId": "livebench-2026-06-25:livebench-language:gpt-6-astra-max",
-              "evidenceIds": [
-                "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
-                "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
-              ]
-            },
-            {
-              "benchmarkId": "livebench-mathematics",
-              "score": 96.80624999999999,
-              "resultId": "livebench-2026-06-25:livebench-mathematics:gpt-6-astra-max",
               "evidenceIds": [
                 "sha256:1021e4ef211ccba609d6da2c22032f46d695c1546508cf144a58a2f3d6960f3d",
                 "sha256:dad300ad18655b69db720e1b88fc5a5eac06c5b2f0e52c2bf50f10ff057674f3"
@@ -4027,7 +3874,7 @@
         "scicode",
         "vibe-code-bench"
       ],
-      "excludedBenchmarkIds": ["programbench", "proofbench"],
+      "excludedBenchmarkIds": ["ioi", "programbench", "proofbench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -4044,7 +3891,6 @@
         "gdpval-aa",
         "hlab",
         "humanitys-last-exam",
-        "ioi",
         "legal-research",
         "medcode",
         "medscribe",
@@ -4066,7 +3912,6 @@
           "benchmarkIds": [
             "code-migration",
             "cyber",
-            "ioi",
             "scicode",
             "vibe-code-bench"
           ]
@@ -4207,14 +4052,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-opus-5-5",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 95.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -4376,14 +4213,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 83.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 48.077,
               "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
@@ -4539,14 +4368,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-fable-5-1",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 90.778,
-              "resultId": "vals-ai:ioi:anthropic-claude-fable-5-1",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -4708,14 +4529,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:openai-gpt-6-astra",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 39.423,
               "resultId": "vals-ai:legal-research:openai-gpt-6-astra",
@@ -4871,14 +4684,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:gemini-4-argon",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:google-gemini-4-argon",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -4968,7 +4773,7 @@
         "scicode",
         "vibe-code-bench"
       ],
-      "excludedBenchmarkIds": ["programbench", "proofbench"],
+      "excludedBenchmarkIds": ["ioi", "programbench", "proofbench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -4985,7 +4790,6 @@
         "gdpval-aa",
         "hlab",
         "humanitys-last-exam",
-        "ioi",
         "legal-research",
         "medcode",
         "medscribe",
@@ -5007,7 +4811,6 @@
           "benchmarkIds": [
             "code-migration",
             "cyber",
-            "ioi",
             "scicode",
             "vibe-code-bench"
           ]
@@ -5148,14 +4951,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-opus-5-5",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 95.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -5317,14 +5112,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 83.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 48.077,
               "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
@@ -5480,14 +5267,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-fable-5-1",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 90.778,
-              "resultId": "vals-ai:ioi:anthropic-claude-fable-5-1",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -5649,14 +5428,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:openai-gpt-6-astra",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 39.423,
               "resultId": "vals-ai:legal-research:openai-gpt-6-astra",
@@ -5812,14 +5583,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:gemini-4-argon",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:google-gemini-4-argon",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -5980,14 +5743,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 96.889,
-              "resultId": "vals-ai:ioi:openai-gpt-6-1-sol",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 38.462,
               "resultId": "vals-ai:legal-research:openai-gpt-6-1-sol",
@@ -6075,7 +5830,7 @@
         "scicode",
         "vibe-code-bench"
       ],
-      "excludedBenchmarkIds": ["programbench", "proofbench"],
+      "excludedBenchmarkIds": ["ioi", "programbench", "proofbench"],
       "qualityShareRemovedBenchmarkIds": [],
       "benchmarkIds": [
         "aa-briefcase",
@@ -6091,7 +5846,6 @@
         "gdpval-aa",
         "hlab",
         "humanitys-last-exam",
-        "ioi",
         "legal-research",
         "medcode",
         "medscribe",
@@ -6113,7 +5867,6 @@
           "benchmarkIds": [
             "code-migration",
             "cyber",
-            "ioi",
             "scicode",
             "vibe-code-bench"
           ]
@@ -6246,14 +5999,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-opus-5-5",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 95.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -6407,14 +6152,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 83.056,
-              "resultId": "vals-ai:ioi:anthropic-claude-sonnet-5-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 48.077,
               "resultId": "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
@@ -6562,14 +6299,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-fable-5-1",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 90.778,
-              "resultId": "vals-ai:ioi:anthropic-claude-fable-5-1",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -6723,14 +6452,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:openai-gpt-6-astra",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 39.423,
               "resultId": "vals-ai:legal-research:openai-gpt-6-astra",
@@ -6878,14 +6599,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:gemini-4-argon",
               "evidenceIds": [
                 "sha256:f192b9d295d954d5e3a290839468a65e8c1eecaedea5795bae3e23113866edd2"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 100,
-              "resultId": "vals-ai:ioi:google-gemini-4-argon",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {
@@ -7038,14 +6751,6 @@
               ]
             },
             {
-              "benchmarkId": "ioi",
-              "score": 96.889,
-              "resultId": "vals-ai:ioi:openai-gpt-6-1-sol",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
-              ]
-            },
-            {
               "benchmarkId": "legal-research",
               "score": 38.462,
               "resultId": "vals-ai:legal-research:openai-gpt-6-1-sol",
@@ -7193,14 +6898,6 @@
               "resultId": "artificial-analysis:humanitys-last-exam:claude-opus-5",
               "evidenceIds": [
                 "sha256:000ba1c621ac4242810c4dc40109bb4cfe3ad59f5aa1e5ac191c3728887381a0"
-              ]
-            },
-            {
-              "benchmarkId": "ioi",
-              "score": 84.333,
-              "resultId": "vals-ai:ioi:anthropic-claude-opus-5",
-              "evidenceIds": [
-                "sha256:856ae0314941f9aaa93687dff82d68803259775c20a3b8c315a84ae6943e7342"
               ]
             },
             {

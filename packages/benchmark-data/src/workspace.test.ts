@@ -295,9 +295,14 @@ describe('buildWorkspaceProduct', () => {
       'aime',
       'programbench',
       'proofbench',
+      'livebench-mathematics',
+      'ioi',
     ]);
-    for (const id of ['aime', 'programbench', 'proofbench'])
+    for (const id of product.benchmarkQuality!.excludedBenchmarkIds) {
       expect(comparisonBenchmarks.has(id)).toBe(false);
+      for (const preset of product.presets)
+        expect(preset.benchmarkIds).not.toContain(id);
+    }
     expect(comparisonBenchmarks.has('frontier-swe-v2')).toBe(true);
     // Limited tests remain available; ratios apply after selection intersection.
     expect(comparisonBenchmarks.has('gpqa-diamond')).toBe(true);

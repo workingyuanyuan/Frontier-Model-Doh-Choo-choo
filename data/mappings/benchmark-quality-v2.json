@@ -1,7 +1,13 @@
 {
-  "reviewedAt": "2026-10-03",
-  "evidencePath": "docs/analysis/2026-10-03-proofbench-quality-review.json",
-  "excludedBenchmarkIds": ["aime", "programbench", "proofbench"],
+  "reviewedAt": "2026-10-16",
+  "evidencePath": "docs/analysis/2026-10-16-benchmark-exclusions.json",
+  "excludedBenchmarkIds": [
+    "aime",
+    "programbench",
+    "proofbench",
+    "livebench-mathematics",
+    "ioi"
+  ],
   "limitedBenchmarkIds": [
     "aa-lcr",
     "gpqa-diamond",

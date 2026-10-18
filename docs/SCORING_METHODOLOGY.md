@@ -31,7 +31,7 @@
 
 先求共同測試，再套用 `benchmark-quality-v2.json`：
 
-- AIME、ProgramBench、ProofBench 排除計分。
+- AIME、ProgramBench、ProofBench、LiveBench Mathematics、IOI 排除計分；適用預設、其他模型數集合與自選 profiles。
 - 每項受限測試須在同一主要維度搭配至少兩項無限制測試。
 - 保留全部無限制測試，按 benchmark ID 排序保留可容許的受限測試數量。
 

@@ -131,7 +131,7 @@ describe('frontier common quality core', () => {
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      29, 29, 27, 20, 20, 19, 17, 14, 14,
+      27, 27, 25, 19, 19, 18, 17, 14, 14,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     for (const cohort of cohorts) {

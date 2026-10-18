@@ -67,4 +67,32 @@ describe('published frontier comparison', () => {
     ).toEqual(expect.any(Number));
     expect(result.benchmarkIds).toContain(evidence.benchmarkId);
   });
+
+  it('excludes the reviewed benchmarks when narrowing to a profile with both scores', () => {
+    const { product: raw, benchmarkDimensions } = loadProductVersion();
+    const product = withActivePreset(raw);
+    const modelId = 'anthropic-claude-opus-5-5';
+    const profileId = `${modelId}-max`;
+    const excluded = ['livebench-mathematics', 'ioi'];
+    for (const benchmarkId of excluded) {
+      expect(
+        product.evidence.some(
+          (e) =>
+            e.model.profileId === profileId &&
+            e.benchmarkId === benchmarkId &&
+            e.inclusion === 'INCLUDED' &&
+            e.normalizedScore !== null,
+        ),
+      ).toBe(true);
+    }
+    const comparison = buildCommonComparison(
+      product,
+      [modelId],
+      { [modelId]: profileId },
+      benchmarkDimensions,
+    );
+    expect(comparison.product.leaderboard).toHaveLength(1);
+    for (const benchmarkId of excluded)
+      expect(comparison.benchmarkIds).not.toContain(benchmarkId);
+  });
 });

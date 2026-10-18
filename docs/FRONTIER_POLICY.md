@@ -34,7 +34,10 @@ Search Models 可自由選取模型，包括排除第九名並加入第十名；
 ## 品質政策
 
 品質資料：[benchmark-quality-v2.json](../data/mappings/benchmark-quality-v2.json)。
-AIME、ProgramBench、ProofBench 排除計分。ProofBench 在目前六個前沿模型的分數為 99–100，
+AIME、ProgramBench、ProofBench、LiveBench Mathematics、IOI 排除計分。
+2026-10-16 使用者核准新增排除 LiveBench Mathematics 與 IOI，適用所有前沿集合與自選 profiles；
+核准紀錄、固定 profiles 分數及來源依據見 [品質審查](analysis/2026-10-16-benchmark-exclusions.json)。
+ProofBench 在核准時六個前沿模型的分數為 99–100，
 停止計分的依據保存在 [品質稽核](analysis/2026-10-03-proofbench-quality-review.json)。
 
 有限制的測試仍須在同一主要維度中，每項至少搭配兩項無限制測試。
