@@ -451,6 +451,7 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
 test('keeps cost hover cards readable and inside the chart on a phone', async ({
   page,
 }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
 
@@ -462,6 +463,12 @@ test('keeps cost hover cards readable and inside the chart on a phone', async ({
     expect(count).toBeGreaterThan(0);
     for (let i = 0; i < count; i++) {
       await points.nth(i).focus();
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+          }),
+      );
       const layout = await page.locator('.cost-hover-card').evaluate((card) => {
         const chart = card.parentElement!.getBoundingClientRect();
         const box = card.getBoundingClientRect();

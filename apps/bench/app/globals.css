@@ -1983,6 +1983,7 @@ details[open] > .evidence-group-summary::before {
   padding: 0.625rem 0.75rem;
   pointer-events: none;
   position: absolute;
+  transition-property: none;
   width: max-content;
   white-space: normal;
   z-index: 20;
