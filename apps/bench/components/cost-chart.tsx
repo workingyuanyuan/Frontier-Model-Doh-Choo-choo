@@ -1,6 +1,13 @@
 'use client';
 
-import { memo, useMemo, useState } from 'react';
+import {
+  memo,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 
 import { getChartDomain } from '../lib/chart-scale';
 import {
@@ -148,6 +155,109 @@ function getCardTransform(x: number, y: number): string {
       : '-50%';
 
   return `translate(${translateX}, ${translateY})`;
+}
+
+/** Gap, in px, the hover card keeps from the chart's left and right edges. */
+const CARD_EDGE_INSET = 8;
+
+/**
+ * The hover card is anchored beside its point, then nudged horizontally after
+ * layout so it never spills past the chart: on a phone the card can be wider
+ * than the room on either side of the point.
+ */
+function CostHoverCard({
+  x,
+  y,
+  children,
+}: {
+  x: number;
+  y: number;
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const card = ref.current;
+    const canvas = card?.parentElement;
+    if (!card || !canvas) return;
+    card.style.marginLeft = '0px';
+    const bounds = canvas.getBoundingClientRect();
+    const box = card.getBoundingClientRect();
+    const overLeft = bounds.left + CARD_EDGE_INSET - box.left;
+    const overRight = box.right - (bounds.right - CARD_EDGE_INSET);
+    const shift = overLeft > 0 ? overLeft : overRight > 0 ? -overRight : 0;
+    card.style.marginLeft = `${shift}px`;
+  });
+  return (
+    <div
+      ref={ref}
+      className="cost-hover-card"
+      role="tooltip"
+      aria-hidden="true"
+      style={{
+        left: `${((x / 660) * 100).toFixed(2)}%`,
+        top: `${((y / 405) * 100).toFixed(2)}%`,
+        transform: getCardTransform(x, y),
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
+/**
+ * Short axis titles set outside the plot: the score title reads horizontally
+ * above the Y axis and the cost title sits right-aligned under the X axis end,
+ * each followed by its plotted range and a direction hint in muted type. The
+ * range stays visible because the axes are truncated to the data and the
+ * title is where that is disclosed (docs/SPEC.md); data attributes expose the
+ * same bounds to tests.
+ */
+function CostAxisTitles({
+  scoreLabel,
+  xDomain,
+  yDomain,
+  right,
+  bottom,
+}: {
+  scoreLabel: string;
+  xDomain: { min: number; max: number };
+  yDomain: { min: number; max: number };
+  right: number;
+  bottom: number;
+}) {
+  return (
+    <>
+      <text
+        className="cost-axis-title"
+        x={right}
+        y={bottom + 44}
+        textAnchor="end"
+        data-domain-min={xDomain.min}
+        data-domain-max={xDomain.max}
+      >
+        <tspan className="cost-axis-hint">← lower is better</tspan>
+        <tspan dx="12">Weighted cost index</tspan>
+        <tspan className="cost-axis-hint" dx="6">
+          {`${xDomain.min}–${xDomain.max}`}
+        </tspan>
+      </text>
+      <text
+        className="cost-axis-title"
+        x="8"
+        y="14"
+        data-domain-min={yDomain.min}
+        data-domain-max={yDomain.max}
+      >
+        <tspan>{scoreLabel}</tspan>
+        <tspan className="cost-axis-hint" dx="6">
+          {`${yDomain.min}–${yDomain.max}`}
+        </tspan>
+        <tspan className="cost-axis-hint" dx="12">
+          ↑ higher is better
+        </tspan>
+      </text>
+    </>
+  );
 }
 
 export function CostModelMenu({
@@ -485,23 +595,13 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                   x2={left}
                   y2={bottom}
                 />
-                <text
-                  className="cost-axis-title"
-                  x={(left + right) / 2}
-                  y="397"
-                  textAnchor="middle"
-                >
-                  {`Weighted normalized task cost index (${xDomain.min}–${xDomain.max}, lower is better)`}
-                </text>
-                <text
-                  className="cost-axis-title"
-                  x="15"
-                  y={(top + bottom) / 2}
-                  textAnchor="middle"
-                  transform={`rotate(-90 15 ${(top + bottom) / 2})`}
-                >
-                  {`Overall Score (${yDomain.min}–${yDomain.max}, higher is better)`}
-                </text>
+                <CostAxisTitles
+                  scoreLabel="Overall Score"
+                  xDomain={xDomain}
+                  yDomain={yDomain}
+                  right={right}
+                  bottom={bottom}
+                />
                 <text
                   className="cost-direction-label"
                   x={left + 8}
@@ -559,18 +659,9 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                 })}
               </svg>
               {activePoint ? (
-                <div
-                  className="cost-hover-card"
-                  role="tooltip"
-                  aria-hidden="true"
-                  style={{
-                    left: `${((x(activePoint.normalizedCost) / 660) * 100).toFixed(2)}%`,
-                    top: `${((y(activePoint.performance) / 405) * 100).toFixed(2)}%`,
-                    transform: getCardTransform(
-                      x(activePoint.normalizedCost),
-                      y(activePoint.performance),
-                    ),
-                  }}
+                <CostHoverCard
+                  x={x(activePoint.normalizedCost)}
+                  y={y(activePoint.performance)}
                 >
                   <div className="cost-hover-card-header">
                     <span
@@ -638,12 +729,9 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                       </ul>
                     </div>
                   ) : null}
-                </div>
+                </CostHoverCard>
               ) : null}
             </div>
-            <p className="cost-frontier-caption">
-              The frontier connects best score at each cost.
-            </p>
           </div>
         </div>
       ) : (
@@ -874,23 +962,13 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
               x2={left}
               y2={bottom}
             />
-            <text
-              className="cost-axis-title"
-              x={(left + right) / 2}
-              y="397"
-              textAnchor="middle"
-            >
-              {`Weighted normalized task cost index (${xDomain.min}–${xDomain.max}, lower is better)`}
-            </text>
-            <text
-              className="cost-axis-title"
-              x="15"
-              y={(top + bottom) / 2}
-              textAnchor="middle"
-              transform={`rotate(-90 15 ${(top + bottom) / 2})`}
-            >
-              {`${scoreAxisLabel} (${yDomain.min}–${yDomain.max}, higher is better)`}
-            </text>
+            <CostAxisTitles
+              scoreLabel={scoreAxisLabel}
+              xDomain={xDomain}
+              yDomain={yDomain}
+              right={right}
+              bottom={bottom}
+            />
             <text className="cost-direction-label" x={left + 8} y={top + 15}>
               Better value ↖
             </text>
@@ -982,18 +1060,9 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
           ) : null}
           {currentActivePoint &&
           visibleProfileIds.has(currentActivePoint.point.profileId) ? (
-            <div
-              className="cost-hover-card"
-              role="tooltip"
-              aria-hidden="true"
-              style={{
-                left: `${((x(currentActivePoint.point.costIndex) / 660) * 100).toFixed(2)}%`,
-                top: `${((y(currentActivePoint.point.score) / 405) * 100).toFixed(2)}%`,
-                transform: getCardTransform(
-                  x(currentActivePoint.point.costIndex),
-                  y(currentActivePoint.point.score),
-                ),
-              }}
+            <CostHoverCard
+              x={x(currentActivePoint.point.costIndex)}
+              y={y(currentActivePoint.point.score)}
             >
               <div className="cost-hover-card-header">
                 <span
@@ -1035,7 +1104,7 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                   <div className="cost-hover-card-sources-title">
                     Source scores and costs
                   </div>
-                  <ul className="cost-hover-card-source-list">
+                  <ul className="cost-hover-card-source-list has-score-column">
                     {currentActivePoint.point.sources.map((source) => (
                       <li
                         key={source.sourceId}
@@ -1050,23 +1119,16 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                             : ''}
                           :
                         </span>
-                        <span>
-                          score {source.score.toFixed(1)} · $
-                          {source.cost.toFixed(3)}
-                        </span>
+                        <span>score {source.score.toFixed(1)}</span>
+                        <span>${source.cost.toFixed(3)}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               ) : null}
-            </div>
+            </CostHoverCard>
           ) : null}
         </div>
-        <p className="cost-frontier-caption">
-          Lines connect effort profiles for the same model. Default
-          configurations are marked separately and are not part of the effort
-          ladder.
-        </p>
       </div>
     </div>
   ) : (
@@ -1146,7 +1208,6 @@ export const CostChart = memo(function CostChart({
         <div className="section-heading compact">
           <div>
             <h2 id="cost-title">Quality vs. Cost</h2>
-            <p>Lower cost is better. Higher Overall Score is better.</p>
           </div>
           <div className="cost-chart-actions">
             {!advanced ? (

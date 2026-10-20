@@ -24,7 +24,7 @@ test('plots vendor score and task cost pairs for DeepSWE, AutomationBench and Cu
     .focus();
   await expect(
     page.getByRole('tooltip', { includeHidden: true }),
-  ).toContainText('score 66.6 · $0.217');
+  ).toContainText(/score 66\.6\s*\$0\.217/);
   await expect(
     page
       .getByRole('tooltip', { includeHidden: true })
@@ -39,7 +39,7 @@ test('plots vendor score and task cost pairs for DeepSWE, AutomationBench and Cu
   );
   await highPoint.focus();
   const tooltip = page.getByRole('tooltip', { includeHidden: true });
-  await expect(tooltip).toContainText('score 75.2 · $0.646');
+  await expect(tooltip).toContainText(/score 75\.2\s*\$0\.646/);
   await expect(
     tooltip.getByRole('link', {
       name: /OpenAI \(vendor\)/,
@@ -57,7 +57,9 @@ test('plots vendor score and task cost pairs for DeepSWE, AutomationBench and Cu
     .click();
   await expect(points).toHaveCount(5);
   await highPoint.focus();
-  await expect(tooltip).toContainText(`score 33.2 · $${(0.2255).toFixed(3)}`);
+  await expect(tooltip).toContainText(
+    new RegExp(String.raw`score 33\.2\s*\$` + (0.2255).toFixed(3)),
+  );
   await page
     .locator('.advanced-source-toggle[data-source-id="zapier-automationbench"]')
     .click();

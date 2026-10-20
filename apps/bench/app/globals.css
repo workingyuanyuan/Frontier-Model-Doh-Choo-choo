@@ -1878,6 +1878,7 @@ details[open] > .evidence-group-summary::before {
 }
 
 .cost-axis-title {
+  fill: var(--ink);
   font-size: 11px;
   font-weight: 700;
 }
@@ -1974,11 +1975,16 @@ details[open] > .evidence-group-summary::before {
   color: var(--ink);
   font-size: 0.75rem;
   line-height: 1.4;
-  max-width: min(18rem, calc(100% - 2rem));
+  /* An absolute box at left: X% shrinks to the space right of X, which on a
+     phone squeezed the card to min-width and crushed the source-name column.
+     Size it from its content instead, bounded by the chart width. */
+  max-width: min(18rem, calc(100% - 1rem));
   min-width: 11rem;
   padding: 0.625rem 0.75rem;
   pointer-events: none;
   position: absolute;
+  transition-property: none;
+  width: max-content;
   white-space: normal;
   z-index: 20;
 }
@@ -2042,38 +2048,58 @@ details[open] > .evidence-group-summary::before {
   text-transform: uppercase;
 }
 
+/* One grid for the whole list, shared by every row through subgrid: a long
+   source name wraps inside the first column, and the score and cost columns
+   stay pinned to the card's right edge and line up across rows. */
 .cost-hover-card-source-list {
+  column-gap: 0.75rem;
   display: grid;
-  gap: 0.125rem;
+  grid-template-columns: minmax(5rem, 1fr) auto;
   list-style: none;
   margin: 0;
   padding: 0;
+  row-gap: 0.125rem;
+}
+
+.cost-hover-card-source-list.has-score-column {
+  grid-template-columns: minmax(5rem, 1fr) auto auto;
 }
 
 .cost-hover-card-source-item {
-  flex-wrap: wrap;
   align-items: baseline;
   color: var(--ink-soft);
-  display: flex;
+  display: grid;
   font-size: 0.6875rem;
   font-variant-numeric: tabular-nums;
-  gap: 0.5rem;
-  justify-content: space-between;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
 }
 
-.cost-hover-card-source-item span:nth-child(2) {
+.cost-hover-card-source-item > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cost-hover-card-source-item
+  > span:not(:first-child):not(.cost-hover-card-source-basis) {
   color: var(--ink);
   font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
 }
 
 /* The basis sits on its own row: it is a sentence, not a number, and the card
-   is 18rem wide. Without the full-row break it wraps into the cost column and
-   the two stop lining up. */
+   is 18rem wide. */
 .cost-hover-card-source-basis {
   color: var(--ink-faint);
-  flex-basis: 100%;
   font-size: 0.625rem;
   font-weight: 600;
+  grid-column: 1 / -1;
+}
+
+.cost-axis-hint {
+  fill: var(--ink-faint);
+  font-weight: 500;
 }
 
 .chart-data-note {
@@ -2081,12 +2107,6 @@ details[open] > .evidence-group-summary::before {
   margin: 0.35rem 0 0.5rem;
   max-width: 60rem;
   font-size: 0.6875rem;
-}
-
-.cost-frontier-caption {
-  color: var(--ink-faint);
-  font-size: 0.75rem;
-  margin: 0.25rem 0 0 3.625rem;
 }
 
 .cost-model-menu-list {

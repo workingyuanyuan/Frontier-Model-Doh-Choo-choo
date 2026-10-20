@@ -392,21 +392,13 @@ test('scales the cost chart default plot axes to the plotted data range', async 
   const yAxisTitle = page.locator('.cost-curve-chart .cost-axis-title').nth(1);
   await expect(yAxisTitle).toBeVisible();
 
-  // SVG <text> has no innerText; textContent is the only way to read it.
-  const titleText = (await yAxisTitle.textContent()) ?? '';
-  expect(titleText).toMatch(/Overall Score \(\d+–\d+, higher is better\)/);
-  expect(titleText).not.toContain('0–100');
-
-  const match = titleText.match(
-    /Overall Score \((\d+)–(\d+), higher is better\)/,
-  );
-  expect(match).not.toBeNull();
-  if (match) {
-    const min = parseInt(match[1]!, 10);
-    const max = parseInt(match[2]!, 10);
-    expect(max - min).toBeLessThan(100);
-    expect(min).toBeGreaterThan(0);
-  }
+  await expect(yAxisTitle).toContainText('Overall Score');
+  await expect(yAxisTitle).toContainText('higher is better');
+  // The range is carried on data attributes; the ticks show it visually.
+  const min = Number(await yAxisTitle.getAttribute('data-domain-min'));
+  const max = Number(await yAxisTitle.getAttribute('data-domain-max'));
+  expect(max - min).toBeLessThan(100);
+  expect(min).toBeGreaterThan(0);
 });
 
 test('toggles the advanced aggregate cost curves by keyboard', async ({
@@ -427,7 +419,7 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
     page
       .locator('.cost-panel')
       .getByText('Lower cost is better. Higher Overall Score is better.'),
-  ).toBeVisible();
+  ).toHaveCount(0);
   const sourceButtons = page.locator('.advanced-source-toggle');
   await expect(sourceButtons).toHaveCount(6);
   for (let i = 0; i < (await sourceButtons.count()); i++) {
@@ -456,6 +448,72 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   await expect(page.locator('.cost-curve-chart')).toBeVisible();
 });
 
+test('keeps cost hover cards readable and inside the chart on a phone', async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+
+  // An absolutely positioned card used to shrink to the room right of its
+  // point, crushing the source-name column until names ran over the scores.
+  const checkEveryPoint = async (selector: string) => {
+    const points = page.locator(selector);
+    const count = await points.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await points.nth(i).focus();
+      await page.evaluate(
+        () =>
+          new Promise<void>((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+          }),
+      );
+      const layout = await page.locator('.cost-hover-card').evaluate((card) => {
+        const chart = card.parentElement!.getBoundingClientRect();
+        const box = card.getBoundingClientRect();
+        const rows = [
+          ...card.querySelectorAll('.cost-hover-card-source-item'),
+        ].map((row) => {
+          const [name, ...values] = [...row.children].filter(
+            (cell) => !cell.classList.contains('cost-hover-card-source-basis'),
+          );
+          const nameBox = name!.getBoundingClientRect();
+          return {
+            nameOverflows: name!.scrollWidth > name!.clientWidth + 1,
+            valuesOverlapName: values.some(
+              (value) =>
+                value.getBoundingClientRect().left < nameBox.right - 0.5,
+            ),
+          };
+        });
+        return {
+          title: card.querySelector('.cost-hover-card-title')?.textContent,
+          inside:
+            box.left >= chart.left - 0.5 && box.right <= chart.right + 0.5,
+          rows,
+        };
+      });
+      expect(layout.inside, `${layout.title} stays inside the chart`).toBe(
+        true,
+      );
+      for (const row of layout.rows) {
+        expect(row.nameOverflows, `${layout.title} source name fits`).toBe(
+          false,
+        );
+        expect(
+          row.valuesOverlapName,
+          `${layout.title} values clear the name`,
+        ).toBe(false);
+      }
+    }
+  };
+
+  await checkEveryPoint('.cost-point');
+  await page.locator('.cost-mode-toggle').click();
+  await checkEveryPoint('.advanced-cost-point');
+});
+
 test('allows toggling series visibility in advanced cost chart to rescale axes', async ({
   page,
 }) => {
@@ -471,14 +529,12 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
     .first();
   await expect(xAxisTitle).toBeVisible();
 
-  const initialXTitle = (await xAxisTitle.textContent()) ?? '';
-  expect(initialXTitle).toMatch(
-    /Weighted normalized task cost index \((\d+(?:\.\d+)?)–(\d+(?:\.\d+)?), lower is better\)/,
-  );
-
-  const initialMatch = initialXTitle.match(/–(\d+(?:\.\d+)?)/);
-  expect(initialMatch).not.toBeNull();
-  const initialMax = parseFloat(initialMatch![1]!);
+  await expect(xAxisTitle).toContainText('Weighted cost index');
+  await expect(xAxisTitle).toContainText('lower is better');
+  const xDomainMax = async () =>
+    parseFloat((await xAxisTitle.getAttribute('data-domain-max')) ?? '');
+  const initialMax = await xDomainMax();
+  expect(Number.isFinite(initialMax)).toBe(true);
 
   // Find the most expensive point, and the series it belongs to. Match on the
   // data attributes rather than by parsing the aria-label: the label is prose
@@ -529,10 +585,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   // to round ticks, so one model can no longer stretch it the way raw USD
   // did. The strict shrink is asserted further down, after enough series are
   // hidden that the bound has to move.
-  const newXTitle = (await xAxisTitle.textContent()) ?? '';
-  const newMatch = newXTitle.match(/–(\d+(?:\.\d+)?)/);
-  expect(newMatch).not.toBeNull();
-  const newMax = parseFloat(newMatch![1]!);
+  const newMax = await xDomainMax();
   expect(newMax).toBeLessThanOrEqual(initialMax);
 
   // Assert the hidden series' points are gone, and that nothing which
@@ -610,10 +663,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
     await page.keyboard.press('Space');
   }
 
-  const finalXTitle = (await xAxisTitle.textContent()) ?? '';
-  const finalMatch = finalXTitle.match(/–(\d+(?:\.\d+)?)/);
-  expect(finalMatch).not.toBeNull();
-  expect(parseFloat(finalMatch![1]!)).toBeLessThan(initialMax);
+  expect(await xDomainMax()).toBeLessThan(initialMax);
 });
 
 test('recomputes source eligibility and supports model and effort controls', async ({

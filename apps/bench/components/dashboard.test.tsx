@@ -138,7 +138,7 @@ describe('Dashboard Redesign', () => {
   it('renders the default weighted task-cost chart with explicit axes and source weights', () => {
     const html = renderToStaticMarkup(dashboard());
 
-    expect(html).toContain('Weighted normalized task cost index');
+    expect(html).toContain('Weighted cost index');
     expect(html).toContain('Overall Score');
     expect(html).toContain('higher is better');
     expect(html).toContain('Source weights: 12.5% each.');
