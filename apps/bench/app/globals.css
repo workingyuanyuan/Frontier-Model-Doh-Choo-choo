@@ -1975,11 +1975,15 @@ details[open] > .evidence-group-summary::before {
   color: var(--ink);
   font-size: 0.75rem;
   line-height: 1.4;
-  max-width: min(18rem, calc(100% - 2rem));
+  /* An absolute box at left: X% shrinks to the space right of X, which on a
+     phone squeezed the card to min-width and crushed the source-name column.
+     Size it from its content instead, bounded by the chart width. */
+  max-width: min(18rem, calc(100% - 1rem));
   min-width: 11rem;
   padding: 0.625rem 0.75rem;
   pointer-events: none;
   position: absolute;
+  width: max-content;
   white-space: normal;
   z-index: 20;
 }
@@ -2049,7 +2053,7 @@ details[open] > .evidence-group-summary::before {
 .cost-hover-card-source-list {
   column-gap: 0.75rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(5rem, 1fr) auto;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2057,7 +2061,7 @@ details[open] > .evidence-group-summary::before {
 }
 
 .cost-hover-card-source-list.has-score-column {
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(5rem, 1fr) auto auto;
 }
 
 .cost-hover-card-source-item {
@@ -2068,6 +2072,11 @@ details[open] > .evidence-group-summary::before {
   font-variant-numeric: tabular-nums;
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
+}
+
+.cost-hover-card-source-item > span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .cost-hover-card-source-item

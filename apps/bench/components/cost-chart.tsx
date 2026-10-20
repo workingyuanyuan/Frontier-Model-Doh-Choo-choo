@@ -1,6 +1,13 @@
 'use client';
 
-import { memo, useMemo, useState } from 'react';
+import {
+  memo,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 
 import { getChartDomain } from '../lib/chart-scale';
 import {
@@ -148,6 +155,53 @@ function getCardTransform(x: number, y: number): string {
       : '-50%';
 
   return `translate(${translateX}, ${translateY})`;
+}
+
+/** Gap, in px, the hover card keeps from the chart's left and right edges. */
+const CARD_EDGE_INSET = 8;
+
+/**
+ * The hover card is anchored beside its point, then nudged horizontally after
+ * layout so it never spills past the chart: on a phone the card can be wider
+ * than the room on either side of the point.
+ */
+function CostHoverCard({
+  x,
+  y,
+  children,
+}: {
+  x: number;
+  y: number;
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const card = ref.current;
+    const canvas = card?.parentElement;
+    if (!card || !canvas) return;
+    card.style.marginLeft = '0px';
+    const bounds = canvas.getBoundingClientRect();
+    const box = card.getBoundingClientRect();
+    const overLeft = bounds.left + CARD_EDGE_INSET - box.left;
+    const overRight = box.right - (bounds.right - CARD_EDGE_INSET);
+    const shift = overLeft > 0 ? overLeft : overRight > 0 ? -overRight : 0;
+    card.style.marginLeft = `${shift}px`;
+  });
+  return (
+    <div
+      ref={ref}
+      className="cost-hover-card"
+      role="tooltip"
+      aria-hidden="true"
+      style={{
+        left: `${((x / 660) * 100).toFixed(2)}%`,
+        top: `${((y / 405) * 100).toFixed(2)}%`,
+        transform: getCardTransform(x, y),
+      }}
+    >
+      {children}
+    </div>
+  );
 }
 
 /**
@@ -605,18 +659,9 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                 })}
               </svg>
               {activePoint ? (
-                <div
-                  className="cost-hover-card"
-                  role="tooltip"
-                  aria-hidden="true"
-                  style={{
-                    left: `${((x(activePoint.normalizedCost) / 660) * 100).toFixed(2)}%`,
-                    top: `${((y(activePoint.performance) / 405) * 100).toFixed(2)}%`,
-                    transform: getCardTransform(
-                      x(activePoint.normalizedCost),
-                      y(activePoint.performance),
-                    ),
-                  }}
+                <CostHoverCard
+                  x={x(activePoint.normalizedCost)}
+                  y={y(activePoint.performance)}
                 >
                   <div className="cost-hover-card-header">
                     <span
@@ -684,7 +729,7 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                       </ul>
                     </div>
                   ) : null}
-                </div>
+                </CostHoverCard>
               ) : null}
             </div>
           </div>
@@ -1015,18 +1060,9 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
           ) : null}
           {currentActivePoint &&
           visibleProfileIds.has(currentActivePoint.point.profileId) ? (
-            <div
-              className="cost-hover-card"
-              role="tooltip"
-              aria-hidden="true"
-              style={{
-                left: `${((x(currentActivePoint.point.costIndex) / 660) * 100).toFixed(2)}%`,
-                top: `${((y(currentActivePoint.point.score) / 405) * 100).toFixed(2)}%`,
-                transform: getCardTransform(
-                  x(currentActivePoint.point.costIndex),
-                  y(currentActivePoint.point.score),
-                ),
-              }}
+            <CostHoverCard
+              x={x(currentActivePoint.point.costIndex)}
+              y={y(currentActivePoint.point.score)}
             >
               <div className="cost-hover-card-header">
                 <span
@@ -1090,7 +1126,7 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                   </ul>
                 </div>
               ) : null}
-            </div>
+            </CostHoverCard>
           ) : null}
         </div>
       </div>

@@ -448,6 +448,65 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
   await expect(page.locator('.cost-curve-chart')).toBeVisible();
 });
 
+test('keeps cost hover cards readable and inside the chart on a phone', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+
+  // An absolutely positioned card used to shrink to the room right of its
+  // point, crushing the source-name column until names ran over the scores.
+  const checkEveryPoint = async (selector: string) => {
+    const points = page.locator(selector);
+    const count = await points.count();
+    expect(count).toBeGreaterThan(0);
+    for (let i = 0; i < count; i++) {
+      await points.nth(i).focus();
+      const layout = await page.locator('.cost-hover-card').evaluate((card) => {
+        const chart = card.parentElement!.getBoundingClientRect();
+        const box = card.getBoundingClientRect();
+        const rows = [
+          ...card.querySelectorAll('.cost-hover-card-source-item'),
+        ].map((row) => {
+          const [name, ...values] = [...row.children].filter(
+            (cell) => !cell.classList.contains('cost-hover-card-source-basis'),
+          );
+          const nameBox = name!.getBoundingClientRect();
+          return {
+            nameOverflows: name!.scrollWidth > name!.clientWidth + 1,
+            valuesOverlapName: values.some(
+              (value) =>
+                value.getBoundingClientRect().left < nameBox.right - 0.5,
+            ),
+          };
+        });
+        return {
+          title: card.querySelector('.cost-hover-card-title')?.textContent,
+          inside:
+            box.left >= chart.left - 0.5 && box.right <= chart.right + 0.5,
+          rows,
+        };
+      });
+      expect(layout.inside, `${layout.title} stays inside the chart`).toBe(
+        true,
+      );
+      for (const row of layout.rows) {
+        expect(row.nameOverflows, `${layout.title} source name fits`).toBe(
+          false,
+        );
+        expect(
+          row.valuesOverlapName,
+          `${layout.title} values clear the name`,
+        ).toBe(false);
+      }
+    }
+  };
+
+  await checkEveryPoint('.cost-point');
+  await page.locator('.cost-mode-toggle').click();
+  await checkEveryPoint('.advanced-cost-point');
+});
+
 test('allows toggling series visibility in advanced cost chart to rescale axes', async ({
   page,
 }) => {
