@@ -16,6 +16,17 @@ import {
 } from '../lib/view-model';
 import { productFixture } from '../test/fixture';
 
+// Axis titles show a short label, the snapped domain and a direction hint, and
+// carry the same domain on data attributes.
+const scoreAxisTitle = (label: string, min: number, max: number) =>
+  `data-domain-min="${min}" data-domain-max="${max}"><tspan>${label}</tspan>` +
+  `<tspan class="cost-axis-hint" dx="6">${min}–${max}</tspan>`;
+const costAxisTitle = (min: number, max: number) =>
+  `data-domain-min="${min}" data-domain-max="${max}">` +
+  `<tspan class="cost-axis-hint">← lower is better</tspan>` +
+  `<tspan dx="12">Weighted cost index</tspan>` +
+  `<tspan class="cost-axis-hint" dx="6">${min}–${max}</tspan>`;
+
 const sampleAdvancedSeries: AdvancedCostSeries[] = [
   {
     seriesId: 'anthropic-claude-fable-5',
@@ -283,11 +294,9 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
 
       // Axis titles disclose real data domain snapped to clean bounds (e.g. 60–75 for 61.2–72.8)
-      expect(html).toContain('Overall Score (60–75, higher is better)');
-      expect(html).toContain(
-        'Weighted normalized task cost index (0–100, lower is better)',
-      );
-      expect(html).not.toContain('Overall Score (0–100, higher is better)');
+      expect(html).toContain(scoreAxisTitle('Overall Score', 60, 75));
+      expect(html).toContain(costAxisTitle(0, 100));
+      expect(html).not.toContain(scoreAxisTitle('Overall Score', 0, 100));
 
       // SVG aria-label discloses the dynamic domains
       expect(html).toContain(
@@ -396,12 +405,10 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
 
       // For scores 85.6 and 89.2, snapped domain is 85–90; for costs 42.5 and 58.2, snapped domain is 40–60
-      expect(html).toContain('4-source mean score (85–90, higher is better)');
-      expect(html).toContain(
-        'Weighted normalized task cost index (40–60, lower is better)',
-      );
+      expect(html).toContain(scoreAxisTitle('4-source mean score', 85, 90));
+      expect(html).toContain(costAxisTitle(40, 60));
       expect(html).not.toContain('Source task cost ($');
-      expect(html).not.toContain('Source score (0–100, higher is better)');
+      expect(html).not.toContain(scoreAxisTitle('Source score', 0, 100));
       expect(html).toContain(
         'aria-label="4-source mean score (85–90) versus weighted normalized task cost index (40–60)',
       );
@@ -431,13 +438,13 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       // Source breakdown
       expect(html).toContain('Artificial Analysis</a>:');
-      expect(html).toContain('score 82.0 · $1.250');
+      expect(html).toContain('<span>score 82.0</span><span>$1.250</span>');
       expect(html).toContain('DeepSWE</a>:');
-      expect(html).toContain('score 85.6 · $2.360');
+      expect(html).toContain('<span>score 85.6</span><span>$2.360</span>');
       expect(html).toContain('Frontier Code</a>:');
-      expect(html).toContain('score 89.2 · $3.100');
+      expect(html).toContain('<span>score 89.2</span><span>$3.100</span>');
       expect(html).toContain('ARC Prize</a>:');
-      expect(html).toContain('score 85.6 · $2.800');
+      expect(html).toContain('<span>score 85.6</span><span>$2.800</span>');
     });
 
     it('rebinds an active tooltip to the latest source aggregation', () => {
@@ -464,8 +471,8 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         }),
       );
 
-      expect(html).toContain('3-source mean score (');
-      expect(html).toContain('higher is better)');
+      expect(html).toContain('<tspan>3-source mean score</tspan>');
+      expect(html).toContain('higher is better');
       expect(html).toContain('87.4');
       expect(html).not.toContain('ARC Prize</a>:');
     });
@@ -595,11 +602,9 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       );
       expect(allVisibleHtml).toContain('GPT-5.6 Sol');
       expect(allVisibleHtml).toContain(
-        '4-source mean score (85–95, higher is better)',
+        scoreAxisTitle('4-source mean score', 85, 95),
       );
-      expect(allVisibleHtml).toContain(
-        'Weighted normalized task cost index (40–90, lower is better)',
-      );
+      expect(allVisibleHtml).toContain(costAxisTitle(40, 90));
 
       // Hide the expensive GPT-5.6 Sol series
       const filteredHtml = renderToStaticMarkup(
@@ -612,11 +617,9 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       // Points from the hidden series are excluded from SVG
       expect(filteredHtml).not.toContain('openai-gpt-5-6-sol-high');
       // Domain pulls in to only the remaining series (costs 42.5 and 58.2 -> domain 40-60; scores 85.6 and 89.2 -> domain 85-90)
+      expect(filteredHtml).toContain(costAxisTitle(40, 60));
       expect(filteredHtml).toContain(
-        'Weighted normalized task cost index (40–60, lower is better)',
-      );
-      expect(filteredHtml).toContain(
-        '4-source mean score (85–90, higher is better)',
+        scoreAxisTitle('4-source mean score', 85, 90),
       );
     });
 
@@ -637,10 +640,8 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       // Axes stay valid without NaN or crash
       expect(html).toContain('cost-axis-title');
-      expect(html).toContain(
-        'Weighted normalized task cost index (0–100, lower is better)',
-      );
-      expect(html).toContain('4-source mean score (0–100, higher is better)');
+      expect(html).toContain(costAxisTitle(0, 100));
+      expect(html).toContain(scoreAxisTitle('4-source mean score', 0, 100));
 
       expect(html).not.toContain('cost-model-legend');
     });
@@ -702,9 +703,9 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
 
       expect(html).toContain('Quality vs. Cost');
       expect(html).toContain('cost-curve-chart');
-      expect(html).toContain('Lower cost is better.');
+      expect(html).not.toContain('Lower cost is better.');
       expect(html).toContain('Source weights: 12.5% each.');
-      expect(html).toContain('The frontier connects best score at each cost.');
+      expect(html).not.toContain('The frontier connects');
       expect(html).toContain('>Advanced</button>');
       expect(html).toContain('>Models</span>');
       expect(html.indexOf('Source weights: 12.5% each.')).toBeLessThan(

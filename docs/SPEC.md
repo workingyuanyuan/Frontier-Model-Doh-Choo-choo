@@ -684,7 +684,8 @@ OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。�
 成本，不隨按鈕狀態改變。
 
 固定權重說明改為 Artificial Analysis、DeepSWE、Frontier Code、ARC Prize、Zapier 五個可聚焦按鈕。
-進階模式的標題說明與預設模式相同：`Lower cost is better. Higher Overall Score is better.`；進階圖
+標題下不放說明句（2026-10-20 移除 `Lower cost is better. Higher Overall Score is better.` 與圖下
+caption），方向改由軸標題的 `← lower is better` / `↑ higher is better` 提示承擔；進階圖
 Y 軸本身仍如本節所定，是啟用來源各自分數的算術平均，軸標題與無障礙文字必須如實寫成
 `N-source mean score`，不得因此改用 Overall Score。
 
@@ -796,7 +797,8 @@ LiveBench 的成本欄位是 `cost_per_successful_task`（見 `pricing-materiali
   序列不參與定義域計算，軸要跟著重算。
 - 上下各留一點邊距，並收斂到整齊的刻度值，避免出現 61.37 這種刻度。
 - 只剩一個點、或所有點同值時仍須產生有寬度的定義域，不得除以零或畫出退化的軸。
-- **軸標題必須寫出實際範圍**（例如 `Overall Score (60–75, higher is better)`），取代寫死的
+- **軸標題必須寫出實際範圍**（例如 Y 軸置於圖左上、橫排的 `Overall Score 60–75 ↑ higher is better`；
+  X 軸靠右置於軸下的 `← lower is better Weighted cost index 0–100`，範圍與方向用淡色），取代寫死的
   `0–100`。這是截斷軸唯一的揭露方式：2026-08-21 決定不另加圖下說明文字，因此標題與刻度
   是讀圖者判斷比例的全部依據，不得省略。
 

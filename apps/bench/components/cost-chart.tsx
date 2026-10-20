@@ -150,6 +150,62 @@ function getCardTransform(x: number, y: number): string {
   return `translate(${translateX}, ${translateY})`;
 }
 
+/**
+ * Short axis titles set outside the plot: the score title reads horizontally
+ * above the Y axis and the cost title sits right-aligned under the X axis end,
+ * each followed by its plotted range and a direction hint in muted type. The
+ * range stays visible because the axes are truncated to the data and the
+ * title is where that is disclosed (docs/SPEC.md); data attributes expose the
+ * same bounds to tests.
+ */
+function CostAxisTitles({
+  scoreLabel,
+  xDomain,
+  yDomain,
+  right,
+  bottom,
+}: {
+  scoreLabel: string;
+  xDomain: { min: number; max: number };
+  yDomain: { min: number; max: number };
+  right: number;
+  bottom: number;
+}) {
+  return (
+    <>
+      <text
+        className="cost-axis-title"
+        x={right}
+        y={bottom + 44}
+        textAnchor="end"
+        data-domain-min={xDomain.min}
+        data-domain-max={xDomain.max}
+      >
+        <tspan className="cost-axis-hint">← lower is better</tspan>
+        <tspan dx="12">Weighted cost index</tspan>
+        <tspan className="cost-axis-hint" dx="6">
+          {`${xDomain.min}–${xDomain.max}`}
+        </tspan>
+      </text>
+      <text
+        className="cost-axis-title"
+        x="8"
+        y="14"
+        data-domain-min={yDomain.min}
+        data-domain-max={yDomain.max}
+      >
+        <tspan>{scoreLabel}</tspan>
+        <tspan className="cost-axis-hint" dx="6">
+          {`${yDomain.min}–${yDomain.max}`}
+        </tspan>
+        <tspan className="cost-axis-hint" dx="12">
+          ↑ higher is better
+        </tspan>
+      </text>
+    </>
+  );
+}
+
 export function CostModelMenu({
   advanced,
   open,
@@ -485,23 +541,13 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                   x2={left}
                   y2={bottom}
                 />
-                <text
-                  className="cost-axis-title"
-                  x={(left + right) / 2}
-                  y="397"
-                  textAnchor="middle"
-                >
-                  {`Weighted normalized task cost index (${xDomain.min}–${xDomain.max}, lower is better)`}
-                </text>
-                <text
-                  className="cost-axis-title"
-                  x="15"
-                  y={(top + bottom) / 2}
-                  textAnchor="middle"
-                  transform={`rotate(-90 15 ${(top + bottom) / 2})`}
-                >
-                  {`Overall Score (${yDomain.min}–${yDomain.max}, higher is better)`}
-                </text>
+                <CostAxisTitles
+                  scoreLabel="Overall Score"
+                  xDomain={xDomain}
+                  yDomain={yDomain}
+                  right={right}
+                  bottom={bottom}
+                />
                 <text
                   className="cost-direction-label"
                   x={left + 8}
@@ -641,9 +687,6 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                 </div>
               ) : null}
             </div>
-            <p className="cost-frontier-caption">
-              The frontier connects best score at each cost.
-            </p>
           </div>
         </div>
       ) : (
@@ -874,23 +917,13 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
               x2={left}
               y2={bottom}
             />
-            <text
-              className="cost-axis-title"
-              x={(left + right) / 2}
-              y="397"
-              textAnchor="middle"
-            >
-              {`Weighted normalized task cost index (${xDomain.min}–${xDomain.max}, lower is better)`}
-            </text>
-            <text
-              className="cost-axis-title"
-              x="15"
-              y={(top + bottom) / 2}
-              textAnchor="middle"
-              transform={`rotate(-90 15 ${(top + bottom) / 2})`}
-            >
-              {`${scoreAxisLabel} (${yDomain.min}–${yDomain.max}, higher is better)`}
-            </text>
+            <CostAxisTitles
+              scoreLabel={scoreAxisLabel}
+              xDomain={xDomain}
+              yDomain={yDomain}
+              right={right}
+              bottom={bottom}
+            />
             <text className="cost-direction-label" x={left + 8} y={top + 15}>
               Better value ↖
             </text>
@@ -1035,7 +1068,7 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                   <div className="cost-hover-card-sources-title">
                     Source scores and costs
                   </div>
-                  <ul className="cost-hover-card-source-list">
+                  <ul className="cost-hover-card-source-list has-score-column">
                     {currentActivePoint.point.sources.map((source) => (
                       <li
                         key={source.sourceId}
@@ -1050,10 +1083,8 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                             : ''}
                           :
                         </span>
-                        <span>
-                          score {source.score.toFixed(1)} · $
-                          {source.cost.toFixed(3)}
-                        </span>
+                        <span>score {source.score.toFixed(1)}</span>
+                        <span>${source.cost.toFixed(3)}</span>
                       </li>
                     ))}
                   </ul>
@@ -1062,11 +1093,6 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
             </div>
           ) : null}
         </div>
-        <p className="cost-frontier-caption">
-          Lines connect effort profiles for the same model. Default
-          configurations are marked separately and are not part of the effort
-          ladder.
-        </p>
       </div>
     </div>
   ) : (
@@ -1146,7 +1172,6 @@ export const CostChart = memo(function CostChart({
         <div className="section-heading compact">
           <div>
             <h2 id="cost-title">Quality vs. Cost</h2>
-            <p>Lower cost is better. Higher Overall Score is better.</p>
           </div>
           <div className="cost-chart-actions">
             {!advanced ? (

@@ -392,21 +392,13 @@ test('scales the cost chart default plot axes to the plotted data range', async 
   const yAxisTitle = page.locator('.cost-curve-chart .cost-axis-title').nth(1);
   await expect(yAxisTitle).toBeVisible();
 
-  // SVG <text> has no innerText; textContent is the only way to read it.
-  const titleText = (await yAxisTitle.textContent()) ?? '';
-  expect(titleText).toMatch(/Overall Score \(\d+–\d+, higher is better\)/);
-  expect(titleText).not.toContain('0–100');
-
-  const match = titleText.match(
-    /Overall Score \((\d+)–(\d+), higher is better\)/,
-  );
-  expect(match).not.toBeNull();
-  if (match) {
-    const min = parseInt(match[1]!, 10);
-    const max = parseInt(match[2]!, 10);
-    expect(max - min).toBeLessThan(100);
-    expect(min).toBeGreaterThan(0);
-  }
+  await expect(yAxisTitle).toContainText('Overall Score');
+  await expect(yAxisTitle).toContainText('higher is better');
+  // The range is carried on data attributes; the ticks show it visually.
+  const min = Number(await yAxisTitle.getAttribute('data-domain-min'));
+  const max = Number(await yAxisTitle.getAttribute('data-domain-max'));
+  expect(max - min).toBeLessThan(100);
+  expect(min).toBeGreaterThan(0);
 });
 
 test('toggles the advanced aggregate cost curves by keyboard', async ({
@@ -427,7 +419,7 @@ test('toggles the advanced aggregate cost curves by keyboard', async ({
     page
       .locator('.cost-panel')
       .getByText('Lower cost is better. Higher Overall Score is better.'),
-  ).toBeVisible();
+  ).toHaveCount(0);
   const sourceButtons = page.locator('.advanced-source-toggle');
   await expect(sourceButtons).toHaveCount(6);
   for (let i = 0; i < (await sourceButtons.count()); i++) {
@@ -471,14 +463,12 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
     .first();
   await expect(xAxisTitle).toBeVisible();
 
-  const initialXTitle = (await xAxisTitle.textContent()) ?? '';
-  expect(initialXTitle).toMatch(
-    /Weighted normalized task cost index \((\d+(?:\.\d+)?)–(\d+(?:\.\d+)?), lower is better\)/,
-  );
-
-  const initialMatch = initialXTitle.match(/–(\d+(?:\.\d+)?)/);
-  expect(initialMatch).not.toBeNull();
-  const initialMax = parseFloat(initialMatch![1]!);
+  await expect(xAxisTitle).toContainText('Weighted cost index');
+  await expect(xAxisTitle).toContainText('lower is better');
+  const xDomainMax = async () =>
+    parseFloat((await xAxisTitle.getAttribute('data-domain-max')) ?? '');
+  const initialMax = await xDomainMax();
+  expect(Number.isFinite(initialMax)).toBe(true);
 
   // Find the most expensive point, and the series it belongs to. Match on the
   // data attributes rather than by parsing the aria-label: the label is prose
@@ -529,10 +519,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
   // to round ticks, so one model can no longer stretch it the way raw USD
   // did. The strict shrink is asserted further down, after enough series are
   // hidden that the bound has to move.
-  const newXTitle = (await xAxisTitle.textContent()) ?? '';
-  const newMatch = newXTitle.match(/–(\d+(?:\.\d+)?)/);
-  expect(newMatch).not.toBeNull();
-  const newMax = parseFloat(newMatch![1]!);
+  const newMax = await xDomainMax();
   expect(newMax).toBeLessThanOrEqual(initialMax);
 
   // Assert the hidden series' points are gone, and that nothing which
@@ -610,10 +597,7 @@ test('allows toggling series visibility in advanced cost chart to rescale axes',
     await page.keyboard.press('Space');
   }
 
-  const finalXTitle = (await xAxisTitle.textContent()) ?? '';
-  const finalMatch = finalXTitle.match(/–(\d+(?:\.\d+)?)/);
-  expect(finalMatch).not.toBeNull();
-  expect(parseFloat(finalMatch![1]!)).toBeLessThan(initialMax);
+  expect(await xDomainMax()).toBeLessThan(initialMax);
 });
 
 test('recomputes source eligibility and supports model and effort controls', async ({
