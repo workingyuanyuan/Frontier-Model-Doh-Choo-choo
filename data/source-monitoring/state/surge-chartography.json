@@ -2,86 +2,92 @@
   "catalog": [
     {
       "id": "antidote",
-      "title": "Antidote",
+      "title": "View Antidote: Everyday Edition benchmark",
       "url": "https://surgehq.ai/benchmarks/antidote",
       "version": null
     },
     {
       "id": "chartography",
-      "title": "Chartography",
+      "title": "View Chartography benchmark",
       "url": "https://surgehq.ai/benchmarks/chartography",
       "version": null
     },
     {
       "id": "complex-constraints",
-      "title": "ComplexConstraints",
+      "title": "View ComplexConstraints benchmark",
       "url": "https://surgehq.ai/benchmarks/complex-constraints",
       "version": null
     },
     {
       "id": "dayjob-finance",
-      "title": "DAYJOB: Finance",
+      "title": "View DAYJOB: Finance benchmark",
       "url": "https://surgehq.ai/benchmarks/dayjob-finance",
       "version": null
     },
     {
       "id": "dayjob-healthcare",
-      "title": "DAYJOB: Healthcare",
+      "title": "View DAYJOB: Healthcare benchmark",
       "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
       "version": null
     },
     {
       "id": "enterprisebench-corecraft",
-      "title": "EnterpriseBench: CoreCraft",
+      "title": "View EnterpriseBench: CoreCraft Agents benchmark",
       "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
       "version": null
     },
     {
       "id": "gdp-pdf",
-      "title": "GDP.pdf",
+      "title": "View GDP.pdf benchmark",
       "url": "https://surgehq.ai/benchmarks/gdp-pdf",
       "version": null
     },
     {
       "id": "gdp-xlsx",
-      "title": "GDP.xlsx",
+      "title": "View GDP.xlsx benchmark",
       "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
       "version": null
     },
     {
       "id": "handbook",
-      "title": "HANDBOOK.md",
+      "title": "View HANDBOOK.md Agents benchmark",
       "url": "https://surgehq.ai/benchmarks/handbook",
       "version": null
     },
     {
       "id": "hemingway-bench",
-      "title": "Hemingway-bench",
+      "title": "View Hemingway-bench benchmark",
       "url": "https://surgehq.ai/benchmarks/hemingway-bench",
       "version": null
     },
     {
       "id": "riemann-bench",
-      "title": "Riemann-bench",
+      "title": "View Riemann-bench benchmark",
       "url": "https://surgehq.ai/benchmarks/riemann-bench",
+      "version": null
+    },
+    {
+      "id": "sudo-l7",
+      "title": "View sudo L7 benchmark",
+      "url": "https://surgehq.ai/benchmarks/sudo-l7",
       "version": null
     }
   ],
-  "checkedAt": "2026-10-04T03:31:14.887Z",
+  "checkedAt": "2026-10-23T09:34:56.682Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/7d/7df8ecf78f30dfd7df3d451fd22f81e9280d1beaf0cbee5593f3f16bdf44cde1.html",
-    "byteLength": 1092880,
+    "artifactPath": "artifacts/sha256/5e/5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2.html",
+    "byteLength": 855160,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:7df8ecf78f30dfd7df3d451fd22f81e9280d1beaf0cbee5593f3f16bdf44cde1",
+    "id": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-04T03:31:14.887Z",
+    "retrievedAt": "2026-10-23T09:34:56.682Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7df8ecf78f30dfd7df3d451fd22f81e9280d1beaf0cbee5593f3f16bdf44cde1",
+    "sha256": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
     "sourceId": "surge-chartography"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -218,7 +224,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-04T03:22:53.727Z",
+    "observedAt": "2026-10-23T09:34:56.382Z",
     "sourceId": "surge-chartography"
   }
 }

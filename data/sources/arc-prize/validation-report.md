@@ -4,43 +4,43 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:937f3d67a04063e4e2802c73b701f5b413ae48898d209a1827480bb85e6f02b9`
-- Models evidence: `sha256:9ddc96a7925c5c73155584f6fd1874359bfbc2b39a2358933f6892f2402997ed`
+- Evaluations evidence: `sha256:7bcb14727f15a0806143629850066c3177bdaaf02d1a95a7f920fb76c6c30ac4`
+- Models evidence: `sha256:6f6c9f483c3f813e3dd80d49594e67d30b4ba6710276e537c4753f3b56828988`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:149ef7999ce2ec0eb3349a800bf2ef24762f01e331114eaa6bff77143be95e0b`
-- Observed at: 2026-10-04T03:27:00.029Z
+- Page evidence: `sha256:365cf8b14db77219582669c9e30340b411ae1857b8848da23852d7cc614ca277`
+- Observed at: 2026-10-23T09:35:10.906Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1094 |
-| Total models in models.json | 319 |
+| Total evaluation rows (all splits) | 1264 |
+| Total models in models.json | 368 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 265 |
-| Promoted v2_Semi_Private rows (display=true) | 258 |
-| Promoted cost records (USD/task) | 258 |
-| Canonically resolved rows | 131 |
-| Canonically unresolved rows | 127 |
-| Canonically unresolved models | 126 |
+| Total v2_Semi_Private evaluations | 298 |
+| Promoted v2_Semi_Private rows (display=true) | 291 |
+| Promoted cost records (USD/task) | 291 |
+| Canonically resolved rows | 142 |
+| Canonically unresolved rows | 149 |
+| Canonically unresolved models | 149 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 258 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 291 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 258/258 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 291/291 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 258/258 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 291/291 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 131/258 promoted rows (127 unresolved rows across 126 distinct model names).
+Exact catalog resolution succeeded for 142/291 promoted rows (149 unresolved rows across 149 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -67,6 +67,10 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 ## Unresolved model names
 
 - ARChitects
+- Beam 1.0 (High)
+- Beam 1.0 (Low)
+- Beam 1.0 (Medium)
+- Beam 1.0 (XHigh)
 - Claude 3.7
 - Claude 3.7 (16K)
 - Claude 3.7 (1K)
@@ -80,6 +84,10 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Claude Haiku 4.5 (Thinking 1K)
 - Claude Haiku 4.5 (Thinking 32K)
 - Claude Haiku 4.5 (Thinking 8K)
+- Claude Haiku 5.5 (High)
+- Claude Haiku 5.5 (Low)
+- Claude Haiku 5.5 (Medium)
+- Claude Haiku 5.5 (XHigh)
 - Claude Opus 4
 - Claude Opus 4 (Thinking 16K)
 - Claude Opus 4 (Thinking 1K)
@@ -97,6 +105,14 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Deepseek R1
 - Deepseek R1 (05/28)
 - Deepseek V3.2
+- DeepSeek V4.1 Flash (High)
+- DeepSeek V4.1 Flash (Low)
+- DeepSeek V4.1 Flash (Max)
+- DeepSeek V4.1 Flash (None)
+- DeepSeek V4.1 Flash 1017 (High)
+- DeepSeek V4.1 Flash 1017 (Low)
+- DeepSeek V4.1 Flash 1017 (Max)
+- DeepSeek V4.1 Flash 1017 (None)
 - Dots3-Note Preview (Max)
 - Gemini 1.5 Pro
 - Gemini 2.0 Flash
@@ -172,6 +188,13 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Magistral Medium (Thinking)
 - Magistral Small
 - Minimax M2.5
+- Muse Spark Open (High)
+- Muse Spark Open (Low)
+- Muse Spark Open (Medium)
+- Muse Spark Open (XHigh)
+- Nemotron 3.5 Super VL (High)
+- Nemotron 3.5 Super VL (Medium)
+- Nemotron 3.5 Super VL (None)
 - NVARC
 - o1-mini
 - o3 (High)
@@ -202,9 +225,9 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-185 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-185 |
+| GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-193 |
+| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-193 |
 | Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default

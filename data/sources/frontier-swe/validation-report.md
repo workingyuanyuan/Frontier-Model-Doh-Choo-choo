@@ -25,14 +25,14 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 | Claude Sonnet 5.5 | `frontier-swe:frontier-swe-v2:claude-sonnet-5-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
 | Gemini 3.7 Flash | `frontier-swe:frontier-swe-v2:gemini-3-7-flash-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-7-flash-high:arc-agi-2-v2-semi-private |
 | Gemini 3.8 Flash | `frontier-swe:frontier-swe-v2:gemini-3-8-flash-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private |
-| Gemini 4 Argon | `frontier-swe:frontier-swe-v2:gemini-4-argon-proximus` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-4-argon |
+| Gemini 4 Argon | `frontier-swe:frontier-swe-v2:gemini-4-argon-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private |
 | GPT-5.6 Sol | `frontier-swe:frontier-swe-v2:gpt-5-6-sol-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
 | GPT-6 Astra | `frontier-swe:frontier-swe-v2:gpt-6-astra-proximus` | — | `max` | anthropic-releases | anthropic-releases:frontier-code-1-1:gpt6astra-max |
 | Grok 4.6 | `frontier-swe:frontier-swe-v2:grok-4-6-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
-| Grok 4.7 | `frontier-swe:frontier-swe-v2:grok-4-7-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-7 |
+| Grok 4.7 | `frontier-swe:frontier-swe-v2:grok-4-7-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
 | Inkling | `frontier-swe:frontier-swe-v2:inkling-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 | Kimi K3 | `frontier-swe:frontier-swe-v2:kimi-k3-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| Muse Spark 1.2 | `frontier-swe:frontier-swe-v2:muse-spark-1-2-proximus` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-muse-spark-1-2-xhigh |
+| Muse Spark 1.2 | `frontier-swe:frontier-swe-v2:muse-spark-1-2-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
 | Qwen3.8-Max | `frontier-swe:frontier-swe-v2:qwen3-8-max-proximus` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 
 ### Unlabelled rows assigned the outside-the-ladder default

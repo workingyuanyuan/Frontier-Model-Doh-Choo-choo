@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/c6/c6261d232e8c14da9baeb9fa1badbfdea89aae76f1dd20ab45b3fca162f45b39.html",
-    "byteLength": 628188,
+    "artifactPath": "artifacts/sha256/f7/f7ac6c83e67f35b2fd7c58775a169b87dbc9be3b6059e3092aae23dd596d078c.html",
+    "byteLength": 188397,
     "finalUrl": "https://surgehq.ai/benchmarks/chartography",
-    "id": "sha256:c6261d232e8c14da9baeb9fa1badbfdea89aae76f1dd20ab45b3fca162f45b39",
+    "id": "sha256:f7ac6c83e67f35b2fd7c58775a169b87dbc9be3b6059e3092aae23dd596d078c",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 42,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/chartography",
-    "retrievedAt": "2026-10-04T03:22:53.727Z",
+    "retrievedAt": "2026-10-23T09:34:56.382Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:c6261d232e8c14da9baeb9fa1badbfdea89aae76f1dd20ab45b3fca162f45b39",
+    "sha256": "sha256:f7ac6c83e67f35b2fd7c58775a169b87dbc9be3b6059e3092aae23dd596d078c",
     "sourceId": "surge-chartography"
   }
 ]

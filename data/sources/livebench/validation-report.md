@@ -1,41 +1,70 @@
 # LiveBench acquisition validation
 
-- Release: `2026-06-25` (cacheVersion `1790708459`) dynamically extracted from `https://livebench.ai/static/js/main.b9b5570a.js`
-- Evidence: `https://livebench.ai/table_2026_06_25.csv?v=1790708459` and `https://livebench.ai/categories_2026_06_25.json?v=1790708459`
+LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supplies seven suites; the frozen 1.0 release 2026-06-25 keeps the benchmarks that 2.0 dropped.
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Raw model rows in table CSV | 66 |
-| Approved scoring categories | 4 (Reasoning, Mathematics, Language, IF) |
-| Excluded/Unapproved categories | 3 (Coding, Agentic Coding, Data Analysis) |
-| Generated CandidateResults | 264 |
-| Canonically resolved candidates | 228 |
-| Canonically unresolved candidates | 36 |
-| Distinct unresolved raw model names | 9 |
+| 2.0 model rows (`https://livebench.ai/data/20261014/table.csv?v=1792480668`) | 49 |
+| 2.0 suite candidates | 343 |
+| 2.0 blank (still running) cells | 0 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668`) | 71 |
+| 1.0 retained candidates (Language, IF, Mathematics) | 213 |
+| 1.0 Reasoning candidates excluded as superseded | 71 |
+| Cost records | 156 |
+| Distinct unresolved raw model names | 30 |
 
-## Model identity resolution
+## LiveBench 2.0 suites
 
-Full raw-name catalog matches are attempted first. Remaining names use only exact effort-suffix, Claude thinking/date, dated-effort, thinking-marker, or dated-model-alias transforms; no fuzzy matching is performed.
+| Suite | Benchmark ID | Tools |
+|---|---|---|
+| Long Agentic | `livebench-long-agentic` | yes |
+| Reasoning | `livebench-reasoning` | no |
+| Coding | `livebench-coding` | yes |
+| Browser | `livebench-browser` | yes |
+| Data Analysis | `livebench-data-analysis` | no |
+| Research | `livebench-research` | yes |
+| Design | `livebench-design` | yes |
 
-- `deepseek-v4-flash`: full slug "deepseek-v4-flash" has no documented exact LiveBench transform to a catalog slug
-- `deepseek-v4-flash-vision-exp`: full slug "deepseek-v4-flash-vision-exp" has no documented exact LiveBench transform to a catalog slug
-- `deepseek-v4-pro`: full slug "deepseek-v4-pro" has no documented exact LiveBench transform to a catalog slug
-- `deepseek-v4.1-flash-max`: no exact catalog match; effort-suffix transform produced "deepseek-v4-1-flash", which is not an exact catalog slug
-- `glm-5.3`: full slug "glm-5-3" has no documented exact LiveBench transform to a catalog slug
-- `glm-5.3-flash`: full slug "glm-5-3-flash" has no documented exact LiveBench transform to a catalog slug
-- `ox-alpha-max`: no exact catalog match; effort-suffix transform produced "ox-alpha", which is not an exact catalog slug
-- `qwen3.8-flash-next`: full slug "qwen3-8-flash-next" has no documented exact LiveBench transform to a catalog slug
-- `smaug-agentic`: full slug "smaug-agentic" has no documented exact LiveBench transform to a catalog slug
+- Each cell is the official suite score (mean task score 0–100, single run); unmeasured tasks score 0 upstream and a blank cell is not materialized.
+- Effort comes from the 2.0 model registry in the application bundle; models run at their highest supported effort unless the registry says otherwise.
+- `livebench-reasoning` continues on the 2.0 Reasoning suite (same task family, new release).
+- Retained 1.0 rows compared with the saved snapshot by candidate ID and score: none removed or changed; 0 added since the last capture.
+- 2.0 cost per task is Σ suite cost / Σ suite tasks, as the methodology defines it. 1.0 cost-per-successful-task records are kept but EXCLUDED, so the two generations are never blended.
 
-## Category scope boundary
+## Unresolved model names
 
-Per SPEC.md §9.1 and §5.2, only the 4 approved categories (Reasoning, Mathematics, Language, Instruction Following) enter scoring. Coding, Agentic Coding, and Data Analysis categories are unapproved and excluded.
-
-## Discrepancies and notes
-
-- None. All 66 model rows have complete task coverage across the 4 approved categories.
+- `beam-1.0`
+- `claude-haiku-4.5`
+- `claude-haiku-5-5-max-effort`
+- `claude-haiku-5-5-xhigh-effort`
+- `claude-haiku-5.5`
+- `deepseek-v4-flash`
+- `deepseek-v4-flash-vision`
+- `deepseek-v4-flash-vision-exp`
+- `deepseek-v4-pro`
+- `deepseek-v4.1-flash`
+- `deepseek-v4.1-flash-1017`
+- `deepseek-v4.1-flash-max`
+- `gemini-3.1-pro`
+- `gemma-4-31b`
+- `glm-5.3`
+- `glm-5.3-flash`
+- `mimo-v2.6-pro`
+- `minimax-m3.1-flash`
+- `mistral-large-4`
+- `mistral-large-4-high`
+- `muse-spark-open`
+- `nemotron-3.5-lightning-30b-a3b`
+- `nemotron-lightning-3.5`
+- `nemotron-super-vl-3.5`
+- `nemotron-ultra-3`
+- `ox-alpha-max`
+- `qwen3.8-flash`
+- `qwen3.8-flash-next`
+- `smaug-agentic`
+- `step-5-preview`
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -54,18 +83,18 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-language:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-mathematics:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek-v4-pro-0813 | `livebench-2026-06-25:livebench-reasoning:deepseek-v4-pro-0813` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
-| glm-5.2 | `livebench-2026-06-25:livebench-instruction-following:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
-| glm-5.2 | `livebench-2026-06-25:livebench-reasoning:glm-5-2` | — | `max` | deepswe | deepswe-1-1:mini-swe-agent-glm-5-2-max |
+| glm-5.2 | `livebench-2026-06-25:livebench-instruction-following:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
+| glm-5.2 | `livebench-2026-06-25:livebench-reasoning:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
 | gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
-| grok-4.3 | `livebench-2026-06-25:livebench-instruction-following:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
-| grok-4.3 | `livebench-2026-06-25:livebench-language:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
-| grok-4.3 | `livebench-2026-06-25:livebench-mathematics:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
-| grok-4.3 | `livebench-2026-06-25:livebench-reasoning:grok-4-3` | — | `high` | surge-chartography | surge-chartography:chartography:grok-4-3-high-reasoning |
+| grok-4.3 | `livebench-2026-06-25:livebench-instruction-following:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |
+| grok-4.3 | `livebench-2026-06-25:livebench-language:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |
+| grok-4.3 | `livebench-2026-06-25:livebench-mathematics:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |
+| grok-4.3 | `livebench-2026-06-25:livebench-reasoning:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |
 | grok-4.5 | `livebench-2026-06-25:livebench-instruction-following:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | grok-4.5 | `livebench-2026-06-25:livebench-language:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | grok-4.5 | `livebench-2026-06-25:livebench-mathematics:grok-4-5` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
@@ -82,10 +111,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | kimi-k3 | `livebench-2026-06-25:livebench-language:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-mathematics:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | kimi-k3 | `livebench-2026-06-25:livebench-reasoning:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| minimax-m3 | `livebench-2026-06-25:livebench-instruction-following:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
-| minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-94:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-instruction-following:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-language:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-mathematics:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| minimax-m3 | `livebench-2026-06-25:livebench-reasoning:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-instruction-following:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-language:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |
 | qwen3.8-27b | `livebench-2026-06-25:livebench-mathematics:qwen3-8-27b` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:alibaba-qwen3-8-27b-xhigh:arc-agi-2-v2-semi-private |

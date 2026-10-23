@@ -2,41 +2,48 @@
   "accessMethods": ["EXPORT", "API_RESPONSE", "DOM"],
   "baseUrl": "https://livebench.ai",
   "benchmarkIds": [
+    "livebench-long-agentic",
     "livebench-reasoning",
-    "livebench-mathematics",
+    "livebench-coding",
+    "livebench-browser",
+    "livebench-data-analysis",
+    "livebench-research",
+    "livebench-design",
     "livebench-language",
-    "livebench-instruction-following"
+    "livebench-instruction-following",
+    "livebench-mathematics"
   ],
   "completeness": {
-    "expectedCountMethod": "Read the latest release/cache version from the official bundle, then count every table, category and cost-export row.",
+    "expectedCountMethod": "Read both release identifiers from the official bundle, then compare every 2.0 and frozen 1.0 export row with the rendered leaderboards.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
   "displayName": "LiveBench",
   "fallbackMethods": ["DOM", "VISUAL"],
   "fieldMapping": {
-    "arithmetic mean of category tasks": "rawScore",
-    "categories JSON": "category-to-task membership",
-    "cost CSV cost_per_successful_task": "MEASURED_TASK cost",
-    "cost CSV token price columns": "API_STANDARDIZED pricing",
-    "table CSV model": "model.rawName/profile",
-    "table CSV task columns": "raw subtask scores"
+    "1.0 table CSV task columns": "retained Language, IF and Mathematics",
+    "2.0 cost CSV suite totals / nq_*": "MEASURED_TASK cost per task",
+    "2.0 model registry effort": "profile.effort",
+    "2.0 table CSV suite columns": "rawScore per suite benchmark",
+    "cost CSV token price columns": "API_STANDARDIZED pricing"
   },
-  "lastVerifiedAt": "2026-10-04T03:26:02.621Z",
+  "lastVerifiedAt": "2026-10-23T10:51:57.763Z",
   "notes": [
-    "Bundle declares 2026-06-25; refreshed exports contain 66 profiles and 7 categories.",
-    "Exact identities only; 9 profile names remain unresolved without fuzzy matching.",
-    "Four approved category families are materialized; Coding, Agentic Coding and Data Analysis stay excluded.",
-    "66 cost rows emit 114 CostRecords from exact identities."
+    "LiveBench 2.0 release 2026-10-14: 49 models across 7 suites.",
+    "Frozen 1.0 release 2026-06-25: Language, IF and Mathematics retained because 2.0 dropped them; 1.0 Reasoning is superseded by 2.0.",
+    "Exact identities only; 30 raw names remain unresolved without fuzzy matching."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "livebench",
   "targetUrls": [
     "https://livebench.ai/",
-    "https://livebench.ai/static/js/main.b9b5570a.js",
-    "https://livebench.ai/table_2026_06_25.csv?v=1790708459",
-    "https://livebench.ai/categories_2026_06_25.json?v=1790708459",
-    "https://livebench.ai/cost_2026_06_25.csv?v=1790708459"
+    "https://livebench.ai/static/js/main.074b2ee8.js",
+    "https://livebench.ai/data/20261014/table.csv?v=1792480668",
+    "https://livebench.ai/data/20261014/categories.json?v=1792480668",
+    "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668",
+    "https://livebench.ai/v1/categories_2026_06_25.json?v=1792480668",
+    "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668"
   ]
 }

@@ -2,86 +2,92 @@
   "catalog": [
     {
       "id": "antidote",
-      "title": "Antidote",
+      "title": "View Antidote: Everyday Edition benchmark",
       "url": "https://surgehq.ai/benchmarks/antidote",
       "version": null
     },
     {
       "id": "chartography",
-      "title": "Chartography",
+      "title": "View Chartography benchmark",
       "url": "https://surgehq.ai/benchmarks/chartography",
       "version": null
     },
     {
       "id": "complex-constraints",
-      "title": "ComplexConstraints",
+      "title": "View ComplexConstraints benchmark",
       "url": "https://surgehq.ai/benchmarks/complex-constraints",
       "version": null
     },
     {
       "id": "dayjob-finance",
-      "title": "DAYJOB: Finance",
+      "title": "View DAYJOB: Finance benchmark",
       "url": "https://surgehq.ai/benchmarks/dayjob-finance",
       "version": null
     },
     {
       "id": "dayjob-healthcare",
-      "title": "DAYJOB: Healthcare",
+      "title": "View DAYJOB: Healthcare benchmark",
       "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
       "version": null
     },
     {
       "id": "enterprisebench-corecraft",
-      "title": "EnterpriseBench: CoreCraft",
+      "title": "View EnterpriseBench: CoreCraft Agents benchmark",
       "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
       "version": null
     },
     {
       "id": "gdp-pdf",
-      "title": "GDP.pdf",
+      "title": "View GDP.pdf benchmark",
       "url": "https://surgehq.ai/benchmarks/gdp-pdf",
       "version": null
     },
     {
       "id": "gdp-xlsx",
-      "title": "GDP.xlsx",
+      "title": "View GDP.xlsx benchmark",
       "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
       "version": null
     },
     {
       "id": "handbook",
-      "title": "HANDBOOK.md",
+      "title": "View HANDBOOK.md Agents benchmark",
       "url": "https://surgehq.ai/benchmarks/handbook",
       "version": null
     },
     {
       "id": "hemingway-bench",
-      "title": "Hemingway-bench",
+      "title": "View Hemingway-bench benchmark",
       "url": "https://surgehq.ai/benchmarks/hemingway-bench",
       "version": null
     },
     {
       "id": "riemann-bench",
-      "title": "Riemann-bench",
+      "title": "View Riemann-bench benchmark",
       "url": "https://surgehq.ai/benchmarks/riemann-bench",
+      "version": null
+    },
+    {
+      "id": "sudo-l7",
+      "title": "View sudo L7 benchmark",
+      "url": "https://surgehq.ai/benchmarks/sudo-l7",
       "version": null
     }
   ],
-  "checkedAt": "2026-10-04T03:31:14.887Z",
+  "checkedAt": "2026-10-23T09:35:04.731Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/7d/7df8ecf78f30dfd7df3d451fd22f81e9280d1beaf0cbee5593f3f16bdf44cde1.html",
-    "byteLength": 1092880,
+    "artifactPath": "artifacts/sha256/5e/5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2.html",
+    "byteLength": 855160,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:7df8ecf78f30dfd7df3d451fd22f81e9280d1beaf0cbee5593f3f16bdf44cde1",
+    "id": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-04T03:31:14.887Z",
+    "retrievedAt": "2026-10-23T09:35:04.731Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7df8ecf78f30dfd7df3d451fd22f81e9280d1beaf0cbee5593f3f16bdf44cde1",
+    "sha256": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
     "sourceId": "surge-dayjob-healthcare"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -89,7 +95,7 @@
     "benchmarks": [
       {
         "id": "dayjob-healthcare",
-        "includedRows": 32,
+        "includedRows": 36,
         "metrics": ["mean-reward:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -98,6 +104,7 @@
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5",
+          "anthropic-claude-sonnet-5-5",
           "deepseek-deepseek-v4-flash",
           "deepseek-deepseek-v4-pro",
           "google-gemini-3-7-flash",
@@ -111,6 +118,7 @@
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
+          "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -124,6 +132,7 @@
           "[\"Claude Opus 5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
           "[\"Claude Opus 5.5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
           "[\"Claude Sonnet 5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
+          "[\"Claude Sonnet 5.5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
           "[\"DeepSeek V4 Flash (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"DeepSeek V4 Pro (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"GLM 5.3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
@@ -134,6 +143,7 @@
           "[\"GPT 6 Astra (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"GPT 6 Luna (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"GPT 6 Sol (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"GPT 6.1 Sol (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Gemini 3.1 Pro (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
           "[\"Gemini 3.7 Flash (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
           "[\"Gemini 3.8 Flash (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
@@ -145,12 +155,14 @@
           "[\"Inkling (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Kimi K2.7 Code (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Kimi K3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
-          "[\"Mistral Large 3\",null,null,null,null,null,5,null]",
+          "[\"Mistral Large 4 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
           "[\"Muse Glimmer 30B (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
           "[\"Muse Spark 1.2 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
           "[\"Muse Spark 1.3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Muse Wonder 1.0 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Nemotron 3 Ultra\",null,null,null,null,null,5,null]",
-          "[\"Qwen 3.8 Max (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]"
+          "[\"Qwen 3.8 Max (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
+          "[\"mistral Large 3\",null,null,null,null,null,5,null]"
         ],
         "rawLabels": [
           "Claude Fable 5 (Adaptive/Max)",
@@ -158,6 +170,7 @@
           "Claude Opus 5 (Adaptive/Max)",
           "Claude Opus 5.5 (Adaptive/Max)",
           "Claude Sonnet 5 (Adaptive/Max)",
+          "Claude Sonnet 5.5 (Adaptive/Max)",
           "DeepSeek V4 Flash (Max reasoning)",
           "DeepSeek V4 Pro (Max reasoning)",
           "GLM 5.3 (Max reasoning)",
@@ -168,6 +181,7 @@
           "GPT 6 Astra (Max reasoning)",
           "GPT 6 Luna (Max reasoning)",
           "GPT 6 Sol (Max reasoning)",
+          "GPT 6.1 Sol (Max reasoning)",
           "Gemini 3.1 Pro (High reasoning)",
           "Gemini 3.7 Flash (High reasoning)",
           "Gemini 3.8 Flash (High reasoning)",
@@ -179,19 +193,21 @@
           "Inkling (Max reasoning)",
           "Kimi K2.7 Code (Max reasoning)",
           "Kimi K3 (Max reasoning)",
-          "Mistral Large 3",
+          "Mistral Large 4 (High reasoning)",
           "Muse Glimmer 30B (xHigh reasoning)",
           "Muse Spark 1.2 (xHigh reasoning)",
           "Muse Spark 1.3 (Max reasoning)",
+          "Muse Wonder 1.0 (Max reasoning)",
           "Nemotron 3 Ultra",
-          "Qwen 3.8 Max (xHigh reasoning)"
+          "Qwen 3.8 Max (xHigh reasoning)",
+          "mistral Large 3"
         ],
-        "rows": 32,
+        "rows": 36,
         "sourceUrls": ["https://surgehq.ai/benchmarks/dayjob-healthcare"],
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-04T03:22:54.445Z",
+    "observedAt": "2026-10-23T09:35:04.404Z",
     "sourceId": "surge-dayjob-healthcare"
   }
 }
