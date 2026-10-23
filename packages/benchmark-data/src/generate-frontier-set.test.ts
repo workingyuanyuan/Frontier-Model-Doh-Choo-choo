@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import {
   commonQualityBenchmarks,
   createAaCohorts,
+  chooseDefaultCohort,
 } from './generate-frontier-set.js';
 import { loadWorkspaceCoverageData } from './coverage-matrix.js';
 import { selectAaTopTen } from './frontier-selection.js';
@@ -44,7 +45,7 @@ async function workspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete default profiles and seventeen tests in five active categories', async () => {
+  it('produces eight complete profiles and thirteen tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     const selection = selectAaTopTen(candidates);
     expect(selection.status, JSON.stringify(selection.issues)).toBe('selected');
@@ -55,7 +56,7 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    expect(result.benchmarkIds).toHaveLength(17);
+    expect(result.benchmarkIds).toHaveLength(13);
     expect(result.excludedBenchmarkIds).toContain('proofbench');
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
@@ -67,14 +68,14 @@ describe('frontier common quality core', () => {
     expect(result.dimensions.map((d) => [d.id, d.benchmarkIds.length])).toEqual(
       [
         ['reasoning', 1],
-        ['knowledge', 3],
-        ['comprehension', 3],
-        ['coding', 3],
-        ['agentic', 7],
+        ['knowledge', 2],
+        ['comprehension', 1],
+        ['coding', 4],
+        ['agentic', 5],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 17)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 13)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
@@ -131,7 +132,7 @@ describe('frontier common quality core', () => {
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      27, 27, 25, 19, 19, 18, 17, 14, 14,
+      36, 18, 17, 16, 16, 13, 13, 13, 12,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     for (const cohort of cohorts) {
@@ -160,12 +161,15 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    expect(skipNinth.benchmarkIds).toEqual(cohorts[6]!.benchmarkIds);
+    // In the saved snapshot the ninth leader keeps every top-eight test and
+    // only the tenth lacks one, so skipping the ninth equals the full top ten.
+    expect(skipNinth.benchmarkIds).toEqual(cohorts[8]!.benchmarkIds);
+    expect(cohorts[7]!.benchmarkIds).toEqual(cohorts[6]!.benchmarkIds);
     expect(
-      cohorts[6]!.benchmarkIds.filter(
-        (id) => !cohorts[7]!.benchmarkIds.includes(id),
+      cohorts[7]!.benchmarkIds.filter(
+        (id) => !cohorts[8]!.benchmarkIds.includes(id),
       ),
-    ).toEqual(['aa-lcr', 'medcode', 'medscribe']);
+    ).toEqual(['cyber']);
   });
 
   it('requires at least one common test and rejects duplicate profiles', async () => {
@@ -181,5 +185,35 @@ describe('frontier common quality core', () => {
         quality,
       ),
     ).toThrow('distinct');
+  });
+});
+
+describe('default cohort selection', () => {
+  const cohort = (targetModelCount: number, tests: number) => ({
+    id: `aa-top-${targetModelCount}`,
+    targetModelCount,
+    benchmarkIds: Array.from({ length: tests }, (_, index) => `b${index}`),
+  });
+
+  it('grows past eight models while the common-test count holds', () => {
+    expect(
+      chooseDefaultCohort([
+        cohort(7, 14),
+        cohort(8, 12),
+        cohort(9, 12),
+        cohort(10, 11),
+      ]).targetModelCount,
+    ).toBe(9);
+    expect(
+      chooseDefaultCohort([cohort(8, 12), cohort(9, 12), cohort(10, 12)])
+        .targetModelCount,
+    ).toBe(10);
+  });
+
+  it('keeps eight when the next cohort loses a test, even if a later one ties', () => {
+    expect(
+      chooseDefaultCohort([cohort(8, 12), cohort(9, 11), cohort(10, 12)])
+        .targetModelCount,
+    ).toBe(8);
   });
 });

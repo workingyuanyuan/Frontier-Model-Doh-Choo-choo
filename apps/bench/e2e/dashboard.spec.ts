@@ -13,6 +13,10 @@ import {
 const currentProduct = JSON.parse(
   readFileSync('data/product/current.json', 'utf8'),
 ) as ProductVersion;
+// The default cohort size follows the data (FRONTIER_POLICY), not a constant.
+const defaultModelCount = currentProduct.presets.find(
+  ({ id }) => id === currentProduct.defaultPresetId,
+)!.targetModelCount;
 
 test('switches and persists the icon-only color theme', async ({ page }) => {
   await page.goto('/');
@@ -927,7 +931,7 @@ test('restores the AA model-count slider and persists each cohort in the URL', a
   const slider = page.locator('#preset-model-count');
   await expect(slider).toHaveAttribute('min', '2');
   await expect(slider).toHaveAttribute('max', '10');
-  await expect(slider).toHaveValue('8');
+  await expect(slider).toHaveValue(String(defaultModelCount));
   for (const count of [2, 3, 4, 5, 6, 7, 8, 9, 10]) {
     await slider.fill(String(count));
     const preset = currentProduct.presets.find(
@@ -953,7 +957,12 @@ test('restores the AA model-count slider and persists each cohort in the URL', a
       ),
     ).toBeLessThanOrEqual(1);
   }
-  await expect(page).toHaveURL(/preset=aa-top-10/);
+  // The default preset is kept out of the URL.
+  if (currentProduct.defaultPresetId === 'aa-top-10') {
+    await expect(page).not.toHaveURL(/preset=/);
+  } else {
+    await expect(page).toHaveURL(/preset=aa-top-10/);
+  }
   await page.reload();
   await expect(slider).toHaveValue('10');
   await expect(page.locator('[data-ranked-row]')).toHaveCount(10);
@@ -994,7 +1003,9 @@ test('restores the frontier profiles after a manual effort comparison', async ({
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Default', exact: true }).click();
   await page.keyboard.press('Escape');
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(8);
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    defaultModelCount,
+  );
   expect(
     await page
       .locator('[data-ranked-row]')

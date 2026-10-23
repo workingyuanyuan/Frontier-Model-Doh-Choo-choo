@@ -116,31 +116,31 @@ describe('AA frontier selection', () => {
     expect(result.selectedModelIds).toEqual([
       'anthropic-claude-opus-5-5',
       'anthropic-claude-sonnet-5-5',
+      'meta-muse-wonder-full',
       'anthropic-claude-fable-5-1',
       'openai-gpt-6-astra',
       'google-gemini-4-argon',
+      'meta-muse-wonder',
       'openai-gpt-6-1-sol',
       'anthropic-claude-opus-5',
       'anthropic-claude-fable-5',
-      'meta-muse-spark-1-3',
-      'openai-gpt-6-sol',
     ]);
     expect(result.selectedProfileIds).toEqual([
       'anthropic-claude-opus-5-5-max',
       'anthropic-claude-sonnet-5-5-max',
+      'meta-muse-wonder-full-max',
       'anthropic-claude-fable-5-1-max',
       'openai-gpt-6-astra-max',
       'google-gemini-4-argon-high',
+      'meta-muse-wonder-max',
       'openai-gpt-6-1-sol-max',
       'anthropic-claude-opus-5-max',
       'anthropic-claude-fable-5-max',
-      'meta-muse-spark-1-3-max',
-      'openai-gpt-6-sol-max',
     ]);
-    expect(result.resolvedModelCount).toBe(52);
-    expect(result.topTen[8]?.modelId).toBe('meta-muse-spark-1-3');
-    expect(result.boundary?.afterRank).toBe(2);
-    expect(result.gapAudit.selectedModelIds).toHaveLength(2);
+    expect(result.resolvedModelCount).toBe(54);
+    expect(result.topTen[8]?.modelId).toBe('anthropic-claude-opus-5');
+    expect(result.boundary?.afterRank).toBe(3);
+    expect(result.gapAudit.selectedModelIds).toHaveLength(3);
   });
 
   it('selects the models above the gap and preserves version, scores and evidence', () => {

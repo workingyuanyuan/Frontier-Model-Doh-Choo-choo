@@ -8,6 +8,11 @@ const raw = JSON.parse(
   readFileSync('data/product/current.json', 'utf8'),
 ) as ProductVersion;
 const product = withActivePreset(raw);
+// The default cohort size follows the data (FRONTIER_POLICY), not a constant.
+const defaultModelCount = raw.presets.find(
+  ({ id }) => id === raw.defaultPresetId,
+)!.targetModelCount;
+
 const mapping = JSON.parse(
   readFileSync('data/mappings/benchmarks-v2.json', 'utf8'),
 );
@@ -225,6 +230,10 @@ test('keeps the AA tenth model when the ninth is manually excluded', async ({
   await picker(page, async () => {
     await page.getByRole('button', { name: 'Default', exact: true }).click();
   });
-  await expect(page.locator('#preset-model-count')).toHaveValue('8');
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(8);
+  await expect(page.locator('#preset-model-count')).toHaveValue(
+    String(defaultModelCount),
+  );
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    defaultModelCount,
+  );
 });

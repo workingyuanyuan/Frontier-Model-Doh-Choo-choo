@@ -7,6 +7,11 @@ import { getProfileDisplayName } from '../lib/view-model';
 const product = JSON.parse(
   readFileSync('data/product/current.json', 'utf8'),
 ) as ProductVersion;
+// The default cohort size follows the data (FRONTIER_POLICY), not a constant.
+const defaultModelCount = product.presets.find(
+  ({ id }) => id === product.defaultPresetId,
+)!.targetModelCount;
+
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? '').replace(/\/+$/, '');
 const home = `${basePath}/`;
 const evidenceRequests = /\/evidence\/[^/]+\/[^/]+\.json$/;
@@ -43,7 +48,9 @@ test('loads full evidence only on expansion and reuses it after reopening', asyn
     await route.fulfill({ response });
   });
   await page.goto(home);
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(8);
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(
+    defaultModelCount,
+  );
   await expect(panel(page)).toHaveCount(0);
   expect(requests).toEqual([]);
 
