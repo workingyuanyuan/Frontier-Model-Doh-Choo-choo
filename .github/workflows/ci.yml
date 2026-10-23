@@ -64,6 +64,11 @@ jobs:
       - name: Run tests
         run: pnpm test
 
+      # Fails when current.json or the frontier files were not rebuilt after a
+      # source, mapping or scoring change (`pnpm data:release`).
+      - name: Check the product matches its sources and mappings
+        run: pnpm data:verify-fresh
+
       - name: Build production applications
         run: pnpm build
 

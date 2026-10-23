@@ -44,12 +44,12 @@ import {
   materializeArtificialAnalysisRsc,
   type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
-import { materializeLiveBench } from './livebench-materializer.js';
-import { materializeDeepSwe } from './deepswe-materializer.js';
 import {
-  materializeDeepSweCosts,
-  materializeLiveBenchCosts,
-} from './pricing-materializers.js';
+  buildLiveBenchSnapshot,
+  liveBenchInputFromEvidence,
+} from './livebench-snapshot.js';
+import { materializeDeepSwe } from './deepswe-materializer.js';
+import { materializeDeepSweCosts } from './pricing-materializers.js';
 import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
 import {
   materializeAnthropicReleases,
@@ -602,64 +602,20 @@ export function materializeSnapshots(
             materializedCosts = result.costs;
             customReportText = result.validationReport;
           } else if (src.id === 'livebench') {
-            const jsRecord = evidenceList.find(
-              (e) =>
-                e.mediaType === 'text/javascript' ||
-                e.requestUrl.includes('static/js/main.'),
+            const snapshot = buildLiveBenchSnapshot(
+              liveBenchInputFromEvidence(
+                evidenceList,
+                evidenceText,
+                baseline['candidates.json']
+                  ? CandidateResultSchema.array().parse(
+                      JSON.parse(baseline['candidates.json']),
+                    )
+                  : null,
+              ),
             );
-            const tableRecord = evidenceList.find((e) =>
-              e.requestUrl.includes('/table_'),
-            );
-            const categoriesRecord = evidenceList.find((e) =>
-              e.requestUrl.includes('/categories_'),
-            );
-            if (!jsRecord || !tableRecord || !categoriesRecord) {
-              throw new Error(
-                'Required evidence (main.js, table.csv, categories.json) not found for livebench',
-              );
-            }
-            const jsText = readFileSync(
-              join(repoRoot, jsRecord.artifactPath),
-              'utf8',
-            );
-            const tableCsv = readFileSync(
-              join(repoRoot, tableRecord.artifactPath),
-              'utf8',
-            );
-            const categoriesJson = readFileSync(
-              join(repoRoot, categoriesRecord.artifactPath),
-              'utf8',
-            );
-            const result = materializeLiveBench(
-              jsText,
-              tableCsv,
-              categoriesJson,
-              tableRecord.retrievedAt,
-              {
-                tableEvidenceId: tableRecord.id,
-                categoriesEvidenceId: categoriesRecord.id,
-                jsEvidenceId: jsRecord.id,
-                tableUrl: tableRecord.requestUrl,
-                categoriesUrl: categoriesRecord.requestUrl,
-                jsUrl: jsRecord.requestUrl,
-              },
-            );
-            candidates = result.candidates;
-            customReportText = result.validationReport;
-            const costRecord = evidenceList.find(({ requestUrl }) =>
-              /\/cost_\d{4}_\d{2}_\d{2}\.csv\?v=\d+$/u.test(requestUrl),
-            );
-            if (!costRecord)
-              throw new Error('LiveBench cost evidence was not found');
-            materializedCosts = materializeLiveBenchCosts(
-              evidenceText(costRecord),
-              {
-                sourceUrl: costRecord.requestUrl,
-                evidenceId: costRecord.id,
-                observedAt: costRecord.retrievedAt,
-                method: costRecord.method,
-              },
-            );
+            candidates = snapshot.candidates;
+            customReportText = snapshot.validationReport;
+            materializedCosts = snapshot.costs;
           } else if (src.id === 'deepswe') {
             const jsonRecord = evidenceList.find(
               (e) =>

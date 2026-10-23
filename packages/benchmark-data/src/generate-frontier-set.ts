@@ -104,7 +104,16 @@ export function commonQualityBenchmarks(
   };
 }
 
-export async function generateFrontierSet(repositoryRoot: string) {
+export const serializeFrontierJson = async (value: unknown): Promise<string> =>
+  format(JSON.stringify(value), { parser: 'json', endOfLine: 'lf' });
+
+export const frontierSetPath = (root: string) =>
+  join(root, 'data/mappings/frontier-set.json');
+export const frontierAuditPath = (root: string) =>
+  join(root, 'data/mappings/frontier-selection-audit.json');
+
+/** Computes the frontier artifact and audit from saved captures without writing. */
+export async function computeFrontierSet(repositoryRoot: string) {
   const root = resolve(repositoryRoot);
   const input = await loadWorkspaceCoverageData(root);
   const quality = BenchmarkQualityPolicySchema.parse(
@@ -135,33 +144,40 @@ export async function generateFrontierSet(repositoryRoot: string) {
     getComparisonOnlyBenchmarkIds(mapping),
   );
   const selection = selectAaTopTen(candidates);
-  const auditPath = join(root, 'data/mappings/frontier-selection-audit.json');
-  const write = async (path: string, value: unknown) =>
-    writeFile(
-      path,
-      await format(JSON.stringify(value), { parser: 'json', endOfLine: 'lf' }),
-      'utf8',
-    );
   if (selection.status !== 'selected') {
-    await write(auditPath, selection);
-    throw new Error(`AA frontier needs review; see ${auditPath}`);
+    return {
+      status: 'needs-review' as const,
+      audit: selection,
+      error: new Error(
+        `AA frontier needs review; see ${frontierAuditPath(root)}`,
+      ),
+    };
   }
   let cohorts: ReturnType<typeof createAaCohorts>;
   try {
     cohorts = createAaCohorts(candidates, selection.topTen, mapping, quality);
   } catch (error) {
-    await write(auditPath, {
-      ...selection,
-      status: 'needs-review',
-      commonCoreError: error instanceof Error ? error.message : String(error),
-    });
-    throw error;
+    return {
+      status: 'needs-review' as const,
+      audit: {
+        ...selection,
+        status: 'needs-review',
+        commonCoreError: error instanceof Error ? error.message : String(error),
+      },
+      error: error instanceof Error ? error : new Error(String(error)),
+    };
   }
+  const defaultCohort = chooseDefaultCohort(cohorts);
   const artifact = {
     schemaVersion: 'frontier-set-v2',
     selection,
-    cohortPolicy: { minModels: 2, maxModels: 10, defaultModelCount: 8 },
-    defaultPresetId: 'aa-frontier',
+    cohortPolicy: {
+      minModels: 2,
+      maxModels: 10,
+      defaultModelCount: BASE_DEFAULT_MODEL_COUNT,
+      defaultSelection: 'largest-cohort-keeping-base-test-count',
+    },
+    defaultPresetId: defaultCohort.id,
     benchmarkQuality: quality,
     models: selection.selectedModelIds.map((modelId) => ({
       modelId,
@@ -169,13 +185,52 @@ export async function generateFrontierSet(repositoryRoot: string) {
         input.catalog.models.find((m) => m.modelId === modelId)?.displayName ??
         modelId,
     })),
-    ...cohorts.find(({ targetModelCount }) => targetModelCount === 8)!,
+    ...defaultCohort,
     cohorts,
   };
-  const outputPath = join(root, 'data/mappings/frontier-set.json');
-  await write(outputPath, artifact);
-  await write(auditPath, selection);
-  return { outputPath, artifact };
+  return { status: 'selected' as const, audit: selection, artifact };
+}
+
+export async function generateFrontierSet(repositoryRoot: string) {
+  const root = resolve(repositoryRoot);
+  const result = await computeFrontierSet(root);
+  const auditPath = frontierAuditPath(root);
+  const write = async (path: string, value: unknown) =>
+    writeFile(path, await serializeFrontierJson(value), 'utf8');
+  if (result.status !== 'selected') {
+    await write(auditPath, result.audit);
+    throw result.error;
+  }
+  const outputPath = frontierSetPath(root);
+  await write(outputPath, result.artifact);
+  await write(auditPath, result.audit);
+  return { outputPath, artifact: result.artifact };
+}
+
+export const BASE_DEFAULT_MODEL_COUNT = 8;
+
+/**
+ * The default starts at the top eight and grows while the larger cohort keeps
+ * the same number of common tests: more models at no loss of test coverage
+ * (user ruling 2026-10-23). Preset IDs stay tied to their model count.
+ */
+export function chooseDefaultCohort<
+  T extends { targetModelCount: number; benchmarkIds: readonly string[] },
+>(cohorts: readonly T[]): T {
+  const ordered = cohorts.toSorted(
+    (left, right) => left.targetModelCount - right.targetModelCount,
+  );
+  const base = ordered.find(
+    ({ targetModelCount }) => targetModelCount === BASE_DEFAULT_MODEL_COUNT,
+  );
+  if (!base) throw new Error('Expected a cohort with the base default size');
+  let chosen = base;
+  for (const cohort of ordered) {
+    if (cohort.targetModelCount <= chosen.targetModelCount) continue;
+    if (cohort.benchmarkIds.length !== base.benchmarkIds.length) break;
+    chosen = cohort;
+  }
+  return chosen;
 }
 
 /** Each prefix uses exactly its AA-winning profiles and their own common tests. */

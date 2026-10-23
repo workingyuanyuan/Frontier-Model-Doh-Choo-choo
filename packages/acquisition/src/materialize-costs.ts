@@ -1,5 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 
 import {
@@ -9,10 +9,7 @@ import {
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
-import {
-  materializeDeepSweCosts,
-  materializeLiveBenchCosts,
-} from './pricing-materializers.js';
+import { materializeDeepSweCosts } from './pricing-materializers.js';
 import {
   extractArtificialAnalysisRscRows,
   materializeArtificialAnalysisRsc,
@@ -23,6 +20,10 @@ import {
   FRONTIER_CODE_PAGE_URL,
   materializeFrontierCode,
 } from './frontier-code-materializer.js';
+import {
+  buildLiveBenchSnapshot,
+  liveBenchInputFromEvidence,
+} from './livebench-snapshot.js';
 import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
 import {
   materializeAnthropicReleases,
@@ -196,19 +197,13 @@ async function main() {
   const liveEvidence = EvidenceRecordSchema.array().parse(
     await readJson<unknown>(liveIndexPath),
   );
-  const liveRecord = liveEvidence.find(({ requestUrl }) =>
-    /\/cost_\d{4}_\d{2}_\d{2}\.csv\?v=\d+$/u.test(requestUrl),
-  );
-  if (!liveRecord) throw new Error('LiveBench cost evidence was not found');
-  const liveCosts = materializeLiveBenchCosts(
-    await readFile(join(root, liveRecord.artifactPath), 'utf8'),
-    {
-      sourceUrl: liveRecord.requestUrl,
-      evidenceId: liveRecord.id,
-      observedAt: liveRecord.retrievedAt,
-      method: liveRecord.method,
-    },
-  );
+  const liveCosts = buildLiveBenchSnapshot(
+    liveBenchInputFromEvidence(
+      liveEvidence,
+      (record) => readFileSync(join(root, record.artifactPath), 'utf8'),
+      null,
+    ),
+  ).costs;
   await writeFile(
     join(sourcesRoot, 'livebench', 'costs.json'),
     prettyDeterministicJson(liveCosts),
@@ -259,7 +254,6 @@ async function main() {
       artificialAnalysis: aaCosts.length,
       deepSwe: deepCosts.length,
       liveBench: liveCosts.length,
-      liveBenchArtifact: liveRecord.id,
       frontierCode: frontierResult.costs.length,
       vendorReleases: vendorCounts,
     }),

@@ -1,44 +1,44 @@
 [
   {
-    "artifactPath": "artifacts/sha256/f5/f541c749ba6fc78b69fa250a45289b5fe141ed4c747ccedebfe20367271bf24b.html",
-    "byteLength": 79072,
+    "artifactPath": "artifacts/sha256/52/5231edc2b8b2c58ab80c93f543da77b781a4d45e6f6c9552e86b2c5e99a92b33.html",
+    "byteLength": 81327,
     "finalUrl": "https://epoch.ai/benchmarks/use-this-data",
-    "id": "sha256:f541c749ba6fc78b69fa250a45289b5fe141ed4c747ccedebfe20367271bf24b",
+    "id": "sha256:5231edc2b8b2c58ab80c93f543da77b781a4d45e6f6c9552e86b2c5e99a92b33",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "download page"
     },
     "method": "DOM",
     "requestUrl": "https://epoch.ai/benchmarks/use-this-data",
-    "retrievedAt": "2026-10-04T03:26:53.658Z",
+    "retrievedAt": "2026-10-23T09:35:07.837Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f541c749ba6fc78b69fa250a45289b5fe141ed4c747ccedebfe20367271bf24b",
+    "sha256": "sha256:5231edc2b8b2c58ab80c93f543da77b781a4d45e6f6c9552e86b2c5e99a92b33",
     "sourceId": "epoch-ai"
   },
   {
-    "artifactPath": "artifacts/sha256/13/13329fd5256e1373f8741bb3582fc486bc8dacd6283c614b7ec4cf3026a70cbd.zip",
-    "byteLength": 2353423,
+    "artifactPath": "artifacts/sha256/84/84daf3b480cc372bf3561f00f86aad394ef8720174ed8ea07db7048bab1d3071.zip",
+    "byteLength": 2356801,
     "finalUrl": "https://epoch.ai/data/benchmark_data.zip",
-    "id": "sha256:13329fd5256e1373f8741bb3582fc486bc8dacd6283c614b7ec4cf3026a70cbd",
+    "id": "sha256:84daf3b480cc372bf3561f00f86aad394ef8720174ed8ea07db7048bab1d3071",
     "mediaType": "application/zip",
     "metadata": {
-      "candidateRows": 1515,
+      "candidateRows": 1462,
       "captureScope": "complete benchmark data export",
       "externalMirrors": 67,
-      "zipEntries": 89
+      "zipEntries": 92
     },
     "method": "EXPORT",
     "requestUrl": "https://epoch.ai/data/benchmark_data.zip",
-    "retrievedAt": "2026-10-04T03:26:53.658Z",
+    "retrievedAt": "2026-10-23T09:35:07.837Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:13329fd5256e1373f8741bb3582fc486bc8dacd6283c614b7ec4cf3026a70cbd",
+    "sha256": "sha256:84daf3b480cc372bf3561f00f86aad394ef8720174ed8ea07db7048bab1d3071",
     "sourceId": "epoch-ai"
   },
   {
-    "artifactPath": "artifacts/sha256/f8/f888097ed3ed930a9ab709f4e00687073dbf162343b5c7a6751045f78382bc77.csv",
-    "byteLength": 3888486,
+    "artifactPath": "artifacts/sha256/d2/d2e41dfa8d053511d9d19ba85ea88f125e5eddcac73d1277819f20e82025bb11.csv",
+    "byteLength": 3781942,
     "finalUrl": "https://epoch.ai/data/benchmarks.csv",
-    "id": "sha256:f888097ed3ed930a9ab709f4e00687073dbf162343b5c7a6751045f78382bc77",
+    "id": "sha256:d2e41dfa8d053511d9d19ba85ea88f125e5eddcac73d1277819f20e82025bb11",
     "mediaType": "text/csv",
     "metadata": {
       "captureScope": "run-level table behind the rendered pages",
@@ -47,9 +47,9 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://epoch.ai/data/benchmarks.csv",
-    "retrievedAt": "2026-10-04T03:26:53.658Z",
+    "retrievedAt": "2026-10-23T09:35:07.837Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f888097ed3ed930a9ab709f4e00687073dbf162343b5c7a6751045f78382bc77",
+    "sha256": "sha256:d2e41dfa8d053511d9d19ba85ea88f125e5eddcac73d1277819f20e82025bb11",
     "sourceId": "epoch-ai"
   }
 ]

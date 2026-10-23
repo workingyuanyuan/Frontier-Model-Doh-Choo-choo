@@ -1410,7 +1410,7 @@
           },
           "method": "DOM",
           "requestUrl": "https://deepswe.datacurve.ai/",
-          "retrievedAt": "2026-10-04T03:26:10.895Z",
+          "retrievedAt": "2026-10-23T09:34:50.026Z",
           "schemaVersion": "evidence-record-v1",
           "sha256": "sha256:14436c31be1e50a0b62171e4aee4dd0ae0ce66b1e390af89c7e6e095ad59f1f1",
           "sourceId": "deepswe"
@@ -1430,7 +1430,7 @@
           },
           "method": "API_RESPONSE",
           "requestUrl": "https://deepswe.datacurve.ai/artifacts/v1.1/leaderboard-live.json",
-          "retrievedAt": "2026-10-04T03:26:10.895Z",
+          "retrievedAt": "2026-10-23T09:34:50.026Z",
           "schemaVersion": "evidence-record-v1",
           "sha256": "sha256:a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019",
           "sourceId": "deepswe"
@@ -1441,42 +1441,42 @@
     {
       "evidence": [
         {
-          "artifactPath": "artifacts/sha256/dd/dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584.js",
-          "byteLength": 60586,
-          "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs",
-          "id": "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+          "artifactPath": "artifacts/sha256/c5/c552b4f4b2d55a16e645268767181aae8f846a3b928b3cbd0f402ba45db8b07a.js",
+          "byteLength": 46657,
+          "finalUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CBcw7uZW.mjs",
+          "id": "sha256:c552b4f4b2d55a16e645268767181aae8f846a3b928b3cbd0f402ba45db8b07a",
           "mediaType": "text/javascript",
           "metadata": {
             "automationBenchVersion": "1.0.6",
             "captureScope": "Framer route module containing AutomationBench table",
-            "costRecords": 120,
-            "maximumRank": 121,
-            "parsedRows": 121,
+            "costRecords": 125,
+            "maximumRank": 126,
+            "parsedRows": 126,
             "selectedByContentFeature": "task_completed_correctly"
           },
           "method": "EMBEDDED_JSON",
-          "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs",
-          "retrievedAt": "2026-10-04T03:27:07.379Z",
+          "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CBcw7uZW.mjs",
+          "retrievedAt": "2026-10-23T10:42:18.880Z",
           "schemaVersion": "evidence-record-v1",
-          "sha256": "sha256:dd535d8d911bf0437ef0cf76aa3ecf3873107a0e8425181e6b18b3831fb86584",
+          "sha256": "sha256:c552b4f4b2d55a16e645268767181aae8f846a3b928b3cbd0f402ba45db8b07a",
           "sourceId": "zapier-automationbench"
         },
         {
-          "artifactPath": "artifacts/sha256/2e/2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee.html",
-          "byteLength": 224576,
+          "artifactPath": "artifacts/sha256/16/16d605d46e765cdc931d925e500ee9b81e47550551ca21f3eda26d5c44263410.html",
+          "byteLength": 184802,
           "finalUrl": "https://zapier.com/benchmarks",
-          "id": "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee",
+          "id": "sha256:16d605d46e765cdc931d925e500ee9b81e47550551ca21f3eda26d5c44263410",
           "mediaType": "text/html",
           "metadata": {
             "captureScope": "official AutomationBench page and module list",
-            "discoveredModuleCount": 15,
-            "selectedModuleUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/EoTxbXN5IqknxERosd2sBrwM9eKEsz_G9J9FFC1HRNA.B6cF3lfj.mjs"
+            "discoveredModuleCount": 10,
+            "selectedModuleUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CBcw7uZW.mjs"
           },
           "method": "DOM",
           "requestUrl": "https://zapier.com/benchmarks",
-          "retrievedAt": "2026-10-04T03:27:07.379Z",
+          "retrievedAt": "2026-10-23T10:42:18.880Z",
           "schemaVersion": "evidence-record-v1",
-          "sha256": "sha256:2e74316d6de7e3ce3c5d175a28503c33620aba31de8843992035b59780e750ee",
+          "sha256": "sha256:16d605d46e765cdc931d925e500ee9b81e47550551ca21f3eda26d5c44263410",
           "sourceId": "zapier-automationbench"
         }
       ],
@@ -1485,45 +1485,45 @@
     {
       "evidence": [
         {
-          "artifactPath": "artifacts/sha256/e6/e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e.json",
-          "byteLength": 83796,
+          "artifactPath": "artifacts/sha256/ff/ff0040778b7bdf69c705ad7474f771fb5e53cfaf5cf8573b3a4614153543d75f.json",
+          "byteLength": 90180,
           "finalUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
-          "id": "sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e",
+          "id": "sha256:ff0040778b7bdf69c705ad7474f771fb5e53cfaf5cf8573b3a4614153543d75f",
           "mediaType": "application/json",
           "metadata": {
-            "configurationRows": 125,
-            "costRows": 125,
+            "configurationRows": 136,
+            "costRows": 136,
             "dataset": "Main",
-            "distinctModels": 42,
+            "distinctModels": 46,
             "format": "official-static-json",
-            "modelsWithMultipleEfforts": 26,
+            "modelsWithMultipleEfforts": 29,
             "version": "1.1"
           },
           "method": "EXPORT",
           "requestUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
-          "retrievedAt": "2026-10-04T03:26:22.920Z",
+          "retrievedAt": "2026-10-23T09:34:51.427Z",
           "schemaVersion": "evidence-record-v1",
-          "sha256": "sha256:e609a8f3c134b3747ed323f72475bcc7d3012588a880f598123e03cea738b54e",
+          "sha256": "sha256:ff0040778b7bdf69c705ad7474f771fb5e53cfaf5cf8573b3a4614153543d75f",
           "sourceId": "frontier-code"
         },
         {
-          "artifactPath": "artifacts/sha256/d5/d5dfe41d2ccf102dc013c38dd682e9d879402a831df3abb038017b8cc6469748.html",
-          "byteLength": 150810,
+          "artifactPath": "artifacts/sha256/53/53a68af8844fc9386f8c97931fb7d03e27f9979717aa7ace7c5f5966cfef735a.html",
+          "byteLength": 151681,
           "finalUrl": "https://cognition.com/frontiercode",
-          "id": "sha256:d5dfe41d2ccf102dc013c38dd682e9d879402a831df3abb038017b8cc6469748",
+          "id": "sha256:53a68af8844fc9386f8c97931fb7d03e27f9979717aa7ace7c5f5966cfef735a",
           "mediaType": "text/html",
           "metadata": {
             "dataset": "Main",
             "jsonLdLeaderboardRows": 10,
-            "renderedRows": 42,
+            "renderedRows": 46,
             "renderedTopTenMatched": true,
             "version": "1.1"
           },
           "method": "EMBEDDED_JSON",
           "requestUrl": "https://cognition.com/frontiercode",
-          "retrievedAt": "2026-10-04T03:26:22.920Z",
+          "retrievedAt": "2026-10-23T09:34:51.427Z",
           "schemaVersion": "evidence-record-v1",
-          "sha256": "sha256:d5dfe41d2ccf102dc013c38dd682e9d879402a831df3abb038017b8cc6469748",
+          "sha256": "sha256:53a68af8844fc9386f8c97931fb7d03e27f9979717aa7ace7c5f5966cfef735a",
           "sourceId": "frontier-code"
         }
       ],

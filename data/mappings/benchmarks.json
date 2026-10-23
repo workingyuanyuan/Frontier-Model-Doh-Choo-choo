@@ -203,6 +203,36 @@
       "secondaryDimensions": []
     },
     {
+      "id": "livebench-long-agentic",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic"]
+    },
+    {
+      "id": "livebench-coding",
+      "primaryDimension": "coding",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "livebench-browser",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "livebench-data-analysis",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": []
+    },
+    {
+      "id": "livebench-research",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["knowledge", "language"]
+    },
+    {
+      "id": "livebench-design",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["language"]
+    },
+    {
       "id": "tasteful-solve-rate",
       "primaryDimension": "language",
       "secondaryDimensions": ["coding"]

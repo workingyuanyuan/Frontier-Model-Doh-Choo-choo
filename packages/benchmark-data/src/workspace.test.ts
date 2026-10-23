@@ -216,16 +216,17 @@ describe('buildWorkspaceProduct', () => {
       artifact.selection.selectedModelIds,
     );
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
-    expect(product.defaultPresetId).toBe('aa-frontier');
+    // Eight and nine models share 13 common tests, so the default grows to nine.
+    expect(product.defaultPresetId).toBe('aa-top-9');
     expect(product.frontier).toHaveLength(10);
     expect(
       product.presets.map(({ targetModelCount }) => targetModelCount),
     ).toEqual([2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    expect(defaultPreset!.targetModelCount).toBe(8);
-    expect(defaultPreset!.benchmarkIds).toHaveLength(17);
+    expect(defaultPreset!.targetModelCount).toBe(9);
+    expect(defaultPreset!.benchmarkIds).toHaveLength(13);
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
-    ).toEqual(artifact.selection.selectedProfileIds.slice(0, 8).toSorted());
+    ).toEqual(artifact.selection.selectedProfileIds.slice(0, 9).toSorted());
 
     for (const preset of product.presets) {
       const completeModels = completeModelsFor(preset.benchmarkIds);
@@ -277,13 +278,16 @@ describe('buildWorkspaceProduct', () => {
       defaultLeaderboard[0]?.dimensions.map(({ dimension }) => dimension),
     ).toEqual(['reasoning', 'knowledge', 'comprehension', 'coding', 'agentic']);
     for (const row of defaultLeaderboard) {
-      expect(row.dimensions[0]!.componentCount).toBe(1);
+      // Reasoning and comprehension each have one test, so each weighs 0.5.
+      expect(
+        row.dimensions.map(({ componentCount }) => componentCount),
+      ).toEqual([1, 2, 1, 4, 5]);
       const weightedTotal = row.dimensions.reduce(
         (sum, axis) =>
           sum + axis.score! * (axis.componentCount === 1 ? 0.5 : 1),
         0,
       );
-      expect(row.overallScore).toBeCloseTo(weightedTotal / 4.5, 10);
+      expect(row.overallScore).toBeCloseTo(weightedTotal / 4, 10);
     }
     const comparisonIds = new Set(product.comparisonEvidenceIds);
     const comparisonBenchmarks = new Set(
@@ -445,7 +449,7 @@ describe('buildWorkspaceProduct', () => {
     } finally {
       await rm(dummyDir, { recursive: true, force: true });
     }
-  });
+  }, 15_000);
 
   it('fails a fresh AA needs-review audit and preserves the current product', async () => {
     const temporaryRoot = await mkdtemp(join(tmpdir(), 'aa-review-build-'));

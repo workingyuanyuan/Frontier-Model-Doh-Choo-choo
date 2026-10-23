@@ -18,7 +18,8 @@
     "typecheck": "tsc -p tsconfig.json",
     "data:generate-display-set": "tsx src/generate-display-set.ts",
     "data:generate-frontier-set": "tsx src/generate-frontier-set.ts ../..",
-    "report:aa-index": "tsx src/report-aa-index.ts"
+    "report:aa-index": "tsx src/report-aa-index.ts",
+    "data:verify-fresh": "tsx src/cli.ts verify-fresh ../.."
   },
   "dependencies": {
     "zod": "catalog:"

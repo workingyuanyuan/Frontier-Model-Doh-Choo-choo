@@ -349,6 +349,44 @@ describe('Zapier AutomationBench materializer', () => {
     expect(deepseekCost.provenance.cost?.locator).toContain('Fireworks rates');
   });
 
+  it('adopts §-marked provisional launch-version scores and records the note', () => {
+    const note =
+      '§Initial results based on the launch version of Opus 5.5. Scores will be updated after an updated Opus 5.5 release is evaluated.';
+    const customRoute = `${routeFixture.replace(
+      '`Gemini 3.7 Flash (High)`',
+      '`Claude Opus 5.5 (default fallbacks, Max)§`',
+    )}\nconst provisional = \`${note}\`;`;
+    const parsed = parseZapierRouteModule(customRoute);
+    expect(parsed.provisionalNote).toBe(note);
+    expect(parsed.fallbackNote).toBeNull();
+
+    const result = materializeZapier(customRoute, mockContext);
+    const opus = result.candidates.find(
+      ({ model }) =>
+        model.rawName === 'Claude Opus 5.5 (default fallbacks, Max)§',
+    )!;
+    expect(opus).toMatchObject({
+      inclusion: 'INCLUDED',
+      model: {
+        canonicalModelId: 'anthropic-claude-opus-5-5',
+        profileId: 'anthropic-claude-opus-5-5-max',
+      },
+    });
+    expect(opus.provenance.rawScore?.locator).toContain(
+      'provisional per footnote',
+    );
+    expect(result.provisionalRowsCount).toBe(1);
+    expect(result.validationReport).toContain('Provisional rows');
+
+    const withoutNote = routeFixture.replace(
+      '`Gemini 3.7 Flash (High)`',
+      '`Claude Opus 5.5 (Max)§`',
+    );
+    expect(() => parseZapierRouteModule(withoutNote)).toThrow(
+      /provisional-results footnote is missing/iu,
+    );
+  });
+
   it('recognizes default fallbacks modifier alongside effort tiers', () => {
     const customRoute = routeFixture.replace(
       'Gemini 3.7 Flash (High)',

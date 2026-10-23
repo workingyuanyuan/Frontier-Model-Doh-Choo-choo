@@ -639,6 +639,24 @@
       "profilePricing": {}
     },
     {
+      "modelId": "meta-muse-wonder",
+      "providerId": "meta",
+      "displayName": "Muse Wonder",
+      "aliases": ["Muse Wonder 1.0", "meta/muse_wonder", "muse-wonder"],
+      "releaseDate": "2026-10-12",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "meta-muse-wonder-full",
+      "providerId": "meta",
+      "displayName": "Muse Wonder Full",
+      "aliases": ["muse-wonder-full", "meta/muse_wonder_full"],
+      "releaseDate": "2026-10-12",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "abacus-smaug-mini",
       "providerId": "abacus",
       "displayName": "Smaug Mini",

@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-04T03:31:14.887Z",
+  "checkedAt": "2026-10-23T09:34:51.743Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "frontier-code-1-1",
-        "includedRows": 125,
+        "includedRows": 136,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -26,6 +26,7 @@
           "google-gemini-3-6-flash",
           "google-gemini-3-7-flash",
           "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
           "nvidia-nemotron-3-ultra",
@@ -55,6 +56,11 @@
           "[\"Claude Fable 5.1\",\"max\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Fable 5.1\",\"medium\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Fable 5.1\",\"xhigh\",null,\"claude-code\",null,null,null,null]",
+          "[\"Claude Haiku 5.5\",\"high\",null,\"claude-code\",null,null,null,null]",
+          "[\"Claude Haiku 5.5\",\"low\",null,\"claude-code\",null,null,null,null]",
+          "[\"Claude Haiku 5.5\",\"max\",null,\"claude-code\",null,null,null,null]",
+          "[\"Claude Haiku 5.5\",\"medium\",null,\"claude-code\",null,null,null,null]",
+          "[\"Claude Haiku 5.5\",\"xhigh\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Opus 4.6\",\"high\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Opus 4.6\",\"low\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Opus 4.6\",\"medium\",null,\"claude-code\",null,null,null,null]",
@@ -96,6 +102,7 @@
           "[\"DeepSeek V4 Flash 0731\",\"high\",null,\"chisel\",null,null,null,null]",
           "[\"DeepSeek V4 Pro 0813\",\"high\",null,\"chisel\",null,null,null,null]",
           "[\"DeepSeek V4 Pro\",null,null,\"mini-swe-agent\",null,null,null,null]",
+          "[\"DeepSeek V4.1 Flash\",\"high\",null,\"chisel\",null,null,null,null]",
           "[\"GLM 5.2\",null,null,\"mini-swe-agent\",null,null,null,null]",
           "[\"GLM 5.3 Flash\",\"max\",null,\"chisel\",null,null,null,null]",
           "[\"GLM 5.3\",\"max\",null,\"chisel\",null,null,null,null]",
@@ -150,6 +157,9 @@
           "[\"Gemini 3.7 Flash\",\"medium\",null,\"chisel\",null,null,null,null]",
           "[\"Gemini 3.8 Flash\",\"high\",null,\"chisel\",null,null,null,null]",
           "[\"Gemini 3.8 Flash\",\"medium\",null,\"chisel\",null,null,null,null]",
+          "[\"Gemini 4 Argon\",\"high\",null,\"chisel\",null,null,null,null]",
+          "[\"Gemini 4 Argon\",\"low\",null,\"chisel\",null,null,null,null]",
+          "[\"Gemini 4 Argon\",\"medium\",null,\"chisel\",null,null,null,null]",
           "[\"Grok 4.5\",\"high\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.5\",\"low\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.5\",\"medium\",null,\"grok-build\",null,null,null,null]",
@@ -163,6 +173,8 @@
           "[\"Kimi K3\",null,null,\"mini-swe-agent\",null,null,null,null]",
           "[\"MiniMax M3\",null,null,\"mini-swe-agent\",null,null,null,null]",
           "[\"Mistral 3.5 Medium\",null,null,\"chisel\",null,null,null,null]",
+          "[\"Mistral Large 4 (Preview)\",\"high\",null,\"chisel\",null,null,null,null]",
+          "[\"Mistral Large 4 (Preview)\",null,null,\"chisel\",null,null,null,null]",
           "[\"Nemotron 3 Ultra\",null,null,\"chisel\",null,null,null,null]",
           "[\"Qwen 3.7 Plus\",null,null,\"mini-swe-agent\",null,null,null,null]",
           "[\"SWE-1.6\",null,null,\"chisel\",null,null,null,null]",
@@ -174,6 +186,7 @@
         "rawLabels": [
           "Claude Fable 5",
           "Claude Fable 5.1",
+          "Claude Haiku 5.5",
           "Claude Opus 4.6",
           "Claude Opus 4.7",
           "Claude Opus 4.8",
@@ -186,6 +199,7 @@
           "DeepSeek V4 Flash 0731",
           "DeepSeek V4 Pro",
           "DeepSeek V4 Pro 0813",
+          "DeepSeek V4.1 Flash",
           "GLM 5.2",
           "GLM 5.3",
           "GLM 5.3 Flash",
@@ -201,6 +215,7 @@
           "Gemini 3.6 Flash",
           "Gemini 3.7 Flash",
           "Gemini 3.8 Flash",
+          "Gemini 4 Argon",
           "Grok 4.5",
           "Grok 4.6",
           "Grok 4.7",
@@ -209,18 +224,19 @@
           "Kimi K3",
           "MiniMax M3",
           "Mistral 3.5 Medium",
+          "Mistral Large 4 (Preview)",
           "Nemotron 3 Ultra",
           "Qwen 3.7 Plus",
           "SWE-1.6",
           "SWE-1.7",
           "SWE-2"
         ],
-        "rows": 125,
+        "rows": 136,
         "sourceUrls": ["https://cognition.com/frontiercode"],
         "versions": ["1.1"]
       }
     ],
-    "observedAt": "2026-10-04T03:26:22.920Z",
+    "observedAt": "2026-10-23T09:34:51.427Z",
     "sourceId": "frontier-code"
   }
 }

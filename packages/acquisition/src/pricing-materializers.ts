@@ -332,3 +332,96 @@ export function materializeLiveBenchCosts(
     ];
   });
 }
+
+/**
+ * LiveBench 2.0 publishes per-suite totals (`<suite>` dollars, `nq_<suite>`
+ * tasks). The official cost per task is Σcost / Σtasks over the suites in
+ * scope, not a mean of per-suite figures, so one record covers all suites.
+ */
+export function materializeLiveBench2Costs(
+  csv: string,
+  efforts: ReadonlyMap<string, string | null>,
+  context: Omit<Context, 'sourceId' | 'benchmarkId'> & {
+    benchmarkVersion: string;
+  },
+): CostRecord[] {
+  const lines = csv.trim().split(/\r?\n/u);
+  const headers = parseCsvLine(lines.shift() ?? '');
+  const index = (name: string) => headers.indexOf(name);
+  const model = index('model');
+  const input = index('input_price_per_million');
+  const output = index('output_price_per_million');
+  const suites = headers.filter(
+    (name) => name !== 'model' && headers.includes(`nq_${name}`),
+  );
+  if ([model, input, output].includes(-1) || suites.length === 0)
+    throw new Error('LiveBench 2.0 cost CSV is missing required columns');
+  const common = {
+    ...context,
+    sourceId: 'livebench',
+    benchmarkId: 'livebench',
+  };
+  return lines.flatMap((line) => {
+    const row = parseCsvLine(line);
+    const rawName = row[model]!;
+    const resolved = resolveLiveBenchModel(rawName);
+    if (!resolved.canonicalModelId) return [];
+    const identity = {
+      modelId: resolved.canonicalModelId,
+      effort: efforts.get(rawName) ?? resolved.effort,
+    };
+    let dollars = 0;
+    let tasks = 0;
+    for (const suite of suites) {
+      const cost = row[index(suite)]?.trim() ?? '';
+      const count = Number(row[index(`nq_${suite}`)]);
+      if (cost === '' || !Number.isFinite(count) || count <= 0) continue;
+      dollars += Number(cost);
+      tasks += count;
+    }
+    const records: CostRecord[] = [];
+    // Blank cells are missing prices, not free models.
+    const inputCell = row[input]?.trim() ?? '';
+    const outputCell = row[output]?.trim() ?? '';
+    const inputPrice = Number(inputCell);
+    const outputPrice = Number(outputCell);
+    if (
+      inputCell !== '' &&
+      outputCell !== '' &&
+      Number.isFinite(inputPrice) &&
+      Number.isFinite(outputPrice)
+    ) {
+      records.push(
+        makeRecord(common, rawName, identity, {
+          suffix: 'api-token-price',
+          costType: 'API_STANDARDIZED',
+          metricId: 'blended-token-price',
+          metricName: 'Blended API token price',
+          unit: 'USD_PER_MILLION_TOKENS',
+          cost: null,
+          input: inputPrice,
+          output: outputPrice,
+          assumptionId: 'api-blend-3-to-1',
+          locator: `model=${rawName}; input/output_price_per_million`,
+        }),
+      );
+    }
+    if (tasks > 0 && Number.isFinite(dollars)) {
+      records.push(
+        makeRecord(common, rawName, identity, {
+          suffix: `cost-per-task-${context.benchmarkVersion}`,
+          costType: 'MEASURED_TASK',
+          metricId: 'cost-per-task',
+          metricName: 'LiveBench 2.0 cost per task (all suites)',
+          unit: 'USD_PER_TASK',
+          cost: dollars / tasks,
+          input: null,
+          output: null,
+          assumptionId: null,
+          locator: `model=${rawName}; Σ{${suites.join(',')}} / Σnq_*`,
+        }),
+      );
+    }
+    return records;
+  });
+}

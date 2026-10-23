@@ -64,7 +64,9 @@ Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models`
 `/models/<slug>` detail 頁面補齊任務成本與 token 單價。`null` 與字串
 `$undefined` 都表示缺值；API 只做交叉驗證，失效時保留 warning 並繼續使用頁面管道。
 
-AA 刷新也會重新擷取前次已發現的模型 detail URL，避免首頁圖表更換選取模型時漏掉既有成績；是否現役仍以本次 payload 的 deprecated 與 release date 判定。解析器保留完整指數版本（含 v4.3.2）、Briefcase 與 GDPval 的明示版本，並支援新版 `omniscienceAccuracy`、`terminalBench21` 欄位；Terminal-Bench 4.0 不會混入 2.1。
+AA 刷新也會重新擷取前次已發現的模型 detail URL，避免首頁圖表更換選取模型時漏掉既有成績；是否現役仍以本次 payload 的 deprecated 與 release date 判定。解析器保留完整指數版本（含 v4.3.2）、Briefcase 與 GDPval 的明示版本，並支援新版 `omniscienceAccuracy`、`terminalBench21` 欄位；Terminal-Bench 4.0 不會混入 2.1。2026-10 起 AA 不再於比較列提供 `gdpvalNormalized`，但仍公開 GDPval-AA Elo（`gdpval`）與方法論頁的換算式 `clamp((Elo − 500) / 2000)`；欄位缺少時依此式由 Elo 換算，locator 標明換算來源。此式重現了 2026-10-04 擷取中全部 282 組 Elo／正規化值。
+
+Zapier AutomationBench 的 § 標在模型名稱後時，表示來源註明的首發版暫定成績（將於重測後更新）；成績照常採用，並在 rawScore locator 與 validation report 保留註腳原文。§ 標在成本後時仍代表 fallback 成本不可比較。
 
 模型詳細頁的 `currentModel` 物件亦納入解析；來源未提供 `model_creator_id`，或該檔位未出現在 `initialModels` 圖表選取陣列時，仍以詳細頁明示的模型資料建立候選。擷取後按來源 slug 去重，沿用現役篩選與缺值規則。
 
