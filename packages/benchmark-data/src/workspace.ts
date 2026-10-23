@@ -27,14 +27,23 @@ import {
   FrontierIdentitiesSchema,
   resolveFrontierIdentities,
 } from './frontier-identities.js';
-import { generateFrontierSet } from './generate-frontier-set.js';
+import {
+  computeFrontierSet,
+  generateFrontierSet,
+} from './generate-frontier-set.js';
 
 const readJson = async (path: string): Promise<unknown> =>
   JSON.parse(await readFile(path, 'utf8'));
 
+export interface WorkspaceBuildOptions {
+  /** Rewrite frontier-set.json and its audit; freshness checks pass false. */
+  writeFrontier?: boolean;
+}
+
 export const buildWorkspaceProduct = async (
   repositoryRoot: string,
   generatedAt: string,
+  { writeFrontier = true }: WorkspaceBuildOptions = {},
 ): Promise<ProductVersion> => {
   const dataRoot = join(resolve(repositoryRoot), 'data');
   const sourcesConfig = SourcesConfigSchema.parse(
@@ -144,7 +153,12 @@ export const buildWorkspaceProduct = async (
 
   // Regenerate from saved captures on every build. A needs-review audit fails
   // the build instead of publishing an older successful frontier artifact.
-  const { artifact } = await generateFrontierSet(repositoryRoot);
+  const artifact = writeFrontier
+    ? (await generateFrontierSet(repositoryRoot)).artifact
+    : await computeFrontierSet(repositoryRoot).then((result) => {
+        if (result.status !== 'selected') throw result.error;
+        return result.artifact;
+      });
   const displaySet = {
     schemaVersion: 'display-set-v2' as const,
     defaultPresetId: artifact.defaultPresetId,

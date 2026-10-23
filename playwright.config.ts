@@ -25,7 +25,8 @@ export default defineConfig({
   ],
   webServer: {
     command: 'node scripts/serve-static.mjs apps/bench/out 3910',
-    reuseExistingServer: !process.env.CI,
+    // `pnpm data:release` must test the export it just built.
+    reuseExistingServer: !process.env.CI && !process.env.DATA_RELEASE,
     timeout: 120_000,
     url: `http://127.0.0.1:3910${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`,
   },

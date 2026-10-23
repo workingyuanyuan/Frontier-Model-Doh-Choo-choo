@@ -3,12 +3,14 @@ import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 
 import { ProductVersionSchema, writeCurrentProductVersion } from './index.js';
+import { checkWorkspaceFreshness } from './product-freshness.js';
 import { writeWorkspaceCurrent } from './workspace.js';
 
 const usage = [
   'Usage:',
   '  product-version build-workspace [repository-root]',
   '  product-version write-current <version.json> [product-root]',
+  '  product-version verify-fresh [repository-root]',
 ].join('\n');
 
 export const runProductVersionCli = async (
@@ -21,6 +23,19 @@ export const runProductVersionCli = async (
     const root = resolve(first ?? '.');
     const product = await writeWorkspaceCurrent(root, now);
     return `Current product ${product.versionId} built from verified workspace sources`;
+  }
+
+  if (command === 'verify-fresh') {
+    const report = await checkWorkspaceFreshness(resolve(first ?? '.'));
+    if (!report.fresh) {
+      throw new Error(
+        [
+          'Committed product is stale; run `pnpm data:release`.',
+          ...report.mismatches.map((mismatch) => `- ${mismatch}`),
+        ].join('\n'),
+      );
+    }
+    return `Current product ${report.versionId} matches its sources and mappings`;
   }
 
   if (command === 'write-current') {
