@@ -12,9 +12,16 @@ import {
   extractLiveBenchMetadata,
   liveBenchExportOnlyNames,
   liveBenchCollapsedVariants,
-  materializeLiveBench,
 } from './livebench-materializer.js';
-import { materializeLiveBenchCosts } from './pricing-materializers.js';
+import {
+  LIVEBENCH2_SUITES,
+  extractLiveBench2Release,
+} from './livebench2-materializer.js';
+import {
+  LIVEBENCH_V1_RETAINED,
+  buildLiveBenchSnapshot,
+  type LiveBenchFile,
+} from './livebench-snapshot.js';
 import {
   captureArtifact,
   getWorkspaceRoot,
@@ -24,6 +31,7 @@ import {
   readJson,
   readText,
   snapshotDeltaMarkdown,
+  type CapturedArtifact,
 } from './refresh-utils.js';
 
 const SOURCE_ID = 'livebench';
@@ -32,22 +40,36 @@ const PAGE_URL = 'https://livebench.ai/';
 const csvRows = (text: string): number =>
   Math.max(0, text.trim().split(/\r?\n/u).length - 1);
 
+const integerOption = (name: string, purpose: string): number => {
+  const argument = process.argv.find((value) => value.startsWith(`${name}=`));
+  const value = argument ? Number(argument.split('=', 2)[1]) : NaN;
+  if (!Number.isInteger(value)) {
+    throw new Error(`A verified ${name}=<integer> is required: ${purpose}`);
+  }
+  return value;
+};
+
+const asFile = (artifact: CapturedArtifact): LiveBenchFile => ({
+  text: artifact.text,
+  evidenceId: artifact.record.id,
+  url: artifact.record.requestUrl,
+  retrievedAt: artifact.record.retrievedAt,
+  method: artifact.record.method,
+});
+
 async function main() {
   const rootArgument = process.argv
     .slice(2)
     .find((argument) => !argument.startsWith('--'));
   const root = resolve(rootArgument ?? getWorkspaceRoot());
-  const visualProfileCountArgument = process.argv.find((argument) =>
-    argument.startsWith('--visual-profile-count='),
+  const visibleV2 = integerOption(
+    '--visual-profile-count',
+    'rendered LiveBench 2.0 leaderboard rows',
   );
-  const visualProfileCount = visualProfileCountArgument
-    ? Number(visualProfileCountArgument.split('=', 2)[1])
-    : null;
-  if (!Number.isInteger(visualProfileCount) || visualProfileCount === null) {
-    throw new Error(
-      'A verified --visual-profile-count=<integer> is required for LiveBench refresh',
-    );
-  }
+  const visibleV1 = integerOption(
+    '--visual-v1-profile-count',
+    'rendered LiveBench 1.0 release page rows with Include finetunes enabled',
+  );
   const retrievedAt = new Date().toISOString();
   const sourceDirectory = join(root, 'data', 'sources', SOURCE_ID);
   const previousCandidates = await readJson<CandidateResult[]>(
@@ -60,119 +82,132 @@ async function main() {
     join(sourceDirectory, 'validation-report.md'),
   );
 
-  const page = await captureArtifact({
-    root,
-    sourceId: SOURCE_ID,
-    url: PAGE_URL,
-    retrievedAt,
-    mediaType: 'text/html',
-    method: 'DOM',
-    metadata: { application: 'JavaScript SPA' },
+  const capture = (
+    url: string,
+    mediaType: string,
+    method: CapturedArtifact['record']['method'],
+    metadata: Record<string, unknown>,
+  ) =>
+    captureArtifact({
+      root,
+      sourceId: SOURCE_ID,
+      url,
+      retrievedAt,
+      mediaType,
+      method,
+      metadata,
+    });
+  const page = await capture(PAGE_URL, 'text/html', 'DOM', {
+    application: 'JavaScript SPA',
   });
   const scriptMatch = page.text.match(/static\/js\/main\.[^"']+\.js/u);
   if (!scriptMatch) throw new Error('LiveBench main bundle URL was not found');
   const scriptUrl = new URL(scriptMatch[0], PAGE_URL).href;
-  const script = await captureArtifact({
-    root,
-    sourceId: SOURCE_ID,
-    url: scriptUrl,
-    retrievedAt,
-    mediaType: 'text/javascript',
-    method: 'API_RESPONSE',
-    metadata: { captureScope: 'complete application bundle' },
+  const script = await capture(scriptUrl, 'text/javascript', 'API_RESPONSE', {
+    captureScope: 'complete application bundle',
   });
-  const { latestRelease, cacheVersion } = extractLiveBenchMetadata(script.text);
-  const releasePath = latestRelease.replaceAll('-', '_');
-  const tableUrl = `${PAGE_URL}table_${releasePath}.csv?v=${cacheVersion}`;
-  const categoriesUrl = `${PAGE_URL}categories_${releasePath}.json?v=${cacheVersion}`;
-  const costUrl = `${PAGE_URL}cost_${releasePath}.csv?v=${cacheVersion}`;
-  const [table, categories, cost] = await Promise.all([
-    captureArtifact({
-      root,
-      sourceId: SOURCE_ID,
-      url: tableUrl,
-      retrievedAt,
-      mediaType: 'text/csv',
-      method: 'EXPORT',
-      metadata: { release: latestRelease },
-    }),
-    captureArtifact({
-      root,
-      sourceId: SOURCE_ID,
-      url: categoriesUrl,
-      retrievedAt,
-      mediaType: 'application/json',
-      method: 'EXPORT',
-      metadata: { release: latestRelease },
-    }),
-    captureArtifact({
-      root,
-      sourceId: SOURCE_ID,
-      url: costUrl,
-      retrievedAt,
-      mediaType: 'text/csv',
-      method: 'EXPORT',
-      metadata: { release: latestRelease },
-    }),
-  ]);
-  const result = materializeLiveBench(
+  const { latestRelease: v1Release, cacheVersion } = extractLiveBenchMetadata(
     script.text,
-    table.text,
-    categories.text,
-    retrievedAt,
-    {
-      tableEvidenceId: table.record.id,
-      categoriesEvidenceId: categories.record.id,
-      jsEvidenceId: script.record.id,
-      tableUrl,
-      categoriesUrl,
-      jsUrl: scriptUrl,
-    },
   );
-  const supersededNames = liveBenchExportOnlyNames(table.text);
-  const collapsedVariants = liveBenchCollapsedVariants(script.text, table.text);
+  const release2 = extractLiveBench2Release(script.text);
+  const v1Path = v1Release.replaceAll('-', '_');
+  const v1Urls = {
+    table: `${PAGE_URL}v1/table_${v1Path}.csv?v=${cacheVersion}`,
+    categories: `${PAGE_URL}v1/categories_${v1Path}.json?v=${cacheVersion}`,
+    cost: `${PAGE_URL}v1/cost_${v1Path}.csv?v=${cacheVersion}`,
+  };
+  const v2Urls = {
+    table: `${PAGE_URL}data/${release2.path}/table.csv?v=${cacheVersion}`,
+    categories: `${PAGE_URL}data/${release2.path}/categories.json?v=${cacheVersion}`,
+    cost: `${PAGE_URL}data/${release2.path}/cost.csv?v=${cacheVersion}`,
+  };
+  const [v1Table, v1Categories, v1Cost, v2Table, v2Categories, v2Cost] =
+    await Promise.all([
+      capture(v1Urls.table, 'text/csv', 'EXPORT', { release: v1Release }),
+      capture(v1Urls.categories, 'application/json', 'EXPORT', {
+        release: v1Release,
+      }),
+      capture(v1Urls.cost, 'text/csv', 'EXPORT', { release: v1Release }),
+      capture(v2Urls.table, 'text/csv', 'EXPORT', { release: release2.date }),
+      capture(v2Urls.categories, 'application/json', 'EXPORT', {
+        release: release2.date,
+      }),
+      capture(v2Urls.cost, 'text/csv', 'EXPORT', { release: release2.date }),
+    ]);
+
+  const snapshot = buildLiveBenchSnapshot({
+    mainJs: script.text,
+    jsEvidenceId: script.record.id,
+    jsUrl: scriptUrl,
+    v1: {
+      table: asFile(v1Table),
+      categories: asFile(v1Categories),
+      cost: asFile(v1Cost),
+    },
+    v2: {
+      table: asFile(v2Table),
+      categories: asFile(v2Categories),
+      cost: asFile(v2Cost),
+    },
+    release2,
+    previousCandidates,
+  });
+
+  if (visibleV2 !== snapshot.v2Models.length) {
+    throw new Error(
+      `Visible LiveBench 2.0 row count ${visibleV2} does not match export rows ${snapshot.v2Models.length}`,
+    );
+  }
+  const supersededNames = liveBenchExportOnlyNames(v1Table.text);
+  const collapsedVariants = liveBenchCollapsedVariants(
+    script.text,
+    v1Table.text,
+  );
   const collapsedCount = collapsedVariants.reduce(
     (sum, group) => sum + group.length - 1,
     0,
   );
-  const expectedVisibleRows =
-    result.populationRows - supersededNames.length - collapsedCount;
-  if (visualProfileCount !== expectedVisibleRows) {
+  const expectedV1Rows =
+    snapshot.v1PopulationRows - supersededNames.length - collapsedCount;
+  if (visibleV1 !== expectedV1Rows) {
     throw new Error(
-      `Visible LiveBench profile count ${visualProfileCount} does not match current export count ${expectedVisibleRows} (raw ${result.populationRows}; superseded ${supersededNames.join(', ')}; collapsed variants ${collapsedCount})`,
+      `Visible LiveBench 1.0 row count ${visibleV1} does not match export count ${expectedV1Rows} (raw ${snapshot.v1PopulationRows}; superseded ${supersededNames.join(', ')}; collapsed variants ${collapsedCount})`,
     );
   }
-  const costs = materializeLiveBenchCosts(cost.text, {
-    sourceUrl: costUrl,
-    evidenceId: cost.record.id,
-    observedAt: retrievedAt,
-    method: 'EXPORT',
-  });
-  script.record.metadata = { latestRelease, cacheVersion };
-  table.record.metadata = {
-    ...table.record.metadata,
-    rows: result.populationRows,
+
+  script.record.metadata = {
+    v1Release,
+    v2Release: release2.date,
+    cacheVersion,
+  };
+  v1Table.record.metadata = {
+    ...v1Table.record.metadata,
+    rows: snapshot.v1PopulationRows,
     collapsedVariants,
   };
-  categories.record.metadata = {
-    ...categories.record.metadata,
-    categories: Object.keys(JSON.parse(categories.text) as object).length,
+  v2Table.record.metadata = {
+    ...v2Table.record.metadata,
+    rows: snapshot.v2Models.length,
   };
-  cost.record.metadata = {
-    ...cost.record.metadata,
-    rows: csvRows(cost.text),
-  };
+  for (const cost of [v1Cost, v2Cost]) {
+    cost.record.metadata = {
+      ...cost.record.metadata,
+      rows: csvRows(cost.text),
+    };
+  }
   page.record.metadata = {
     ...page.record.metadata,
-    latestRelease,
-    visibleProfiles: visualProfileCount,
+    v2Release: release2.date,
+    visibleV2Rows: visibleV2,
+    visibleV1Rows: visibleV1,
     supersededExportNames: supersededNames,
     visibleComparisonMatched: true,
   };
+
   const previousProfiles = new Set(
     previousCandidates.map(({ model }) => model.rawName),
   ).size;
-  const report = `${result.validationReport.trimEnd()}\n\n## Visible comparison\n\n- Fresh rendered page profile count (Include finetunes enabled): ${visualProfileCount}\n- Complete table export profile count: ${result.populationRows}\n- Superseded export-only names, absent from the current rendered leaderboard: ${supersededNames.join(', ') || 'none'}\n- Rendered groups after superseded-build and declared-variant grouping: ${expectedVisibleRows}\n- Collapsed variant groups: ${JSON.stringify(collapsedVariants)}\n- Result: rendered groups matched; all exported effort rows remain preserved.\n\n${snapshotDeltaMarkdown(
+  const report = `${snapshot.validationReport.trimEnd()}\n\n## Visible comparison\n\n- LiveBench 2.0 rendered leaderboard rows: ${visibleV2}; table rows: ${snapshot.v2Models.length}.\n- LiveBench 1.0 release ${v1Release} rendered rows with Include finetunes enabled: ${visibleV1}; export rows ${snapshot.v1PopulationRows} minus superseded export-only names (${supersededNames.join(', ') || 'none'}) and ${collapsedCount} collapsed variant rows.\n- Result: both rendered counts matched.\n\n${snapshotDeltaMarkdown(
     [
       {
         label: 'Raw model profiles',
@@ -181,7 +216,9 @@ async function main() {
           'Raw model profiles',
           previousProfiles,
         ),
-        refreshed: result.populationRows,
+        refreshed: new Set(
+          snapshot.candidates.map(({ model }) => model.rawName),
+        ).size,
       },
       {
         label: 'Candidate results',
@@ -190,16 +227,7 @@ async function main() {
           'Candidate results',
           previousCandidates.length,
         ),
-        refreshed: result.candidates.length,
-      },
-      {
-        label: 'Cost export profiles',
-        previous: previousSnapshotValue(
-          previousReport,
-          'Cost export profiles',
-          previousProfiles,
-        ),
-        refreshed: csvRows(cost.text),
+        refreshed: snapshot.candidates.length,
       },
       {
         label: 'Materialized costs',
@@ -208,81 +236,80 @@ async function main() {
           'Materialized costs',
           previousCosts.length,
         ),
-        refreshed: costs.length,
+        refreshed: snapshot.costs.length,
       },
     ],
   )}`;
-  const unresolvedNames = new Set(
-    result.candidates
-      .filter(({ model }) => model.canonicalModelId === null)
-      .map(({ model }) => model.rawName),
-  );
   const manifest = SourceManifestSchema.parse({
     schemaVersion: 'source-manifest-v1',
     sourceId: SOURCE_ID,
     displayName: 'LiveBench',
     role: 'ORGANIZER',
     baseUrl: 'https://livebench.ai',
-    targetUrls: [PAGE_URL, scriptUrl, tableUrl, categoriesUrl, costUrl],
+    targetUrls: [
+      PAGE_URL,
+      scriptUrl,
+      ...Object.values(v2Urls),
+      ...Object.values(v1Urls),
+    ],
     benchmarkIds: [
-      'livebench-reasoning',
-      'livebench-mathematics',
-      'livebench-language',
-      'livebench-instruction-following',
+      ...LIVEBENCH2_SUITES.map(({ benchmarkId }) => benchmarkId),
+      ...LIVEBENCH_V1_RETAINED,
     ],
     accessMethods: ['EXPORT', 'API_RESPONSE', 'DOM'],
     completeness: {
       expectedCountMethod:
-        'Read the latest release/cache version from the official bundle, then count every table, category and cost-export row.',
+        'Read both release identifiers from the official bundle, then compare every 2.0 and frozen 1.0 export row with the rendered leaderboards.',
       pagination: null,
       visibleComparisonRequired: true,
     },
     fieldMapping: {
-      'arithmetic mean of category tasks': 'rawScore',
-      'categories JSON': 'category-to-task membership',
-      'cost CSV cost_per_successful_task': 'MEASURED_TASK cost',
+      '2.0 table CSV suite columns': 'rawScore per suite benchmark',
+      '2.0 model registry effort': 'profile.effort',
+      '2.0 cost CSV suite totals / nq_*': 'MEASURED_TASK cost per task',
+      '1.0 table CSV task columns': 'retained Language, IF and Mathematics',
       'cost CSV token price columns': 'API_STANDARDIZED pricing',
-      'table CSV model': 'model.rawName/profile',
-      'table CSV task columns': 'raw subtask scores',
     },
     fallbackMethods: ['DOM', 'VISUAL'],
     lastVerifiedAt: retrievedAt,
     notes: [
-      `Bundle declares ${latestRelease}; refreshed exports contain ${result.populationRows} profiles and ${Object.keys(JSON.parse(categories.text) as object).length} categories.`,
-      `Exact identities only; ${unresolvedNames.size} profile names remain unresolved without fuzzy matching.`,
-      'Four approved category families are materialized; Coding, Agentic Coding and Data Analysis stay excluded.',
-      `${csvRows(cost.text)} cost rows emit ${costs.length} CostRecords from exact identities.`,
+      `LiveBench 2.0 release ${release2.date}: ${snapshot.v2Models.length} models across ${LIVEBENCH2_SUITES.length} suites.`,
+      `Frozen 1.0 release ${v1Release}: Language, IF and Mathematics retained because 2.0 dropped them; 1.0 Reasoning is superseded by 2.0.`,
+      `Exact identities only; ${snapshot.unresolvedModels.length} raw names remain unresolved without fuzzy matching.`,
     ],
   });
   const evidence = [
     page.record,
     script.record,
-    table.record,
-    categories.record,
-    cost.record,
+    v1Table.record,
+    v1Categories.record,
+    v1Cost.record,
+    v2Table.record,
+    v2Categories.record,
+    v2Cost.record,
   ].toSorted((left, right) => left.requestUrl.localeCompare(right.requestUrl));
 
   await Promise.all([
     writeMetadataJson(join(sourceDirectory, 'evidence-index.json'), evidence),
     writeFile(
       join(sourceDirectory, 'candidates.json'),
-      deterministicJson(result.candidates),
+      deterministicJson(snapshot.candidates),
     ),
     writeFile(
       join(sourceDirectory, 'costs.json'),
-      prettyDeterministicJson(costs),
+      prettyDeterministicJson(snapshot.costs),
     ),
     writeFile(join(sourceDirectory, 'validation-report.md'), report),
     writeMetadataJson(join(sourceDirectory, 'manifest.json'), manifest),
   ]);
   console.log(
     JSON.stringify({
-      release: latestRelease,
-      cacheVersion,
-      profiles: result.populationRows,
-      candidates: result.candidates.length,
-      unresolvedProfiles: unresolvedNames.size,
-      costs: costs.length,
+      v2Release: release2.date,
+      v1Release,
+      v2Models: snapshot.v2Models.length,
+      candidates: snapshot.candidates.length,
+      unresolved: snapshot.unresolvedModels.length,
+      costs: snapshot.costs.length,
     }),
   );
 }

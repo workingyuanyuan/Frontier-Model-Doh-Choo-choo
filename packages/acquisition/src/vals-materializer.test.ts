@@ -34,6 +34,16 @@ describe('Vals external loader data', () => {
         '<astro-island component-url="/_astro/RsiBenchmarkView.A.js">',
       ),
     ).toBeNull();
+    expect(
+      extractValsBenchmarkDataUrl(
+        loader('/_astro/chart_view_vals_router_index.BgxxDMEF.json'),
+      ),
+    ).toBeNull();
+    expect(() =>
+      extractValsBenchmarkDataUrl(
+        loader('https://other.test/_astro/chart_view_vals_router_index.a.json'),
+      ),
+    ).toThrow();
   });
   it('checks external JSON population and gives score/cost locators at the JSON root', () => {
     const payload = {

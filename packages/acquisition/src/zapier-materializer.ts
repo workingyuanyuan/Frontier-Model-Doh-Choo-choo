@@ -58,6 +58,8 @@ export interface ParsedZapierModule {
   rows: ZapierLeaderboardRow[];
   promoNote: string | null;
   fallbackNote: string | null;
+  /** § on a model name: initial results that the source will re-run. */
+  provisionalNote: string | null;
   deepseekPricingNote: string | null;
   dedicatedDeploymentNote: string | null;
 }
@@ -90,6 +92,7 @@ export interface MaterializeZapierResult {
   missingCostRowsCount: number;
   starredCostRowsCount: number;
   fallbackCostRowsCount: number;
+  provisionalRowsCount: number;
   deepseekPriceRowsCount: number;
   dedicatedCostRowsCount: number;
 }
@@ -242,11 +245,16 @@ export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
     '*',
     'promotional pricing',
   );
-  const fallbackNote = findUniqueZapierFootnote(
-    moduleText,
-    '§',
-    'fallback pricing',
-  );
+  const sectionNote = findUniqueZapierFootnote(moduleText, '§', '§');
+  // Zapier reuses § across leaderboard revisions: first for a fallback-model
+  // cost caveat, since October 2026 for provisional launch-version scores.
+  const isProvisionalNote = (note: string) =>
+    /initial results/iu.test(note) &&
+    /launch version/iu.test(note) &&
+    /will be updated/iu.test(note);
+  const provisionalNote =
+    sectionNote !== null && isProvisionalNote(sectionNote) ? sectionNote : null;
+  const fallbackNote = provisionalNote === null ? sectionNote : null;
   const deepseekPricingNote = findUniqueZapierFootnote(
     moduleText,
     '‡',
@@ -299,6 +307,11 @@ export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
       'Zapier starred cost exists but its promo footnote is missing',
     );
   }
+  if (rows.some(({ model }) => model.endsWith('§')) && !provisionalNote) {
+    throw new Error(
+      'Zapier §-marked model exists but its provisional-results footnote is missing',
+    );
+  }
   if (rows.some(({ rawCost }) => rawCost.endsWith('§')) && !fallbackNote) {
     throw new Error(
       'Zapier fallback cost exists but its fallback footnote is missing',
@@ -326,6 +339,7 @@ export function parseZapierRouteModule(moduleText: string): ParsedZapierModule {
     rows: rows.toSorted((left, right) => left.rank - right.rank),
     promoNote,
     fallbackNote,
+    provisionalNote,
     deepseekPricingNote,
     dedicatedDeploymentNote,
   };
@@ -448,9 +462,15 @@ export function materializeZapier(
       );
     }
 
-    const cleanName = stripTrailingConfiguration(row.model);
+    // Provisional scores are adopted as published; the marker only flags
+    // that Zapier will replace them after re-running the model.
+    const provisional = row.model.endsWith('§');
+    const displayName = provisional
+      ? row.model.slice(0, -1).trimEnd()
+      : row.model;
+    const cleanName = stripTrailingConfiguration(displayName);
     const canonicalModelId = resolveCatalogModel(cleanName).canonicalModelId;
-    const effort = parseEffort(row.model);
+    const effort = parseEffort(displayName);
     const profileId = profileIdFor(canonicalModelId, effort.effort);
     if (canonicalModelId === null) unresolvedModels.add(row.model);
 
@@ -460,7 +480,7 @@ export function materializeZapier(
     if (canonicalModelId !== null && !effort.recognized) {
       exclusionReason = appendExclusionReason(
         exclusionReason,
-        `${ZAPIER_UNRESOLVED_EFFORT_REASON_PREFIX} ${JSON.stringify(trailingSegment(row.model))} has not been reviewed as an effort tier.`,
+        `${ZAPIER_UNRESOLVED_EFFORT_REASON_PREFIX} ${JSON.stringify(trailingSegment(displayName))} has not been reviewed as an effort tier.`,
       );
     }
     const inclusion = exclusionReason === null ? 'INCLUDED' : 'EXCLUDED';
@@ -526,7 +546,14 @@ export function materializeZapier(
         },
         rawScore: {
           evidenceId: context.moduleEvidenceId,
-          locator: `leaderboard rank ${row.rank} score ${JSON.stringify(row.scoreText)}`,
+          locator: [
+            `leaderboard rank ${row.rank} score ${JSON.stringify(row.scoreText)}`,
+            provisional
+              ? `provisional per footnote ${JSON.stringify(parsed.provisionalNote)}`
+              : null,
+          ]
+            .filter((part): part is string => part !== null)
+            .join('; '),
           method: 'EMBEDDED_JSON',
         },
         cost: {
@@ -640,6 +667,9 @@ export function materializeZapier(
   const fallbackCostRowsCount = parsed.rows.filter(
     ({ rawCost }) => parseZapierCost(rawCost).kind === 'FALLBACK_EXCLUDED',
   ).length;
+  const provisionalRowsCount = parsed.rows.filter(({ model }) =>
+    model.endsWith('§'),
+  ).length;
   const deepseekPriceRowsCount = parsed.rows.filter(
     ({ rawCost }) => parseZapierCost(rawCost).kind === 'FIREWORKS_STANDARD',
   ).length;
@@ -667,6 +697,7 @@ export function materializeZapier(
     `| Missing-cost rows (—) | ${missingCostRowsCount} |`,
     `| Starred standard-price rows | ${starredCostRowsCount} |`,
     `| Fallback-composite rows with excluded fallback cost (§) | ${fallbackCostRowsCount} |`,
+    `| Provisional launch-version rows adopted (model name §) | ${provisionalRowsCount} |`,
     `| Fireworks-marked standard-price rows (‡) | ${deepseekPriceRowsCount} |`,
     `| Dedicated-deployment cost rows excluded from costs | ${dedicatedCostRowsCount} |`,
     `| Canonically resolved rows | ${resolvedRowsCount} |`,
@@ -696,6 +727,7 @@ export function materializeZapier(
     `- Fireworks-marked raw value: \`$0.14‡\` → numeric per-task cost, with the source's Fireworks pricing note preserved. Source note: ${parsed.deepseekPricingNote ?? 'MISSING'}`,
     `- Missing raw value: \`—\` → no CostRecord; it is never written as zero.`,
     `- Dedicated raw value: \`$0.09†\` → no CostRecord by user ruling 2026-08-22. Source note: ${parsed.dedicatedDeploymentNote ?? 'MISSING'}`,
+    `- Provisional rows: a § after the model name marks initial results that Zapier says it will update. Scores are adopted as published and the footnote is kept in each rawScore locator. Source note: ${parsed.provisionalNote ?? 'none on this capture'}`,
     '- Every raw Cost / task string remains in the CandidateResult provenance locator, including `*`, `§`, `‡`, `†`, and `—`.',
     '',
     '## Excluded rows',
@@ -733,6 +765,7 @@ export function materializeZapier(
     missingCostRowsCount,
     starredCostRowsCount,
     fallbackCostRowsCount,
+    provisionalRowsCount,
     deepseekPriceRowsCount,
     dedicatedCostRowsCount,
   };

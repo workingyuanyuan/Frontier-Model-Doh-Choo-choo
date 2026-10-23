@@ -552,6 +552,45 @@ describe('Artificial Analysis RSC materializer', () => {
     ).toBeUndefined();
   });
 
+  it('derives normalized GDPval-AA from the published Elo when AA drops the field', () => {
+    const rows = (extra: Record<string, unknown>) => [
+      {
+        slug: 'step-5',
+        name: 'Step 5 Preview',
+        release_date: '2026-09-18',
+        deprecated: false,
+        intelligenceIndex: 43.7,
+        intelligenceIndexCostPerTask: { cost: { total: 1 } },
+        ...extra,
+      },
+    ];
+    const gdpval = (extra: Record<string, unknown>) =>
+      materializeArtificialAnalysisRsc([
+        {
+          kind: 'models',
+          slug: 'models',
+          sourceUrl: 'https://artificialanalysis.ai/models',
+          evidenceId,
+          retrievedAt: '2026-10-23T00:00:00.000Z',
+          rows: rows(extra),
+        },
+      ]).candidates.find(({ benchmarkId }) => benchmarkId === 'gdpval-aa');
+
+    // The 2026-10-04 capture carried both fields for Step 5 Preview.
+    const derived = gdpval({ gdpval: 1586.67 });
+    expect(derived?.rawScore).toBeCloseTo(0.543335, 10);
+    expect(derived?.provenance.rawScore?.locator).toMatch(
+      /field=gdpval; normalized = clamp\(\(Elo - 500\) \/ 2000\)/u,
+    );
+    expect(gdpval({ gdpval: 2700 })?.rawScore).toBe(1);
+    expect(gdpval({ gdpval: 300 })?.rawScore).toBe(0);
+    const direct = gdpval({ gdpval: 1586.67, gdpvalNormalized: 0.5 });
+    expect(direct?.rawScore).toBe(0.5);
+    expect(direct?.provenance.rawScore?.locator).toMatch(
+      /field=gdpvalNormalized$/u,
+    );
+  });
+
   it('does not invent a version when a synthetic page has no version metadata', () => {
     const result = materializeArtificialAnalysisRsc([
       {

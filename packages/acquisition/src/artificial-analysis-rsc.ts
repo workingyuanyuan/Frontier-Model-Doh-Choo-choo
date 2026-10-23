@@ -158,6 +158,7 @@ const APPROVED_SCORE_FIELDS = [
   'livecodebench',
   'gdpval_normalized',
   'gdpvalNormalized',
+  'gdpval',
   'gdpPdfAllPass',
   'ifbench',
   'mmlu_pro',
@@ -179,6 +180,12 @@ interface ScoreMapping {
   preferredPage: string;
   harness?: string;
   attempts?: number;
+  /** Published conversion used when the source drops the direct field. */
+  derived?: {
+    aliases: readonly string[];
+    convert: (value: number) => number;
+    description: string;
+  };
 }
 
 export const SCORE_MAPPING: readonly ScoreMapping[] = [
@@ -304,6 +311,15 @@ export const SCORE_MAPPING: readonly ScoreMapping[] = [
     sourceRole: 'INDEPENDENT' as const,
     normalize: true,
     preferredPage: 'gdpval-aa',
+    // AA dropped `gdpvalNormalized` from its rows in October 2026 but still
+    // publishes the Elo and, on /methodology/intelligence-benchmarking, the
+    // mapping clamp((Elo - 500) / 2000). That mapping reproduced all 282
+    // Elo/normalized pairs in the 2026-10-04 capture exactly.
+    derived: {
+      aliases: ['gdpval'],
+      convert: (elo) => Math.min(1, Math.max(0, (elo - 500) / 2000)),
+      description: 'normalized = clamp((Elo - 500) / 2000) per AA methodology',
+    },
   },
   {
     field: 'ifbench',
@@ -1346,13 +1362,30 @@ export const materializeArtificialAnalysisRsc = (
           mapping.benchmarkId === 'gdpval-aa',
         ) ?? base;
       const value = readNumber(readRowField(observation.row, mapping.aliases));
-      if (value === null) continue;
+      const derivedObservation =
+        value === null && mapping.derived
+          ? chooseObservationWithField(
+              observations,
+              mapping.derived.aliases,
+              mapping.preferredPage,
+              mapping.benchmarkId === 'gdpval-aa',
+            )
+          : null;
+      const derivedSource = derivedObservation
+        ? readNumber(
+            readRowField(derivedObservation.row, mapping.derived!.aliases),
+          )
+        : null;
+      if (value === null && derivedSource === null) continue;
+      const used = value === null ? derivedObservation! : observation;
       const candidate = makeScoreCandidate(
-        observation,
-        observation.row,
+        used,
+        used.row,
         mapping,
-        value,
-        `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=${mapping.aliases.find((alias) => isArtificialAnalysisValuePresent(observation.row[alias])) ?? mapping.field}`,
+        value ?? mapping.derived!.convert(derivedSource!),
+        value === null
+          ? `model slug=${pageRowKey(used.row) ?? 'unknown'}; field=${mapping.derived!.aliases.find((alias) => isArtificialAnalysisValuePresent(used.row[alias]))}; ${mapping.derived!.description}`
+          : `model slug=${pageRowKey(observation.row) ?? 'unknown'}; field=${mapping.aliases.find((alias) => isArtificialAnalysisValuePresent(observation.row[alias])) ?? mapping.field}`,
       );
       if (candidate && !candidateIds.has(candidate.id)) {
         candidateIds.add(candidate.id);

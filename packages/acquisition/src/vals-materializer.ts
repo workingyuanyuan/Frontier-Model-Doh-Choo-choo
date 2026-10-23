@@ -229,6 +229,17 @@ export function extractValsBenchmarkDataUrl(html: string): string | null {
   if (typeof root.benchmarkViewUrl !== 'string')
     throw new Error('BenchmarkViewLoader has no data URL');
   const url = new URL(root.benchmarkViewUrl, VALS_INDEX_URL);
+  // Router comparison pages (currently vals_router_index) load a chart view of
+  // routers against Vals Index tasks, not per-model BenchmarkView data. The
+  // page is still captured and reported; it contributes no model rows.
+  if (
+    url.origin === 'https://www.vals.ai' &&
+    /^\/_astro\/chart_view_[a-zA-Z0-9_.-]+\.json$/u.test(url.pathname) &&
+    !url.search &&
+    !url.hash
+  ) {
+    return null;
+  }
   if (
     url.origin !== 'https://www.vals.ai' ||
     !/^\/_astro\/benchmark_view_[a-zA-Z0-9_.-]+\.json$/u.test(url.pathname) ||

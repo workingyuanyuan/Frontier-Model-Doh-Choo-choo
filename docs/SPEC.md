@@ -869,18 +869,21 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 
 ### 9.1 LiveBench
 
-全自動，完全結構化。目前分數是手工維護的，要改成自動擷取。
+全自動，完全結構化。2026-10-14 起網站改為 LiveBench 2.0；1.0 仍以凍結的歷史 release 發布。使用者於 2026-10-23 決定整合 2.0。
 
-| 用途                        | 端點                                                                                     |
-| --------------------------- | ---------------------------------------------------------------------------------------- |
-| 分數表                      | `https://livebench.ai/table_<release>.csv?v=<cacheVersion>` — 實測 40 列 × 23 個 task 欄 |
-| 成本                        | `https://livebench.ai/cost_<release>.csv?v=<cacheVersion>`                               |
-| 類別歸屬                    | `https://livebench.ai/categories_<release>.json?v=<cacheVersion>` — 7 個類別             |
-| release 清單與 cacheVersion | `https://livebench.ai/static/js/main.<hash>.js`                                          |
+| 用途                            | 端點                                                                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 2.0 分數表                      | `https://livebench.ai/data/<YYYYMMDD>/table.csv?v=<cacheVersion>` — 每個模型一列、七個 suite 欄（suite 分數本身）               |
+| 2.0 類別與成本                  | `data/<YYYYMMDD>/categories.json`、`data/<YYYYMMDD>/cost.csv`（各 suite 總成本與 `nq_<suite>` 任務數、token 單價）              |
+| 1.0 歷史 release                | `https://livebench.ai/v1/{table,categories,cost}_<release>.{csv,json}?v=<cacheVersion>` — 目前為 2026-06-25                     |
+| release 清單、模型登錄與 effort | `https://livebench.ai/static/js/main.<hash>.js`（1.0 release 為 ISO 日期陣列，2.0 為 `YYYYMMDD` 陣列；2.0 模型登錄含 `effort`） |
 
 - 網站首頁是 JavaScript SPA（HTML 僅約 1 KB），不要用 DOM 擷取。
-- `cost_*.csv` 同時含 token 單價欄位與 `cost_per_successful_task`。兩者必須分開保存：前者是 `API_STANDARDIZED`，後者是 `MEASURED_TASK`。
-- 目前核准進計分的只有四個類別：`livebench-reasoning`、`livebench-mathematics`、`livebench-language`、`livebench-instruction-following`。**LiveBench Coding、Agentic Coding、Data Analysis 未核准，不得自行納入。**
+- 2.0 的七個 suite 全部計分；維度依方法論頁描述的評分對象決定，見 [BENCHMARK_DIMENSION_MAPPING.md](BENCHMARK_DIMENSION_MAPPING.md)。Reasoning 與 Data Analysis 為無工具問答，其餘 suite 使用工具。effort 取自 2.0 模型登錄（官方說明各模型以最高支援檔位執行）。
+- `livebench-reasoning` 改用 2.0 Reasoning（同一題型家族的新版本）；1.0 的 Reasoning 列全部保留為 EXCLUDED 證據。
+- 2.0 不再提供的 `livebench-language`、`livebench-instruction-following`、`livebench-mathematics` 保留 1.0 歷史 release 的成績。重新擷取時，既有列不得消失或改分（否則停止）；1.0 release 後來新增的模型列照常接受並在 validation report 列出。
+- 可見母體：2.0 以主榜渲染列數核對；1.0 以 `#/release/<release>` 頁面啟用 Include finetunes 後的列數，扣除兩個已不顯示的 bare slug 與合併的 variant 後核對。
+- 成本：2.0 每個模型一筆 `MEASURED_TASK`，依方法論以「各 suite 總成本 ÷ 總任務數」計算；token 單價為 `API_STANDARDIZED`，同一 profile 以 2.0 價格取代 1.0。1.0 的 `cost_per_successful_task` 另以原 ID 保留。
 
 ### 9.2 DeepSWE
 
