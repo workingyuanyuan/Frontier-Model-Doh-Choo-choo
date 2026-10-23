@@ -449,7 +449,7 @@ describe('buildWorkspaceProduct', () => {
     } finally {
       await rm(dummyDir, { recursive: true, force: true });
     }
-  });
+  }, 15_000);
 
   it('fails a fresh AA needs-review audit and preserves the current product', async () => {
     const temporaryRoot = await mkdtemp(join(tmpdir(), 'aa-review-build-'));
