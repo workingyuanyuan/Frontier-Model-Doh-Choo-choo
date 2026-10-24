@@ -25,7 +25,11 @@ test('shows FrontierSWE V2 for manually selected shared profiles', async ({
     name: 'Common benchmarks',
     exact: true,
   });
-  await expect(section).toHaveCount(0);
+  // The default selection is compared before the user touches the picker.
+  await expect(section).toBeVisible();
+  await expect(section.locator('thead th')).toHaveCount(
+    withActivePreset(product).activePreset.targetModelCount + 1,
+  );
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   for (const name of ['GPT-6 Astra', 'Gemini 3.8 Flash']) {
@@ -68,7 +72,7 @@ test('shows FrontierSWE V2 for manually selected shared profiles', async ({
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Default', exact: true }).click();
   await page.keyboard.press('Escape');
-  await expect(section).toHaveCount(0);
+  await expect(section).toBeVisible();
 });
 
 test('keeps Astra medium while comparing high and removes the saved effort', async ({
@@ -203,7 +207,7 @@ test('compares selected models on their shared measurements and updates profiles
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Default', exact: true }).click();
   await page.keyboard.press('Escape');
-  await expect(section).toHaveCount(0);
+  await expect(section).toBeVisible();
 });
 
 test('clears the comparison rows and radar axes', async ({ page }) => {

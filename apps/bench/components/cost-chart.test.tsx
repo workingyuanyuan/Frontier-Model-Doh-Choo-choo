@@ -231,9 +231,9 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toContain('2 of 8');
       // What each of them contributed, named rather than averaged.
       expect(html).toContain('Intelligence Index 61.2');
-      expect(html).toContain('cost only, no pairable score');
-      // And the same sentence naming LiveBench is derived, not written out.
-      expect(html).toContain('LiveBench contributes cost only.');
+      expect(html).toContain(
+        '<span class="cost-source-basis is-cost-only">cost only, no pairable score</span>',
+      );
     });
 
     it('does not render hover card initially and removes native <title> elements from points', () => {
@@ -715,9 +715,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         html.indexOf('>Models</span>'),
       );
       expect(html).not.toContain('cost-model-legend');
-      expect(html).not.toContain(
-        'Quality vs. Cost chart data and source contributions',
-      );
+      expect(html).not.toContain('Source breakdown');
       expect(html).not.toContain('<title>');
     });
 
@@ -730,9 +728,7 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         }),
       );
 
-      expect(html).toContain(
-        'Quality vs. Cost chart data and source contributions',
-      );
+      expect(html).toContain('Source breakdown');
     });
   });
 });

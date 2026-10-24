@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" data-theme="blue" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              '(function(){try{var t=localStorage.getItem("fm-dcc-theme");if(t==="light"||t==="dark"||t==="blue")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()',
+              '(function(){try{var t=localStorage.getItem("fm-dcc-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})()',
           }}
         />
       </head>

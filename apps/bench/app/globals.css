@@ -1,69 +1,4 @@
-:root {
-  color-scheme: light;
-  --font-body:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
-  --font-display: var(--font-body);
-  --font-utility: var(--font-body);
-  --ink: #14213d;
-  --ink-soft: #4f5f75;
-  --ink-faint: #4f5f75;
-  --surface: #ffffff;
-  --surface-subtle: #f3f6fb;
-  --surface-selected: #ebf0ff;
-  --panel-surface: var(--surface);
-  --line: #e2e8f0;
-  --line-strong: #cbd5e1;
-  --accent: #2f54eb;
-  --accent-strong: #14213d;
-  --accent-soft: rgba(47, 84, 235, 0.1);
-  --cobalt: #2f54eb;
-  --mint: #18b98b;
-  --highlight: #d97706;
-  --highlight-soft: #fef3c7;
-  --excluded: #64748b;
-  --excluded-soft: #f1f5f9;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
-  --focus-ring: #8ac5a4;
-  --focus: var(--focus-ring);
-  --switch-track: #dce2ea;
-  --switch-border: #c3ccd8;
-  --switch-knob: #ffffff;
-  --switch-shadow: rgb(15 23 42 / 22%);
-  --status-partial-border: #e7bd76;
-  --status-partial-ink: #704005;
-  --status-included-border: #abd1ba;
-  --status-included-ink: #14213d;
-  --status-excluded-border: #d6b9bf;
-  --status-excluded-ink: #684149;
-  --control-hover-border: #82958a;
-  --toolbar-surface: #eff5f1;
-  --toolbar-border: #cbdcd1;
-  --chart-grid: #d9e1dc;
-  --chart-axis: #b7c4bc;
-  --chart-fill: rgb(23 99 62 / 18%);
-  --chart-point-stroke: #ffffff;
-  --danger: #c93636;
-  --cost-grid: #e7ecf3;
-  --frontier: #08745b;
-  --selection-border: #bac8f6;
-  --surface-overlay: rgb(255 255 255 / 85%);
-  --surface-overlay-soft: rgb(255 255 255 / 50%);
-  --provider-outline: #9aa7b8;
-  --popover-shadow:
-    0 10px 25px -5px rgb(0 0 0 / 10%), 0 8px 10px -6px rgb(0 0 0 / 10%);
-  --heat-1: rgb(47 84 235 / 40%);
-  --heat-2: rgb(47 84 235 / 30%);
-  --heat-3: rgb(47 84 235 / 22%);
-  --heat-4: rgb(47 84 235 / 14%);
-  --heat-5: rgb(47 84 235 / 7%);
-  --series-1: #2f54eb;
-  --series-2: #18b98b;
-  --series-3: #66758f;
-}
-
+:root,
 [data-theme='light'] {
   color-scheme: light;
   --font-body:
@@ -83,7 +18,7 @@
   --line: #e6dfd8;
   --line-strong: #cfc4b8;
   --accent: #cc785c;
-  --accent-strong: #a9583e;
+  --accent-strong: #a0533a;
   --accent-soft: rgb(204 120 92 / 12%);
   --cobalt: #cc785c;
   --mint: #5db8a6;
@@ -95,6 +30,7 @@
   --radius-md: 12px;
   --shadow: 0 1px 3px rgb(20 20 19 / 8%);
   --focus-ring: #cc785c;
+  --focus: var(--focus-ring);
   --switch-track: #e8e0d2;
   --switch-border: #cfc4b8;
   --switch-knob: #faf9f5;
@@ -385,7 +321,7 @@ summary:focus-visible {
   border-radius: 999rem;
   display: inline-grid;
   gap: 0.125rem;
-  grid-template-columns: repeat(3, 2.5rem);
+  grid-template-columns: repeat(2, 2.5rem);
   padding: 0.125rem;
 }
 
@@ -836,28 +772,6 @@ tbody tr {
   text-align: center;
 }
 
-.developer-model-list {
-  display: grid;
-  gap: 0.625rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.developer-model-list li {
-  border: 0.0625rem solid var(--line);
-  border-radius: 0.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.75rem 1rem;
-}
-
-.developer-model-list li span {
-  color: var(--ink-soft);
-  font-size: 0.8125rem;
-}
-
 .empty-state strong {
   color: var(--ink);
 }
@@ -1111,9 +1025,14 @@ tbody tr {
 }
 
 .benchmark-row-main {
-  align-items: center;
-  display: flex;
-  gap: 0.35rem;
+  align-items: start;
+  column-gap: 0.35rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.benchmark-label {
+  min-width: 0;
 }
 
 .tree-branch {
@@ -1153,34 +1072,41 @@ tbody tr {
 }
 
 .benchmark-source {
-  color: var(--ink-soft);
-  font-size: 0.75rem;
+  color: var(--ink-faint);
+  font-size: 0.6875rem;
+  margin-left: 0.4rem;
+  white-space: nowrap;
 }
 
 .benchmark-score {
   color: var(--ink);
   font-variant-numeric: tabular-nums;
   font-weight: 700;
-  margin-left: auto;
 }
 
-/* Retained but not counted: the row stays visible because the measurement is
-   real, and reads as muted because the dimension score above it was computed
-   without this row. */
-.benchmark-outside-basis {
-  border: 0.0625rem solid var(--line);
-  border-radius: var(--radius-sm);
+/* Retained but not counted: grouped under its own label below the scored
+   rows, and muted, because the dimension score above was computed without
+   them. */
+.dimension-benchmark-subhead {
+  border-top: 0.0625rem dashed var(--line);
   color: var(--ink-faint);
+  cursor: help;
   font-size: 0.625rem;
   font-weight: 700;
-  letter-spacing: 0.03em;
-  padding: 0.05rem 0.3rem;
-  white-space: nowrap;
+  letter-spacing: 0.08em;
+  margin: 0.75rem 0 0;
+  padding-top: 0.6rem;
+  text-transform: uppercase;
+}
+
+.dimension-benchmark-list.is-outside-basis {
+  padding-top: 0.4rem;
 }
 
 .dimension-benchmark-item.is-outside-basis .benchmark-name,
 .dimension-benchmark-item.is-outside-basis .benchmark-score {
   color: var(--ink-faint);
+  font-weight: 500;
 }
 
 .dimension-benchmark-item.is-missing .benchmark-name,
@@ -1239,23 +1165,96 @@ tbody tr {
   font-size: 0.72rem;
 }
 
+/* Developer-mode diagnostics: one panel, quiet tables, no prose. */
+.diagnostics-section + .diagnostics-section {
+  border-top: 0.0625rem solid var(--line);
+}
+
+.diagnostics-heading {
+  align-items: baseline;
+  display: flex;
+  gap: 0.5rem;
+  padding: 1.25rem 1.25rem 0.75rem;
+}
+
+.diagnostics-heading h2 {
+  font-size: 1.0625rem;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.diagnostics-heading span {
+  color: var(--ink-faint);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.diagnostics-empty {
+  color: var(--ink-faint);
+  font-size: 0.8125rem;
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+}
+
+.diagnostics-table {
+  font-size: 0.8125rem;
+}
+
+.diagnostics-table th,
+.diagnostics-table td {
+  padding: 0.55rem 1.25rem;
+}
+
+.diagnostics-table thead th {
+  position: static;
+}
+
+.diagnostics-table tbody th {
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.diagnostics-table .diagnostics-num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.diagnostics-table td.is-missing {
+  color: var(--ink-faint);
+}
+
+.developer-model-table {
+  table-layout: auto;
+}
+
+.developer-model-table tbody:hover > tr:first-child,
+.developer-model-table tbody.is-expanded > tr:first-child {
+  background: var(--surface-selected);
+}
+
+.developer-model-missing {
+  color: var(--ink-soft);
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
 .developer-model-button {
   align-items: center;
   background: transparent;
   border: 0;
   color: inherit;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   font: inherit;
-  gap: 0.75rem;
-  justify-content: space-between;
-  padding: 0.5rem 0.75rem;
+  gap: 0.5rem;
+  padding: 0;
   text-align: left;
-  width: 100%;
-}
-
-.developer-model-button:hover {
-  background: var(--surface-subtle);
 }
 
 .developer-model-button:focus-visible {
@@ -1264,8 +1263,65 @@ tbody tr {
   outline-offset: 0.15rem;
 }
 
-.developer-model-list li.is-selected {
-  border-color: var(--accent);
+.expand-chevron {
+  border-bottom: 0.09375rem solid var(--ink-faint);
+  border-right: 0.09375rem solid var(--ink-faint);
+  display: inline-block;
+  height: 0.4rem;
+  transform: rotate(-45deg);
+  transition: transform 120ms ease;
+  width: 0.4rem;
+}
+
+[aria-expanded='true'] > .expand-chevron {
+  transform: rotate(45deg);
+}
+
+.diagnostics-footer {
+  border-top: 0.0625rem solid var(--line);
+  display: flex;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+}
+
+.diagnostics-show-all {
+  align-items: center;
+  background: transparent;
+  border: 0.0625rem solid var(--line-strong);
+  border-radius: 999rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 650;
+  padding: 0.3rem 0.9rem;
+}
+
+.diagnostics-show-all:hover {
+  border-color: var(--control-hover-border);
+  color: var(--ink);
+}
+
+.developer-model-detail-row > td {
+  background: var(--surface-subtle);
+  border-top: 0;
+  padding: 0 1.25rem 1.25rem;
+}
+
+@media (max-width: 40rem) {
+  .developer-model-table thead th:last-child,
+  .developer-model-missing {
+    display: none;
+  }
+
+  .developer-model-table tbody th {
+    white-space: normal;
+  }
+
+  .developer-model-detail-row > td {
+    padding-inline: 0.75rem;
+  }
 }
 
 .evidence-table td strong {
@@ -2102,13 +2158,6 @@ details[open] > .evidence-group-summary::before {
   font-weight: 500;
 }
 
-.chart-data-note {
-  color: var(--ink-faint);
-  margin: 0.35rem 0 0.5rem;
-  max-width: 60rem;
-  font-size: 0.6875rem;
-}
-
 .cost-model-menu-list {
   display: grid;
   gap: 0.125rem;
@@ -2320,6 +2369,49 @@ details[open] > .evidence-group-summary::before {
   max-width: calc(100% - 2.5rem);
   overflow-x: auto;
   padding-top: 0.75rem;
+}
+
+.cost-source-table {
+  margin-top: 0.75rem;
+  min-width: 52rem;
+}
+
+.cost-source-table th,
+.cost-source-table td {
+  padding-inline: 0.75rem;
+  vertical-align: top;
+}
+
+.cost-source-list {
+  display: grid;
+  gap: 0.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cost-source-list li {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 13rem 4rem minmax(0, 1fr);
+}
+
+.cost-source-list a {
+  white-space: nowrap;
+}
+
+.cost-source-value {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.cost-source-basis {
+  color: var(--ink-soft);
+}
+
+.cost-source-basis.is-cost-only {
+  color: var(--ink-faint);
+  font-style: italic;
 }
 
 @media (max-width: 40rem) {

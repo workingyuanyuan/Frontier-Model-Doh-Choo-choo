@@ -43,6 +43,8 @@ export interface ModelDetailPanelProps {
    * main screen, and retained evidence is a developer-mode concern.
    */
   developerMode?: boolean | undefined;
+  /** Off where the surrounding row already names the profile. */
+  showHeading?: boolean | undefined;
 }
 
 export const DIMENSION_DISPLAY_NAMES: Record<DimensionId, string> = {
@@ -150,6 +152,18 @@ export const getBenchmarkDisplayName = (
   return benchmarkId;
 };
 
+/**
+ * Names for benchmarks a profile has no row for: another profile's evidence
+ * still carries the metric name the fallback above needs.
+ */
+export const buildBenchmarkNameLookup = (
+  evidence: readonly DashboardEvidence[],
+): ((benchmarkId: string) => string) => {
+  const byBenchmark = new Map(evidence.map((row) => [row.benchmarkId, row]));
+  return (benchmarkId) =>
+    getBenchmarkDisplayName(benchmarkId, byBenchmark.get(benchmarkId));
+};
+
 const formatScore = (val: number | null | undefined): string => {
   if (val === null || val === undefined || !Number.isFinite(val)) {
     return '—';
@@ -165,6 +179,7 @@ export function ModelDetailPanel({
   preset,
   activeDimensionIds,
   developerMode = false,
+  showHeading = true,
 }: ModelDetailPanelProps) {
   const [openProvenanceId, setOpenProvenanceId] = useState<string | null>(null);
   const [retryCount, setRetryCount] = useState(0);
@@ -313,6 +328,11 @@ export function ModelDetailPanel({
     return map;
   }, [benchmarkDimensions, developerMode, preset, profileEvidence]);
 
+  const benchmarkName = useMemo(
+    () => buildBenchmarkNameLookup(product.evidence),
+    [product.evidence],
+  );
+
   const modelDisplayName = getProfileDisplayName(profile);
   const dimensionIds =
     activeDimensionIds ??
@@ -336,22 +356,137 @@ export function ModelDetailPanel({
 
   const titleId = `model-detail-title-${profile.id}`;
 
+  const renderBenchmarkItems = (ids: string[]) =>
+    ids.map((bmId, idx) => {
+      const evidence = evidenceByBenchmark.get(bmId);
+      const detailedEvidence = evidence
+        ? detailedEvidenceById.get(evidence.id)
+        : undefined;
+      const isLast = idx === ids.length - 1;
+      const treePrefix = isLast ? '└ ' : '├ ';
+      const bmName = evidence
+        ? getBenchmarkDisplayName(bmId, evidence)
+        : benchmarkName(bmId);
+      const sourceName = evidence
+        ? getSourceDisplayName(evidence.sourceId)
+        : null;
+      const scoreText = evidence ? formatScore(evidence.normalizedScore) : '—';
+      const provKey = `${detailsKey}:${bmId}`;
+      const isProvOpen = openProvenanceId === provKey;
+      const isScored = scoringBasisIds.has(bmId);
+
+      return (
+        <li
+          key={bmId}
+          className={`dimension-benchmark-item ${
+            evidence ? 'has-score' : 'is-missing'
+          }${isScored ? '' : ' is-outside-basis'}`}
+          data-benchmark-id={bmId}
+          data-outside-basis={isScored ? undefined : 'true'}
+        >
+          <div className="benchmark-row-main">
+            <span className="tree-branch" aria-hidden="true">
+              {treePrefix}
+            </span>
+            <span className="benchmark-label">
+              <span className="benchmark-name">
+                {evidence ? (
+                  <button
+                    type="button"
+                    className="provenance-toggle-btn"
+                    onClick={() => toggleProvenance(provKey)}
+                    aria-expanded={isProvOpen}
+                    aria-label={`View provenance for ${bmName}`}
+                  >
+                    {bmName}
+                  </button>
+                ) : (
+                  <span>{bmName}</span>
+                )}
+              </span>
+              {sourceName ? (
+                <span className="benchmark-source">{sourceName}</span>
+              ) : null}
+            </span>
+            <span className="benchmark-score">{scoreText}</span>
+          </div>
+
+          {evidence && isProvOpen ? (
+            <div
+              className="benchmark-provenance-popover"
+              data-provenance-details
+            >
+              <dl className="provenance-dl">
+                <div>
+                  <dt>Source URL</dt>
+                  <dd>
+                    <a
+                      href={evidence.provenance.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {evidence.provenance.sourceUrl}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Raw Score</dt>
+                  <dd>
+                    <strong>
+                      {evidence.rawScore.toFixed(1)} {evidence.metric.unit}
+                    </strong>{' '}
+                    <span>
+                      (Normalized {formatScore(evidence.normalizedScore)})
+                    </span>
+                  </dd>
+                </div>
+                {detailedEvidence ? (
+                  <>
+                    <div>
+                      <dt>Locator</dt>
+                      <dd>
+                        <code>{detailedEvidence.provenance.locator}</code>
+                      </dd>
+                    </div>
+                    <div>
+                      <dt>Retrieved At</dt>
+                      <dd>{detailedEvidence.provenance.retrievedAt}</dd>
+                    </div>
+                  </>
+                ) : null}
+              </dl>
+              {!detailedEvidence ? (
+                <p>
+                  {detailsStatus === 'loading'
+                    ? 'Loading evidence details…'
+                    : 'Evidence details are unavailable.'}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
+        </li>
+      );
+    });
+
   return (
     <div
       className="model-detail-panel"
       role="group"
-      aria-labelledby={titleId}
+      aria-labelledby={showHeading ? titleId : undefined}
+      aria-label={showHeading ? undefined : modelDisplayName}
       data-model-detail-panel
     >
-      <div className="section-heading model-detail-heading">
-        <div>
-          <p className="eyebrow">Model capability breakdown</p>
-          <div className="model-detail-title-row">
-            <h2 id={titleId}>{modelDisplayName}</h2>
-            <span className="model-detail-overall-badge">{overallText}</span>
+      {showHeading ? (
+        <div className="section-heading model-detail-heading">
+          <div>
+            <p className="eyebrow">Model capability breakdown</p>
+            <div className="model-detail-title-row">
+              <h2 id={titleId}>{modelDisplayName}</h2>
+              <span className="model-detail-overall-badge">{overallText}</span>
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
 
       {detailsStatus === 'loading' ? (
         <p role="status">Loading evidence details…</p>
@@ -373,6 +508,12 @@ export function ModelDetailPanel({
           const dimAbbr = UI_DIMENSION_ABBREVIATIONS[dimension];
           const dimScore = dimensionScoreMap.get(dimension);
           const benchmarkIds = benchmarksByDimension.get(dimension) ?? [];
+          const scoredIds = benchmarkIds.filter((id) =>
+            scoringBasisIds.has(id),
+          );
+          const outsideIds = benchmarkIds.filter(
+            (id) => !scoringBasisIds.has(id),
+          );
 
           return (
             <div
@@ -390,139 +531,35 @@ export function ModelDetailPanel({
                 </span>
               </div>
 
-              <ul className="dimension-benchmark-list">
-                {benchmarkIds.length > 0 ? (
-                  benchmarkIds.map((bmId, idx) => {
-                    const evidence = evidenceByBenchmark.get(bmId);
-                    const detailedEvidence = evidence
-                      ? detailedEvidenceById.get(evidence.id)
-                      : undefined;
-                    const isLast = idx === benchmarkIds.length - 1;
-                    const treePrefix = isLast ? '└ ' : '├ ';
-                    const bmName = getBenchmarkDisplayName(bmId, evidence);
-                    const sourceName = evidence
-                      ? getSourceDisplayName(evidence.sourceId)
-                      : null;
-                    const scoreText = evidence
-                      ? formatScore(evidence.normalizedScore)
-                      : '—';
-                    const provKey = `${detailsKey}:${bmId}`;
-                    const isProvOpen = openProvenanceId === provKey;
-                    const isScored = scoringBasisIds.has(bmId);
-
-                    return (
-                      <li
-                        key={bmId}
-                        className={`dimension-benchmark-item ${
-                          evidence ? 'has-score' : 'is-missing'
-                        }${isScored ? '' : ' is-outside-basis'}`}
-                        data-benchmark-id={bmId}
-                        data-outside-basis={isScored ? undefined : 'true'}
+              {benchmarkIds.length > 0 ? (
+                <>
+                  {scoredIds.length > 0 ? (
+                    <ul className="dimension-benchmark-list">
+                      {renderBenchmarkItems(scoredIds)}
+                    </ul>
+                  ) : null}
+                  {outsideIds.length > 0 ? (
+                    <>
+                      <p
+                        className="dimension-benchmark-subhead"
+                        title="Measured, but outside the benchmark set this preset scores. It does not affect the dimension score above."
                       >
-                        <div className="benchmark-row-main">
-                          <span className="tree-branch" aria-hidden="true">
-                            {treePrefix}
-                          </span>
-                          <span className="benchmark-name">
-                            {evidence ? (
-                              <button
-                                type="button"
-                                className="provenance-toggle-btn"
-                                onClick={() => toggleProvenance(provKey)}
-                                aria-expanded={isProvOpen}
-                                aria-label={`View provenance for ${bmName}`}
-                              >
-                                {bmName}
-                              </button>
-                            ) : (
-                              <span>{bmName}</span>
-                            )}
-                          </span>
-                          {sourceName ? (
-                            <span className="benchmark-source">
-                              ({sourceName})
-                            </span>
-                          ) : null}
-                          {isScored ? null : (
-                            <span
-                              className="benchmark-outside-basis"
-                              title="Measured, but outside the benchmark set this preset scores. It does not affect the dimension score above."
-                            >
-                              not scored here
-                            </span>
-                          )}
-                          <span className="benchmark-score">{scoreText}</span>
-                        </div>
-
-                        {evidence && isProvOpen ? (
-                          <div
-                            className="benchmark-provenance-popover"
-                            data-provenance-details
-                          >
-                            <dl className="provenance-dl">
-                              <div>
-                                <dt>Source URL</dt>
-                                <dd>
-                                  <a
-                                    href={evidence.provenance.sourceUrl}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                  >
-                                    {evidence.provenance.sourceUrl}
-                                  </a>
-                                </dd>
-                              </div>
-                              <div>
-                                <dt>Raw Score</dt>
-                                <dd>
-                                  <strong>
-                                    {evidence.rawScore.toFixed(1)}{' '}
-                                    {evidence.metric.unit}
-                                  </strong>{' '}
-                                  <span>
-                                    (Normalized{' '}
-                                    {formatScore(evidence.normalizedScore)})
-                                  </span>
-                                </dd>
-                              </div>
-                              {detailedEvidence ? (
-                                <>
-                                  <div>
-                                    <dt>Locator</dt>
-                                    <dd>
-                                      <code>
-                                        {detailedEvidence.provenance.locator}
-                                      </code>
-                                    </dd>
-                                  </div>
-                                  <div>
-                                    <dt>Retrieved At</dt>
-                                    <dd>
-                                      {detailedEvidence.provenance.retrievedAt}
-                                    </dd>
-                                  </div>
-                                </>
-                              ) : null}
-                            </dl>
-                            {!detailedEvidence ? (
-                              <p>
-                                {detailsStatus === 'loading'
-                                  ? 'Loading evidence details…'
-                                  : 'Evidence details are unavailable.'}
-                              </p>
-                            ) : null}
-                          </div>
-                        ) : null}
-                      </li>
-                    );
-                  })
-                ) : (
+                        Not scored here
+                      </p>
+                      <ul className="dimension-benchmark-list is-outside-basis">
+                        {renderBenchmarkItems(outsideIds)}
+                      </ul>
+                    </>
+                  ) : null}
+                </>
+              ) : (
+                <ul className="dimension-benchmark-list">
                   <li className="dimension-benchmark-empty">
                     <span className="tree-branch">└ </span>
                     <span className="empty-text">No active benchmarks</span>
                   </li>
-                )}
-              </ul>
+                </ul>
+              )}
             </div>
           );
         })}

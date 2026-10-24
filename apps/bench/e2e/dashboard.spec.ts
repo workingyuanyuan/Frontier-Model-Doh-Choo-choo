@@ -26,13 +26,12 @@ test('switches and persists the icon-only color theme', async ({ page }) => {
   const developerMode = page.getByRole('switch', { name: 'Developer mode' });
   const lightTheme = page.getByRole('button', { name: 'Light theme' });
   const darkTheme = page.getByRole('button', { name: 'Dark theme' });
-  const blueTheme = page.getByRole('button', { name: 'Blue theme' });
 
   await expect(themeGroup).toBeVisible();
-  await expect(blueTheme).toHaveAttribute('aria-pressed', 'true');
+  await expect(lightTheme).toHaveAttribute('aria-pressed', 'true');
+  await expect(themeGroup.getByRole('button')).toHaveCount(2);
   await expect(lightTheme).toHaveText('');
   await expect(darkTheme).toHaveText('');
-  await expect(blueTheme).toHaveText('');
 
   const themeBox = await themeGroup.boundingBox();
   const developerBox = await developerMode.boundingBox();
@@ -143,6 +142,20 @@ test('defaults to complete matrix models and exposes excluded cells explicitly',
   await expect(page.locator('[data-developer-models]')).not.toContainText(
     'Overall',
   );
+  const excludedCount = Number(
+    await page.locator('#developer-models-title + span').innerText(),
+  );
+  if (excludedCount > 10) {
+    await expect(page.locator('[data-developer-model]')).toHaveCount(10);
+    await page
+      .getByRole('button', { name: `Show all ${excludedCount}` })
+      .click();
+    await expect(page.locator('[data-developer-model]')).toHaveCount(
+      excludedCount,
+    );
+    await page.getByRole('button', { name: 'Show fewer' }).click();
+    await expect(page.locator('[data-developer-model]')).toHaveCount(10);
+  }
 
   const developerModelButton = page
     .locator('[data-developer-model] button')
@@ -922,9 +935,7 @@ test('shows cost chart source contributions only in developer mode', async ({
 }) => {
   await page.goto('/');
 
-  const sourceContributions = page.getByText(
-    'Quality vs. Cost chart data and source contributions',
-  );
+  const sourceContributions = page.getByText('Source breakdown');
   await expect(sourceContributions).toHaveCount(0);
 
   await page.getByRole('switch', { name: 'Developer mode' }).click();

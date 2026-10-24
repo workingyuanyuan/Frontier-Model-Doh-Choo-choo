@@ -5,7 +5,7 @@
   padding: 0 1.5rem;
 }
 .common-benchmark-panel {
-  margin: 1.5rem 0 2.5rem;
+  margin: 1.5rem 0 0;
   padding: 1.5rem;
   min-width: 0;
 }
@@ -100,19 +100,16 @@
   margin-top: 0;
 }
 
-.leaderboard-expansion-cell .section-heading,
-.developer-model-detail-wrapper .section-heading {
+.leaderboard-expansion-cell .section-heading {
   padding: 0 0 0.75rem 0;
-}
-
-.developer-model-detail-wrapper {
-  border-top: 0.0625rem dashed var(--line);
-  margin-top: 0.5rem;
-  padding-top: 0.75rem;
 }
 
 .developer-model-detail-wrapper .model-detail-panel {
   margin-top: 0;
+}
+
+.developer-model-detail-wrapper .model-detail-dimensions-grid {
+  margin-top: 1rem;
 }
 
 .rank-cell {
@@ -245,6 +242,12 @@
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.125rem 0.375rem;
+}
+
+/* The light accent is too pale for text on light surfaces (2.8:1). */
+[data-theme='light'] .common-best-score,
+[data-theme='light'] .selected-badge {
+  color: var(--accent-strong);
 }
 
 .picker-popover {
