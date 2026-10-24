@@ -74,6 +74,8 @@ describe('buildWorkspaceProduct', () => {
   });
 
   // Measured integration budget: docs/analysis/2026-10-05-workspace-timing.md.
+  // Data growth since then put the full-suite run at 13.5-15.8 s on CI
+  // (2026-10-24), past the old 15 s limit; whole-product builds get 30 s.
   it('preserves every existing preset and cost with the real FrontierSWE V2 snapshot', async () => {
     const timingOutput = process.env.WORKSPACE_TIMING_OUTPUT;
     const stages: {
@@ -146,7 +148,7 @@ describe('buildWorkspaceProduct', () => {
         );
       }
     }
-  }, 15_000);
+  }, 30_000);
 
   it('assembles the verified workspace sources into a frontier ProductVersion', async () => {
     const product = await buildWorkspaceProduct(
@@ -437,7 +439,7 @@ describe('buildWorkspaceProduct', () => {
     expect(
       product.costs.every(({ sourceUrl }) => sourceUrl.startsWith('https://')),
     ).toBe(true);
-  }, 15_000);
+  }, 30_000);
 
   it('ignores frozen or non-whitelisted source directories in data/sources without error', async () => {
     const baseline = await buildWorkspaceProduct(
@@ -474,7 +476,7 @@ describe('buildWorkspaceProduct', () => {
     } finally {
       await rm(dummyDir, { recursive: true, force: true });
     }
-  }, 15_000);
+  }, 30_000);
 
   it('fails a fresh AA needs-review audit and preserves the current product', async () => {
     const temporaryRoot = await mkdtemp(join(tmpdir(), 'aa-review-build-'));
