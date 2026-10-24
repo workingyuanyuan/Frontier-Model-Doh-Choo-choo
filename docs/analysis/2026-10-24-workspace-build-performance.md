@@ -87,6 +87,22 @@ CI slowdown ratio conservatively to the new local maximum gives
 estimate, not a new CI measurement. A final four-CPU run with the 15-second
 timeouts passed all 170 benchmark-data tests; its target stages totaled 1,980 ms.
 
+### CI measurement
+
+The workspace-timing job for PR #22 ran ten repetitions per mode on a hosted
+four-vCPU runner ([run](https://github.com/workingyuanyuan/Frontier-Model-Doh-Choo-choo/actions/runs/40082294689)).
+Target-stage totals in milliseconds, compared with run 40078256372 on the
+pre-change implementation (PR #21):
+
+| Mode           | Before median | Before max | After median | After max |
+| -------------- | ------------: | ---------: | -----------: | --------: |
+| target         |         3,813 |      3,858 |        2,299 |     2,489 |
+| workspace-file |         3,828 |      3,872 |        2,298 |     2,321 |
+| full-suite     |        14,588 |     15,307 |       10,508 |    11,453 |
+
+The full-suite maximum leaves 3.5 seconds (24%) under the 15-second timeout.
+All 30 commands passed.
+
 ## Output and verification
 
 All measured products at `generatedAt=2026-10-01T00:00:00.000Z` had identical
