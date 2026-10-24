@@ -6,14 +6,14 @@ LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supp
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261014/table.csv?v=1792480668`) | 49 |
-| 2.0 suite candidates | 343 |
+| 2.0 model rows (`https://livebench.ai/data/20261014/table.csv?v=1792813419`) | 53 |
+| 2.0 suite candidates | 371 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1792813419`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 156 |
-| Distinct unresolved raw model names | 30 |
+| Cost records | 158 |
+| Distinct unresolved raw model names | 32 |
 
 ## LiveBench 2.0 suites
 
@@ -59,12 +59,30 @@ LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supp
 - `nemotron-3.5-lightning-30b-a3b`
 - `nemotron-lightning-3.5`
 - `nemotron-super-vl-3.5`
+- `nemotron-super-vl-3.5-nvfp4`
 - `nemotron-ultra-3`
 - `ox-alpha-max`
 - `qwen3.8-flash`
 - `qwen3.8-flash-next`
 - `smaug-agentic`
+- `smaug-nemotron-3.5-nvfp4`
 - `step-5-preview`
+
+## Visible comparison
+
+- LiveBench 2.0 rendered leaderboard rows: 53; table rows: 53.
+- LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
+- Result: both rendered counts matched.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Raw model profiles | 112 | 115 | +3 |
+| Candidate results | 627 | 655 | +28 |
+| Materialized costs | 156 | 158 | +2 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -87,10 +105,10 @@ This tagged section is generated deterministically for `livebench`. Raw `profile
 | glm-5.2 | `livebench-2026-06-25:livebench-language:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-mathematics:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | glm-5.2 | `livebench-2026-06-25:livebench-reasoning:glm-5-2` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
-| gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-instruction-following:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-language:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-mathematics:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
+| gpt-5.2-codex | `livebench-2026-06-25:livebench-reasoning:gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | grok-4.3 | `livebench-2026-06-25:livebench-instruction-following:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |
 | grok-4.3 | `livebench-2026-06-25:livebench-language:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |
 | grok-4.3 | `livebench-2026-06-25:livebench-mathematics:grok-4-3` | — | `high` | artificial-analysis | artificial-analysis:aa-briefcase:grok-4-3 |

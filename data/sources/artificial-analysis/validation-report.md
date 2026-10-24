@@ -8,36 +8,54 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 215 |
-| Unique profile rows in evaluation-page payloads | 70 |
-| Unique profile rows in model-detail payloads | 215 |
+| Unique profile rows across all captured page payloads | 256 |
+| Unique profile rows in evaluation-page payloads | 97 |
+| Unique profile rows in model-detail payloads | 256 |
 | Profile rows in the /models payload | 27 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 202 |
-| Generated CandidateResults | 2483 |
-| Intelligence Index candidates (EXCLUDED) | 200 |
-| GDPval-AA normalized candidates | 195 |
-| Canonically unresolved candidates | 880 |
-| MEASURED_TASK cost rows | 183 |
-| API_STANDARDIZED token-price rows | 198 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 243 |
+| Generated CandidateResults | 2871 |
+| Intelligence Index candidates (EXCLUDED) | 240 |
+| GDPval-AA normalized candidates | 210 |
+| Canonically unresolved candidates | 1122 |
+| MEASURED_TASK cost rows | 184 |
+| API_STANDARDIZED token-price rows | 235 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 27 selected profile rows in this capture.
-- The evaluation-page payload union exposes 70 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 215 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The evaluation-page payload union exposes 97 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 256 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
-- API source unavailable; page pipeline remains authoritative.
+- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 256, compared values 1379.
+- Precision-only differences (API rounds to three decimals, within 0.0005): 677. These are representation differences, not disagreements.
+- Real differences (beyond 0.0005): 0.
 - No real API differences recorded beyond rounding.
-- Warning: API cross-validation was not attempted.
 
 ## Scope and semantics
 
 - Artificial Analysis composite indices remain `EXCLUDED`; direct evaluation scores are the only AA rows eligible for the eight-dimensional product score.
 - Token prices are `API_STANDARDIZED` and task costs are `MEASURED_TASK`; the two cost semantics are emitted as separate records.
 - No missing score, identity, or cost is inferred.
+
+## Visible comparison
+
+- Fresh rendered models page catalog total: 709
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 256
+- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Unique source profiles | 215 | 256 | +41 |
+| Active source profiles | 202 | 243 | +41 |
+| Candidate results | 2483 | 2871 | +388 |
+| Materialized costs | 381 | 419 | +38 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -104,6 +122,16 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Kimi K2.7 Code | `artificial-analysis:scicode:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `artificial-analysis:tau3-banking:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `artificial-analysis:terminal-bench-2-1:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
+| Kimi K3.1 Pro | `artificial-analysis:aa-briefcase:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:aa-lcr:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro:index` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:critpt:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:gdp-pdf:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:gdpval-aa:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:humanitys-last-exam:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v4-3-2` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:scicode:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
 | MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
 | MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
 | MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
@@ -179,6 +207,17 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | MiMo-V2.5-Pro (Reasoning) | `artificial-analysis:tau3-banking:mimo-v2-5-pro` | — | `default` | — | — |
 | MiMo-V2.5-Pro (Reasoning) | `artificial-analysis:terminal-bench-2-1:mimo-v2-5-pro` | — | `default` | — | — |
 | MiMo-V2.5-Pro (Reasoning) | `artificial-analysis:xiaomi-mimo-v2-5-pro-aa-index:intelligence-index-v4-3-2` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:aa-briefcase:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:aa-lcr:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:aa-omniscience:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:aa-omniscience:muse-spark:index` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:critpt:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:gdpval-aa:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:gpqa-diamond:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:humanitys-last-exam:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:ifbench:muse-spark` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:meta-muse-spark-aa-index:intelligence-index-v4-3-2` | — | `default` | — | — |
+| Muse Spark | `artificial-analysis:terminal-bench-2-1:muse-spark` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-briefcase:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-lcr:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-omniscience:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |

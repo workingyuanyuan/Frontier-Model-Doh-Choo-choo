@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-23T10:51:58.743Z",
+  "checkedAt": "2026-10-24T07:54:25.832Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "livebench-browser",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -28,6 +28,7 @@
           "meta-muse-wonder",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -53,6 +54,7 @@
           "[\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash-1017\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -76,6 +78,7 @@
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -86,10 +89,12 @@
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-27b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-max\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]"
         ],
         "rawLabels": [
@@ -104,6 +109,7 @@
           "claude-sonnet-4.6",
           "claude-sonnet-5",
           "claude-sonnet-5.5",
+          "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
           "deepseek-v4.1-flash",
           "deepseek-v4.1-flash-1017",
@@ -127,6 +133,7 @@
           "grok-4.7",
           "inkling",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -137,21 +144,23 @@
           "muse-wonder-1.0",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "qwen3.8-27b",
           "qwen3.8-flash",
           "qwen3.8-max",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 49,
+        "rows": 53,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419"
         ],
         "versions": ["2026-10-14"]
       },
       {
         "id": "livebench-coding",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -172,6 +181,7 @@
           "meta-muse-wonder",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -197,6 +207,7 @@
           "[\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash-1017\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -220,6 +231,7 @@
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -230,10 +242,12 @@
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-27b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-max\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]"
         ],
         "rawLabels": [
@@ -248,6 +262,7 @@
           "claude-sonnet-4.6",
           "claude-sonnet-5",
           "claude-sonnet-5.5",
+          "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
           "deepseek-v4.1-flash",
           "deepseek-v4.1-flash-1017",
@@ -271,6 +286,7 @@
           "grok-4.7",
           "inkling",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -281,21 +297,23 @@
           "muse-wonder-1.0",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "qwen3.8-27b",
           "qwen3.8-flash",
           "qwen3.8-max",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 49,
+        "rows": 53,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419"
         ],
         "versions": ["2026-10-14"]
       },
       {
         "id": "livebench-data-analysis",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -316,6 +334,7 @@
           "meta-muse-wonder",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -341,6 +360,7 @@
           "[\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"deepseek-v4.1-flash-1017\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -364,6 +384,7 @@
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -374,10 +395,12 @@
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"qwen3.8-27b\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"qwen3.8-max\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]"
         ],
         "rawLabels": [
@@ -392,6 +415,7 @@
           "claude-sonnet-4.6",
           "claude-sonnet-5",
           "claude-sonnet-5.5",
+          "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
           "deepseek-v4.1-flash",
           "deepseek-v4.1-flash-1017",
@@ -415,6 +439,7 @@
           "grok-4.7",
           "inkling",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -425,21 +450,23 @@
           "muse-wonder-1.0",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "qwen3.8-27b",
           "qwen3.8-flash",
           "qwen3.8-max",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 49,
+        "rows": 53,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419"
         ],
         "versions": ["2026-10-14"]
       },
       {
         "id": "livebench-design",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -460,6 +487,7 @@
           "meta-muse-wonder",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -485,6 +513,7 @@
           "[\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash-1017\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -508,6 +537,7 @@
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -518,10 +548,12 @@
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-27b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-max\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]"
         ],
         "rawLabels": [
@@ -536,6 +568,7 @@
           "claude-sonnet-4.6",
           "claude-sonnet-5",
           "claude-sonnet-5.5",
+          "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
           "deepseek-v4.1-flash",
           "deepseek-v4.1-flash-1017",
@@ -559,6 +592,7 @@
           "grok-4.7",
           "inkling",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -569,15 +603,17 @@
           "muse-wonder-1.0",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "qwen3.8-27b",
           "qwen3.8-flash",
           "qwen3.8-max",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 49,
+        "rows": 53,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419"
         ],
         "versions": ["2026-10-14"]
       },
@@ -790,7 +826,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792813419"
         ],
         "versions": ["2026-06-25"]
       },
@@ -1003,13 +1039,13 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792813419"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-long-agentic",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1030,6 +1066,7 @@
           "meta-muse-wonder",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -1055,6 +1092,7 @@
           "[\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash-1017\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1078,6 +1116,7 @@
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1088,10 +1127,12 @@
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-27b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-max\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]"
         ],
         "rawLabels": [
@@ -1106,6 +1147,7 @@
           "claude-sonnet-4.6",
           "claude-sonnet-5",
           "claude-sonnet-5.5",
+          "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
           "deepseek-v4.1-flash",
           "deepseek-v4.1-flash-1017",
@@ -1129,6 +1171,7 @@
           "grok-4.7",
           "inkling",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -1139,15 +1182,17 @@
           "muse-wonder-1.0",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "qwen3.8-27b",
           "qwen3.8-flash",
           "qwen3.8-max",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 49,
+        "rows": 53,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419"
         ],
         "versions": ["2026-10-14"]
       },
@@ -1360,13 +1405,13 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792813419"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-reasoning",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": [
           "category-average:percent:true",
           "suite-score:percent:true"
@@ -1407,6 +1452,7 @@
           "moonshot-kimi-k2-6",
           "moonshot-kimi-k2-7-code",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
           "openai-gpt-5-2",
           "openai-gpt-5-2-codex",
@@ -1456,6 +1502,7 @@
           "[\"claude-sonnet-5-5-xhigh-effort\",\"xhigh\",null,null,false,null,1,null]",
           "[\"claude-sonnet-5-xhigh-effort\",\"xhigh\",null,null,false,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"deepseek-v4-flash\",null,null,null,false,null,1,null]",
           "[\"deepseek-v4-flash-0731\",null,null,null,false,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -1517,6 +1564,7 @@
           "[\"kimi-k2.7-code\",null,null,null,false,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"kimi-k3\",null,null,null,false,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"minimax-m3\",null,null,null,false,null,1,null]",
@@ -1535,6 +1583,7 @@
           "[\"nemotron-3.5-lightning-30b-a3b\",null,null,null,false,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"ox-alpha-max\",null,null,null,false,null,1,null]",
           "[\"qwen3.6-27b\",null,null,null,false,null,1,null]",
@@ -1549,6 +1598,7 @@
           "[\"smaug-agentic\",null,null,null,false,null,1,null]",
           "[\"smaug-flash\",null,null,null,false,null,1,null]",
           "[\"smaug-mini\",null,null,null,false,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]"
         ],
         "rawLabels": [
@@ -1634,6 +1684,7 @@
           "kimi-k2.6-thinking",
           "kimi-k2.7-code",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -1651,6 +1702,7 @@
           "nemotron-3.5-lightning-30b-a3b",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "ox-alpha-max",
           "qwen3.6-27b",
@@ -1663,18 +1715,19 @@
           "smaug-agentic",
           "smaug-flash",
           "smaug-mini",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 120,
+        "rows": 124,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668",
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419",
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1792813419"
         ],
         "versions": ["2026-06-25", "2026-10-14"]
       },
       {
         "id": "livebench-research",
-        "includedRows": 49,
+        "includedRows": 53,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1695,6 +1748,7 @@
           "meta-muse-wonder",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -1720,6 +1774,7 @@
           "[\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"deepseek-v4.1-flash-1017\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1743,6 +1798,7 @@
           "[\"grok-4.7\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"inkling\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"kimi-k3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"kimi-k3.1-pro\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1753,10 +1809,12 @@
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-super-vl-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"nemotron-super-vl-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-27b\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"qwen3.8-max\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"smaug-nemotron-3.5-nvfp4\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"step-5-preview\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]"
         ],
         "rawLabels": [
@@ -1771,6 +1829,7 @@
           "claude-sonnet-4.6",
           "claude-sonnet-5",
           "claude-sonnet-5.5",
+          "deepseek-v4-flash",
           "deepseek-v4-flash-vision",
           "deepseek-v4.1-flash",
           "deepseek-v4.1-flash-1017",
@@ -1794,6 +1853,7 @@
           "grok-4.7",
           "inkling",
           "kimi-k3",
+          "kimi-k3.1-pro",
           "mimo-v2.6-pro",
           "minimax-m3",
           "minimax-m3.1-flash",
@@ -1804,20 +1864,22 @@
           "muse-wonder-1.0",
           "nemotron-lightning-3.5",
           "nemotron-super-vl-3.5",
+          "nemotron-super-vl-3.5-nvfp4",
           "nemotron-ultra-3",
           "qwen3.8-27b",
           "qwen3.8-flash",
           "qwen3.8-max",
+          "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 49,
+        "rows": 53,
         "sourceUrls": [
-          "https://livebench.ai/data/20261014/table.csv?v=1792480668"
+          "https://livebench.ai/data/20261014/table.csv?v=1792813419"
         ],
         "versions": ["2026-10-14"]
       }
     ],
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "sourceId": "livebench"
   }
 }

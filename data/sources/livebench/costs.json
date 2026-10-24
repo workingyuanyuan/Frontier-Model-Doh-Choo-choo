@@ -19,7 +19,7 @@
       "profileId": null,
       "rawName": "smaug-flash"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 0.28,
     "profile": {
       "attempts": null,
@@ -40,7 +40,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -63,7 +63,7 @@
       "profileId": null,
       "rawName": "smaug-mini"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 0.65,
     "profile": {
       "attempts": null,
@@ -84,7 +84,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -107,7 +107,7 @@
       "profileId": null,
       "rawName": "qwen3.6-27b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 3.6,
     "profile": {
       "attempts": null,
@@ -128,7 +128,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -151,7 +151,7 @@
       "profileId": null,
       "rawName": "qwen3.6-plus"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 3,
     "profile": {
       "attempts": null,
@@ -172,7 +172,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -195,7 +195,7 @@
       "profileId": "alibaba-qwen3-7-max-max",
       "rawName": "qwen3.7-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 7.5,
     "profile": {
       "attempts": null,
@@ -216,7 +216,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -226,7 +226,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:alibaba-qwen3-8-27b-max",
@@ -239,7 +239,7 @@
       "profileId": "alibaba-qwen3-8-27b-max",
       "rawName": "qwen3.8-27b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 3,
     "profile": {
       "attempts": null,
@@ -252,7 +252,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=qwen3.8-27b; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -260,7 +260,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -283,7 +283,7 @@
       "profileId": null,
       "rawName": "qwen3.8-27b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 0.65,
     "profile": {
       "attempts": null,
@@ -304,7 +304,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -314,7 +314,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:alibaba-qwen3-8-max-max",
@@ -327,7 +327,7 @@
       "profileId": "alibaba-qwen3-8-max-max",
       "rawName": "qwen3.8-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -340,7 +340,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=qwen3.8-max; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -348,7 +348,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -371,7 +371,7 @@
       "profileId": null,
       "rawName": "qwen3.8-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -392,7 +392,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -402,7 +402,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-fable-5-1-max",
@@ -415,7 +415,7 @@
       "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "claude-fable-5.1"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 50,
     "profile": {
       "attempts": null,
@@ -428,7 +428,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-fable-5.1; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -436,7 +436,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -446,7 +446,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-fable-5-max",
@@ -459,7 +459,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 50,
     "profile": {
       "attempts": null,
@@ -472,7 +472,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-fable-5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -480,7 +480,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -503,7 +503,7 @@
       "profileId": "anthropic-claude-opus-4-5-high",
       "rawName": "claude-opus-4-5-20251101-thinking-64k-high-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 25,
     "profile": {
       "attempts": null,
@@ -524,7 +524,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -547,7 +547,7 @@
       "profileId": "anthropic-claude-opus-4-6-high",
       "rawName": "claude-opus-4-6-thinking-auto-high-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 25,
     "profile": {
       "attempts": null,
@@ -568,7 +568,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -591,7 +591,7 @@
       "profileId": "anthropic-claude-opus-4-7-xhigh",
       "rawName": "claude-opus-4-7-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 25,
     "profile": {
       "attempts": null,
@@ -612,7 +612,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -622,7 +622,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-opus-4-8-max",
@@ -635,7 +635,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "claude-opus-4.8"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 25,
     "profile": {
       "attempts": null,
@@ -648,7 +648,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-opus-4.8; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -656,7 +656,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -666,7 +666,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-opus-5-5-max",
@@ -679,7 +679,7 @@
       "profileId": "anthropic-claude-opus-5-5-max",
       "rawName": "claude-opus-5.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 20,
     "profile": {
       "attempts": null,
@@ -692,7 +692,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-opus-5.5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -700,7 +700,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -723,7 +723,7 @@
       "profileId": "anthropic-claude-opus-5-5-xhigh",
       "rawName": "claude-opus-5-5-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 20,
     "profile": {
       "attempts": null,
@@ -744,7 +744,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -754,7 +754,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-opus-5-max",
@@ -767,7 +767,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 25,
     "profile": {
       "attempts": null,
@@ -780,7 +780,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-opus-5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -788,7 +788,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -798,7 +798,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-sonnet-4-6-max",
@@ -811,7 +811,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-max",
       "rawName": "claude-sonnet-4.6"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 15,
     "profile": {
       "attempts": null,
@@ -824,7 +824,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-sonnet-4.6; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -832,7 +832,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -855,7 +855,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-medium",
       "rawName": "claude-sonnet-4-6-thinking-auto-medium-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 15,
     "profile": {
       "attempts": null,
@@ -876,7 +876,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -886,7 +886,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-sonnet-5-5-max",
@@ -899,7 +899,7 @@
       "profileId": "anthropic-claude-sonnet-5-5-max",
       "rawName": "claude-sonnet-5.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 10,
     "profile": {
       "attempts": null,
@@ -912,7 +912,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-sonnet-5.5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -920,7 +920,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -943,7 +943,7 @@
       "profileId": "anthropic-claude-sonnet-5-5-xhigh",
       "rawName": "claude-sonnet-5-5-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 10,
     "profile": {
       "attempts": null,
@@ -964,7 +964,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -974,7 +974,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:anthropic-claude-sonnet-5-max",
@@ -987,7 +987,7 @@
       "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 10,
     "profile": {
       "attempts": null,
@@ -1000,7 +1000,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-sonnet-5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1008,7 +1008,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1031,7 +1031,7 @@
       "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "claude-sonnet-5-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 15,
     "profile": {
       "attempts": null,
@@ -1052,7 +1052,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1075,7 +1075,7 @@
       "profileId": null,
       "rawName": "deepseek-v4-flash-0731"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 0.28,
     "profile": {
       "attempts": null,
@@ -1096,7 +1096,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1119,7 +1119,7 @@
       "profileId": null,
       "rawName": "deepseek-v4-pro-0813"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 0.87,
     "profile": {
       "attempts": null,
@@ -1140,7 +1140,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1163,7 +1163,7 @@
       "profileId": "google-gemini-3-1-pro-preview-high",
       "rawName": "gemini-3.1-pro-preview-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 12,
     "profile": {
       "attempts": null,
@@ -1184,7 +1184,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1207,7 +1207,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "gemini-3.5-flash-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 9,
     "profile": {
       "attempts": null,
@@ -1228,7 +1228,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1251,7 +1251,7 @@
       "profileId": "google-gemini-3-5-flash-lite-high",
       "rawName": "gemini-3.5-flash-lite-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 2.5,
     "profile": {
       "attempts": null,
@@ -1272,7 +1272,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1295,7 +1295,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "gemini-3.6-flash-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 7.5,
     "profile": {
       "attempts": null,
@@ -1316,7 +1316,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1326,7 +1326,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:google-gemini-3-7-flash-high",
@@ -1339,7 +1339,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "gemini-3.7-flash"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 3.75,
     "profile": {
       "attempts": null,
@@ -1352,7 +1352,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gemini-3.7-flash; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1360,7 +1360,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1370,7 +1370,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:google-gemini-3-8-flash-high",
@@ -1383,7 +1383,7 @@
       "profileId": "google-gemini-3-8-flash-high",
       "rawName": "gemini-3.8-flash"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 3.75,
     "profile": {
       "attempts": null,
@@ -1396,7 +1396,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gemini-3.8-flash; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1404,7 +1404,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1414,7 +1414,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:google-gemini-4-argon-high",
@@ -1427,7 +1427,7 @@
       "profileId": "google-gemini-4-argon-high",
       "rawName": "gemini-4-argon"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 12,
     "profile": {
       "attempts": null,
@@ -1440,7 +1440,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gemini-4-argon; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1448,7 +1448,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1471,7 +1471,7 @@
       "profileId": "meta-muse-spark-1-1-xhigh",
       "rawName": "muse-spark-1.1-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.25,
     "profile": {
       "attempts": null,
@@ -1492,7 +1492,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1502,7 +1502,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:meta-muse-spark-1-2-xhigh",
@@ -1515,7 +1515,7 @@
       "profileId": "meta-muse-spark-1-2-xhigh",
       "rawName": "muse-spark-1.2"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.25,
     "profile": {
       "attempts": null,
@@ -1528,7 +1528,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=muse-spark-1.2; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1536,7 +1536,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1546,7 +1546,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:meta-muse-spark-1-3-max",
@@ -1559,7 +1559,7 @@
       "profileId": "meta-muse-spark-1-3-max",
       "rawName": "muse-spark-1.3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.25,
     "profile": {
       "attempts": null,
@@ -1572,7 +1572,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=muse-spark-1.3; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1580,7 +1580,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1603,7 +1603,7 @@
       "profileId": "meta-muse-spark-1-3-xhigh",
       "rawName": "muse-spark-1.3-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.25,
     "profile": {
       "attempts": null,
@@ -1624,7 +1624,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1634,7 +1634,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:meta-muse-wonder-max",
@@ -1647,7 +1647,7 @@
       "profileId": "meta-muse-wonder-max",
       "rawName": "muse-wonder-1.0"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 20,
     "profile": {
       "attempts": null,
@@ -1660,7 +1660,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=muse-wonder-1.0; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1668,7 +1668,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1678,7 +1678,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:minimax-minimax-m3-max",
@@ -1691,7 +1691,7 @@
       "profileId": "minimax-minimax-m3-max",
       "rawName": "minimax-m3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 1.2,
     "profile": {
       "attempts": null,
@@ -1704,7 +1704,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=minimax-m3; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1712,7 +1712,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1735,7 +1735,7 @@
       "profileId": "moonshot-kimi-k2-6-max",
       "rawName": "kimi-k2.6-thinking"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4,
     "profile": {
       "attempts": null,
@@ -1756,7 +1756,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1779,7 +1779,7 @@
       "profileId": null,
       "rawName": "kimi-k2.7-code"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4,
     "profile": {
       "attempts": null,
@@ -1800,7 +1800,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1810,7 +1810,51 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:api-token-price:moonshot-kimi-k3-1-pro-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": 2,
+    "metricId": "blended-token-price",
+    "metricName": "Blended API token price",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3-1-pro",
+      "profileId": "moonshot-kimi-k3-1-pro-max",
+      "rawName": "kimi-k3.1-pro"
+    },
+    "observedAt": "2026-10-24T07:40:25.201Z",
+    "outputPerMillionTokens": 10,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
+        "locator": "model=kimi-k3.1-pro; input/output_price_per_million",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
+    "unit": "USD_PER_MILLION_TOKENS"
+  },
+  {
+    "assumptionId": "api-blend-3-to-1",
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-10-14",
+    "cost": null,
+    "costType": "API_STANDARDIZED",
+    "evidenceIds": [
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:moonshot-kimi-k3-max",
@@ -1823,7 +1867,7 @@
       "profileId": "moonshot-kimi-k3-max",
       "rawName": "kimi-k3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 15,
     "profile": {
       "attempts": null,
@@ -1836,7 +1880,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=kimi-k3; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -1844,7 +1888,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1867,7 +1911,7 @@
       "profileId": null,
       "rawName": "kimi-k3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 15,
     "profile": {
       "attempts": null,
@@ -1888,7 +1932,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1911,7 +1955,7 @@
       "profileId": null,
       "rawName": "nemotron-3-ultra-550b-a55b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 2.4,
     "profile": {
       "attempts": null,
@@ -1932,7 +1976,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1955,7 +1999,7 @@
       "profileId": null,
       "rawName": "gpt-5.2-codex"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 14,
     "profile": {
       "attempts": null,
@@ -1976,7 +2020,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -1999,7 +2043,7 @@
       "profileId": "openai-gpt-5-2-high",
       "rawName": "gpt-5.2-2025-12-11-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 14,
     "profile": {
       "attempts": null,
@@ -2020,7 +2064,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2043,7 +2087,7 @@
       "profileId": "openai-gpt-5-4-mini-xhigh",
       "rawName": "gpt-5.4-mini-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.5,
     "profile": {
       "attempts": null,
@@ -2064,7 +2108,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2087,7 +2131,7 @@
       "profileId": "openai-gpt-5-4-nano-xhigh",
       "rawName": "gpt-5.4-nano-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 1.25,
     "profile": {
       "attempts": null,
@@ -2108,7 +2152,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2131,7 +2175,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "gpt-5.4-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 15,
     "profile": {
       "attempts": null,
@@ -2152,7 +2196,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2162,7 +2206,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-5-5-xhigh",
@@ -2175,7 +2219,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "gpt-5.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 30,
     "profile": {
       "attempts": null,
@@ -2188,7 +2232,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2196,7 +2240,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2206,7 +2250,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-5-6-luna-max",
@@ -2219,7 +2263,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "gpt-5.6-luna"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 1.2,
     "profile": {
       "attempts": null,
@@ -2232,7 +2276,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.6-luna; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2240,7 +2284,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2250,7 +2294,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-5-6-sol-max",
@@ -2263,7 +2307,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "gpt-5.6-sol"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 20,
     "profile": {
       "attempts": null,
@@ -2276,7 +2320,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.6-sol; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2284,7 +2328,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2294,7 +2338,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-5-6-terra-max",
@@ -2307,7 +2351,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "gpt-5.6-terra"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 12,
     "profile": {
       "attempts": null,
@@ -2320,7 +2364,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.6-terra; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2328,7 +2372,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2338,7 +2382,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-6-1-sol-max",
@@ -2351,7 +2395,7 @@
       "profileId": "openai-gpt-6-1-sol-max",
       "rawName": "gpt-6.1-sol"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 10,
     "profile": {
       "attempts": null,
@@ -2364,7 +2408,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6.1-sol; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2372,7 +2416,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2395,7 +2439,7 @@
       "profileId": "openai-gpt-6-1-sol-xhigh",
       "rawName": "gpt-6.1-sol-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 10,
     "profile": {
       "attempts": null,
@@ -2416,7 +2460,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2426,7 +2470,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-6-astra-max",
@@ -2439,7 +2483,7 @@
       "profileId": "openai-gpt-6-astra-max",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 50,
     "profile": {
       "attempts": null,
@@ -2452,7 +2496,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6-astra; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2460,7 +2504,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2470,7 +2514,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-6-luna-max",
@@ -2483,7 +2527,7 @@
       "profileId": "openai-gpt-6-luna-max",
       "rawName": "gpt-6-luna"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 0.5,
     "profile": {
       "attempts": null,
@@ -2496,7 +2540,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6-luna; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2504,7 +2548,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2514,7 +2558,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:openai-gpt-6-sol-max",
@@ -2527,7 +2571,7 @@
       "profileId": "openai-gpt-6-sol-max",
       "rawName": "gpt-6-sol"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 10,
     "profile": {
       "attempts": null,
@@ -2540,7 +2584,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6-sol; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2548,7 +2592,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2558,7 +2602,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:thinking-machines-inkling-max",
@@ -2571,7 +2615,7 @@
       "profileId": "thinking-machines-inkling-max",
       "rawName": "inkling"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.05,
     "profile": {
       "attempts": null,
@@ -2584,7 +2628,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=inkling; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2592,7 +2636,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2615,7 +2659,7 @@
       "profileId": "thinking-machines-inkling-xhigh",
       "rawName": "inkling-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.68,
     "profile": {
       "attempts": null,
@@ -2636,7 +2680,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2659,7 +2703,7 @@
       "profileId": null,
       "rawName": "grok-4.3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 2.5,
     "profile": {
       "attempts": null,
@@ -2680,7 +2724,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2703,7 +2747,7 @@
       "profileId": "xai-grok-4-5-high",
       "rawName": "grok-4.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -2724,7 +2768,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2734,7 +2778,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:xai-grok-4-5-xhigh",
@@ -2747,7 +2791,7 @@
       "profileId": "xai-grok-4-5-xhigh",
       "rawName": "grok-4.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -2760,7 +2804,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=grok-4.5; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2768,7 +2812,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2791,7 +2835,7 @@
       "profileId": null,
       "rawName": "grok-4.6"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -2812,7 +2856,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2822,7 +2866,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:xai-grok-4-6-xhigh",
@@ -2835,7 +2879,7 @@
       "profileId": "xai-grok-4-6-xhigh",
       "rawName": "grok-4.6"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -2848,7 +2892,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=grok-4.6; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2856,7 +2900,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2866,7 +2910,7 @@
     "cost": null,
     "costType": "API_STANDARDIZED",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:api-token-price:xai-grok-4-7-xhigh",
@@ -2879,7 +2923,7 @@
       "profileId": "xai-grok-4-7-xhigh",
       "rawName": "grok-4.7"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 6,
     "profile": {
       "attempts": null,
@@ -2892,7 +2936,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=grok-4.7; input/output_price_per_million",
         "method": "EXPORT"
       }
@@ -2900,7 +2944,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2923,7 +2967,7 @@
       "profileId": null,
       "rawName": "grok-build-0.1"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 2,
     "profile": {
       "attempts": null,
@@ -2944,7 +2988,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -2967,7 +3011,7 @@
       "profileId": "zai-glm-5-2-max",
       "rawName": "glm-5.2"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": 4.4,
     "profile": {
       "attempts": null,
@@ -2988,7 +3032,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_MILLION_TOKENS"
   },
   {
@@ -3011,7 +3055,7 @@
       "profileId": null,
       "rawName": "smaug-flash"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3032,7 +3076,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3055,7 +3099,7 @@
       "profileId": null,
       "rawName": "smaug-mini"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3076,7 +3120,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3099,7 +3143,7 @@
       "profileId": null,
       "rawName": "qwen3.6-27b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3120,7 +3164,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3143,7 +3187,7 @@
       "profileId": null,
       "rawName": "qwen3.6-plus"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3164,7 +3208,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3187,7 +3231,7 @@
       "profileId": "alibaba-qwen3-7-max-max",
       "rawName": "qwen3.7-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3208,7 +3252,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3231,7 +3275,7 @@
       "profileId": null,
       "rawName": "qwen3.8-27b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3252,7 +3296,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3275,7 +3319,7 @@
       "profileId": null,
       "rawName": "qwen3.8-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3296,7 +3340,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3319,7 +3363,7 @@
       "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "claude-fable-5-1-max-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3340,7 +3384,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3363,7 +3407,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "claude-fable-5-max-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3384,7 +3428,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3407,7 +3451,7 @@
       "profileId": "anthropic-claude-opus-4-5-high",
       "rawName": "claude-opus-4-5-20251101-thinking-64k-high-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3428,7 +3472,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3451,7 +3495,7 @@
       "profileId": "anthropic-claude-opus-4-6-high",
       "rawName": "claude-opus-4-6-thinking-auto-high-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3472,7 +3516,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3495,7 +3539,7 @@
       "profileId": "anthropic-claude-opus-4-7-xhigh",
       "rawName": "claude-opus-4-7-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3516,7 +3560,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3539,7 +3583,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "claude-opus-4-8-max-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3560,7 +3604,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3583,7 +3627,7 @@
       "profileId": "anthropic-claude-opus-5-5-max",
       "rawName": "claude-opus-5-5-max-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3604,7 +3648,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3627,7 +3671,7 @@
       "profileId": "anthropic-claude-opus-5-5-xhigh",
       "rawName": "claude-opus-5-5-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3648,7 +3692,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3671,7 +3715,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "claude-opus-5-max-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3692,7 +3736,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3715,7 +3759,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-medium",
       "rawName": "claude-sonnet-4-6-thinking-auto-medium-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3736,7 +3780,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3759,7 +3803,7 @@
       "profileId": "anthropic-claude-sonnet-5-5-max",
       "rawName": "claude-sonnet-5-5-max-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3780,7 +3824,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3803,7 +3847,7 @@
       "profileId": "anthropic-claude-sonnet-5-5-xhigh",
       "rawName": "claude-sonnet-5-5-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3824,7 +3868,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3847,7 +3891,7 @@
       "profileId": "anthropic-claude-sonnet-5-xhigh",
       "rawName": "claude-sonnet-5-xhigh-effort"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3868,7 +3912,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3891,7 +3935,7 @@
       "profileId": null,
       "rawName": "deepseek-v4-flash-0731"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3912,7 +3956,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3935,7 +3979,7 @@
       "profileId": null,
       "rawName": "deepseek-v4-pro-0813"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -3956,7 +4000,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -3979,7 +4023,7 @@
       "profileId": "google-gemini-3-1-pro-preview-high",
       "rawName": "gemini-3.1-pro-preview-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4000,7 +4044,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4023,7 +4067,7 @@
       "profileId": "google-gemini-3-5-flash-high",
       "rawName": "gemini-3.5-flash-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4044,7 +4088,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4067,7 +4111,7 @@
       "profileId": "google-gemini-3-5-flash-lite-high",
       "rawName": "gemini-3.5-flash-lite-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4088,7 +4132,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4111,7 +4155,7 @@
       "profileId": "google-gemini-3-6-flash-high",
       "rawName": "gemini-3.6-flash-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4132,7 +4176,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4155,7 +4199,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "gemini-3.7-flash-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4176,7 +4220,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4199,7 +4243,7 @@
       "profileId": "google-gemini-3-8-flash-high",
       "rawName": "gemini-3.8-flash-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4220,7 +4264,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4243,7 +4287,7 @@
       "profileId": "meta-muse-spark-1-1-xhigh",
       "rawName": "muse-spark-1.1-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4264,7 +4308,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4287,7 +4331,7 @@
       "profileId": "meta-muse-spark-1-2-xhigh",
       "rawName": "muse-spark-1.2-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4308,7 +4352,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4331,7 +4375,7 @@
       "profileId": "meta-muse-spark-1-3-xhigh",
       "rawName": "muse-spark-1.3-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4352,7 +4396,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4375,7 +4419,7 @@
       "profileId": "meta-muse-wonder-max",
       "rawName": "muse-wonder-1.0-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4396,7 +4440,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4419,7 +4463,7 @@
       "profileId": "minimax-minimax-m3-max",
       "rawName": "minimax-m3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4440,7 +4484,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4463,7 +4507,7 @@
       "profileId": "moonshot-kimi-k2-6-max",
       "rawName": "kimi-k2.6-thinking"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4484,7 +4528,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4507,7 +4551,7 @@
       "profileId": null,
       "rawName": "kimi-k2.7-code"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4528,7 +4572,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4551,7 +4595,7 @@
       "profileId": null,
       "rawName": "kimi-k3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4572,7 +4616,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4595,7 +4639,7 @@
       "profileId": null,
       "rawName": "nemotron-3-ultra-550b-a55b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4616,7 +4660,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4639,7 +4683,7 @@
       "profileId": null,
       "rawName": "gpt-5.2-codex"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4660,7 +4704,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4683,7 +4727,7 @@
       "profileId": "openai-gpt-5-2-high",
       "rawName": "gpt-5.2-2025-12-11-high"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4704,7 +4748,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4727,7 +4771,7 @@
       "profileId": "openai-gpt-5-4-mini-xhigh",
       "rawName": "gpt-5.4-mini-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4748,7 +4792,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4771,7 +4815,7 @@
       "profileId": "openai-gpt-5-4-nano-xhigh",
       "rawName": "gpt-5.4-nano-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4792,7 +4836,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4815,7 +4859,7 @@
       "profileId": "openai-gpt-5-4-xhigh",
       "rawName": "gpt-5.4-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4836,7 +4880,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4859,7 +4903,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "gpt-5.5-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4880,7 +4924,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4903,7 +4947,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "gpt-5.6-luna-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4924,7 +4968,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4947,7 +4991,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "gpt-5.6-sol-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -4968,7 +5012,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -4991,7 +5035,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "gpt-5.6-terra-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5012,7 +5056,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5035,7 +5079,7 @@
       "profileId": "openai-gpt-6-1-sol-max",
       "rawName": "gpt-6.1-sol-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5056,7 +5100,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5079,7 +5123,7 @@
       "profileId": "openai-gpt-6-1-sol-xhigh",
       "rawName": "gpt-6.1-sol-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5100,7 +5144,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5123,7 +5167,7 @@
       "profileId": "openai-gpt-6-astra-max",
       "rawName": "gpt-6-astra-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5144,7 +5188,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5167,7 +5211,7 @@
       "profileId": "openai-gpt-6-luna-max",
       "rawName": "gpt-6-luna-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5188,7 +5232,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5211,7 +5255,7 @@
       "profileId": "openai-gpt-6-sol-max",
       "rawName": "gpt-6-sol-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5232,7 +5276,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5255,7 +5299,7 @@
       "profileId": "thinking-machines-inkling-xhigh",
       "rawName": "inkling-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5276,7 +5320,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5299,7 +5343,7 @@
       "profileId": null,
       "rawName": "grok-4.3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5320,7 +5364,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5343,7 +5387,7 @@
       "profileId": "xai-grok-4-5-high",
       "rawName": "grok-4.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5364,7 +5408,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5387,7 +5431,7 @@
       "profileId": null,
       "rawName": "grok-4.6"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5408,7 +5452,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5431,7 +5475,7 @@
       "profileId": "xai-grok-4-7-xhigh",
       "rawName": "grok-4.7-xhigh"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5452,7 +5496,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5475,7 +5519,7 @@
       "profileId": null,
       "rawName": "grok-build-0.1"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5496,7 +5540,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5519,7 +5563,7 @@
       "profileId": "zai-glm-5-2-max",
       "rawName": "glm-5.2"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5540,17 +5584,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.5190283736730362,
+    "cost": 0.6205497178423236,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:alibaba-qwen3-8-27b-max",
@@ -5563,7 +5607,7 @@
       "profileId": "alibaba-qwen3-8-27b-max",
       "rawName": "qwen3.8-27b"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5576,7 +5620,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=qwen3.8-27b; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5584,7 +5628,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5594,7 +5638,7 @@
     "cost": 1.02385808492569,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:alibaba-qwen3-8-max-max",
@@ -5607,7 +5651,7 @@
       "profileId": "alibaba-qwen3-8-max-max",
       "rawName": "qwen3.8-max"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5620,7 +5664,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=qwen3.8-max; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5628,7 +5672,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5638,7 +5682,7 @@
     "cost": 4.4839793418259015,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-fable-5-1-max",
@@ -5651,7 +5695,7 @@
       "profileId": "anthropic-claude-fable-5-1-max",
       "rawName": "claude-fable-5.1"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5664,7 +5708,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-fable-5.1; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5672,7 +5716,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5682,7 +5726,7 @@
     "cost": 5.312626539278131,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-fable-5-max",
@@ -5695,7 +5739,7 @@
       "profileId": "anthropic-claude-fable-5-max",
       "rawName": "claude-fable-5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5708,7 +5752,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-fable-5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5716,7 +5760,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5726,7 +5770,7 @@
     "cost": 3.811625244161359,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-opus-4-8-max",
@@ -5739,7 +5783,7 @@
       "profileId": "anthropic-claude-opus-4-8-max",
       "rawName": "claude-opus-4.8"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5752,7 +5796,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-opus-4.8; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5760,7 +5804,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5770,7 +5814,7 @@
     "cost": 3.6255386921443735,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-opus-5-5-max",
@@ -5783,7 +5827,7 @@
       "profileId": "anthropic-claude-opus-5-5-max",
       "rawName": "claude-opus-5.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5796,7 +5840,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-opus-5.5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5804,7 +5848,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5814,7 +5858,7 @@
     "cost": 3.653798248407643,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-opus-5-max",
@@ -5827,7 +5871,7 @@
       "profileId": "anthropic-claude-opus-5-max",
       "rawName": "claude-opus-5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5840,7 +5884,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-opus-5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5848,7 +5892,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5858,7 +5902,7 @@
     "cost": 1.6841482208067942,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-sonnet-4-6-max",
@@ -5871,7 +5915,7 @@
       "profileId": "anthropic-claude-sonnet-4-6-max",
       "rawName": "claude-sonnet-4.6"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5884,7 +5928,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-sonnet-4.6; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5892,7 +5936,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5902,7 +5946,7 @@
     "cost": 2.899438191082802,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-sonnet-5-5-max",
@@ -5915,7 +5959,7 @@
       "profileId": "anthropic-claude-sonnet-5-5-max",
       "rawName": "claude-sonnet-5.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5928,7 +5972,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-sonnet-5.5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5936,7 +5980,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5946,7 +5990,7 @@
     "cost": 2.594605694267516,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:anthropic-claude-sonnet-5-max",
@@ -5959,7 +6003,7 @@
       "profileId": "anthropic-claude-sonnet-5-max",
       "rawName": "claude-sonnet-5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -5972,7 +6016,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=claude-sonnet-5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -5980,7 +6024,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -5990,7 +6034,7 @@
     "cost": 0.6168573630573247,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:google-gemini-3-7-flash-high",
@@ -6003,7 +6047,7 @@
       "profileId": "google-gemini-3-7-flash-high",
       "rawName": "gemini-3.7-flash"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6016,7 +6060,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gemini-3.7-flash; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6024,7 +6068,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6034,7 +6078,7 @@
     "cost": 0.7889924479830149,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:google-gemini-3-8-flash-high",
@@ -6047,7 +6091,7 @@
       "profileId": "google-gemini-3-8-flash-high",
       "rawName": "gemini-3.8-flash"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6060,7 +6104,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gemini-3.8-flash; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6068,7 +6112,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6078,7 +6122,7 @@
     "cost": 1.5158922953586498,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:google-gemini-4-argon-high",
@@ -6091,7 +6135,7 @@
       "profileId": "google-gemini-4-argon-high",
       "rawName": "gemini-4-argon"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6104,7 +6148,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gemini-4-argon; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6112,17 +6156,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.5797715498938429,
+    "cost": 0.5986682105263157,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:meta-muse-spark-1-2-xhigh",
@@ -6135,7 +6179,7 @@
       "profileId": "meta-muse-spark-1-2-xhigh",
       "rawName": "muse-spark-1.2"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6148,7 +6192,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=muse-spark-1.2; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6156,17 +6200,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.7939263927813164,
+    "cost": 0.9513766203319503,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:meta-muse-spark-1-3-max",
@@ -6179,7 +6223,7 @@
       "profileId": "meta-muse-spark-1-3-max",
       "rawName": "muse-spark-1.3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6192,7 +6236,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=muse-spark-1.3; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6200,17 +6244,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 1.4087971974522293,
+    "cost": 1.7009717427385893,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:meta-muse-wonder-max",
@@ -6223,7 +6267,7 @@
       "profileId": "meta-muse-wonder-max",
       "rawName": "muse-wonder-1.0"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6236,7 +6280,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=muse-wonder-1.0; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6244,17 +6288,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.2513752484076433,
+    "cost": 0.27874472000000006,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:minimax-minimax-m3-max",
@@ -6267,7 +6311,7 @@
       "profileId": "minimax-minimax-m3-max",
       "rawName": "minimax-m3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6280,7 +6324,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=minimax-m3; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6288,7 +6332,51 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "livebench",
+    "benchmarkVersion": "2026-10-14",
+    "cost": 0.717160755838641,
+    "costType": "MEASURED_TASK",
+    "evidenceIds": [
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
+    ],
+    "exclusionReason": null,
+    "id": "livebench:cost-per-task-2026-10-14:moonshot-kimi-k3-1-pro-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "cost-per-task",
+    "metricName": "LiveBench 2.0 cost per task (all suites)",
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3-1-pro",
+      "profileId": "moonshot-kimi-k3-1-pro-max",
+      "rawName": "kimi-k3.1-pro"
+    },
+    "observedAt": "2026-10-24T07:40:25.201Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
+        "locator": "model=kimi-k3.1-pro; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
+        "method": "EXPORT"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "livebench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6298,7 +6386,7 @@
     "cost": 1.1960705711252655,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:moonshot-kimi-k3-max",
@@ -6311,7 +6399,7 @@
       "profileId": "moonshot-kimi-k3-max",
       "rawName": "kimi-k3"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6324,7 +6412,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=kimi-k3; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6332,7 +6420,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6342,7 +6430,7 @@
     "cost": 2.2035882165605094,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-5-5-xhigh",
@@ -6355,7 +6443,7 @@
       "profileId": "openai-gpt-5-5-xhigh",
       "rawName": "gpt-5.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6368,7 +6456,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6376,7 +6464,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6386,7 +6474,7 @@
     "cost": 0.22299000849256898,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-5-6-luna-max",
@@ -6399,7 +6487,7 @@
       "profileId": "openai-gpt-5-6-luna-max",
       "rawName": "gpt-5.6-luna"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6412,7 +6500,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.6-luna; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6420,7 +6508,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6430,7 +6518,7 @@
     "cost": 1.8352307091295117,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-5-6-sol-max",
@@ -6443,7 +6531,7 @@
       "profileId": "openai-gpt-5-6-sol-max",
       "rawName": "gpt-5.6-sol"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6456,7 +6544,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.6-sol; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6464,7 +6552,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6474,7 +6562,7 @@
     "cost": 1.2058982717622082,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-5-6-terra-max",
@@ -6487,7 +6575,7 @@
       "profileId": "openai-gpt-5-6-terra-max",
       "rawName": "gpt-5.6-terra"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6500,7 +6588,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-5.6-terra; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6508,7 +6596,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6518,7 +6606,7 @@
     "cost": 0.6202310870488323,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-6-1-sol-max",
@@ -6531,7 +6619,7 @@
       "profileId": "openai-gpt-6-1-sol-max",
       "rawName": "gpt-6.1-sol"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6544,7 +6632,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6.1-sol; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6552,7 +6640,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6562,7 +6650,7 @@
     "cost": 3.277276936170212,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-6-astra-max",
@@ -6575,7 +6663,7 @@
       "profileId": "openai-gpt-6-astra-max",
       "rawName": "gpt-6-astra"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6588,7 +6676,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6-astra; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6596,7 +6684,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6606,7 +6694,7 @@
     "cost": 0.08816396815286624,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-6-luna-max",
@@ -6619,7 +6707,7 @@
       "profileId": "openai-gpt-6-luna-max",
       "rawName": "gpt-6-luna"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6632,7 +6720,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6-luna; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6640,7 +6728,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
@@ -6650,7 +6738,7 @@
     "cost": 0.8654356730360935,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:openai-gpt-6-sol-max",
@@ -6663,7 +6751,7 @@
       "profileId": "openai-gpt-6-sol-max",
       "rawName": "gpt-6-sol"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6676,7 +6764,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=gpt-6-sol; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6684,17 +6772,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.9005971040339703,
+    "cost": 1.050839908713693,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:thinking-machines-inkling-max",
@@ -6707,7 +6795,7 @@
       "profileId": "thinking-machines-inkling-max",
       "rawName": "inkling"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6720,7 +6808,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=inkling; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6728,17 +6816,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.5185060721868365,
+    "cost": 0.5430592842105264,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:xai-grok-4-5-xhigh",
@@ -6751,7 +6839,7 @@
       "profileId": "xai-grok-4-5-xhigh",
       "rawName": "grok-4.5"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6764,7 +6852,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=grok-4.5; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6772,17 +6860,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 0.927999566878981,
+    "cost": 1.0545406556016599,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:xai-grok-4-6-xhigh",
@@ -6795,7 +6883,7 @@
       "profileId": "xai-grok-4-6-xhigh",
       "rawName": "grok-4.6"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6808,7 +6896,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=grok-4.6; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6816,17 +6904,17 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   },
   {
     "assumptionId": null,
     "benchmarkId": "livebench",
     "benchmarkVersion": "2026-10-14",
-    "cost": 1.9908304033970274,
+    "cost": 2.2861685062240666,
     "costType": "MEASURED_TASK",
     "evidenceIds": [
-      "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1"
+      "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
     ],
     "exclusionReason": null,
     "id": "livebench:cost-per-task-2026-10-14:xai-grok-4-7-xhigh",
@@ -6839,7 +6927,7 @@
       "profileId": "xai-grok-4-7-xhigh",
       "rawName": "grok-4.7"
     },
-    "observedAt": "2026-10-23T10:51:57.763Z",
+    "observedAt": "2026-10-24T07:40:25.201Z",
     "outputPerMillionTokens": null,
     "profile": {
       "attempts": null,
@@ -6852,7 +6940,7 @@
     },
     "provenance": {
       "cost": {
-        "evidenceId": "sha256:ed4712081baad05088e0bb81c490479805a1da0f0c63ac7005e256e02b6ffce1",
+        "evidenceId": "sha256:65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508",
         "locator": "model=grok-4.7; Σ{design,research,browser,coding,long_agentic,data_analysis,reasoning} / Σnq_*",
         "method": "EXPORT"
       }
@@ -6860,7 +6948,7 @@
     "schemaVersion": "cost-record-v1",
     "sourceId": "livebench",
     "sourcePublishedAt": null,
-    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792480668",
+    "sourceUrl": "https://livebench.ai/data/20261014/cost.csv?v=1792813419",
     "unit": "USD_PER_TASK"
   }
 ]
