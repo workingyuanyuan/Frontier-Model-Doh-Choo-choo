@@ -13,7 +13,7 @@ jobs:
   quality:
     name: Static data and Dashboard
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     concurrency:
       group: ci-${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
@@ -72,8 +72,39 @@ jobs:
       - name: Build production applications
         run: pnpm build
 
+      # The browser download is cached per Playwright version. The system
+      # packages come from the runner's apt mirror, which has stalled for
+      # over ten minutes; bounded attempts turn a stall into a retry.
+      - name: Resolve Playwright version
+        id: playwright
+        run: echo "version=$(node -p "require('./package.json').devDependencies['@playwright/test']")" >> "$GITHUB_OUTPUT"
+
+      - name: Restore Chromium cache
+        id: chromium-cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}-chromium
+
       - name: Install Chromium for Dashboard gates
-        run: pnpm exec playwright install --with-deps chromium
+        if: steps.chromium-cache.outputs.cache-hit != 'true'
+        run: pnpm exec playwright install chromium
+
+      # timeout runs as root so that, on expiry, it kills its whole process
+      # group: Playwright running as root calls apt-get without sudo, and
+      # Dpkg::Use-Pty off stops apt moving dpkg into its own session, so no
+      # orphaned apt-get or dpkg keeps a lock and blocks the next attempt.
+      - name: Install Chromium system packages
+        run: |
+          printf 'Acquire::Retries "3";\nAcquire::http::Timeout "30";\nDpkg::Use-Pty "false";\n' |
+            sudo tee /etc/apt/apt.conf.d/80-ci-retries > /dev/null
+          for attempt in 1 2 3; do
+            sudo timeout --kill-after=15 240 "$(command -v node)" \
+              node_modules/@playwright/test/cli.js install-deps chromium && exit 0
+            echo "::warning::Chromium system packages attempt $attempt failed"
+            sudo timeout --kill-after=15 120 dpkg --configure -a || true
+          done
+          exit 1
 
       - name: Run Dashboard browser and accessibility gates
         run: pnpm e2e
