@@ -5,6 +5,7 @@ import type { ProductVersion } from '@llm-bench/benchmark-data';
 import {
   ADVANCED_COST_SOURCE_IDS,
   buildAdvancedCostSeries,
+  getProfilesForModel,
   withActivePreset,
   getPartialCoverageRows,
   isMainEligibleRow,
@@ -365,26 +366,34 @@ test('every cost point discloses its source count and each source score basis', 
 });
 
 test('switching effort updates the selected model scores', async ({ page }) => {
-  await page.goto('/');
-  const select = page.getByRole('combobox', {
-    name: 'Select profile for Claude Fable 5',
-    exact: true,
-  });
-  test.skip(
-    (await select.count()) === 0,
-    'Current product has no alternative Fable profile',
+  // Any default-view model with several profiles will do; naming one ties
+  // the test to a cohort that changes with each refresh.
+  const preset = currentProduct.presets.find(
+    ({ id }) => id === currentProduct.defaultPresetId,
+  )!;
+  const switchable = preset.leaderboard.find(
+    (row) =>
+      getProfilesForModel(currentProduct, row.modelId, row.profileId).length >
+      1,
   );
+  expect(
+    switchable,
+    'the default view needs a model with several profiles',
+  ).toBeDefined();
+  const { modelId, profileId } = switchable!;
+  const alternative = getProfilesForModel(
+    currentProduct,
+    modelId,
+    profileId,
+  ).find(({ id }) => id !== profileId)!;
 
+  await page.goto('/');
+  const select = page.locator(`select[name="profile-${modelId}"]`);
   const row = page.locator('[data-ranked-row]').filter({ has: select });
+  await expect(row).toHaveAttribute('data-profile-id', profileId);
   const before = await row.innerText();
-  const values = await select
-    .locator('option')
-    .evaluateAll((options) =>
-      options.map((option) => (option as HTMLOptionElement).value),
-    );
-  expect(values.length).toBeGreaterThan(1);
-  const current = await select.inputValue();
-  await select.selectOption(values.find((value) => value !== current)!);
+  await select.selectOption(alternative.id);
+  await expect(row).toHaveAttribute('data-profile-id', alternative.id);
   await expect.poll(() => row.innerText()).not.toBe(before);
 });
 
