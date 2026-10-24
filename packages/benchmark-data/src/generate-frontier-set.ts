@@ -23,6 +23,7 @@ import {
   type BenchmarkDimensionMapping,
   type BenchmarkQualityPolicy,
   type CandidateResult,
+  type ModelCatalog,
 } from './index.js';
 
 /** A single profile must own each result; evidence is never unioned across efforts. */
@@ -32,11 +33,25 @@ export function commonQualityBenchmarks(
   mapping: BenchmarkDimensionMapping,
   quality: BenchmarkQualityPolicy,
 ) {
+  return commonQualityBenchmarksFromCurrentResults(
+    selectCurrentResults(candidates),
+    profileIds,
+    mapping,
+    quality,
+  );
+}
+
+function commonQualityBenchmarksFromCurrentResults(
+  current: CandidateResult[],
+  profileIds: readonly string[],
+  mapping: BenchmarkDimensionMapping,
+  quality: BenchmarkQualityPolicy,
+) {
   if (!profileIds.length || new Set(profileIds).size !== profileIds.length)
     throw new Error('Expected distinct nonempty frontier profiles');
   const comparisonOnly = getComparisonOnlyBenchmarkIds(mapping);
   const known = new Map(mapping.benchmarks.map((b) => [b.id, b]));
-  const rows = selectCurrentResults(candidates).filter(
+  const rows = current.filter(
     (c) =>
       c.normalizedScore !== null &&
       known.has(c.benchmarkId) &&
@@ -224,9 +239,15 @@ export const frontierSetPath = (root: string) =>
 export const frontierAuditPath = (root: string) =>
   join(root, 'data/mappings/frontier-selection-audit.json');
 
-/** Computes the frontier artifact and audit from saved captures without writing. */
-export async function computeFrontierSet(repositoryRoot: string) {
-  const root = resolve(repositoryRoot);
+/** Validated, identity-resolved and profiled inputs from a single workspace build. */
+export interface FrontierSetInput {
+  candidates: CandidateResult[];
+  catalog: ModelCatalog;
+  mapping: BenchmarkDimensionMapping;
+  quality: BenchmarkQualityPolicy;
+}
+
+async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
   const input = await loadWorkspaceCoverageData(root);
   const quality = BenchmarkQualityPolicySchema.parse(
     JSON.parse(
@@ -255,6 +276,17 @@ export async function computeFrontierSet(repositoryRoot: string) {
     input.profilePolicy,
     getComparisonOnlyBenchmarkIds(mapping),
   );
+  return { candidates, catalog: input.catalog, mapping, quality };
+}
+
+/** Computes the frontier artifact and audit without writing or reloading prepared inputs. */
+export async function computeFrontierSet(
+  repositoryRoot: string,
+  input?: FrontierSetInput,
+) {
+  const root = resolve(repositoryRoot);
+  const { candidates, catalog, mapping, quality } =
+    input ?? (await loadFrontierSetInput(root));
   const selection = selectAaTopTen(candidates);
   if (selection.status !== 'selected') {
     return {
@@ -309,7 +341,7 @@ export async function computeFrontierSet(repositoryRoot: string) {
     models: eligibility.leaders.map(({ modelId }) => ({
       modelId,
       displayName:
-        input.catalog.models.find((m) => m.modelId === modelId)?.displayName ??
+        catalog.models.find((m) => m.modelId === modelId)?.displayName ??
         modelId,
     })),
     ...defaultCohort,
@@ -318,9 +350,12 @@ export async function computeFrontierSet(repositoryRoot: string) {
   return { status: 'selected' as const, audit, artifact };
 }
 
-export async function generateFrontierSet(repositoryRoot: string) {
+export async function generateFrontierSet(
+  repositoryRoot: string,
+  input?: FrontierSetInput,
+) {
   const root = resolve(repositoryRoot);
-  const result = await computeFrontierSet(root);
+  const result = await computeFrontierSet(root, input);
   const auditPath = frontierAuditPath(root);
   const write = async (path: string, value: unknown) =>
     writeFile(path, await serializeFrontierJson(value), 'utf8');
@@ -369,6 +404,7 @@ export function createAaCohorts(
 ) {
   if (topTen.length !== 10 || topTen.some(({ profileId }) => !profileId))
     throw new Error('Expected ten resolved AA leaders');
+  const current = selectCurrentResults(candidates);
   return Array.from({ length: 9 }, (_, index) => {
     const targetModelCount = index + 2;
     const leaders = topTen.slice(0, targetModelCount);
@@ -378,7 +414,12 @@ export function createAaCohorts(
       targetModelCount,
       modelIds: leaders.map(({ modelId }) => modelId),
       profileIds,
-      ...commonQualityBenchmarks(candidates, profileIds, mapping, quality),
+      ...commonQualityBenchmarksFromCurrentResults(
+        current,
+        profileIds,
+        mapping,
+        quality,
+      ),
     };
   });
 }

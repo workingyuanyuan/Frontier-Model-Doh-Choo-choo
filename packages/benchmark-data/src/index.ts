@@ -877,19 +877,22 @@ export const applyProductProfilePolicyToCosts = (
       ),
     ]),
   );
+  const matchKey = (row: EffortResolutionInput) =>
+    JSON.stringify([
+      row.sourceId,
+      row.model.canonicalModelId,
+      row.model.rawName,
+    ]);
+  const candidatesByMatch = groupBy(candidates, matchKey);
+  for (const rows of candidatesByMatch.values()) {
+    rows.sort((left, right) => left.id.localeCompare(right.id));
+  }
 
   return costs.map((cost) => {
     const modelId = cost.model.canonicalModelId;
     if (modelId === null) return cost;
 
-    const matching = candidates
-      .filter(
-        (candidate) =>
-          candidate.sourceId === cost.sourceId &&
-          candidate.model.canonicalModelId === modelId &&
-          candidate.model.rawName === cost.model.rawName,
-      )
-      .toSorted((left, right) => left.id.localeCompare(right.id));
+    const matching = candidatesByMatch.get(matchKey(cost)) ?? [];
     const costEffort = normalizeProductEffort(cost.profile.effort);
     const matchingEffort = matching.find(
       (candidate) =>
@@ -1120,9 +1123,9 @@ export const selectCurrentResults = (
     }
   }
 
-  return [...selected.values()].sort((left, right) =>
-    resultIdentityKey(left).localeCompare(resultIdentityKey(right)),
-  );
+  return [...selected.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([, result]) => result);
 };
 
 export interface CompositeRankingRow {

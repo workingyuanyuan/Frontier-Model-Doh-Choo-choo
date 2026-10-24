@@ -8,6 +8,7 @@ import {
   CandidateResultSchema,
   CostRecordSchema,
   EvidenceRecordSchema,
+  FrontierConfigSchema,
   ModelCatalogSchema,
   ProfilePolicySchema,
   SourceManifestSchema,
@@ -153,9 +154,22 @@ export const buildWorkspaceProduct = async (
 
   // Regenerate from saved captures on every build. A needs-review audit fails
   // the build instead of publishing an older successful frontier artifact.
+  // Retain the coverage loader's legacy configuration checks when reusing inputs.
+  BenchmarkDimensionMappingSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'benchmarks.json')),
+  );
+  FrontierConfigSchema.parse(
+    await readJson(join(dataRoot, 'mappings', 'frontier.json')),
+  );
+  const frontierInput = {
+    candidates,
+    catalog,
+    mapping: benchmarkMapping,
+    quality,
+  };
   const artifact = writeFrontier
-    ? (await generateFrontierSet(repositoryRoot)).artifact
-    : await computeFrontierSet(repositoryRoot).then((result) => {
+    ? (await generateFrontierSet(repositoryRoot, frontierInput)).artifact
+    : await computeFrontierSet(repositoryRoot, frontierInput).then((result) => {
         if (result.status !== 'selected') throw result.error;
         return result.artifact;
       });
