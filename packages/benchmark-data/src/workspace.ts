@@ -180,9 +180,12 @@ export const buildWorkspaceProduct = async (
     comparisonOnlyBenchmarkIds,
     catalog,
     displaySet,
-    frontier: artifact.selection.topTen.map((row) => ({
+    frontier: artifact.eligibility.leaders.map((row) => ({
       modelId: row.modelId,
-      reasons: ['Artificial Analysis Intelligence Index top ten'],
+      reasons: [
+        `Artificial Analysis Intelligence Index rank ${row.rank}`,
+        `Scored by ${row.organizations.length} independent organizations: ${row.organizations.join(', ')}`,
+      ],
       externalCompositeScores: { 'artificial-analysis': row.score },
     })),
     presetProfileIds: new Map(

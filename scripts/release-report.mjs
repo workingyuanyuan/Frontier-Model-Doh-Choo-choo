@@ -153,7 +153,12 @@ export const defaultPresetInferences = (root, product) => {
 const list = (values) =>
   values.length === 0 ? '—' : values.map((value) => `\`${value}\``).join(', ');
 
-export const renderReleaseMarkdown = ({ receipt, diff, inferences }) => {
+export const renderReleaseMarkdown = ({
+  receipt,
+  diff,
+  inferences,
+  skipped = [],
+}) => {
   const lines = [
     `# Data release ${receipt.runId}`,
     '',
@@ -207,7 +212,7 @@ export const renderReleaseMarkdown = ({ receipt, diff, inferences }) => {
           `| ${targetModelCount} | \`${id}\`${id === diff.defaultPresetId ? ' (default)' : ''} | ${benchmarkCount.before} → ${benchmarkCount.after} |`,
       ),
     '',
-    '## AA frontier top ten',
+    '## Frontier models (AA-ranked, passing eligibility)',
     '',
     '| # | Before | AA | After | AA |',
     '| --- | --- | --- | --- | --- |',
@@ -215,6 +220,21 @@ export const renderReleaseMarkdown = ({ receipt, diff, inferences }) => {
       const old = diff.frontier.before[index];
       return `| ${index + 1} | ${old?.modelId ?? '—'} | ${old?.aa ?? '—'} | ${row.modelId} | ${row.aa ?? '—'} |`;
     }),
+    '',
+    '## Skipped by frontier eligibility',
+    '',
+    'AA leaders whose AA-winning profile is scored by fewer than two independent organizations (FRONTIER_POLICY).',
+    '',
+    skipped.length === 0
+      ? 'None.'
+      : [
+          '| AA rank | Model | AA | Organizations |',
+          '| --- | --- | --- | --- |',
+          ...skipped.map(
+            (row) =>
+              `| ${row.rank} | ${row.modelId} | ${round(row.score)} | ${row.organizations.length === 0 ? '—' : row.organizations.join(', ')} |`,
+          ),
+        ].join('\n'),
   );
   for (const preset of diff.presets) {
     lines.push(

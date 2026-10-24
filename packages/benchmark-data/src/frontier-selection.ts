@@ -82,6 +82,62 @@ const evidenceIdsFor = (row: FrontierSelectionEvidence): string[] => {
   return row.provenance.evidenceId ? [row.provenance.evidenceId] : [];
 };
 
+const isAaIndexRow = (row: FrontierSelectionEvidence): boolean =>
+  row.sourceId === AA_FRONTIER_POLICY.sourceId &&
+  row.benchmarkId === AA_FRONTIER_POLICY.benchmarkId;
+
+/** Each resolved model's best AA index row, highest score first. */
+const bestAaRowsByModel = (
+  rows: readonly FrontierSelectionEvidence[],
+): FrontierSelectionEvidence[] => {
+  const bestByModel = new Map<string, FrontierSelectionEvidence>();
+  for (const row of rows) {
+    const modelId = row.model.canonicalModelId;
+    if (modelId === null) continue;
+    const prior = bestByModel.get(modelId);
+    if (
+      !prior ||
+      row.rawScore > prior.rawScore ||
+      (row.rawScore === prior.rawScore && compareText(row.id, prior.id) < 0)
+    ) {
+      bestByModel.set(modelId, row);
+    }
+  }
+  return [...bestByModel.values()].sort(
+    (left, right) =>
+      right.rawScore - left.rawScore ||
+      compareText(left.model.canonicalModelId!, right.model.canonicalModelId!),
+  );
+};
+
+const toLeader = (
+  row: FrontierSelectionEvidence,
+  index: number,
+): AaFrontierLeader => ({
+  rank: index + 1,
+  modelId: row.model.canonicalModelId!,
+  profileId: row.model.profileId,
+  score: row.rawScore,
+  resultId: row.id,
+  evidenceIds: evidenceIdsFor(row),
+});
+
+/** Every resolved model ranked by its best AA index score. */
+export const rankAaModels = (
+  evidence: readonly FrontierSelectionEvidence[],
+): AaFrontierLeader[] =>
+  bestAaRowsByModel(evidence.filter(isAaIndexRow)).map(toLeader);
+
+/** AA index rows without a resolved model or profile, for boundary checks. */
+export const unresolvedAaRows = (
+  evidence: readonly FrontierSelectionEvidence[],
+): FrontierSelectionEvidence[] =>
+  evidence.filter(
+    (row) =>
+      isAaIndexRow(row) &&
+      (row.model.canonicalModelId === null || row.model.profileId === null),
+  );
+
 /**
  * Rank ten canonical models by their best raw AA index score, then accept only
  * a unique positive largest adjacent gap at least twice the other eight gaps'
@@ -91,11 +147,7 @@ const evidenceIdsFor = (row: FrontierSelectionEvidence): string[] => {
 export const selectAaFrontier = (
   evidence: readonly FrontierSelectionEvidence[],
 ): AaFrontierSelection => {
-  const rows = evidence.filter(
-    (row) =>
-      row.sourceId === AA_FRONTIER_POLICY.sourceId &&
-      row.benchmarkId === AA_FRONTIER_POLICY.benchmarkId,
-  );
+  const rows = evidence.filter(isAaIndexRow);
   const issues: AaFrontierIssue[] = [];
   const addIssue = (
     code: AaFrontierIssue['code'],
@@ -173,34 +225,10 @@ export const selectAaFrontier = (
   // Invalid or incomparable scores cannot produce a meaningful ranking.
   if (issues.length) return result;
 
-  const bestByModel = new Map<string, FrontierSelectionEvidence>();
-  for (const row of rows) {
-    const modelId = row.model.canonicalModelId;
-    if (modelId === null) continue;
-    const prior = bestByModel.get(modelId);
-    if (
-      !prior ||
-      row.rawScore > prior.rawScore ||
-      (row.rawScore === prior.rawScore && compareText(row.id, prior.id) < 0)
-    ) {
-      bestByModel.set(modelId, row);
-    }
-  }
-  result.resolvedModelCount = bestByModel.size;
-  const leaders = [...bestByModel.values()].sort(
-    (left, right) =>
-      right.rawScore - left.rawScore ||
-      compareText(left.model.canonicalModelId!, right.model.canonicalModelId!),
-  );
+  const leaders = bestAaRowsByModel(rows);
+  result.resolvedModelCount = leaders.length;
   const topTen = leaders.slice(0, AA_FRONTIER_POLICY.searchWindowModels);
-  result.topTen = topTen.map((row, index) => ({
-    rank: index + 1,
-    modelId: row.model.canonicalModelId!,
-    profileId: row.model.profileId,
-    score: row.rawScore,
-    resultId: row.id,
-    evidenceIds: evidenceIdsFor(row),
-  }));
+  result.topTen = topTen.map(toLeader);
   if (leaders.length < AA_FRONTIER_POLICY.searchWindowModels) {
     addIssue(
       'too-few-models',

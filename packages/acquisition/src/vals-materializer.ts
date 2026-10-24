@@ -56,11 +56,16 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
   reverse_eng: { benchmarkId: 'reverse-eng', role: 'ORGANIZER' },
 };
 
+// Finance Index averages Finance Agent, EMB and Tax Agent Bench; Legal Index
+// weights Legal Research Bench, HLAB and Tax Agent Bench. Scoring them would
+// count those tests twice.
 export const COMPOSITE_VALS_SLUGS: ReadonlySet<string> = new Set([
   'vals_index',
   'vals_multimodal_index',
   'time_horizon_index',
   'web_search',
+  'finance_index',
+  'legal_index',
 ]);
 
 const REVIEWED_UNAPPROVED_IDS: Readonly<Record<string, string>> = {
@@ -78,6 +83,8 @@ const REVIEWED_UNAPPROVED_IDS: Readonly<Record<string, string>> = {
   vals_multimodal_index: 'vals-multimodal-index',
   time_horizon_index: 'time-horizon-index',
   web_search: 'web-search',
+  finance_index: 'finance-index',
+  legal_index: 'legal-index',
 };
 
 export interface ValsOverallRow {

@@ -206,6 +206,28 @@ export async function readSourceSnapshots(
   );
 }
 
+/**
+ * Whether a saved profile row is still present. An unknown (null) context
+ * window on either side matches any value: AA's payloads carry the window for
+ * some rows and not others (2026-10-24: 42 rows gained it, 65 lost it, scores
+ * unchanged), so its presence is not a profile change. Two different known
+ * windows still count.
+ */
+const profileStillPresent = (
+  saved: string,
+  current: readonly string[],
+): boolean => {
+  const before = JSON.parse(saved) as unknown[];
+  const head = JSON.stringify(before.slice(0, 7));
+  return current.some((row) => {
+    const after = JSON.parse(row) as unknown[];
+    return (
+      JSON.stringify(after.slice(0, 7)) === head &&
+      (before[7] === null || after[7] === null || before[7] === after[7])
+    );
+  });
+};
+
 export function compareSnapshots(
   before: SourceSnapshot | null,
   after: SourceSnapshot,
@@ -231,7 +253,11 @@ export function compareSnapshots(
         });
     }
     for (const field of ['models', 'profiles'] as const) {
-      const removed = old[field].filter((id) => !current[field].includes(id));
+      const removed = old[field].filter((id) =>
+        field === 'profiles'
+          ? !profileStillPresent(id, current.profiles)
+          : !current.models.includes(id),
+      );
       if (removed.length)
         findings.push({
           kind: `${field}-lost`,

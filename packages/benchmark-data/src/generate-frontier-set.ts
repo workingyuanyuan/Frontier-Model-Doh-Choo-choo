@@ -3,7 +3,12 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format } from 'prettier';
 import { loadWorkspaceCoverageData } from './coverage-matrix.js';
-import { selectAaTopTen } from './frontier-selection.js';
+import {
+  AA_FRONTIER_POLICY,
+  rankAaModels,
+  selectAaTopTen,
+  unresolvedAaRows,
+} from './frontier-selection.js';
 import {
   FrontierIdentitiesSchema,
   resolveFrontierIdentities,
@@ -104,6 +109,113 @@ export function commonQualityBenchmarks(
   };
 }
 
+/**
+ * A frontier model must also be measured outside AA (user ruling 2026-10-24):
+ * its AA-winning profile needs scoring-eligible results from this many
+ * independent organizations. AA itself selects, so it does not count; vendor
+ * release pages are self-reports and do not count; Surge's leaderboards are
+ * one organization.
+ */
+export const FRONTIER_ELIGIBILITY_POLICY = {
+  minIndependentOrganizations: 2,
+  excludedSourceIds: ['artificial-analysis'],
+  excludedSourceRoles: ['VENDOR'],
+} as const;
+
+export const sourceOrganization = (sourceId: string): string =>
+  sourceId.startsWith('surge-') ? 'surge' : sourceId;
+
+type AaLeader = ReturnType<typeof rankAaModels>[number];
+
+/**
+ * Walks the AA ranking and keeps the first ten models whose AA-winning profile
+ * meets the eligibility policy. Skipped models stay in the audit and remain
+ * selectable in the dashboard; they only leave the slider and default view.
+ */
+export function selectEligibleFrontier(
+  candidates: CandidateResult[],
+  ranked: readonly AaLeader[],
+  unresolved: readonly CandidateResult[],
+  mapping: BenchmarkDimensionMapping,
+  quality: BenchmarkQualityPolicy,
+) {
+  const comparisonOnly = getComparisonOnlyBenchmarkIds(mapping);
+  const known = new Set(mapping.benchmarks.map(({ id }) => id));
+  // Pick current rows within each source: selecting across sources keeps one
+  // winner per benchmark and would drop the other organization's measurement.
+  const bySource = new Map<string, CandidateResult[]>();
+  for (const row of candidates) {
+    const rows = bySource.get(row.sourceId) ?? [];
+    rows.push(row);
+    bySource.set(row.sourceId, rows);
+  }
+  const current = [...bySource.values()].flatMap((rows) =>
+    selectCurrentResults(rows),
+  );
+  const organizations = new Map<string, Set<string>>();
+  for (const row of current) {
+    if (
+      row.normalizedScore === null ||
+      row.model.profileId === null ||
+      !known.has(row.benchmarkId) ||
+      comparisonOnly.has(row.benchmarkId) ||
+      quality.excludedBenchmarkIds.includes(row.benchmarkId) ||
+      (
+        FRONTIER_ELIGIBILITY_POLICY.excludedSourceIds as readonly string[]
+      ).includes(row.sourceId) ||
+      (
+        FRONTIER_ELIGIBILITY_POLICY.excludedSourceRoles as readonly string[]
+      ).includes(row.sourceRole)
+    ) {
+      continue;
+    }
+    const set = organizations.get(row.model.profileId) ?? new Set<string>();
+    set.add(sourceOrganization(row.sourceId));
+    organizations.set(row.model.profileId, set);
+  }
+  const leaders: AaLeader[] = [];
+  const skipped: (AaLeader & { organizations: string[] })[] = [];
+  for (const leader of ranked) {
+    if (leaders.length === AA_FRONTIER_POLICY.searchWindowModels) break;
+    const found = [
+      ...(organizations.get(leader.profileId ?? '') ?? []),
+    ].toSorted();
+    if (
+      leader.profileId !== null &&
+      found.length >= FRONTIER_ELIGIBILITY_POLICY.minIndependentOrganizations
+    ) {
+      leaders.push(leader);
+    } else {
+      skipped.push({ ...leader, organizations: found });
+    }
+  }
+  if (leaders.length < AA_FRONTIER_POLICY.searchWindowModels) {
+    throw new Error(
+      `Only ${leaders.length} AA models meet the frontier eligibility policy`,
+    );
+  }
+  // An unresolved identity scoring at or above the last eligible leader could
+  // belong in the window; fail closed as the top-ten check does.
+  const cutoff = leaders.at(-1)!.score;
+  const blocking = unresolved.filter(({ rawScore }) => rawScore >= cutoff);
+  if (blocking.length) {
+    throw new Error(
+      `Unresolved AA identities can affect the eligible frontier: ${blocking
+        .map(({ id }) => id)
+        .toSorted()
+        .join(', ')}`,
+    );
+  }
+  return {
+    policy: FRONTIER_ELIGIBILITY_POLICY,
+    leaders: leaders.map((leader) => ({
+      ...leader,
+      organizations: [...organizations.get(leader.profileId!)!].toSorted(),
+    })),
+    skipped,
+  };
+}
+
 export const serializeFrontierJson = async (value: unknown): Promise<string> =>
   format(JSON.stringify(value), { parser: 'json', endOfLine: 'lf' });
 
@@ -153,9 +265,22 @@ export async function computeFrontierSet(repositoryRoot: string) {
       ),
     };
   }
+  let eligibility: ReturnType<typeof selectEligibleFrontier>;
   let cohorts: ReturnType<typeof createAaCohorts>;
   try {
-    cohorts = createAaCohorts(candidates, selection.topTen, mapping, quality);
+    eligibility = selectEligibleFrontier(
+      candidates,
+      rankAaModels(candidates),
+      unresolvedAaRows(candidates) as CandidateResult[],
+      mapping,
+      quality,
+    );
+    cohorts = createAaCohorts(
+      candidates,
+      eligibility.leaders,
+      mapping,
+      quality,
+    );
   } catch (error) {
     return {
       status: 'needs-review' as const,
@@ -168,9 +293,11 @@ export async function computeFrontierSet(repositoryRoot: string) {
     };
   }
   const defaultCohort = chooseDefaultCohort(cohorts);
+  const audit = { ...selection, eligibility };
   const artifact = {
     schemaVersion: 'frontier-set-v2',
     selection,
+    eligibility,
     cohortPolicy: {
       minModels: 2,
       maxModels: 10,
@@ -179,7 +306,7 @@ export async function computeFrontierSet(repositoryRoot: string) {
     },
     defaultPresetId: defaultCohort.id,
     benchmarkQuality: quality,
-    models: selection.selectedModelIds.map((modelId) => ({
+    models: eligibility.leaders.map(({ modelId }) => ({
       modelId,
       displayName:
         input.catalog.models.find((m) => m.modelId === modelId)?.displayName ??
@@ -188,7 +315,7 @@ export async function computeFrontierSet(repositoryRoot: string) {
     ...defaultCohort,
     cohorts,
   };
-  return { status: 'selected' as const, audit: selection, artifact };
+  return { status: 'selected' as const, audit, artifact };
 }
 
 export async function generateFrontierSet(repositoryRoot: string) {
@@ -236,7 +363,7 @@ export function chooseDefaultCohort<
 /** Each prefix uses exactly its AA-winning profiles and their own common tests. */
 export function createAaCohorts(
   candidates: CandidateResult[],
-  topTen: ReturnType<typeof selectAaTopTen>['topTen'],
+  topTen: readonly Pick<AaLeader, 'modelId' | 'profileId'>[],
   mapping: BenchmarkDimensionMapping,
   quality: BenchmarkQualityPolicy,
 ) {

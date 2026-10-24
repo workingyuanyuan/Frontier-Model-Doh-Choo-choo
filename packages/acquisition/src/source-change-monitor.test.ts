@@ -99,6 +99,27 @@ describe('source change comparisons', () => {
     ).toEqual(['profiles-lost']);
   });
 
+  it('does not report a profile as lost when its context window is only known on one side', () => {
+    const before = candidate();
+    const filled = candidate({
+      profile: { ...before.profile, contextWindowTokens: 1_000_000 },
+    });
+    expect(compareSnapshots(snapshot([before]), snapshot([filled]))).toEqual(
+      [],
+    );
+    expect(compareSnapshots(snapshot([filled]), snapshot([before]))).toEqual(
+      [],
+    );
+    const changed = candidate({
+      profile: { ...before.profile, contextWindowTokens: 32_000 },
+    });
+    expect(
+      compareSnapshots(snapshot([filled]), snapshot([changed])).map(
+        ({ kind }) => kind,
+      ),
+    ).toEqual(['profiles-lost']);
+  });
+
   it('detects version changes and lost models and profiles despite equal row counts', () => {
     const before = candidate();
     const after = candidate({

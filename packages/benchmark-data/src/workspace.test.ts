@@ -208,25 +208,41 @@ describe('buildWorkspaceProduct', () => {
         'utf8',
       ),
     ) as {
-      selection: { selectedModelIds: string[]; selectedProfileIds: string[] };
+      defaultPresetId: string;
+      eligibility: {
+        leaders: { modelId: string; profileId: string }[];
+        skipped: { modelId: string; organizations: string[] }[];
+      };
       benchmarkIds: string[];
+      dimensions: { id: string; benchmarkIds: string[] }[];
       cohorts: { id: string; profileIds: string[]; modelIds: string[] }[];
     };
+    // The frontier is the first ten AA-ranked models that pass eligibility.
+    const leaders = artifact.eligibility.leaders;
     expect(product.frontier.map(({ modelId }) => modelId)).toEqual(
-      artifact.selection.selectedModelIds,
+      leaders.map(({ modelId }) => modelId),
+    );
+    // Muse Wonder Full is scored only by Vals outside AA (2026-10-24 data).
+    expect(artifact.eligibility.skipped).toContainEqual(
+      expect.objectContaining({
+        modelId: 'meta-muse-wonder-full',
+        organizations: ['vals-ai'],
+      }),
     );
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
-    // Eight and nine models share 13 common tests, so the default grows to nine.
-    expect(product.defaultPresetId).toBe('aa-top-9');
+    expect(product.defaultPresetId).toBe(artifact.defaultPresetId);
     expect(product.frontier).toHaveLength(10);
     expect(
       product.presets.map(({ targetModelCount }) => targetModelCount),
     ).toEqual([2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    expect(defaultPreset!.targetModelCount).toBe(9);
-    expect(defaultPreset!.benchmarkIds).toHaveLength(13);
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
-    ).toEqual(artifact.selection.selectedProfileIds.slice(0, 9).toSorted());
+    ).toEqual(
+      leaders
+        .slice(0, defaultPreset!.targetModelCount)
+        .map(({ profileId }) => profileId)
+        .toSorted(),
+    );
 
     for (const preset of product.presets) {
       const completeModels = completeModelsFor(preset.benchmarkIds);
@@ -274,20 +290,29 @@ describe('buildWorkspaceProduct', () => {
     expect(
       defaultLeaderboard.every((row) => !Object.hasOwn(row, 'status')),
     ).toBe(true);
+    const activeDimensions = artifact.dimensions.filter(
+      ({ benchmarkIds }) => benchmarkIds.length > 0,
+    );
     expect(
       defaultLeaderboard[0]?.dimensions.map(({ dimension }) => dimension),
-    ).toEqual(['reasoning', 'knowledge', 'comprehension', 'coding', 'agentic']);
+    ).toEqual(activeDimensions.map(({ id }) => id));
     for (const row of defaultLeaderboard) {
-      // Reasoning and comprehension each have one test, so each weighs 0.5.
       expect(
         row.dimensions.map(({ componentCount }) => componentCount),
-      ).toEqual([1, 2, 1, 4, 5]);
+      ).toEqual(
+        activeDimensions.map(({ benchmarkIds }) => benchmarkIds.length),
+      );
+      // A dimension backed by a single test weighs 0.5.
+      const weight = (count: number) => (count === 1 ? 0.5 : 1);
       const weightedTotal = row.dimensions.reduce(
-        (sum, axis) =>
-          sum + axis.score! * (axis.componentCount === 1 ? 0.5 : 1),
+        (sum, axis) => sum + axis.score! * weight(axis.componentCount),
         0,
       );
-      expect(row.overallScore).toBeCloseTo(weightedTotal / 4, 10);
+      const totalWeight = row.dimensions.reduce(
+        (sum, axis) => sum + weight(axis.componentCount),
+        0,
+      );
+      expect(row.overallScore).toBeCloseTo(weightedTotal / totalWeight, 10);
     }
     const comparisonIds = new Set(product.comparisonEvidenceIds);
     const comparisonBenchmarks = new Set(
@@ -322,7 +347,7 @@ describe('buildWorkspaceProduct', () => {
     ).toBe(true);
     expect(
       product.profiles.some(
-        ({ modelId }) => !artifact.selection.selectedModelIds.includes(modelId),
+        ({ modelId }) => !leaders.some((leader) => leader.modelId === modelId),
       ),
     ).toBe(true);
     expect(
