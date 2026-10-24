@@ -56,7 +56,7 @@
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
+pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count=<count> --visual-top-ten-matched
 pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 

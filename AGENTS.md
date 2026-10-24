@@ -16,7 +16,7 @@
 - **失敗**：修正原因後重跑；無法修正時，把 receipt、失敗步驟與錯誤訊息交給使用者，不可宣稱已完成。
 - 只靠單元測試、parser 修正或建置舊產品，都不算完成資料更新。
 
-匯入來源的命令與畫面列數核對見 [OPERATIONS §2](docs/OPERATIONS.md#2-刷新來源)。新增模型身分必須有官方證據，不可模糊比對。
+每日查核另寫 `docs/research/<日期>-benchmark-update-check.md`，與資料更新報告的分工見 [OPERATIONS](docs/OPERATIONS.md#每日-benchmark-查核的兩份文件)。匯入來源的命令與畫面列數核對見 [OPERATIONS §2](docs/OPERATIONS.md#2-刷新來源)。新增模型身分必須有官方證據，不可模糊比對。
 
 ## 機械驗證與使用者核准是兩件事
 

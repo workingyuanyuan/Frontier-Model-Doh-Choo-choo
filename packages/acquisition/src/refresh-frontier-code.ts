@@ -90,7 +90,10 @@ const fetchArtifact = async (
   return { bytes, evidence };
 };
 
+// Accepts both `--name value` and `--name=value`, like the other refresh CLIs.
 const option = (name: string): string | null => {
+  const inline = process.argv.find((arg) => arg.startsWith(`${name}=`));
+  if (inline) return inline.slice(name.length + 1);
   const index = process.argv.indexOf(name);
   return index === -1 ? null : (process.argv[index + 1] ?? null);
 };
@@ -100,7 +103,7 @@ async function main() {
   const visualTopTenMatched = process.argv.includes('--visual-top-ten-matched');
   if (!Number.isInteger(visualRowCount) || visualRowCount <= 0) {
     throw new Error(
-      'Run a rendered DOM check first, then pass --visual-row-count <count>',
+      'Run a rendered DOM check first, then pass --visual-row-count=<count>',
     );
   }
   if (!visualTopTenMatched) {

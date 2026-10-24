@@ -314,6 +314,33 @@ describe('Vals materialization policy', () => {
     expect(result.costs[0]?.inclusion).toBe('INCLUDED');
   });
 
+  it('labels the Finance and Legal indexes as composites of other Vals tests', () => {
+    const result = materializeVals(
+      ['finance_index', 'legal_index'].map((slug) => ({
+        slug,
+        html: fixture(),
+        evidenceId,
+        sourceUrl: `https://www.vals.ai/benchmarks/${slug}`,
+      })),
+      {
+        observedAt: '2026-10-24T00:00:00.000Z',
+        indexEvidenceId: evidenceId,
+        discoveredSlugs: ['finance_index', 'legal_index'],
+      },
+    );
+    expect([
+      ...new Set(result.candidates.map(({ benchmarkId }) => benchmarkId)),
+    ]).toEqual(['finance-index', 'legal-index']);
+    for (const candidate of result.candidates) {
+      expect(candidate.inclusion).toBe('EXCLUDED');
+      expect(candidate.exclusionReason).toMatch(/^Composite index/u);
+    }
+    // Only vals_index supplies the Vals chart cost.
+    expect(
+      result.costs.every(({ inclusion }) => inclusion === 'EXCLUDED'),
+    ).toBe(true);
+  });
+
   it('retains a non-percent unapproved raw score without inventing normalization', () => {
     const html = fixture().replace('12.5', '994.5');
     const result = materializeVals(

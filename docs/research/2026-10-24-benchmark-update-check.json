@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "benchmark-update-check-v1",
+  "checkedAt": "2026-10-24T06:41:55+00:00",
+  "timezone": "Asia/Taipei",
+  "scope": "Whitelisted sources probed read-only against their saved snapshots on 2026-10-24, plus official model announcements for new AA top-ten models. Raw captures are stored under artifacts/research/2026-10-24-benchmark-check/.",
+  "baseline": {
+    "commit": "6584e3907ea949f52f50236d17ac4a8b06b0db1d",
+    "productVersionId": "sha256:30a166a842313e1fa79a5c8dfb701f2086e1721d3ae576610b8864942348da66",
+    "comparisonReport": "docs/research/2026-10-23-benchmark-update-check.md"
+  },
+  "sources": {
+    "artificial-analysis": {
+      "verdict": "changed",
+      "evidence": "/models shows '27 of 709 models' (707 on 2026-10-23); new Kimi K3.1 Pro with intelligenceIndex 55.087, releaseDate 2026-10-23; Intelligence Index version v4.3.2 unchanged. API /api/v2/data/llms/models returned HTTP 200 with 709 rows (Kimi K3.1 Pro 55.1)."
+    },
+    "livebench": {
+      "verdict": "changed",
+      "evidence": "Bundle main.074b2ee8.js -> main.ff392135.js; 2.0 table.csv and cost.csv 49 -> 53 rows (deepseek-v4-flash, nemotron-super-vl-3.5-nvfp4, smaug-nemotron-3.5-nvfp4, kimi-k3.1-pro); categories unchanged; 1.0 table byte-identical. Rendered: 2.0 main board 53 rows; 1.0 release 2026-06-25 62 rows, 65 with Include finetunes.",
+      "previewRelease": {
+        "path": "20261023",
+        "exposedAt": "https://livebench.ai/new",
+        "rows": 30,
+        "overallWeights": {
+          "Long Agentic": 2.0,
+          "Coding": 1.5,
+          "Design": 1.5
+        },
+        "note": "Main board still 20261014. categories.json adds an _overall_weights key that the 2.0 materializer would reject as an unreviewed category; Long Agentic and Browser are rescored (Claude Fable 5.1 Long Agentic 80.8 -> 77.9, Browser 100.0 -> 89.8)."
+      }
+    },
+    "vals-ai": {
+      "verdict": "changed",
+      "evidence": "Catalog 58 -> 60 pages: legal_index (BenchmarkView JSON, composite of Legal Research Bench, HLAB and Tax Agent Bench; released 2026-10-23) and inference_provider (compares inference providers, no model scores). Nine existing pages spot-checked: data JSON hash filenames unchanged."
+    },
+    "epoch-ai": {
+      "verdict": "bytes-changed-scores-unchanged",
+      "evidence": "ZIP 2,356,801 -> 2,356,851 bytes; model_metadata.csv adds kimi-k3.1-pro_{high,low,max,unknown}; no new score rows."
+    },
+    "zapier-automationbench": {
+      "verdict": "republished-data-unchanged",
+      "evidence": "Page note 'Published Oct 23, 11:06 PM UTC'; table module renamed CBcw7uZW -> B6BWn-J2; content differs only in import names."
+    },
+    "deepswe": {
+      "verdict": "unchanged",
+      "evidence": "leaderboard-live.json SHA-256 identical; HTML asset hashes only."
+    },
+    "frontier-code": {
+      "verdict": "unchanged",
+      "evidence": "data.json SHA-256 identical."
+    },
+    "arc-prize": {
+      "verdict": "unchanged",
+      "evidence": "Leaderboard and three JSON files identical."
+    },
+    "surge (7 boards)": {
+      "verdict": "unchanged",
+      "evidence": "All seven pages byte-identical to the saved artifacts."
+    },
+    "frontier-swe": {
+      "verdict": "page-changed-adapter-still-mismatched",
+      "evidence": "Coverage matrix has 22 model/harness pairs but entries.abs.{best,mean,worst} each have 21; Claude Sonnet 5.5 + proximus lists 170 graded trials (61.9%) yet appears on no leaderboard."
+    },
+    "openai/anthropic/google/xai releases": {
+      "verdict": "undetermined",
+      "evidence": "Dynamically rendered HTML differs in bytes from the 2026-10-04 captures; a cheap probe cannot tell whether content changed."
+    }
+  },
+  "modelAnnouncements": [
+    {
+      "model": "Kimi K3.1 Pro",
+      "url": "https://www.kimi.com/en/blog/kimi-k3-1-pro",
+      "quote": "Kimi K3.1 Pro is a post-trained version of Kimi K3, with substantially larger post-training compute.",
+      "apiModelIds": ["kimi-k3.1-pro", "kimi-k3.1-pro-highspeed"],
+      "weightsRelease": "Full model weights will be released by Nov 4, 2026."
+    }
+  ],
+  "files": [
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/aa_kimi.html",
+      "bytes": 4437746,
+      "sha256": "a4ca46bb0d7da15bab5ba0262f42b6e64e3f3af1b3fb3639479b136c9352787d"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/aa_models.html",
+      "bytes": 1588108,
+      "sha256": "abc4df09d0ff06416fd0bb2573a455a84a79b8afba8a14d5a4bc5c84529efe2e"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/arcprize.org_media_data_datasets.json",
+      "bytes": 841,
+      "sha256": "ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/arcprize.org_media_data_evaluations.json",
+      "bytes": 258101,
+      "sha256": "7bcb14727f15a0806143629850066c3177bdaaf02d1a95a7f920fb76c6c30ac4"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/arcprize.org_media_data_models.json",
+      "bytes": 157794,
+      "sha256": "6f6c9f483c3f813e3dd80d49594e67d30b4ba6710276e537c4753f3b56828988"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/cognition.com_data_frontiercode-leaderboard_data.json",
+      "bytes": 90180,
+      "sha256": "ff0040778b7bdf69c705ad7474f771fb5e53cfaf5cf8573b3a4614153543d75f"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/deepswe.datacurve.ai_artifacts_v1.1_leaderboard-live.json",
+      "bytes": 94758,
+      "sha256": "a7c15d66288fd249c020b9931c017b92d1a3b90e480b3ff34974b752bd030019"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/epoch.ai_data_benchmarks.csv",
+      "bytes": 3781942,
+      "sha256": "6d8f2cd5e1d17c3e8569f6fcae18b533b6e8f7519b318f3750d27946f1b7e888"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/epoch_benchmark_data.zip",
+      "bytes": 2356851,
+      "sha256": "c0403fbbbecb91819d08191388fdc8610f4952a668c56ecd704ff6b9339afbff"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/framerusercontent.com_sites_4WTSl4BNjd1q9QFEFibC6h_MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CBcw7uZW.mjs",
+      "bytes": 46657,
+      "sha256": "c552b4f4b2d55a16e645268767181aae8f846a3b928b3cbd0f402ba45db8b07a"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/kimi_blog.html",
+      "bytes": 331135,
+      "sha256": "c64fbb7f044c4e660b7a568ac435c09e7579fd4a599cd7f250824535bfee0df6"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/lb_data_20261014_notes.json",
+      "bytes": 1741,
+      "sha256": "a6bd6c8fe1ba7ce26dbdb46e20df6e270ce87e5e6677b90ac51fbe809da6fdbc"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/lb_data_20261023_categories.json",
+      "bytes": 320,
+      "sha256": "b5366a69719445fa91e970de6f248c666115bbc5d8b8d134f33bb5fcc399a7ce"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/lb_data_20261023_table.csv",
+      "bytes": 1566,
+      "sha256": "cfa2f3da37f852cbc8339a315b33ef36f17f766b811f7bc6bd845c5128ca6983"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/lb_main_ff392135.js",
+      "bytes": 385603,
+      "sha256": "583220446d07a8ca71a5a902e31916276db9b9511f1b931962c448d8043c0034"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/livebench.ai_",
+      "bytes": 889,
+      "sha256": "c2f3bfb56e2d86b91bf8a0a848e4254f76472089863c6073097c49c957913d74"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/livebench.ai_data_20261014_categories.json_v_1792480668",
+      "bytes": 237,
+      "sha256": "b1e46eedc4a461e8ad8a414c24203c35aa760e759096b4211826b40a45f97279"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/livebench.ai_data_20261014_cost.csv_v_1792480668",
+      "bytes": 9070,
+      "sha256": "65d378f43f075759e5d01713d7ddd87ba6b0bb4b817fa9a832658cc3c0601508"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/livebench.ai_data_20261014_table.csv_v_1792480668",
+      "bytes": 2716,
+      "sha256": "e2d5aee15b0923d45720690abbfad1b000ccb7f9455b20e6a508323837ff99fa"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/livebench.ai_v1_table_2026_06_25.csv_v_1792480668",
+      "bytes": 11910,
+      "sha256": "09d810986777c92b75b40a58a1829e0318e34cb5693ecae970b3145852271ba7"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/page_arcprize_org_leaderboard.html",
+      "bytes": 47291,
+      "sha256": "365cf8b14db77219582669c9e30340b411ae1857b8848da23852d7cc614ca277"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/page_cognition_com_frontiercode.html",
+      "bytes": 151681,
+      "sha256": "1732f49da5ce18b0bb72af0ac00105e1b90796fae1c4db1d419659245a737d85"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/page_deepswe_datacurve_ai_.html",
+      "bytes": 268973,
+      "sha256": "4ad6365bf7625f9fe176a5c6c709855ecaa74d3c829dadfb407546d0aefcfae2"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/page_epoch_ai_benchmarks_use-this-data.html",
+      "bytes": 80983,
+      "sha256": "8c11a894c84587a9c4c9e42113d75a2e883ac6b33f2207d0819013ca72bd04a8"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/page_www_frontierswe_com_.html",
+      "bytes": 813867,
+      "sha256": "8e317fe45a91aaf86ea0d55342e558323a9616420d3c0f33ec54b338be0c3c56"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/page_zapier_com_benchmarks.html",
+      "bytes": 184804,
+      "sha256": "f5fbc90283372c758d019927b3ac19b924f01e9427d3fc1899597bebb7d87259"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_chartography.html",
+      "bytes": 188397,
+      "sha256": "f7ac6c83e67f35b2fd7c58775a169b87dbc9be3b6059e3092aae23dd596d078c"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_complex-constraints.html",
+      "bytes": 190411,
+      "sha256": "485e0b8a318f3ed0dbd7dcbd24be13d49df6ee1c96073bc992faacd50e082ea3"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_dayjob-finance.html",
+      "bytes": 182943,
+      "sha256": "331f99e95f278fc3b743ff28c2d9899a8a0f35bad369b87f3c3b9dd41c58a2c7"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_dayjob-healthcare.html",
+      "bytes": 185894,
+      "sha256": "3230dfda95420d8881710328bdc8d88ca12844c5e282485f5cd70d6e7443bf86"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_enterprisebench-corecraft.html",
+      "bytes": 199398,
+      "sha256": "297eb719548800a5d1432bb8f966eb5a238f705a5459c0de586e384864da7745"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_gdp-xlsx.html",
+      "bytes": 161518,
+      "sha256": "0f050b013e7da36506cc8f03a89efda3d8ad8f25383f73c5c51b6b5040b97ff9"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/surge_riemann-bench.html",
+      "bytes": 190383,
+      "sha256": "6bb0453784e14ceeabbfe178858fe6f5ef452b676acb5dca535f617b4e2690db"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/code-migration-v1-1.html",
+      "bytes": 385103,
+      "sha256": "95266a2a46e8d8a51aaf5946018bcfb22af5556c162fff23d6a0b8c915997e2f"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/cyber.html",
+      "bytes": 1812571,
+      "sha256": "2c6872ae6ace844aa68e3b3a6c9f6b95087c767cb45fb2b310be35d5b1d57e3a"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/emb-v1-1.html",
+      "bytes": 398532,
+      "sha256": "b08f47a225605ad628ccba6f248adaff7e808faeb447aee6803919a632b21ef9"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/fabv2-1.html",
+      "bytes": 560458,
+      "sha256": "4155a2e1d8067ab236ca0aa75485bdf57e0b8c36da5ccee5dfd8d752f892013b"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/finance_index.html",
+      "bytes": 169314,
+      "sha256": "0fab436b1ca05b875d87289805af650e34352dda185394342a405b85ef10653d"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/inference_provider.html",
+      "bytes": 484111,
+      "sha256": "60ed452b9571fe5233d2304a9510818d7e1c3dc9cf52c5d83fcef6937631ab8c"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/legal_index.html",
+      "bytes": 432342,
+      "sha256": "c6774e92a4f5f7320c8fa2f2926fbe22e3c2aa7c47fc166c96c3b1096ae8efed"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/legal_research.html",
+      "bytes": 2453545,
+      "sha256": "8e96e391fa3076e79ce10f251116154b08fd77a40a4de92d4b3e61c6234b79ec"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/vals_index.html",
+      "bytes": 497825,
+      "sha256": "93653569a56a3663c07d82f1616f2290de4ba932abb3636f9a2ed3edb54d2034"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals/vibe-code.html",
+      "bytes": 1163551,
+      "sha256": "41298bb0b4a9021c9f3a9ec4f41330df2f79a923370b093a07d358697b9ef521"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vals_index.html",
+      "bytes": 286788,
+      "sha256": "04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/1aff8373f5.html",
+      "bytes": 1013503,
+      "sha256": "98dc4229d573b4fead48284a0d92533258b780544501f81cefb5450bc6534a9f"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/2be552c8be.html",
+      "bytes": 289550,
+      "sha256": "eaf71a2e7c328f39cec231011c117617a7a36ee6f40f56f02b1680e5bffeac1f"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/2f856c24b7.html",
+      "bytes": 1022634,
+      "sha256": "250a6d2e29031b10cc097adb817d54ec47b8c0c072466ee2b489c1e2f1287fa1"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/32161ce500.html",
+      "bytes": 399175,
+      "sha256": "04c676bbc43c707f3fbfcb559640b0f50fe1d00946827be2678502a4f2c486cb"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/64885a0a7c.html",
+      "bytes": 232456,
+      "sha256": "9842f8379999da856c0d040ac8e083fcc2ee78287e15ddd521047f3b49d1113b"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/b8819b2914.html",
+      "bytes": 531343,
+      "sha256": "91089833c2d9f6df1bbb640c0c34e73d68df2313756e629824df81aa96cbc4ec"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/eff3fe4951.html",
+      "bytes": 419700,
+      "sha256": "51965e3b9d85a9a7ac56eb8ed33084624972a465fdb1b82d3dab8b9a64b3a610"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/vendor/f6ecf78032.html",
+      "bytes": 350249,
+      "sha256": "9607c6dc500190d65c881f5de16a53508f3570849ab3908968b25cbbc0590184"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/14OoiIxs4zLSoI6BkCv0stDq916SDwGlsEaz_ZVg4VE.Dw04-KT7.mjs",
+      "bytes": 1146,
+      "sha256": "8e7b59f460a1391dbd31886b14d7fa2ab207a63be8772979f2e227e95236bb69"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.B6BWn-J2.mjs",
+      "bytes": 46657,
+      "sha256": "0d5441780400019a1ea1ae052720fea8042c7007b93f24aaf989db677557461c"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/framer.diByu1Bi.mjs",
+      "bytes": 466484,
+      "sha256": "3f1faa600af154d5b4a4c81128c8508d56b4d300aa0e173ab509f3b019ed1bf2"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/motion.GI35TzF-.mjs",
+      "bytes": 181477,
+      "sha256": "088ffb02306ad0abc935eb929241e850ab7dd0c6045eb1cf73865ca4c3e70207"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/o48_KT6FD.BRDKI0Kj.mjs",
+      "bytes": 12427,
+      "sha256": "0b390bcd49877a576afc55f1ae15329949a557af7783405afffe181092223bfb"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/react.BmGYy3l6.mjs",
+      "bytes": 144819,
+      "sha256": "f1f8c9f702eba7bdb90400dc93d7f8af9d109379ae80e7cf6e82dba525dd0e74"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/rolldown-runtime.Bi-D_2cA.mjs",
+      "bytes": 244,
+      "sha256": "7d48d4b615c3c358e8f680a9f3c18dbde02e565848e8986462f8259b8f7c7daa"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/script_main.BNomxqwK.mjs",
+      "bytes": 575916,
+      "sha256": "e4db1876bdec09b0506653b72551ed2bf9d39cba8bb12c6a3e871c22219ee60b"
+    },
+    {
+      "path": "artifacts/research/2026-10-24-benchmark-check/zapier/xa5hJr5FZ.A5JXQein.mjs",
+      "bytes": 13134,
+      "sha256": "8b54b373894ca0f6cf73b4392314c56d8f61f171d855487290465f6c4b210113"
+    }
+  ]
+}

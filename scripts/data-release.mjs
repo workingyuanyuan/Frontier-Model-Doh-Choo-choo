@@ -216,11 +216,24 @@ export const runRelease = async () => {
   const baselineDir = `${runDir}/baseline`;
   saveBaseline(join(root, baselineDir));
 
+  // Compare with the committed product: a failed earlier run may already have
+  // rewritten the working copy, which would hide this run's changes.
   let previous = null;
   try {
-    previous = readJson('data/product/current.json');
+    previous = JSON.parse(
+      execFileSync('git', ['show', 'HEAD:data/product/current.json'], {
+        cwd: root,
+        encoding: 'utf8',
+        maxBuffer: 256 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }),
+    );
   } catch {
-    // A missing or unreadable product still gets rebuilt; the diff is skipped.
+    try {
+      previous = readJson('data/product/current.json');
+    } catch {
+      // A missing or unreadable product still gets rebuilt; the diff is skipped.
+    }
   }
   const startState = computeReleaseState(root);
   const receipt = {
@@ -325,15 +338,18 @@ export const runRelease = async () => {
     receipt.finishedAt = new Date().toISOString();
     let diff = null;
     let inferences = [];
+    let skipped = [];
     if (receipt.status === 'complete' && previous !== null) {
       const next = readJson('data/product/current.json');
       diff = diffProducts(previous, next);
       inferences = defaultPresetInferences(root, next);
-      writeJsonAtomic(`${runDir}/diff.json`, { diff, inferences });
+      skipped =
+        readJson('data/mappings/frontier-set.json').eligibility?.skipped ?? [];
+      writeJsonAtomic(`${runDir}/diff.json`, { diff, inferences, skipped });
     }
     writeFileSync(
       join(root, runDir, 'report.md'),
-      renderReleaseMarkdown({ receipt, diff, inferences }),
+      renderReleaseMarkdown({ receipt, diff, inferences, skipped }),
     );
     persist();
     releaseLock();

@@ -1,7 +1,7 @@
 /** Resource policy shared by every provider adapter. Values are bytes/counts/ms. */
 export const DEFAULT_ACQUISITION_LIMITS = Object.freeze({
   responseBytes: 32 * 1024 * 1024,
-  totalBytes: 512 * 1024 * 1024,
+  totalBytes: 2 * 1024 * 1024 * 1024,
   requests: 1024,
   discoveredItems: 512,
   concurrency: 6,

@@ -16,8 +16,7 @@ describe('published frontier comparison', () => {
       selected,
       benchmarkDimensions,
     );
-    // The default grows from eight models while the common-test count holds.
-    expect(product.defaultPresetId).toBe('aa-top-9');
+    expect(product.activePreset.id).toBe(product.defaultPresetId);
     expect(comparison.benchmarkIds).toEqual(
       [...product.activePreset.benchmarkIds].sort(),
     );

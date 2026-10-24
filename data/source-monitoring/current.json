@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-23T10:51:58.743Z",
+  "checkedAt": "2026-10-24T07:54:25.832Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -21,262 +21,17 @@
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-23T09:34:45.818Z",
+      "checkedAt": "2026-10-24T07:54:25.832Z",
       "error": null,
       "findings": [
         {
-          "benchmarkId": "aa-briefcase",
-          "detail": "171 -> 191; missing 10: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "aa-lcr",
-          "detail": "(unknown), v1.1 -> v1.1",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "aa-lcr",
-          "detail": "179 -> 201; missing 12: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "aa-omniscience",
-          "detail": "358 -> 402; missing 8: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"GLM 5.3 Flash\",null,null,null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,null,null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",null,null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "apex-agents",
-          "detail": "22 -> 22; missing 1: [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "artificial-analysis-intelligence-index",
-          "detail": "178 -> 200; missing 3: [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "critpt",
-          "detail": "180 -> 202; missing 12: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "170 -> 188; missing 9: [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"GLM 5.3 Flash\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"MiniMax-M3\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"Mistral Medium 3.5\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "gdpval-aa",
-          "detail": "Previously 174 rows; now absent from materialized snapshot.",
-          "kind": "benchmark-disappeared"
-        },
-        {
-          "benchmarkId": "gpqa-diamond",
-          "detail": "134 -> 143; missing 10: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "humanitys-last-exam",
-          "detail": "179 -> 201; missing 12: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "ifbench",
-          "detail": "62 -> 69; missing 4: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.3 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "scicode",
-          "detail": "172 -> 190; missing 9: [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "tau3-banking",
-          "detail": "130 -> 135; missing 8: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "terminal-bench-2-1",
-          "detail": "130 -> 137; missing 8: [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM 5.3 Flash\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Ultra 550B A55B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "aa-3d",
-          "detail": "https://artificialanalysis.ai/evaluations/aa-3d",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "aa-analyst-agent",
-          "detail": "AA-AnalystAgent Benchmark Leaderboard [unknown] -> AA-AnalystAgent [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "aa-briefcase",
-          "detail": "AA-Briefcase v1.1: Agentic Knowledge Work Benchmark [v1.1] -> AA-Briefcase v1.1 [v1.1]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "aa-personalitybench",
-          "detail": "https://artificialanalysis.ai/evaluations/aa-personalitybench",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "aime-2025",
-          "detail": "AIME 2025 Benchmark Leaderboard [unknown] -> AIME 2025 [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "apex-agents-aa",
-          "detail": "APEX-Agents-AA Benchmark Leaderboard [unknown] -> APEX-Agents-AA [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "artificial-analysis-long-context-reasoning",
-          "detail": "Artificial Analysis Long Context Reasoning Benchmark Leaderboard [unknown] -> AA-LCR v1.1 [v1.1]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "automationbench-aa",
-          "detail": "AutomationBench-AA: Agentic SaaS Workflow Benchmark [unknown] -> AutomationBench-AA [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "critpt",
-          "detail": "CritPt Benchmark Leaderboard [unknown] -> CritPt [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "critpt-v2",
-          "detail": "https://artificialanalysis.ai/evaluations/critpt-v2",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "enterprise-ops-gym-aa",
-          "detail": "EnterpriseOps-Gym-AA Benchmark Leaderboard [unknown] -> EnterpriseOps-Gym-AA [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "frontiercode",
-          "detail": "https://artificialanalysis.ai/evaluations/frontiercode",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf Benchmark Leaderboard [unknown] -> GDP.pdf [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdpval-aa",
-          "detail": "GDPval-AA v2.1 Leaderboard [v2.1] -> GDPval-AA v2.1 [v2.1]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "global-mmlu-lite",
-          "detail": "Global-MMLU-Lite Benchmark Leaderboard [unknown] -> Global-MMLU-Lite [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gpqa-diamond",
-          "detail": "GPQA Diamond Benchmark Leaderboard [unknown] -> GPQA Diamond [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "harvey-lab-aa",
-          "detail": "Harvey LAB-AA Benchmark Leaderboard [unknown] -> Harvey LAB-AA v1.1 [v1.1]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "healthbench",
-          "detail": "https://artificialanalysis.ai/evaluations/healthbench",
-          "kind": "catalog-added"
+          "benchmarkId": "mmlu-pro",
+          "detail": "3 rows; 3 included",
+          "kind": "benchmark-materialized"
         },
         {
           "benchmarkId": "healthbench-professional",
-          "detail": "https://artificialanalysis.ai/evaluations/healthbench-professional",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "humanitys-last-exam",
-          "detail": "Humanity's Last Exam Benchmark Leaderboard [unknown] -> Humanity's Last Exam [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "ifbench",
-          "detail": "IFBench Benchmark Leaderboard [unknown] -> IFBench [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "itbench-aa",
-          "detail": "ITBench-AA Benchmark Leaderboard [unknown] -> ITBench-AA [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "livecodebench",
-          "detail": "LiveCodeBench Benchmark Leaderboard [unknown] -> LiveCodeBench [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "math-500",
-          "detail": "MATH-500 Benchmark Leaderboard [unknown] -> MATH-500 [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "mlcr-aa",
-          "detail": "Medical Long Context Reasoning (MLCR-AA) [unknown] -> MLCR-AA [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "mmlu-pro",
-          "detail": "MMLU-Pro Benchmark Leaderboard [unknown] -> MMLU-Pro [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "mmmu-pro",
-          "detail": "MMMU-Pro Benchmark Leaderboard [unknown] -> MMMU-Pro [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "omniscience",
-          "detail": "AA-Omniscience: Knowledge and Hallucination Benchmark [unknown] -> AA-Omniscience [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "scicode",
-          "detail": "SciCode Benchmark Leaderboard [unknown] -> SciCode [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "tau2-bench",
-          "detail": "𝜏²-Bench Telecom Benchmark Leaderboard [unknown] -> 𝜏²-Bench Telecom [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "tau3-banking",
-          "detail": "𝜏³-Banking Benchmark Leaderboard [unknown] -> 𝜏³-Banking [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "terminal-bench-science",
-          "detail": "Terminal-Bench-Science 0.1 Benchmark Leaderboard [v0.1] -> Terminal-Bench-Science 0.1 [v0.1]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "terminalbench-2-1",
-          "detail": "Terminal-Bench 2.1 Benchmark Leaderboard [v2.1] -> Terminal-Bench 2.1 [v2.1]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "terminalbench-4-0",
-          "detail": "Terminal-Bench 4.0 Benchmark Leaderboard [v4.0] -> Terminal-Bench 4.0 [v4.0]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "terminalbench-hard",
-          "detail": "Terminal-Bench Hard Benchmark Leaderboard [unknown] -> Terminal-Bench Hard [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "artificial-analysis-openness-index",
-          "detail": "No longer linked by directory: https://artificialanalysis.ai/evaluations/artificial-analysis-openness-index",
+          "detail": "No longer linked by directory: https://artificialanalysis.ai/evaluations/healthbench-professional",
           "kind": "catalog-link-disappeared"
         },
         {
@@ -320,11 +75,6 @@
           "kind": "unintegrated"
         },
         {
-          "benchmarkId": "gdpval-aa",
-          "detail": "https://artificialanalysis.ai/evaluations/gdpval-aa",
-          "kind": "supported-no-scores"
-        },
-        {
           "benchmarkId": "global-mmlu-lite",
           "detail": "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
           "kind": "unintegrated"
@@ -337,11 +87,6 @@
         {
           "benchmarkId": "healthbench",
           "detail": "https://artificialanalysis.ai/evaluations/healthbench",
-          "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "healthbench-professional",
-          "detail": "https://artificialanalysis.ai/evaluations/healthbench-professional",
           "kind": "unintegrated"
         },
         {
@@ -358,11 +103,6 @@
           "benchmarkId": "mlcr-aa",
           "detail": "https://artificialanalysis.ai/evaluations/mlcr-aa",
           "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "mmlu-pro",
-          "detail": "https://artificialanalysis.ai/evaluations/mmlu-pro",
-          "kind": "supported-no-scores"
         },
         {
           "benchmarkId": "mmmu-pro",
@@ -536,7 +276,7 @@
           "captureRegistered": true,
           "id": "gdpval-aa",
           "reason": null,
-          "status": "supported-no-scores",
+          "status": "scored",
           "title": "GDPval-AA v2.1",
           "url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
           "version": "v2.1"
@@ -579,16 +319,6 @@
           "status": "unintegrated",
           "title": "HealthBench",
           "url": "https://artificialanalysis.ai/evaluations/healthbench",
-          "version": null
-        },
-        {
-          "benchmarkId": null,
-          "captureRegistered": false,
-          "id": "healthbench-professional",
-          "reason": null,
-          "status": "unintegrated",
-          "title": "HealthBench Professional",
-          "url": "https://artificialanalysis.ai/evaluations/healthbench-professional",
           "version": null
         },
         {
@@ -656,7 +386,7 @@
           "captureRegistered": true,
           "id": "mmlu-pro",
           "reason": null,
-          "status": "supported-no-scores",
+          "status": "scored",
           "title": "MMLU-Pro",
           "url": "https://artificialanalysis.ai/evaluations/mmlu-pro",
           "version": null
@@ -753,7 +483,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:33:56.709Z",
+      "snapshotObservedAt": "2026-10-24T07:41:32.059Z",
       "sourceId": "artificial-analysis"
     },
     {
@@ -823,58 +553,12 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-10-23T10:51:58.743Z",
+      "checkedAt": "2026-10-24T07:54:25.832Z",
       "error": null,
-      "findings": [
-        {
-          "benchmarkId": "livebench-reasoning",
-          "detail": "2026-06-25 -> 2026-06-25, 2026-10-14",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-reasoning",
-          "detail": "category-average:percent:true -> category-average:percent:true, suite-score:percent:true",
-          "kind": "metrics-changed"
-        },
-        {
-          "benchmarkId": "livebench-reasoning",
-          "detail": "66 -> 49 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "livebench-browser",
-          "detail": "49 rows; 49 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "livebench-coding",
-          "detail": "49 rows; 49 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "livebench-data-analysis",
-          "detail": "49 rows; 49 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "livebench-design",
-          "detail": "49 rows; 49 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "livebench-long-agentic",
-          "detail": "49 rows; 49 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "livebench-research",
-          "detail": "49 rows; 49 included",
-          "kind": "benchmark-materialized"
-        }
-      ],
+      "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T10:51:57.763Z",
+      "snapshotObservedAt": "2026-10-24T07:40:25.201Z",
       "sourceId": "livebench"
     },
     {
@@ -2319,173 +2003,23 @@
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-23T09:43:01.426Z",
+      "checkedAt": "2026-10-24T07:54:25.832Z",
       "error": null,
       "findings": [
         {
-          "benchmarkId": "hlab",
-          "detail": "1 -> 1.1",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "hlab",
-          "detail": "43 -> 10; missing 35: alibaba-qwen3-6-plus, alibaba-qwen3-7-max, alibaba-qwen3-7-plus, alibaba-qwen3-8-27b, alibaba-qwen3-8-max, anthropic-claude-fable-5, anthropic-claude-fable-5-1, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, deepseek-deepseek-v4-pro, google-gemini-3-1-pro-preview, google-gemini-3-5-flash, google-gemini-3-5-flash-lite, google-gemini-3-6-flash, google-gemini-3-7-flash, meta-muse-spark-1-1, meta-muse-spark-1-2, meta-muse-spark-1-3, minimax-minimax-m3, moonshot-kimi-k2-6, nvidia-nemotron-3-ultra, openai-gpt-5-4-mini, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-5-6-terra, openai-gpt-6-sol, xai-grok-4-5, xai-grok-4-6, xiaomi-mimo-v2-5-pro, zai-glm-5-1, zai-glm-5-2",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "hlab",
-          "detail": "74 -> 27; missing 57: [\"alibaba/qwen3.6-plus\",null,null,null,null,null,null,null], [\"alibaba/qwen3.7-max\",null,null,null,null,null,null,null], [\"alibaba/qwen3.7-plus\",null,null,null,null,null,null,null], [\"alibaba/qwen3.8-27b\",\"xhigh\",null,null,null,null,null,null], [\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null], [\"ant/ling-3.0-flash-2607\",null,null,null,null,null,null,null], [\"ant/ling-3.0-flash-af-rc3\",null,null,null,null,null,null,null], [\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-7\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-8\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-6\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null], [\"deepseek/deepseek-v4-flash-0731\",\"high\",null,null,null,null,null,null], [\"deepseek/deepseek-v4-pro\",\"max\",null,null,null,null,null,null], [\"deepseek/deepseek-v4.1-flash\",\"max\",null,null,null,null,null,null], [\"fireworks/ember-1\",null,null,null,null,null,null,null], [\"fireworks/nemotron-lightning-3p5-30b-a3b\",null,null,null,null,null,null,null], [\"google/gemini-3-flash-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.1-flash-lite-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.1-pro-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.5-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.5-flash-lite\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.6-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.20-0309-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4.3\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.5\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.6\",\"high\",null,null,null,null,null,null], [\"inception/mercury-2.5\",\"high\",null,null,null,null,null,null], [\"kimi/kimi-k2.5-thinking\",null,null,null,null,null,null,null], [\"kimi/kimi-k2.6\",null,null,null,null,null,null,null], [\"meta/muse_spark_1_1\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_2\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_3\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_3_max\",\"max\",null,null,null,null,null,null], [\"minimax/MiniMax-M2.7\",null,null,null,null,null,null,null], [\"minimax/MiniMax-M3\",null,null,null,null,null,null,null], [\"mistralai/mistral-medium-3.5\",\"high\",null,null,null,null,null,null], [\"nvidia/nemotron-3-ultra-550b-a55b\",null,null,null,null,null,null,null], [\"openai/gpt-5.4-2026-03-05\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-nano-2026-03-17\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.5\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.6-luna\",\"max\",null,null,null,null,null,null], [\"openai/gpt-5.6-sol\",\"max\",null,null,null,null,null,null], [\"openai/gpt-5.6-terra\",\"max\",null,null,null,null,null,null], [\"openai/gpt-6-sol\",\"max\",null,null,null,null,null,null], [\"poolside/laguna-m.1\",null,null,null,null,null,null,null], [\"poolside/laguna-xs.2\",null,null,null,null,null,null,null], [\"stepfun/step-5-preview\",null,null,null,null,null,null,null], [\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null], [\"xiaomi/mimo-v2.5-pro\",null,null,null,null,null,null,null], [\"zai/glm-5.1\",null,null,null,null,null,null,null], [\"zai/glm-5.2\",null,null,null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "hlab",
-          "detail": "74 -> 27 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "ioi",
-          "detail": "40 -> 45; missing 1: [\"deepseek/deepseek-v4.1-flash\",\"high\",null,null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "tax-agent-bench",
-          "detail": "65 -> 75; missing 1: [\"deepseek/deepseek-v4.1-flash\",\"high\",null,null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "vals-index",
-          "detail": "2.1 -> 2.2",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "vals-index",
-          "detail": "29 -> 10; missing 21: alibaba-qwen3-8-max, anthropic-claude-fable-5, anthropic-claude-fable-5-1, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-5, deepseek-deepseek-v4-pro, google-gemini-3-1-pro-preview, google-gemini-3-5-flash, google-gemini-3-7-flash, meta-muse-spark-1-2, meta-muse-spark-1-3, minimax-minimax-m3, openai-gpt-5-4-mini, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-5-6-terra, openai-gpt-6-sol, xai-grok-4-5, xai-grok-4-6, xiaomi-mimo-v2-5-pro",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "vals-index",
-          "detail": "43 -> 26; missing 27: [\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null], [\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-8\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null], [\"deepseek/deepseek-v4-flash-0731\",\"high\",null,null,null,null,null,null], [\"deepseek/deepseek-v4-pro\",\"max\",null,null,null,null,null,null], [\"deepseek/deepseek-v4.1-flash\",\"high\",null,null,null,null,null,null], [\"fireworks/ember-1\",null,null,null,null,null,null,null], [\"google/gemini-3.1-pro-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.5-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.5\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.6\",\"high\",null,null,null,null,null,null], [\"inception/mercury-2.5\",\"high\",null,null,null,null,null,null], [\"meta/muse_spark_1_2\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_3\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_3_max\",\"max\",null,null,null,null,null,null], [\"minimax/MiniMax-M3\",null,null,null,null,null,null,null], [\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.6-luna\",\"max\",null,null,null,null,null,null], [\"openai/gpt-5.6-sol\",\"max\",null,null,null,null,null,null], [\"openai/gpt-5.6-terra\",\"max\",null,null,null,null,null,null], [\"openai/gpt-6-sol\",\"max\",null,null,null,null,null,null], [\"stepfun/step-5-preview\",null,null,null,null,null,null,null], [\"xiaomi/mimo-v2.5-pro\",null,null,null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "claimbench",
-          "detail": "23 rows; 0 included",
+          "benchmarkId": "legal-index",
+          "detail": "27 rows; 0 included",
           "kind": "benchmark-materialized"
         },
         {
-          "benchmarkId": "code-migration-v1-1",
-          "detail": "28 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "emb-v1-1",
-          "detail": "32 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "fabv2-1",
-          "detail": "30 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "finance-index",
-          "detail": "30 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "hlab-v1",
-          "detail": "81 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "robo-bench",
-          "detail": "7 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "science-index",
-          "detail": "22 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "swebench-multimodal",
-          "detail": "20 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "claimbench",
-          "detail": "https://www.vals.ai/benchmarks/claimbench",
+          "benchmarkId": "inference_provider",
+          "detail": "https://www.vals.ai/benchmarks/inference_provider",
           "kind": "catalog-added"
         },
         {
-          "benchmarkId": "code-migration-v1-1",
-          "detail": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "benchmarkId": "legal_index",
+          "detail": "https://www.vals.ai/benchmarks/legal_index",
           "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "emb-v1-1",
-          "detail": "https://www.vals.ai/benchmarks/emb-v1-1",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "fabv2-1",
-          "detail": "https://www.vals.ai/benchmarks/fabv2-1",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "finance_index",
-          "detail": "https://www.vals.ai/benchmarks/finance_index",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "hlab",
-          "detail": "Harvey's Legal Agent Benchmark [unknown] -> HLAB-Vals-1.1 [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hlab-v1",
-          "detail": "https://www.vals.ai/benchmarks/hlab-v1",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "ioi",
-          "detail": "IOI [unknown] -> IOI v2 [v2]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "mental-health",
-          "detail": "https://www.vals.ai/benchmarks/mental-health",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "robo_bench",
-          "detail": "https://www.vals.ai/benchmarks/robo_bench",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "science_index",
-          "detail": "https://www.vals.ai/benchmarks/science_index",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "swebench-multimodal",
-          "detail": "https://www.vals.ai/benchmarks/swebench-multimodal",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "terminal-bench-science",
-          "detail": "Terminal-Bench Science [unknown] -> Terminal-Bench-Science [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "vals_router_index",
-          "detail": "https://www.vals.ai/benchmarks/vals_router_index",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "web_search",
-          "detail": "Web Search Index [unknown] -> Vals Web Search Index [unknown]",
-          "kind": "catalog-metadata-changed"
         },
         {
           "benchmarkId": "aime",
@@ -2528,14 +2062,14 @@
           "kind": "captured-not-scored"
         },
         {
-          "benchmarkId": "finance_index",
-          "detail": "https://www.vals.ai/benchmarks/finance_index",
-          "kind": "captured-not-scored"
-        },
-        {
           "benchmarkId": "hlab-v1",
           "detail": "https://www.vals.ai/benchmarks/hlab-v1",
           "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "inference_provider",
+          "detail": "https://www.vals.ai/benchmarks/inference_provider",
+          "kind": "unintegrated"
         },
         {
           "benchmarkId": "math500",
@@ -2783,8 +2317,8 @@
           "benchmarkId": "finance-index",
           "captureRegistered": true,
           "id": "finance_index",
-          "reason": null,
-          "status": "captured-not-scored",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
           "title": "Vals Finance Index",
           "url": "https://www.vals.ai/benchmarks/finance_index",
           "version": null
@@ -2820,6 +2354,16 @@
           "version": "v1"
         },
         {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "inference_provider",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals Inference Provider Index",
+          "url": "https://www.vals.ai/benchmarks/inference_provider",
+          "version": null
+        },
+        {
           "benchmarkId": "ioi",
           "captureRegistered": true,
           "id": "ioi",
@@ -2847,6 +2391,16 @@
           "status": "scored",
           "title": "LegalBench",
           "url": "https://www.vals.ai/benchmarks/legal_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-index",
+          "captureRegistered": true,
+          "id": "legal_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Legal Index",
+          "url": "https://www.vals.ai/benchmarks/legal_index",
           "version": null
         },
         {
@@ -3231,7 +2785,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:42:52.954Z",
+      "snapshotObservedAt": "2026-10-24T07:40:28.673Z",
       "sourceId": "vals-ai"
     },
     {

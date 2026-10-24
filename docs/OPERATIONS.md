@@ -2,7 +2,7 @@
 
 ## 前沿集合政策產物
 
-正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生前 2～10 名的拉桿集合，`aa-frontier` 預設為前 8 名；排名資料驗證失敗時停止。
+正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生合格前沿模型前 2～10 名的拉桿集合；預設集合從前 8 名（`aa-frontier`）開始，共同測試數相同時延伸，規則見[前沿政策](FRONTIER_POLICY.md#模型資格)。排名資料驗證失敗時停止。
 
 依 [前沿政策](FRONTIER_POLICY.md)，`pnpm data:generate-frontier-set` 會產生 `data/mappings/frontier-set.json` 及同目錄的 `frontier-selection-audit.json`，產品建置則會再次呼叫同一生成器並寫入這兩份檔案，再由本次 cohorts 建立記憶體中的 display set，驗證後建立產品。日常資料發布統一透過 `pnpm data:release` 依序執行來源與證據核對、前沿集合產生與 audit 狀態檢查、產品重建、可重現性驗證、靜態網站建置與 e2e 測試；集合與產品差異的人工審閱移至事後的刷新報告。完整輸入、寫入範圍與停止條件見 §3。
 
@@ -19,6 +19,17 @@
 全站更新以 `data/mappings/sources.json` 的現役來源為範圍；指定來源或離線修正則記錄範圍與其餘快照日期。擷取修正必須以修正後的程式重新物化受影響資料。只要改動了來源快照、會被讀取的 mapping 或 `packages/benchmark-data/src/` 的計分／建置程式，就必須在同一次任務內執行 `pnpm data:release`；只讀來源、改好 parser、通過單元測試或成功建置舊產品，都不足以宣告更新完成。
 
 代理負責完成可由程式、artifact 與公開證據裁決的檢查。完成證據包含各來源快照與驗證結果、`artifacts/releases/<run-id>/` 的 `receipt.json`（`status: "complete"`）與 `report.md`、重產集合、產品 `versionId`、靜態建置與瀏覽器測試結果，以及 §5 的影響判斷和 §6 的刷新報告。若 `pnpm data:release` 失敗且無法在任務內排除，必須把 receipt、失敗步驟與錯誤訊息如實交給使用者，不可宣稱已完成。使用者收到的應是可審核、可部署的結果。
+
+### 每日 benchmark 查核的兩份文件
+
+每日查核會產生兩種紀錄，分工不同：
+
+| 文件                                                                     | 內容                                                                                                                                                                           | 何時產生                   |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| `docs/research/<YYYY-MM-DD>-benchmark-update-check.md`（附同名 `.json`） | 聯網查核：上游新 benchmark、新模型、方法或版本變更，範圍不限於現役來源。原始擷取放在 `artifacts/research/<YYYY-MM-DD>-benchmark-check/`，JSON 保存逐欄差異、來源時間與 SHA-256 | 每次查核                   |
+| `docs/refresh/<YYYY-MM-DD>.md`                                           | 資料更新審核：匯入現役來源後 `pnpm data:release` 的結果、產品差異與抽查清單（§6）                                                                                              | 有匯入或重新物化現役來源時 |
+
+查核發現現役來源有變，才進入匯入與 `pnpm data:release`；只有非現役來源的消息時，寫查核文件即可。
 
 機械驗證通過與使用者核准是兩件事：`complete` 只代表機械檢查通過，receipt 的 `review` 欄固定為 `pending-user-review`。來源刷新、產品重建與發布是分開的操作；資料提交（含 `data/product/current.json`）需使用者審核後明確指示，push、deploy、release 依使用者明確授權執行。來源、模型與計分政策的變更需有使用者裁決。
 
@@ -54,7 +65,7 @@ pnpm exec playwright install --with-deps chromium
 
 | 項目                   | 預設上限        |
 | ---------------------- | --------------- |
-| 單一回應／整次下載量   | 32 MiB／512 MiB |
+| 單一回應／整次下載量   | 32 MiB／2 GiB   |
 | 請求數（含重新導向）   | 1,024           |
 | 探索項目／批次並行數   | 512／6          |
 | 單次請求／整次刷新時間 | 120 秒／30 分鐘 |
@@ -86,7 +97,7 @@ HTML。ESLint 會攔截 adapter 直接使用 fetch 或底層網路／ZIP 套件�
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<2.0 rows> --visual-v1-profile-count=<1.0 rows>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count <count> --visual-top-ten-matched
+pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count=<count> --visual-top-ten-matched
 pnpm --filter @llm-bench/acquisition materialize:frontier-swe
 pnpm --filter @llm-bench/acquisition materialize:chartography -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:complex-constraints -- --visual-row-count=<count>
@@ -104,7 +115,7 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 
 ### 來源變更監測
 
-上述 17 個線上刷新命令已透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
+上述命令中，除了離線產生檔位推測報告的 `materialize:effort-reports`，其餘 17 個線上刷新命令都透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
 
 AA、Vals、Surge 另擷取即時官方 benchmark 目錄，比較新增、移除連結及名稱／版本異動。Vals 既有的動態頁面擷取照常運作。其他現役來源目前比較刷新前後的已物化快照；報告的 `scope` 明確標示此範圍，不能據此宣稱已掃描其上游所有新 benchmark。
 
@@ -177,13 +188,18 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 - 官方母體、分頁或人眼可見列數與取得列數已對照。
 - 結構化資料與畫面衝突已揭露，沒有模糊 identity 猜測。
 
-來源刷新失敗時停止本次資料建立；既有 `current.json` 不受影響。
+來源刷新失敗時，refresh 腳本在通過檢查前不寫入，該來源保留上一份快照；既有 `current.json` 不受影響。依失敗原因處理：
+
+- **上游與 adapter 不符**（版面改版、母體或列數互相矛盾等公開資料問題），且已確認不是本專案程式錯誤：可以沿用該來源的舊快照，繼續其他來源與 `pnpm data:release`。刷新報告的「已知未解」必須寫明失敗命令、錯誤訊息、上游證據與沿用快照的日期。若要放寬 adapter 的採用規則，屬於來源採用規則的變更，交使用者決定。
+- **其他失敗**（網路、權限、預算限制、本專案程式錯誤、證據庫驗證失敗）：先排除再繼續，不得以舊快照帶過。
+
+`pnpm data:release` 的 `sources` 步驟會再核對每個現役來源的快照與 artifact 一致，半寫入的快照不會通過。
 
 ## 3. 重產集合與建立目前版本
 
-正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照重新選取同版 AA Intelligence Index 前十名，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、AA 勝出 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets，預設前 8 名的 ID 為 `aa-frontier`。
+正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、AA 勝出 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets；前 8 名的 ID 為 `aa-frontier`，實際預設集合記錄在 `defaultPresetId`。
 
-模型數範圍 2～10 與預設 8 是目前核准設定；2026-10-04 基準資料的預設集合含 17 項共同測試，是快照與品質政策計算的結果。後續依本次輸入重算，報告實際增減及 evidence，不把 17 當成固定門檻。
+模型數範圍 2～10 與預設從 8 開始延伸是目前核准設定；2026-10-04 基準資料的預設集合含 17 項共同測試，是快照與品質政策計算的結果。後續依本次輸入重算，報告實際增減及 evidence，不把 17 當成固定門檻。
 
 ### 輸入與命令的寫入範圍
 
@@ -219,7 +235,7 @@ pnpm data:release
 每次執行都會寫入 `artifacts/releases/<run-id>/`（且 `artifacts/releases/latest.json` 指向最近一次）：
 
 - `receipt.json`：記錄狀態（`complete`／`failed`）、`review`（固定為 `pending-user-review`）、各步驟退出碼與耗時、新舊 `versionId`、`inputs`／`outputs`／`implementation` 三組摘要與靜態匯出摘要（`exportDigest`）。
-- `report.md`：自動產出新舊版本差異，包含計數、來源快照、AA 前十、各集合的 benchmark 增減與模型進出／名次／Overall 變化，以及進入預設集合的 effort 推測。
+- `report.md`：自動產出與 **HEAD 已提交的 `current.json`** 相比的差異（HEAD 沒有該檔時才改用執行前的工作區檔案），所以前一次失敗的 release 即使已改寫工作區產品，也不會讓差異消失。內容包含計數、來源快照、合格前沿模型與被資格規則略過的模型、各集合的 benchmark 增減與模型進出／名次／Overall 變化，以及進入預設集合的 effort 推測。
 - `baseline/`：執行前的 `current.json`、frontier、audit 與 mapping 副本。
 - `logs/`：各步驟的完整輸出 log。
 
@@ -231,7 +247,7 @@ pnpm data:release
 
 判定是否繼續以 audit 最外層 `status` 為準：`selected` 表示本次排名及共同集合已通過生成器檢查，`needs-review` 表示停止並處理問題。內層 `gapAudit` 僅保存斷層計算供參考，其 `needs-review` 不會單獨阻擋目前固定前 2～10 名的政策。
 
-AA 版本不可比較、前十名身分未解析、樣本不足或無法產生共同合格測試時，生成器寫入 `needs-review` audit 並回傳非零狀態（`pnpm data:release` 會在 `frontier` 或 `product` 步驟失敗並寫入 `status: "failed"` 的 receipt），保留原成功的 `frontier-set.json`。較早的讀檔／schema 錯誤可能尚未寫入新 audit，因此既有 `selected` 不能抵銷本次命令失敗。停止產品建立，保存 receipt、命令、退出碼、錯誤及本次 audit，先排除資料／實作問題；仍需政策裁決時交付具體證據。
+AA 版本不可比較、前十名或合格前沿窗口內有未解析身分、合格模型不足十個、樣本不足或無法產生共同合格測試時，生成器寫入 `needs-review` audit 並回傳非零狀態（`pnpm data:release` 會在 `frontier` 或 `product` 步驟失敗並寫入 `status: "failed"` 的 receipt），保留原成功的 `frontier-set.json`。較早的讀檔／schema 錯誤可能尚未寫入新 audit，因此既有 `selected` 不能抵銷本次命令失敗。停止產品建立，保存 receipt、命令、退出碼、錯誤及本次 audit，先排除資料／實作問題；仍需政策裁決時交付具體證據。
 
 產品驗證失敗發生在 `current.json` 寫入之前，保留現有產品；但成功生成的 frontier／audit 可能已更新。這些檔案與產品不是一次原子寫入，遇到 I/O 失敗須比對 `baseline/` 與保存基準確認各檔案狀態。生成命令會覆寫工作區集合／audit；匯入前的獨立基準副本、`artifacts/releases/<run-id>/baseline/` 及 Git 中已保存的歷史版本必須保留，不以新結果覆蓋歷史審核證據。
 
@@ -319,7 +335,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 每次資料更新在完成 §2–5 後，依下列程序交付：
 
 1. 刷新來源、依政策重產集合並執行 `pnpm data:build-current` 後，`data/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
-2. 產出 `docs/refresh/<YYYY-MM-DD>.md` 刷新審核報告（格式參考 [2026-08-20.md](refresh/2026-08-20.md)），內容必須涵蓋：
+2. 產出 `docs/refresh/<YYYY-MM-DD>.md` 刷新審核報告（格式參考最近一份報告，例如 [2026-10-23.md](refresh/2026-10-23.md)），內容必須涵蓋：
    - **舊／新 `versionId`**，以及模型數、排行榜列數、evidence 筆數、成本筆數各自的增減。
    - **主畫面的進出**：本次新進、退出主畫面的模型，各附原因（缺哪一格／補上哪一格）。
    - **§5 的完整差異與判斷依據**：主文摘要分數／名次變動最大者，附逐模型、逐集合對照；明確標示需使用者決定的事項。

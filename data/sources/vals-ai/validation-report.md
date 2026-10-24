@@ -1,22 +1,22 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:0cf855da802edf3be4b956308ceb70a4210f2ec6939c65c5b83130b87b9f2569`
-- Observed at: 2026-10-23T09:42:52.954Z
+- Index evidence: `sha256:04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d`
+- Observed at: 2026-10-24T07:40:28.673Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Benchmark slugs discovered from index | 58 |
-| Benchmark pages with BenchmarkView data | 55 |
-| CandidateResults | 3419 |
+| Benchmark slugs discovered from index | 60 |
+| Benchmark pages with BenchmarkView data | 56 |
+| CandidateResults | 3448 |
 | Included CandidateResults | 1989 |
-| Excluded CandidateResults | 1430 |
+| Excluded CandidateResults | 1459 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3270 |
+| CostRecords retained | 3298 |
 | Included vals_index CostRecords | 25 |
-| Canonically unresolved rows | 2102 |
-| Distinct canonically unresolved models | 232 |
+| Canonically unresolved rows | 2121 |
+| Distinct canonically unresolved models | 234 |
 
 ## Per-page completeness
 
@@ -25,7 +25,7 @@
 | `aime` | 96 | EXCLUDED |
 | `biomysterybench` | 28 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
-| `claimbench` | 23 | EXCLUDED |
+| `claimbench` | 25 | EXCLUDED |
 | `code-migration` | 79 | APPROVED |
 | `code-migration-v1-1` | 28 | EXCLUDED |
 | `corp_fin_v2` | 134 | APPROVED |
@@ -39,9 +39,11 @@
 | `gpqa` | 138 | APPROVED |
 | `hlab` | 27 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
+| `inference_provider` | 0 | EXCLUDED |
 | `ioi` | 45 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 151 | APPROVED |
+| `legal_index` | 27 | EXCLUDED |
 | `legal_research` | 84 | APPROVED |
 | `math500` | 60 | EXCLUDED |
 | `medcode` | 107 | APPROVED |
@@ -125,6 +127,8 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `fabv2-1`
 - `finance_index`
 - `hlab-v1`
+- `inference_provider`
+- `legal_index`
 - `math500`
 - `medqa`
 - `mental-health`
@@ -163,8 +167,8 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `cua_bench` (not auto-promoted)
 - `emb-v1-1` (not auto-promoted)
 - `fabv2-1` (not auto-promoted)
-- `finance_index` (not auto-promoted)
 - `hlab-v1` (not auto-promoted)
+- `inference_provider` (not auto-promoted)
 - `mental-health` (not auto-promoted)
 - `mysterymechanism` (not auto-promoted)
 - `public-benefits-bench-v1` (not auto-promoted)
@@ -182,6 +186,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 
 ## Pages without BenchmarkView data
 
+- `inference_provider`
 - `mental-health`
 - `rsi_index`
 - `vals_router_index`
@@ -250,6 +255,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - decision/decider-flash-v1.2
 - decision/decider-v1.1-27b
 - decision/decider-v1.2
+- decision/drex-max
 - decision/drex-v1.5
 - decision/drex-v2.0
 - decision/gpt-6-luna
@@ -258,6 +264,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - decision/mercury-decide
 - decision/microsoft-decision-1
 - decision/solar-decide
+- decision/solar-decide-flash
 - decision/tev1-4b-experimental
 - deepgram/flux-general-en
 - deepgram/nova-3-streaming
@@ -459,10 +466,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 47 | 58 | +11 |
-| CandidateResults | 3079 | 3419 | +340 |
-| CostRecords retained | 2946 | 3270 | +324 |
-| Canonically unresolved rows | 1889 | 2102 | +213 |
+| Benchmark slugs discovered from index | 58 | 60 | +2 |
+| CandidateResults | 3419 | 3448 | +29 |
+| CostRecords retained | 3270 | 3298 | +28 |
+| Canonically unresolved rows | 2102 | 2121 | +19 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -557,7 +564,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | minimax/MiniMax-M3 | `vals-ai:vals-multimodal-index:minimax-minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
 | minimax/MiniMax-M3 | `vals-ai:vcb-1-100:minimax-minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
 | minimax/MiniMax-M3 | `vals-ai:vibe-code-bench:minimax-minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| openai/gpt-5.2-codex | `vals-ai:livecodebench:openai-gpt-5-2-codex` | — | `xhigh` | surge-corecraft | surge-corecraft:enterprisebench-corecraft:gpt-5-2-codex-xhigh-reasoning |
+| openai/gpt-5.2-codex | `vals-ai:livecodebench:openai-gpt-5-2-codex` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-lcr:gpt-5-2-codex |
 | openai/gpt-5.4 | `vals-ai:vibe-code-bench:openai-gpt-5-4` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-92:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-92:1-0-6 |

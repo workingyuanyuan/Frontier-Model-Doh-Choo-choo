@@ -18,7 +18,7 @@
 
 依 [前沿政策](FRONTIER_POLICY.md) 使用 Artificial Analysis Intelligence Index 的明顯分差決定前沿模型。
 同一模型採 AA 分數最高的 effort profile。`pnpm data:build-current` 會重新產生前沿集合，
-排名資料驗證失敗時停止建置。拉桿提供 AA 前 2～10 名，預設 `aa-frontier` 為前 8 名；每組分別計算共同合格測試。
+排名資料驗證失敗時停止建置。拉桿提供合格前沿模型（AA 排名且有至少 2 個獨立組織的成績，見[前沿政策](FRONTIER_POLICY.md#模型資格)）的前 2～10 名；預設從前 8 名（`aa-frontier`）開始，共同測試數相同時延伸到更多模型。每組分別計算共同合格測試。
 
 ## 共同測試
 

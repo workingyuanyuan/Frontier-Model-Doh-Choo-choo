@@ -103,6 +103,12 @@
       "version": "v1"
     },
     {
+      "id": "inference_provider",
+      "title": "Vals Inference Provider Index",
+      "url": "https://www.vals.ai/benchmarks/inference_provider",
+      "version": null
+    },
+    {
       "id": "ioi",
       "title": "IOI v2",
       "url": "https://www.vals.ai/benchmarks/ioi",
@@ -118,6 +124,12 @@
       "id": "legal_bench",
       "title": "LegalBench",
       "url": "https://www.vals.ai/benchmarks/legal_bench",
+      "version": null
+    },
+    {
+      "id": "legal_index",
+      "title": "Vals Legal Index",
+      "url": "https://www.vals.ai/benchmarks/legal_index",
       "version": null
     },
     {
@@ -349,21 +361,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-23T09:43:01.426Z",
+  "checkedAt": "2026-10-24T07:54:25.832Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/0c/0cf855da802edf3be4b956308ceb70a4210f2ec6939c65c5b83130b87b9f2569.html",
-    "byteLength": 277677,
+    "artifactPath": "artifacts/sha256/04/04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d.html",
+    "byteLength": 286788,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:0cf855da802edf3be4b956308ceb70a4210f2ec6939c65c5b83130b87b9f2569",
+    "id": "sha256:04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-10-23T09:43:01.426Z",
+    "retrievedAt": "2026-10-24T07:54:25.832Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:0cf855da802edf3be4b956308ceb70a4210f2ec6939c65c5b83130b87b9f2569",
+    "sha256": "sha256:04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -828,6 +840,7 @@
           "[\"decision/decider-flash-v1.2\",null,null,null,null,null,null,null]",
           "[\"decision/decider-v1.1-27b\",null,null,null,null,null,null,null]",
           "[\"decision/decider-v1.2\",null,null,null,null,null,null,null]",
+          "[\"decision/drex-max\",null,null,null,null,null,null,null]",
           "[\"decision/drex-v1.5\",null,null,null,null,null,null,null]",
           "[\"decision/drex-v2.0\",null,null,null,null,null,null,null]",
           "[\"decision/gpt-6-luna\",null,null,null,null,null,null,null]",
@@ -836,6 +849,7 @@
           "[\"decision/mercury-decide\",null,null,null,null,null,null,null]",
           "[\"decision/microsoft-decision-1\",null,null,null,null,null,null,null]",
           "[\"decision/solar-decide\",null,null,null,null,null,null,null]",
+          "[\"decision/solar-decide-flash\",null,null,null,null,null,null,null]",
           "[\"decision/tev1-4b-experimental\",null,null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]"
@@ -853,6 +867,7 @@
           "decision/decider-flash-v1.2",
           "decision/decider-v1.1-27b",
           "decision/decider-v1.2",
+          "decision/drex-max",
           "decision/drex-v1.5",
           "decision/drex-v2.0",
           "decision/gpt-6-luna",
@@ -861,11 +876,12 @@
           "decision/mercury-decide",
           "decision/microsoft-decision-1",
           "decision/solar-decide",
+          "decision/solar-decide-flash",
           "decision/tev1-4b-experimental",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol"
         ],
-        "rows": 23,
+        "rows": 25,
         "sourceUrls": ["https://www.vals.ai/benchmarks/claimbench"],
         "versions": ["1"]
       },
@@ -3456,6 +3472,84 @@
         ],
         "rows": 151,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_bench"],
+        "versions": ["1"]
+      },
+      {
+        "id": "legal-index",
+        "includedRows": 0,
+        "metrics": ["accuracy:percent:true"],
+        "models": [
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
+          "meta-muse-wonder",
+          "meta-muse-wonder-full",
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-luna",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
+          "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
+          "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
+          "[\"reflection/Beam-1.0\",null,null,null,null,null,null,null]",
+          "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
+          "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
+          "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]",
+          "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
+          "[\"zai/glm-5.3\",\"max\",null,null,null,null,null,null]",
+          "[\"zai/glm-5.3-flash\",\"max\",null,null,null,null,null,null]"
+        ],
+        "rawLabels": [
+          "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-haiku-5-5",
+          "anthropic/claude-opus-5-5",
+          "anthropic/claude-sonnet-5-5",
+          "deepseek/deepseek-v4-pro-0813",
+          "deepseek/deepseek-v4.1-flash-1017",
+          "google/gemini-3.8-flash",
+          "google/gemini-4-argon",
+          "grok/grok-4.7",
+          "inception/mercury-3",
+          "kimi/kimi-k3",
+          "meta/muse-spark-open",
+          "meta/muse-wonder",
+          "meta/muse-wonder-full",
+          "minimax/MiniMax-M3.1-flash",
+          "mistralai/mistral-large-4",
+          "openai/gpt-6-astra",
+          "openai/gpt-6-luna",
+          "openai/gpt-6.1-sol",
+          "reflection/Beam-1.0",
+          "tencent/hy4-preview",
+          "thinkingmachines/inkling",
+          "thinkingmachines/inkling-small",
+          "xiaomi/mimo-v2.6-flash",
+          "xiaomi/mimo-v2.6-pro",
+          "zai/glm-5.3",
+          "zai/glm-5.3-flash"
+        ],
+        "rows": 27,
+        "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
@@ -9276,7 +9370,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-10-23T09:42:52.954Z",
+    "observedAt": "2026-10-24T07:40:28.673Z",
     "sourceId": "vals-ai"
   }
 }

@@ -93,8 +93,12 @@ test('release markdown lists versions, frontier and inferences', () => {
         basisCandidate: 'arc:x',
       },
     ],
+    skipped: [
+      { rank: 3, modelId: 'm3', score: 55.804, organizations: ['vals-ai'] },
+    ],
   });
   assert.match(markdown, /`sha256:old` → `sha256:new`/u);
+  assert.match(markdown, /\| 3 \| m3 \| 55\.8 \| vals-ai \|/u);
   assert.match(markdown, /\| 1 \| m1 \| 60 \| m2 \| 60 \|/u);
   assert.match(markdown, /m2 \(new\)/u);
   assert.match(markdown, /\| 8 \| `aa-frontier` \(default\) \| 1 → 1 \|/u);
