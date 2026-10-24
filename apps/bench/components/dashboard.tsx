@@ -215,6 +215,34 @@ export function Dashboard({
       commonMode,
     ],
   );
+  // Developer mode shows the common-benchmark table for the default selection
+  // too. It is computed separately so the ranked table and charts keep the
+  // preset's scores until the user edits the selection.
+  const commonTable = useMemo(
+    () =>
+      comparison ??
+      (developerMode
+        ? buildCommonComparison(
+            product,
+            checkedModelIds,
+            Object.fromEntries(
+              representatives.map((row) => [row.modelId, row.profileId]),
+            ),
+            benchmarkDimensions,
+            options,
+            [],
+          )
+        : null),
+    [
+      comparison,
+      developerMode,
+      product,
+      checkedModelIds,
+      representatives,
+      benchmarkDimensions,
+      options,
+    ],
+  );
   const updateCheckedModels: React.Dispatch<React.SetStateAction<string[]>> = (
     value,
   ) => {
@@ -330,20 +358,23 @@ export function Dashboard({
           initialExpandedModelIds={initialExpandedModelIds}
           developerMode={developerMode}
         />
-        {comparison && developerMode ? (
-          <CommonBenchmarkTable comparison={comparison} />
+        {commonTable && developerMode ? (
+          <CommonBenchmarkTable comparison={commonTable} />
         ) : null}
 
         {developerMode ? (
-          <>
-            <PartialCoverageList rows={partialCoverageRows} />
-            <DeveloperModelList
-              rows={developerRows}
-              product={product}
-              benchmarkDimensions={benchmarkDimensions}
-              preset={activePreset}
-            />
-          </>
+          <div className="dashboard-section">
+            <p className="eyebrow section-eyebrow">Diagnostics</p>
+            <div className="panel diagnostics-panel">
+              <PartialCoverageList rows={partialCoverageRows} />
+              <DeveloperModelList
+                rows={developerRows}
+                product={product}
+                benchmarkDimensions={benchmarkDimensions}
+                preset={activePreset}
+              />
+            </div>
+          </div>
         ) : null}
 
         <RadarChart

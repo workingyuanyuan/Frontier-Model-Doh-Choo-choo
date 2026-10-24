@@ -67,21 +67,24 @@ describe('ModelDetailPanel (Task E1)', () => {
     // Main screen: a benchmark that does not contribute is not shown at all.
     const main = renderPanel({ preset: narrowed });
     expect(main).not.toContain('data-benchmark-id="terminal-bench-2-1"');
-    expect(main).not.toContain('not scored here');
+    expect(main).not.toContain('Not scored here');
 
     // Developer mode: the measurement is real and stays inspectable, but it
-    // says outright that the score above was computed without it.
+    // sits under its own label, below the rows the score was computed from.
     const developer = renderPanel({ preset: narrowed, developerMode: true });
     expect(developer).toContain('data-benchmark-id="terminal-bench-2-1"');
-    expect(developer).toContain('not scored here');
     expect(developer).toContain('data-outside-basis="true"');
+    expect(developer.indexOf('Not scored here')).toBeGreaterThan(-1);
+    expect(developer.indexOf('Not scored here')).toBeLessThan(
+      developer.indexOf('data-benchmark-id="terminal-bench-2-1"'),
+    );
 
     // A benchmark the preset does score carries no such marker.
     const scoredRow = developer.slice(
       developer.indexOf('data-benchmark-id="frontiermath"'),
     );
     expect(scoredRow.slice(0, scoredRow.indexOf('</li>'))).not.toContain(
-      'not scored here',
+      'data-outside-basis',
     );
   });
 
@@ -202,7 +205,7 @@ describe('ModelDetailPanel (Task E1)', () => {
     });
 
     expect(html).toContain('AutomationBench');
-    expect(html).toContain('(zapier)');
+    expect(html).toContain('<span class="benchmark-source">zapier</span>');
     expect(html).toContain('19.6');
     expect(html).not.toContain('2.9');
   });

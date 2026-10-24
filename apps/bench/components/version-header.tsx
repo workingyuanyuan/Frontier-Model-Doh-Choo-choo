@@ -2,10 +2,10 @@
 
 import { useLayoutEffect, useState } from 'react';
 
-export type ThemeId = 'light' | 'dark' | 'blue';
+export type ThemeId = 'light' | 'dark';
 
 const THEME_STORAGE_KEY = 'fm-dcc-theme';
-const THEME_IDS: ThemeId[] = ['light', 'dark', 'blue'];
+const THEME_IDS: ThemeId[] = ['light', 'dark'];
 
 const isThemeId = (value: string | null): value is ThemeId =>
   value !== null && THEME_IDS.includes(value as ThemeId);
@@ -20,18 +20,9 @@ function ThemeIcon({ theme }: { theme: ThemeId }) {
     );
   }
 
-  if (theme === 'dark') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M19.7 15.3A8 8 0 0 1 8.7 4.3 8.25 8.25 0 1 0 19.7 15.3Z" />
-      </svg>
-    );
-  }
-
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2.75c2.85 3.38 6.25 7.13 6.25 11.05a6.25 6.25 0 1 1-12.5 0C5.75 9.88 9.15 6.13 12 2.75Z" />
-      <path d="M8.75 14.25c.3 1.65 1.35 2.65 3 2.95" />
+      <path d="M19.7 15.3A8 8 0 0 1 8.7 4.3 8.25 8.25 0 1 0 19.7 15.3Z" />
     </svg>
   );
 }
@@ -43,7 +34,7 @@ export function VersionHeader({
   developerMode: boolean;
   onDeveloperModeChange: (enabled: boolean) => void;
 }) {
-  const [theme, setTheme] = useState<ThemeId>('blue');
+  const [theme, setTheme] = useState<ThemeId>('light');
 
   useLayoutEffect(() => {
     let storedTheme: string | null = null;
@@ -57,7 +48,7 @@ export function VersionHeader({
       ? storedTheme
       : isThemeId(documentTheme)
         ? documentTheme
-        : 'blue';
+        : 'light';
     document.documentElement.setAttribute('data-theme', resolvedTheme);
     setTheme(resolvedTheme);
   }, []);

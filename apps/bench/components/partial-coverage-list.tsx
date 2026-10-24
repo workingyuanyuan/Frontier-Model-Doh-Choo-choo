@@ -27,32 +27,16 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
       scoredDimensionIds.includes(dimension) ||
       rows.some((row) => row.missingDimension === dimension),
   );
-  const dominantGap = [...UI_DIMENSION_IDS]
-    .map((dimension) => ({
-      dimension,
-      count: rows.filter((row) => row.missingDimension === dimension).length,
-    }))
-    .sort((a, b) => b.count - a.count)[0];
 
   return (
     <section
-      className="panel partial-coverage-panel"
+      className="diagnostics-section"
       aria-labelledby="partial-coverage-title"
       data-partial-coverage
     >
-      <div className="section-heading compact">
-        <div>
-          <p className="eyebrow">Developer diagnostics</p>
-          <h2 id="partial-coverage-title">Partial coverage</h2>
-          <p>
-            These profiles are missing one scored dimension
-            {dominantGap && dominantGap.count > 0
-              ? `, and ${dominantGap.count} of the ${rows.length} here are missing ${DIMENSION_DISPLAY_NAMES[dominantGap.dimension]}`
-              : ''}
-            .
-          </p>
-        </div>
-        <p data-partial-coverage-count={rows.length}>{rows.length} profiles</p>
+      <div className="diagnostics-heading">
+        <h2 id="partial-coverage-title">Partial coverage</h2>
+        <span data-partial-coverage-count={rows.length}>{rows.length}</span>
       </div>
       {rows.length > 0 ? (
         <div
@@ -61,17 +45,13 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
           aria-label="Partial coverage scores"
           tabIndex={0}
         >
-          <table className="compact-data-table">
-            <caption>
-              Profiles missing one capability dimension, without an overall
-              score or rank
-            </caption>
+          <table className="diagnostics-table">
             <thead>
               <tr>
                 <th scope="col">Model</th>
                 <th scope="col">Missing</th>
                 {dimensionIds.map((dimension) => (
-                  <th key={dimension} scope="col">
+                  <th key={dimension} scope="col" className="diagnostics-num">
                     <abbr title={DIMENSION_DISPLAY_NAMES[dimension]}>
                       {UI_DIMENSION_ABBREVIATIONS[dimension]}
                     </abbr>
@@ -97,11 +77,17 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
                     <td data-missing-dimension={row.missingDimension}>
                       {DIMENSION_DISPLAY_NAMES[row.missingDimension]}
                     </td>
-                    {dimensionIds.map((dimension) => (
-                      <td key={dimension}>
-                        {formatScore(scoreByDimension.get(dimension) ?? null)}
-                      </td>
-                    ))}
+                    {dimensionIds.map((dimension) => {
+                      const score = scoreByDimension.get(dimension) ?? null;
+                      return (
+                        <td
+                          key={dimension}
+                          className={`diagnostics-num${score === null ? ' is-missing' : ''}`}
+                        >
+                          {formatScore(score)}
+                        </td>
+                      );
+                    })}
                   </tr>
                 );
               })}
@@ -109,7 +95,7 @@ export function PartialCoverageList({ rows }: PartialCoverageListProps) {
           </table>
         </div>
       ) : (
-        <p className="empty-state" role="status">
+        <p className="diagnostics-empty" role="status">
           No profile is missing exactly one dimension.
         </p>
       )}

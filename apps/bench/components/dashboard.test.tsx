@@ -94,7 +94,7 @@ describe('Dashboard Redesign', () => {
     );
   });
 
-  it('renders an icon-only three-theme control before Developer mode', () => {
+  it('renders an icon-only two-theme control before Developer mode', () => {
     const html = renderToStaticMarkup(dashboard());
     const header = html.slice(
       html.indexOf('<header'),
@@ -104,8 +104,8 @@ describe('Dashboard Redesign', () => {
     expect(header).toContain('role="group" aria-label="Theme"');
     expect(header).toContain('aria-label="Light theme"');
     expect(header).toContain('aria-label="Dark theme"');
-    expect(header).toContain('aria-label="Blue theme"');
-    expect(header).toContain('aria-label="Blue theme" aria-pressed="true"');
+    expect(header).not.toContain('Blue theme');
+    expect(header).toContain('aria-label="Light theme" aria-pressed="true"');
     expect(header.indexOf('aria-label="Theme"')).toBeLessThan(
       header.indexOf('aria-label="Developer mode"'),
     );
@@ -335,7 +335,7 @@ describe('Dashboard Redesign', () => {
       }),
     );
 
-    expect(html).toContain('Quality vs. Cost chart data');
+    expect(html).toContain('Source breakdown');
     expect(html).toContain('Five Dimensions');
   });
 
@@ -349,12 +349,8 @@ describe('Dashboard Redesign', () => {
       }),
     );
 
-    expect(publicHtml).not.toContain(
-      'Quality vs. Cost chart data and source contributions',
-    );
-    expect(developerHtml).toContain(
-      'Quality vs. Cost chart data and source contributions',
-    );
+    expect(publicHtml).not.toContain('Source breakdown');
+    expect(developerHtml).toContain('Source breakdown');
   });
 
   it('removes the dataset scope panel', () => {

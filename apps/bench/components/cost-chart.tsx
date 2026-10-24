@@ -13,7 +13,6 @@ import { getChartDomain } from '../lib/chart-scale';
 import {
   ADVANCED_COST_SOURCE_IDS,
   AVAILABLE_ADVANCED_COST_SOURCE_IDS,
-  COST_SOURCE_SCORE_BASES,
   COST_SOURCE_WEIGHTS,
   buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
@@ -95,6 +94,16 @@ const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
   NONE: 'cost only, no pairable score',
 };
 
+/** Names the basis once: "Frontier Code 1.1" plus version "1.1" reads as one. */
+const scoreBasisLabel = (
+  basis: CostSourceScoreBasisId,
+  version?: string | null,
+): string => {
+  const name = SCORE_BASIS_NAMES[basis];
+  if (!version || name.endsWith(version)) return name;
+  return version.startsWith(name) ? version : `${name} ${version}`;
+};
+
 const scoreBasisNote = (
   basis: CostSourceScoreBasisId,
   score: number | null,
@@ -102,23 +111,10 @@ const scoreBasisNote = (
 ): string =>
   basis === 'NONE' || score === null
     ? SCORE_BASIS_NAMES.NONE
-    : `${SCORE_BASIS_NAMES[basis]}${version ? ` ${version}` : ''} ${score.toFixed(1)}`;
+    : `${scoreBasisLabel(basis, version)} ${score.toFixed(1)}`;
 
 /** Sources carrying a weight, i.e. the largest source count a point can have. */
 const WEIGHTED_SOURCE_COUNT = Object.keys(COST_SOURCE_WEIGHTS).length;
-
-/**
- * Named from the basis table, not written out, so the sentence cannot go stale
- * the way the hand-written weight note did when Zapier was adopted.
- */
-const costOnlySourcesNote = (): string => {
-  const costOnly = Object.keys(COST_SOURCE_WEIGHTS)
-    .filter((sourceId) => COST_SOURCE_SCORE_BASES[sourceId] == null)
-    .map((sourceId) => SOURCE_NAMES[sourceId] ?? sourceId);
-  return costOnly.length === 0
-    ? 'Every source here contributes both.'
-    : `${costOnly.join(', ')} ${costOnly.length === 1 ? 'contributes' : 'contribute'} cost only.`;
-};
 
 const providerColor = (providerId: string): string =>
   PROVIDER_COLORS[providerId] ?? '#64748b';
@@ -743,52 +739,61 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
 
       {developerMode ? (
         <details className="chart-data cost-chart-data">
-          <summary>
-            Quality vs. Cost chart data and source contributions
-          </summary>
-          <p className="chart-data-note">
-            Each source contributes cost plus at most one score, on a single
-            named basis. A source that has no score pairable with its own cost
-            metric contributes cost only, and says so rather than averaging
-            whatever benchmarks it happens to publish. {costOnlySourcesNote()}
-          </p>
-          <table className="compact-data-table">
+          <summary>Source breakdown</summary>
+          <table className="diagnostics-table cost-source-table">
             <thead>
               <tr>
                 <th scope="col">Model</th>
-                <th scope="col">Provider</th>
-                <th scope="col">Weighted cost</th>
-                <th scope="col">Overall</th>
-                <th scope="col">Sources</th>
-                <th scope="col">Source cost and score basis</th>
+                <th scope="col" className="diagnostics-num">
+                  Cost
+                </th>
+                <th scope="col" className="diagnostics-num">
+                  Overall
+                </th>
+                <th scope="col" className="diagnostics-num">
+                  Sources
+                </th>
+                <th scope="col">Task cost · paired score</th>
               </tr>
             </thead>
             <tbody>
               {points.map((point) => (
                 <tr key={point.modelId}>
                   <th scope="row">{point.displayName}</th>
-                  <td>{point.providerId}</td>
-                  <td>{point.normalizedCost.toFixed(1)}</td>
-                  <td>{point.performance.toFixed(1)}</td>
-                  <td data-testid="cost-row-source-count">
+                  <td className="diagnostics-num">
+                    {point.normalizedCost.toFixed(1)}
+                  </td>
+                  <td className="diagnostics-num">
+                    {point.performance.toFixed(1)}
+                  </td>
+                  <td
+                    className="diagnostics-num"
+                    data-testid="cost-row-source-count"
+                  >
                     {point.sourceCount} of {WEIGHTED_SOURCE_COUNT}
                   </td>
                   <td>
-                    {point.sourceCosts.map((source, index) => (
-                      <span key={source.sourceId}>
-                        {index > 0 ? ' · ' : ''}
-                        <a href={source.sourceUrl}>
-                          {costSourceName(source)}
-                        </a>{' '}
-                        ({source.profileId}, ${source.cost.toFixed(3)},{' '}
-                        {scoreBasisNote(
-                          source.scoreBasis,
-                          source.sourceScore,
-                          source.scoreBenchmarkVersion,
-                        )}
-                        )
-                      </span>
-                    ))}
+                    <ul className="cost-source-list">
+                      {point.sourceCosts.map((source) => (
+                        <li key={source.sourceId}>
+                          <a href={source.sourceUrl}>
+                            {costSourceName(source)}
+                          </a>
+                          <span className="cost-source-value">
+                            ${source.cost.toFixed(3)}
+                          </span>
+                          <span
+                            className={`cost-source-basis${source.scoreBasis === 'NONE' || source.sourceScore === null ? ' is-cost-only' : ''}`}
+                          >
+                            {scoreBasisNote(
+                              source.scoreBasis,
+                              source.sourceScore,
+                              source.scoreBenchmarkVersion,
+                            )}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </td>
                 </tr>
               ))}

@@ -34,6 +34,7 @@ describe('dashboard computation boundaries', () => {
   });
 
   it('calculates diagnostics when developer mode is visible', () => {
+    const compare = vi.spyOn(comparison, 'buildCommonComparison');
     const developer = vi.spyOn(viewModel, 'getDeveloperModelRows');
     const partial = vi.spyOn(viewModel, 'getPartialCoverageRows');
 
@@ -46,6 +47,10 @@ describe('dashboard computation boundaries', () => {
     );
 
     expect(html).toContain('data-developer-models');
+    // The default selection gets its common-benchmark table without the
+    // user touching the picker.
+    expect(compare).toHaveBeenCalledTimes(1);
+    expect(html).toContain('id="common-benchmarks-title"');
     expect(developer).toHaveBeenCalledTimes(1);
     expect(partial).toHaveBeenCalledTimes(1);
   });

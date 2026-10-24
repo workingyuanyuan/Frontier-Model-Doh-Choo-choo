@@ -36,10 +36,6 @@ export function CommonBenchmarkTable({
         </p>
       ) : (
         <>
-          <p>
-            Scores are normalized to 0–100; higher is better. Source links show
-            the original measurements.
-          </p>
           <div
             className="table-scroll"
             role="region"
