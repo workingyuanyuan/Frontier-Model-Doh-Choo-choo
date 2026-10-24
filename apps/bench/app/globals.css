@@ -1315,6 +1315,10 @@ tbody tr {
     display: none;
   }
 
+  .developer-model-table tbody th {
+    white-space: normal;
+  }
+
   .developer-model-detail-row > td {
     padding-inline: 0.75rem;
   }
