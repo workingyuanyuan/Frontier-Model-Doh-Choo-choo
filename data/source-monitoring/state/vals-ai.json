@@ -361,21 +361,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-24T07:54:25.832Z",
+  "checkedAt": "2026-10-25T04:23:15.961Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/04/04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d.html",
-    "byteLength": 286788,
+    "artifactPath": "artifacts/sha256/77/77bd366ed6299343d252458cc6449e703a4e18a0c2ce2b788aa6e83c94c8ba25.html",
+    "byteLength": 287232,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d",
+    "id": "sha256:77bd366ed6299343d252458cc6449e703a4e18a0c2ce2b788aa6e83c94c8ba25",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-10-24T07:54:25.832Z",
+    "retrievedAt": "2026-10-25T04:23:15.961Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:04b39e8286b3ae515dc8ab20edcdf24beca15ec571a7e673cc2155fbd2f6e58d",
+    "sha256": "sha256:77bd366ed6299343d252458cc6449e703a4e18a0c2ce2b788aa6e83c94c8ba25",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -1919,6 +1919,7 @@
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -1953,6 +1954,7 @@
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -1972,7 +1974,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
@@ -2006,6 +2008,7 @@
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -2038,6 +2041,7 @@
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2057,7 +2061,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 30,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
@@ -2312,6 +2316,7 @@
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -2344,6 +2349,7 @@
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2363,7 +2369,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 30,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
@@ -2693,7 +2699,7 @@
       },
       {
         "id": "hlab",
-        "includedRows": 27,
+        "includedRows": 28,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-opus-5-5",
@@ -2719,6 +2725,7 @@
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -2748,6 +2755,7 @@
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2765,7 +2773,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 27,
+        "rows": 28,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
@@ -3502,6 +3510,7 @@
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -3531,6 +3540,7 @@
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -3548,13 +3558,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 27,
+        "rows": 28,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
-        "includedRows": 84,
+        "includedRows": 85,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -3649,6 +3659,7 @@
           "[\"kimi/kimi-k2.5-thinking\",null,null,null,null,null,null,null]",
           "[\"kimi/kimi-k2.6\",null,null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -3735,6 +3746,7 @@
           "kimi/kimi-k2.5-thinking",
           "kimi/kimi-k2.6",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -3775,7 +3787,7 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 84,
+        "rows": 85,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
@@ -7561,6 +7573,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k2.6\",null,null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -7638,6 +7651,7 @@
           "inception/mercury-3",
           "kimi/kimi-k2.6",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -7671,7 +7685,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 75,
+        "rows": 76,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
@@ -8452,6 +8466,7 @@
           "[\"inception/mercury-2.5\",\"high\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -8508,6 +8523,7 @@
           "inception/mercury-2.5",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -8536,7 +8552,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 54,
+        "rows": 55,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
@@ -8745,6 +8761,7 @@
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -8773,6 +8790,7 @@
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -8789,7 +8807,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 26,
+        "rows": 27,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
@@ -8980,7 +8998,7 @@
       },
       {
         "id": "vibe-code-bench",
-        "includedRows": 118,
+        "includedRows": 119,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9100,6 +9118,7 @@
           "[\"kimi/kimi-k2.6\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"kimi/kimi-k2.7-code\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"kimi/kimi-k3.1-pro\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,\"OpenHands\",null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,\"OpenHands\",null,null,null,null]",
@@ -9220,6 +9239,7 @@
           "kimi/kimi-k2.6",
           "kimi/kimi-k2.7-code",
           "kimi/kimi-k3",
+          "kimi/kimi-k3.1-pro",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -9276,7 +9296,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 118,
+        "rows": 119,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
@@ -9370,7 +9390,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-10-24T07:40:28.673Z",
+    "observedAt": "2026-10-25T04:23:04.510Z",
     "sourceId": "vals-ai"
   }
 }

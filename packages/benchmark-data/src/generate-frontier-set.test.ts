@@ -67,7 +67,7 @@ async function eligibleWorkspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 23 tests in five active categories', async () => {
+  it('produces eight complete eligible profiles sharing 17 tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     expect(selectAaTopTen(candidates).status).toBe('selected');
     const { profileIds } = await eligibleWorkspace();
@@ -78,9 +78,8 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    // 2026-10-24 data; changes when sources or eligibility change.
-    expect(result.benchmarkIds).toHaveLength(23);
-    expect(result.excludedBenchmarkIds).toContain('proofbench');
+    // 2026-10-25 data; changes when sources or eligibility change.
+    expect(result.benchmarkIds).toHaveLength(17);
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
       'knowledge',
@@ -93,12 +92,12 @@ describe('frontier common quality core', () => {
         ['reasoning', 2],
         ['knowledge', 2],
         ['comprehension', 3],
-        ['coding', 6],
-        ['agentic', 10],
+        ['coding', 4],
+        ['agentic', 6],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 23)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 17)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
@@ -149,10 +148,15 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
+    // 2026-10-25 data; validate each intersection independently below.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      36, 35, 33, 31, 23, 23, 23, 22, 22,
+      36, 18, 17, 17, 17, 17, 17, 17, 17,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
+    // The first two models share ProofBench, so its quality exclusion is exercised.
+    expect(cohorts[0]!.commonBeforeQuality).toContain('proofbench');
+    expect(cohorts[0]!.excludedBenchmarkIds).toContain('proofbench');
+    expect(cohorts[0]!.benchmarkIds).not.toContain('proofbench');
     for (const cohort of cohorts) {
       expect(cohort.profileIds).toEqual(
         profileIds.slice(0, cohort.targetModelCount),
@@ -237,13 +241,8 @@ describe('frontier eligibility', () => {
         organizations,
       })),
     ).toEqual([
-      // 2026-10-24 data: each is scored outside AA by one organization only.
+      // 2026-10-25 data: this model is scored outside AA by one organization only.
       { modelId: 'meta-muse-wonder-full', rank: 3, organizations: ['vals-ai'] },
-      {
-        modelId: 'moonshot-kimi-k3-1-pro',
-        rank: 4,
-        organizations: ['livebench'],
-      },
     ]);
     for (const leader of result.leaders) {
       expect(leader.organizations.length).toBeGreaterThanOrEqual(2);

@@ -50,10 +50,10 @@
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 215 | 256 | +41 |
-| Active source profiles | 202 | 243 | +41 |
-| Candidate results | 2483 | 2871 | +388 |
-| Materialized costs | 381 | 419 | +38 |
+| Unique source profiles | 256 | 256 | +0 |
+| Active source profiles | 243 | 243 | +0 |
+| Candidate results | 2871 | 2871 | +0 |
+| Materialized costs | 419 | 419 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
