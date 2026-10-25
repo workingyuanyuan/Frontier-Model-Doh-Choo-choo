@@ -176,3 +176,83 @@ test('names missing sources and hands the chart shortlist to the leaderboard', a
     expect(line.points.map((point) => point.profileId)).toContain(profileId);
   }
 });
+
+test('restores a shared comparison on a non-default preset', async ({
+  page,
+}) => {
+  const preset = product.presets.find(
+    ({ id }) => id !== product.defaultPresetId,
+  )!;
+  await page.goto(`/?preset=${preset.id}&models=${astra},${flash}`);
+  await expect(
+    page.getByRole('button', { name: /Search Models/ }),
+  ).toContainText('2 selected');
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(2);
+  await expect(page).toHaveURL(new RegExp(`[?&]preset=${preset.id}`));
+  await expect(page).toHaveURL(/[?&]models=/);
+});
+
+test('drops pins the chart hides and never pins the handed-over effort', async ({
+  page,
+}) => {
+  const options = new Set(
+    comparisonOptions(product, benchmarkDimensions).map(
+      ({ modelId }) => modelId,
+    ),
+  );
+  const series = buildAdvancedCostSeries(product, ADVANCED_COST_SOURCE_IDS);
+  const line = series.find(
+    ({ modelId, points }) => options.has(modelId) && points.length >= 2,
+  )!;
+  expect(line).toBeDefined();
+  const kept = line.points[0]!.profileId;
+
+  await page.goto('/');
+  await page.getByRole('button', { name: /Search Models/ }).click();
+  await page.getByRole('button', { name: 'Clear', exact: true }).click();
+  await page
+    .getByRole('checkbox', { name: line.displayName, exact: true })
+    .check();
+  await page.keyboard.press('Escape');
+  await page
+    .getByRole('combobox', {
+      name: `Select profile for ${line.displayName}`,
+      exact: true,
+    })
+    .selectOption(kept);
+  await page
+    .getByRole('button', { name: new RegExp(`^Keep ${line.displayName} `) })
+    .click();
+  await expect(page.locator('[data-pinned="true"]')).toHaveAttribute(
+    'data-profile-id',
+    kept,
+  );
+
+  await page.locator('.cost-mode-toggle').click();
+  await page.locator('.cost-model-overflow-trigger').click();
+  for (const other of series) {
+    if (other === line) continue;
+    await page
+      .locator(
+        `.cost-model-menu-list li[data-series-id="${other.seriesId}"] input[type="checkbox"]`,
+      )
+      .click();
+  }
+  const row = page.locator(
+    `.cost-model-menu-list li[data-series-id="${line.seriesId}"]`,
+  );
+  for (const point of line.points.slice(1)) {
+    await row
+      .locator(`.cost-effort-toggle[data-profile-id="${point.profileId}"]`)
+      .click();
+  }
+  await page.getByRole('button', { name: 'Use in Leaderboard' }).click();
+  await expect(page.locator('[data-ranked-row]')).toHaveCount(1);
+  await expect(page.locator('[data-pinned="true"]')).toHaveCount(0);
+  await expect(
+    page.getByRole('combobox', {
+      name: `Select profile for ${line.displayName}`,
+      exact: true,
+    }),
+  ).toHaveValue(kept);
+});

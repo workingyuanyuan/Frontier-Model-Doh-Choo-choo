@@ -92,14 +92,23 @@ export function Dashboard({
   // once on mount so a shared link opens on the right scores, and write with
   // replaceState so switching presets does not fill the back button. The
   // comparison (models, efforts, pins) and developer mode follow the same rule.
+  const urlRead = useRef(false);
+  const pendingPreset = useRef<string | null>(null);
   useEffect(() => {
+    // Parse once: a replayed effect would read the URL the writers already
+    // rewrote for the defaults.
+    if (urlRead.current) return;
+    urlRead.current = true;
     const params = new URLSearchParams(window.location.search);
     const requested = params.get(PRESET_QUERY_KEY);
     const validPreset =
       requested && rawProduct.presets.some(({ id }) => id === requested)
         ? requested
         : null;
-    if (validPreset) setPresetId(validPreset);
+    if (validPreset) {
+      pendingPreset.current = validPreset;
+      setPresetId(validPreset);
+    }
     if (params.get(DEVELOPER_QUERY_KEY) === '1') setDeveloperMode(true);
     if (params.has(MODELS_QUERY_KEY)) {
       pendingComparison.current = {
@@ -112,6 +121,10 @@ export function Dashboard({
   }, [rawProduct.defaultPresetId, rawProduct.presets]);
 
   useEffect(() => {
+    if (pendingPreset.current) {
+      if (pendingPreset.current !== presetId) return;
+      pendingPreset.current = null;
+    }
     const url = new URL(window.location.href);
     if (presetId === rawProduct.defaultPresetId) {
       url.searchParams.delete(PRESET_QUERY_KEY);
@@ -366,32 +379,39 @@ export function Dashboard({
   };
 
   const coverage = useMemo(() => profileBenchmarkCoverage(index), [index]);
+  // The shortlist handler reads the latest efforts without changing identity,
+  // so the memoized cost chart does not re-render on every effort change.
+  const selectedProfilesRef = useRef(selectedProfiles);
+  useEffect(() => {
+    selectedProfilesRef.current = selectedProfiles;
+  }, [selectedProfiles]);
   // Each chart model keeps its leaderboard effort while that effort is still
   // visible on the chart; otherwise its best-covered visible effort is used.
+  // Pins survive only while visible and distinct from the model's effort.
   const applyChartShortlist = useCallback(
     (models: ChartShortlist) => {
       const optionIds = new Set(options.map(({ modelId }) => modelId));
       const picked = models.filter(({ modelId }) => optionIds.has(modelId));
       const ids = picked.map(({ modelId }) => modelId);
-      setSelectedProfiles((current) => {
-        const next = { ...representativeProfiles, ...current };
-        picked.forEach(({ modelId, profileIds }) => {
-          if (profileIds.includes(next[modelId] ?? '')) return;
-          const best = profileIds.reduce<string | null>(
-            (top, id) =>
-              (coverage.get(id) ?? 0) > (coverage.get(top ?? '') ?? 0)
-                ? id
-                : top,
-            null,
-          );
-          if (best) next[modelId] = best;
-        });
-        return next;
+      const next = {
+        ...representativeProfiles,
+        ...selectedProfilesRef.current,
+      };
+      picked.forEach(({ modelId, profileIds }) => {
+        if (profileIds.includes(next[modelId] ?? '')) return;
+        const best = profileIds.reduce<string | null>(
+          (top, id) =>
+            (coverage.get(id) ?? 0) > (coverage.get(top ?? '') ?? 0) ? id : top,
+          null,
+        );
+        if (best) next[modelId] = best;
       });
+      const visible = new Set(picked.flatMap(({ profileIds }) => profileIds));
+      setSelectedProfiles(next);
       setSelection({ defaults: defaultCheckedIds, ids });
       setPinnedProfileIds((pins) =>
-        pins.filter((id) =>
-          product.profiles.some((p) => p.id === id && ids.includes(p.modelId)),
+        pins.filter(
+          (id) => visible.has(id) && !Object.values(next).includes(id),
         ),
       );
       setCommonMode(true);
@@ -399,13 +419,7 @@ export function Dashboard({
         .getElementById('leaderboard-title')
         ?.scrollIntoView({ block: 'start' });
     },
-    [
-      coverage,
-      defaultCheckedIds,
-      options,
-      product.profiles,
-      representativeProfiles,
-    ],
+    [coverage, defaultCheckedIds, options, representativeProfiles],
   );
 
   useEffect(() => {
