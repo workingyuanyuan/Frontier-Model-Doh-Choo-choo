@@ -40,6 +40,7 @@ export function LeaderboardTable({
   pinnedProfileIds = [],
   onPinProfile,
   onRemovePinnedProfile,
+  effortDeltas = {},
 }: {
   product: PresetProductVersion;
   rows: LeaderboardRow[];
@@ -57,6 +58,8 @@ export function LeaderboardTable({
   pinnedProfileIds?: string[];
   onPinProfile?: ((modelId: string, profileId: string) => void) | undefined;
   onRemovePinnedProfile?: ((profileId: string) => void) | undefined;
+  /** Common benchmark count change per alternative effort profile. */
+  effortDeltas?: Record<string, number> | undefined;
 }) {
   const dimensionIds = getActiveDimensionIds(rows);
   return (
@@ -239,6 +242,22 @@ export function LeaderboardTable({
                                     )}
                                   >
                                     {getProfileIdentity(candidate)}
+                                    {effortDeltas[candidate.id] ? (
+                                      <span
+                                        className="effort-delta"
+                                        data-direction={
+                                          effortDeltas[candidate.id]! > 0
+                                            ? 'up'
+                                            : 'down'
+                                        }
+                                      >
+                                        {' '}
+                                        {effortDeltas[candidate.id]! > 0
+                                          ? '+'
+                                          : '−'}
+                                        {Math.abs(effortDeltas[candidate.id]!)}
+                                      </span>
+                                    ) : null}
                                   </option>
                                 ))}
                               </select>

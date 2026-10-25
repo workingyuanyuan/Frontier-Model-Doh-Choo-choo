@@ -9,6 +9,12 @@
   padding: 1.5rem;
   min-width: 0;
 }
+.common-benchmark-actions {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
 .common-benchmark-table {
   width: 100%;
   border-collapse: collapse;
@@ -412,6 +418,33 @@
 
 .profile-table-select:hover {
   border-color: var(--accent);
+}
+
+/* Customizable select colors the common-benchmark deltas; other browsers show
+   the same "+N" / "−N" as plain option text. */
+@supports (appearance: base-select) {
+  .profile-table-select,
+  .profile-table-select::picker(select) {
+    appearance: base-select;
+  }
+
+  .profile-table-select::picker(select) {
+    background: var(--surface);
+    border: 0.0625rem solid var(--line-strong);
+    color: var(--ink);
+  }
+
+  .profile-table-select option {
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+.effort-delta[data-direction='up'] {
+  color: var(--delta-up);
+}
+
+.effort-delta[data-direction='down'] {
+  color: var(--delta-down);
 }
 
 .dimension-cell[data-heat-rank='1'] {

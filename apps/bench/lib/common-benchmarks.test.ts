@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { productFixture } from '../test/fixture';
-import { buildCommonComparison, comparisonOptions } from './common-benchmarks';
+import {
+  buildCommonComparison,
+  commonBenchmarkCountDeltas,
+  comparisonOptions,
+} from './common-benchmarks';
 import type { ProductEvidence } from '@llm-bench/benchmark-data';
 
 const dimensions = {
@@ -374,5 +378,22 @@ describe('common benchmark comparison', () => {
     expect(
       buildCommonComparison(p, ['a', 'b'], {}, dimensions).benchmarkIds,
     ).toEqual([]);
+  });
+  it('reports the common benchmark change of each alternative effort', () => {
+    const p = fixture();
+    const options = comparisonOptions(p, dimensions);
+    const deltas = (selected: Record<string, string>, pins: string[] = []) =>
+      commonBenchmarkCountDeltas(
+        p,
+        ['a', 'b'],
+        selected,
+        dimensions,
+        options,
+        pins,
+      );
+    expect(deltas({})).toEqual({ 'a-low': -4 });
+    expect(deltas({ a: 'a-low' })).toEqual({ 'a-high': 4 });
+    // A pinned effort is already compared, so it is not an alternative.
+    expect(deltas({ a: 'a-low' }, ['a-high'])).toEqual({});
   });
 });

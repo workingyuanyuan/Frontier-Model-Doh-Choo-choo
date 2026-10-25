@@ -186,6 +186,8 @@ export interface AdvancedCostEffortOption {
   profileId: string;
   effort: string;
   isDefaultEffort: boolean;
+  /** Sources that pair a score and task cost for this profile on their own. */
+  sourceIds: AdvancedCostSourceId[];
 }
 
 export interface AdvancedCostModelOption {
@@ -1305,11 +1307,17 @@ export const buildAdvancedCostModelOptions = (
         existing.efforts.map(({ profileId }) => profileId),
       );
       line.points.forEach((point) => {
-        if (knownProfileIds.has(point.profileId)) return;
+        if (knownProfileIds.has(point.profileId)) {
+          existing.efforts
+            .find(({ profileId }) => profileId === point.profileId)
+            ?.sourceIds.push(sourceId);
+          return;
+        }
         existing.efforts.push({
           profileId: point.profileId,
           effort: point.effort,
           isDefaultEffort: point.isDefaultEffort,
+          sourceIds: [sourceId],
         });
         knownProfileIds.add(point.profileId);
       });
@@ -1328,6 +1336,7 @@ export const buildAdvancedCostModelOptions = (
       profileId: profile.id,
       effort,
       isDefaultEffort: !COST_EFFORT_RANK.has(effort),
+      sourceIds: [],
     });
   });
 
@@ -1358,6 +1367,24 @@ export const buildAdvancedCostModelOptions = (
         left.modelId.localeCompare(right.modelId),
     );
 };
+
+/**
+ * The selected sources a model lacks, read from its closest effort: dropping
+ * exactly these sources would bring that effort back into the chart.
+ */
+export const missingAdvancedCostSources = (
+  model: AdvancedCostModelOption,
+  selectedSourceIds: readonly AdvancedCostSourceId[],
+): AdvancedCostSourceId[] =>
+  model.efforts
+    .map(({ sourceIds }) =>
+      selectedSourceIds.filter((sourceId) => !sourceIds.includes(sourceId)),
+    )
+    .reduce<AdvancedCostSourceId[] | null>(
+      (closest, missing) =>
+        closest === null || missing.length < closest.length ? missing : closest,
+      null,
+    ) ?? [];
 
 export interface DataScopeSummary {
   frontierModels: number;

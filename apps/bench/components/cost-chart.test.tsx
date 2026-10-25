@@ -169,26 +169,31 @@ const sampleAdvancedModelOptions: AdvancedCostModelOption[] = [
         profileId: 'anthropic-claude-fable-5-low',
         effort: 'low',
         isDefaultEffort: false,
+        sourceIds: ['artificial-analysis', 'arc-prize'],
       },
       {
         profileId: 'anthropic-claude-fable-5-medium',
         effort: 'medium',
         isDefaultEffort: false,
+        sourceIds: ['artificial-analysis', 'arc-prize'],
       },
       {
         profileId: 'anthropic-claude-fable-5-high',
         effort: 'high',
         isDefaultEffort: false,
+        sourceIds: ['artificial-analysis', 'arc-prize'],
       },
       {
         profileId: 'anthropic-claude-fable-5-max',
         effort: 'max',
         isDefaultEffort: false,
+        sourceIds: ['artificial-analysis', 'arc-prize'],
       },
       {
         profileId: 'anthropic-claude-fable-5-standard',
         effort: 'default',
         isDefaultEffort: true,
+        sourceIds: [],
       },
     ],
   },
@@ -531,6 +536,36 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
         'data-profile-id="anthropic-claude-fable-5-high" aria-pressed="true"',
       );
       expect(html).toContain('>default</button>');
+    });
+
+    it('names the missing source of a model the selected sources exclude', () => {
+      const html = renderToStaticMarkup(
+        createElement(CostModelMenu, {
+          advanced: true,
+          open: true,
+          menuId: 'test-model-menu',
+          points: [],
+          series: [],
+          modelOptions: sampleAdvancedModelOptions,
+          selectedProfileId: null,
+          hiddenProfileIds: new Set<string>(),
+          selectedSourceIds: ['artificial-analysis', 'deepswe'],
+          onToggleOpen: () => undefined,
+          onToggleSelect: () => undefined,
+          onUpdateHiddenProfileIds: () => undefined,
+          onUseInLeaderboard: () => undefined,
+        }),
+      );
+
+      expect(html).toContain(
+        '<span class="cost-model-missing-source" data-source-id="deepswe" aria-label="Missing DeepSWE">DeepSWE</span>',
+      );
+      expect(html).not.toContain('aria-label="Missing Artificial Analysis"');
+      expect(html).toContain('Claude Fable 5 low is missing DeepSWE');
+      // Nothing is visible, so there is nothing to hand to the leaderboard.
+      expect(html).toMatch(
+        /<button type="button" disabled="">Use in Leaderboard/,
+      );
     });
 
     it('recalculates X and Y domains and excludes points when a series is hidden', () => {
