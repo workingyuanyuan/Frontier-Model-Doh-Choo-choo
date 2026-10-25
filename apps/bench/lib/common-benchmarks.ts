@@ -116,16 +116,44 @@ export function comparisonOptions(
   );
 }
 
-export function buildCommonComparison(
+type ComparisonIndex = {
+  grouped: Map<string, ProductEvidence[]>;
+  metricKeys: Map<string, Map<string, string>>;
+};
+
+/** Group comparable evidence once; per-candidate recomputation reuses it. */
+export function comparisonIndex(
+  product: ProductVersion,
+  dimensions: Record<string, DimensionId>,
+): ComparisonIndex {
+  const grouped = evidenceByProfile(comparisonEvidence(product, dimensions));
+  const metricKeys = new Map<string, Map<string, string>>();
+  for (const [profileId, items] of grouped) {
+    const metrics = new Map<string, string[]>();
+    for (const item of items) {
+      const keys = metrics.get(item.benchmarkId) ?? [];
+      keys.push(
+        `${item.metric.id}:${item.metric.unit}:${item.metric.higherIsBetter}`,
+      );
+      metrics.set(item.benchmarkId, keys);
+    }
+    metricKeys.set(
+      profileId,
+      new Map(
+        [...metrics].map(([id, keys]) => [id, keys.toSorted().join('|')]),
+      ),
+    );
+  }
+  return { grouped, metricKeys };
+}
+
+function comparisonProfiles(
   product: PresetProductVersion,
   modelIds: string[],
   selectedProfiles: Record<string, string>,
-  dimensions: Record<string, DimensionId>,
-  options = comparisonOptions(product, dimensions),
-  pinnedProfileIds: readonly string[] = [],
+  options: LeaderboardRow[],
+  pinnedProfileIds: readonly string[],
 ) {
-  const evidence = comparisonEvidence(product, dimensions);
-  const grouped = evidenceByProfile(evidence);
   const profileById = new Map(product.profiles.map((p) => [p.id, p]));
   const optionByModel = new Map(options.map((row) => [row.modelId, row]));
   const selectedModelIds = new Set(modelIds);
@@ -146,20 +174,18 @@ export function buildCommonComparison(
     )
       profiles.push(profile);
   }
-  const byProfile = profiles.map((profile) => grouped.get(profile.id) ?? []);
-  const metricKeysByProfile = byProfile.map((items) => {
-    const metrics = new Map<string, string[]>();
-    for (const item of items) {
-      const keys = metrics.get(item.benchmarkId) ?? [];
-      keys.push(
-        `${item.metric.id}:${item.metric.unit}:${item.metric.higherIsBetter}`,
-      );
-      metrics.set(item.benchmarkId, keys);
-    }
-    return new Map(
-      [...metrics].map(([id, keys]) => [id, keys.toSorted().join('|')]),
-    );
-  });
+  return profiles;
+}
+
+function commonBenchmarkIds(
+  product: PresetProductVersion,
+  profileIds: string[],
+  index: ComparisonIndex,
+  dimensions: Record<string, DimensionId>,
+) {
+  const metricKeysByProfile = profileIds.map(
+    (id) => index.metricKeys.get(id) ?? new Map<string, string>(),
+  );
   const sharedBenchmarkIds = [...(metricKeysByProfile[0]?.keys() ?? [])]
     .filter((id) => {
       // Different metrics of one benchmark must not become an apparent like-for-like comparison.
@@ -172,7 +198,7 @@ export function buildCommonComparison(
   const eligible = sharedBenchmarkIds.filter(
     (id) => !quality?.excludedBenchmarkIds.includes(id),
   );
-  const benchmarkIds = UI_DIMENSION_IDS.flatMap((dimension) => {
+  return UI_DIMENSION_IDS.flatMap((dimension) => {
     const members = eligible.filter((id) => dimensions[id] === dimension);
     if (!quality) return members;
     const regular = members.filter(
@@ -186,6 +212,33 @@ export function buildCommonComparison(
     );
     return [...regular, ...limited.slice(0, cap)];
   }).toSorted();
+}
+
+export function buildCommonComparison(
+  product: PresetProductVersion,
+  modelIds: string[],
+  selectedProfiles: Record<string, string>,
+  dimensions: Record<string, DimensionId>,
+  options = comparisonOptions(product, dimensions),
+  pinnedProfileIds: readonly string[] = [],
+  index = comparisonIndex(product, dimensions),
+) {
+  const profiles = comparisonProfiles(
+    product,
+    modelIds,
+    selectedProfiles,
+    options,
+    pinnedProfileIds,
+  );
+  const byProfile = profiles.map(
+    (profile) => index.grouped.get(profile.id) ?? [],
+  );
+  const benchmarkIds = commonBenchmarkIds(
+    product,
+    profiles.map(({ id }) => id),
+    index,
+    dimensions,
+  );
   const common = new Set(benchmarkIds);
   const leaderboard = profiles.map((profile, i) =>
     scoreRow(
@@ -221,4 +274,57 @@ export function buildCommonComparison(
     benchmarkIds,
     evidence: byProfile.flat().filter((e) => common.has(e.benchmarkId)),
   };
+}
+
+/**
+ * For each alternative effort of a compared model, the change in the common
+ * benchmark count if that effort replaced the model's current one. Other
+ * selections and pins stay fixed; zero changes and pinned efforts are omitted.
+ */
+export function commonBenchmarkCountDeltas(
+  product: PresetProductVersion,
+  modelIds: string[],
+  selectedProfiles: Record<string, string>,
+  dimensions: Record<string, DimensionId>,
+  options: LeaderboardRow[],
+  pinnedProfileIds: readonly string[] = [],
+  index = comparisonIndex(product, dimensions),
+): Record<string, number> {
+  const current = comparisonProfiles(
+    product,
+    modelIds,
+    selectedProfiles,
+    options,
+    pinnedProfileIds,
+  );
+  const currentIds = current.map(({ id }) => id);
+  const baseline = commonBenchmarkIds(
+    product,
+    currentIds,
+    index,
+    dimensions,
+  ).length;
+  const deltas: Record<string, number> = {};
+  current.forEach((selected, position) => {
+    if (pinnedProfileIds.includes(selected.id)) return;
+    for (const candidate of product.profiles) {
+      if (
+        candidate.modelId !== selected.modelId ||
+        currentIds.includes(candidate.id)
+      )
+        continue;
+      const ids = currentIds.with(position, candidate.id);
+      const delta =
+        commonBenchmarkIds(product, ids, index, dimensions).length - baseline;
+      if (delta) deltas[candidate.id] = delta;
+    }
+  });
+  return deltas;
+}
+
+/** Distinct comparable benchmarks per profile. */
+export function profileBenchmarkCoverage(index: ComparisonIndex) {
+  return new Map(
+    [...index.metricKeys].map(([id, benchmarks]) => [id, benchmarks.size]),
+  );
 }

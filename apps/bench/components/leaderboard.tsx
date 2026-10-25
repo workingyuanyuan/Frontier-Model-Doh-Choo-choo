@@ -15,6 +15,7 @@ import {
   type ProductPreset,
   type PresetProductVersion,
 } from '../lib/view-model';
+import { CopyMarkdownButton } from './copy-markdown-button';
 import { ModelPicker } from './leaderboard-controls';
 import { LeaderboardTable } from './leaderboard-table';
 import { PresetControls } from './preset-controls';
@@ -41,6 +42,7 @@ export type LeaderboardProps = {
   pinnedProfileIds?: string[];
   onPinProfile?: (modelId: string, profileId: string) => void;
   onRemovePinnedProfile?: (profileId: string) => void;
+  effortDeltas?: Record<string, number> | undefined;
 };
 
 export function Leaderboard({
@@ -63,6 +65,7 @@ export function Leaderboard({
   pinnedProfileIds = [],
   onPinProfile,
   onRemovePinnedProfile,
+  effortDeltas,
 }: LeaderboardProps) {
   const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
     initialExpandedModelIds ?? [],
@@ -139,32 +142,6 @@ export function Leaderboard({
     [activeRows, product, effectiveSort],
   );
 
-  const [copyStatus, setCopyStatus] = useState('');
-  const [copying, setCopying] = useState(false);
-
-  useEffect(() => {
-    if (!copyStatus) return;
-    const timer = window.setTimeout(() => setCopyStatus(''), 4000);
-    return () => window.clearTimeout(timer);
-  }, [copyStatus]);
-
-  const copyMarkdown = async () => {
-    setCopying(true);
-    setCopyStatus('');
-    try {
-      await navigator.clipboard.writeText(
-        leaderboardMarkdown(product, sortedRows),
-      );
-      setCopyStatus('Copied!');
-    } catch {
-      setCopyStatus(
-        'Copy failed. Please allow clipboard access and try again.',
-      );
-    } finally {
-      setCopying(false);
-    }
-  };
-
   const onSort = (key: LeaderboardSortKey) =>
     setSort((current) => ({
       key,
@@ -225,24 +202,10 @@ export function Leaderboard({
                 setCheckedModelIds={setCheckedModelIds}
                 onReset={onResetModels}
               />
-              <div className="copy-markdown-control">
-                <button
-                  type="button"
-                  className="copy-markdown-button"
-                  aria-label="Copy table as Markdown"
-                  title="Copy table as Markdown"
-                  disabled={copying}
-                  onClick={copyMarkdown}
-                >
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <rect x="8" y="8" width="12" height="13" rx="2" />
-                    <path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" />
-                  </svg>
-                </button>
-                <span className="copy-markdown-status" role="status">
-                  {copyStatus}
-                </span>
-              </div>
+              <CopyMarkdownButton
+                label="Copy table as Markdown"
+                markdown={() => leaderboardMarkdown(product, sortedRows)}
+              />
             </div>
           </div>
         </div>
@@ -264,6 +227,7 @@ export function Leaderboard({
           pinnedProfileIds={pinnedProfileIds}
           onPinProfile={onPinProfile}
           onRemovePinnedProfile={onRemovePinnedProfile}
+          effortDeltas={effortDeltas}
         />
 
         {rows.length === 0 ? (

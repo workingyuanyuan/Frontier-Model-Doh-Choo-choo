@@ -18,6 +18,7 @@ import {
   buildAdvancedCostSeries,
   buildWeightedCostCurve,
   getCostParetoFrontier,
+  missingAdvancedCostSources,
   type AdvancedCostModelOption,
   type AdvancedCostSeries,
   type AdvancedCostSourceId,
@@ -25,6 +26,9 @@ import {
   type WeightedCostPoint,
   type PresetProductVersion,
 } from '../lib/view-model';
+
+/** Models visible on the advanced chart, each with its visible effort profiles. */
+export type ChartShortlist = { modelId: string; profileIds: string[] }[];
 
 const PROVIDER_COLORS: Record<string, string> = {
   openai: '#2563eb',
@@ -265,9 +269,11 @@ export function CostModelMenu({
   modelOptions,
   selectedProfileId,
   hiddenProfileIds,
+  selectedSourceIds = ADVANCED_COST_SOURCE_IDS,
   onToggleOpen,
   onToggleSelect,
   onUpdateHiddenProfileIds,
+  onUseInLeaderboard,
 }: {
   advanced: boolean;
   open: boolean;
@@ -277,11 +283,13 @@ export function CostModelMenu({
   modelOptions: AdvancedCostModelOption[];
   selectedProfileId: string | null;
   hiddenProfileIds: Set<string>;
+  selectedSourceIds?: readonly AdvancedCostSourceId[];
   onToggleOpen: () => void;
   onToggleSelect: (profileId: string | null) => void;
   onUpdateHiddenProfileIds: (
     update: (current: Set<string>) => Set<string>,
   ) => void;
+  onUseInLeaderboard?: ((models: ChartShortlist) => void) | undefined;
 }) {
   const seriesById = new Map(series.map((line) => [line.seriesId, line]));
   const orderedOptions = modelOptions.toSorted(
@@ -289,6 +297,13 @@ export function CostModelMenu({
       Number(seriesById.has(rightModel.seriesId)) -
       Number(seriesById.has(leftModel.seriesId)),
   );
+
+  const shortlist: ChartShortlist = series.flatMap((line) => {
+    const profileIds = line.points
+      .map(({ profileId }) => profileId)
+      .filter((profileId) => !hiddenProfileIds.has(profileId));
+    return profileIds.length ? [{ modelId: line.modelId, profileIds }] : [];
+  });
 
   const toggleProfileVisibility = (profileId: string) => {
     onUpdateHiddenProfileIds((current) => {
@@ -342,6 +357,10 @@ export function CostModelMenu({
                 const isSelected = model.efforts.some(
                   ({ profileId }) => profileId === selectedProfileId,
                 );
+                const missingSourceIds =
+                  eligibleCount === 0
+                    ? missingAdvancedCostSources(model, selectedSourceIds)
+                    : [];
 
                 return (
                   <li
@@ -384,6 +403,16 @@ export function CostModelMenu({
                         />
                         <strong>{model.displayName}</strong>
                       </label>
+                      {missingSourceIds.map((sourceId) => (
+                        <span
+                          key={sourceId}
+                          className="cost-model-missing-source"
+                          data-source-id={sourceId}
+                          aria-label={`Missing ${sourceName(sourceId)}`}
+                        >
+                          {sourceName(sourceId)}
+                        </span>
+                      ))}
                       <span
                         className="cost-model-effort-count"
                         aria-label={`${visibleCount} of ${model.efforts.length} effort profiles visible`}
@@ -412,7 +441,13 @@ export function CostModelMenu({
                               title={
                                 eligible
                                   ? `${visible ? 'Hide' : 'Show'} ${model.displayName} ${effort.effort}`
-                                  : `${model.displayName} ${effort.effort} does not have complete data for the selected sources`
+                                  : `${model.displayName} ${effort.effort} is missing ${selectedSourceIds
+                                      .filter(
+                                        (sourceId) =>
+                                          !effort.sourceIds.includes(sourceId),
+                                      )
+                                      .map(sourceName)
+                                      .join(', ')}`
                               }
                               onClick={() =>
                                 toggleProfileVisibility(effort.profileId)
@@ -471,6 +506,17 @@ export function CostModelMenu({
                   );
                 })}
         </ul>
+        {advanced && onUseInLeaderboard ? (
+          <div className="cost-model-menu-actions">
+            <button
+              type="button"
+              disabled={!shortlist.length}
+              onClick={() => onUseInLeaderboard(shortlist)}
+            >
+              Use in Leaderboard
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -1151,12 +1197,15 @@ export const CostChart = memo(function CostChart({
   defaultProduct,
   advancedProduct,
   developerMode = false,
+  onUseInLeaderboard,
 }: {
   /** Main-screen projection: complete display-set profiles only. */
   defaultProduct: PresetProductVersion;
   /** Full ProductVersion: preserves D4's non-display effort profiles. */
   advancedProduct: PresetProductVersion;
   developerMode?: boolean;
+  /** Hands the models and efforts visible on the advanced chart to the leaderboard. */
+  onUseInLeaderboard?: ((models: ChartShortlist) => void) | undefined;
 }) {
   const [advanced, setAdvanced] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(
@@ -1269,10 +1318,18 @@ export const CostChart = memo(function CostChart({
                 modelOptions={advancedModelOptions}
                 selectedProfileId={selectedProfileId}
                 hiddenProfileIds={advancedHiddenProfileIds}
+                selectedSourceIds={selectedAdvancedSourceIds}
                 onToggleOpen={() => setModelMenuOpen((current) => !current)}
                 onToggleSelect={setSelectedProfileId}
                 onUpdateHiddenProfileIds={(update) =>
                   setAdvancedHiddenProfileIds(update)
+                }
+                onUseInLeaderboard={
+                  onUseInLeaderboard &&
+                  ((models) => {
+                    setModelMenuOpen(false);
+                    onUseInLeaderboard(models);
+                  })
                 }
               />
             </div>

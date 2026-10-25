@@ -7,9 +7,9 @@ import {
 } from '../lib/dashboard-data';
 
 import type { DimensionId } from '@llm-bench/benchmark-data';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
-import { CostChart } from './cost-chart';
+import { CostChart, type ChartShortlist } from './cost-chart';
 import { DeveloperModelList } from './developer-model-list';
 import { PartialCoverageList } from './partial-coverage-list';
 import { Leaderboard } from './leaderboard';
@@ -17,7 +17,10 @@ import { RadarChart } from './radar-chart';
 import { VersionHeader } from './version-header';
 import {
   buildCommonComparison,
+  commonBenchmarkCountDeltas,
+  comparisonIndex,
   comparisonOptions,
+  profileBenchmarkCoverage,
 } from '../lib/common-benchmarks';
 import { CommonBenchmarkTable } from './common-benchmark-table';
 import {
@@ -30,6 +33,13 @@ import {
 } from '../lib/view-model';
 
 const PRESET_QUERY_KEY = 'preset';
+const MODELS_QUERY_KEY = 'models';
+const EFFORTS_QUERY_KEY = 'efforts';
+const PINS_QUERY_KEY = 'pins';
+const DEVELOPER_QUERY_KEY = 'dev';
+
+const listParam = (params: URLSearchParams, key: string): string[] =>
+  (params.get(key) ?? '').split(',').filter(Boolean);
 
 const formatGeneratedAt = (generatedAt: string): string =>
   new Intl.DateTimeFormat('en', {
@@ -70,19 +80,51 @@ export function Dashboard({
     Record<string, string>
   >({});
 
+  // A shared comparison waits for its preset, whose defaults it replaces.
+  const pendingComparison = useRef<{
+    presetId: string;
+    models: string[];
+    efforts: string[];
+    pins: string[];
+  } | null>(null);
+
   // Ruling D-N10-5: the preset lives in a query parameter, not a route. Read
   // once on mount so a shared link opens on the right scores, and write with
-  // replaceState so switching presets does not fill the back button.
+  // replaceState so switching presets does not fill the back button. The
+  // comparison (models, efforts, pins) and developer mode follow the same rule.
+  const urlRead = useRef(false);
+  const pendingPreset = useRef<string | null>(null);
   useEffect(() => {
-    const requested = new URLSearchParams(window.location.search).get(
-      PRESET_QUERY_KEY,
-    );
-    if (requested && rawProduct.presets.some(({ id }) => id === requested)) {
-      setPresetId(requested);
+    // Parse once: a replayed effect would read the URL the writers already
+    // rewrote for the defaults.
+    if (urlRead.current) return;
+    urlRead.current = true;
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get(PRESET_QUERY_KEY);
+    const validPreset =
+      requested && rawProduct.presets.some(({ id }) => id === requested)
+        ? requested
+        : null;
+    if (validPreset) {
+      pendingPreset.current = validPreset;
+      setPresetId(validPreset);
     }
-  }, [rawProduct.presets]);
+    if (params.get(DEVELOPER_QUERY_KEY) === '1') setDeveloperMode(true);
+    if (params.has(MODELS_QUERY_KEY)) {
+      pendingComparison.current = {
+        presetId: validPreset ?? rawProduct.defaultPresetId,
+        models: listParam(params, MODELS_QUERY_KEY),
+        efforts: listParam(params, EFFORTS_QUERY_KEY),
+        pins: listParam(params, PINS_QUERY_KEY),
+      };
+    }
+  }, [rawProduct.defaultPresetId, rawProduct.presets]);
 
   useEffect(() => {
+    if (pendingPreset.current) {
+      if (pendingPreset.current !== presetId) return;
+      pendingPreset.current = null;
+    }
     const url = new URL(window.location.href);
     if (presetId === rawProduct.defaultPresetId) {
       url.searchParams.delete(PRESET_QUERY_KEY);
@@ -193,6 +235,17 @@ export function Dashboard({
     () => comparisonOptions(rawProduct, benchmarkDimensions),
     [rawProduct, benchmarkDimensions],
   );
+  const index = useMemo(
+    () => comparisonIndex(product, benchmarkDimensions),
+    [product, benchmarkDimensions],
+  );
+  const representativeProfiles = useMemo(
+    () =>
+      Object.fromEntries(
+        representatives.map((row) => [row.modelId, row.profileId]),
+      ),
+    [representatives],
+  );
   const comparison = useMemo(
     () =>
       commonMode
@@ -203,6 +256,7 @@ export function Dashboard({
             benchmarkDimensions,
             options,
             pinnedProfileIds,
+            index,
           )
         : null,
     [
@@ -213,6 +267,7 @@ export function Dashboard({
       options,
       pinnedProfileIds,
       commonMode,
+      index,
     ],
   );
   // Developer mode shows the common-benchmark table for the default selection
@@ -225,12 +280,11 @@ export function Dashboard({
         ? buildCommonComparison(
             product,
             checkedModelIds,
-            Object.fromEntries(
-              representatives.map((row) => [row.modelId, row.profileId]),
-            ),
+            representativeProfiles,
             benchmarkDimensions,
             options,
             [],
+            index,
           )
         : null),
     [
@@ -238,9 +292,37 @@ export function Dashboard({
       developerMode,
       product,
       checkedModelIds,
-      representatives,
+      representativeProfiles,
       benchmarkDimensions,
       options,
+      index,
+    ],
+  );
+  // Measured against the selection the common-benchmark table shows.
+  const effortDeltas = useMemo(
+    () =>
+      developerMode
+        ? commonBenchmarkCountDeltas(
+            product,
+            checkedModelIds,
+            commonMode ? selectedProfiles : representativeProfiles,
+            benchmarkDimensions,
+            options,
+            commonMode ? pinnedProfileIds : [],
+            index,
+          )
+        : undefined,
+    [
+      developerMode,
+      product,
+      checkedModelIds,
+      commonMode,
+      selectedProfiles,
+      representativeProfiles,
+      benchmarkDimensions,
+      options,
+      pinnedProfileIds,
+      index,
     ],
   );
   const updateCheckedModels: React.Dispatch<React.SetStateAction<string[]>> = (
@@ -295,6 +377,115 @@ export function Dashboard({
     setPresetId(id);
     setCheckedModelIds(defaultCheckedIds);
   };
+
+  const coverage = useMemo(() => profileBenchmarkCoverage(index), [index]);
+  // The shortlist handler reads the latest efforts without changing identity,
+  // so the memoized cost chart does not re-render on every effort change.
+  const selectedProfilesRef = useRef(selectedProfiles);
+  useEffect(() => {
+    selectedProfilesRef.current = selectedProfiles;
+  }, [selectedProfiles]);
+  // Each chart model keeps its leaderboard effort while that effort is still
+  // visible on the chart; otherwise its best-covered visible effort is used.
+  // Pins survive only while visible and distinct from the model's effort.
+  const applyChartShortlist = useCallback(
+    (models: ChartShortlist) => {
+      const optionIds = new Set(options.map(({ modelId }) => modelId));
+      const picked = models.filter(({ modelId }) => optionIds.has(modelId));
+      const ids = picked.map(({ modelId }) => modelId);
+      const next = {
+        ...representativeProfiles,
+        ...selectedProfilesRef.current,
+      };
+      picked.forEach(({ modelId, profileIds }) => {
+        if (profileIds.includes(next[modelId] ?? '')) return;
+        const best = profileIds.reduce<string | null>(
+          (top, id) =>
+            (coverage.get(id) ?? 0) > (coverage.get(top ?? '') ?? 0) ? id : top,
+          null,
+        );
+        if (best) next[modelId] = best;
+      });
+      const visible = new Set(picked.flatMap(({ profileIds }) => profileIds));
+      setSelectedProfiles(next);
+      setSelection({ defaults: defaultCheckedIds, ids });
+      setPinnedProfileIds((pins) =>
+        pins.filter(
+          (id) => visible.has(id) && !Object.values(next).includes(id),
+        ),
+      );
+      setCommonMode(true);
+      document
+        .getElementById('leaderboard-title')
+        ?.scrollIntoView({ block: 'start' });
+    },
+    [coverage, defaultCheckedIds, options, representativeProfiles],
+  );
+
+  useEffect(() => {
+    const pending = pendingComparison.current;
+    if (!pending || pending.presetId !== presetId) return;
+    pendingComparison.current = null;
+    const optionIds = new Set(options.map(({ modelId }) => modelId));
+    const ids = [...new Set(pending.models)].filter((id) => optionIds.has(id));
+    const profiles = new Map(product.profiles.map((p) => [p.id, p]));
+    const efforts: Record<string, string> = {};
+    pending.efforts.forEach((id) => {
+      const profile = profiles.get(id);
+      if (profile && ids.includes(profile.modelId))
+        efforts[profile.modelId] = id;
+    });
+    setSelection({ defaults: defaultCheckedIds, ids });
+    setSelectedProfiles({ ...representativeProfiles, ...efforts });
+    setPinnedProfileIds(
+      [...new Set(pending.pins)].filter((id) => {
+        const profile = profiles.get(id);
+        return (
+          profile !== undefined &&
+          ids.includes(profile.modelId) &&
+          efforts[profile.modelId] !== id
+        );
+      }),
+    );
+    setCommonMode(true);
+  }, [
+    defaultCheckedIds,
+    options,
+    presetId,
+    product.profiles,
+    representativeProfiles,
+  ]);
+
+  useEffect(() => {
+    if (pendingComparison.current) return;
+    const url = new URL(window.location.href);
+    const { searchParams } = url;
+    const setList = (key: string, values: string[]) => {
+      if (values.length) searchParams.set(key, values.join(','));
+      else searchParams.delete(key);
+    };
+    if (commonMode) {
+      searchParams.set(MODELS_QUERY_KEY, checkedModelIds.join(','));
+      setList(
+        EFFORTS_QUERY_KEY,
+        checkedModelIds.flatMap((id) => selectedProfiles[id] ?? []),
+      );
+      setList(PINS_QUERY_KEY, pinnedProfileIds);
+    } else {
+      [MODELS_QUERY_KEY, EFFORTS_QUERY_KEY, PINS_QUERY_KEY].forEach((key) =>
+        searchParams.delete(key),
+      );
+    }
+    if (developerMode) searchParams.set(DEVELOPER_QUERY_KEY, '1');
+    else searchParams.delete(DEVELOPER_QUERY_KEY);
+    window.history.replaceState(null, '', url);
+  }, [
+    checkedModelIds,
+    commonMode,
+    developerMode,
+    pinnedProfileIds,
+    selectedProfiles,
+  ]);
 
   const rows = useMemo(() => {
     return representatives.filter((row) =>
@@ -351,6 +542,7 @@ export function Dashboard({
           onRemovePinnedProfile={(id) =>
             setPinnedProfileIds((ids) => ids.filter((p) => p !== id))
           }
+          effortDeltas={effortDeltas}
           benchmarkDimensions={benchmarkDimensions}
           preset={comparison ? comparison.product.activePreset : activePreset}
           controlPreset={activePreset}
@@ -388,6 +580,7 @@ export function Dashboard({
           defaultProduct={visibleProduct}
           advancedProduct={product}
           developerMode={developerMode}
+          onUseInLeaderboard={applyChartShortlist}
         />
       </main>
       <footer className="site-footer">

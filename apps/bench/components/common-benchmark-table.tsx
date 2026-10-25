@@ -1,16 +1,53 @@
 import type { buildCommonComparison } from '../lib/common-benchmarks';
+import { commonBenchmarksMarkdown } from '../lib/leaderboard-markdown';
 import { getProfileDisplayName } from '../lib/view-model';
+import { CopyMarkdownButton } from './copy-markdown-button';
 import {
   getBenchmarkDisplayName,
   getSourceDisplayName,
 } from './model-detail-panel';
 
+type Comparison = ReturnType<typeof buildCommonComparison>;
+
+/** One row per benchmark metric, shared by the table and its Markdown copy. */
+function commonBenchmarkRows({ profiles, benchmarkIds, evidence }: Comparison) {
+  return benchmarkIds.flatMap((benchmarkId) => {
+    const metrics = evidence.filter(
+      (e) =>
+        e.benchmarkId === benchmarkId && e.model.profileId === profiles[0]?.id,
+    );
+    return metrics.map((metric) => {
+      const cells = profiles.map((p) =>
+        evidence.find(
+          (e) =>
+            e.benchmarkId === benchmarkId &&
+            e.metric.id === metric.metric.id &&
+            e.model.profileId === p.id,
+        )!,
+      );
+      return {
+        key: `${benchmarkId}:${metric.metric.id}`,
+        label: `${getBenchmarkDisplayName(benchmarkId, metric)}${
+          metrics.length > 1 ? ` · ${metric.metric.name}` : ''
+        }`,
+        cells,
+        scores: cells.map((cell) => cell.normalizedScore!),
+        difference:
+          profiles.length === 2
+            ? cells[0]!.normalizedScore! - cells[1]!.normalizedScore!
+            : null,
+      };
+    });
+  });
+}
+
 export function CommonBenchmarkTable({
   comparison,
 }: {
-  comparison: ReturnType<typeof buildCommonComparison>;
+  comparison: Comparison;
 }) {
-  const { profiles, benchmarkIds, evidence } = comparison;
+  const { profiles, benchmarkIds } = comparison;
+  const rows = commonBenchmarkRows(comparison);
   return (
     <section
       className="panel common-benchmark-panel"
@@ -18,9 +55,21 @@ export function CommonBenchmarkTable({
     >
       <div className="section-heading">
         <h2 id="common-benchmarks-title">Common benchmarks</h2>
-        <span>
-          {benchmarkIds.length} benchmarks · {profiles.length} profiles
-        </span>
+        <div className="common-benchmark-actions">
+          <span>
+            {benchmarkIds.length} benchmarks · {profiles.length} profiles
+          </span>
+          <CopyMarkdownButton
+            label="Copy common benchmarks as Markdown"
+            disabled={!rows.length}
+            markdown={() =>
+              commonBenchmarksMarkdown(
+                profiles.map(getProfileDisplayName),
+                rows,
+              )
+            }
+          />
+        </div>
       </div>
       {profiles.length < 2 ? (
         <p role="status">
@@ -61,72 +110,49 @@ export function CommonBenchmarkTable({
                 </tr>
               </thead>
               <tbody>
-                {benchmarkIds.flatMap((benchmarkId) => {
-                  const metrics = evidence.filter(
-                    (e) =>
-                      e.benchmarkId === benchmarkId &&
-                      e.model.profileId === profiles[0]?.id,
+                {rows.map(({ key, label, cells, difference }) => {
+                  const best = Math.max(
+                    ...cells.map((cell) => cell.normalizedScore!),
                   );
-                  return metrics.map((metric) => {
-                    const cells = profiles.map((p) =>
-                      evidence.find(
-                        (e) =>
-                          e.benchmarkId === benchmarkId &&
-                          e.metric.id === metric.metric.id &&
-                          e.model.profileId === p.id,
-                      )!,
-                    );
-                    const difference =
-                      profiles.length === 2
-                        ? cells[0]!.normalizedScore! -
-                          cells[1]!.normalizedScore!
-                        : null;
-                    const best = Math.max(
-                      ...cells.map((cell) => cell.normalizedScore!),
-                    );
-                    return (
-                      <tr key={`${benchmarkId}:${metric.metric.id}`}>
-                        <th scope="row">
-                          {getBenchmarkDisplayName(benchmarkId, metric)}
-                          {metrics.length > 1 ? ` · ${metric.metric.name}` : ''}
-                        </th>
-                        {cells.map((cell) => (
-                          <td key={cell.id}>
-                            <strong
-                              className={
-                                cell.normalizedScore === best
-                                  ? 'common-best-score'
-                                  : undefined
-                              }
-                            >
-                              {cell.normalizedScore!.toFixed(1)}
-                            </strong>
-                            <a
-                              href={cell.provenance.sourceUrl}
-                              target="_blank"
-                              rel="noreferrer"
-                              title={`Original score: ${cell.rawScore} ${cell.metric.unit}`}
-                            >
-                              {getSourceDisplayName(cell.sourceId)} ·{' '}
-                              {new Intl.NumberFormat('en', {
-                                maximumFractionDigits: 4,
-                              }).format(cell.rawScore)}{' '}
-                              {cell.metric.unit}
-                              {cell.benchmarkVersion
-                                ? ` · ${cell.benchmarkVersion}`
-                                : ''}
-                            </a>
-                          </td>
-                        ))}
-                        {difference !== null ? (
-                          <td>
-                            {difference > 0 ? '+' : ''}
-                            {difference.toFixed(1)}
-                          </td>
-                        ) : null}
-                      </tr>
-                    );
-                  });
+                  return (
+                    <tr key={key}>
+                      <th scope="row">{label}</th>
+                      {cells.map((cell) => (
+                        <td key={cell.id}>
+                          <strong
+                            className={
+                              cell.normalizedScore === best
+                                ? 'common-best-score'
+                                : undefined
+                            }
+                          >
+                            {cell.normalizedScore!.toFixed(1)}
+                          </strong>
+                          <a
+                            href={cell.provenance.sourceUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            title={`Original score: ${cell.rawScore} ${cell.metric.unit}`}
+                          >
+                            {getSourceDisplayName(cell.sourceId)} ·{' '}
+                            {new Intl.NumberFormat('en', {
+                              maximumFractionDigits: 4,
+                            }).format(cell.rawScore)}{' '}
+                            {cell.metric.unit}
+                            {cell.benchmarkVersion
+                              ? ` · ${cell.benchmarkVersion}`
+                              : ''}
+                          </a>
+                        </td>
+                      ))}
+                      {difference !== null ? (
+                        <td>
+                          {difference > 0 ? '+' : ''}
+                          {difference.toFixed(1)}
+                        </td>
+                      ) : null}
+                    </tr>
+                  );
                 })}
               </tbody>
             </table>

@@ -50,3 +50,29 @@ export function leaderboardMarkdown(
     }),
   ].join('\n');
 }
+
+export function commonBenchmarksMarkdown(
+  profileNames: string[],
+  rows: { label: string; scores: number[]; difference: number | null }[],
+): string {
+  const withDifference = profileNames.length === 2;
+  const headers = [
+    'Benchmark',
+    ...profileNames,
+    ...(withDifference ? ['Difference (first − second)'] : []),
+  ];
+  const line = (cells: string[]) => `| ${cells.join(' | ')} |`;
+  return [
+    line(headers.map(escapeCell)),
+    line(headers.map(() => '---')),
+    ...rows.map((row) =>
+      line([
+        escapeCell(row.label),
+        ...row.scores.map(score),
+        ...(withDifference && row.difference !== null
+          ? [`${row.difference > 0 ? '+' : ''}${row.difference.toFixed(1)}`]
+          : []),
+      ]),
+    ),
+  ].join('\n');
+}
