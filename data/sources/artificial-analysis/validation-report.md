@@ -122,30 +122,30 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Kimi K2.7 Code | `artificial-analysis:scicode:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `artificial-analysis:tau3-banking:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `artificial-analysis:terminal-bench-2-1:kimi-k2-7-code` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
-| Kimi K3.1 Pro | `artificial-analysis:aa-briefcase:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:aa-lcr:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro:index` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:critpt:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:gdp-pdf:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:gdpval-aa:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:humanitys-last-exam:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v4-3-2` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:scicode:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:kimi-k3-1-pro |
-| MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3:index` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:critpt:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:gdp-pdf:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:gdpval-aa:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:gpqa-diamond:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v4-3-2` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
+| Kimi K3.1 Pro | `artificial-analysis:aa-briefcase:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:aa-lcr:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:aa-omniscience:kimi-k3-1-pro:index` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:critpt:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:gdp-pdf:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:gdpval-aa:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:humanitys-last-exam:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v4-3-2` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:scicode:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| MiniMax-M3 | `artificial-analysis:aa-briefcase:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-lcr:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:aa-omniscience:minimax-m3:index` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:critpt:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gdp-pdf:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gdpval-aa:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:gpqa-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v4-3-2` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | Qwen3.8 Max | `artificial-analysis:aa-briefcase:qwen3-8-max-0803` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-lcr:qwen3-8-max-0803` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max | `artificial-analysis:aa-omniscience:qwen3-8-max-0803` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |

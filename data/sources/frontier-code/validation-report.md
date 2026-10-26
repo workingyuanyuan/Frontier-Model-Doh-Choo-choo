@@ -49,7 +49,7 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
+| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

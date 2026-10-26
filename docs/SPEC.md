@@ -881,6 +881,7 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 - 網站首頁是 JavaScript SPA（HTML 僅約 1 KB），不要用 DOM 擷取。
 - 2.0 的七個 suite 全部計分；維度依方法論頁描述的評分對象決定，見 [BENCHMARK_DIMENSION_MAPPING.md](BENCHMARK_DIMENSION_MAPPING.md)。Reasoning 與 Data Analysis 為無工具問答，其餘 suite 使用工具。effort 取自 2.0 模型登錄（官方說明各模型以最高支援檔位執行）。
 - `livebench-reasoning` 改用 2.0 Reasoning（同一題型家族的新版本）；1.0 的 Reasoning 列全部保留為 EXCLUDED 證據。
+- 2.0 只採用 release 清單中最新的一版。2026-10-25 起 `categories.json` 帶 `_overall_weights`（來源 Overall 的 suite 權重；該 release 為 Long Agentic ×2、Coding／Design ×1.5，其餘 ×1）。本專案不採用來源 Overall，權重只驗證後寫入 validation report；若出現未知 suite 或非正數權重則停止。使用者於 2026-10-26 決定跟隨 `20261025`，不在新版主榜的模型不沿用舊版成績，因為兩版的 Long Agentic 與 Browser 給分不同。
 - 2.0 不再提供的 `livebench-language`、`livebench-instruction-following`、`livebench-mathematics` 保留 1.0 歷史 release 的成績。重新擷取時，既有列不得消失或改分（否則停止）；1.0 release 後來新增的模型列照常接受並在 validation report 列出。
 - 可見母體：2.0 以主榜渲染列數核對；1.0 以 `#/release/<release>` 頁面啟用 Include finetunes 後的列數，扣除兩個已不顯示的 bare slug 與合併的 variant 後核對。
 - 成本：2.0 每個模型一筆 `MEASURED_TASK`，依方法論以「各 suite 總成本 ÷ 總任務數」計算；token 單價為 `API_STANDARDIZED`，同一 profile 以 2.0 價格取代 1.0。1.0 的 `cost_per_successful_task` 另以原 ID 保留。

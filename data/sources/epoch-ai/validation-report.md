@@ -173,17 +173,17 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Grok 4.5 | `epoch-ai:epoch-capabilities-index:xai-grok-4-5-default-epoch-inspect-row-43` | — | `high` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-5-high:arc-agi-2-v2-semi-private |
 | Grok 4.6 | `epoch-ai:epoch-capabilities-index:xai-grok-4-6-default-epoch-inspect-row-28` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |
 | Grok 4.7 | `epoch-ai:epoch-capabilities-index:xai-grok-4-7-default-epoch-inspect-row-42` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-7-xhigh:arc-agi-2-v2-semi-private |
-| Inkling | `epoch-ai:epoch-capabilities-index:thinking-machines-inkling-default-epoch-inspect-row-68` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:inkling |
+| Inkling | `epoch-ai:epoch-capabilities-index:thinking-machines-inkling-default-epoch-inspect-row-68` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:inkling |
 | Kimi K2.7 Code | `epoch-ai:aime:moonshot-kimi-k2-7-code-default-epoch-inspect-row-92` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:chess-puzzles:moonshot-kimi-k2-7-code-default-epoch-inspect-row-19` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k2-7-code-default-epoch-inspect-row-58` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:gpqa-diamond:moonshot-kimi-k2-7-code-default-epoch-inspect-row-83` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K2.7 Code | `epoch-ai:simpleqa-verified:moonshot-kimi-k2-7-code-default-epoch-inspect-row-35` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
 | Kimi K3 | `epoch-ai:epoch-capabilities-index:moonshot-kimi-k3-default-epoch-inspect-row-19` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| MiniMax-M3 | `epoch-ai:aime:minimax-minimax-m3-default-epoch-inspect-row-75` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `epoch-ai:chess-puzzles:minimax-minimax-m3-default-epoch-inspect-row-127` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `epoch-ai:epoch-capabilities-index:minimax-minimax-m3-default-epoch-inspect-row-73` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
-| MiniMax-M3 | `epoch-ai:gpqa-diamond:minimax-minimax-m3-default-epoch-inspect-row-67` | — | `max` | livebench | livebench-2026-10-14:livebench-browser:minimax-m3 |
+| MiniMax-M3 | `epoch-ai:aime:minimax-minimax-m3-default-epoch-inspect-row-75` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `epoch-ai:chess-puzzles:minimax-minimax-m3-default-epoch-inspect-row-127` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `epoch-ai:epoch-capabilities-index:minimax-minimax-m3-default-epoch-inspect-row-73` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| MiniMax-M3 | `epoch-ai:gpqa-diamond:minimax-minimax-m3-default-epoch-inspect-row-67` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | Muse Spark 1.1 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-1-default-epoch-inspect-row-44` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.1 | `epoch-ai:simpleqa-verified:meta-muse-spark-1-1-default-epoch-inspect-row-23` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-1 |
 | Muse Spark 1.2 | `epoch-ai:epoch-capabilities-index:meta-muse-spark-1-2-default-epoch-inspect-row-38` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |

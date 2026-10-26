@@ -73,7 +73,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-23T09:34:56.682Z",
+  "checkedAt": "2026-10-26T07:31:24.305Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/5e/5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2.html",
     "byteLength": 855160,
@@ -85,7 +85,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-23T09:34:56.682Z",
+    "retrievedAt": "2026-10-26T07:31:24.305Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
     "sourceId": "surge-chartography"
@@ -224,7 +224,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-23T09:34:56.382Z",
+    "observedAt": "2026-10-26T07:31:23.440Z",
     "sourceId": "surge-chartography"
   }
 }

@@ -1,0 +1,538 @@
+{
+  "schemaVersion": "benchmark-update-check-v1",
+  "date": "2026-10-26",
+  "timezone": "Asia/Taipei",
+  "checkedAt": "2026-10-26T11:22:24.591823+00:00",
+  "comparisonBaseline": {
+    "primary": "2026-10-25",
+    "report": "docs/research/2026-10-25-benchmark-update-check.json",
+    "reportSha256": "2d44d44c3ef60366e7a8f2ee4c4ad415eecf9a4bc821a1bbfaa9862c9e050c68"
+  },
+  "workspaceBaseline": {
+    "head": "f13df8cb9360af8add056600f4457ebaf2f75d3d",
+    "initialGitStatus": [],
+    "versionId": "sha256:a5e6ce96ef1016deb76e2b707969b2a5d15e240cfd1a8f4dec7585470e9b79b9",
+    "productSha256": "485a4fb51251819b205ad5ccb95ca5b923853cde3105e30d355c4a0a465326c3",
+    "savedAt": "artifacts/research/2026-10-26-benchmark-check/import-baseline/"
+  },
+  "sources": {
+    "livebench": {
+      "status": "imported-20261025-after-user-decision",
+      "initialError": "Unreviewed LiveBench 2.0 categories: _overall_weights",
+      "userDecision": {
+        "date": "2026-10-26",
+        "quote": "採用方案 1，跟隨 LiveBench 新版"
+      },
+      "importedSnapshot": "livebench:2026-10-26T11:17:48.535Z",
+      "adapterChange": "validate _overall_weights (known suites, positive finite weights); not scored",
+      "releaseList": ["20261014", "20261025"],
+      "files": {
+        "categories-20261014.json": {
+          "sha256": "b1e46eedc4a461e8ad8a414c24203c35aa760e759096b4211826b40a45f97279",
+          "byteLength": 237
+        },
+        "categories-20261025.json": {
+          "sha256": "b5366a69719445fa91e970de6f248c666115bbc5d8b8d134f33bb5fcc399a7ce",
+          "byteLength": 320
+        },
+        "cost-20261025.csv": {
+          "sha256": "c6dcb23763048bd39b856fe877b708f672afd894946dc57d5f802bdcd3f97b82",
+          "byteLength": 5336
+        },
+        "index.html": {
+          "sha256": "c2093ee2e342d1abcdf1b64a97787eeff8d86a46feb06996c3af5ced5201a4ce",
+          "byteLength": 889
+        },
+        "main.js": {
+          "sha256": "e8a95a93e831650d6bc93a2d57e184c02d896fc47142f9cb4ce86d711981a283",
+          "byteLength": 385603
+        },
+        "preview-20261023-404.html": {
+          "sha256": "b620507312c5e97566a3c6cfaf99144fefc18a0da7d941401dfa0f5f58fb0368",
+          "byteLength": 9379
+        },
+        "table-20261014.csv": {
+          "sha256": "a59b69ae77028b4cda6b2e3aa2507d055ee3e83b381f5456c8f085bb5b957f06",
+          "byteLength": 2718
+        },
+        "table-20261025.csv": {
+          "sha256": "f7fd4fee2fb5e94336c493a27a974386a8033e815daa8afc064038fdf3efb8d9",
+          "byteLength": 1576
+        }
+      },
+      "renderedRows": {
+        "v2": 30,
+        "v1WithFinetunes": 65
+      },
+      "table20261014Rows": 53,
+      "table20261025Rows": 30,
+      "droppedFromLatest": [
+        "beam-1.0",
+        "claude-fable-5",
+        "claude-haiku-4.5",
+        "claude-opus-4.8",
+        "claude-opus-5",
+        "claude-sonnet-4.6",
+        "claude-sonnet-5",
+        "deepseek-v4-flash",
+        "deepseek-v4-flash-vision",
+        "deepseek-v4.1-flash",
+        "gemini-3.1-pro",
+        "gemini-3.7-flash",
+        "glm-5.3",
+        "gpt-5.5",
+        "gpt-5.6-luna",
+        "gpt-5.6-sol",
+        "gpt-6-sol",
+        "grok-4.5",
+        "minimax-m3",
+        "muse-spark-1.2",
+        "nemotron-lightning-3.5",
+        "nemotron-ultra-3",
+        "qwen3.8-flash"
+      ],
+      "addedInLatest": [],
+      "changedScores": {
+        "claude-fable-5.1": {
+          "long_agentic": [80.8, 77.9],
+          "browser": [100.0, 89.8]
+        },
+        "claude-haiku-5.5": {
+          "long_agentic": [57.6, 40.0],
+          "browser": [80.0, 69.5]
+        },
+        "claude-opus-5.5": {
+          "long_agentic": [85.0, 72.8],
+          "browser": [80.0, 88.4]
+        },
+        "claude-sonnet-5.5": {
+          "long_agentic": [78.8, 63.4],
+          "browser": [84.0, 89.3]
+        },
+        "deepseek-v4.1-flash-1017": {
+          "long_agentic": [50.9, 40.9],
+          "browser": [76.0, 67.2]
+        },
+        "gemini-3.8-flash": {
+          "long_agentic": [30.1, 16.5],
+          "browser": [64.0, 45.1]
+        },
+        "gemini-4-argon": {
+          "long_agentic": [69.9, 61.2],
+          "browser": [92.0, 82.8]
+        },
+        "gemma-4-31b": {
+          "long_agentic": [13.3, 10.7],
+          "browser": [4.0, 0.0]
+        },
+        "glm-5.3-flash": {
+          "long_agentic": [28.4, 19.0],
+          "browser": [84.0, 59.8]
+        },
+        "gpt-5.6-terra": {
+          "long_agentic": [48.4, 33.1],
+          "browser": [84.0, 70.3]
+        },
+        "gpt-6-astra": {
+          "long_agentic": [82.4, 77.5],
+          "browser": [84.0, 91.3]
+        },
+        "gpt-6-luna": {
+          "long_agentic": [48.1, 30.9],
+          "browser": [72.0, 70.3]
+        },
+        "gpt-6.1-sol": {
+          "long_agentic": [73.0, 68.7],
+          "browser": [88.0, 93.3]
+        },
+        "grok-4.6": {
+          "long_agentic": [40.7, 28.0],
+          "browser": [64.0, 49.4]
+        },
+        "grok-4.7": {
+          "long_agentic": [50.1, 46.1],
+          "browser": [60.0, 49.3]
+        },
+        "inkling": {
+          "long_agentic": [14.1, 8.5],
+          "browser": [16.0, 12.0]
+        },
+        "kimi-k3.1-pro": {
+          "long_agentic": [49.5, 39.1],
+          "browser": [80.0, 75.9]
+        },
+        "kimi-k3": {
+          "long_agentic": [42.8, 26.4],
+          "browser": [16.0, 75.2]
+        },
+        "mimo-v2.6-pro": {
+          "long_agentic": [47.5, 35.2],
+          "browser": [88.0, 77.3]
+        },
+        "minimax-m3.1-flash": {
+          "long_agentic": [34.7, 28.8],
+          "browser": [92.0, 80.6]
+        },
+        "mistral-large-4": {
+          "long_agentic": [11.8, 8.8],
+          "browser": [8.0, 0.6]
+        },
+        "muse-spark-1.3": {
+          "long_agentic": [40.4, 25.5],
+          "browser": [80.0, 30.9]
+        },
+        "muse-spark-open": {
+          "long_agentic": [18.9, 11.7],
+          "browser": [36.0, 26.2]
+        },
+        "muse-wonder-1.0": {
+          "long_agentic": [53.2, 52.6],
+          "browser": [72.0, 60.0]
+        },
+        "nemotron-super-vl-3.5-nvfp4": {
+          "long_agentic": [11.5, 7.3],
+          "browser": [32.0, 18.0]
+        },
+        "nemotron-super-vl-3.5": {
+          "long_agentic": [15.8, 11.7],
+          "reasoning": [78.8, 74.6],
+          "coding": [65.5, 71.3],
+          "browser": [36.0, 21.6],
+          "research": [70.9, 66.7],
+          "design": [60.7, 62.8]
+        },
+        "qwen3.8-27b": {
+          "long_agentic": [27.9, 20.6],
+          "browser": [32.0, 24.2]
+        },
+        "qwen3.8-max": {
+          "long_agentic": [42.3, 29.9],
+          "browser": [32.0, 49.4]
+        },
+        "smaug-nemotron-3.5-nvfp4": {
+          "long_agentic": [19.6, 8.4],
+          "browser": [44.0, 25.6]
+        },
+        "step-5-preview": {
+          "long_agentic": [27.5, 19.4],
+          "browser": [24.0, 24.8]
+        }
+      },
+      "overallWeights20261025": {
+        "Long Agentic": 2.0,
+        "Coding": 1.5,
+        "Design": 1.5
+      },
+      "vsPreview20261023": {
+        "onlyPreview": ["beam-1.0"],
+        "changed": {
+          "nemotron-super-vl-3.5-nvfp4": {
+            "browser": ["4.0", "18.0"]
+          },
+          "nemotron-super-vl-3.5": {
+            "browser": ["4.2", "21.6"]
+          },
+          "smaug-nemotron-3.5-nvfp4": {
+            "browser": ["0.9", "25.6"]
+          }
+        },
+        "previewUrlStatus": 404
+      },
+      "preview": "artifacts/research/2026-10-26-benchmark-check/livebench-preview/"
+    },
+    "artificialAnalysis": {
+      "status": "imported",
+      "visualCatalog": "27 of 709 models",
+      "diff": {
+        "candidates.json": {
+          "before": 2871,
+          "after": 2871,
+          "added": [],
+          "removed": [],
+          "changed": [
+            {
+              "id": "artificial-analysis:gdpval-aa:glm-5-3-flash",
+              "fields": [
+                {
+                  "f": "normalizedScore",
+                  "before": 57.109,
+                  "after": 57.108000000000004
+                },
+                {
+                  "f": "rawScore",
+                  "before": 0.57109,
+                  "after": 0.57108
+                }
+              ]
+            },
+            {
+              "id": "artificial-analysis:gdpval-aa:minimax-m3",
+              "fields": [
+                {
+                  "f": "normalizedScore",
+                  "before": 37.12350000000001,
+                  "after": 37.128
+                },
+                {
+                  "f": "rawScore",
+                  "before": 0.37123500000000004,
+                  "after": 0.37128
+                }
+              ]
+            },
+            {
+              "id": "artificial-analysis:gdpval-aa:minimax-m3-1-flash",
+              "fields": [
+                {
+                  "f": "normalizedScore",
+                  "before": 47.8845,
+                  "after": 47.878499999999995
+                },
+                {
+                  "f": "rawScore",
+                  "before": 0.478845,
+                  "after": 0.47878499999999996
+                }
+              ]
+            }
+          ]
+        },
+        "costs.json": {
+          "before": 419,
+          "after": 419,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      }
+    },
+    "unchangedRefreshedThenRestored": {
+      "arc-prize": {
+        "candidates.json": {
+          "before": 291,
+          "after": 291,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 291,
+          "after": 291,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "deepswe": {
+        "candidates.json": {
+          "before": 70,
+          "after": 70,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 68,
+          "after": 68,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "epoch-ai": {
+        "candidates.json": {
+          "before": 1462,
+          "after": 1462,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "frontier-code": {
+        "candidates.json": {
+          "before": 136,
+          "after": 136,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 136,
+          "after": 136,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-chartography": {
+        "candidates.json": {
+          "before": 42,
+          "after": 42,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-complex-constraints": {
+        "candidates.json": {
+          "before": 44,
+          "after": 44,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-corecraft": {
+        "candidates.json": {
+          "before": 50,
+          "after": 50,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-dayjob-finance": {
+        "candidates.json": {
+          "before": 36,
+          "after": 36,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-dayjob-healthcare": {
+        "candidates.json": {
+          "before": 36,
+          "after": 36,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-gdp-xlsx": {
+        "candidates.json": {
+          "before": 20,
+          "after": 20,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "surge-riemann": {
+        "candidates.json": {
+          "before": 44,
+          "after": 44,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 0,
+          "after": 0,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "vals-ai": {
+        "candidates.json": {
+          "before": 3458,
+          "after": 3458,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 3308,
+          "after": 3308,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "zapier-automationbench": {
+        "candidates.json": {
+          "before": 126,
+          "after": 126,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "before": 125,
+          "after": 125,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      }
+    },
+    "frontierSwe": {
+      "status": "refresh-failed-known",
+      "error": "FrontierSWE leaderboard and coverage model lists disagree",
+      "snapshotKept": true
+    },
+    "vendorReleases": {
+      "status": "not-refreshed",
+      "note": "offline snapshot sources; no new frontier model announcements found for 2026-10-24..26"
+    }
+  },
+  "supersededRelease": "2026-10-26T07-34-51-396Z",
+  "failedRelease": "2026-10-26T11-18-09-923Z",
+  "release": {
+    "runId": "2026-10-26T11-19-29-862Z",
+    "status": "complete",
+    "review": "pending-user-review",
+    "versionId": "sha256:0b6f983240c9b24e1af98a8d87090a9316577aabd66382c631d48c5ce4de1d4b",
+    "previousVersionId": "sha256:a5e6ce96ef1016deb76e2b707969b2a5d15e240cfd1a8f4dec7585470e9b79b9"
+  }
+}

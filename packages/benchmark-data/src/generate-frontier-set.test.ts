@@ -148,9 +148,10 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-10-25 data; validate each intersection independently below.
+    // 2026-10-26 data: Opus 5 and Fable 5 are absent from LiveBench 2.0
+    // 2026-10-25, so the nine- and ten-model cohorts lose its suites.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      36, 18, 17, 17, 17, 17, 17, 17, 17,
+      36, 18, 17, 17, 17, 17, 17, 9, 9,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     // The first two models share ProofBench, so its quality exclusion is exercised.

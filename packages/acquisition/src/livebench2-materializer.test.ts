@@ -96,6 +96,38 @@ describe('LiveBench 2.0 materializer', () => {
       ),
     ).toThrow(/registry has no entry for unknown-model/u);
   });
+
+  it('reads the 2026-10-25 Overall weights without scoring them', () => {
+    const weighted = (weights: unknown) =>
+      JSON.stringify({ ...JSON.parse(categories2), _overall_weights: weights });
+    const result = materializeLiveBench2(
+      mainJs,
+      table2,
+      weighted({ 'Long Agentic': 2, Coding: 1.5, Design: 1.5 }),
+      context2,
+    );
+    expect(result.overallWeights).toEqual({
+      'Long Agentic': 2,
+      Coding: 1.5,
+      Design: 1.5,
+    });
+    expect(result.candidates).toEqual(
+      materializeLiveBench2(mainJs, table2, categories2, context2).candidates,
+    );
+    expect(
+      materializeLiveBench2(mainJs, table2, categories2, context2)
+        .overallWeights,
+    ).toEqual({});
+    expect(() =>
+      materializeLiveBench2(mainJs, table2, weighted({ Video: 2 }), context2),
+    ).toThrow(/_overall_weights names unknown category Video/u);
+    expect(() =>
+      materializeLiveBench2(mainJs, table2, weighted({ Coding: 0 }), context2),
+    ).toThrow(/Invalid LiveBench 2.0 weight Coding: 0/u);
+    expect(() =>
+      materializeLiveBench2(mainJs, table2, weighted([2]), context2),
+    ).toThrow(/_overall_weights is not an object/u);
+  });
 });
 
 describe('LiveBench 2.0 costs', () => {
