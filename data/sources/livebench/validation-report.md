@@ -1,19 +1,19 @@
 # LiveBench acquisition validation
 
-LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supplies seven suites; the frozen 1.0 release 2026-06-25 keeps the benchmarks that 2.0 dropped.
+LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supplies seven suites; the frozen 1.0 release 2026-06-25 keeps the benchmarks that 2.0 dropped.
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261014/table.csv?v=1792813419`) | 53 |
-| 2.0 suite candidates | 371 |
+| 2.0 model rows (`https://livebench.ai/data/20261025/table.csv?v=1792990837`) | 30 |
+| 2.0 suite candidates | 210 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1792813419`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1792990837`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 158 |
-| Distinct unresolved raw model names | 32 |
+| Cost records | 142 |
+| Distinct unresolved raw model names | 24 |
 
 ## LiveBench 2.0 suites
 
@@ -30,24 +30,20 @@ LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supp
 - Each cell is the official suite score (mean task score 0–100, single run); unmeasured tasks score 0 upstream and a blank cell is not materialized.
 - Effort comes from the 2.0 model registry in the application bundle; models run at their highest supported effort unless the registry says otherwise.
 - `livebench-reasoning` continues on the 2.0 Reasoning suite (same task family, new release).
+- The release's own Overall weights Long Agentic ×2, Coding ×1.5, Design ×1.5 and every other suite ×1 (`_overall_weights`); Overall is not materialized, so the weights do not affect suite scores.
 - Retained 1.0 rows compared with the saved snapshot by candidate ID and score: none removed or changed; 0 added since the last capture.
 - 2.0 cost per task is Σ suite cost / Σ suite tasks, as the methodology defines it. 1.0 cost-per-successful-task records are kept but EXCLUDED, so the two generations are never blended.
 
 ## Unresolved model names
 
-- `beam-1.0`
-- `claude-haiku-4.5`
 - `claude-haiku-5-5-max-effort`
 - `claude-haiku-5-5-xhigh-effort`
 - `claude-haiku-5.5`
 - `deepseek-v4-flash`
-- `deepseek-v4-flash-vision`
 - `deepseek-v4-flash-vision-exp`
 - `deepseek-v4-pro`
-- `deepseek-v4.1-flash`
 - `deepseek-v4.1-flash-1017`
 - `deepseek-v4.1-flash-max`
-- `gemini-3.1-pro`
 - `gemma-4-31b`
 - `glm-5.3`
 - `glm-5.3-flash`
@@ -57,12 +53,9 @@ LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supp
 - `mistral-large-4-high`
 - `muse-spark-open`
 - `nemotron-3.5-lightning-30b-a3b`
-- `nemotron-lightning-3.5`
 - `nemotron-super-vl-3.5`
 - `nemotron-super-vl-3.5-nvfp4`
-- `nemotron-ultra-3`
 - `ox-alpha-max`
-- `qwen3.8-flash`
 - `qwen3.8-flash-next`
 - `smaug-agentic`
 - `smaug-nemotron-3.5-nvfp4`
@@ -70,7 +63,7 @@ LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supp
 
 ## Visible comparison
 
-- LiveBench 2.0 rendered leaderboard rows: 53; table rows: 53.
+- LiveBench 2.0 rendered leaderboard rows: 30; table rows: 30.
 - LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
 - Result: both rendered counts matched.
 
@@ -78,9 +71,9 @@ LiveBench now publishes two generations. Release 2026-10-14 (LiveBench 2.0) supp
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 112 | 115 | +3 |
-| Candidate results | 627 | 655 | +28 |
-| Materialized costs | 156 | 158 | +2 |
+| Raw model profiles | 115 | 96 | -19 |
+| Candidate results | 655 | 494 | -161 |
+| Materialized costs | 158 | 142 | -16 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

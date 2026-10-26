@@ -361,7 +361,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-25T04:23:15.961Z",
+  "checkedAt": "2026-10-26T07:32:00.598Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/77/77bd366ed6299343d252458cc6449e703a4e18a0c2ce2b788aa6e83c94c8ba25.html",
     "byteLength": 287232,
@@ -373,7 +373,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-10-25T04:23:15.961Z",
+    "retrievedAt": "2026-10-26T07:32:00.598Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:77bd366ed6299343d252458cc6449e703a4e18a0c2ce2b788aa6e83c94c8ba25",
     "sourceId": "vals-ai"
@@ -1899,6 +1899,7 @@
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
@@ -1990,6 +1991,7 @@
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
@@ -2298,6 +2300,7 @@
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
@@ -2708,6 +2711,7 @@
           "google-gemini-4-argon",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
@@ -3493,6 +3497,7 @@
           "google-gemini-4-argon",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
@@ -3596,6 +3601,7 @@
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
           "moonshot-kimi-k2-6",
+          "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
           "openai-gpt-5-4-mini",
           "openai-gpt-5-5",
@@ -7515,6 +7521,7 @@
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
           "moonshot-kimi-k2-6",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-4-mini",
           "openai-gpt-5-5",
           "openai-gpt-5-6-luna",
@@ -8425,6 +8432,7 @@
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-5-4-mini",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -8744,6 +8752,7 @@
           "google-gemini-4-argon",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
+          "moonshot-kimi-k3-1-pro",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
@@ -9034,6 +9043,7 @@
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
           "moonshot-kimi-k2-6",
+          "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
           "openai-gpt-5-2-codex",
           "openai-gpt-5-3-codex",
@@ -9390,7 +9400,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-10-25T04:23:04.510Z",
+    "observedAt": "2026-10-26T07:31:45.194Z",
     "sourceId": "vals-ai"
   }
 }

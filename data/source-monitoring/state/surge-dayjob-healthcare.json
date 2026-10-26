@@ -73,7 +73,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-23T09:35:04.731Z",
+  "checkedAt": "2026-10-26T07:31:32.603Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/5e/5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2.html",
     "byteLength": 855160,
@@ -85,7 +85,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-23T09:35:04.731Z",
+    "retrievedAt": "2026-10-26T07:31:32.603Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
     "sourceId": "surge-dayjob-healthcare"
@@ -112,6 +112,7 @@
           "google-gemini-4-argon",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-wonder",
           "moonshot-kimi-k2-7-code",
           "moonshot-kimi-k3",
           "nvidia-nemotron-3-ultra",
@@ -207,7 +208,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-23T09:35:04.404Z",
+    "observedAt": "2026-10-26T07:31:32.305Z",
     "sourceId": "surge-dayjob-healthcare"
   }
 }

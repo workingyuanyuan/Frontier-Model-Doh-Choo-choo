@@ -219,6 +219,13 @@ export function buildLiveBenchSnapshot(
     '- Each cell is the official suite score (mean task score 0–100, single run); unmeasured tasks score 0 upstream and a blank cell is not materialized.',
     '- Effort comes from the 2.0 model registry in the application bundle; models run at their highest supported effort unless the registry says otherwise.',
     '- `livebench-reasoning` continues on the 2.0 Reasoning suite (same task family, new release).',
+    Object.keys(v2.overallWeights).length === 0
+      ? '- The release weights every suite equally in its own Overall; Overall is not materialized.'
+      : `- The release's own Overall weights ${Object.entries(v2.overallWeights)
+          .map(([category, weight]) => `${category} ×${weight}`)
+          .join(
+            ', ',
+          )} and every other suite ×1 (\`_overall_weights\`); Overall is not materialized, so the weights do not affect suite scores.`,
     input.previousCandidates === null
       ? '- Retained 1.0 rows were not compared (no saved snapshot supplied).'
       : `- Retained 1.0 rows compared with the saved snapshot by candidate ID and score: none removed or changed; ${added.length} added since the last capture${added.length ? ` (${[...new Set(added.map(({ model }) => model.rawName))].join(', ')})` : ''}.`,

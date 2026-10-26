@@ -59,6 +59,9 @@ export const LIVEBENCH2_SUITES = [
 
 export const LIVEBENCH2_HARNESS = 'LiveBench 2.0';
 
+/** Metadata key in `categories.json` holding the source's Overall weights. */
+export const LIVEBENCH2_WEIGHTS_KEY = '_overall_weights';
+
 export interface LiveBench2Release {
   /** Directory name under `data/`, e.g. `20261014`. */
   path: string;
@@ -123,6 +126,8 @@ export interface MaterializeLiveBench2Result {
   models: string[];
   unresolvedModels: string[];
   blankCells: string[];
+  /** Explicit `_overall_weights`; suites not listed weigh 1 upstream. */
+  overallWeights: Record<string, number>;
 }
 
 export function materializeLiveBench2(
@@ -131,9 +136,41 @@ export function materializeLiveBench2(
   categoriesJson: string,
   context: MaterializeLiveBench2Context,
 ): MaterializeLiveBench2Result {
-  const categories = JSON.parse(categoriesJson) as Record<string, string[]>;
+  // Releases after 2026-10-14 add `_overall_weights` for the source's own
+  // Overall. Overall is not materialized, but the weights must name known
+  // suites with positive finite values, so a renamed suite still fails closed.
+  const { [LIVEBENCH2_WEIGHTS_KEY]: rawWeights, ...categories } = JSON.parse(
+    categoriesJson,
+  ) as Record<string, unknown>;
+  const overallWeights: Record<string, number> = {};
+  if (rawWeights !== undefined) {
+    if (
+      rawWeights === null ||
+      typeof rawWeights !== 'object' ||
+      Array.isArray(rawWeights)
+    ) {
+      throw new Error('LiveBench 2.0 _overall_weights is not an object');
+    }
+    for (const [category, weight] of Object.entries(rawWeights)) {
+      if (!LIVEBENCH2_SUITES.some((suite) => suite.category === category)) {
+        throw new Error(
+          `LiveBench 2.0 _overall_weights names unknown category ${category}`,
+        );
+      }
+      if (
+        typeof weight !== 'number' ||
+        !Number.isFinite(weight) ||
+        weight <= 0
+      ) {
+        throw new Error(
+          `Invalid LiveBench 2.0 weight ${category}: ${String(weight)}`,
+        );
+      }
+      overallWeights[category] = weight;
+    }
+  }
   for (const suite of LIVEBENCH2_SUITES) {
-    const columns = categories[suite.category];
+    const columns = categories[suite.category] as string[] | undefined;
     if (columns?.length !== 1 || columns[0] !== suite.column) {
       throw new Error(
         `LiveBench 2.0 category ${suite.category} no longer maps to column ${suite.column}`,
@@ -255,5 +292,6 @@ export function materializeLiveBench2(
     models,
     unresolvedModels: [...new Set(unresolved)].toSorted(),
     blankCells,
+    overallWeights,
   };
 }

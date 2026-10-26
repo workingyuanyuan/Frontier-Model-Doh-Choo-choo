@@ -1,27 +1,27 @@
 {
-  "checkedAt": "2026-10-25T04:32:42.535Z",
+  "checkedAt": "2026-10-26T11:17:51.603Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-10-04T04:51:26.147Z",
-      "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-04T04:43:52.621Z",
-      "sourceId": "anthropic-releases"
-    },
-    {
-      "checkedAt": "2026-10-23T09:35:13.645Z",
+      "checkedAt": "2026-10-26T07:28:46.800Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T09:35:10.906Z",
+      "snapshotObservedAt": "2026-10-04T04:43:52.621Z",
+      "sourceId": "anthropic-releases"
+    },
+    {
+      "checkedAt": "2026-10-26T07:31:40.736Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-26T07:31:39.178Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-25T04:26:27.004Z",
+      "checkedAt": "2026-10-26T07:34:30.000Z",
       "error": null,
       "findings": [
         {
@@ -473,157 +473,212 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-25T04:25:14.296Z",
+      "snapshotObservedAt": "2026-10-26T07:32:51.258Z",
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-10-23T09:34:50.338Z",
+      "checkedAt": "2026-10-26T07:31:17.376Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T09:34:50.026Z",
+      "snapshotObservedAt": "2026-10-26T07:31:16.906Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-10-23T09:35:09.502Z",
+      "checkedAt": "2026-10-26T07:31:37.739Z",
       "error": null,
-      "findings": [
-        {
-          "benchmarkId": "chess-puzzles",
-          "detail": "47 -> 50; missing 4: alibaba-qwen3-6-27b, alibaba-qwen3-7-plus, google-gemini-3-pro-preview, nvidia-nemotron-3-ultra",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "chess-puzzles",
-          "detail": "227 -> 154; missing 92: [\"Claude Opus 4.6 (120k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Claude Opus 4.6 (32k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Claude Opus 4.6 (64k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Claude Opus 5\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Claude Sonnet 4.6 (32k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek-R1-Distill-Qwen-1.5B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek-R1-Distill-Qwen-14B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek-R1-Distill-Qwen-32B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek-V3.2 (Thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"GLM-5\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"GPT-3.5 Turbo (Jan 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"GPT-4 (Jun 2023)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"GPT-5.5 Instant\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 3 Flash Preview\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 3 Pro Preview\",null,\"pro\",\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 3.1 Flash-Lite\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 3.1 Flash-Lite\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 3.1 Flash-Lite\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 3.1 Pro Preview\",null,\"pro\",\"Epoch AI Inspect\",null,null,1,null], [\"Gemma 4 26B A4B\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemma 4 31B IT\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Inkling Small (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Kimi K2 Thinking Turbo\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Kimi K2.5 (Fireworks)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Llama-2-13b-chat\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Llama-3.1-8B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Llama-3.2-1B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Magistral Small 1.2\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Meta-Llama-3-8B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Mistral-7B-Instruct-v0.3\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Phi-3-mini-4k-instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"QwQ-32B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen 3.6 Max (Preview)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3-235B-A22B-Thinking-2507\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3-30B-A3B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3-30B-A3B_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3-32B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3-32B_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3-Max-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.5 397B-A17B\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.5 397B-A17B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.5 9B\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.5 9B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.6 27B\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.6 27B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.6 35B-A3B\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.6 35B-A3B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.7 Flash\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.7 Flash\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.7 Plus\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.7 Plus\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"claude-opus-4-1-20250805\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"deepseek-chat\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"deepseek-llm-67b-chat\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"deepseek-r1-0528-qwen3-8b\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"gemini-2.5-pro\",null,\"pro\",\"Epoch AI Inspect\",null,null,1,null], [\"gemma-3-12b-it\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"gemma-3-1b-it\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"gemma-3-27b-it\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"gemma-3-4b-it\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"glm-4.7-flash\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"glm-4.7-flash_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"gpt-4-turbo-2024-04-09\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"gpt-oss-20b_high\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null], [\"gpt-oss-20b_low\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null], [\"gpt-oss-20b_medium\",\"medium\",null,\"Epoch AI Inspect\",null,null,1,null], [\"granite-4.0-1b\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"granite-4.0-350m\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"granite-4.0-micro\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"grok-4-0709\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"llama-2-7b-chat\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"mistral-small-3-2501\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"mistral-small-3.1-2503\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"mistral-small-3.2-2506\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"nemotron-3-ultra\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"openai/gpt-oss-120b_high\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null], [\"phi-4\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen2.5-32b-instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen2.5-7b-instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-1.7b_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-14b\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-14b_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-30b-a3b-instruct-2507\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-30b-a3b-thinking-2507\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-4b-instruct-2507\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-4b_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-8b\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3-8b_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3.5-2b_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3.5-35b-a3b\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"qwen3.5-35b-a3b_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null], [\"seed-oss-36b-instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "chess-puzzles",
-          "detail": "226 -> 152 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "epoch-capabilities-index",
-          "detail": "270 -> 270; missing 9: [\"Amazon Nova Pro\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek LLM 67B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek-R1-Distill-Qwen-14B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek-R1-Distill-Qwen-32B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Llama 3.2 1B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Magistral Small 1.2\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Mistral Small 3\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Mistral Small 3.2\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen2.5-32B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
-          "kind": "profiles-lost"
-        }
-      ],
+      "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T09:35:07.837Z",
+      "snapshotObservedAt": "2026-10-26T07:31:35.829Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-10-23T09:34:51.743Z",
+      "checkedAt": "2026-10-26T07:31:18.936Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T09:34:51.427Z",
+      "snapshotObservedAt": "2026-10-26T07:31:18.562Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-10-04T04:51:26.147Z",
+      "checkedAt": "2026-10-26T07:28:46.800Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T03:26:46.220Z",
       "sourceId": "frontier-swe"
     },
     {
-      "checkedAt": "2026-10-04T04:51:26.147Z",
+      "checkedAt": "2026-10-26T07:28:46.800Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:31:00.008Z",
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-10-24T07:54:25.832Z",
+      "checkedAt": "2026-10-26T11:17:51.603Z",
+      "error": null,
+      "findings": [
+        {
+          "benchmarkId": "livebench-browser",
+          "detail": "2026-10-14 -> 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-browser",
+          "detail": "31 -> 18; missing 13: anthropic-claude-fable-5, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-7-flash, meta-muse-spark-1-2, minimax-minimax-m3, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "livebench-browser",
+          "detail": "53 -> 30; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-browser",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livebench-coding",
+          "detail": "2026-10-14 -> 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-coding",
+          "detail": "31 -> 18; missing 13: anthropic-claude-fable-5, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-7-flash, meta-muse-spark-1-2, minimax-minimax-m3, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "livebench-coding",
+          "detail": "53 -> 30; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-coding",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livebench-data-analysis",
+          "detail": "2026-10-14 -> 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-data-analysis",
+          "detail": "31 -> 18; missing 13: anthropic-claude-fable-5, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-7-flash, meta-muse-spark-1-2, minimax-minimax-m3, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "livebench-data-analysis",
+          "detail": "53 -> 30; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",false,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",false,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-data-analysis",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livebench-design",
+          "detail": "2026-10-14 -> 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-design",
+          "detail": "31 -> 18; missing 13: anthropic-claude-fable-5, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-7-flash, meta-muse-spark-1-2, minimax-minimax-m3, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "livebench-design",
+          "detail": "53 -> 30; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-design",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livebench-long-agentic",
+          "detail": "2026-10-14 -> 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-long-agentic",
+          "detail": "31 -> 18; missing 13: anthropic-claude-fable-5, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-7-flash, meta-muse-spark-1-2, minimax-minimax-m3, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "livebench-long-agentic",
+          "detail": "53 -> 30; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-long-agentic",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livebench-reasoning",
+          "detail": "2026-06-25, 2026-10-14 -> 2026-06-25, 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-reasoning",
+          "detail": "124 -> 101; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",false,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",false,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-reasoning",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livebench-research",
+          "detail": "2026-10-14 -> 2026-10-25",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "livebench-research",
+          "detail": "31 -> 18; missing 13: anthropic-claude-fable-5, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-7-flash, meta-muse-spark-1-2, minimax-minimax-m3, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-5",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "livebench-research",
+          "detail": "53 -> 30; missing 23: [\"beam-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-fable-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-haiku-4.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-4.8\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-opus-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-4.6\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"claude-sonnet-5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4-flash-vision\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"deepseek-v4.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.1-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"gemini-3.7-flash\",\"high\",null,\"LiveBench 2.0\",true,null,1,null], [\"glm-5.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-luna\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-5.6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"gpt-6-sol\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"grok-4.5\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"minimax-m3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"muse-spark-1.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-lightning-3.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"nemotron-ultra-3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null], [\"qwen3.8-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livebench-research",
+          "detail": "53 -> 30 included rows",
+          "kind": "included-coverage-decreased"
+        }
+      ],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-26T11:17:48.535Z",
+      "sourceId": "livebench"
+    },
+    {
+      "checkedAt": "2026-10-26T07:28:46.800Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-24T07:40:25.201Z",
-      "sourceId": "livebench"
-    },
-    {
-      "checkedAt": "2026-10-04T04:51:26.147Z",
-      "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
       "snapshotObservedAt": "2026-10-04T04:31:17.114Z",
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-10-23T09:34:56.682Z",
+      "checkedAt": "2026-10-26T07:31:24.305Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -758,88 +813,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:56.382Z",
+      "snapshotObservedAt": "2026-10-26T07:31:23.440Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-10-23T09:34:58.264Z",
+      "checkedAt": "2026-10-26T07:31:25.861Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "33 -> 28; missing 6: anthropic-claude-opus-4-6, anthropic-claude-opus-4-7, anthropic-claude-sonnet-4-6, google-gemini-3-5-flash, openai-gpt-6-luna, thinking-machines-inkling",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "56 -> 44; missing 13: [\"Claude Opus 4.6 (Adaptive/High)\",\"high\",\"Adaptive/High\",null,null,null,null,null], [\"Claude Opus 4.6 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"Claude Opus 4.7 (Adaptive/High)\",\"high\",\"Adaptive/High\",null,null,null,null,null], [\"Claude Opus 4.7 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"Claude Sonnet 4.6 (Adaptive/High)\",\"high\",\"Adaptive/High\",null,null,null,null,null], [\"Claude Sonnet 4.6 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"DeepSeek V3.2 (No reasoning)\",\"non-reasoning\",\"No reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash (preview) (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"DeepSeek V4 Pro (preview) (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"GPT 6 Luna (Medium reasoning)\",\"medium\",\"Medium reasoning\",null,null,null,null,null], [\"Gemini 3.5 Flash (Medium reasoning)\",\"medium\",\"Medium reasoning\",null,null,null,null,null], [\"Inkling (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"Nova 2 Pro (No reasoning)\",\"non-reasoning\",\"No reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "56 -> 44 included rows",
-          "kind": "included-coverage-decreased"
-        },
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -974,73 +954,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:58.036Z",
+      "snapshotObservedAt": "2026-10-26T07:31:25.642Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-10-23T09:34:59.861Z",
+      "checkedAt": "2026-10-26T07:31:27.396Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1175,78 +1095,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:59.613Z",
+      "snapshotObservedAt": "2026-10-26T07:31:27.188Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-10-23T09:35:03.038Z",
+      "checkedAt": "2026-10-26T07:31:30.765Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "32 -> 36; missing 1: [\"Mistral Large 3\",null,null,null,null,null,5,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1381,78 +1236,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:02.792Z",
+      "snapshotObservedAt": "2026-10-26T07:31:30.334Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-10-23T09:35:04.731Z",
+      "checkedAt": "2026-10-26T07:31:32.603Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "32 -> 36; missing 1: [\"Mistral Large 3\",null,null,null,null,null,5,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1587,73 +1377,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:04.404Z",
+      "snapshotObservedAt": "2026-10-26T07:31:32.305Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-10-23T09:35:06.362Z",
+      "checkedAt": "2026-10-26T07:31:34.416Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1788,73 +1518,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:06.114Z",
+      "snapshotObservedAt": "2026-10-26T07:31:34.199Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-10-23T09:35:01.416Z",
+      "checkedAt": "2026-10-26T07:31:28.983Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "antidote",
-          "detail": "Antidote [unknown] -> View Antidote: Everyday Edition benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "chartography",
-          "detail": "Chartography [unknown] -> View Chartography benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "complex-constraints",
-          "detail": "ComplexConstraints [unknown] -> View ComplexConstraints benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-finance",
-          "detail": "DAYJOB: Finance [unknown] -> View DAYJOB: Finance benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "dayjob-healthcare",
-          "detail": "DAYJOB: Healthcare [unknown] -> View DAYJOB: Healthcare benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "EnterpriseBench: CoreCraft [unknown] -> View EnterpriseBench: CoreCraft Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-pdf",
-          "detail": "GDP.pdf [unknown] -> View GDP.pdf benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "gdp-xlsx",
-          "detail": "GDP.xlsx [unknown] -> View GDP.xlsx benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "handbook",
-          "detail": "HANDBOOK.md [unknown] -> View HANDBOOK.md Agents benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "hemingway-bench",
-          "detail": "Hemingway-bench [unknown] -> View Hemingway-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "riemann-bench",
-          "detail": "Riemann-bench [unknown] -> View Riemann-bench benchmark [unknown]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
-          "benchmarkId": "sudo-l7",
-          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1989,40 +1659,796 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:01.162Z",
+      "snapshotObservedAt": "2026-10-26T07:31:28.715Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-25T04:32:42.535Z",
+      "checkedAt": "2026-10-26T07:32:00.598Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-25T04:23:04.510Z",
+      "findings": [
+        {
+          "benchmarkId": "aime",
+          "detail": "https://www.vals.ai/benchmarks/aime",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "biomysterybench",
+          "detail": "https://www.vals.ai/benchmarks/biomysterybench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "case_law_v2",
+          "detail": "https://www.vals.ai/benchmarks/case_law_v2",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "claimbench",
+          "detail": "https://www.vals.ai/benchmarks/claimbench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "code-migration-v1-1",
+          "detail": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "cua_bench",
+          "detail": "https://www.vals.ai/benchmarks/cua_bench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "emb-v1-1",
+          "detail": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "fabv2-1",
+          "detail": "https://www.vals.ai/benchmarks/fabv2-1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "hlab-v1",
+          "detail": "https://www.vals.ai/benchmarks/hlab-v1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "inference_provider",
+          "detail": "https://www.vals.ai/benchmarks/inference_provider",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "math500",
+          "detail": "https://www.vals.ai/benchmarks/math500",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "medqa",
+          "detail": "https://www.vals.ai/benchmarks/medqa",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mental-health",
+          "detail": "https://www.vals.ai/benchmarks/mental-health",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "mgsm",
+          "detail": "https://www.vals.ai/benchmarks/mgsm",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mmmu",
+          "detail": "https://www.vals.ai/benchmarks/mmmu",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mortgage_tax",
+          "detail": "https://www.vals.ai/benchmarks/mortgage_tax",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mysterymechanism",
+          "detail": "https://www.vals.ai/benchmarks/mysterymechanism",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "poker_agent",
+          "detail": "https://www.vals.ai/benchmarks/poker_agent",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "public-benefits-bench-v1",
+          "detail": "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "robo_bench",
+          "detail": "https://www.vals.ai/benchmarks/robo_bench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "rsi_index",
+          "detail": "https://www.vals.ai/benchmarks/rsi_index",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sage",
+          "detail": "https://www.vals.ai/benchmarks/sage",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "science_index",
+          "detail": "https://www.vals.ai/benchmarks/science_index",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "srebench",
+          "detail": "https://www.vals.ai/benchmarks/srebench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "swebench-multimodal",
+          "detail": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "tax_agent_bench",
+          "detail": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "terminal-bench-2",
+          "detail": "https://www.vals.ai/benchmarks/terminal-bench-2",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "terminal-bench-4",
+          "detail": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "terminal-bench-science",
+          "detail": "https://www.vals.ai/benchmarks/terminal-bench-science",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "vals_router_index",
+          "detail": "https://www.vals.ai/benchmarks/vals_router_index",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "vcb-1-100",
+          "detail": "https://www.vals.ai/benchmarks/vcb-1-100",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "voice-code-bench",
+          "detail": "https://www.vals.ai/benchmarks/voice-code-bench",
+          "kind": "captured-not-scored"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": "aime",
+          "captureRegistered": true,
+          "id": "aime",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "AIME",
+          "url": "https://www.vals.ai/benchmarks/aime",
+          "version": null
+        },
+        {
+          "benchmarkId": "biomysterybench",
+          "captureRegistered": true,
+          "id": "biomysterybench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "BioMysteryBench",
+          "url": "https://www.vals.ai/benchmarks/biomysterybench",
+          "version": null
+        },
+        {
+          "benchmarkId": "case-law-v2",
+          "captureRegistered": true,
+          "id": "case_law_v2",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "CaseLaw v2",
+          "url": "https://www.vals.ai/benchmarks/case_law_v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "claimbench",
+          "captureRegistered": true,
+          "id": "claimbench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "ClaimBench",
+          "url": "https://www.vals.ai/benchmarks/claimbench",
+          "version": null
+        },
+        {
+          "benchmarkId": "code-migration",
+          "captureRegistered": true,
+          "id": "code-migration",
+          "reason": null,
+          "status": "scored",
+          "title": "Code Migration",
+          "url": "https://www.vals.ai/benchmarks/code-migration",
+          "version": null
+        },
+        {
+          "benchmarkId": "code-migration-v1-1",
+          "captureRegistered": true,
+          "id": "code-migration-v1-1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Code Migration v1.1",
+          "url": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "corpfin",
+          "captureRegistered": true,
+          "id": "corp_fin_v2",
+          "reason": null,
+          "status": "scored",
+          "title": "CorpFin v2",
+          "url": "https://www.vals.ai/benchmarks/corp_fin_v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "cua-bench",
+          "captureRegistered": true,
+          "id": "cua_bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "CUA-bench",
+          "url": "https://www.vals.ai/benchmarks/cua_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "cyber",
+          "captureRegistered": true,
+          "id": "cyber",
+          "reason": null,
+          "status": "scored",
+          "title": "CyberBench v1.1",
+          "url": "https://www.vals.ai/benchmarks/cyber",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "emb",
+          "captureRegistered": true,
+          "id": "emb",
+          "reason": null,
+          "status": "scored",
+          "title": "Excel Modeling Benchmark",
+          "url": "https://www.vals.ai/benchmarks/emb",
+          "version": null
+        },
+        {
+          "benchmarkId": "emb-v1-1",
+          "captureRegistered": true,
+          "id": "emb-v1-1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Excel Modeling Benchmark v1.1",
+          "url": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "finance-agent-v2",
+          "captureRegistered": true,
+          "id": "fabv2",
+          "reason": null,
+          "status": "scored",
+          "title": "Finance Agent v2",
+          "url": "https://www.vals.ai/benchmarks/fabv2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "fabv2-1",
+          "captureRegistered": true,
+          "id": "fabv2-1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Finance Agent v2.1",
+          "url": "https://www.vals.ai/benchmarks/fabv2-1",
+          "version": "v2.1"
+        },
+        {
+          "benchmarkId": "finance-index",
+          "captureRegistered": true,
+          "id": "finance_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Finance Index",
+          "url": "https://www.vals.ai/benchmarks/finance_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "captureRegistered": true,
+          "id": "gpqa",
+          "reason": null,
+          "status": "scored",
+          "title": "GPQA Diamond",
+          "url": "https://www.vals.ai/benchmarks/gpqa",
+          "version": null
+        },
+        {
+          "benchmarkId": "hlab",
+          "captureRegistered": true,
+          "id": "hlab",
+          "reason": null,
+          "status": "scored",
+          "title": "HLAB-Vals-1.1",
+          "url": "https://www.vals.ai/benchmarks/hlab",
+          "version": null
+        },
+        {
+          "benchmarkId": "hlab-v1",
+          "captureRegistered": true,
+          "id": "hlab-v1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Harvey's Legal Agent Benchmark v1",
+          "url": "https://www.vals.ai/benchmarks/hlab-v1",
+          "version": "v1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "inference_provider",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals Inference Provider Index",
+          "url": "https://www.vals.ai/benchmarks/inference_provider",
+          "version": null
+        },
+        {
+          "benchmarkId": "ioi",
+          "captureRegistered": true,
+          "id": "ioi",
+          "reason": null,
+          "status": "scored",
+          "title": "IOI v2",
+          "url": "https://www.vals.ai/benchmarks/ioi",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "livecodebench",
+          "captureRegistered": true,
+          "id": "lcb",
+          "reason": null,
+          "status": "scored",
+          "title": "LiveCodeBench",
+          "url": "https://www.vals.ai/benchmarks/lcb",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-bench",
+          "captureRegistered": true,
+          "id": "legal_bench",
+          "reason": null,
+          "status": "scored",
+          "title": "LegalBench",
+          "url": "https://www.vals.ai/benchmarks/legal_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-index",
+          "captureRegistered": true,
+          "id": "legal_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Legal Index",
+          "url": "https://www.vals.ai/benchmarks/legal_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-research",
+          "captureRegistered": true,
+          "id": "legal_research",
+          "reason": null,
+          "status": "scored",
+          "title": "Legal Research Bench",
+          "url": "https://www.vals.ai/benchmarks/legal_research",
+          "version": null
+        },
+        {
+          "benchmarkId": "math500",
+          "captureRegistered": true,
+          "id": "math500",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MATH 500",
+          "url": "https://www.vals.ai/benchmarks/math500",
+          "version": null
+        },
+        {
+          "benchmarkId": "medcode",
+          "captureRegistered": true,
+          "id": "medcode",
+          "reason": null,
+          "status": "scored",
+          "title": "MedCode",
+          "url": "https://www.vals.ai/benchmarks/medcode",
+          "version": null
+        },
+        {
+          "benchmarkId": "medqa",
+          "captureRegistered": true,
+          "id": "medqa",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MedQA",
+          "url": "https://www.vals.ai/benchmarks/medqa",
+          "version": null
+        },
+        {
+          "benchmarkId": "medscribe",
+          "captureRegistered": true,
+          "id": "medscribe",
+          "reason": null,
+          "status": "scored",
+          "title": "MedScribe",
+          "url": "https://www.vals.ai/benchmarks/medscribe",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "mental-health",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "SAFE-Teen",
+          "url": "https://www.vals.ai/benchmarks/mental-health",
+          "version": null
+        },
+        {
+          "benchmarkId": "mgsm",
+          "captureRegistered": true,
+          "id": "mgsm",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MGSM",
+          "url": "https://www.vals.ai/benchmarks/mgsm",
+          "version": null
+        },
+        {
+          "benchmarkId": "mmlu-pro",
+          "captureRegistered": true,
+          "id": "mmlu_pro",
+          "reason": null,
+          "status": "scored",
+          "title": "MMLU Pro",
+          "url": "https://www.vals.ai/benchmarks/mmlu_pro",
+          "version": null
+        },
+        {
+          "benchmarkId": "mmmu",
+          "captureRegistered": true,
+          "id": "mmmu",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MMMU Pro",
+          "url": "https://www.vals.ai/benchmarks/mmmu",
+          "version": null
+        },
+        {
+          "benchmarkId": "mortgage-tax",
+          "captureRegistered": true,
+          "id": "mortgage_tax",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MortgageTax",
+          "url": "https://www.vals.ai/benchmarks/mortgage_tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "mysterymechanism",
+          "captureRegistered": true,
+          "id": "mysterymechanism",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MysteryMechanism",
+          "url": "https://www.vals.ai/benchmarks/mysterymechanism",
+          "version": null
+        },
+        {
+          "benchmarkId": "poker-agent",
+          "captureRegistered": true,
+          "id": "poker_agent",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Poker Agent",
+          "url": "https://www.vals.ai/benchmarks/poker_agent",
+          "version": null
+        },
+        {
+          "benchmarkId": "programbench",
+          "captureRegistered": true,
+          "id": "programbench",
+          "reason": null,
+          "status": "scored",
+          "title": "ProgramBench",
+          "url": "https://www.vals.ai/benchmarks/programbench",
+          "version": null
+        },
+        {
+          "benchmarkId": "proofbench",
+          "captureRegistered": true,
+          "id": "proof_bench",
+          "reason": null,
+          "status": "scored",
+          "title": "ProofBench v1.1",
+          "url": "https://www.vals.ai/benchmarks/proof_bench",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "public-benefits-bench",
+          "captureRegistered": true,
+          "id": "public-benefits-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "Public Benefits Bench v1.1",
+          "url": "https://www.vals.ai/benchmarks/public-benefits-bench",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "public-benefits-bench-v1",
+          "captureRegistered": true,
+          "id": "public-benefits-bench-v1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Public Benefits Bench v1",
+          "url": "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
+          "version": "v1"
+        },
+        {
+          "benchmarkId": "robo-bench",
+          "captureRegistered": true,
+          "id": "robo_bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Robo-bench",
+          "url": "https://www.vals.ai/benchmarks/robo_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "rsi_index",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals RSI Index",
+          "url": "https://www.vals.ai/benchmarks/rsi_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "sage",
+          "captureRegistered": true,
+          "id": "sage",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "SAGE",
+          "url": "https://www.vals.ai/benchmarks/sage",
+          "version": null
+        },
+        {
+          "benchmarkId": "science-index",
+          "captureRegistered": true,
+          "id": "science_index",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Vals Science Index",
+          "url": "https://www.vals.ai/benchmarks/science_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "skillsbench",
+          "captureRegistered": true,
+          "id": "skillsbench",
+          "reason": null,
+          "status": "scored",
+          "title": "SkillsBench",
+          "url": "https://www.vals.ai/benchmarks/skillsbench",
+          "version": null
+        },
+        {
+          "benchmarkId": "srebench",
+          "captureRegistered": true,
+          "id": "srebench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "SRE Bench",
+          "url": "https://www.vals.ai/benchmarks/srebench",
+          "version": null
+        },
+        {
+          "benchmarkId": "swe-bench",
+          "captureRegistered": true,
+          "id": "swebench",
+          "reason": null,
+          "status": "scored",
+          "title": "SWE-bench Verified",
+          "url": "https://www.vals.ai/benchmarks/swebench",
+          "version": null
+        },
+        {
+          "benchmarkId": "swebench-multimodal",
+          "captureRegistered": true,
+          "id": "swebench-multimodal",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "SWE-bench Multimodal",
+          "url": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "version": null
+        },
+        {
+          "benchmarkId": "tax-agent-bench",
+          "captureRegistered": true,
+          "id": "tax_agent_bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Tax Agent Bench",
+          "url": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "tax-eval-v2",
+          "captureRegistered": true,
+          "id": "tax_eval_v2",
+          "reason": null,
+          "status": "scored",
+          "title": "TaxEval v2",
+          "url": "https://www.vals.ai/benchmarks/tax_eval_v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "terminal-bench-2",
+          "captureRegistered": true,
+          "id": "terminal-bench-2",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Terminal-Bench 2.0",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-2",
+          "version": "v2.0"
+        },
+        {
+          "benchmarkId": "terminal-bench-2-1",
+          "captureRegistered": true,
+          "id": "terminal-bench-2-1",
+          "reason": null,
+          "status": "scored",
+          "title": "Terminal-Bench 2.1",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-2-1",
+          "version": "v2.1"
+        },
+        {
+          "benchmarkId": "terminal-bench-4",
+          "captureRegistered": true,
+          "id": "terminal-bench-4",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Terminal-Bench 4.0",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "version": "v4.0"
+        },
+        {
+          "benchmarkId": "terminal-bench-science",
+          "captureRegistered": true,
+          "id": "terminal-bench-science",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Terminal-Bench-Science",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-science",
+          "version": null
+        },
+        {
+          "benchmarkId": "time-horizon-index",
+          "captureRegistered": true,
+          "id": "time_horizon_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Time Horizon Index: KSP",
+          "url": "https://www.vals.ai/benchmarks/time_horizon_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "vals-index",
+          "captureRegistered": true,
+          "id": "vals_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Index",
+          "url": "https://www.vals.ai/benchmarks/vals_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "vals-multimodal-index",
+          "captureRegistered": true,
+          "id": "vals_multimodal_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Multimodal Index",
+          "url": "https://www.vals.ai/benchmarks/vals_multimodal_index",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "vals_router_index",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals Router Index",
+          "url": "https://www.vals.ai/benchmarks/vals_router_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "vcb-1-100",
+          "captureRegistered": true,
+          "id": "vcb-1-100",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Vibe Code Bench 1-100",
+          "url": "https://www.vals.ai/benchmarks/vcb-1-100",
+          "version": null
+        },
+        {
+          "benchmarkId": "vibe-code-bench",
+          "captureRegistered": true,
+          "id": "vibe-code",
+          "reason": null,
+          "status": "scored",
+          "title": "Vibe Code Bench v1.1",
+          "url": "https://www.vals.ai/benchmarks/vibe-code",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "voice-code-bench",
+          "captureRegistered": true,
+          "id": "voice-code-bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "VoiceCodeBench",
+          "url": "https://www.vals.ai/benchmarks/voice-code-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "web-search",
+          "captureRegistered": true,
+          "id": "web_search",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Web Search Index",
+          "url": "https://www.vals.ai/benchmarks/web_search",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-26T07:31:45.194Z",
       "sourceId": "vals-ai"
     },
     {
-      "checkedAt": "2026-10-04T04:51:26.147Z",
+      "checkedAt": "2026-10-26T07:28:46.800Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:31:01.893Z",
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-10-23T10:42:20.082Z",
+      "checkedAt": "2026-10-26T07:31:43.685Z",
       "error": null,
-      "findings": [
-        {
-          "benchmarkId": "automationbench",
-          "detail": "121 -> 126; missing 18: [\"GPT 6 Astra (High)\",\"high\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Astra (Low)\",\"low\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Astra (Max)\",\"max\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Astra (Medium)\",\"medium\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Astra (None)\",\"non-reasoning\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Astra (XHigh)\",\"xhigh\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Luna (High)\",\"high\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Luna (Low)\",\"low\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Luna (Max)\",\"max\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Luna (Medium)\",\"medium\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Luna (None)\",\"non-reasoning\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Luna (XHigh)\",\"xhigh\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Sol (High)\",\"high\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Sol (Low)\",\"low\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Sol (Max)\",\"max\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Sol (Medium)\",\"medium\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Sol (None)\",\"non-reasoning\",null,\"Zapier API mode\",null,null,null,null], [\"GPT 6 Sol (XHigh)\",\"xhigh\",null,\"Zapier API mode\",null,null,null,null]",
-          "kind": "profiles-lost"
-        }
-      ],
+      "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T10:42:18.880Z",
+      "snapshotObservedAt": "2026-10-26T07:31:41.956Z",
       "sourceId": "zapier-automationbench"
     }
   ]
