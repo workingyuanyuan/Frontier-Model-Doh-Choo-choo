@@ -2,19 +2,19 @@
 
 - Page: <https://cognition.com/frontiercode>
 - Official static export: <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Export evidence: `sha256:ff0040778b7bdf69c705ad7474f771fb5e53cfaf5cf8573b3a4614153543d75f`
-- Page/JSON-LD evidence: `sha256:53a68af8844fc9386f8c97931fb7d03e27f9979717aa7ace7c5f5966cfef735a`
+- Export evidence: `sha256:ae50b70d38100a5525498ba1f18af74314f40ed4de3cd3b7aabf90cc75ce72f6`
+- Page/JSON-LD evidence: `sha256:6e916dc446582f24254431b1fc3cb360336763b2ed3c74701b6b27991f0bf969`
 
 ## Acquirable scope
 
 | Check | Count |
 |---|---:|
-| Models in FrontierCode 1.1 | 46 |
-| Main effort configurations | 136 |
-| Main configurations with scores | 136 |
-| Main configurations with costs | 136 |
-| Models with multiple efforts | 29 |
-| Models with five efforts | 16 |
+| Models in FrontierCode 1.1 | 47 |
+| Main effort configurations | 141 |
+| Main configurations with scores | 141 |
+| Main configurations with costs | 141 |
+| Models with multiple efforts | 30 |
+| Models with five efforts | 17 |
 | Canonically unresolved models | 11 |
 
 The official export contains both `main` and `extended` results. This source materializes all current `v1_1` Main configurations because Main is the default leaderboard and the JSON-LD comparison target. Extended remains preserved in the content-addressed raw artifact and is not silently mixed into `frontier-code-1-1`.
@@ -23,18 +23,28 @@ The official export contains both `main` and `extended` results. This source mat
 
 - JSON-LD Top 10 exact rank/name/one-decimal-score matches: 10/10.
 - JSON-LD mismatches: none.
-- Rendered DOM rows observed: 46; the visible leaderboard showed the same Top 10: yes.
+- Rendered DOM rows observed: 47; the visible leaderboard showed the same Top 10: yes.
 - The rendered UI labels `cost` as mean USD cost per rollout; it is preserved as `AGENT_TASK` / `USD_PER_TASK`.
 
 ## Identity and missing-value policy
 
-Exact catalog resolution succeeded for 35/46 models. Unresolved names are retained with null canonical/profile identity: Claude Haiku 5.5, Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, Mistral Large 4 (Preview), SWE-1.6, SWE-1.7, SWE-2.
+Exact catalog resolution succeeded for 36/47 models. Unresolved names are retained with null canonical/profile identity: Claude Haiku 5.5, Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, Mistral Large 4 (Preview), SWE-1.6, SWE-1.7, SWE-2.
 
 Source effort `none` is preserved as null effort and null profile ID. It is not guessed as max/default. Missing costs would be omitted rather than written as zero; this snapshot has a finite cost for every Main configuration.
 
 ## Known documentation conflict
 
 Cognition FrontierCode 1.1 percentage scores use the dedicated `frontier-code-1-1` benchmark ID. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; the two are never merged. See `SPEC.md` §4.2.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Distinct models | 46 | 47 | +1 |
+| Main configurations | 136 | 141 | +5 |
+| Materialized costs | 136 | 141 | +5 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

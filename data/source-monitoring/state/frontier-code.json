@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-26T07:31:18.936Z",
+  "checkedAt": "2026-10-27T00:20:12.711Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "frontier-code-1-1",
-        "includedRows": 136,
+        "includedRows": 141,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -36,6 +36,7 @@
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
+          "openai-gpt-6-1-terra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -149,6 +150,11 @@
           "[\"GPT-6.1 Sol\",\"max\",null,\"codex\",null,null,null,null]",
           "[\"GPT-6.1 Sol\",\"medium\",null,\"codex\",null,null,null,null]",
           "[\"GPT-6.1 Sol\",\"xhigh\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.1 Terra\",\"high\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.1 Terra\",\"low\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.1 Terra\",\"max\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.1 Terra\",\"medium\",null,\"codex\",null,null,null,null]",
+          "[\"GPT-6.1 Terra\",\"xhigh\",null,\"codex\",null,null,null,null]",
           "[\"Gemini 3.6 Flash\",\"high\",null,\"chisel\",null,null,null,null]",
           "[\"Gemini 3.6 Flash\",\"low\",null,\"chisel\",null,null,null,null]",
           "[\"Gemini 3.6 Flash\",\"medium\",null,\"chisel\",null,null,null,null]",
@@ -212,6 +218,7 @@
           "GPT-6 Luna",
           "GPT-6 Sol",
           "GPT-6.1 Sol",
+          "GPT-6.1 Terra",
           "Gemini 3.6 Flash",
           "Gemini 3.7 Flash",
           "Gemini 3.8 Flash",
@@ -231,12 +238,12 @@
           "SWE-1.7",
           "SWE-2"
         ],
-        "rows": 136,
+        "rows": 141,
         "sourceUrls": ["https://cognition.com/frontiercode"],
         "versions": ["1.1"]
       }
     ],
-    "observedAt": "2026-10-26T07:31:18.562Z",
+    "observedAt": "2026-10-27T00:20:12.361Z",
     "sourceId": "frontier-code"
   }
 }

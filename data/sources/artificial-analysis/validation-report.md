@@ -8,29 +8,29 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 256 |
-| Unique profile rows in evaluation-page payloads | 97 |
-| Unique profile rows in model-detail payloads | 256 |
+| Unique profile rows across all captured page payloads | 266 |
+| Unique profile rows in evaluation-page payloads | 98 |
+| Unique profile rows in model-detail payloads | 266 |
 | Profile rows in the /models payload | 27 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 243 |
-| Generated CandidateResults | 2871 |
-| Intelligence Index candidates (EXCLUDED) | 240 |
-| GDPval-AA normalized candidates | 210 |
-| Canonically unresolved candidates | 1122 |
-| MEASURED_TASK cost rows | 184 |
-| API_STANDARDIZED token-price rows | 235 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 251 |
+| Generated CandidateResults | 2957 |
+| Intelligence Index candidates (EXCLUDED) | 248 |
+| GDPval-AA normalized candidates | 218 |
+| Canonically unresolved candidates | 1148 |
+| MEASURED_TASK cost rows | 194 |
+| API_STANDARDIZED token-price rows | 243 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 27 selected profile rows in this capture.
-- The evaluation-page payload union exposes 97 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 256 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The evaluation-page payload union exposes 98 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 266 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
-- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 256, compared values 1379.
-- Precision-only differences (API rounds to three decimals, within 0.0005): 677. These are representation differences, not disagreements.
+- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 266, compared values 1425.
+- Precision-only differences (API rounds to three decimals, within 0.0005): 703. These are representation differences, not disagreements.
 - Real differences (beyond 0.0005): 0.
 - No real API differences recorded beyond rounding.
 
@@ -42,18 +42,18 @@
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 709
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 256
+- Fresh rendered models page catalog total: 715
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 266
 - Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 256 | 256 | +0 |
-| Active source profiles | 243 | 243 | +0 |
-| Candidate results | 2871 | 2871 | +0 |
-| Materialized costs | 419 | 419 | +0 |
+| Unique source profiles | 256 | 266 | +10 |
+| Active source profiles | 243 | 251 | +8 |
+| Candidate results | 2871 | 2957 | +86 |
+| Materialized costs | 419 | 437 | +18 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

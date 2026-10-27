@@ -137,7 +137,7 @@ describe('AA frontier selection', () => {
       'openai-gpt-6-1-sol-max',
       'anthropic-claude-opus-5-max',
     ]);
-    expect(result.resolvedModelCount).toBe(59);
+    expect(result.resolvedModelCount).toBe(60);
     expect(result.topTen[8]?.modelId).toBe('openai-gpt-6-1-sol');
     expect(result.boundary?.afterRank).toBe(4);
     expect(result.gapAudit.selectedModelIds).toHaveLength(4);

@@ -2,6 +2,15 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "openai-gpt-6-1-terra",
+      "providerId": "openai",
+      "displayName": "GPT-6.1 Terra",
+      "aliases": ["gpt-6.1-terra", "gpt-6-1-terra", "openai/gpt-6.1-terra"],
+      "releaseDate": "2026-10-26",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "google-gemini-4-argon",
       "providerId": "google",
       "displayName": "Gemini 4 Argon",

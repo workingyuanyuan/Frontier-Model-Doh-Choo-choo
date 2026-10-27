@@ -27,9 +27,9 @@
     "2.0 table CSV suite columns": "rawScore per suite benchmark",
     "cost CSV token price columns": "API_STANDARDIZED pricing"
   },
-  "lastVerifiedAt": "2026-10-26T11:17:48.535Z",
+  "lastVerifiedAt": "2026-10-27T00:20:40.343Z",
   "notes": [
-    "LiveBench 2.0 release 2026-10-25: 30 models across 7 suites.",
+    "LiveBench 2.0 release 2026-10-25: 31 models across 7 suites.",
     "Frozen 1.0 release 2026-06-25: Language, IF and Mathematics retained because 2.0 dropped them; 1.0 Reasoning is superseded by 2.0.",
     "Exact identities only; 24 raw names remain unresolved without fuzzy matching."
   ],
@@ -38,12 +38,12 @@
   "sourceId": "livebench",
   "targetUrls": [
     "https://livebench.ai/",
-    "https://livebench.ai/static/js/main.e0554084.js",
-    "https://livebench.ai/data/20261025/table.csv?v=1792990837",
-    "https://livebench.ai/data/20261025/categories.json?v=1792990837",
-    "https://livebench.ai/data/20261025/cost.csv?v=1792990837",
-    "https://livebench.ai/v1/table_2026_06_25.csv?v=1792990837",
-    "https://livebench.ai/v1/categories_2026_06_25.json?v=1792990837",
-    "https://livebench.ai/v1/cost_2026_06_25.csv?v=1792990837"
+    "https://livebench.ai/static/js/main.58ddbc53.js",
+    "https://livebench.ai/data/20261025/table.csv?v=1793055826",
+    "https://livebench.ai/data/20261025/categories.json?v=1793055826",
+    "https://livebench.ai/data/20261025/cost.csv?v=1793055826",
+    "https://livebench.ai/v1/table_2026_06_25.csv?v=1793055826",
+    "https://livebench.ai/v1/categories_2026_06_25.json?v=1793055826",
+    "https://livebench.ai/v1/cost_2026_06_25.csv?v=1793055826"
   ]
 }
