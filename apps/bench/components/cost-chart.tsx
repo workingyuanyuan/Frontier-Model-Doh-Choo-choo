@@ -506,14 +506,39 @@ export function CostModelMenu({
                   );
                 })}
         </ul>
-        {advanced && onUseInLeaderboard ? (
-          <div className="cost-model-menu-actions">
+        {advanced ? (
+          // Laid out like the Search Models picker: the primary action on the
+          // left, then Clear and Default.
+          <div className="picker-actions cost-model-menu-actions">
+            {onUseInLeaderboard ? (
+              <button
+                type="button"
+                disabled={!shortlist.length}
+                onClick={() => onUseInLeaderboard(shortlist)}
+              >
+                Use in Leaderboard
+              </button>
+            ) : null}
             <button
               type="button"
-              disabled={!shortlist.length}
-              onClick={() => onUseInLeaderboard(shortlist)}
+              onClick={() =>
+                onUpdateHiddenProfileIds(
+                  () =>
+                    new Set(
+                      modelOptions.flatMap(({ efforts }) =>
+                        efforts.map(({ profileId }) => profileId),
+                      ),
+                    ),
+                )
+              }
             >
-              Use in Leaderboard
+              Clear
+            </button>
+            <button
+              type="button"
+              onClick={() => onUpdateHiddenProfileIds(() => new Set())}
+            >
+              Default
             </button>
           </div>
         ) : null}

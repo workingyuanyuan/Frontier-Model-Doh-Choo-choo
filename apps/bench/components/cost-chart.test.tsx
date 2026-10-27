@@ -566,6 +566,11 @@ describe('CostChart Dynamic Scaling and Hover Cards (Tasks J3 & K1)', () => {
       expect(html).toMatch(
         /<button type="button" disabled="">Use in Leaderboard/,
       );
+      // Laid out like the Search Models picker: primary action, then Clear
+      // and Default.
+      expect(html).toMatch(
+        /class="picker-actions cost-model-menu-actions"><button[^>]*>Use in Leaderboard<\/button><button[^>]*>Clear<\/button><button[^>]*>Default<\/button>/,
+      );
     });
 
     it('recalculates X and Y domains and excludes points when a series is hidden', () => {

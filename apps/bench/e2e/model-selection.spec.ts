@@ -256,3 +256,30 @@ test('drops pins the chart hides and never pins the handed-over effort', async (
     }),
   ).toHaveValue(kept);
 });
+
+test('clears and restores the advanced cost chart models from the menu', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.locator('.cost-mode-toggle').click();
+  await page.locator('.cost-model-overflow-trigger').click();
+
+  const actions = page.locator('.cost-model-menu-actions button');
+  // Same order as the Search Models picker: primary action, Clear, Default.
+  await expect(actions).toHaveText(['Use in Leaderboard', 'Clear', 'Default']);
+
+  const checked = page.locator(
+    '.cost-model-menu-list input[type="checkbox"]:checked',
+  );
+  const initialChecked = await checked.count();
+  expect(initialChecked).toBeGreaterThan(0);
+  const useInLeaderboard = actions.filter({ hasText: 'Use in Leaderboard' });
+
+  await actions.filter({ hasText: 'Clear' }).click();
+  await expect(checked).toHaveCount(0);
+  await expect(useInLeaderboard).toBeDisabled();
+
+  await actions.filter({ hasText: 'Default' }).click();
+  await expect(checked).toHaveCount(initialChecked);
+  await expect(useInLeaderboard).toBeEnabled();
+});
