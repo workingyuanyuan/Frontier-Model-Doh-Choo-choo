@@ -80,10 +80,11 @@ Vals 的 `BenchmarkViewLoader` 頁面依來源明示的 `benchmarkViewUrl` 取�
 
 Frontier Code 有兩個互不取代的 benchmark。FrontierCode 2.0（`frontier-code-2-0`）
 取自主頁使用的 2.0 靜態 JSON，以渲染後兩種檢視的列數與 JSON-LD Top 10 核對；
-頁面隱藏的模型不物化，2.0 成本只留在原始 artifact。FrontierCode 1.1
+頁面隱藏的模型不物化（含其成本）。FrontierCode 1.1
 （`frontier-code-1-1`）取自舊靜態 JSON 的 `v1_1` Main，主頁已不渲染，改以前一份
-快照核對，上游移除的列保留。兩者都保存全部模型 × effort 的 `new_score`；成本圖只用
-1.1 的平均 rollout `cost`。Extended 只保留在原始 artifact，不混入 Main；來源 effort
+快照核對，上游移除的列保留。兩者都保存全部模型 × effort 的 `new_score` 與平均
+rollout `cost`。2026-10-28 使用者裁決由 2.0 取代 1.1 成本圖：2.0 成本為 `INCLUDED`，
+1.1 成本保留原 ID 但標為 `EXCLUDED`（已由 2.0 取代），兩版成本不混合。Extended 只保留在原始 artifact，不混入 Main；來源 effort
 `none`／`na`、缺值與未解析 identity 都保持 null。
 
 正常排程採統一頻率。新模型推出時，人工可額外觸發一次相同資料收集流程；不建立永久的「自動發現模型」旁路。
@@ -128,7 +129,7 @@ Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中�
 - Artificial Analysis：來源定義的 Intelligence Index task cost。
 - LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。
 - DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
-- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本，保存為 `AGENT_TASK`；raw `none` 保持 null，產品層只依上述跨來源規則建立可稽核的 effort 決策。
+- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本（以公開牌價含公開折扣計），保存為 `AGENT_TASK`；2026-10-28 起只有 2.0 成本 `INCLUDED`，1.1 成本 `EXCLUDED`；raw `none` 保持 null，產品層只依上述跨來源規則建立可稽核的 effort 決策。
 - ARC Prize：`costPerTask` 保存為 `AGENT_TASK`，只使用有成本的 v2 Semi-Private 列。
 - Vals AI：每頁成本照常保存，但預設成本圖只使用 `vals_index` 的 `cost_per_test`。
 
@@ -154,7 +155,7 @@ X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。�
 
 - **先在來源內配對，再跨來源聚合**：目前啟用的來源各自以同一 profile 的分數配同來源成本；全部成立後，X 軸取各來源 log min-max 成本指數等權平均，Y 軸取各來源原始分數等權平均。四來源時各 1/4，關閉一個後三來源各 1/3。不得拿跨來源 Overall 配單一來源成本。
 - **Artificial Analysis**：Y 軸使用 AA 發布的 Intelligence Index 值本身（維持 `inclusion: EXCLUDED`，不投入五維 Overall）。
-- **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2` 的 normalized 分數。
+- **DeepSWE、Frontier Code 與 ARC Prize**：Y 軸使用 `deepswe-1-1`、`frontier-code-2-0`（2026-10-28 起取代 `frontier-code-1-1`）、`arc-agi-2` 的 normalized 分數。
 - **排除 LiveBench 的三個理由**：
   1. LiveBench 的成本資料沒有思考強度維度：成本 CSV 每個模型只有一列，實測 0 個模型具備兩個以上 effort 的成本，因此連不出曲線。（LiveBench 的**分數**是有 effort 的，實測值包含 `medium`、`high`、`xhigh`、`max`，那些 effort 照常參與檔位階梯與顯示門檻；缺的只是成本側。）
   2. LiveBench 的 `cost_per_successful_task` 其分母是成功次數，已將效能內含於成本定義中。
@@ -184,6 +185,6 @@ X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。�
 
 OpenAI 與 Anthropic 發布頁中通過交叉核對的圖表，同列成本寫入 `CostRecord`，單位為 `USD_PER_TASK`。成本沿用分數的模型、明確 effort、benchmark 版本、納入狀態及 Evidence；已排除的混合模型 fallback 與分數衝突列，其成本也排除。
 
-圖表按 benchmark 群組配對：OpenAI 的 DeepSWE 1.1、AutomationBench 1.0.6；Anthropic 的 FrontierCode 1.1 Main、CursorBench 4.0。每個 profile 優先使用官方分數／成本配對，供應商配對補充缺漏。每個群組只計算一次權重，UI 保留供應商名稱與連結。預設成本圖有八個等權群組；進階圖新增可單獨啟用的 CursorBench。
+圖表按 benchmark 群組配對：OpenAI 的 DeepSWE 1.1、AutomationBench 1.0.6；Anthropic 的 CursorBench 4.0。Anthropic 的 FrontierCode 1.1 Main 配對仍保存，但 2026-10-28 起 Frontier Code 群組改配 FrontierCode 2.0，1.1 配對不再進入成本圖。每個 profile 優先使用官方分數／成本配對，供應商配對補充缺漏。每個群組只計算一次權重，UI 保留供應商名稱與連結。預設成本圖有八個等權群組；進階圖新增可單獨啟用的 CursorBench。
 
 `pnpm data:materialize-costs`、離線 snapshot materialization 與 vendor refresh 都可重建成本；供應商與官方分數交叉核對失敗時，供應商成本不發布。

@@ -28,6 +28,14 @@ export const FRONTIER_CODE_1_1_BENCHMARK_ID = 'frontier-code-1-1';
 export const FRONTIER_CODE_2_0_BENCHMARK_ID = 'frontier-code-2-0';
 export const FRONTIER_CODE_2_0_ITEM_LIST = 'FrontierCode 2.0 Leaderboard';
 
+/**
+ * User decision 2026-10-28: the FrontierCode 2.0 rollout cost replaces 1.1 in
+ * the cost chart. The 1.1 cost records stay with stable IDs as evidence only,
+ * so the chart never takes a median across the two versions.
+ */
+export const FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON =
+  'Superseded by the FrontierCode 2.0 mean rollout cost (user decision 2026-10-28); the 1.1 cost remains as evidence only.';
+
 interface FrontierCodeMetrics {
   correct?: number | null;
   new_score?: number | null;
@@ -114,9 +122,11 @@ export interface MaterializeFrontierCode20Context {
 
 export interface MaterializeFrontierCode20Result {
   candidates: CandidateResult[];
+  /** INCLUDED mean rollout costs of the visible configurations. */
+  costs: CostRecord[];
   modelCount: number;
   configurationCount: number;
-  /** Visible configurations that carry a cost; not materialized. */
+  /** Visible configurations that carry a cost; equals costs.length. */
   configurationsWithCost: number;
   modelsWithMultipleEfforts: number;
   unresolvedModels: string[];
@@ -216,6 +226,11 @@ interface VersionSpec {
   /** JSONPath prefix of the version object inside its export. */
   root: string;
   label: string;
+  /** Cost ID prefix; 1.1 keeps its original IDs, 2.0 must not collide. */
+  costIdPrefix: string;
+  costMetricName: string;
+  /** Null when the cost feeds the cost chart. */
+  costExclusionReason: string | null;
 }
 
 const V1_1: VersionSpec = {
@@ -223,6 +238,9 @@ const V1_1: VersionSpec = {
   benchmarkVersion: '1.1',
   root: '$.v1_1',
   label: 'FrontierCode 1.1',
+  costIdPrefix: 'frontier-code:mean-rollout-cost',
+  costMetricName: 'Mean FrontierCode rollout cost',
+  costExclusionReason: FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON,
 };
 
 const V2_0: VersionSpec = {
@@ -230,7 +248,18 @@ const V2_0: VersionSpec = {
   benchmarkVersion: '2.0',
   root: '$',
   label: 'FrontierCode 2.0',
+  costIdPrefix: `frontier-code:${FRONTIER_CODE_2_0_BENCHMARK_ID}:mean-rollout-cost`,
+  costMetricName: 'Mean FrontierCode 2.0 rollout cost',
+  costExclusionReason: null,
 };
+
+/** Mark a 1.1 cost (fresh or preserved from an older snapshot) superseded. */
+const supersedeV11Cost = (cost: CostRecord): CostRecord =>
+  CostRecordSchema.parse({
+    ...cost,
+    inclusion: 'EXCLUDED',
+    exclusionReason: FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON,
+  });
 
 const mainLocator = (
   spec: VersionSpec,
@@ -279,7 +308,6 @@ const buildRows = (
     candidateEvidenceIds: string[];
     observedAt: string;
   },
-  { materializeCosts }: { materializeCosts: boolean },
 ): BuiltRows => {
   const candidates: CandidateResult[] = [];
   const costs: CostRecord[] = [];
@@ -369,17 +397,18 @@ const buildRows = (
         );
       }
       configurationsWithCost += 1;
-      if (!materializeCosts) continue;
+      // Cognition: "Cost is the mean USD spend per rollout at list API
+      // pricing, including public discounts" -- a per-attempt agent cost.
       costs.push(
         CostRecordSchema.parse({
           schemaVersion: 'cost-record-v1',
-          id: `frontier-code:mean-rollout-cost:${suffix}`,
+          id: `${spec.costIdPrefix}:${suffix}`,
           sourceId: 'frontier-code',
           model: commonModel,
           profile: commonProfile,
           costType: 'AGENT_TASK',
           metricId: 'mean-rollout-cost',
-          metricName: 'Mean FrontierCode rollout cost',
+          metricName: spec.costMetricName,
           unit: 'USD_PER_TASK',
           inputPerMillionTokens: null,
           outputPerMillionTokens: null,
@@ -387,8 +416,8 @@ const buildRows = (
           assumptionId: null,
           benchmarkId: spec.benchmarkId,
           benchmarkVersion: spec.benchmarkVersion,
-          inclusion: 'INCLUDED',
-          exclusionReason: null,
+          inclusion: spec.costExclusionReason ? 'EXCLUDED' : 'INCLUDED',
+          exclusionReason: spec.costExclusionReason,
           sourceUrl: FRONTIER_CODE_PAGE_URL,
           observedAt: evidence.observedAt,
           sourcePublishedAt: null,
@@ -449,17 +478,11 @@ export function materializeFrontierCode11(
     (JSON.parse(json) as { v1_1?: FrontierCodeVersion }).v1_1,
     'FrontierCode 1.1',
   );
-  const built = buildRows(
-    V1_1,
-    version,
-    version.models,
-    {
-      dataEvidenceId: context.dataEvidenceId,
-      candidateEvidenceIds: [context.dataEvidenceId],
-      observedAt: context.observedAt,
-    },
-    { materializeCosts: true },
-  );
+  const built = buildRows(V1_1, version, version.models, {
+    dataEvidenceId: context.dataEvidenceId,
+    candidateEvidenceIds: [context.dataEvidenceId],
+    observedAt: context.observedAt,
+  });
 
   const currentCandidates = new Map(
     built.candidates.map((candidate) => [candidate.id, candidate]),
@@ -496,7 +519,10 @@ export function materializeFrontierCode11(
   const candidates = [...built.candidates, ...preservedCandidates].toSorted(
     byId,
   );
-  const costs = [...built.costs, ...preservedCosts].toSorted(byId);
+  // Value changes compare the cost only, so older INCLUDED snapshots still gate.
+  const costs = [...built.costs, ...preservedCosts]
+    .map(supersedeV11Cost)
+    .toSorted(byId);
   const exportModels = new Set(version.models);
   const preservedModels = [
     ...new Set(
@@ -557,7 +583,8 @@ export function materializeFrontierCode11(
  * FrontierCode 2.0 from its own export, checked against the rendered main
  * page: the operator-observed Best/All row counts must equal the export minus
  * the page's hidden models, and the JSON-LD Top 10 must match the export.
- * Costs are counted but not materialized, so the cost chart keeps 1.1.
+ * Its mean rollout costs are INCLUDED and feed the Frontier Code cost-chart
+ * group (user decision 2026-10-28); 1.1 costs are EXCLUDED as superseded.
  */
 export function materializeFrontierCode20(
   json: string,
@@ -578,17 +605,11 @@ export function materializeFrontierCode20(
   const visibleModels = version.models.filter(
     (model) => !hidden.includes(model),
   );
-  const built = buildRows(
-    V2_0,
-    version,
-    visibleModels,
-    {
-      dataEvidenceId: context.dataEvidenceId,
-      candidateEvidenceIds: [context.dataEvidenceId, context.pageEvidenceId],
-      observedAt: context.observedAt,
-    },
-    { materializeCosts: false },
-  );
+  const built = buildRows(V2_0, version, visibleModels, {
+    dataEvidenceId: context.dataEvidenceId,
+    candidateEvidenceIds: [context.dataEvidenceId, context.pageEvidenceId],
+    observedAt: context.observedAt,
+  });
 
   const countErrors = [
     visibleModels.length === context.visualBestRowCount
@@ -638,6 +659,7 @@ export function materializeFrontierCode20(
 
   return {
     candidates: built.candidates.toSorted(byId),
+    costs: built.costs.toSorted(byId),
     modelCount: visibleModels.length,
     configurationCount: built.candidates.length,
     configurationsWithCost: built.configurationsWithCost,
@@ -690,7 +712,7 @@ const v20Section = (check: FrontierCode20Check | null): string[] => {
     '|---|---:|',
     `| 2.0 visible models | ${v20.modelCount} |`,
     `| 2.0 Main configurations | ${v20.configurationCount} |`,
-    `| 2.0 configurations with costs (not materialized) | ${v20.configurationsWithCost} |`,
+    `| 2.0 configurations with costs (materialized, INCLUDED) | ${v20.configurationsWithCost} |`,
     `| 2.0 models with multiple efforts | ${v20.modelsWithMultipleEfforts} |`,
     `| 2.0 hidden export models | ${v20.hiddenModels.length} |`,
     `| 2.0 canonically unresolved models | ${v20.unresolvedModels.length} |`,
@@ -698,7 +720,8 @@ const v20Section = (check: FrontierCode20Check | null): string[] => {
     `- Rendered Best reasoning mode rows: ${check.visualBestRowCount}; All reasoning levels rows: ${check.visualAllRowCount}; both equal the export after removing the page's hidden models (${list(v20.hiddenModels)}).`,
     `- JSON-LD \`${FRONTIER_CODE_2_0_ITEM_LIST}\` Top 10 exact rank/name/one-decimal-score matches: ${v20.topTenMatches}/10; mismatches: ${list(v20.topTenMismatches)}.`,
     `- The rendered Top 10 matched the JSON-LD and export: ${check.visualTopTenMatched ? 'yes' : 'no'}.`,
-    '- Hidden models stay in the raw artifact and are not materialized. 2.0 rollout costs stay in the raw artifact; the cost chart pairs Frontier Code costs with `frontier-code-1-1`.',
+    '- Hidden models stay in the raw artifact and are not materialized; neither are their costs.',
+    '- Cost is the mean USD spend per rollout at list API pricing (page methodology), stored as `AGENT_TASK` / `USD_PER_TASK`. Since the 2026-10-28 user decision the cost chart pairs Frontier Code costs with `frontier-code-2-0`; 1.1 costs are kept EXCLUDED as superseded and are never blended with 2.0.',
     '- Effort `na` (SWE-1.6, SWE-1.7) and other non-policy keys stay null. Neither the export nor the methodology states a per-configuration rollout count, so attempts stays null.',
     `- Unresolved names keep null canonical/profile identity: ${list(v20.unresolvedModels)}.`,
     '',
@@ -742,6 +765,7 @@ export function frontierCodeValidationReport({
     `- New export rows: ${list(v11.addedCandidateIds)}.`,
     `- Value changes: ${list(v11.valueChanges)}.`,
     '- The export contains both `main` and `extended`; only Main is materialized. Source effort `none` stays null. Missing costs are omitted, never zero.',
+    `- All ${v11.costs.length} 1.1 cost records keep their IDs but are EXCLUDED: ${FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON}`,
     `- Unresolved names keep null canonical/profile identity: ${list(v11.unresolvedModels)}.`,
     '',
     '## Known documentation conflict',
@@ -844,7 +868,7 @@ export function rebuildFrontierCodeFromEvidence(
     candidates: [...v11.candidates, ...(v20?.result.candidates ?? [])].toSorted(
       byId,
     ),
-    costs: v11.costs,
+    costs: [...v11.costs, ...(v20?.result.costs ?? [])].toSorted(byId),
     validationReport: frontierCodeValidationReport({
       v11,
       v11DataEvidenceId: v11Record.id,

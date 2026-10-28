@@ -289,6 +289,9 @@ async function main() {
   const candidates = [...v11.candidates, ...v20.candidates].toSorted(
     (left, right) => left.id.localeCompare(right.id),
   );
+  const costs = [...v11.costs, ...v20.costs].toSorted((left, right) =>
+    left.id.localeCompare(right.id),
+  );
   const manifest = SourceManifestSchema.parse({
     schemaVersion: 'source-manifest-v1',
     sourceId: 'frontier-code',
@@ -312,12 +315,15 @@ async function main() {
       visibleComparisonRequired: true,
     },
     fieldMapping: {
+      'data[model][effort].main.cost':
+        'frontier-code-2-0 CostRecord.cost (INCLUDED; mean USD per rollout)',
       'data[model][effort].main.new_score':
         'frontier-code-2-0 rawScore; normalizedScore = rawScore * 100',
       'efforts[model]': 'frontier-code-2-0 profile.effort',
       'harness[model]': 'frontier-code-2-0 profile.harness',
       'models[]': 'frontier-code-2-0 model.rawName',
-      'v1_1.data[model][effort].main.cost': 'CostRecord.cost',
+      'v1_1.data[model][effort].main.cost':
+        'frontier-code-1-1 CostRecord.cost (EXCLUDED; superseded by 2.0 on 2026-10-28)',
       'v1_1.data[model][effort].main.new_score':
         'frontier-code-1-1 rawScore; normalizedScore = rawScore * 100',
       'v1_1.efforts[model]': 'frontier-code-1-1 profile.effort',
@@ -329,7 +335,8 @@ async function main() {
     notes: [
       'FrontierCode 1.1 and 2.0 are different benchmarks; neither replaces the other.',
       `2.0: ${v20.modelCount} visible models and ${v20.configurationCount} Main configurations; rendered Best ${visualBestRowCount} and All ${visualAllRowCount} rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: ${v20.hiddenModels.join(', ') || 'none'}.`,
-      '2.0 costs stay in the raw artifact; Frontier Code costs pair with frontier-code-1-1.',
+      `2.0: ${v20.costs.length} mean rollout costs are INCLUDED; the cost chart pairs Frontier Code costs with frontier-code-2-0 (user decision 2026-10-28).`,
+      `1.1: ${v11.costs.length} cost records keep their IDs but are EXCLUDED as superseded, so 1.1 and 2.0 costs are never blended.`,
       `1.1: ${v11.exportModelCount} export models and ${v11.exportConfigurationCount} Main configurations; ${v11.preservedCandidateIds.length} rows preserved from the previous snapshot (${v11.preservedModels.join(', ') || 'none'}).`,
       'Extended data is retained in the raw artifact but not materialized.',
       'Exact identities only; unresolved models and non-policy efforts remain null.',
@@ -343,10 +350,7 @@ async function main() {
       join(sourceDir, 'candidates.json'),
       prettyDeterministicJson(candidates),
     ),
-    writeFile(
-      join(sourceDir, 'costs.json'),
-      prettyDeterministicJson(v11.costs),
-    ),
+    writeFile(join(sourceDir, 'costs.json'), prettyDeterministicJson(costs)),
     writeFile(
       join(sourceDir, 'validation-report.md'),
       `${frontierCodeValidationReport({
@@ -386,7 +390,19 @@ async function main() {
             'Materialized costs',
             previousCosts.length,
           ),
-          refreshed: v11.costs.length,
+          refreshed: costs.length,
+        },
+        {
+          label: '2.0 costs',
+          previous: previousSnapshotValue(
+            previousReport,
+            '2.0 costs',
+            previousCosts.filter(
+              ({ benchmarkId }) =>
+                benchmarkId === FRONTIER_CODE_2_0_BENCHMARK_ID,
+            ).length,
+          ),
+          refreshed: v20.costs.length,
         },
         {
           label: '2.0 models',
@@ -415,6 +431,7 @@ async function main() {
       v20: {
         models: v20.modelCount,
         configurations: v20.configurationCount,
+        costs: v20.costs.length,
         hiddenModels: v20.hiddenModels,
         topTenMatches: v20.topTenMatches,
         unresolvedModels: v20.unresolvedModels.length,

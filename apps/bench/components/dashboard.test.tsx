@@ -229,7 +229,7 @@ describe('Dashboard Redesign', () => {
       },
       {
         sourceId: 'frontier-code',
-        benchmarkId: 'frontier-code-1-1',
+        benchmarkId: 'frontier-code-2-0',
         costType: 'AGENT_TASK' as const,
         normalizedScore: 75,
         rawScore: 75,

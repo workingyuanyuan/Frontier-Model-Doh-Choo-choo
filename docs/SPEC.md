@@ -128,7 +128,7 @@ DeepSWE、Frontier Code（`frontier-code-1-1`、`frontier-code-2-0`）、Termina
 因此：
 
 - **新增 benchmark `frontier-code-1-1`**，primary dimension = `coding`，secondary = `agentic, context`。Cognition 的分數全部歸到這個 ID。
-- **FrontierCode 2.0 是另一個 benchmark `frontier-code-2-0`**（2026-10-27 發布，132 題新套件；2026-10-28 使用者裁決）。維度歸屬與 1.1 相同（primary `coding`，secondary `agentic, reasoning`）。1.1 與 2.0 不互相取代、不合併；`frontier-code-1-1` 的 ID、分數與成本維持原狀，成本圖的 Frontier Code 群組仍配對 1.1。
+- **FrontierCode 2.0 是另一個 benchmark `frontier-code-2-0`**（2026-10-27 發布，132 題新套件；2026-10-28 使用者裁決）。維度歸屬與 1.1 相同（primary `coding`，secondary `agentic, reasoning`）。1.1 與 2.0 的分數不互相取代、不合併；`frontier-code-1-1` 的 ID 與分數維持原狀。**成本圖改用 2.0**（2026-10-28 使用者裁決「FrontierCode 2.0 新的評測方法可以覆蓋 FrontierCode 1.1 成本圖」）：Frontier Code 群組配對 `frontier-code-2-0` 的分數與成本；1.1 成本保留原 ID 與數值，但標為 `EXCLUDED`（已由 2.0 取代）。
 - **`frontierswe` 保留給 Proximal V1** 的 rank／dominance。V2 使用 **`frontier-swe-v2`**，來源 ID 為 `frontier-swe`，擷取 mean@5 百分比分數。2026-10-01 決定以 `comparisonOnly: true` 限定為手動 profiles 比較；預設集合生成與計分依此限制執行。
 - `docs/BENCHMARK_DIMENSION_MAPPING.md` 與 `docs/BENCHMARK_SCORE_SOURCES.md` 要同時反映這兩個是不同的 benchmark。
 
@@ -645,7 +645,7 @@ OpenAI、Anthropic 發布頁的任務成本依 benchmark 歸入上述群組。�
 | Artificial Analysis | `artificial-analysis-intelligence-index` | `rawScore`        | 與 `cost-per-intelligence-index-task` 同源   |
 | Vals AI             | `vals-index`                             | `rawScore`        | 與 `cost-per-test` 同源，結構與 AA 相同      |
 | DeepSWE             | `deepswe-1-1`                            | `normalizedScore` | 該來源唯一 benchmark                         |
-| Frontier Code       | `frontier-code-1-1`                      | `normalizedScore` | 該來源唯一 benchmark                         |
+| Frontier Code       | `frontier-code-2-0`                      | `normalizedScore` | 2026-10-28 起取代 1.1；只收 2.0 成本         |
 | ARC Prize           | `arc-agi-2`                              | `normalizedScore` | 該來源唯一 benchmark                         |
 | Zapier              | `automationbench`                        | `normalizedScore` | 該來源唯一 benchmark                         |
 | CursorBench         | `cursorbench-4`                          | `normalizedScore` | Anthropic 發布頁的同列分數與美元任務成本     |
@@ -750,7 +750,9 @@ Y 軸用啟用來源原始分數的算術平均。已知代價：來源的離散
 內正規化」，而不是調整權重去補償。
 
 **DeepSWE、Frontier Code、ARC Prize 與 Zapier AutomationBench** 各自一個分數對一個成本，該來源的分數直接用對應
-benchmark（`deepswe-1-1`、`frontier-code-1-1`、`arc-agi-2`、`automationbench`）的 normalized 分數。
+benchmark（`deepswe-1-1`、`frontier-code-2-0`、`arc-agi-2`、`automationbench`）的 normalized 分數。
+Frontier Code 同時有 1.1 與 2.0 成本紀錄，`COST_SOURCE_SCORE_BASES` 以 `costBenchmarkId`
+限定只有 `frontier-code-2-0` 的成本進入該群組，1.1 成本不會與 2.0 一起取中位數。
 
 **Artificial Analysis 的 Y 軸＝AA 發布的 Intelligence Index 數值本身**（2026-08-20 決定）
 
@@ -964,7 +966,7 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 
 - `frontier-code-2-0` 是獨立 benchmark，與 `frontier-code-1-1` 不互相取代；候選列 ID 為 `frontier-code:frontier-code-2-0:<model>-<effort>`。
 - 2.0 以 export 扣除頁面隱藏模型後的模型數與設定數，對照兩種渲染檢視的列數，不符即停止；1.1 以前一份快照對照，上游移除的列原樣保留，分數或成本變動需人工確認。
-- 2.0 成本只保存在原始 artifact，不寫入 `costs.json`，成本圖仍用 1.1。
+- 2.0 成本：頁面方法論寫明「Cost is the mean USD spend per rollout at list API pricing, including public discounts」，與 1.1 相同，保存為 `AGENT_TASK`／`USD_PER_TASK`。2026-10-28 使用者裁決由 2.0 取代 1.1 成本圖：98 組可見設定的成本寫入 `costs.json`（`INCLUDED`，ID `frontier-code:frontier-code-2-0:mean-rollout-cost:<model>-<effort>`）；1.1 的 141 筆成本保留原 ID 與數值，改標 `EXCLUDED`。
 - 2.0 有 10 個模型名稱目前無法精確解析（含 Claude Haiku 5.5、SWE-2、Beam 1.0），保持 null identity。
 
 ### 9.5 Epoch AI（期二，2026-08-21 實測）

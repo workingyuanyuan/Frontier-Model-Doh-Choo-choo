@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   assertFrontierCode11Unchanged,
+  FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON,
   FRONTIER_CODE_2_0_DATA_URL,
   FRONTIER_CODE_DATA_URL,
   FRONTIER_CODE_PAGE_URL,
@@ -112,7 +113,7 @@ describe('Frontier Code materializer', () => {
     ).toThrow('FrontierCode 2.0 Leaderboard');
   });
 
-  it('keeps 1.1 rows, IDs and costs under frontier-code-1-1', () => {
+  it('keeps 1.1 rows, IDs and costs under frontier-code-1-1, costs EXCLUDED', () => {
     const result = materializeFrontierCode11(
       v11Payload,
       { dataEvidenceId: evidenceId, observedAt },
@@ -131,9 +132,22 @@ describe('Frontier Code materializer', () => {
     ).toBe(true);
     expect(
       result.costs.every(
-        ({ benchmarkId }) => benchmarkId === 'frontier-code-1-1',
+        ({ benchmarkId, id, inclusion, exclusionReason }) =>
+          benchmarkId === 'frontier-code-1-1' &&
+          id.startsWith('frontier-code:mean-rollout-cost:') &&
+          inclusion === 'EXCLUDED' &&
+          exclusionReason === FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON,
       ),
     ).toBe(true);
+    // Superseded costs stay as evidence with their original ID and value.
+    expect(
+      result.costs.find(({ model }) => model.rawName === 'Claude Opus 5'),
+    ).toMatchObject({
+      id: 'frontier-code:mean-rollout-cost:claude-opus-5-high',
+      cost: 0.5,
+      costType: 'AGENT_TASK',
+      unit: 'USD_PER_TASK',
+    });
     expect(
       result.candidates.find(({ model }) => model.rawName === 'Kimi K3'),
     ).toMatchObject({
@@ -202,6 +216,60 @@ describe('Frontier Code materializer', () => {
     expect(terra?.evidenceIds).toEqual([oldEvidenceId]);
   });
 
+  it('excludes 1.1 costs preserved from an INCLUDED snapshot and still gates their values', () => {
+    const fresh = materializeFrontierCode11(
+      v11Payload,
+      { dataEvidenceId: oldEvidenceId, observedAt },
+      noPrevious,
+    );
+    // Snapshots written before 2026-10-28 carry the 1.1 costs as INCLUDED.
+    const legacyCosts = fresh.costs.map((cost) => ({
+      ...cost,
+      inclusion: 'INCLUDED' as const,
+      exclusionReason: null,
+    }));
+    const removed = 'GPT-5.6 Terra';
+    const full = JSON.parse(v11Payload) as {
+      v1_1: ReturnType<typeof version>;
+    };
+    const trimmed = {
+      v1_1: {
+        ...full.v1_1,
+        models: full.v1_1.models.filter((name) => name !== removed),
+      },
+    };
+    const result = materializeFrontierCode11(
+      JSON.stringify(trimmed),
+      { dataEvidenceId: evidenceId, observedAt },
+      { candidates: fresh.candidates, costs: legacyCosts },
+    );
+    expect(result.valueChanges).toEqual([]);
+    expect(result.preservedCostIds).toEqual([
+      'frontier-code:mean-rollout-cost:gpt-5-6-terra-high',
+    ]);
+    expect(
+      result.costs.every(({ inclusion }) => inclusion === 'EXCLUDED'),
+    ).toBe(true);
+
+    const changed = JSON.parse(v11Payload) as {
+      v1_1: {
+        data: Record<string, Record<string, { main: { cost: number } }>>;
+      };
+    };
+    changed.v1_1.data['Claude Opus 5']!.high!.main.cost = 9;
+    const gated = materializeFrontierCode11(
+      JSON.stringify(changed),
+      { dataEvidenceId: evidenceId, observedAt },
+      { candidates: fresh.candidates, costs: legacyCosts },
+    );
+    expect(gated.valueChanges).toEqual([
+      'frontier-code:mean-rollout-cost:claude-opus-5-high cost 0.5 -> 9',
+    ]);
+    expect(() => assertFrontierCode11Unchanged(gated, null)).toThrow(
+      /cost 0.5 -> 9/u,
+    );
+  });
+
   it('reports 1.1 score changes against the previous snapshot', () => {
     const previous = materializeFrontierCode11(
       v11Payload,
@@ -225,7 +293,7 @@ describe('Frontier Code materializer', () => {
     expect(result.preservedCandidateIds).toEqual([]);
   });
 
-  it('parses 2.0 as frontier-code-2-0 without cost records', () => {
+  it('parses 2.0 as frontier-code-2-0 with INCLUDED per-rollout costs', () => {
     const result = materializeFrontierCode20(
       v20Payload,
       topTenHtml,
@@ -234,6 +302,37 @@ describe('Frontier Code materializer', () => {
 
     expect(result.candidates).toHaveLength(10);
     expect(result.configurationsWithCost).toBe(9);
+    // GPT-5.6 Luna has a null cost: omitted, never zero.
+    expect(result.costs).toHaveLength(9);
+    expect(
+      result.costs.some(({ model }) => model.rawName === 'GPT-5.6 Luna'),
+    ).toBe(false);
+    expect(
+      result.costs.every(
+        ({ benchmarkId, benchmarkVersion, id, inclusion, evidenceIds }) =>
+          benchmarkId === 'frontier-code-2-0' &&
+          benchmarkVersion === '2.0' &&
+          id.startsWith('frontier-code:frontier-code-2-0:mean-rollout-cost:') &&
+          inclusion === 'INCLUDED' &&
+          evidenceIds.join() === v20EvidenceId,
+      ),
+    ).toBe(true);
+    expect(
+      result.costs.find(({ model }) => model.rawName === 'Claude Opus 5'),
+    ).toMatchObject({
+      id: 'frontier-code:frontier-code-2-0:mean-rollout-cost:claude-opus-5-high',
+      sourceId: 'frontier-code',
+      costType: 'AGENT_TASK',
+      unit: 'USD_PER_TASK',
+      metricId: 'mean-rollout-cost',
+      metricName: 'Mean FrontierCode 2.0 rollout cost',
+      cost: 0.5,
+      exclusionReason: null,
+      model: { profileId: 'anthropic-claude-opus-5-high' },
+      provenance: {
+        cost: { locator: '$.data["Claude Opus 5"]["high"].main.cost' },
+      },
+    });
     expect(result.topTenMatches).toBe(10);
     expect(
       result.candidates.every(
@@ -297,8 +396,8 @@ describe('Frontier Code materializer', () => {
     payload.models = [...payload.models, hidden];
     payload.efforts[hidden] = ['low', 'high'];
     payload.data[hidden] = {
-      low: { main: { new_score: 0.2, correct: 0.2, cost: null } },
-      high: { main: { new_score: 0.3, correct: 0.3, cost: null } },
+      low: { main: { new_score: 0.2, correct: 0.2, cost: 1.25 } },
+      high: { main: { new_score: 0.3, correct: 0.3, cost: 2.5 } },
     };
     const result = materializeFrontierCode20(
       JSON.stringify(payload),
@@ -310,6 +409,10 @@ describe('Frontier Code materializer', () => {
     expect(
       result.candidates.some(({ model }) => model.rawName === hidden),
     ).toBe(false);
+    expect(result.costs.some(({ model }) => model.rawName === hidden)).toBe(
+      false,
+    );
+    expect(result.configurationsWithCost).toBe(9);
 
     // Without declaring it hidden, the export no longer matches the page.
     expect(() =>
@@ -420,11 +523,32 @@ describe('Frontier Code materializer', () => {
         ({ benchmarkId }) => benchmarkId === 'frontier-code-2-0',
       ),
     ).toHaveLength(10);
+    // 1.1 costs (including the preserved Terra row) stay EXCLUDED; only 2.0
+    // costs are INCLUDED, so no profile ever has both versions included.
+    const v11Costs = result.costs.filter(
+      ({ benchmarkId }) => benchmarkId === 'frontier-code-1-1',
+    );
+    const v20Costs = result.costs.filter(
+      ({ benchmarkId }) => benchmarkId === 'frontier-code-2-0',
+    );
+    expect(v11Costs).toHaveLength(9);
+    expect(v20Costs).toHaveLength(9);
+    expect(result.costs).toHaveLength(18);
+    expect(new Set(result.costs.map(({ id }) => id)).size).toBe(18);
+    expect(v11Costs.every(({ inclusion }) => inclusion === 'EXCLUDED')).toBe(
+      true,
+    );
+    expect(v20Costs.every(({ inclusion }) => inclusion === 'INCLUDED')).toBe(
+      true,
+    );
     expect(
-      result.costs.every(
-        ({ benchmarkId }) => benchmarkId === 'frontier-code-1-1',
-      ),
+      result.costs
+        .filter(({ inclusion }) => inclusion === 'INCLUDED')
+        .every(({ benchmarkId }) => benchmarkId === 'frontier-code-2-0'),
     ).toBe(true);
+    expect(result.validationReport).toContain(
+      '2.0 configurations with costs (materialized, INCLUDED) | 9 |',
+    );
     expect(result.validationReport).toContain(
       'Models removed upstream and preserved unchanged: GPT-5.6 Terra.',
     );

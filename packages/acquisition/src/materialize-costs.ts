@@ -16,12 +16,7 @@ import {
   materializeArtificialAnalysisRsc,
   type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
-import {
-  FRONTIER_CODE_DATA_URL,
-  FRONTIER_CODE_PAGE_URL,
-  assertFrontierCode11Unchanged,
-  materializeFrontierCode11,
-} from './frontier-code-materializer.js';
+import { rebuildFrontierCodeFromEvidence } from './frontier-code-materializer.js';
 import {
   buildLiveBenchSnapshot,
   liveBenchInputFromEvidence,
@@ -211,38 +206,15 @@ async function main() {
     prettyDeterministicJson(liveCosts),
   );
 
-  const frontierIndexPath = join(
-    sourcesRoot,
-    'frontier-code',
-    'evidence-index.json',
-  );
-  const frontierEvidence = EvidenceRecordSchema.array().parse(
-    await readJson<unknown>(frontierIndexPath),
-  );
-  // Preserved 1.1 rows cite an older export, so use the latest capture.
-  const latestFrontierRecord = (requestUrl: string): EvidenceRecord =>
-    frontierEvidence
-      .filter((record) => record.requestUrl === requestUrl)
-      .toSorted((left, right) =>
-        right.retrievedAt.localeCompare(left.retrievedAt),
-      )[0] ?? findEvidence(frontierEvidence, requestUrl);
-  const frontierDataRecord = latestFrontierRecord(FRONTIER_CODE_DATA_URL);
-  const frontierPageRecord = latestFrontierRecord(FRONTIER_CODE_PAGE_URL);
-  const visualRowCount = Number(frontierPageRecord.metadata.renderedRows);
-  const visualTopTenMatched =
-    frontierPageRecord.metadata.renderedTopTenMatched === true;
-  if (!Number.isInteger(visualRowCount) || !visualTopTenMatched) {
-    throw new Error(
-      'Frontier Code evidence has no completed rendered-DOM validation',
-    );
-  }
   const frontierDirectory = join(sourcesRoot, 'frontier-code');
-  const frontierResult = materializeFrontierCode11(
-    await readFile(join(root, frontierDataRecord.artifactPath), 'utf8'),
-    {
-      dataEvidenceId: frontierDataRecord.id,
-      observedAt: frontierDataRecord.retrievedAt,
-    },
+  const frontierEvidence = EvidenceRecordSchema.array().parse(
+    await readJson<unknown>(join(frontierDirectory, 'evidence-index.json')),
+  );
+  // Same path as materialize:snapshots: latest captures, 1.1 costs EXCLUDED
+  // as superseded, 2.0 costs INCLUDED. It also rejects any 1.1 value change.
+  const frontierCosts = rebuildFrontierCodeFromEvidence(
+    frontierEvidence,
+    (artifactPath) => readFileSync(join(root, artifactPath), 'utf8'),
     {
       candidates: CandidateResultSchema.array().parse(
         await readJson<unknown>(join(frontierDirectory, 'candidates.json')),
@@ -251,12 +223,10 @@ async function main() {
         await readJson<unknown>(join(frontierDirectory, 'costs.json')),
       ),
     },
-  );
-  // Rebuilding costs must reproduce the saved 1.1 snapshot.
-  assertFrontierCode11Unchanged(frontierResult, null);
+  ).costs;
   await writeFile(
     join(frontierDirectory, 'costs.json'),
-    prettyDeterministicJson(frontierResult.costs),
+    prettyDeterministicJson(frontierCosts),
   );
 
   console.log(
@@ -264,7 +234,7 @@ async function main() {
       artificialAnalysis: aaCosts.length,
       deepSwe: deepCosts.length,
       liveBench: liveCosts.length,
-      frontierCode: frontierResult.costs.length,
+      frontierCode: frontierCosts.length,
       vendorReleases: vendorCounts,
     }),
   );

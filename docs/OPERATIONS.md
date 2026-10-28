@@ -182,8 +182,18 @@ Frontier Code 來源有兩個不同的 benchmark：FrontierCode 2.0（`frontier-
    皆寫入 validation report。
 
 舊旗標 `--visual-row-count`、`--visual-top-ten-matched` 核對的是已不再渲染的 1.1
-榜，傳入時命令會直接拒絕。2.0 的 rollout 成本只保存在原始 artifact，不寫入
-`costs.json`；成本圖的 Frontier Code 群組仍配對 `frontier-code-1-1`。
+榜，傳入時命令會直接拒絕。
+
+成本（2026-10-28 使用者裁決：FrontierCode 2.0 取代 1.1 成本圖）：2.0 可見設定的
+`main.cost`（頁面方法論：每次 rollout 的平均美元花費，以公開牌價含公開折扣計）寫入
+`costs.json`，`AGENT_TASK`／`USD_PER_TASK`、`INCLUDED`，ID 為
+`frontier-code:frontier-code-2-0:mean-rollout-cost:<model>-<effort>`；隱藏模型的成本
+不寫入。1.1 成本保留原 ID 與數值但標為 `EXCLUDED`（理由為已由 2.0 取代），步驟 4
+的數值變動核對仍涵蓋這些成本。成本圖的 Frontier Code 群組只配對
+`frontier-code-2-0` 的分數與成本，1.1 成本（含 Anthropic 發布頁的 FrontierCode 1.1
+配對）不進入該群組，兩版不會在同一個中位數裡混合。`materialize:costs` 與
+`materialize:snapshots` 走同一條 `rebuildFrontierCodeFromEvidence` 路徑，結果與線上
+刷新一致。
 
 本次範圍內各站完成後執行 `materialize:effort-reports`；它只替換 validation report 中
 標記過的推測區段，保留每站刷新產生的可見母體核對與前後 delta。
