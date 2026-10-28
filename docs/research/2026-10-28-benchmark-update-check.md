@@ -67,3 +67,9 @@ openai.com/news 回 403、Meta blog 回 400，改用 API changelog 與 Hugging F
 - **DAYJOB: Tax**：納入。
 
 整合與驗證結果見[刷新審核報告](../refresh/2026-10-28.md)。
+
+## 使用者第二輪裁決（2026-10-28）
+
+- AA v5 新評測（HLE-Diamond、Terminal-Bench-Science、CritPt v2、AA 自跑的 FrontierCode 2.0）納入計分。
+- 新版取代舊版：HLE-Diamond 取代 HLE、CritPt v2 取代 CritPt，避免同源題目重複計分。CritPt v2 採 Full Set（70 題）。
+- FrontierCode 成本圖改用 2.0；1.1 連結維持不變。

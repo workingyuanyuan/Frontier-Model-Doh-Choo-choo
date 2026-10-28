@@ -67,7 +67,7 @@ async function eligibleWorkspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 17 tests in five active categories', async () => {
+  it('produces eight complete eligible profiles sharing 19 tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     expect(selectAaTopTen(candidates).status).toBe('selected');
     const { profileIds } = await eligibleWorkspace();
@@ -78,8 +78,8 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    // 2026-10-25 data; changes when sources or eligibility change.
-    expect(result.benchmarkIds).toHaveLength(17);
+    // 2026-10-28 data; changes when sources or eligibility change.
+    expect(result.benchmarkIds).toHaveLength(19);
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
       'knowledge',
@@ -92,12 +92,12 @@ describe('frontier common quality core', () => {
         ['reasoning', 2],
         ['knowledge', 2],
         ['comprehension', 3],
-        ['coding', 4],
-        ['agentic', 6],
+        ['coding', 5],
+        ['agentic', 7],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 17)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 19)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
@@ -148,10 +148,10 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-10-28 data (AA index v5.0, DAYJOB: Tax, FrontierCode 2.0); validate each
+    // 2026-10-28 data (AA index v5.0 and its evaluations, DAYJOB: Tax, FrontierCode 2.0); validate each
     // intersection independently below.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      41, 37, 36, 21, 21, 20, 17, 17, 17,
+      42, 38, 37, 23, 23, 22, 19, 19, 19,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     // The first two models share ProofBench, so its quality exclusion is exercised.

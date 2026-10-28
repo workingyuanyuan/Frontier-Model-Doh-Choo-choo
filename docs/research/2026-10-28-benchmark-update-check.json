@@ -149,16 +149,31 @@
     }
   },
   "release": {
-    "runId": "2026-10-28T06-06-17-331Z",
+    "runId": "2026-10-28T13-54-07-800Z",
     "status": "complete",
     "review": "pending-user-review",
-    "versionId": "sha256:3819f24eb0f1906251cfe7e44edb3c33acef4e589a4e4e80ab257617c1e473d2",
-    "previousVersionId": "sha256:c7c30a4beb3052163238aa468c76c7539424befc7e20684a7f9eaaf8d297ccbc"
+    "versionId": "sha256:dd96be312e824527489ea46b5272ca73b13444911eac39368ec864c5e893a1b0",
+    "previousVersionId": "sha256:a298d5025813ab1ff6d7e9a818b16e41327d6d5a7e5ce082cbd4e114e6bd5de8"
   },
   "userDecisions": {
     "date": "2026-10-28",
     "aaIndexV5": "follow; representative profile = qualifying AA effort with most independent organizations, ties by AA score (rule B)",
     "frontierCode": "2.0 is a separate benchmark from 1.1; keep 1.1; cost chart stays on 1.1",
     "dayjobTax": "adopt"
+  },
+  "userDecisions2": {
+    "date": "2026-10-28",
+    "aaV5Evaluations": [
+      "hle-diamond",
+      "terminal-bench-science",
+      "critpt-v2 (Full Set)",
+      "frontier-code-2-0 via artificial-analysis"
+    ],
+    "supersessions": {
+      "humanitys-last-exam": "hle-diamond",
+      "critpt": "critpt-v2"
+    },
+    "costChart": "frontier-code-2-0 (1.1 costs EXCLUDED)",
+    "frontierCode11SourceUrl": "unchanged"
   }
 }

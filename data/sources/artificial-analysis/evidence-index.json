@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/6a/6ab732ad87f78cf599db97e123f1b31f8ed81e0fea07865727fdab617af84824.json",
-    "byteLength": 633120,
+    "artifactPath": "artifacts/sha256/ee/eebf7e3d9e902a462ee17e5250d2213eedef486a5aec65e144a95628087a9fb4.json",
+    "byteLength": 633127,
     "finalUrl": "https://artificialanalysis.ai/api/v2/data/llms/models",
-    "id": "sha256:6ab732ad87f78cf599db97e123f1b31f8ed81e0fea07865727fdab617af84824",
+    "id": "sha256:eebf7e3d9e902a462ee17e5250d2213eedef486a5aec65e144a95628087a9fb4",
     "mediaType": "application/json",
     "metadata": {
       "captureScope": "complete API response; request credentials excluded",
@@ -11,9 +11,9 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://artificialanalysis.ai/api/v2/data/llms/models",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:6ab732ad87f78cf599db97e123f1b31f8ed81e0fea07865727fdab617af84824",
+    "sha256": "sha256:eebf7e3d9e902a462ee17e5250d2213eedef486a5aec65e144a95628087a9fb4",
     "sourceId": "artificial-analysis"
   },
   {
@@ -46,7 +46,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b4adae9f5d15d646cebc60b13ba2331a1fcec382c57c0faf14be310b8b39f52a",
     "sourceId": "artificial-analysis"
@@ -64,7 +64,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/aa-briefcase",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4b7a65ca7247df9256b0ba73686f890646d959093d0eebb959221d89c3e30710",
     "sourceId": "artificial-analysis"
@@ -82,7 +82,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:48c1efc0a58ac30f603edaf4c2a996782595a3a20e67e42963a582b22cc13221",
     "sourceId": "artificial-analysis"
@@ -100,7 +100,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:670c9ed281048f74701453dd3cf8255b116dead0e7f211e6c5f0e833b0a6a8eb",
     "sourceId": "artificial-analysis"
@@ -118,7 +118,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/automationbench-aa",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ed059bc86bf5a7369e497ad1a8559701accda4a94d4c503d02dac06f6bb2e980",
     "sourceId": "artificial-analysis"
@@ -136,9 +136,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/critpt",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e0ba9576d4ac6a1635f8b3db5a22e45d5f029f07e552e7c7bedc26dd6d179a7c",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/cd/cd696e93d4763453047b8a659cca29d35b34935bbc2595fda3a753e7e1ab36b6.html",
+    "byteLength": 1124589,
+    "finalUrl": "https://artificialanalysis.ai/evaluations/critpt-v2",
+    "id": "sha256:cd696e93d4763453047b8a659cca29d35b34935bbc2595fda3a753e7e1ab36b6",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete evaluation response",
+      "kind": "evaluation",
+      "slug": "critpt-v2"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/evaluations/critpt-v2",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:cd696e93d4763453047b8a659cca29d35b34935bbc2595fda3a753e7e1ab36b6",
     "sourceId": "artificial-analysis"
   },
   {
@@ -154,9 +172,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4f2118608409174e3eda4bd5775c1c3ce3ff785fdd223ecd3d29ba0eb5b0eb8e",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/cf/cf090767ffa3b8586b4d66d9dd08f5971034c524c8f3acfd8f06a97ca84bcdac.html",
+    "byteLength": 1136717,
+    "finalUrl": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
+    "id": "sha256:cf090767ffa3b8586b4d66d9dd08f5971034c524c8f3acfd8f06a97ca84bcdac",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete evaluation response",
+      "kind": "evaluation",
+      "slug": "frontiercode-2-0"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:cf090767ffa3b8586b4d66d9dd08f5971034c524c8f3acfd8f06a97ca84bcdac",
     "sourceId": "artificial-analysis"
   },
   {
@@ -172,7 +208,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/gdp-pdf",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d232326efdf0f5f7e702c98be330f3cb7536e84242256ac064fee941f7cdce4b",
     "sourceId": "artificial-analysis"
@@ -190,7 +226,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/gdpval-aa",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d47cffe7aeb7b4f904a388a8a18b0fec44263df94868660d8e3001d3441c8193",
     "sourceId": "artificial-analysis"
@@ -208,7 +244,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:022d981f87001af1a94e87eaf5c902eee50477f611570f6621c5064069a690ba",
     "sourceId": "artificial-analysis"
@@ -226,9 +262,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d2795b125c73cf840d13923c51c345764fcd38d096c464838a01b9cd1fac1316",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/74/74e17bdc28912e808abbe23779ba21c2a8264da765ad556f435cd27675773b4f.html",
+    "byteLength": 1149140,
+    "finalUrl": "https://artificialanalysis.ai/evaluations/hle-diamond",
+    "id": "sha256:74e17bdc28912e808abbe23779ba21c2a8264da765ad556f435cd27675773b4f",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete evaluation response",
+      "kind": "evaluation",
+      "slug": "hle-diamond"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/evaluations/hle-diamond",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:74e17bdc28912e808abbe23779ba21c2a8264da765ad556f435cd27675773b4f",
     "sourceId": "artificial-analysis"
   },
   {
@@ -244,7 +298,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4e0be372668feb7b1c06fc9f37c8bd08b0c92b06f8e0671ae80cee9bb861d189",
     "sourceId": "artificial-analysis"
@@ -262,7 +316,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/ifbench",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4b03a8a6246cf6fa9387bbaadca0de3e953984626dfdfa3cef5a54ec40a735e8",
     "sourceId": "artificial-analysis"
@@ -280,7 +334,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/itbench-aa",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ffc8e243f7d951497bdce21eef795befe37538c2bba457769d50f283ccfd3c03",
     "sourceId": "artificial-analysis"
@@ -298,7 +352,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/mmmu-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7d3da79114a9a8a5c4d91f3b898aad5f430a3993d0a7185592fa40cd9544333d",
     "sourceId": "artificial-analysis"
@@ -316,7 +370,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/omniscience",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:983b0e63026b4cdf9655ec49bb9eeb101fcf72fa91a21beb2138f8c0eed7c666",
     "sourceId": "artificial-analysis"
@@ -334,7 +388,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/scicode",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f92f6f9a766683a843ac92d9c0368d01d06da532a2786f74620fdfd6f95b5e5c",
     "sourceId": "artificial-analysis"
@@ -352,9 +406,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/tau3-banking",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d860ed548d9be597bf84998cc37e6b2ff16f2ae16ec26d11d0f2959ca00d2251",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/9e/9e03dc05c5011cd5e052993a15d12fdb51a5dce5947478bb01916c382c2fdeaf.html",
+    "byteLength": 1193156,
+    "finalUrl": "https://artificialanalysis.ai/evaluations/terminal-bench-science",
+    "id": "sha256:9e03dc05c5011cd5e052993a15d12fdb51a5dce5947478bb01916c382c2fdeaf",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete evaluation response",
+      "kind": "evaluation",
+      "slug": "terminal-bench-science"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/evaluations/terminal-bench-science",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:9e03dc05c5011cd5e052993a15d12fdb51a5dce5947478bb01916c382c2fdeaf",
     "sourceId": "artificial-analysis"
   },
   {
@@ -370,7 +442,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:963d414c0aed0df3775271813bf5e97639e4e81ad8d596c9539d8f8cfd526a4b",
     "sourceId": "artificial-analysis"
@@ -391,7 +463,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:80096f210cbf667d24e802bca85500780014d1711445bfe59f25019d336bffd5",
     "sourceId": "artificial-analysis"
@@ -409,7 +481,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/apodex-1-1",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2a0c5dee4d93af0031c17e9c870ec89cf4f5254e62b9a16cdc30d10d2c9d0b2c",
     "sourceId": "artificial-analysis"
@@ -427,7 +499,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:58bab6aa084cf9729e4422913b997f61b9de47c0e0c639dee590c1c77c235808",
     "sourceId": "artificial-analysis"
@@ -445,7 +517,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:357354fa9b409fe7057cf49b2fb37381c9e3279055532cadf6d774c5ead159ee",
     "sourceId": "artificial-analysis"
@@ -463,7 +535,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:baf4549b5f4b6db04879e7844c49dfe592e7dd6142e1190054e7ef63f2b0e4b0",
     "sourceId": "artificial-analysis"
@@ -481,7 +553,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b4540752f5c47c9938c3435d1ae164f815c38fe04b5f54c65103841ab714d1ae",
     "sourceId": "artificial-analysis"
@@ -499,7 +571,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a758cf04696eac7d565a4dbf3fc26b5d2ddc2c93ffb0e8cb3a91a5f9d88c564d",
     "sourceId": "artificial-analysis"
@@ -517,7 +589,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5228b5eb30fd6a35b51dc7927e0f3998f27f6780a448141d32eba1302cecf0ba",
     "sourceId": "artificial-analysis"
@@ -535,7 +607,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:15c8c63346fd090ecdbfbec47e60770665a466e40ea3b9780421dbf714852227",
     "sourceId": "artificial-analysis"
@@ -553,7 +625,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c9368290b3aab9599376b72be69432919dbd2dfe51ff7b329b40159912e5ab1c",
     "sourceId": "artificial-analysis"
@@ -571,7 +643,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2026f460166e03e7a2cb450361f4b034ab8c3754abc4f0702c067981d8a1ee0a",
     "sourceId": "artificial-analysis"
@@ -589,7 +661,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e78b3f8fcd319f815423c75a8b0c0bc10489b1a185ba42380c018089b1317f60",
     "sourceId": "artificial-analysis"
@@ -607,7 +679,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:14e8b945075b13c2223301fe7b1b7c8a0dc2e52c56b5ac977b4e5ce69e35e426",
     "sourceId": "artificial-analysis"
@@ -625,7 +697,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-6",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:97700b6e777feb5a34eab36f2665a37c8f65906104207fd3e84b0ef6bd3f3929",
     "sourceId": "artificial-analysis"
@@ -643,7 +715,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a84c56e096dd839f3df6d1dc213e5c05a49ddb5581501d530e4005b5348ab67f",
     "sourceId": "artificial-analysis"
@@ -661,7 +733,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-7",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:81cdfab5078a37d2c4df7fa7a0075ccbf088e5be46c538584213a84dc7a8e9dd",
     "sourceId": "artificial-analysis"
@@ -679,7 +751,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-7-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4c4ac2533cbc81d118632f16282679236f1de81f4dfe7f526b9e76f74c4ef86b",
     "sourceId": "artificial-analysis"
@@ -697,7 +769,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-8",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:551890593b22646250c90ec075a8c9d081a2d578ead1960d84edd96d3fec2cd2",
     "sourceId": "artificial-analysis"
@@ -715,7 +787,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:91907c75ca4c621dc574b2086b8b9dbd7dacfcf89592beace18e5653bc88cc30",
     "sourceId": "artificial-analysis"
@@ -733,7 +805,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:becb993a7daf9ff8e8ac00073dd41428d775033f9498c8018ee68e44e942a721",
     "sourceId": "artificial-analysis"
@@ -751,7 +823,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f6438e2068c4fb641d185737e4da85a8f72d34e993a46c090ee0c6af03a75bcd",
     "sourceId": "artificial-analysis"
@@ -769,16 +841,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:46dd2daba626a3bb504340b4e9809bfc0bbb82abccdacf917717a035524b8af2",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/fc/fc6356efdb4263581c13ce9940d6925aaf2337a76ab3c4c8289fe3944e9754fb.html",
+    "artifactPath": "artifacts/sha256/99/99d92fc7561bd803bf4c3449e477f800926955580464502e90c8936181f7ead6.html",
     "byteLength": 1623697,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-5-medium",
-    "id": "sha256:fc6356efdb4263581c13ce9940d6925aaf2337a76ab3c4c8289fe3944e9754fb",
+    "id": "sha256:99d92fc7561bd803bf4c3449e477f800926955580464502e90c8936181f7ead6",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -787,9 +859,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:fc6356efdb4263581c13ce9940d6925aaf2337a76ab3c4c8289fe3944e9754fb",
+    "sha256": "sha256:99d92fc7561bd803bf4c3449e477f800926955580464502e90c8936181f7ead6",
     "sourceId": "artificial-analysis"
   },
   {
@@ -805,7 +877,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4015f99586db53a21a6e23cede20b3b3037237291531375270385ba3db398240",
     "sourceId": "artificial-analysis"
@@ -823,7 +895,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:69b05bdb3f50bbaa3cd96b7b7ad101c296c55976c7474a3d1676a0a1b31b2653",
     "sourceId": "artificial-analysis"
@@ -841,7 +913,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9f7a029a4b2da59cd4673c7403fc07fe2869533aed6f537bc6591f5106c86f05",
     "sourceId": "artificial-analysis"
@@ -859,7 +931,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7360f58417c26500fc9a61d9e1e6cf16d46347f3264aa79dfe9fa9107f314e0e",
     "sourceId": "artificial-analysis"
@@ -877,7 +949,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:64d5edc2eef2c29de56732a351bdd8a01b4d27699a346faef6be834faf3029ff",
     "sourceId": "artificial-analysis"
@@ -895,7 +967,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bbddb84a77130951aaa511fa0cc3d6d71c1759e91b3b1235dda020915a6ad176",
     "sourceId": "artificial-analysis"
@@ -913,7 +985,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6-adaptive",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3cca08c751e5626466d16069d7586ad17416b6571226fb516c52a9a35103644e",
     "sourceId": "artificial-analysis"
@@ -931,7 +1003,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:471c9282010bff7e55542749472959a814b67f999954ac5563e430a84c278180",
     "sourceId": "artificial-analysis"
@@ -949,7 +1021,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dbd1f5caec9871aeffa98203226dfcceb6e74e70e94b50205a0b078614752425",
     "sourceId": "artificial-analysis"
@@ -967,7 +1039,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:45839a83b43002e2d00c6141ecdacb9730074360f343ef5b45cfcd49f89e0eae",
     "sourceId": "artificial-analysis"
@@ -985,7 +1057,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3a6172d3569d1d74ef0d3ce5d78b84957b5f47a298cbca7dd9963ba1c1fccce6",
     "sourceId": "artificial-analysis"
@@ -1003,7 +1075,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d8ca7e88146c6fe01770c5d9415884d8b8fd9dcf8d5ad0a38950fc1aa1d85187",
     "sourceId": "artificial-analysis"
@@ -1021,7 +1093,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6ef99c5ed8f86c0dac48255f39a96ae1cb5a5e27f1942bbf012f14b82d8012ec",
     "sourceId": "artificial-analysis"
@@ -1039,7 +1111,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f31bbf08aeb1648f0df195a7f2fdcde574ae9448d94c1da7fb6d4afede023dcd",
     "sourceId": "artificial-analysis"
@@ -1057,7 +1129,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a96f44aa1588d77f4be9cba057b74bd5d5bb41ec1c0b1d8b704da6aa696b60dc",
     "sourceId": "artificial-analysis"
@@ -1075,7 +1147,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f7b9cad7777c62918555cdd3bbc1430e07b979126aee2923a534b3581e96337e",
     "sourceId": "artificial-analysis"
@@ -1093,7 +1165,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6c139fe501d6722711ee92db44bb48c2cc2a2bfe4286cadd677b17929d22bb2c",
     "sourceId": "artificial-analysis"
@@ -1111,7 +1183,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9ffd87bffe649786a1fdb18496b33eaf8dc9e46ff6e03cb4d4f901adb41b14fc",
     "sourceId": "artificial-analysis"
@@ -1129,7 +1201,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ceb732b0e47a050b1a53f180311f010a93f66fa84010dd23cbdeb38ab0fe92b8",
     "sourceId": "artificial-analysis"
@@ -1147,7 +1219,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v3-2",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:968039a2cc6296cf98001494b1243ce26b7214f33d8d6dfaf1930a9aacd43577",
     "sourceId": "artificial-analysis"
@@ -1165,7 +1237,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v3-2-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:205a6f5308deb7605b645fd36c9e23bf026159a26819db1b881b3d4e0c2ba350",
     "sourceId": "artificial-analysis"
@@ -1183,7 +1255,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b74c089db714380d387e456b9de9d0eb4311fcb13359acb643bf0978aeefc29c",
     "sourceId": "artificial-analysis"
@@ -1201,7 +1273,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f04172c5b2cd33602b488ea04de780176b4c555487aadb76d397375dff68790f",
     "sourceId": "artificial-analysis"
@@ -1219,7 +1291,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e3cffe89d5cb6eeb57349a4ac9a2155e040e7a92323102d807284cd6de26e3ba",
     "sourceId": "artificial-analysis"
@@ -1237,7 +1309,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2af36beab71cc166fb6b84b13ff1cb87049860af3fe19d5ebac00c0185db4eaf",
     "sourceId": "artificial-analysis"
@@ -1255,7 +1327,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-0420",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a5cedfa6d25e0a0cb38ee58d7ad3b87f75ca28b5dd02f9c1342a964ef9a1c023",
     "sourceId": "artificial-analysis"
@@ -1273,7 +1345,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-0420-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:17dfc49d0adca4487dbe3894d23a905ac9ffa50893485ee09409adb15d9b4c5d",
     "sourceId": "artificial-analysis"
@@ -1291,7 +1363,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-0420-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:aa0a8617e1e8a0f064df063bd09cb25de3482824b09a9be5d1db4643eac9f9ff",
     "sourceId": "artificial-analysis"
@@ -1309,7 +1381,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b8ebce05032e821aa27add8c0afc0f4ab9b3c084a0b88c340839f1323e9b3480",
     "sourceId": "artificial-analysis"
@@ -1327,7 +1399,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:579c102f1cd181108ac998d74910e33a4ac66605f368d05e3c56fee8eb3d1f2d",
     "sourceId": "artificial-analysis"
@@ -1345,7 +1417,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:886a957c46f3576e70b3d5b1ee02dcee0832ac0f99aea8df62c1d6368abce351",
     "sourceId": "artificial-analysis"
@@ -1363,7 +1435,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3091039454ecb9174aead66d1f5db9877ab678418bd9c8ee8ed138f2f5bdba3b",
     "sourceId": "artificial-analysis"
@@ -1381,7 +1453,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:11debe862e35aabb3aaefe811399521796012a2d0604374f349c82e38613d4ca",
     "sourceId": "artificial-analysis"
@@ -1399,7 +1471,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7dd29d816912b2c63f3c80ba70e2d6f41177432729f138b351b5f0a78e0a6461",
     "sourceId": "artificial-analysis"
@@ -1417,7 +1489,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:79195834762a7272c474576b54e3ff9c3b530fd26ea8b15378091d89c9c81d15",
     "sourceId": "artificial-analysis"
@@ -1435,7 +1507,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-1-pro-preview",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5aeed789995800cbc5e42472b00ce1544e92c274b0a215f91148d8b86d8e132e",
     "sourceId": "artificial-analysis"
@@ -1453,7 +1525,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f69e7828e184335504344636e8504cdfa7fb134be075f70bad2ddee3f8cf043e",
     "sourceId": "artificial-analysis"
@@ -1471,7 +1543,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c5f5b510bd252a3115c30ce6ec707713ae1ac24aac7bccdc2deb5a01073f1fd8",
     "sourceId": "artificial-analysis"
@@ -1489,7 +1561,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:de5a566cc0c96976baa961e09a65c3c73bad9a0c0435dbe6afc211ce0c539aad",
     "sourceId": "artificial-analysis"
@@ -1507,7 +1579,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b45486c3975be10c8101d92cff72ef791b1c1084ef842103f39f955306a40c02",
     "sourceId": "artificial-analysis"
@@ -1525,7 +1597,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b5a0eac6b839d09f5c162f2e3c5996e7b78aac73ad3c5a16ddc196fcfce00fa7",
     "sourceId": "artificial-analysis"
@@ -1543,7 +1615,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:54afab5d695635beed13e3f86a8f7087ec26582885caac053a81f101bc21b950",
     "sourceId": "artificial-analysis"
@@ -1561,7 +1633,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6b0a805d62d10569cc06643cc704a70a6c375ee7f7b4441a65d233ff6ec06fb8",
     "sourceId": "artificial-analysis"
@@ -1579,7 +1651,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:72a3f077ea0d59f3c17cd51898a4c46987fdd28e33fe4bff571d67fe4aaa7a8e",
     "sourceId": "artificial-analysis"
@@ -1597,7 +1669,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a03600cb5730d620e659f6c843867eeb91409a094c6cce3060676bc879c982e9",
     "sourceId": "artificial-analysis"
@@ -1615,7 +1687,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:41c45476b548696000cd2bc8de8ba8e06819f128e8d2d708ee9b7146e833d6da",
     "sourceId": "artificial-analysis"
@@ -1633,7 +1705,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c83dc8d8825bbedc0a4655ab5ac526be222f7caab8a52fb1773f9556f6aa668b",
     "sourceId": "artificial-analysis"
@@ -1651,7 +1723,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:eaf086ff1f42cc5822ac6ed19e74682732d33c2e80a54ac010c0afd6cb5cdfe0",
     "sourceId": "artificial-analysis"
@@ -1669,7 +1741,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-4-argon",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:83080630add4041e338e69da93372067dcd4060ac797568cfb28b87562146963",
     "sourceId": "artificial-analysis"
@@ -1687,7 +1759,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemma-4-31b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e1cc8fd83c210ac919c13ae87935335595125877cd043ded9d5476006b90a389",
     "sourceId": "artificial-analysis"
@@ -1705,7 +1777,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemma-4-31b-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:333004c5d101fb368a81f6920462e528805b24e87efa937f612c6d841c0a3431",
     "sourceId": "artificial-analysis"
@@ -1723,7 +1795,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7aa1c67e840fb639ace0594ac1a3a889a0991d6d5fca38010704ca570aae37ab",
     "sourceId": "artificial-analysis"
@@ -1741,7 +1813,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-1",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:55d423803a944b4a8dc60f98841321575b10dd273b9b7e5753ae191895c5474b",
     "sourceId": "artificial-analysis"
@@ -1759,7 +1831,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-1-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:57a6852a1fa5219251b857994a9b723d18d52d722c8091dc3b9188013acc9752",
     "sourceId": "artificial-analysis"
@@ -1777,7 +1849,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-2",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6840961d2847ecd10dc457f1353702c38ef170ca465d8cced663899c7c9c3688",
     "sourceId": "artificial-analysis"
@@ -1795,7 +1867,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-2-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:64a3e0cb8b8ec3b2d6171959ddf6691a15ece34026ccc86442a7343fc9f8e40f",
     "sourceId": "artificial-analysis"
@@ -1813,7 +1885,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-3",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d4a0edee03a86345629a9c054af0ba6ad5e4829b52c88e5c4e774a0c89433585",
     "sourceId": "artificial-analysis"
@@ -1831,7 +1903,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:558a73c18007ae27f1aba9cd38c1a0d2e8a6b85c1f05e0e41b31f1a13354023a",
     "sourceId": "artificial-analysis"
@@ -1849,7 +1921,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-3-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:49229c3a0a60fb7bd6412e50de2a63d5cda957e13422fc36c9dff1ae5ca247f6",
     "sourceId": "artificial-analysis"
@@ -1867,7 +1939,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c394a113e2c5f0ceec66e33cb161c7e7461e0634462032576c62faa5e2a940d6",
     "sourceId": "artificial-analysis"
@@ -1885,7 +1957,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-2-codex",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4d1bb609ae0c4610fc6dfe312e7d0702b94c104e9c7c84bd55eac080e3a9c80a",
     "sourceId": "artificial-analysis"
@@ -1903,7 +1975,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6101daa3a327663b804f8fe6972070eaa065c555a652e30ec3e8d65ec6e2f51a",
     "sourceId": "artificial-analysis"
@@ -1921,7 +1993,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e37a3786566b165c290b71ddf1e352135eecac0f6069875bae63063ec681955d",
     "sourceId": "artificial-analysis"
@@ -1939,7 +2011,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e7b084b1538f0b4dee5190d07302e2225f3373fcb366f8c45edaf3a0409e27ee",
     "sourceId": "artificial-analysis"
@@ -1957,7 +2029,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:99346b1459005612e12e0b8385ac8b78a82f8ee5a328a5215e207b559b278e59",
     "sourceId": "artificial-analysis"
@@ -1975,7 +2047,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2519a3e9d7e067d8d3c2fe16f21e5e66b885221c40ae506b4a6ba60e29b13efb",
     "sourceId": "artificial-analysis"
@@ -1993,7 +2065,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d5c45a393563c0684515d43d75cc3e5c6777f9344d0b044037e802dd3cf54f28",
     "sourceId": "artificial-analysis"
@@ -2011,7 +2083,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4a4e2356215de3ee518464909cb7a920c14dbe1f02498a5d7f578d7b1683f0ba",
     "sourceId": "artificial-analysis"
@@ -2029,7 +2101,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a7b5b19b0d3aee9f5ec694500bbd38a77b70772e07d9ff9bfc784b2980efbac7",
     "sourceId": "artificial-analysis"
@@ -2047,7 +2119,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bb078cb81cba4f7e23f7d14678ce2e9f97919703d1cb38759e3d64ed508c3715",
     "sourceId": "artificial-analysis"
@@ -2065,7 +2137,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d66591f645c6d8a8b61e274ee9f444de78ed2ed1b3618a89a590d4ff8bbe5b6d",
     "sourceId": "artificial-analysis"
@@ -2083,7 +2155,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3036b1a39c6113d25ec3c3670465f12bfddbc4eed8ea1c054c9eebc438d211eb",
     "sourceId": "artificial-analysis"
@@ -2101,7 +2173,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7deebd8567079ab7d6142e646161a476d0d03bb2dfad0d331b3f479112aa5477",
     "sourceId": "artificial-analysis"
@@ -2119,7 +2191,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1a3c8021e6fcb6c2b93838f34bb859547aae1b83b5be92653b67fdbe8802ec5d",
     "sourceId": "artificial-analysis"
@@ -2137,7 +2209,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:71ef6d4b71da9cc0fe3349578efdbeec4a865448f9ebcc45ea9100675c27c08d",
     "sourceId": "artificial-analysis"
@@ -2155,7 +2227,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f627ff477c671de46fb8425fa785ca07fd80d06ef73c2df0b3c72016abf128ca",
     "sourceId": "artificial-analysis"
@@ -2173,7 +2245,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b33f5b01252e33856b1706a8edb82154877179ce6e0974887f5dd2fa9de61bbb",
     "sourceId": "artificial-analysis"
@@ -2191,7 +2263,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c9aa121a9dccd434a3b3f5d17a5951ee918a9dc870b334f8d762fb0d1c6dfe42",
     "sourceId": "artificial-analysis"
@@ -2209,7 +2281,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:38276dcc066c5de239dd44b67dabb0ed52cd0edb04d82e5dcc0c93236a873bf2",
     "sourceId": "artificial-analysis"
@@ -2227,7 +2299,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:8a900105e3f66f569b9a579d84ca22fa957b62b865fcc15c5ccfd8aead11f2a0",
     "sourceId": "artificial-analysis"
@@ -2245,7 +2317,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:cca384e90ab098f5f6f79cc8d31204621af8b2088190f93339a3f3fb332dfa29",
     "sourceId": "artificial-analysis"
@@ -2263,7 +2335,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bb7baef58b00d10939d048705366c80b018f421baa2491129bcc6051c8cba555",
     "sourceId": "artificial-analysis"
@@ -2281,7 +2353,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:05c14253f7377090d01c340fb2a49f8a828009e55081693b3bebbc80f52fc830",
     "sourceId": "artificial-analysis"
@@ -2299,7 +2371,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dc7791f94f457300db3d707f173bb4533338d86dd075c9537fb24c638fa1ce30",
     "sourceId": "artificial-analysis"
@@ -2317,7 +2389,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:26f8c0089db9dbf5e68c291208d89eb559047f4f0bda3cc90521f8504395ba9f",
     "sourceId": "artificial-analysis"
@@ -2335,7 +2407,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7dfc3e99fa225afa9923de564f14082013f9dc10be3bf31df12734be17117542",
     "sourceId": "artificial-analysis"
@@ -2353,7 +2425,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4aea37c97702765282b299a5edb304213192ff8ec501657caa21713bae7931b4",
     "sourceId": "artificial-analysis"
@@ -2371,7 +2443,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3122a5ebfa158fd9386520a3152dcc7b9f12ddb683989c210e2c21e688f6d9a9",
     "sourceId": "artificial-analysis"
@@ -2389,7 +2461,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e92904d424805496bbbeace21c0204bd339f99d0b04070ea0a01ac5e9a278702",
     "sourceId": "artificial-analysis"
@@ -2407,7 +2479,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3ab655456c8c06e176267abba8a00a8564f6e611fac6b7dedd2e5c13d89773f9",
     "sourceId": "artificial-analysis"
@@ -2425,7 +2497,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:7c05298785d701fe940ad5c16d0b75c28b983b9be48f4987a2f152bfce18191a",
     "sourceId": "artificial-analysis"
@@ -2443,7 +2515,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f4fecfe2d285652c3b5a2d2632e1584e9685a2dfee4c0f2bdc07996df0d5c472",
     "sourceId": "artificial-analysis"
@@ -2461,7 +2533,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:939be7c0c2714f4d9d1abc50ea66464535f91e058530166261963b094b2817c7",
     "sourceId": "artificial-analysis"
@@ -2479,7 +2551,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:de0a36c8b44b9c8d5dfc333df2f4a43e56ea9a299d5173b1fc54ba15b9d93c65",
     "sourceId": "artificial-analysis"
@@ -2497,7 +2569,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3f34e81e07ac070a5828ff0ef79c952387904f4216e9fdca67d3d5214a2e6d90",
     "sourceId": "artificial-analysis"
@@ -2515,7 +2587,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:baaa605b54d5778a559022897240dcd4c795ff29ad89394b3e6e34f4385aa96e",
     "sourceId": "artificial-analysis"
@@ -2533,7 +2605,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:938c1242c044e68f808bb9445ffd0f2b8f68de8842eefb50d9f2d27eb22f41dd",
     "sourceId": "artificial-analysis"
@@ -2551,7 +2623,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:40e0d67be173d1800d0f6ab79b54fedddcbc59e6bc4cd4b1745448ec63e3e1dd",
     "sourceId": "artificial-analysis"
@@ -2569,7 +2641,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e6d1f05c34da0f8ea3d6598c3020115a29c1296105ba5c60f124ad7533f36770",
     "sourceId": "artificial-analysis"
@@ -2587,7 +2659,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:41c0f5c0e8c803dc8784b531275861e427cefcb19840fd1ea13f6f6a60e14ba4",
     "sourceId": "artificial-analysis"
@@ -2605,7 +2677,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ae482f33c96986a5170f5b457ed66a662d31f4e9f594e6fdd9128ef297dd7dc3",
     "sourceId": "artificial-analysis"
@@ -2623,7 +2695,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0703169d380b8f8fa8fef149d341e79ff87ca1c976bedca9cd8c65ab9190ec0b",
     "sourceId": "artificial-analysis"
@@ -2641,7 +2713,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c4776f7a8c3e68dbd33e18e44837104e83cc17fe4a5160a1de0870646f90144a",
     "sourceId": "artificial-analysis"
@@ -2659,7 +2731,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:770721cc85af06bee1703b1bedc05ad2a1594868e7416e1cd5ea0b4951cb5758",
     "sourceId": "artificial-analysis"
@@ -2677,7 +2749,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:cadc3329017fa3b20e80040fbc247d3cbd2ad217a326e6833c1c6188b5c44817",
     "sourceId": "artificial-analysis"
@@ -2695,7 +2767,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a27a75a41bfad6766efc54cb75321bfaf56577dcfec42aa32407ad2c5d33c312",
     "sourceId": "artificial-analysis"
@@ -2713,7 +2785,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2a5ead33389a6a55795e7ad6fef943f4bd39bd3784144fb1c1f7e77ac1497e80",
     "sourceId": "artificial-analysis"
@@ -2731,7 +2803,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a36c97f39f5c6f0b4573f9c2624def9594dbb328d67926b2763d4b841c294e6e",
     "sourceId": "artificial-analysis"
@@ -2749,7 +2821,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1f47aad679da05f3e01939041ad688d4958d2500d0b5a61a2d956f32f050b5a4",
     "sourceId": "artificial-analysis"
@@ -2767,7 +2839,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f61b2c74c71c0e44cf5b594bdcdd9b989efed7d5790d9dbad5fcec01f2dbf251",
     "sourceId": "artificial-analysis"
@@ -2785,7 +2857,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5c70fb08e257ec0cf4d1e367abc79435aab4950f91b1c422fd6399e68ae9d21f",
     "sourceId": "artificial-analysis"
@@ -2803,7 +2875,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:440f4c578100c6028b1b9378624bf4484bbe1dacc45aef49b45b467a79b3cd7a",
     "sourceId": "artificial-analysis"
@@ -2821,7 +2893,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:d8e0e286bc93b28e44451b3d67368d9b05643d5a2b5113eadb297348010cd7b6",
     "sourceId": "artificial-analysis"
@@ -2839,7 +2911,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:965a4d5e93b3d9ba3ee90ad061d6385dd0d55e452511a17be4b4cd75012be309",
     "sourceId": "artificial-analysis"
@@ -2857,7 +2929,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bca88833d008799e9efb5461e626bd4aa80575850cc3deafd5d7b47b7459f66d",
     "sourceId": "artificial-analysis"
@@ -2875,7 +2947,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:8499e2e50608b8c73afc54659201376e5c353a3da2f229083fcf994c27c99711",
     "sourceId": "artificial-analysis"
@@ -2893,7 +2965,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:31443028d52266357fba076a3831f03e247f241c295a6e9621ea94acb6da4b5b",
     "sourceId": "artificial-analysis"
@@ -2911,7 +2983,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:aabea44a6e5112390a8280b4d9deae9d467267397bfeb339f161184df3a938e1",
     "sourceId": "artificial-analysis"
@@ -2929,7 +3001,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1530ae4e515c4d495909f2891df91a81ab415d7cb24242a28853301c329f6962",
     "sourceId": "artificial-analysis"
@@ -2947,7 +3019,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:39ab1c74e452855abcf55ec1fb12069e209ec565da7887861515fb4e56d2788f",
     "sourceId": "artificial-analysis"
@@ -2965,7 +3037,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:fa58b5a3a0309d3c5fc6b2ec448e4e137ec7d333caf005001f3ab8930e411f1a",
     "sourceId": "artificial-analysis"
@@ -2983,7 +3055,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bc48449e5e18784ac67b53a6fd3a83209c47bc8d4334fde514866fcb4385ad32",
     "sourceId": "artificial-analysis"
@@ -3001,7 +3073,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-20",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:17a6c3a09af33ac827d1623cb56e4c92a1f5ce8e14b0ebbedd8d222dc9b51bb9",
     "sourceId": "artificial-analysis"
@@ -3019,7 +3091,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-20-0309",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:67dadb23136b0eea98fcea7061b8b58d361481344f36f7c8cddd92c232c1cd33",
     "sourceId": "artificial-analysis"
@@ -3037,7 +3109,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-20-0309-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:eb0d71a63bb94ee7b96d4ce285b3dc9547321eebdb5db6029bc57600de8b01f7",
     "sourceId": "artificial-analysis"
@@ -3055,7 +3127,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-20-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9512eb13eea2382b905a54cfb8d2e4b776ddb90739f3022964d0453a158833e6",
     "sourceId": "artificial-analysis"
@@ -3073,7 +3145,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-3",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0cdff064217c5fe19f9465c9207b997eb2ac1d49ef387481174cfc8761b5e25d",
     "sourceId": "artificial-analysis"
@@ -3091,7 +3163,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-3-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:283ea4dfe74b22e52f936969fdb321fed7c4b4a8ade3ad86d1ab0a5bb4ecf5aa",
     "sourceId": "artificial-analysis"
@@ -3109,7 +3181,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-3-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c2b75d6c38af2f96e54c466effa69bb986fe6b2c8bb549ae6ec6b4103b687fbf",
     "sourceId": "artificial-analysis"
@@ -3127,7 +3199,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-3-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:cf8d7b4aca4840a3955180305e93d37c28ce17cfe35c176f4c14fd486b387478",
     "sourceId": "artificial-analysis"
@@ -3145,7 +3217,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:752a4b1c4a80a737cebcce0e580e40af568736cedce7d6a83574400e913503e1",
     "sourceId": "artificial-analysis"
@@ -3163,7 +3235,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-6",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:93da5b0479c67480575c928f72779b6ee261ee0a719db9d586871c188a5e2577",
     "sourceId": "artificial-analysis"
@@ -3181,7 +3253,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-6-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ab65fe250fbcb390c46dd7b653319fcc4830a2249241eee8407b2a8013ea50cf",
     "sourceId": "artificial-analysis"
@@ -3199,7 +3271,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-6-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:cb60849a475ac8cef703bc55968fc4caaf934cbf3ca680d4be29f53aac7f4872",
     "sourceId": "artificial-analysis"
@@ -3217,7 +3289,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-6-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b64224da49162eb2a1eea8a8ba51f2b2901724240ac39af8a5d11bb51f2a659a",
     "sourceId": "artificial-analysis"
@@ -3235,7 +3307,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-7",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:8a563496db0aee7317d31570ab9a5208a926a4e24a47c24f9df5151e2f420443",
     "sourceId": "artificial-analysis"
@@ -3253,7 +3325,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-7-high",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a651fd38837b05e3f1e919a426477476adc3bcaa300bb66ca0c728748fed68a0",
     "sourceId": "artificial-analysis"
@@ -3271,7 +3343,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-7-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c89aa28cdf7db4a4f636e84cb991cdfd9be04eafafff049eb20514b550cae611",
     "sourceId": "artificial-analysis"
@@ -3289,7 +3361,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/inkling",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:449a1fd006079cc2658aad1279b7d8f09706949d6e59b482ce79f843f8add02c",
     "sourceId": "artificial-analysis"
@@ -3307,7 +3379,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/inkling-small",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:42be4204a4eccf7dce72a3e3625bdb92882b85331cde55fa6656c41319387cde",
     "sourceId": "artificial-analysis"
@@ -3325,7 +3397,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/k2-horizon-375b-a23b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f6873b6ec74369b7ea8421792d21d848c4c63dff4492d6fa89cd2ca60319b3a9",
     "sourceId": "artificial-analysis"
@@ -3343,7 +3415,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k2-6",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1d8473adb7c3c3d87c80daf6a91e309111e87d13198a4398892669ceab1e992b",
     "sourceId": "artificial-analysis"
@@ -3361,7 +3433,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k2-6-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:168a0ee36611c01a5b42f39a17384589b1d3ec70c419e88666af764f172b71d7",
     "sourceId": "artificial-analysis"
@@ -3379,7 +3451,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k3",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0e0e882d259397f782466932e7a383d8fb1808469ce59ce3a8458eb00766780b",
     "sourceId": "artificial-analysis"
@@ -3397,7 +3469,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3a0312e538e0c3ea0dfae90cf1cddb465af12e4ccc4a41b056f985ebb6acf645",
     "sourceId": "artificial-analysis"
@@ -3415,7 +3487,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k3-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:1e98175012084d9e13f72ccaa37fad294979f3240dd9ddaec6fe20d2ccf472a6",
     "sourceId": "artificial-analysis"
@@ -3433,7 +3505,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/ling-3-0-flash-fin",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:78be96ad48365ff15bc6ac7a3bdc5004c165d3de4e7d27b46b80380da37bb89e",
     "sourceId": "artificial-analysis"
@@ -3451,7 +3523,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/ling-3-1-flash-1019",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f1e4a4c3cf169741af23ff2f9736b5dcf9430297496039b1d711380c1ea4e7de",
     "sourceId": "artificial-analysis"
@@ -3469,7 +3541,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:88e4a6b9a65c2aa356de0af9628cebcef8c470dfffd8df06325b1561e4bccb3d",
     "sourceId": "artificial-analysis"
@@ -3487,7 +3559,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:156847009ed738431be8f02faf72cf7c9592a97697084a126d87e29e96bf8787",
     "sourceId": "artificial-analysis"
@@ -3505,7 +3577,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b8ef420fd89defbd18dbc7dbf6705af67dcc81c9f060475d178980275007e3c2",
     "sourceId": "artificial-analysis"
@@ -3523,7 +3595,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/minimax-m2-7",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f754c2770aaf7a68a6c75275b54fa9fa00fa2b546d2b7d1588b995166eb8adf1",
     "sourceId": "artificial-analysis"
@@ -3541,7 +3613,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/minimax-m3",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3c312a65354693840391d98b01ec82ed509baaf819aa0bfa41b119ea3c6d2666",
     "sourceId": "artificial-analysis"
@@ -3559,7 +3631,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6edeb191068857d3cd2c9c8201473b6a6cf19b13b0189cb4f4e609ac34d3e538",
     "sourceId": "artificial-analysis"
@@ -3577,7 +3649,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mistral-large-4",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5ccfea381dcab2f815c196b68c74146cd4e256cb5d51b134e6d4fa59c63883e5",
     "sourceId": "artificial-analysis"
@@ -3595,7 +3667,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mistral-medium-3-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f619276b876ff8ee6e8041a88033859ec11f81ee40a7b6814289b3a05da77455",
     "sourceId": "artificial-analysis"
@@ -3613,7 +3685,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-glimmer",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:31b034a8d8220f924e17ba94b4860f6d0d347bf6359720e20e22eb66067c6857",
     "sourceId": "artificial-analysis"
@@ -3631,7 +3703,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-spark",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:10b2eecb04c8108e4e8b332eb3be42c1839f04418de13da8069d056b0a399860",
     "sourceId": "artificial-analysis"
@@ -3649,7 +3721,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:34c7f501a4450363481ae6a8c988df48d0360a22891cab70ad52941de4e00401",
     "sourceId": "artificial-analysis"
@@ -3667,7 +3739,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-spark-1-3",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:67df7aa5637d25b73d814be23ff7b5337b77d85c66ecf582e00443dfb998da09",
     "sourceId": "artificial-analysis"
@@ -3685,7 +3757,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:52450b780add2853fdc8914b69abe452bed59d377f79017a93f8b3202af9014c",
     "sourceId": "artificial-analysis"
@@ -3703,7 +3775,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-spark-open",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:538bce22a61a35ff331751b96b6bd00e6798ee8d5556829d1b7a7871371d00ab",
     "sourceId": "artificial-analysis"
@@ -3721,7 +3793,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-wonder",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c2f2cbc2bd045ef3b4ab0e5afd5ca6c3db065ae51c42a6d8fdae1013e19d4e17",
     "sourceId": "artificial-analysis"
@@ -3739,7 +3811,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-wonder-full",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6c77c83621ba156eb30239ffeb6fd888733bfcff8b58bac0972a971ab47ef8a4",
     "sourceId": "artificial-analysis"
@@ -3757,7 +3829,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nemotron-3-5-super-vl",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b9bcb459fe640d80fa7cdf14db8301fcd7ec630595202e2a45793e079e8fae83",
     "sourceId": "artificial-analysis"
@@ -3775,7 +3847,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nemotron-cascade-2-30b-a3b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5fb38228a1cb7336016a17e6a9b71742b0895cc5b9352faeba18bdeaa2d39878",
     "sourceId": "artificial-analysis"
@@ -3793,7 +3865,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nova-2-0-pro",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9c8c59b82ca7687382a7a7772ef5dd7dc2aa4add2e06f0fdb50b5ad58cb92a85",
     "sourceId": "artificial-analysis"
@@ -3811,7 +3883,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b692a710bc26d0657b0328f6df5f8d1d02b47b932298111b5c3a3d739350b1c6",
     "sourceId": "artificial-analysis"
@@ -3829,7 +3901,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0a4b906664da794b66c9d57102c1606e90a5a8917b9639f95f0a40ec3cb4eb39",
     "sourceId": "artificial-analysis"
@@ -3847,7 +3919,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:6ad7861c3ee66aa5f17e9ac2ae40e6bb24710a5bcd0b4e5f5b1b8fabbf299c9e",
     "sourceId": "artificial-analysis"
@@ -3865,7 +3937,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4d919603ce0dbcd642a10f0750e94890611021765ed6bfaff6435fa1b6a1fc5b",
     "sourceId": "artificial-analysis"
@@ -3883,7 +3955,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f66f5fe52ccad529d089668f34ea901eebfbad097f57eb91cf8c8a6c8ae44e34",
     "sourceId": "artificial-analysis"
@@ -3901,7 +3973,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-27b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e43ae3f2b6a77a5b3c9d7f16688ec8bf03aa0549b0887ebebf1b9f47367493b8",
     "sourceId": "artificial-analysis"
@@ -3919,7 +3991,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-27b-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:dda9b9e8e41ee13e875712d2fbb75afa44489abd9c039c11e9ddcefc65eca31f",
     "sourceId": "artificial-analysis"
@@ -3937,7 +4009,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0f5b1bfa2a26867ae0d986dbfa676e107e34fb98af0795890c3f5d4070695e0b",
     "sourceId": "artificial-analysis"
@@ -3955,7 +4027,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:a6229ac825096843477f1c26c771542cf9f01d86f7d6062f73a5ed4bd4f26460",
     "sourceId": "artificial-analysis"
@@ -3973,7 +4045,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-6-max",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5a3a860f3c7e0a92d7696da9952c4c1bc65a3db7ad74186ce4709daff07d9a75",
     "sourceId": "artificial-analysis"
@@ -3991,7 +4063,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-7-max",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9d10892cad8c1fdfb26c60a028255dd290df6ac39c939e7ad8473f3f0c27501d",
     "sourceId": "artificial-analysis"
@@ -4009,7 +4081,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-7-plus",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:2336d72f162e045bc97ba2d02cd04ddea225dc04390f753f950467904ea894b9",
     "sourceId": "artificial-analysis"
@@ -4027,7 +4099,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:0cb193dec8a8275aacb56c0990ae534e5537ca3b6c662abfaf0a9fb7a678aa85",
     "sourceId": "artificial-analysis"
@@ -4045,7 +4117,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e729f6b8b262ab14c02d14ad57d3c6f6e5a88bf44890562940584e8c91218f95",
     "sourceId": "artificial-analysis"
@@ -4063,7 +4135,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-27b-low",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:8680068386ebaae3e1e04d1a85d925deda190d48a4d98ab193ad965af6701286",
     "sourceId": "artificial-analysis"
@@ -4081,7 +4153,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-27b-medium",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:5a0241dea0c5ca5485c69525feec83aba02fd11ac0922aa057e47bf125b28cbc",
     "sourceId": "artificial-analysis"
@@ -4099,7 +4171,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-27b-non-reasoning",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9a89c2a5eab1ec4864e3f1ef40c1a3effbe7c6c3a1be7eac8644d9fe3ae4fd4d",
     "sourceId": "artificial-analysis"
@@ -4117,7 +4189,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e8b73f7090d5abb31d58ffa092c480fcb2fc09941050b9a37acff6e4bf827b6d",
     "sourceId": "artificial-analysis"
@@ -4135,7 +4207,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3ac96f23b268ad0fb70d22feb7f92129baed7d20962430c302d34ede80dcdbd8",
     "sourceId": "artificial-analysis"
@@ -4153,7 +4225,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-max-0803",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3b5aeeabef75eba9713d1581ebb431b35bdb82e4d54fde30f0b27881449c6654",
     "sourceId": "artificial-analysis"
@@ -4171,7 +4243,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/reflection-beam",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:20d25e834682b12c4c8d2cea766715300e04454a82cf57b1125f46c1a2a61633",
     "sourceId": "artificial-analysis"
@@ -4189,7 +4261,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/step-3-7-flash",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4725b0f7c7a8b81aabed2ee5b57bd757f7ca7bac7616de3cb0b8be34321cc228",
     "sourceId": "artificial-analysis"
@@ -4207,7 +4279,7 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/step-5",
-    "retrievedAt": "2026-10-28T04:30:56.781Z",
+    "retrievedAt": "2026-10-28T13:42:59.521Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:00eca1c8bb7e7e38b90953a7942e1e2c4503de40d7a68cccd0a2c9daa4faf377",
     "sourceId": "artificial-analysis"

@@ -328,6 +328,8 @@ describe('buildWorkspaceProduct', () => {
       'proofbench',
       'livebench-mathematics',
       'ioi',
+      'humanitys-last-exam',
+      'critpt',
     ]);
     for (const id of product.benchmarkQuality!.excludedBenchmarkIds) {
       expect(comparisonBenchmarks.has(id)).toBe(false);

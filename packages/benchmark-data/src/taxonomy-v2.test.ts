@@ -94,6 +94,8 @@ describe('approved benchmark quality reviews', () => {
       'proofbench',
       'livebench-mathematics',
       'ioi',
+      'humanitys-last-exam',
+      'critpt',
     ]);
     expect(qualityPolicy.limitedBenchmarkIds).toEqual([
       'aa-lcr',
@@ -103,16 +105,24 @@ describe('approved benchmark quality reviews', () => {
       'tax-eval-v2',
     ]);
     expect(qualityPolicy.minOtherBenchmarksPerLimited).toBe(2);
-    expect(qualityPolicy.reviewedAt).toBe('2026-10-16');
-    const review = readArtifact('2026-10-16-benchmark-exclusions.json');
+    expect(qualityPolicy.reviewedAt).toBe('2026-10-28');
+    const review = readArtifact('2026-10-28-benchmark-supersessions.json');
     expect(qualityPolicy.evidencePath).toBe(
-      'docs/analysis/2026-10-16-benchmark-exclusions.json',
+      'docs/analysis/2026-10-28-benchmark-supersessions.json',
     );
     expect(review.qualityPolicy).toEqual(qualityPolicy);
+    // AA Intelligence Index v5 upgrades replace their predecessors.
     expect(review.addedExcludedBenchmarkIds).toEqual([
-      'livebench-mathematics',
-      'ioi',
+      'humanitys-last-exam',
+      'critpt',
     ]);
+    expect(review.previousEvidencePath).toBe(
+      'docs/analysis/2026-10-16-benchmark-exclusions.json',
+    );
+    expect(
+      readArtifact('2026-10-16-benchmark-exclusions.json')
+        .addedExcludedBenchmarkIds,
+    ).toEqual(['livebench-mathematics', 'ioi']);
   });
 
   it('ties the exclusion to six exact frontier scores and source evidence locators', () => {

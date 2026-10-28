@@ -31,7 +31,7 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-10-28T04:30:56.781Z",
+  "lastVerifiedAt": "2026-10-28T13:42:59.521Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
@@ -51,11 +51,14 @@
     "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
     "https://artificialanalysis.ai/evaluations/automationbench-aa",
     "https://artificialanalysis.ai/evaluations/critpt",
+    "https://artificialanalysis.ai/evaluations/critpt-v2",
     "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
+    "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
     "https://artificialanalysis.ai/evaluations/gdp-pdf",
     "https://artificialanalysis.ai/evaluations/gdpval-aa",
     "https://artificialanalysis.ai/evaluations/gpqa-diamond",
     "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+    "https://artificialanalysis.ai/evaluations/hle-diamond",
     "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
     "https://artificialanalysis.ai/evaluations/ifbench",
     "https://artificialanalysis.ai/evaluations/itbench-aa",
@@ -63,6 +66,7 @@
     "https://artificialanalysis.ai/evaluations/omniscience",
     "https://artificialanalysis.ai/evaluations/scicode",
     "https://artificialanalysis.ai/evaluations/tau3-banking",
+    "https://artificialanalysis.ai/evaluations/terminal-bench-science",
     "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
     "https://artificialanalysis.ai/models"
   ]
