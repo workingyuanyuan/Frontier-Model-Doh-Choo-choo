@@ -133,7 +133,7 @@ pnpm report:source-changes -- --check
 
 目錄清單區分是否登記擷取，以及 `scored`、`captured-not-scored`、`supported-no-scores`、`unintegrated`、`reviewed-deferred`。`scored` 指來源已有 INCLUDED 候選列，不保證其模型已通過產品的 identity、前沿資格與共同集合條件。版本只採官方目錄明示值；缺失保持 unknown。模型覆蓋使用 canonical ID；設定覆蓋保留來源名稱、effort、thinking、harness、tools、quantization、attempts 與 context window，總數不變的成員流失也會回報。
 
-`data/mappings/source-monitoring.json` 保存明確的暫緩決定與原因。新 benchmark 的發現不會自動改變維度、來源優先序或計分政策；依使用者決定完成整合及驗證後再採用。暫緩項目若發生目錄版本變動仍會出現在差異報告中。
+`data/mappings/source-monitoring.json` 的 `deferred` 保存明確的暫緩決定與原因；`integrated` 記錄依使用者決定整合的目錄項目（例如 2026-10-28 的 AA Intelligence Index v5 評測），只作為報告的審閱註記，不改變狀態判定，刷新產生成績前仍列為待處理。新 benchmark 的發現不會自動改變維度、來源優先序或計分政策；依使用者決定完成整合及驗證後再採用。暫緩項目若發生目錄版本變動仍會出現在差異報告中。
 
 ### 模型發布頁
 

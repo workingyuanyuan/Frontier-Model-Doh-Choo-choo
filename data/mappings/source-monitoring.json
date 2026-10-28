@@ -5,5 +5,13 @@
       "handbook": "User decision: prioritize current frontier model coverage; defer this benchmark.",
       "antidote": "User decision: prioritize current frontier model coverage; defer this benchmark."
     }
+  },
+  "integrated": {
+    "artificial-analysis": {
+      "hle-diamond": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -> hle-diamond; humanitys-last-exam is kept.",
+      "terminal-bench-science": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field terminalBenchScience -> terminal-bench-science (v0.1, mini-swe-agent, 3 repeats).",
+      "critpt-v2": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept.",
+      "frontiercode-2-0": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile."
+    }
   }
 }

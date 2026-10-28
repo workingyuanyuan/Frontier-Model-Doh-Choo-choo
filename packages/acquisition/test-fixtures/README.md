@@ -16,6 +16,13 @@ structure; a hand-trimmed copy would test a format that never existed.
 Do not edit those files. To refresh one, copy the artifact again from
 `artifacts/sha256/<first two chars>/<hash>` and keep the same filename.
 
+`cd696e93…36b6.html` is a verbatim capture of
+`https://artificialanalysis.ai/evaluations/critpt-v2` taken on
+2026-10-28T13:33:26.083Z by the AA refresh command run against a scratch root.
+It is not yet in a committed evidence index; the next AA refresh captures
+its own copy. It covers the Intelligence Index v5 fields (`hleDiamond`,
+`terminalBenchScience`, `critptAgentic`, `frontierCode20`).
+
 ## xAI unit-test fixtures
 
 `xai-release-chart.js` is a reduced text fixture derived from the reviewed

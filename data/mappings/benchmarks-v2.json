@@ -85,6 +85,11 @@
       "secondaryDimensions": []
     },
     {
+      "id": "critpt-v2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "coding"]
+    },
+    {
       "id": "gpqa-diamond",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["knowledge"]
@@ -156,6 +161,11 @@
     },
     {
       "id": "humanitys-last-exam",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "hle-diamond",
       "primaryDimension": "knowledge",
       "secondaryDimensions": ["reasoning"]
     },
@@ -289,6 +299,11 @@
       "id": "terminal-bench-2-1",
       "primaryDimension": "agentic",
       "secondaryDimensions": ["coding"]
+    },
+    {
+      "id": "terminal-bench-science",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding", "knowledge", "reasoning"]
     },
     {
       "id": "deepswe-1-1",

@@ -343,6 +343,7 @@ describe('source monitor in a temporary workspace', () => {
       join(root, 'data', 'mappings', 'source-monitoring.json'),
       JSON.stringify({
         deferred: { [SOURCE]: { handbook: 'Pending adapter review.' } },
+        integrated: { [SOURCE]: { 'gdp-xlsx': 'Integrated by decision.' } },
       }),
     );
     capture(
@@ -399,6 +400,7 @@ describe('source monitor in a temporary workspace', () => {
             status: 'scored',
             captureRegistered: true,
             benchmarkId: 'gdp-xlsx',
+            reason: 'Integrated by decision.',
           }),
           expect.objectContaining({
             id: 'handbook',

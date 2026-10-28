@@ -66,6 +66,8 @@ Artificial Analysis 以 evaluation 頁面 RSC 為主資料源，合併 `/models`
 
 AA 刷新也會重新擷取前次已發現的模型 detail URL，避免首頁圖表更換選取模型時漏掉既有成績；是否現役仍以本次 payload 的 deprecated 與 release date 判定。解析器保留完整指數版本（含 v4.3.2）、Briefcase 與 GDPval 的明示版本，並支援新版 `omniscienceAccuracy`、`terminalBench21` 欄位；Terminal-Bench 4.0 不會混入 2.1。2026-10 起 AA 不再於比較列提供 `gdpvalNormalized`，但仍公開 GDPval-AA Elo（`gdpval`）與方法論頁的換算式 `clamp((Elo − 500) / 2000)`；欄位缺少時依此式由 Elo 換算，locator 標明換算來源。此式重現了 2026-10-04 擷取中全部 282 組 Elo／正規化值。
 
+2026-10-28 起依使用者裁決納入 Intelligence Index v5 新增或升級的評測：`hleDiamond`（`hle-diamond`）、`terminalBenchScience`（`terminal-bench-science`，v0.1）、`critptAgentic`（`critpt-v2`，Full Set）與 `frontierCode20`（`frontier-code-2-0`）。既有的 `humanitys-last-exam`、`critpt` 不變；CritPt v2 Hard Subset、AA 的 FrontierCode 1.1、AutomationBench-AA 與 Terminal-Bench 4.0 不物化。AA 的 FrontierCode 2.0 與 Cognition 主辦方共用 benchmark ID 與指標，依上方的來源角色規則，重疊的模型 × effort 一律採主辦方列，AA 只補主辦方未測的 profile；AA 列保留 Stirrup harness 與三次嘗試。逐欄對應見 [SPEC §9.3](SPEC.md#93-artificial-analysis)，維度見 [BENCHMARK_DIMENSION_MAPPING](BENCHMARK_DIMENSION_MAPPING.md#artificial-analysis-intelligence-index-v5-evaluations)。
+
 Zapier AutomationBench 的 § 標在模型名稱後時，表示來源註明的首發版暫定成績（將於重測後更新）；成績照常採用，並在 rawScore locator 與 validation report 保留註腳原文。§ 標在成本後時仍代表 fallback 成本不可比較。
 
 模型詳細頁的 `currentModel` 物件亦納入解析；來源未提供 `model_creator_id`，或該檔位未出現在 `initialModels` 圖表選取陣列時，仍以詳細頁明示的模型資料建立候選。擷取後按來源 slug 去重，沿用現役篩選與缺值規則。
