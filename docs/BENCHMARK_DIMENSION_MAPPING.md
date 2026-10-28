@@ -186,8 +186,8 @@ Approved for scoring on 2026-10-28, when the user chose to score the evaluations
 
 Limits:
 
-- `hle-diamond` is a refined subset of the HLE question pool, and both it and `humanitys-last-exam` are Knowledge benchmarks. The user asked to keep `humanitys-last-exam` as is, so a cohort with both gives HLE material two Knowledge entries.
-- `critpt-v2` imports the Full Set (`critptAgentic`), the default leaderboard tab of the CritPt v2 page. The Index weights the 40-question Hard Subset (`critptAgenticHard`): the 70 questions minus the 30 that seven frontier models solved in all five attempts at launch. The subset is selected using frontier-model results, which makes it cohort-dependent, so it is not imported. `critpt` (v1, run without a harness) stays a separate benchmark in the same dimension.
+- `hle-diamond` is a refined subset of the HLE question pool. Since the user's 2026-10-28 ruling it supersedes `humanitys-last-exam`, which remains as evidence but is excluded from scoring by the quality policy, so HLE material counts once.
+- `critpt-v2` imports the Full Set (`critptAgentic`), the default leaderboard tab of the CritPt v2 page. The Index weights the 40-question Hard Subset (`critptAgenticHard`): the 70 questions minus the 30 that seven frontier models solved in all five attempts at launch. The subset is selected using frontier-model results, which makes it cohort-dependent, so it is not imported. `critpt` (v1, run without a harness) remains as evidence but is excluded from scoring, because `critpt-v2` supersedes it.
 - Terminal-Bench-Science keeps its own ID; do not merge it with `terminal-bench-2-1` or Terminal-Bench 4.0.
 
 ## Approved active assignments
