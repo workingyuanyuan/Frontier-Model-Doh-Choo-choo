@@ -33,7 +33,7 @@ test('compares DAYJOB: Finance scores with organizer evidence for selected profi
       }),
     });
   await expect(row).toBeVisible();
-  await expect(row.locator('strong')).toHaveText(['21.5', '2.8']);
+  await expect(row.locator('strong')).toHaveText(['37.3', '4.5']);
   await expect(row.getByRole('link')).toHaveCount(2);
   for (const link of await row.getByRole('link').all()) {
     await expect(link).toHaveAttribute(

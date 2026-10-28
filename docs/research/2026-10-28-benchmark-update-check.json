@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "benchmark-update-check-v1",
+  "date": "2026-10-28",
+  "timezone": "Asia/Taipei",
+  "checkedAt": "2026-10-28T04:50:30.718268+00:00",
+  "comparisonBaseline": {
+    "primary": "2026-10-27",
+    "report": "docs/research/2026-10-27-benchmark-update-check.md",
+    "reportSha256": "5655d7eef1a0ef37bcc827436c003583f392a8f89a25714f4bbd0928ceeb8e23"
+  },
+  "workspaceBaseline": {
+    "head": "f9a907529666d45186fdbee158d8a267f774064f",
+    "initialGitStatus": [],
+    "versionId": "sha256:c7c30a4beb3052163238aa468c76c7539424befc7e20684a7f9eaaf8d297ccbc",
+    "productSha256": "c73e3aab3696222b3e0a891f373fe5853c61e3dbd44e8cea1f452b4de32700c6"
+  },
+  "method": {
+    "webDiscovery": "subagent; manifest at artifacts/research/2026-10-28-benchmark-check/web/manifest.json",
+    "sourceRefresh": "subagent with project adapters; artifacts/research/2026-10-28-benchmark-check/refresh/",
+    "mainAgentSpotChecks": [
+      "AA v5 announcement text",
+      "FrontierCode 2.0 post",
+      "DayJob rendered values vs candidates",
+      "Vals SAGE and LiveBench Terra rows"
+    ]
+  },
+  "sources": {
+    "artificialAnalysis": {
+      "status": "imported-v5-after-user-decision",
+      "indexVersion": {
+        "before": "v4.3.2",
+        "after": "v5.0"
+      },
+      "visualCatalog": "28 of 715 models",
+      "modelsOnPages": {
+        "before": 251,
+        "after": 214
+      },
+      "candidates": {
+        "before": 2957,
+        "after": 2080,
+        "added": 76,
+        "removed": 953,
+        "changed": 277
+      },
+      "costs": {
+        "before": 437,
+        "after": 280,
+        "removed": 157,
+        "changed": 74
+      },
+      "newCatalogEntries": ["frontiercode-2-0", "hle-diamond"],
+      "trialProductVersionId": "sha256:6fdebcc1a78236a46b48b747cd2ea225ef33b66db8596320b37e7d9357378a98",
+      "trialCohortCommonTests": [39, 35, 34, 21, 21, 8, 7, 7, 7],
+      "trialDefaultPreset": "aa-top-10",
+      "snapshot": "artifacts/research/2026-10-28-benchmark-check/aa-v5-snapshot/"
+    },
+    "frontierCode": {
+      "status": "imported-2.0-as-separate-benchmark",
+      "visible2_0": {
+        "bestReasoningMode": 25,
+        "allReasoningLevels": 98,
+        "hiddenModels": ["Obsidian 3"]
+      },
+      "export_v1_1": {
+        "models": 46,
+        "removed": "GPT-6.1 Terra (5 efforts)",
+        "otherRowsUnchanged": 136
+      },
+      "added2_0Rows": 98,
+      "v1_1RowsUnchanged": 141
+    },
+    "valsAi": {
+      "status": "imported",
+      "candidates": {
+        "before": 3464,
+        "after": 3411,
+        "added": 16,
+        "removed": 69
+      },
+      "costs": {
+        "before": 3313,
+        "after": 3260
+      },
+      "sage": {
+        "version": "1 -> 1.1",
+        "changed": 21,
+        "removedV1": 69,
+        "newModels": 6
+      }
+    },
+    "surgeDayjobFinance": {
+      "status": "imported",
+      "rows": {
+        "before": 36,
+        "after": 38,
+        "rendered": 38
+      },
+      "changed": 31
+    },
+    "surgeDayjobHealthcare": {
+      "status": "imported",
+      "rows": {
+        "before": 36,
+        "after": 38,
+        "rendered": 38
+      },
+      "changed": 32
+    },
+    "livebench": {
+      "status": "imported",
+      "rendered": {
+        "v2": 31,
+        "v1WithFinetunes": 65
+      },
+      "realChange": "gpt-6.1-terra coding 90.8 -> 94.3"
+    },
+    "epochAi": {
+      "status": "imported",
+      "added": [
+        "GPT-6.1 Terra max gpqa-diamond 0.9432",
+        "aime 1.0",
+        "simpleqa-verified 0.573"
+      ]
+    },
+    "unchangedRestored": [
+      "arc-prize",
+      "deepswe",
+      "surge-chartography",
+      "surge-complex-constraints",
+      "surge-corecraft",
+      "surge-riemann",
+      "surge-gdp-xlsx",
+      "zapier-automationbench"
+    ],
+    "frontierSwe": {
+      "status": "refresh-failed-known"
+    },
+    "surgeCatalog": {
+      "newBenchmark": "dayjob-tax"
+    },
+    "surgeDayjobTax": {
+      "status": "imported-new-source",
+      "rows": {
+        "rendered": 16,
+        "parsed": 16,
+        "resolved": 12
+      }
+    }
+  },
+  "release": {
+    "runId": "2026-10-28T06-06-17-331Z",
+    "status": "complete",
+    "review": "pending-user-review",
+    "versionId": "sha256:3819f24eb0f1906251cfe7e44edb3c33acef4e589a4e4e80ab257617c1e473d2",
+    "previousVersionId": "sha256:c7c30a4beb3052163238aa468c76c7539424befc7e20684a7f9eaaf8d297ccbc"
+  },
+  "userDecisions": {
+    "date": "2026-10-28",
+    "aaIndexV5": "follow; representative profile = qualifying AA effort with most independent organizations, ties by AA score (rule B)",
+    "frontierCode": "2.0 is a separate benchmark from 1.1; keep 1.1; cost chart stays on 1.1",
+    "dayjobTax": "adopt"
+  }
+}

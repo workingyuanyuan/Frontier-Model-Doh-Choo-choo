@@ -31,6 +31,12 @@
       "version": null
     },
     {
+      "id": "dayjob-tax",
+      "title": "View DAYJOB: Tax benchmark",
+      "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+      "version": null
+    },
+    {
       "id": "enterprisebench-corecraft",
       "title": "View EnterpriseBench: CoreCraft Agents benchmark",
       "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
@@ -73,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-26T07:31:34.416Z",
+  "checkedAt": "2026-10-28T04:33:48.798Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/5e/5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2.html",
-    "byteLength": 855160,
+    "artifactPath": "artifacts/sha256/73/738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5.html",
+    "byteLength": 893277,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
+    "id": "sha256:738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-26T07:31:34.416Z",
+    "retrievedAt": "2026-10-28T04:33:48.798Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
+    "sha256": "sha256:738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5",
     "sourceId": "surge-gdp-xlsx"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -164,7 +170,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-26T07:31:34.199Z",
+    "observedAt": "2026-10-28T04:33:48.525Z",
     "sourceId": "surge-gdp-xlsx"
   }
 }

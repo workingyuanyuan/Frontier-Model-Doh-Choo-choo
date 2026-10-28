@@ -5,6 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 import {
   EvidenceRecordSchema,
   CandidateResultSchema,
+  CostRecordSchema,
   deterministicJson,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
@@ -18,7 +19,8 @@ import {
 import {
   FRONTIER_CODE_DATA_URL,
   FRONTIER_CODE_PAGE_URL,
-  materializeFrontierCode,
+  assertFrontierCode11Unchanged,
+  materializeFrontierCode11,
 } from './frontier-code-materializer.js';
 import {
   buildLiveBenchSnapshot,
@@ -217,14 +219,15 @@ async function main() {
   const frontierEvidence = EvidenceRecordSchema.array().parse(
     await readJson<unknown>(frontierIndexPath),
   );
-  const frontierDataRecord = findEvidence(
-    frontierEvidence,
-    FRONTIER_CODE_DATA_URL,
-  );
-  const frontierPageRecord = findEvidence(
-    frontierEvidence,
-    FRONTIER_CODE_PAGE_URL,
-  );
+  // Preserved 1.1 rows cite an older export, so use the latest capture.
+  const latestFrontierRecord = (requestUrl: string): EvidenceRecord =>
+    frontierEvidence
+      .filter((record) => record.requestUrl === requestUrl)
+      .toSorted((left, right) =>
+        right.retrievedAt.localeCompare(left.retrievedAt),
+      )[0] ?? findEvidence(frontierEvidence, requestUrl);
+  const frontierDataRecord = latestFrontierRecord(FRONTIER_CODE_DATA_URL);
+  const frontierPageRecord = latestFrontierRecord(FRONTIER_CODE_PAGE_URL);
   const visualRowCount = Number(frontierPageRecord.metadata.renderedRows);
   const visualTopTenMatched =
     frontierPageRecord.metadata.renderedTopTenMatched === true;
@@ -233,19 +236,26 @@ async function main() {
       'Frontier Code evidence has no completed rendered-DOM validation',
     );
   }
-  const frontierResult = materializeFrontierCode(
+  const frontierDirectory = join(sourcesRoot, 'frontier-code');
+  const frontierResult = materializeFrontierCode11(
     await readFile(join(root, frontierDataRecord.artifactPath), 'utf8'),
-    await readFile(join(root, frontierPageRecord.artifactPath), 'utf8'),
     {
       dataEvidenceId: frontierDataRecord.id,
-      pageEvidenceId: frontierPageRecord.id,
       observedAt: frontierDataRecord.retrievedAt,
-      visualRowCount,
-      visualTopTenMatched,
+    },
+    {
+      candidates: CandidateResultSchema.array().parse(
+        await readJson<unknown>(join(frontierDirectory, 'candidates.json')),
+      ),
+      costs: CostRecordSchema.array().parse(
+        await readJson<unknown>(join(frontierDirectory, 'costs.json')),
+      ),
     },
   );
+  // Rebuilding costs must reproduce the saved 1.1 snapshot.
+  assertFrontierCode11Unchanged(frontierResult, null);
   await writeFile(
-    join(sourcesRoot, 'frontier-code', 'costs.json'),
+    join(frontierDirectory, 'costs.json'),
     prettyDeterministicJson(frontierResult.costs),
   );
 

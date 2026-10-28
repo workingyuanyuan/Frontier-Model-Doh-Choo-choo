@@ -199,6 +199,11 @@ export const buildWorkspaceProduct = async (
       reasons: [
         `Artificial Analysis Intelligence Index rank ${row.rank}`,
         `Scored by ${row.organizations.length} independent organizations: ${row.organizations.join(', ')}`,
+        ...(row.profileId === row.aaWinningProfileId
+          ? []
+          : [
+              `Representative profile ${row.profileId} (AA ${row.representativeScore}) is scored by more independent organizations than AA-winning ${row.aaWinningProfileId}`,
+            ]),
       ],
       externalCompositeScores: { 'artificial-analysis': row.score },
     })),

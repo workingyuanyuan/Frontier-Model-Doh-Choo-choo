@@ -70,6 +70,7 @@ describe('source catalog discovery', () => {
     'surge-riemann',
     'surge-dayjob-finance',
     'surge-dayjob-healthcare',
+    'surge-dayjob-tax',
     'surge-gdp-xlsx',
   ])(
     'enumerates every Surge benchmark and strips display metrics for %s',
@@ -79,6 +80,7 @@ describe('source catalog discovery', () => {
       <a href="/benchmarks/gdp-pdf"><span>GDP.pdf</span><small>%</small></a>
       <a href="/benchmarks/enterprisebench-corecraft">EnterpriseBench: CoreCraft</a>
       <a href="/benchmarks/hemingway"><span>Hemingway-bench</span><small>ELO</small></a>
+      <a href="/benchmarks/dayjob-tax"><span>DAYJOB: Tax</span><span>NEW</span></a>
       <a href="/benchmarks/dayjob-healthcare">DAYJOB: Healthcare NEW</a>
       <a href="/benchmarks/gdp-xlsx">GDP.xlsx</a>
       <a href="/benchmarks/complexconstraints">ComplexConstraints</a>
@@ -89,7 +91,7 @@ describe('source catalog discovery', () => {
       <a href="/benchmarks/enterprisebench-corecraft">EnterpriseBench</a>
     </nav><section><h4>Chartography</h4><a href="/benchmarks/chartography">Leaderboard</a></section>`;
       const entries = discoverSourceCatalog(sourceId, html);
-      expect(entries).toHaveLength(11);
+      expect(entries).toHaveLength(12);
       expect(entries.find(({ id }) => id === 'chartography')?.title).toBe(
         'Chartography',
       );
@@ -133,6 +135,12 @@ describe('source catalog discovery', () => {
         id: 'dayjob-healthcare',
         title: 'DAYJOB: Healthcare',
         url: 'https://surgehq.ai/benchmarks/dayjob-healthcare',
+        version: null,
+      });
+      expect(entries.find(({ id }) => id === 'dayjob-tax')).toEqual({
+        id: 'dayjob-tax',
+        title: 'DAYJOB: Tax',
+        url: 'https://surgehq.ai/benchmarks/dayjob-tax',
         version: null,
       });
       expect(entries.find(({ id }) => id === 'gdp-xlsx')).toEqual({
@@ -218,6 +226,7 @@ describe('source catalog discovery', () => {
       'surge-riemann',
       'surge-dayjob-finance',
       'surge-dayjob-healthcare',
+      'surge-dayjob-tax',
       'surge-gdp-xlsx',
     ]) {
       expect(() => discoverSourceCatalog(source, '<h1>Directory</h1>')).toThrow(

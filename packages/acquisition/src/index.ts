@@ -255,10 +255,16 @@ export {
 } from './livebench-materializer.js';
 export { materializeDeepSwe } from './deepswe-materializer.js';
 export {
+  FRONTIER_CODE_1_1_BENCHMARK_ID,
+  FRONTIER_CODE_2_0_BENCHMARK_ID,
+  FRONTIER_CODE_2_0_DATA_URL,
   FRONTIER_CODE_DATA_URL,
   FRONTIER_CODE_PAGE_URL,
   extractFrontierCodeTopTen,
-  materializeFrontierCode,
+  frontierCodeValidationReport,
+  materializeFrontierCode11,
+  materializeFrontierCode20,
+  rebuildFrontierCodeFromEvidence,
 } from './frontier-code-materializer.js';
 export {
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,

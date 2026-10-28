@@ -18,6 +18,11 @@
       "secondaryDimensions": ["reasoning", "knowledge"]
     },
     {
+      "id": "dayjob-tax",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
       "id": "riemann-bench",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["knowledge", "agentic"]
@@ -259,6 +264,11 @@
     },
     {
       "id": "frontier-code-1-1",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "frontier-code-2-0",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic", "reasoning"]
     },

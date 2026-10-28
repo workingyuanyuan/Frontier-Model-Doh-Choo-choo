@@ -35,6 +35,7 @@
     "materialize:riemann": "tsx src/refresh-with-audit.ts surge-riemann src/refresh-surge-riemann.ts",
     "materialize:dayjob-finance": "tsx src/refresh-with-audit.ts surge-dayjob-finance src/refresh-surge-dayjob-finance.ts",
     "materialize:dayjob-healthcare": "tsx src/refresh-with-audit.ts surge-dayjob-healthcare src/refresh-surge-dayjob-healthcare.ts",
+    "materialize:dayjob-tax": "tsx src/refresh-with-audit.ts surge-dayjob-tax src/refresh-surge-dayjob-tax.ts",
     "materialize:gdp-xlsx": "tsx src/refresh-with-audit.ts surge-gdp-xlsx src/refresh-surge-gdp-xlsx.ts",
     "evidence": "tsx src/evidence-cli.ts"
   },

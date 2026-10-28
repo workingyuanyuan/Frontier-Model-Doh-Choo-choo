@@ -33,7 +33,7 @@ test('compares DAYJOB: Healthcare scores with organizer evidence for selected pr
       }),
     });
   await expect(row).toBeVisible();
-  await expect(row.locator('strong')).toHaveText(['11.6', '0.8']);
+  await expect(row.locator('strong')).toHaveText(['28.4', '2.0']);
   await expect(row.getByRole('link')).toHaveCount(2);
   for (const link of await row.getByRole('link').all()) {
     await expect(link).toHaveAttribute(

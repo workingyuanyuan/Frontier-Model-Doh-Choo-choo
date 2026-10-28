@@ -113,34 +113,35 @@ describe('AA frontier selection', () => {
     const result = selectAaTopTen(mapped);
     expect(result.status).toBe('selected');
     expect(result.issues).toEqual([]);
+    // 2026-10-28 data: Intelligence Index v5.0.
     expect(result.selectedModelIds).toEqual([
       'anthropic-claude-opus-5-5',
-      'anthropic-claude-sonnet-5-5',
-      'meta-muse-wonder-full',
-      'moonshot-kimi-k3-1-pro',
-      'anthropic-claude-fable-5-1',
       'openai-gpt-6-astra',
-      'google-gemini-4-argon',
-      'meta-muse-wonder',
       'openai-gpt-6-1-sol',
-      'anthropic-claude-opus-5',
+      'anthropic-claude-sonnet-5-5',
+      'openai-gpt-6-1-terra',
+      'google-gemini-4-argon',
+      'meta-muse-wonder-full',
+      'anthropic-claude-fable-5-1',
+      'moonshot-kimi-k3-1-pro',
+      'meta-muse-wonder',
     ]);
     expect(result.selectedProfileIds).toEqual([
       'anthropic-claude-opus-5-5-max',
-      'anthropic-claude-sonnet-5-5-max',
-      'meta-muse-wonder-full-max',
-      'moonshot-kimi-k3-1-pro-max',
-      'anthropic-claude-fable-5-1-max',
       'openai-gpt-6-astra-max',
-      'google-gemini-4-argon-high',
-      'meta-muse-wonder-max',
       'openai-gpt-6-1-sol-max',
-      'anthropic-claude-opus-5-max',
+      'anthropic-claude-sonnet-5-5-max',
+      'openai-gpt-6-1-terra-max',
+      'google-gemini-4-argon-high',
+      'meta-muse-wonder-full-max',
+      'anthropic-claude-fable-5-1-xhigh',
+      'moonshot-kimi-k3-1-pro-max',
+      'meta-muse-wonder-max',
     ]);
-    expect(result.resolvedModelCount).toBe(60);
-    expect(result.topTen[8]?.modelId).toBe('openai-gpt-6-1-sol');
-    expect(result.boundary?.afterRank).toBe(4);
-    expect(result.gapAudit.selectedModelIds).toHaveLength(4);
+    expect(result.resolvedModelCount).toBe(24);
+    expect(result.topTen[8]?.modelId).toBe('moonshot-kimi-k3-1-pro');
+    expect(result.boundary?.afterRank).toBe(8);
+    expect(result.gapAudit.selectedModelIds).toHaveLength(8);
   });
 
   it('selects the models above the gap and preserves version, scores and evidence', () => {

@@ -148,10 +148,10 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-10-26 data: Opus 5 and Fable 5 are absent from LiveBench 2.0
-    // 2026-10-25, so the nine- and ten-model cohorts lose its suites.
+    // 2026-10-28 data (AA index v5.0, DAYJOB: Tax, FrontierCode 2.0); validate each
+    // intersection independently below.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      36, 18, 17, 17, 17, 17, 17, 9, 9,
+      41, 37, 36, 21, 21, 20, 17, 17, 17,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     // The first two models share ProofBench, so its quality exclusion is exercised.
@@ -242,8 +242,8 @@ describe('frontier eligibility', () => {
         organizations,
       })),
     ).toEqual([
-      // 2026-10-25 data: this model is scored outside AA by one organization only.
-      { modelId: 'meta-muse-wonder-full', rank: 3, organizations: ['vals-ai'] },
+      // 2026-10-28 data: this model is scored outside AA by one organization only.
+      { modelId: 'meta-muse-wonder-full', rank: 7, organizations: ['vals-ai'] },
     ]);
     for (const leader of result.leaders) {
       expect(leader.organizations.length).toBeGreaterThanOrEqual(2);
@@ -254,6 +254,37 @@ describe('frontier eligibility', () => {
       expect(leader.organizations.some((id) => id.startsWith('surge-'))).toBe(
         false,
       );
+    }
+  });
+
+  it('represents each model by its qualifying effort with the most organizations', async () => {
+    const { candidates, mapping, quality } = await workspace();
+    const result = selectEligibleFrontier(
+      candidates,
+      rankAaModels(candidates),
+      unresolvedAaRows(candidates) as CandidateResult[],
+      mapping,
+      quality,
+    );
+    const fable = result.leaders.find(
+      ({ modelId }) => modelId === 'anthropic-claude-fable-5-1',
+    )!;
+    // 2026-10-28 data: AA v5 ranks xhigh above max, but only max is also
+    // scored by LiveBench, Vals and Surge; ranking keeps the xhigh score.
+    expect(fable).toMatchObject({
+      aaWinningProfileId: 'anthropic-claude-fable-5-1-xhigh',
+      profileId: 'anthropic-claude-fable-5-1-max',
+    });
+    expect(fable.representativeScore).toBeLessThan(fable.score);
+    expect(fable.organizations).toEqual(
+      expect.arrayContaining(['livebench', 'surge', 'vals-ai']),
+    );
+    for (const leader of result.leaders) {
+      const row = candidates.find(
+        ({ id }) => id === leader.representativeResultId,
+      )!;
+      expect(row.model.profileId).toBe(leader.profileId);
+      expect(row.rawScore).toBe(leader.representativeScore);
     }
   });
 

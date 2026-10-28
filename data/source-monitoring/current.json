@@ -1,185 +1,2860 @@
 {
-  "checkedAt": "2026-10-27T00:21:22.287Z",
+  "checkedAt": "2026-10-28T06:04:54.006Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:15:54.763Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:43:52.621Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:58.394Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:10.906Z",
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-28T04:33:55.645Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:19.525Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-27T00:18:49.912Z",
+      "findings": [
+        {
+          "benchmarkId": "aa-briefcase",
+          "detail": "54 -> 51; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "aa-briefcase",
+          "detail": "203 -> 166; missing 37: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "aa-briefcase",
+          "detail": "203 -> 166 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "aa-lcr",
+          "detail": "57 -> 54; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "aa-lcr",
+          "detail": "250 -> 213; missing 37: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "aa-lcr",
+          "detail": "250 -> 213 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "aa-omniscience",
+          "detail": "57 -> 23; missing 34: alibaba-qwen3-6-27b, alibaba-qwen3-7-max, alibaba-qwen3-7-plus, anthropic-claude-fable-5, anthropic-claude-opus-4-6, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, deepseek-deepseek-v4-flash, google-gemini-3-1-pro-preview, google-gemini-3-5-flash, google-gemini-3-6-flash, google-gemini-3-7-flash, meta-muse-spark, meta-muse-spark-1-1, meta-muse-spark-1-2, moonshot-kimi-k2-6, moonshot-kimi-k2-7-code, openai-gpt-5-2-codex, openai-gpt-5-4, openai-gpt-5-4-mini, openai-gpt-5-4-nano, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-sol, xai-grok-4-3, xai-grok-4-5, xai-grok-4-6, xiaomi-mimo-v2-5-pro, zai-glm-5-1, zai-glm-5-2",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "aa-omniscience",
+          "detail": "500 -> 184; missing 316: [\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000], [\"Apodex 1.1\",null,null,null,null,null,null,null], [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Celeris-1\",null,null,null,null,null,null,null], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Haiku (Reasoning)\",null,null,null,null,null,null,null], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Claude 4.5 Sonnet (Reasoning)\",null,null,null,null,null,null,null], [\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",null,null,null,null,null,null], [\"Claude Opus 4.6 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 4.6 (Max)\",\"max\",null,null,null,null,null,null], [\"Claude Opus 4.6 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 4.6 (Non-reasoning, High)\",\"non-reasoning\",null,null,null,null,null,null], [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 4.7 (Max)\",\"max\",null,null,null,null,null,null], [\"Claude Opus 4.7 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 4.7 (Non-reasoning, High)\",\"non-reasoning\",null,null,null,null,null,null], [\"Claude Opus 4.8 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 4.8 (Max)\",\"max\",null,null,null,null,null,null], [\"Claude Opus 5 (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 5 (High)\",\"high\",null,null,null,null,null,null], [\"Claude Opus 5 (Low)\",\"low\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 5 (Low)\",\"low\",null,null,null,null,null,null], [\"Claude Opus 5 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 5 (Max)\",\"max\",null,null,null,null,null,null], [\"Claude Opus 5 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 5 (Medium)\",\"medium\",null,null,null,null,null,null], [\"Claude Opus 5 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1000000], [\"Claude Opus 5 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"Claude Sonnet 4.6 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 4.6 (Max)\",\"max\",null,null,null,null,null,null], [\"Claude Sonnet 4.6 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 4.6 (Non-reasoning, High)\",\"non-reasoning\",null,null,null,null,null,null], [\"Claude Sonnet 4.6 (Non-reasoning, Low)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 4.6 (Non-reasoning, Low)\",\"non-reasoning\",null,null,null,null,null,null], [\"Claude Sonnet 5 (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 5 (High)\",\"high\",null,null,null,null,null,null], [\"Claude Sonnet 5 (Low)\",\"low\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 5 (Low)\",\"low\",null,null,null,null,null,null], [\"Claude Sonnet 5 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 5 (Max)\",\"max\",null,null,null,null,null,null], [\"Claude Sonnet 5 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 5 (Medium)\",\"medium\",null,null,null,null,null,null], [\"Claude Sonnet 5 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 5 (Non-reasoning, High)\",\"non-reasoning\",null,null,null,null,null,null], [\"Claude Sonnet 5 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1000000], [\"Claude Sonnet 5 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"DeepSeek V3.2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,128000], [\"DeepSeek V3.2 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"DeepSeek V3.2 (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"DeepSeek V3.2 (Reasoning)\",null,null,null,null,null,null,null], [\"DeepSeek V4 Flash 0420 (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Flash 0420 (High)\",\"high\",null,null,null,null,null,null], [\"DeepSeek V4 Flash 0420 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Flash 0420 (Max)\",\"max\",null,null,null,null,null,null], [\"DeepSeek V4 Flash 0420 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Flash 0420 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"DeepSeek V4 Flash 0731 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Flash 0731 (Max)\",\"max\",null,null,null,null,null,null], [\"DeepSeek V4 Flash Vision (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Flash Vision (Max)\",\"max\",null,null,null,null,null,null], [\"DeepSeek V4 Pro 0424 (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Pro 0424 (High)\",\"high\",null,null,null,null,null,null], [\"DeepSeek V4 Pro 0424 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Pro 0424 (Max)\",\"max\",null,null,null,null,null,null], [\"DeepSeek V4 Pro 0424 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4 Pro 0424 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4.1 Flash (Max)\",\"max\",null,null,null,null,null,null], [\"DeepSeek V4.1 Flash (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"DeepSeek V4.1 Flash (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GLM-5 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,200000], [\"GLM-5 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GLM-5 (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"GLM-5 (Reasoning)\",null,null,null,null,null,null,null], [\"GLM-5.1 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,200000], [\"GLM-5.1 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GLM-5.1 (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"GLM-5.1 (Reasoning)\",null,null,null,null,null,null,null], [\"GLM-5.2 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"GLM-5.2 (Max)\",\"max\",null,null,null,null,null,null], [\"GLM-5.2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"GLM-5.2 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.2 Codex (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.2 Codex (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-5.4 (Low)\",\"low\",\"reasoning\",null,null,null,null,1050000], [\"GPT-5.4 (Low)\",\"low\",null,null,null,null,null,null], [\"GPT-5.4 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1050000], [\"GPT-5.4 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.4 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1050000], [\"GPT-5.4 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-5.4 mini (Medium)\",\"medium\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.4 mini (Medium)\",\"medium\",null,null,null,null,null,null], [\"GPT-5.4 mini (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.4 mini (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.4 mini (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.4 mini (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-5.4 nano (Medium)\",\"medium\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.4 nano (Medium)\",\"medium\",null,null,null,null,null,null], [\"GPT-5.4 nano (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.4 nano (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.4 nano (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,400000], [\"GPT-5.4 nano (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-5.5 (High)\",\"high\",\"reasoning\",null,null,null,null,922000], [\"GPT-5.5 (High)\",\"high\",null,null,null,null,null,null], [\"GPT-5.5 (Low)\",\"low\",\"reasoning\",null,null,null,null,922000], [\"GPT-5.5 (Low)\",\"low\",null,null,null,null,null,null], [\"GPT-5.5 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,922000], [\"GPT-5.5 (Medium)\",\"medium\",null,null,null,null,null,null], [\"GPT-5.5 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,922000], [\"GPT-5.5 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.5 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,922000], [\"GPT-5.5 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"GPT-5.5 Instant (June 2026)\",null,null,null,null,null,null,null], [\"GPT-5.6 Luna (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Luna (High)\",\"high\",null,null,null,null,null,null], [\"GPT-5.6 Luna (Low)\",\"low\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Luna (Low)\",\"low\",null,null,null,null,null,null], [\"GPT-5.6 Luna (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Luna (Max)\",\"max\",null,null,null,null,null,null], [\"GPT-5.6 Luna (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Luna (Medium)\",\"medium\",null,null,null,null,null,null], [\"GPT-5.6 Luna (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Luna (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.6 Luna (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Luna (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-5.6 Sol (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Sol (High)\",\"high\",null,null,null,null,null,null], [\"GPT-5.6 Sol (Low)\",\"low\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Sol (Low)\",\"low\",null,null,null,null,null,null], [\"GPT-5.6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Sol (Max)\",\"max\",null,null,null,null,null,null], [\"GPT-5.6 Sol (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Sol (Medium)\",\"medium\",null,null,null,null,null,null], [\"GPT-5.6 Sol (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Sol (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-5.6 Sol (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1000000], [\"GPT-5.6 Sol (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"GPT-6 Sol (High)\",\"high\",\"reasoning\",null,null,null,null,1050000], [\"GPT-6 Sol (High)\",\"high\",null,null,null,null,null,null], [\"GPT-6 Sol (Low)\",\"low\",\"reasoning\",null,null,null,null,1050000], [\"GPT-6 Sol (Low)\",\"low\",null,null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,1050000], [\"GPT-6 Sol (Max)\",\"max\",null,null,null,null,null,null], [\"GPT-6 Sol (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1050000], [\"GPT-6 Sol (Medium)\",\"medium\",null,null,null,null,null,null], [\"GPT-6 Sol (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1050000], [\"GPT-6 Sol (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"GPT-6 Sol (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1050000], [\"GPT-6 Sol (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"Gemini 3 Flash Preview (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3 Flash Preview (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Gemini 3 Flash Preview (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Gemini 3 Flash Preview (Reasoning)\",null,null,null,null,null,null,null], [\"Gemini 3.1 Flash-Lite\",null,\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.1 Flash-Lite\",null,null,null,null,null,null,null], [\"Gemini 3.1 Pro Preview\",null,\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.1 Pro Preview\",null,null,null,null,null,null,null], [\"Gemini 3.5 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.5 Flash (High)\",\"high\",null,null,null,null,null,null], [\"Gemini 3.5 Flash (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.5 Flash (Medium)\",\"medium\",null,null,null,null,null,null], [\"Gemini 3.6 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.6 Flash (High)\",\"high\",null,null,null,null,null,null], [\"Gemini 3.7 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.7 Flash (High)\",\"high\",null,null,null,null,null,null], [\"Gemini 3.7 Flash (Low)\",\"low\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.7 Flash (Low)\",\"low\",null,null,null,null,null,null], [\"Gemini 3.7 Flash (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"Gemini 3.7 Flash (Medium)\",\"medium\",null,null,null,null,null,null], [\"Gemma 4 31B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,256000], [\"Gemma 4 31B (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Gemma 4 31B (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Gemma 4 31B (Reasoning)\",null,null,null,null,null,null,null], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Gemma 4 E4B (Reasoning)\",null,null,null,null,null,null,null], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 30B\",null,null,null,null,null,null,null], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,null,null,null,null,null,null], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,null,null,null,null,null,null], [\"Grok 4.20 0309 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,2000000], [\"Grok 4.20 0309 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,2000000], [\"Grok 4.20 0309 (Reasoning)\",null,null,null,null,null,null,null], [\"Grok 4.20 0309 v2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,2000000], [\"Grok 4.20 0309 v2 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,2000000], [\"Grok 4.20 0309 v2 (Reasoning)\",null,null,null,null,null,null,null], [\"Grok 4.3 (High)\",\"high\",\"reasoning\",null,null,null,null,1000000], [\"Grok 4.3 (High)\",\"high\",null,null,null,null,null,null], [\"Grok 4.3 (Low)\",\"low\",\"reasoning\",null,null,null,null,1000000], [\"Grok 4.3 (Low)\",\"low\",null,null,null,null,null,null], [\"Grok 4.3 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,1000000], [\"Grok 4.3 (Medium)\",\"medium\",null,null,null,null,null,null], [\"Grok 4.3 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"Grok 4.3 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Grok 4.5 (High)\",\"high\",\"reasoning\",null,null,null,null,500000], [\"Grok 4.5 (High)\",\"high\",null,null,null,null,null,null], [\"Grok 4.6 (High)\",\"high\",\"reasoning\",null,null,null,null,500000], [\"Grok 4.6 (High)\",\"high\",null,null,null,null,null,null], [\"Grok 4.6 (Low)\",\"low\",\"reasoning\",null,null,null,null,500000], [\"Grok 4.6 (Low)\",\"low\",null,null,null,null,null,null], [\"Grok 4.6 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,500000], [\"Grok 4.6 (Medium)\",\"medium\",null,null,null,null,null,null], [\"Grok 4.6 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,500000], [\"Grok 4.6 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Hy3\",null,null,null,null,null,null,null], [\"Kimi K2.6 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,256000], [\"Kimi K2.6 (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Kimi K2.6 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.6 (Reasoning)\",null,null,null,null,null,null,null], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,null,null,null,null,null,null], [\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,1048576], [\"Kimi K3 (Max)\",\"max\",null,null,null,null,null,null], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Flash\",null,null,null,null,null,null,null], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,null,null,null,null,null,null], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"Ling 3.1 Flash\",null,null,null,null,null,null,null], [\"Ling-3.0-flash-Fin\",null,\"reasoning\",null,null,null,null,262144], [\"Ling-3.0-flash-Fin\",null,null,null,null,null,null,null], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,null,null,null,null,null,null], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2\",null,null,null,null,null,null,null], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"Mercury 2.5\",null,null,null,null,null,null,null], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"MiMo-V2.5\",null,null,null,null,null,null,null], [\"MiMo-V2.5-Pro (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000], [\"MiMo-V2.5-Pro (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"MiMo-V2.5-Pro (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"MiMo-V2.5-Pro (Reasoning)\",null,null,null,null,null,null,null], [\"MiniMax-M2.7\",null,\"reasoning\",null,null,null,null,204800], [\"MiniMax-M2.7\",null,null,null,null,null,null,null], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 14B\",null,null,null,null,null,null,null], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,null,null,null,null,null,null], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,null,null,null,null,null,null], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,null,null,null,null,null,null], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,null,null,null,null,null,null], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"Muse Spark 1.2 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"Muse Spark 1.2 (Xhigh)\",\"xhigh\",null,null,null,null,null,null], [\"Muse Spark\",null,\"reasoning\",null,null,null,null,262144], [\"Muse Spark\",null,null,null,null,null,null,null], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,null,null,null,null,null,null], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,null,null,null,null,null,null], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,null,null,null,null,null,null], [\"Nemotron Cascade 2 30B A3B\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron Cascade 2 30B A3B\",null,null,null,null,null,null,null], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"North Mini Code\",null,null,null,null,null,null,null], [\"Nova 2.0 Pro Preview (Low)\",\"low\",\"reasoning\",null,null,null,null,256000], [\"Nova 2.0 Pro Preview (Low)\",\"low\",null,null,null,null,null,null], [\"Nova 2.0 Pro Preview (Medium)\",\"medium\",\"reasoning\",null,null,null,null,256000], [\"Nova 2.0 Pro Preview (Medium)\",\"medium\",null,null,null,null,null,null], [\"Nova 2.0 Pro Preview (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,256000], [\"Nova 2.0 Pro Preview (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",null,null,null,null,null,null], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3 Coder Next\",null,null,null,null,null,null,null], [\"Qwen3.5 122B A10B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 122B A10B (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Qwen3.5 122B A10B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 122B A10B (Reasoning)\",null,null,null,null,null,null,null], [\"Qwen3.5 27B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 27B (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Qwen3.5 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 27B (Reasoning)\",null,null,null,null,null,null,null], [\"Qwen3.5 397B A17B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 397B A17B (Non-reasoning)\",\"non-reasoning\",null,null,null,null,null,null], [\"Qwen3.5 397B A17B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 397B A17B (Reasoning)\",null,null,null,null,null,null,null], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.5 9B (Reasoning)\",null,null,null,null,null,null,null], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,null,null,null,null,null,null], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,null,null,null,null,null,null], [\"Qwen3.6 Max Preview\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.6 Max Preview\",null,null,null,null,null,null,null], [\"Qwen3.7 Max\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3.7 Max\",null,null,null,null,null,null,null], [\"Qwen3.7 Plus\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3.7 Plus\",null,null,null,null,null,null,null], [\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000], [\"Qwen3.8 Max\",null,null,null,null,null,null,null], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,null,null,null,null,null,null], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Mini 4\",null,null,null,null,null,null,null], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 3\",null,null,null,null,null,null,null], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Solar Pro 4\",null,null,null,null,null,null,null], [\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Step 3.7 Flash\",null,null,null,null,null,null,null], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,null,null,null,null,null,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "aa-omniscience",
+          "detail": "250 -> 92 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "apex-agents",
+          "detail": "30 -> 29; missing 1: [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "apex-agents",
+          "detail": "30 -> 29 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "artificial-analysis-intelligence-index",
+          "detail": "v4.3.2 -> v5.0",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "artificial-analysis-intelligence-index",
+          "detail": "57 -> 21; missing 36: alibaba-qwen3-6-27b, alibaba-qwen3-7-max, alibaba-qwen3-7-plus, anthropic-claude-fable-5, anthropic-claude-opus-4-6, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, deepseek-deepseek-v4-flash, google-gemini-3-1-pro-preview, google-gemini-3-5-flash, google-gemini-3-6-flash, google-gemini-3-7-flash, meta-muse-spark, meta-muse-spark-1-1, meta-muse-spark-1-2, moonshot-kimi-k2-6, moonshot-kimi-k2-7-code, moonshot-kimi-k3, openai-gpt-5-2-codex, openai-gpt-5-4, openai-gpt-5-4-mini, openai-gpt-5-4-nano, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-5-6-terra, openai-gpt-6-sol, xai-grok-4-3, xai-grok-4-5, xai-grok-4-6, xiaomi-mimo-v2-5-pro, zai-glm-5-1, zai-glm-5-2",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "artificial-analysis-intelligence-index",
+          "detail": "248 -> 76; missing 172: [\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,null], [\"Celeris-1\",null,\"reasoning\",null,null,null,null,null], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 4.6 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 4.6 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 4.7 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 4.7 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 4.8 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 5 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 5 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 5 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 5 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Claude Opus 5 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 4.6 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 4.6 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 5 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 5 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 5 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 5 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 5 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Claude Sonnet 5 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V3.2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V3.2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash 0420 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash 0420 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash 0420 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash 0731 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash Vision (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Pro 0424 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Pro 0424 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Pro 0424 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4 Pro 0813 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"DeepSeek V4.1 Flash (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GLM-5 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GLM-5 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"GLM-5.1 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GLM-5.1 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"GLM-5.2 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GLM-5.2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,null], [\"GPT-5.2 Codex (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 mini (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 mini (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 mini (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 nano (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 nano (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.4 nano (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.5 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"GPT-5.5 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"GPT-5.5 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-5.5 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.5 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Luna (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Luna (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Luna (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Luna (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Luna (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Luna (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Sol (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Sol (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Sol (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Sol (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Sol (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Terra (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Terra (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Terra (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Terra (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Terra (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-5.6 Terra (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"GPT-6 Sol (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Gemini 3 Flash Preview (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Gemini 3 Flash Preview (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Gemini 3.1 Flash-Lite\",null,\"reasoning\",null,null,null,null,null], [\"Gemini 3.1 Pro Preview\",null,\"reasoning\",null,null,null,null,null], [\"Gemini 3.5 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Gemini 3.5 Flash (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Gemini 3.6 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Gemini 3.7 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Gemini 3.7 Flash (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Gemini 3.7 Flash (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Gemma 4 31B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Gemma 4 31B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,null], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,null], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Grok 4.20 0309 v2 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Grok 4.3 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Grok 4.3 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Grok 4.3 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Grok 4.3 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Grok 4.5 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Grok 4.6 (High)\",\"high\",\"reasoning\",null,null,null,null,null], [\"Grok 4.6 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Grok 4.6 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Grok 4.6 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Hy3\",null,\"reasoning\",null,null,null,null,null], [\"Kimi K2.6 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Kimi K2.6 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,null], [\"Kimi K3 (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Kimi K3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,null], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,null], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,null], [\"Ling-3.0-flash-Fin\",null,\"reasoning\",null,null,null,null,null], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,null], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,null], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,null], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,null], [\"MiMo-V2.5-Pro (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"MiMo-V2.5-Pro (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"MiniMax-M2.7\",null,\"reasoning\",null,null,null,null,null], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,null], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,null], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.2 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Muse Spark 1.3 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null], [\"Muse Spark\",null,\"reasoning\",null,null,null,null,null], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,null], [\"Nemotron Cascade 2 30B A3B\",null,\"reasoning\",null,null,null,null,null], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,null], [\"Nova 2.0 Pro Preview (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Nova 2.0 Pro Preview (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Nova 2.0 Pro Preview (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,null], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.5 122B A10B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Qwen3.5 122B A10B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.5 27B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Qwen3.5 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.5 397B A17B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Qwen3.5 397B A17B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.6 Max Preview\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.7 Max\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.7 Plus\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.8 2.4T A95B\",null,\"reasoning\",null,null,null,null,null], [\"Qwen3.8 27B (Low)\",\"low\",\"reasoning\",null,null,null,null,null], [\"Qwen3.8 27B (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null], [\"Qwen3.8 27B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null], [\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,null], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,null], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,null], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,null], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,null], [\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,null], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "critpt",
+          "detail": "58 -> 55; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "critpt",
+          "detail": "251 -> 214; missing 37: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "critpt",
+          "detail": "251 -> 214 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "52 -> 49; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "199 -> 162; missing 37: [\"Celeris-1\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,128000], [\"Granite 4.2 30B\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,131072], [\"Granite 4.2 3B\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,131072], [\"Granite 4.2 8B\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,131072], [\"Hy3\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"LongCat 2.0\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"Mercury 2\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,128000], [\"Mercury 2.5\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,260000], [\"MiMo-V2.5\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"Ministral 3 14B\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Ministral 3 3B\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Ministral 3 8B\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Mistral Large 3\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"North Mini Code\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144], [\"Ring-2.6-1T\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,262144], [\"Solar Mini 4\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1048576], [\"Solar Pro 3\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,128000], [\"Solar Pro 4\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,512000], [\"Trinity Large Thinking\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "199 -> 162 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "gdpval-aa",
+          "detail": "55 -> 52; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "gdpval-aa",
+          "detail": "218 -> 181; missing 37: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "gdpval-aa",
+          "detail": "218 -> 181 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "detail": "46 -> 43; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "detail": "184 -> 150; missing 34: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "detail": "184 -> 150 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "humanitys-last-exam",
+          "detail": "57 -> 54; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "humanitys-last-exam",
+          "detail": "250 -> 213; missing 37: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "humanitys-last-exam",
+          "detail": "250 -> 213 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "ifbench",
+          "detail": "26 -> 24; missing 2: alibaba-qwen3-6-27b, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "ifbench",
+          "detail": "108 -> 87; missing 21: [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "ifbench",
+          "detail": "108 -> 87 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "livecodebench",
+          "detail": "14 -> 7; missing 7: [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "livecodebench",
+          "detail": "14 -> 7 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "scicode",
+          "detail": "52 -> 49; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "scicode",
+          "detail": "202 -> 165; missing 37: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.1 Flash\",null,\"reasoning\",null,null,null,null,1000000], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"Mercury 2.5\",null,\"reasoning\",null,null,null,null,260000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Mini 4\",null,\"reasoning\",null,null,null,null,1048576], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "scicode",
+          "detail": "202 -> 165 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "tau3-banking",
+          "detail": "43 -> 40; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "tau3-banking",
+          "detail": "145 -> 112; missing 33: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "tau3-banking",
+          "detail": "145 -> 112 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "terminal-bench-2-1",
+          "detail": "44 -> 41; missing 3: alibaba-qwen3-6-27b, meta-muse-spark-1-1, moonshot-kimi-k2-7-code",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "terminal-bench-2-1",
+          "detail": "152 -> 118; missing 34: [\"Celeris-1\",null,\"reasoning\",null,null,null,null,131072], [\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000], [\"Claude 4.5 Sonnet (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"GPT-5.5 Instant (June 2026)\",null,\"reasoning\",null,null,null,null,400000], [\"Gemma 4 E4B (Reasoning)\",null,\"reasoning\",null,null,null,null,128000], [\"Granite 4.2 30B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 3B\",null,\"reasoning\",null,null,null,null,131072], [\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,131072], [\"Hy3\",null,\"reasoning\",null,null,null,null,256000], [\"Kimi K2.7 Code\",null,\"reasoning\",null,null,null,null,256000], [\"Ling 3.0 Flash\",null,\"reasoning\",null,null,null,null,262144], [\"Ling 3.0 Tiny\",null,\"reasoning\",null,null,null,null,262144], [\"LongCat 2.0\",null,\"reasoning\",null,null,null,null,1000000], [\"Mercury 2\",null,\"reasoning\",null,null,null,null,128000], [\"MiMo-V2.5\",null,\"reasoning\",null,null,null,null,1000000], [\"Ministral 3 14B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 3B\",null,\"reasoning\",null,null,null,null,256000], [\"Ministral 3 8B\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Large 3\",null,\"reasoning\",null,null,null,null,256000], [\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,256000], [\"Muse Spark 1.1 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,1048576], [\"NVIDIA Nemotron 3 Nano 30B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3 Super 120B A12B (Reasoning)\",null,\"reasoning\",null,null,null,null,1000000], [\"Nemotron 3.5 Lightning\",null,\"reasoning\",null,null,null,null,1000000], [\"North Mini Code\",null,\"reasoning\",null,null,null,null,256000], [\"Quasar 438B (Max, Based on GLM-5.2)\",\"max\",\"reasoning\",null,null,null,null,1000000], [\"Qwen3 Coder Next\",null,\"reasoning\",null,null,null,null,256000], [\"Qwen3.5 9B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 27B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Qwen3.6 35B A3B (Reasoning)\",null,\"reasoning\",null,null,null,null,262144], [\"Ring-2.6-1T\",null,\"reasoning\",null,null,null,null,262144], [\"Solar Pro 3\",null,\"reasoning\",null,null,null,null,128000], [\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000], [\"Trinity Large Thinking\",null,\"reasoning\",null,null,null,null,512000]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "terminal-bench-2-1",
+          "detail": "152 -> 118 included rows",
+          "kind": "included-coverage-decreased"
+        },
+        {
+          "benchmarkId": "aa-3d",
+          "detail": "https://artificialanalysis.ai/evaluations/aa-3d",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "aa-analyst-agent",
+          "detail": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "aa-personalitybench",
+          "detail": "https://artificialanalysis.ai/evaluations/aa-personalitybench",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "aime-2025",
+          "detail": "https://artificialanalysis.ai/evaluations/aime-2025",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "automationbench-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/automationbench-aa",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "code2video-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/code2video-aa",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "critpt-v2",
+          "detail": "https://artificialanalysis.ai/evaluations/critpt-v2",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "enterprise-ops-gym-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "frontiercode",
+          "detail": "https://artificialanalysis.ai/evaluations/frontiercode",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "frontiercode-2-0",
+          "detail": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "global-mmlu-lite",
+          "detail": "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "harvey-lab-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "healthbench",
+          "detail": "https://artificialanalysis.ai/evaluations/healthbench",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "hle-diamond",
+          "detail": "https://artificialanalysis.ai/evaluations/hle-diamond",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "itbench-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/itbench-aa",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "math-500",
+          "detail": "https://artificialanalysis.ai/evaluations/math-500",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "mlcr-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "mmmu-pro",
+          "detail": "https://artificialanalysis.ai/evaluations/mmmu-pro",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "omniscience",
+          "detail": "Directory v1.1; stored scores (unknown)",
+          "kind": "catalog-snapshot-version-mismatch"
+        },
+        {
+          "benchmarkId": "tau2-bench",
+          "detail": "https://artificialanalysis.ai/evaluations/tau2-bench",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "terminal-bench-science",
+          "detail": "https://artificialanalysis.ai/evaluations/terminal-bench-science",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "terminalbench-4-0",
+          "detail": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "terminalbench-hard",
+          "detail": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "aa-3d",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "AA-3D",
+          "url": "https://artificialanalysis.ai/evaluations/aa-3d",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "aa-analyst-agent",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "AA-AnalystAgent",
+          "url": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
+          "version": null
+        },
+        {
+          "benchmarkId": "aa-briefcase",
+          "captureRegistered": true,
+          "id": "aa-briefcase",
+          "reason": null,
+          "status": "scored",
+          "title": "AA-Briefcase v1.1",
+          "url": "https://artificialanalysis.ai/evaluations/aa-briefcase",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "aa-personalitybench",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "AA-PersonalityBench",
+          "url": "https://artificialanalysis.ai/evaluations/aa-personalitybench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "aime-2025",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "AIME 2025",
+          "url": "https://artificialanalysis.ai/evaluations/aime-2025",
+          "version": null
+        },
+        {
+          "benchmarkId": "apex-agents",
+          "captureRegistered": true,
+          "id": "apex-agents-aa",
+          "reason": null,
+          "status": "scored",
+          "title": "APEX-Agents-AA",
+          "url": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
+          "version": null
+        },
+        {
+          "benchmarkId": "artificial-analysis-intelligence-index",
+          "captureRegistered": true,
+          "id": "artificial-analysis-intelligence-index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Artificial Analysis Intelligence Index v5.0",
+          "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index",
+          "version": "v5.0"
+        },
+        {
+          "benchmarkId": "aa-lcr",
+          "captureRegistered": true,
+          "id": "artificial-analysis-long-context-reasoning",
+          "reason": null,
+          "status": "scored",
+          "title": "AA-LCR v1.1",
+          "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "automationbench-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "AutomationBench-AA",
+          "url": "https://artificialanalysis.ai/evaluations/automationbench-aa",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "code2video-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Code2Video-AA",
+          "url": "https://artificialanalysis.ai/evaluations/code2video-aa",
+          "version": null
+        },
+        {
+          "benchmarkId": "critpt",
+          "captureRegistered": true,
+          "id": "critpt",
+          "reason": null,
+          "status": "scored",
+          "title": "CritPt",
+          "url": "https://artificialanalysis.ai/evaluations/critpt",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "critpt-v2",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "CritPt v2",
+          "url": "https://artificialanalysis.ai/evaluations/critpt-v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "enterprise-ops-gym-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "EnterpriseOps-Gym-AA",
+          "url": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "frontiercode",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "FrontierCode 1.1",
+          "url": "https://artificialanalysis.ai/evaluations/frontiercode",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "frontiercode-2-0",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "FrontierCode 2.0",
+          "url": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
+          "version": "v2.0"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "captureRegistered": true,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "scored",
+          "title": "GDP.pdf",
+          "url": "https://artificialanalysis.ai/evaluations/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdpval-aa",
+          "captureRegistered": true,
+          "id": "gdpval-aa",
+          "reason": null,
+          "status": "scored",
+          "title": "GDPval-AA v2.1",
+          "url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+          "version": "v2.1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "global-mmlu-lite",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Global-MMLU-Lite",
+          "url": "https://artificialanalysis.ai/evaluations/global-mmlu-lite",
+          "version": null
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "captureRegistered": true,
+          "id": "gpqa-diamond",
+          "reason": null,
+          "status": "scored",
+          "title": "GPQA Diamond",
+          "url": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "harvey-lab-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Harvey LAB-AA v1.1",
+          "url": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "healthbench",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "HealthBench",
+          "url": "https://artificialanalysis.ai/evaluations/healthbench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hle-diamond",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "HLE-Diamond",
+          "url": "https://artificialanalysis.ai/evaluations/hle-diamond",
+          "version": null
+        },
+        {
+          "benchmarkId": "humanitys-last-exam",
+          "captureRegistered": true,
+          "id": "humanitys-last-exam",
+          "reason": null,
+          "status": "scored",
+          "title": "Humanity's Last Exam",
+          "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+          "version": null
+        },
+        {
+          "benchmarkId": "ifbench",
+          "captureRegistered": true,
+          "id": "ifbench",
+          "reason": null,
+          "status": "scored",
+          "title": "IFBench",
+          "url": "https://artificialanalysis.ai/evaluations/ifbench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "itbench-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "ITBench-AA",
+          "url": "https://artificialanalysis.ai/evaluations/itbench-aa",
+          "version": null
+        },
+        {
+          "benchmarkId": "livecodebench",
+          "captureRegistered": true,
+          "id": "livecodebench",
+          "reason": null,
+          "status": "scored",
+          "title": "LiveCodeBench",
+          "url": "https://artificialanalysis.ai/evaluations/livecodebench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "math-500",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "MATH-500",
+          "url": "https://artificialanalysis.ai/evaluations/math-500",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "mlcr-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "MLCR-AA",
+          "url": "https://artificialanalysis.ai/evaluations/mlcr-aa",
+          "version": null
+        },
+        {
+          "benchmarkId": "mmlu-pro",
+          "captureRegistered": true,
+          "id": "mmlu-pro",
+          "reason": null,
+          "status": "scored",
+          "title": "MMLU-Pro",
+          "url": "https://artificialanalysis.ai/evaluations/mmlu-pro",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "mmmu-pro",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "MMMU-Pro",
+          "url": "https://artificialanalysis.ai/evaluations/mmmu-pro",
+          "version": null
+        },
+        {
+          "benchmarkId": "aa-omniscience",
+          "captureRegistered": true,
+          "id": "omniscience",
+          "reason": null,
+          "status": "scored",
+          "title": "AA-Omniscience v1.1",
+          "url": "https://artificialanalysis.ai/evaluations/omniscience",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "scicode",
+          "captureRegistered": true,
+          "id": "scicode",
+          "reason": null,
+          "status": "scored",
+          "title": "SciCode",
+          "url": "https://artificialanalysis.ai/evaluations/scicode",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "tau2-bench",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "𝜏²-Bench Telecom",
+          "url": "https://artificialanalysis.ai/evaluations/tau2-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "tau3-banking",
+          "captureRegistered": true,
+          "id": "tau3-banking",
+          "reason": null,
+          "status": "scored",
+          "title": "𝜏³-Banking",
+          "url": "https://artificialanalysis.ai/evaluations/tau3-banking",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "terminal-bench-science",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Terminal-Bench-Science 0.1",
+          "url": "https://artificialanalysis.ai/evaluations/terminal-bench-science",
+          "version": "v0.1"
+        },
+        {
+          "benchmarkId": "terminal-bench-2-1",
+          "captureRegistered": true,
+          "id": "terminalbench-2-1",
+          "reason": null,
+          "status": "scored",
+          "title": "Terminal-Bench 2.1",
+          "url": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
+          "version": "v2.1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "terminalbench-4-0",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Terminal-Bench 4.0",
+          "url": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
+          "version": "v4.0"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "terminalbench-hard",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Terminal-Bench Hard",
+          "url": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:30:56.781Z",
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:27.906Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:50.026Z",
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-28T04:33:27.364Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:53.646Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:07.837Z",
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-28T04:33:50.783Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T06:04:54.006Z",
       "error": null,
-      "findings": [],
+      "findings": [
+        {
+          "benchmarkId": "frontier-code-2-0",
+          "detail": "98 rows; 98 included",
+          "kind": "benchmark-materialized"
+        }
+      ],
       "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-27T00:20:12.361Z",
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-28T06:04:53.772Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:15:54.763Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T03:26:46.220Z",
       "sourceId": "frontier-swe"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:15:54.763Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:31:00.008Z",
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:25.487Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-27T00:20:40.343Z",
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-28T04:33:23.384Z",
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:15:54.763Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:31:17.114Z",
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:33.968Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:56.382Z",
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:33.495Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:36.405Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:58.036Z",
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:35.946Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:38.799Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:59.613Z",
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:38.324Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:44.421Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:02.792Z",
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:44.075Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:46.680Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:04.404Z",
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:46.414Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T05:59:18.593Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:06.114Z",
+      "findings": [
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T05:59:18.172Z",
+      "sourceId": "surge-dayjob-tax"
+    },
+    {
+      "checkedAt": "2026-10-28T04:33:48.798Z",
+      "error": null,
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:48.525Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:33:41.952Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:01.162Z",
+      "findings": [
+        {
+          "benchmarkId": "dayjob-tax",
+          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "gdp-pdf",
+          "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sudo-l7",
+          "detail": "https://surgehq.ai/benchmarks/sudo-l7",
+          "kind": "unintegrated"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "antidote",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Antidote: Everyday Edition benchmark",
+          "url": "https://surgehq.ai/benchmarks/antidote",
+          "version": null
+        },
+        {
+          "benchmarkId": "chartography",
+          "captureRegistered": true,
+          "id": "chartography",
+          "reason": null,
+          "status": "scored",
+          "title": "View Chartography benchmark",
+          "url": "https://surgehq.ai/benchmarks/chartography",
+          "version": null
+        },
+        {
+          "benchmarkId": "complex-constraints",
+          "captureRegistered": false,
+          "id": "complex-constraints",
+          "reason": null,
+          "status": "scored",
+          "title": "View ComplexConstraints benchmark",
+          "url": "https://surgehq.ai/benchmarks/complex-constraints",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-finance",
+          "captureRegistered": true,
+          "id": "dayjob-finance",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Finance benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+          "version": null
+        },
+        {
+          "benchmarkId": "dayjob-healthcare",
+          "captureRegistered": true,
+          "id": "dayjob-healthcare",
+          "reason": null,
+          "status": "scored",
+          "title": "View DAYJOB: Healthcare benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "dayjob-tax",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View DAYJOB: Tax benchmark",
+          "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "enterprisebench-corecraft",
+          "captureRegistered": true,
+          "id": "enterprisebench-corecraft",
+          "reason": null,
+          "status": "scored",
+          "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "gdp-pdf",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View GDP.pdf benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+          "version": null
+        },
+        {
+          "benchmarkId": "gdp-xlsx",
+          "captureRegistered": true,
+          "id": "gdp-xlsx",
+          "reason": null,
+          "status": "scored",
+          "title": "View GDP.xlsx benchmark",
+          "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "handbook",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View HANDBOOK.md Agents benchmark",
+          "url": "https://surgehq.ai/benchmarks/handbook",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "hemingway-bench",
+          "reason": "User decision: prioritize current frontier model coverage; defer this benchmark.",
+          "status": "reviewed-deferred",
+          "title": "View Hemingway-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "riemann-bench",
+          "captureRegistered": true,
+          "id": "riemann-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "View Riemann-bench benchmark",
+          "url": "https://surgehq.ai/benchmarks/riemann-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "sudo-l7",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "View sudo L7 benchmark",
+          "url": "https://surgehq.ai/benchmarks/sudo-l7",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:33:41.401Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:34:26.841Z",
       "error": null,
-      "findings": [],
-      "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-27T00:20:12.718Z",
+      "findings": [
+        {
+          "benchmarkId": "sage",
+          "detail": "1 -> 1.1",
+          "kind": "versions-changed"
+        },
+        {
+          "benchmarkId": "sage",
+          "detail": "38 -> 13; missing 25: alibaba-qwen3-6-27b, alibaba-qwen3-6-plus, alibaba-qwen3-8-27b, anthropic-claude-fable-5, anthropic-claude-fable-5-1, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-5-flash, google-gemini-3-6-flash, google-gemini-3-7-flash, google-gemini-3-pro-preview, meta-muse-spark-1-1, meta-muse-spark-1-2, moonshot-kimi-k2-6, openai-gpt-5-4-mini, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-astra, openai-gpt-6-sol, xai-grok-4-5, xai-grok-4-6",
+          "kind": "models-lost"
+        },
+        {
+          "benchmarkId": "sage",
+          "detail": "91 -> 28; missing 70: [\"alibaba/qwen3-vl-plus-2025-09-23\",null,null,null,null,null,null,null], [\"alibaba/qwen3.5-plus-thinking\",null,null,null,null,null,null,null], [\"alibaba/qwen3.6-27b\",null,null,null,null,null,null,null], [\"alibaba/qwen3.6-plus\",null,null,null,null,null,null,null], [\"alibaba/qwen3.8-27b\",\"xhigh\",null,null,null,null,null,null], [\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-1-20250805\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-1-20250805-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-5-20251101\",\"high\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-5-20251101-thinking\",\"high\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-6-thinking\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-7\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-8\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-20250514\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-20250514-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-5-20250929\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-5-20250929-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-6\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null], [\"deepseek/deepseek-v4.1-flash\",\"high\",null,null,null,null,null,null], [\"fireworks/llama4-maverick-instruct-basic\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-lite\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-lite-preview-09-2025\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-lite-preview-09-2025-thinking\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-preview-09-2025\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-preview-09-2025-thinking\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-thinking\",null,null,null,null,null,null,null], [\"google/gemini-2.5-pro\",null,null,null,null,null,null,null], [\"google/gemini-3-flash-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3-pro-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.1-flash-lite-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.5-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.6-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null], [\"grok/grok-4-0709\",null,null,null,null,null,null,null], [\"grok/grok-4-1-fast-non-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4-fast-non-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4-fast-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4.20-0309-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4.3\",null,null,null,null,null,null,null], [\"grok/grok-4.5\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.6\",\"high\",null,null,null,null,null,null], [\"kimi/kimi-k2.5-thinking\",null,null,null,null,null,null,null], [\"kimi/kimi-k2.6\",null,null,null,null,null,null,null], [\"meta/muse_spark_1_1\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_2\",\"xhigh\",null,null,null,null,null,null], [\"mistralai/mistral-large-2512\",null,null,null,null,null,null,null], [\"openai/gpt-5-2025-08-07\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5-mini-2025-08-07\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5-nano-2025-08-07\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.1-2025-11-13\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.2-2025-12-11\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-2026-03-05\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-nano-2026-03-17\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.5\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.6-luna\",\"max\",null,null,null,null,null,null], [\"openai/gpt-5.6-sol\",\"max\",null,null,null,null,null,null], [\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null], [\"openai/gpt-6-sol\",\"max\",null,null,null,null,null,null], [\"openai/o3-2025-04-16\",\"high\",null,null,null,null,null,null], [\"openai/o4-mini-2025-04-16\",\"high\",null,null,null,null,null,null], [\"thinkingmachines/inkling\",null,null,null,null,null,null,null], [\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null], [\"together/meta-llama/Llama-4-Scout-17B-16E-Instruct\",null,null,null,null,null,null,null], [\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "aime",
+          "detail": "https://www.vals.ai/benchmarks/aime",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "biomysterybench",
+          "detail": "https://www.vals.ai/benchmarks/biomysterybench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "case_law_v2",
+          "detail": "https://www.vals.ai/benchmarks/case_law_v2",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "claimbench",
+          "detail": "https://www.vals.ai/benchmarks/claimbench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "code-migration-v1-1",
+          "detail": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "cua_bench",
+          "detail": "https://www.vals.ai/benchmarks/cua_bench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "emb-v1-1",
+          "detail": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "fabv2-1",
+          "detail": "https://www.vals.ai/benchmarks/fabv2-1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "hlab-v1",
+          "detail": "https://www.vals.ai/benchmarks/hlab-v1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "inference_provider",
+          "detail": "https://www.vals.ai/benchmarks/inference_provider",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "math500",
+          "detail": "https://www.vals.ai/benchmarks/math500",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "medqa",
+          "detail": "https://www.vals.ai/benchmarks/medqa",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mental-health",
+          "detail": "https://www.vals.ai/benchmarks/mental-health",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "mgsm",
+          "detail": "https://www.vals.ai/benchmarks/mgsm",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mmmu",
+          "detail": "https://www.vals.ai/benchmarks/mmmu",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mortgage_tax",
+          "detail": "https://www.vals.ai/benchmarks/mortgage_tax",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "mysterymechanism",
+          "detail": "https://www.vals.ai/benchmarks/mysterymechanism",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "poker_agent",
+          "detail": "https://www.vals.ai/benchmarks/poker_agent",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "public-benefits-bench-v1",
+          "detail": "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "robo_bench",
+          "detail": "https://www.vals.ai/benchmarks/robo_bench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "rsi_index",
+          "detail": "https://www.vals.ai/benchmarks/rsi_index",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "sage",
+          "detail": "https://www.vals.ai/benchmarks/sage",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "science_index",
+          "detail": "https://www.vals.ai/benchmarks/science_index",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "srebench",
+          "detail": "https://www.vals.ai/benchmarks/srebench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "swebench-multimodal",
+          "detail": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "tax_agent_bench",
+          "detail": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "terminal-bench-2",
+          "detail": "https://www.vals.ai/benchmarks/terminal-bench-2",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "terminal-bench-4",
+          "detail": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "terminal-bench-science",
+          "detail": "https://www.vals.ai/benchmarks/terminal-bench-science",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "vals_router_index",
+          "detail": "https://www.vals.ai/benchmarks/vals_router_index",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "vcb-1-100",
+          "detail": "https://www.vals.ai/benchmarks/vcb-1-100",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "voice-code-bench",
+          "detail": "https://www.vals.ai/benchmarks/voice-code-bench",
+          "kind": "captured-not-scored"
+        }
+      ],
+      "inventory": [
+        {
+          "benchmarkId": "aime",
+          "captureRegistered": true,
+          "id": "aime",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "AIME",
+          "url": "https://www.vals.ai/benchmarks/aime",
+          "version": null
+        },
+        {
+          "benchmarkId": "biomysterybench",
+          "captureRegistered": true,
+          "id": "biomysterybench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "BioMysteryBench",
+          "url": "https://www.vals.ai/benchmarks/biomysterybench",
+          "version": null
+        },
+        {
+          "benchmarkId": "case-law-v2",
+          "captureRegistered": true,
+          "id": "case_law_v2",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "CaseLaw v2",
+          "url": "https://www.vals.ai/benchmarks/case_law_v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "claimbench",
+          "captureRegistered": true,
+          "id": "claimbench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "ClaimBench",
+          "url": "https://www.vals.ai/benchmarks/claimbench",
+          "version": null
+        },
+        {
+          "benchmarkId": "code-migration",
+          "captureRegistered": true,
+          "id": "code-migration",
+          "reason": null,
+          "status": "scored",
+          "title": "Code Migration",
+          "url": "https://www.vals.ai/benchmarks/code-migration",
+          "version": null
+        },
+        {
+          "benchmarkId": "code-migration-v1-1",
+          "captureRegistered": true,
+          "id": "code-migration-v1-1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Code Migration v1.1",
+          "url": "https://www.vals.ai/benchmarks/code-migration-v1-1",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "corpfin",
+          "captureRegistered": true,
+          "id": "corp_fin_v2",
+          "reason": null,
+          "status": "scored",
+          "title": "CorpFin v2",
+          "url": "https://www.vals.ai/benchmarks/corp_fin_v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "cua-bench",
+          "captureRegistered": true,
+          "id": "cua_bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "CUA-bench",
+          "url": "https://www.vals.ai/benchmarks/cua_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "cyber",
+          "captureRegistered": true,
+          "id": "cyber",
+          "reason": null,
+          "status": "scored",
+          "title": "CyberBench v1.1",
+          "url": "https://www.vals.ai/benchmarks/cyber",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "emb",
+          "captureRegistered": true,
+          "id": "emb",
+          "reason": null,
+          "status": "scored",
+          "title": "Excel Modeling Benchmark",
+          "url": "https://www.vals.ai/benchmarks/emb",
+          "version": null
+        },
+        {
+          "benchmarkId": "emb-v1-1",
+          "captureRegistered": true,
+          "id": "emb-v1-1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Excel Modeling Benchmark v1.1",
+          "url": "https://www.vals.ai/benchmarks/emb-v1-1",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "finance-agent-v2",
+          "captureRegistered": true,
+          "id": "fabv2",
+          "reason": null,
+          "status": "scored",
+          "title": "Finance Agent v2",
+          "url": "https://www.vals.ai/benchmarks/fabv2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "fabv2-1",
+          "captureRegistered": true,
+          "id": "fabv2-1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Finance Agent v2.1",
+          "url": "https://www.vals.ai/benchmarks/fabv2-1",
+          "version": "v2.1"
+        },
+        {
+          "benchmarkId": "finance-index",
+          "captureRegistered": true,
+          "id": "finance_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Finance Index",
+          "url": "https://www.vals.ai/benchmarks/finance_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "captureRegistered": true,
+          "id": "gpqa",
+          "reason": null,
+          "status": "scored",
+          "title": "GPQA Diamond",
+          "url": "https://www.vals.ai/benchmarks/gpqa",
+          "version": null
+        },
+        {
+          "benchmarkId": "hlab",
+          "captureRegistered": true,
+          "id": "hlab",
+          "reason": null,
+          "status": "scored",
+          "title": "HLAB-Vals-1.1",
+          "url": "https://www.vals.ai/benchmarks/hlab",
+          "version": null
+        },
+        {
+          "benchmarkId": "hlab-v1",
+          "captureRegistered": true,
+          "id": "hlab-v1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Harvey's Legal Agent Benchmark v1",
+          "url": "https://www.vals.ai/benchmarks/hlab-v1",
+          "version": "v1"
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "inference_provider",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals Inference Provider Index",
+          "url": "https://www.vals.ai/benchmarks/inference_provider",
+          "version": null
+        },
+        {
+          "benchmarkId": "ioi",
+          "captureRegistered": true,
+          "id": "ioi",
+          "reason": null,
+          "status": "scored",
+          "title": "IOI v2",
+          "url": "https://www.vals.ai/benchmarks/ioi",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "livecodebench",
+          "captureRegistered": true,
+          "id": "lcb",
+          "reason": null,
+          "status": "scored",
+          "title": "LiveCodeBench",
+          "url": "https://www.vals.ai/benchmarks/lcb",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-bench",
+          "captureRegistered": true,
+          "id": "legal_bench",
+          "reason": null,
+          "status": "scored",
+          "title": "LegalBench",
+          "url": "https://www.vals.ai/benchmarks/legal_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-index",
+          "captureRegistered": true,
+          "id": "legal_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Legal Index",
+          "url": "https://www.vals.ai/benchmarks/legal_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "legal-research",
+          "captureRegistered": true,
+          "id": "legal_research",
+          "reason": null,
+          "status": "scored",
+          "title": "Legal Research Bench",
+          "url": "https://www.vals.ai/benchmarks/legal_research",
+          "version": null
+        },
+        {
+          "benchmarkId": "math500",
+          "captureRegistered": true,
+          "id": "math500",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MATH 500",
+          "url": "https://www.vals.ai/benchmarks/math500",
+          "version": null
+        },
+        {
+          "benchmarkId": "medcode",
+          "captureRegistered": true,
+          "id": "medcode",
+          "reason": null,
+          "status": "scored",
+          "title": "MedCode",
+          "url": "https://www.vals.ai/benchmarks/medcode",
+          "version": null
+        },
+        {
+          "benchmarkId": "medqa",
+          "captureRegistered": true,
+          "id": "medqa",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MedQA",
+          "url": "https://www.vals.ai/benchmarks/medqa",
+          "version": null
+        },
+        {
+          "benchmarkId": "medscribe",
+          "captureRegistered": true,
+          "id": "medscribe",
+          "reason": null,
+          "status": "scored",
+          "title": "MedScribe",
+          "url": "https://www.vals.ai/benchmarks/medscribe",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "mental-health",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "SAFE-Teen",
+          "url": "https://www.vals.ai/benchmarks/mental-health",
+          "version": null
+        },
+        {
+          "benchmarkId": "mgsm",
+          "captureRegistered": true,
+          "id": "mgsm",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MGSM",
+          "url": "https://www.vals.ai/benchmarks/mgsm",
+          "version": null
+        },
+        {
+          "benchmarkId": "mmlu-pro",
+          "captureRegistered": true,
+          "id": "mmlu_pro",
+          "reason": null,
+          "status": "scored",
+          "title": "MMLU Pro",
+          "url": "https://www.vals.ai/benchmarks/mmlu_pro",
+          "version": null
+        },
+        {
+          "benchmarkId": "mmmu",
+          "captureRegistered": true,
+          "id": "mmmu",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MMMU Pro",
+          "url": "https://www.vals.ai/benchmarks/mmmu",
+          "version": null
+        },
+        {
+          "benchmarkId": "mortgage-tax",
+          "captureRegistered": true,
+          "id": "mortgage_tax",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MortgageTax",
+          "url": "https://www.vals.ai/benchmarks/mortgage_tax",
+          "version": null
+        },
+        {
+          "benchmarkId": "mysterymechanism",
+          "captureRegistered": true,
+          "id": "mysterymechanism",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "MysteryMechanism",
+          "url": "https://www.vals.ai/benchmarks/mysterymechanism",
+          "version": null
+        },
+        {
+          "benchmarkId": "poker-agent",
+          "captureRegistered": true,
+          "id": "poker_agent",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Poker Agent",
+          "url": "https://www.vals.ai/benchmarks/poker_agent",
+          "version": null
+        },
+        {
+          "benchmarkId": "programbench",
+          "captureRegistered": true,
+          "id": "programbench",
+          "reason": null,
+          "status": "scored",
+          "title": "ProgramBench",
+          "url": "https://www.vals.ai/benchmarks/programbench",
+          "version": null
+        },
+        {
+          "benchmarkId": "proofbench",
+          "captureRegistered": true,
+          "id": "proof_bench",
+          "reason": null,
+          "status": "scored",
+          "title": "ProofBench v1.1",
+          "url": "https://www.vals.ai/benchmarks/proof_bench",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "public-benefits-bench",
+          "captureRegistered": true,
+          "id": "public-benefits-bench",
+          "reason": null,
+          "status": "scored",
+          "title": "Public Benefits Bench v1.1",
+          "url": "https://www.vals.ai/benchmarks/public-benefits-bench",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "public-benefits-bench-v1",
+          "captureRegistered": true,
+          "id": "public-benefits-bench-v1",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Public Benefits Bench v1",
+          "url": "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
+          "version": "v1"
+        },
+        {
+          "benchmarkId": "robo-bench",
+          "captureRegistered": true,
+          "id": "robo_bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Robo-bench",
+          "url": "https://www.vals.ai/benchmarks/robo_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "rsi_index",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals RSI Index",
+          "url": "https://www.vals.ai/benchmarks/rsi_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "sage",
+          "captureRegistered": true,
+          "id": "sage",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "SAGE",
+          "url": "https://www.vals.ai/benchmarks/sage",
+          "version": null
+        },
+        {
+          "benchmarkId": "science-index",
+          "captureRegistered": true,
+          "id": "science_index",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Vals Science Index",
+          "url": "https://www.vals.ai/benchmarks/science_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "skillsbench",
+          "captureRegistered": true,
+          "id": "skillsbench",
+          "reason": null,
+          "status": "scored",
+          "title": "SkillsBench",
+          "url": "https://www.vals.ai/benchmarks/skillsbench",
+          "version": null
+        },
+        {
+          "benchmarkId": "srebench",
+          "captureRegistered": true,
+          "id": "srebench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "SRE Bench",
+          "url": "https://www.vals.ai/benchmarks/srebench",
+          "version": null
+        },
+        {
+          "benchmarkId": "swe-bench",
+          "captureRegistered": true,
+          "id": "swebench",
+          "reason": null,
+          "status": "scored",
+          "title": "SWE-bench Verified",
+          "url": "https://www.vals.ai/benchmarks/swebench",
+          "version": null
+        },
+        {
+          "benchmarkId": "swebench-multimodal",
+          "captureRegistered": true,
+          "id": "swebench-multimodal",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "SWE-bench Multimodal",
+          "url": "https://www.vals.ai/benchmarks/swebench-multimodal",
+          "version": null
+        },
+        {
+          "benchmarkId": "tax-agent-bench",
+          "captureRegistered": true,
+          "id": "tax_agent_bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Tax Agent Bench",
+          "url": "https://www.vals.ai/benchmarks/tax_agent_bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "tax-eval-v2",
+          "captureRegistered": true,
+          "id": "tax_eval_v2",
+          "reason": null,
+          "status": "scored",
+          "title": "TaxEval v2",
+          "url": "https://www.vals.ai/benchmarks/tax_eval_v2",
+          "version": "v2"
+        },
+        {
+          "benchmarkId": "terminal-bench-2",
+          "captureRegistered": true,
+          "id": "terminal-bench-2",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Terminal-Bench 2.0",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-2",
+          "version": "v2.0"
+        },
+        {
+          "benchmarkId": "terminal-bench-2-1",
+          "captureRegistered": true,
+          "id": "terminal-bench-2-1",
+          "reason": null,
+          "status": "scored",
+          "title": "Terminal-Bench 2.1",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-2-1",
+          "version": "v2.1"
+        },
+        {
+          "benchmarkId": "terminal-bench-4",
+          "captureRegistered": true,
+          "id": "terminal-bench-4",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Terminal-Bench 4.0",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-4",
+          "version": "v4.0"
+        },
+        {
+          "benchmarkId": "terminal-bench-science",
+          "captureRegistered": true,
+          "id": "terminal-bench-science",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Terminal-Bench-Science",
+          "url": "https://www.vals.ai/benchmarks/terminal-bench-science",
+          "version": null
+        },
+        {
+          "benchmarkId": "time-horizon-index",
+          "captureRegistered": true,
+          "id": "time_horizon_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Time Horizon Index: KSP",
+          "url": "https://www.vals.ai/benchmarks/time_horizon_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "vals-index",
+          "captureRegistered": true,
+          "id": "vals_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Index",
+          "url": "https://www.vals.ai/benchmarks/vals_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "vals-multimodal-index",
+          "captureRegistered": true,
+          "id": "vals_multimodal_index",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Multimodal Index",
+          "url": "https://www.vals.ai/benchmarks/vals_multimodal_index",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "vals_router_index",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "Vals Router Index",
+          "url": "https://www.vals.ai/benchmarks/vals_router_index",
+          "version": null
+        },
+        {
+          "benchmarkId": "vcb-1-100",
+          "captureRegistered": true,
+          "id": "vcb-1-100",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Vibe Code Bench 1-100",
+          "url": "https://www.vals.ai/benchmarks/vcb-1-100",
+          "version": null
+        },
+        {
+          "benchmarkId": "vibe-code-bench",
+          "captureRegistered": true,
+          "id": "vibe-code",
+          "reason": null,
+          "status": "scored",
+          "title": "Vibe Code Bench v1.1",
+          "url": "https://www.vals.ai/benchmarks/vibe-code",
+          "version": "v1.1"
+        },
+        {
+          "benchmarkId": "voice-code-bench",
+          "captureRegistered": true,
+          "id": "voice-code-bench",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "VoiceCodeBench",
+          "url": "https://www.vals.ai/benchmarks/voice-code-bench",
+          "version": null
+        },
+        {
+          "benchmarkId": "web-search",
+          "captureRegistered": true,
+          "id": "web_search",
+          "reason": "Composite retained separately; excluded from capability scoring by existing policy.",
+          "status": "reviewed-deferred",
+          "title": "Vals Web Search Index",
+          "url": "https://www.vals.ai/benchmarks/web_search",
+          "version": null
+        }
+      ],
+      "scope": "live-catalog-and-snapshot",
+      "snapshotObservedAt": "2026-10-28T04:34:04.545Z",
       "sourceId": "vals-ai"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:15:54.763Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
+      "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:31:01.893Z",
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-10-27T00:21:22.287Z",
+      "checkedAt": "2026-10-28T04:34:02.419Z",
       "error": null,
       "findings": [],
       "inventory": [],
-      "scope": "offline-snapshot",
-      "snapshotObservedAt": "2026-10-23T10:42:18.880Z",
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-28T04:34:00.251Z",
       "sourceId": "zapier-automationbench"
     }
   ]

@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import {
   GDP_XLSX_PAGE_URL,
   materializeGdpXlsx,
@@ -6,6 +7,10 @@ import {
   DAYJOB_HEALTHCARE_PAGE_URL,
   materializeDayjobHealthcare,
 } from './surge-dayjob-healthcare-materializer.js';
+import {
+  DAYJOB_TAX_PAGE_URL,
+  materializeDayjobTax,
+} from './surge-dayjob-tax-materializer.js';
 import {
   DAYJOB_FINANCE_PAGE_URL,
   materializeDayjobFinance,
@@ -69,11 +74,7 @@ import {
   ARC_PRIZE_PAGE_URL,
 } from './arc-prize-materializer.js';
 import { materializeZapier, ZAPIER_PAGE_URL } from './zapier-materializer.js';
-import {
-  FRONTIER_CODE_DATA_URL,
-  FRONTIER_CODE_PAGE_URL,
-  materializeFrontierCode,
-} from './frontier-code-materializer.js';
+import { rebuildFrontierCodeFromEvidence } from './frontier-code-materializer.js';
 import {
   CandidateResultSchema,
   CostRecordSchema,
@@ -220,6 +221,7 @@ export function materializeSnapshots(
       { id: 'surge-riemann', reportFn: null },
       { id: 'surge-dayjob-finance', reportFn: null },
       { id: 'surge-dayjob-healthcare', reportFn: null },
+      { id: 'surge-dayjob-tax', reportFn: null },
       { id: 'surge-gdp-xlsx', reportFn: null },
       { id: 'epoch-ai', reportFn: null },
       { id: 'arc-prize', reportFn: null },
@@ -307,6 +309,17 @@ export function materializeSnapshots(
         parserVersion: revision,
         config: {
           mappings: config,
+          // The FrontierCode rebuild checks 1.1 against the saved snapshot, so
+          // a changed baseline must miss the cache and rerun that gate.
+          ...(src.id === 'frontier-code'
+            ? {
+                frontierCodeBaseline: createHash('sha256')
+                  .update(baseline['candidates.json'] ?? '')
+                  .update('\0')
+                  .update(baseline['costs.json'] ?? '')
+                  .digest('hex'),
+              }
+            : {}),
           // Epoch retains capture-time checks. Counts and generated inference are derived below.
           captureReport:
             src.id === 'epoch-ai'
@@ -442,6 +455,15 @@ export function materializeSnapshots(
           } else if (src.id === 'surge-dayjob-healthcare') {
             const page = evidenceFor(DAYJOB_HEALTHCARE_PAGE_URL);
             const result = materializeDayjobHealthcare(evidenceText(page), {
+              evidenceId: page.id,
+              observedAt: page.retrievedAt,
+              visualRowCount: Number(page.metadata?.renderedRows),
+            });
+            candidates = result.candidates;
+            customReportText = result.validationReport;
+          } else if (src.id === 'surge-dayjob-tax') {
+            const page = evidenceFor(DAYJOB_TAX_PAGE_URL);
+            const result = materializeDayjobTax(evidenceText(page), {
               evidenceId: page.id,
               observedAt: page.retrievedAt,
               visualRowCount: Number(page.metadata?.renderedRows),
@@ -648,37 +670,23 @@ export function materializeSnapshots(
               method: jsonRecord.method,
             });
           } else if (src.id === 'frontier-code') {
-            const dataRecord = evidenceList.find(
-              ({ requestUrl }) => requestUrl === FRONTIER_CODE_DATA_URL,
-            );
-            const pageRecord = evidenceList.find(
-              ({ requestUrl }) => requestUrl === FRONTIER_CODE_PAGE_URL,
-            );
-            if (!dataRecord || !pageRecord) {
-              throw new Error('Frontier Code export/page evidence not found');
-            }
-            const visualRowCount = Number(pageRecord.metadata?.renderedRows);
-            const visualTopTenMatched =
-              pageRecord.metadata?.renderedTopTenMatched === true;
-            if (!Number.isInteger(visualRowCount) || !visualTopTenMatched) {
-              throw new Error(
-                'Frontier Code evidence has no completed rendered-DOM validation',
-              );
-            }
-            const result = materializeFrontierCode(
-              readFileSync(join(repoRoot, dataRecord.artifactPath), 'utf8'),
-              readFileSync(join(repoRoot, pageRecord.artifactPath), 'utf8'),
+            const result = rebuildFrontierCodeFromEvidence(
+              evidenceList,
+              (artifactPath) =>
+                readFileSync(join(repoRoot, artifactPath), 'utf8'),
               {
-                dataEvidenceId: dataRecord.id,
-                pageEvidenceId: pageRecord.id,
-                observedAt: dataRecord.retrievedAt,
-                visualRowCount,
-                visualTopTenMatched,
+                candidates: baseline['candidates.json']
+                  ? CandidateResultSchema.array().parse(
+                      JSON.parse(baseline['candidates.json']),
+                    )
+                  : [],
+                costs: baseline['costs.json']
+                  ? CostRecordSchema.array().parse(
+                      JSON.parse(baseline['costs.json']),
+                    )
+                  : [],
               },
             );
-            if (result.topTenMismatches.length > 0) {
-              throw new Error(result.topTenMismatches.join('; '));
-            }
             candidates = result.candidates;
             materializedCosts = result.costs;
             customReportText = result.validationReport;

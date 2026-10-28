@@ -56,7 +56,7 @@
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count=<count> --visual-top-ten-matched
+pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --v2-visual-row-count=<Best rows> --v2-visual-all-row-count=<All rows> --v2-visual-top-ten-matched [--v2-hidden-model=<name> ...] [--v1-1-accept-value-changes]
 pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
@@ -78,10 +78,13 @@ Vals 僅將檔名為 `BenchmarkView` 的 Astro 元件當作一般評測表；`Rs
 
 Vals 的 `BenchmarkViewLoader` 頁面依來源明示的 `benchmarkViewUrl` 取得同站 `/_astro/benchmark_view_*.json`。HTML 與 JSON 各自保存原始 artifact，成績及成本的 Evidence 指向 JSON 的實際欄位；離線重建沿用這組已保存資料。每頁仍核對 `metadata.total_models` 與 `tasks.overall` 筆數；刷新為空或原有成績頁無法解析時停止寫入快照。
 
-Frontier Code 以頁面使用的官方靜態 JSON 取得 FrontierCode 1.1 Main 全部
-模型 × effort 設定、`new_score` 與平均 rollout `cost`，並以頁面 JSON-LD
-Top 10 和渲染後 DOM 雙重核對。Extended 只保留在原始 artifact，不混入 Main；
-來源 effort `none`、缺值與未解析 identity 都保持 null。
+Frontier Code 有兩個互不取代的 benchmark。FrontierCode 2.0（`frontier-code-2-0`）
+取自主頁使用的 2.0 靜態 JSON，以渲染後兩種檢視的列數與 JSON-LD Top 10 核對；
+頁面隱藏的模型不物化，2.0 成本只留在原始 artifact。FrontierCode 1.1
+（`frontier-code-1-1`）取自舊靜態 JSON 的 `v1_1` Main，主頁已不渲染，改以前一份
+快照核對，上游移除的列保留。兩者都保存全部模型 × effort 的 `new_score`；成本圖只用
+1.1 的平均 rollout `cost`。Extended 只保留在原始 artifact，不混入 Main；來源 effort
+`none`／`na`、缺值與未解析 identity 都保持 null。
 
 正常排程採統一頻率。新模型推出時，人工可額外觸發一次相同資料收集流程；不建立永久的「自動發現模型」旁路。
 

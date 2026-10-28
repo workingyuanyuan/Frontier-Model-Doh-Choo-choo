@@ -1,0 +1,19 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/0e/0e1975507d85095eb339358f792dd4d0df2f53648ea80a25c6be43d9118e02d3.html",
+    "byteLength": 391238,
+    "finalUrl": "https://surgehq.ai/benchmarks/dayjob-tax",
+    "id": "sha256:0e1975507d85095eb339358f792dd4d0df2f53648ea80a25c6be43d9118e02d3",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 16,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/dayjob-tax",
+    "retrievedAt": "2026-10-28T05:59:18.172Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:0e1975507d85095eb339358f792dd4d0df2f53648ea80a25c6be43d9118e02d3",
+    "sourceId": "surge-dayjob-tax"
+  }
+]

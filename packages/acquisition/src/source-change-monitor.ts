@@ -74,6 +74,7 @@ const CATALOG_URLS: Readonly<Record<string, string>> = {
   'surge-riemann': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-finance': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-healthcare': 'https://surgehq.ai/benchmarks',
+  'surge-dayjob-tax': 'https://surgehq.ai/benchmarks',
   'surge-gdp-xlsx': 'https://surgehq.ai/benchmarks',
 };
 const SURGE_ADAPTERS = {
@@ -100,6 +101,10 @@ const SURGE_ADAPTERS = {
   'dayjob-healthcare': {
     sourceId: 'surge-dayjob-healthcare',
     benchmarkId: 'dayjob-healthcare',
+  },
+  'dayjob-tax': {
+    sourceId: 'surge-dayjob-tax',
+    benchmarkId: 'dayjob-tax',
   },
   'gdp-xlsx': {
     sourceId: 'surge-gdp-xlsx',

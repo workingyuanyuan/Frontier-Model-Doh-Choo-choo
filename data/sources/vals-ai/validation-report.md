@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:62e4694c6e05fc63a599e1f43bce229b55e51f7af7b8f8ea60548eba53b1240b`
-- Observed at: 2026-10-27T00:20:12.718Z
+- Index evidence: `sha256:cd1e5d98f8fe9ffbc5e43782d48f8c8c8691ffa95b4fc6d9ba258b94c796bb78`
+- Observed at: 2026-10-28T04:34:04.545Z
 
 ## Exact counts
 
@@ -9,14 +9,14 @@
 |---|---:|
 | Benchmark slugs discovered from index | 60 |
 | Benchmark pages with BenchmarkView data | 56 |
-| CandidateResults | 3464 |
-| Included CandidateResults | 1994 |
-| Excluded CandidateResults | 1470 |
+| CandidateResults | 3411 |
+| Included CandidateResults | 1997 |
+| Excluded CandidateResults | 1414 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3313 |
-| Included vals_index CostRecords | 26 |
-| Canonically unresolved rows | 2120 |
-| Distinct canonically unresolved models | 233 |
+| CostRecords retained | 3260 |
+| Included vals_index CostRecords | 27 |
+| Canonically unresolved rows | 2082 |
+| Distinct canonically unresolved models | 234 |
 
 ## Per-page completeness
 
@@ -32,19 +32,19 @@
 | `cua_bench` | 9 | EXCLUDED |
 | `cyber` | 47 | APPROVED |
 | `emb` | 77 | APPROVED |
-| `emb-v1-1` | 33 | EXCLUDED |
+| `emb-v1-1` | 34 | EXCLUDED |
 | `fabv2` | 81 | APPROVED |
-| `fabv2-1` | 31 | EXCLUDED |
-| `finance_index` | 31 | EXCLUDED |
+| `fabv2-1` | 32 | EXCLUDED |
+| `finance_index` | 32 | EXCLUDED |
 | `gpqa` | 138 | APPROVED |
-| `hlab` | 28 | APPROVED |
+| `hlab` | 29 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
 | `inference_provider` | 0 | EXCLUDED |
 | `ioi` | 46 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 151 | APPROVED |
-| `legal_index` | 28 | EXCLUDED |
-| `legal_research` | 85 | APPROVED |
+| `legal_index` | 29 | EXCLUDED |
+| `legal_research` | 86 | APPROVED |
 | `math500` | 60 | EXCLUDED |
 | `medcode` | 107 | APPROVED |
 | `medqa` | 95 | EXCLUDED |
@@ -62,24 +62,24 @@
 | `public-benefits-bench-v1` | 13 | EXCLUDED |
 | `robo_bench` | 7 | EXCLUDED |
 | `rsi_index` | 0 | EXCLUDED |
-| `sage` | 91 | EXCLUDED |
+| `sage` | 28 | EXCLUDED |
 | `science_index` | 23 | EXCLUDED |
 | `skillsbench` | 35 | APPROVED |
 | `srebench` | 35 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
 | `swebench-multimodal` | 20 | EXCLUDED |
-| `tax_agent_bench` | 76 | EXCLUDED |
+| `tax_agent_bench` | 77 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 76 | APPROVED |
-| `terminal-bench-4` | 55 | EXCLUDED |
+| `terminal-bench-4` | 56 | EXCLUDED |
 | `terminal-bench-science` | 43 | EXCLUDED |
 | `time_horizon_index` | 13 | EXCLUDED |
-| `vals_index` | 27 | EXCLUDED |
+| `vals_index` | 28 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
-| `vibe-code` | 119 | APPROVED |
+| `vibe-code` | 120 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 9 | EXCLUDED |
 
@@ -206,6 +206,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - alibaba/qwen3-max-2026-01-23
 - alibaba/qwen3-max-preview
 - alibaba/qwen3-vl-plus-2025-09-23
+- alibaba/qwen3.5-397b-a17b
 - alibaba/qwen3.5-flash
 - alibaba/qwen3.5-plus-thinking
 - alibaba/qwen3.6-max-preview
@@ -466,9 +467,9 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Benchmark slugs discovered from index | 60 | 60 | +0 |
-| CandidateResults | 3458 | 3464 | +6 |
-| CostRecords retained | 3308 | 3313 | +5 |
-| Canonically unresolved rows | 2121 | 2120 | -1 |
+| CandidateResults | 3464 | 3411 | -53 |
+| CostRecords retained | 3313 | 3260 | -53 |
+| Canonically unresolved rows | 2120 | 2082 | -38 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -604,7 +605,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.6-27b | `vals-ai:case-law-v2:alibaba-qwen3-6-27b` | — | `default` | — | — |
 | alibaba/qwen3.6-27b | `vals-ai:corpfin:alibaba-qwen3-6-27b` | — | `default` | — | — |
 | alibaba/qwen3.6-27b | `vals-ai:mortgage-tax:alibaba-qwen3-6-27b` | — | `default` | — | — |
-| alibaba/qwen3.6-27b | `vals-ai:sage:alibaba-qwen3-6-27b` | — | `default` | — | — |
 | alibaba/qwen3.6-27b | `vals-ai:swe-bench:alibaba-qwen3-6-27b` | — | `default` | — | — |
 | alibaba/qwen3.6-27b | `vals-ai:tax-eval-v2:alibaba-qwen3-6-27b` | — | `default` | — | — |
 | alibaba/qwen3.6-27b | `vals-ai:terminal-bench-2:alibaba-qwen3-6-27b` | — | `default` | — | — |
@@ -626,7 +626,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.6-plus | `vals-ai:mmmu:alibaba-qwen3-6-plus` | — | `default` | — | — |
 | alibaba/qwen3.6-plus | `vals-ai:mortgage-tax:alibaba-qwen3-6-plus` | — | `default` | — | — |
 | alibaba/qwen3.6-plus | `vals-ai:programbench:alibaba-qwen3-6-plus` | — | `default` | — | — |
-| alibaba/qwen3.6-plus | `vals-ai:sage:alibaba-qwen3-6-plus` | — | `default` | — | — |
 | alibaba/qwen3.6-plus | `vals-ai:swe-bench:alibaba-qwen3-6-plus` | — | `default` | — | — |
 | alibaba/qwen3.6-plus | `vals-ai:tax-agent-bench:alibaba-qwen3-6-plus` | — | `default` | — | — |
 | alibaba/qwen3.6-plus | `vals-ai:tax-eval-v2:alibaba-qwen3-6-plus` | — | `default` | — | — |
@@ -685,7 +684,6 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | kimi/kimi-k2.6 | `vals-ai:programbench:kimi-kimi-k2-6` | — | `default` | — | — |
 | kimi/kimi-k2.6 | `vals-ai:public-benefits-bench-v1:kimi-kimi-k2-6` | — | `default` | — | — |
 | kimi/kimi-k2.6 | `vals-ai:public-benefits-bench:kimi-kimi-k2-6` | — | `default` | — | — |
-| kimi/kimi-k2.6 | `vals-ai:sage:kimi-kimi-k2-6` | — | `default` | — | — |
 | kimi/kimi-k2.6 | `vals-ai:swe-bench:kimi-kimi-k2-6` | — | `default` | — | — |
 | kimi/kimi-k2.6 | `vals-ai:tax-agent-bench:kimi-kimi-k2-6` | — | `default` | — | — |
 | kimi/kimi-k2.6 | `vals-ai:tax-eval-v2:kimi-kimi-k2-6` | — | `default` | — | — |

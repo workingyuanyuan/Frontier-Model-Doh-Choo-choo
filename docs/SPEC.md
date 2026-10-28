@@ -53,11 +53,14 @@
 | `surge-riemann`             | https://surgehq.ai/benchmarks/riemann-bench             | ORGANIZER         | 2026-10-03 |
 | `surge-dayjob-finance`      | https://surgehq.ai/benchmarks/dayjob-finance            | ORGANIZER         | 2026-10-03 |
 | `surge-dayjob-healthcare`   | https://surgehq.ai/benchmarks/dayjob-healthcare         | ORGANIZER         | 2026-10-03 |
+| `surge-dayjob-tax`          | https://surgehq.ai/benchmarks/dayjob-tax                | ORGANIZER         | 2026-10-28 |
 | `surge-gdp-xlsx`            | https://surgehq.ai/benchmarks/gdp-xlsx                  | ORGANIZER         | 2026-10-03 |
 | `openai-releases`           | https://openai.com/                                     | VENDOR            | 2026-10-02 |
 | `anthropic-releases`        | https://www.anthropic.com/                              | VENDOR            | 2026-10-02 |
 
 Chartography 使用獨立 benchmark ID `chartography`，主要維度為 Reasoning、次要關聯為 Knowledge。採主榜 Pass@1 百分比及其明示的 reasoning 設定，依既有完整矩陣與集合生成政策參與計分。來源沒有逐列試驗次數、版本及發布日期時保存 null。
+
+DAYJOB: Tax 使用獨立 benchmark ID `dayjob-tax`，與 Finance、Healthcare 同屬 Agentic 主維度，次要關聯為 Reasoning 與 Knowledge（使用者 2026-10-28 決定採用）。指標與兩個姊妹榜不同：[官方公告](https://surgehq.ai/blog/dayjob-tax)報告 50 個環境在 95% rubric 門檻下的 Pass@1，即滿足至少 95% 評分項目的嘗試比例；每題五次嘗試。materializer 只解析 `.lead-main` 主榜，並以 `--visual-row-count` 核對瀏覽器畫面列數。Tax 任務不在公開的 DAYJOB repository，逐列 harness、工具、版本、context 與發布日期保留 null。
 
 模型發布頁採逐 benchmark／版本審核，規則見 [資料方法](DATA_METHODOLOGY.md#模型發布頁補充分數)。OpenAI 首批採 DeepSWE 1.1 與 AutomationBench 1.0.6；Anthropic 首批採 FrontierCode 1.1 Main 與 CursorBench 4.0。`cursorbench-4` 是 Coding benchmark，保留發布頁各 effort 的百分比；以 Cursor 官方圖表核對重疊列。完整採用、差異與證據見 [研究紀錄](refresh/2026-10-02-vendor-releases.md)。
 
@@ -111,7 +114,7 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 總分 = 五個維度分數的算術平均；維度分數 = 該維度內所有參與計分 benchmark 的算術平均。
 
 **benchmark 的存在、識別碼與跨維度歸屬由各自的裁決管轄，改動維度集合時一律保持原狀。**
-DeepSWE、Frontier Code（`frontier-code-1-1`）、Terminal-Bench 屬 `coding`，
+DeepSWE、Frontier Code（`frontier-code-1-1`、`frontier-code-2-0`）、Terminal-Bench 屬 `coding`，
 `cyber` 屬 `agentic`。個別 benchmark 的歸屬要改，須另立提案並附該 benchmark 自己的證據。
 
 **不建立權重系統。** 某個 benchmark 影響力過大的問題靠加來源稀釋。
@@ -125,6 +128,7 @@ DeepSWE、Frontier Code（`frontier-code-1-1`）、Terminal-Bench 屬 `coding`�
 因此：
 
 - **新增 benchmark `frontier-code-1-1`**，primary dimension = `coding`，secondary = `agentic, context`。Cognition 的分數全部歸到這個 ID。
+- **FrontierCode 2.0 是另一個 benchmark `frontier-code-2-0`**（2026-10-27 發布，132 題新套件；2026-10-28 使用者裁決）。維度歸屬與 1.1 相同（primary `coding`，secondary `agentic, reasoning`）。1.1 與 2.0 不互相取代、不合併；`frontier-code-1-1` 的 ID、分數與成本維持原狀，成本圖的 Frontier Code 群組仍配對 1.1。
 - **`frontierswe` 保留給 Proximal V1** 的 rank／dominance。V2 使用 **`frontier-swe-v2`**，來源 ID 為 `frontier-swe`，擷取 mean@5 百分比分數。2026-10-01 決定以 `comparisonOnly: true` 限定為手動 profiles 比較；預設集合生成與計分依此限制執行。
 - `docs/BENCHMARK_DIMENSION_MAPPING.md` 與 `docs/BENCHMARK_SCORE_SOURCES.md` 要同時反映這兩個是不同的 benchmark。
 
@@ -945,6 +949,23 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 - 靜態 JSON 同時包含 `main` 與 `extended`。本來源只物化目前預設的 `v1_1` Main；Extended 保留在內容定址 artifact，不混入 `frontier-code-1-1`。
 - 19/28 個模型可由 catalog 名稱或精確 alias 解析；其餘 9 個保持 null identity，不做模糊匹配。
 - 成本與思考強度皆已取得，因此 §6.3 的進階圖不需要退化成兩來源。
+
+**2026-10-28 更新：FrontierCode 2.0 上線，主頁只渲染 2.0。**
+
+| 項目           | 2026-10-28 實測結論                                                                                                     |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| 2.0 結構化入口 | `https://cognition.com/data/frontier-code-2.0/data.json`（主頁前端讀取；頂層即 `models`／`efforts`／`harness`／`data`） |
+| 2.0 Main       | export 26 個模型、103 組設定；頁面隱藏 `Obsidian 3`（5 組），可見 25 個模型、98 組，全部有 `new_score` 與 `cost`        |
+| 2.0 DOM 對照   | 「Best reasoning mode」25 列、「All reasoning levels」98 列；可見 Top 10 與 JSON-LD `FrontierCode 2.0 Leaderboard` 一致 |
+| 2.0 思考強度   | `minimal` 到 `max`；SWE-1.6／SWE-1.7 為 `na`，保持 null                                                                 |
+| 2.0 attempts   | 方法論與 export 都未說明每組設定的 rollout 次數（文中範例題顯示「N / 5 runs」，但非全榜通則），保持 null                |
+| 1.1 export     | 舊 JSON 仍有 `v1_1`：46 個模型、136 組；GPT-6.1 Terra（5 組）已被上游移除，依規則由前一份快照保留                       |
+| 1.1 可見頁     | 主頁不再渲染 1.1；`/blog/frontier-code-1.1` 只有發布時 8 個模型的圖表，不能當完整榜核對                                 |
+
+- `frontier-code-2-0` 是獨立 benchmark，與 `frontier-code-1-1` 不互相取代；候選列 ID 為 `frontier-code:frontier-code-2-0:<model>-<effort>`。
+- 2.0 以 export 扣除頁面隱藏模型後的模型數與設定數，對照兩種渲染檢視的列數，不符即停止；1.1 以前一份快照對照，上游移除的列原樣保留，分數或成本變動需人工確認。
+- 2.0 成本只保存在原始 artifact，不寫入 `costs.json`，成本圖仍用 1.1。
+- 2.0 有 10 個模型名稱目前無法精確解析（含 Claude Haiku 5.5、SWE-2、Beam 1.0），保持 null identity。
 
 ### 9.5 Epoch AI（期二，2026-08-21 實測）
 
