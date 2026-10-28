@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-27T00:20:41.862Z",
+  "checkedAt": "2026-10-28T04:33:25.487Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -98,7 +98,7 @@
         ],
         "rows": 31,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
         ],
         "versions": ["2026-10-25"]
       },
@@ -195,7 +195,7 @@
         ],
         "rows": 31,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
         ],
         "versions": ["2026-10-25"]
       },
@@ -292,7 +292,7 @@
         ],
         "rows": 31,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
         ],
         "versions": ["2026-10-25"]
       },
@@ -389,7 +389,7 @@
         ],
         "rows": 31,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
         ],
         "versions": ["2026-10-25"]
       },
@@ -602,7 +602,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793055826"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
         ],
         "versions": ["2026-06-25"]
       },
@@ -815,7 +815,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793055826"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
         ],
         "versions": ["2026-06-25"]
       },
@@ -912,7 +912,7 @@
         ],
         "rows": 31,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
         ],
         "versions": ["2026-10-25"]
       },
@@ -1125,7 +1125,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793055826"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
         ],
         "versions": ["2026-06-25"]
       },
@@ -1401,8 +1401,8 @@
         ],
         "rows": 102,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826",
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497",
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
         ],
         "versions": ["2026-06-25", "2026-10-25"]
       },
@@ -1499,12 +1499,12 @@
         ],
         "rows": 31,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793055826"
+          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
         ],
         "versions": ["2026-10-25"]
       }
     ],
-    "observedAt": "2026-10-27T00:20:40.343Z",
+    "observedAt": "2026-10-28T04:33:23.384Z",
     "sourceId": "livebench"
   }
 }

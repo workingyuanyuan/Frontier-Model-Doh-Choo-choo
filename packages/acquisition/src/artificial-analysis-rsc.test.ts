@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -877,5 +879,135 @@ describe('Artificial Analysis superseded builds', () => {
       .filter(({ benchmarkId }) => benchmarkId === 'gpqa-diamond')
       .map(({ rawScore }) => rawScore);
     expect(scores).toEqual([0.9]);
+  });
+});
+
+describe('Artificial Analysis Intelligence Index v5 evaluations', () => {
+  // Verbatim capture of https://artificialanalysis.ai/evaluations/critpt-v2
+  // (2026-10-28T13:33:26.083Z). Every v5 evaluation page carries the same row
+  // schema; this one also states the CritPt v2 Full Set leaders in prose.
+  const fixtureId =
+    'cd696e93d4763453047b8a659cca29d35b34935bbc2595fda3a753e7e1ab36b6';
+  const html = readFileSync(
+    new URL(`../test-fixtures/${fixtureId}.html`, import.meta.url),
+    'utf8',
+  );
+  const result = materializeArtificialAnalysisRsc([
+    {
+      kind: 'evaluation',
+      slug: 'critpt-v2',
+      sourceUrl: 'https://artificialanalysis.ai/evaluations/critpt-v2',
+      evidenceId: `sha256:${fixtureId}`,
+      retrievedAt: '2026-10-28T13:33:26.083Z',
+      html,
+    },
+  ]);
+  const opus = 'Claude Opus 5.5 (Max, Default Fallback)';
+  const candidate = (benchmarkId: string, rawName: string) =>
+    result.candidates.find(
+      (row) => row.benchmarkId === benchmarkId && row.model.rawName === rawName,
+    );
+
+  it('reads the v5 version labels the page publishes and leaves HLE-Diamond unversioned', () => {
+    const { benchmarkVersions } =
+      extractArtificialAnalysisVersionMetadata(html);
+    expect(benchmarkVersions).toMatchObject({
+      'terminal-bench-science': 'v0.1',
+      'critpt-v2': 'v2',
+    });
+    expect(benchmarkVersions).not.toHaveProperty('hle-diamond');
+  });
+
+  it('materializes HLE-Diamond, Terminal-Bench-Science, CritPt v2 and FrontierCode 2.0 from the live payload', () => {
+    expect(candidate('hle-diamond', opus)).toMatchObject({
+      benchmarkVersion: null,
+      sourceRole: 'INDEPENDENT',
+      metric: { id: 'accuracy', unit: 'percent', higherIsBetter: true },
+      profile: { tools: false, attempts: 1, harness: null },
+    });
+    // The v5 article: Claude Opus 5.5 (max) leads HLE-Diamond at 68%.
+    expect(candidate('hle-diamond', opus)?.normalizedScore).toBeCloseTo(
+      67.9,
+      1,
+    );
+    expect(candidate('terminal-bench-science', opus)).toMatchObject({
+      benchmarkVersion: 'v0.1',
+      profile: { tools: true, attempts: 3, harness: 'mini-swe-agent' },
+    });
+    expect(candidate('critpt-v2', opus)).toMatchObject({
+      benchmarkVersion: 'v2',
+      metric: { id: 'accuracy', name: 'Accuracy (Full Set)' },
+      profile: { tools: true, harness: 'Artificial Analysis Stirrup' },
+    });
+    // The page headline: GPT-6 Astra (Max) scores 83.1% on the Full Set.
+    expect(
+      candidate('critpt-v2', 'GPT-6 Astra (Max)')?.normalizedScore,
+    ).toBeCloseTo(83.1, 1);
+    // The v5 article: Claude Opus 5.5 (max) leads FrontierCode 2.0 at 46%.
+    expect(candidate('frontier-code-2-0', opus)).toMatchObject({
+      benchmarkVersion: 'v2.0',
+      sourceRole: 'INDEPENDENT',
+      acquisitionStatus: 'PARTIAL_SOURCE',
+      metric: { id: 'weighted-rubric-score', unit: 'percent' },
+      profile: {
+        tools: true,
+        attempts: 3,
+        harness: 'Artificial Analysis Stirrup',
+      },
+    });
+    expect(candidate('frontier-code-2-0', opus)?.normalizedScore).toBeCloseTo(
+      46.4,
+      1,
+    );
+    for (const benchmarkId of [
+      'hle-diamond',
+      'terminal-bench-science',
+      'critpt-v2',
+      'frontier-code-2-0',
+    ]) {
+      expect(
+        result.candidates.filter((row) => row.benchmarkId === benchmarkId),
+      ).toHaveLength(result.activeRows);
+    }
+  });
+
+  it('keeps the legacy HLE and CritPt fields and skips the Hard Subset and FrontierCode 1.1 fields', () => {
+    const row = extractArtificialAnalysisRscRows(html).find(
+      ({ name }) => name === opus,
+    )!;
+    expect(candidate('humanitys-last-exam', opus)?.rawScore).toBe(row.hle);
+    expect(candidate('critpt', opus)?.rawScore).toBe(row.critpt);
+    expect(candidate('critpt', opus)?.benchmarkVersion).toBeNull();
+    expect(candidate('critpt-v2', opus)?.rawScore).toBe(row.critptAgentic);
+    expect(candidate('critpt-v2', opus)?.rawScore).not.toBe(
+      row.critptAgenticHard,
+    );
+    expect(candidate('frontier-code-2-0', opus)?.rawScore).toBe(
+      row.frontierCode20,
+    );
+    expect(
+      result.candidates.some(({ provenance }) =>
+        /field=(?:frontierCode|critptAgenticHard)$/u.test(
+          provenance.rawScore?.locator ?? '',
+        ),
+      ),
+    ).toBe(false);
+  });
+
+  it('reports the integrated v5 evaluations in the validation report', () => {
+    expect(result.validationReport).toContain(
+      `| \`critpt-v2\` | \`critptAgentic\` | \`critpt-v2\` | ${result.activeRows} |`,
+    );
+    expect(result.validationReport).toContain(
+      'Not integrated: AutomationBench-AA',
+    );
+  });
+
+  it('versions CritPt v2 only from a v2-family label', () => {
+    expect(
+      extractArtificialAnalysisVersionMetadata(
+        'CritPt v1 results. Terminal-Bench-Science 0.1.0 dataset.',
+      ).benchmarkVersions,
+    ).toEqual({});
   });
 });

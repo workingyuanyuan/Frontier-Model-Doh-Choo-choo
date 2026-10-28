@@ -2011,6 +2011,7 @@ describe('coverage-matrix', () => {
         'surge-corecraft',
         'surge-dayjob-finance',
         'surge-dayjob-healthcare',
+        'surge-dayjob-tax',
         'surge-gdp-xlsx',
         'surge-riemann',
         'vals-ai',

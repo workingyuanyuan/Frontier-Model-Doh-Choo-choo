@@ -1,0 +1,164 @@
+{
+  "catalog": [
+    {
+      "id": "antidote",
+      "title": "View Antidote: Everyday Edition benchmark",
+      "url": "https://surgehq.ai/benchmarks/antidote",
+      "version": null
+    },
+    {
+      "id": "chartography",
+      "title": "View Chartography benchmark",
+      "url": "https://surgehq.ai/benchmarks/chartography",
+      "version": null
+    },
+    {
+      "id": "complex-constraints",
+      "title": "View ComplexConstraints benchmark",
+      "url": "https://surgehq.ai/benchmarks/complex-constraints",
+      "version": null
+    },
+    {
+      "id": "dayjob-finance",
+      "title": "View DAYJOB: Finance benchmark",
+      "url": "https://surgehq.ai/benchmarks/dayjob-finance",
+      "version": null
+    },
+    {
+      "id": "dayjob-healthcare",
+      "title": "View DAYJOB: Healthcare benchmark",
+      "url": "https://surgehq.ai/benchmarks/dayjob-healthcare",
+      "version": null
+    },
+    {
+      "id": "dayjob-tax",
+      "title": "View DAYJOB: Tax benchmark",
+      "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+      "version": null
+    },
+    {
+      "id": "enterprisebench-corecraft",
+      "title": "View EnterpriseBench: CoreCraft Agents benchmark",
+      "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
+      "version": null
+    },
+    {
+      "id": "gdp-pdf",
+      "title": "View GDP.pdf benchmark",
+      "url": "https://surgehq.ai/benchmarks/gdp-pdf",
+      "version": null
+    },
+    {
+      "id": "gdp-xlsx",
+      "title": "View GDP.xlsx benchmark",
+      "url": "https://surgehq.ai/benchmarks/gdp-xlsx",
+      "version": null
+    },
+    {
+      "id": "handbook",
+      "title": "View HANDBOOK.md Agents benchmark",
+      "url": "https://surgehq.ai/benchmarks/handbook",
+      "version": null
+    },
+    {
+      "id": "hemingway-bench",
+      "title": "View Hemingway-bench benchmark",
+      "url": "https://surgehq.ai/benchmarks/hemingway-bench",
+      "version": null
+    },
+    {
+      "id": "riemann-bench",
+      "title": "View Riemann-bench benchmark",
+      "url": "https://surgehq.ai/benchmarks/riemann-bench",
+      "version": null
+    },
+    {
+      "id": "sudo-l7",
+      "title": "View sudo L7 benchmark",
+      "url": "https://surgehq.ai/benchmarks/sudo-l7",
+      "version": null
+    }
+  ],
+  "checkedAt": "2026-10-28T05:59:18.593Z",
+  "evidence": {
+    "artifactPath": "artifacts/sha256/73/738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5.html",
+    "byteLength": 893277,
+    "finalUrl": "https://surgehq.ai/benchmarks",
+    "id": "sha256:738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "benchmark directory change detection"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks",
+    "retrievedAt": "2026-10-28T05:59:18.593Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5",
+    "sourceId": "surge-dayjob-tax"
+  },
+  "schemaVersion": "source-monitor-state-v1",
+  "snapshot": {
+    "benchmarks": [
+      {
+        "id": "dayjob-tax",
+        "includedRows": 16,
+        "metrics": ["pass-at-1:percent:true"],
+        "models": [
+          "alibaba-qwen3-8-max",
+          "anthropic-claude-fable-5-1",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
+          "meta-muse-spark-1-3",
+          "meta-muse-wonder",
+          "moonshot-kimi-k3",
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"Claude Fable 5.1 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
+          "[\"Claude Opus 5.5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
+          "[\"Claude Sonnet 5.5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
+          "[\"DeepSeek V4.1 Flash 1017 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"GLM 5.3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"GPT 6 Astra (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"GPT 6.1 Sol (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Gemini 3.8 Flash (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
+          "[\"Gemini 4 Argon (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
+          "[\"Grok 4.7 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
+          "[\"Hy Hy4 Preview (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
+          "[\"Kimi K3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Mistral Large 4 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
+          "[\"Muse Spark 1.3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Muse Wonder 1.0 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Qwen 3.8 Max (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]"
+        ],
+        "rawLabels": [
+          "Claude Fable 5.1 (Adaptive/Max)",
+          "Claude Opus 5.5 (Adaptive/Max)",
+          "Claude Sonnet 5.5 (Adaptive/Max)",
+          "DeepSeek V4.1 Flash 1017 (Max reasoning)",
+          "GLM 5.3 (Max reasoning)",
+          "GPT 6 Astra (Max reasoning)",
+          "GPT 6.1 Sol (Max reasoning)",
+          "Gemini 3.8 Flash (High reasoning)",
+          "Gemini 4 Argon (High reasoning)",
+          "Grok 4.7 (xHigh reasoning)",
+          "Hy Hy4 Preview (High reasoning)",
+          "Kimi K3 (Max reasoning)",
+          "Mistral Large 4 (High reasoning)",
+          "Muse Spark 1.3 (Max reasoning)",
+          "Muse Wonder 1.0 (Max reasoning)",
+          "Qwen 3.8 Max (xHigh reasoning)"
+        ],
+        "rows": 16,
+        "sourceUrls": ["https://surgehq.ai/benchmarks/dayjob-tax"],
+        "versions": ["(unknown)"]
+      }
+    ],
+    "observedAt": "2026-10-28T05:59:18.172Z",
+    "sourceId": "surge-dayjob-tax"
+  }
+}

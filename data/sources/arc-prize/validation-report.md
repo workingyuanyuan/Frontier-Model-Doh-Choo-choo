@@ -226,8 +226,8 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
-| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-193 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-193 |
+| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-194 |
+| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-194 |
 | Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default

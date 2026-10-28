@@ -5,6 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 import {
   EvidenceRecordSchema,
   CandidateResultSchema,
+  CostRecordSchema,
   deterministicJson,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
@@ -15,11 +16,7 @@ import {
   materializeArtificialAnalysisRsc,
   type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
-import {
-  FRONTIER_CODE_DATA_URL,
-  FRONTIER_CODE_PAGE_URL,
-  materializeFrontierCode,
-} from './frontier-code-materializer.js';
+import { rebuildFrontierCodeFromEvidence } from './frontier-code-materializer.js';
 import {
   buildLiveBenchSnapshot,
   liveBenchInputFromEvidence,
@@ -209,44 +206,27 @@ async function main() {
     prettyDeterministicJson(liveCosts),
   );
 
-  const frontierIndexPath = join(
-    sourcesRoot,
-    'frontier-code',
-    'evidence-index.json',
-  );
+  const frontierDirectory = join(sourcesRoot, 'frontier-code');
   const frontierEvidence = EvidenceRecordSchema.array().parse(
-    await readJson<unknown>(frontierIndexPath),
+    await readJson<unknown>(join(frontierDirectory, 'evidence-index.json')),
   );
-  const frontierDataRecord = findEvidence(
+  // Same path as materialize:snapshots: latest captures, 1.1 costs EXCLUDED
+  // as superseded, 2.0 costs INCLUDED. It also rejects any 1.1 value change.
+  const frontierCosts = rebuildFrontierCodeFromEvidence(
     frontierEvidence,
-    FRONTIER_CODE_DATA_URL,
-  );
-  const frontierPageRecord = findEvidence(
-    frontierEvidence,
-    FRONTIER_CODE_PAGE_URL,
-  );
-  const visualRowCount = Number(frontierPageRecord.metadata.renderedRows);
-  const visualTopTenMatched =
-    frontierPageRecord.metadata.renderedTopTenMatched === true;
-  if (!Number.isInteger(visualRowCount) || !visualTopTenMatched) {
-    throw new Error(
-      'Frontier Code evidence has no completed rendered-DOM validation',
-    );
-  }
-  const frontierResult = materializeFrontierCode(
-    await readFile(join(root, frontierDataRecord.artifactPath), 'utf8'),
-    await readFile(join(root, frontierPageRecord.artifactPath), 'utf8'),
+    (artifactPath) => readFileSync(join(root, artifactPath), 'utf8'),
     {
-      dataEvidenceId: frontierDataRecord.id,
-      pageEvidenceId: frontierPageRecord.id,
-      observedAt: frontierDataRecord.retrievedAt,
-      visualRowCount,
-      visualTopTenMatched,
+      candidates: CandidateResultSchema.array().parse(
+        await readJson<unknown>(join(frontierDirectory, 'candidates.json')),
+      ),
+      costs: CostRecordSchema.array().parse(
+        await readJson<unknown>(join(frontierDirectory, 'costs.json')),
+      ),
     },
-  );
+  ).costs;
   await writeFile(
-    join(sourcesRoot, 'frontier-code', 'costs.json'),
-    prettyDeterministicJson(frontierResult.costs),
+    join(frontierDirectory, 'costs.json'),
+    prettyDeterministicJson(frontierCosts),
   );
 
   console.log(
@@ -254,7 +234,7 @@ async function main() {
       artificialAnalysis: aaCosts.length,
       deepSwe: deepCosts.length,
       liveBench: liveCosts.length,
-      frontierCode: frontierResult.costs.length,
+      frontierCode: frontierCosts.length,
       vendorReleases: vendorCounts,
     }),
   );

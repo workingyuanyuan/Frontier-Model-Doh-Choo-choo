@@ -66,14 +66,18 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'riemann-bench': 'Riemann-bench',
   'dayjob-finance': 'DAYJOB: Finance',
   'dayjob-healthcare': 'DAYJOB: Healthcare',
+  'dayjob-tax': 'DAYJOB: Tax',
   'gdp-xlsx': 'GDP.xlsx',
   'cursorbench-4': 'CursorBench 4.0',
   critpt: 'CritPt',
+  'critpt-v2': 'CritPt v2',
   'gpqa-diamond': 'GPQA Diamond',
   'humanitys-last-exam': 'Humanity’s Last Exam',
+  'hle-diamond': 'HLE-Diamond',
   scicode: 'SciCode',
   'tau3-banking': 'τ³ Banking',
   'terminal-bench-2-1': 'Terminal-Bench 2.1',
+  'terminal-bench-science': 'Terminal-Bench-Science 0.1',
   'livebench-reasoning': 'LiveBench Reasoning',
   'livebench-mathematics': 'LiveBench Mathematics',
   'livebench-language': 'LiveBench Language',
@@ -86,6 +90,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   'livebench-design': 'LiveBench Design',
   'deepswe-1-1': 'DeepSWE 1.1',
   'frontier-code-1-1': 'Frontier Code 1.1',
+  'frontier-code-2-0': 'Frontier Code 2.0',
   'frontier-swe-v2': 'FrontierSWE V2',
   'math-level-5': 'MATH Level 5',
   aime: 'AIME',
@@ -120,6 +125,7 @@ export const getSourceDisplayName = (sourceId: string): string => {
     case 'surge-riemann':
     case 'surge-dayjob-finance':
     case 'surge-dayjob-healthcare':
+    case 'surge-dayjob-tax':
     case 'surge-gdp-xlsx':
       return 'Surge AI';
     case 'openai-releases':

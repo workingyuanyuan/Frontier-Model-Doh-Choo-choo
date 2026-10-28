@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "benchmark-quality-review-v1",
+  "reviewedAt": "2026-10-28",
+  "approvedBy": "user",
+  "approval": "新版取代舊版（HLE-Diamond 取代 HLE、CritPt v2 Full Set 取代 CritPt）",
+  "decision": "exclude-from-scoring",
+  "addedExcludedBenchmarkIds": ["humanitys-last-exam", "critpt"],
+  "previousEvidencePath": "docs/analysis/2026-10-16-benchmark-exclusions.json",
+  "reviews": [
+    {
+      "benchmarkId": "humanitys-last-exam",
+      "decision": "exclude-from-scoring",
+      "supersededBy": "hle-diamond",
+      "reason": "Artificial Analysis Intelligence Index v5 (2026-10-27) replaces Humanity's Last Exam with HLE-Diamond, a refined 1,000-question subset; scoring both would count the same questions twice.",
+      "source": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5"
+    },
+    {
+      "benchmarkId": "critpt",
+      "decision": "exclude-from-scoring",
+      "supersededBy": "critpt-v2",
+      "reason": "Artificial Analysis Intelligence Index v5 upgrades CritPt to CritPt v2; the dashboard scores the v2 Full Set (70 questions, critptAgentic), the default AA leaderboard tab, so the original CritPt is retained only as evidence.",
+      "source": "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5"
+    }
+  ],
+  "qualityPolicy": {
+    "reviewedAt": "2026-10-28",
+    "evidencePath": "docs/analysis/2026-10-28-benchmark-supersessions.json",
+    "excludedBenchmarkIds": [
+      "aime",
+      "programbench",
+      "proofbench",
+      "livebench-mathematics",
+      "ioi",
+      "humanitys-last-exam",
+      "critpt"
+    ],
+    "limitedBenchmarkIds": [
+      "aa-lcr",
+      "gpqa-diamond",
+      "legal-bench",
+      "mmlu-pro",
+      "tax-eval-v2"
+    ],
+    "minOtherBenchmarksPerLimited": 2
+  }
+}

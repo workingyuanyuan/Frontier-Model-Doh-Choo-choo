@@ -1,10 +1,10 @@
 # Surge DAYJOB Healthcare acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-healthcare>
-- Evidence: `sha256:3230dfda95420d8881710328bdc8d88ca12844c5e282485f5cd70d6e7443bf86`
-- Main leaderboard: 36 rows; rendered browser count: 36.
+- Evidence: `sha256:49c44790772da8f82a405d175bb3c0ccc4c2fa813afc12d28d3c5520ad1daaad`
+- Main leaderboard: 38 rows; rendered browser count: 38.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
-- Unresolved catalog identities (8): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).
+- Unresolved catalog identities (10): Beam 1.0 (Max reasoning); DeepSeek V4.1 Flash 1017 (Max reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).
 
 Scores are the main leaderboard mean reward percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on and Auto reasoning do not declare an effort tier. Fast is a model variant and stays in the identity lookup. Unresolved model variants retain null canonical identity.
 

@@ -90,7 +90,7 @@ const weightNote = (weights: Readonly<Record<string, number>>): string => {
 const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
   AA_INTELLIGENCE_INDEX: 'Intelligence Index',
   DEEPSWE_1_1: 'DeepSWE 1.1',
-  FRONTIER_CODE_1_1: 'Frontier Code 1.1',
+  FRONTIER_CODE_2_0: 'Frontier Code 2.0',
   ARC_AGI: 'ARC-AGI-2',
   VALS_INDEX: 'Vals Index',
   ZAPIER_AUTOMATIONBENCH: 'AutomationBench',
@@ -98,7 +98,7 @@ const SCORE_BASIS_NAMES: Record<CostSourceScoreBasisId, string> = {
   NONE: 'cost only, no pairable score',
 };
 
-/** Names the basis once: "Frontier Code 1.1" plus version "1.1" reads as one. */
+/** Names the basis once: "Frontier Code 2.0" plus version "2.0" reads as one. */
 const scoreBasisLabel = (
   basis: CostSourceScoreBasisId,
   version?: string | null,

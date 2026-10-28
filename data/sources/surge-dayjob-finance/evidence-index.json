@@ -1,19 +1,19 @@
 [
   {
-    "artifactPath": "artifacts/sha256/33/331f99e95f278fc3b743ff28c2d9899a8a0f35bad369b87f3c3b9dd41c58a2c7.html",
-    "byteLength": 182943,
+    "artifactPath": "artifacts/sha256/50/5050aeaf277ac43c06283c670802ea3d93ec72e514de8e70f43181b61144e9a6.html",
+    "byteLength": 217132,
     "finalUrl": "https://surgehq.ai/benchmarks/dayjob-finance",
-    "id": "sha256:331f99e95f278fc3b743ff28c2d9899a8a0f35bad369b87f3c3b9dd41c58a2c7",
+    "id": "sha256:5050aeaf277ac43c06283c670802ea3d93ec72e514de8e70f43181b61144e9a6",
     "mediaType": "text/html",
     "metadata": {
-      "renderedRows": 36,
+      "renderedRows": 38,
       "scope": "main leaderboard"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-finance",
-    "retrievedAt": "2026-10-23T09:35:02.792Z",
+    "retrievedAt": "2026-10-28T04:33:44.075Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:331f99e95f278fc3b743ff28c2d9899a8a0f35bad369b87f3c3b9dd41c58a2c7",
+    "sha256": "sha256:5050aeaf277ac43c06283c670802ea3d93ec72e514de8e70f43181b61144e9a6",
     "sourceId": "surge-dayjob-finance"
   }
 ]

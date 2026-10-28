@@ -1,34 +1,40 @@
 {
   "accessMethods": ["EXPORT", "EMBEDDED_JSON", "DOM"],
   "baseUrl": "https://cognition.com",
-  "benchmarkIds": ["frontier-code-1-1"],
+  "benchmarkIds": ["frontier-code-1-1", "frontier-code-2-0"],
   "completeness": {
-    "expectedCountMethod": "Compare all v1_1 models/efforts in the official static export with the rendered Main leaderboard and JSON-LD Top 10.",
+    "expectedCountMethod": "FrontierCode 2.0: the export minus the page hidden models must equal the rendered Best reasoning mode and All reasoning levels rows, and the JSON-LD Top 10. FrontierCode 1.1: the page no longer renders it; the v1_1 export is compared with the previous snapshot and upstream-removed rows are preserved.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
   "displayName": "FrontierCode",
   "fallbackMethods": ["NEXT_RSC", "VISUAL"],
   "fieldMapping": {
+    "data[model][effort].main.new_score": "frontier-code-2-0 rawScore; normalizedScore = rawScore * 100",
+    "efforts[model]": "frontier-code-2-0 profile.effort",
+    "harness[model]": "frontier-code-2-0 profile.harness",
+    "models[]": "frontier-code-2-0 model.rawName",
     "v1_1.data[model][effort].main.cost": "CostRecord.cost",
-    "v1_1.data[model][effort].main.new_score": "rawScore; normalizedScore = rawScore * 100",
-    "v1_1.efforts[model]": "profile.effort",
-    "v1_1.harness[model]": "profile.harness",
-    "v1_1.models[]": "model.rawName"
+    "v1_1.data[model][effort].main.new_score": "frontier-code-1-1 rawScore; normalizedScore = rawScore * 100",
+    "v1_1.efforts[model]": "frontier-code-1-1 profile.effort",
+    "v1_1.harness[model]": "frontier-code-1-1 profile.harness",
+    "v1_1.models[]": "frontier-code-1-1 model.rawName"
   },
-  "lastVerifiedAt": "2026-10-27T00:20:12.361Z",
+  "lastVerifiedAt": "2026-10-28T06:04:53.772Z",
   "notes": [
-    "47 models and 141 Main effort configurations; all have scores and costs.",
-    "30 models have multiple efforts; 17 have five efforts.",
-    "JSON-LD Top 10 matches the export 10/10; rendered DOM showed 47 rows and the same Top 10.",
-    "Extended data is retained in the raw artifact but not materialized into the Main benchmark.",
-    "Exact identities only; unresolved models and source effort none remain null."
+    "FrontierCode 1.1 and 2.0 are different benchmarks; neither replaces the other.",
+    "2.0: 25 visible models and 98 Main configurations; rendered Best 25 and All 98 rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: Obsidian 3.",
+    "2.0 costs stay in the raw artifact; Frontier Code costs pair with frontier-code-1-1.",
+    "1.1: 46 export models and 136 Main configurations; 5 rows preserved from the previous snapshot (GPT-6.1 Terra).",
+    "Extended data is retained in the raw artifact but not materialized.",
+    "Exact identities only; unresolved models and non-policy efforts remain null."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
   "sourceId": "frontier-code",
   "targetUrls": [
     "https://cognition.com/frontiercode",
+    "https://cognition.com/data/frontier-code-2.0/data.json",
     "https://cognition.com/data/frontiercode-leaderboard/data.json"
   ]
 }

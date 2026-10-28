@@ -31,6 +31,12 @@
       "version": null
     },
     {
+      "id": "dayjob-tax",
+      "title": "View DAYJOB: Tax benchmark",
+      "url": "https://surgehq.ai/benchmarks/dayjob-tax",
+      "version": null
+    },
+    {
       "id": "enterprisebench-corecraft",
       "title": "View EnterpriseBench: CoreCraft Agents benchmark",
       "url": "https://surgehq.ai/benchmarks/enterprisebench-corecraft",
@@ -73,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-26T07:31:32.603Z",
+  "checkedAt": "2026-10-28T04:33:46.680Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/5e/5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2.html",
-    "byteLength": 855160,
+    "artifactPath": "artifacts/sha256/73/738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5.html",
+    "byteLength": 893277,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
+    "id": "sha256:738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-26T07:31:32.603Z",
+    "retrievedAt": "2026-10-28T04:33:46.680Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5eab47bc34e58d248a7cf7dce3e3e2608b168d8489a01c5358028c5c6c5321c2",
+    "sha256": "sha256:738466d9d9a4dd5af420d189a8546b5182bf989887fdd89d9dbbf2f0a23d7bf5",
     "sourceId": "surge-dayjob-healthcare"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -95,7 +101,7 @@
     "benchmarks": [
       {
         "id": "dayjob-healthcare",
-        "includedRows": 36,
+        "includedRows": 38,
         "metrics": ["mean-reward:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -128,6 +134,7 @@
           "xai-grok-4-7"
         ],
         "profiles": [
+          "[\"Beam 1.0 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Claude Fable 5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
           "[\"Claude Fable 5.1 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
           "[\"Claude Opus 5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
@@ -136,6 +143,7 @@
           "[\"Claude Sonnet 5.5 (Adaptive/Max)\",\"max\",\"Adaptive/Max\",null,null,null,5,null]",
           "[\"DeepSeek V4 Flash (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"DeepSeek V4 Pro (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"DeepSeek V4.1 Flash 1017 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"GLM 5.3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"GLM 5.3 Flash (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"GPT 5.6 Luna (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
@@ -166,6 +174,7 @@
           "[\"mistral Large 3\",null,null,null,null,null,5,null]"
         ],
         "rawLabels": [
+          "Beam 1.0 (Max reasoning)",
           "Claude Fable 5 (Adaptive/Max)",
           "Claude Fable 5.1 (Adaptive/Max)",
           "Claude Opus 5 (Adaptive/Max)",
@@ -174,6 +183,7 @@
           "Claude Sonnet 5.5 (Adaptive/Max)",
           "DeepSeek V4 Flash (Max reasoning)",
           "DeepSeek V4 Pro (Max reasoning)",
+          "DeepSeek V4.1 Flash 1017 (Max reasoning)",
           "GLM 5.3 (Max reasoning)",
           "GLM 5.3 Flash (Max reasoning)",
           "GPT 5.6 Luna (Max reasoning)",
@@ -203,12 +213,12 @@
           "Qwen 3.8 Max (xHigh reasoning)",
           "mistral Large 3"
         ],
-        "rows": 36,
+        "rows": 38,
         "sourceUrls": ["https://surgehq.ai/benchmarks/dayjob-healthcare"],
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-26T07:31:32.305Z",
+    "observedAt": "2026-10-28T04:33:46.414Z",
     "sourceId": "surge-dayjob-healthcare"
   }
 }

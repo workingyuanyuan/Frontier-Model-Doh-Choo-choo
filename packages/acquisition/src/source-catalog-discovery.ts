@@ -14,6 +14,7 @@ const directories: Record<string, string> = {
   'surge-riemann': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-finance': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-healthcare': 'https://surgehq.ai/benchmarks',
+  'surge-dayjob-tax': 'https://surgehq.ai/benchmarks',
   'surge-gdp-xlsx': 'https://surgehq.ai/benchmarks',
 };
 

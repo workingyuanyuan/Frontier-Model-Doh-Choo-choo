@@ -74,6 +74,7 @@ const CATALOG_URLS: Readonly<Record<string, string>> = {
   'surge-riemann': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-finance': 'https://surgehq.ai/benchmarks',
   'surge-dayjob-healthcare': 'https://surgehq.ai/benchmarks',
+  'surge-dayjob-tax': 'https://surgehq.ai/benchmarks',
   'surge-gdp-xlsx': 'https://surgehq.ai/benchmarks',
 };
 const SURGE_ADAPTERS = {
@@ -100,6 +101,10 @@ const SURGE_ADAPTERS = {
   'dayjob-healthcare': {
     sourceId: 'surge-dayjob-healthcare',
     benchmarkId: 'dayjob-healthcare',
+  },
+  'dayjob-tax': {
+    sourceId: 'surge-dayjob-tax',
+    benchmarkId: 'dayjob-tax',
   },
   'gdp-xlsx': {
     sourceId: 'surge-gdp-xlsx',
@@ -416,6 +421,8 @@ export async function monitorSources(input: {
     if (!whitelist.includes(id)) throw new Error(`Source not active: ${id}`);
   const policy = await optionalJson<{
     deferred: Record<string, Record<string, string>>;
+    /** Review notes for entries integrated by user decision; status unchanged. */
+    integrated?: Record<string, Record<string, string>>;
   }>(join(root, 'data', 'mappings', 'source-monitoring.json'));
   const directory = join(root, 'data', 'source-monitoring');
   await mkdir(join(directory, 'state'), { recursive: true });
@@ -529,7 +536,15 @@ export async function monitorSources(input: {
             status,
             captureRegistered,
             benchmarkId,
-            reason,
+            // Integration notes annotate the row without changing its status:
+            // an integrated entry still reports until a refresh scores it.
+            reason:
+              reason ??
+              policy?.integrated?.[sourceId]?.[entry.id] ??
+              (isSurgeSource(sourceId)
+                ? policy?.integrated?.['surge-chartography']?.[entry.id]
+                : null) ??
+              null,
           });
           if (!reason && status !== 'scored')
             report.findings.push({

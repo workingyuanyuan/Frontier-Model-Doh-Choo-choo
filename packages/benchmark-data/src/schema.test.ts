@@ -358,6 +358,7 @@ describe('SourcesConfigSchema', () => {
       'surge-riemann',
       'surge-dayjob-finance',
       'surge-dayjob-healthcare',
+      'surge-dayjob-tax',
       'surge-gdp-xlsx',
       'epoch-ai',
       'arc-prize',

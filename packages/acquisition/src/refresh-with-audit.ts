@@ -19,6 +19,7 @@ export const refreshRoot = (script: string, args: string[]): string => {
     scriptName === 'refresh-surge-riemann.ts' ||
     scriptName === 'refresh-surge-dayjob-finance.ts' ||
     scriptName === 'refresh-surge-dayjob-healthcare.ts' ||
+    scriptName === 'refresh-surge-dayjob-tax.ts' ||
     scriptName === 'refresh-surge-gdp-xlsx.ts'
   ) {
     return resolve(getWorkspaceRoot());

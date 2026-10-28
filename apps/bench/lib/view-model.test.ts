@@ -966,6 +966,10 @@ describe('cost chart view model', () => {
           cost: 1.5 + index,
           performance: 88.1,
           unit: 'USD_PER_TASK' as const,
+          // Frontier Code admits only its 2.0 cost (user decision 2026-10-28).
+          ...(sourceId === 'frontier-code'
+            ? { benchmarkId: 'frontier-code-2-0', benchmarkVersion: '2.0' }
+            : {}),
         })),
       ],
     };
@@ -1071,7 +1075,7 @@ describe('cost chart view model', () => {
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
-              ? 'frontier-code-1-1'
+              ? 'frontier-code-2-0'
               : sourceId === 'zapier-automationbench'
                 ? 'automationbench'
                 : 'arc-agi-2';
@@ -1129,7 +1133,7 @@ describe('cost chart view model', () => {
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
-              ? 'frontier-code-1-1'
+              ? 'frontier-code-2-0'
               : sourceId === 'zapier-automationbench'
                 ? 'automationbench'
                 : 'arc-agi-2',
@@ -1364,7 +1368,7 @@ describe('cost chart view model', () => {
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
-              ? 'frontier-code-1-1'
+              ? 'frontier-code-2-0'
               : sourceId === 'zapier-automationbench'
                 ? 'automationbench'
                 : 'arc-agi-2';
@@ -1411,7 +1415,7 @@ describe('cost chart view model', () => {
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
-              ? 'frontier-code-1-1'
+              ? 'frontier-code-2-0'
               : sourceId === 'zapier-automationbench'
                 ? 'automationbench'
                 : 'arc-agi-2',
@@ -1526,7 +1530,7 @@ describe('cost chart view model', () => {
             : sourceId === 'deepswe'
               ? 'deepswe-1-1'
               : sourceId === 'frontier-code'
-                ? 'frontier-code-1-1'
+                ? 'frontier-code-2-0'
                 : sourceId === 'zapier-automationbench'
                   ? 'automationbench'
                   : 'arc-agi-2',
@@ -1564,7 +1568,7 @@ describe('cost chart view model', () => {
           : sourceId === 'deepswe'
             ? 'deepswe-1-1'
             : sourceId === 'frontier-code'
-              ? 'frontier-code-1-1'
+              ? 'frontier-code-2-0'
               : sourceId === 'zapier-automationbench'
                 ? 'automationbench'
                 : 'arc-agi-2',

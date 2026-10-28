@@ -16,7 +16,7 @@ const definitions = [
   ['deepswe', 'deepswe-1-1', '1.1'],
   ['zapier-automationbench', 'automationbench', '1.0.6'],
   ['cursorbench', 'cursorbench-4', '4.0'],
-  ['frontier-code', 'frontier-code-1-1', '1.1'],
+  ['frontier-code', 'frontier-code-2-0', '2.0'],
 ] as const;
 
 function fixture(
@@ -148,6 +148,37 @@ describe('vendor benchmark quality and cost pairing', () => {
       expect(buildAdvancedCostSeries(product, ['deepswe'])).toEqual([]);
     },
   );
+
+  it('pairs Frontier Code costs with FrontierCode 2.0 only and never blends 1.1', () => {
+    // Organizer 2.0 pair: the one that must appear.
+    const product = fixture('frontier-code-2-0', '2.0', 'frontier-code', 40, 3);
+    // A stray organizer 1.1 cost (EXCLUDED in the snapshot, but defend
+    // anyway) with its own 1.1 score must not enter the 2.0 median.
+    const legacy = fixture('frontier-code-1-1', '1.1', 'frontier-code', 80, 30);
+    legacy.evidence[0]!.id = 'organizer-1-1';
+    product.evidence.push(...legacy.evidence);
+    product.costs.push(...legacy.costs);
+    const point = pointFor(product, 'frontier-code');
+    expect(point).toMatchObject({ score: 40 });
+    expect(point?.sources).toEqual([
+      expect.objectContaining({
+        sourceId: 'frontier-code',
+        benchmarkId: 'frontier-code-2-0',
+        scoreBasis: 'FRONTIER_CODE_2_0',
+        scoreBenchmarkId: 'frontier-code-2-0',
+        cost: 3,
+      }),
+    ]);
+  });
+
+  it('drops a FrontierCode 1.1 cost even when it is the only Frontier Code cost', () => {
+    const organizer = fixture('frontier-code-1-1', '1.1', 'frontier-code');
+    expect(buildAdvancedCostSeries(organizer, ['frontier-code'])).toEqual([]);
+    // Anthropic's release page publishes FrontierCode 1.1 Main pairs; they no
+    // longer fill the Frontier Code group once it pairs with 2.0.
+    const vendor = fixture('frontier-code-1-1', '1.1', 'anthropic-releases');
+    expect(buildAdvancedCostSeries(vendor, ['frontier-code'])).toEqual([]);
+  });
 
   it('omits a vendor cost with a different chart version', () => {
     const product = fixture('deepswe-1-1', '1.1');

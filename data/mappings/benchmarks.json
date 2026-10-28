@@ -18,6 +18,11 @@
       "secondaryDimensions": ["reasoning", "knowledge"]
     },
     {
+      "id": "dayjob-tax",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
       "id": "riemann-bench",
       "primaryDimension": "reasoning",
       "secondaryDimensions": ["knowledge", "agentic"]
@@ -71,6 +76,11 @@
       "id": "critpt",
       "primaryDimension": "reasoning",
       "secondaryDimensions": []
+    },
+    {
+      "id": "critpt-v2",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "coding"]
     },
     {
       "id": "gpqa-diamond",
@@ -144,6 +154,11 @@
     },
     {
       "id": "humanitys-last-exam",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning"]
+    },
+    {
+      "id": "hle-diamond",
       "primaryDimension": "knowledge",
       "secondaryDimensions": ["reasoning"]
     },
@@ -263,6 +278,11 @@
       "secondaryDimensions": ["agentic", "reasoning"]
     },
     {
+      "id": "frontier-code-2-0",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
       "id": "frontier-swe-v2",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic", "reasoning"],
@@ -272,6 +292,11 @@
       "id": "terminal-bench-2-1",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic"]
+    },
+    {
+      "id": "terminal-bench-science",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding", "knowledge", "reasoning"]
     },
     {
       "id": "deepswe-1-1",

@@ -200,6 +200,9 @@ describe('refresh with source audit', () => {
       ]),
     ).toBe(resolve('workspace'));
     expect(
+      refreshRoot('src/refresh-surge-dayjob-tax.ts', ['--visual-row-count=16']),
+    ).toBe(resolve('workspace'));
+    expect(
       refreshRoot('src/refresh-surge-gdp-xlsx.ts', [
         '--observed-at',
         '2026-10-03',

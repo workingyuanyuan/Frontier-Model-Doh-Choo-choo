@@ -1,12 +1,14 @@
 {
-  "reviewedAt": "2026-10-16",
-  "evidencePath": "docs/analysis/2026-10-16-benchmark-exclusions.json",
+  "reviewedAt": "2026-10-28",
+  "evidencePath": "docs/analysis/2026-10-28-benchmark-supersessions.json",
   "excludedBenchmarkIds": [
     "aime",
     "programbench",
     "proofbench",
     "livebench-mathematics",
-    "ioi"
+    "ioi",
+    "humanitys-last-exam",
+    "critpt"
   ],
   "limitedBenchmarkIds": [
     "aa-lcr",

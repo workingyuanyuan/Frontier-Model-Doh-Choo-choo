@@ -145,7 +145,7 @@ export interface AdvancedCostSourceDetail {
   scoreBasis:
     | 'AA_INTELLIGENCE_INDEX'
     | 'DEEPSWE_1_1'
-    | 'FRONTIER_CODE_1_1'
+    | 'FRONTIER_CODE_2_0'
     | 'ARC_AGI'
     | 'ZAPIER_AUTOMATIONBENCH'
     | 'CURSORBENCH_4';
@@ -552,12 +552,18 @@ interface CostSourceScoreBasis {
   basis: CostSourceScoreBasisId;
   field: 'raw' | 'normalized';
   inclusion: 'INCLUDED' | 'EXCLUDED';
+  /**
+   * When set, only organizer costs filed under this benchmark may enter the
+   * source's group. A source that publishes costs for several benchmark
+   * versions must never have them blended into one median.
+   */
+  costBenchmarkId?: string;
 }
 
 export type CostSourceScoreBasisId =
   | 'AA_INTELLIGENCE_INDEX'
   | 'DEEPSWE_1_1'
-  | 'FRONTIER_CODE_1_1'
+  | 'FRONTIER_CODE_2_0'
   | 'ARC_AGI'
   | 'VALS_INDEX'
   | 'ZAPIER_AUTOMATIONBENCH'
@@ -579,11 +585,15 @@ export const COST_SOURCE_SCORE_BASES: Readonly<
     field: 'normalized',
     inclusion: 'INCLUDED',
   },
+  // User decision 2026-10-28: FrontierCode 2.0 replaces 1.1 in the cost chart.
+  // 1.1 costs stay EXCLUDED in the source snapshot; costBenchmarkId keeps any
+  // stray 1.1 cost out of the 2.0 median.
   'frontier-code': {
-    benchmarkId: 'frontier-code-1-1',
-    basis: 'FRONTIER_CODE_1_1',
+    benchmarkId: 'frontier-code-2-0',
+    basis: 'FRONTIER_CODE_2_0',
     field: 'normalized',
     inclusion: 'INCLUDED',
+    costBenchmarkId: 'frontier-code-2-0',
   },
   'arc-prize': {
     benchmarkId: 'arc-agi-2',
@@ -807,7 +817,8 @@ const VENDOR_COST_BENCHMARKS: Readonly<
 > = {
   'deepswe-1-1': { sourceId: 'deepswe', version: '1.1' },
   automationbench: { sourceId: 'zapier-automationbench', version: '1.0.6' },
-  'frontier-code-1-1': { sourceId: 'frontier-code', version: '1.1' },
+  // Vendor FrontierCode 1.1 pairs (Anthropic) no longer match the 2.0 group.
+  'frontier-code-2-0': { sourceId: 'frontier-code', version: '2.0' },
   'cursorbench-4': { sourceId: 'cursorbench', version: '4.0' },
 };
 
@@ -834,6 +845,14 @@ const chartCostRows = (
     if (
       vendor &&
       (!definition || original.benchmarkVersion !== definition.version)
+    )
+      continue;
+    const costBenchmarkId =
+      COST_SOURCE_SCORE_BASES[original.sourceId]?.costBenchmarkId;
+    if (
+      !vendor &&
+      costBenchmarkId !== undefined &&
+      original.benchmarkId !== costBenchmarkId
     )
       continue;
     const row: CostPoint = vendor

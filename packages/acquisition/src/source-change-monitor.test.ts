@@ -343,6 +343,7 @@ describe('source monitor in a temporary workspace', () => {
       join(root, 'data', 'mappings', 'source-monitoring.json'),
       JSON.stringify({
         deferred: { [SOURCE]: { handbook: 'Pending adapter review.' } },
+        integrated: { [SOURCE]: { 'gdp-xlsx': 'Integrated by decision.' } },
       }),
     );
     capture(
@@ -399,6 +400,7 @@ describe('source monitor in a temporary workspace', () => {
             status: 'scored',
             captureRegistered: true,
             benchmarkId: 'gdp-xlsx',
+            reason: 'Integrated by decision.',
           }),
           expect.objectContaining({
             id: 'handbook',
@@ -507,6 +509,7 @@ describe('source monitor in a temporary workspace', () => {
       const riemannSource = 'surge-riemann';
       const financeSource = 'surge-dayjob-finance';
       const healthcareSource = 'surge-dayjob-healthcare';
+      const taxSource = 'surge-dayjob-tax';
       const gdpXlsxSource = 'surge-gdp-xlsx';
       if (active)
         await writeFile(
@@ -519,15 +522,16 @@ describe('source monitor in a temporary workspace', () => {
               riemannSource,
               financeSource,
               healthcareSource,
+              taxSource,
               gdpXlsxSource,
             ],
           }),
         );
       capture(
-        '<a href="/benchmarks/chartography">Chartography</a><a href="/benchmarks/complexconstraints">ComplexConstraints</a><a href="/benchmarks/enterprisebench-corecraft">EnterpriseBench</a><a href="/benchmarks/riemann-bench">Riemann-bench</a><a href="/benchmarks/dayjob-finance">DAYJOB: Finance</a><a href="/benchmarks/dayjob-healthcare">DAYJOB: Healthcare</a><a href="/benchmarks/gdp-xlsx">GDP.xlsx</a>',
+        '<a href="/benchmarks/chartography">Chartography</a><a href="/benchmarks/complexconstraints">ComplexConstraints</a><a href="/benchmarks/enterprisebench-corecraft">EnterpriseBench</a><a href="/benchmarks/riemann-bench">Riemann-bench</a><a href="/benchmarks/dayjob-finance">DAYJOB: Finance</a><a href="/benchmarks/dayjob-healthcare">DAYJOB: Healthcare</a><a href="/benchmarks/dayjob-tax">DAYJOB: Tax</a><a href="/benchmarks/gdp-xlsx">GDP.xlsx</a>',
       );
       expect(await monitorSources({ root, sourceIds: [SOURCE] })).toMatchObject(
-        { errorCount: 0, attentionCount: 6 },
+        { errorCount: 0, attentionCount: 7 },
       );
       const inventory = (await readReport()).sources[0]?.inventory;
       expect(inventory).toEqual(
@@ -561,6 +565,12 @@ describe('source monitor in a temporary workspace', () => {
             status: 'supported-no-scores',
             captureRegistered: true,
             benchmarkId: 'dayjob-healthcare',
+          }),
+          expect.objectContaining({
+            id: 'dayjob-tax',
+            status: 'supported-no-scores',
+            captureRegistered: true,
+            benchmarkId: 'dayjob-tax',
           }),
           expect.objectContaining({
             id: 'gdp-xlsx',

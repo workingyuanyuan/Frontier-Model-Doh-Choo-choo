@@ -126,10 +126,13 @@ function commonQualityBenchmarksFromCurrentResults(
 
 /**
  * A frontier model must also be measured outside AA (user ruling 2026-10-24):
- * its AA-winning profile needs scoring-eligible results from this many
+ * its representative profile needs scoring-eligible results from this many
  * independent organizations. AA itself selects, so it does not count; vendor
  * release pages are self-reports and do not count; Surge's leaderboards are
- * one organization.
+ * one organization. Among the model's AA efforts that meet this rule, the
+ * representative profile is the one scored by the most organizations, ties
+ * broken by AA score (user ruling 2026-10-28), so the frontier keeps the effort
+ * other organizations actually measured.
  */
 export const FRONTIER_ELIGIBILITY_POLICY = {
   minIndependentOrganizations: 2,
@@ -143,9 +146,11 @@ export const sourceOrganization = (sourceId: string): string =>
 type AaLeader = ReturnType<typeof rankAaModels>[number];
 
 /**
- * Walks the AA ranking and keeps the first ten models whose AA-winning profile
- * meets the eligibility policy. Skipped models stay in the audit and remain
- * selectable in the dashboard; they only leave the slider and default view.
+ * Walks the AA ranking and keeps the first ten models with an AA profile that
+ * meets the eligibility policy, represented by the qualifying effort with the
+ * most organizations. Ranking still uses the model's best AA score. Skipped models stay
+ * in the audit and remain selectable in the dashboard; they only leave the
+ * slider and default view.
  */
 export function selectEligibleFrontier(
   candidates: CandidateResult[],
@@ -188,20 +193,62 @@ export function selectEligibleFrontier(
     set.add(sourceOrganization(row.sourceId));
     organizations.set(row.model.profileId, set);
   }
-  const leaders: AaLeader[] = [];
+  const organizationsOf = (profileId: string | null) =>
+    [...(organizations.get(profileId ?? '') ?? [])].toSorted();
+  const qualifies = (profileId: string | null) =>
+    profileId !== null &&
+    organizationsOf(profileId).length >=
+      FRONTIER_ELIGIBILITY_POLICY.minIndependentOrganizations;
+  // Every AA index row per model, best score first, ties by result ID; the
+  // stable sort below keeps that order among equally covered efforts.
+  const aaRowsByModel = new Map<string, CandidateResult[]>();
+  for (const row of candidates) {
+    const modelId = row.model.canonicalModelId;
+    if (
+      row.sourceId !== AA_FRONTIER_POLICY.sourceId ||
+      row.benchmarkId !== AA_FRONTIER_POLICY.benchmarkId ||
+      modelId === null
+    ) {
+      continue;
+    }
+    const rows = aaRowsByModel.get(modelId) ?? [];
+    rows.push(row);
+    aaRowsByModel.set(modelId, rows);
+  }
+  for (const rows of aaRowsByModel.values()) {
+    rows.sort(
+      (left, right) =>
+        right.rawScore - left.rawScore || left.id.localeCompare(right.id),
+    );
+  }
+  const leaders: (AaLeader & {
+    aaWinningProfileId: string | null;
+    representativeScore: number;
+    representativeResultId: string;
+  })[] = [];
   const skipped: (AaLeader & { organizations: string[] })[] = [];
   for (const leader of ranked) {
     if (leaders.length === AA_FRONTIER_POLICY.searchWindowModels) break;
-    const found = [
-      ...(organizations.get(leader.profileId ?? '') ?? []),
-    ].toSorted();
-    if (
-      leader.profileId !== null &&
-      found.length >= FRONTIER_ELIGIBILITY_POLICY.minIndependentOrganizations
-    ) {
-      leaders.push(leader);
+    const representative = (aaRowsByModel.get(leader.modelId) ?? [])
+      .filter((row) => qualifies(row.model.profileId))
+      .toSorted(
+        (left, right) =>
+          organizationsOf(right.model.profileId).length -
+          organizationsOf(left.model.profileId).length,
+      )[0];
+    if (representative) {
+      leaders.push({
+        ...leader,
+        aaWinningProfileId: leader.profileId,
+        profileId: representative.model.profileId,
+        representativeScore: representative.rawScore,
+        representativeResultId: representative.id,
+      });
     } else {
-      skipped.push({ ...leader, organizations: found });
+      skipped.push({
+        ...leader,
+        organizations: organizationsOf(leader.profileId),
+      });
     }
   }
   if (leaders.length < AA_FRONTIER_POLICY.searchWindowModels) {

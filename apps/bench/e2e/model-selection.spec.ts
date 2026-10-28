@@ -141,14 +141,19 @@ test('names missing sources and hands the chart shortlist to the leaderboard', a
   await page.goto('/');
   await page.locator('.cost-mode-toggle').click();
   await page.locator('.cost-model-overflow-trigger').click();
-  await expect(
-    page.locator(
-      `.cost-model-menu-list li[data-series-id="${excluded!.seriesId}"] .cost-model-missing-source`,
-    ),
-  ).toHaveAttribute(
-    'data-source-id',
-    missingAdvancedCostSources(excluded!, ADVANCED_COST_SOURCE_IDS)[0]!,
+  const missingTags = page.locator(
+    `.cost-model-menu-list li[data-series-id="${excluded!.seriesId}"] .cost-model-missing-source`,
   );
+  const missing = missingAdvancedCostSources(
+    excluded!,
+    ADVANCED_COST_SOURCE_IDS,
+  );
+  await expect(missingTags).toHaveCount(missing.length);
+  expect(
+    await missingTags.evaluateAll((tags) =>
+      tags.map((tag) => tag.getAttribute('data-source-id')),
+    ),
+  ).toEqual(missing);
 
   for (const line of series) {
     if (kept.includes(line)) continue;

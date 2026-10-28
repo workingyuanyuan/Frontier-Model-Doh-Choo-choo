@@ -34,6 +34,11 @@ export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
   'enterprise-ops-gym-aa',
   'harvey-lab-aa',
   'itbench-aa',
+  // Intelligence Index v5 (2026-10-27) evaluations integrated on 2026-10-28.
+  'hle-diamond',
+  'terminal-bench-science',
+  'critpt-v2',
+  'frontiercode-2-0',
 ] as const;
 
 export type ArtificialAnalysisEvaluationSlug =
@@ -140,6 +145,10 @@ const EVALUATION_PRIORITY = new Map<string, number>([
   ['enterprise-ops-gym-aa', 0],
   ['harvey-lab-aa', 0],
   ['itbench-aa', 0],
+  ['hle-diamond', 0],
+  ['terminal-bench-science', 0],
+  ['critpt-v2', 0],
+  ['frontiercode-2-0', 0],
 ]);
 
 const APPROVED_SCORE_FIELDS = [
@@ -166,6 +175,10 @@ const APPROVED_SCORE_FIELDS = [
   'omniscience',
   'briefcase_breakdown',
   'briefcaseBreakdown',
+  'hleDiamond',
+  'terminalBenchScience',
+  'critptAgentic',
+  'frontierCode20',
 ] as const;
 
 interface ScoreMapping {
@@ -180,6 +193,8 @@ interface ScoreMapping {
   preferredPage: string;
   harness?: string;
   attempts?: number;
+  /** Whether the source states that the model ran with tools. */
+  tools?: boolean;
   /** Published conversion used when the source drops the direct field. */
   derived?: {
     aliases: readonly string[];
@@ -343,7 +358,96 @@ export const SCORE_MAPPING: readonly ScoreMapping[] = [
     normalize: true,
     preferredPage: 'models',
   },
+  // Intelligence Index v5 (2026-10-27). Each field below was matched to its
+  // evaluation page by the leaderboard values that page states in prose.
+  {
+    // HLE-Diamond: 1,000 refined HLE questions, answered once without tools.
+    // `hle` (the 2,500-question set) stays on `humanitys-last-exam`.
+    field: 'hleDiamond',
+    aliases: ['hleDiamond'],
+    benchmarkId: 'hle-diamond',
+    metricId: 'accuracy',
+    metricName: 'Accuracy',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'hle-diamond',
+    attempts: 1,
+    tools: false,
+  },
+  {
+    // Pass@1 averaged over three repeats with the mini-swe-agent harness.
+    field: 'terminalBenchScience',
+    aliases: ['terminalBenchScience'],
+    benchmarkId: 'terminal-bench-science',
+    metricId: 'accuracy',
+    metricName: 'Accuracy',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'terminal-bench-science',
+    harness: 'mini-swe-agent',
+    attempts: 3,
+    tools: true,
+  },
+  {
+    // `critptAgentic` is the CritPt v2 Full Set (70 challenges), the page's
+    // default leaderboard tab. `critptAgenticHard` is the 40-question Hard
+    // Subset weighted in the v5 Index; it is not materialized. `critpt` (v1,
+    // no harness) stays on `critpt`.
+    field: 'critptAgentic',
+    aliases: ['critptAgentic'],
+    benchmarkId: 'critpt-v2',
+    metricId: 'accuracy',
+    metricName: 'Accuracy (Full Set)',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'critpt-v2',
+    harness: 'Artificial Analysis Stirrup',
+    tools: true,
+  },
+  {
+    // AA's run of Cognition's FrontierCode 2.0 (132 tasks, three attempts in
+    // AA's Stirrup harness). It shares the organizer's benchmark ID and metric
+    // so duplicate-measurement selection applies: the ORGANIZER row wins every
+    // overlapping profile, and AA only fills profiles Cognition did not run.
+    // `frontierCode` is AA's FrontierCode 1.1 run and is not materialized.
+    field: 'frontierCode20',
+    aliases: ['frontierCode20'],
+    benchmarkId: 'frontier-code-2-0',
+    metricId: 'weighted-rubric-score',
+    metricName: 'Weighted rubric score',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'frontiercode-2-0',
+    harness: 'Artificial Analysis Stirrup',
+    attempts: 3,
+    tools: true,
+  },
 ];
+
+/** v5 additions reported separately in the validation report. */
+const V5_EVALUATIONS = SCORE_MAPPING.filter(({ field }) =>
+  [
+    'hleDiamond',
+    'terminalBenchScience',
+    'critptAgentic',
+    'frontierCode20',
+  ].includes(field),
+).map(({ preferredPage, field, benchmarkId }) => ({
+  page: preferredPage,
+  field,
+  benchmarkId,
+}));
+
+const V5_UNINTEGRATED = [
+  'AutomationBench-AA (`automationBenchPartialScore`)',
+  'Terminal-Bench 4.0 (`terminalBench40`)',
+  'CritPt v2 Hard Subset (`critptAgenticHard`)',
+  'AA FrontierCode 1.1 (`frontierCode`)',
+] as const;
 
 const asRecord = (value: unknown): ArtificialAnalysisRow | null =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -440,6 +544,22 @@ const parseArtificialAnalysisVersionMetadata = (
     /(?:Upgraded\s+)?SciCode\s+(?:to\s+)?[vV](\d+(?:\.\d+)*)/iu,
   )?.[1];
   if (scicodeVersion) benchmarkVersions.scicode = `v${scicodeVersion}`;
+
+  // Pages label the release "Terminal-Bench-Science 0.1" (titles and the Index
+  // composition) and also cite the 0.1.0 dataset tag; the two-part label is the
+  // one every page carries, so only an exact major.minor mention versions it.
+  const terminalBenchScienceVersion = text.match(
+    /Terminal-Bench-Science\s+[vV]?(\d+\.\d+)(?![.\d])/u,
+  )?.[1];
+  if (terminalBenchScienceVersion)
+    benchmarkVersions['terminal-bench-science'] =
+      `v${terminalBenchScienceVersion}`;
+
+  // The v1 page links to v2 results, so any CritPt mention is not enough: only
+  // a v2-family label versions `critpt-v2`. A later generation stays unknown
+  // here and surfaces as a catalog version mismatch in source monitoring.
+  const critptVersion = text.match(/CritPt\s+[vV](2(?:\.\d+)*)(?![.\d])/u)?.[1];
+  if (critptVersion) benchmarkVersions['critpt-v2'] = `v${critptVersion}`;
 
   return { intelligenceIndexVersion, benchmarkVersions };
 };
@@ -647,6 +767,8 @@ const benchmarkVersionFor = (
   // This benchmark is read exclusively from terminalbenchV21 / terminalbench_v2_1.
   // The field itself identifies its version, including on mixed-version pages.
   if (benchmarkId === 'terminal-bench-2-1') return 'v2.1';
+  // Likewise read only from `frontierCode20`; `frontierCode` is the 1.1 run.
+  if (benchmarkId === 'frontier-code-2-0') return 'v2.0';
   const metadata = versionMetadataFor(observation, row);
   return metadata?.benchmarkVersions[benchmarkId] ?? null;
 };
@@ -894,7 +1016,7 @@ const makeScoreCandidate = (
         typeof row.isReasoning === 'boolean'
           ? 'reasoning'
           : null,
-      tools: null,
+      tools: mapping.tools ?? null,
       harness: mapping.harness ?? null,
       contextWindowTokens:
         readNumber(
@@ -1617,6 +1739,25 @@ export const materializeArtificialAnalysisRsc = (
     '- Artificial Analysis composite indices remain `EXCLUDED`; direct evaluation scores are the only AA rows eligible for the eight-dimensional product score.',
     '- Token prices are `API_STANDARDIZED` and task costs are `MEASURED_TASK`; the two cost semantics are emitted as separate records.',
     '- No missing score, identity, or cost is inferred.',
+    '',
+    '## Intelligence Index v5 evaluations',
+    '',
+    'Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored).',
+    '',
+    '| Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |',
+    '|---|---|---|---:|---:|',
+    ...V5_EVALUATIONS.map(({ page, field, benchmarkId }) => {
+      const rows = candidates.filter(
+        (candidate) =>
+          candidate.benchmarkId === benchmarkId &&
+          candidate.provenance.rawScore?.locator.endsWith(`field=${field}`),
+      );
+      return `| \`${page}\` | \`${field}\` | \`${benchmarkId}\` | ${rows.length} | ${rows.filter(({ model }) => model.canonicalModelId !== null).length} |`;
+    }),
+    '',
+    '- `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.',
+    '- `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.',
+    `- Not integrated: ${V5_UNINTEGRATED.join('; ')}.`,
     '',
   ].join('\n');
 

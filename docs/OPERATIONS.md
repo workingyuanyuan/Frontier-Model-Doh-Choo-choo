@@ -97,7 +97,7 @@ HTML。ESLint 會攔截 adapter 直接使用 fetch 或底層網路／ZIP 套件�
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<2.0 rows> --visual-v1-profile-count=<1.0 rows>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
-pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --visual-row-count=<count> --visual-top-ten-matched
+pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --v2-visual-row-count=<Best rows> --v2-visual-all-row-count=<All rows> --v2-visual-top-ten-matched [--v2-hidden-model=<name> ...] [--v1-1-accept-value-changes]
 pnpm --filter @llm-bench/acquisition materialize:frontier-swe
 pnpm --filter @llm-bench/acquisition materialize:chartography -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:complex-constraints -- --visual-row-count=<count>
@@ -105,6 +105,7 @@ pnpm --filter @llm-bench/acquisition materialize:corecraft -- --visual-row-count
 pnpm --filter @llm-bench/acquisition materialize:riemann -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:dayjob-finance -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:dayjob-healthcare -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:dayjob-tax -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:gdp-xlsx -- --visual-row-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:epoch
 pnpm --filter @llm-bench/acquisition materialize:arc-prize
@@ -115,7 +116,7 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 
 ### 來源變更監測
 
-上述命令中，除了離線產生檔位推測報告的 `materialize:effort-reports`，其餘 17 個線上刷新命令都透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
+上述命令中，除了離線產生檔位推測報告的 `materialize:effort-reports`，其餘 18 個線上刷新命令都透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
 
 AA、Vals、Surge 另擷取即時官方 benchmark 目錄，比較新增、移除連結及名稱／版本異動。Vals 既有的動態頁面擷取照常運作。其他現役來源目前比較刷新前後的已物化快照；報告的 `scope` 明確標示此範圍，不能據此宣稱已掃描其上游所有新 benchmark。
 
@@ -132,7 +133,7 @@ pnpm report:source-changes -- --check
 
 目錄清單區分是否登記擷取，以及 `scored`、`captured-not-scored`、`supported-no-scores`、`unintegrated`、`reviewed-deferred`。`scored` 指來源已有 INCLUDED 候選列，不保證其模型已通過產品的 identity、前沿資格與共同集合條件。版本只採官方目錄明示值；缺失保持 unknown。模型覆蓋使用 canonical ID；設定覆蓋保留來源名稱、effort、thinking、harness、tools、quantization、attempts 與 context window，總數不變的成員流失也會回報。
 
-`data/mappings/source-monitoring.json` 保存明確的暫緩決定與原因。新 benchmark 的發現不會自動改變維度、來源優先序或計分政策；依使用者決定完成整合及驗證後再採用。暫緩項目若發生目錄版本變動仍會出現在差異報告中。
+`data/mappings/source-monitoring.json` 的 `deferred` 保存明確的暫緩決定與原因；`integrated` 記錄依使用者決定整合的目錄項目（例如 2026-10-28 的 AA Intelligence Index v5 評測），只作為報告的審閱註記，不改變狀態判定，刷新產生成績前仍列為待處理。新 benchmark 的發現不會自動改變維度、來源優先序或計分政策；依使用者決定完成整合及驗證後再採用。暫緩項目若發生目錄版本變動仍會出現在差異報告中。
 
 ### 模型發布頁
 
@@ -162,9 +163,37 @@ pnpm --filter @llm-bench/acquisition materialize:vendor-releases -- --openai-cap
 `/models/<slug>` detail payload；`ARTIFICIAL_ANALYSIS_API_KEY` 僅從 gitignored
 `.env.local` 讀取，官方 API 失效時記錄 warning，不阻斷頁面管道。
 
-Frontier Code 必須先開啟渲染後頁面，核對 Main 列數與 Top 10，再執行帶有
-`--visual-row-count` 與 `--visual-top-ten-matched` 的刷新命令。腳本會擷取頁面
-JSON-LD 與官方靜態 JSON；未提供 DOM 核對結果時會拒絕標記完成。
+Frontier Code 來源有兩個不同的 benchmark：FrontierCode 2.0（`frontier-code-2-0`）
+與 FrontierCode 1.1（`frontier-code-1-1`），兩者互不取代。2026-10-27 起主頁
+<https://cognition.com/frontiercode> 只渲染 2.0；1.1 只留在舊靜態 JSON 的 `v1_1`，
+1.1 部落格文章僅有發布時的 8 個模型圖表，沒有完整榜單。刷新步驟：
+
+1. 開啟渲染後主頁，數 2.0 榜「Best reasoning mode」與「All reasoning levels」兩種
+   檢視的列數，並核對可見 Top 10 與頁面 JSON-LD `FrontierCode 2.0 Leaderboard`。
+2. 若 2.0 export（`/data/frontier-code-2.0/data.json`）中有頁面未渲染的模型（頁面
+   程式的 `hiddenModels`，2026-10-28 為 `Obsidian 3`），逐一以
+   `--v2-hidden-model=<name>` 傳入。這些模型不會物化。
+3. 執行上方命令。`--v2-visual-row-count` 必須等於 export 扣除隱藏模型後的模型數，
+   `--v2-visual-all-row-count` 必須等於其設定數，JSON-LD Top 10 必須與 export
+   10/10 一致；任一不符即停止，不寫入快照。
+4. 1.1 無法核對渲染頁，改以 `v1_1` export 對照前一份快照：上游移除的列與成本
+   原樣保留（沿用原 Evidence，並留在 evidence index）；既有列分數或成本改變時
+   停止，人工確認後才加 `--v1-1-accept-value-changes` 重跑。新增、保留與變動
+   皆寫入 validation report。
+
+舊旗標 `--visual-row-count`、`--visual-top-ten-matched` 核對的是已不再渲染的 1.1
+榜，傳入時命令會直接拒絕。
+
+成本（2026-10-28 使用者裁決：FrontierCode 2.0 取代 1.1 成本圖）：2.0 可見設定的
+`main.cost`（頁面方法論：每次 rollout 的平均美元花費，以公開牌價含公開折扣計）寫入
+`costs.json`，`AGENT_TASK`／`USD_PER_TASK`、`INCLUDED`，ID 為
+`frontier-code:frontier-code-2-0:mean-rollout-cost:<model>-<effort>`；隱藏模型的成本
+不寫入。1.1 成本保留原 ID 與數值但標為 `EXCLUDED`（理由為已由 2.0 取代），步驟 4
+的數值變動核對仍涵蓋這些成本。成本圖的 Frontier Code 群組只配對
+`frontier-code-2-0` 的分數與成本，1.1 成本（含 Anthropic 發布頁的 FrontierCode 1.1
+配對）不進入該群組，兩版不會在同一個中位數裡混合。`materialize:costs` 與
+`materialize:snapshots` 走同一條 `rebuildFrontierCodeFromEvidence` 路徑，結果與線上
+刷新一致。
 
 本次範圍內各站完成後執行 `materialize:effort-reports`；它只替換 validation report 中
 標記過的推測區段，保留每站刷新產生的可見母體核對與前後 delta。
@@ -197,7 +226,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ## 3. 重產集合與建立目前版本
 
-正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、AA 勝出 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets；前 8 名的 ID 為 `aa-frontier`，實際預設集合記錄在 `defaultPresetId`。
+正式流程依 [前沿政策](FRONTIER_POLICY.md) 從已保存快照依同版 AA Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型，再對前 2～10 名各自求共同合格測試。每組 cohort 保存模型、代表 profiles、benchmark 與逐列 evidence，產品以這九組 cohorts 建立 presets；前 8 名的 ID 為 `aa-frontier`，實際預設集合記錄在 `defaultPresetId`。
 
 模型數範圍 2～10 與預設從 8 開始延伸是目前核准設定；2026-10-04 基準資料的預設集合含 17 項共同測試，是快照與品質政策計算的結果。後續依本次輸入重算，報告實際增減及 evidence，不把 17 當成固定門檻。
 
@@ -294,7 +323,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 - Harness、tools、attempt、thinking、context 沒有拆成 Product Profile。
 - Included Benchmark 皆有主要維度映射；Excluded 不計分。
 - 缺值不是零，Composite index 未重複投入能力維度。
-- AA preset 使用該 cohort 的 AA 勝出 profiles，每個 profile 自身持有全部共同合格 benchmark 的 INCLUDED、非 null 分數。
+- AA preset 使用該 cohort 的代表 profiles，每個 profile 自身持有全部共同合格 benchmark 的 INCLUDED、非 null 分數。
 
 ### UI
 
@@ -307,7 +336,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 先在相同 benchmark 集合、相同模型與 effort 下比較新舊資料，再比較本次重產集合的最終展示，將資料變化與集合變化分開說明。比較涵蓋預設集合與其他可選集合；集合 ID 相同也要核對實際 benchmark 組成。
 
-來源 delta 以上一次實際物化結果為基準；讀取上一份差異報告時取 `Refreshed` 欄，不能沿用其 `Previous` 欄。預設畫面比較使用各 cohort 的 AA 勝出 profiles 及共同合格測試，依有效維度重算分數與名次；手動選取則記錄實際模型及 effort，產品中所有非 null Overall 列不等於當次主榜模型。
+來源 delta 以上一次實際物化結果為基準；讀取上一份差異報告時取 `Refreshed` 欄，不能沿用其 `Previous` 欄。預設畫面比較使用各 cohort 的代表 profiles 及共同合格測試，依有效維度重算分數與名次；手動選取則記錄實際模型及 effort，產品中所有非 null Overall 列不等於當次主榜模型。
 
 - 列出模型新進、退出與缺格原因，並檢查代表 profile／effort 是否改變。
 - 列出既有模型的舊／新有效維度與 Overall、分數差、舊／新排名及名次差；區分新模型加入造成的名次平移與既有模型相對順序改變。

@@ -6,10 +6,10 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261025/table.csv?v=1793055826`) | 31 |
+| 2.0 model rows (`https://livebench.ai/data/20261025/table.csv?v=1793084497`) | 31 |
 | 2.0 suite candidates | 217 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1793055826`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
 | Cost records | 144 |
@@ -71,9 +71,9 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 96 | 97 | +1 |
-| Candidate results | 494 | 501 | +7 |
-| Materialized costs | 142 | 144 | +2 |
+| Raw model profiles | 97 | 97 | +0 |
+| Candidate results | 501 | 501 | +0 |
+| Materialized costs | 144 | 144 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
