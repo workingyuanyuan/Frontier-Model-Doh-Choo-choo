@@ -1,21 +1,21 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:cd1e5d98f8fe9ffbc5e43782d48f8c8c8691ffa95b4fc6d9ba258b94c796bb78`
-- Observed at: 2026-10-28T04:34:04.545Z
+- Index evidence: `sha256:9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38`
+- Observed at: 2026-10-28T23:35:54.501Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Benchmark slugs discovered from index | 60 |
-| Benchmark pages with BenchmarkView data | 56 |
-| CandidateResults | 3411 |
-| Included CandidateResults | 1997 |
-| Excluded CandidateResults | 1414 |
+| Benchmark slugs discovered from index | 62 |
+| Benchmark pages with BenchmarkView data | 57 |
+| CandidateResults | 3446 |
+| Included CandidateResults | 2057 |
+| Excluded CandidateResults | 1389 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3260 |
-| Included vals_index CostRecords | 27 |
-| Canonically unresolved rows | 2082 |
+| CostRecords retained | 3295 |
+| Included vals_index CostRecords | 28 |
+| Canonically unresolved rows | 2089 |
 | Distinct canonically unresolved models | 234 |
 
 ## Per-page completeness
@@ -31,20 +31,22 @@
 | `corp_fin_v2` | 134 | APPROVED |
 | `cua_bench` | 9 | EXCLUDED |
 | `cyber` | 47 | APPROVED |
+| `cyber_offense` | 0 | EXCLUDED |
 | `emb` | 77 | APPROVED |
-| `emb-v1-1` | 34 | EXCLUDED |
+| `emb-v1-1` | 35 | EXCLUDED |
 | `fabv2` | 81 | APPROVED |
-| `fabv2-1` | 32 | EXCLUDED |
-| `finance_index` | 32 | EXCLUDED |
+| `fabv2-1` | 33 | EXCLUDED |
+| `finance_index` | 33 | EXCLUDED |
 | `gpqa` | 138 | APPROVED |
-| `hlab` | 29 | APPROVED |
+| `hlab` | 30 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
+| `immigration` | 25 | EXCLUDED |
 | `inference_provider` | 0 | EXCLUDED |
 | `ioi` | 46 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 151 | APPROVED |
-| `legal_index` | 29 | EXCLUDED |
-| `legal_research` | 86 | APPROVED |
+| `legal_index` | 30 | EXCLUDED |
+| `legal_research` | 87 | APPROVED |
 | `math500` | 60 | EXCLUDED |
 | `medcode` | 107 | APPROVED |
 | `medqa` | 95 | EXCLUDED |
@@ -68,18 +70,18 @@
 | `srebench` | 35 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
 | `swebench-multimodal` | 20 | EXCLUDED |
-| `tax_agent_bench` | 77 | EXCLUDED |
+| `tax_agent_bench` | 78 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 76 | APPROVED |
-| `terminal-bench-4` | 56 | EXCLUDED |
+| `terminal-bench-4` | 57 | APPROVED |
 | `terminal-bench-science` | 43 | EXCLUDED |
 | `time_horizon_index` | 13 | EXCLUDED |
-| `vals_index` | 28 | EXCLUDED |
+| `vals_index` | 29 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
-| `vibe-code` | 120 | APPROVED |
+| `vibe-code` | 121 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 9 | EXCLUDED |
 
@@ -111,6 +113,7 @@ Every parsed page passed the strict `metadata.total_models === Object.keys(tasks
 | `swebench` | `swe-bench` | INDEPENDENT |
 | `tax_eval_v2` | `tax-eval-v2` | ORGANIZER |
 | `terminal-bench-2-1` | `terminal-bench-2-1` | INDEPENDENT |
+| `terminal-bench-4` | `terminal-bench-4-0` | INDEPENDENT |
 | `vibe-code` | `vibe-code-bench` | ORGANIZER |
 
 Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGANIZER; Vals reruns of externally organized benchmarks are INDEPENDENT.
@@ -123,10 +126,12 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `claimbench`
 - `code-migration-v1-1`
 - `cua_bench`
+- `cyber_offense`
 - `emb-v1-1`
 - `fabv2-1`
 - `finance_index`
 - `hlab-v1`
+- `immigration`
 - `inference_provider`
 - `legal_index`
 - `math500`
@@ -146,7 +151,6 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `swebench-multimodal`
 - `tax_agent_bench`
 - `terminal-bench-2`
-- `terminal-bench-4`
 - `terminal-bench-science`
 - `time_horizon_index`
 - `vals_index`
@@ -165,9 +169,11 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `claimbench` (not auto-promoted)
 - `code-migration-v1-1` (not auto-promoted)
 - `cua_bench` (not auto-promoted)
+- `cyber_offense` (not auto-promoted)
 - `emb-v1-1` (not auto-promoted)
 - `fabv2-1` (not auto-promoted)
 - `hlab-v1` (not auto-promoted)
+- `immigration` (not auto-promoted)
 - `inference_provider` (not auto-promoted)
 - `mental-health` (not auto-promoted)
 - `mysterymechanism` (not auto-promoted)
@@ -178,7 +184,6 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `srebench` (not auto-promoted)
 - `swebench-multimodal` (not auto-promoted)
 - `tax_agent_bench` (not auto-promoted)
-- `terminal-bench-4` (not auto-promoted)
 - `terminal-bench-science` (not auto-promoted)
 - `vals_router_index` (not auto-promoted)
 - `vcb-1-100` (not auto-promoted)
@@ -186,6 +191,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 
 ## Pages without BenchmarkView data
 
+- `cyber_offense`
 - `inference_provider`
 - `mental-health`
 - `rsi_index`
@@ -459,6 +465,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 | `swebench` | `swe-bench` | coding | agentic, reasoning |
 | `tax_eval_v2` | `tax-eval-v2` | knowledge | reasoning |
 | `terminal-bench-2-1` | `terminal-bench-2-1` | coding | agentic |
+| `terminal-bench-4` | `terminal-bench-4-0` | coding | agentic |
 | `vibe-code` | `vibe-code-bench` | coding | agentic, reasoning |
 
 The N3a user ruling remains authoritative. The deferred multimodal watchlist includes `sage` and `mortgage_tax`; neither is promoted by this refresh.
@@ -466,10 +473,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 60 | 60 | +0 |
-| CandidateResults | 3464 | 3411 | -53 |
-| CostRecords retained | 3313 | 3260 | -53 |
-| Canonically unresolved rows | 2120 | 2082 | -38 |
+| Benchmark slugs discovered from index | 62 | 62 | +0 |
+| CandidateResults | 3446 | 3446 | +0 |
+| CostRecords retained | 3295 | 3295 | +0 |
+| Canonically unresolved rows | 2099 | 2089 | -10 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -490,6 +497,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.8-max | `vals-ai:finance-agent-v2:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:gpqa-diamond:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:hlab-v1:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| alibaba/qwen3.8-max | `vals-ai:immigration:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:ioi:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:legal-bench:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:legal-research:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -510,7 +518,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.8-max | `vals-ai:tax-agent-bench:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:tax-eval-v2:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:terminal-bench-2-1:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| alibaba/qwen3.8-max | `vals-ai:terminal-bench-4:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| alibaba/qwen3.8-max | `vals-ai:terminal-bench-4-0:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:terminal-bench-science:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:vals-multimodal-index:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:vcb-1-100:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -541,6 +549,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | minimax/MiniMax-M3 | `vals-ai:finance-index:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:gpqa-diamond:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:hlab-v1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| minimax/MiniMax-M3 | `vals-ai:immigration:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:legal-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:legal-research:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:livecodebench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
@@ -560,7 +569,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | minimax/MiniMax-M3 | `vals-ai:tax-eval-v2:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:terminal-bench-2-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:terminal-bench-2:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
-| minimax/MiniMax-M3 | `vals-ai:terminal-bench-4:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
+| minimax/MiniMax-M3 | `vals-ai:terminal-bench-4-0:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:vals-multimodal-index:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:vcb-1-100:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:vibe-code-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-99:1-0-6 |
@@ -737,7 +746,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | xiaomi/mimo-v2.5-pro | `vals-ai:tax-agent-bench:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:tax-eval-v2:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:terminal-bench-2-1:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
-| xiaomi/mimo-v2.5-pro | `vals-ai:terminal-bench-4:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
+| xiaomi/mimo-v2.5-pro | `vals-ai:terminal-bench-4-0:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:vibe-code-bench:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

@@ -914,13 +914,14 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 - `https://artificialanalysis.ai/evaluations/<slug>` 每個頁面嵌有 Next.js RSC payload，內含模型列，**每列 134 個欄位**。
 - 解析方式：先把 HTML 中的 `\"` 還原成 `"`，再以 `"model_creator_id":` 定位每個模型物件，向外展開至括號平衡。
 - **`"$undefined"` 是空值哨符，是字串不是 null。** 判斷欄位有無資料時必須同時排除 `null` 與 `"$undefined"`，否則覆蓋率會被大幅高估（實測 `briefcase` 真實覆蓋 58 列，誤判為 479 列）。
-- 已知的 evaluation slug：`omniscience`、`gdpval-aa`、`apex-agents-aa`、`aa-briefcase`、`critpt`、`tau3-banking`、`gpqa-diamond`、`humanitys-last-exam`、`ifbench`、`scicode`、`terminalbench-v2-1`、`artificial-analysis-long-context-reasoning`、`mmmu-pro`、`aa-analyst-agent`、`automationbench-aa`、`enterprise-ops-gym-aa`、`harvey-lab-aa`、`itbench-aa`，以及 Intelligence Index v5 新增的 `hle-diamond`、`terminal-bench-science`、`critpt-v2`、`frontiercode-2-0`。
+- 已知的 evaluation slug：`omniscience`、`gdpval-aa`、`apex-agents-aa`、`aa-briefcase`、`critpt`、`tau3-banking`、`gpqa-diamond`、`humanitys-last-exam`、`ifbench`、`scicode`、`terminalbench-v2-1`、`artificial-analysis-long-context-reasoning`、`mmmu-pro`、`aa-analyst-agent`、`automationbench-aa`、`enterprise-ops-gym-aa`、`harvey-lab-aa`、`itbench-aa`、`terminalbench-4-0`，以及 Intelligence Index v5 新增的 `hle-diamond`、`terminal-bench-science`、`critpt-v2`、`frontiercode-2-0`。
 - **Intelligence Index v5 評測（2026-10-28 使用者裁決納入計分）**：欄位與 benchmark 的對應以各評測頁文字所列的領先成績逐值核對。
   - `hleDiamond` → `hle-diamond`：1,000 題 HLE-Diamond，單次作答、不用工具；頁面未標版本，保持 null。`hle`（2,500 題）仍歸 `humanitys-last-exam`。
   - `terminalBenchScience` → `terminal-bench-science`：版本取頁面標示的 `v0.1`（資料集 tag 0.1.0）；mini-swe-agent、三次重複的 pass@1 平均。
   - `critptAgentic` → `critpt-v2`：CritPt v2 Full Set（70 題，頁面預設榜），Stirrup 離線 Python sandbox。Index 計入的是 40 題 Hard Subset（`critptAgenticHard`），不物化；`critpt`（v1、無 harness）維持原狀。
   - `frontierCode20` → `frontier-code-2-0`：AA 以 Stirrup 對 132 題各跑三次，與 Cognition 主辦方共用 benchmark ID 與 `weighted-rubric-score` 指標。AA 列為 `INDEPENDENT`／`PARTIAL_SOURCE`，依 §4.3.1 主辦方列在每個重疊 profile 勝出，AA 只補主辦方沒有的 profile。`/evaluations/frontiercode` 的 `frontierCode` 是 AA 的 FrontierCode 1.1 執行，不物化。
-  - 尚未整合：AutomationBench-AA（`automationBenchPartialScore`）、Terminal-Bench 4.0（`terminalBench40`）。
+  - Terminal-Bench 4.0（`terminalBench40` → `terminal-bench-4-0`，66 題、mini-swe-agent、三次重複的 pass@1 平均）於 2026-10-29 整合，與 Vals 的 `terminal-bench-4` 共用 ID，與 2.1 分開。
+  - 不計分：AutomationBench-AA（`automationBenchPartialScore`）是各題目標完成比例的平均，主辦方 Zapier 榜（`automationbench`）採嚴格的任務完成率，指標不同（使用者 2026-10-29 決定）。
 - 任務成本欄位 `intelligenceIndexCostPerTask` 在 `/models` 與 `/models/<slug>` 頁面上，是一個物件，含 `cost.total` 與 `evaluations[].weightedCostPerTask`（每個 benchmark 各自的加權成本）。**在 `/evaluations/omniscience` 頁面上，這個欄位只有舊模型有值。** 開工時必須確認要組合哪幾個頁面才能取得完整的現役模型集。
 
 **管道二：官方 API（交叉驗證用）**

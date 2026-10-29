@@ -31,6 +31,11 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
     benchmarkId: 'terminal-bench-2-1',
     role: 'INDEPENDENT',
   },
+  // Approved 2026-10-29; a separate generation from 2.1, shared with AA's run.
+  'terminal-bench-4': {
+    benchmarkId: 'terminal-bench-4-0',
+    role: 'INDEPENDENT',
+  },
   lcb: { benchmarkId: 'livecodebench', role: 'INDEPENDENT' },
   mmlu_pro: { benchmarkId: 'mmlu-pro', role: 'INDEPENDENT' },
   proof_bench: { benchmarkId: 'proofbench', role: 'ORGANIZER' },

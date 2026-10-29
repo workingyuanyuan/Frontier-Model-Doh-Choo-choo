@@ -67,7 +67,7 @@ async function eligibleWorkspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 19 tests in five active categories', async () => {
+  it('produces eight complete eligible profiles sharing 20 tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     expect(selectAaTopTen(candidates).status).toBe('selected');
     const { profileIds } = await eligibleWorkspace();
@@ -78,8 +78,8 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    // 2026-10-28 data; changes when sources or eligibility change.
-    expect(result.benchmarkIds).toHaveLength(19);
+    // 2026-10-29 data; changes when sources or eligibility change.
+    expect(result.benchmarkIds).toHaveLength(20);
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
       'knowledge',
@@ -93,11 +93,11 @@ describe('frontier common quality core', () => {
         ['knowledge', 2],
         ['comprehension', 3],
         ['coding', 5],
-        ['agentic', 7],
+        ['agentic', 8],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 19)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 20)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
@@ -151,7 +151,7 @@ describe('frontier common quality core', () => {
     // 2026-10-28 data (AA index v5.0 and its evaluations, DAYJOB: Tax, FrontierCode 2.0); validate each
     // intersection independently below.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      42, 38, 37, 23, 23, 22, 19, 19, 19,
+      43, 39, 38, 24, 24, 23, 20, 20, 20,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     // The first two models share ProofBench, so its quality exclusion is exercised.
@@ -242,8 +242,13 @@ describe('frontier eligibility', () => {
         organizations,
       })),
     ).toEqual([
-      // 2026-10-28 data: this model is scored outside AA by one organization only.
-      { modelId: 'meta-muse-wonder-full', rank: 7, organizations: ['vals-ai'] },
+      // 2026-10-29 data: these models are scored outside AA by one organization only.
+      {
+        modelId: 'google-gemini-4-carbon',
+        rank: 1,
+        organizations: ['vals-ai'],
+      },
+      { modelId: 'meta-muse-wonder-full', rank: 8, organizations: ['vals-ai'] },
     ]);
     for (const leader of result.leaders) {
       expect(leader.organizations.length).toBeGreaterThanOrEqual(2);

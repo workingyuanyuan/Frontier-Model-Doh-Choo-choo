@@ -239,6 +239,12 @@ describe('Vals materialization policy', () => {
     expect(APPROVED_VALS_BENCHMARKS.ioi?.role).toBe('INDEPENDENT');
     expect(APPROVED_VALS_BENCHMARKS.emb?.role).toBe('ORGANIZER');
     expect(APPROVED_VALS_BENCHMARKS.cyber?.role).toBe('INDEPENDENT');
+    // Terminal-Bench generations keep separate IDs.
+    expect(APPROVED_VALS_BENCHMARKS['terminal-bench-4']).toEqual({
+      benchmarkId: 'terminal-bench-4-0',
+      role: 'INDEPENDENT',
+    });
+    expect(APPROVED_VALS_BENCHMARKS['terminal-bench-2']).toBeUndefined();
   });
 
   it('decodes reasoning and compute effort but rejects 0.99', () => {

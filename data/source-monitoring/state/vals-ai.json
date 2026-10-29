@@ -55,6 +55,12 @@
       "version": "v1.1"
     },
     {
+      "id": "cyber_offense",
+      "title": "CyberOffense",
+      "url": "https://www.vals.ai/benchmarks/cyber_offense",
+      "version": null
+    },
+    {
       "id": "emb",
       "title": "Excel Modeling Benchmark",
       "url": "https://www.vals.ai/benchmarks/emb",
@@ -101,6 +107,12 @@
       "title": "Harvey's Legal Agent Benchmark v1",
       "url": "https://www.vals.ai/benchmarks/hlab-v1",
       "version": "v1"
+    },
+    {
+      "id": "immigration",
+      "title": "Immigration Bench",
+      "url": "https://www.vals.ai/benchmarks/immigration",
+      "version": null
     },
     {
       "id": "inference_provider",
@@ -361,21 +373,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-28T04:34:26.841Z",
+  "checkedAt": "2026-10-28T23:36:20.606Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/cd/cd1e5d98f8fe9ffbc5e43782d48f8c8c8691ffa95b4fc6d9ba258b94c796bb78.html",
-    "byteLength": 287239,
+    "artifactPath": "artifacts/sha256/9d/9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38.html",
+    "byteLength": 296930,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:cd1e5d98f8fe9ffbc5e43782d48f8c8c8691ffa95b4fc6d9ba258b94c796bb78",
+    "id": "sha256:9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-10-28T04:34:26.841Z",
+    "retrievedAt": "2026-10-28T23:36:20.606Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:cd1e5d98f8fe9ffbc5e43782d48f8c8c8691ffa95b4fc6d9ba258b94c796bb78",
+    "sha256": "sha256:9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -1921,6 +1933,7 @@
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
@@ -1957,6 +1970,7 @@
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
@@ -1981,7 +1995,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 34,
+        "rows": 35,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
@@ -2014,6 +2028,7 @@
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
@@ -2048,6 +2063,7 @@
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
@@ -2072,7 +2088,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
@@ -2326,6 +2342,7 @@
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
@@ -2360,6 +2377,7 @@
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
@@ -2384,7 +2402,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
@@ -2714,7 +2732,7 @@
       },
       {
         "id": "hlab",
-        "includedRows": 29,
+        "includedRows": 30,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-opus-5-5",
@@ -2739,6 +2757,7 @@
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
@@ -2770,6 +2789,7 @@
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
@@ -2792,7 +2812,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 29,
+        "rows": 30,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
@@ -3015,6 +3035,87 @@
         ],
         "rows": 81,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab-v1"],
+        "versions": ["1"]
+      },
+      {
+        "id": "immigration",
+        "includedRows": 0,
+        "metrics": ["accuracy:percent:true"],
+        "models": [
+          "alibaba-qwen3-8-max",
+          "anthropic-claude-fable-5-1",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "google-gemini-3-5-flash-lite",
+          "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
+          "meta-muse-spark-1-2",
+          "meta-muse-spark-1-3",
+          "meta-muse-wonder",
+          "meta-muse-wonder-full",
+          "minimax-minimax-m3",
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-luna",
+          "xai-grok-4-6",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
+          "[\"deepseek/deepseek-v4.1-flash\",\"max\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.5-flash-lite\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"grok/grok-4.6\",\"high\",null,null,null,null,null,null]",
+          "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse_spark_1_2\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"meta/muse_spark_1_3\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"meta/muse_spark_1_3_max\",\"max\",null,null,null,null,null,null]",
+          "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
+          "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
+          "[\"zai/glm-5.3\",\"max\",null,null,null,null,null,null]"
+        ],
+        "rawLabels": [
+          "alibaba/qwen3.8-max",
+          "anthropic/claude-fable-5-1",
+          "anthropic/claude-haiku-5-5",
+          "anthropic/claude-opus-5-5",
+          "anthropic/claude-sonnet-5-5",
+          "deepseek/deepseek-v4-pro-0813",
+          "deepseek/deepseek-v4.1-flash",
+          "google/gemini-3.5-flash-lite",
+          "google/gemini-3.8-flash",
+          "google/gemini-4-argon",
+          "grok/grok-4.6",
+          "grok/grok-4.7",
+          "kimi/kimi-k3",
+          "meta/muse-wonder",
+          "meta/muse-wonder-full",
+          "meta/muse_spark_1_2",
+          "meta/muse_spark_1_3",
+          "meta/muse_spark_1_3_max",
+          "minimax/MiniMax-M3",
+          "mistralai/mistral-large-4",
+          "openai/gpt-6-astra",
+          "openai/gpt-6-luna",
+          "openai/gpt-6.1-sol",
+          "xiaomi/mimo-v2.6-pro",
+          "zai/glm-5.3"
+        ],
+        "rows": 25,
+        "sourceUrls": ["https://www.vals.ai/benchmarks/immigration"],
         "versions": ["1"]
       },
       {
@@ -3531,6 +3632,7 @@
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
@@ -3562,6 +3664,7 @@
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
@@ -3584,13 +3687,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 29,
+        "rows": 30,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
-        "includedRows": 86,
+        "includedRows": 87,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -3677,6 +3780,7 @@
           "[\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.20-0309-reasoning\",null,null,null,null,null,null,null]",
           "[\"grok/grok-4.3\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.5\",\"high\",null,null,null,null,null,null]",
@@ -3765,6 +3869,7 @@
           "google/gemini-3.7-flash",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.20-0309-reasoning",
           "grok/grok-4.3",
           "grok/grok-4.5",
@@ -3817,7 +3922,7 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 86,
+        "rows": 87,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
@@ -7454,6 +7559,7 @@
           "[\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.20-0309-reasoning\",null,null,null,null,null,null,null]",
           "[\"grok/grok-4.3\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.5\",\"high\",null,null,null,null,null,null]",
@@ -7533,6 +7639,7 @@
           "google/gemini-3.7-flash",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.20-0309-reasoning",
           "grok/grok-4.3",
           "grok/grok-4.5",
@@ -7577,7 +7684,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 77,
+        "rows": 78,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
@@ -8295,8 +8402,8 @@
         "versions": ["2.1"]
       },
       {
-        "id": "terminal-bench-4",
-        "includedRows": 0,
+        "id": "terminal-bench-4-0",
+        "includedRows": 57,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -8355,6 +8462,7 @@
           "[\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.5\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.6\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
@@ -8413,6 +8521,7 @@
           "google/gemini-3.7-flash",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.5",
           "grok/grok-4.6",
           "grok/grok-4.7",
@@ -8449,7 +8558,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 56,
+        "rows": 57,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
@@ -8660,6 +8769,7 @@
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,null,null,null,null,null]",
           "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
@@ -8690,6 +8800,7 @@
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4.7",
           "inception/mercury-3",
           "kimi/kimi-k3",
@@ -8711,7 +8822,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 28,
+        "rows": 29,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
@@ -8902,7 +9013,7 @@
       },
       {
         "id": "vibe-code-bench",
-        "includedRows": 120,
+        "includedRows": 121,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9010,6 +9121,7 @@
           "[\"google/gemini-3.7-flash\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"google/gemini-4-argon\",\"high\",null,\"OpenHands\",null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"grok/grok-4-1-fast-reasoning\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"grok/grok-4-fast-reasoning\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"grok/grok-4.20-0309-reasoning\",null,null,\"OpenHands\",null,null,null,null]",
@@ -9132,6 +9244,7 @@
           "google/gemini-3.7-flash",
           "google/gemini-3.8-flash",
           "google/gemini-4-argon",
+          "google/gemini-4-carbon",
           "grok/grok-4-1-fast-reasoning",
           "grok/grok-4-fast-reasoning",
           "grok/grok-4.20-0309-reasoning",
@@ -9204,7 +9317,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 120,
+        "rows": 121,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
@@ -9298,7 +9411,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-10-28T04:34:04.545Z",
+    "observedAt": "2026-10-28T23:35:54.501Z",
     "sourceId": "vals-ai"
   }
 }

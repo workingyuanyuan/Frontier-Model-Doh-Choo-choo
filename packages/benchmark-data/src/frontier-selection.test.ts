@@ -113,8 +113,9 @@ describe('AA frontier selection', () => {
     const result = selectAaTopTen(mapped);
     expect(result.status).toBe('selected');
     expect(result.issues).toEqual([]);
-    // 2026-10-28 data: Intelligence Index v5.0.
+    // 2026-10-29 data: Intelligence Index v5.0, Gemini 4 Carbon added.
     expect(result.selectedModelIds).toEqual([
+      'google-gemini-4-carbon',
       'anthropic-claude-opus-5-5',
       'openai-gpt-6-astra',
       'openai-gpt-6-1-sol',
@@ -124,9 +125,9 @@ describe('AA frontier selection', () => {
       'meta-muse-wonder-full',
       'anthropic-claude-fable-5-1',
       'moonshot-kimi-k3-1-pro',
-      'meta-muse-wonder',
     ]);
     expect(result.selectedProfileIds).toEqual([
+      'google-gemini-4-carbon-high',
       'anthropic-claude-opus-5-5-max',
       'openai-gpt-6-astra-max',
       'openai-gpt-6-1-sol-max',
@@ -136,12 +137,11 @@ describe('AA frontier selection', () => {
       'meta-muse-wonder-full-max',
       'anthropic-claude-fable-5-1-xhigh',
       'moonshot-kimi-k3-1-pro-max',
-      'meta-muse-wonder-max',
     ]);
-    expect(result.resolvedModelCount).toBe(24);
-    expect(result.topTen[8]?.modelId).toBe('moonshot-kimi-k3-1-pro');
-    expect(result.boundary?.afterRank).toBe(8);
-    expect(result.gapAudit.selectedModelIds).toHaveLength(8);
+    expect(result.resolvedModelCount).toBe(25);
+    expect(result.topTen[8]?.modelId).toBe('anthropic-claude-fable-5-1');
+    expect(result.boundary?.afterRank).toBe(9);
+    expect(result.gapAudit.selectedModelIds).toHaveLength(9);
   });
 
   it('selects the models above the gap and preserves version, scores and evidence', () => {

@@ -31,13 +31,13 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-10-28T13:42:59.521Z",
+  "lastVerifiedAt": "2026-10-28T23:41:02.234Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
     "`$undefined` and null are both treated as missing values.",
-    "Capture observed 214 unique profiles, 214 active profiles, 74 task-cost rows, and 206 token-price rows.",
-    "Materialized 76 Intelligence Index candidates (all EXCLUDED) and 181 GDPval-AA normalized candidates."
+    "Capture observed 215 unique profiles, 215 active profiles, 75 task-cost rows, and 207 token-price rows.",
+    "Materialized 77 Intelligence Index candidates (all EXCLUDED) and 182 GDPval-AA normalized candidates."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
@@ -67,6 +67,7 @@
     "https://artificialanalysis.ai/evaluations/scicode",
     "https://artificialanalysis.ai/evaluations/tau3-banking",
     "https://artificialanalysis.ai/evaluations/terminal-bench-science",
+    "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
     "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
     "https://artificialanalysis.ai/models"
   ]
