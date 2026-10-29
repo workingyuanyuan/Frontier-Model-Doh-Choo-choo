@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-28T04:33:58.394Z",
+  "checkedAt": "2026-10-29T01:01:13.946Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -640,7 +640,7 @@
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-10-28T04:33:55.645Z",
+    "observedAt": "2026-10-23T09:35:10.906Z",
     "sourceId": "arc-prize"
   }
 }

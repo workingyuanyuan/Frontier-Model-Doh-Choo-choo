@@ -67,7 +67,7 @@ async function eligibleWorkspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 20 tests in five active categories', async () => {
+  it('produces eight complete eligible profiles sharing 12 tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     expect(selectAaTopTen(candidates).status).toBe('selected');
     const { profileIds } = await eligibleWorkspace();
@@ -79,7 +79,7 @@ describe('frontier common quality core', () => {
       quality,
     );
     // 2026-10-29 data; changes when sources or eligibility change.
-    expect(result.benchmarkIds).toHaveLength(20);
+    expect(result.benchmarkIds).toHaveLength(12);
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
       'knowledge',
@@ -89,23 +89,28 @@ describe('frontier common quality core', () => {
     ]);
     expect(result.dimensions.map((d) => [d.id, d.benchmarkIds.length])).toEqual(
       [
-        ['reasoning', 2],
+        ['reasoning', 1],
         ['knowledge', 2],
-        ['comprehension', 3],
-        ['coding', 5],
-        ['agentic', 8],
+        ['comprehension', 1],
+        ['coding', 3],
+        ['agentic', 5],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 20)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 12)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
     const { candidates, mapping, quality, profileIds } =
       await eligibleWorkspace();
     const selectedProfileIds = profileIds.slice(0, 8);
+    expect(
+      commonQualityBenchmarks(candidates, selectedProfileIds, mapping, quality)
+        .benchmarkIds,
+    ).toContain('critpt-v2');
     const moved = candidates.map((c) =>
-      c.model.profileId === selectedProfileIds[0] && c.benchmarkId === 'critpt'
+      c.model.profileId === selectedProfileIds[0] &&
+      c.benchmarkId === 'critpt-v2'
         ? {
             ...c,
             model: { ...c.model, profileId: `${c.model.profileId}-other` },
@@ -118,16 +123,22 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    expect(result.benchmarkIds).not.toContain('critpt');
+    expect(result.benchmarkIds).not.toContain('critpt-v2');
     expect(
       result.dimensions.find(({ id }) => id === 'reasoning')!.benchmarkIds,
-    ).not.toContain('critpt');
+    ).not.toContain('critpt-v2');
   });
 
   it('enforces limited-test share after the profile intersection', async () => {
     const { candidates, mapping, quality, profileIds } =
       await eligibleWorkspace();
-    const selectedProfileIds = profileIds.slice(0, 8);
+    // Carbon lacks LiveBench Data Analysis, which triggers AA-LCR quality
+    // removal. Use the next eight profiles to exercise the limited-test rule.
+    const selectedProfileIds = profileIds.slice(1, 9);
+    expect(
+      commonQualityBenchmarks(candidates, selectedProfileIds, mapping, quality)
+        .benchmarkIds,
+    ).toContain('aa-lcr');
     const reduced = candidates.filter(
       (c) => !['medscribe', 'gdp-pdf', 'gdp-xlsx'].includes(c.benchmarkId),
     );
@@ -137,6 +148,7 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
+    expect(result.commonBeforeQuality).toContain('aa-lcr');
     expect(result.benchmarkIds).not.toContain('aa-lcr');
     expect(result.qualityShareRemovedBenchmarkIds).toContain('aa-lcr');
   });
@@ -148,16 +160,24 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-10-28 data (AA index v5.0 and its evaluations, DAYJOB: Tax, FrontierCode 2.0); validate each
-    // intersection independently below.
+    // 2026-10-29 data: Carbon qualifies through Vals and Zapier. Independently
+    // intersecting the current source candidates yields this shared core.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      43, 39, 38, 24, 24, 23, 20, 20, 20,
+      14, 14, 14, 14, 13, 13, 12, 12, 12,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
-    // The first two models share ProofBench, so its quality exclusion is exercised.
-    expect(cohorts[0]!.commonBeforeQuality).toContain('proofbench');
-    expect(cohorts[0]!.excludedBenchmarkIds).toContain('proofbench');
-    expect(cohorts[0]!.benchmarkIds).not.toContain('proofbench');
+    expect(chooseDefaultCohort(cohorts).id).toBe('aa-top-10');
+    // Opus and Astra share ProofBench; Carbon does not. Keep exercising the
+    // quality exclusion using these two qualified profiles.
+    const proofbenchPair = commonQualityBenchmarks(
+      candidates,
+      profileIds.slice(1, 3),
+      mapping,
+      quality,
+    );
+    expect(proofbenchPair.commonBeforeQuality).toContain('proofbench');
+    expect(proofbenchPair.excludedBenchmarkIds).toContain('proofbench');
+    expect(proofbenchPair.benchmarkIds).not.toContain('proofbench');
     for (const cohort of cohorts) {
       expect(cohort.profileIds).toEqual(
         profileIds.slice(0, cohort.targetModelCount),
@@ -171,8 +191,22 @@ describe('frontier common quality core', () => {
         ),
       ).toBe(true);
       expect(cohort.benchmarkIds).toEqual(
-        commonQualityBenchmarks(candidates, cohort.profileIds, mapping, quality)
-          .benchmarkIds,
+        [
+          'aa-briefcase',
+          'aa-omniscience',
+          'critpt-v2',
+          'frontier-code-2-0',
+          'gdp-pdf',
+          'gdpval-aa',
+          'hle-diamond',
+          'legal-research',
+          'scicode',
+          'terminal-bench-4-0',
+          'terminal-bench-science',
+          'vibe-code-bench',
+          ...(cohort.targetModelCount < 6 ? ['automationbench'] : []),
+          ...(cohort.targetModelCount < 8 ? ['hlab'] : []),
+        ].sort(),
       );
     }
   });
@@ -242,14 +276,18 @@ describe('frontier eligibility', () => {
         organizations,
       })),
     ).toEqual([
-      // 2026-10-29 data: these models are scored outside AA by one organization only.
-      {
-        modelId: 'google-gemini-4-carbon',
-        rank: 1,
-        organizations: ['vals-ai'],
-      },
+      // 2026-10-29 data: Wonder Full has only one independent organization.
       { modelId: 'meta-muse-wonder-full', rank: 8, organizations: ['vals-ai'] },
     ]);
+    expect(result.leaders[0]).toMatchObject({
+      modelId: 'google-gemini-4-carbon',
+      rank: 1,
+      profileId: 'google-gemini-4-carbon-high',
+      organizations: ['vals-ai', 'zapier-automationbench'],
+    });
+    expect(result.leaders.map(({ modelId }) => modelId)).not.toContain(
+      'meta-muse-spark-1-3',
+    );
     for (const leader of result.leaders) {
       expect(leader.organizations.length).toBeGreaterThanOrEqual(2);
       expect(leader.organizations).not.toContain('artificial-analysis');

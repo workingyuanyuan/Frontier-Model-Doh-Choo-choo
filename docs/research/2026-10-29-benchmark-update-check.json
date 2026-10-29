@@ -1,0 +1,4081 @@
+{
+  "schemaVersion": "benchmark-update-check-v1",
+  "date": "2026-10-29",
+  "timezone": "Asia/Taipei",
+  "checkedAt": "2026-10-29T01:04:35.502322+00:00",
+  "comparisonBaseline": {
+    "primary": "2026-10-28",
+    "report": "docs/research/2026-10-28-benchmark-update-check.md",
+    "reportSha256": "1b70731f33dce2dcaa357a735b0ed2b5df647e5b27df9eb1dd1c1c5dff99a041",
+    "alreadyIntegrated": "docs/refresh/2026-10-29.md (first run: TB4, Carbon identity, AutomationBench-AA deferred)"
+  },
+  "workspaceBaseline": {
+    "cwd": "/home/yyuan/Projects/Frontier-Model-Doh-Choo-choo",
+    "head": "7a1564f82e62b1ca1a613e6995c1e57201ce2b98",
+    "initialGitStatus": [],
+    "versionId": "sha256:404b473ef8ad025d573e793a3963f16316b183122c03eea15754b1bc6d570d34"
+  },
+  "artifactsRoot": "artifacts/research/2026-10-29-benchmark-check",
+  "manifests": {
+    "artifacts/research/2026-10-29-benchmark-check/refresh/captured-snapshot-manifest.json": {
+      "sha256": "cada989241259e15d0eb87171b9bb78a1042ee50d90065a6a58b24098e204b9e",
+      "byteLength": 21568
+    },
+    "artifacts/research/2026-10-29-benchmark-check/rendered/counts.json": {
+      "sha256": "c749773e70d616bd6d53bf9fd0ad1d35b343ca0aba3ef475820225bfe010662b",
+      "byteLength": 4666
+    },
+    "artifacts/research/2026-10-29-benchmark-check/benchmark-web/manifest.json": {
+      "sha256": "6ed5a6f2e861da3d8425bebe0cc9e806fe92962d05163c8ffe29acb6cdfa7807",
+      "byteLength": 113028
+    },
+    "artifacts/research/2026-10-29-benchmark-check/vendors/manifest.json": {
+      "sha256": "8b76ee5d4fdc4792ede48ff4c70a40311867846fe88c46c805cf37dd0f552612",
+      "byteLength": 21921
+    },
+    "artifacts/research/2026-10-29-benchmark-check/vendors/manifest-extra.json": {
+      "sha256": "df90834bb71b2afa1340cb085e538e8ff59735f2cdaabcd88a716b37b1c21ee3",
+      "byteLength": 2300
+    },
+    "artifacts/research/2026-10-29-benchmark-check/vendors/manifest-cards.json": {
+      "sha256": "7ce34d8be4ca504527d57f45f59f3dd84decdf016f0f0680877146d6d1469543",
+      "byteLength": 2518
+    }
+  },
+  "sources": {
+    "artificial-analysis": {
+      "beforeVerifiedAt": "2026-10-28T23:41:02.234Z",
+      "afterVerifiedAt": "2026-10-29T00:57:37.903Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 2568,
+          "afterCount": 2568,
+          "beforeSha256": "525c79ab229a1d2c08413e8f2b8d756d11f3037e21131cfe69267d9406bb100d",
+          "afterSha256": "4f7d1c2a53585114bc5607b890e7d265a909ab539ca987a59a63acba062e4b31",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 282,
+          "afterCount": 282,
+          "beforeSha256": "410ac8fce109202bf2910432e741ff7400609035377975512b70e81dbbd188c7",
+          "afterSha256": "3322892923d3724e272cedec06b17362c628353bc033e8dac6ef120bdd88f782",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "livebench": {
+      "beforeVerifiedAt": "2026-10-28T04:33:23.384Z",
+      "afterVerifiedAt": "2026-10-29T00:58:32.197Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 501,
+          "afterCount": 501,
+          "beforeSha256": "f99cf4a2eecb9cd7609c377e0fd55bca6c0d88c8d3e2b0285e02881d172875cf",
+          "afterSha256": "5e64951579609c740b3d134602e792a7a92d61eb3af7464c3c00a55614cf7a29",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 144,
+          "afterCount": 144,
+          "beforeSha256": "7d8dd84ccf0b87b333d605f575e46d2113d438d0f74266eae2aa2f5cc34d9be4",
+          "afterSha256": "e5add7c2c0db31c65deca8b4ca62ea51eb84f1d60939670d4ed36fdd372d842a",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "deepswe": {
+      "beforeVerifiedAt": "2026-10-23T09:34:50.026Z",
+      "afterVerifiedAt": "2026-10-29T01:00:38.902Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 70,
+          "afterCount": 70,
+          "beforeSha256": "880cadd0732a09a17f63f3a3cf616e9cca17aabe8d8e46709b409a2f821c5c33",
+          "afterSha256": "ec29941b3a5e69b1a92586e0abb1c05a66a4b1efd591be07806ff8a8faea59af",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 68,
+          "afterCount": 68,
+          "beforeSha256": "8f9b8438ee0f1cf7a0cabeec03f73a49aad2a82ce8a1cc186bc1e27e960924e2",
+          "afterSha256": "512315aaa6c38aca10ad9a2477c66390d0f3b403a160413395c6db0d22effce1",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "frontier-code": {
+      "beforeVerifiedAt": "2026-10-28T06:04:53.772Z",
+      "afterVerifiedAt": "2026-10-29T00:58:40.032Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 239,
+          "afterCount": 236,
+          "beforeSha256": "3c775387ea15655977a98c2d06f39c3c6c3aa26a3d044720d585c81883b99a70",
+          "afterSha256": "00e3a75e79d7703f2024c06ed243a50524f67a4ed826eced32f38f9fc777eb84",
+          "added": [],
+          "removed": [
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "frontier-code-2-0",
+              "benchmarkVersion": "2.0",
+              "evidenceIds": [
+                "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                "sha256:aaf284bc3932c789ab4c188043c68ff6e710b17e997fc38245e491a834dce8b9"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-code:frontier-code-2-0:mistral-large-4-high",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "weighted-rubric-score",
+                "name": "Weighted rubric score",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Mistral Large 4"
+              },
+              "normalizedScore": 8.780000000000001,
+              "observedAt": "2026-10-28T06:04:53.772Z",
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "high",
+                "harness": "vibe",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "profile": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.{harness[\"Mistral Large 4\"],efforts[\"Mistral Large 4\"],data[\"Mistral Large 4\"][\"high\"]}",
+                  "method": "EXPORT"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.data[\"Mistral Large 4\"][\"high\"].main.new_score",
+                  "method": "EXPORT"
+                }
+              },
+              "rawScore": 0.0878,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "frontier-code",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://cognition.com/frontiercode"
+            },
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "frontier-code-2-0",
+              "benchmarkVersion": "2.0",
+              "evidenceIds": [
+                "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                "sha256:aaf284bc3932c789ab4c188043c68ff6e710b17e997fc38245e491a834dce8b9"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-code:frontier-code-2-0:mistral-large-4-low",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "weighted-rubric-score",
+                "name": "Weighted rubric score",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Mistral Large 4"
+              },
+              "normalizedScore": 9.5,
+              "observedAt": "2026-10-28T06:04:53.772Z",
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "low",
+                "harness": "vibe",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "profile": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.{harness[\"Mistral Large 4\"],efforts[\"Mistral Large 4\"],data[\"Mistral Large 4\"][\"low\"]}",
+                  "method": "EXPORT"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.data[\"Mistral Large 4\"][\"low\"].main.new_score",
+                  "method": "EXPORT"
+                }
+              },
+              "rawScore": 0.095,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "frontier-code",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://cognition.com/frontiercode"
+            },
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "frontier-code-2-0",
+              "benchmarkVersion": "2.0",
+              "evidenceIds": [
+                "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                "sha256:aaf284bc3932c789ab4c188043c68ff6e710b17e997fc38245e491a834dce8b9"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-code:frontier-code-2-0:mistral-large-4-max",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "weighted-rubric-score",
+                "name": "Weighted rubric score",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Mistral Large 4"
+              },
+              "normalizedScore": 19.650000000000002,
+              "observedAt": "2026-10-28T06:04:53.772Z",
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "max",
+                "harness": "vibe",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "profile": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.{harness[\"Mistral Large 4\"],efforts[\"Mistral Large 4\"],data[\"Mistral Large 4\"][\"max\"]}",
+                  "method": "EXPORT"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.data[\"Mistral Large 4\"][\"max\"].main.new_score",
+                  "method": "EXPORT"
+                }
+              },
+              "rawScore": 0.1965,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "frontier-code",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://cognition.com/frontiercode"
+            }
+          ],
+          "changed": [
+            {
+              "identity": "frontier-code:frontier-code-1-1:deepseek-v4-1-flash-high",
+              "beforeId": "frontier-code:frontier-code-1-1:deepseek-v4-1-flash-high",
+              "afterId": "frontier-code:frontier-code-1-1:deepseek-v4-1-flash-high",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:deepseek-v4-flash-0731-high",
+              "beforeId": "frontier-code:frontier-code-1-1:deepseek-v4-flash-0731-high",
+              "afterId": "frontier-code:frontier-code-1-1:deepseek-v4-flash-0731-high",
+              "rawName": "DeepSeek V4 Flash 0731",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:deepseek-v4-pro-0813-high",
+              "beforeId": "frontier-code:frontier-code-1-1:deepseek-v4-pro-0813-high",
+              "afterId": "frontier-code:frontier-code-1-1:deepseek-v4-pro-0813-high",
+              "rawName": "DeepSeek V4 Pro 0813",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-6-flash-high",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-6-flash-high",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-6-flash-high",
+              "rawName": "Gemini 3.6 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-6-flash-low",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-6-flash-low",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-6-flash-low",
+              "rawName": "Gemini 3.6 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-6-flash-medium",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-6-flash-medium",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-6-flash-medium",
+              "rawName": "Gemini 3.6 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-7-flash-high",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-7-flash-high",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-7-flash-high",
+              "rawName": "Gemini 3.7 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-7-flash-low",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-7-flash-low",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-7-flash-low",
+              "rawName": "Gemini 3.7 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-7-flash-medium",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-7-flash-medium",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-7-flash-medium",
+              "rawName": "Gemini 3.7 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+              "rawName": "Gemini 3.8 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-3-8-flash-medium",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-3-8-flash-medium",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-3-8-flash-medium",
+              "rawName": "Gemini 3.8 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-4-argon-high",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-4-argon-high",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-4-argon-high",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-4-argon-low",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-4-argon-low",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-4-argon-low",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:gemini-4-argon-medium",
+              "beforeId": "frontier-code:frontier-code-1-1:gemini-4-argon-medium",
+              "afterId": "frontier-code:frontier-code-1-1:gemini-4-argon-medium",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:glm-5-3-flash-max",
+              "beforeId": "frontier-code:frontier-code-1-1:glm-5-3-flash-max",
+              "afterId": "frontier-code:frontier-code-1-1:glm-5-3-flash-max",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:glm-5-3-max",
+              "beforeId": "frontier-code:frontier-code-1-1:glm-5-3-max",
+              "afterId": "frontier-code:frontier-code-1-1:glm-5-3-max",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:mistral-3-5-medium-none",
+              "beforeId": "frontier-code:frontier-code-1-1:mistral-3-5-medium-none",
+              "afterId": "frontier-code:frontier-code-1-1:mistral-3-5-medium-none",
+              "rawName": "Mistral 3.5 Medium",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:nemotron-3-ultra-none",
+              "beforeId": "frontier-code:frontier-code-1-1:nemotron-3-ultra-none",
+              "afterId": "frontier-code:frontier-code-1-1:nemotron-3-ultra-none",
+              "rawName": "Nemotron 3 Ultra",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:swe-1-6-none",
+              "beforeId": "frontier-code:frontier-code-1-1:swe-1-6-none",
+              "afterId": "frontier-code:frontier-code-1-1:swe-1-6-none",
+              "rawName": "SWE-1.6",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-1-1:swe-1-7-none",
+              "beforeId": "frontier-code:frontier-code-1-1:swe-1-7-none",
+              "afterId": "frontier-code:frontier-code-1-1:swe-1-7-none",
+              "rawName": "SWE-1.7",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:beam-1-0-high",
+              "beforeId": "frontier-code:frontier-code-2-0:beam-1-0-high",
+              "afterId": "frontier-code:frontier-code-2-0:beam-1-0-high",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:beam-1-0-low",
+              "beforeId": "frontier-code:frontier-code-2-0:beam-1-0-low",
+              "afterId": "frontier-code:frontier-code-2-0:beam-1-0-low",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:beam-1-0-max",
+              "beforeId": "frontier-code:frontier-code-2-0:beam-1-0-max",
+              "afterId": "frontier-code:frontier-code-2-0:beam-1-0-max",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:beam-1-0-medium",
+              "beforeId": "frontier-code:frontier-code-2-0:beam-1-0-medium",
+              "afterId": "frontier-code:frontier-code-2-0:beam-1-0-medium",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:beam-1-0-minimal",
+              "beforeId": "frontier-code:frontier-code-2-0:beam-1-0-minimal",
+              "afterId": "frontier-code:frontier-code-2-0:beam-1-0-minimal",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "minimal",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "minimal",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:beam-1-0-xhigh",
+              "beforeId": "frontier-code:frontier-code-2-0:beam-1-0-xhigh",
+              "afterId": "frontier-code:frontier-code-2-0:beam-1-0-xhigh",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "xhigh",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "xhigh",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-high",
+              "beforeId": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-high",
+              "afterId": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-high",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-low",
+              "beforeId": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-low",
+              "afterId": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-low",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-max",
+              "beforeId": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-max",
+              "afterId": "frontier-code:frontier-code-2-0:deepseek-v4-1-flash-max",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+              "beforeId": "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+              "afterId": "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:gemini-4-argon-low",
+              "beforeId": "frontier-code:frontier-code-2-0:gemini-4-argon-low",
+              "afterId": "frontier-code:frontier-code-2-0:gemini-4-argon-low",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:gemini-4-argon-medium",
+              "beforeId": "frontier-code:frontier-code-2-0:gemini-4-argon-medium",
+              "afterId": "frontier-code:frontier-code-2-0:gemini-4-argon-medium",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:glm-5-3-flash-high",
+              "beforeId": "frontier-code:frontier-code-2-0:glm-5-3-flash-high",
+              "afterId": "frontier-code:frontier-code-2-0:glm-5-3-flash-high",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:glm-5-3-flash-low",
+              "beforeId": "frontier-code:frontier-code-2-0:glm-5-3-flash-low",
+              "afterId": "frontier-code:frontier-code-2-0:glm-5-3-flash-low",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:glm-5-3-flash-max",
+              "beforeId": "frontier-code:frontier-code-2-0:glm-5-3-flash-max",
+              "afterId": "frontier-code:frontier-code-2-0:glm-5-3-flash-max",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:glm-5-3-high",
+              "beforeId": "frontier-code:frontier-code-2-0:glm-5-3-high",
+              "afterId": "frontier-code:frontier-code-2-0:glm-5-3-high",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:glm-5-3-low",
+              "beforeId": "frontier-code:frontier-code-2-0:glm-5-3-low",
+              "afterId": "frontier-code:frontier-code-2-0:glm-5-3-low",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:glm-5-3-max",
+              "beforeId": "frontier-code:frontier-code-2-0:glm-5-3-max",
+              "afterId": "frontier-code:frontier-code-2-0:glm-5-3-max",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:inkling-small-high",
+              "beforeId": "frontier-code:frontier-code-2-0:inkling-small-high",
+              "afterId": "frontier-code:frontier-code-2-0:inkling-small-high",
+              "rawName": "Inkling Small",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:inkling-small-max",
+              "beforeId": "frontier-code:frontier-code-2-0:inkling-small-max",
+              "afterId": "frontier-code:frontier-code-2-0:inkling-small-max",
+              "rawName": "Inkling Small",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:kimi-k3-high",
+              "beforeId": "frontier-code:frontier-code-2-0:kimi-k3-high",
+              "afterId": "frontier-code:frontier-code-2-0:kimi-k3-high",
+              "rawName": "Kimi K3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:kimi-k3-low",
+              "beforeId": "frontier-code:frontier-code-2-0:kimi-k3-low",
+              "afterId": "frontier-code:frontier-code-2-0:kimi-k3-low",
+              "rawName": "Kimi K3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:kimi-k3-max",
+              "beforeId": "frontier-code:frontier-code-2-0:kimi-k3-max",
+              "afterId": "frontier-code:frontier-code-2-0:kimi-k3-max",
+              "rawName": "Kimi K3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:swe-1-6-na",
+              "beforeId": "frontier-code:frontier-code-2-0:swe-1-6-na",
+              "afterId": "frontier-code:frontier-code-2-0:swe-1-6-na",
+              "rawName": "SWE-1.6",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel_swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli-swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:swe-1-7-na",
+              "beforeId": "frontier-code:frontier-code-2-0:swe-1-7-na",
+              "afterId": "frontier-code:frontier-code-2-0:swe-1-7-na",
+              "rawName": "SWE-1.7",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel_swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli-swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "costs.json": {
+          "beforeCount": 239,
+          "afterCount": 236,
+          "beforeSha256": "356dec8fdd4b704f274491d274b99a44e192a68a2f0f9fa533f88212e1010b8c",
+          "afterSha256": "5c8fc134953c3560367173d1e326ed0307034856744006adf599bb9c4e102996",
+          "added": [],
+          "removed": [
+            {
+              "assumptionId": null,
+              "benchmarkId": "frontier-code-2-0",
+              "benchmarkVersion": "2.0",
+              "cost": 1.031,
+              "costType": "AGENT_TASK",
+              "evidenceIds": [
+                "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-code:frontier-code-2-0:mean-rollout-cost:mistral-large-4-high",
+              "inclusion": "INCLUDED",
+              "inputPerMillionTokens": null,
+              "metricId": "mean-rollout-cost",
+              "metricName": "Mean FrontierCode 2.0 rollout cost",
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Mistral Large 4"
+              },
+              "observedAt": "2026-10-28T06:04:53.772Z",
+              "outputPerMillionTokens": null,
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "high",
+                "harness": "vibe",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.data[\"Mistral Large 4\"][\"high\"].main.cost",
+                  "method": "EXPORT"
+                }
+              },
+              "schemaVersion": "cost-record-v1",
+              "sourceId": "frontier-code",
+              "sourcePublishedAt": null,
+              "sourceUrl": "https://cognition.com/frontiercode",
+              "unit": "USD_PER_TASK"
+            },
+            {
+              "assumptionId": null,
+              "benchmarkId": "frontier-code-2-0",
+              "benchmarkVersion": "2.0",
+              "cost": 0.669,
+              "costType": "AGENT_TASK",
+              "evidenceIds": [
+                "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-code:frontier-code-2-0:mean-rollout-cost:mistral-large-4-low",
+              "inclusion": "INCLUDED",
+              "inputPerMillionTokens": null,
+              "metricId": "mean-rollout-cost",
+              "metricName": "Mean FrontierCode 2.0 rollout cost",
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Mistral Large 4"
+              },
+              "observedAt": "2026-10-28T06:04:53.772Z",
+              "outputPerMillionTokens": null,
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "low",
+                "harness": "vibe",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.data[\"Mistral Large 4\"][\"low\"].main.cost",
+                  "method": "EXPORT"
+                }
+              },
+              "schemaVersion": "cost-record-v1",
+              "sourceId": "frontier-code",
+              "sourcePublishedAt": null,
+              "sourceUrl": "https://cognition.com/frontiercode",
+              "unit": "USD_PER_TASK"
+            },
+            {
+              "assumptionId": null,
+              "benchmarkId": "frontier-code-2-0",
+              "benchmarkVersion": "2.0",
+              "cost": 1.549,
+              "costType": "AGENT_TASK",
+              "evidenceIds": [
+                "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-code:frontier-code-2-0:mean-rollout-cost:mistral-large-4-max",
+              "inclusion": "INCLUDED",
+              "inputPerMillionTokens": null,
+              "metricId": "mean-rollout-cost",
+              "metricName": "Mean FrontierCode 2.0 rollout cost",
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Mistral Large 4"
+              },
+              "observedAt": "2026-10-28T06:04:53.772Z",
+              "outputPerMillionTokens": null,
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "max",
+                "harness": "vibe",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:d0c31eab422050e400627d3ed0578706dc2b3c0605db281a06fd3eadce21b566",
+                  "locator": "$.data[\"Mistral Large 4\"][\"max\"].main.cost",
+                  "method": "EXPORT"
+                }
+              },
+              "schemaVersion": "cost-record-v1",
+              "sourceId": "frontier-code",
+              "sourcePublishedAt": null,
+              "sourceUrl": "https://cognition.com/frontiercode",
+              "unit": "USD_PER_TASK"
+            }
+          ],
+          "changed": [
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-high",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-low",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-low",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-low",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-max",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-max",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-max",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-medium",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-medium",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-medium",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-minimal",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-minimal",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-minimal",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "minimal",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "minimal",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-xhigh",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-xhigh",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:beam-1-0-xhigh",
+              "rawName": "Beam 1.0",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "xhigh",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "xhigh",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-high",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-low",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-low",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-low",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-max",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-max",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:deepseek-v4-1-flash-max",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-high",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-low",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-low",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-low",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-medium",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-medium",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:gemini-4-argon-medium",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-high",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-low",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-low",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-low",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-max",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-max",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-flash-max",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-high",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-low",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-low",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-low",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-max",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-max",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:glm-5-3-max",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:inkling-small-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:inkling-small-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:inkling-small-high",
+              "rawName": "Inkling Small",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:inkling-small-max",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:inkling-small-max",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:inkling-small-max",
+              "rawName": "Inkling Small",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-high",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-high",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-high",
+              "rawName": "Kimi K3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-low",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-low",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-low",
+              "rawName": "Kimi K3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-max",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-max",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:kimi-k3-max",
+              "rawName": "Kimi K3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-1-6-na",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-1-6-na",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-1-6-na",
+              "rawName": "SWE-1.6",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel_swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli-swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-1-7-na",
+              "beforeId": "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-1-7-na",
+              "afterId": "frontier-code:frontier-code-2-0:mean-rollout-cost:swe-1-7-na",
+              "rawName": "SWE-1.7",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel_swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli-swe1",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:deepseek-v4-1-flash-high",
+              "beforeId": "frontier-code:mean-rollout-cost:deepseek-v4-1-flash-high",
+              "afterId": "frontier-code:mean-rollout-cost:deepseek-v4-1-flash-high",
+              "rawName": "DeepSeek V4.1 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:deepseek-v4-flash-0731-high",
+              "beforeId": "frontier-code:mean-rollout-cost:deepseek-v4-flash-0731-high",
+              "afterId": "frontier-code:mean-rollout-cost:deepseek-v4-flash-0731-high",
+              "rawName": "DeepSeek V4 Flash 0731",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:deepseek-v4-pro-0813-high",
+              "beforeId": "frontier-code:mean-rollout-cost:deepseek-v4-pro-0813-high",
+              "afterId": "frontier-code:mean-rollout-cost:deepseek-v4-pro-0813-high",
+              "rawName": "DeepSeek V4 Pro 0813",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-6-flash-high",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-6-flash-high",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-6-flash-high",
+              "rawName": "Gemini 3.6 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-6-flash-low",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-6-flash-low",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-6-flash-low",
+              "rawName": "Gemini 3.6 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-6-flash-medium",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-6-flash-medium",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-6-flash-medium",
+              "rawName": "Gemini 3.6 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-7-flash-high",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-7-flash-high",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-7-flash-high",
+              "rawName": "Gemini 3.7 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-7-flash-low",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-7-flash-low",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-7-flash-low",
+              "rawName": "Gemini 3.7 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-7-flash-medium",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-7-flash-medium",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-7-flash-medium",
+              "rawName": "Gemini 3.7 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-8-flash-high",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-8-flash-high",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-8-flash-high",
+              "rawName": "Gemini 3.8 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-3-8-flash-medium",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-3-8-flash-medium",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-3-8-flash-medium",
+              "rawName": "Gemini 3.8 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-4-argon-high",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-4-argon-high",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-4-argon-high",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "high",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-4-argon-low",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-4-argon-low",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-4-argon-low",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "low",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:gemini-4-argon-medium",
+              "beforeId": "frontier-code:mean-rollout-cost:gemini-4-argon-medium",
+              "afterId": "frontier-code:mean-rollout-cost:gemini-4-argon-medium",
+              "rawName": "Gemini 4 Argon",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "medium",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:glm-5-3-flash-max",
+              "beforeId": "frontier-code:mean-rollout-cost:glm-5-3-flash-max",
+              "afterId": "frontier-code:mean-rollout-cost:glm-5-3-flash-max",
+              "rawName": "GLM 5.3 Flash",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:glm-5-3-max",
+              "beforeId": "frontier-code:mean-rollout-cost:glm-5-3-max",
+              "afterId": "frontier-code:mean-rollout-cost:glm-5-3-max",
+              "rawName": "GLM 5.3",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": "max",
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:mistral-3-5-medium-none",
+              "beforeId": "frontier-code:mean-rollout-cost:mistral-3-5-medium-none",
+              "afterId": "frontier-code:mean-rollout-cost:mistral-3-5-medium-none",
+              "rawName": "Mistral 3.5 Medium",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:nemotron-3-ultra-none",
+              "beforeId": "frontier-code:mean-rollout-cost:nemotron-3-ultra-none",
+              "afterId": "frontier-code:mean-rollout-cost:nemotron-3-ultra-none",
+              "rawName": "Nemotron 3 Ultra",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:swe-1-6-none",
+              "beforeId": "frontier-code:mean-rollout-cost:swe-1-6-none",
+              "afterId": "frontier-code:mean-rollout-cost:swe-1-6-none",
+              "rawName": "SWE-1.6",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            },
+            {
+              "identity": "frontier-code:mean-rollout-cost:swe-1-7-none",
+              "beforeId": "frontier-code:mean-rollout-cost:swe-1-7-none",
+              "afterId": "frontier-code:mean-rollout-cost:swe-1-7-none",
+              "rawName": "SWE-1.7",
+              "fields": [
+                {
+                  "field": "profile",
+                  "before": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "chisel",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  },
+                  "after": {
+                    "attempts": null,
+                    "contextWindowTokens": null,
+                    "effort": null,
+                    "harness": "devin-cli",
+                    "quantization": null,
+                    "thinking": null,
+                    "tools": null
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "contentChanged": true
+    },
+    "frontier-swe": {
+      "beforeVerifiedAt": "2026-10-04T03:26:46.220Z",
+      "afterVerifiedAt": "2026-10-29T00:57:57.961Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 20,
+          "afterCount": 23,
+          "beforeSha256": "1f7f52fb6ab5e7224858acd6fba89a9eb8ada9cb46224e7d159e38b4f7c7744c",
+          "afterSha256": "4b553ab78247fd4c489528ac64ff94851efc89b86a1c683cbf529bad15714792",
+          "added": [
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "frontier-swe-v2",
+              "benchmarkVersion": "2",
+              "evidenceIds": [
+                "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-swe:frontier-swe-v2:claude-haiku-5-5-proximus",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "mean-at-5",
+                "name": "Mean@5",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": null,
+                "profileId": null,
+                "rawName": "Claude Haiku 5.5"
+              },
+              "normalizedScore": 43.76868294117648,
+              "observedAt": "2026-10-29T00:57:57.961Z",
+              "profile": {
+                "attempts": 5,
+                "contextWindowTokens": null,
+                "effort": null,
+                "harness": "proximus",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "profile": {
+                  "evidenceId": "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a",
+                  "locator": "RSC.entries.abs.mean[8]",
+                  "method": "EMBEDDED_JSON"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a",
+                  "locator": "RSC.entries.abs.mean[8].overall",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "rawScore": 43.76868294117648,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "frontier-swe",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://www.frontierswe.com/"
+            },
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "frontier-swe-v2",
+              "benchmarkVersion": "2",
+              "evidenceIds": [
+                "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-swe:frontier-swe-v2:gemini-4-carbon-proximus",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "mean-at-5",
+                "name": "Mean@5",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": null,
+                "rawName": "Gemini 4 Carbon"
+              },
+              "normalizedScore": 61.19949235294118,
+              "observedAt": "2026-10-29T00:57:57.961Z",
+              "profile": {
+                "attempts": 5,
+                "contextWindowTokens": null,
+                "effort": null,
+                "harness": "proximus",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "profile": {
+                  "evidenceId": "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a",
+                  "locator": "RSC.entries.abs.mean[3]",
+                  "method": "EMBEDDED_JSON"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a",
+                  "locator": "RSC.entries.abs.mean[3].overall",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "rawScore": 61.19949235294118,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "frontier-swe",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://www.frontierswe.com/"
+            },
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "frontier-swe-v2",
+              "benchmarkVersion": "2",
+              "evidenceIds": [
+                "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a"
+              ],
+              "exclusionReason": null,
+              "id": "frontier-swe:frontier-swe-v2:muse-spark-1-3-proximus",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "mean-at-5",
+                "name": "Mean@5",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": "meta-muse-spark-1-3",
+                "profileId": null,
+                "rawName": "Muse Spark 1.3"
+              },
+              "normalizedScore": 25.80214823529412,
+              "observedAt": "2026-10-29T00:57:57.961Z",
+              "profile": {
+                "attempts": 5,
+                "contextWindowTokens": null,
+                "effort": null,
+                "harness": "proximus",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "profile": {
+                  "evidenceId": "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a",
+                  "locator": "RSC.entries.abs.mean[13]",
+                  "method": "EMBEDDED_JSON"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a",
+                  "locator": "RSC.entries.abs.mean[13].overall",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "rawScore": 25.80214823529412,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "frontier-swe",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://www.frontierswe.com/"
+            }
+          ],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": true
+    },
+    "surge-chartography": {
+      "beforeVerifiedAt": "2026-10-23T09:34:56.382Z",
+      "afterVerifiedAt": "2026-10-29T00:59:52.040Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 42,
+          "afterCount": 42,
+          "beforeSha256": "7936b7ce0eae09db8baf064f5a14efd3a150fe663c6779ae45fb1982b6afe256",
+          "afterSha256": "bc8586b753cd5827b6f55fe71d5d8f4d26e21363e5ec23cb1775e65a866af9fc",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-complex-constraints": {
+      "beforeVerifiedAt": "2026-10-23T09:34:58.036Z",
+      "afterVerifiedAt": "2026-10-29T00:59:54.505Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "00f8b026a25396b8e0e4fd3edb6c0f83f185cf190160c7b27b8900ba678c7c51",
+          "afterSha256": "79d3c6f44ccaf03c40f7e032541591919fc12b822ef8e4c93ef55acc024d5387",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-corecraft": {
+      "beforeVerifiedAt": "2026-10-23T09:34:59.613Z",
+      "afterVerifiedAt": "2026-10-29T00:59:56.570Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 50,
+          "afterCount": 50,
+          "beforeSha256": "dd8536dcbaf3d6f120c8272d916a54176fc909c785608c5abec32deee0a6deac",
+          "afterSha256": "f48dcecd36b041decba4bbd23ce21144eb59c00d2bd5b42374f6287383a83c08",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-riemann": {
+      "beforeVerifiedAt": "2026-10-23T09:35:01.162Z",
+      "afterVerifiedAt": "2026-10-29T00:59:58.391Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "22712aedd79b8545bbbed834e80478dc710a259a4a4b1624172aca2da78762d2",
+          "afterSha256": "cd433e2e5fab6800d6df78e3487fa7df0b235da6b426b4a8b3a6a7ddd6801c6b",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-dayjob-finance": {
+      "beforeVerifiedAt": "2026-10-28T04:33:44.075Z",
+      "afterVerifiedAt": "2026-10-29T01:00:00.329Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 38,
+          "afterCount": 38,
+          "beforeSha256": "42583925fc5a5988419810a1fdc1773f159c79d0bd4739bf01a7388c60a679e0",
+          "afterSha256": "4abf964627536cba4efb01f96a008f343f2445f03cf1f129574d4fa83bb6826f",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-dayjob-healthcare": {
+      "beforeVerifiedAt": "2026-10-28T04:33:46.414Z",
+      "afterVerifiedAt": "2026-10-29T01:00:03.515Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 38,
+          "afterCount": 38,
+          "beforeSha256": "cbbf880b938337dd2204721a6122bef941a2572a4be53faf0fc140fe09a5cd41",
+          "afterSha256": "8008c513623f78071b7916975a8e02a881f92da6e77e9d114495e72423b23470",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-dayjob-tax": {
+      "beforeVerifiedAt": "2026-10-28T05:59:18.172Z",
+      "afterVerifiedAt": "2026-10-29T01:00:05.478Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 16,
+          "afterCount": 16,
+          "beforeSha256": "5e522cc21d5f50e7614322ffc0cf73fa222fe89b491e07fdc53037fb1cdf0173",
+          "afterSha256": "af069899149e42e8b865b1b0e8cbeb877b3549a94aec20ca91cad980cac2b23f",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "surge-gdp-xlsx": {
+      "beforeVerifiedAt": "2026-10-23T09:35:06.114Z",
+      "afterVerifiedAt": "2026-10-29T01:00:07.536Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 20,
+          "afterCount": 20,
+          "beforeSha256": "02fc108a45ea2e0addce0f3e70dc2bffcde0c92f6cbc26da89ae87b4d75bfa23",
+          "afterSha256": "9431f2fd83c15c84f853125ef44a44df16a2af5896d116d1a5d37c2d1daf1849",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "epoch-ai": {
+      "beforeVerifiedAt": "2026-10-28T04:33:50.783Z",
+      "afterVerifiedAt": "2026-10-29T00:57:21.652Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 1465,
+          "afterCount": 1465,
+          "beforeSha256": "91336b5730f1a6a89489f33d40f7b0a21b11ce8300001b55fa59891d52883ab6",
+          "afterSha256": "f46afe17056475bbc1b3a01898601b35507107061307b2c95ff5bdfc673ac7b0",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "arc-prize": {
+      "beforeVerifiedAt": "2026-10-23T09:35:10.906Z",
+      "afterVerifiedAt": "2026-10-29T00:57:25.301Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 291,
+          "afterCount": 291,
+          "beforeSha256": "d4e6df950859c31a7f6b975783b141b6f22623cc7a8e161e07163f1367728b60",
+          "afterSha256": "2ec6abfc1c12c14ceeba5c333af0a0aa6d69e7317fb28bfa408253a6fd2037df",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 291,
+          "afterCount": 291,
+          "beforeSha256": "e526e4e01ecee05dc6a5ccbc11c1bac6c2f214714870ffa3bee9e0b3ce129f8f",
+          "afterSha256": "d8f6bb1c18079d75321a33b0166ef69c8fd03499204f3bd54ac18fa3fb8c4edf",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "zapier-automationbench": {
+      "beforeVerifiedAt": "2026-10-23T10:42:18.880Z",
+      "afterVerifiedAt": "2026-10-29T00:57:29.204Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 126,
+          "afterCount": 129,
+          "beforeSha256": "a9d5408fb5b3fed3da35a32da8f5b32d43ff26bcdeeac6a3a26355dbccbfd8ce",
+          "afterSha256": "431af88b93a7d6bac25986b43c09c09a71f6ebc272902bb56c11ff92c7403b6c",
+          "added": [
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "automationbench",
+              "benchmarkVersion": "1.0.6",
+              "evidenceIds": [
+                "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                "sha256:de844cee3215406b422ff452804ddca728708957da62fe47e9980545df2f0abb"
+              ],
+              "exclusionReason": null,
+              "id": "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "task-completed-correctly",
+                "name": "task_completed_correctly",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": "google-gemini-4-carbon-high",
+                "rawName": "Gemini 4 Carbon (High)"
+              },
+              "normalizedScore": 53.88,
+              "observedAt": "2026-10-29T00:57:29.204Z",
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "high",
+                "harness": "Zapier API mode",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 1 raw Cost / task \"$2.12\"",
+                  "method": "EMBEDDED_JSON"
+                },
+                "profile": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 1 model \"Gemini 4 Carbon (High)\"; API mode",
+                  "method": "EMBEDDED_JSON"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 1 score \"53.88%\"",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "rawScore": 53.88,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "zapier-automationbench",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://zapier.com/benchmarks"
+            },
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "automationbench",
+              "benchmarkVersion": "1.0.6",
+              "evidenceIds": [
+                "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                "sha256:de844cee3215406b422ff452804ddca728708957da62fe47e9980545df2f0abb"
+              ],
+              "exclusionReason": null,
+              "id": "zapier-automationbench:automationbench:gemini-4-carbon-low-rank-16:1-0-6",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "task-completed-correctly",
+                "name": "task_completed_correctly",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": "google-gemini-4-carbon-low",
+                "rawName": "Gemini 4 Carbon (Low)"
+              },
+              "normalizedScore": 31.51,
+              "observedAt": "2026-10-29T00:57:29.204Z",
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "low",
+                "harness": "Zapier API mode",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 16 raw Cost / task \"$1.02\"",
+                  "method": "EMBEDDED_JSON"
+                },
+                "profile": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 16 model \"Gemini 4 Carbon (Low)\"; API mode",
+                  "method": "EMBEDDED_JSON"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 16 score \"31.51%\"",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "rawScore": 31.51,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "zapier-automationbench",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://zapier.com/benchmarks"
+            },
+            {
+              "acquisitionStatus": "FULL",
+              "benchmarkId": "automationbench",
+              "benchmarkVersion": "1.0.6",
+              "evidenceIds": [
+                "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                "sha256:de844cee3215406b422ff452804ddca728708957da62fe47e9980545df2f0abb"
+              ],
+              "exclusionReason": null,
+              "id": "zapier-automationbench:automationbench:gemini-4-carbon-medium-rank-2:1-0-6",
+              "inclusion": "INCLUDED",
+              "metric": {
+                "higherIsBetter": true,
+                "id": "task-completed-correctly",
+                "name": "task_completed_correctly",
+                "unit": "percent"
+              },
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": "google-gemini-4-carbon-medium",
+                "rawName": "Gemini 4 Carbon (Medium)"
+              },
+              "normalizedScore": 52.97,
+              "observedAt": "2026-10-29T00:57:29.204Z",
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "medium",
+                "harness": "Zapier API mode",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 2 raw Cost / task \"$1.65\"",
+                  "method": "EMBEDDED_JSON"
+                },
+                "profile": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 2 model \"Gemini 4 Carbon (Medium)\"; API mode",
+                  "method": "EMBEDDED_JSON"
+                },
+                "rawScore": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 2 score \"52.97%\"",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "rawScore": 52.97,
+              "schemaVersion": "candidate-result-v1",
+              "sourceId": "zapier-automationbench",
+              "sourcePublishedAt": null,
+              "sourceRole": "ORGANIZER",
+              "sourceUrl": "https://zapier.com/benchmarks"
+            }
+          ],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 125,
+          "afterCount": 128,
+          "beforeSha256": "d233a6389b19fd698f46736d8f230d456159491f4bf76e5f985f88defe386940",
+          "afterSha256": "190138863c5eb7d0cc30b4c328484bd192ec0392682f50dfd26834c50297485d",
+          "added": [
+            {
+              "assumptionId": null,
+              "benchmarkId": "automationbench",
+              "benchmarkVersion": "1.0.6",
+              "cost": 2.12,
+              "costType": "AGENT_TASK",
+              "evidenceIds": [
+                "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                "sha256:de844cee3215406b422ff452804ddca728708957da62fe47e9980545df2f0abb"
+              ],
+              "exclusionReason": null,
+              "id": "zapier-automationbench:cost-per-task:gemini-4-carbon-high-rank-1:1-0-6",
+              "inclusion": "INCLUDED",
+              "inputPerMillionTokens": null,
+              "metricId": "cost-per-task",
+              "metricName": "AutomationBench cost per task",
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": "google-gemini-4-carbon-high",
+                "rawName": "Gemini 4 Carbon (High)"
+              },
+              "observedAt": "2026-10-29T00:57:29.204Z",
+              "outputPerMillionTokens": null,
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "high",
+                "harness": "Zapier API mode",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 1 raw Cost / task \"$2.12\"",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "schemaVersion": "cost-record-v1",
+              "sourceId": "zapier-automationbench",
+              "sourcePublishedAt": null,
+              "sourceUrl": "https://zapier.com/benchmarks",
+              "unit": "USD_PER_TASK"
+            },
+            {
+              "assumptionId": null,
+              "benchmarkId": "automationbench",
+              "benchmarkVersion": "1.0.6",
+              "cost": 1.02,
+              "costType": "AGENT_TASK",
+              "evidenceIds": [
+                "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                "sha256:de844cee3215406b422ff452804ddca728708957da62fe47e9980545df2f0abb"
+              ],
+              "exclusionReason": null,
+              "id": "zapier-automationbench:cost-per-task:gemini-4-carbon-low-rank-16:1-0-6",
+              "inclusion": "INCLUDED",
+              "inputPerMillionTokens": null,
+              "metricId": "cost-per-task",
+              "metricName": "AutomationBench cost per task",
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": "google-gemini-4-carbon-low",
+                "rawName": "Gemini 4 Carbon (Low)"
+              },
+              "observedAt": "2026-10-29T00:57:29.204Z",
+              "outputPerMillionTokens": null,
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "low",
+                "harness": "Zapier API mode",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 16 raw Cost / task \"$1.02\"",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "schemaVersion": "cost-record-v1",
+              "sourceId": "zapier-automationbench",
+              "sourcePublishedAt": null,
+              "sourceUrl": "https://zapier.com/benchmarks",
+              "unit": "USD_PER_TASK"
+            },
+            {
+              "assumptionId": null,
+              "benchmarkId": "automationbench",
+              "benchmarkVersion": "1.0.6",
+              "cost": 1.65,
+              "costType": "AGENT_TASK",
+              "evidenceIds": [
+                "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                "sha256:de844cee3215406b422ff452804ddca728708957da62fe47e9980545df2f0abb"
+              ],
+              "exclusionReason": null,
+              "id": "zapier-automationbench:cost-per-task:gemini-4-carbon-medium-rank-2:1-0-6",
+              "inclusion": "INCLUDED",
+              "inputPerMillionTokens": null,
+              "metricId": "cost-per-task",
+              "metricName": "AutomationBench cost per task",
+              "model": {
+                "canonicalModelId": "google-gemini-4-carbon",
+                "profileId": "google-gemini-4-carbon-medium",
+                "rawName": "Gemini 4 Carbon (Medium)"
+              },
+              "observedAt": "2026-10-29T00:57:29.204Z",
+              "outputPerMillionTokens": null,
+              "profile": {
+                "attempts": null,
+                "contextWindowTokens": null,
+                "effort": "medium",
+                "harness": "Zapier API mode",
+                "quantization": null,
+                "thinking": null,
+                "tools": null
+              },
+              "provenance": {
+                "cost": {
+                  "evidenceId": "sha256:c11d0c2b0e20d8dab62d0e85472619ad7a80bd3be8b8dfb6493c645bfa0cb05c",
+                  "locator": "leaderboard rank 2 raw Cost / task \"$1.65\"",
+                  "method": "EMBEDDED_JSON"
+                }
+              },
+              "schemaVersion": "cost-record-v1",
+              "sourceId": "zapier-automationbench",
+              "sourcePublishedAt": null,
+              "sourceUrl": "https://zapier.com/benchmarks",
+              "unit": "USD_PER_TASK"
+            }
+          ],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": true
+    },
+    "vals-ai": {
+      "beforeVerifiedAt": "2026-10-28T23:35:54.501Z",
+      "afterVerifiedAt": "2026-10-29T00:57:33.783Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 3446,
+          "afterCount": 3446,
+          "beforeSha256": "c22f40de918f51eac8b13f83651d2bf6661ecec1ef3f461ee6eb83bd3aad8962",
+          "afterSha256": "547c4d24b855b6090b7d63aaec967ca9c4d399de1ff394afb7ed3f8813daff22",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 3295,
+          "afterCount": 3295,
+          "beforeSha256": "f169e5f7a4f5c1b5f99e925df36f8d925c11a3224b43bb1e867d1b14894b0958",
+          "afterSha256": "9581935852f52c75f788af4cbca73cd4546f0b9522ae0232b40d6ec4eb69cc2c",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "openai-releases": {
+      "beforeVerifiedAt": "2026-10-04T04:31:17.114Z",
+      "afterVerifiedAt": "2026-10-04T04:31:17.114Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 207,
+          "afterCount": 207,
+          "beforeSha256": "18d29797b319ff2fd8eddf1b01f2610f7acfd0305972d46d0e85a331db61744b",
+          "afterSha256": "18d29797b319ff2fd8eddf1b01f2610f7acfd0305972d46d0e85a331db61744b",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 207,
+          "afterCount": 207,
+          "beforeSha256": "a2e9bec7382634241a82c8f2e730d5f017c88e527bd5859d0510b11e9c20dd5f",
+          "afterSha256": "a2e9bec7382634241a82c8f2e730d5f017c88e527bd5859d0510b11e9c20dd5f",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "anthropic-releases": {
+      "beforeVerifiedAt": "2026-10-04T04:43:52.621Z",
+      "afterVerifiedAt": "2026-10-04T04:43:52.621Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 125,
+          "afterCount": 125,
+          "beforeSha256": "8ab31a76c204d5150f9b761646ed0c15068ed634dc163cb372abb625922a9e4f",
+          "afterSha256": "8ab31a76c204d5150f9b761646ed0c15068ed634dc163cb372abb625922a9e4f",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 125,
+          "afterCount": 125,
+          "beforeSha256": "9b839665aea3dab1e2f582d40126a3957ad14d409a6a508841bc208a2a3e9992",
+          "afterSha256": "9b839665aea3dab1e2f582d40126a3957ad14d409a6a508841bc208a2a3e9992",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "google-releases": {
+      "beforeVerifiedAt": "2026-10-04T04:31:00.008Z",
+      "afterVerifiedAt": "2026-10-04T04:31:00.008Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 1,
+          "afterCount": 1,
+          "beforeSha256": "b0958f4ef6f89f2f99681aa281f89f4e6e6fbe361ede8f164ff6ea7741c650dc",
+          "afterSha256": "b0958f4ef6f89f2f99681aa281f89f4e6e6fbe361ede8f164ff6ea7741c650dc",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "afterSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    },
+    "xai-releases": {
+      "beforeVerifiedAt": "2026-10-04T04:31:01.893Z",
+      "afterVerifiedAt": "2026-10-04T04:31:01.893Z",
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "f5cf1383a70ab0da102e0f09e155b8e399d30ba0124af87bb71b14365bfe6ef2",
+          "afterSha256": "f5cf1383a70ab0da102e0f09e155b8e399d30ba0124af87bb71b14365bfe6ef2",
+          "added": [],
+          "removed": [],
+          "changed": []
+        },
+        "costs.json": {
+          "beforeCount": 43,
+          "afterCount": 43,
+          "beforeSha256": "467ea8a65d2dd1ecdc8f492f891dc04bb70f03cbd8b84064275a537b135f375b",
+          "afterSha256": "467ea8a65d2dd1ecdc8f492f891dc04bb70f03cbd8b84064275a537b135f375b",
+          "added": [],
+          "removed": [],
+          "changed": []
+        }
+      },
+      "contentChanged": false
+    }
+  },
+  "refresh": {
+    "onlineLeaderboardSources": 17,
+    "allAdapterExitCodes": 0,
+    "imported": ["frontier-code", "frontier-swe", "zapier-automationbench"],
+    "unchanged": "New captures archived; formal snapshots retained where content is unchanged. Four vendor sources inspected through official publishing pages/cards, not rematerialized.",
+    "sourceMonitoring": {
+      "attentionCount": 66,
+      "errorCount": 0
+    }
+  },
+  "findings": {
+    "carbon": {
+      "newOrganizer": "zapier-automationbench",
+      "scores": {
+        "high": 53.88,
+        "medium": 52.97,
+        "low": 31.51
+      },
+      "usdPerTask": {
+        "high": 2.12,
+        "medium": 1.65,
+        "low": 1.02
+      },
+      "eligibilityOrganizations": ["vals-ai", "zapier-automationbench"],
+      "defaultRank": 2,
+      "aaIndexRank": 1
+    },
+    "frontierSwe": {
+      "beforeConfigurations": 20,
+      "afterConfigurations": 23,
+      "carbonMeanAt5": 61.2,
+      "comparisonOnly": true
+    },
+    "frontierCode": {
+      "v2BestRows": 24,
+      "v2AllRows": 95,
+      "topTenMatches": 10,
+      "hiddenModels": [],
+      "removedV2": "Mistral Large 4: high/low/max (unresolved identity)",
+      "harnessRelabeledCandidates": 45,
+      "harnessRelabeledCosts": 45,
+      "harnessBefore": "chisel",
+      "harnessAfter": "devin-cli",
+      "priorNumericValuesUnchanged": true,
+      "v11PreservedRows": 7
+    },
+    "defaultBenchmarks": {
+      "before": 20,
+      "after": 12,
+      "missingCarbon": [
+        "livebench-browser",
+        "livebench-coding",
+        "livebench-data-analysis",
+        "livebench-design",
+        "livebench-long-agentic",
+        "livebench-reasoning",
+        "livebench-research"
+      ],
+      "qualityRemoved": ["aa-lcr"],
+      "qualityReason": "AA-LCR has a Carbon score; losing LiveBench Data Analysis leaves only GDP.pdf as unrestricted comprehension coverage, below limited-test support requirement."
+    },
+    "sameSetValidation": {
+      "continuingProfiles": 9,
+      "same12BenchmarkCellsUnchanged": 108,
+      "old20BenchmarkOverallAndRanksReproduced": 10,
+      "artifact": "rendered/impact-review.json"
+    },
+    "researchCandidates": [
+      {
+        "name": "Immigration Bench",
+        "url": "https://www.vals.ai/benchmarks/immigration",
+        "status": "already captured earlier today; scoring pending user policy",
+        "sourceDate": "2026-10-28"
+      },
+      {
+        "name": "CyberOffense",
+        "url": "https://www.vals.ai/benchmarks/cyber_offense",
+        "status": "newly visible catalog entry; official page captured and read, adapter cannot parse page; policy and identity review needed",
+        "sourceDate": "2026-10-23"
+      },
+      {
+        "name": "DualChem",
+        "url": "https://scale.com/blog/dualchem-evaluating-ai-models-dual-use-chemistry-risks",
+        "sourceDate": "2026-10-28",
+        "questionCount": 600,
+        "paperModelCount": 33,
+        "accuracyLeader": "GPT-5.6 Sol",
+        "fullSetAccuracy": 67.3,
+        "answeredOnlyAccuracy": 67.7,
+        "status": "full PDF read; metric/identity policy needed"
+      },
+      {
+        "name": "Surge DAYJOB Accounting/Data Science/Law via Fireworks SII",
+        "url": "https://fireworks.ai/specialized-intelligence-index",
+        "sourceDate": "2026-10-28 (API last_updated; launch date unconfirmed)",
+        "modelsEach": 15,
+        "status": "secondary distributor preview, official Surge task metadata absent; source policy needed"
+      }
+    ],
+    "mistralWeights": {
+      "beforeEta": "2026-10-31",
+      "afterEta": "2026-10-29",
+      "released": false
+    },
+    "methodChanges": [
+      "AA v5 text clarifies HLE-Diamond and GDP.pdf image inputs; no observed version/weight changes",
+      "Copilot Fusion is a multi-model agent runtime, not a single model identity"
+    ]
+  },
+  "release": {
+    "status": "complete",
+    "runId": "2026-10-29T01-02-57-412Z",
+    "report": "docs/refresh/2026-10-29.md#第二次查核carbon-取得第二個獨立組織成績",
+    "review": "pending-user-review",
+    "versionId": "sha256:42f171ad6cd5fb5bad1fa4a6e1ffa4d01929addef7f5b0f074bfa35a14f2d86f",
+    "previousVersionId": "sha256:404b473ef8ad025d573e793a3963f16316b183122c03eea15754b1bc6d570d34",
+    "exitCode": 0,
+    "receipt": "artifacts/releases/2026-10-29T01-02-57-412Z/receipt.json"
+  },
+  "limitations": [
+    "OpenAI news and xAI news HTTP403; MiniMax news network unreachable",
+    "HF scope is latest eight repositories per organization",
+    "Meta official directory stale",
+    "CyberOffense restricted GPT-6 Sol Daybreak requires exact official identity evidence",
+    "SII Tax publication metadata conflicts with organizer publication",
+    "Vendor system-card pages lack prior same-page byte baseline; deep reads do not prove daily method changes"
+  ],
+  "validation": {
+    "unitTests": "passed via data:release",
+    "e2ePassed": 104,
+    "lint": "passed",
+    "typecheck": "passed",
+    "formalStaticUi": "desktop 1680x1100 and mobile 390x844; 10 rows, 12 tests, 5 axes, full version, no pageerror or horizontal overflow",
+    "sameSetArtifact": "rendered/impact-review.json",
+    "uiArtifact": "rendered/review-ui.json"
+  },
+  "userReview": {
+    "status": "approved",
+    "date": "2026-10-29",
+    "timezone": "Asia/Taipei",
+    "userStatement": "審核沒問題",
+    "versionId": "sha256:42f171ad6cd5fb5bad1fa4a6e1ffa4d01929addef7f5b0f074bfa35a14f2d86f",
+    "scope": "本次資料更新、Carbon 進入預設集合與共同測試 20→12 項的結果",
+    "report": "docs/refresh/2026-10-29.md#使用者審核結果"
+  }
+}

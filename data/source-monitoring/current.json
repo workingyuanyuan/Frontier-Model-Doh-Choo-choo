@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-28T23:44:52.177Z",
+  "checkedAt": "2026-10-29T01:01:13.946Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-10-28T04:15:54.763Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -12,16 +12,16 @@
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-10-28T04:33:58.394Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-28T04:33:55.645Z",
+      "snapshotObservedAt": "2026-10-23T09:35:10.906Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-28T23:44:52.177Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
         {
@@ -497,16 +497,16 @@
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-10-28T04:33:27.906Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-28T04:33:27.364Z",
+      "snapshotObservedAt": "2026-10-23T09:34:50.026Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-10-28T04:33:53.646Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -515,31 +515,25 @@
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-10-28T06:04:54.006Z",
-      "error": null,
-      "findings": [
-        {
-          "benchmarkId": "frontier-code-2-0",
-          "detail": "98 rows; 98 included",
-          "kind": "benchmark-materialized"
-        }
-      ],
-      "inventory": [],
-      "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-28T06:04:53.772Z",
-      "sourceId": "frontier-code"
-    },
-    {
-      "checkedAt": "2026-10-28T04:15:54.763Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-04T03:26:46.220Z",
+      "snapshotObservedAt": "2026-10-29T00:58:40.032Z",
+      "sourceId": "frontier-code"
+    },
+    {
+      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-10-29T00:57:57.961Z",
       "sourceId": "frontier-swe"
     },
     {
-      "checkedAt": "2026-10-28T04:15:54.763Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -548,7 +542,7 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-10-28T04:33:25.487Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -557,7 +551,7 @@
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-10-28T04:15:54.763Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -566,14 +560,9 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-10-28T04:33:33.968Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -637,11 +626,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -718,18 +707,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:33.495Z",
+      "snapshotObservedAt": "2026-10-23T09:34:56.382Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-10-28T04:33:36.405Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -793,11 +777,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -874,18 +858,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:35.946Z",
+      "snapshotObservedAt": "2026-10-23T09:34:58.036Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-10-28T04:33:38.799Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -949,11 +928,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -1030,18 +1009,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:38.324Z",
+      "snapshotObservedAt": "2026-10-23T09:34:59.613Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-10-28T04:33:44.421Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1105,11 +1079,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -1190,14 +1164,9 @@
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-10-28T04:33:46.680Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1261,11 +1230,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -1346,7 +1315,7 @@
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-10-28T05:59:18.593Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
         {
@@ -1497,14 +1466,9 @@
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-10-28T04:33:48.798Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1568,11 +1532,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -1649,18 +1613,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:48.525Z",
+      "snapshotObservedAt": "2026-10-23T09:35:06.114Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-10-28T04:33:41.952Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "dayjob-tax",
-          "detail": "https://surgehq.ai/benchmarks/dayjob-tax",
-          "kind": "unintegrated"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1724,11 +1683,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "dayjob-tax",
+          "captureRegistered": true,
           "id": "dayjob-tax",
           "reason": null,
-          "status": "unintegrated",
+          "status": "scored",
           "title": "View DAYJOB: Tax benchmark",
           "url": "https://surgehq.ai/benchmarks/dayjob-tax",
           "version": null
@@ -1805,38 +1764,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:41.401Z",
+      "snapshotObservedAt": "2026-10-23T09:35:01.162Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-28T23:36:20.606Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "terminal-bench-4",
-          "detail": "Previously 56 rows; now absent from materialized snapshot.",
-          "kind": "benchmark-disappeared"
-        },
-        {
-          "benchmarkId": "immigration",
-          "detail": "25 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "terminal-bench-4-0",
-          "detail": "57 rows; 57 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "cyber_offense",
-          "detail": "https://www.vals.ai/benchmarks/cyber_offense",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "immigration",
-          "detail": "https://www.vals.ai/benchmarks/immigration",
-          "kind": "catalog-added"
-        },
         {
           "benchmarkId": "aime",
           "detail": "https://www.vals.ai/benchmarks/aime",
@@ -2630,7 +2564,7 @@
       "sourceId": "vals-ai"
     },
     {
-      "checkedAt": "2026-10-28T04:15:54.763Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -2639,12 +2573,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-10-28T04:34:02.419Z",
+      "checkedAt": "2026-10-29T01:01:13.946Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-28T04:34:00.251Z",
+      "snapshotObservedAt": "2026-10-29T00:57:29.204Z",
       "sourceId": "zapier-automationbench"
     }
   ]
