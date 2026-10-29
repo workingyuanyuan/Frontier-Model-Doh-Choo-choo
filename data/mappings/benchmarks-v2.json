@@ -301,6 +301,11 @@
       "secondaryDimensions": ["coding"]
     },
     {
+      "id": "terminal-bench-4-0",
+      "primaryDimension": "agentic",
+      "secondaryDimensions": ["coding"]
+    },
+    {
       "id": "terminal-bench-science",
       "primaryDimension": "agentic",
       "secondaryDimensions": ["coding", "knowledge", "reasoning"]

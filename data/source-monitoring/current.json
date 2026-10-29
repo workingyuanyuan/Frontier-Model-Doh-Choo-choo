@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-28T13:44:07.778Z",
+  "checkedAt": "2026-10-28T23:44:52.177Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -21,29 +21,9 @@
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-28T13:44:07.778Z",
+      "checkedAt": "2026-10-28T23:44:52.177Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "critpt-v2",
-          "detail": "36 rows; 36 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "frontier-code-2-0",
-          "detail": "76 rows; 76 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "hle-diamond",
-          "detail": "103 rows; 103 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "terminal-bench-science",
-          "detail": "96 rows; 96 included",
-          "kind": "benchmark-materialized"
-        },
         {
           "benchmarkId": "aa-3d",
           "detail": "https://artificialanalysis.ai/evaluations/aa-3d",
@@ -62,11 +42,6 @@
         {
           "benchmarkId": "aime-2025",
           "detail": "https://artificialanalysis.ai/evaluations/aime-2025",
-          "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "automationbench-aa",
-          "detail": "https://artificialanalysis.ai/evaluations/automationbench-aa",
           "kind": "unintegrated"
         },
         {
@@ -127,11 +102,6 @@
         {
           "benchmarkId": "tau2-bench",
           "detail": "https://artificialanalysis.ai/evaluations/tau2-bench",
-          "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "terminalbench-4-0",
-          "detail": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
           "kind": "unintegrated"
         },
         {
@@ -225,8 +195,8 @@
           "benchmarkId": null,
           "captureRegistered": true,
           "id": "automationbench-aa",
-          "reason": null,
-          "status": "unintegrated",
+          "reason": "2026-10-29 user decision: not scored. AA's headline (automationBenchPartialScore) is the average share of objectives completed, while Zapier's organizer leaderboard (automationbench) scores strict task completion; the metrics differ.",
+          "status": "reviewed-deferred",
           "title": "AutomationBench-AA",
           "url": "https://artificialanalysis.ai/evaluations/automationbench-aa",
           "version": null
@@ -255,7 +225,7 @@
           "benchmarkId": "critpt-v2",
           "captureRegistered": true,
           "id": "critpt-v2",
-          "reason": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept.",
+          "reason": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept as evidence and excluded from scoring (superseded, 2026-10-28).",
           "status": "scored",
           "title": "CritPt v2",
           "url": "https://artificialanalysis.ai/evaluations/critpt-v2",
@@ -355,7 +325,7 @@
           "benchmarkId": "hle-diamond",
           "captureRegistered": true,
           "id": "hle-diamond",
-          "reason": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -> hle-diamond; humanitys-last-exam is kept.",
+          "reason": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -> hle-diamond; humanitys-last-exam is kept as evidence and excluded from scoring (superseded, 2026-10-28).",
           "status": "scored",
           "title": "HLE-Diamond",
           "url": "https://artificialanalysis.ai/evaluations/hle-diamond",
@@ -502,11 +472,11 @@
           "version": "v2.1"
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "terminal-bench-4-0",
+          "captureRegistered": true,
           "id": "terminalbench-4-0",
-          "reason": null,
-          "status": "unintegrated",
+          "reason": "2026-10-29 user decision: Terminal-Bench 4.0 is scored. Field terminalBench40 -> terminal-bench-4-0 (66 tasks, mini-swe-agent, pass@1 over 3 repeats), shared with Vals terminal-bench-4; separate from terminal-bench-2-1.",
+          "status": "scored",
           "title": "Terminal-Bench 4.0",
           "url": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
           "version": "v4.0"
@@ -523,7 +493,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T13:42:59.521Z",
+      "snapshotObservedAt": "2026-10-28T23:41:02.234Z",
       "sourceId": "artificial-analysis"
     },
     {
@@ -1839,23 +1809,33 @@
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-28T04:34:26.841Z",
+      "checkedAt": "2026-10-28T23:36:20.606Z",
       "error": null,
       "findings": [
         {
-          "benchmarkId": "sage",
-          "detail": "1 -> 1.1",
-          "kind": "versions-changed"
+          "benchmarkId": "terminal-bench-4",
+          "detail": "Previously 56 rows; now absent from materialized snapshot.",
+          "kind": "benchmark-disappeared"
         },
         {
-          "benchmarkId": "sage",
-          "detail": "38 -> 13; missing 25: alibaba-qwen3-6-27b, alibaba-qwen3-6-plus, alibaba-qwen3-8-27b, anthropic-claude-fable-5, anthropic-claude-fable-5-1, anthropic-claude-opus-4-7, anthropic-claude-opus-4-8, anthropic-claude-opus-5, anthropic-claude-sonnet-4-6, anthropic-claude-sonnet-5, google-gemini-3-5-flash, google-gemini-3-6-flash, google-gemini-3-7-flash, google-gemini-3-pro-preview, meta-muse-spark-1-1, meta-muse-spark-1-2, moonshot-kimi-k2-6, openai-gpt-5-4-mini, openai-gpt-5-5, openai-gpt-5-6-luna, openai-gpt-5-6-sol, openai-gpt-6-astra, openai-gpt-6-sol, xai-grok-4-5, xai-grok-4-6",
-          "kind": "models-lost"
+          "benchmarkId": "immigration",
+          "detail": "25 rows; 0 included",
+          "kind": "benchmark-materialized"
         },
         {
-          "benchmarkId": "sage",
-          "detail": "91 -> 28; missing 70: [\"alibaba/qwen3-vl-plus-2025-09-23\",null,null,null,null,null,null,null], [\"alibaba/qwen3.5-plus-thinking\",null,null,null,null,null,null,null], [\"alibaba/qwen3.6-27b\",null,null,null,null,null,null,null], [\"alibaba/qwen3.6-plus\",null,null,null,null,null,null,null], [\"alibaba/qwen3.8-27b\",\"xhigh\",null,null,null,null,null,null], [\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-1-20250805\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-1-20250805-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-opus-4-5-20251101\",\"high\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-5-20251101-thinking\",\"high\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-6-thinking\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-7\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-4-8\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-20250514\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-20250514-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-5-20250929\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-5-20250929-thinking\",null,null,null,null,null,null,null], [\"anthropic/claude-sonnet-4-6\",\"max\",null,null,null,null,null,null], [\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null], [\"deepseek/deepseek-v4.1-flash\",\"high\",null,null,null,null,null,null], [\"fireworks/llama4-maverick-instruct-basic\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-lite\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-lite-preview-09-2025\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-lite-preview-09-2025-thinking\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-preview-09-2025\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-preview-09-2025-thinking\",null,null,null,null,null,null,null], [\"google/gemini-2.5-flash-thinking\",null,null,null,null,null,null,null], [\"google/gemini-2.5-pro\",null,null,null,null,null,null,null], [\"google/gemini-3-flash-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3-pro-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.1-flash-lite-preview\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.5-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.6-flash\",\"high\",null,null,null,null,null,null], [\"google/gemini-3.7-flash\",\"high\",null,null,null,null,null,null], [\"grok/grok-4-0709\",null,null,null,null,null,null,null], [\"grok/grok-4-1-fast-non-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4-fast-non-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4-fast-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4.20-0309-reasoning\",null,null,null,null,null,null,null], [\"grok/grok-4.3\",null,null,null,null,null,null,null], [\"grok/grok-4.5\",\"high\",null,null,null,null,null,null], [\"grok/grok-4.6\",\"high\",null,null,null,null,null,null], [\"kimi/kimi-k2.5-thinking\",null,null,null,null,null,null,null], [\"kimi/kimi-k2.6\",null,null,null,null,null,null,null], [\"meta/muse_spark_1_1\",\"xhigh\",null,null,null,null,null,null], [\"meta/muse_spark_1_2\",\"xhigh\",null,null,null,null,null,null], [\"mistralai/mistral-large-2512\",null,null,null,null,null,null,null], [\"openai/gpt-5-2025-08-07\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5-mini-2025-08-07\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5-nano-2025-08-07\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.1-2025-11-13\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.2-2025-12-11\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-2026-03-05\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.4-nano-2026-03-17\",\"high\",null,null,null,null,null,null], [\"openai/gpt-5.5\",\"xhigh\",null,null,null,null,null,null], [\"openai/gpt-5.6-luna\",\"max\",null,null,null,null,null,null], [\"openai/gpt-5.6-sol\",\"max\",null,null,null,null,null,null], [\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null], [\"openai/gpt-6-sol\",\"max\",null,null,null,null,null,null], [\"openai/o3-2025-04-16\",\"high\",null,null,null,null,null,null], [\"openai/o4-mini-2025-04-16\",\"high\",null,null,null,null,null,null], [\"thinkingmachines/inkling\",null,null,null,null,null,null,null], [\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null], [\"together/meta-llama/Llama-4-Scout-17B-16E-Instruct\",null,null,null,null,null,null,null], [\"xiaomi/mimo-v2.5\",null,null,null,null,null,null,null]",
-          "kind": "profiles-lost"
+          "benchmarkId": "terminal-bench-4-0",
+          "detail": "57 rows; 57 included",
+          "kind": "benchmark-materialized"
+        },
+        {
+          "benchmarkId": "cyber_offense",
+          "detail": "https://www.vals.ai/benchmarks/cyber_offense",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "immigration",
+          "detail": "https://www.vals.ai/benchmarks/immigration",
+          "kind": "catalog-added"
         },
         {
           "benchmarkId": "aime",
@@ -1888,6 +1868,11 @@
           "kind": "captured-not-scored"
         },
         {
+          "benchmarkId": "cyber_offense",
+          "detail": "https://www.vals.ai/benchmarks/cyber_offense",
+          "kind": "unintegrated"
+        },
+        {
           "benchmarkId": "emb-v1-1",
           "detail": "https://www.vals.ai/benchmarks/emb-v1-1",
           "kind": "captured-not-scored"
@@ -1900,6 +1885,11 @@
         {
           "benchmarkId": "hlab-v1",
           "detail": "https://www.vals.ai/benchmarks/hlab-v1",
+          "kind": "captured-not-scored"
+        },
+        {
+          "benchmarkId": "immigration",
+          "detail": "https://www.vals.ai/benchmarks/immigration",
           "kind": "captured-not-scored"
         },
         {
@@ -1990,11 +1980,6 @@
         {
           "benchmarkId": "terminal-bench-2",
           "detail": "https://www.vals.ai/benchmarks/terminal-bench-2",
-          "kind": "captured-not-scored"
-        },
-        {
-          "benchmarkId": "terminal-bench-4",
-          "detail": "https://www.vals.ai/benchmarks/terminal-bench-4",
           "kind": "captured-not-scored"
         },
         {
@@ -2110,6 +2095,16 @@
           "version": "v1.1"
         },
         {
+          "benchmarkId": null,
+          "captureRegistered": true,
+          "id": "cyber_offense",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "CyberOffense",
+          "url": "https://www.vals.ai/benchmarks/cyber_offense",
+          "version": null
+        },
+        {
           "benchmarkId": "emb",
           "captureRegistered": true,
           "id": "emb",
@@ -2188,6 +2183,16 @@
           "title": "Harvey's Legal Agent Benchmark v1",
           "url": "https://www.vals.ai/benchmarks/hlab-v1",
           "version": "v1"
+        },
+        {
+          "benchmarkId": "immigration",
+          "captureRegistered": true,
+          "id": "immigration",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Immigration Bench",
+          "url": "https://www.vals.ai/benchmarks/immigration",
+          "version": null
         },
         {
           "benchmarkId": null,
@@ -2520,11 +2525,11 @@
           "version": "v2.1"
         },
         {
-          "benchmarkId": "terminal-bench-4",
+          "benchmarkId": "terminal-bench-4-0",
           "captureRegistered": true,
           "id": "terminal-bench-4",
           "reason": null,
-          "status": "captured-not-scored",
+          "status": "scored",
           "title": "Terminal-Bench 4.0",
           "url": "https://www.vals.ai/benchmarks/terminal-bench-4",
           "version": "v4.0"
@@ -2621,7 +2626,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:34:04.545Z",
+      "snapshotObservedAt": "2026-10-28T23:35:54.501Z",
       "sourceId": "vals-ai"
     },
     {

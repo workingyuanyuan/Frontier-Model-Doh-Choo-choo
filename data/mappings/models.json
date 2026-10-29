@@ -2,6 +2,15 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "google-gemini-4-carbon",
+      "providerId": "google",
+      "displayName": "Gemini 4 Carbon",
+      "aliases": ["gemini-4-carbon", "google/gemini-4-carbon"],
+      "releaseDate": "2026-10-28",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "openai-gpt-6-1-terra",
       "providerId": "openai",
       "displayName": "GPT-6.1 Terra",

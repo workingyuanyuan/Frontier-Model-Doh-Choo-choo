@@ -4,14 +4,18 @@
       "hemingway-bench": "User decision: prioritize current frontier model coverage; defer this benchmark.",
       "handbook": "User decision: prioritize current frontier model coverage; defer this benchmark.",
       "antidote": "User decision: prioritize current frontier model coverage; defer this benchmark."
+    },
+    "artificial-analysis": {
+      "automationbench-aa": "2026-10-29 user decision: not scored. AA's headline (automationBenchPartialScore) is the average share of objectives completed, while Zapier's organizer leaderboard (automationbench) scores strict task completion; the metrics differ."
     }
   },
   "integrated": {
     "artificial-analysis": {
-      "hle-diamond": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -> hle-diamond; humanitys-last-exam is kept.",
+      "hle-diamond": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -> hle-diamond; humanitys-last-exam is kept as evidence and excluded from scoring (superseded, 2026-10-28).",
       "terminal-bench-science": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field terminalBenchScience -> terminal-bench-science (v0.1, mini-swe-agent, 3 repeats).",
-      "critpt-v2": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept.",
-      "frontiercode-2-0": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile."
+      "critpt-v2": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept as evidence and excluded from scoring (superseded, 2026-10-28).",
+      "frontiercode-2-0": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile.",
+      "terminalbench-4-0": "2026-10-29 user decision: Terminal-Bench 4.0 is scored. Field terminalBench40 -> terminal-bench-4-0 (66 tasks, mini-swe-agent, pass@1 over 3 repeats), shared with Vals terminal-bench-4; separate from terminal-bench-2-1."
     }
   }
 }

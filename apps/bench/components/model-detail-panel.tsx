@@ -77,6 +77,7 @@ export const BENCHMARK_DISPLAY_NAMES: Record<string, string> = {
   scicode: 'SciCode',
   'tau3-banking': 'τ³ Banking',
   'terminal-bench-2-1': 'Terminal-Bench 2.1',
+  'terminal-bench-4-0': 'Terminal-Bench 4.0',
   'terminal-bench-science': 'Terminal-Bench-Science 0.1',
   'livebench-reasoning': 'LiveBench Reasoning',
   'livebench-mathematics': 'LiveBench Mathematics',

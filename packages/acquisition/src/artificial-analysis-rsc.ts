@@ -39,6 +39,8 @@ export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
   'terminal-bench-science',
   'critpt-v2',
   'frontiercode-2-0',
+  // Terminal-Bench 4.0, also weighted in v5, integrated on 2026-10-29.
+  'terminalbench-4-0',
 ] as const;
 
 export type ArtificialAnalysisEvaluationSlug =
@@ -149,6 +151,7 @@ const EVALUATION_PRIORITY = new Map<string, number>([
   ['terminal-bench-science', 0],
   ['critpt-v2', 0],
   ['frontiercode-2-0', 0],
+  ['terminalbench-4-0', 0],
 ]);
 
 const APPROVED_SCORE_FIELDS = [
@@ -179,6 +182,7 @@ const APPROVED_SCORE_FIELDS = [
   'terminalBenchScience',
   'critptAgentic',
   'frontierCode20',
+  'terminalBench40',
 ] as const;
 
 interface ScoreMapping {
@@ -280,6 +284,22 @@ export const SCORE_MAPPING: readonly ScoreMapping[] = [
     sourceRole: 'INDEPENDENT' as const,
     normalize: true,
     preferredPage: 'terminalbench-v2-1',
+  },
+  {
+    // All 66 Terminal-Bench 4.0 tasks, pass@1 averaged over three repeats with
+    // the mini-swe-agent harness. A separate generation from 2.1, never merged.
+    field: 'terminalBench40',
+    aliases: ['terminalBench40'],
+    benchmarkId: 'terminal-bench-4-0',
+    metricId: 'accuracy',
+    metricName: 'Accuracy',
+    unit: 'percent',
+    sourceRole: 'INDEPENDENT' as const,
+    normalize: true,
+    preferredPage: 'terminalbench-4-0',
+    harness: 'mini-swe-agent',
+    attempts: 3,
+    tools: true,
   },
   {
     field: 'tau_banking',
@@ -435,6 +455,7 @@ const V5_EVALUATIONS = SCORE_MAPPING.filter(({ field }) =>
     'terminalBenchScience',
     'critptAgentic',
     'frontierCode20',
+    'terminalBench40',
   ].includes(field),
 ).map(({ preferredPage, field, benchmarkId }) => ({
   page: preferredPage,
@@ -442,9 +463,11 @@ const V5_EVALUATIONS = SCORE_MAPPING.filter(({ field }) =>
   benchmarkId,
 }));
 
+// AutomationBench-AA's headline is the average share of objectives completed;
+// Zapier's organizer leaderboard (`automationbench`) scores strict task
+// completion, so the AA run is a different metric and stays unscored.
 const V5_UNINTEGRATED = [
   'AutomationBench-AA (`automationBenchPartialScore`)',
-  'Terminal-Bench 4.0 (`terminalBench40`)',
   'CritPt v2 Hard Subset (`critptAgenticHard`)',
   'AA FrontierCode 1.1 (`frontierCode`)',
 ] as const;
@@ -767,6 +790,7 @@ const benchmarkVersionFor = (
   // This benchmark is read exclusively from terminalbenchV21 / terminalbench_v2_1.
   // The field itself identifies its version, including on mixed-version pages.
   if (benchmarkId === 'terminal-bench-2-1') return 'v2.1';
+  if (benchmarkId === 'terminal-bench-4-0') return 'v4.0';
   // Likewise read only from `frontierCode20`; `frontierCode` is the 1.1 run.
   if (benchmarkId === 'frontier-code-2-0') return 'v2.0';
   const metadata = versionMetadataFor(observation, row);

@@ -462,6 +462,20 @@ describe('Artificial Analysis RSC materializer', () => {
     expect(terminal?.provenance.rawScore?.locator).toContain(
       'field=terminalBench21',
     );
+    // 4.0 is its own benchmark, never a relabelled 2.1 value.
+    const terminal40 = result.candidates.filter(
+      (c) => c.benchmarkId === 'terminal-bench-4-0',
+    );
+    expect(terminal40).toHaveLength(1);
+    expect(terminal40[0]).toMatchObject({
+      rawScore: 0.257575,
+      benchmarkVersion: 'v4.0',
+      inclusion: 'INCLUDED',
+      profile: { harness: 'mini-swe-agent', attempts: 3, tools: true },
+    });
+    expect(terminal40[0]?.provenance.rawScore?.locator).toContain(
+      'field=terminalBench40',
+    );
   });
 
   it('keeps missing sentinels out of candidates and emits separate cost semantics', () => {
