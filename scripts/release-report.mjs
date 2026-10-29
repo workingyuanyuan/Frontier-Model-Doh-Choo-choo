@@ -1,7 +1,8 @@
 /**
  * Mechanical before/after comparison for a data release (OPERATIONS §5–6).
- * It lists what changed; judging whether a change is significant, and the
- * human spot-check list, stay with the agent and the reviewer.
+ * It lists what changed; judging whether a change is significant and the
+ * spot check against source sites stay with the agents, and the reviewer
+ * only decides on significant changes.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

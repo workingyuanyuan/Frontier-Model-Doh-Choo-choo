@@ -31,7 +31,7 @@ export const evaluateStopGate = ({ changedPaths, receipt, state }) => {
     receipt === null
       ? 'No release receipt exists.'
       : `The latest receipt (${receipt.runId}, ${receipt.status}) was made for different files.`,
-    'Run `pnpm data:release` and report its result (AGENTS.md). Do not commit data/product/current.json.',
+    'Run `pnpm data:release` and report its result (AGENTS.md). Commit data/product/current.json only after the spot check finds no significant changes.',
   ]
     .filter(Boolean)
     .join('\n');

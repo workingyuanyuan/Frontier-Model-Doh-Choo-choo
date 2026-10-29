@@ -12,16 +12,17 @@
 
 這個命令會依序完成：核對來源與 artifact → 驗證證據庫 → 產生前沿集合並檢查 audit → 重建 `current.json` → 確認產品可由輸入重現 → 單元測試 → 建置靜態網頁 → 執行 e2e。結果寫入 `artifacts/releases/<run-id>/`，包含 `receipt.json`、`report.md` 與各步驟的 log。
 
-- **完成**：命令退出碼為 0，且 receipt 的 `status` 為 `complete`。接著依 `report.md` 撰寫 `docs/refresh/<日期>.md`（格式見 [OPERATIONS §6](docs/OPERATIONS.md#6-提交與部署)），附上人工抽查清單，再請使用者審核。
+- **完成**：命令退出碼為 0，且 receipt 的 `status` 為 `complete`。接著依 `report.md` 撰寫 `docs/refresh/<日期>.md`（格式見 [OPERATIONS §6](docs/OPERATIONS.md#6-提交與部署)），附上由另一個代理完成的抽查結果。抽查不交給使用者；沒有重大變更時由代理直接提交並推上 GitHub，有重大變更才請使用者審核（見下節）。
 - **失敗**：修正原因後重跑；無法修正時，把 receipt、失敗步驟與錯誤訊息交給使用者，不可宣稱已完成。
 - 只靠單元測試、parser 修正或建置舊產品，都不算完成資料更新。
 
 每日查核另寫 `docs/research/<日期>-benchmark-update-check.md`，與資料更新報告的分工見 [OPERATIONS](docs/OPERATIONS.md#每日-benchmark-查核的兩份文件)。匯入來源的命令與畫面列數核對見 [OPERATIONS §2](docs/OPERATIONS.md#2-刷新來源)。新增模型身分必須有官方證據，不可模糊比對。
 
-## 機械驗證與使用者核准是兩件事
+## 何時提交、何時停下來審核
 
-- `complete` 只代表機械檢查通過。未經使用者審核並明確指示，不得提交 `data/product/current.json`，也不得 push、deploy 或 release。
-- 計分口徑改變造成明顯重排，或出現無法解釋的變化時，同樣要跑完整個流程，然後停在審核階段（[OPERATIONS §5](docs/OPERATIONS.md#5-代理驗證與異動判斷)）。
+- `complete` 只代表機械檢查通過；還要代理抽查全部相符，才可提交。
+- **沒有重大變更**：代理開分支提交 `data/product/current.json` 與刷新報告，推上 GitHub 開 PR，CI 通過後合併（合併到 `main` 即部署）。報告須寫明判定沒有重大變更的依據。
+- **有重大變更**：計分口徑改變造成明顯重排、出現無法解釋的變化，或有下方需使用者決定的事項時，同樣要跑完整個流程，然後停在審核階段（[OPERATIONS §5](docs/OPERATIONS.md#5-代理驗證與異動判斷)），經使用者明確指示後才可提交、push 或部署。
 - 以下由代理依證據自行決定，並在刷新報告寫明依據：官方公告支持的模型身分拆分；來源欄位或 benchmark 被移除時保留既有資料、benchmark 改版時跟隨新版；來源標示為暫定的成績照常採用並揭露。
 - 來源大幅改版的整合方向、預設集合的明顯重排、新 benchmark 的計分政策與來源採用規則，由使用者決定。
 

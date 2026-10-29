@@ -249,7 +249,7 @@ N5 重跑時發現暫緩採用的 Zapier 曾替 AA 的 MiniMax-M3 投 `max`，�
 
 - 每次刷新資料都必須產出**推測說明**，逐筆列出：模型、未標的來源、推測出的檔位、依據來源與依據列。
 - 說明必須寫進該來源的 validation report，**不能只出現在對話或回報訊息裡**——半年後要查得到當初的依據。
-- 推測結果由**使用者審核後才放行**。代理不得自行認定推測正確。
+- 推測結果須由**未參與推測的另一個代理**核對依據後才放行（OPERATIONS §6 的代理抽查）。推測者不得自行認定推測正確。
 - 推測只能填**檔位**。它不得用來補分數、成本或任何其他缺值。
 
 **不得對已依 §4.4 規則 2 歸檔的列套用推測。** `(Non-reasoning)` 就是 `non-reasoning`，不會因為別的來源標了 `max` 就被改寫。
@@ -1072,7 +1072,7 @@ payload，因此無法比照 LiveBench 或 Frontier Code 去數渲染後的列�
 1. 每一列 `display=true` 的 `modelId` 都必須在 `models.json` 中存在，否則刷新失敗。
 2. 每個分割的列數變化寫進 snapshot delta，**數字倒退即讓刷新失敗**。
 
-leaderboard 頁面仍以 `DOM` 方法擷取存證，供 §11.4 抽查清單指向一個人眼可讀的頁面。
+leaderboard 頁面仍以 `DOM` 方法擷取存證，供 §11.4 的代理抽查對照一個可讀的頁面。
 
 **名稱括號後綴的判讀規則**（2026-08-22 使用者裁決，兩項）：
 
@@ -1224,7 +1224,7 @@ Grok 4.5／4.6 各 21 個 INCLUDED benchmark 全數 unresolved。**只登錄這�
 
 ### 11.2 審核閘門
 
-資料刷新預設完成至可審核、可部署。資料 commit 需使用者審核後明確指示；具體完成證據、異動判斷、提交與部署流程統一由 [OPERATIONS.md §5–6](OPERATIONS.md#5-代理驗證與異動判斷) 維護。
+資料刷新預設完成至可審核、可部署。沒有重大變更時由代理直接提交，有重大變更時需使用者審核後明確指示；具體完成證據、異動判斷、提交與部署流程統一由 [OPERATIONS.md §5–6](OPERATIONS.md#5-代理驗證與異動判斷) 維護。
 
 Git commit 保存接受的資料版本。CI 在同一 SHA 完成 audit、format、lint、typecheck、tests、production build 與 browser／accessibility 檢查後，上傳已驗證的 Pages 靜態輸出。正式部署限本 repository 的 `main` push，且部署前須確認該 SHA 仍為目前 `main`；建置與部署 SHA 記錄於 workflow summary。重新執行 run 也必須通過相同條件，API 查核失敗或 SHA 不符時停止發布。
 
@@ -1234,7 +1234,7 @@ Git commit 保存接受的資料版本。CI 在同一 SHA 完成 audit、format�
 
 ### 11.4 來源刷新的常態程序
 
-現行程序、每次依核准政策重產 benchmark 集合、模型與分數排名比較、人工抽查格式及審核交接，統一見 [OPERATIONS.md](OPERATIONS.md)。它同時適用定期更新、新模型更新與擷取／計分修正。
+現行程序、每次依核准政策重產 benchmark 集合、模型與分數排名比較、代理抽查格式及審核交接，統一見 [OPERATIONS.md](OPERATIONS.md)。它同時適用定期更新、新模型更新與擷取／計分修正。
 
 刷新報告保存於 `docs/refresh/<YYYY-MM-DD>.md`；內容與完成條件由操作手冊 §6 維護。
 

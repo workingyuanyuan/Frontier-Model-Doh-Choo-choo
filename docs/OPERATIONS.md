@@ -27,11 +27,11 @@
 | 文件                                                                     | 內容                                                                                                                                                                           | 何時產生                   |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
 | `docs/research/<YYYY-MM-DD>-benchmark-update-check.md`（附同名 `.json`） | 聯網查核：上游新 benchmark、新模型、方法或版本變更，範圍不限於現役來源。原始擷取放在 `artifacts/research/<YYYY-MM-DD>-benchmark-check/`，JSON 保存逐欄差異、來源時間與 SHA-256 | 每次查核                   |
-| `docs/refresh/<YYYY-MM-DD>.md`                                           | 資料更新審核：匯入現役來源後 `pnpm data:release` 的結果、產品差異與抽查清單（§6）                                                                                              | 有匯入或重新物化現役來源時 |
+| `docs/refresh/<YYYY-MM-DD>.md`                                           | 資料更新審核：匯入現役來源後 `pnpm data:release` 的結果、產品差異與代理抽查結果（§6）                                                                                          | 有匯入或重新物化現役來源時 |
 
 查核發現現役來源有變，才進入匯入與 `pnpm data:release`；只有非現役來源的消息時，寫查核文件即可。
 
-機械驗證通過與使用者核准是兩件事：`complete` 只代表機械檢查通過，receipt 的 `review` 欄固定為 `pending-user-review`。來源刷新、產品重建與發布是分開的操作；資料提交（含 `data/product/current.json`）需使用者審核後明確指示，push、deploy、release 依使用者明確授權執行。來源、模型與計分政策的變更需有使用者裁決。
+機械驗證通過與使用者核准是兩件事：`complete` 只代表機械檢查通過，receipt 的 `review` 欄固定為 `pending-user-review`。`complete` 加上代理抽查全部相符、且依 §5 判定沒有重大變更時，代理直接提交資料（含 `data/product/current.json`）並推上 GitHub（§6）；有重大變更時，停在審核階段，等使用者明確指示。來源、模型與計分政策的變更需有使用者裁決。
 
 ## 1. 安裝
 
@@ -263,14 +263,14 @@ pnpm data:release
 
 每次執行都會寫入 `artifacts/releases/<run-id>/`（且 `artifacts/releases/latest.json` 指向最近一次）：
 
-- `receipt.json`：記錄狀態（`complete`／`failed`）、`review`（固定為 `pending-user-review`）、各步驟退出碼與耗時、新舊 `versionId`、`inputs`／`outputs`／`implementation` 三組摘要與靜態匯出摘要（`exportDigest`）。
+- `receipt.json`：記錄狀態（`complete`／`failed`）、`review`（固定為 `pending-user-review`，表示尚待代理抽查與 §5 判斷，不代表一定要使用者審核）、各步驟退出碼與耗時、新舊 `versionId`、`inputs`／`outputs`／`implementation` 三組摘要與靜態匯出摘要（`exportDigest`）。
 - `report.md`：自動產出與 **HEAD 已提交的 `current.json`** 相比的差異（HEAD 沒有該檔時才改用執行前的工作區檔案），所以前一次失敗的 release 即使已改寫工作區產品，也不會讓差異消失。內容包含計數、來源快照、合格前沿模型與被資格規則略過的模型、各集合的 benchmark 增減與模型進出／名次／Overall 變化，以及進入預設集合的 effort 推測。
 - `baseline/`：執行前的 `current.json`、frontier、audit 與 mapping 副本。
 - `logs/`：各步驟的完整輸出 log。
 
 同時只能執行一個 release（有 lock 機制）；執行期間輸入或程式若被改動，release 會直接判定失敗。原本在建置前手動審閱 frontier 的步驟，改由 `data:release` 自動檢查 audit 狀態，人工審閱則集中於事後的刷新報告。
 
-4. **交付審查。** 確認 `pnpm data:release` 退出碼為 0 且 `receipt.json` 的 `status` 為 `complete` 後，依 `report.md` 與 §5–6 撰寫 `docs/refresh/<YYYY-MM-DD>.md` 刷新審核報告，保存來源版本、政策、audit、逐集合差異及驗證證據，附上人眼可驗的抽查清單，再依資料提交與部署審核流程交由使用者審核。
+4. **交付審查。** 確認 `pnpm data:release` 退出碼為 0 且 `receipt.json` 的 `status` 為 `complete` 後，依 `report.md` 與 §5–6 撰寫 `docs/refresh/<YYYY-MM-DD>.md` 刷新審核報告，保存來源版本、政策、audit、逐集合差異、驗證證據及代理抽查結果，再依 §6 提交；有重大變更時改交由使用者審核。
 
 ### 停止條件與保存
 
@@ -282,7 +282,7 @@ AA 版本不可比較、前十名或合格前沿窗口內有未解析身分、�
 
 依政策重算 presets 時，模型數範圍、預設模型數、identity、來源約束、分類、品質及計分規則都須沿用核准設定。不得以放寬門檻讓失敗流程通過。
 
-`current.json` 是單一可變工作區輸出；`receipt.json` 為 `complete` 只代表機械驗證通過，使用者審核前不得提交。CLI 使用執行當時的時間作為 `generatedAt`。固定資料、設定與 `generatedAt` 才會產生相同內容與 `versionId`；僅時間戳造成的 hash 改變不代表來源已刷新。
+`current.json` 是單一可變工作區輸出；`receipt.json` 為 `complete` 只代表機械驗證通過，還要完成代理抽查與 §5 判斷才可提交。CLI 使用執行當時的時間作為 `generatedAt`。固定資料、設定與 `generatedAt` 才會產生相同內容與 `versionId`；僅時間戳造成的 hash 改變不代表來源已刷新。
 
 ### 輔助覆蓋分析與相容產物
 
@@ -363,7 +363,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 
 每次資料更新在完成 §2–5 後，依下列程序交付：
 
-1. 刷新來源、依政策重產集合並執行 `pnpm data:build-current` 後，`data/product/current.json` 會以變更狀態留在工作目錄，**代理絕不得自動提交**。
+1. 刷新來源、依政策重產集合並執行 `pnpm data:build-current` 後，`data/product/current.json` 會以變更狀態留在工作目錄，完成以下報告與抽查前不得提交。
 2. 產出 `docs/refresh/<YYYY-MM-DD>.md` 刷新審核報告（格式參考最近一份報告，例如 [2026-10-23.md](refresh/2026-10-23.md)），內容必須涵蓋：
    - **舊／新 `versionId`**，以及模型數、排行榜列數、evidence 筆數、成本筆數各自的增減。
    - **主畫面的進出**：本次新進、退出主畫面的模型，各附原因（缺哪一格／補上哪一格）。
@@ -371,7 +371,7 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
    - 來源新舊快照與 benchmark／指數版本、資料日期、政策與集合組成；記錄來源查核、集合生成、產品重建及 UI 驗證各步驟結果。
    - **檔位推測揭露表（強制）**：本次有哪些 profile 的 effort 是推測出來的，依規格 §4.5 逐筆列出推測依據來源與依據列。缺這一項的報告不算完成。
    - 已知未解：擷取失敗、來源改版、無法解析的名稱。
-   - 依風險排序的人眼可驗抽查清單。排序為：本次新進主畫面的模型（每個至少一筆）→ 分數變動最大的幾筆 → 檔位為推測而非來源標示的 profile → 每個來源至少一筆。每一筆必須寫成以下四欄：
+   - 代理抽查結果。抽查由**未參與本次匯入的另一個代理**執行，直接打開來源網站，與我們存的值逐筆比對。取樣依風險排序：本次新進主畫面的模型（每個至少一筆）→ 分數變動最大的幾筆 → 檔位為推測而非來源標示的 profile → 每個來源至少一筆。每一筆記錄以下欄位：
 
      | 欄位     | 要求                                                         |
      | -------- | ------------------------------------------------------------ |
@@ -379,13 +379,16 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
      | 頁面位置 | 該頁上的區塊或表格名稱，以及**網站上顯示的那個模型名稱字串** |
      | 欄位     | 網站上該欄的顯示名稱                                         |
      | 期望值   | 我們存的值，四捨五入到與網站相同的位數                       |
+     | 觀察值   | 抽查代理在網站上看到的值與查看時間                           |
+     | 結果     | 相符／不符                                                   |
 
-     驗證動作必須能被壓縮成「打開連結、找到這一列、比對一個數字」。**不得**把 `benchmarkId`、`profileId`、`evidenceId` 或 CSS 選擇器當成抽查指示交給使用者。
+     任一筆不符時，先查明原因並修正，重跑 `pnpm data:release` 後重新抽查；屬於來源本身更新或無法裁決的差異，寫入「已知未解」並說明。抽查未完成或仍有未解釋的不符，報告不算完成。
 
    - 驗證畫面的完整 `versionId`，與本次產品及報告一致。
-3. **主動提示使用者進行人工抽查，並明確指名抽查哪幾筆資料、如何核對**。
-4. 使用者完成審核並明確指示後，才可提交 `data/product/current.json` 與相關報告。
-5. 部署由包含該資料的 Git commit 決定；部署前核對建置顯示的 `versionId` 等於審核值。
+3. 依 §5 判斷有沒有**重大變更**：需停在審核階段的明顯重排或無法解釋的異動、需使用者裁決的來源與計分政策，以及待接受的殘餘風險。報告須寫明判斷結果與依據。
+4. **沒有重大變更**：代理開分支，逐一加入 `data/product/current.json` 與相關輸入、報告檔案後提交，推上 GitHub 開 PR；CI 通過後合併到 `main`。不需等使用者審核。
+5. **有重大變更**：只向使用者列出需決定的事項，常規分數更新與代理抽查結果只寫在報告中，不要求使用者逐筆核對。使用者明確指示後，才依第 4 步提交、推送與合併。
+6. 部署由合併到 `main` 的 Git commit 決定；部署前核對建置顯示的 `versionId` 等於報告記錄的值。
 
 若需要 rollback，請對包含資料的 Git commit 執行 `git revert`，再以還原後的工作樹重新建置與部署。不要新增版本切換指令，也不要重抓來源或重算未變更的資料。
 
