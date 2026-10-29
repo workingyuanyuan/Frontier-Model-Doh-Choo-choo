@@ -366,8 +366,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
         `✔ Release complete: ${receipt.versionId}`,
         `  Receipt: ${runDir}/receipt.json`,
         `  Change report: ${runDir}/report.md`,
-        '  Next: write docs/refresh/<date>.md from the change report (OPERATIONS §6)',
-        '  and ask the user to review. Do not commit data/product/current.json yourself.',
+        '  Next: write docs/refresh/<date>.md from the change report and have another',
+        '  agent spot-check it (OPERATIONS §6). Commit and open a PR only when there are',
+        '  no significant changes; otherwise stop for user review.',
       ].join('\n'),
     );
   } else {
