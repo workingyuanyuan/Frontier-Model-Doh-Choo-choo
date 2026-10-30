@@ -31,19 +31,19 @@
   - 10/29 的「權重 ETA」線索因此結案。
   - 目前尚無模型身分；處理方式見刷新報告 §5。
 - **InclusionAI `Ling-3.0-flash-Sante-fp8`**：HF 新出現的醫療專用 FP8 量化 checkpoint，不是前沿通用模型，不追蹤。
-- **其他追蹤廠商**：OpenAI、Anthropic、Google、Meta、xAI、DeepSeek、Moonshot、Qwen、MiniMax、Zhipu 均未見新模型。16 個 HF 組織中，14 個的最近八個 repo 與 10/29 完全相同，另兩個是 mistralai 與 inclusionAI。
+- **其他追蹤廠商**：OpenAI、Anthropic、Google、Meta、xAI、DeepSeek、Moonshot、Qwen、MiniMax、Zhipu 均未見新模型。agy 回報 16 個 HF 組織中有 14 個的最近八個 repo 與 10/29 相同，但未保存今日回應與比對雜湊，此項相同與否為 unknown。
 
 ## 10/29 待查線索
 
-| 線索                                     | 今日狀態                                                                               |
-| ---------------------------------------- | -------------------------------------------------------------------------------------- |
-| Vals Immigration Bench                   | 不變（25 個模型，JSON 相同）；仍未核准計分，採用與否由使用者決定。                     |
-| Vals CyberOffense                        | 資料不變，僅新增 Linear／Log 圖表切換；現有 parser 仍無法解析。                        |
-| Scale DualChem                           | 文章與 PDF 逐位元相同；論文 landing page 仍 404。                                      |
-| Surge × Fireworks SII DAYJOB 三榜        | SII API `last_updated` 仍為 2026-10-28，逐位元相同；Surge 目錄仍沒有這三榜的獨立頁面。 |
-| Mistral Large 4 權重                     | **已發布**（見上節）。                                                                 |
-| DeepSeek V4.1 Flash Cyber                | 仍只見於第三方 llmgateway.io；DeepSeek 官方頁與 HF 未提及，維持未驗證。                |
-| 廠商模型卡補充候選（Kimi、Anthropic 等） | 八份頁面或檔案皆未變。Mistral Large 4 公告成為新的候選。                               |
+| 線索                                     | 今日狀態                                                                                                  |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Vals Immigration Bench                   | 不變：Vals 刷新快照中既有成績無改值（`refresh/semantic-diff.json`）。仍未核准計分，採用與否由使用者決定。 |
+| Vals CyberOffense                        | agy 回報資料不變、僅新增圖表切換；現有 parser 仍無法解析，未保存比對證據（unknown）。                     |
+| Scale DualChem                           | agy 回報文章與 PDF 與 10/29 相同、landing page 仍 404；未保存今日回應雜湊（unknown）。                    |
+| Surge × Fireworks SII DAYJOB 三榜        | agy 回報 SII API `last_updated` 仍為 2026-10-28，Surge 目錄仍無這三榜頁面；未保存比對證據（unknown）。    |
+| Mistral Large 4 權重                     | **已發布**（見上節）。                                                                                    |
+| DeepSeek V4.1 Flash Cyber                | agy 回報仍只見於第三方 llmgateway.io，DeepSeek 官方頁與 HF 未提及；維持未驗證。                           |
+| 廠商模型卡補充候選（Kimi、Anthropic 等） | agy 回報八份頁面或檔案未變，未保存比對證據（unknown）。Mistral Large 4 公告成為新的候選。                 |
 
 ## 證據與覆蓋限制
 
@@ -53,5 +53,5 @@
   - `benchmark-web/agy-discovery.md`：agy 探索報告。
   - `vendors/mistral-large-4-oss.html`：主代理下載的公告原文。
 - 受阻頁面：OpenAI news、xAI news 回 403，改查 changelog、模型目錄與 HF；Scale DualChem landing page 與 `gpt-6.1-terra-pro` 模型頁回 404，與 10/29 相同。MiniMax news 今日可連線。
-- agy 摘錄的數字中，主代理只親自核對了 Mistral 公告的發布時間與 FrontierCode 19.7%。其餘有寫入資料的數字，已由刷新快照與抽查代理另行核對；只出現在本文、沒有進入資料的數字，均標為引用。
+- **agy 的「與 10/29 相同」結論都沒有保存今日原始回應與 SHA-256**，本文一律標為 agy 回報、相同與否為 unknown；它們不影響本次匯入的資料。agy 摘錄的數字中，主代理只親自核對了 Mistral 公告的發布時間與 FrontierCode 19.7%。其餘有寫入資料的數字，已由刷新快照與抽查代理另行核對；只出現在本文、沒有進入資料的數字，均標為引用。
 - HF 僅比較各組織最近八個 repo；公告探索限定官方目錄與相關連結，不把此範圍外的未知狀態當作「沒有更新」。
