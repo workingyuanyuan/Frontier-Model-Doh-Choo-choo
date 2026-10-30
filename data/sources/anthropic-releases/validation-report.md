@@ -1,7 +1,7 @@
 # Anthropic release-page acquisition validation
 
 - Source: <https://www.anthropic.com/claude-opus-5-5> (published 2026-09-22).
-- Evidence: `sha256:e9dfa8fe49b8fe04761648516770f94c10a0d3c4ef0da90ffee8e0aa509b5347`
+- Evidence: `sha256:b45fdac06250f11995f30f3f6a31e6b00db3f018b63f6373f2956b2af793b1ce`
 - Selected RSC charts: `tuskchartfrontiercode` (25 rows); `tuskchartcursorbench` (20 rows).
 - Each selected chart has the expected benchmark/version marker and complete Low, Med, High, Xhigh, and Max rows for every extracted series.
 - The plotted y coordinate is retained as a percent score. The x coordinate is materialized as USD per task; the captured xAxis label specifies Cost per task (USD, log scale). Costs retain the score row identity and exclusions.
@@ -13,7 +13,7 @@
 # Anthropic expanded release acquisition
 
 - Source: <https://www.anthropic.com/claude-sonnet-5-5>.
-- Evidence: `sha256:cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d`.
+- Evidence: `sha256:8a6ed8f974ec474ebb81b55373ddb29f8c8b0c1e45f23525a2ad185b18ad05e7`.
 - Selected charts: 5767a19c590d (20 rows); d41fb6b3ae01 (20 rows); 5270a8faea1f (20 rows).
 - Included: 40; excluded: 20.
 - Explicit effort labels, tools configuration, chart score units, task-cost units, and source notes are retained in provenance.
@@ -23,7 +23,7 @@
 # Anthropic expanded release acquisition
 
 - Source: <https://www.anthropic.com/claude-fable-and-mythos-5-1>.
-- Evidence: `sha256:11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b`.
+- Evidence: `sha256:0ad2552b61cb7c1774540e8a7cfb16b8bfed029827f0965fec3ed9b08b33f3d1`.
 - Selected charts: lc2chart (20 rows).
 - Included: 0; excluded: 20.
 - Explicit effort labels, tools configuration, chart score units, task-cost units, and source notes are retained in provenance.
@@ -33,7 +33,7 @@
 # Claude Opus 5 release review
 
 - Source: <https://www.anthropic.com/news/claude-opus-5>.
-- Evidence: `sha256:42914aeef1a0182889c0e3a325b6960a1f1454035c21c268b38b5f6a695d2448`.
+- Evidence: `sha256:acbdf010f60e590e5724ffdc041ea1a717fd09a9f2245394601681b26babbc71`.
 - Benchmark comparisons are raster images without exact embedded chart coordinates; research findings and quarantine are recorded in docs/research/anthropic-release-expansion.md.
 - Frontier-Bench v0.1 uses mini-SWE-agent, GKE, mean reward over five attempts, and Opus 4.8 fallback for Opus 5/Fable 5.
 
@@ -43,6 +43,7 @@
 - Vendor preview rows absent from reference: 10
 - Excluded: 41
 - Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).
+- Research: [vendor release review](../../../docs/refresh/2026-10-02-vendor-releases.md).
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

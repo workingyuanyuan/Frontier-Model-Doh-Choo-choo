@@ -373,21 +373,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-29T01:01:13.946Z",
+  "checkedAt": "2026-10-30T02:33:30.623Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/9d/9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38.html",
-    "byteLength": 296930,
+    "artifactPath": "artifacts/sha256/06/065d4e35b90171a7e68d4ccd8fbbfeb5aa2eb437c88c125ad47a128d1d91030a.html",
+    "byteLength": 296951,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38",
+    "id": "sha256:065d4e35b90171a7e68d4ccd8fbbfeb5aa2eb437c88c125ad47a128d1d91030a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-10-29T01:01:13.946Z",
+    "retrievedAt": "2026-10-30T02:33:30.623Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:9db682eeb80fbd7f8b9b20e1e5c4af628b4b5e66dfe544bfc875f597fba00f38",
+    "sha256": "sha256:065d4e35b90171a7e68d4ccd8fbbfeb5aa2eb437c88c125ad47a128d1d91030a",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -1945,6 +1945,7 @@
           "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
@@ -1982,6 +1983,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-6-astra",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
@@ -1996,7 +1998,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 35,
+        "rows": 36,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
@@ -2041,6 +2043,7 @@
           "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
@@ -2076,6 +2079,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-6-astra",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
@@ -2090,7 +2094,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 33,
+        "rows": 34,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
@@ -2356,6 +2360,7 @@
           "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
@@ -2391,6 +2396,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-6-astra",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
@@ -2405,7 +2411,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 33,
+        "rows": 34,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
@@ -2735,7 +2741,7 @@
       },
       {
         "id": "hlab",
-        "includedRows": 30,
+        "includedRows": 31,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-opus-5-5",
@@ -2771,6 +2777,7 @@
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
@@ -2803,6 +2810,7 @@
           "meta/muse-wonder-full",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-6-astra",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
@@ -2816,7 +2824,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 30,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
@@ -3647,6 +3655,7 @@
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
@@ -3679,6 +3688,7 @@
           "meta/muse-wonder-full",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-6-astra",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
@@ -3692,13 +3702,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 30,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
-        "includedRows": 87,
+        "includedRows": 88,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -3809,6 +3819,7 @@
           "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-medium-3.5\",\"high\",null,null,null,null,null,null]",
           "[\"nvidia/nemotron-3-ultra-550b-a55b\",null,null,null,null,null,null,null]",
           "[\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null]",
@@ -3898,6 +3909,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "mistralai/mistral-medium-3.5",
           "nvidia/nemotron-3-ultra-550b-a55b",
           "openai/gpt-5.4-mini-2026-03-17",
@@ -3928,7 +3940,7 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 87,
+        "rows": 88,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
@@ -7587,6 +7599,7 @@
           "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-medium-3.5\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null]",
           "[\"openai/gpt-5.4-nano-2026-03-17\",\"high\",null,null,null,null,null,null]",
@@ -7667,6 +7680,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "mistralai/mistral-medium-3.5",
           "openai/gpt-5.4-mini-2026-03-17",
           "openai/gpt-5.4-nano-2026-03-17",
@@ -7691,7 +7705,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 78,
+        "rows": 79,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
@@ -8410,7 +8424,7 @@
       },
       {
         "id": "terminal-bench-4-0",
-        "includedRows": 57,
+        "includedRows": 58,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -8487,6 +8501,7 @@
           "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-5.4-mini-2026-03-17\",\"xhigh\",null,null,null,null,null,null]",
           "[\"openai/gpt-5.6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-5.6-sol\",\"max\",null,null,null,null,null,null]",
@@ -8546,6 +8561,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-5.4-mini-2026-03-17",
           "openai/gpt-5.6-luna",
           "openai/gpt-5.6-sol",
@@ -8566,7 +8582,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 57,
+        "rows": 58,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
@@ -8787,6 +8803,7 @@
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,null,null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
@@ -8818,6 +8835,7 @@
           "meta/muse-wonder",
           "meta/muse-wonder-full",
           "minimax/MiniMax-M3.1-flash",
+          "mistralai/mistral-large-4-oss",
           "openai/gpt-6-astra",
           "openai/gpt-6-luna",
           "openai/gpt-6.1-sol",
@@ -8831,7 +8849,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 29,
+        "rows": 30,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
@@ -9022,7 +9040,7 @@
       },
       {
         "id": "vibe-code-bench",
-        "includedRows": 121,
+        "includedRows": 122,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9160,6 +9178,7 @@
           "[\"minimax/MiniMax-M3\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"mistralai/mistral-large-4\",\"high\",null,\"OpenHands\",null,null,null,null]",
+          "[\"mistralai/mistral-large-4-oss\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"mistralai/mistral-medium-3.5\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"mistralai/mistral-small-2603\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"nvidia/nemotron-3-ultra-550b-a55b\",null,null,\"OpenHands\",null,null,null,null]",
@@ -9283,6 +9302,7 @@
           "minimax/MiniMax-M3",
           "minimax/MiniMax-M3.1-flash",
           "mistralai/mistral-large-4",
+          "mistralai/mistral-large-4-oss",
           "mistralai/mistral-medium-3.5",
           "mistralai/mistral-small-2603",
           "nvidia/nemotron-3-ultra-550b-a55b",
@@ -9327,7 +9347,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 121,
+        "rows": 122,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
@@ -9421,7 +9441,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-10-28T23:35:54.501Z",
+    "observedAt": "2026-10-30T02:33:03.218Z",
     "sourceId": "vals-ai"
   }
 }

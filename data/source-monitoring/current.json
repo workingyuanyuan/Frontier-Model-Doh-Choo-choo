@@ -1,27 +1,27 @@
 {
-  "checkedAt": "2026-10-29T01:01:13.946Z",
+  "checkedAt": "2026-10-30T02:37:45.925Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:29.581Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-04T04:43:52.621Z",
+      "snapshotObservedAt": "2026-10-30T02:37:26.506Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:32:57.708Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T09:35:10.906Z",
+      "snapshotObservedAt": "2026-10-30T02:32:55.176Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:19.281Z",
       "error": null,
       "findings": [
         {
@@ -493,43 +493,43 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T23:41:02.234Z",
+      "snapshotObservedAt": "2026-10-30T02:34:02.037Z",
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:25.133Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-23T09:34:50.026Z",
+      "snapshotObservedAt": "2026-10-30T02:37:24.788Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:32:53.691Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-28T04:33:50.783Z",
+      "snapshotObservedAt": "2026-10-30T02:32:50.201Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:32.002Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-29T00:58:40.032Z",
+      "snapshotObservedAt": "2026-10-30T02:37:31.636Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:33:37.185Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-29T00:57:57.961Z",
+      "snapshotObservedAt": "2026-10-30T02:33:33.667Z",
       "sourceId": "frontier-swe"
     },
     {
@@ -542,16 +542,16 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:23.545Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-28T04:33:23.384Z",
+      "snapshotObservedAt": "2026-10-30T02:37:22.251Z",
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:29.581Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -560,7 +560,7 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:33.474Z",
       "error": null,
       "findings": [
         {
@@ -707,11 +707,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:56.382Z",
+      "snapshotObservedAt": "2026-10-30T02:37:33.215Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:35.160Z",
       "error": null,
       "findings": [
         {
@@ -858,11 +858,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:58.036Z",
+      "snapshotObservedAt": "2026-10-30T02:37:34.912Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:36.788Z",
       "error": null,
       "findings": [
         {
@@ -1009,11 +1009,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:34:59.613Z",
+      "snapshotObservedAt": "2026-10-30T02:37:36.552Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:40.507Z",
       "error": null,
       "findings": [
         {
@@ -1160,11 +1160,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:44.075Z",
+      "snapshotObservedAt": "2026-10-30T02:37:40.183Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:42.429Z",
       "error": null,
       "findings": [
         {
@@ -1311,11 +1311,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T04:33:46.414Z",
+      "snapshotObservedAt": "2026-10-30T02:37:42.113Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:44.297Z",
       "error": null,
       "findings": [
         {
@@ -1462,11 +1462,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T05:59:18.172Z",
+      "snapshotObservedAt": "2026-10-30T02:37:44.042Z",
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:45.925Z",
       "error": null,
       "findings": [
         {
@@ -1613,11 +1613,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:06.114Z",
+      "snapshotObservedAt": "2026-10-30T02:37:45.710Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:37:38.604Z",
       "error": null,
       "findings": [
         {
@@ -1764,11 +1764,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-23T09:35:01.162Z",
+      "snapshotObservedAt": "2026-10-30T02:37:38.263Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:33:30.623Z",
       "error": null,
       "findings": [
         {
@@ -2560,7 +2560,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-28T23:35:54.501Z",
+      "snapshotObservedAt": "2026-10-30T02:33:03.218Z",
       "sourceId": "vals-ai"
     },
     {
@@ -2573,12 +2573,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-10-29T01:01:13.946Z",
+      "checkedAt": "2026-10-30T02:33:01.627Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-29T00:57:29.204Z",
+      "snapshotObservedAt": "2026-10-30T02:32:58.979Z",
       "sourceId": "zapier-automationbench"
     }
   ]

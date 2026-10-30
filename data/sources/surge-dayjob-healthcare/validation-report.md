@@ -1,7 +1,7 @@
 # Surge DAYJOB Healthcare acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-healthcare>
-- Evidence: `sha256:49c44790772da8f82a405d175bb3c0ccc4c2fa813afc12d28d3c5520ad1daaad`
+- Evidence: `sha256:95f87ed0730bd1376c9272ecaa1cd75dbb6ce2cdee17acb0774135ff2983d4d5`
 - Main leaderboard: 38 rows; rendered browser count: 38.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (10): Beam 1.0 (Max reasoning); DeepSeek V4.1 Flash 1017 (Max reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).

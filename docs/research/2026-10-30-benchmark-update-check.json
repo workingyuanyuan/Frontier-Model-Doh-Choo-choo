@@ -1,0 +1,908 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-30",
+  "timezone": "Asia/Taipei",
+  "checkedAt": "2026-10-30T03:00:56.079Z",
+  "artifactsRoot": "artifacts/research/2026-10-30-benchmark-check",
+  "comparisonBaseline": {
+    "commit": "639d8c533d359b14ec68f0b5323d4361b234f660",
+    "productVersionId": "sha256:b66847921adc9575cf04b759a8d8a729189780cb40f26226d84e5c6f8ffe0b77"
+  },
+  "release": {
+    "runId": "2026-10-30T02-44-04-508Z",
+    "status": "complete",
+    "versionId": "sha256:ae42f24bd6f5b77688aafd8659bbc1b756020e8a68dbc135e9c4f57d35c867fa",
+    "failedEarlierRun": {
+      "runId": "2026-10-30T02-41-55-608Z",
+      "failedStep": "tests",
+      "cause": "frontier snapshot tests pinned to 2026-10-29 values"
+    }
+  },
+  "diffMethod": {
+    "ignoredFields": [
+      "capturedAt",
+      "checkedAt",
+      "evidenceId",
+      "evidenceIds",
+      "lastVerifiedAt",
+      "materializedAt",
+      "observedAt",
+      "provenance",
+      "retrievedAt"
+    ],
+    "normalizedIds": "Zapier -rank-N and Epoch ECI trailing -row-N removed for comparison only; collisions asserted absent",
+    "normalizedUrls": "LiveBench sourceUrl ?v= timestamp removed",
+    "coverage": "All data/sources directories, candidate and cost rows, manifest semantic fields; raw file diff inventoried separately"
+  },
+  "fullDiff": "artifacts/research/2026-10-30-benchmark-check/refresh/semantic-diff.json",
+  "sources": {
+    "anthropic-releases": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 125,
+          "afterCount": 125,
+          "beforeSha256": "8ab31a76c204d5150f9b761646ed0c15068ed634dc163cb372abb625922a9e4f",
+          "afterSha256": "d6282846879c44978176c94223bc57782d9637876435764eb8b19d8a71845c7c",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 125,
+          "afterCount": 125,
+          "beforeSha256": "9b839665aea3dab1e2f582d40126a3957ad14d409a6a508841bc208a2a3e9992",
+          "afterSha256": "af8ab9627d4b053ff162e1f572b5dec9471b0f3c3ca222f97d187528f2fc2e7c",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:26.506Z"
+    },
+    "arc-prize": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 291,
+          "afterCount": 291,
+          "beforeSha256": "d4e6df950859c31a7f6b975783b141b6f22623cc7a8e161e07163f1367728b60",
+          "afterSha256": "c2ed5956aab4f9b9dbd21f2f57c36a29e1e33d50c8033115a866ceb01adca30e",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 291,
+          "afterCount": 291,
+          "beforeSha256": "e526e4e01ecee05dc6a5ccbc11c1bac6c2f214714870ffa3bee9e0b3ce129f8f",
+          "afterSha256": "e2530f31dc418ef380498f08612b43cc98d9d5a5abfdcd2dbf0b16b2735b5d14",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:32:55.176Z"
+    },
+    "artificial-analysis": {
+      "contentChanged": true,
+      "manifestChanges": [
+        {
+          "field": "notes",
+          "before": [
+            "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
+            "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
+            "`$undefined` and null are both treated as missing values.",
+            "Capture observed 215 unique profiles, 215 active profiles, 75 task-cost rows, and 207 token-price rows.",
+            "Materialized 77 Intelligence Index candidates (all EXCLUDED) and 182 GDPval-AA normalized candidates."
+          ],
+          "after": [
+            "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
+            "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
+            "`$undefined` and null are both treated as missing values.",
+            "Capture observed 219 unique profiles, 219 active profiles, 83 task-cost rows, and 211 token-price rows.",
+            "Materialized 85 Intelligence Index candidates (all EXCLUDED) and 184 GDPval-AA normalized candidates."
+          ]
+        }
+      ],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 2568,
+          "afterCount": 2636,
+          "beforeSha256": "525c79ab229a1d2c08413e8f2b8d756d11f3037e21131cfe69267d9406bb100d",
+          "afterSha256": "d9442823583ccf3fbb395e609e2b9b67bc54647a5ae2f7c643f7f1a8d9665c81",
+          "added": 72,
+          "removed": 4,
+          "changed": 20
+        },
+        "costs.json": {
+          "beforeCount": 282,
+          "afterCount": 294,
+          "beforeSha256": "410ac8fce109202bf2910432e741ff7400609035377975512b70e81dbbd188c7",
+          "afterSha256": "fd7ce30ad4cef688a27461fc961de65c84750cf51f53a383db0d7e977c7365f9",
+          "added": 12,
+          "removed": 0,
+          "changed": 10
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:34:02.037Z"
+    },
+    "deepswe": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 70,
+          "afterCount": 70,
+          "beforeSha256": "880cadd0732a09a17f63f3a3cf616e9cca17aabe8d8e46709b409a2f821c5c33",
+          "afterSha256": "979c22d5270e4e8c9a60277cce50bcd1d1f2a4e4a4f9479a0498adafe6f34d42",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 68,
+          "afterCount": 68,
+          "beforeSha256": "8f9b8438ee0f1cf7a0cabeec03f73a49aad2a82ce8a1cc186bc1e27e960924e2",
+          "afterSha256": "6dbe9d5400b5858a1413d946b391e05d499bd2467fe980d47919628c71650c6e",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:24.788Z"
+    },
+    "epoch-ai": {
+      "contentChanged": true,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 1465,
+          "afterCount": 1468,
+          "beforeSha256": "91336b5730f1a6a89489f33d40f7b0a21b11ce8300001b55fa59891d52883ab6",
+          "afterSha256": "c71a00cb58a1bba75b23b7df256bb8947f863591daa7b099491da1a46e414655",
+          "added": 3,
+          "removed": 0,
+          "changed": 242
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:32:50.201Z"
+    },
+    "frontier-code": {
+      "contentChanged": true,
+      "manifestChanges": [
+        {
+          "field": "notes",
+          "before": [
+            "FrontierCode 1.1 and 2.0 are different benchmarks; neither replaces the other.",
+            "2.0: 24 visible models and 95 Main configurations; rendered Best 24 and All 95 rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: none.",
+            "2.0: 95 mean rollout costs are INCLUDED; the cost chart pairs Frontier Code costs with frontier-code-2-0 (user decision 2026-10-28).",
+            "1.1: 141 cost records keep their IDs but are EXCLUDED as superseded, so 1.1 and 2.0 costs are never blended.",
+            "1.1: 45 export models and 134 Main configurations; 7 rows preserved from the previous snapshot (GPT-6.1 Terra, Mistral Large 4 (Preview)).",
+            "Extended data is retained in the raw artifact but not materialized.",
+            "Exact identities only; unresolved models and non-policy efforts remain null."
+          ],
+          "after": [
+            "FrontierCode 1.1 and 2.0 are different benchmarks; neither replaces the other.",
+            "2.0: 26 visible models and 101 Main configurations; rendered Best 26 and All 101 rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: none.",
+            "2.0: 101 mean rollout costs are INCLUDED; the cost chart pairs Frontier Code costs with frontier-code-2-0 (user decision 2026-10-28).",
+            "1.1: 141 cost records keep their IDs but are EXCLUDED as superseded, so 1.1 and 2.0 costs are never blended.",
+            "1.1: 45 export models and 134 Main configurations; 7 rows preserved from the previous snapshot (GPT-6.1 Terra, Mistral Large 4 (Preview)).",
+            "Extended data is retained in the raw artifact but not materialized.",
+            "Exact identities only; unresolved models and non-policy efforts remain null."
+          ]
+        }
+      ],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 236,
+          "afterCount": 242,
+          "beforeSha256": "00e3a75e79d7703f2024c06ed243a50524f67a4ed826eced32f38f9fc777eb84",
+          "afterSha256": "2d0dd2242438912c0a1f24bddc51015aab3c63feca165a69a396e66699ac4509",
+          "added": 6,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 236,
+          "afterCount": 242,
+          "beforeSha256": "5c8fc134953c3560367173d1e326ed0307034856744006adf599bb9c4e102996",
+          "afterSha256": "9acc1081098c5a35166b883d049c509531c7bec6491967ffc1745e9224dc6715",
+          "added": 6,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:31.636Z"
+    },
+    "frontier-swe": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 23,
+          "afterCount": 23,
+          "beforeSha256": "4b553ab78247fd4c489528ac64ff94851efc89b86a1c683cbf529bad15714792",
+          "afterSha256": "74aa3c523e5a08dbcaa0b37277f47d71f753a78342552c80a27b1c630c9a21f9",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:33:33.667Z"
+    },
+    "google-releases": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 1,
+          "afterCount": 1,
+          "beforeSha256": "b0958f4ef6f89f2f99681aa281f89f4e6e6fbe361ede8f164ff6ea7741c650dc",
+          "afterSha256": "b0958f4ef6f89f2f99681aa281f89f4e6e6fbe361ede8f164ff6ea7741c650dc",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "afterSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-04T04:31:00.008Z"
+    },
+    "livebench": {
+      "contentChanged": true,
+      "manifestChanges": [
+        {
+          "field": "notes",
+          "before": [
+            "LiveBench 2.0 release 2026-10-25: 31 models across 7 suites.",
+            "Frozen 1.0 release 2026-06-25: Language, IF and Mathematics retained because 2.0 dropped them; 1.0 Reasoning is superseded by 2.0.",
+            "Exact identities only; 24 raw names remain unresolved without fuzzy matching."
+          ],
+          "after": [
+            "LiveBench 2.0 release 2026-10-25: 32 models across 7 suites.",
+            "Frozen 1.0 release 2026-06-25: Language, IF and Mathematics retained because 2.0 dropped them; 1.0 Reasoning is superseded by 2.0.",
+            "Exact identities only; 25 raw names remain unresolved without fuzzy matching."
+          ]
+        },
+        {
+          "field": "targetUrls",
+          "before": [
+            "https://livebench.ai/",
+            "https://livebench.ai/static/js/main.4228bafc.js",
+            "https://livebench.ai/data/20261025/table.csv?v=1793084497",
+            "https://livebench.ai/data/20261025/categories.json?v=1793084497",
+            "https://livebench.ai/data/20261025/cost.csv?v=1793084497",
+            "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497",
+            "https://livebench.ai/v1/categories_2026_06_25.json?v=1793084497",
+            "https://livebench.ai/v1/cost_2026_06_25.csv?v=1793084497"
+          ],
+          "after": [
+            "https://livebench.ai/",
+            "https://livebench.ai/static/js/main.06a4cea7.js",
+            "https://livebench.ai/data/20261025/table.csv?v=1793326121",
+            "https://livebench.ai/data/20261025/categories.json?v=1793326121",
+            "https://livebench.ai/data/20261025/cost.csv?v=1793326121",
+            "https://livebench.ai/v1/table_2026_06_25.csv?v=1793326121",
+            "https://livebench.ai/v1/categories_2026_06_25.json?v=1793326121",
+            "https://livebench.ai/v1/cost_2026_06_25.csv?v=1793326121"
+          ]
+        }
+      ],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 501,
+          "afterCount": 508,
+          "beforeSha256": "f99cf4a2eecb9cd7609c377e0fd55bca6c0d88c8d3e2b0285e02881d172875cf",
+          "afterSha256": "ffd62f876f52bfaac7e3096adc143eb52f3fe845033099a9a365191a7ab95229",
+          "added": 7,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 144,
+          "afterCount": 144,
+          "beforeSha256": "7d8dd84ccf0b87b333d605f575e46d2113d438d0f74266eae2aa2f5cc34d9be4",
+          "afterSha256": "ec0819b1f1c6a72c2fa4dd2998b2dde8d5357aedc1753f14fb87364a28397558",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:22.251Z"
+    },
+    "openai-releases": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 207,
+          "afterCount": 207,
+          "beforeSha256": "18d29797b319ff2fd8eddf1b01f2610f7acfd0305972d46d0e85a331db61744b",
+          "afterSha256": "18d29797b319ff2fd8eddf1b01f2610f7acfd0305972d46d0e85a331db61744b",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 207,
+          "afterCount": 207,
+          "beforeSha256": "a2e9bec7382634241a82c8f2e730d5f017c88e527bd5859d0510b11e9c20dd5f",
+          "afterSha256": "a2e9bec7382634241a82c8f2e730d5f017c88e527bd5859d0510b11e9c20dd5f",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-04T04:31:17.114Z"
+    },
+    "surge-chartography": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 42,
+          "afterCount": 42,
+          "beforeSha256": "7936b7ce0eae09db8baf064f5a14efd3a150fe663c6779ae45fb1982b6afe256",
+          "afterSha256": "243df5ce98af55868e0e2e07e4cc4454f7063e0dfb33282070f9af7767526c15",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:33.215Z"
+    },
+    "surge-complex-constraints": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "00f8b026a25396b8e0e4fd3edb6c0f83f185cf190160c7b27b8900ba678c7c51",
+          "afterSha256": "839438977419828e77fc388e85d8b3a87bc8b0221e86dfde32c140730adc6dfb",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:34.912Z"
+    },
+    "surge-corecraft": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 50,
+          "afterCount": 50,
+          "beforeSha256": "dd8536dcbaf3d6f120c8272d916a54176fc909c785608c5abec32deee0a6deac",
+          "afterSha256": "c0a51e1e7687674695f8c3738c95acfbc3ef80208a75d5d71c6efa205c3ef6da",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:36.552Z"
+    },
+    "surge-dayjob-finance": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 38,
+          "afterCount": 38,
+          "beforeSha256": "42583925fc5a5988419810a1fdc1773f159c79d0bd4739bf01a7388c60a679e0",
+          "afterSha256": "d396d069e2563219ff068a8b19eca9fc4437f8cc4ba96ba4cdab34df4b761e61",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:40.183Z"
+    },
+    "surge-dayjob-healthcare": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 38,
+          "afterCount": 38,
+          "beforeSha256": "cbbf880b938337dd2204721a6122bef941a2572a4be53faf0fc140fe09a5cd41",
+          "afterSha256": "7e2652e3b8dddf5e672c938681a8d5dad376b4dd8971cc75e075ce697024c3e8",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:42.113Z"
+    },
+    "surge-dayjob-tax": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 16,
+          "afterCount": 16,
+          "beforeSha256": "5e522cc21d5f50e7614322ffc0cf73fa222fe89b491e07fdc53037fb1cdf0173",
+          "afterSha256": "e3988df2dc1aa023286bf6702ff25d94cbab1ae9a91504922b94943febb6cb5f",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:44.042Z"
+    },
+    "surge-gdp-xlsx": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 20,
+          "afterCount": 20,
+          "beforeSha256": "02fc108a45ea2e0addce0f3e70dc2bffcde0c92f6cbc26da89ae87b4d75bfa23",
+          "afterSha256": "01adf703bdd15bd7dd8d575ea6c284c6f8c62964d88e2894650a700bc64219a2",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:45.710Z"
+    },
+    "surge-riemann": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "22712aedd79b8545bbbed834e80478dc710a259a4a4b1624172aca2da78762d2",
+          "afterSha256": "1516616644ea6006cacf07c2299f5d0bd5b6f15a09a1ae1cb42cdc60a4a1cda5",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null,
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:37:38.263Z"
+    },
+    "vals-ai": {
+      "contentChanged": true,
+      "manifestChanges": [
+        {
+          "field": "targetUrls",
+          "before": [
+            "https://www.vals.ai/benchmarks",
+            "https://www.vals.ai/benchmarks/aime",
+            "https://www.vals.ai/benchmarks/biomysterybench",
+            "https://www.vals.ai/benchmarks/case_law_v2",
+            "https://www.vals.ai/benchmarks/claimbench",
+            "https://www.vals.ai/benchmarks/code-migration",
+            "https://www.vals.ai/benchmarks/code-migration-v1-1",
+            "https://www.vals.ai/benchmarks/corp_fin_v2",
+            "https://www.vals.ai/benchmarks/cua_bench",
+            "https://www.vals.ai/benchmarks/cyber",
+            "https://www.vals.ai/benchmarks/cyber_offense",
+            "https://www.vals.ai/benchmarks/emb",
+            "https://www.vals.ai/benchmarks/emb-v1-1",
+            "https://www.vals.ai/benchmarks/fabv2",
+            "https://www.vals.ai/benchmarks/fabv2-1",
+            "https://www.vals.ai/benchmarks/finance_index",
+            "https://www.vals.ai/benchmarks/gpqa",
+            "https://www.vals.ai/benchmarks/hlab",
+            "https://www.vals.ai/benchmarks/hlab-v1",
+            "https://www.vals.ai/benchmarks/immigration",
+            "https://www.vals.ai/benchmarks/inference_provider",
+            "https://www.vals.ai/benchmarks/ioi",
+            "https://www.vals.ai/benchmarks/lcb",
+            "https://www.vals.ai/benchmarks/legal_bench",
+            "https://www.vals.ai/benchmarks/legal_index",
+            "https://www.vals.ai/benchmarks/legal_research",
+            "https://www.vals.ai/benchmarks/math500",
+            "https://www.vals.ai/benchmarks/medcode",
+            "https://www.vals.ai/benchmarks/medqa",
+            "https://www.vals.ai/benchmarks/medscribe",
+            "https://www.vals.ai/benchmarks/mental-health",
+            "https://www.vals.ai/benchmarks/mgsm",
+            "https://www.vals.ai/benchmarks/mmlu_pro",
+            "https://www.vals.ai/benchmarks/mmmu",
+            "https://www.vals.ai/benchmarks/mortgage_tax",
+            "https://www.vals.ai/benchmarks/mysterymechanism",
+            "https://www.vals.ai/benchmarks/poker_agent",
+            "https://www.vals.ai/benchmarks/programbench",
+            "https://www.vals.ai/benchmarks/proof_bench",
+            "https://www.vals.ai/benchmarks/public-benefits-bench",
+            "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
+            "https://www.vals.ai/benchmarks/robo_bench",
+            "https://www.vals.ai/benchmarks/rsi_index",
+            "https://www.vals.ai/benchmarks/sage",
+            "https://www.vals.ai/benchmarks/science_index",
+            "https://www.vals.ai/benchmarks/skillsbench",
+            "https://www.vals.ai/benchmarks/srebench",
+            "https://www.vals.ai/benchmarks/swebench",
+            "https://www.vals.ai/benchmarks/swebench-multimodal",
+            "https://www.vals.ai/benchmarks/tax_agent_bench",
+            "https://www.vals.ai/benchmarks/tax_eval_v2",
+            "https://www.vals.ai/benchmarks/terminal-bench-2",
+            "https://www.vals.ai/benchmarks/terminal-bench-2-1",
+            "https://www.vals.ai/benchmarks/terminal-bench-4",
+            "https://www.vals.ai/benchmarks/terminal-bench-science",
+            "https://www.vals.ai/benchmarks/time_horizon_index",
+            "https://www.vals.ai/benchmarks/vals_index",
+            "https://www.vals.ai/benchmarks/vals_multimodal_index",
+            "https://www.vals.ai/benchmarks/vals_router_index",
+            "https://www.vals.ai/benchmarks/vcb-1-100",
+            "https://www.vals.ai/benchmarks/vibe-code",
+            "https://www.vals.ai/benchmarks/voice-code-bench",
+            "https://www.vals.ai/benchmarks/web_search",
+            "https://www.vals.ai/_astro/benchmark_view_aime.CmeuYPIC.json",
+            "https://www.vals.ai/_astro/benchmark_view_biomysterybench.B2JA4UIX.json",
+            "https://www.vals.ai/_astro/benchmark_view_case_law_v2.Ce4FLdvZ.json",
+            "https://www.vals.ai/_astro/benchmark_view_claimbench.BvSwQswS.json",
+            "https://www.vals.ai/_astro/benchmark_view_code_migration_v1_1.C5fGWyEv.json",
+            "https://www.vals.ai/_astro/benchmark_view_code_migration.OH5Sq0yI.json",
+            "https://www.vals.ai/_astro/benchmark_view_corp_fin_v2.DVty8VbG.json",
+            "https://www.vals.ai/_astro/benchmark_view_cua_bench.DpgrKYWA.json",
+            "https://www.vals.ai/_astro/benchmark_view_cyberbench.FBHvC1JO.json",
+            "https://www.vals.ai/_astro/benchmark_view_emb_v1_1.BgpuEnWw.json",
+            "https://www.vals.ai/_astro/benchmark_view_emb.jwIrt9I2.json",
+            "https://www.vals.ai/_astro/benchmark_view_finance_agent_v2_1.B4LplKUw.json",
+            "https://www.vals.ai/_astro/benchmark_view_finance_agent_v2.DGfDRCFA.json",
+            "https://www.vals.ai/_astro/benchmark_view_finance_index.3i1LapRk.json",
+            "https://www.vals.ai/_astro/benchmark_view_gpqa.BM20Hc7L.json",
+            "https://www.vals.ai/_astro/benchmark_view_immigration.M8MCiQRm.json",
+            "https://www.vals.ai/_astro/benchmark_view_ioi.B9mZoEyp.json",
+            "https://www.vals.ai/_astro/benchmark_view_ksp_bench.BsAavpJg.json",
+            "https://www.vals.ai/_astro/benchmark_view_lcb.ptwAhS9j.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_agent_benchmark_v1.ZWRzZKcv.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_agent_benchmark.CXxr-r3L.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_bench.CpdWpKOK.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_index.BeYcpuWS.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_research.igxeyptZ.json",
+            "https://www.vals.ai/_astro/benchmark_view_math500.BvFbu92X.json",
+            "https://www.vals.ai/_astro/benchmark_view_medcode.DDYzfXTk.json",
+            "https://www.vals.ai/_astro/benchmark_view_medqa.Cco1kvog.json",
+            "https://www.vals.ai/_astro/benchmark_view_medscribe.B96VQpLB.json",
+            "https://www.vals.ai/_astro/benchmark_view_mgsm.CneCP-rm.json",
+            "https://www.vals.ai/_astro/benchmark_view_mmlu_pro.CObdHjFf.json",
+            "https://www.vals.ai/_astro/benchmark_view_mmmu.LWxyvDXu.json",
+            "https://www.vals.ai/_astro/benchmark_view_mortgage_tax.BXFiT_1e.json",
+            "https://www.vals.ai/_astro/benchmark_view_mysterymechanism.BIFP3CxA.json",
+            "https://www.vals.ai/_astro/benchmark_view_poker_agent.BeZvaV0m.json",
+            "https://www.vals.ai/_astro/benchmark_view_programbench._aKSMLwZ.json",
+            "https://www.vals.ai/_astro/benchmark_view_proof_bench.BMW9IRIq.json",
+            "https://www.vals.ai/_astro/benchmark_view_robo_bench.DzDVSjnk.json",
+            "https://www.vals.ai/_astro/benchmark_view_sage.C4tN4zg-.json",
+            "https://www.vals.ai/_astro/benchmark_view_science_index.BsLL57Hh.json",
+            "https://www.vals.ai/_astro/benchmark_view_skillsbench.CnMXG43E.json",
+            "https://www.vals.ai/_astro/benchmark_view_snap_v1.BPa0Hrre.json",
+            "https://www.vals.ai/_astro/benchmark_view_snap.BYvJQ7Sv.json",
+            "https://www.vals.ai/_astro/benchmark_view_sre_bench.lXFrKfyC.json",
+            "https://www.vals.ai/_astro/benchmark_view_swebench_multimodal.zm9ckpNj.json",
+            "https://www.vals.ai/_astro/benchmark_view_swebench.CWeqA8t7.json",
+            "https://www.vals.ai/_astro/benchmark_view_tax_agent_bench.D7qIiJ64.json",
+            "https://www.vals.ai/_astro/benchmark_view_tax_eval_v2.BJcK-K6E.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_2_1.D_sLM8Y9.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_2.KFG_rzBq.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_4.9IYPVvs3.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_science.3WIeBdiC.json",
+            "https://www.vals.ai/_astro/benchmark_view_vals_index.ucqva8WH.json",
+            "https://www.vals.ai/_astro/benchmark_view_vals_multimodal_index.virVpWMs.json",
+            "https://www.vals.ai/_astro/benchmark_view_vcb_1_100.D22cXJ74.json",
+            "https://www.vals.ai/_astro/benchmark_view_vibe_code_bench.v7pikBP8.json",
+            "https://www.vals.ai/_astro/benchmark_view_voice_code_bench.BBxJTuao.json",
+            "https://www.vals.ai/_astro/benchmark_view_web_search_backends.CLdzyufE.json"
+          ],
+          "after": [
+            "https://www.vals.ai/benchmarks",
+            "https://www.vals.ai/benchmarks/aime",
+            "https://www.vals.ai/benchmarks/biomysterybench",
+            "https://www.vals.ai/benchmarks/case_law_v2",
+            "https://www.vals.ai/benchmarks/claimbench",
+            "https://www.vals.ai/benchmarks/code-migration",
+            "https://www.vals.ai/benchmarks/code-migration-v1-1",
+            "https://www.vals.ai/benchmarks/corp_fin_v2",
+            "https://www.vals.ai/benchmarks/cua_bench",
+            "https://www.vals.ai/benchmarks/cyber",
+            "https://www.vals.ai/benchmarks/cyber_offense",
+            "https://www.vals.ai/benchmarks/emb",
+            "https://www.vals.ai/benchmarks/emb-v1-1",
+            "https://www.vals.ai/benchmarks/fabv2",
+            "https://www.vals.ai/benchmarks/fabv2-1",
+            "https://www.vals.ai/benchmarks/finance_index",
+            "https://www.vals.ai/benchmarks/gpqa",
+            "https://www.vals.ai/benchmarks/hlab",
+            "https://www.vals.ai/benchmarks/hlab-v1",
+            "https://www.vals.ai/benchmarks/immigration",
+            "https://www.vals.ai/benchmarks/inference_provider",
+            "https://www.vals.ai/benchmarks/ioi",
+            "https://www.vals.ai/benchmarks/lcb",
+            "https://www.vals.ai/benchmarks/legal_bench",
+            "https://www.vals.ai/benchmarks/legal_index",
+            "https://www.vals.ai/benchmarks/legal_research",
+            "https://www.vals.ai/benchmarks/math500",
+            "https://www.vals.ai/benchmarks/medcode",
+            "https://www.vals.ai/benchmarks/medqa",
+            "https://www.vals.ai/benchmarks/medscribe",
+            "https://www.vals.ai/benchmarks/mental-health",
+            "https://www.vals.ai/benchmarks/mgsm",
+            "https://www.vals.ai/benchmarks/mmlu_pro",
+            "https://www.vals.ai/benchmarks/mmmu",
+            "https://www.vals.ai/benchmarks/mortgage_tax",
+            "https://www.vals.ai/benchmarks/mysterymechanism",
+            "https://www.vals.ai/benchmarks/poker_agent",
+            "https://www.vals.ai/benchmarks/programbench",
+            "https://www.vals.ai/benchmarks/proof_bench",
+            "https://www.vals.ai/benchmarks/public-benefits-bench",
+            "https://www.vals.ai/benchmarks/public-benefits-bench-v1",
+            "https://www.vals.ai/benchmarks/robo_bench",
+            "https://www.vals.ai/benchmarks/rsi_index",
+            "https://www.vals.ai/benchmarks/sage",
+            "https://www.vals.ai/benchmarks/science_index",
+            "https://www.vals.ai/benchmarks/skillsbench",
+            "https://www.vals.ai/benchmarks/srebench",
+            "https://www.vals.ai/benchmarks/swebench",
+            "https://www.vals.ai/benchmarks/swebench-multimodal",
+            "https://www.vals.ai/benchmarks/tax_agent_bench",
+            "https://www.vals.ai/benchmarks/tax_eval_v2",
+            "https://www.vals.ai/benchmarks/terminal-bench-2",
+            "https://www.vals.ai/benchmarks/terminal-bench-2-1",
+            "https://www.vals.ai/benchmarks/terminal-bench-4",
+            "https://www.vals.ai/benchmarks/terminal-bench-science",
+            "https://www.vals.ai/benchmarks/time_horizon_index",
+            "https://www.vals.ai/benchmarks/vals_index",
+            "https://www.vals.ai/benchmarks/vals_multimodal_index",
+            "https://www.vals.ai/benchmarks/vals_router_index",
+            "https://www.vals.ai/benchmarks/vcb-1-100",
+            "https://www.vals.ai/benchmarks/vibe-code",
+            "https://www.vals.ai/benchmarks/voice-code-bench",
+            "https://www.vals.ai/benchmarks/web_search",
+            "https://www.vals.ai/_astro/benchmark_view_aime.CmeuYPIC.json",
+            "https://www.vals.ai/_astro/benchmark_view_biomysterybench.BhmTwpOz.json",
+            "https://www.vals.ai/_astro/benchmark_view_case_law_v2.Ce4FLdvZ.json",
+            "https://www.vals.ai/_astro/benchmark_view_claimbench.BvSwQswS.json",
+            "https://www.vals.ai/_astro/benchmark_view_code_migration.RjVDu082.json",
+            "https://www.vals.ai/_astro/benchmark_view_code_migration_v1_1.C5fGWyEv.json",
+            "https://www.vals.ai/_astro/benchmark_view_corp_fin_v2.DVty8VbG.json",
+            "https://www.vals.ai/_astro/benchmark_view_cua_bench.DpgrKYWA.json",
+            "https://www.vals.ai/_astro/benchmark_view_cyberbench.FBHvC1JO.json",
+            "https://www.vals.ai/_astro/benchmark_view_emb.jwIrt9I2.json",
+            "https://www.vals.ai/_astro/benchmark_view_emb_v1_1.CJRl_g2K.json",
+            "https://www.vals.ai/_astro/benchmark_view_finance_agent_v2.B5bUxKSW.json",
+            "https://www.vals.ai/_astro/benchmark_view_finance_agent_v2_1.BZVaEuSl.json",
+            "https://www.vals.ai/_astro/benchmark_view_finance_index.CUa7GAOb.json",
+            "https://www.vals.ai/_astro/benchmark_view_gpqa.BM20Hc7L.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_agent_benchmark.DpcgIuTD.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_agent_benchmark_v1.ZWRzZKcv.json",
+            "https://www.vals.ai/_astro/benchmark_view_immigration.M8MCiQRm.json",
+            "https://www.vals.ai/_astro/benchmark_view_ioi.CsfM-L1L.json",
+            "https://www.vals.ai/_astro/benchmark_view_lcb.ptwAhS9j.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_bench.CpdWpKOK.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_index.Ds65WC7f.json",
+            "https://www.vals.ai/_astro/benchmark_view_legal_research.AFZ5CBK-.json",
+            "https://www.vals.ai/_astro/benchmark_view_math500.BvFbu92X.json",
+            "https://www.vals.ai/_astro/benchmark_view_medcode.BbMvZnxg.json",
+            "https://www.vals.ai/_astro/benchmark_view_medqa.Cco1kvog.json",
+            "https://www.vals.ai/_astro/benchmark_view_medscribe.CzO-YLhL.json",
+            "https://www.vals.ai/_astro/benchmark_view_mgsm.CneCP-rm.json",
+            "https://www.vals.ai/_astro/benchmark_view_mmlu_pro.CObdHjFf.json",
+            "https://www.vals.ai/_astro/benchmark_view_mmmu.LWxyvDXu.json",
+            "https://www.vals.ai/_astro/benchmark_view_mortgage_tax.BXFiT_1e.json",
+            "https://www.vals.ai/_astro/benchmark_view_mysterymechanism.VPdkGu3p.json",
+            "https://www.vals.ai/_astro/benchmark_view_poker_agent.BeZvaV0m.json",
+            "https://www.vals.ai/_astro/benchmark_view_programbench._aKSMLwZ.json",
+            "https://www.vals.ai/_astro/benchmark_view_proof_bench.SQdK0VGh.json",
+            "https://www.vals.ai/_astro/benchmark_view_snap.BYvJQ7Sv.json",
+            "https://www.vals.ai/_astro/benchmark_view_snap_v1.BPa0Hrre.json",
+            "https://www.vals.ai/_astro/benchmark_view_robo_bench.DzDVSjnk.json",
+            "https://www.vals.ai/_astro/benchmark_view_sage.C4tN4zg-.json",
+            "https://www.vals.ai/_astro/benchmark_view_science_index.BsLL57Hh.json",
+            "https://www.vals.ai/_astro/benchmark_view_skillsbench.CnMXG43E.json",
+            "https://www.vals.ai/_astro/benchmark_view_sre_bench.lXFrKfyC.json",
+            "https://www.vals.ai/_astro/benchmark_view_swebench.CWeqA8t7.json",
+            "https://www.vals.ai/_astro/benchmark_view_swebench_multimodal.DfVXWXxX.json",
+            "https://www.vals.ai/_astro/benchmark_view_tax_agent_bench.Bpg6Dq1-.json",
+            "https://www.vals.ai/_astro/benchmark_view_tax_eval_v2.BJcK-K6E.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_2.KFG_rzBq.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_2_1.D_sLM8Y9.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_4.BWBlvc2A.json",
+            "https://www.vals.ai/_astro/benchmark_view_terminal_bench_science.3WIeBdiC.json",
+            "https://www.vals.ai/_astro/benchmark_view_ksp_bench.BsAavpJg.json",
+            "https://www.vals.ai/_astro/benchmark_view_vals_index.DF1sDxTc.json",
+            "https://www.vals.ai/_astro/benchmark_view_vals_multimodal_index.virVpWMs.json",
+            "https://www.vals.ai/_astro/benchmark_view_vcb_1_100.GHOwiGDu.json",
+            "https://www.vals.ai/_astro/benchmark_view_vibe_code_bench.Ceah1U1U.json",
+            "https://www.vals.ai/_astro/benchmark_view_voice_code_bench.BBxJTuao.json",
+            "https://www.vals.ai/_astro/benchmark_view_web_search_backends.CLdzyufE.json"
+          ]
+        }
+      ],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 3446,
+          "afterCount": 3456,
+          "beforeSha256": "c22f40de918f51eac8b13f83651d2bf6661ecec1ef3f461ee6eb83bd3aad8962",
+          "afterSha256": "567c363922d94c96b2402b33434f2db28c70028663db12333f35d7aa27afb025",
+          "added": 10,
+          "removed": 0,
+          "changed": 1113
+        },
+        "costs.json": {
+          "beforeCount": 3295,
+          "afterCount": 3305,
+          "beforeSha256": "f169e5f7a4f5c1b5f99e925df36f8d925c11a3224b43bb1e867d1b14894b0958",
+          "afterSha256": "de94f2eddd3b7667add79e9d20851045e41801c857c946b574a7853105a3073a",
+          "added": 10,
+          "removed": 0,
+          "changed": 1090
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:33:03.218Z"
+    },
+    "xai-releases": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "f5cf1383a70ab0da102e0f09e155b8e399d30ba0124af87bb71b14365bfe6ef2",
+          "afterSha256": "f5cf1383a70ab0da102e0f09e155b8e399d30ba0124af87bb71b14365bfe6ef2",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 43,
+          "afterCount": 43,
+          "beforeSha256": "467ea8a65d2dd1ecdc8f492f891dc04bb70f03cbd8b84064275a537b135f375b",
+          "afterSha256": "467ea8a65d2dd1ecdc8f492f891dc04bb70f03cbd8b84064275a537b135f375b",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-04T04:31:01.893Z"
+    },
+    "zapier-automationbench": {
+      "contentChanged": false,
+      "manifestChanges": [],
+      "files": {
+        "candidates.json": {
+          "beforeCount": 129,
+          "afterCount": 129,
+          "beforeSha256": "431af88b93a7d6bac25986b43c09c09a71f6ebc272902bb56c11ff92c7403b6c",
+          "afterSha256": "abaf9e059528693f7e518db3b346e1c6ff0c3406cf8536880df6187ef74c72a0",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        },
+        "costs.json": {
+          "beforeCount": 128,
+          "afterCount": 128,
+          "beforeSha256": "190138863c5eb7d0cc30b4c328484bd192ec0392682f50dfd26834c50297485d",
+          "afterSha256": "4f872a21946c0ad9d6956d894f440ffab1b6d755640df4db8f599482a024aa93",
+          "added": 0,
+          "removed": 0,
+          "changed": 0
+        }
+      },
+      "lastVerifiedAt": "2026-10-30T02:32:58.979Z"
+    }
+  },
+  "discovery": {
+    "agent": "agy gemini-4-argon-medium",
+    "report": "artifacts/research/2026-10-30-benchmark-check/benchmark-web/agy-discovery.md",
+    "blocked": [
+      "https://openai.com/news/ (403)",
+      "https://x.ai/news (403)",
+      "https://labs.scale.com/papers/dualchem (404)",
+      "https://developers.openai.com/api/docs/models/gpt-6.1-terra-pro (404)"
+    ],
+    "verifiedByMainAgent": [
+      {
+        "url": "https://mistral.ai/news/mistral-large-4-oss/",
+        "datePublished": "2026-10-29T12:00:07.000Z",
+        "saved": "artifacts/research/2026-10-30-benchmark-check/vendors/mistral-large-4-oss.html"
+      }
+    ]
+  },
+  "userReview": null
+}

@@ -20,7 +20,7 @@
     "chart release heading": "benchmarkVersion",
     "chart score/y": "rawScore"
   },
-  "lastVerifiedAt": "2026-10-04T04:43:52.621Z",
+  "lastVerifiedAt": "2026-10-30T02:37:26.506Z",
   "notes": [
     "PARTIAL_SOURCE: bounded, individually reviewed release charts. VENDOR remains lower priority than organizer and independent results.",
     "Matching numbers establish citation consistency only; evaluator identity and unpublished preview scores are not independently confirmed.",

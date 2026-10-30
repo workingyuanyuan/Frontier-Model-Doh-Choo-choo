@@ -283,7 +283,7 @@ describe('frontier eligibility', () => {
       modelId: 'google-gemini-4-carbon',
       rank: 1,
       profileId: 'google-gemini-4-carbon-high',
-      organizations: ['vals-ai', 'zapier-automationbench'],
+      organizations: ['frontier-code', 'vals-ai', 'zapier-automationbench'],
     });
     expect(result.leaders.map(({ modelId }) => modelId)).not.toContain(
       'meta-muse-spark-1-3',

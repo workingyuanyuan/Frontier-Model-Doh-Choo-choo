@@ -21,11 +21,11 @@
     "v1_1.harness[model]": "frontier-code-1-1 profile.harness",
     "v1_1.models[]": "frontier-code-1-1 model.rawName"
   },
-  "lastVerifiedAt": "2026-10-29T00:58:40.032Z",
+  "lastVerifiedAt": "2026-10-30T02:37:31.636Z",
   "notes": [
     "FrontierCode 1.1 and 2.0 are different benchmarks; neither replaces the other.",
-    "2.0: 24 visible models and 95 Main configurations; rendered Best 24 and All 95 rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: none.",
-    "2.0: 95 mean rollout costs are INCLUDED; the cost chart pairs Frontier Code costs with frontier-code-2-0 (user decision 2026-10-28).",
+    "2.0: 26 visible models and 101 Main configurations; rendered Best 26 and All 101 rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: none.",
+    "2.0: 101 mean rollout costs are INCLUDED; the cost chart pairs Frontier Code costs with frontier-code-2-0 (user decision 2026-10-28).",
     "1.1: 141 cost records keep their IDs but are EXCLUDED as superseded, so 1.1 and 2.0 costs are never blended.",
     "1.1: 45 export models and 134 Main configurations; 7 rows preserved from the previous snapshot (GPT-6.1 Terra, Mistral Large 4 (Preview)).",
     "Extended data is retained in the raw artifact but not materialized.",

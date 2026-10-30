@@ -113,7 +113,7 @@ describe('AA frontier selection', () => {
     const result = selectAaTopTen(mapped);
     expect(result.status).toBe('selected');
     expect(result.issues).toEqual([]);
-    // 2026-10-29 data: Intelligence Index v5.0, Gemini 4 Carbon added.
+    // 2026-10-30 data: Intelligence Index v5.0.
     expect(result.selectedModelIds).toEqual([
       'google-gemini-4-carbon',
       'anthropic-claude-opus-5-5',
@@ -138,7 +138,7 @@ describe('AA frontier selection', () => {
       'anthropic-claude-fable-5-1-xhigh',
       'moonshot-kimi-k3-1-pro-max',
     ]);
-    expect(result.resolvedModelCount).toBe(25);
+    expect(result.resolvedModelCount).toBe(26);
     expect(result.topTen[8]?.modelId).toBe('anthropic-claude-fable-5-1');
     expect(result.boundary?.afterRank).toBe(9);
     expect(result.gapAudit.selectedModelIds).toHaveLength(9);

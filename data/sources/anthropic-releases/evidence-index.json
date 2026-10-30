@@ -1,82 +1,82 @@
 [
   {
-    "artifactPath": "artifacts/sha256/e9/e9dfa8fe49b8fe04761648516770f94c10a0d3c4ef0da90ffee8e0aa509b5347.html",
-    "byteLength": 460910,
+    "artifactPath": "artifacts/sha256/b4/b45fdac06250f11995f30f3f6a31e6b00db3f018b63f6373f2956b2af793b1ce.html",
+    "byteLength": 421849,
     "finalUrl": "https://www.anthropic.com/claude-opus-5-5",
-    "id": "sha256:e9dfa8fe49b8fe04761648516770f94c10a0d3c4ef0da90ffee8e0aa509b5347",
+    "id": "sha256:b45fdac06250f11995f30f3f6a31e6b00db3f018b63f6373f2956b2af793b1ce",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-opus-5-5",
-    "retrievedAt": "2026-10-04T04:43:52.621Z",
+    "retrievedAt": "2026-10-30T02:37:26.506Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e9dfa8fe49b8fe04761648516770f94c10a0d3c4ef0da90ffee8e0aa509b5347",
+    "sha256": "sha256:b45fdac06250f11995f30f3f6a31e6b00db3f018b63f6373f2956b2af793b1ce",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/cd/cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d.html",
-    "byteLength": 282141,
+    "artifactPath": "artifacts/sha256/8a/8a6ed8f974ec474ebb81b55373ddb29f8c8b0c1e45f23525a2ad185b18ad05e7.html",
+    "byteLength": 286906,
     "finalUrl": "https://www.anthropic.com/claude-sonnet-5-5",
-    "id": "sha256:cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d",
+    "id": "sha256:8a6ed8f974ec474ebb81b55373ddb29f8c8b0c1e45f23525a2ad185b18ad05e7",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-sonnet-5-5",
-    "retrievedAt": "2026-10-04T04:43:52.621Z",
+    "retrievedAt": "2026-10-30T02:37:26.506Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:cdfdeb83038fb774f162bf3f4c7f89312b042866176aed11e00ebfe425bb6f3d",
+    "sha256": "sha256:8a6ed8f974ec474ebb81b55373ddb29f8c8b0c1e45f23525a2ad185b18ad05e7",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/11/11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b.html",
-    "byteLength": 355018,
+    "artifactPath": "artifacts/sha256/0a/0ad2552b61cb7c1774540e8a7cfb16b8bfed029827f0965fec3ed9b08b33f3d1.html",
+    "byteLength": 348079,
     "finalUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-    "id": "sha256:11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b",
+    "id": "sha256:0ad2552b61cb7c1774540e8a7cfb16b8bfed029827f0965fec3ed9b08b33f3d1",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
-    "retrievedAt": "2026-10-04T04:43:52.621Z",
+    "retrievedAt": "2026-10-30T02:37:26.506Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:11905791c30f1e6d682961badb42aedbe6246857f2ab1a75f461c0db1dd3a98b",
+    "sha256": "sha256:0ad2552b61cb7c1774540e8a7cfb16b8bfed029827f0965fec3ed9b08b33f3d1",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/42/42914aeef1a0182889c0e3a325b6960a1f1454035c21c268b38b5f6a695d2448.html",
-    "byteLength": 315824,
+    "artifactPath": "artifacts/sha256/ac/acbdf010f60e590e5724ffdc041ea1a717fd09a9f2245394601681b26babbc71.html",
+    "byteLength": 244753,
     "finalUrl": "https://www.anthropic.com/news/claude-opus-5",
-    "id": "sha256:42914aeef1a0182889c0e3a325b6960a1f1454035c21c268b38b5f6a695d2448",
+    "id": "sha256:acbdf010f60e590e5724ffdc041ea1a717fd09a9f2245394601681b26babbc71",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Full official model release HTML; individually reviewed benchmark charts"
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://www.anthropic.com/news/claude-opus-5",
-    "retrievedAt": "2026-10-04T04:43:52.621Z",
+    "retrievedAt": "2026-10-30T02:37:26.506Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:42914aeef1a0182889c0e3a325b6960a1f1454035c21c268b38b5f6a695d2448",
+    "sha256": "sha256:acbdf010f60e590e5724ffdc041ea1a717fd09a9f2245394601681b26babbc71",
     "sourceId": "anthropic-releases"
   },
   {
-    "artifactPath": "artifacts/sha256/67/679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0.html",
-    "byteLength": 349671,
+    "artifactPath": "artifacts/sha256/af/afdf0a76aeeeaa8a16f00270da08e3686c054e7749c6c42a6086f3c555ee5f79.html",
+    "byteLength": 395637,
     "finalUrl": "https://prod.cursor.com/evals",
-    "id": "sha256:679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0",
+    "id": "sha256:afdf0a76aeeeaa8a16f00270da08e3686c054e7749c6c42a6086f3c555ee5f79",
     "mediaType": "text/html",
     "metadata": {
       "scope": "Organizer cross-check; visible chart aria-label score/effort pairs"
     },
     "method": "DOM",
     "requestUrl": "https://prod.cursor.com/evals",
-    "retrievedAt": "2026-10-04T04:43:52.621Z",
+    "retrievedAt": "2026-10-30T02:37:26.506Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:679b35ce98e0d4732c379997ba3051f994b8eda3bb6d348cfa95aaaa4fa8ecd0",
+    "sha256": "sha256:afdf0a76aeeeaa8a16f00270da08e3686c054e7749c6c42a6086f3c555ee5f79",
     "sourceId": "anthropic-releases"
   }
 ]

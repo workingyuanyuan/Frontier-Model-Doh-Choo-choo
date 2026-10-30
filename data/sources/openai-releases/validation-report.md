@@ -68,6 +68,7 @@
 - Vendor preview rows absent from reference: 28
 - Excluded: 20
 - Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).
+- Research: [vendor release review](../../../docs/refresh/2026-10-02-vendor-releases.md).
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

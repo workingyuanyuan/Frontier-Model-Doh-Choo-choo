@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/49/49c44790772da8f82a405d175bb3c0ccc4c2fa813afc12d28d3c5520ad1daaad.html",
-    "byteLength": 220065,
+    "artifactPath": "artifacts/sha256/95/95f87ed0730bd1376c9272ecaa1cd75dbb6ce2cdee17acb0774135ff2983d4d5.html",
+    "byteLength": 220614,
     "finalUrl": "https://surgehq.ai/benchmarks/dayjob-healthcare",
-    "id": "sha256:49c44790772da8f82a405d175bb3c0ccc4c2fa813afc12d28d3c5520ad1daaad",
+    "id": "sha256:95f87ed0730bd1376c9272ecaa1cd75dbb6ce2cdee17acb0774135ff2983d4d5",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 38,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-healthcare",
-    "retrievedAt": "2026-10-28T04:33:46.414Z",
+    "retrievedAt": "2026-10-30T02:37:42.113Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:49c44790772da8f82a405d175bb3c0ccc4c2fa813afc12d28d3c5520ad1daaad",
+    "sha256": "sha256:95f87ed0730bd1376c9272ecaa1cd75dbb6ce2cdee17acb0774135ff2983d4d5",
     "sourceId": "surge-dayjob-healthcare"
   }
 ]

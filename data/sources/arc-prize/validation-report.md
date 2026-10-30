@@ -4,18 +4,18 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:7bcb14727f15a0806143629850066c3177bdaaf02d1a95a7f920fb76c6c30ac4`
-- Models evidence: `sha256:6f6c9f483c3f813e3dd80d49594e67d30b4ba6710276e537c4753f3b56828988`
+- Evaluations evidence: `sha256:4c435af83861ff928cb2a184b470cd58767f6d42b75f4bc5229800433e4500fc`
+- Models evidence: `sha256:635946b608bd8ff700a0b32eded67d2645301c71756b14ba98768757d2eceaf4`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:365cf8b14db77219582669c9e30340b411ae1857b8848da23852d7cc614ca277`
-- Observed at: 2026-10-23T09:35:10.906Z
+- Page evidence: `sha256:e87e5adedd27722902febf067d4c1b94daace895d1416c9abddc34e35253cb42`
+- Observed at: 2026-10-30T02:32:55.176Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1264 |
-| Total models in models.json | 368 |
+| Total evaluation rows (all splits) | 1266 |
+| Total models in models.json | 369 |
 | Total datasets in datasets.json | 8 |
 | Total v2_Semi_Private evaluations | 298 |
 | Promoted v2_Semi_Private rows (display=true) | 291 |
@@ -215,6 +215,16 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate rows | 291 | 291 | +0 |
+| Cost records | 291 | 291 | +0 |
+| Canonically unresolved models | 149 | 149 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
