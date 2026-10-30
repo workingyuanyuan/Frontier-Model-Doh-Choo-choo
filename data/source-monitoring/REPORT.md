@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-04T04:43:52.621Z
+- Checked: 2026-10-30T02:37:29.581Z
+- Stored score snapshot: 2026-10-30T02:37:26.506Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:35:10.906Z
+- Checked: 2026-10-30T02:32:57.708Z
+- Stored score snapshot: 2026-10-30T02:32:55.176Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,8 +24,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T23:41:02.234Z
+- Checked: 2026-10-30T02:37:19.281Z
+- Stored score snapshot: 2026-10-30T02:34:02.037Z
 - Scope: live-catalog-and-snapshot
 
 | Finding                           | Benchmark             | Detail                                                          |
@@ -91,8 +91,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:34:50.026Z
+- Checked: 2026-10-30T02:37:25.133Z
+- Stored score snapshot: 2026-10-30T02:37:24.788Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -101,8 +101,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T04:33:50.783Z
+- Checked: 2026-10-30T02:32:53.691Z
+- Stored score snapshot: 2026-10-30T02:32:50.201Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -111,8 +111,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-code
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-29T00:58:40.032Z
+- Checked: 2026-10-30T02:37:32.002Z
+- Stored score snapshot: 2026-10-30T02:37:31.636Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -121,8 +121,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-swe
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-29T00:57:57.961Z
+- Checked: 2026-10-30T02:33:37.185Z
+- Stored score snapshot: 2026-10-30T02:33:33.667Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -141,8 +141,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T04:33:23.384Z
+- Checked: 2026-10-30T02:37:23.545Z
+- Stored score snapshot: 2026-10-30T02:37:22.251Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -151,7 +151,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-10-29T01:01:13.946Z
+- Checked: 2026-10-30T02:37:29.581Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -161,8 +161,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:34:56.382Z
+- Checked: 2026-10-30T02:37:33.474Z
+- Stored score snapshot: 2026-10-30T02:37:33.215Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -188,8 +188,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:34:58.036Z
+- Checked: 2026-10-30T02:37:35.160Z
+- Stored score snapshot: 2026-10-30T02:37:34.912Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -215,8 +215,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:34:59.613Z
+- Checked: 2026-10-30T02:37:36.788Z
+- Stored score snapshot: 2026-10-30T02:37:36.552Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -242,8 +242,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T04:33:44.075Z
+- Checked: 2026-10-30T02:37:40.507Z
+- Stored score snapshot: 2026-10-30T02:37:40.183Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -269,8 +269,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T04:33:46.414Z
+- Checked: 2026-10-30T02:37:42.429Z
+- Stored score snapshot: 2026-10-30T02:37:42.113Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -296,8 +296,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T05:59:18.172Z
+- Checked: 2026-10-30T02:37:44.297Z
+- Stored score snapshot: 2026-10-30T02:37:44.042Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -323,8 +323,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:35:06.114Z
+- Checked: 2026-10-30T02:37:45.925Z
+- Stored score snapshot: 2026-10-30T02:37:45.710Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -350,8 +350,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-23T09:35:01.162Z
+- Checked: 2026-10-30T02:37:38.604Z
+- Stored score snapshot: 2026-10-30T02:37:38.263Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -377,8 +377,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-28T23:35:54.501Z
+- Checked: 2026-10-30T02:33:30.623Z
+- Stored score snapshot: 2026-10-30T02:33:03.218Z
 - Scope: live-catalog-and-snapshot
 
 | Finding             | Benchmark                | Detail                                                  |
@@ -494,8 +494,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-10-29T01:01:13.946Z
-- Stored score snapshot: 2026-10-29T00:57:29.204Z
+- Checked: 2026-10-30T02:33:01.627Z
+- Stored score snapshot: 2026-10-30T02:32:58.979Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |

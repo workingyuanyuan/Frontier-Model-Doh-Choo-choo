@@ -6,14 +6,14 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261025/table.csv?v=1793084497`) | 31 |
-| 2.0 suite candidates | 217 |
+| 2.0 model rows (`https://livebench.ai/data/20261025/table.csv?v=1793326121`) | 32 |
+| 2.0 suite candidates | 224 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1793326121`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
 | Cost records | 144 |
-| Distinct unresolved raw model names | 24 |
+| Distinct unresolved raw model names | 25 |
 
 ## LiveBench 2.0 suites
 
@@ -50,6 +50,7 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 - `mimo-v2.6-pro`
 - `minimax-m3.1-flash`
 - `mistral-large-4`
+- `mistral-large-4-0`
 - `mistral-large-4-high`
 - `muse-spark-open`
 - `nemotron-3.5-lightning-30b-a3b`
@@ -63,7 +64,7 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 
 ## Visible comparison
 
-- LiveBench 2.0 rendered leaderboard rows: 31; table rows: 31.
+- LiveBench 2.0 rendered leaderboard rows: 32; table rows: 32.
 - LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
 - Result: both rendered counts matched.
 
@@ -71,8 +72,8 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Raw model profiles | 97 | 97 | +0 |
-| Candidate results | 501 | 501 | +0 |
+| Raw model profiles | 97 | 98 | +1 |
+| Candidate results | 501 | 508 | +7 |
 | Materialized costs | 144 | 144 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.

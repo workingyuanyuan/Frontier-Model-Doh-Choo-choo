@@ -14,7 +14,7 @@
     "entries.abs.mean[].model": "model.rawName",
     "entries.abs.mean[].overall": "normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-29T00:57:57.961Z",
+  "lastVerifiedAt": "2026-10-30T02:33:33.667Z",
   "notes": [
     "Mean@5 percentage across V2 tasks; benchmark scope is manual profile comparisons.",
     "Source reasoning effort is unpublished and preserved as null."

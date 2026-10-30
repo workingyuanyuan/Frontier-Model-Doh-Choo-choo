@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-29T01:01:13.946Z",
+  "checkedAt": "2026-10-30T02:37:23.545Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "livebench-browser",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -53,6 +53,7 @@
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-1.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-open\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -86,6 +87,7 @@
           "mimo-v2.6-pro",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "muse-spark-1.3",
           "muse-spark-open",
           "muse-wonder-1.0",
@@ -96,15 +98,15 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 31,
+        "rows": 32,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121"
         ],
         "versions": ["2026-10-25"]
       },
       {
         "id": "livebench-coding",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -150,6 +152,7 @@
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-1.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-open\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -183,6 +186,7 @@
           "mimo-v2.6-pro",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "muse-spark-1.3",
           "muse-spark-open",
           "muse-wonder-1.0",
@@ -193,15 +197,15 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 31,
+        "rows": 32,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121"
         ],
         "versions": ["2026-10-25"]
       },
       {
         "id": "livebench-data-analysis",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -247,6 +251,7 @@
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"muse-spark-1.3\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"muse-spark-open\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -280,6 +285,7 @@
           "mimo-v2.6-pro",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "muse-spark-1.3",
           "muse-spark-open",
           "muse-wonder-1.0",
@@ -290,15 +296,15 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 31,
+        "rows": 32,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121"
         ],
         "versions": ["2026-10-25"]
       },
       {
         "id": "livebench-design",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -344,6 +350,7 @@
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-1.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-open\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -377,6 +384,7 @@
           "mimo-v2.6-pro",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "muse-spark-1.3",
           "muse-spark-open",
           "muse-wonder-1.0",
@@ -387,9 +395,9 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 31,
+        "rows": 32,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121"
         ],
         "versions": ["2026-10-25"]
       },
@@ -602,7 +610,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793326121"
         ],
         "versions": ["2026-06-25"]
       },
@@ -815,13 +823,13 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793326121"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-long-agentic",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -867,6 +875,7 @@
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-1.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-open\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -900,6 +909,7 @@
           "mimo-v2.6-pro",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "muse-spark-1.3",
           "muse-spark-open",
           "muse-wonder-1.0",
@@ -910,9 +920,9 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 31,
+        "rows": 32,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121"
         ],
         "versions": ["2026-10-25"]
       },
@@ -1125,13 +1135,13 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793326121"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-reasoning",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": [
           "category-average:percent:true",
           "suite-score:percent:true"
@@ -1273,6 +1283,7 @@
           "[\"minimax-m3\",null,null,null,false,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"mistral-large-4-high\",null,null,null,false,null,1,null]",
           "[\"muse-spark-1.1-xhigh\",\"xhigh\",null,null,false,null,1,null]",
           "[\"muse-spark-1.2-xhigh\",\"xhigh\",null,null,false,null,1,null]",
@@ -1374,6 +1385,7 @@
           "minimax-m3",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "mistral-large-4-high",
           "muse-spark-1.1-xhigh",
           "muse-spark-1.2-xhigh",
@@ -1399,16 +1411,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 102,
+        "rows": 103,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497",
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121",
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793326121"
         ],
         "versions": ["2026-06-25", "2026-10-25"]
       },
       {
         "id": "livebench-research",
-        "includedRows": 31,
+        "includedRows": 32,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1454,6 +1466,7 @@
           "[\"mimo-v2.6-pro\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"minimax-m3.1-flash\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"mistral-large-4\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"mistral-large-4-0\",\"high\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-1.3\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-spark-open\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"muse-wonder-1.0\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1487,6 +1500,7 @@
           "mimo-v2.6-pro",
           "minimax-m3.1-flash",
           "mistral-large-4",
+          "mistral-large-4-0",
           "muse-spark-1.3",
           "muse-spark-open",
           "muse-wonder-1.0",
@@ -1497,14 +1511,14 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 31,
+        "rows": 32,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793084497"
+          "https://livebench.ai/data/20261025/table.csv?v=1793326121"
         ],
         "versions": ["2026-10-25"]
       }
     ],
-    "observedAt": "2026-10-28T04:33:23.384Z",
+    "observedAt": "2026-10-30T02:37:22.251Z",
     "sourceId": "livebench"
   }
 }

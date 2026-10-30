@@ -8,29 +8,29 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 215 |
-| Unique profile rows in evaluation-page payloads | 100 |
-| Unique profile rows in model-detail payloads | 215 |
+| Unique profile rows across all captured page payloads | 219 |
+| Unique profile rows in evaluation-page payloads | 101 |
+| Unique profile rows in model-detail payloads | 219 |
 | Profile rows in the /models payload | 28 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 215 |
-| Generated CandidateResults | 2568 |
-| Intelligence Index candidates (EXCLUDED) | 77 |
-| GDPval-AA normalized candidates | 182 |
-| Canonically unresolved candidates | 702 |
-| MEASURED_TASK cost rows | 75 |
-| API_STANDARDIZED token-price rows | 207 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 219 |
+| Generated CandidateResults | 2636 |
+| Intelligence Index candidates (EXCLUDED) | 85 |
+| GDPval-AA normalized candidates | 184 |
+| Canonically unresolved candidates | 764 |
+| MEASURED_TASK cost rows | 83 |
+| API_STANDARDIZED token-price rows | 211 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 28 selected profile rows in this capture.
-- The evaluation-page payload union exposes 100 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 215 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The evaluation-page payload union exposes 101 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 219 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
-- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 215, compared values 1068.
-- Precision-only differences (API rounds to three decimals, within 0.0005): 534. These are representation differences, not disagreements.
+- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 219, compared values 1081.
+- Precision-only differences (API rounds to three decimals, within 0.0005): 540. These are representation differences, not disagreements.
 - Real differences (beyond 0.0005): 0.
 - No real API differences recorded beyond rounding.
 
@@ -46,11 +46,11 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 162 | 124 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 104 | 73 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 97 | 73 |
-| `critpt-v2` | `critptAgentic` | `critpt-v2` | 38 | 24 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 77 | 56 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 166 | 124 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 108 | 73 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 102 | 73 |
+| `critpt-v2` | `critptAgentic` | `critpt-v2` | 40 | 24 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 85 | 59 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
@@ -58,18 +58,18 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 716
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 215
+- Fresh rendered models page catalog total: 718
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 219
 - Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 215 | 215 | +0 |
-| Active source profiles | 215 | 215 | +0 |
-| Candidate results | 2568 | 2568 | +0 |
-| Materialized costs | 282 | 282 | +0 |
+| Unique source profiles | 215 | 219 | +4 |
+| Active source profiles | 215 | 219 | +4 |
+| Candidate results | 2568 | 2636 | +68 |
+| Materialized costs | 282 | 294 | +12 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

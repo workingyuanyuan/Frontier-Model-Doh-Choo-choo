@@ -1,7 +1,7 @@
 # FrontierSWE V2 acquisition validation
 
 - Source: <https://www.frontierswe.com/>
-- Evidence: `sha256:09af7b2285b91a93053c6d4285776a20b45355af23bf910381f9e75c89363a3a`
+- Evidence: `sha256:9e1f1568276e81c8d059fed43f0857592d50f348e3b7b38d24925c1e1247d957`
 - Complete mean@5 configurations: 23; coverage matrix identities matched.
 - Server-rendered leaderboard rows cross-checked at displayed precision: 10.
 - Methodology: Scores across all 34 tasks. Each model runs 5 trials per task with a 20-hour budget.

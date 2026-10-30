@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-29T01:01:13.946Z",
+  "checkedAt": "2026-10-30T02:32:53.691Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -1073,6 +1073,7 @@
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
+          "openai-gpt-6-1-terra",
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
@@ -1087,6 +1088,7 @@
           "[\"Baichuan 2-7B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Baichuan1-7B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Baichuan2-13B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Beam 1.0\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Cerebras-GPT-13B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude 2\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude 2.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1122,6 +1124,7 @@
           "[\"DeepSeek Coder 6.7B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek V4 Flash 0731\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek V4 Pro 0813\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"DeepSeek V4.1 Flash 1017\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek V4.1 Flash\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek-Coder-V2-Lite-Base\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek-R1 (May 2025)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1182,6 +1185,7 @@
           "[\"GPT-6 Luna\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6 Sol\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GPT-6.1 Sol\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"GPT-6.1 Terra\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.0 Pro\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Flash (May 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 1.5 Flash (Sep 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1359,6 +1363,7 @@
           "Baichuan 2-7B",
           "Baichuan1-7B",
           "Baichuan2-13B",
+          "Beam 1.0",
           "Cerebras-GPT-13B",
           "Claude 2",
           "Claude 2.1",
@@ -1395,6 +1400,7 @@
           "DeepSeek V4 Flash 0731",
           "DeepSeek V4 Pro 0813",
           "DeepSeek V4.1 Flash",
+          "DeepSeek V4.1 Flash 1017",
           "DeepSeek-Coder-V2-Lite-Base",
           "DeepSeek-R1",
           "DeepSeek-R1 (May 2025)",
@@ -1454,6 +1460,7 @@
           "GPT-6 Luna",
           "GPT-6 Sol",
           "GPT-6.1 Sol",
+          "GPT-6.1 Terra",
           "Gemini 1.0 Pro",
           "Gemini 1.5 Flash (May 2024)",
           "Gemini 1.5 Flash (Sep 2024)",
@@ -1627,7 +1634,7 @@
           "stablelm-tuned-alpha-7b",
           "vicuna-13b-v1.1"
         ],
-        "rows": 270,
+        "rows": 273,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3303,7 +3310,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-28T04:33:50.783Z",
+    "observedAt": "2026-10-30T02:32:50.201Z",
     "sourceId": "epoch-ai"
   }
 }
