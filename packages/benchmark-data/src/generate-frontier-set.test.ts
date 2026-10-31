@@ -67,7 +67,7 @@ async function eligibleWorkspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 12 tests in five active categories', async () => {
+  it('produces eight complete eligible profiles sharing 11 tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     expect(selectAaTopTen(candidates).status).toBe('selected');
     const { profileIds } = await eligibleWorkspace();
@@ -78,8 +78,9 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    // 2026-10-29 data; changes when sources or eligibility change.
-    expect(result.benchmarkIds).toHaveLength(12);
+    // 2026-10-31: AA withdrew Carbon's SciCode score; missing stays absent.
+    expect(result.benchmarkIds).toHaveLength(11);
+    expect(result.benchmarkIds).not.toContain('scicode');
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
       'knowledge',
@@ -92,12 +93,12 @@ describe('frontier common quality core', () => {
         ['reasoning', 1],
         ['knowledge', 2],
         ['comprehension', 1],
-        ['coding', 3],
+        ['coding', 2],
         ['agentic', 5],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 12)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 11)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
@@ -160,10 +161,10 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-10-29 data: Carbon qualifies through Vals and Zapier. Independently
-    // intersecting the current source candidates yields this shared core.
+    // 2026-10-31 data: Carbon's withdrawn SciCode score removes one test
+    // from every cohort. Independent source intersections verify the counts.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      14, 14, 14, 14, 13, 13, 12, 12, 12,
+      13, 13, 13, 13, 12, 12, 11, 11, 11,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
     expect(chooseDefaultCohort(cohorts).id).toBe('aa-top-10');
@@ -200,7 +201,6 @@ describe('frontier common quality core', () => {
           'gdpval-aa',
           'hle-diamond',
           'legal-research',
-          'scicode',
           'terminal-bench-4-0',
           'terminal-bench-science',
           'vibe-code-bench',

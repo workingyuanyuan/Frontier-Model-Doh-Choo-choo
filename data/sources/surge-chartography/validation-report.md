@@ -1,7 +1,7 @@
 # Surge Chartography acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/chartography>
-- Evidence: `sha256:01e70ca6563fd5c96799cbc4b940346bd3f7a57c64b143808c82bc057072a026`
+- Evidence: `sha256:f35bbf0bcce3c0c42b1529279ce02b122c5f572c47f22668239796567730c9ea`
 - Main leaderboard: 42 rows; rendered browser count: 42.
 - Every data-score attribute agrees with its displayed percentage; no pagination.
 - Unresolved catalog identities (10): DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (Max reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); Inkling Small (xHigh reasoning); Kimi K2.5 (Thinking on); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning); Qwen 3.5 Plus (Thinking on); Qwen 3.8 Flash (xHigh reasoning).

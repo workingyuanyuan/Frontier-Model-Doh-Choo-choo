@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/2e/2e389dbbf65386b064a782d4e706db5dfb35cb5352544010eba2a5f33f925ad2.html",
-    "byteLength": 221873,
+    "artifactPath": "artifacts/sha256/88/88c92feefe036ad81175307529f409218ddc361e457aee3a892486ef473a09dd.html",
+    "byteLength": 415492,
     "finalUrl": "https://surgehq.ai/benchmarks/riemann-bench",
-    "id": "sha256:2e389dbbf65386b064a782d4e706db5dfb35cb5352544010eba2a5f33f925ad2",
+    "id": "sha256:88c92feefe036ad81175307529f409218ddc361e457aee3a892486ef473a09dd",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 44,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/riemann-bench",
-    "retrievedAt": "2026-10-30T02:37:38.263Z",
+    "retrievedAt": "2026-10-31T14:19:47.112Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:2e389dbbf65386b064a782d4e706db5dfb35cb5352544010eba2a5f33f925ad2",
+    "sha256": "sha256:88c92feefe036ad81175307529f409218ddc361e457aee3a892486ef473a09dd",
     "sourceId": "surge-riemann"
   }
 ]

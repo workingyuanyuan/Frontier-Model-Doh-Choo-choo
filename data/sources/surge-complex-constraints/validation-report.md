@@ -1,7 +1,7 @@
 # Surge ComplexConstraints acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
-- Evidence: `sha256:6c9057aa4dc51b631cbbc9a76d50f0c1342e4e46c4e6966f921f7e001031f0ab`
+- Evidence: `sha256:05834031f45c15a1589bee0a7f4336fdc92ab53dc9dae7bd19c60895cfba3373`
 - Main leaderboard: 44 rows; rendered browser count: 44.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (16): DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (Max reasoning); Ernie 4.5 300B; Ernie 5.1; Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Grok 4.20 Beta; Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); Kimi K2.5 (Thinking on); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning); Nemotron Lightning 3.5 30B A3B (Thinking on); Qwen 3.5 Plus (Thinking on); Qwen 3.8 Flash (xHigh reasoning).

@@ -373,21 +373,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-30T02:33:30.623Z",
+  "checkedAt": "2026-10-31T14:26:13.226Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/06/065d4e35b90171a7e68d4ccd8fbbfeb5aa2eb437c88c125ad47a128d1d91030a.html",
+    "artifactPath": "artifacts/sha256/c3/c3f3547ee12b1fcee1e14479919c8b0243e0b121da038e3ceb0609d972aff0fc.html",
     "byteLength": 296951,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:065d4e35b90171a7e68d4ccd8fbbfeb5aa2eb437c88c125ad47a128d1d91030a",
+    "id": "sha256:c3f3547ee12b1fcee1e14479919c8b0243e0b121da038e3ceb0609d972aff0fc",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-10-30T02:33:30.623Z",
+    "retrievedAt": "2026-10-31T14:26:13.226Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:065d4e35b90171a7e68d4ccd8fbbfeb5aa2eb437c88c125ad47a128d1d91030a",
+    "sha256": "sha256:c3f3547ee12b1fcee1e14479919c8b0243e0b121da038e3ceb0609d972aff0fc",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -1139,6 +1139,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
@@ -1169,6 +1170,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash",
           "deepseek/deepseek-v4.1-flash-1017",
@@ -1194,7 +1196,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 28,
+        "rows": 29,
         "sourceUrls": ["https://www.vals.ai/benchmarks/code-migration-v1-1"],
         "versions": ["1.1"]
       },
@@ -1929,6 +1931,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
@@ -1967,6 +1970,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash",
           "deepseek/deepseek-v4.1-flash-1017",
@@ -1998,7 +2002,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 36,
+        "rows": 37,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
@@ -2027,6 +2031,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
@@ -2063,6 +2068,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash",
           "deepseek/deepseek-v4.1-flash-1017",
@@ -2094,7 +2100,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 34,
+        "rows": 35,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
@@ -2344,6 +2350,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
@@ -2380,6 +2387,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash",
           "deepseek/deepseek-v4.1-flash-1017",
@@ -2411,7 +2419,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 34,
+        "rows": 35,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
@@ -2741,7 +2749,7 @@
       },
       {
         "id": "hlab",
-        "includedRows": 31,
+        "includedRows": 33,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-opus-5-5",
@@ -2763,6 +2771,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
@@ -2783,6 +2792,7 @@
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-terra\",\"max\",null,null,null,null,null,null]",
           "[\"reflection/Beam-1.0\",null,null,null,null,null,null,null]",
+          "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
@@ -2796,6 +2806,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
@@ -2816,6 +2827,7 @@
           "openai/gpt-6.1-sol",
           "openai/gpt-6.1-terra",
           "reflection/Beam-1.0",
+          "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-small",
@@ -2824,7 +2836,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 31,
+        "rows": 33,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
@@ -3641,6 +3653,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
@@ -3661,6 +3674,7 @@
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-terra\",\"max\",null,null,null,null,null,null]",
           "[\"reflection/Beam-1.0\",null,null,null,null,null,null,null]",
+          "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
@@ -3674,6 +3688,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
@@ -3694,6 +3709,7 @@
           "openai/gpt-6.1-sol",
           "openai/gpt-6.1-terra",
           "reflection/Beam-1.0",
+          "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-small",
@@ -3702,13 +3718,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 31,
+        "rows": 33,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
-        "includedRows": 88,
+        "includedRows": 89,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -3780,6 +3796,7 @@
           "[\"anthropic/claude-sonnet-4-6\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-flash-0731\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
@@ -3870,6 +3887,7 @@
           "anthropic/claude-sonnet-4-6",
           "anthropic/claude-sonnet-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-flash-0731",
           "deepseek/deepseek-v4-pro",
           "deepseek/deepseek-v4-pro-0813",
@@ -3940,7 +3958,7 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 88,
+        "rows": 89,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
@@ -7562,6 +7580,7 @@
           "[\"anthropic/claude-sonnet-4-6\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-flash-0731\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
@@ -7643,6 +7662,7 @@
           "anthropic/claude-sonnet-4-6",
           "anthropic/claude-sonnet-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-flash-0731",
           "deepseek/deepseek-v4-pro",
           "deepseek/deepseek-v4-pro-0813",
@@ -7705,7 +7725,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 79,
+        "rows": 80,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
@@ -8424,7 +8444,7 @@
       },
       {
         "id": "terminal-bench-4-0",
-        "includedRows": 58,
+        "includedRows": 59,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -8473,6 +8493,7 @@
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-flash-0731\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
@@ -8533,6 +8554,7 @@
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-flash-0731",
           "deepseek/deepseek-v4-pro",
           "deepseek/deepseek-v4-pro-0813",
@@ -8582,7 +8604,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 58,
+        "rows": 59,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
@@ -8790,6 +8812,7 @@
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro-0813\",\"max\",null,null,null,null,null,null]",
           "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,null,null,null,null,null]",
           "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
@@ -8809,6 +8832,7 @@
           "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
           "[\"openai/gpt-6.1-terra\",\"max\",null,null,null,null,null,null]",
           "[\"reflection/Beam-1.0\",null,null,null,null,null,null,null]",
+          "[\"stepfun/step-5-preview\",null,null,null,null,null,null,null]",
           "[\"tencent/hy4-preview\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling\",null,null,null,null,null,null,null]",
           "[\"thinkingmachines/inkling-small\",null,null,null,null,null,null,null]",
@@ -8822,6 +8846,7 @@
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "deepseek/deepseek-v4-pro-0813",
           "deepseek/deepseek-v4.1-flash-1017",
           "google/gemini-3.8-flash",
@@ -8841,6 +8866,7 @@
           "openai/gpt-6.1-sol",
           "openai/gpt-6.1-terra",
           "reflection/Beam-1.0",
+          "stepfun/step-5-preview",
           "tencent/hy4-preview",
           "thinkingmachines/inkling",
           "thinkingmachines/inkling-small",
@@ -8849,7 +8875,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 30,
+        "rows": 32,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
@@ -9040,7 +9066,7 @@
       },
       {
         "id": "vibe-code-bench",
-        "includedRows": 122,
+        "includedRows": 123,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9128,6 +9154,7 @@
           "[\"anthropic/claude-sonnet-4-6-claude-code\",null,null,\"Claude Code\",null,null,null,null]",
           "[\"anthropic/claude-sonnet-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"baseten/nemotron-3.5-super-vl-120b-a12b\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"cursor/composer-2.5\",null,null,\"Cursor CLI\",null,null,null,null]",
           "[\"deepseek/deepseek-v4-flash-0731\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"deepseek/deepseek-v4-pro\",\"max\",null,\"OpenHands\",null,null,null,null]",
@@ -9252,6 +9279,7 @@
           "anthropic/claude-sonnet-4-6-claude-code",
           "anthropic/claude-sonnet-5",
           "anthropic/claude-sonnet-5-5",
+          "baseten/nemotron-3.5-super-vl-120b-a12b",
           "cursor/composer-2.5",
           "deepseek/deepseek-v4-flash-0731",
           "deepseek/deepseek-v4-pro",
@@ -9347,7 +9375,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 122,
+        "rows": 123,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
@@ -9441,7 +9469,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-10-30T02:33:03.218Z",
+    "observedAt": "2026-10-31T14:18:39.102Z",
     "sourceId": "vals-ai"
   }
 }
