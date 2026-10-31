@@ -33,7 +33,7 @@
 # Claude Opus 5 release review
 
 - Source: <https://www.anthropic.com/news/claude-opus-5>.
-- Evidence: `sha256:acbdf010f60e590e5724ffdc041ea1a717fd09a9f2245394601681b26babbc71`.
+- Evidence: `sha256:624f59dd7b399dae7bdd9af73a2773e7339115000f6475997ce9d13cd241058a`.
 - Benchmark comparisons are raster images without exact embedded chart coordinates; research findings and quarantine are recorded in docs/research/anthropic-release-expansion.md.
 - Frontier-Bench v0.1 uses mini-SWE-agent, GKE, mean reward over five attempts, and Opus 4.8 fallback for Opus 5/Fable 5.
 

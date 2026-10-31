@@ -3,7 +3,7 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:a6fdbde545a8ccd7f02c5ff615b60b58936de2fccdf11429fa841b041899b1ac`
+- Page/JSON-LD evidence: `sha256:5c8839b1610001ab8ba606ff2e51ad6465e3a5f7b04b4c5f160d8e1089502f2e`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
@@ -61,10 +61,10 @@ Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `fr
 |---|---:|---:|---:|
 | Distinct models | 47 | 47 | +0 |
 | Main configurations | 141 | 141 | +0 |
-| Materialized costs | 236 | 242 | +6 |
-| 2.0 costs | 95 | 101 | +6 |
-| 2.0 models | 24 | 26 | +2 |
-| 2.0 configurations | 95 | 101 | +6 |
+| Materialized costs | 242 | 242 | +0 |
+| 2.0 costs | 101 | 101 | +0 |
+| 2.0 models | 26 | 26 | +0 |
+| 2.0 configurations | 101 | 101 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

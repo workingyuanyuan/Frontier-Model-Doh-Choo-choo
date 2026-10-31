@@ -13,7 +13,7 @@
     ".head-rank-table-brand + .head-rank-table-name": "model.rawName / profile.effort / profile.thinking",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-10-30T02:37:44.042Z",
+  "lastVerifiedAt": "2026-10-31T14:19:52.248Z",
   "notes": [
     "Main leaderboard Pass@1 percentages at a 95% rubric threshold over 50 tax environments. Tax tasks are not in the public DAYJOB repository; full benchmark access is by request.",
     "Official methodology: https://surgehq.ai/blog/dayjob-tax (2026-10-27). An attempt passes when it satisfies at least 95% of the task criteria; the score is the share of passing attempts. Five attempts per task: the announcement describes per-task outcomes across five attempts and the DAYJOB README identifies five attempts per task for leaderboard runs.",

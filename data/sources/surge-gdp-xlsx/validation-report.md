@@ -1,7 +1,7 @@
 # Surge GDP.xlsx acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/gdp-xlsx>
-- Evidence: `sha256:c54afe3892d7d591bb3df1d369831a20c6df362ce1cb1dfdb81e0c5e65bf2889`
+- Evidence: `sha256:5e1e563697ecedf6a23189eeaf63b1365d92ba3105afad1b6ce1acdd778b65a0`
 - Main leaderboard: 20 rows; rendered browser count: 20.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (4): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 3.

@@ -16,7 +16,7 @@
       "score": 59.425738829526,
       "resultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:0e34036287dbeecb9e77cf21a4a7a4305839becad44e4374f78ddb850660e020"
+        "sha256:132c5e020849e539e7c958bc504b8236f828118b6545f9541ded4c8860290248"
       ]
     },
     {
@@ -26,7 +26,7 @@
       "score": 58.4060336078904,
       "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:3d2e038bbf07e7b7639d1e3c062bfc77254c9778b05ae9632d87436d5b6eef64"
+        "sha256:349f28d8b4437e538e1a2ea02c308438dd5fd7c699882dfbc54bcbb1b2d76be8"
       ]
     },
     {
@@ -36,7 +36,7 @@
       "score": 56.8538559596797,
       "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:b28d3ad2b4c2d8576e3380c2cabe3219e0de441c5c9ec8e59bede5e9b2ba731c"
+        "sha256:d3040810300b1598baefe4d0ff885a7a9ca5a937e9293fd1b9e9ad6113b8e90b"
       ]
     },
     {
@@ -46,7 +46,7 @@
       "score": 54.5087338138148,
       "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:35efb12c9ae9060aaebce041104490c3bec4372f2e6e084fa692edb1c7db7026"
+        "sha256:96f65951b4ada59973e130b08fd20385bfd78a0121729a1fb13a19069679399d"
       ]
     },
     {
@@ -56,7 +56,7 @@
       "score": 54.24133407109,
       "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:3d3fc272096db7627a41826adb4a1892e5aa6ebeceb423a10ef7ca62b450fccd"
+        "sha256:a392dcd229e80495df264bef1dc6fdae9118d2790285fbb6c5ea3e9c9d6a2d0d"
       ]
     },
     {
@@ -66,7 +66,7 @@
       "score": 50.9765188577015,
       "resultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:17013ce04ad44683e89dbd26bea9b4042cf2515b91827afb95ea0ddaa4d14bd4"
+        "sha256:a58b617b9359d83796dd06786d7a0398da3ed9ae3bb55c0d374393cd7f12dcd0"
       ]
     },
     {
@@ -76,7 +76,7 @@
       "score": 50.4121935905389,
       "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:7f19aaa06b3990f9111f31ef0a6229e8ff7a80f9ede79aef96b8de28c35aad7b"
+        "sha256:d54d3ef8b9240684c767a6ae240a8024f1472bb3fb676625562c2b61b45cf6b3"
       ]
     },
     {
@@ -86,7 +86,7 @@
       "score": 49.7272123627021,
       "resultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:fa97b80619ecb598071348bbd1e2df504851a004b5429884d9de39f7370a517b"
+        "sha256:9ea03d550477ebb26927999346474ed33c865339a85680fe47cb7a3e20c47b57"
       ]
     },
     {
@@ -96,7 +96,7 @@
       "score": 49.6716384248632,
       "resultId": "artificial-analysis:anthropic-claude-fable-5-1-xhigh-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:743d0b53e9762382fec5342c8d328f9740f6e46a0307c2e9f6f1a48e13763b71"
+        "sha256:98a0234c21f7caa3e5546992b6dee9a59dc8854b3b15b20fdc32806fbdcad660"
       ]
     },
     {
@@ -106,7 +106,7 @@
       "score": 46.0026236744189,
       "resultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0",
       "evidenceIds": [
-        "sha256:dcb003dc10ed6bfa0fc030b5994ddc126af7439af5308999c3be4aa599e56b88"
+        "sha256:14982c9b1aa0e94057a3c80de0e9746eff3b59234327cd8490411e9499e7b0b7"
       ]
     }
   ],
@@ -176,7 +176,7 @@
         "score": 59.425738829526,
         "resultId": "artificial-analysis:google-gemini-4-carbon-high-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:0e34036287dbeecb9e77cf21a4a7a4305839becad44e4374f78ddb850660e020"
+          "sha256:132c5e020849e539e7c958bc504b8236f828118b6545f9541ded4c8860290248"
         ],
         "aaWinningProfileId": "google-gemini-4-carbon-high",
         "representativeScore": 59.425738829526,
@@ -190,7 +190,7 @@
         "score": 58.4060336078904,
         "resultId": "artificial-analysis:anthropic-claude-opus-5-5-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:3d2e038bbf07e7b7639d1e3c062bfc77254c9778b05ae9632d87436d5b6eef64"
+          "sha256:349f28d8b4437e538e1a2ea02c308438dd5fd7c699882dfbc54bcbb1b2d76be8"
         ],
         "aaWinningProfileId": "anthropic-claude-opus-5-5-max",
         "representativeScore": 58.4060336078904,
@@ -212,7 +212,7 @@
         "score": 56.8538559596797,
         "resultId": "artificial-analysis:openai-gpt-6-astra-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:b28d3ad2b4c2d8576e3380c2cabe3219e0de441c5c9ec8e59bede5e9b2ba731c"
+          "sha256:d3040810300b1598baefe4d0ff885a7a9ca5a937e9293fd1b9e9ad6113b8e90b"
         ],
         "aaWinningProfileId": "openai-gpt-6-astra-max",
         "representativeScore": 56.8538559596797,
@@ -235,7 +235,7 @@
         "score": 54.5087338138148,
         "resultId": "artificial-analysis:openai-gpt-6-1-sol-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:35efb12c9ae9060aaebce041104490c3bec4372f2e6e084fa692edb1c7db7026"
+          "sha256:96f65951b4ada59973e130b08fd20385bfd78a0121729a1fb13a19069679399d"
         ],
         "aaWinningProfileId": "openai-gpt-6-1-sol-max",
         "representativeScore": 54.5087338138148,
@@ -256,7 +256,7 @@
         "score": 54.24133407109,
         "resultId": "artificial-analysis:anthropic-claude-sonnet-5-5-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:3d3fc272096db7627a41826adb4a1892e5aa6ebeceb423a10ef7ca62b450fccd"
+          "sha256:a392dcd229e80495df264bef1dc6fdae9118d2790285fbb6c5ea3e9c9d6a2d0d"
         ],
         "aaWinningProfileId": "anthropic-claude-sonnet-5-5-max",
         "representativeScore": 54.24133407109,
@@ -277,7 +277,7 @@
         "score": 50.9765188577015,
         "resultId": "artificial-analysis:openai-gpt-6-1-terra-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:17013ce04ad44683e89dbd26bea9b4042cf2515b91827afb95ea0ddaa4d14bd4"
+          "sha256:a58b617b9359d83796dd06786d7a0398da3ed9ae3bb55c0d374393cd7f12dcd0"
         ],
         "aaWinningProfileId": "openai-gpt-6-1-terra-max",
         "representativeScore": 50.9765188577015,
@@ -291,7 +291,7 @@
         "score": 50.4121935905389,
         "resultId": "artificial-analysis:google-gemini-4-argon-high-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:7f19aaa06b3990f9111f31ef0a6229e8ff7a80f9ede79aef96b8de28c35aad7b"
+          "sha256:d54d3ef8b9240684c767a6ae240a8024f1472bb3fb676625562c2b61b45cf6b3"
         ],
         "aaWinningProfileId": "google-gemini-4-argon-high",
         "representativeScore": 50.4121935905389,
@@ -313,7 +313,7 @@
         "score": 49.6716384248632,
         "resultId": "artificial-analysis:anthropic-claude-fable-5-1-xhigh-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:743d0b53e9762382fec5342c8d328f9740f6e46a0307c2e9f6f1a48e13763b71"
+          "sha256:98a0234c21f7caa3e5546992b6dee9a59dc8854b3b15b20fdc32806fbdcad660"
         ],
         "aaWinningProfileId": "anthropic-claude-fable-5-1-xhigh",
         "representativeScore": 49.0102124158081,
@@ -335,7 +335,7 @@
         "score": 46.0026236744189,
         "resultId": "artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:dcb003dc10ed6bfa0fc030b5994ddc126af7439af5308999c3be4aa599e56b88"
+          "sha256:14982c9b1aa0e94057a3c80de0e9746eff3b59234327cd8490411e9499e7b0b7"
         ],
         "aaWinningProfileId": "moonshot-kimi-k3-1-pro-max",
         "representativeScore": 46.0026236744189,
@@ -349,7 +349,7 @@
         "score": 43.3248225998431,
         "resultId": "artificial-analysis:meta-muse-wonder-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:2a87e886fcc21f07d6220b52ea3ac300b3bcdf50e087f61e5163c04f31e9bbed"
+          "sha256:4f6b8b19d7f72eb6aeb61f8d32f9d17d2a0ef3ef22ea0640bfc9969fbc7bdcd8"
         ],
         "aaWinningProfileId": "meta-muse-wonder-max",
         "representativeScore": 43.3248225998431,
@@ -365,7 +365,7 @@
         "score": 49.7272123627021,
         "resultId": "artificial-analysis:meta-muse-wonder-full-max-aa-index:intelligence-index-v5-0",
         "evidenceIds": [
-          "sha256:fa97b80619ecb598071348bbd1e2df504851a004b5429884d9de39f7370a517b"
+          "sha256:9ea03d550477ebb26927999346474ed33c865339a85680fe47cb7a3e20c47b57"
         ],
         "organizations": ["vals-ai"]
       }

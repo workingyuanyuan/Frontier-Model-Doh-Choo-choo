@@ -1,7 +1,7 @@
 # Surge CoreCraft acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/enterprisebench-corecraft>
-- Evidence: `sha256:7fe0cd195b555fd10c95b18d4b38a69f1c4a675c37af992528dc35c9cebace54`
+- Evidence: `sha256:2b6ea396d340f5a42057ee00a74fa24a2b3d29b5864423a6b036d9338174c9ea`
 - Main leaderboard: 50 rows; rendered browser count: 50.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (20): DeepSeek V3.2 (High reasoning); DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (Max reasoning); Gemini 3.1 Pro (High reasoning); Gemini 3 Flash (High reasoning); Gemini 3 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); GLM 5 (Auto reasoning); Grok 4.1 (Fast); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); Kimi K2.5 (Thinking on); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning); Nemotron Lightning 3.5 30B A3B (Thinking on); Nova 2 Pro (High reasoning); Qwen 3.5 Plus (Thinking on); Qwen 3.8 Flash (xHigh reasoning); Qwen 3 Max (Thinking on).

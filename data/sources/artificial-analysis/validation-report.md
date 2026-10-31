@@ -8,28 +8,28 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 219 |
+| Unique profile rows across all captured page payloads | 220 |
 | Unique profile rows in evaluation-page payloads | 101 |
-| Unique profile rows in model-detail payloads | 219 |
+| Unique profile rows in model-detail payloads | 220 |
 | Profile rows in the /models payload | 28 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 219 |
-| Generated CandidateResults | 2636 |
-| Intelligence Index candidates (EXCLUDED) | 85 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 220 |
+| Generated CandidateResults | 2649 |
+| Intelligence Index candidates (EXCLUDED) | 87 |
 | GDPval-AA normalized candidates | 184 |
-| Canonically unresolved candidates | 764 |
-| MEASURED_TASK cost rows | 83 |
-| API_STANDARDIZED token-price rows | 211 |
+| Canonically unresolved candidates | 778 |
+| MEASURED_TASK cost rows | 84 |
+| API_STANDARDIZED token-price rows | 212 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 28 selected profile rows in this capture.
 - The evaluation-page payload union exposes 101 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 219 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The model-detail payload union exposes 220 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
-- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 219, compared values 1081.
+- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 220, compared values 1082.
 - Precision-only differences (API rounds to three decimals, within 0.0005): 540. These are representation differences, not disagreements.
 - Real differences (beyond 0.0005): 0.
 - No real API differences recorded beyond rounding.
@@ -46,11 +46,11 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 166 | 124 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 108 | 73 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 102 | 73 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 167 | 124 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 110 | 73 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 103 | 73 |
 | `critpt-v2` | `critptAgentic` | `critpt-v2` | 40 | 24 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 85 | 59 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 87 | 60 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
@@ -58,20 +58,24 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 718
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 219
-- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
+- Fresh rendered models page catalog total: 719
+- Unique profiles across captured payloads after bounded retry recovery: 220
+- Result: catalog and evaluation scopes differ; no missing score is synthesized.
+
+## Network capture recovery
+
+- Recovered `https://artificialanalysis.ai/models/gpt-5-4-low` at 2026-10-31T14:23:20.582Z; full bytes sha256:00666ce8fe21eb2f9b7c6178f740b7c911bdbd15fa28fea3958cb131e0513e35 (3872177 bytes). Original AbortError records and successful retries are preserved in the evidence store.
+- Recovered `https://artificialanalysis.ai/models/grok-4-20-0309` at 2026-10-31T14:24:20.693Z; full bytes sha256:726e1304fc4b648f1420641cfe788936268771fb3f40e4bcc8eb97251a5d2706 (3698400 bytes). Original AbortError records and successful retries are preserved in the evidence store.
+- Final offline rematerialization includes both successful fresh captures; no capture timeout remains unresolved.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 215 | 219 | +4 |
-| Active source profiles | 215 | 219 | +4 |
-| Candidate results | 2568 | 2636 | +68 |
-| Materialized costs | 282 | 294 | +12 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+| Unique source profiles | 219 | 220 | +1 |
+| Active source profiles | 219 | 220 | +1 |
+| Candidate results | 2636 | 2649 | +13 |
+| Materialized costs | 294 | 296 | +2 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
