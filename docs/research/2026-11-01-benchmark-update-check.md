@@ -8,7 +8,7 @@
 
 逐來源雜湊見[同名 JSON](2026-11-01-benchmark-update-check.json)。
 
-**結論：現役來源沒有實質變化，產品版本不變。** 刷新只改了 metadata，所以 `data/sources` 維持 10/31 的已提交快照。但因為本次已重新物化過現役來源，仍依 [AGENTS.md](../../AGENTS.md) 執行 `pnpm data:release`，並寫了[刷新報告](../refresh/2026-11-01.md)，附 21 個來源的獨立抽查。上游只有三項與計分無關的小更新：Surge 部落格改標題、xAI 新增浮水印文件、Epoch 匯出的 metadata。
+**結論：現役來源沒有實質變化，產品內容不變**；release 重建的產品只有 `generatedAt` 不同，版本因此更新為 `sha256:7c2be2ec…d99b`。 刷新只改了 metadata，所以 `data/sources` 維持 10/31 的已提交快照。但因為本次已重新物化過現役來源，仍依 [AGENTS.md](../../AGENTS.md) 執行 `pnpm data:release`，並寫了[刷新報告](../refresh/2026-11-01.md)，附 21 個來源的獨立抽查。上游只有三項與計分無關的小更新：Surge 部落格改標題、xAI 新增浮水印文件、Epoch 匯出的 metadata。
 
 ## 現役來源
 

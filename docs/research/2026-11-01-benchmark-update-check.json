@@ -10,9 +10,14 @@
   },
   "import": {
     "performed": false,
-    "reason": "All 18 online refreshes exited 0 and the semantic diff found no content change in any source; metadata-only changes (retrievedAt, observedAt, artifact hashes, one stale materializedEvaluationProfiles 219→220 in artificial-analysis/evidence-index.json) were reverted. Because sources were re-materialized, pnpm data:release still ran on the reverted inputs and docs/refresh/2026-11-01.md records it.",
+    "reason": "All 18 online refreshes exited 0 and the semantic diff found no content change in any source; metadata-only changes (retrievedAt, observedAt, artifact hashes, one stale materializedEvaluationProfiles 219→220 in artificial-analysis/evidence-index.json) were reverted. Because sources were re-materialized, pnpm data:release still ran on the reverted inputs; its timestamp-only rebuild of data/product/current.json is committed and docs/refresh/2026-11-01.md records it.",
     "metadataDiff": "artifacts/research/2026-11-01-benchmark-check/refresh/metadata-only.diff",
-    "release": null,
+    "release": {
+      "runId": "2026-11-01T05-46-15-498Z",
+      "status": "complete",
+      "versionId": "sha256:7c2be2ecb3d294acf3326c1d0423788ac1584bd503413ff8c2eecdd2bc84d99b",
+      "productDiffVsMain": ["generatedAt", "versionId"]
+    },
     "refreshReport": "docs/refresh/2026-11-01.md"
   },
   "diffMethod": {
