@@ -8,7 +8,7 @@
 
 逐來源雜湊見[同名 JSON](2026-11-01-benchmark-update-check.json)。
 
-**結論：現役來源沒有實質變化，本次不匯入、不重建產品，也沒有刷新報告。** 依 [OPERATIONS](../OPERATIONS.md#每日-benchmark-查核的兩份文件)，只有非現役來源的消息時只寫查核文件。上游只有三項與計分無關的小更新：Surge 部落格改標題、xAI 新增浮水印文件、Epoch 匯出的 metadata。
+**結論：現役來源沒有實質變化，產品版本不變。** 刷新只改了 metadata，所以 `data/sources` 維持 10/31 的已提交快照。但因為本次已重新物化過現役來源，仍依 [AGENTS.md](../../AGENTS.md) 執行 `pnpm data:release`，並寫了[刷新報告](../refresh/2026-11-01.md)，附 21 個來源的獨立抽查。上游只有三項與計分無關的小更新：Surge 部落格改標題、xAI 新增浮水印文件、Epoch 匯出的 metadata。
 
 ## 現役來源
 
@@ -32,7 +32,7 @@
 
 - 擷取時間 `retrievedAt`、`observedAt`。
 - Cursor 證據的 artifact 雜湊，即 anthropic-releases／openai-releases 的 `cross-checks.json`；分數與比對結果相同。
-- AA manifest 中過時的 `materializedEvaluationProfiles` 219→220，10/31 的產品已是 220 個 profile。
+- `artificial-analysis/evidence-index.json` 中過時的 `materializedEvaluationProfiles` 219→220，10/31 的產品已是 220 個 profile。
 
 全來源監測沒有新增注意項，從 74 降為 66：10/31 那 8 則 Carbon／ECI 覆蓋流失的通知，在今天的穩定比較中已不再出現。413 份證據的 SHA-256 與列引用都通過。Vals 仍有五頁無法解析：cyber_offense、inference_provider、mental-health、rsi_index、vals_router_index。
 

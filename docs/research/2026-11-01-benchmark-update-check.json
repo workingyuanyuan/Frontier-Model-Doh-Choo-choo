@@ -10,9 +10,10 @@
   },
   "import": {
     "performed": false,
-    "reason": "All 18 online refreshes exited 0 and the semantic diff found no content change in any source; metadata-only changes (retrievedAt, observedAt, artifact hashes, one stale manifest count 219→220) were reverted.",
+    "reason": "All 18 online refreshes exited 0 and the semantic diff found no content change in any source; metadata-only changes (retrievedAt, observedAt, artifact hashes, one stale materializedEvaluationProfiles 219→220 in artificial-analysis/evidence-index.json) were reverted. Because sources were re-materialized, pnpm data:release still ran on the reverted inputs and docs/refresh/2026-11-01.md records it.",
     "metadataDiff": "artifacts/research/2026-11-01-benchmark-check/refresh/metadata-only.diff",
-    "release": null
+    "release": null,
+    "refreshReport": "docs/refresh/2026-11-01.md"
   },
   "diffMethod": {
     "ignoredFields": [
