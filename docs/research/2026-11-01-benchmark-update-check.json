@@ -1,0 +1,416 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-01",
+  "timezone": "Asia/Taipei",
+  "checkedAt": "2026-11-01T05:35:21.948Z",
+  "artifactsRoot": "artifacts/research/2026-11-01-benchmark-check",
+  "comparisonBaseline": {
+    "commit": "fa31255b7701acf06de4c5e37d6a6fb94985a05e",
+    "productVersionId": "sha256:109e74ccd710f69cfa565134ff91365bee68805bd605d9778e3c261879799f4b"
+  },
+  "import": {
+    "performed": false,
+    "reason": "All 18 online refreshes exited 0 and the semantic diff found no content change in any source; metadata-only changes (retrievedAt, observedAt, artifact hashes, one stale materializedEvaluationProfiles 219→220 in artificial-analysis/evidence-index.json) were reverted. Because sources were re-materialized, pnpm data:release still ran on the reverted inputs; its timestamp-only rebuild of data/product/current.json is committed and docs/refresh/2026-11-01.md records it.",
+    "metadataDiff": "artifacts/research/2026-11-01-benchmark-check/refresh/metadata-only.diff",
+    "release": {
+      "runId": "2026-11-01T05-46-15-498Z",
+      "status": "complete",
+      "versionId": "sha256:7c2be2ecb3d294acf3326c1d0423788ac1584bd503413ff8c2eecdd2bc84d99b",
+      "productDiffVsMain": ["generatedAt", "versionId"]
+    },
+    "refreshReport": "docs/refresh/2026-11-01.md"
+  },
+  "diffMethod": {
+    "ignoredFields": [
+      "capturedAt",
+      "checkedAt",
+      "evidenceId",
+      "evidenceIds",
+      "lastVerifiedAt",
+      "materializedAt",
+      "observedAt",
+      "provenance",
+      "retrievedAt"
+    ],
+    "normalizedIds": "Zapier -rank-N and Epoch ECI trailing -row-N removed for comparison only; collisions asserted absent",
+    "normalizedUrls": "LiveBench sourceUrl ?v= timestamp removed",
+    "coverage": "All data/sources directories, candidate and cost rows, manifest semantic fields; raw file diff inventoried separately"
+  },
+  "fullDiff": "artifacts/research/2026-11-01-benchmark-check/refresh/semantic-diff.json",
+  "sources": {
+    "anthropic-releases": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 125,
+          "afterCount": 125,
+          "beforeSha256": "7b21ebedb68ff761d5c36445ce15bead141cfeb0ebb72552ff756369f207c858",
+          "afterSha256": "8e2234638d4fcdc7a342f38deda44bac9f5e9f1fc5ebe8cd7afe9c552d49a25a"
+        },
+        "costs.json": {
+          "beforeCount": 125,
+          "afterCount": 125,
+          "beforeSha256": "f9f3a027dfb94045b714a46e48f1e2182234a13f7524ee172dff6890519151d4",
+          "afterSha256": "bed5d7992b25409f4ef89240c61dbc39ee0e1cf2b0d48fa887e5d601a1760184"
+        }
+      }
+    },
+    "arc-prize": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 291,
+          "afterCount": 291,
+          "beforeSha256": "807eeeb352f8b4e7c741bdac8e903f157f9220984838d085177eb34dfdcf717c",
+          "afterSha256": "1f12a146a0caf7bddec56592c58e9cbb376c4b6b2ee780b572f63e0f1d48661e"
+        },
+        "costs.json": {
+          "beforeCount": 291,
+          "afterCount": 291,
+          "beforeSha256": "856ef70fdc8d4d526da1d5f3dc218bbf35cf816614d7b160b3307370c7b666df",
+          "afterSha256": "4da974fb848423e866df1231d92910a4412d30aec9e8cf9afec7b63ec4b4b173"
+        }
+      }
+    },
+    "artificial-analysis": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 2649,
+          "afterCount": 2649,
+          "beforeSha256": "a9da4f27fad8253f12629041cbf53c1f82c0656d2d9cf514cb3c397194692751",
+          "afterSha256": "d3a162eaae2ce00bd8723cca291707de53a25558fcbb1a4dfcf61401a42c2f5e"
+        },
+        "costs.json": {
+          "beforeCount": 296,
+          "afterCount": 296,
+          "beforeSha256": "509ae10dc8761f19e5bb3c35158214c5fccf21dacc0090acba883b4a5627a377",
+          "afterSha256": "11a1fcec39c22e5acfe4f89bb76a1d4deebf9d06cb1642dd700ce22ca554b1ac"
+        }
+      }
+    },
+    "deepswe": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 70,
+          "afterCount": 70,
+          "beforeSha256": "e31f321c3e667ad8ddfbd90f7582862f96ee7b19218c4e4f122541c04d6ebad5",
+          "afterSha256": "462b8aad59be055bf36a7704854dee60a61c68e6bacadc4fc9d8732ee60f5a8a"
+        },
+        "costs.json": {
+          "beforeCount": 68,
+          "afterCount": 68,
+          "beforeSha256": "03110d55587e1578b65a2a1083fa531781c18f8533dcfbebd6bc5a004e48e59a",
+          "afterSha256": "708b3b623e55ab02f2efc754ba6647f870a5b0b2f5ffb407152eb50609bc0a1a"
+        }
+      }
+    },
+    "epoch-ai": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 1466,
+          "afterCount": 1466,
+          "beforeSha256": "b0ea2bd5dd3fd0b89d4dcace1b41dc3e82e1d22cf6bd83ba0ab1901df60266d0",
+          "afterSha256": "6e2e707608afb52fb3182466fade48bc5aa87ed72a0c5ed958bd875b3f15257b"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "frontier-code": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 242,
+          "afterCount": 242,
+          "beforeSha256": "9ef23060f025612c39105ec0ef31ee2a5de2e6b51edf97358f0b00eae4ff4371",
+          "afterSha256": "3c5891bdbea558c47b369a0e1fd0385e989ccc4191b238f366f22d671b6bfce0"
+        },
+        "costs.json": {
+          "beforeCount": 242,
+          "afterCount": 242,
+          "beforeSha256": "a93d59256d0f09cfac85b2a217c41b6ab18b11b74ecd2c2d3661c7e140f9076a",
+          "afterSha256": "a55e251b4f87ede6c59d6059e1be0748c8487707803329fa7e4a5cdcbd8479dc"
+        }
+      }
+    },
+    "frontier-swe": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 23,
+          "afterCount": 23,
+          "beforeSha256": "be491d76632ed26aaf66c894e8b2044b2d48d295ed41b6f66d7e0a2783d6c1bb",
+          "afterSha256": "809cb48b2048ea0404d4a9ecd08c031dafcd1909ce910c3f9c4cf68cdd42fde3"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "google-releases": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 1,
+          "afterCount": 1,
+          "beforeSha256": "b0958f4ef6f89f2f99681aa281f89f4e6e6fbe361ede8f164ff6ea7741c650dc",
+          "afterSha256": "b0958f4ef6f89f2f99681aa281f89f4e6e6fbe361ede8f164ff6ea7741c650dc"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "afterSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        }
+      }
+    },
+    "livebench": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 508,
+          "afterCount": 508,
+          "beforeSha256": "67e323e04e416ac3282d38ff85a9f444ba62104da9e20f5f9888da326c4fadc5",
+          "afterSha256": "4a39d3848be1cfe96c691c7395a28d3e9f7c3dfcf85c8a2301d85480aa6e9500"
+        },
+        "costs.json": {
+          "beforeCount": 144,
+          "afterCount": 144,
+          "beforeSha256": "ac0c4dd64d1e9941427db4b11eaa4a9cd0705c8d9eff3e131c23f158c1363098",
+          "afterSha256": "991395256941374301a9af280ffc92c5ca4018e62fe55ba4ff77ae2a123bf312"
+        }
+      }
+    },
+    "openai-releases": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 207,
+          "afterCount": 207,
+          "beforeSha256": "18d29797b319ff2fd8eddf1b01f2610f7acfd0305972d46d0e85a331db61744b",
+          "afterSha256": "18d29797b319ff2fd8eddf1b01f2610f7acfd0305972d46d0e85a331db61744b"
+        },
+        "costs.json": {
+          "beforeCount": 207,
+          "afterCount": 207,
+          "beforeSha256": "a2e9bec7382634241a82c8f2e730d5f017c88e527bd5859d0510b11e9c20dd5f",
+          "afterSha256": "a2e9bec7382634241a82c8f2e730d5f017c88e527bd5859d0510b11e9c20dd5f"
+        }
+      }
+    },
+    "surge-chartography": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 42,
+          "afterCount": 42,
+          "beforeSha256": "f3219d897800c887c7965097f94a602b3a4451408e9a7498fb7ee5b7fa328fdd",
+          "afterSha256": "ee4776f6dec2904dee58f9f5877b1f725752c79b3dfd65d27807c78d359a3498"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-complex-constraints": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "ee0420e4b342cc8d36e5cbfd1d04027e4a7ab4dbc9dbcf4a70baaf0bdf9abb71",
+          "afterSha256": "028808923cfd7551a15e75a4428f6bf5c471c9f022859107075e0ca79d1dafe8"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-corecraft": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 50,
+          "afterCount": 50,
+          "beforeSha256": "6990c3c454e34ae34fc79e10ee843f3c86f1d4562410b5f75ed01b8f21ec1380",
+          "afterSha256": "f8e0d3bdcde14187c6b7405cc8444b0309b62e618a9b8976a0c0e27ba199dd73"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-dayjob-finance": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 38,
+          "afterCount": 38,
+          "beforeSha256": "5a16ad5616b47da800632cca66ee34d8c503219cb74dd850a146093973754ad1",
+          "afterSha256": "454a07adaebc0abe4d1cfed7cf0e33ff56b7d71b1bbc40db13623679b8de59cc"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-dayjob-healthcare": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 38,
+          "afterCount": 38,
+          "beforeSha256": "f4fc911072b6aab2f4eed5164d8b6a024f2bb4ebb7360481e3e4f7fd3a20c876",
+          "afterSha256": "8376bde1ec1f7e9d9f2725cff0b65a1f3016f5efb6b9e8e01909a9cce14991d4"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-dayjob-tax": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 16,
+          "afterCount": 16,
+          "beforeSha256": "46230e7ec914a10138dde10cec462c0bd3b533880dca2016aa2f72e8d7fd228b",
+          "afterSha256": "90d5163ce4e27ca0c9acfe7692b361f52b0e2d29d2dbf81c4ccbe07a66acfc78"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-gdp-xlsx": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 20,
+          "afterCount": 20,
+          "beforeSha256": "5ac75f3e771cdbabc48f9fb2e550551cdbddcc7656bcbfb64976fa3c717cb082",
+          "afterSha256": "86c790c9294acd0c704886e2c984da157641175ccb935f67520b51e21d10cad4"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "surge-riemann": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "9e945f79b9abdfbb3cded5aee56416e61b30167ce360e9be942798d37a153bff",
+          "afterSha256": "77e735fbd982ada353edba87e33a9c8d75327e32435326fc6e33b4cb6a7c59de"
+        },
+        "costs.json": {
+          "beforeCount": 0,
+          "afterCount": 0,
+          "beforeSha256": null,
+          "afterSha256": null
+        }
+      }
+    },
+    "vals-ai": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 3470,
+          "afterCount": 3470,
+          "beforeSha256": "29b841c2b3c90193091207cacc25e42dc8f10a673fa9d0ebc655b97747c205a0",
+          "afterSha256": "ed598753c101812b11c115766f72ab6f7c92a667102f4d2ffefc0cb2b6e348dc"
+        },
+        "costs.json": {
+          "beforeCount": 3319,
+          "afterCount": 3319,
+          "beforeSha256": "6600511ef830970e1565b9adb8cf3af1dfad7d12cde8a69ca34d6ba3b8793a22",
+          "afterSha256": "8a7732d16061ed20c7c5fd496e8737aed1a8953bf1f2f5c64ae638fd5e4c2c9a"
+        }
+      }
+    },
+    "xai-releases": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 44,
+          "afterCount": 44,
+          "beforeSha256": "f5cf1383a70ab0da102e0f09e155b8e399d30ba0124af87bb71b14365bfe6ef2",
+          "afterSha256": "f5cf1383a70ab0da102e0f09e155b8e399d30ba0124af87bb71b14365bfe6ef2"
+        },
+        "costs.json": {
+          "beforeCount": 43,
+          "afterCount": 43,
+          "beforeSha256": "467ea8a65d2dd1ecdc8f492f891dc04bb70f03cbd8b84064275a537b135f375b",
+          "afterSha256": "467ea8a65d2dd1ecdc8f492f891dc04bb70f03cbd8b84064275a537b135f375b"
+        }
+      }
+    },
+    "zapier-automationbench": {
+      "contentChanged": false,
+      "files": {
+        "candidates.json": {
+          "beforeCount": 129,
+          "afterCount": 129,
+          "beforeSha256": "55c3da62ffbe58e7ccd0fa7534e6f0ece1a37c54ed8206bc190149644dec13ef",
+          "afterSha256": "d05e20458af885baae1932e766e2c54217752f19006c8ea4d2523f59c19aaf06"
+        },
+        "costs.json": {
+          "beforeCount": 128,
+          "afterCount": 128,
+          "beforeSha256": "a248d6d196a962f32b84bf3386281f272512a831ed383f095623a7d0958adb31",
+          "afterSha256": "690fc31492910c2c74de745c18761c6357f496622dedcef23b365f4f06a5d4d3"
+        }
+      }
+    }
+  },
+  "discovery": {
+    "agent": "agy gemini-4-argon-medium",
+    "report": "artifacts/research/2026-11-01-benchmark-check/benchmark-web/agy-discovery.md",
+    "manifest": "artifacts/research/2026-11-01-benchmark-check/benchmark-web/manifest.json",
+    "rawResponses": 142,
+    "statusCounts": {
+      "200": 137,
+      "403": 2,
+      "404": 3
+    },
+    "hashCrossCheckByMainAgent": [
+      "raw/vals-immigration.html",
+      "raw/scale-dualchem-paper.pdf",
+      "raw/frontiermemory-changelog.html"
+    ]
+  },
+  "userReview": null
+}
