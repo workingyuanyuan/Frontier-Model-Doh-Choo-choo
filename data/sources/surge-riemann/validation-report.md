@@ -1,7 +1,7 @@
 # Surge Riemann-bench acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/riemann-bench>
-- Evidence: `sha256:88c92feefe036ad81175307529f409218ddc361e457aee3a892486ef473a09dd`
+- Evidence: `sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8`
 - Main leaderboard: 44 rows; rendered browser count: 44.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (11): DeepSeek V3.2 (High reasoning); DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (High reasoning); DeepSeek V4 Pro (preview) (xHigh reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Kimi K2.5 (Thinking on); MAI Thinking 1; Muse Glimmer 30B (xHigh reasoning).

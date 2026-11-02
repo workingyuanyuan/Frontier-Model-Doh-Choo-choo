@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-10-31T14:26:13.226Z",
+  "checkedAt": "2026-11-02T03:18:07.871Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -310,7 +310,7 @@
         "versions": ["1.0.6"]
       }
     ],
-    "observedAt": "2026-10-31T14:18:27.803Z",
+    "observedAt": "2026-11-02T03:14:28.543Z",
     "sourceId": "zapier-automationbench"
   }
 }

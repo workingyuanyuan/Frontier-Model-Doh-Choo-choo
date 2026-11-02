@@ -1,59 +1,29 @@
 {
-  "checkedAt": "2026-10-31T14:26:13.226Z",
+  "checkedAt": "2026-11-02T03:18:07.871Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:19:55.761Z",
+      "snapshotObservedAt": "2026-11-02T03:16:05.369Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:18:24.609Z",
+      "snapshotObservedAt": "2026-11-02T03:14:24.903Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "critpt",
-          "detail": "56 -> 55; missing 1: google-gemini-4-carbon",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "critpt",
-          "detail": "219 -> 219; missing 1: [\"Gemini 4 Carbon (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "humanitys-last-exam",
-          "detail": "55 -> 54; missing 1: google-gemini-4-carbon",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "humanitys-last-exam",
-          "detail": "216 -> 216; missing 1: [\"Gemini 4 Carbon (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
-        {
-          "benchmarkId": "scicode",
-          "detail": "50 -> 49; missing 1: google-gemini-4-carbon",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "scicode",
-          "detail": "168 -> 168; missing 1: [\"Gemini 4 Carbon (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
         {
           "benchmarkId": "aa-3d",
           "detail": "https://artificialanalysis.ai/evaluations/aa-3d",
@@ -523,58 +493,47 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:18:35.986Z",
+      "snapshotObservedAt": "2026-11-02T03:14:45.282Z",
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:19:37.616Z",
+      "snapshotObservedAt": "2026-11-02T03:15:39.358Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
-      "findings": [
-        {
-          "benchmarkId": "epoch-capabilities-index",
-          "detail": "56 -> 55; missing 1: openai-gpt-5-3-codex",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "epoch-capabilities-index",
-          "detail": "273 -> 271; missing 2: [\"GPT-5.3 Codex\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 2.0 Flash (Dec 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
-          "kind": "profiles-lost"
-        }
-      ],
+      "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:18:20.044Z",
+      "snapshotObservedAt": "2026-11-02T03:14:21.264Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:19:39.667Z",
+      "snapshotObservedAt": "2026-11-02T03:15:42.202Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:19:24.963Z",
+      "snapshotObservedAt": "2026-11-02T03:15:22.188Z",
       "sourceId": "frontier-swe"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -583,16 +542,16 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:19:14.705Z",
+      "snapshotObservedAt": "2026-11-02T03:14:55.370Z",
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -601,7 +560,7 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -748,11 +707,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:41.886Z",
+      "snapshotObservedAt": "2026-11-02T03:15:44.178Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -899,11 +858,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:43.656Z",
+      "snapshotObservedAt": "2026-11-02T03:15:46.661Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -1050,11 +1009,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:45.241Z",
+      "snapshotObservedAt": "2026-11-02T03:15:48.987Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -1201,11 +1160,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:48.740Z",
+      "snapshotObservedAt": "2026-11-02T03:15:53.811Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -1352,11 +1311,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:50.353Z",
+      "snapshotObservedAt": "2026-11-02T03:15:55.762Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -1503,11 +1462,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:52.248Z",
+      "snapshotObservedAt": "2026-11-02T03:15:59.364Z",
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -1654,11 +1613,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:53.942Z",
+      "snapshotObservedAt": "2026-11-02T03:16:02.729Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -1805,11 +1764,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:19:47.112Z",
+      "snapshotObservedAt": "2026-11-02T03:15:50.838Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [
         {
@@ -2601,11 +2560,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-10-31T14:18:39.102Z",
+      "snapshotObservedAt": "2026-11-02T03:14:31.145Z",
       "sourceId": "vals-ai"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -2614,12 +2573,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-10-31T14:26:13.226Z",
+      "checkedAt": "2026-11-02T03:18:07.871Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-10-31T14:18:27.803Z",
+      "snapshotObservedAt": "2026-11-02T03:14:28.543Z",
       "sourceId": "zapier-automationbench"
     }
   ]

@@ -17,7 +17,7 @@
 | Intelligence Index candidates (EXCLUDED) | 87 |
 | GDPval-AA normalized candidates | 184 |
 | Canonically unresolved candidates | 778 |
-| MEASURED_TASK cost rows | 84 |
+| MEASURED_TASK cost rows | 85 |
 | API_STANDARDIZED token-price rows | 212 |
 
 ## Page composition finding
@@ -59,23 +59,19 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 ## Visible comparison
 
 - Fresh rendered models page catalog total: 719
-- Unique profiles across captured payloads after bounded retry recovery: 220
-- Result: catalog and evaluation scopes differ; no missing score is synthesized.
-
-## Network capture recovery
-
-- Recovered `https://artificialanalysis.ai/models/gpt-5-4-low` at 2026-10-31T14:23:20.582Z; full bytes sha256:00666ce8fe21eb2f9b7c6178f740b7c911bdbd15fa28fea3958cb131e0513e35 (3872177 bytes). Original AbortError records and successful retries are preserved in the evidence store.
-- Recovered `https://artificialanalysis.ai/models/grok-4-20-0309` at 2026-10-31T14:24:20.693Z; full bytes sha256:726e1304fc4b648f1420641cfe788936268771fb3f40e4bcc8eb97251a5d2706 (3698400 bytes). Original AbortError records and successful retries are preserved in the evidence store.
-- Final offline rematerialization includes both successful fresh captures; no capture timeout remains unresolved.
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 220
+- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 219 | 220 | +1 |
-| Active source profiles | 219 | 220 | +1 |
-| Candidate results | 2636 | 2649 | +13 |
-| Materialized costs | 294 | 296 | +2 |
+| Unique source profiles | 220 | 220 | +0 |
+| Active source profiles | 220 | 220 | +0 |
+| Candidate results | 2649 | 2649 | +0 |
+| Materialized costs | 296 | 297 | +1 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

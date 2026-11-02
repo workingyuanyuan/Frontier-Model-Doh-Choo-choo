@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:c3f3547ee12b1fcee1e14479919c8b0243e0b121da038e3ceb0609d972aff0fc`
-- Observed at: 2026-10-31T14:18:39.102Z
+- Index evidence: `sha256:0206e6b11cb4d2bd304ff97f7f376c02de7bd54b66c1696d44321f793e537438`
+- Observed at: 2026-11-02T03:14:31.145Z
 
 ## Exact counts
 
@@ -476,9 +476,9 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Benchmark slugs discovered from index | 62 | 62 | +0 |
-| CandidateResults | 3456 | 3470 | +14 |
-| CostRecords retained | 3305 | 3319 | +14 |
-| Canonically unresolved rows | 2099 | 2113 | +14 |
+| CandidateResults | 3470 | 3470 | +0 |
+| CostRecords retained | 3319 | 3319 | +0 |
+| Canonically unresolved rows | 2113 | 2113 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
