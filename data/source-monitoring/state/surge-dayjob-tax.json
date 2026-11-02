@@ -79,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-10-31T14:26:13.226Z",
+  "checkedAt": "2026-11-02T03:18:07.871Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/ef/efdeca2aebf438b71d648286ca5d79d15e80657e7aa17167a4711d306b2adad7.html",
+    "artifactPath": "artifacts/sha256/4c/4c5d40bca7a761d5ffdeb3e9ab146a784f85674c9ef17421b67590fd591573a2.html",
     "byteLength": 967484,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:efdeca2aebf438b71d648286ca5d79d15e80657e7aa17167a4711d306b2adad7",
+    "id": "sha256:4c5d40bca7a761d5ffdeb3e9ab146a784f85674c9ef17421b67590fd591573a2",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-10-31T14:26:13.226Z",
+    "retrievedAt": "2026-11-02T03:18:07.871Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:efdeca2aebf438b71d648286ca5d79d15e80657e7aa17167a4711d306b2adad7",
+    "sha256": "sha256:4c5d40bca7a761d5ffdeb3e9ab146a784f85674c9ef17421b67590fd591573a2",
     "sourceId": "surge-dayjob-tax"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -158,7 +158,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-10-31T14:19:52.248Z",
+    "observedAt": "2026-11-02T03:15:59.364Z",
     "sourceId": "surge-dayjob-tax"
   }
 }

@@ -1,0 +1,5232 @@
+{
+  "createdAt": "2026-11-02T03:20:34.301477+00:00",
+  "oldVersionId": "sha256:7c2be2ecb3d294acf3326c1d0423788ac1584bd503413ff8c2eecdd2bc84d99b",
+  "newVersionId": "sha256:55f64db3614e982ba46c2279d929dfae6f825f3e197360f072ea90236a89f258",
+  "oldDefaultPresetId": "aa-top-10",
+  "newDefaultPresetId": "aa-top-10",
+  "frontierModelsSame": true,
+  "cohorts": [
+    {
+      "id": "aa-top-2",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 13,
+      "newBenchmarkCount": 13,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 59.34097286641929,
+          "newOverall": 59.34097286641929,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.34097286641929,
+          "newOnSharedBenchmarks": 59.34097286641929,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 58.663122139765,
+          "newOverall": 58.663122139765,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.663122139765,
+          "newOnSharedBenchmarks": 58.663122139765,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-3",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 13,
+      "newBenchmarkCount": 13,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 59.34097286641929,
+          "newOverall": 59.34097286641929,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.34097286641929,
+          "newOnSharedBenchmarks": 59.34097286641929,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 58.663122139765,
+          "newOverall": 58.663122139765,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.663122139765,
+          "newOnSharedBenchmarks": 58.663122139765,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 57.80704888167388,
+          "newOverall": 57.80704888167388,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 45.29143362193361,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 45.29143362193361,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.80704888167388,
+          "newOnSharedBenchmarks": 57.80704888167388,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+            "zapier-automationbench:automationbench:gpt-6-astra-max-rank-7:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+            "zapier-automationbench:automationbench:gpt-6-astra-max-rank-7:1-0-6"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-4",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 13,
+      "newBenchmarkCount": 13,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 59.34097286641929,
+          "newOverall": 59.34097286641929,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.34097286641929,
+          "newOnSharedBenchmarks": 59.34097286641929,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 58.663122139765,
+          "newOverall": 58.663122139765,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.663122139765,
+          "newOnSharedBenchmarks": 58.663122139765,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 56.084266800659655,
+          "newOverall": 56.084266800659655,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 43.579900535971966,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 43.579900535971966,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 56.084266800659655,
+          "newOnSharedBenchmarks": 56.084266800659655,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "openai-releases:automationbench:10",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "openai-releases:automationbench:10",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 57.80704888167388,
+          "newOverall": 57.80704888167388,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 45.29143362193361,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 45.29143362193361,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.80704888167388,
+          "newOnSharedBenchmarks": 57.80704888167388,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+            "zapier-automationbench:automationbench:gpt-6-astra-max-rank-7:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+            "zapier-automationbench:automationbench:gpt-6-astra-max-rank-7:1-0-6"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-5",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 13,
+      "newBenchmarkCount": 13,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 59.34097286641929,
+          "newOverall": 59.34097286641929,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.83474860853431,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.34097286641929,
+          "newOnSharedBenchmarks": 59.34097286641929,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5",
+            "zapier-automationbench:automationbench:claude-opus-5-5-default-fallbacks-max-rank-6:1-0-6"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldOverall": 54.83843506493507,
+          "newOverall": 54.83843506493507,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.39440692640692,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.39440692640692,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 54.83843506493507,
+          "newOnSharedBenchmarks": 54.83843506493507,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+            "zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-max-rank-5:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5",
+            "zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-max-rank-5:1-0-6"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 58.663122139765,
+          "newOverall": 58.663122139765,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 54.07058379715523,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.663122139765,
+          "newOnSharedBenchmarks": 58.663122139765,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+            "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 56.084266800659655,
+          "newOverall": 56.084266800659655,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 43.579900535971966,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 43.579900535971966,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 56.084266800659655,
+          "newOnSharedBenchmarks": 56.084266800659655,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "openai-releases:automationbench:10",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "openai-releases:automationbench:10",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 57.80704888167388,
+          "newOverall": 57.80704888167388,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 45.29143362193361,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 45.29143362193361,
+              "componentCount": 7,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.80704888167388,
+          "newOnSharedBenchmarks": 57.80704888167388,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+            "zapier-automationbench:automationbench:gpt-6-astra-max-rank-7:1-0-6"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra",
+            "zapier-automationbench:automationbench:gpt-6-astra-max-rank-7:1-0-6"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-6",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 12,
+      "newBenchmarkCount": 12,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 59.68950405844156,
+          "newOverall": 59.68950405844156,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 52.22887337662337,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 52.22887337662337,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.68950405844156,
+          "newOnSharedBenchmarks": 59.68950405844156,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldOverall": 55.07361868686869,
+          "newOverall": 55.07361868686869,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 51.33514141414141,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 51.33514141414141,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 55.07361868686869,
+          "newOnSharedBenchmarks": 55.07361868686869,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 58.67106313131314,
+          "newOverall": 58.67106313131314,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 54.102347763347765,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 54.102347763347765,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.67106313131314,
+          "newOnSharedBenchmarks": 58.67106313131314,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 56.39592932299182,
+          "newOverall": 56.39592932299182,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 44.82655062530063,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 44.82655062530063,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 56.39592932299182,
+          "newOnSharedBenchmarks": 56.39592932299182,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-terra",
+          "profileId": "openai-gpt-6-1-terra-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldOverall": 50.574402326839824,
+          "newOverall": 50.574402326839824,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 37.65813167388167,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 37.65813167388167,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 50.574402326839824,
+          "newOnSharedBenchmarks": 50.574402326839824,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:hlab:openai-gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:hlab:openai-gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 57.969191949254444,
+          "newOverall": 57.969191949254444,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 45.94000589225589,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 45.94000589225589,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.969191949254444,
+          "newOnSharedBenchmarks": 57.969191949254444,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-7",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 12,
+      "newBenchmarkCount": 12,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 59.68950405844156,
+          "newOverall": 59.68950405844156,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 52.22887337662337,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 52.22887337662337,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.68950405844156,
+          "newOnSharedBenchmarks": 59.68950405844156,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:hlab:anthropic-claude-opus-5-5",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldOverall": 55.07361868686869,
+          "newOverall": 55.07361868686869,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 51.33514141414141,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 51.33514141414141,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 55.07361868686869,
+          "newOnSharedBenchmarks": 55.07361868686869,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:hlab:anthropic-claude-sonnet-5-5",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldOverall": 52.795029907084796,
+          "newOverall": 52.795029907084796,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 52.24854819976772,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 52.24854819976772,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 52.795029907084796,
+          "newOnSharedBenchmarks": 52.795029907084796,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:hlab:google-gemini-4-argon",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:hlab:google-gemini-4-argon",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 58.67106313131314,
+          "newOverall": 58.67106313131314,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 54.102347763347765,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 54.102347763347765,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.67106313131314,
+          "newOnSharedBenchmarks": 58.67106313131314,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:hlab:google-gemini-4-carbon",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 56.39592932299182,
+          "newOverall": 56.39592932299182,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 44.82655062530063,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 44.82655062530063,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 56.39592932299182,
+          "newOnSharedBenchmarks": 56.39592932299182,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:hlab:openai-gpt-6-1-sol",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-terra",
+          "profileId": "openai-gpt-6-1-terra-max",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldOverall": 50.574402326839824,
+          "newOverall": 50.574402326839824,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 37.65813167388167,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 37.65813167388167,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 50.574402326839824,
+          "newOnSharedBenchmarks": 50.574402326839824,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:hlab:openai-gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:hlab:openai-gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 57.969191949254444,
+          "newOverall": 57.969191949254444,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 45.94000589225589,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 45.94000589225589,
+              "componentCount": 6,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.969191949254444,
+          "newOnSharedBenchmarks": 57.969191949254444,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:hlab:openai-gpt-6-astra",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-frontier",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 11,
+      "newBenchmarkCount": 11,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldOverall": 57.64822424242424,
+          "newOverall": 57.64822424242424,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 56.27639696969696,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 64.25,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 60.9665,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 56.27639696969696,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 64.25,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 60.9665,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.64822424242424,
+          "newOnSharedBenchmarks": 57.64822424242424,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-fable-5-1",
+            "artificial-analysis:aa-omniscience:claude-fable-5-1",
+            "artificial-analysis:critpt-v2:claude-fable-5-1",
+            "artificial-analysis:gdp-pdf:claude-fable-5-1",
+            "artificial-analysis:gdpval-aa:claude-fable-5-1",
+            "artificial-analysis:hle-diamond:claude-fable-5-1",
+            "artificial-analysis:terminal-bench-science:claude-fable-5-1",
+            "frontier-code:frontier-code-2-0:claude-fable-5-1-max",
+            "vals-ai:legal-research:anthropic-claude-fable-5-1",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-fable-5-1",
+            "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-fable-5-1",
+            "artificial-analysis:aa-omniscience:claude-fable-5-1",
+            "artificial-analysis:critpt-v2:claude-fable-5-1",
+            "artificial-analysis:gdp-pdf:claude-fable-5-1",
+            "artificial-analysis:gdpval-aa:claude-fable-5-1",
+            "artificial-analysis:hle-diamond:claude-fable-5-1",
+            "artificial-analysis:terminal-bench-science:claude-fable-5-1",
+            "frontier-code:frontier-code-2-0:claude-fable-5-1-max",
+            "vals-ai:legal-research:anthropic-claude-fable-5-1",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-fable-5-1",
+            "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 61.842597727272725,
+          "newOverall": 61.842597727272725,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 60.84124805194804,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 60.84124805194804,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 61.842597727272725,
+          "newOnSharedBenchmarks": 61.842597727272725,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldOverall": 57.11952575757576,
+          "newOverall": 57.11952575757576,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 59.51876969696969,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 59.51876969696969,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.11952575757576,
+          "newOnSharedBenchmarks": 57.11952575757576,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldOverall": 54.05330731707318,
+          "newOverall": 54.05330731707318,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 57.28165783972126,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 57.28165783972126,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 54.05330731707318,
+          "newOnSharedBenchmarks": 54.05330731707318,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 60.50118051948053,
+          "newOverall": 60.50118051948053,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 61.42281731601732,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 61.42281731601732,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 60.50118051948053,
+          "newOnSharedBenchmarks": 60.50118051948053,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 58.324756854256854,
+          "newOverall": 58.324756854256854,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 52.541860750360755,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 52.541860750360755,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.324756854256854,
+          "newOnSharedBenchmarks": 58.324756854256854,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-terra",
+          "profileId": "openai-gpt-6-1-terra-max",
+          "oldRank": 8,
+          "newRank": 8,
+          "oldOverall": 52.37395891053391,
+          "newOverall": 52.37395891053391,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 44.856358008658006,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 44.856358008658006,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 52.37395891053391,
+          "newOnSharedBenchmarks": 52.37395891053391,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 59.91204224386723,
+          "newOverall": 59.91204224386723,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 53.71140707070706,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 53.71140707070706,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.91204224386723,
+          "newOnSharedBenchmarks": 59.91204224386723,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-9",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 11,
+      "newBenchmarkCount": 11,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldOverall": 57.64822424242424,
+          "newOverall": 57.64822424242424,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 56.27639696969696,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 64.25,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 60.9665,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 56.27639696969696,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 64.25,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 60.9665,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.64822424242424,
+          "newOnSharedBenchmarks": 57.64822424242424,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-fable-5-1",
+            "artificial-analysis:aa-omniscience:claude-fable-5-1",
+            "artificial-analysis:critpt-v2:claude-fable-5-1",
+            "artificial-analysis:gdp-pdf:claude-fable-5-1",
+            "artificial-analysis:gdpval-aa:claude-fable-5-1",
+            "artificial-analysis:hle-diamond:claude-fable-5-1",
+            "artificial-analysis:terminal-bench-science:claude-fable-5-1",
+            "frontier-code:frontier-code-2-0:claude-fable-5-1-max",
+            "vals-ai:legal-research:anthropic-claude-fable-5-1",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-fable-5-1",
+            "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-fable-5-1",
+            "artificial-analysis:aa-omniscience:claude-fable-5-1",
+            "artificial-analysis:critpt-v2:claude-fable-5-1",
+            "artificial-analysis:gdp-pdf:claude-fable-5-1",
+            "artificial-analysis:gdpval-aa:claude-fable-5-1",
+            "artificial-analysis:hle-diamond:claude-fable-5-1",
+            "artificial-analysis:terminal-bench-science:claude-fable-5-1",
+            "frontier-code:frontier-code-2-0:claude-fable-5-1-max",
+            "vals-ai:legal-research:anthropic-claude-fable-5-1",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-fable-5-1",
+            "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 61.842597727272725,
+          "newOverall": 61.842597727272725,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 60.84124805194804,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 60.84124805194804,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 61.842597727272725,
+          "newOnSharedBenchmarks": 61.842597727272725,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldOverall": 57.11952575757576,
+          "newOverall": 57.11952575757576,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 59.51876969696969,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 59.51876969696969,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.11952575757576,
+          "newOnSharedBenchmarks": 57.11952575757576,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldOverall": 54.05330731707318,
+          "newOverall": 54.05330731707318,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 57.28165783972126,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 57.28165783972126,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 54.05330731707318,
+          "newOnSharedBenchmarks": 54.05330731707318,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 60.50118051948053,
+          "newOverall": 60.50118051948053,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 61.42281731601732,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 61.42281731601732,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 60.50118051948053,
+          "newOnSharedBenchmarks": 60.50118051948053,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ]
+        },
+        {
+          "modelId": "moonshot-kimi-k3-1-pro",
+          "profileId": "moonshot-kimi-k3-1-pro-max",
+          "oldRank": 9,
+          "newRank": 9,
+          "oldOverall": 49.683822456709954,
+          "newOverall": 49.683822456709954,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.74565093795094,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 43.11666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 68,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 55.1729722222222,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 31.4,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.74565093795094,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 43.11666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 68,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 55.1729722222222,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 31.4,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 49.683822456709954,
+          "newOnSharedBenchmarks": 49.683822456709954,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+            "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+            "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+            "artificial-analysis:frontier-code-2-0:kimi-k3-1-pro",
+            "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+            "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+            "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+            "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+            "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+            "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+            "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+            "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+            "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+            "artificial-analysis:frontier-code-2-0:kimi-k3-1-pro",
+            "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+            "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+            "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+            "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+            "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+            "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+            "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 58.324756854256854,
+          "newOverall": 58.324756854256854,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 52.541860750360755,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 52.541860750360755,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.324756854256854,
+          "newOnSharedBenchmarks": 58.324756854256854,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-terra",
+          "profileId": "openai-gpt-6-1-terra-max",
+          "oldRank": 8,
+          "newRank": 8,
+          "oldOverall": 52.37395891053391,
+          "newOverall": 52.37395891053391,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 44.856358008658006,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 44.856358008658006,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 52.37395891053391,
+          "newOnSharedBenchmarks": 52.37395891053391,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 59.91204224386723,
+          "newOverall": 59.91204224386723,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 53.71140707070706,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 53.71140707070706,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.91204224386723,
+          "newOnSharedBenchmarks": 59.91204224386723,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    },
+    {
+      "id": "aa-top-10",
+      "membersAdded": [],
+      "membersRemoved": [],
+      "benchmarkAdded": [],
+      "benchmarkRemoved": [],
+      "oldBenchmarkCount": 11,
+      "newBenchmarkCount": 11,
+      "rows": [
+        {
+          "modelId": "anthropic-claude-fable-5-1",
+          "profileId": "anthropic-claude-fable-5-1-max",
+          "oldRank": 5,
+          "newRank": 5,
+          "oldOverall": 57.64822424242424,
+          "newOverall": 57.64822424242424,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 56.27639696969696,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 64.25,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 60.9665,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 56.27639696969696,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 64.25,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 60.9665,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.64822424242424,
+          "newOnSharedBenchmarks": 57.64822424242424,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-fable-5-1",
+            "artificial-analysis:aa-omniscience:claude-fable-5-1",
+            "artificial-analysis:critpt-v2:claude-fable-5-1",
+            "artificial-analysis:gdp-pdf:claude-fable-5-1",
+            "artificial-analysis:gdpval-aa:claude-fable-5-1",
+            "artificial-analysis:hle-diamond:claude-fable-5-1",
+            "artificial-analysis:terminal-bench-science:claude-fable-5-1",
+            "frontier-code:frontier-code-2-0:claude-fable-5-1-max",
+            "vals-ai:legal-research:anthropic-claude-fable-5-1",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-fable-5-1",
+            "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-fable-5-1",
+            "artificial-analysis:aa-omniscience:claude-fable-5-1",
+            "artificial-analysis:critpt-v2:claude-fable-5-1",
+            "artificial-analysis:gdp-pdf:claude-fable-5-1",
+            "artificial-analysis:gdpval-aa:claude-fable-5-1",
+            "artificial-analysis:hle-diamond:claude-fable-5-1",
+            "artificial-analysis:terminal-bench-science:claude-fable-5-1",
+            "frontier-code:frontier-code-2-0:claude-fable-5-1-max",
+            "vals-ai:legal-research:anthropic-claude-fable-5-1",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-fable-5-1",
+            "vals-ai:vibe-code-bench:anthropic-claude-fable-5-1"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-opus-5-5",
+          "profileId": "anthropic-claude-opus-5-5-max",
+          "oldRank": 1,
+          "newRank": 1,
+          "oldOverall": 61.842597727272725,
+          "newOverall": 61.842597727272725,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 60.84124805194804,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 60.84124805194804,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 66.7,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 77.71428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 26.200000000000003,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 67.872,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 61.842597727272725,
+          "newOnSharedBenchmarks": 61.842597727272725,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-opus-5-5",
+            "artificial-analysis:aa-omniscience:claude-opus-5-5",
+            "artificial-analysis:critpt-v2:claude-opus-5-5",
+            "artificial-analysis:gdp-pdf:claude-opus-5-5",
+            "artificial-analysis:gdpval-aa:claude-opus-5-5",
+            "artificial-analysis:hle-diamond:claude-opus-5-5",
+            "artificial-analysis:terminal-bench-science:claude-opus-5-5",
+            "frontier-code:frontier-code-2-0:claude-opus-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-opus-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-opus-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-opus-5-5"
+          ]
+        },
+        {
+          "modelId": "anthropic-claude-sonnet-5-5",
+          "profileId": "anthropic-claude-sonnet-5-5-max",
+          "oldRank": 6,
+          "newRank": 6,
+          "oldOverall": 57.11952575757576,
+          "newOverall": 57.11952575757576,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 59.51876969696969,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 59.51876969696969,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.38333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 74,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 25.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.676,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 57.11952575757576,
+          "newOnSharedBenchmarks": 57.11952575757576,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:claude-sonnet-5-5",
+            "artificial-analysis:aa-omniscience:claude-sonnet-5-5",
+            "artificial-analysis:critpt-v2:claude-sonnet-5-5",
+            "artificial-analysis:gdp-pdf:claude-sonnet-5-5",
+            "artificial-analysis:gdpval-aa:claude-sonnet-5-5",
+            "artificial-analysis:hle-diamond:claude-sonnet-5-5",
+            "artificial-analysis:terminal-bench-science:claude-sonnet-5-5",
+            "frontier-code:frontier-code-2-0:claude-sonnet-5-5-max",
+            "vals-ai:legal-research:anthropic-claude-sonnet-5-5",
+            "vals-ai:terminal-bench-4-0:anthropic-claude-sonnet-5-5",
+            "vals-ai:vibe-code-bench:anthropic-claude-sonnet-5-5"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-argon",
+          "profileId": "google-gemini-4-argon-high",
+          "oldRank": 7,
+          "newRank": 7,
+          "oldOverall": 54.05330731707318,
+          "newOverall": 54.05330731707318,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 57.28165783972126,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 57.28165783972126,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 52.5,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 72.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 21.8,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 59.103,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 54.05330731707318,
+          "newOnSharedBenchmarks": 54.05330731707318,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-argon",
+            "artificial-analysis:aa-omniscience:gemini-4-argon",
+            "artificial-analysis:critpt-v2:gemini-4-argon",
+            "artificial-analysis:gdp-pdf:gemini-4-argon",
+            "artificial-analysis:gdpval-aa:gemini-4-argon",
+            "artificial-analysis:hle-diamond:gemini-4-argon",
+            "artificial-analysis:terminal-bench-science:gemini-4-argon",
+            "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+            "vals-ai:legal-research:google-gemini-4-argon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+            "vals-ai:vibe-code-bench:google-gemini-4-argon"
+          ]
+        },
+        {
+          "modelId": "google-gemini-4-carbon",
+          "profileId": "google-gemini-4-carbon-high",
+          "oldRank": 2,
+          "newRank": 2,
+          "oldOverall": 60.50118051948053,
+          "newOverall": 60.50118051948053,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 61.42281731601732,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 61.42281731601732,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 63.68333333333333,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 78.8571428571429,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 28.4,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.27,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 60.50118051948053,
+          "newOnSharedBenchmarks": 60.50118051948053,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gemini-4-carbon",
+            "artificial-analysis:aa-omniscience:gemini-4-carbon",
+            "artificial-analysis:critpt-v2:gemini-4-carbon",
+            "artificial-analysis:gdp-pdf:gemini-4-carbon",
+            "artificial-analysis:gdpval-aa:gemini-4-carbon",
+            "artificial-analysis:hle-diamond:gemini-4-carbon",
+            "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+            "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+            "vals-ai:legal-research:google-gemini-4-carbon",
+            "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+            "vals-ai:vibe-code-bench:google-gemini-4-carbon"
+          ]
+        },
+        {
+          "modelId": "meta-muse-wonder",
+          "profileId": "meta-muse-wonder-max",
+          "oldRank": 10,
+          "newRank": 10,
+          "oldOverall": 48.5599606060606,
+          "newOverall": 48.5599606060606,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.08388138528138,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 38.516666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 69.7142857142857,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 55.4821515151515,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 30.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.08388138528138,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 38.516666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 69.7142857142857,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 55.4821515151515,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 30.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 48.5599606060606,
+          "newOnSharedBenchmarks": 48.5599606060606,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:muse-wonder",
+            "artificial-analysis:aa-omniscience:muse-wonder",
+            "artificial-analysis:critpt-v2:muse-wonder",
+            "artificial-analysis:frontier-code-2-0:muse-wonder",
+            "artificial-analysis:gdp-pdf:muse-wonder",
+            "artificial-analysis:gdpval-aa:muse-wonder",
+            "artificial-analysis:hle-diamond:muse-wonder",
+            "artificial-analysis:terminal-bench-science:muse-wonder",
+            "vals-ai:legal-research:meta-muse-wonder",
+            "vals-ai:terminal-bench-4-0:meta-muse-wonder",
+            "vals-ai:vibe-code-bench:meta-muse-wonder"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:muse-wonder",
+            "artificial-analysis:aa-omniscience:muse-wonder",
+            "artificial-analysis:critpt-v2:muse-wonder",
+            "artificial-analysis:frontier-code-2-0:muse-wonder",
+            "artificial-analysis:gdp-pdf:muse-wonder",
+            "artificial-analysis:gdpval-aa:muse-wonder",
+            "artificial-analysis:hle-diamond:muse-wonder",
+            "artificial-analysis:terminal-bench-science:muse-wonder",
+            "vals-ai:legal-research:meta-muse-wonder",
+            "vals-ai:terminal-bench-4-0:meta-muse-wonder",
+            "vals-ai:vibe-code-bench:meta-muse-wonder"
+          ]
+        },
+        {
+          "modelId": "moonshot-kimi-k3-1-pro",
+          "profileId": "moonshot-kimi-k3-1-pro-max",
+          "oldRank": 9,
+          "newRank": 9,
+          "oldOverall": 49.683822456709954,
+          "newOverall": 49.683822456709954,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 50.74565093795094,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 43.11666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 68,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 55.1729722222222,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 31.4,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 50.74565093795094,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 43.11666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 68,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 55.1729722222222,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 31.4,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 49.683822456709954,
+          "newOnSharedBenchmarks": 49.683822456709954,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+            "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+            "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+            "artificial-analysis:frontier-code-2-0:kimi-k3-1-pro",
+            "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+            "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+            "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+            "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+            "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+            "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+            "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+            "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+            "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+            "artificial-analysis:frontier-code-2-0:kimi-k3-1-pro",
+            "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+            "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+            "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+            "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+            "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+            "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+            "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-sol",
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldRank": 4,
+          "newRank": 4,
+          "oldOverall": 58.324756854256854,
+          "newOverall": 58.324756854256854,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 52.541860750360755,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 52.541860750360755,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 60.31666666666666,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 82,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.9405,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 58.324756854256854,
+          "newOnSharedBenchmarks": 58.324756854256854,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+            "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+            "artificial-analysis:critpt-v2:gpt-6-1-sol",
+            "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+            "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+            "artificial-analysis:hle-diamond:gpt-6-1-sol",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+            "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+            "vals-ai:legal-research:openai-gpt-6-1-sol",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-1-terra",
+          "profileId": "openai-gpt-6-1-terra-max",
+          "oldRank": 8,
+          "newRank": 8,
+          "oldOverall": 52.37395891053391,
+          "newOverall": 52.37395891053391,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 44.856358008658006,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 44.856358008658006,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 47.46666666666667,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 79.4285714285714,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 63.15852525252525,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "comprehension": {
+              "score": 28.599999999999998,
+              "componentCount": 1,
+              "weight": 0.5
+            }
+          },
+          "oldOnSharedBenchmarks": 52.37395891053391,
+          "newOnSharedBenchmarks": 52.37395891053391,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-1-terra",
+            "artificial-analysis:aa-omniscience:gpt-6-1-terra",
+            "artificial-analysis:critpt-v2:gpt-6-1-terra",
+            "artificial-analysis:frontier-code-2-0:gpt-6-1-terra",
+            "artificial-analysis:gdp-pdf:gpt-6-1-terra",
+            "artificial-analysis:gdpval-aa:gpt-6-1-terra",
+            "artificial-analysis:hle-diamond:gpt-6-1-terra",
+            "artificial-analysis:terminal-bench-science:gpt-6-1-terra",
+            "vals-ai:legal-research:openai-gpt-6-1-terra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-1-terra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-1-terra"
+          ]
+        },
+        {
+          "modelId": "openai-gpt-6-astra",
+          "profileId": "openai-gpt-6-astra-max",
+          "oldRank": 3,
+          "newRank": 3,
+          "oldOverall": 59.91204224386723,
+          "newOverall": 59.91204224386723,
+          "delta": 0.0,
+          "oldDimensions": {
+            "agentic": {
+              "score": 53.71140707070706,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "newDimensions": {
+            "agentic": {
+              "score": 53.71140707070706,
+              "componentCount": 5,
+              "weight": 1
+            },
+            "knowledge": {
+              "score": 62.68333333333334,
+              "componentCount": 2,
+              "weight": 1
+            },
+            "reasoning": {
+              "score": 83.1428571428571,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "comprehension": {
+              "score": 31,
+              "componentCount": 1,
+              "weight": 0.5
+            },
+            "coding": {
+              "score": 66.182,
+              "componentCount": 2,
+              "weight": 1
+            }
+          },
+          "oldOnSharedBenchmarks": 59.91204224386723,
+          "newOnSharedBenchmarks": 59.91204224386723,
+          "sourceNumericImpactOnShared": 0.0,
+          "commonSetRemovalImpact": 0.0,
+          "oldEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ],
+          "newEvidenceIds": [
+            "artificial-analysis:aa-briefcase:gpt-6-astra",
+            "artificial-analysis:aa-omniscience:gpt-6-astra",
+            "artificial-analysis:critpt-v2:gpt-6-astra",
+            "artificial-analysis:gdp-pdf:gpt-6-astra",
+            "artificial-analysis:gdpval-aa:gpt-6-astra",
+            "artificial-analysis:hle-diamond:gpt-6-astra",
+            "artificial-analysis:terminal-bench-science:gpt-6-astra",
+            "frontier-code:frontier-code-2-0:gpt-6-astra-max",
+            "vals-ai:legal-research:openai-gpt-6-astra",
+            "vals-ai:terminal-bench-4-0:openai-gpt-6-astra",
+            "vals-ai:vibe-code-bench:openai-gpt-6-astra"
+          ]
+        }
+      ],
+      "rankChanges": [],
+      "maxAbsoluteDelta": 0.0
+    }
+  ],
+  "method": "Independent Python arithmetic from product evidenceResultIds: compatible metrics mean per benchmark, benchmarks mean per dimension, dimension weight0.5 for one benchmark else1. Verified stored Overall, dimensions and ranking in both versions. Compared baseline/new over shared benchmark sets to isolate source numeric changes and common-set removal impact."
+}

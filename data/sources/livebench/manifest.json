@@ -27,7 +27,7 @@
     "2.0 table CSV suite columns": "rawScore per suite benchmark",
     "cost CSV token price columns": "API_STANDARDIZED pricing"
   },
-  "lastVerifiedAt": "2026-10-31T14:19:14.705Z",
+  "lastVerifiedAt": "2026-11-02T03:14:55.370Z",
   "notes": [
     "LiveBench 2.0 release 2026-10-25: 32 models across 7 suites.",
     "Frozen 1.0 release 2026-06-25: Language, IF and Mathematics retained because 2.0 dropped them; 1.0 Reasoning is superseded by 2.0.",
