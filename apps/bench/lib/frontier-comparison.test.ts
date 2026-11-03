@@ -3,6 +3,8 @@ import { loadProductVersion } from './load-product-version';
 import { withActivePreset } from './view-model';
 import { buildCommonComparison } from './common-benchmarks';
 
+// Language retention and quality exclusions are covered synthetically in
+// common-benchmarks.test.ts; this file checks only the published default.
 describe('published frontier comparison', () => {
   it('reproduces the published default from the same selected profiles', () => {
     const { product: raw, benchmarkDimensions } = loadProductVersion();
@@ -20,7 +22,8 @@ describe('published frontier comparison', () => {
     expect(comparison.benchmarkIds).toEqual(
       [...product.activePreset.benchmarkIds].sort(),
     );
-    expect(comparison.benchmarkIds).not.toContain('proofbench');
+    for (const id of product.benchmarkQuality!.excludedBenchmarkIds)
+      expect(comparison.benchmarkIds).not.toContain(id);
     expect(comparison.product.leaderboard.map((row) => row.profileId)).toEqual(
       product.leaderboard.map((row) => row.profileId),
     );
@@ -43,56 +46,5 @@ describe('published frontier comparison', () => {
       buildCommonComparison(product, [], {}, benchmarkDimensions).product
         .leaderboard,
     ).toEqual([]);
-  });
-
-  it('retains language evidence for a custom single-profile selection', () => {
-    const { product: raw, benchmarkDimensions } = loadProductVersion();
-    const product = withActivePreset(raw);
-    const ids = new Set(product.comparisonEvidenceIds);
-    const evidence = product.evidence.find(
-      (e) => ids.has(e.id) && benchmarkDimensions[e.benchmarkId] === 'language',
-    )!;
-    expect(evidence).toBeDefined();
-    const modelId = evidence.model.canonicalModelId!;
-    const result = buildCommonComparison(
-      product,
-      [modelId],
-      { [modelId]: evidence.model.profileId! },
-      benchmarkDimensions,
-    );
-    expect(
-      result.product.leaderboard[0]!.dimensions.find(
-        (d) => d.dimension === 'language',
-      )?.score,
-    ).toEqual(expect.any(Number));
-    expect(result.benchmarkIds).toContain(evidence.benchmarkId);
-  });
-
-  it('excludes the reviewed benchmarks when narrowing to a profile with both scores', () => {
-    const { product: raw, benchmarkDimensions } = loadProductVersion();
-    const product = withActivePreset(raw);
-    const modelId = 'anthropic-claude-opus-5-5';
-    const profileId = `${modelId}-max`;
-    const excluded = ['livebench-mathematics', 'ioi'];
-    for (const benchmarkId of excluded) {
-      expect(
-        product.evidence.some(
-          (e) =>
-            e.model.profileId === profileId &&
-            e.benchmarkId === benchmarkId &&
-            e.inclusion === 'INCLUDED' &&
-            e.normalizedScore !== null,
-        ),
-      ).toBe(true);
-    }
-    const comparison = buildCommonComparison(
-      product,
-      [modelId],
-      { [modelId]: profileId },
-      benchmarkDimensions,
-    );
-    expect(comparison.product.leaderboard).toHaveLength(1);
-    for (const benchmarkId of excluded)
-      expect(comparison.benchmarkIds).not.toContain(benchmarkId);
   });
 });

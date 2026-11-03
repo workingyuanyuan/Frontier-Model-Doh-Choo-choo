@@ -2,7 +2,14 @@ import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 import { buildCommonComparison } from '../lib/common-benchmarks';
-import { withActivePreset } from '../lib/view-model';
+import {
+  getActiveDimensionIds,
+  UI_DIMENSION_ABBREVIATIONS,
+} from '../lib/ui-contract';
+import {
+  withActivePreset,
+  type LeaderboardRow as Row,
+} from '../lib/view-model';
 
 const raw = JSON.parse(
   readFileSync('data/product/current.json', 'utf8'),
@@ -31,22 +38,40 @@ const compare = (ids: string[]) => {
     dimensions,
   );
 };
-const six = raw.profiles.find(
-  (p) =>
-    compare([p.id]).product.leaderboard[0]?.dimensions.length === 6 &&
-    product.leaderboard.some(
-      (peer) =>
-        peer.modelId !== p.modelId &&
-        compare([p.id, peer.profileId]).product.leaderboard[0]?.dimensions
-          .length === 5,
-    ),
-)!;
-const fivePeer = product.leaderboard.find(
-  (p) =>
-    p.modelId !== six.modelId &&
-    compare([six.id, p.profileId]).product.leaderboard[0]?.dimensions.length ===
-      5,
-)!;
+const labels = (rows: readonly { dimensions: Row['dimensions'] }[]) =>
+  getActiveDimensionIds(rows).map((id) => UI_DIMENSION_ABBREVIATIONS[id]);
+const defaultLabels = labels(product.leaderboard);
+// A profile whose comparison with a default-cohort peer drops one of its
+// dimensions, chosen from the current data.
+const scenario = (() => {
+  const singles = raw.profiles
+    .map((p) => ({ p, dims: labels(compare([p.id]).product.leaderboard) }))
+    .filter(({ dims }) => dims.length)
+    .sort((x, y) => y.dims.length - x.dims.length);
+  for (const { p, dims } of singles)
+    for (const peer of product.leaderboard) {
+      if (peer.modelId === p.modelId) continue;
+      const pairDims = labels(
+        compare([p.id, peer.profileId]).product.leaderboard,
+      );
+      const dropped = dims.find((d) => !pairDims.includes(d));
+      if (dropped && pairDims.length)
+        return {
+          wide: p,
+          dims,
+          peerProfileId: peer.profileId,
+          pairDims,
+          dropped,
+        };
+    }
+  return null;
+})();
+const droppedName = (abbr: string) => {
+  const id = Object.entries(UI_DIMENSION_ABBREVIATIONS).find(
+    ([, value]) => value === abbr,
+  )![0];
+  return `| ${id[0]!.toUpperCase()}${id.slice(1)} |`;
+};
 
 async function picker(page: Page, action: () => Promise<void>) {
   await page.getByRole('button', { name: /Search Models/ }).click();
@@ -70,6 +95,8 @@ async function axes(page: Page, count: number) {
 test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensions', async ({
   page,
 }, info) => {
+  test.skip(!scenario, 'no profile loses a dimension against a default peer');
+  const { wide, dims, peerProfileId, pairDims, dropped } = scenario!;
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.addInitScript(() => {
@@ -82,22 +109,16 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
     });
   });
   await page.goto('/');
-  await axes(page, 5);
+  await axes(page, defaultLabels.length);
   await expect(page.locator('[data-ranked-row]')).toHaveCount(
     product.leaderboard.length,
   );
-  await expect(page.locator('.radar-label')).toHaveText([
-    'AGT',
-    'COD',
-    'RSN',
-    'KNG',
-    'CMP',
-  ]);
+  await expect(page.locator('.radar-label')).toHaveText(defaultLabels);
   await expect(
     page.getByRole('region', { name: 'Common benchmarks', exact: true }),
   ).toHaveCount(0);
   await page.screenshot({
-    path: info.outputPath('default-five.png'),
+    path: info.outputPath('default.png'),
     fullPage: true,
   });
 
@@ -110,18 +131,18 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
   ).toHaveCount(0);
   await picker(page, async () => {
     await page
-      .getByRole('checkbox', { name: six.baseModelName, exact: true })
+      .getByRole('checkbox', { name: wide.baseModelName, exact: true })
       .check();
   });
   const effort = page.getByRole('combobox', {
-    name: `Select profile for ${six.baseModelName}`,
+    name: `Select profile for ${wide.baseModelName}`,
     exact: true,
   });
-  if (await effort.count()) await effort.selectOption(six.id);
-  await axes(page, 6);
-  await expect(page.locator('.radar-label').last()).toHaveText('LNG');
+  if (await effort.count()) await effort.selectOption(wide.id);
+  await axes(page, dims.length);
+  await expect(page.locator('.radar-label')).toHaveText(dims);
   await expect(page.locator('[data-ranked-row]')).toHaveCount(1);
-  const expected = compare([six.id]).product.leaderboard[0]!;
+  const expected = compare([wide.id]).product.leaderboard[0]!;
   await expect(page.locator('[data-ranked-row]')).toContainText(
     expected.overallScore!.toFixed(1),
   );
@@ -130,7 +151,7 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
     fullPage: true,
   });
   const languageSort = page.getByRole('button', {
-    name: 'Sort by LNG',
+    name: `Sort by ${dropped}`,
     exact: true,
   });
   await languageSort.focus();
@@ -142,13 +163,13 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
     .poll(() =>
       page.evaluate(() => (window as unknown as { copied: string }).copied),
     )
-    .toContain('Language');
+    .toContain(droppedName(dropped));
   await page.screenshot({
-    path: info.outputPath('selected-six.png'),
+    path: info.outputPath('selected-wide.png'),
     fullPage: true,
   });
 
-  const peer = raw.profiles.find((p) => p.id === fivePeer.profileId)!;
+  const peer = raw.profiles.find((p) => p.id === peerProfileId)!;
   await picker(page, async () => {
     await page
       .getByRole('checkbox', { name: peer.baseModelName, exact: true })
@@ -159,7 +180,7 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
     exact: true,
   });
   if (await peerEffort.count()) await peerEffort.selectOption(peer.id);
-  await axes(page, 5);
+  await axes(page, pairDims.length);
   await expect(
     page.locator('.leaderboard-table th[aria-sort="descending"]'),
   ).toContainText('Overall');
@@ -170,9 +191,9 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
     .poll(() =>
       page.evaluate(() => (window as unknown as { copied: string }).copied),
     )
-    .not.toContain('Language');
+    .not.toContain(droppedName(dropped));
   await page.screenshot({
-    path: info.outputPath('comparison-five.png'),
+    path: info.outputPath('comparison-narrow.png'),
     fullPage: true,
   });
   await picker(page, async () => {
@@ -180,11 +201,11 @@ test('phase3: clear, reselect, intersect, sort, export and reset dynamic dimensi
       .getByRole('checkbox', { name: peer.baseModelName, exact: true })
       .uncheck();
   });
-  await axes(page, 6);
+  await axes(page, dims.length);
   await picker(page, async () => {
     await page.getByRole('button', { name: 'Default', exact: true }).click();
   });
-  await axes(page, 5);
+  await axes(page, defaultLabels.length);
   expect(
     (
       await page

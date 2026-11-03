@@ -1,31 +1,45 @@
 import { expect, test } from '@playwright/test';
-import { readFileSync } from 'node:fs';
-import type { ProductVersion } from '@llm-bench/benchmark-data';
 import {
   buildCommonComparison,
   commonBenchmarkCountDeltas,
   comparisonOptions,
 } from '../lib/common-benchmarks';
-import { loadProductVersion } from '../lib/load-product-version';
 import {
   ADVANCED_COST_SOURCE_IDS,
   buildAdvancedCostModelOptions,
   buildAdvancedCostSeries,
   missingAdvancedCostSources,
-  withActivePreset,
 } from '../lib/view-model';
+import {
+  benchmarkDimensions,
+  commonIds,
+  effortDeltas,
+  effortSelect,
+  findModels,
+  hasEfforts,
+  product,
+  profile,
+  profileLabel,
+  selectModels,
+  type Pick,
+} from './product-data';
 
-const product = withActivePreset(
-  JSON.parse(
-    readFileSync('data/product/current.json', 'utf8'),
-  ) as ProductVersion,
+// A pair whose first model has other efforts that change the common count.
+const pair = findModels(
+  2,
+  (picks) =>
+    picks.every(hasEfforts) &&
+    commonIds(picks).length > 0 &&
+    Object.keys(effortDeltas(picks)).some(
+      (id) => profile(id).modelId === picks[0]!.modelId,
+    ),
 );
-const { benchmarkDimensions } = loadProductVersion();
-const astra = 'openai-gpt-6-astra';
-const flash = 'google-gemini-3-8-flash';
+const [first, second] = pair as [Pick, Pick];
+const firstId = first.modelId;
+const secondId = second.modelId;
 const selected = {
-  [astra]: 'openai-gpt-6-astra-max',
-  [flash]: 'google-gemini-3-8-flash-high',
+  [firstId]: first.profileId,
+  [secondId]: second.profileId,
 };
 
 test('shows effort deltas, copies the common table and restores the comparison from the URL', async ({
@@ -35,41 +49,26 @@ test('shows effort deltas, copies the common table and restores the comparison f
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
   const deltas = commonBenchmarkCountDeltas(
     product,
-    [astra, flash],
+    [firstId, secondId],
     selected,
     benchmarkDimensions,
     comparisonOptions(product, benchmarkDimensions),
   );
-  const astraDeltas = Object.entries(deltas).filter(([id]) =>
-    id.startsWith(`${astra}-`),
+  const firstDeltas = Object.entries(deltas).filter(
+    ([id]) => profile(id).modelId === firstId,
   );
-  expect(astraDeltas.length).toBeGreaterThan(0);
+  expect(firstDeltas.length).toBeGreaterThan(0);
 
-  await page.goto('/');
-  await page.getByRole('switch', { name: 'Developer mode' }).click();
-  await page.getByRole('button', { name: /Search Models/ }).click();
-  await page.getByRole('button', { name: 'Clear', exact: true }).click();
-  for (const name of ['GPT-6 Astra', 'Gemini 3.8 Flash']) {
-    await page.getByRole('checkbox', { name, exact: true }).check();
-  }
-  await page.keyboard.press('Escape');
-  const astraEffort = page.getByRole('combobox', {
-    name: 'Select profile for GPT-6 Astra',
-    exact: true,
-  });
-  const flashEffort = page.getByRole('combobox', {
-    name: 'Select profile for Gemini 3.8 Flash',
-    exact: true,
-  });
-  await astraEffort.selectOption(selected[astra]);
-  await flashEffort.selectOption(selected[flash]);
+  await selectModels(page, pair);
+  const firstEffort = effortSelect(page, first);
+  const secondEffort = effortSelect(page, second);
 
   // The current effort is the baseline, so it never carries a delta.
   await expect(
-    astraEffort.locator(`option[value="${selected[astra]}"] .effort-delta`),
+    firstEffort.locator(`option[value="${first.profileId}"] .effort-delta`),
   ).toHaveCount(0);
-  for (const [profileId, delta] of astraDeltas) {
-    const badge = astraEffort.locator(
+  for (const [profileId, delta] of firstDeltas) {
+    const badge = firstEffort.locator(
       `option[value="${profileId}"] .effort-delta`,
     );
     await expect(badge).toHaveText(
@@ -83,7 +82,7 @@ test('shows effort deltas, copies the common table and restores the comparison f
 
   const comparison = buildCommonComparison(
     product,
-    [astra, flash],
+    [firstId, secondId],
     selected,
     benchmarkDimensions,
   );
@@ -101,7 +100,7 @@ test('shows effort deltas, copies the common table and restores the comparison f
     await page.evaluate(() => navigator.clipboard.readText())
   ).split(/\r?\n/);
   expect(lines[0]).toBe(
-    '| Benchmark | GPT-6 Astra · max | Gemini 3.8 Flash · high | Difference (first − second) |',
+    `| Benchmark | ${profileLabel(first.profileId)} | ${profileLabel(second.profileId)} | Difference (first − second) |`,
   );
   expect(lines).toHaveLength(2 + (await section.locator('tbody tr').count()));
   expect(lines.join('\n')).not.toMatch(/https?:|Original score/);
@@ -109,12 +108,14 @@ test('shows effort deltas, copies the common table and restores the comparison f
 
   await expect(page).toHaveURL(/[?&]dev=1/);
   await expect(page).toHaveURL(
-    new RegExp(`[?&]models=${astra}%2C${flash}|[?&]models=${astra},${flash}`),
+    new RegExp(
+      `[?&]models=${firstId}%2C${secondId}|[?&]models=${firstId},${secondId}`,
+    ),
   );
   await page.reload();
   await expect(section).toBeVisible();
-  await expect(astraEffort).toHaveValue(selected[astra]);
-  await expect(flashEffort).toHaveValue(selected[flash]);
+  await expect(firstEffort).toHaveValue(first.profileId);
+  await expect(secondEffort).toHaveValue(second.profileId);
   await expect(
     page.getByRole('button', { name: /Search Models/ }),
   ).toContainText('2 selected');
@@ -188,7 +189,7 @@ test('restores a shared comparison on a non-default preset', async ({
   const preset = product.presets.find(
     ({ id }) => id !== product.defaultPresetId,
   )!;
-  await page.goto(`/?preset=${preset.id}&models=${astra},${flash}`);
+  await page.goto(`/?preset=${preset.id}&models=${firstId},${secondId}`);
   await expect(
     page.getByRole('button', { name: /Search Models/ }),
   ).toContainText('2 selected');

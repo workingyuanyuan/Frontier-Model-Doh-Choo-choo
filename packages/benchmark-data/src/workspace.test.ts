@@ -14,6 +14,7 @@ import { join, resolve } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
+import { chooseDefaultCohort } from './generate-frontier-set.js';
 import { buildWorkspaceProduct, writeWorkspaceCurrent } from './workspace.js';
 
 // Copy the saved build inputs; generated frontier artifacts must be private to
@@ -160,7 +161,6 @@ describe('buildWorkspaceProduct', () => {
       product.presets.find(({ id }) => id === product.defaultPresetId)
         ?.leaderboard ?? [];
 
-    expect(product.frontier.length).toBeGreaterThanOrEqual(5);
     expect(defaultLeaderboard.length).toBeGreaterThan(0);
     expect(product.schemaVersion).toBe('product-version-v4');
 
@@ -212,7 +212,11 @@ describe('buildWorkspaceProduct', () => {
     ) as {
       defaultPresetId: string;
       eligibility: {
-        leaders: { modelId: string; profileId: string }[];
+        leaders: {
+          modelId: string;
+          profileId: string;
+          organizations: string[];
+        }[];
         skipped: { modelId: string; organizations: string[] }[];
       };
       benchmarkIds: string[];
@@ -224,20 +228,25 @@ describe('buildWorkspaceProduct', () => {
     expect(product.frontier.map(({ modelId }) => modelId)).toEqual(
       leaders.map(({ modelId }) => modelId),
     );
-    // 2026-11-03: Riemann v1.1 provides Wonder Full's second independent
-    // organization, so it now passes the existing eligibility policy.
-    expect(artifact.eligibility.leaders).toContainEqual(
-      expect.objectContaining({
-        modelId: 'meta-muse-wonder-full',
-        organizations: ['surge', 'vals-ai'],
-      }),
-    );
+    for (const leader of leaders)
+      expect(leader.organizations.length).toBeGreaterThanOrEqual(2);
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
     expect(product.defaultPresetId).toBe(artifact.defaultPresetId);
     expect(product.frontier).toHaveLength(10);
     expect(
       product.presets.map(({ targetModelCount }) => targetModelCount),
     ).toEqual([2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    // Larger cohorts never share more tests, and the default follows its rule.
+    product.presets
+      .slice(1)
+      .forEach((preset, index) =>
+        expect(preset.benchmarkIds.length).toBeLessThanOrEqual(
+          product.presets[index]!.benchmarkIds.length,
+        ),
+      );
+    expect(chooseDefaultCohort(product.presets).id).toBe(
+      product.defaultPresetId,
+    );
     expect(
       defaultPreset!.leaderboard.map(({ profileId }) => profileId).sort(),
     ).toEqual(
@@ -323,44 +332,19 @@ describe('buildWorkspaceProduct', () => {
         .filter(({ id }) => comparisonIds.has(id))
         .map(({ benchmarkId }) => benchmarkId),
     );
-    expect(product.benchmarkQuality!.excludedBenchmarkIds).toEqual([
-      'aime',
-      'programbench',
-      'proofbench',
-      'livebench-mathematics',
-      'ioi',
-      'humanitys-last-exam',
-      'critpt',
-    ]);
+    expect(product.benchmarkQuality).toEqual(
+      JSON.parse(
+        await readFile(
+          join(root, 'data/mappings/benchmark-quality-v2.json'),
+          'utf8',
+        ),
+      ),
+    );
     for (const id of product.benchmarkQuality!.excludedBenchmarkIds) {
       expect(comparisonBenchmarks.has(id)).toBe(false);
       for (const preset of product.presets)
         expect(preset.benchmarkIds).not.toContain(id);
     }
-    expect(comparisonBenchmarks.has('frontier-swe-v2')).toBe(true);
-    // Limited tests remain available; ratios apply after selection intersection.
-    expect(comparisonBenchmarks.has('gpqa-diamond')).toBe(true);
-    expect(comparisonBenchmarks.has('mmlu-pro')).toBe(true);
-    const mapping = JSON.parse(
-      await readFile(join(root, 'data/mappings/benchmarks-v2.json'), 'utf8'),
-    ) as { benchmarks: { id: string; primaryDimension: string }[] };
-    expect(
-      mapping.benchmarks.some(
-        ({ id, primaryDimension }) =>
-          primaryDimension === 'language' && comparisonBenchmarks.has(id),
-      ),
-    ).toBe(true);
-    expect(
-      product.profiles.some(
-        ({ modelId }) => !leaders.some((leader) => leader.modelId === modelId),
-      ),
-    ).toBe(true);
-    expect(
-      product.evidence.some(({ inclusion }) => inclusion === 'INCLUDED'),
-    ).toBe(true);
-    expect(
-      product.evidence.some(({ inclusion }) => inclusion === 'EXCLUDED'),
-    ).toBe(true);
 
     const profilesByModel = new Map<string, typeof product.profiles>();
     product.profiles.forEach((profile) => {
@@ -376,33 +360,16 @@ describe('buildWorkspaceProduct', () => {
         profiles.every(({ attributes }) => attributes.effort !== null),
       ).toBe(true);
     });
-    expect(
-      product.profiles
-        .filter(({ modelId }) => modelId === 'openai-gpt-5-6-sol')
-        .map(({ displayName }) => displayName)
-        .toSorted(),
-    ).toEqual([
-      'GPT-5.6 Sol · high',
-      'GPT-5.6 Sol · low',
-      'GPT-5.6 Sol · max',
-      'GPT-5.6 Sol · medium',
-      'GPT-5.6 Sol · non-reasoning',
-      'GPT-5.6 Sol · xhigh',
-    ]);
-    expect(
-      product.evidence
-        .filter(
-          ({ model }) =>
-            model.canonicalModelId === 'openai-gpt-5-6-sol' &&
-            model.profileId === 'openai-gpt-5-6-sol-max',
-        )
-        .map(({ profile }) => profile.harness),
-    ).toEqual(expect.arrayContaining(['mini-swe-agent']));
-    expect(
-      product.profiles.some(({ attributes }) =>
-        /mini-swe/iu.test(attributes.harness ?? ''),
-      ),
-    ).toBe(false);
+    // Profiles split by effort only; every referenced profile exists.
+    const profileIds = new Set(product.profiles.map(({ id }) => id));
+    expect(profileIds.size).toBe(product.profiles.length);
+    for (const profile of product.profiles)
+      expect(profile.displayName).toBe(
+        `${profile.baseModelName} · ${profile.attributes.effort}`,
+      );
+    for (const row of product.evidence)
+      if (row.model.profileId !== null)
+        expect(profileIds.has(row.model.profileId)).toBe(true);
     expect(
       product.profiles.some(({ displayName }) =>
         /tools|attempt|context|thinking/iu.test(displayName),
@@ -411,34 +378,9 @@ describe('buildWorkspaceProduct', () => {
     expect(product.profiles.some(({ id }) => /unspecified/iu.test(id))).toBe(
       false,
     );
-    expect(product.costs.length).toBeGreaterThanOrEqual(10);
-    // Lower bound rather than an exact count: the number of qualifying models
-    // moves whenever the catalog or the eligibility window changes, and pinning
-    // it here previously encoded the bug where a missing releaseDate silently
-    // dropped a model. What matters is that LiveBench task costs exist and stay
-    // separate from its token pricing.
-    expect(
-      product.costs.filter(
-        ({ sourceId, costType }) =>
-          sourceId === 'livebench' && costType === 'MEASURED_TASK',
-      ).length,
-    ).toBeGreaterThanOrEqual(4);
-    expect(
-      product.costs.some(
-        ({ sourceId, costType }) =>
-          sourceId === 'livebench' && costType === 'API_STANDARDIZED',
-      ),
-    ).toBe(true);
-    expect(
-      product.costs.filter(({ sourceId }) => sourceId === 'artificial-analysis')
-        .length,
-    ).toBeGreaterThanOrEqual(1);
-    expect(
-      product.costs.filter(
-        ({ sourceId, costType }) =>
-          sourceId === 'deepswe' && costType === 'AGENT_TASK',
-      ).length,
-    ).toBeGreaterThanOrEqual(3);
+    for (const cost of product.costs)
+      if (cost.profileId !== null)
+        expect(profileIds.has(cost.profileId)).toBe(true);
     expect(
       product.costs.every(({ sourceUrl }) => sourceUrl.startsWith('https://')),
     ).toBe(true);

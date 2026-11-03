@@ -1,5 +1,3 @@
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   commonQualityBenchmarks,
@@ -7,234 +5,284 @@ import {
   chooseDefaultCohort,
   selectEligibleFrontier,
 } from './generate-frontier-set.js';
-import { loadWorkspaceCoverageData } from './coverage-matrix.js';
 import {
+  AA_FRONTIER_POLICY,
   rankAaModels,
-  selectAaTopTen,
   unresolvedAaRows,
 } from './frontier-selection.js';
-import {
-  FrontierIdentitiesSchema,
-  resolveFrontierIdentities,
-} from './frontier-identities.js';
-import {
-  BenchmarkDimensionMappingSchema,
-  BenchmarkQualityPolicySchema,
-  applyProductProfilePolicy,
-  getComparisonOnlyBenchmarkIds,
-  type CandidateResult,
+import type {
+  BenchmarkDimensionMapping,
+  BenchmarkQualityPolicy,
+  CandidateResult,
 } from './index.js';
 
-const root = resolve(import.meta.dirname, '../../..');
-const read = async (name: string) =>
-  JSON.parse(await readFile(resolve(root, 'data/mappings', name), 'utf8'));
+// Synthetic policy fixture: twelve AA-ranked models (m01 highest), each scored
+// by org-a on the shared tests and org-b on agent-b; only the top five also
+// carry the two coding tests, so larger cohorts lose them.
+const benchmarks = [
+  ['reason-a', 'reasoning'],
+  ['reason-b', 'reasoning'],
+  ['excluded-x', 'reasoning'],
+  ['know-a', 'knowledge'],
+  ['know-b', 'knowledge'],
+  ['limited-k', 'knowledge'],
+  ['code-a', 'coding'],
+  ['code-b', 'coding'],
+  ['agent-a', 'agentic'],
+  ['agent-b', 'agentic'],
+  ['cmp-only', 'agentic'],
+] as const;
+const mapping = {
+  schemaVersion: 'benchmark-dimensions-v2',
+  dimensions: [
+    'reasoning',
+    'knowledge',
+    'comprehension',
+    'coding',
+    'agentic',
+    'language',
+  ],
+  benchmarks: benchmarks.map(([id, primaryDimension]) => ({
+    id,
+    primaryDimension,
+    secondaryDimensions: [],
+    ...(id === 'cmp-only' ? { comparisonOnly: true } : {}),
+  })),
+} as BenchmarkDimensionMapping;
+const quality: BenchmarkQualityPolicy = {
+  reviewedAt: '2026-01-01',
+  evidencePath: 'fixture',
+  excludedBenchmarkIds: ['excluded-x'],
+  limitedBenchmarkIds: ['limited-k'],
+  minOtherBenchmarksPerLimited: 2,
+};
+const evidenceId = `sha256:${'a'.repeat(64)}`;
 
-async function workspace() {
-  const input = await loadWorkspaceCoverageData(root);
-  const mapping = BenchmarkDimensionMappingSchema.parse(
-    await read('benchmarks-v2.json'),
-  );
-  const quality = BenchmarkQualityPolicySchema.parse(
-    await read('benchmark-quality-v2.json'),
-  );
-  const identities = FrontierIdentitiesSchema.parse(
-    await read('frontier-identities.json'),
-  );
-  const candidates = applyProductProfilePolicy(
-    resolveFrontierIdentities(input.sourceCandidates, identities),
-    input.catalog,
-    input.profilePolicy,
-    getComparisonOnlyBenchmarkIds(mapping),
-  );
-  return { candidates, mapping, quality };
-}
-
-/** The ten AA-ranked models that pass the frontier eligibility policy. */
-async function eligibleWorkspace() {
-  const data = await workspace();
-  const eligibility = selectEligibleFrontier(
-    data.candidates,
-    rankAaModels(data.candidates),
-    unresolvedAaRows(data.candidates) as CandidateResult[],
-    data.mapping,
-    data.quality,
-  );
+const row = (
+  modelId: string | null,
+  benchmarkId: string,
+  sourceId: string,
+  options: Partial<CandidateResult> & { effort?: string; score?: number } = {},
+): CandidateResult => {
+  const { effort = 'max', score = 50, ...overrides } = options;
   return {
-    ...data,
-    leaders: eligibility.leaders,
-    profileIds: eligibility.leaders.map(({ profileId }) => profileId!),
+    schemaVersion: 'candidate-result-v1',
+    id: `${sourceId}:${benchmarkId}:${modelId}-${effort}`,
+    sourceId,
+    sourceRole: 'INDEPENDENT',
+    benchmarkId,
+    benchmarkVersion: null,
+    model: {
+      rawName: modelId ?? 'Unknown',
+      canonicalModelId: modelId,
+      profileId: modelId && `${modelId}-${effort}`,
+    },
+    profile: {
+      effort,
+      thinking: null,
+      tools: null,
+      harness: null,
+      contextWindowTokens: null,
+      quantization: null,
+      attempts: null,
+    },
+    metric: {
+      id: 'score',
+      name: 'Score',
+      unit: 'percent',
+      higherIsBetter: true,
+    },
+    rawScore: score,
+    normalizedScore: score,
+    acquisitionStatus: 'FULL',
+    inclusion: 'INCLUDED',
+    exclusionReason: null,
+    sourceUrl: 'https://example.test/result',
+    observedAt: '2026-01-01T00:00:00.000Z',
+    sourcePublishedAt: null,
+    evidenceIds: [evidenceId],
+    provenance: { rawScore: { evidenceId, method: 'MANUAL', locator: '$' } },
+    ...overrides,
   };
-}
+};
+const aa = (modelId: string | null, score: number, effort = 'max') =>
+  row(modelId, AA_FRONTIER_POLICY.benchmarkId, AA_FRONTIER_POLICY.sourceId, {
+    effort,
+    score,
+    normalizedScore: null,
+    inclusion: 'EXCLUDED',
+    exclusionReason: 'composite',
+  });
+
+const models = Array.from(
+  { length: 12 },
+  (_, i) => `m${String(i + 1).padStart(2, '0')}`,
+);
+const shared = [
+  'reason-a',
+  'reason-b',
+  'excluded-x',
+  'know-a',
+  'know-b',
+  'limited-k',
+  'agent-a',
+  'cmp-only',
+  'unmapped',
+];
+const scoredBy = (
+  modelId: string,
+  sourceId: string,
+  ids: readonly string[],
+  effort = 'max',
+) => ids.map((id) => row(modelId, id, sourceId, { effort }));
+const base = (): CandidateResult[] =>
+  models.flatMap((modelId, index) => [
+    aa(modelId, 100 - index),
+    ...scoredBy(modelId, 'org-a', [
+      ...shared,
+      ...(index < 5 ? ['code-a', 'code-b'] : []),
+    ]),
+    ...scoredBy(modelId, 'org-b', ['agent-b']),
+  ]);
+
+const eligible = (
+  candidates: CandidateResult[],
+  unresolved: CandidateResult[] = [],
+) =>
+  selectEligibleFrontier(
+    candidates,
+    rankAaModels(candidates),
+    [...unresolved, ...(unresolvedAaRows(candidates) as CandidateResult[])],
+    mapping,
+    quality,
+  );
+const profilesOf = (count: number) =>
+  models.slice(0, count).map((m) => `${m}-max`);
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 12 tests in five active categories', async () => {
-    const { candidates, mapping, quality } = await workspace();
-    expect(selectAaTopTen(candidates).status).toBe('selected');
-    const { profileIds } = await eligibleWorkspace();
-    expect(profileIds).toHaveLength(10);
+  it('intersects one profile per model and applies quality exclusions by dimension', () => {
     const result = commonQualityBenchmarks(
-      candidates,
-      profileIds.slice(0, 8),
+      base(),
+      profilesOf(8),
       mapping,
       quality,
     );
-    // 2026-11-03: Wonder Full now qualifies through Surge and Vals; the
-    // first eight share HLAB. Carbon's withdrawn SciCode stays absent.
-    expect(result.benchmarkIds).toHaveLength(12);
-    expect(result.benchmarkIds).not.toContain('scicode');
+    // Comparison-only and unmapped tests never enter; the excluded test is
+    // common but removed after the intersection.
+    expect(result.commonBeforeQuality).toEqual([
+      'agent-a',
+      'agent-b',
+      'excluded-x',
+      'know-a',
+      'know-b',
+      'limited-k',
+      'reason-a',
+      'reason-b',
+    ]);
+    expect(result.excludedBenchmarkIds).toEqual(['excluded-x']);
+    expect(result.benchmarkIds).toEqual([
+      'agent-a',
+      'agent-b',
+      'know-a',
+      'know-b',
+      'limited-k',
+      'reason-a',
+      'reason-b',
+    ]);
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
       'knowledge',
-      'comprehension',
-      'coding',
       'agentic',
     ]);
     expect(result.dimensions.map((d) => [d.id, d.benchmarkIds.length])).toEqual(
       [
-        ['reasoning', 1],
-        ['knowledge', 2],
-        ['comprehension', 1],
-        ['coding', 2],
-        ['agentic', 6],
+        ['reasoning', 2],
+        ['knowledge', 3],
+        ['comprehension', 0],
+        ['coding', 0],
+        ['agentic', 2],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 12)).toBe(true);
+    expect(result.profiles.map(({ profileId }) => profileId)).toEqual(
+      profilesOf(8),
+    );
+    expect(result.profiles.every((p) => p.results.length === 7)).toBe(true);
+    expect(result.qualityShareRemovedBenchmarkIds).toEqual([]);
   });
 
-  it('never pools missing tests from another effort profile', async () => {
-    const { candidates, mapping, quality, profileIds } =
-      await eligibleWorkspace();
-    const selectedProfileIds = profileIds.slice(0, 8);
-    expect(
-      commonQualityBenchmarks(candidates, selectedProfileIds, mapping, quality)
-        .benchmarkIds,
-    ).toContain('critpt-v2');
-    const moved = candidates.map((c) =>
-      c.model.profileId === selectedProfileIds[0] &&
-      c.benchmarkId === 'critpt-v2'
-        ? {
-            ...c,
-            model: { ...c.model, profileId: `${c.model.profileId}-other` },
-          }
+  it('never pools missing tests from another effort profile', () => {
+    const moved = base().map((c) =>
+      c.model.profileId === 'm01-max' && c.benchmarkId === 'reason-a'
+        ? { ...c, model: { ...c.model, profileId: 'm01-high' } }
         : c,
     );
     const result = commonQualityBenchmarks(
       moved,
-      selectedProfileIds,
+      profilesOf(8),
       mapping,
       quality,
     );
-    expect(result.benchmarkIds).not.toContain('critpt-v2');
+    expect(result.benchmarkIds).not.toContain('reason-a');
     expect(
       result.dimensions.find(({ id }) => id === 'reasoning')!.benchmarkIds,
-    ).not.toContain('critpt-v2');
+    ).toEqual(['reason-b']);
   });
 
-  it('enforces limited-test share after the profile intersection', async () => {
-    const { candidates, mapping, quality, profileIds } =
-      await eligibleWorkspace();
-    // Fix the eight profiles that share AA-LCR and sufficient unrestricted
-    // comprehension tests, independently of new frontier eligibility.
-    const selectedProfileIds = [
-      ...profileIds.filter(
-        (id) =>
-          ![
-            'google-gemini-4-carbon-high',
-            'meta-muse-wonder-full-max',
-            'moonshot-kimi-k3-1-pro-max',
-          ].includes(id),
-      ),
-      'meta-muse-wonder-max',
-    ];
-    expect(
-      commonQualityBenchmarks(candidates, selectedProfileIds, mapping, quality)
-        .benchmarkIds,
-    ).toContain('aa-lcr');
-    const reduced = candidates.filter(
-      (c) => !['medscribe', 'gdp-pdf', 'gdp-xlsx'].includes(c.benchmarkId),
-    );
+  it('enforces limited-test share after the profile intersection', () => {
+    // One fewer regular knowledge test leaves no room for the limited test.
+    const reduced = base().filter((c) => c.benchmarkId !== 'know-b');
     const result = commonQualityBenchmarks(
       reduced,
-      selectedProfileIds,
+      profilesOf(8),
       mapping,
       quality,
     );
-    expect(result.commonBeforeQuality).toContain('aa-lcr');
-    expect(result.benchmarkIds).not.toContain('aa-lcr');
-    expect(result.qualityShareRemovedBenchmarkIds).toContain('aa-lcr');
+    expect(result.commonBeforeQuality).toContain('limited-k');
+    expect(result.benchmarkIds).not.toContain('limited-k');
+    expect(result.qualityShareRemovedBenchmarkIds).toEqual(['limited-k']);
   });
 
-  it('builds exact AA prefixes with independently derived quality intersections', async () => {
-    const { candidates, mapping, quality, leaders, profileIds } =
-      await eligibleWorkspace();
+  it('builds exact AA prefixes with independently derived quality intersections', () => {
+    const candidates = base();
+    const { leaders } = eligible(candidates);
     const cohorts = createAaCohorts(candidates, leaders, mapping, quality);
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-11-03: Riemann v1.1 adds coverage to the first five cohorts;
-    // Wonder Full replaces Wonder 1.0 and contributes HLAB to the first eight.
-    expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      14, 14, 14, 14, 12, 12, 12, 11, 11,
-    ]);
-    expect(cohorts[6]!.id).toBe('aa-frontier');
-    expect(chooseDefaultCohort(cohorts).id).toBe('aa-frontier');
-    // Opus and Astra share ProofBench; Carbon does not. Keep exercising the
-    // quality exclusion using these two qualified profiles.
-    const proofbenchPair = commonQualityBenchmarks(
-      candidates,
-      profileIds.slice(1, 3),
-      mapping,
-      quality,
-    );
-    expect(proofbenchPair.commonBeforeQuality).toContain('proofbench');
-    expect(proofbenchPair.excludedBenchmarkIds).toContain('proofbench');
-    expect(proofbenchPair.benchmarkIds).not.toContain('proofbench');
+    expect(cohorts.map(({ id }) => id)).toContain('aa-frontier');
+    expect(
+      cohorts.find(({ id }) => id === 'aa-frontier')!.targetModelCount,
+    ).toBe(8);
     for (const cohort of cohorts) {
-      expect(cohort.profileIds).toEqual(
-        profileIds.slice(0, cohort.targetModelCount),
-      );
+      expect(cohort.profileIds).toEqual(profilesOf(cohort.targetModelCount));
+      expect(cohort.modelIds).toEqual(models.slice(0, cohort.targetModelCount));
+      // Coding tests are shared only while every member is among the top five.
+      const expected = [
+        ...(cohort.targetModelCount <= 5 ? ['code-a', 'code-b'] : []),
+        ...['agent-a', 'agent-b', 'know-a', 'know-b', 'limited-k'],
+        ...['reason-a', 'reason-b'],
+      ].sort();
+      expect(cohort.benchmarkIds).toEqual(expected);
       expect(cohort.profiles.map(({ profileId }) => profileId)).toEqual(
         cohort.profileIds,
       );
-      expect(
-        cohort.profiles.every(
-          ({ results }) => results.length === cohort.benchmarkIds.length,
-        ),
-      ).toBe(true);
-      expect(cohort.benchmarkIds).toEqual(
-        [
-          'aa-briefcase',
-          'aa-omniscience',
-          'critpt-v2',
-          'frontier-code-2-0',
-          'gdp-pdf',
-          'gdpval-aa',
-          'hle-diamond',
-          'legal-research',
-          'terminal-bench-4-0',
-          'terminal-bench-science',
-          'vibe-code-bench',
-          ...(cohort.targetModelCount < 6 ? ['automationbench'] : []),
-          ...(cohort.targetModelCount < 6 ? ['riemann-bench'] : []),
-          ...(cohort.targetModelCount < 9 ? ['hlab'] : []),
-        ].sort(),
-      );
+      for (const { results } of cohort.profiles)
+        expect(results.map(({ benchmarkId }) => benchmarkId)).toEqual(expected);
     }
+    // Same test count from eight through ten: the default grows to ten.
+    expect(chooseDefaultCohort(cohorts).id).toBe('aa-top-10');
+    expect(() =>
+      createAaCohorts(candidates, leaders.slice(0, 9), mapping, quality),
+    ).toThrow('Expected ten resolved AA leaders');
   });
 
-  it('requires at least one common test and rejects duplicate profiles', async () => {
-    const { mapping, quality } = await workspace();
+  it('requires at least one common test and rejects duplicate profiles', () => {
     expect(() =>
       commonQualityBenchmarks([], ['missing'], mapping, quality),
     ).toThrow('no common');
     expect(() =>
-      commonQualityBenchmarks(
-        [] as CandidateResult[],
-        ['a', 'a'],
-        mapping,
-        quality,
-      ),
+      commonQualityBenchmarks([], ['a', 'a'], mapping, quality),
     ).toThrow('distinct');
   });
 });
@@ -270,22 +318,29 @@ describe('default cohort selection', () => {
 });
 
 describe('frontier eligibility', () => {
-  it('skips AA leaders scored by fewer than two independent organizations', async () => {
-    const { candidates, mapping, quality } = await workspace();
-    // Control this policy case: keep Wonder Full's AA and Vals evidence,
-    // omitting its newly published Surge v1.1 measurement.
-    const oneOrganization = candidates.filter(
-      (row) =>
-        row.model.canonicalModelId !== 'meta-muse-wonder-full' ||
-        ['artificial-analysis', 'vals-ai'].includes(row.sourceId),
-    );
-    const result = selectEligibleFrontier(
-      oneOrganization,
-      rankAaModels(oneOrganization),
-      unresolvedAaRows(oneOrganization) as CandidateResult[],
-      mapping,
-      quality,
-    );
+  it('skips AA leaders scored by fewer than two independent organizations', () => {
+    const dropped: Record<string, string[]> = {
+      m03: ['org-b'],
+      m04: ['org-b'],
+      m05: ['org-a', 'org-b'],
+    };
+    const candidates = [
+      ...base().filter(
+        (r) => !dropped[r.model.canonicalModelId!]?.includes(r.sourceId),
+      ),
+      // m03 keeps one organization; AA, vendor, excluded and comparison-only
+      // rows from other sources do not count.
+      row('m03', 'agent-b', 'artificial-analysis'),
+      row('m03', 'agent-b', 'm03-releases', { sourceRole: 'VENDOR' }),
+      row('m03', 'excluded-x', 'org-c'),
+      row('m03', 'cmp-only', 'org-d'),
+      // Surge boards count as one organization: enough with org-a for m04,
+      // not enough on their own for m05.
+      row('m04', 'agent-b', 'surge-x'),
+      row('m05', 'agent-a', 'surge-x'),
+      row('m05', 'agent-b', 'surge-y'),
+    ];
+    const result = eligible(candidates);
     expect(result.leaders).toHaveLength(10);
     // AA ranks are kept, so a skipped model leaves a gap in the sequence.
     expect(
@@ -295,141 +350,95 @@ describe('frontier eligibility', () => {
         organizations,
       })),
     ).toEqual([
-      { modelId: 'meta-muse-wonder-full', rank: 8, organizations: ['vals-ai'] },
+      { modelId: 'm03', rank: 3, organizations: ['org-a'] },
+      { modelId: 'm05', rank: 5, organizations: ['surge'] },
     ]);
-    expect(result.leaders[0]).toMatchObject({
-      modelId: 'google-gemini-4-carbon',
-      rank: 1,
-      profileId: 'google-gemini-4-carbon-high',
-      organizations: [
-        'frontier-code',
-        'surge',
-        'vals-ai',
-        'zapier-automationbench',
-      ],
-    });
-    expect(result.leaders.map(({ modelId }) => modelId)).not.toContain(
-      'meta-muse-spark-1-3',
-    );
-    for (const leader of result.leaders) {
-      expect(leader.organizations.length).toBeGreaterThanOrEqual(2);
-      expect(leader.organizations).not.toContain('artificial-analysis');
-      expect(leader.organizations.some((id) => id.endsWith('-releases'))).toBe(
-        false,
-      );
-      expect(leader.organizations.some((id) => id.startsWith('surge-'))).toBe(
-        false,
-      );
-    }
-  });
-
-  it('represents each model by its qualifying effort with the most organizations', async () => {
-    const { candidates, mapping, quality } = await workspace();
-    const result = selectEligibleFrontier(
-      candidates,
-      rankAaModels(candidates),
-      unresolvedAaRows(candidates) as CandidateResult[],
-      mapping,
-      quality,
-    );
-    const fable = result.leaders.find(
-      ({ modelId }) => modelId === 'anthropic-claude-fable-5-1',
-    )!;
-    // 2026-10-28 data: AA v5 ranks xhigh above max, but only max is also
-    // scored by LiveBench, Vals and Surge; ranking keeps the xhigh score.
-    expect(fable).toMatchObject({
-      aaWinningProfileId: 'anthropic-claude-fable-5-1-xhigh',
-      profileId: 'anthropic-claude-fable-5-1-max',
-    });
-    expect(fable.representativeScore).toBeLessThan(fable.score);
-    expect(fable.organizations).toEqual(
-      expect.arrayContaining(['livebench', 'surge', 'vals-ai']),
-    );
-    for (const leader of result.leaders) {
-      const row = candidates.find(
-        ({ id }) => id === leader.representativeResultId,
-      )!;
-      expect(row.model.profileId).toBe(leader.profileId);
-      expect(row.rawScore).toBe(leader.representativeScore);
-    }
-  });
-
-  it('counts an organization even when another source wins the same benchmark', async () => {
-    const { candidates, mapping, quality } = await workspace();
-    // Restrict Wonder Full to Vals and AA for this test case. A second
-    // organization measuring one of the same Vals benchmarks must count, even
-    // though only one of the two rows is the current product measurement.
-    const valsRow = candidates.find(
-      (row) =>
-        row.sourceId === 'vals-ai' &&
-        row.inclusion === 'INCLUDED' &&
-        row.model.profileId === 'meta-muse-wonder-full-max' &&
-        row.normalizedScore !== null &&
-        !quality.excludedBenchmarkIds.includes(row.benchmarkId),
-    )!;
-    const duplicate = {
-      ...valsRow,
-      id: `${valsRow.id}:epoch-copy`,
-      sourceId: 'epoch-ai',
-      normalizedScore: valsRow.normalizedScore! - 1,
-      rawScore: valsRow.rawScore - 1,
-    };
-    const withDuplicate = [
-      ...candidates.filter(
-        (row) =>
-          row.model.canonicalModelId !== 'meta-muse-wonder-full' ||
-          ['artificial-analysis', 'vals-ai'].includes(row.sourceId),
-      ),
-      duplicate,
-    ];
-    const result = selectEligibleFrontier(
-      withDuplicate,
-      rankAaModels(withDuplicate),
-      unresolvedAaRows(withDuplicate) as CandidateResult[],
-      mapping,
-      quality,
+    expect(result.leaders.map(({ modelId }) => modelId)).toEqual(
+      models.filter((m) => !['m03', 'm05'].includes(m)),
     );
     expect(
-      result.leaders.find(({ modelId }) => modelId === 'meta-muse-wonder-full')
-        ?.organizations,
-    ).toEqual(['epoch-ai', 'vals-ai']);
+      result.leaders.find(({ modelId }) => modelId === 'm04')!.organizations,
+    ).toEqual(['org-a', 'surge']);
   });
 
-  it('fails closed when fewer than ten models qualify', async () => {
-    const { candidates, mapping, quality } = await workspace();
-    const aaOnly = candidates.filter(
+  it('represents each model by its qualifying effort with the most organizations', () => {
+    const candidates = [
+      ...base(),
+      // m01's best AA effort is measured by one organization only.
+      aa('m01', 101, 'xhigh'),
+      ...scoredBy('m01', 'org-a', ['agent-a'], 'xhigh'),
+      // m02 high and max tie on organizations: the higher AA score wins.
+      aa('m02', 97.5, 'high'),
+      ...scoredBy('m02', 'org-a', ['agent-a'], 'high'),
+      ...scoredBy('m02', 'org-b', ['agent-a'], 'high'),
+    ];
+    const result = eligible(candidates);
+    const leader = (id: string) =>
+      result.leaders.find(({ modelId }) => modelId === id)!;
+    expect(leader('m01')).toMatchObject({
+      aaWinningProfileId: 'm01-xhigh',
+      profileId: 'm01-max',
+      score: 101,
+      representativeScore: 100,
+    });
+    expect(leader('m02').profileId).toBe('m02-max');
+    // A third organization on m02 high outweighs its lower AA score.
+    const more = eligible([
+      ...candidates,
+      ...scoredBy('m02', 'org-c', ['agent-a'], 'high'),
+    ]);
+    expect(more.leaders.find(({ modelId }) => modelId === 'm02')).toMatchObject(
+      {
+        profileId: 'm02-high',
+        representativeScore: 97.5,
+        organizations: ['org-a', 'org-b', 'org-c'],
+      },
+    );
+    for (const l of result.leaders) {
+      const rep = candidates.find(({ id }) => id === l.representativeResultId)!;
+      expect(rep.model.profileId).toBe(l.profileId);
+      expect(rep.rawScore).toBe(l.representativeScore);
+    }
+  });
+
+  it('counts an organization even when another source wins the same benchmark', () => {
+    const valsRow = row('m03', 'agent-a', 'org-a');
+    const candidates = [
+      ...base().filter(
+        (r) => r.model.canonicalModelId !== 'm03' || r.sourceId !== 'org-b',
+      ),
+      {
+        ...valsRow,
+        id: 'copy',
+        sourceId: 'org-e',
+        rawScore: 49,
+        normalizedScore: 49,
+      },
+    ];
+    expect(
+      eligible(candidates).leaders.find(({ modelId }) => modelId === 'm03')
+        ?.organizations,
+    ).toEqual(['org-a', 'org-e']);
+  });
+
+  it('fails closed when fewer than ten models qualify', () => {
+    const aaOnly = base().filter(
       ({ sourceId }) => sourceId === 'artificial-analysis',
     );
-    expect(() =>
-      selectEligibleFrontier(
-        aaOnly,
-        rankAaModels(aaOnly),
-        [],
-        mapping,
-        quality,
-      ),
-    ).toThrow(/Only 0 AA models meet the frontier eligibility policy/u);
+    expect(() => eligible(aaOnly)).toThrow(
+      /Only 0 AA models meet the frontier eligibility policy/u,
+    );
   });
 
-  it('fails closed when an unresolved identity scores inside the window', async () => {
-    const { candidates, mapping, quality } = await workspace();
-    const ranked = rankAaModels(candidates);
-    const leader = candidates.find(({ id }) => id === ranked[0]!.resultId)!;
-    const unresolved = {
-      ...leader,
-      id: 'unresolved-leader',
-      model: { ...leader.model, canonicalModelId: null, profileId: null },
-    };
-    expect(() =>
-      selectEligibleFrontier(
-        candidates,
-        ranked,
-        [unresolved],
-        mapping,
-        quality,
-      ),
-    ).toThrow(
-      /Unresolved AA identities can affect the eligible frontier: unresolved-leader/u,
+  it('fails closed only when an unresolved identity scores inside the window', () => {
+    const unresolved = (score: number) => ({
+      ...aa(null, score),
+      id: `unresolved-${score}`,
+    });
+    // The tenth eligible leader (m10) scores 91.
+    expect(() => eligible(base(), [unresolved(91)])).toThrow(
+      /Unresolved AA identities can affect the eligible frontier: unresolved-91/u,
     );
+    expect(eligible(base(), [unresolved(90.5)]).leaders).toHaveLength(10);
   });
 });

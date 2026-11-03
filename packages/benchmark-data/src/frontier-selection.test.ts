@@ -107,42 +107,44 @@ describe('AA frontier selection', () => {
         sourceId === AA_FRONTIER_POLICY.sourceId &&
         benchmarkId === AA_FRONTIER_POLICY.benchmarkId,
     );
-    expect(
-      aaPopulation.some(({ model }) => model.canonicalModelId === null),
-    ).toBe(true);
     const result = selectAaTopTen(mapped);
     expect(result.status).toBe('selected');
     expect(result.issues).toEqual([]);
-    // 2026-10-30 data: Intelligence Index v5.0.
-    expect(result.selectedModelIds).toEqual([
-      'google-gemini-4-carbon',
-      'anthropic-claude-opus-5-5',
-      'openai-gpt-6-astra',
-      'openai-gpt-6-1-sol',
-      'anthropic-claude-sonnet-5-5',
-      'openai-gpt-6-1-terra',
-      'google-gemini-4-argon',
-      'meta-muse-wonder-full',
-      'anthropic-claude-fable-5-1',
-      'moonshot-kimi-k3-1-pro',
-    ]);
-    expect(result.selectedProfileIds).toEqual([
-      'google-gemini-4-carbon-high',
-      'anthropic-claude-opus-5-5-max',
-      'openai-gpt-6-astra-max',
-      'openai-gpt-6-1-sol-max',
-      'anthropic-claude-sonnet-5-5-max',
-      'openai-gpt-6-1-terra-max',
-      'google-gemini-4-argon-high',
-      'meta-muse-wonder-full-max',
-      'anthropic-claude-fable-5-1-xhigh',
-      'moonshot-kimi-k3-1-pro-max',
-    ]);
-    // Nanbeige4.3-33B has an exact official model-card identity (2026-11-03).
-    expect(result.resolvedModelCount).toBe(27);
-    expect(result.topTen[8]?.modelId).toBe('anthropic-claude-fable-5-1');
-    expect(result.boundary?.afterRank).toBe(9);
-    expect(result.gapAudit.selectedModelIds).toHaveLength(9);
+    // Invariants only; the ranking itself is data reviewed at refresh time.
+    const resolved = new Set(
+      aaPopulation.flatMap(({ model }) => model.canonicalModelId ?? []),
+    );
+    expect(result.resolvedModelCount).toBe(resolved.size);
+    expect(result.topTen.map(({ rank }) => rank)).toEqual(
+      Array.from({ length: 10 }, (_, index) => index + 1),
+    );
+    expect(result.selectedModelIds).toEqual(
+      result.topTen.map(({ modelId }) => modelId),
+    );
+    expect(new Set(result.selectedModelIds).size).toBe(10);
+    for (const [index, leader] of result.topTen.entries()) {
+      expect(result.selectedProfileIds[index]).toBe(leader.profileId);
+      const best = Math.max(
+        ...aaPopulation
+          .filter(({ model }) => model.canonicalModelId === leader.modelId)
+          .map(({ rawScore }) => rawScore),
+      );
+      expect(leader.score).toBe(best);
+      if (index)
+        expect(leader.score).toBeLessThanOrEqual(
+          result.topTen[index - 1]!.score,
+        );
+      expect(leader.evidenceIds).toHaveLength(1);
+    }
+    const tenth = result.topTen[9]!.score;
+    expect(
+      aaPopulation.some(
+        ({ model, rawScore }) =>
+          model.canonicalModelId !== null &&
+          !result.selectedModelIds.includes(model.canonicalModelId) &&
+          rawScore > tenth,
+      ),
+    ).toBe(false);
   });
 
   it('selects the models above the gap and preserves version, scores and evidence', () => {
