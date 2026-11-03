@@ -1,4 +1,10 @@
 import { expect, test } from '@playwright/test';
+import {
+  effortSelect,
+  findModels,
+  sharedEfforts,
+  profileLabel,
+} from './product-data';
 
 test('copies the visible scores, selected efforts and sort order as Markdown', async ({
   page,
@@ -45,24 +51,22 @@ test('copies the visible scores, selected efforts and sort order as Markdown', a
     ]);
   };
   await checkCopy();
+  // Pin one effort of a multi-effort model, then compare another.
+  const [model] = findModels(1, ([p]) => Boolean(sharedEfforts(p!)));
+  const [kept, compared] = sharedEfforts(model!)!;
   await page.getByRole('button', { name: /Search Models/ }).click();
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
-  await page
-    .getByRole('checkbox', { name: 'GPT-6 Astra', exact: true })
-    .check();
+  await page.getByRole('checkbox', { name: model!.name, exact: true }).check();
   await page.keyboard.press('Escape');
-  const effort = page.getByRole('combobox', {
-    name: 'Select profile for GPT-6 Astra',
-    exact: true,
-  });
-  await effort.selectOption('openai-gpt-6-astra-medium');
+  const effort = effortSelect(page, model!);
+  await effort.selectOption(kept!);
   await page
     .getByRole('button', {
-      name: 'Keep GPT-6 Astra medium for comparison',
+      name: `Keep ${profileLabel(kept!).replace(' · ', ' ')} for comparison`,
       exact: true,
     })
     .click();
-  await effort.selectOption('openai-gpt-6-astra-high');
+  await effort.selectOption(compared!);
   if (!isMobile) {
     await page
       .locator('.leaderboard-table')

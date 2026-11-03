@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import benchmarkMappings from '../../../data/mappings/benchmarks.json';
 import displaySetConfig from '../../../data/mappings/display-set.json';
@@ -346,29 +347,16 @@ describe('SourcesConfigSchema', () => {
   it('validates the committed sources.json whitelist', () => {
     const parsed = SourcesConfigSchema.parse(sourcesConfig);
     expect(parsed.schemaVersion).toBe('sources-config-v1');
-    expect(parsed.whitelist).toEqual([
-      'artificial-analysis',
-      'livebench',
-      'deepswe',
-      'frontier-code',
-      'frontier-swe',
-      'surge-chartography',
-      'surge-complex-constraints',
-      'surge-corecraft',
-      'surge-riemann',
-      'surge-dayjob-finance',
-      'surge-dayjob-healthcare',
-      'surge-dayjob-tax',
-      'surge-gdp-xlsx',
-      'epoch-ai',
-      'arc-prize',
-      'zapier-automationbench',
-      'vals-ai',
-      'openai-releases',
-      'anthropic-releases',
-      'google-releases',
-      'xai-releases',
-    ]);
+    expect(new Set(parsed.whitelist).size).toBe(parsed.whitelist.length);
+    for (const sourceId of parsed.whitelist)
+      expect(
+        existsSync(
+          new URL(
+            `../../../data/sources/${sourceId}/manifest.json`,
+            import.meta.url,
+          ),
+        ),
+      ).toBe(true);
   });
 
   it('rejects an empty whitelist or invalid source slug', () => {

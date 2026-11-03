@@ -18,6 +18,10 @@
 
 每日查核另寫 `docs/research/<日期>-benchmark-update-check.md`，與資料更新報告的分工見 [OPERATIONS](docs/OPERATIONS.md#每日-benchmark-查核的兩份文件)。匯入來源的命令與畫面列數核對見 [OPERATIONS §2](docs/OPERATIONS.md#2-刷新來源)。新增模型身分必須有官方證據，不可模糊比對。
 
+## 測試的範圍
+
+測試只保護程式行為與政策規則，資料數值由 release、`data:verify-fresh` 與代理抽查負責。純資料刷新不新增也不修改測試；若測試只因資料變動而失敗，代表它寫死了當期資料，應改成不變量或合成資料，而不是更新數值。改動 parser、計分或建置邏輯時，只為新行為補最小必要的案例。細則見 [OPERATIONS 測試原則](docs/OPERATIONS.md#測試原則)。
+
 ## 何時提交、何時停下來審核
 
 - `complete` 只代表機械檢查通過；還要代理抽查全部相符，才可提交。

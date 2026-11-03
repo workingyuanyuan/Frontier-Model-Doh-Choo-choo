@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { resolve } from 'node:path';
+import sourcesConfig from '../../../data/mappings/sources.json';
 
 import {
   analyzeCoverageMatrix,
@@ -1995,29 +1996,8 @@ describe('coverage-matrix', () => {
       const repoRoot = resolve(import.meta.dirname, '../../..');
       const data = await loadWorkspaceCoverageData(repoRoot);
 
-      expect(data.whitelist).toEqual([
-        'anthropic-releases',
-        'arc-prize',
-        'artificial-analysis',
-        'deepswe',
-        'epoch-ai',
-        'frontier-code',
-        'frontier-swe',
-        'google-releases',
-        'livebench',
-        'openai-releases',
-        'surge-chartography',
-        'surge-complex-constraints',
-        'surge-corecraft',
-        'surge-dayjob-finance',
-        'surge-dayjob-healthcare',
-        'surge-dayjob-tax',
-        'surge-gdp-xlsx',
-        'surge-riemann',
-        'vals-ai',
-        'xai-releases',
-        'zapier-automationbench',
-      ]);
+      // The loader reads exactly the configured whitelist, in sorted order.
+      expect(data.whitelist).toEqual(sourcesConfig.whitelist.toSorted());
       expect(data.sourceCandidates.length).toBeGreaterThan(0);
       expect(data.catalog.models.length).toBeGreaterThan(0);
 

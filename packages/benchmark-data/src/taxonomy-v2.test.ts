@@ -87,42 +87,24 @@ describe('approved capability taxonomy v2', () => {
 });
 
 describe('approved benchmark quality reviews', () => {
-  it('applies the approved exclusions and limitation rule', () => {
-    expect(qualityPolicy.excludedBenchmarkIds).toEqual([
-      'aime',
-      'programbench',
-      'proofbench',
-      'livebench-mathematics',
-      'ioi',
-      'humanitys-last-exam',
-      'critpt',
-    ]);
-    expect(qualityPolicy.limitedBenchmarkIds).toEqual([
-      'aa-lcr',
-      'gpqa-diamond',
-      'legal-bench',
-      'mmlu-pro',
-      'tax-eval-v2',
-    ]);
+  it('applies the exclusions and limitation rule recorded by the latest review', () => {
     expect(qualityPolicy.minOtherBenchmarksPerLimited).toBe(2);
-    expect(qualityPolicy.reviewedAt).toBe('2026-10-28');
-    const review = readArtifact('2026-10-28-benchmark-supersessions.json');
-    expect(qualityPolicy.evidencePath).toBe(
-      'docs/analysis/2026-10-28-benchmark-supersessions.json',
+    const readRepo = (path: string) =>
+      JSON.parse(
+        readFileSync(new URL(`../../../${path}`, import.meta.url), 'utf8'),
+      );
+    expect(readRepo(qualityPolicy.evidencePath).qualityPolicy).toEqual(
+      qualityPolicy,
     );
-    expect(review.qualityPolicy).toEqual(qualityPolicy);
-    // AA Intelligence Index v5 upgrades replace their predecessors.
-    expect(review.addedExcludedBenchmarkIds).toEqual([
-      'humanitys-last-exam',
-      'critpt',
-    ]);
-    expect(review.previousEvidencePath).toBe(
-      'docs/analysis/2026-10-16-benchmark-exclusions.json',
-    );
-    expect(
-      readArtifact('2026-10-16-benchmark-exclusions.json')
-        .addedExcludedBenchmarkIds,
-    ).toEqual(['livebench-mathematics', 'ioi']);
+    // Every review in the chain exists and its exclusions are still applied.
+    for (
+      let path: string | undefined = qualityPolicy.evidencePath;
+      path;
+      path = readRepo(path).previousEvidencePath
+    ) {
+      for (const id of readRepo(path).addedExcludedBenchmarkIds ?? [])
+        expect(qualityPolicy.excludedBenchmarkIds).toContain(id);
+    }
   });
 
   it('ties the exclusion to six exact frontier scores and source evidence locators', () => {
