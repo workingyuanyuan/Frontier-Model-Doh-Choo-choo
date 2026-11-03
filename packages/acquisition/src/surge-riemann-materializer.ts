@@ -3,6 +3,7 @@ import {
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
 import { resolveCatalogModel, slugify } from './materializer-utils.js';
+import { surgeBenchmarkVersion } from './surge-version.js';
 
 export const RIEMANN_PAGE_URL = 'https://surgehq.ai/benchmarks/riemann-bench';
 
@@ -68,14 +69,18 @@ export function materializeRiemann(
 ): {
   candidates: CandidateResult[];
   visibleRows: number;
+  benchmarkVersion: string | null;
   validationReport: string;
 } {
   if (
-    text(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/u)?.[1] ?? '') !==
-    'Riemann-bench'
+    text(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/u)?.[1] ?? '').replace(
+      /\s*v\d+(?:\.\d+)+$/u,
+      '',
+    ) !== 'Riemann-bench'
   ) {
     throw new Error('Riemann-bench page marker missing');
   }
+  const benchmarkVersion = surgeBenchmarkVersion(html);
   const sections = [
     ...html.matchAll(
       /<section\b[^>]*class="[^"]*\blead-main\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gu,
@@ -168,7 +173,7 @@ export function materializeRiemann(
         sourceId: 'surge-riemann',
         sourceRole: 'ORGANIZER',
         benchmarkId: 'riemann-bench',
-        benchmarkVersion: null,
+        benchmarkVersion,
         model: {
           rawName,
           canonicalModelId,
@@ -202,6 +207,16 @@ export function materializeRiemann(
         sourcePublishedAt: null,
         evidenceIds: [context.evidenceId],
         provenance: {
+          ...(benchmarkVersion === null
+            ? {}
+            : {
+                benchmarkVersion: {
+                  evidenceId: context.evidenceId,
+                  locator:
+                    '.lead-hero-title h1 .v2-chip (official inline version markup)',
+                  method: 'DOM',
+                },
+              }),
           rawScore: {
             evidenceId: context.evidenceId,
             locator: `${locator} [data-score] (row ${index + 1}: ${rawName})`,
@@ -224,10 +239,12 @@ export function materializeRiemann(
   return {
     candidates,
     visibleRows: rows.length,
+    benchmarkVersion,
     validationReport: [
       '# Surge Riemann-bench acquisition validation',
       '',
       `- Source: <${RIEMANN_PAGE_URL}>`,
+      `- Benchmark version: ${benchmarkVersion ?? 'unpublished'}.`,
       `- Evidence: \`${context.evidenceId}\``,
       `- Main leaderboard: ${rows.length} rows; rendered browser count: ${context.visualRowCount}.`,
       '- Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.',
@@ -235,7 +252,7 @@ export function materializeRiemann(
       '',
       'Scores are the main leaderboard pass rate percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on and Auto reasoning do not declare an effort tier. Fast is a model variant and stays in the identity lookup. Unresolved model variants retain null canonical identity.',
       '',
-      'The official paper describes 25 private research mathematics problems with unique closed-form answers, programmatic verification, and historical pass@1 estimates from 100 independent runs per problem. The official blog records a pipeline update removing the initial one-hour timeout. The current leaderboard does not label its estimator or confirm current per-row run counts, tools, or harness, so the metric remains pass rate and those profile fields remain null. Benchmark version, context windows, and leaderboard publication dates are unpublished and remain null.',
+      'The official paper describes 25 private research mathematics problems with unique closed-form answers, programmatic verification, and historical pass@1 estimates from 100 independent runs per problem. The official blog records a pipeline update removing the initial one-hour timeout. The current leaderboard does not label its estimator or confirm current per-row run counts, tools, or harness, so the metric remains pass rate and those profile fields remain null. Context windows and leaderboard publication dates are unpublished and remain null.',
       '',
       '- Methodology: <https://surgehq.ai/blog/riemann-bench-a-benchmark-for-moonshot-mathematics> and <https://arxiv.org/html/2604.06802v3>. The paper version is not a leaderboard benchmark version.',
       '',

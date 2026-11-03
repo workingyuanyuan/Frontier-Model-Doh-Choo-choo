@@ -114,6 +114,8 @@ pnpm --filter @llm-bench/acquisition materialize:vals
 pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ```
 
+ComplexConstraints／Riemann-bench 刷新會保留當期榜單移除的既有列及其原始 Evidence，並將新列的明示版本寫入 `benchmarkVersion`。預設以工作區前一份快照為基準；若本次中途物化已覆蓋前一份快照，可加 `--baseline-directory=artifacts/research/<日期>-benchmark-check/import-baseline/sources/<source-id>` 指向本任務匯入前保存的來源目錄。保留列與當期可見列數分開記錄，保留列不算新版重測；方法見 [資料方法](DATA_METHODOLOGY.md#擷取與刷新)。
+
 ### 來源變更監測
 
 上述命令中，除了離線產生檔位推測報告的 `materialize:effort-reports`，其餘 18 個線上刷新命令都透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。

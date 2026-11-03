@@ -4,18 +4,18 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:4c435af83861ff928cb2a184b470cd58767f6d42b75f4bc5229800433e4500fc`
-- Models evidence: `sha256:635946b608bd8ff700a0b32eded67d2645301c71756b14ba98768757d2eceaf4`
+- Evaluations evidence: `sha256:e1536590e376580e2f3d41acd1b221e6ebeb8dab1bce06a4be24c4784179c6a4`
+- Models evidence: `sha256:1c1a30e94b7426c34a2a46192f144eb074fbdd4e4b6bd5f36f73f46633d05d89`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:e87e5adedd27722902febf067d4c1b94daace895d1416c9abddc34e35253cb42`
-- Observed at: 2026-11-02T03:14:24.903Z
+- Page evidence: `sha256:8e25710bdf6e8a2be424b8e68adf3e3655c4d12e43358326a0187c49476aa47e`
+- Observed at: 2026-11-02T23:30:33.150Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1266 |
-| Total models in models.json | 369 |
+| Total evaluation rows (all splits) | 1268 |
+| Total models in models.json | 370 |
 | Total datasets in datasets.json | 8 |
 | Total v2_Semi_Private evaluations | 298 |
 | Promoted v2_Semi_Private rows (display=true) | 291 |

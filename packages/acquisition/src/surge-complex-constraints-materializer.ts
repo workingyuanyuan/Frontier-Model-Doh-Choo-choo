@@ -3,6 +3,7 @@ import {
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
 import { resolveCatalogModel, slugify } from './materializer-utils.js';
+import { surgeBenchmarkVersion } from './surge-version.js';
 
 export const COMPLEX_CONSTRAINTS_PAGE_URL =
   'https://surgehq.ai/benchmarks/complex-constraints';
@@ -65,14 +66,18 @@ export function materializeComplexConstraints(
 ): {
   candidates: CandidateResult[];
   visibleRows: number;
+  benchmarkVersion: string | null;
   validationReport: string;
 } {
   if (
-    text(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/u)?.[1] ?? '') !==
-    'ComplexConstraints'
+    text(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/u)?.[1] ?? '').replace(
+      /\s*v\d+(?:\.\d+)+$/u,
+      '',
+    ) !== 'ComplexConstraints'
   ) {
     throw new Error('ComplexConstraints page marker missing');
   }
+  const benchmarkVersion = surgeBenchmarkVersion(html);
   const sections = [
     ...html.matchAll(
       /<section\b[^>]*class="[^"]*\blead-main\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gu,
@@ -165,7 +170,7 @@ export function materializeComplexConstraints(
         sourceId: 'surge-complex-constraints',
         sourceRole: 'ORGANIZER',
         benchmarkId: 'complex-constraints',
-        benchmarkVersion: null,
+        benchmarkVersion,
         model: {
           rawName,
           canonicalModelId,
@@ -199,6 +204,16 @@ export function materializeComplexConstraints(
         sourcePublishedAt: null,
         evidenceIds: [context.evidenceId],
         provenance: {
+          ...(benchmarkVersion === null
+            ? {}
+            : {
+                benchmarkVersion: {
+                  evidenceId: context.evidenceId,
+                  locator:
+                    '.lead-hero-title h1 .v2-chip (official inline version markup)',
+                  method: 'DOM',
+                },
+              }),
           rawScore: {
             evidenceId: context.evidenceId,
             locator: `${locator} [data-score] (row ${index + 1}: ${rawName})`,
@@ -221,10 +236,12 @@ export function materializeComplexConstraints(
   return {
     candidates,
     visibleRows: rows.length,
+    benchmarkVersion,
     validationReport: [
       '# Surge ComplexConstraints acquisition validation',
       '',
       `- Source: <${COMPLEX_CONSTRAINTS_PAGE_URL}>`,
+      `- Benchmark version: ${benchmarkVersion ?? 'unpublished'}.`,
       `- Evidence: \`${context.evidenceId}\``,
       `- Main leaderboard: ${rows.length} rows; rendered browser count: ${context.visualRowCount}.`,
       '- Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.',
@@ -232,7 +249,7 @@ export function materializeComplexConstraints(
       '',
       'Scores are the main leaderboard pass@1 percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on does not declare an effort tier. Unresolved model variants retain null canonical identity.',
       '',
-      'The official harness defines the leaderboard task pass rate as all_pass/mean (Pass@1): every rubric criterion must pass. Mean criteria satisfaction is a separate metric. Each response is a single completion; per-row repeated trial counts, benchmark version and publication dates are unpublished and remain null.',
+      'The official harness defines the leaderboard task pass rate as all_pass/mean (Pass@1): every rubric criterion must pass. Mean criteria satisfaction is a separate metric. Each response is a single completion; per-row repeated trial counts and publication dates are unpublished and remain null.',
       '',
     ].join('\n'),
   };

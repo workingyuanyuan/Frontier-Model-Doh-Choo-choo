@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-02T03:18:07.871Z",
+  "checkedAt": "2026-11-02T23:47:05.158Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -301,9 +301,9 @@
           "[\"Claude Sonnet 5.5\",\"max\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Sonnet 5.5\",\"medium\",null,\"claude-code\",null,null,null,null]",
           "[\"Claude Sonnet 5.5\",\"xhigh\",null,\"claude-code\",null,null,null,null]",
-          "[\"DeepSeek V4.1 Flash\",\"high\",null,\"devin-cli\",null,null,null,null]",
-          "[\"DeepSeek V4.1 Flash\",\"low\",null,\"devin-cli\",null,null,null,null]",
-          "[\"DeepSeek V4.1 Flash\",\"max\",null,\"devin-cli\",null,null,null,null]",
+          "[\"DeepSeek V4.1 Flash 1017\",\"high\",null,\"devin-cli\",null,null,null,null]",
+          "[\"DeepSeek V4.1 Flash 1017\",\"low\",null,\"devin-cli\",null,null,null,null]",
+          "[\"DeepSeek V4.1 Flash 1017\",\"max\",null,\"devin-cli\",null,null,null,null]",
           "[\"GLM 5.3 Flash\",\"high\",null,\"devin-cli\",null,null,null,null]",
           "[\"GLM 5.3 Flash\",\"low\",null,\"devin-cli\",null,null,null,null]",
           "[\"GLM 5.3 Flash\",\"max\",null,\"devin-cli\",null,null,null,null]",
@@ -375,7 +375,7 @@
           "Claude Opus 5",
           "Claude Opus 5.5",
           "Claude Sonnet 5.5",
-          "DeepSeek V4.1 Flash",
+          "DeepSeek V4.1 Flash 1017",
           "GLM 5.3",
           "GLM 5.3 Flash",
           "GPT-5.5",
@@ -400,7 +400,7 @@
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-02T03:15:42.202Z",
+    "observedAt": "2026-11-02T23:31:46.698Z",
     "sourceId": "frontier-code"
   }
 }

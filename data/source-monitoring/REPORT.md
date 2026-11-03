@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:16:05.369Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:32:12.295Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:14:24.903Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:30:33.150Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,8 +24,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:14:45.282Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:30:48.757Z
 - Scope: live-catalog-and-snapshot
 
 | Finding                           | Benchmark             | Detail                                                          |
@@ -91,8 +91,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:39.358Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:44.322Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -101,28 +101,31 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:14:21.264Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:30:27.619Z
 - Scope: snapshot-only
 
-| Finding | Benchmark | Detail                                           |
-| ------- | --------- | ------------------------------------------------ |
-| None    | —         | No differences detected within the stated scope. |
+| Finding       | Benchmark         | Detail                                                                                               |
+| ------------- | ----------------- | ---------------------------------------------------------------------------------------------------- |
+| profiles-lost | aime              | 304 -\> 304; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\] |
+| profiles-lost | chess-puzzles     | 154 -\> 154; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\] |
+| profiles-lost | gpqa-diamond      | 324 -\> 324; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\] |
+| profiles-lost | simpleqa-verified | 93 -\> 93; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\]   |
 
 ## frontier-code
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:42.202Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:46.698Z
 - Scope: snapshot-only
 
-| Finding | Benchmark | Detail                                           |
-| ------- | --------- | ------------------------------------------------ |
-| None    | —         | No differences detected within the stated scope. |
+| Finding       | Benchmark         | Detail                                                                                                                                                                                                                                    |
+| ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profiles-lost | frontier-code-2-0 | 101 -\> 101; missing 3: \["DeepSeek V4.1 Flash","high",null,"devin-cli",null,null,null,null\], \["DeepSeek V4.1 Flash","low",null,"devin-cli",null,null,null,null\], \["DeepSeek V4.1 Flash","max",null,"devin-cli",null,null,null,null\] |
 
 ## frontier-swe
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:22.188Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:19.058Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -131,7 +134,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## google-releases
 
-- Checked: 2026-11-02T03:18:07.871Z
+- Checked: 2026-11-02T23:47:05.158Z
 - Stored score snapshot: 2026-10-04T04:31:00.008Z
 - Scope: snapshot-only
 
@@ -141,8 +144,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:14:55.370Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:30.350Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -151,7 +154,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-02T03:18:07.871Z
+- Checked: 2026-11-02T23:47:05.158Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -161,8 +164,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:44.178Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:49.102Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -188,14 +191,15 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:46.661Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:36:57.011Z
 - Scope: live-catalog-and-snapshot
 
-| Finding      | Benchmark | Detail                                |
-| ------------ | --------- | ------------------------------------- |
-| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
-| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
+| Finding          | Benchmark           | Detail                                |
+| ---------------- | ------------------- | ------------------------------------- |
+| versions-changed | complex-constraints | (unknown) -\> (unknown), v1.1         |
+| unintegrated     | gdp-pdf             | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated     | sudo-l7             | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -215,8 +219,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:48.987Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:52.998Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -242,8 +246,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:53.811Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:31:59.013Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -269,8 +273,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:55.762Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:32:02.399Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -296,8 +300,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:59.364Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:32:05.807Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -323,8 +327,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:16:02.729Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:32:08.451Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -350,14 +354,15 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:15:50.838Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:37:01.972Z
 - Scope: live-catalog-and-snapshot
 
-| Finding      | Benchmark | Detail                                |
-| ------------ | --------- | ------------------------------------- |
-| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
-| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
+| Finding          | Benchmark     | Detail                                |
+| ---------------- | ------------- | ------------------------------------- |
+| versions-changed | riemann-bench | (unknown) -\> (unknown), v1.1         |
+| unintegrated     | gdp-pdf       | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated     | sudo-l7       | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -377,8 +382,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:14:31.145Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:30:42.064Z
 - Scope: live-catalog-and-snapshot
 
 | Finding             | Benchmark                | Detail                                                  |
@@ -484,7 +489,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## xai-releases
 
-- Checked: 2026-11-02T03:18:07.871Z
+- Checked: 2026-11-02T23:47:05.158Z
 - Stored score snapshot: 2026-10-04T04:31:01.893Z
 - Scope: snapshot-only
 
@@ -494,8 +499,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-02T03:18:07.871Z
-- Stored score snapshot: 2026-11-02T03:14:28.543Z
+- Checked: 2026-11-02T23:47:05.158Z
+- Stored score snapshot: 2026-11-02T23:30:36.686Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |

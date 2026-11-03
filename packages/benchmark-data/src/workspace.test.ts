@@ -224,11 +224,12 @@ describe('buildWorkspaceProduct', () => {
     expect(product.frontier.map(({ modelId }) => modelId)).toEqual(
       leaders.map(({ modelId }) => modelId),
     );
-    // Muse Wonder Full is scored only by Vals outside AA (2026-10-24 data).
-    expect(artifact.eligibility.skipped).toContainEqual(
+    // 2026-11-03: Riemann v1.1 provides Wonder Full's second independent
+    // organization, so it now passes the existing eligibility policy.
+    expect(artifact.eligibility.leaders).toContainEqual(
       expect.objectContaining({
         modelId: 'meta-muse-wonder-full',
-        organizations: ['vals-ai'],
+        organizations: ['surge', 'vals-ai'],
       }),
     );
     expect(defaultPreset!.benchmarkIds).toEqual(artifact.benchmarkIds);
