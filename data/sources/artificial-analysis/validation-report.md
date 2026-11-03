@@ -8,29 +8,29 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 220 |
-| Unique profile rows in evaluation-page payloads | 101 |
-| Unique profile rows in model-detail payloads | 220 |
+| Unique profile rows across all captured page payloads | 224 |
+| Unique profile rows in evaluation-page payloads | 102 |
+| Unique profile rows in model-detail payloads | 224 |
 | Profile rows in the /models payload | 28 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 220 |
-| Generated CandidateResults | 2649 |
-| Intelligence Index candidates (EXCLUDED) | 87 |
-| GDPval-AA normalized candidates | 184 |
-| Canonically unresolved candidates | 778 |
-| MEASURED_TASK cost rows | 85 |
-| API_STANDARDIZED token-price rows | 212 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 224 |
+| Generated CandidateResults | 2694 |
+| Intelligence Index candidates (EXCLUDED) | 91 |
+| GDPval-AA normalized candidates | 185 |
+| Canonically unresolved candidates | 804 |
+| MEASURED_TASK cost rows | 87 |
+| API_STANDARDIZED token-price rows | 215 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 28 selected profile rows in this capture.
-- The evaluation-page payload union exposes 101 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 220 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The evaluation-page payload union exposes 102 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
+- The model-detail payload union exposes 224 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
-- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 220, compared values 1082.
-- Precision-only differences (API rounds to three decimals, within 0.0005): 540. These are representation differences, not disagreements.
+- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 224, compared values 1088.
+- Precision-only differences (API rounds to three decimals, within 0.0005): 543. These are representation differences, not disagreements.
 - Real differences (beyond 0.0005): 0.
 - No real API differences recorded beyond rounding.
 
@@ -46,11 +46,11 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 167 | 124 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 110 | 73 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 103 | 73 |
-| `critpt-v2` | `critptAgentic` | `critpt-v2` | 40 | 24 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 87 | 60 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 171 | 126 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 114 | 75 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 107 | 75 |
+| `critpt-v2` | `critptAgentic` | `critpt-v2` | 41 | 25 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 91 | 62 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
@@ -58,20 +58,24 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 ## Visible comparison
 
-- Fresh rendered models page catalog total: 719
-- Unique profiles across the captured models, evaluation, and model-detail payloads: 220
-- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
+- Fresh rendered models catalog total: 722
+- Materialized source profiles after successful bounded retry: 224
+- Catalog and evaluation populations have different scopes; no missing score synthesized.
+
+## Network capture recovery
+
+- Recovered https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview at 2026-11-02T23:34:09.574Z; sha256:29a7f2bd9d43cc234912a42bdb78efe20397fcf6b179badab0df7e1607d6c17c; 3928079 bytes.
+- Recovered https://artificialanalysis.ai/models/nanbeige4-3-33b at 2026-11-02T23:40:51.070Z; sha256:47b4a9158e8ccfd4dbb1ba2a4140a4ba7b98f400c7caef71b630e38b29aaf8aa; 3941434 bytes.
+- Original failure records and successful raw captures preserved in evidence store.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 220 | 220 | +0 |
-| Active source profiles | 220 | 220 | +0 |
-| Candidate results | 2649 | 2649 | +0 |
-| Materialized costs | 296 | 297 | +1 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+| Unique source profiles | 220 | 224 | +4 |
+| Active source profiles | 220 | 224 | +4 |
+| Candidate results | 2649 | 2694 | +45 |
+| Materialized costs | 297 | 302 | +5 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -229,6 +233,15 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Muse Spark | `artificial-analysis:humanitys-last-exam:muse-spark` | — | `default` | — | — |
 | Muse Spark | `artificial-analysis:ifbench:muse-spark` | — | `default` | — | — |
 | Muse Spark | `artificial-analysis:terminal-bench-2-1:muse-spark` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:aa-briefcase:nanbeige4-3-33b` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:aa-omniscience:nanbeige4-3-33b` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:aa-omniscience:nanbeige4-3-33b:index` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:frontier-code-2-0:nanbeige4-3-33b` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:gdp-pdf:nanbeige4-3-33b` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:hle-diamond:nanbeige4-3-33b` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:nanbeige-nanbeige4-3-33b-aa-index:intelligence-index-v5-0` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:terminal-bench-4-0:nanbeige4-3-33b` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:terminal-bench-science:nanbeige4-3-33b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-briefcase:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-lcr:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-omniscience:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |

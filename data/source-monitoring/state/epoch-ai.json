@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-02T03:18:07.871Z",
+  "checkedAt": "2026-11-02T23:47:05.158Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -242,7 +242,7 @@
           "[\"Meta-Llama-3-8B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null]",
-          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral-7B-Instruct-v0.3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.3 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark Open (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -534,7 +534,7 @@
           "Meta-Llama-3-8B-Instruct",
           "MiniMax-M3",
           "MiniMax-M3_none",
-          "Mistral Large 4 (high)",
+          "Mistral Large 4 Preview (high)",
           "Mistral-7B-Instruct-v0.3",
           "Muse Spark",
           "Muse Spark 1.3 (xhigh)",
@@ -842,7 +842,7 @@
           "[\"Kimi K3 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null]",
-          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.1 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.2 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.3 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -988,7 +988,7 @@
           "Kimi K3 (max)",
           "MiniMax-M3",
           "MiniMax-M3_none",
-          "Mistral Large 4 (high)",
+          "Mistral Large 4 Preview (high)",
           "Muse Spark 1.1 (xhigh)",
           "Muse Spark 1.2 (xhigh)",
           "Muse Spark 1.3 (max)",
@@ -2279,7 +2279,7 @@
           "[\"Meta-Llama-3-8B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null]",
-          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral-7B-Instruct-v0.3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mixtral-8x7B-Instruct-v0.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark Open (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2591,7 +2591,7 @@
           "Meta-Llama-3-8B-Instruct",
           "MiniMax-M3",
           "MiniMax-M3_none",
-          "Mistral Large 4 (high)",
+          "Mistral Large 4 Preview (high)",
           "Mistral-7B-Instruct-v0.3",
           "Mixtral-8x7B-Instruct-v0.1",
           "Muse Spark",
@@ -3083,7 +3083,7 @@
           "[\"Kimi K2.6\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Kimi K2.7 Code\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Kimi K3 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
-          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.2 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark Open (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -3178,7 +3178,7 @@
           "Kimi K2.6",
           "Kimi K2.7 Code",
           "Kimi K3 (max)",
-          "Mistral Large 4 (high)",
+          "Mistral Large 4 Preview (high)",
           "Muse Spark 1.1",
           "Muse Spark 1.2 (xhigh)",
           "Muse Spark Open (xhigh)",
@@ -3305,7 +3305,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-02T03:14:21.264Z",
+    "observedAt": "2026-11-02T23:30:27.619Z",
     "sourceId": "epoch-ai"
   }
 }

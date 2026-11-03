@@ -15,5 +15,22 @@
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8",
     "sourceId": "surge-riemann"
+  },
+  {
+    "artifactPath": "artifacts/sha256/f0/f09e45518fde137bb1ef3ed82fd969691ba23862ac9f3a49408a31670ebd993b.html",
+    "byteLength": 380624,
+    "finalUrl": "https://surgehq.ai/benchmarks/riemann-bench",
+    "id": "sha256:f09e45518fde137bb1ef3ed82fd969691ba23862ac9f3a49408a31670ebd993b",
+    "mediaType": "text/html",
+    "metadata": {
+      "renderedRows": 21,
+      "scope": "main leaderboard"
+    },
+    "method": "DOM",
+    "requestUrl": "https://surgehq.ai/benchmarks/riemann-bench",
+    "retrievedAt": "2026-11-02T23:37:01.972Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f09e45518fde137bb1ef3ed82fd969691ba23862ac9f3a49408a31670ebd993b",
+    "sourceId": "surge-riemann"
   }
 ]

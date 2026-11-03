@@ -138,7 +138,8 @@ describe('AA frontier selection', () => {
       'anthropic-claude-fable-5-1-xhigh',
       'moonshot-kimi-k3-1-pro-max',
     ]);
-    expect(result.resolvedModelCount).toBe(26);
+    // Nanbeige4.3-33B has an exact official model-card identity (2026-11-03).
+    expect(result.resolvedModelCount).toBe(27);
     expect(result.topTen[8]?.modelId).toBe('anthropic-claude-fable-5-1');
     expect(result.boundary?.afterRank).toBe(9);
     expect(result.gapAudit.selectedModelIds).toHaveLength(9);

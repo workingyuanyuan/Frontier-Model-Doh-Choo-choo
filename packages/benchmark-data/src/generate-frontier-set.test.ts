@@ -67,7 +67,7 @@ async function eligibleWorkspace() {
 }
 
 describe('frontier common quality core', () => {
-  it('produces eight complete eligible profiles sharing 11 tests in five active categories', async () => {
+  it('produces eight complete eligible profiles sharing 12 tests in five active categories', async () => {
     const { candidates, mapping, quality } = await workspace();
     expect(selectAaTopTen(candidates).status).toBe('selected');
     const { profileIds } = await eligibleWorkspace();
@@ -78,8 +78,9 @@ describe('frontier common quality core', () => {
       mapping,
       quality,
     );
-    // 2026-10-31: AA withdrew Carbon's SciCode score; missing stays absent.
-    expect(result.benchmarkIds).toHaveLength(11);
+    // 2026-11-03: Wonder Full now qualifies through Surge and Vals; the
+    // first eight share HLAB. Carbon's withdrawn SciCode stays absent.
+    expect(result.benchmarkIds).toHaveLength(12);
     expect(result.benchmarkIds).not.toContain('scicode');
     expect(result.activeDimensionIds).toEqual([
       'reasoning',
@@ -94,11 +95,11 @@ describe('frontier common quality core', () => {
         ['knowledge', 2],
         ['comprehension', 1],
         ['coding', 2],
-        ['agentic', 5],
+        ['agentic', 6],
         ['language', 0],
       ],
     );
-    expect(result.profiles.every((p) => p.results.length === 11)).toBe(true);
+    expect(result.profiles.every((p) => p.results.length === 12)).toBe(true);
   });
 
   it('never pools missing tests from another effort profile', async () => {
@@ -133,9 +134,19 @@ describe('frontier common quality core', () => {
   it('enforces limited-test share after the profile intersection', async () => {
     const { candidates, mapping, quality, profileIds } =
       await eligibleWorkspace();
-    // Carbon lacks LiveBench Data Analysis, which triggers AA-LCR quality
-    // removal. Use the next eight profiles to exercise the limited-test rule.
-    const selectedProfileIds = profileIds.slice(1, 9);
+    // Fix the eight profiles that share AA-LCR and sufficient unrestricted
+    // comprehension tests, independently of new frontier eligibility.
+    const selectedProfileIds = [
+      ...profileIds.filter(
+        (id) =>
+          ![
+            'google-gemini-4-carbon-high',
+            'meta-muse-wonder-full-max',
+            'moonshot-kimi-k3-1-pro-max',
+          ].includes(id),
+      ),
+      'meta-muse-wonder-max',
+    ];
     expect(
       commonQualityBenchmarks(candidates, selectedProfileIds, mapping, quality)
         .benchmarkIds,
@@ -161,13 +172,13 @@ describe('frontier common quality core', () => {
     expect(cohorts.map(({ targetModelCount }) => targetModelCount)).toEqual([
       2, 3, 4, 5, 6, 7, 8, 9, 10,
     ]);
-    // 2026-10-31 data: Carbon's withdrawn SciCode score removes one test
-    // from every cohort. Independent source intersections verify the counts.
+    // 2026-11-03: Riemann v1.1 adds coverage to the first five cohorts;
+    // Wonder Full replaces Wonder 1.0 and contributes HLAB to the first eight.
     expect(cohorts.map(({ benchmarkIds }) => benchmarkIds.length)).toEqual([
-      13, 13, 13, 13, 12, 12, 11, 11, 11,
+      14, 14, 14, 14, 12, 12, 12, 11, 11,
     ]);
     expect(cohorts[6]!.id).toBe('aa-frontier');
-    expect(chooseDefaultCohort(cohorts).id).toBe('aa-top-10');
+    expect(chooseDefaultCohort(cohorts).id).toBe('aa-frontier');
     // Opus and Astra share ProofBench; Carbon does not. Keep exercising the
     // quality exclusion using these two qualified profiles.
     const proofbenchPair = commonQualityBenchmarks(
@@ -205,7 +216,8 @@ describe('frontier common quality core', () => {
           'terminal-bench-science',
           'vibe-code-bench',
           ...(cohort.targetModelCount < 6 ? ['automationbench'] : []),
-          ...(cohort.targetModelCount < 8 ? ['hlab'] : []),
+          ...(cohort.targetModelCount < 6 ? ['riemann-bench'] : []),
+          ...(cohort.targetModelCount < 9 ? ['hlab'] : []),
         ].sort(),
       );
     }
@@ -260,10 +272,17 @@ describe('default cohort selection', () => {
 describe('frontier eligibility', () => {
   it('skips AA leaders scored by fewer than two independent organizations', async () => {
     const { candidates, mapping, quality } = await workspace();
+    // Control this policy case: keep Wonder Full's AA and Vals evidence,
+    // omitting its newly published Surge v1.1 measurement.
+    const oneOrganization = candidates.filter(
+      (row) =>
+        row.model.canonicalModelId !== 'meta-muse-wonder-full' ||
+        ['artificial-analysis', 'vals-ai'].includes(row.sourceId),
+    );
     const result = selectEligibleFrontier(
-      candidates,
-      rankAaModels(candidates),
-      unresolvedAaRows(candidates) as CandidateResult[],
+      oneOrganization,
+      rankAaModels(oneOrganization),
+      unresolvedAaRows(oneOrganization) as CandidateResult[],
       mapping,
       quality,
     );
@@ -276,14 +295,18 @@ describe('frontier eligibility', () => {
         organizations,
       })),
     ).toEqual([
-      // 2026-10-29 data: Wonder Full has only one independent organization.
       { modelId: 'meta-muse-wonder-full', rank: 8, organizations: ['vals-ai'] },
     ]);
     expect(result.leaders[0]).toMatchObject({
       modelId: 'google-gemini-4-carbon',
       rank: 1,
       profileId: 'google-gemini-4-carbon-high',
-      organizations: ['frontier-code', 'vals-ai', 'zapier-automationbench'],
+      organizations: [
+        'frontier-code',
+        'surge',
+        'vals-ai',
+        'zapier-automationbench',
+      ],
     });
     expect(result.leaders.map(({ modelId }) => modelId)).not.toContain(
       'meta-muse-spark-1-3',
@@ -333,7 +356,7 @@ describe('frontier eligibility', () => {
 
   it('counts an organization even when another source wins the same benchmark', async () => {
     const { candidates, mapping, quality } = await workspace();
-    // Muse Wonder Full is skipped with Vals as its only organization. A second
+    // Restrict Wonder Full to Vals and AA for this test case. A second
     // organization measuring one of the same Vals benchmarks must count, even
     // though only one of the two rows is the current product measurement.
     const valsRow = candidates.find(
@@ -351,7 +374,14 @@ describe('frontier eligibility', () => {
       normalizedScore: valsRow.normalizedScore! - 1,
       rawScore: valsRow.rawScore - 1,
     };
-    const withDuplicate = [...candidates, duplicate];
+    const withDuplicate = [
+      ...candidates.filter(
+        (row) =>
+          row.model.canonicalModelId !== 'meta-muse-wonder-full' ||
+          ['artificial-analysis', 'vals-ai'].includes(row.sourceId),
+      ),
+      duplicate,
+    ];
     const result = selectEligibleFrontier(
       withDuplicate,
       rankAaModels(withDuplicate),

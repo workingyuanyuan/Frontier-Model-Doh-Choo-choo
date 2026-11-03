@@ -2,6 +2,19 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "nanbeige-nanbeige4-3-33b",
+      "providerId": "nanbeige",
+      "displayName": "Nanbeige4.3-33B",
+      "aliases": [
+        "Nanbeige4.3-33B",
+        "nanbeige4-3-33b",
+        "Nanbeige/Nanbeige4.3-33B"
+      ],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "google-gemini-4-carbon",
       "providerId": "google",
       "displayName": "Gemini 4 Carbon",

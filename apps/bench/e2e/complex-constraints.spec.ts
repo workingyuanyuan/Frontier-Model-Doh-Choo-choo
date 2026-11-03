@@ -33,7 +33,8 @@ test('compares ComplexConstraints scores with organizer evidence for selected pr
       }),
     });
   await expect(row).toBeVisible();
-  await expect(row.locator('strong')).toHaveText(['57.7', '48.4']);
+  // Official v1.1 rubric revision, independently checked 2026-11-03.
+  await expect(row.locator('strong')).toHaveText(['70.8', '63.2']);
   await expect(row.getByRole('link')).toHaveCount(2);
   for (const link of await row.getByRole('link').all()) {
     await expect(link).toHaveAttribute(

@@ -1,6 +1,9 @@
-import { mkdir, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { join, resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 import {
+  CandidateResultSchema,
+  EvidenceRecordSchema,
   SourceManifestSchema,
   deterministicJson,
 } from '@llm-bench/benchmark-data';
@@ -13,6 +16,7 @@ import {
   getWorkspaceRoot,
   writeMetadataJson,
 } from './refresh-utils.js';
+import { retainSurgeRows, surgeRetentionReport } from './surge-version.js';
 
 async function main() {
   const visualRowCount = Number(
@@ -25,6 +29,32 @@ async function main() {
       'First verify the rendered ComplexConstraints leaderboard, then pass --visual-row-count=<count>',
     );
   const root = getWorkspaceRoot();
+  const directory = join(root, 'data', 'sources', 'surge-complex-constraints');
+  const baselineOption = process.argv
+    .find((arg) => arg.startsWith('--baseline-directory='))
+    ?.slice('--baseline-directory='.length);
+  const baseline = baselineOption ? resolve(root, baselineOption) : directory;
+  if (
+    baselineOption &&
+    (!existsSync(join(baseline, 'candidates.json')) ||
+      !existsSync(join(baseline, 'evidence-index.json')))
+  ) {
+    throw new Error(
+      'Baseline directory must contain candidates.json and evidence-index.json',
+    );
+  }
+  const previousCandidates = existsSync(join(baseline, 'candidates.json'))
+    ? CandidateResultSchema.array().parse(
+        JSON.parse(await readFile(join(baseline, 'candidates.json'), 'utf8')),
+      )
+    : [];
+  const previousEvidence = existsSync(join(baseline, 'evidence-index.json'))
+    ? EvidenceRecordSchema.array().parse(
+        JSON.parse(
+          await readFile(join(baseline, 'evidence-index.json'), 'utf8'),
+        ),
+      )
+    : [];
   const observedAt = new Date().toISOString();
   const page = await captureArtifact({
     root,
@@ -40,6 +70,10 @@ async function main() {
     observedAt,
     visualRowCount,
   });
+  const merged = retainSurgeRows(result.candidates, previousCandidates, [
+    ...previousEvidence,
+    page.record,
+  ]);
   const manifest = SourceManifestSchema.parse({
     schemaVersion: 'source-manifest-v1',
     sourceId: 'surge-complex-constraints',
@@ -59,32 +93,36 @@ async function main() {
       '.head-rank-table-brand + .head-rank-table-name':
         'model.rawName / profile.effort / profile.thinking',
       '[data-score] numeric displayed text': 'rawScore / normalizedScore',
+      '.lead-hero-title h1 .v2-chip': 'benchmarkVersion',
     },
     fallbackMethods: ['VISUAL'],
     lastVerifiedAt: observedAt,
     notes: [
       'Main leaderboard all-criteria task pass@1 percentages; professional instruction following.',
       'The official harness defines all_pass/mean as the leaderboard task pass rate; mean_criteria/mean is separate.',
-      'Per-row trial count, benchmark version and publication date are unpublished.',
+      `Current benchmark version: ${result.benchmarkVersion ?? 'unpublished'}. Per-row trial count and publication date remain unpublished.`,
+      `Current rendered rows: ${result.visibleRows}; preserved rows omitted from the current leaderboard: ${merged.retained.length}. Preserved rows keep their original version, observedAt, scores and Evidence; they are not current-version reruns.`,
     ],
   });
-  const directory = join(root, 'data', 'sources', 'surge-complex-constraints');
   await mkdir(directory, { recursive: true });
   await writeMetadataJson(join(directory, 'manifest.json'), manifest);
-  await writeMetadataJson(join(directory, 'evidence-index.json'), [
-    page.record,
-  ]);
+  await writeMetadataJson(
+    join(directory, 'evidence-index.json'),
+    merged.evidence,
+  );
   await writeFile(
     join(directory, 'candidates.json'),
-    deterministicJson(result.candidates),
+    deterministicJson(merged.candidates),
   );
   await writeFile(
     join(directory, 'validation-report.md'),
-    result.validationReport,
+    surgeRetentionReport(result.validationReport, result.visibleRows, merged),
   );
   console.log(
     JSON.stringify({
-      candidates: result.candidates.length,
+      candidates: merged.candidates.length,
+      retained: merged.retained.length,
+      benchmarkVersion: result.benchmarkVersion,
       renderedRows: result.visibleRows,
     }),
   );

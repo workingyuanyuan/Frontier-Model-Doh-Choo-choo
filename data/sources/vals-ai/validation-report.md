@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:0206e6b11cb4d2bd304ff97f7f376c02de7bd54b66c1696d44321f793e537438`
-- Observed at: 2026-11-02T03:14:31.145Z
+- Index evidence: `sha256:95c68f1577c1460affd1710111eb725fe137e85d09675993061d0923b425c395`
+- Observed at: 2026-11-02T23:30:42.064Z
 
 ## Exact counts
 

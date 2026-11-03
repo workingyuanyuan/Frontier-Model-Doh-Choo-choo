@@ -33,7 +33,8 @@ test('compares Riemann-bench scores with organizer evidence for selected profile
       }),
     });
   await expect(row).toBeVisible();
-  await expect(row.locator('strong')).toHaveText(['72.0', '51.2']);
+  // Official v1.1 answer-key revision, independently checked 2026-11-03.
+  await expect(row.locator('strong')).toHaveText(['81.6', '56.8']);
   await expect(row.getByRole('link')).toHaveCount(2);
   for (const link of await row.getByRole('link').all()) {
     await expect(link).toHaveAttribute(

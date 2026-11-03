@@ -1,3 +1,8 @@
+import {
+  latestSurgeEvidence,
+  retainSurgeRows,
+  surgeRetentionReport,
+} from './surge-version.js';
 import { createHash } from 'node:crypto';
 import {
   GDP_XLSX_PAGE_URL,
@@ -320,6 +325,13 @@ export function materializeSnapshots(
                   .digest('hex'),
               }
             : {}),
+          ...(['surge-complex-constraints', 'surge-riemann'].includes(src.id)
+            ? {
+                retainedSnapshotBaseline: createHash('sha256')
+                  .update(baseline['candidates.json'] ?? '')
+                  .digest('hex'),
+              }
+            : {}),
           // Epoch retains capture-time checks. Counts and generated inference are derived below.
           captureReport:
             src.id === 'epoch-ai'
@@ -417,14 +429,28 @@ export function materializeSnapshots(
             candidates = result.candidates;
             customReportText = result.validationReport;
           } else if (src.id === 'surge-complex-constraints') {
-            const page = evidenceFor(COMPLEX_CONSTRAINTS_PAGE_URL);
+            const page = latestSurgeEvidence(
+              evidenceList,
+              COMPLEX_CONSTRAINTS_PAGE_URL,
+            );
             const result = materializeComplexConstraints(evidenceText(page), {
               evidenceId: page.id,
               observedAt: page.retrievedAt,
               visualRowCount: Number(page.metadata?.renderedRows),
             });
-            candidates = result.candidates;
-            customReportText = result.validationReport;
+            const merged = retainSurgeRows(
+              result.candidates,
+              CandidateResultSchema.array().parse(
+                JSON.parse(baseline['candidates.json'] ?? '[]'),
+              ),
+              evidenceList,
+            );
+            candidates = merged.candidates;
+            customReportText = surgeRetentionReport(
+              result.validationReport,
+              result.visibleRows,
+              merged,
+            );
           } else if (src.id === 'surge-corecraft') {
             const page = evidenceFor(CORECRAFT_PAGE_URL);
             const result = materializeCorecraft(evidenceText(page), {
@@ -435,14 +461,25 @@ export function materializeSnapshots(
             candidates = result.candidates;
             customReportText = result.validationReport;
           } else if (src.id === 'surge-riemann') {
-            const page = evidenceFor(RIEMANN_PAGE_URL);
+            const page = latestSurgeEvidence(evidenceList, RIEMANN_PAGE_URL);
             const result = materializeRiemann(evidenceText(page), {
               evidenceId: page.id,
               observedAt: page.retrievedAt,
               visualRowCount: Number(page.metadata?.renderedRows),
             });
-            candidates = result.candidates;
-            customReportText = result.validationReport;
+            const merged = retainSurgeRows(
+              result.candidates,
+              CandidateResultSchema.array().parse(
+                JSON.parse(baseline['candidates.json'] ?? '[]'),
+              ),
+              evidenceList,
+            );
+            candidates = merged.candidates;
+            customReportText = surgeRetentionReport(
+              result.validationReport,
+              result.visibleRows,
+              merged,
+            );
           } else if (src.id === 'surge-dayjob-finance') {
             const page = evidenceFor(DAYJOB_FINANCE_PAGE_URL);
             const result = materializeDayjobFinance(evidenceText(page), {

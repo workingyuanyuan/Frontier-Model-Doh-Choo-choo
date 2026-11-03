@@ -3,14 +3,14 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:5c8839b1610001ab8ba606ff2e51ad6465e3a5f7b04b4c5f160d8e1089502f2e`
+- Page/JSON-LD evidence: `sha256:0e40ee9905f8e9cbad6bdb41f1a0f7614aa19701d51f1bc9d6de0fdc1ecedc45`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:85b38c86839bf3da10228c928c222823f6a9fe155492df7bb3b651a202f96ab2`
+- 2.0 export evidence: `sha256:ee91d2a7ed93ee4909491b0d6c1c18ffd006db7ef96c1d00b30504eb916c1ba1`
 
 | Check | Count |
 |---|---:|
@@ -27,7 +27,7 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
 - Cost is the mean USD spend per rollout at list API pricing (page methodology), stored as `AGENT_TASK` / `USD_PER_TASK`. Since the 2026-10-28 user decision the cost chart pairs Frontier Code costs with `frontier-code-2-0`; 1.1 costs are kept EXCLUDED as superseded and are never blended with 2.0.
 - Effort `na` (SWE-1.6, SWE-1.7) and other non-policy keys stay null. Neither the export nor the methodology states a per-configuration rollout count, so attempts stays null.
-- Unresolved names keep null canonical/profile identity: Beam 1.0, Claude Haiku 5.5, DeepSeek V4.1 Flash, GLM 5.3, GLM 5.3 Flash, Inkling Small, Mistral Large 4, SWE-1.6, SWE-1.7, SWE-2.
+- Unresolved names keep null canonical/profile identity: Beam 1.0, Claude Haiku 5.5, DeepSeek V4.1 Flash 1017, GLM 5.3, GLM 5.3 Flash, Inkling Small, Mistral Large 4, SWE-1.6, SWE-1.7, SWE-2.
 
 ## FrontierCode 1.1
 
