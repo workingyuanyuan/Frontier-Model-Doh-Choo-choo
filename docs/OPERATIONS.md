@@ -255,7 +255,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
    - `frontier`：執行 `pnpm data:generate-frontier-set`，並要求 `frontier-selection-audit.json` 最外層 `status` 為 `selected`。
    - `product`：執行 `pnpm data:build-current` 重建 `data/product/current.json`，並再次檢查 audit 狀態為 `selected`。
    - `fresh`：執行 `pnpm data:verify-fresh`，確認工作區的 frontier 集合、audit 與 `current.json` 可由目前輸入完全重現。
-   - `tests`：執行 `pnpm test`。部分單元測試會核對已保存快照的前十名與集合大小，資料改變後須依新快照更新斷言，並在刷新報告說明。
+   - `tests`：執行 `pnpm test`。單元測試與 e2e 不寫死當期資料值，純資料刷新不應需要修改測試；若測試只因資料變動而失敗，視為測試設計缺陷，見[測試原則](#測試原則)。
    - `site`：執行 `pnpm --filter @llm-bench/bench build`，並確認靜態匯出 `apps/bench/out/index.html` 顯示新的 `versionId`。
    - `e2e`：設定 `DATA_RELEASE=1` 執行 `pnpm e2e`（讓 Playwright 不沿用既有伺服器），驗證靜態建置成果。
 
@@ -467,6 +467,16 @@ CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜�
 - 保留使用者既有變更。辨識當前 worktree 與起始 commit；舊 worktree、歷史文件及對話交接不能替代實際輸入。
 - 沿用三個 workspace 與靜態資料邊界；詳見 [架構](ARCHITECTURE.md) 與 [移除項目](REFACTOR_DISCARD_LIST.md)。現役來源按刷新流程維護；不得用猜測 identity、補零或綜合指數替代缺失成績。
 - 變更架構、產品行為、schema、mapping、計分、來源或操作命令時，同一次任務同步負責的權威文件與必要測試。其他入口使用連結，避免複製流程。
+
+### 測試原則
+
+測試保護程式行為與政策規則；資料數值由 `data:verify-fresh`、audit 與代理抽查負責，不由測試重複鎖定。
+
+- **政策與計分規則**（資格門檻、共同測試交集、品質政策、預設集合延伸等）用測試內建的小型合成資料，不依賴 `data/sources` 的當期內容。
+- **對真實資料只驗證不變量**：結構完整、缺值保持 null、每個 profile 的成績數等於共同測試數、集合關係符合政策等。不寫死模型數、測試數、名次、分數或特定模型 ID。
+- **e2e** 從 `current.json` 讀出應顯示的值再與畫面比對，不寫死分數。
+- **何時新增測試**：新增或改寫 parser／materializer、計分或建置邏輯時，為新行為補最小必要的測試（每個新分支一個案例即可），以合成或精簡的來源片段為輸入。純資料刷新、mapping 新增模型身分、來源改版但 parser 不變時，不新增也不修改測試。
+- 刷新時若有測試只因資料變動而失敗，不得改斷言數值讓它通過；改為修正測試成不變量或合成資料，並在刷新報告說明。
 - 對純文件變更檢查格式、連結、指令／路徑存在性及契約一致性；程式與資料變更按受影響範圍驗證，完整發布驗證依 §7。建置舊資料成功不能取代刷新完成證據。
 - 儲存在專案內的文件使用相對於該文件的連結；命令範例使用專案根目錄相對路徑，必要的外部位置使用有說明的佔位符。不得寫入個人電腦的磁碟代號、使用者家目錄或 worktree 絕對路徑。
 - 結案前核對任務狀態、使用者審核證據與實際輸出；機械驗證通過與人工接受分別記錄。仍有效的待辦移入現行文件，再將完成計畫或一次性報告標記歷史、移至 `history/` 並修正引用。
