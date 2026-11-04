@@ -2,6 +2,19 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "ibm-granite-4-2-8b",
+      "providerId": "ibm",
+      "displayName": "Granite 4.2 8B",
+      "aliases": [
+        "Granite 4.2 8B",
+        "granite-4-2-8b",
+        "ibm-granite/granite-4.2-8b"
+      ],
+      "releaseDate": "2026-08-25",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "nanbeige-nanbeige4-3-33b",
       "providerId": "nanbeige",
       "displayName": "Nanbeige4.3-33B",

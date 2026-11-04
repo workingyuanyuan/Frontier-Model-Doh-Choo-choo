@@ -8,7 +8,7 @@
 - Models evidence: `sha256:1c1a30e94b7426c34a2a46192f144eb074fbdd4e4b6bd5f36f73f46633d05d89`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
 - Page evidence: `sha256:8e25710bdf6e8a2be424b8e68adf3e3655c4d12e43358326a0187c49476aa47e`
-- Observed at: 2026-11-02T23:30:33.150Z
+- Observed at: 2026-11-04T02:06:27.291Z
 
 ## Exact counts
 
@@ -236,8 +236,8 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
-| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-194 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-194 |
+| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-201 |
+| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-201 |
 | Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default

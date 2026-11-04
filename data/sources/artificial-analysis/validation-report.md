@@ -8,28 +8,28 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 224 |
+| Unique profile rows across all captured page payloads | 225 |
 | Unique profile rows in evaluation-page payloads | 102 |
-| Unique profile rows in model-detail payloads | 224 |
+| Unique profile rows in model-detail payloads | 225 |
 | Profile rows in the /models payload | 28 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 224 |
-| Generated CandidateResults | 2694 |
-| Intelligence Index candidates (EXCLUDED) | 91 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 225 |
+| Generated CandidateResults | 2723 |
+| Intelligence Index candidates (EXCLUDED) | 94 |
 | GDPval-AA normalized candidates | 185 |
-| Canonically unresolved candidates | 804 |
-| MEASURED_TASK cost rows | 87 |
-| API_STANDARDIZED token-price rows | 215 |
+| Canonically unresolved candidates | 792 |
+| MEASURED_TASK cost rows | 91 |
+| API_STANDARDIZED token-price rows | 216 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 28 selected profile rows in this capture.
 - The evaluation-page payload union exposes 102 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 224 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The model-detail payload union exposes 225 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
-- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 224, compared values 1088.
+- API source: `https://artificialanalysis.ai/api/v2/data/llms/models`; matched rows 225, compared values 1088.
 - Precision-only differences (API rounds to three decimals, within 0.0005): 543. These are representation differences, not disagreements.
 - Real differences (beyond 0.0005): 0.
 - No real API differences recorded beyond rounding.
@@ -46,11 +46,11 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 171 | 126 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 114 | 75 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 107 | 75 |
-| `critpt-v2` | `critptAgentic` | `critpt-v2` | 41 | 25 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 91 | 62 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 172 | 128 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 116 | 77 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 110 | 77 |
+| `critpt-v2` | `critptAgentic` | `critpt-v2` | 43 | 27 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 97 | 69 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
@@ -58,24 +58,32 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 ## Visible comparison
 
-- Fresh rendered models catalog total: 722
-- Materialized source profiles after successful bounded retry: 224
+- Fresh rendered models catalog total: 723
+- Materialized source profiles after successful bounded retry: 225
 - Catalog and evaluation populations have different scopes; no missing score synthesized.
 
 ## Network capture recovery
 
-- Recovered https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview at 2026-11-02T23:34:09.574Z; sha256:29a7f2bd9d43cc234912a42bdb78efe20397fcf6b179badab0df7e1607d6c17c; 3928079 bytes.
-- Recovered https://artificialanalysis.ai/models/nanbeige4-3-33b at 2026-11-02T23:40:51.070Z; sha256:47b4a9158e8ccfd4dbb1ba2a4140a4ba7b98f400c7caef71b630e38b29aaf8aa; 3941434 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-5-high at 2026-11-04T02:09:26.398Z; sha256:6b5d23703e38bf470bfa1e578dc0ac7d42ba20933754d1266528fb9d3871914b; 3919380 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-5 at 2026-11-04T02:09:30.255Z; sha256:1bf95e62e1e2543bdab4806709833ec8ca07072b94c3b29573aaf220247263b2; 3919465 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-5-non-reasoning at 2026-11-04T02:09:34.661Z; sha256:9390ec38f358501aaf9a66b3651ade4edf11b821d1dc0164d529101d4380b83b; 3879548 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-5-pro at 2026-11-04T02:09:37.698Z; sha256:f782e6492d9e7737239478dca145383074c4b51f4990d8f397ad49010e196e25; 3689714 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-6-luna at 2026-11-04T02:09:40.813Z; sha256:126d1cfb439c9545131daef7f7c3d107a8bfba1012b24236c76d64995abafe4d; 3978614 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-6-luna-high at 2026-11-04T02:09:42.488Z; sha256:55a26294f53316b9b0e3d06eff52a5584cef2a3ff334720cbecf2d297b11f9dd; 3917305 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-6-luna-medium at 2026-11-04T02:09:46.294Z; sha256:2cc8ae1779a8706520c8223643da3e1736d192b67f408b89b510ad6e8118f2d6; 3917708 bytes.
+- Recovered https://artificialanalysis.ai/models/gpt-5-6-luna-low at 2026-11-04T02:09:50.098Z; sha256:e0306504d130275b3bd14aa621023cf50e66b73404f71b6e033630ecabe4c1f4; 3917100 bytes.
+- Recovered https://artificialanalysis.ai/models/gemini-4-carbon-low at 2026-11-04T02:10:50.922Z; sha256:8b9c7c19bbc771ad74dd9eac50ff04c723d006b7d13bcbae28d229f5531a4d61; 1611414 bytes.
+- Recovered https://artificialanalysis.ai/models/granite-4-2-8b at 2026-11-04T02:21:28.843Z; sha256:98388b9d1e8fe62e158455bcc26a56e699b46f264670b5d0080c38c429af13ca; 4113545 bytes.
 - Original failure records and successful raw captures preserved in evidence store.
 
 ## Snapshot delta
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Unique source profiles | 220 | 224 | +4 |
-| Active source profiles | 220 | 224 | +4 |
-| Candidate results | 2649 | 2694 | +45 |
-| Materialized costs | 297 | 302 | +5 |
+| Unique source profiles | 224 | 225 | +1 |
+| Active source profiles | 224 | 225 | +1 |
+| Candidate results | 2694 | 2723 | +29 |
+| Materialized costs | 302 | 307 | +5 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -109,7 +117,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Gemini 3.5 Flash-Lite | `artificial-analysis:frontier-code-2-0:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:gdp-pdf:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:gdpval-aa:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
-| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v5-0` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
+| Gemini 3.5 Flash-Lite | `artificial-analysis:google-gemini-3-5-flash-lite-aa-index:intelligence-index-v5-0-1` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:gpqa-diamond:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:hle-diamond:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
 | Gemini 3.5 Flash-Lite | `artificial-analysis:humanitys-last-exam:gemini-3-5-flash-lite` | — | `high` | arc-prize | arc-prize:arc-agi-2:gemini-3-5-flash-lite-high:arc-agi-2-v2-semi-private |
@@ -141,7 +149,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Kimi K3.1 Pro | `artificial-analysis:gdpval-aa:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
 | Kimi K3.1 Pro | `artificial-analysis:hle-diamond:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
 | Kimi K3.1 Pro | `artificial-analysis:humanitys-last-exam:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
-| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
+| Kimi K3.1 Pro | `artificial-analysis:moonshot-kimi-k3-1-pro-aa-index:intelligence-index-v5-0-1` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
 | Kimi K3.1 Pro | `artificial-analysis:scicode:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
 | Kimi K3.1 Pro | `artificial-analysis:terminal-bench-4-0:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
 | Kimi K3.1 Pro | `artificial-analysis:terminal-bench-science:kimi-k3-1-pro` | — | `max` | livebench | livebench-2026-10-25:livebench-browser:kimi-k3-1-pro |
@@ -158,7 +166,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | MiniMax-M3 | `artificial-analysis:hle-diamond:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
 | MiniMax-M3 | `artificial-analysis:humanitys-last-exam:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
 | MiniMax-M3 | `artificial-analysis:ifbench:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
-| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v5-0` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
+| MiniMax-M3 | `artificial-analysis:minimax-minimax-m3-aa-index:intelligence-index-v5-0-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
 | MiniMax-M3 | `artificial-analysis:scicode:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
 | MiniMax-M3 | `artificial-analysis:tau3-banking:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
 | MiniMax-M3 | `artificial-analysis:terminal-bench-2-1:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
@@ -179,7 +187,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Qwen3.8 Max (0902) | `artificial-analysis:aa-lcr:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:aa-omniscience:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:aa-omniscience:qwen3-8-max:index` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
-| Qwen3.8 Max (0902) | `artificial-analysis:alibaba-qwen3-8-max-aa-index:intelligence-index-v5-0` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| Qwen3.8 Max (0902) | `artificial-analysis:alibaba-qwen3-8-max-aa-index:intelligence-index-v5-0-1` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:apex-agents:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:critpt-v2:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | Qwen3.8 Max (0902) | `artificial-analysis:critpt:qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -199,6 +207,23 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
+| Granite 4.2 8B | `artificial-analysis:aa-briefcase:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:aa-lcr:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:aa-omniscience:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:aa-omniscience:granite-4-2-8b:index` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:critpt:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:frontier-code-2-0:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:gdp-pdf:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:gdpval-aa:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:gpqa-diamond:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:hle-diamond:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:humanitys-last-exam:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:ibm-granite-4-2-8b-aa-index:intelligence-index-v5-0-1` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:scicode:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:tau3-banking:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:terminal-bench-2-1:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:terminal-bench-4-0:granite-4-2-8b` | — | `default` | — | — |
+| Granite 4.2 8B | `artificial-analysis:terminal-bench-science:granite-4-2-8b` | — | `default` | — | — |
 | Kimi K2.6 (Reasoning) | `artificial-analysis:aa-briefcase:kimi-k2-6` | — | `default` | — | — |
 | Kimi K2.6 (Reasoning) | `artificial-analysis:aa-lcr:kimi-k2-6` | — | `default` | — | — |
 | Kimi K2.6 (Reasoning) | `artificial-analysis:apex-agents:kimi-k2-6` | — | `default` | — | — |
@@ -239,7 +264,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Nanbeige4.3-33B | `artificial-analysis:frontier-code-2-0:nanbeige4-3-33b` | — | `default` | — | — |
 | Nanbeige4.3-33B | `artificial-analysis:gdp-pdf:nanbeige4-3-33b` | — | `default` | — | — |
 | Nanbeige4.3-33B | `artificial-analysis:hle-diamond:nanbeige4-3-33b` | — | `default` | — | — |
-| Nanbeige4.3-33B | `artificial-analysis:nanbeige-nanbeige4-3-33b-aa-index:intelligence-index-v5-0` | — | `default` | — | — |
+| Nanbeige4.3-33B | `artificial-analysis:nanbeige-nanbeige4-3-33b-aa-index:intelligence-index-v5-0-1` | — | `default` | — | — |
 | Nanbeige4.3-33B | `artificial-analysis:terminal-bench-4-0:nanbeige4-3-33b` | — | `default` | — | — |
 | Nanbeige4.3-33B | `artificial-analysis:terminal-bench-science:nanbeige4-3-33b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:aa-briefcase:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
@@ -255,7 +280,7 @@ This tagged section is generated deterministically for `artificial-analysis`. Ra
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:hle-diamond:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:humanitys-last-exam:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:ifbench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
-| Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:nvidia-nemotron-3-ultra-aa-index:intelligence-index-v5-0` | — | `default` | — | — |
+| Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:nvidia-nemotron-3-ultra-aa-index:intelligence-index-v5-0-1` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:scicode:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:tau3-banking:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | Nemotron 3 Ultra 550B A55B (Reasoning) | `artificial-analysis:terminal-bench-2-1:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
