@@ -3,7 +3,7 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:0e40ee9905f8e9cbad6bdb41f1a0f7614aa19701d51f1bc9d6de0fdc1ecedc45`
+- Page/JSON-LD evidence: `sha256:61a01eb7bf99ba3bd96bbb1979d51ce5f7ee30823830a8554c8cc7458a1f683c`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.

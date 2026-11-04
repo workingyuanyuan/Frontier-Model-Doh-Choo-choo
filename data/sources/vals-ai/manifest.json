@@ -40,7 +40,7 @@
     "BenchmarkView.tasks.overall.*.reasoning_effort / compute_effort": "profile.effort when legal",
     "index /benchmarks/<slug> links": "complete page enumeration"
   },
-  "lastVerifiedAt": "2026-11-02T23:30:42.064Z",
+  "lastVerifiedAt": "2026-11-04T02:06:36.874Z",
   "notes": [
     "62 benchmark slugs were discovered dynamically; 57 exposed BenchmarkView data.",
     "Only the explicit approved benchmark table may produce INCLUDED capability scores; new pages are visible in validation but remain EXCLUDED.",
@@ -157,7 +157,7 @@
     "https://www.vals.ai/_astro/benchmark_view_sage.C4tN4zg-.json",
     "https://www.vals.ai/_astro/benchmark_view_science_index.BsLL57Hh.json",
     "https://www.vals.ai/_astro/benchmark_view_skillsbench.CPAGD78o.json",
-    "https://www.vals.ai/_astro/benchmark_view_sre_bench.lXFrKfyC.json",
+    "https://www.vals.ai/_astro/benchmark_view_sre_bench.CiRI0eR6.json",
     "https://www.vals.ai/_astro/benchmark_view_swebench.CWeqA8t7.json",
     "https://www.vals.ai/_astro/benchmark_view_swebench_multimodal.DfVXWXxX.json",
     "https://www.vals.ai/_astro/benchmark_view_tax_agent_bench.a72hx599.json",

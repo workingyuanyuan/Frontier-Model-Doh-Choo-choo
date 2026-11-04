@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-02T23:47:05.158Z",
+  "checkedAt": "2026-11-04T02:22:54.049Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "aime",
-        "includedRows": 306,
+        "includedRows": 313,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -120,6 +120,12 @@
           "[\"DeepSeek-V3 (Mar 2025)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek-V3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek-V3.2 (Thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.0 Lite 260428 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.1 Pro (high)\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.1 Turbo (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed Evolving (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao-Seed-1.6 (thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao-Seed-2.0 Pro (high)\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-4.7\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-5\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-5.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -242,6 +248,7 @@
           "[\"Meta-Llama-3-8B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral-7B-Instruct-v0.3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.3 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -424,6 +431,12 @@
           "DeepSeek-V3",
           "DeepSeek-V3 (Mar 2025)",
           "DeepSeek-V3.2 (Thinking)",
+          "Doubao Seed 2.0 Lite 260428 (high)",
+          "Doubao Seed 2.1 Pro (high)",
+          "Doubao Seed 2.1 Turbo (high)",
+          "Doubao Seed Evolving (high)",
+          "Doubao-Seed-1.6 (thinking)",
+          "Doubao-Seed-2.0 Pro (high)",
           "GLM-4.7",
           "GLM-5",
           "GLM-5.1",
@@ -534,6 +547,7 @@
           "Meta-Llama-3-8B-Instruct",
           "MiniMax-M3",
           "MiniMax-M3_none",
+          "Mistral Large 4 (high)",
           "Mistral Large 4 Preview (high)",
           "Mistral-7B-Instruct-v0.3",
           "Muse Spark",
@@ -656,13 +670,13 @@
           "qwen3.5-4b_none",
           "seed-oss-36b-instruct"
         ],
-        "rows": 306,
+        "rows": 313,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
       {
         "id": "chess-puzzles",
-        "includedRows": 152,
+        "includedRows": 153,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -842,6 +856,7 @@
           "[\"Kimi K3 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.1 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.2 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -988,6 +1003,7 @@
           "Kimi K3 (max)",
           "MiniMax-M3",
           "MiniMax-M3_none",
+          "Mistral Large 4 (high)",
           "Mistral Large 4 Preview (high)",
           "Muse Spark 1.1 (xhigh)",
           "Muse Spark 1.2 (xhigh)",
@@ -1018,7 +1034,7 @@
           "o4-mini (low)",
           "o4-mini (medium)"
         ],
-        "rows": 154,
+        "rows": 155,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2042,7 +2058,7 @@
       },
       {
         "id": "gpqa-diamond",
-        "includedRows": 326,
+        "includedRows": 333,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -2151,6 +2167,12 @@
           "[\"DeepSeek-V3 (Mar 2025)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek-V3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek-V3.2 (Thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.0 Lite 260428 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.1 Pro (high)\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.1 Turbo (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed Evolving (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao-Seed-1.6 (thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao-Seed-2.0 Pro (high)\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Eurus-2-7B-PRIME\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-4.7\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-5\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2279,6 +2301,7 @@
           "[\"Meta-Llama-3-8B-Instruct\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"MiniMax-M3_none\",\"non-reasoning\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral-7B-Instruct-v0.3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mixtral-8x7B-Instruct-v0.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2475,6 +2498,12 @@
           "DeepSeek-V3",
           "DeepSeek-V3 (Mar 2025)",
           "DeepSeek-V3.2 (Thinking)",
+          "Doubao Seed 2.0 Lite 260428 (high)",
+          "Doubao Seed 2.1 Pro (high)",
+          "Doubao Seed 2.1 Turbo (high)",
+          "Doubao Seed Evolving (high)",
+          "Doubao-Seed-1.6 (thinking)",
+          "Doubao-Seed-2.0 Pro (high)",
           "Eurus-2-7B-PRIME",
           "GLM-4.7",
           "GLM-5",
@@ -2591,6 +2620,7 @@
           "Meta-Llama-3-8B-Instruct",
           "MiniMax-M3",
           "MiniMax-M3_none",
+          "Mistral Large 4 (high)",
           "Mistral Large 4 Preview (high)",
           "Mistral-7B-Instruct-v0.3",
           "Mixtral-8x7B-Instruct-v0.1",
@@ -2729,7 +2759,7 @@
           "qwq-plus",
           "seed-oss-36b-instruct"
         ],
-        "rows": 326,
+        "rows": 333,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2964,7 +2994,7 @@
       },
       {
         "id": "simpleqa-verified",
-        "includedRows": 93,
+        "includedRows": 100,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -3036,6 +3066,12 @@
           "[\"DeepSeek V4.1 Flash (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek V4.1 Flash 1017 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"DeepSeek v4 Pro (max)\",\"max\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.0 Lite 260428 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.1 Pro (high)\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed 2.1 Turbo (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao Seed Evolving (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao-Seed-1.6 (thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Doubao-Seed-2.0 Pro (high)\",\"high\",\"pro\",\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-4.7\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-5.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"GLM-5.2\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -3083,6 +3119,7 @@
           "[\"Kimi K2.6\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Kimi K2.7 Code\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Kimi K3 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Mistral Large 4 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Mistral Large 4 Preview (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Muse Spark 1.2 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -3131,6 +3168,12 @@
           "DeepSeek V4.1 Flash (max)",
           "DeepSeek V4.1 Flash 1017 (max)",
           "DeepSeek v4 Pro (max)",
+          "Doubao Seed 2.0 Lite 260428 (high)",
+          "Doubao Seed 2.1 Pro (high)",
+          "Doubao Seed 2.1 Turbo (high)",
+          "Doubao Seed Evolving (high)",
+          "Doubao-Seed-1.6 (thinking)",
+          "Doubao-Seed-2.0 Pro (high)",
           "GLM-4.7",
           "GLM-5.1",
           "GLM-5.2",
@@ -3178,6 +3221,7 @@
           "Kimi K2.6",
           "Kimi K2.7 Code",
           "Kimi K3 (max)",
+          "Mistral Large 4 (high)",
           "Mistral Large 4 Preview (high)",
           "Muse Spark 1.1",
           "Muse Spark 1.2 (xhigh)",
@@ -3204,7 +3248,7 @@
           "o4-mini (high)",
           "o4-mini (low)"
         ],
-        "rows": 93,
+        "rows": 100,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3305,7 +3349,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-02T23:30:27.619Z",
+    "observedAt": "2026-11-04T02:06:23.807Z",
     "sourceId": "epoch-ai"
   }
 }

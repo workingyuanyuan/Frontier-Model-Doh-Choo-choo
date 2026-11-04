@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:32:12.295Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:08:05.457Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:30:33.150Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:06:27.291Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,75 +24,76 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:30:48.757Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:06:47.515Z
 - Scope: live-catalog-and-snapshot
 
-| Finding                           | Benchmark             | Detail                                                          |
-| --------------------------------- | --------------------- | --------------------------------------------------------------- |
-| unintegrated                      | aa-3d                 | https://artificialanalysis.ai/evaluations/aa-3d                 |
-| unintegrated                      | aa-analyst-agent      | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
-| unintegrated                      | aa-personalitybench   | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
-| unintegrated                      | aime-2025             | https://artificialanalysis.ai/evaluations/aime-2025             |
-| unintegrated                      | code2video-aa         | https://artificialanalysis.ai/evaluations/code2video-aa         |
-| unintegrated                      | enterprise-ops-gym-aa | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa |
-| unintegrated                      | frontiercode          | https://artificialanalysis.ai/evaluations/frontiercode          |
-| unintegrated                      | global-mmlu-lite      | https://artificialanalysis.ai/evaluations/global-mmlu-lite      |
-| unintegrated                      | harvey-lab-aa         | https://artificialanalysis.ai/evaluations/harvey-lab-aa         |
-| unintegrated                      | healthbench           | https://artificialanalysis.ai/evaluations/healthbench           |
-| unintegrated                      | itbench-aa            | https://artificialanalysis.ai/evaluations/itbench-aa            |
-| unintegrated                      | math-500              | https://artificialanalysis.ai/evaluations/math-500              |
-| unintegrated                      | mlcr-aa               | https://artificialanalysis.ai/evaluations/mlcr-aa               |
-| unintegrated                      | mmmu-pro              | https://artificialanalysis.ai/evaluations/mmmu-pro              |
-| catalog-snapshot-version-mismatch | omniscience           | Directory v1.1; stored scores (unknown)                         |
-| unintegrated                      | tau2-bench            | https://artificialanalysis.ai/evaluations/tau2-bench            |
-| unintegrated                      | terminalbench-hard    | https://artificialanalysis.ai/evaluations/terminalbench-hard    |
+| Finding                           | Benchmark                              | Detail                                                          |
+| --------------------------------- | -------------------------------------- | --------------------------------------------------------------- |
+| versions-changed                  | artificial-analysis-intelligence-index | v5.0 -\> v5.0.1                                                 |
+| unintegrated                      | aa-3d                                  | https://artificialanalysis.ai/evaluations/aa-3d                 |
+| unintegrated                      | aa-analyst-agent                       | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
+| unintegrated                      | aa-personalitybench                    | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
+| unintegrated                      | aime-2025                              | https://artificialanalysis.ai/evaluations/aime-2025             |
+| unintegrated                      | code2video-aa                          | https://artificialanalysis.ai/evaluations/code2video-aa         |
+| unintegrated                      | enterprise-ops-gym-aa                  | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa |
+| unintegrated                      | frontiercode                           | https://artificialanalysis.ai/evaluations/frontiercode          |
+| unintegrated                      | global-mmlu-lite                       | https://artificialanalysis.ai/evaluations/global-mmlu-lite      |
+| unintegrated                      | harvey-lab-aa                          | https://artificialanalysis.ai/evaluations/harvey-lab-aa         |
+| unintegrated                      | healthbench                            | https://artificialanalysis.ai/evaluations/healthbench           |
+| unintegrated                      | itbench-aa                             | https://artificialanalysis.ai/evaluations/itbench-aa            |
+| unintegrated                      | math-500                               | https://artificialanalysis.ai/evaluations/math-500              |
+| unintegrated                      | mlcr-aa                                | https://artificialanalysis.ai/evaluations/mlcr-aa               |
+| unintegrated                      | mmmu-pro                               | https://artificialanalysis.ai/evaluations/mmmu-pro              |
+| catalog-snapshot-version-mismatch | omniscience                            | Directory v1.1; stored scores (unknown)                         |
+| unintegrated                      | tau2-bench                             | https://artificialanalysis.ai/evaluations/tau2-bench            |
+| unintegrated                      | terminalbench-hard                     | https://artificialanalysis.ai/evaluations/terminalbench-hard    |
 
-| Source catalog entry                                                                                                            | Capture registered | Integration       | Benchmark ID                           | Review note                                                                                                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [AA-3D](https://artificialanalysis.ai/evaluations/aa-3d)                                                                        | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [AA-AnalystAgent](https://artificialanalysis.ai/evaluations/aa-analyst-agent)                                                   | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [AA-Briefcase v1.1](https://artificialanalysis.ai/evaluations/aa-briefcase)                                                     | yes                | scored            | aa-briefcase                           |                                                                                                                                                                                                                                                                                                      |
-| [AA-PersonalityBench](https://artificialanalysis.ai/evaluations/aa-personalitybench)                                            | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [AIME 2025](https://artificialanalysis.ai/evaluations/aime-2025)                                                                | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [APEX-Agents-AA](https://artificialanalysis.ai/evaluations/apex-agents-aa)                                                      | yes                | scored            | apex-agents                            |                                                                                                                                                                                                                                                                                                      |
-| [Artificial Analysis Intelligence Index v5.0](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index) | yes                | reviewed-deferred | artificial-analysis-intelligence-index | Composite retained separately; excluded from capability scoring by existing policy.                                                                                                                                                                                                                  |
-| [AA-LCR v1.1](https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning)                             | yes                | scored            | aa-lcr                                 |                                                                                                                                                                                                                                                                                                      |
-| [AutomationBench-AA](https://artificialanalysis.ai/evaluations/automationbench-aa)                                              | yes                | reviewed-deferred | —                                      | 2026-10-29 user decision: not scored. AA's headline (automationBenchPartialScore) is the average share of objectives completed, while Zapier's organizer leaderboard (automationbench) scores strict task completion; the metrics differ.                                                            |
-| [Code2Video-AA](https://artificialanalysis.ai/evaluations/code2video-aa)                                                        | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [CritPt](https://artificialanalysis.ai/evaluations/critpt)                                                                      | yes                | scored            | critpt                                 |                                                                                                                                                                                                                                                                                                      |
-| [CritPt v2](https://artificialanalysis.ai/evaluations/critpt-v2)                                                                | yes                | scored            | critpt-v2                              | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -\> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept as evidence and excluded from scoring (superseded, 2026-10-28). |
-| [EnterpriseOps-Gym-AA](https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa)                                         | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [FrontierCode 1.1](https://artificialanalysis.ai/evaluations/frontiercode)                                                      | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [FrontierCode 2.0](https://artificialanalysis.ai/evaluations/frontiercode-2-0)                                                  | yes                | scored            | frontier-code-2-0                      | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -\> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile.                                                                                   |
-| [GDP.pdf](https://artificialanalysis.ai/evaluations/gdp-pdf)                                                                    | yes                | scored            | gdp-pdf                                |                                                                                                                                                                                                                                                                                                      |
-| [GDPval-AA v2.1](https://artificialanalysis.ai/evaluations/gdpval-aa)                                                           | yes                | scored            | gdpval-aa                              |                                                                                                                                                                                                                                                                                                      |
-| [Global-MMLU-Lite](https://artificialanalysis.ai/evaluations/global-mmlu-lite)                                                  | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [GPQA Diamond](https://artificialanalysis.ai/evaluations/gpqa-diamond)                                                          | yes                | scored            | gpqa-diamond                           |                                                                                                                                                                                                                                                                                                      |
-| [Harvey LAB-AA v1.1](https://artificialanalysis.ai/evaluations/harvey-lab-aa)                                                   | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [HealthBench](https://artificialanalysis.ai/evaluations/healthbench)                                                            | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [HLE-Diamond](https://artificialanalysis.ai/evaluations/hle-diamond)                                                            | yes                | scored            | hle-diamond                            | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -\> hle-diamond; humanitys-last-exam is kept as evidence and excluded from scoring (superseded, 2026-10-28).                                                                                               |
-| [Humanity's Last Exam](https://artificialanalysis.ai/evaluations/humanitys-last-exam)                                           | yes                | scored            | humanitys-last-exam                    |                                                                                                                                                                                                                                                                                                      |
-| [IFBench](https://artificialanalysis.ai/evaluations/ifbench)                                                                    | yes                | scored            | ifbench                                |                                                                                                                                                                                                                                                                                                      |
-| [ITBench-AA](https://artificialanalysis.ai/evaluations/itbench-aa)                                                              | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [LiveCodeBench](https://artificialanalysis.ai/evaluations/livecodebench)                                                        | yes                | scored            | livecodebench                          |                                                                                                                                                                                                                                                                                                      |
-| [MATH-500](https://artificialanalysis.ai/evaluations/math-500)                                                                  | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [MLCR-AA](https://artificialanalysis.ai/evaluations/mlcr-aa)                                                                    | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [MMLU-Pro](https://artificialanalysis.ai/evaluations/mmlu-pro)                                                                  | yes                | scored            | mmlu-pro                               |                                                                                                                                                                                                                                                                                                      |
-| [MMMU-Pro](https://artificialanalysis.ai/evaluations/mmmu-pro)                                                                  | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [AA-Omniscience v1.1](https://artificialanalysis.ai/evaluations/omniscience)                                                    | yes                | scored            | aa-omniscience                         |                                                                                                                                                                                                                                                                                                      |
-| [SciCode](https://artificialanalysis.ai/evaluations/scicode)                                                                    | yes                | scored            | scicode                                |                                                                                                                                                                                                                                                                                                      |
-| [𝜏²-Bench Telecom](https://artificialanalysis.ai/evaluations/tau2-bench)                                                        | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [𝜏³-Banking](https://artificialanalysis.ai/evaluations/tau3-banking)                                                            | yes                | scored            | tau3-banking                           |                                                                                                                                                                                                                                                                                                      |
-| [Terminal-Bench-Science 0.1](https://artificialanalysis.ai/evaluations/terminal-bench-science)                                  | yes                | scored            | terminal-bench-science                 | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field terminalBenchScience -\> terminal-bench-science (v0.1, mini-swe-agent, 3 repeats).                                                                                                                                    |
-| [Terminal-Bench 2.1](https://artificialanalysis.ai/evaluations/terminalbench-2-1)                                               | yes                | scored            | terminal-bench-2-1                     |                                                                                                                                                                                                                                                                                                      |
-| [Terminal-Bench 4.0](https://artificialanalysis.ai/evaluations/terminalbench-4-0)                                               | yes                | scored            | terminal-bench-4-0                     | 2026-10-29 user decision: Terminal-Bench 4.0 is scored. Field terminalBench40 -\> terminal-bench-4-0 (66 tasks, mini-swe-agent, pass@1 over 3 repeats), shared with Vals terminal-bench-4; separate from terminal-bench-2-1.                                                                         |
-| [Terminal-Bench Hard](https://artificialanalysis.ai/evaluations/terminalbench-hard)                                             | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| Source catalog entry                                                                                                              | Capture registered | Integration       | Benchmark ID                           | Review note                                                                                                                                                                                                                                                                                          |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AA-3D](https://artificialanalysis.ai/evaluations/aa-3d)                                                                          | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [AA-AnalystAgent](https://artificialanalysis.ai/evaluations/aa-analyst-agent)                                                     | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [AA-Briefcase v1.1](https://artificialanalysis.ai/evaluations/aa-briefcase)                                                       | yes                | scored            | aa-briefcase                           |                                                                                                                                                                                                                                                                                                      |
+| [AA-PersonalityBench](https://artificialanalysis.ai/evaluations/aa-personalitybench)                                              | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [AIME 2025](https://artificialanalysis.ai/evaluations/aime-2025)                                                                  | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [APEX-Agents-AA](https://artificialanalysis.ai/evaluations/apex-agents-aa)                                                        | yes                | scored            | apex-agents                            |                                                                                                                                                                                                                                                                                                      |
+| [Artificial Analysis Intelligence Index v5.0.1](https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index) | yes                | reviewed-deferred | artificial-analysis-intelligence-index | Composite retained separately; excluded from capability scoring by existing policy.                                                                                                                                                                                                                  |
+| [AA-LCR v1.1](https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning)                               | yes                | scored            | aa-lcr                                 |                                                                                                                                                                                                                                                                                                      |
+| [AutomationBench-AA](https://artificialanalysis.ai/evaluations/automationbench-aa)                                                | yes                | reviewed-deferred | —                                      | 2026-10-29 user decision: not scored. AA's headline (automationBenchPartialScore) is the average share of objectives completed, while Zapier's organizer leaderboard (automationbench) scores strict task completion; the metrics differ.                                                            |
+| [Code2Video-AA](https://artificialanalysis.ai/evaluations/code2video-aa)                                                          | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [CritPt](https://artificialanalysis.ai/evaluations/critpt)                                                                        | yes                | scored            | critpt                                 |                                                                                                                                                                                                                                                                                                      |
+| [CritPt v2](https://artificialanalysis.ai/evaluations/critpt-v2)                                                                  | yes                | scored            | critpt-v2                              | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field critptAgentic (Full Set, default leaderboard tab) -\> critpt-v2; the Index's Hard Subset (critptAgenticHard) is not materialized; critpt (v1) is kept as evidence and excluded from scoring (superseded, 2026-10-28). |
+| [EnterpriseOps-Gym-AA](https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa)                                           | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [FrontierCode 1.1](https://artificialanalysis.ai/evaluations/frontiercode)                                                        | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [FrontierCode 2.0](https://artificialanalysis.ai/evaluations/frontiercode-2-0)                                                    | yes                | scored            | frontier-code-2-0                      | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -\> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile.                                                                                   |
+| [GDP.pdf](https://artificialanalysis.ai/evaluations/gdp-pdf)                                                                      | yes                | scored            | gdp-pdf                                |                                                                                                                                                                                                                                                                                                      |
+| [GDPval-AA v2.1](https://artificialanalysis.ai/evaluations/gdpval-aa)                                                             | yes                | scored            | gdpval-aa                              |                                                                                                                                                                                                                                                                                                      |
+| [Global-MMLU-Lite](https://artificialanalysis.ai/evaluations/global-mmlu-lite)                                                    | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [GPQA Diamond](https://artificialanalysis.ai/evaluations/gpqa-diamond)                                                            | yes                | scored            | gpqa-diamond                           |                                                                                                                                                                                                                                                                                                      |
+| [Harvey LAB-AA v1.1](https://artificialanalysis.ai/evaluations/harvey-lab-aa)                                                     | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [HealthBench](https://artificialanalysis.ai/evaluations/healthbench)                                                              | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [HLE-Diamond](https://artificialanalysis.ai/evaluations/hle-diamond)                                                              | yes                | scored            | hle-diamond                            | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field hleDiamond -\> hle-diamond; humanitys-last-exam is kept as evidence and excluded from scoring (superseded, 2026-10-28).                                                                                               |
+| [Humanity's Last Exam](https://artificialanalysis.ai/evaluations/humanitys-last-exam)                                             | yes                | scored            | humanitys-last-exam                    |                                                                                                                                                                                                                                                                                                      |
+| [IFBench](https://artificialanalysis.ai/evaluations/ifbench)                                                                      | yes                | scored            | ifbench                                |                                                                                                                                                                                                                                                                                                      |
+| [ITBench-AA](https://artificialanalysis.ai/evaluations/itbench-aa)                                                                | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [LiveCodeBench](https://artificialanalysis.ai/evaluations/livecodebench)                                                          | yes                | scored            | livecodebench                          |                                                                                                                                                                                                                                                                                                      |
+| [MATH-500](https://artificialanalysis.ai/evaluations/math-500)                                                                    | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [MLCR-AA](https://artificialanalysis.ai/evaluations/mlcr-aa)                                                                      | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [MMLU-Pro](https://artificialanalysis.ai/evaluations/mmlu-pro)                                                                    | yes                | scored            | mmlu-pro                               |                                                                                                                                                                                                                                                                                                      |
+| [MMMU-Pro](https://artificialanalysis.ai/evaluations/mmmu-pro)                                                                    | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [AA-Omniscience v1.1](https://artificialanalysis.ai/evaluations/omniscience)                                                      | yes                | scored            | aa-omniscience                         |                                                                                                                                                                                                                                                                                                      |
+| [SciCode](https://artificialanalysis.ai/evaluations/scicode)                                                                      | yes                | scored            | scicode                                |                                                                                                                                                                                                                                                                                                      |
+| [𝜏²-Bench Telecom](https://artificialanalysis.ai/evaluations/tau2-bench)                                                          | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [𝜏³-Banking](https://artificialanalysis.ai/evaluations/tau3-banking)                                                              | yes                | scored            | tau3-banking                           |                                                                                                                                                                                                                                                                                                      |
+| [Terminal-Bench-Science 0.1](https://artificialanalysis.ai/evaluations/terminal-bench-science)                                    | yes                | scored            | terminal-bench-science                 | 2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field terminalBenchScience -\> terminal-bench-science (v0.1, mini-swe-agent, 3 repeats).                                                                                                                                    |
+| [Terminal-Bench 2.1](https://artificialanalysis.ai/evaluations/terminalbench-2-1)                                                 | yes                | scored            | terminal-bench-2-1                     |                                                                                                                                                                                                                                                                                                      |
+| [Terminal-Bench 4.0](https://artificialanalysis.ai/evaluations/terminalbench-4-0)                                                 | yes                | scored            | terminal-bench-4-0                     | 2026-10-29 user decision: Terminal-Bench 4.0 is scored. Field terminalBench40 -\> terminal-bench-4-0 (66 tasks, mini-swe-agent, pass@1 over 3 repeats), shared with Vals terminal-bench-4; separate from terminal-bench-2-1.                                                                         |
+| [Terminal-Bench Hard](https://artificialanalysis.ai/evaluations/terminalbench-hard)                                               | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 
 ## deepswe
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:44.322Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:43.453Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -101,31 +102,28 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:30:27.619Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:06:23.807Z
 - Scope: snapshot-only
 
-| Finding       | Benchmark         | Detail                                                                                               |
-| ------------- | ----------------- | ---------------------------------------------------------------------------------------------------- |
-| profiles-lost | aime              | 304 -\> 304; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\] |
-| profiles-lost | chess-puzzles     | 154 -\> 154; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\] |
-| profiles-lost | gpqa-diamond      | 324 -\> 324; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\] |
-| profiles-lost | simpleqa-verified | 93 -\> 93; missing 1: \["Mistral Large 4 (high)","high",null,"Epoch AI Inspect",null,null,1,null\]   |
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
 
 ## frontier-code
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:46.698Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:45.200Z
 - Scope: snapshot-only
 
-| Finding       | Benchmark         | Detail                                                                                                                                                                                                                                    |
-| ------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| profiles-lost | frontier-code-2-0 | 101 -\> 101; missing 3: \["DeepSeek V4.1 Flash","high",null,"devin-cli",null,null,null,null\], \["DeepSeek V4.1 Flash","low",null,"devin-cli",null,null,null,null\], \["DeepSeek V4.1 Flash","max",null,"devin-cli",null,null,null,null\] |
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
 
 ## frontier-swe
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:19.058Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:00.747Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -134,7 +132,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## google-releases
 
-- Checked: 2026-11-02T23:47:05.158Z
+- Checked: 2026-11-04T02:22:54.049Z
 - Stored score snapshot: 2026-10-04T04:31:00.008Z
 - Scope: snapshot-only
 
@@ -144,8 +142,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:30.350Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:06:57.660Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -154,7 +152,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-02T23:47:05.158Z
+- Checked: 2026-11-04T02:22:54.049Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -164,8 +162,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:49.102Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:46.785Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -191,15 +189,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:36:57.011Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:49.161Z
 - Scope: live-catalog-and-snapshot
 
-| Finding          | Benchmark           | Detail                                |
-| ---------------- | ------------------- | ------------------------------------- |
-| versions-changed | complex-constraints | (unknown) -\> (unknown), v1.1         |
-| unintegrated     | gdp-pdf             | https://surgehq.ai/benchmarks/gdp-pdf |
-| unintegrated     | sudo-l7             | https://surgehq.ai/benchmarks/sudo-l7 |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -219,8 +216,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:52.998Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:51.142Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -246,8 +243,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:31:59.013Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:55.482Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -273,8 +270,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:32:02.399Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:57.559Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -300,8 +297,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:32:05.807Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:08:00.839Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -327,8 +324,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:32:08.451Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:08:02.842Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -354,15 +351,14 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:37:01.972Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:07:53.069Z
 - Scope: live-catalog-and-snapshot
 
-| Finding          | Benchmark     | Detail                                |
-| ---------------- | ------------- | ------------------------------------- |
-| versions-changed | riemann-bench | (unknown) -\> (unknown), v1.1         |
-| unintegrated     | gdp-pdf       | https://surgehq.ai/benchmarks/gdp-pdf |
-| unintegrated     | sudo-l7       | https://surgehq.ai/benchmarks/sudo-l7 |
+| Finding      | Benchmark | Detail                                |
+| ------------ | --------- | ------------------------------------- |
+| unintegrated | gdp-pdf   | https://surgehq.ai/benchmarks/gdp-pdf |
+| unintegrated | sudo-l7   | https://surgehq.ai/benchmarks/sudo-l7 |
 
 | Source catalog entry                                                                                        | Capture registered | Integration       | Benchmark ID              | Review note                                                                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | ------------------------- | -------------------------------------------------------------------------------- |
@@ -382,8 +378,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:30:42.064Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:06:36.874Z
 - Scope: live-catalog-and-snapshot
 
 | Finding             | Benchmark                | Detail                                                  |
@@ -489,7 +485,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## xai-releases
 
-- Checked: 2026-11-02T23:47:05.158Z
+- Checked: 2026-11-04T02:22:54.049Z
 - Stored score snapshot: 2026-10-04T04:31:01.893Z
 - Scope: snapshot-only
 
@@ -499,8 +495,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-02T23:47:05.158Z
-- Stored score snapshot: 2026-11-02T23:30:36.686Z
+- Checked: 2026-11-04T02:22:54.049Z
+- Stored score snapshot: 2026-11-04T02:06:32.139Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |

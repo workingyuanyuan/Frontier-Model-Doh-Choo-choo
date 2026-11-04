@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:95c68f1577c1460affd1710111eb725fe137e85d09675993061d0923b425c395`
-- Observed at: 2026-11-02T23:30:42.064Z
+- Index evidence: `sha256:b578e4670a5db0e379703b6022326a10c36f328ec37a2002c0e8ef8031d0a8d4`
+- Observed at: 2026-11-04T02:06:36.874Z
 
 ## Exact counts
 
@@ -9,11 +9,11 @@
 |---|---:|
 | Benchmark slugs discovered from index | 62 |
 | Benchmark pages with BenchmarkView data | 57 |
-| CandidateResults | 3470 |
+| CandidateResults | 3471 |
 | Included CandidateResults | 2066 |
-| Excluded CandidateResults | 1404 |
+| Excluded CandidateResults | 1405 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3319 |
+| CostRecords retained | 3320 |
 | Included vals_index CostRecords | 31 |
 | Canonically unresolved rows | 2113 |
 | Distinct canonically unresolved models | 236 |
@@ -67,7 +67,7 @@
 | `sage` | 28 | EXCLUDED |
 | `science_index` | 23 | EXCLUDED |
 | `skillsbench` | 35 | APPROVED |
-| `srebench` | 35 | EXCLUDED |
+| `srebench` | 36 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
 | `swebench-multimodal` | 20 | EXCLUDED |
 | `tax_agent_bench` | 80 | EXCLUDED |
@@ -476,8 +476,8 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Benchmark slugs discovered from index | 62 | 62 | +0 |
-| CandidateResults | 3470 | 3470 | +0 |
-| CostRecords retained | 3319 | 3319 | +0 |
+| CandidateResults | 3470 | 3471 | +1 |
+| CostRecords retained | 3319 | 3320 | +1 |
 | Canonically unresolved rows | 2113 | 2113 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
