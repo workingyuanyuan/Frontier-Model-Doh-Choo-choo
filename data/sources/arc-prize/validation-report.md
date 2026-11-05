@@ -7,8 +7,8 @@
 - Evaluations evidence: `sha256:e1536590e376580e2f3d41acd1b221e6ebeb8dab1bce06a4be24c4784179c6a4`
 - Models evidence: `sha256:1c1a30e94b7426c34a2a46192f144eb074fbdd4e4b6bd5f36f73f46633d05d89`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:8e25710bdf6e8a2be424b8e68adf3e3655c4d12e43358326a0187c49476aa47e`
-- Observed at: 2026-11-04T02:06:27.291Z
+- Page evidence: `sha256:3624df3868d74a51682812716262ac5158d6efceed989f25b1de07ea58d5a873`
+- Observed at: 2026-11-04T23:36:48.780Z
 
 ## Exact counts
 
@@ -20,9 +20,9 @@
 | Total v2_Semi_Private evaluations | 298 |
 | Promoted v2_Semi_Private rows (display=true) | 291 |
 | Promoted cost records (USD/task) | 291 |
-| Canonically resolved rows | 142 |
-| Canonically unresolved rows | 149 |
-| Canonically unresolved models | 149 |
+| Canonically resolved rows | 146 |
+| Canonically unresolved rows | 145 |
+| Canonically unresolved models | 145 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
@@ -40,7 +40,7 @@
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 142/291 promoted rows (149 unresolved rows across 149 distinct model names).
+Exact catalog resolution succeeded for 146/291 promoted rows (145 unresolved rows across 145 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -188,10 +188,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Magistral Medium (Thinking)
 - Magistral Small
 - Minimax M2.5
-- Muse Spark Open (High)
-- Muse Spark Open (Low)
-- Muse Spark Open (Medium)
-- Muse Spark Open (XHigh)
 - Nemotron 3.5 Super VL (High)
 - Nemotron 3.5 Super VL (Medium)
 - Nemotron 3.5 Super VL (None)
@@ -215,16 +211,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 291 | 291 | +0 |
-| Cost records | 291 | 291 | +0 |
-| Canonically unresolved models | 149 | 149 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

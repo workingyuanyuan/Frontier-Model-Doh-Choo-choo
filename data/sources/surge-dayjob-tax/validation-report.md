@@ -1,7 +1,7 @@
 # Surge DAYJOB Tax acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-tax>
-- Evidence: `sha256:ec765f6623ee49c51a2ed6e9a31ede0bb5423750af378103adeb8f559e9e8f0a`
+- Evidence: `sha256:15784b200edd43698d999e8a184e77dcec964f2cb3a1c5da4c8d5a49eaeb9782`
 - Main leaderboard: 16 rows; rendered browser count: 16.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (4): DeepSeek V4.1 Flash 1017 (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).

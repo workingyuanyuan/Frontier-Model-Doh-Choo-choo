@@ -79,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-04T02:22:54.049Z",
+  "checkedAt": "2026-11-05T00:15:15.040Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/c2/c296ad26f61810daecf17c8950c8a073a8b8ba2f777bab3c3970d604da256da3.html",
+    "artifactPath": "artifacts/sha256/99/993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714.html",
     "byteLength": 921790,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:c296ad26f61810daecf17c8950c8a073a8b8ba2f777bab3c3970d604da256da3",
+    "id": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-04T02:22:54.049Z",
+    "retrievedAt": "2026-11-05T00:15:15.040Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:c296ad26f61810daecf17c8950c8a073a8b8ba2f777bab3c3970d604da256da3",
+    "sha256": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
     "sourceId": "surge-chartography"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -230,7 +230,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-04T02:07:46.785Z",
+    "observedAt": "2026-11-04T23:38:09.685Z",
     "sourceId": "surge-chartography"
   }
 }
