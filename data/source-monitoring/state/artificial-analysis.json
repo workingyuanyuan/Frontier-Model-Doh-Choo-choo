@@ -229,21 +229,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-04T02:22:54.049Z",
+  "checkedAt": "2026-11-05T00:15:15.040Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/89/8929ad24ffbf47bf4670efb51684bbbcb125fceb765f5f49b19cc75a0022b9aa.html",
-    "byteLength": 455488,
+    "artifactPath": "artifacts/sha256/8a/8a625d89a417eb0e155ed470e788262c18b54be0a5309fa9933e01b2b97bd91a.html",
+    "byteLength": 455660,
     "finalUrl": "https://artificialanalysis.ai/evaluations",
-    "id": "sha256:8929ad24ffbf47bf4670efb51684bbbcb125fceb765f5f49b19cc75a0022b9aa",
+    "id": "sha256:8a625d89a417eb0e155ed470e788262c18b54be0a5309fa9933e01b2b97bd91a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/evaluations",
-    "retrievedAt": "2026-11-04T02:22:54.049Z",
+    "retrievedAt": "2026-11-05T00:15:15.040Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:8929ad24ffbf47bf4670efb51684bbbcb125fceb765f5f49b19cc75a0022b9aa",
+    "sha256": "sha256:8a625d89a417eb0e155ed470e788262c18b54be0a5309fa9933e01b2b97bd91a",
     "sourceId": "artificial-analysis"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -251,7 +251,7 @@
     "benchmarks": [
       {
         "id": "aa-briefcase",
-        "includedRows": 177,
+        "includedRows": 178,
         "metrics": ["rubric-score:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -281,6 +281,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -312,6 +313,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -491,6 +493,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -667,9 +670,10 @@
           "Qwen3.8-Flash-Next",
           "Step 5 Preview"
         ],
-        "rows": 177,
+        "rows": 178,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -851,7 +855,7 @@
       },
       {
         "id": "aa-lcr",
-        "includedRows": 218,
+        "includedRows": 219,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -882,6 +886,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -914,6 +919,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -1134,6 +1140,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -1351,9 +1358,10 @@
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 218,
+        "rows": 219,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -1576,7 +1584,7 @@
       },
       {
         "id": "aa-omniscience",
-        "includedRows": 108,
+        "includedRows": 109,
         "metrics": [
           "accuracy:percent:true",
           "omniscience-index:index-points:true"
@@ -1594,6 +1602,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -1615,6 +1624,8 @@
         "profiles": [
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,1048576]",
           "[\"Beam 1.0\",null,null,null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,null,null,null,null,null,null]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",null,null,null,null,null,null]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -1832,6 +1843,7 @@
         ],
         "rawLabels": [
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
           "Claude Fable 5.1 (Max, Default Fallback)",
@@ -1940,8 +1952,9 @@
           "Qwen3.8-Flash-Next",
           "Step 5 Preview"
         ],
-        "rows": 216,
+        "rows": 218,
         "sourceUrls": [
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
           "https://artificialanalysis.ai/models/claude-fable-5-1-low",
@@ -2189,6 +2202,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -2196,6 +2210,7 @@
           "moonshot-kimi-k3-1-pro",
           "nanbeige-nanbeige4-3-33b",
           "nvidia-nemotron-3-ultra",
+          "openai-gpt-5-6-luna",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
@@ -2203,10 +2218,12 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "thinking-machines-inkling",
+          "xai-grok-4-6",
           "xai-grok-4-7"
         ],
         "profiles": [
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (Max, Default Fallback)\",\"max\",\"reasoning\",null,null,null,null,null]",
@@ -2229,12 +2246,14 @@
           "[\"Claude Sonnet 5.5 (Xhigh, Default Fallback)\",\"xhigh\",\"reasoning\",null,null,null,null,null]",
           "[\"Command A+\",null,\"reasoning\",null,null,null,null,null]",
           "[\"DeepSeek V4 Pro 0813 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
+          "[\"DeepSeek V4 Pro 0813 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null]",
           "[\"DeepSeek V4.1 Flash 1017 (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"DeepSeek V4.1 Flash 1017 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"DeepSeek V4.1 Flash 1017 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null]",
           "[\"GLM-5.3 (Low)\",\"low\",\"reasoning\",null,null,null,null,null]",
           "[\"GLM-5.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"GLM-5.3-Flash\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"GPT-5.6 Luna (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"GPT-5.6 Terra (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"GPT-6 Astra (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"GPT-6 Astra (Low)\",\"low\",\"reasoning\",null,null,null,null,null]",
@@ -2259,6 +2278,7 @@
           "[\"GPT-6.1 Terra (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null]",
           "[\"GPT-6.1 Terra (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null]",
           "[\"GPT-6.1 Terra (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null]",
+          "[\"Gemini 3.1 Flash-Lite\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Gemini 3.5 Flash-Lite\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Gemini 3.8 Flash (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"Gemini 3.8 Flash (Low)\",\"low\",\"reasoning\",null,null,null,null,null]",
@@ -2268,6 +2288,7 @@
           "[\"Gemini 4 Carbon (Low)\",\"low\",\"reasoning\",null,null,null,null,null]",
           "[\"Gemini 4 Carbon (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null]",
           "[\"Granite 4.2 8B\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Grok 4.6 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null]",
           "[\"Grok 4.7 (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"Grok 4.7 (Low)\",\"low\",\"reasoning\",null,null,null,null,null]",
           "[\"Grok 4.7 (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null]",
@@ -2284,6 +2305,7 @@
           "[\"Mistral Large 4 (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"Mistral Large 4 (Medium)\",\"medium\",\"reasoning\",null,null,null,null,null]",
           "[\"Mistral Large 4 Preview\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Mistral Medium 3.5\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Muse Glimmer (High)\",\"high\",\"reasoning\",null,null,null,null,null]",
           "[\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",null,null,null,null,null]",
@@ -2303,6 +2325,7 @@
         ],
         "rawLabels": [
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
           "Claude Fable 5.1 (Max, Default Fallback)",
@@ -2325,12 +2348,14 @@
           "Claude Sonnet 5.5 (Xhigh, Default Fallback)",
           "Command A+",
           "DeepSeek V4 Pro 0813 (Max)",
+          "DeepSeek V4 Pro 0813 (Non-reasoning)",
           "DeepSeek V4.1 Flash 1017 (High)",
           "DeepSeek V4.1 Flash 1017 (Max)",
           "DeepSeek V4.1 Flash 1017 (Non-reasoning)",
           "GLM-5.3 (Low)",
           "GLM-5.3 (Max)",
           "GLM-5.3-Flash",
+          "GPT-5.6 Luna (Max)",
           "GPT-5.6 Terra (Max)",
           "GPT-6 Astra (High)",
           "GPT-6 Astra (Low)",
@@ -2355,6 +2380,7 @@
           "GPT-6.1 Terra (Medium)",
           "GPT-6.1 Terra (Non-reasoning)",
           "GPT-6.1 Terra (Xhigh)",
+          "Gemini 3.1 Flash-Lite",
           "Gemini 3.5 Flash-Lite",
           "Gemini 3.8 Flash (High)",
           "Gemini 3.8 Flash (Low)",
@@ -2364,6 +2390,7 @@
           "Gemini 4 Carbon (Low)",
           "Gemini 4 Carbon (Medium)",
           "Granite 4.2 8B",
+          "Grok 4.6 (Xhigh)",
           "Grok 4.7 (High)",
           "Grok 4.7 (Low)",
           "Grok 4.7 (Xhigh)",
@@ -2380,6 +2407,7 @@
           "Mistral Large 4 (High)",
           "Mistral Large 4 (Medium)",
           "Mistral Large 4 Preview",
+          "Mistral Medium 3.5",
           "Mistral Small 4 (Reasoning)",
           "Muse Glimmer (High)",
           "Muse Spark 1.3 (Max)",
@@ -2397,7 +2425,7 @@
           "Qwen3.8 Max (0902)",
           "Step 5 Preview"
         ],
-        "rows": 94,
+        "rows": 100,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
@@ -2424,6 +2452,8 @@
           "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-high",
           "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-non-reasoning",
           "https://artificialanalysis.ai/models/deepseek-v4-pro",
+          "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning",
+          "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
           "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
           "https://artificialanalysis.ai/models/gemini-3-8-flash",
           "https://artificialanalysis.ai/models/gemini-3-8-flash-low",
@@ -2435,6 +2465,7 @@
           "https://artificialanalysis.ai/models/glm-5-3",
           "https://artificialanalysis.ai/models/glm-5-3-flash",
           "https://artificialanalysis.ai/models/glm-5-3-low",
+          "https://artificialanalysis.ai/models/gpt-5-6-luna",
           "https://artificialanalysis.ai/models/gpt-5-6-terra",
           "https://artificialanalysis.ai/models/gpt-6-1-sol",
           "https://artificialanalysis.ai/models/gpt-6-1-sol-high",
@@ -2460,6 +2491,7 @@
           "https://artificialanalysis.ai/models/gpt-6-luna-xhigh",
           "https://artificialanalysis.ai/models/gpt-6-sol",
           "https://artificialanalysis.ai/models/granite-4-2-8b",
+          "https://artificialanalysis.ai/models/grok-4-6-xhigh",
           "https://artificialanalysis.ai/models/grok-4-7",
           "https://artificialanalysis.ai/models/grok-4-7-high",
           "https://artificialanalysis.ai/models/grok-4-7-low",
@@ -2475,6 +2507,7 @@
           "https://artificialanalysis.ai/models/mistral-large-4",
           "https://artificialanalysis.ai/models/mistral-large-4-medium",
           "https://artificialanalysis.ai/models/mistral-large-4-preview",
+          "https://artificialanalysis.ai/models/mistral-medium-3-5",
           "https://artificialanalysis.ai/models/muse-glimmer",
           "https://artificialanalysis.ai/models/muse-spark-1-3",
           "https://artificialanalysis.ai/models/muse-spark-open",
@@ -2495,7 +2528,7 @@
       },
       {
         "id": "critpt",
-        "includedRows": 220,
+        "includedRows": 221,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -2525,6 +2558,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -2558,6 +2592,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -2780,6 +2815,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -2999,9 +3035,10 @@
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 220,
+        "rows": 221,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -3226,12 +3263,13 @@
       },
       {
         "id": "critpt-v2",
-        "includedRows": 43,
+        "includedRows": 46,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
           "deepseek-deepseek-v4-pro",
@@ -3240,12 +3278,14 @@
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
           "moonshot-kimi-k3",
           "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
+          "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
@@ -3260,12 +3300,14 @@
           "[\"Beam 1.0\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Claude Fable 5.1 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Claude Haiku 5.5 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Claude Opus 5 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Claude Opus 5.5 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Claude Sonnet 5.5 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"DeepSeek V4 Pro 0813 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"DeepSeek V4.1 Flash 1017 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GLM-5.3 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GLM-5.3-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"GPT-5.6 Luna (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GPT-5.6 Sol (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GPT-5.6 Terra (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GPT-6 Astra (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
@@ -3273,6 +3315,7 @@
           "[\"GPT-6 Sol (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GPT-6.1 Sol (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"GPT-6.1 Terra (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Gemini 3.1 Flash-Lite\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Gemini 3.5 Flash-Lite\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Gemini 3.8 Flash (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Gemini 4 Argon (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
@@ -3305,12 +3348,14 @@
           "Beam 1.0",
           "Claude Fable 5.1 (Max, Default Fallback)",
           "Claude Haiku 5.5 (Max)",
+          "Claude Opus 5 (Max)",
           "Claude Opus 5.5 (Max, Default Fallback)",
           "Claude Sonnet 5.5 (Max, Default Fallback)",
           "DeepSeek V4 Pro 0813 (Max)",
           "DeepSeek V4.1 Flash 1017 (Max)",
           "GLM-5.3 (Max)",
           "GLM-5.3-Flash",
+          "GPT-5.6 Luna (Max)",
           "GPT-5.6 Sol (Max)",
           "GPT-5.6 Terra (Max)",
           "GPT-6 Astra (Max)",
@@ -3318,6 +3363,7 @@
           "GPT-6 Sol (Max)",
           "GPT-6.1 Sol (Max)",
           "GPT-6.1 Terra (Max)",
+          "Gemini 3.1 Flash-Lite",
           "Gemini 3.5 Flash-Lite",
           "Gemini 3.8 Flash (High)",
           "Gemini 4 Argon (High)",
@@ -3346,14 +3392,16 @@
           "Qwen3.8 Max (0902)",
           "Step 5 Preview"
         ],
-        "rows": 43,
+        "rows": 46,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-haiku-5-5",
+          "https://artificialanalysis.ai/models/claude-opus-5",
           "https://artificialanalysis.ai/models/claude-opus-5-5",
           "https://artificialanalysis.ai/models/claude-sonnet-5-5",
           "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
           "https://artificialanalysis.ai/models/deepseek-v4-pro",
+          "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
           "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
           "https://artificialanalysis.ai/models/gemini-3-8-flash",
           "https://artificialanalysis.ai/models/gemini-4-argon",
@@ -3362,6 +3410,7 @@
           "https://artificialanalysis.ai/models/gemma-4-31b",
           "https://artificialanalysis.ai/models/glm-5-3",
           "https://artificialanalysis.ai/models/glm-5-3-flash",
+          "https://artificialanalysis.ai/models/gpt-5-6-luna",
           "https://artificialanalysis.ai/models/gpt-5-6-sol",
           "https://artificialanalysis.ai/models/gpt-5-6-terra",
           "https://artificialanalysis.ai/models/gpt-6-1-sol",
@@ -3396,13 +3445,15 @@
       },
       {
         "id": "frontier-code-2-0",
-        "includedRows": 97,
+        "includedRows": 102,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5",
           "anthropic-claude-sonnet-5-5",
           "deepseek-deepseek-v4-pro",
           "google-gemini-3-5-flash-lite",
@@ -3411,6 +3462,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -3431,6 +3483,7 @@
         ],
         "profiles": [
           "[\"Beam 1.0\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,200000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Fable 5.1 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
@@ -3441,11 +3494,13 @@
           "[\"Claude Haiku 5.5 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
           "[\"Claude Haiku 5.5 (Medium)\",\"medium\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Haiku 5.5 (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
+          "[\"Claude Opus 5 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Opus 5.5 (High, Default Fallback)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Opus 5.5 (Low, Default Fallback)\",\"low\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Opus 5.5 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
           "[\"Claude Opus 5.5 (Medium, Default Fallback)\",\"medium\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Opus 5.5 (Xhigh, Default Fallback)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
+          "[\"Claude Sonnet 5 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Sonnet 5.5 (High, Default Fallback)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Sonnet 5.5 (Low, Default Fallback)\",\"low\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Claude Sonnet 5.5 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
@@ -3485,6 +3540,7 @@
           "[\"GPT-6.1 Terra (Medium)\",\"medium\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"GPT-6.1 Terra (Non-reasoning)\",\"non-reasoning\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"GPT-6.1 Terra (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
+          "[\"Gemini 3.1 Flash-Lite\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Gemini 3.5 Flash-Lite\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Gemini 3.8 Flash (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
           "[\"Gemini 3.8 Flash (Low)\",\"low\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
@@ -3511,6 +3567,7 @@
           "[\"Mistral Large 4 (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
           "[\"Mistral Large 4 (Medium)\",\"medium\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Mistral Large 4 Preview\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,524288]",
+          "[\"Mistral Medium 3.5\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,256000]",
           "[\"Mistral Small 4 (Reasoning)\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,256000]",
           "[\"Muse Glimmer (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,131072]",
           "[\"Muse Spark 1.3 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
@@ -3530,6 +3587,7 @@
         ],
         "rawLabels": [
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
           "Claude Fable 5.1 (Max, Default Fallback)",
@@ -3540,11 +3598,13 @@
           "Claude Haiku 5.5 (Max)",
           "Claude Haiku 5.5 (Medium)",
           "Claude Haiku 5.5 (Xhigh)",
+          "Claude Opus 5 (Max)",
           "Claude Opus 5.5 (High, Default Fallback)",
           "Claude Opus 5.5 (Low, Default Fallback)",
           "Claude Opus 5.5 (Max, Default Fallback)",
           "Claude Opus 5.5 (Medium, Default Fallback)",
           "Claude Opus 5.5 (Xhigh, Default Fallback)",
+          "Claude Sonnet 5 (Max)",
           "Claude Sonnet 5.5 (High, Default Fallback)",
           "Claude Sonnet 5.5 (Low, Default Fallback)",
           "Claude Sonnet 5.5 (Max, Default Fallback)",
@@ -3584,6 +3644,7 @@
           "GPT-6.1 Terra (Medium)",
           "GPT-6.1 Terra (Non-reasoning)",
           "GPT-6.1 Terra (Xhigh)",
+          "Gemini 3.1 Flash-Lite",
           "Gemini 3.5 Flash-Lite",
           "Gemini 3.8 Flash (High)",
           "Gemini 3.8 Flash (Low)",
@@ -3610,6 +3671,7 @@
           "Mistral Large 4 (High)",
           "Mistral Large 4 (Medium)",
           "Mistral Large 4 Preview",
+          "Mistral Medium 3.5",
           "Mistral Small 4 (Reasoning)",
           "Muse Glimmer (High)",
           "Muse Spark 1.3 (Max)",
@@ -3627,8 +3689,9 @@
           "Qwen3.8 Max (0902)",
           "Step 5 Preview"
         ],
-        "rows": 97,
+        "rows": 102,
         "sourceUrls": [
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
           "https://artificialanalysis.ai/models/claude-fable-5-1-low",
@@ -3639,11 +3702,13 @@
           "https://artificialanalysis.ai/models/claude-haiku-5-5-low",
           "https://artificialanalysis.ai/models/claude-haiku-5-5-medium",
           "https://artificialanalysis.ai/models/claude-haiku-5-5-xhigh",
+          "https://artificialanalysis.ai/models/claude-opus-5",
           "https://artificialanalysis.ai/models/claude-opus-5-5",
           "https://artificialanalysis.ai/models/claude-opus-5-5-high",
           "https://artificialanalysis.ai/models/claude-opus-5-5-low",
           "https://artificialanalysis.ai/models/claude-opus-5-5-medium",
           "https://artificialanalysis.ai/models/claude-opus-5-5-xhigh",
+          "https://artificialanalysis.ai/models/claude-sonnet-5",
           "https://artificialanalysis.ai/models/claude-sonnet-5-5",
           "https://artificialanalysis.ai/models/claude-sonnet-5-5-high",
           "https://artificialanalysis.ai/models/claude-sonnet-5-5-low",
@@ -3655,6 +3720,7 @@
           "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-non-reasoning",
           "https://artificialanalysis.ai/models/deepseek-v4-pro",
           "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning",
+          "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
           "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
           "https://artificialanalysis.ai/models/gemini-3-8-flash",
           "https://artificialanalysis.ai/models/gemini-3-8-flash-low",
@@ -3709,6 +3775,7 @@
           "https://artificialanalysis.ai/models/mistral-large-4",
           "https://artificialanalysis.ai/models/mistral-large-4-medium",
           "https://artificialanalysis.ai/models/mistral-large-4-preview",
+          "https://artificialanalysis.ai/models/mistral-medium-3-5",
           "https://artificialanalysis.ai/models/mistral-small-4",
           "https://artificialanalysis.ai/models/muse-glimmer",
           "https://artificialanalysis.ai/models/muse-spark-1-3",
@@ -3731,7 +3798,7 @@
       },
       {
         "id": "gdp-pdf",
-        "includedRows": 173,
+        "includedRows": 174,
         "metrics": ["all-pass:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -3759,6 +3826,7 @@
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -3790,6 +3858,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
@@ -3965,6 +4034,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -4137,9 +4207,10 @@
           "Qwen3.8-Flash-Next",
           "Step 5 Preview"
         ],
-        "rows": 173,
+        "rows": 174,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -4317,7 +4388,7 @@
       },
       {
         "id": "gdpval-aa",
-        "includedRows": 185,
+        "includedRows": 186,
         "metrics": ["normalized-score:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -4347,6 +4418,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -4378,6 +4450,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,1048576]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -4565,6 +4638,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -4749,7 +4823,7 @@
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 185,
+        "rows": 186,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-fable-5",
@@ -4937,7 +5011,7 @@
       },
       {
         "id": "gpqa-diamond",
-        "includedRows": 153,
+        "includedRows": 154,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -4964,6 +5038,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "minimax-minimax-m3",
           "moonshot-kimi-k2-6",
           "moonshot-kimi-k3",
@@ -4987,6 +5062,7 @@
         ],
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -5142,6 +5218,7 @@
         ],
         "rawLabels": [
           "Apodex 1.1",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -5295,9 +5372,10 @@
           "Qwen3.8-Flash-Next",
           "Step 3.7 Flash"
         ],
-        "rows": 153,
+        "rows": 154,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -5455,7 +5533,7 @@
       },
       {
         "id": "hle-diamond",
-        "includedRows": 116,
+        "includedRows": 119,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-plus",
@@ -5472,6 +5550,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -5479,6 +5558,7 @@
           "moonshot-kimi-k3-1-pro",
           "nanbeige-nanbeige4-3-33b",
           "nvidia-nemotron-3-ultra",
+          "openai-gpt-5-6-luna",
           "openai-gpt-5-6-terra",
           "openai-gpt-6-1-sol",
           "openai-gpt-6-1-terra",
@@ -5486,11 +5566,13 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "thinking-machines-inkling",
+          "xai-grok-4-6",
           "xai-grok-4-7"
         ],
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,false,null,1,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,false,null,1,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,false,null,1,200000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,false,null,1,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,false,null,1,1000000]",
           "[\"Claude Fable 5.1 (Max, Default Fallback)\",\"max\",\"reasoning\",null,false,null,1,null]",
@@ -5523,6 +5605,7 @@
           "[\"GLM-5.3 (Low)\",\"low\",\"reasoning\",null,false,null,1,1000000]",
           "[\"GLM-5.3 (Max)\",\"max\",\"reasoning\",null,false,null,1,null]",
           "[\"GLM-5.3-Flash\",null,\"reasoning\",null,false,null,1,1000000]",
+          "[\"GPT-5.6 Luna (Max)\",\"max\",\"reasoning\",null,false,null,1,1000000]",
           "[\"GPT-5.6 Terra (High)\",\"high\",\"reasoning\",null,false,null,1,1000000]",
           "[\"GPT-5.6 Terra (Low)\",\"low\",\"reasoning\",null,false,null,1,1000000]",
           "[\"GPT-5.6 Terra (Max)\",\"max\",\"reasoning\",null,false,null,1,1000000]",
@@ -5564,6 +5647,7 @@
           "[\"Gemini 4 Carbon (Low)\",\"low\",\"reasoning\",null,false,null,1,1000000]",
           "[\"Gemini 4 Carbon (Medium)\",\"medium\",\"reasoning\",null,false,null,1,1000000]",
           "[\"Granite 4.2 8B\",null,\"reasoning\",null,false,null,1,131072]",
+          "[\"Grok 4.6 (Xhigh)\",\"xhigh\",\"reasoning\",null,false,null,1,500000]",
           "[\"Grok 4.7 (High)\",\"high\",\"reasoning\",null,false,null,1,500000]",
           "[\"Grok 4.7 (Low)\",\"low\",\"reasoning\",null,false,null,1,500000]",
           "[\"Grok 4.7 (Xhigh)\",\"xhigh\",\"reasoning\",null,false,null,1,null]",
@@ -5609,6 +5693,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
           "Claude Fable 5.1 (Max, Default Fallback)",
@@ -5641,6 +5726,7 @@
           "GLM-5.3 (Low)",
           "GLM-5.3 (Max)",
           "GLM-5.3-Flash",
+          "GPT-5.6 Luna (Max)",
           "GPT-5.6 Terra (High)",
           "GPT-5.6 Terra (Low)",
           "GPT-5.6 Terra (Max)",
@@ -5682,6 +5768,7 @@
           "Gemini 4 Carbon (Low)",
           "Gemini 4 Carbon (Medium)",
           "Granite 4.2 8B",
+          "Grok 4.6 (Xhigh)",
           "Grok 4.7 (High)",
           "Grok 4.7 (Low)",
           "Grok 4.7 (Xhigh)",
@@ -5724,9 +5811,10 @@
           "Qwen3.8-Flash-Next",
           "Step 5 Preview"
         ],
-        "rows": 116,
+        "rows": 119,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
           "https://artificialanalysis.ai/models/claude-fable-5-1-low",
@@ -5769,6 +5857,7 @@
           "https://artificialanalysis.ai/models/glm-5-3",
           "https://artificialanalysis.ai/models/glm-5-3-flash",
           "https://artificialanalysis.ai/models/glm-5-3-low",
+          "https://artificialanalysis.ai/models/gpt-5-6-luna",
           "https://artificialanalysis.ai/models/gpt-5-6-terra",
           "https://artificialanalysis.ai/models/gpt-5-6-terra-high",
           "https://artificialanalysis.ai/models/gpt-5-6-terra-low",
@@ -5800,6 +5889,7 @@
           "https://artificialanalysis.ai/models/gpt-6-sol",
           "https://artificialanalysis.ai/models/gpt-6-sol-non-reasoning",
           "https://artificialanalysis.ai/models/granite-4-2-8b",
+          "https://artificialanalysis.ai/models/grok-4-6-xhigh",
           "https://artificialanalysis.ai/models/grok-4-7",
           "https://artificialanalysis.ai/models/grok-4-7-high",
           "https://artificialanalysis.ai/models/grok-4-7-low",
@@ -5847,7 +5937,7 @@
       },
       {
         "id": "humanitys-last-exam",
-        "includedRows": 217,
+        "includedRows": 218,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -5877,6 +5967,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -5909,6 +6000,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -6128,6 +6220,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -6344,9 +6437,10 @@
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 217,
+        "rows": 218,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -6568,7 +6662,7 @@
       },
       {
         "id": "ifbench",
-        "includedRows": 88,
+        "includedRows": 89,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -6597,6 +6691,7 @@
           "zai-glm-5-2"
         ],
         "profiles": [
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Opus 4.6 (Max)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Opus 4.6 (Non-reasoning, High)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000]",
@@ -6687,6 +6782,7 @@
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]"
         ],
         "rawLabels": [
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Opus 4.6 (Max)",
           "Claude Opus 4.6 (Non-reasoning, High)",
@@ -6776,8 +6872,9 @@
           "Qwen3.7 Plus",
           "Step 3.7 Flash"
         ],
-        "rows": 88,
+        "rows": 89,
         "sourceUrls": [
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-opus-4-6",
           "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
@@ -6871,10 +6968,11 @@
       },
       {
         "id": "livecodebench",
-        "includedRows": 7,
+        "includedRows": 8,
         "metrics": ["accuracy:percent:true"],
         "models": [],
         "profiles": [
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"DeepSeek V3.2 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,128000]",
           "[\"DeepSeek V3.2 (Reasoning)\",null,\"reasoning\",null,null,null,null,128000]",
           "[\"Gemini 3 Flash Preview (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,1000000]",
@@ -6884,6 +6982,7 @@
           "[\"Nova 2.0 Pro Preview (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,256000]"
         ],
         "rawLabels": [
+          "Claude 4.5 Haiku (Reasoning)",
           "DeepSeek V3.2 (Non-reasoning)",
           "DeepSeek V3.2 (Reasoning)",
           "Gemini 3 Flash Preview (Non-reasoning)",
@@ -6892,8 +6991,9 @@
           "Nova 2.0 Pro Preview (Medium)",
           "Nova 2.0 Pro Preview (Non-reasoning)"
         ],
-        "rows": 7,
+        "rows": 8,
         "sourceUrls": [
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/deepseek-v3-2",
           "https://artificialanalysis.ai/models/deepseek-v3-2-reasoning",
           "https://artificialanalysis.ai/models/gemini-3-flash",
@@ -6929,7 +7029,7 @@
       },
       {
         "id": "scicode",
-        "includedRows": 169,
+        "includedRows": 170,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -6956,6 +7056,7 @@
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -6986,6 +7087,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -7157,6 +7259,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -7325,9 +7428,10 @@
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 169,
+        "rows": 170,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -7501,7 +7605,7 @@
       },
       {
         "id": "tau3-banking",
-        "includedRows": 115,
+        "includedRows": 116,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -7548,6 +7652,7 @@
         ],
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -7665,6 +7770,7 @@
         ],
         "rawLabels": [
           "Apodex 1.1",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -7780,9 +7886,10 @@
           "Qwen3.8-Flash-Next",
           "Step 3.7 Flash"
         ],
-        "rows": 115,
+        "rows": 116,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -7902,7 +8009,7 @@
       },
       {
         "id": "terminal-bench-2-1",
-        "includedRows": 121,
+        "includedRows": 122,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -7928,6 +8035,7 @@
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "minimax-minimax-m3",
           "moonshot-kimi-k2-6",
           "moonshot-kimi-k3",
@@ -7950,6 +8058,7 @@
         ],
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",null,null,null,null,1000000]",
@@ -8073,6 +8182,7 @@
         ],
         "rawLabels": [
           "Apodex 1.1",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -8194,9 +8304,10 @@
           "Qwen3.8-Flash-Next",
           "Step 3.7 Flash"
         ],
-        "rows": 121,
+        "rows": 122,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -8322,7 +8433,7 @@
       },
       {
         "id": "terminal-bench-4-0",
-        "includedRows": 172,
+        "includedRows": 173,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -8350,6 +8461,7 @@
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -8381,6 +8493,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,200000]",
           "[\"Claude Fable 5 (Max, Opus 4.8 Fallback)\",\"max\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
@@ -8555,6 +8668,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5 (Max, Opus 4.8 Fallback)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
@@ -8726,9 +8840,10 @@
           "Qwen3.8-Flash-Next",
           "Step 5 Preview"
         ],
-        "rows": 172,
+        "rows": 173,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -8905,7 +9020,7 @@
       },
       {
         "id": "terminal-bench-science",
-        "includedRows": 110,
+        "includedRows": 113,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -8921,6 +9036,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "meta-muse-spark-1-3",
+          "meta-muse-spark-open",
           "meta-muse-wonder",
           "meta-muse-wonder-full",
           "minimax-minimax-m3",
@@ -8943,6 +9059,7 @@
         "profiles": [
           "[\"Apodex 1.1\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
+          "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,200000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Claude Fable 5.1 (Low, Default Fallback)\",\"low\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Claude Fable 5.1 (Max, Default Fallback)\",\"max\",\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
@@ -8966,6 +9083,7 @@
           "[\"Claude Sonnet 5.5 (Xhigh, Default Fallback)\",\"xhigh\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Command A+\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,192000]",
           "[\"DeepSeek V4 Pro 0813 (Max)\",\"max\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
+          "[\"DeepSeek V4 Pro 0813 (Non-reasoning)\",\"non-reasoning\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"DeepSeek V4.1 Flash (Max)\",\"max\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"DeepSeek V4.1 Flash (Non-reasoning)\",\"non-reasoning\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"DeepSeek V4.1 Flash 1017 (High)\",\"high\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
@@ -9016,6 +9134,7 @@
           "[\"Gemini 4 Carbon (Medium)\",\"medium\",\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Granite 4.2 8B\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,131072]",
           "[\"Grok 4.6 (High)\",\"high\",\"reasoning\",\"mini-swe-agent\",true,null,3,500000]",
+          "[\"Grok 4.6 (Xhigh)\",\"xhigh\",\"reasoning\",\"mini-swe-agent\",true,null,3,500000]",
           "[\"Grok 4.7 (High)\",\"high\",\"reasoning\",\"mini-swe-agent\",true,null,3,500000]",
           "[\"Grok 4.7 (Low)\",\"low\",\"reasoning\",\"mini-swe-agent\",true,null,3,500000]",
           "[\"Grok 4.7 (Xhigh)\",\"xhigh\",\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
@@ -9055,6 +9174,7 @@
         "rawLabels": [
           "Apodex 1.1",
           "Beam 1.0",
+          "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
           "Claude Fable 5.1 (Low, Default Fallback)",
           "Claude Fable 5.1 (Max, Default Fallback)",
@@ -9078,6 +9198,7 @@
           "Claude Sonnet 5.5 (Xhigh, Default Fallback)",
           "Command A+",
           "DeepSeek V4 Pro 0813 (Max)",
+          "DeepSeek V4 Pro 0813 (Non-reasoning)",
           "DeepSeek V4.1 Flash (Max)",
           "DeepSeek V4.1 Flash (Non-reasoning)",
           "DeepSeek V4.1 Flash 1017 (High)",
@@ -9128,6 +9249,7 @@
           "Gemini 4 Carbon (Medium)",
           "Granite 4.2 8B",
           "Grok 4.6 (High)",
+          "Grok 4.6 (Xhigh)",
           "Grok 4.7 (High)",
           "Grok 4.7 (Low)",
           "Grok 4.7 (Xhigh)",
@@ -9164,9 +9286,10 @@
           "Qwen3.8 Max (0902)",
           "Step 5 Preview"
         ],
-        "rows": 110,
+        "rows": 113,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
+          "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
           "https://artificialanalysis.ai/models/claude-fable-5-1-low",
@@ -9195,6 +9318,7 @@
           "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-non-reasoning",
           "https://artificialanalysis.ai/models/deepseek-v4-1-flash-non-reasoning",
           "https://artificialanalysis.ai/models/deepseek-v4-pro",
+          "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning",
           "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
           "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
           "https://artificialanalysis.ai/models/gemini-3-8-flash",
@@ -9240,6 +9364,7 @@
           "https://artificialanalysis.ai/models/gpt-6-sol-xhigh",
           "https://artificialanalysis.ai/models/granite-4-2-8b",
           "https://artificialanalysis.ai/models/grok-4-6",
+          "https://artificialanalysis.ai/models/grok-4-6-xhigh",
           "https://artificialanalysis.ai/models/grok-4-7",
           "https://artificialanalysis.ai/models/grok-4-7-high",
           "https://artificialanalysis.ai/models/grok-4-7-low",
@@ -9280,7 +9405,7 @@
         "versions": ["v0.1"]
       }
     ],
-    "observedAt": "2026-11-04T02:06:47.515Z",
+    "observedAt": "2026-11-04T23:37:06.775Z",
     "sourceId": "artificial-analysis"
   }
 }

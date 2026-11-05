@@ -12,8 +12,8 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 | 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1793398874`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 144 |
-| Distinct unresolved raw model names | 25 |
+| Cost records | 146 |
+| Distinct unresolved raw model names | 24 |
 
 ## LiveBench 2.0 suites
 
@@ -52,7 +52,6 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 - `mistral-large-4`
 - `mistral-large-4-0`
 - `mistral-large-4-high`
-- `muse-spark-open`
 - `nemotron-3.5-lightning-30b-a3b`
 - `nemotron-super-vl-3.5`
 - `nemotron-super-vl-3.5-nvfp4`
@@ -61,22 +60,6 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 - `smaug-agentic`
 - `smaug-nemotron-3.5-nvfp4`
 - `step-5-preview`
-
-## Visible comparison
-
-- LiveBench 2.0 rendered leaderboard rows: 32; table rows: 32.
-- LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
-- Result: both rendered counts matched.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Raw model profiles | 98 | 98 | +0 |
-| Candidate results | 508 | 508 | +0 |
-| Materialized costs | 144 | 144 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

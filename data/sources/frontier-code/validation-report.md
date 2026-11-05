@@ -3,25 +3,25 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:61a01eb7bf99ba3bd96bbb1979d51ce5f7ee30823830a8554c8cc7458a1f683c`
+- Page/JSON-LD evidence: `sha256:05e47ddf33473578e782a06d767523fd33ee03876c3ff4b0b7cb426f6872ca1e`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:ee91d2a7ed93ee4909491b0d6c1c18ffd006db7ef96c1d00b30504eb916c1ba1`
+- 2.0 export evidence: `sha256:45cf65e47f1c02f4a35e08a141471e044bff06b6128b87af9124d4f778d8c8b3`
 
 | Check | Count |
 |---|---:|
-| 2.0 visible models | 26 |
-| 2.0 Main configurations | 101 |
-| 2.0 configurations with costs (materialized, INCLUDED) | 101 |
-| 2.0 models with multiple efforts | 24 |
+| 2.0 visible models | 28 |
+| 2.0 Main configurations | 107 |
+| 2.0 configurations with costs (materialized, INCLUDED) | 107 |
+| 2.0 models with multiple efforts | 26 |
 | 2.0 hidden export models | 0 |
 | 2.0 canonically unresolved models | 10 |
 
-- Rendered Best reasoning mode rows: 26; All reasoning levels rows: 101; both equal the export after removing the page's hidden models (none).
+- Rendered Best reasoning mode rows: 28; All reasoning levels rows: 107; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
 - The rendered Top 10 matched the JSON-LD and export: yes.
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
@@ -54,19 +54,6 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 ## Known documentation conflict
 
 Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `frontier-code-2-0` IDs. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; they are never merged. See `SPEC.md` §4.2.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Distinct models | 47 | 47 | +0 |
-| Main configurations | 141 | 141 | +0 |
-| Materialized costs | 242 | 242 | +0 |
-| 2.0 costs | 101 | 101 | +0 |
-| 2.0 models | 26 | 26 | +0 |
-| 2.0 configurations | 101 | 101 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

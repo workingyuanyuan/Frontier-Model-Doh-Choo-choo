@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:08:05.457Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:51.653Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:06:27.291Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:36:48.780Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,30 +24,29 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:06:47.515Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:37:06.775Z
 - Scope: live-catalog-and-snapshot
 
-| Finding                           | Benchmark                              | Detail                                                          |
-| --------------------------------- | -------------------------------------- | --------------------------------------------------------------- |
-| versions-changed                  | artificial-analysis-intelligence-index | v5.0 -\> v5.0.1                                                 |
-| unintegrated                      | aa-3d                                  | https://artificialanalysis.ai/evaluations/aa-3d                 |
-| unintegrated                      | aa-analyst-agent                       | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
-| unintegrated                      | aa-personalitybench                    | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
-| unintegrated                      | aime-2025                              | https://artificialanalysis.ai/evaluations/aime-2025             |
-| unintegrated                      | code2video-aa                          | https://artificialanalysis.ai/evaluations/code2video-aa         |
-| unintegrated                      | enterprise-ops-gym-aa                  | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa |
-| unintegrated                      | frontiercode                           | https://artificialanalysis.ai/evaluations/frontiercode          |
-| unintegrated                      | global-mmlu-lite                       | https://artificialanalysis.ai/evaluations/global-mmlu-lite      |
-| unintegrated                      | harvey-lab-aa                          | https://artificialanalysis.ai/evaluations/harvey-lab-aa         |
-| unintegrated                      | healthbench                            | https://artificialanalysis.ai/evaluations/healthbench           |
-| unintegrated                      | itbench-aa                             | https://artificialanalysis.ai/evaluations/itbench-aa            |
-| unintegrated                      | math-500                               | https://artificialanalysis.ai/evaluations/math-500              |
-| unintegrated                      | mlcr-aa                                | https://artificialanalysis.ai/evaluations/mlcr-aa               |
-| unintegrated                      | mmmu-pro                               | https://artificialanalysis.ai/evaluations/mmmu-pro              |
-| catalog-snapshot-version-mismatch | omniscience                            | Directory v1.1; stored scores (unknown)                         |
-| unintegrated                      | tau2-bench                             | https://artificialanalysis.ai/evaluations/tau2-bench            |
-| unintegrated                      | terminalbench-hard                     | https://artificialanalysis.ai/evaluations/terminalbench-hard    |
+| Finding                           | Benchmark             | Detail                                                          |
+| --------------------------------- | --------------------- | --------------------------------------------------------------- |
+| unintegrated                      | aa-3d                 | https://artificialanalysis.ai/evaluations/aa-3d                 |
+| unintegrated                      | aa-analyst-agent      | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
+| unintegrated                      | aa-personalitybench   | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
+| unintegrated                      | aime-2025             | https://artificialanalysis.ai/evaluations/aime-2025             |
+| unintegrated                      | code2video-aa         | https://artificialanalysis.ai/evaluations/code2video-aa         |
+| unintegrated                      | enterprise-ops-gym-aa | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa |
+| unintegrated                      | frontiercode          | https://artificialanalysis.ai/evaluations/frontiercode          |
+| unintegrated                      | global-mmlu-lite      | https://artificialanalysis.ai/evaluations/global-mmlu-lite      |
+| unintegrated                      | harvey-lab-aa         | https://artificialanalysis.ai/evaluations/harvey-lab-aa         |
+| unintegrated                      | healthbench           | https://artificialanalysis.ai/evaluations/healthbench           |
+| unintegrated                      | itbench-aa            | https://artificialanalysis.ai/evaluations/itbench-aa            |
+| unintegrated                      | math-500              | https://artificialanalysis.ai/evaluations/math-500              |
+| unintegrated                      | mlcr-aa               | https://artificialanalysis.ai/evaluations/mlcr-aa               |
+| unintegrated                      | mmmu-pro              | https://artificialanalysis.ai/evaluations/mmmu-pro              |
+| catalog-snapshot-version-mismatch | omniscience           | Directory v1.1; stored scores (unknown)                         |
+| unintegrated                      | tau2-bench            | https://artificialanalysis.ai/evaluations/tau2-bench            |
+| unintegrated                      | terminalbench-hard    | https://artificialanalysis.ai/evaluations/terminalbench-hard    |
 
 | Source catalog entry                                                                                                              | Capture registered | Integration       | Benchmark ID                           | Review note                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -92,8 +91,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:43.453Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:02.947Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -102,18 +101,21 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:06:23.807Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:36:42.527Z
 - Scope: snapshot-only
 
-| Finding | Benchmark | Detail                                           |
-| ------- | --------- | ------------------------------------------------ |
-| None    | —         | No differences detected within the stated scope. |
+| Finding       | Benchmark                | Detail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| profiles-lost | aime                     | 311 -\> 311; missing 2: \["Doubao Seed 2.0 Lite 260428 (high)","high",null,"Epoch AI Inspect",null,null,1,null\], \["Doubao Seed Evolving (high)","high",null,"Epoch AI Inspect",null,null,1,null\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| profiles-lost | epoch-capabilities-index | 271 -\> 253; missing 19: \["Baichuan1-7B",null,null,"Epoch AI Inspect",null,null,1,null\], \["Claude 2.1",null,null,"Epoch AI Inspect",null,null,1,null\], \["Command R+",null,null,"Epoch AI Inspect",null,null,1,null\], \["DeepSeek Coder 1.3B",null,null,"Epoch AI Inspect",null,null,1,null\], \["GPT-5.5 Instant",null,null,"Epoch AI Inspect",null,null,1,null\], \["Gemini 1.0 Pro",null,null,"Epoch AI Inspect",null,null,1,null\], \["Gemma 3 12B",null,null,"Epoch AI Inspect",null,null,1,null\], \["Gemma 3 4B",null,null,"Epoch AI Inspect",null,null,1,null\], \["Magistral Small 1.0",null,null,"Epoch AI Inspect",null,null,1,null\], \["MiniMax-M2.5",null,null,"Epoch AI Inspect",null,null,1,null\], \["MiniMax-M2.7",null,null,"Epoch AI Inspect",null,null,1,null\], \["Ministral 3B",null,null,"Epoch AI Inspect",null,null,1,null\], \["Mistral 7B v0.3",null,null,"Epoch AI Inspect",null,null,1,null\], \["Mistral Large 2 (Nov 2024)",null,null,"Epoch AI Inspect",null,null,1,null\], \["Mistral Small 3.1",null,null,"Epoch AI Inspect",null,null,1,null\], \["Qwen2.5-7B",null,null,"Epoch AI Inspect",null,null,1,null\], \["Qwen3.7 Flash",null,null,"Epoch AI Inspect",null,null,1,null\], \["Yi-34B",null,null,"Epoch AI Inspect",null,null,1,null\], \["stablelm-tuned-alpha-7b",null,null,"Epoch AI Inspect",null,null,1,null\] |
+| profiles-lost | gpqa-diamond             | 331 -\> 331; missing 2: \["Doubao Seed 2.0 Lite 260428 (high)","high",null,"Epoch AI Inspect",null,null,1,null\], \["Doubao Seed Evolving (high)","high",null,"Epoch AI Inspect",null,null,1,null\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| profiles-lost | simpleqa-verified        | 100 -\> 100; missing 2: \["Doubao Seed 2.0 Lite 260428 (high)","high",null,"Epoch AI Inspect",null,null,1,null\], \["Doubao Seed Evolving (high)","high",null,"Epoch AI Inspect",null,null,1,null\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ## frontier-code
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:45.200Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:05.680Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -122,8 +124,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-swe
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:00.747Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:37:39.983Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -132,7 +134,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## google-releases
 
-- Checked: 2026-11-04T02:22:54.049Z
+- Checked: 2026-11-05T00:15:15.040Z
 - Stored score snapshot: 2026-10-04T04:31:00.008Z
 - Scope: snapshot-only
 
@@ -142,8 +144,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:06:57.660Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:37:17.259Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -152,7 +154,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-04T02:22:54.049Z
+- Checked: 2026-11-05T00:15:15.040Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -162,8 +164,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:46.785Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:09.685Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -189,8 +191,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:49.161Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:15.483Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -216,8 +218,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:51.142Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:21.876Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -243,8 +245,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:55.482Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:29.351Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -270,8 +272,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:57.559Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:35.722Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -297,8 +299,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:08:00.839Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:45.091Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -324,8 +326,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:08:02.842Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:47.856Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -351,8 +353,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:07:53.069Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:38:24.558Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -378,8 +380,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:06:36.874Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:36:59.179Z
 - Scope: live-catalog-and-snapshot
 
 | Finding             | Benchmark                | Detail                                                  |
@@ -485,7 +487,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## xai-releases
 
-- Checked: 2026-11-04T02:22:54.049Z
+- Checked: 2026-11-05T00:15:15.040Z
 - Stored score snapshot: 2026-10-04T04:31:01.893Z
 - Scope: snapshot-only
 
@@ -495,8 +497,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-04T02:22:54.049Z
-- Stored score snapshot: 2026-11-04T02:06:32.139Z
+- Checked: 2026-11-05T00:15:15.040Z
+- Stored score snapshot: 2026-11-04T23:36:53.516Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |

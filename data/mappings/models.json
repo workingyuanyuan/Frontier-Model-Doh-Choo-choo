@@ -2,6 +2,37 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "meta-muse-spark-open",
+      "providerId": "meta",
+      "displayName": "Muse Spark Open",
+      "aliases": [
+        "Muse Spark Open",
+        "muse-spark-open",
+        "meta-models/Muse-Spark-Open-816B-A42B"
+      ],
+      "releaseDate": "2026-10-15",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "tencent-hy4",
+      "providerId": "tencent",
+      "displayName": "Hy4",
+      "aliases": ["Hy4", "hy4", "tencent/hy4"],
+      "releaseDate": "2026-11-04",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "cognition-swe-2-flash",
+      "providerId": "cognition",
+      "displayName": "SWE-2 Flash",
+      "aliases": ["SWE-2 Flash", "swe-2-flash"],
+      "releaseDate": "2026-11-04",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "ibm-granite-4-2-8b",
       "providerId": "ibm",
       "displayName": "Granite 4.2 8B",

@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:b578e4670a5db0e379703b6022326a10c36f328ec37a2002c0e8ef8031d0a8d4`
-- Observed at: 2026-11-04T02:06:36.874Z
+- Index evidence: `sha256:25d393116923da8976fe2e18ccec61a363478833e4564da5f6908d3a728a899a`
+- Observed at: 2026-11-04T23:36:59.179Z
 
 ## Exact counts
 
@@ -9,14 +9,14 @@
 |---|---:|
 | Benchmark slugs discovered from index | 62 |
 | Benchmark pages with BenchmarkView data | 57 |
-| CandidateResults | 3471 |
-| Included CandidateResults | 2066 |
-| Excluded CandidateResults | 1405 |
+| CandidateResults | 3481 |
+| Included CandidateResults | 2070 |
+| Excluded CandidateResults | 1411 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3320 |
-| Included vals_index CostRecords | 31 |
-| Canonically unresolved rows | 2113 |
-| Distinct canonically unresolved models | 236 |
+| CostRecords retained | 3330 |
+| Included vals_index CostRecords | 32 |
+| Canonically unresolved rows | 2097 |
+| Distinct canonically unresolved models | 235 |
 
 ## Per-page completeness
 
@@ -33,20 +33,20 @@
 | `cyber` | 47 | APPROVED |
 | `cyber_offense` | 0 | EXCLUDED |
 | `emb` | 77 | APPROVED |
-| `emb-v1-1` | 37 | EXCLUDED |
+| `emb-v1-1` | 38 | EXCLUDED |
 | `fabv2` | 81 | APPROVED |
-| `fabv2-1` | 35 | EXCLUDED |
-| `finance_index` | 35 | EXCLUDED |
+| `fabv2-1` | 36 | EXCLUDED |
+| `finance_index` | 36 | EXCLUDED |
 | `gpqa` | 138 | APPROVED |
-| `hlab` | 33 | APPROVED |
+| `hlab` | 34 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
 | `immigration` | 25 | EXCLUDED |
 | `inference_provider` | 0 | EXCLUDED |
 | `ioi` | 46 | APPROVED |
 | `lcb` | 143 | APPROVED |
 | `legal_bench` | 151 | APPROVED |
-| `legal_index` | 33 | EXCLUDED |
-| `legal_research` | 89 | APPROVED |
+| `legal_index` | 34 | EXCLUDED |
+| `legal_research` | 90 | APPROVED |
 | `math500` | 60 | EXCLUDED |
 | `medcode` | 107 | APPROVED |
 | `medqa` | 95 | EXCLUDED |
@@ -70,18 +70,18 @@
 | `srebench` | 36 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
 | `swebench-multimodal` | 20 | EXCLUDED |
-| `tax_agent_bench` | 80 | EXCLUDED |
+| `tax_agent_bench` | 81 | EXCLUDED |
 | `tax_eval_v2` | 145 | APPROVED |
 | `terminal-bench-2` | 67 | EXCLUDED |
 | `terminal-bench-2-1` | 76 | APPROVED |
-| `terminal-bench-4` | 59 | APPROVED |
+| `terminal-bench-4` | 60 | APPROVED |
 | `terminal-bench-science` | 43 | EXCLUDED |
 | `time_horizon_index` | 13 | EXCLUDED |
-| `vals_index` | 32 | EXCLUDED |
+| `vals_index` | 33 | EXCLUDED |
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
-| `vibe-code` | 123 | APPROVED |
+| `vibe-code` | 124 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 9 | EXCLUDED |
 
@@ -347,7 +347,6 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - kimi/kimi-k3
 - logicalintelligence/alephprover
 - meta/muse_voice_transcribe
-- meta/muse-spark-open
 - minimax/MiniMax-M2.1
 - minimax/MiniMax-M2.5
 - minimax/MiniMax-M2.7
@@ -476,9 +475,9 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
 | Benchmark slugs discovered from index | 62 | 62 | +0 |
-| CandidateResults | 3470 | 3471 | +1 |
-| CostRecords retained | 3319 | 3320 | +1 |
-| Canonically unresolved rows | 2113 | 2113 | +0 |
+| CandidateResults | 3481 | 3481 | +0 |
+| CostRecords retained | 3330 | 3330 | +0 |
+| Canonically unresolved rows | 2113 | 2097 | -16 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -731,6 +730,16 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:tax-eval-v2:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:terminal-bench-2-1:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
 | nvidia/nemotron-3-ultra-550b-a55b | `vals-ai:vibe-code-bench:nvidia-nemotron-3-ultra-550b-a55b` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:emb-v1-1:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:fabv2-1:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:finance-index:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:hlab:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:legal-index:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:legal-research:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:tax-agent-bench:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:terminal-bench-4-0:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:vals-index:tencent-hy4` | — | `default` | — | — |
+| tencent/hy4 | `vals-ai:vibe-code-bench:tencent-hy4` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:code-migration:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:corpfin:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |
 | xiaomi/mimo-v2.5-pro | `vals-ai:emb:xiaomi-mimo-v2-5-pro` | — | `default` | — | — |

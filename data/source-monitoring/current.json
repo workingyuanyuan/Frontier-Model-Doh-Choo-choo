@@ -1,34 +1,29 @@
 {
-  "checkedAt": "2026-11-04T02:22:54.049Z",
+  "checkedAt": "2026-11-05T00:15:15.040Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:08:05.457Z",
+      "snapshotObservedAt": "2026-11-04T23:38:51.653Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:06:27.291Z",
+      "snapshotObservedAt": "2026-11-04T23:36:48.780Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "artificial-analysis-intelligence-index",
-          "detail": "v5.0 -> v5.0.1",
-          "kind": "versions-changed"
-        },
         {
           "benchmarkId": "aa-3d",
           "detail": "https://artificialanalysis.ai/evaluations/aa-3d",
@@ -498,47 +493,68 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:06:47.515Z",
+      "snapshotObservedAt": "2026-11-04T23:37:06.775Z",
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:07:43.453Z",
+      "snapshotObservedAt": "2026-11-04T23:38:02.947Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
-      "findings": [],
+      "findings": [
+        {
+          "benchmarkId": "aime",
+          "detail": "311 -> 311; missing 2: [\"Doubao Seed 2.0 Lite 260428 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Doubao Seed Evolving (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "epoch-capabilities-index",
+          "detail": "271 -> 253; missing 19: [\"Baichuan1-7B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Claude 2.1\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Command R+\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"DeepSeek Coder 1.3B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"GPT-5.5 Instant\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemini 1.0 Pro\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemma 3 12B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Gemma 3 4B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Magistral Small 1.0\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"MiniMax-M2.5\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"MiniMax-M2.7\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Ministral 3B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Mistral 7B v0.3\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Mistral Large 2 (Nov 2024)\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Mistral Small 3.1\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen2.5-7B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Qwen3.7 Flash\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"Yi-34B\",null,null,\"Epoch AI Inspect\",null,null,1,null], [\"stablelm-tuned-alpha-7b\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "gpqa-diamond",
+          "detail": "331 -> 331; missing 2: [\"Doubao Seed 2.0 Lite 260428 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Doubao Seed Evolving (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "kind": "profiles-lost"
+        },
+        {
+          "benchmarkId": "simpleqa-verified",
+          "detail": "100 -> 100; missing 2: [\"Doubao Seed 2.0 Lite 260428 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null], [\"Doubao Seed Evolving (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "kind": "profiles-lost"
+        }
+      ],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:06:23.807Z",
+      "snapshotObservedAt": "2026-11-04T23:36:42.527Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:07:45.200Z",
+      "snapshotObservedAt": "2026-11-04T23:38:05.680Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:07:00.747Z",
+      "snapshotObservedAt": "2026-11-04T23:37:39.983Z",
       "sourceId": "frontier-swe"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -547,16 +563,16 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:06:57.660Z",
+      "snapshotObservedAt": "2026-11-04T23:37:17.259Z",
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -565,7 +581,7 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -712,11 +728,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:07:46.785Z",
+      "snapshotObservedAt": "2026-11-04T23:38:09.685Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -863,11 +879,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:07:49.161Z",
+      "snapshotObservedAt": "2026-11-04T23:38:15.483Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -1014,11 +1030,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:07:51.142Z",
+      "snapshotObservedAt": "2026-11-04T23:38:21.876Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -1165,11 +1181,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:07:55.482Z",
+      "snapshotObservedAt": "2026-11-04T23:38:29.351Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -1316,11 +1332,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:07:57.559Z",
+      "snapshotObservedAt": "2026-11-04T23:38:35.722Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -1467,11 +1483,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:08:00.839Z",
+      "snapshotObservedAt": "2026-11-04T23:38:45.091Z",
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -1618,11 +1634,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:08:02.842Z",
+      "snapshotObservedAt": "2026-11-04T23:38:47.856Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -1769,11 +1785,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:07:53.069Z",
+      "snapshotObservedAt": "2026-11-04T23:38:24.558Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [
         {
@@ -2565,11 +2581,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-04T02:06:36.874Z",
+      "snapshotObservedAt": "2026-11-04T23:36:59.179Z",
       "sourceId": "vals-ai"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -2578,12 +2594,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-11-04T02:22:54.049Z",
+      "checkedAt": "2026-11-05T00:15:15.040Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-04T02:06:32.139Z",
+      "snapshotObservedAt": "2026-11-04T23:36:53.516Z",
       "sourceId": "zapier-automationbench"
     }
   ]
