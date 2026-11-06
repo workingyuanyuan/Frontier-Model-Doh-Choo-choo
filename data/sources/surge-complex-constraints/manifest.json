@@ -14,12 +14,12 @@
     ".lead-hero-title h1 .v2-chip": "benchmarkVersion",
     "[data-score] numeric displayed text": "rawScore / normalizedScore"
   },
-  "lastVerifiedAt": "2026-11-04T23:38:15.483Z",
+  "lastVerifiedAt": "2026-11-06T00:20:03.691Z",
   "notes": [
     "Main leaderboard all-criteria task pass@1 percentages; professional instruction following.",
     "The official harness defines all_pass/mean as the leaderboard task pass rate; mean_criteria/mean is separate.",
     "Current benchmark version: v1.1. Per-row trial count and publication date remain unpublished.",
-    "Current rendered rows: 15; preserved rows omitted from the current leaderboard: 34. Preserved rows keep their original version, observedAt, scores and Evidence; they are not current-version reruns."
+    "Current rendered rows: 16; preserved rows omitted from the current leaderboard: 34. Preserved rows keep their original version, observedAt, scores and Evidence; they are not current-version reruns."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",

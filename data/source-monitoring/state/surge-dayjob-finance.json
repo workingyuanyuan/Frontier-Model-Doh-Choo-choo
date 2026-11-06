@@ -79,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-05T00:15:15.040Z",
+  "checkedAt": "2026-11-06T00:25:56.000Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/99/993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714.html",
-    "byteLength": 921790,
+    "artifactPath": "artifacts/sha256/c5/c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69.html",
+    "byteLength": 937128,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
+    "id": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-05T00:15:15.040Z",
+    "retrievedAt": "2026-11-06T00:25:56.000Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
+    "sha256": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
     "sourceId": "surge-dayjob-finance"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -101,7 +101,7 @@
     "benchmarks": [
       {
         "id": "dayjob-finance",
-        "includedRows": 38,
+        "includedRows": 40,
         "metrics": ["mean-reward:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -111,6 +111,7 @@
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5",
           "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
           "deepseek-deepseek-v4-flash",
           "deepseek-deepseek-v4-pro",
           "google-gemini-3-7-flash",
@@ -121,6 +122,7 @@
           "meta-muse-wonder",
           "moonshot-kimi-k2-7-code",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
           "openai-gpt-5-6-luna",
           "openai-gpt-5-6-sol",
@@ -129,7 +131,9 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "reflection-beam-1-0",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-small",
           "xai-grok-4-6",
           "xai-grok-4-7"
         ],
@@ -162,8 +166,10 @@
           "[\"Hy Hy3 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
           "[\"Hy Hy4 Preview (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
           "[\"Inkling (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Inkling 2 Small (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
           "[\"Kimi K2.7 Code (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Kimi K3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
+          "[\"Kimi K3.1 Pro (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,5,null]",
           "[\"Mistral Large 4 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,5,null]",
           "[\"Muse Glimmer 30B (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
           "[\"Muse Spark 1.2 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,5,null]",
@@ -202,8 +208,10 @@
           "Hy Hy3 (High reasoning)",
           "Hy Hy4 Preview (High reasoning)",
           "Inkling (Max reasoning)",
+          "Inkling 2 Small (xHigh reasoning)",
           "Kimi K2.7 Code (Max reasoning)",
           "Kimi K3 (Max reasoning)",
+          "Kimi K3.1 Pro (Max reasoning)",
           "Mistral Large 4 (High reasoning)",
           "Muse Glimmer 30B (xHigh reasoning)",
           "Muse Spark 1.2 (xHigh reasoning)",
@@ -213,12 +221,12 @@
           "Qwen 3.8 Max (xHigh reasoning)",
           "mistral Large 3"
         ],
-        "rows": 38,
+        "rows": 40,
         "sourceUrls": ["https://surgehq.ai/benchmarks/dayjob-finance"],
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-04T23:38:29.351Z",
+    "observedAt": "2026-11-06T00:20:09.613Z",
     "sourceId": "surge-dayjob-finance"
   }
 }

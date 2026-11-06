@@ -2,8 +2,8 @@
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
 - Benchmark version: v1.1.
-- Evidence: `sha256:38cf8480724f66d175f3a7c972fc2a8949229996bbed2ebcb8b3075a61121c49`
-- Main leaderboard: 15 rows; rendered browser count: 15.
+- Evidence: `sha256:df24dba0517562a5ece4cf5a21591141a8e5685bec654164d39ae10b8f933790`
+- Main leaderboard: 16 rows; rendered browser count: 16.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
 
@@ -13,7 +13,7 @@ The official harness defines the leaderboard task pass rate as all_pass/mean (Pa
 
 ## Preserved rows omitted from the current leaderboard
 
-Current rendered rows: 15; preserved: 34; total stored: 49. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.
+Current rendered rows: 16; preserved: 34; total stored: 50. Preserved rows retain their original version, timestamp, score and Evidence and are not current-version reruns.
 
 - surge-complex-constraints:complex-constraints:claude-fable-5-max-reasoning: 38.1; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:claude-opus-4-8-max-reasoning: 35.6; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
@@ -49,6 +49,15 @@ Current rendered rows: 15; preserved: 34; total stored: 49. Preserved rows retai
 - surge-complex-constraints:complex-constraints:qwen-3-5-plus-thinking-on: 17.8; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:qwen-3-7-max-thinking-on: 33.5; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:qwen-3-8-flash-xhigh-reasoning: 43.3; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
+
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 49 | 50 | +1 |
+| Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

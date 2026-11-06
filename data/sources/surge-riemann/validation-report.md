@@ -2,10 +2,10 @@
 
 - Source: <https://surgehq.ai/benchmarks/riemann-bench>
 - Benchmark version: v1.1.
-- Evidence: `sha256:19dddcb633d20c7162fe87a3c75a244e2833bcbc18a24f4481d363a90989abfc`
+- Evidence: `sha256:f0403026b555ba4125cf356a514ecaad5c1f46298a2780406804401fe2b72534`
 - Main leaderboard: 21 rows; rendered browser count: 21.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
-- Unresolved catalog identities (5): Beam 1.0 (Max reasoning); DeepSeek V4.1 Flash 1017 (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
+- Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
 
 Scores are the main leaderboard pass rate percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on and Auto reasoning do not declare an effort tier. Fast is a model variant and stays in the identity lookup. Unresolved model variants retain null canonical identity.
 
@@ -51,6 +51,15 @@ Current rendered rows: 21; preserved: 34; total stored: 55. Preserved rows retai
 - surge-riemann:riemann-bench:muse-spark-1-1-xhigh-reasoning: 20.8; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
 - surge-riemann:riemann-bench:muse-spark-1-2-xhigh-reasoning: 23.2; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
 - surge-riemann:riemann-bench:qwen-3-7-max-thinking-on: 15.2; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
+
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 55 | 55 | +0 |
+| Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

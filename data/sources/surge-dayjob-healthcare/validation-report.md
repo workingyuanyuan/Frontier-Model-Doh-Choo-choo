@@ -1,10 +1,10 @@
 # Surge DAYJOB Healthcare acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-healthcare>
-- Evidence: `sha256:7972378c8d183faed0562986c7f21a01824988a784e2e501640340571730187c`
+- Evidence: `sha256:4afee087627218ca92fb082c43505159253b61575697a3e3b2f5c7c8e7ddddca`
 - Main leaderboard: 38 rows; rendered browser count: 38.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
-- Unresolved catalog identities (10): Beam 1.0 (Max reasoning); DeepSeek V4.1 Flash 1017 (Max reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).
+- Unresolved catalog identities (8): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).
 
 Scores are the main leaderboard mean reward percentages (0–100). Explicit reasoning tiers are retained; Adaptive/Max maps to max, Adaptive/High to high, Minimal reasoning to low, and No reasoning / Thinking off to non-reasoning. Thinking on and Auto reasoning do not declare an effort tier. Fast is a model variant and stays in the identity lookup. Unresolved model variants retain null canonical identity.
 
@@ -13,6 +13,15 @@ The official DAYJOB repository defines a trial reward on 0–1, each task score 
 The official DAYJOB repository publishes the Healthcare domain tasks and documents task-specific grading. The public repository documents a Harbor adapter and OpenHands SDK agent harness, with Claude Opus 4.8 grading. These published general descriptions do not establish exact tools or harness metadata for each current row, so those profile fields remain null. Benchmark version, context windows and leaderboard publication dates are unpublished and remain null.
 
 - Methodology: <https://surgehq.ai/blog/dayjob> and <https://github.com/surge-ai/dayjob#grading>. The blog publication date is not the leaderboard publication date.
+
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 38 | 38 | +0 |
+| Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

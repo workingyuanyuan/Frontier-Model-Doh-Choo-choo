@@ -2,6 +2,47 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "reflection-beam-1-0",
+      "providerId": "reflection",
+      "displayName": "Beam 1.0",
+      "aliases": [
+        "Beam 1.0",
+        "Beam-1.0-501B-A23B",
+        "reflection/Beam-1.0-501B-A23B",
+        "beam-1-0"
+      ],
+      "releaseDate": "2026-10-16",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "deepseek-deepseek-v4-1-flash-1017",
+      "providerId": "deepseek",
+      "displayName": "DeepSeek-V4.1-Flash-1017",
+      "aliases": [
+        "DeepSeek V4.1 Flash 1017",
+        "DeepSeek-V4.1-Flash-1017",
+        "deepseek-v4-1-flash-1017",
+        "deepseek-ai/DeepSeek-V4.1-Flash-1017"
+      ],
+      "releaseDate": "2026-10-17",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "thinking-machines-inkling-2-small",
+      "providerId": "thinking-machines",
+      "displayName": "Inkling 2 Small",
+      "aliases": [
+        "Inkling 2 Small",
+        "inkling-2-small",
+        "thinkingmachines/inkling-2-small"
+      ],
+      "releaseDate": "2026-11-05",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "meta-muse-spark-open",
       "providerId": "meta",
       "displayName": "Muse Spark Open",

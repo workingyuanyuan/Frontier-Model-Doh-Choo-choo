@@ -8,7 +8,7 @@
 - Models evidence: `sha256:1c1a30e94b7426c34a2a46192f144eb074fbdd4e4b6bd5f36f73f46633d05d89`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
 - Page evidence: `sha256:3624df3868d74a51682812716262ac5158d6efceed989f25b1de07ea58d5a873`
-- Observed at: 2026-11-04T23:36:48.780Z
+- Observed at: 2026-11-06T00:16:25.016Z
 
 ## Exact counts
 
@@ -20,9 +20,9 @@
 | Total v2_Semi_Private evaluations | 298 |
 | Promoted v2_Semi_Private rows (display=true) | 291 |
 | Promoted cost records (USD/task) | 291 |
-| Canonically resolved rows | 146 |
-| Canonically unresolved rows | 145 |
-| Canonically unresolved models | 145 |
+| Canonically resolved rows | 154 |
+| Canonically unresolved rows | 137 |
+| Canonically unresolved models | 137 |
 | Excluded candidate rows | 8 |
 
 ## CandidateResults per benchmark
@@ -40,7 +40,7 @@
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 146/291 promoted rows (145 unresolved rows across 145 distinct model names).
+Exact catalog resolution succeeded for 154/291 promoted rows (137 unresolved rows across 137 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -67,10 +67,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 ## Unresolved model names
 
 - ARChitects
-- Beam 1.0 (High)
-- Beam 1.0 (Low)
-- Beam 1.0 (Medium)
-- Beam 1.0 (XHigh)
 - Claude 3.7
 - Claude 3.7 (16K)
 - Claude 3.7 (1K)
@@ -109,10 +105,6 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - DeepSeek V4.1 Flash (Low)
 - DeepSeek V4.1 Flash (Max)
 - DeepSeek V4.1 Flash (None)
-- DeepSeek V4.1 Flash 1017 (High)
-- DeepSeek V4.1 Flash 1017 (Low)
-- DeepSeek V4.1 Flash 1017 (Max)
-- DeepSeek V4.1 Flash 1017 (None)
 - Dots3-Note Preview (Max)
 - Gemini 1.5 Pro
 - Gemini 2.0 Flash
@@ -211,6 +203,15 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
+
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 291 | 291 | +0 |
+| Materialized costs | 291 | 291 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

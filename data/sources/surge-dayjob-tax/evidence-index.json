@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/15/15784b200edd43698d999e8a184e77dcec964f2cb3a1c5da4c8d5a49eaeb9782.html",
-    "byteLength": 561844,
+    "artifactPath": "artifacts/sha256/4b/4b16a71e10a41fdccebae0855a83df4cace54068aab134c0edf9b7d00e1057d7.html",
+    "byteLength": 569057,
     "finalUrl": "https://surgehq.ai/benchmarks/dayjob-tax",
-    "id": "sha256:15784b200edd43698d999e8a184e77dcec964f2cb3a1c5da4c8d5a49eaeb9782",
+    "id": "sha256:4b16a71e10a41fdccebae0855a83df4cace54068aab134c0edf9b7d00e1057d7",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 16,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/dayjob-tax",
-    "retrievedAt": "2026-11-04T23:38:45.091Z",
+    "retrievedAt": "2026-11-06T00:21:35.296Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:15784b200edd43698d999e8a184e77dcec964f2cb3a1c5da4c8d5a49eaeb9782",
+    "sha256": "sha256:4b16a71e10a41fdccebae0855a83df4cace54068aab134c0edf9b7d00e1057d7",
     "sourceId": "surge-dayjob-tax"
   }
 ]

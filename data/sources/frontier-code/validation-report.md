@@ -3,31 +3,31 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:05e47ddf33473578e782a06d767523fd33ee03876c3ff4b0b7cb426f6872ca1e`
+- Page/JSON-LD evidence: `sha256:35063199ae8dfefb59947face88370e7b53fc17609cc1bcd0eb82dc29f59f4b3`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:45cf65e47f1c02f4a35e08a141471e044bff06b6128b87af9124d4f778d8c8b3`
+- 2.0 export evidence: `sha256:96615ddfc3ff0257a5e0324d1ab7b5f8f0731b411cb002ab0a592957fd35eabe`
 
 | Check | Count |
 |---|---:|
-| 2.0 visible models | 28 |
-| 2.0 Main configurations | 107 |
-| 2.0 configurations with costs (materialized, INCLUDED) | 107 |
-| 2.0 models with multiple efforts | 26 |
+| 2.0 visible models | 29 |
+| 2.0 Main configurations | 110 |
+| 2.0 configurations with costs (materialized, INCLUDED) | 110 |
+| 2.0 models with multiple efforts | 27 |
 | 2.0 hidden export models | 0 |
-| 2.0 canonically unresolved models | 10 |
+| 2.0 canonically unresolved models | 8 |
 
-- Rendered Best reasoning mode rows: 28; All reasoning levels rows: 107; both equal the export after removing the page's hidden models (none).
+- Rendered Best reasoning mode rows: 29; All reasoning levels rows: 110; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
 - The rendered Top 10 matched the JSON-LD and export: yes.
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
 - Cost is the mean USD spend per rollout at list API pricing (page methodology), stored as `AGENT_TASK` / `USD_PER_TASK`. Since the 2026-10-28 user decision the cost chart pairs Frontier Code costs with `frontier-code-2-0`; 1.1 costs are kept EXCLUDED as superseded and are never blended with 2.0.
 - Effort `na` (SWE-1.6, SWE-1.7) and other non-policy keys stay null. Neither the export nor the methodology states a per-configuration rollout count, so attempts stays null.
-- Unresolved names keep null canonical/profile identity: Beam 1.0, Claude Haiku 5.5, DeepSeek V4.1 Flash 1017, GLM 5.3, GLM 5.3 Flash, Inkling Small, Mistral Large 4, SWE-1.6, SWE-1.7, SWE-2.
+- Unresolved names keep null canonical/profile identity: Claude Haiku 5.5, GLM 5.3, GLM 5.3 Flash, Inkling Small, Mistral Large 4, SWE-1.6, SWE-1.7, SWE-2.
 
 ## FrontierCode 1.1
 
@@ -54,6 +54,15 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 ## Known documentation conflict
 
 Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `frontier-code-2-0` IDs. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; they are never merged. See `SPEC.md` §4.2.
+
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 248 | 251 | +3 |
+| Materialized costs | 248 | 251 | +3 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

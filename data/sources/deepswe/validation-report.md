@@ -45,13 +45,12 @@ Per SPEC.md §9.2 and §6.3, all configuration rows and reasoning effort ladders
 
 ## Snapshot delta
 
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Configuration rows | 70 | 70 | +0 |
-| Distinct models | 28 | 28 | +0 |
+| Candidate results | 70 | 70 | +0 |
 | Materialized costs | 68 | 68 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

@@ -2,6 +2,15 @@
 
 Argon DeepSWE v1.1: 77.9%, self-computed mini-swe-agent. Methods PDF and release page captured and hashed. Literal effort unspecified; candidate keeps null. AutomationBench 51.3 rounds organizer 51.29; Gemini 3.8 Flash DeepSWE differs from current organizer. See cross-checks.json.
 
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 1 | 1 | +0 |
+| Materialized costs | 0 | 0 | +0 |
+
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
