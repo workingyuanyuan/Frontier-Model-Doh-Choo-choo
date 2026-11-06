@@ -15,7 +15,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.DTv7cz4w.mjs",
-    "retrievedAt": "2026-11-04T23:36:53.516Z",
+    "retrievedAt": "2026-11-06T00:16:29.618Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:83d91f260ac0d350c7c0d0623ca70011b9adf8b8aea76ed8ba793f73e80df407",
     "sourceId": "zapier-automationbench"
@@ -33,7 +33,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://zapier.com/benchmarks",
-    "retrievedAt": "2026-11-04T23:36:53.516Z",
+    "retrievedAt": "2026-11-06T00:16:29.618Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:99c868424d4e3073c940d68d1940ba0007f7e6231d5a312db326ff2269d46d39",
     "sourceId": "zapier-automationbench"

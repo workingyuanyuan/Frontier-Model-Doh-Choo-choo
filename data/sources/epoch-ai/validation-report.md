@@ -1,6 +1,6 @@
 # Epoch AI acquisition validation
 
-- Retrieved at: 2026-11-04T23:36:42.527Z
+- Retrieved at: 2026-11-06T00:16:21.502Z
 - Export: https://epoch.ai/data/benchmark_data.zip
 - Live comparison channel: https://epoch.ai/data/benchmarks.csv
 - Page: https://epoch.ai/benchmarks/use-this-data
@@ -13,7 +13,7 @@
 | External-source mirrors (`_external`) | 67 |
 | Epoch Capabilities Index rows | 253 |
 | CandidateResults | 1476 |
-| Rows without a canonical identity | 978 |
+| Rows without a canonical identity | 972 |
 
 ## CandidateResults per benchmark
 
@@ -61,9 +61,9 @@ so the export is compared against that file rather than against a typed count.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| CandidateResults | 1488 | 1476 | -12 |
-| Epoch Capabilities Index rows | 271 | 253 | -18 |
-| Rows without a canonical identity | 994 | 982 | -12 |
+| CandidateResults | 1476 | 1476 | +0 |
+| Epoch Capabilities Index rows | 253 | 253 | +0 |
+| Rows without a canonical identity | 982 | 978 | -4 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -76,6 +76,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
+| Beam 1.0 | `epoch-ai:epoch-capabilities-index:reflection-beam-1-0-default-epoch-inspect-row-64` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | Claude Fable 5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-default-epoch-inspect-row-9` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-max:arc-agi-2-v2-semi-private |
 | Claude Fable 5.1 | `epoch-ai:epoch-capabilities-index:anthropic-claude-fable-5-1-default-epoch-inspect-row-5` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
 | Claude Opus 4.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-opus-4-5-default-epoch-inspect-row-58` | — | `max` | surge-riemann | surge-riemann:riemann-bench:claude-opus-4-5-adaptive-max |
@@ -125,6 +126,7 @@ This tagged section is generated deterministically for `epoch-ai`. Raw `profile.
 | Claude Sonnet 5.5 | `epoch-ai:epoch-capabilities-index:anthropic-claude-sonnet-5-5-default-epoch-inspect-row-7` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
 | DeepSeek V4 Flash 0731 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-flash-epoch-inspect-row-48` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | DeepSeek V4 Pro 0813 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-pro-epoch-inspect-row-37` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
+| DeepSeek V4.1 Flash 1017 | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-1-flash-1017-default-epoch-inspect-row-19` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-1-flash-1017-max:arc-agi-2-v2-semi-private |
 | DeepSeek-V4-Flash | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-flash-default-epoch-inspect-row-83` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-flash-0731-max:arc-agi-2-v2-semi-private |
 | DeepSeek-V4-Pro | `epoch-ai:epoch-capabilities-index:deepseek-deepseek-v4-pro-default-epoch-inspect-row-66` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | Gemini 3 Pro Preview | `epoch-ai:aime:google-gemini-3-pro-preview-default-epoch-inspect-row-211` | — | `high` | vals-ai | vals-ai:corpfin:google-gemini-3-pro-preview |

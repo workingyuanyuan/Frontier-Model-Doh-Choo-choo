@@ -79,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-05T00:15:15.040Z",
+  "checkedAt": "2026-11-06T00:25:56.000Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/99/993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714.html",
-    "byteLength": 921790,
+    "artifactPath": "artifacts/sha256/c5/c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69.html",
+    "byteLength": 937128,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
+    "id": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-05T00:15:15.040Z",
+    "retrievedAt": "2026-11-06T00:25:56.000Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
+    "sha256": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
     "sourceId": "surge-dayjob-healthcare"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -111,6 +111,7 @@
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5",
           "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
           "deepseek-deepseek-v4-flash",
           "deepseek-deepseek-v4-pro",
           "google-gemini-3-7-flash",
@@ -129,6 +130,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "reflection-beam-1-0",
           "thinking-machines-inkling",
           "xai-grok-4-6",
           "xai-grok-4-7"
@@ -218,7 +220,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-04T23:38:35.722Z",
+    "observedAt": "2026-11-06T00:20:20.557Z",
     "sourceId": "surge-dayjob-healthcare"
   }
 }

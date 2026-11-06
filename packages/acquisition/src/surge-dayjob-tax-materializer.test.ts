@@ -84,16 +84,22 @@ describe('Surge DAYJOB Tax acquisition', () => {
       model: { canonicalModelId: 'moonshot-kimi-k3' },
       rawScore: 0,
     });
-    expect(
-      result.candidates
-        .filter(({ model }) => model.canonicalModelId === null)
-        .map(({ model }) => model.rawName),
-    ).toEqual([
-      'DeepSeek V4.1 Flash 1017 (Max reasoning)',
-      'GLM 5.3 (Max reasoning)',
-      'Hy Hy4 Preview (High reasoning)',
-      'Mistral Large 4 (High reasoning)',
-    ]);
+    expect(new Set(result.candidates.map(({ id }) => id)).size).toBe(
+      result.candidates.length,
+    );
+    for (const candidate of result.candidates) {
+      expect(candidate.normalizedScore).toBe(candidate.rawScore);
+      expect(candidate.provenance.rawScore).toMatchObject({
+        evidenceId: context.evidenceId,
+        method: 'DOM',
+      });
+      expect(candidate.provenance.rawScore?.locator).toContain(
+        candidate.model.rawName,
+      );
+      expect(candidate.provenance.profile?.locator).toContain(
+        candidate.model.rawName,
+      );
+    }
   });
 
   it('uses the official pass@1 at 95% rubric threshold convention and five attempts', () => {

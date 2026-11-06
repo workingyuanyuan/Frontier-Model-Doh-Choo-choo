@@ -1,7 +1,7 @@
 # Surge GDP.xlsx acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/gdp-xlsx>
-- Evidence: `sha256:382526d55f2f8868271763d4fbe3d1dbe7027f504cbbf6c2af36d223ce355da8`
+- Evidence: `sha256:a2031bb92d8a618783c9d7efa2c413410684fb3f78ea609544d1b77d79567701`
 - Main leaderboard: 20 rows; rendered browser count: 20.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (4): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 3.
@@ -13,6 +13,15 @@ The official GDP.xlsx repository defines each trial reward as the mean of binary
 GDP.xlsx covers 70 professional spreadsheet tasks across 12 domains. The official repository documents a Harbor adapter and OpenHands SDK agent harness, with Gemini 3.8 Flash as an agentic judge grading final response text. These published general descriptions do not establish exact tools or harness metadata for each current row, so those profile fields remain null. Benchmark version, context windows and leaderboard publication dates are unpublished and remain null.
 
 - Methodology: <https://surgehq.ai/blog/gdp-xlsx> and <https://github.com/surge-ai/gdp-xlsx#grading>. The blog publication date is not the leaderboard publication date.
+
+## Snapshot delta
+
+Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate results | 20 | 20 | +0 |
+| Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

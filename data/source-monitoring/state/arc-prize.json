@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-05T00:15:15.040Z",
+  "checkedAt": "2026-11-06T00:25:56.000Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -19,6 +19,7 @@
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-4-6",
           "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
           "deepseek-deepseek-v4-flash",
           "deepseek-deepseek-v4-pro",
           "google-gemini-3-5-flash",
@@ -44,6 +45,7 @@
           "openai-gpt-6-astra",
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
+          "reflection-beam-1-0",
           "thinking-machines-inkling",
           "xai-grok-4-5",
           "xai-grok-4-6",
@@ -641,7 +643,7 @@
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-11-04T23:36:48.780Z",
+    "observedAt": "2026-11-06T00:16:25.016Z",
     "sourceId": "arc-prize"
   }
 }

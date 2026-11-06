@@ -79,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-05T00:15:15.040Z",
+  "checkedAt": "2026-11-06T00:25:56.000Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/99/993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714.html",
-    "byteLength": 921790,
+    "artifactPath": "artifacts/sha256/c5/c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69.html",
+    "byteLength": 937128,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
+    "id": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-05T00:15:15.040Z",
+    "retrievedAt": "2026-11-06T00:25:56.000Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:993f15a5e122d753dcde267b8227867249e9c1095bf9daf1fa1e165ae4500714",
+    "sha256": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
     "sourceId": "surge-complex-constraints"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -101,7 +101,7 @@
     "benchmarks": [
       {
         "id": "complex-constraints",
-        "includedRows": 49,
+        "includedRows": 50,
         "metrics": ["pass-at-1:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -131,6 +131,7 @@
           "openai-gpt-6-1-sol",
           "openai-gpt-6-astra",
           "openai-gpt-6-sol",
+          "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
           "xai-grok-4-7",
@@ -169,6 +170,7 @@
           "[\"Grok 4.7 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null]",
           "[\"Hy Hy3 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null]",
           "[\"Hy Hy4 Preview (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null]",
+          "[\"Inkling 2 Small (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null]",
           "[\"Kimi K2.5 (Thinking on)\",null,\"Thinking on\",null,null,null,null,null]",
           "[\"Kimi K2.6 (Thinking on)\",null,\"Thinking on\",null,null,null,null,null]",
           "[\"Kimi K3 (Max reasoning)\",\"max\",\"Max reasoning\",null,null,null,null,null]",
@@ -220,6 +222,7 @@
           "Grok 4.7 (xHigh reasoning)",
           "Hy Hy3 (High reasoning)",
           "Hy Hy4 Preview (High reasoning)",
+          "Inkling 2 Small (xHigh reasoning)",
           "Kimi K2.5 (Thinking on)",
           "Kimi K2.6 (Thinking on)",
           "Kimi K3 (Max reasoning)",
@@ -238,12 +241,12 @@
           "Qwen 3.8 Flash (xHigh reasoning)",
           "Qwen 3.8 Max (xHigh reasoning)"
         ],
-        "rows": 49,
+        "rows": 50,
         "sourceUrls": ["https://surgehq.ai/benchmarks/complex-constraints"],
         "versions": ["(unknown)", "v1.1"]
       }
     ],
-    "observedAt": "2026-11-04T23:38:15.483Z",
+    "observedAt": "2026-11-06T00:20:03.691Z",
     "sourceId": "surge-complex-constraints"
   }
 }
