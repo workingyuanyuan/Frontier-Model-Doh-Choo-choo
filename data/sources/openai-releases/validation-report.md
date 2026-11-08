@@ -71,7 +71,7 @@
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
@@ -85,11 +85,7 @@ This tagged section is generated deterministically for `openai-releases`. Raw `p
 
 ### Cross-source inferences — PENDING USER REVIEW
 
-| Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
-|---|---|---|---|---|---|
-| GPT-5.6 Luna | `openai-releases:gpt56:deepswe:16` | none | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
-| GPT-5.6 Sol | `openai-releases:gpt56:deepswe:10` | none | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
-| GPT-5.6 Terra | `openai-releases:gpt56:deepswe:22` | none | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-terra-max:arc-agi-2-v2-semi-private |
+- None.
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

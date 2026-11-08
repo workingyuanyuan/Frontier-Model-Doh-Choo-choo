@@ -1,7 +1,7 @@
 # Surge GDP.xlsx acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/gdp-xlsx>
-- Evidence: `sha256:a2031bb92d8a618783c9d7efa2c413410684fb3f78ea609544d1b77d79567701`
+- Evidence: `sha256:5f8c1efc5eed4727d18a9c8dca266b6df8c21c4c2c3ab1e71096a55915d5d59d`
 - Main leaderboard: 20 rows; rendered browser count: 20.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (4): Gemini 3.1 Pro (High reasoning); GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 3.
@@ -16,7 +16,7 @@ GDP.xlsx covers 70 professional spreadsheet tasks across 12 domains. The officia
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|

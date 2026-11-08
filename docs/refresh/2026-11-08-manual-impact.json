@@ -1,0 +1,2832 @@
+{
+  "oldVersionId": "sha256:66cf70b45446a07be5a3551a90d5e9a2d71d3bcc33938eeecb86f377287d8879",
+  "newVersionId": "sha256:e52b966e9ff807047b8ce29f0cdb40b43e182162c77c00bd76314c83cacd0cea",
+  "status": "complete",
+  "changes": [
+    {
+      "profileId": "cohere-north-mini-code-1-0-default",
+      "before": null,
+      "after": {
+        "requestedProfile": "cohere-north-mini-code-1-0-default",
+        "profiles": [
+          "openai-gpt-6-1-sol-max",
+          "cohere-north-mini-code-1-0-default"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hle-diamond",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 50.981950267985994,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 56.06182593795094,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 46.55833333333335,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "cohere-north-mini-code-1-0",
+            "profileId": "cohere-north-mini-code-1-0-default",
+            "rank": 2,
+            "overallScore": 9.527909282768828,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 1.6839745772330041,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 19.480374579124557,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 11.283333333333333,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 1.7999999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:north-mini-code",
+              "artificial-analysis:aa-omniscience:north-mini-code",
+              "artificial-analysis:frontier-code-2-0:north-mini-code",
+              "artificial-analysis:gdp-pdf:north-mini-code",
+              "artificial-analysis:gdpval-aa:north-mini-code",
+              "artificial-analysis:hle-diamond:north-mini-code",
+              "artificial-analysis:scicode:north-mini-code",
+              "artificial-analysis:terminal-bench-4-0:north-mini-code",
+              "artificial-analysis:terminal-bench-science:north-mini-code"
+            ]
+          }
+        ],
+        "evidenceIds": [
+          "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+          "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+          "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+          "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+          "artificial-analysis:hle-diamond:gpt-6-1-sol",
+          "artificial-analysis:scicode:gpt-6-1-sol",
+          "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+          "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+          "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+          "artificial-analysis:aa-briefcase:north-mini-code",
+          "artificial-analysis:aa-omniscience:north-mini-code",
+          "artificial-analysis:frontier-code-2-0:north-mini-code",
+          "artificial-analysis:gdp-pdf:north-mini-code",
+          "artificial-analysis:gdpval-aa:north-mini-code",
+          "artificial-analysis:hle-diamond:north-mini-code",
+          "artificial-analysis:scicode:north-mini-code",
+          "artificial-analysis:terminal-bench-4-0:north-mini-code",
+          "artificial-analysis:terminal-bench-science:north-mini-code"
+        ]
+      },
+      "reason": "Exact profile newly present in product"
+    },
+    {
+      "profileId": "lg-k-exaone-2-0-default",
+      "before": null,
+      "after": {
+        "requestedProfile": "lg-k-exaone-2-0-default",
+        "profiles": ["openai-gpt-6-1-sol-max", "lg-k-exaone-2-0-default"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hle-diamond",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 50.981950267985994,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 56.06182593795094,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 46.55833333333335,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "lg-k-exaone-2-0",
+            "profileId": "lg-k-exaone-2-0-default",
+            "rank": 2,
+            "overallScore": 11.614577922077924,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 7.028308080808081,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 21.42271464646465,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 10.1,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 4.2,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:k-exaone-2-0-0803",
+              "artificial-analysis:aa-omniscience:k-exaone-2-0-0803",
+              "artificial-analysis:frontier-code-2-0:k-exaone-2-0-0803",
+              "artificial-analysis:gdp-pdf:k-exaone-2-0-0803",
+              "artificial-analysis:gdpval-aa:k-exaone-2-0-0803",
+              "artificial-analysis:hle-diamond:k-exaone-2-0-0803",
+              "artificial-analysis:scicode:k-exaone-2-0-0803",
+              "artificial-analysis:terminal-bench-4-0:k-exaone-2-0-0803",
+              "artificial-analysis:terminal-bench-science:k-exaone-2-0-0803"
+            ]
+          }
+        ],
+        "evidenceIds": [
+          "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+          "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+          "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+          "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+          "artificial-analysis:hle-diamond:gpt-6-1-sol",
+          "artificial-analysis:scicode:gpt-6-1-sol",
+          "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+          "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+          "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+          "artificial-analysis:aa-briefcase:k-exaone-2-0-0803",
+          "artificial-analysis:aa-omniscience:k-exaone-2-0-0803",
+          "artificial-analysis:frontier-code-2-0:k-exaone-2-0-0803",
+          "artificial-analysis:gdp-pdf:k-exaone-2-0-0803",
+          "artificial-analysis:gdpval-aa:k-exaone-2-0-0803",
+          "artificial-analysis:hle-diamond:k-exaone-2-0-0803",
+          "artificial-analysis:scicode:k-exaone-2-0-0803",
+          "artificial-analysis:terminal-bench-4-0:k-exaone-2-0-0803",
+          "artificial-analysis:terminal-bench-science:k-exaone-2-0-0803"
+        ]
+      },
+      "reason": "Exact profile newly present in product"
+    },
+    {
+      "profileId": "moonshot-kimi-k3-1-pro-high",
+      "oldBenchmarkIds": ["frontier-code-2-0"],
+      "newBenchmarkIds": ["frontier-code-2-0"],
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 38.95,
+          "newOverall": 38.95,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 38.95,
+            "dimensions": {
+              "coding": {
+                "score": 38.95,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:gpt-6-1-sol-max"]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 38.95,
+            "dimensions": {
+              "coding": {
+                "score": 38.95,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:gpt-6-1-sol-max"]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 38.95,
+            "dimensions": {
+              "coding": {
+                "score": 38.95,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:gpt-6-1-sol-max"]
+          },
+          "finalDelta": 0.0
+        },
+        {
+          "profileId": "moonshot-kimi-k3-1-pro-high",
+          "oldOverall": 17.29,
+          "newOverall": 17.29,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 17.29,
+            "dimensions": {
+              "coding": {
+                "score": 17.29,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-high"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 17.29,
+            "dimensions": {
+              "coding": {
+                "score": 17.29,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-high"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 17.29,
+            "dimensions": {
+              "coding": {
+                "score": 17.29,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-high"
+            ]
+          },
+          "finalDelta": 0.0
+        }
+      ]
+    },
+    {
+      "profileId": "moonshot-kimi-k3-1-pro-low",
+      "oldBenchmarkIds": ["frontier-code-2-0"],
+      "newBenchmarkIds": ["frontier-code-2-0"],
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 38.95,
+          "newOverall": 38.95,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 38.95,
+            "dimensions": {
+              "coding": {
+                "score": 38.95,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:gpt-6-1-sol-max"]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 38.95,
+            "dimensions": {
+              "coding": {
+                "score": 38.95,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:gpt-6-1-sol-max"]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 38.95,
+            "dimensions": {
+              "coding": {
+                "score": 38.95,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:gpt-6-1-sol-max"]
+          },
+          "finalDelta": 0.0
+        },
+        {
+          "profileId": "moonshot-kimi-k3-1-pro-low",
+          "oldOverall": 12.86,
+          "newOverall": 12.86,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 12.86,
+            "dimensions": {
+              "coding": {
+                "score": 12.86,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:kimi-k3-1-pro-low"]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 12.86,
+            "dimensions": {
+              "coding": {
+                "score": 12.86,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:kimi-k3-1-pro-low"]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 12.86,
+            "dimensions": {
+              "coding": {
+                "score": 12.86,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["frontier-code:frontier-code-2-0:kimi-k3-1-pro-low"]
+          },
+          "finalDelta": 0.0
+        }
+      ]
+    },
+    {
+      "profileId": "moonshot-kimi-k3-1-pro-max",
+      "oldBenchmarkIds": [
+        "aa-briefcase",
+        "aa-lcr",
+        "aa-omniscience",
+        "critpt-v2",
+        "dayjob-finance",
+        "enterprisebench-corecraft",
+        "frontier-code-2-0",
+        "gdp-pdf",
+        "gdpval-aa",
+        "hlab",
+        "hle-diamond",
+        "legal-research",
+        "livebench-browser",
+        "livebench-coding",
+        "livebench-data-analysis",
+        "livebench-design",
+        "livebench-long-agentic",
+        "livebench-reasoning",
+        "livebench-research",
+        "riemann-bench",
+        "scicode",
+        "terminal-bench-4-0",
+        "terminal-bench-science",
+        "vibe-code-bench"
+      ],
+      "newBenchmarkIds": [
+        "aa-briefcase",
+        "aa-lcr",
+        "aa-omniscience",
+        "chess-puzzles",
+        "critpt-v2",
+        "dayjob-finance",
+        "enterprisebench-corecraft",
+        "frontier-code-2-0",
+        "gdp-pdf",
+        "gdpval-aa",
+        "gpqa-diamond",
+        "hlab",
+        "hle-diamond",
+        "legal-research",
+        "livebench-browser",
+        "livebench-coding",
+        "livebench-data-analysis",
+        "livebench-design",
+        "livebench-long-agentic",
+        "livebench-reasoning",
+        "livebench-research",
+        "riemann-bench",
+        "scicode",
+        "simpleqa-verified",
+        "terminal-bench-4-0",
+        "terminal-bench-science",
+        "vibe-code-bench"
+      ],
+      "addedBenchmarks": ["chess-puzzles", "gpqa-diamond", "simpleqa-verified"],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 67.12574682146138,
+          "newOverall": 67.78372084743539,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 67.12574682146138,
+            "dimensions": {
+              "agentic": {
+                "score": 55.605391250163976,
+                "componentCount": 11,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 65.56666666666666,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 84.7904761904762,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 69.34953333333334,
+                "componentCount": 5,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-10-25:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-design:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-research:gpt-6-1-sol",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 67.12574682146138,
+            "dimensions": {
+              "agentic": {
+                "score": 55.605391250163976,
+                "componentCount": 11,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 65.56666666666666,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 84.7904761904762,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 69.34953333333334,
+                "componentCount": 5,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-10-25:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-design:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-research:gpt-6-1-sol",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 67.12574682146138,
+            "dimensions": {
+              "agentic": {
+                "score": 55.605391250163976,
+                "componentCount": 11,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 65.56666666666666,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 84.7904761904762,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 69.34953333333334,
+                "componentCount": 5,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-10-25:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-design:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-10-25:livebench-research:gpt-6-1-sol",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "finalDelta": 0.6579740259740134
+        },
+        {
+          "profileId": "moonshot-kimi-k3-1-pro-max",
+          "oldOverall": 58.572086131444316,
+          "newOverall": 59.47941369277188,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 58.572086131444316,
+            "dimensions": {
+              "agentic": {
+                "score": 52.735932244523156,
+                "componentCount": 11,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 65.6111111111111,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 43.11666666666667,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 74.15714285714286,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 57.23957777777778,
+                "componentCount": 5,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+              "artificial-analysis:aa-lcr:kimi-k3-1-pro",
+              "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+              "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+              "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+              "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+              "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+              "artificial-analysis:scicode:kimi-k3-1-pro",
+              "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-max",
+              "livebench-2026-10-25:livebench-browser:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-coding:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-data-analysis:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-design:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-long-agentic:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-reasoning:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-research:kimi-k3-1-pro",
+              "surge-corecraft:enterprisebench-corecraft:kimi-k3-1-pro-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:kimi-k3-1-pro-max-reasoning",
+              "surge-riemann:riemann-bench:kimi-k3-1-pro-max-reasoning",
+              "vals-ai:hlab:kimi-kimi-k3-1-pro",
+              "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+              "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+              "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 58.572086131444316,
+            "dimensions": {
+              "agentic": {
+                "score": 52.735932244523156,
+                "componentCount": 11,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 65.6111111111111,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 43.11666666666667,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 74.15714285714286,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 57.23957777777778,
+                "componentCount": 5,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+              "artificial-analysis:aa-lcr:kimi-k3-1-pro",
+              "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+              "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+              "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+              "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+              "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+              "artificial-analysis:scicode:kimi-k3-1-pro",
+              "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-max",
+              "livebench-2026-10-25:livebench-browser:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-coding:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-data-analysis:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-design:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-long-agentic:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-reasoning:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-research:kimi-k3-1-pro",
+              "surge-corecraft:enterprisebench-corecraft:kimi-k3-1-pro-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:kimi-k3-1-pro-max-reasoning",
+              "surge-riemann:riemann-bench:kimi-k3-1-pro-max-reasoning",
+              "vals-ai:hlab:kimi-kimi-k3-1-pro",
+              "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+              "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+              "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 58.572086131444316,
+            "dimensions": {
+              "agentic": {
+                "score": 52.735932244523156,
+                "componentCount": 11,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 65.6111111111111,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 43.11666666666667,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 74.15714285714286,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 57.23957777777778,
+                "componentCount": 5,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+              "artificial-analysis:aa-lcr:kimi-k3-1-pro",
+              "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+              "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+              "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+              "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+              "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+              "artificial-analysis:scicode:kimi-k3-1-pro",
+              "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-max",
+              "livebench-2026-10-25:livebench-browser:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-coding:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-data-analysis:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-design:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-long-agentic:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-reasoning:kimi-k3-1-pro",
+              "livebench-2026-10-25:livebench-research:kimi-k3-1-pro",
+              "surge-corecraft:enterprisebench-corecraft:kimi-k3-1-pro-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:kimi-k3-1-pro-max-reasoning",
+              "surge-riemann:riemann-bench:kimi-k3-1-pro-max-reasoning",
+              "vals-ai:hlab:kimi-kimi-k3-1-pro",
+              "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+              "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+              "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+            ]
+          },
+          "finalDelta": 0.9073275613275626
+        }
+      ]
+    },
+    {
+      "profileId": "openai-gpt-5-6-luna-non-reasoning",
+      "oldBenchmarkIds": [
+        "aa-briefcase",
+        "chess-puzzles",
+        "gdp-pdf",
+        "gdpval-aa",
+        "scicode",
+        "terminal-bench-4-0"
+      ],
+      "newBenchmarkIds": [
+        "aa-briefcase",
+        "chess-puzzles",
+        "deepswe-1-1",
+        "gdp-pdf",
+        "gdpval-aa",
+        "scicode",
+        "terminal-bench-4-0"
+      ],
+      "addedBenchmarks": ["deepswe-1-1"],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 52.786942087542094,
+          "newOverall": 55.972451739618414,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 52.786942087542094,
+            "dimensions": {
+              "agentic": {
+                "score": 55.38402188552189,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 52.786942087542094,
+            "dimensions": {
+              "agentic": {
+                "score": 55.38402188552189,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-155",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 52.786942087542094,
+            "dimensions": {
+              "agentic": {
+                "score": 55.38402188552189,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          "finalDelta": 3.1855096520763198
+        },
+        {
+          "profileId": "openai-gpt-5-6-luna-non-reasoning",
+          "oldOverall": 14.579936219336215,
+          "newOverall": 12.51868018278018,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 14.579936219336215,
+            "dimensions": {
+              "agentic": {
+                "score": 11.75308128908129,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 6,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 40.3935185185185,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 3,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:terminal-bench-4-0:gpt-5-6-luna-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-luna-default-epoch-inspect-row-82"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 14.579936219336215,
+            "dimensions": {
+              "agentic": {
+                "score": 11.75308128908129,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 6,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 40.3935185185185,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 3,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:terminal-bench-4-0:gpt-5-6-luna-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-luna-default-epoch-inspect-row-81"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 14.579936219336215,
+            "dimensions": {
+              "agentic": {
+                "score": 11.75308128908129,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 6,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 40.3935185185185,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 3,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-luna-non-reasoning",
+              "artificial-analysis:terminal-bench-4-0:gpt-5-6-luna-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-luna-default-epoch-inspect-row-82"
+            ]
+          },
+          "finalDelta": -2.061256036556035
+        }
+      ]
+    },
+    {
+      "profileId": "openai-gpt-5-6-sol-non-reasoning",
+      "oldBenchmarkIds": [
+        "aa-briefcase",
+        "chess-puzzles",
+        "gdp-pdf",
+        "gdpval-aa",
+        "scicode"
+      ],
+      "newBenchmarkIds": [
+        "aa-briefcase",
+        "chess-puzzles",
+        "deepswe-1-1",
+        "gdp-pdf",
+        "gdpval-aa",
+        "scicode"
+      ],
+      "addedBenchmarks": ["deepswe-1-1"],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 52.85354646464648,
+          "newOverall": 56.027955387205395,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 52.85354646464648,
+            "dimensions": {
+              "agentic": {
+                "score": 55.55053282828283,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 52.85354646464648,
+            "dimensions": {
+              "agentic": {
+                "score": 55.55053282828283,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-155"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 52.85354646464648,
+            "dimensions": {
+              "agentic": {
+                "score": 55.55053282828283,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156"
+            ]
+          },
+          "finalDelta": 3.174408922558918
+        },
+        {
+          "profileId": "openai-gpt-5-6-sol-non-reasoning",
+          "oldOverall": 26.243813804713806,
+          "newOverall": 29.28134483726151,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 26.243813804713813,
+            "dimensions": {
+              "agentic": {
+                "score": 30.666941919191924,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 15.2,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 47.685185185185205,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 7.000000000000001,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-sol-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-sol-default-epoch-inspect-row-88"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 26.243813804713813,
+            "dimensions": {
+              "agentic": {
+                "score": 30.666941919191924,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 15.2,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 47.685185185185205,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 7.000000000000001,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-sol-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-sol-default-epoch-inspect-row-87"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 26.243813804713813,
+            "dimensions": {
+              "agentic": {
+                "score": 30.666941919191924,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 15.2,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 47.685185185185205,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 7.000000000000001,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-sol-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-sol-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-sol-default-epoch-inspect-row-88"
+            ]
+          },
+          "finalDelta": 3.0375310325477045
+        }
+      ]
+    },
+    {
+      "profileId": "openai-gpt-5-6-terra-non-reasoning",
+      "oldBenchmarkIds": [
+        "aa-briefcase",
+        "aa-omniscience",
+        "chess-puzzles",
+        "gdp-pdf",
+        "gdpval-aa",
+        "hle-diamond",
+        "scicode",
+        "terminal-bench-4-0"
+      ],
+      "newBenchmarkIds": [
+        "aa-briefcase",
+        "aa-omniscience",
+        "chess-puzzles",
+        "deepswe-1-1",
+        "gdp-pdf",
+        "gdpval-aa",
+        "hle-diamond",
+        "scicode",
+        "terminal-bench-4-0"
+      ],
+      "addedBenchmarks": ["deepswe-1-1"],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 54.93829196729197,
+          "newOverall": 57.05850547138048,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 54.93829196729197,
+            "dimensions": {
+              "agentic": {
+                "score": 55.38402188552189,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 54.93829196729197,
+            "dimensions": {
+              "agentic": {
+                "score": 55.38402188552189,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-155",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 54.93829196729197,
+            "dimensions": {
+              "agentic": {
+                "score": 55.38402188552189,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 54.1666666666667,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          "finalDelta": 2.120213504088511
+        },
+        {
+          "profileId": "openai-gpt-5-6-terra-non-reasoning",
+          "oldOverall": 19.048523328523327,
+          "newOverall": 18.417457912457913,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 19.048523328523327,
+            "dimensions": {
+              "agentic": {
+                "score": 17.283720538720537,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 18.716666666666665,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 11.200000000000001,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 45.1388888888889,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 5,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:aa-omniscience:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:hle-diamond:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:terminal-bench-4-0:gpt-5-6-terra-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-terra-default-epoch-inspect-row-85"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 19.048523328523327,
+            "dimensions": {
+              "agentic": {
+                "score": 17.283720538720537,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 18.716666666666665,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 11.200000000000001,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 45.1388888888889,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 5,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:aa-omniscience:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:hle-diamond:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:terminal-bench-4-0:gpt-5-6-terra-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-terra-default-epoch-inspect-row-84"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 19.048523328523327,
+            "dimensions": {
+              "agentic": {
+                "score": 17.283720538720537,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 18.716666666666665,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 11.200000000000001,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 45.1388888888889,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 5,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:aa-omniscience:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:gdp-pdf:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:gdpval-aa:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:hle-diamond:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:scicode:gpt-5-6-terra-non-reasoning",
+              "artificial-analysis:terminal-bench-4-0:gpt-5-6-terra-non-reasoning",
+              "epoch-ai:chess-puzzles:openai-gpt-5-6-terra-default-epoch-inspect-row-85"
+            ]
+          },
+          "finalDelta": -0.6310654160654146
+        }
+      ]
+    },
+    {
+      "profileId": "thinking-machines-inkling-2-small-xhigh",
+      "oldBenchmarkIds": [
+        "aa-briefcase",
+        "aa-omniscience",
+        "complex-constraints",
+        "critpt-v2",
+        "cyber",
+        "dayjob-finance",
+        "enterprisebench-corecraft",
+        "frontier-code-2-0",
+        "gdp-pdf",
+        "gdpval-aa",
+        "hlab",
+        "hle-diamond",
+        "legal-research",
+        "scicode",
+        "terminal-bench-4-0",
+        "terminal-bench-science",
+        "vibe-code-bench"
+      ],
+      "newBenchmarkIds": [
+        "aa-briefcase",
+        "aa-omniscience",
+        "arc-agi-2",
+        "complex-constraints",
+        "critpt-v2",
+        "cyber",
+        "dayjob-finance",
+        "enterprisebench-corecraft",
+        "frontier-code-2-0",
+        "gdp-pdf",
+        "gdpval-aa",
+        "hlab",
+        "hle-diamond",
+        "legal-research",
+        "scicode",
+        "terminal-bench-4-0",
+        "terminal-bench-science",
+        "vibe-code-bench"
+      ],
+      "addedBenchmarks": ["arc-agi-2"],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 55.90682457511625,
+          "newOverall": 59.732808784271285,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 55.90682457511625,
+            "dimensions": {
+              "agentic": {
+                "score": 44.09491296897547,
+                "componentCount": 8,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 82.5714285714286,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 55.33341666666668,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "language": {
+                "score": 70.1,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 55.90682457511625,
+            "dimensions": {
+              "agentic": {
+                "score": 44.09491296897547,
+                "componentCount": 8,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 82.5714285714286,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 55.33341666666668,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "language": {
+                "score": 70.1,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 55.90682457511625,
+            "dimensions": {
+              "agentic": {
+                "score": 44.09491296897547,
+                "componentCount": 8,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 60.31666666666666,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 82.5714285714286,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 55.33341666666668,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 31,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "language": {
+                "score": 70.1,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "finalDelta": 3.8259842091550382
+        },
+        {
+          "profileId": "thinking-machines-inkling-2-small-xhigh",
+          "oldOverall": 41.86895686360964,
+          "newOverall": 45.84872784391535,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 41.86895686360964,
+            "dimensions": {
+              "agentic": {
+                "score": 34.93197573953824,
+                "componentCount": 8,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 31.233333333333334,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 55.71428571428571,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 57.98785395622895,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 25.2,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "language": {
+                "score": 47.6,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:inkling-2-small",
+              "artificial-analysis:aa-omniscience:inkling-2-small",
+              "artificial-analysis:critpt-v2:inkling-2-small",
+              "artificial-analysis:frontier-code-2-0:inkling-2-small",
+              "artificial-analysis:gdp-pdf:inkling-2-small",
+              "artificial-analysis:gdpval-aa:inkling-2-small",
+              "artificial-analysis:hle-diamond:inkling-2-small",
+              "artificial-analysis:scicode:inkling-2-small",
+              "artificial-analysis:terminal-bench-science:inkling-2-small",
+              "surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:inkling-2-small-xhigh-reasoning",
+              "surge-dayjob-finance:dayjob-finance:inkling-2-small-xhigh-reasoning",
+              "vals-ai:cyber:thinkingmachines-inkling-2-small",
+              "vals-ai:hlab:thinkingmachines-inkling-2-small",
+              "vals-ai:legal-research:thinkingmachines-inkling-2-small",
+              "vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small",
+              "vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 41.86895686360964,
+            "dimensions": {
+              "agentic": {
+                "score": 34.93197573953824,
+                "componentCount": 8,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 31.233333333333334,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 55.71428571428571,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 57.98785395622895,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 25.2,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "language": {
+                "score": 47.6,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:inkling-2-small",
+              "artificial-analysis:aa-omniscience:inkling-2-small",
+              "artificial-analysis:critpt-v2:inkling-2-small",
+              "artificial-analysis:frontier-code-2-0:inkling-2-small",
+              "artificial-analysis:gdp-pdf:inkling-2-small",
+              "artificial-analysis:gdpval-aa:inkling-2-small",
+              "artificial-analysis:hle-diamond:inkling-2-small",
+              "artificial-analysis:scicode:inkling-2-small",
+              "artificial-analysis:terminal-bench-science:inkling-2-small",
+              "surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:inkling-2-small-xhigh-reasoning",
+              "surge-dayjob-finance:dayjob-finance:inkling-2-small-xhigh-reasoning",
+              "vals-ai:cyber:thinkingmachines-inkling-2-small",
+              "vals-ai:hlab:thinkingmachines-inkling-2-small",
+              "vals-ai:legal-research:thinkingmachines-inkling-2-small",
+              "vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small",
+              "vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 41.86895686360964,
+            "dimensions": {
+              "agentic": {
+                "score": 34.93197573953824,
+                "componentCount": 8,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 31.233333333333334,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "reasoning": {
+                "score": 55.71428571428571,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "coding": {
+                "score": 57.98785395622895,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 25.2,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "language": {
+                "score": 47.6,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:aa-briefcase:inkling-2-small",
+              "artificial-analysis:aa-omniscience:inkling-2-small",
+              "artificial-analysis:critpt-v2:inkling-2-small",
+              "artificial-analysis:frontier-code-2-0:inkling-2-small",
+              "artificial-analysis:gdp-pdf:inkling-2-small",
+              "artificial-analysis:gdpval-aa:inkling-2-small",
+              "artificial-analysis:hle-diamond:inkling-2-small",
+              "artificial-analysis:scicode:inkling-2-small",
+              "artificial-analysis:terminal-bench-science:inkling-2-small",
+              "surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:inkling-2-small-xhigh-reasoning",
+              "surge-dayjob-finance:dayjob-finance:inkling-2-small-xhigh-reasoning",
+              "vals-ai:cyber:thinkingmachines-inkling-2-small",
+              "vals-ai:hlab:thinkingmachines-inkling-2-small",
+              "vals-ai:legal-research:thinkingmachines-inkling-2-small",
+              "vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small",
+              "vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small"
+            ]
+          },
+          "finalDelta": 3.979770980305709
+        }
+      ]
+    },
+    {
+      "profileId": "zai-glm-5-2-high",
+      "oldBenchmarkIds": ["deepswe-1-1"],
+      "newBenchmarkIds": ["deepswe-1-1"],
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 71.9,
+          "newOverall": 71.9,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 71.9,
+            "dimensions": {
+              "coding": {
+                "score": 71.9,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["openai-releases:deepswe:9"]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 71.9,
+            "dimensions": {
+              "coding": {
+                "score": 71.9,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["openai-releases:deepswe:9"]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 71.9,
+            "dimensions": {
+              "coding": {
+                "score": 71.9,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["openai-releases:deepswe:9"]
+          },
+          "finalDelta": 0.0
+        },
+        {
+          "profileId": "zai-glm-5-2-high",
+          "oldOverall": 36.283185840707965,
+          "newOverall": 36.283185840707965,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 36.283185840707965,
+            "dimensions": {
+              "coding": {
+                "score": 36.283185840707965,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["deepswe-1-1:mini-swe-agent-glm-5-2-high"]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 36.283185840707965,
+            "dimensions": {
+              "coding": {
+                "score": 36.283185840707965,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["deepswe-1-1:mini-swe-agent-glm-5-2-high"]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 36.283185840707965,
+            "dimensions": {
+              "coding": {
+                "score": 36.283185840707965,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": ["deepswe-1-1:mini-swe-agent-glm-5-2-high"]
+          },
+          "finalDelta": 0.0
+        }
+      ]
+    },
+    {
+      "profileId": "zai-glm-5-2-low",
+      "oldBenchmarkIds": ["chess-puzzles"],
+      "newBenchmarkIds": ["chess-puzzles"],
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 68,
+          "newOverall": 68,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 68.0,
+            "dimensions": {
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 68.0,
+            "dimensions": {
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-155"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 68.0,
+            "dimensions": {
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156"
+            ]
+          },
+          "finalDelta": 0
+        },
+        {
+          "profileId": "zai-glm-5-2-low",
+          "oldOverall": 18,
+          "newOverall": 18,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 18.0,
+            "dimensions": {
+              "reasoning": {
+                "score": 18,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-22"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 18.0,
+            "dimensions": {
+              "reasoning": {
+                "score": 18,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-21"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 18.0,
+            "dimensions": {
+              "reasoning": {
+                "score": 18,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-22"
+            ]
+          },
+          "finalDelta": 0
+        }
+      ]
+    },
+    {
+      "profileId": "zai-glm-5-2-max",
+      "oldBenchmarkIds": [
+        "aa-briefcase",
+        "aa-lcr",
+        "arc-agi-2",
+        "automationbench",
+        "chess-puzzles",
+        "code-migration",
+        "complex-constraints",
+        "deepswe-1-1",
+        "emb",
+        "finance-agent-v2",
+        "frontier-code-1-1",
+        "gdp-pdf",
+        "gdpval-aa",
+        "gpqa-diamond",
+        "legal-research",
+        "livebench-instruction-following",
+        "livebench-language",
+        "medcode",
+        "medscribe",
+        "riemann-bench",
+        "scicode",
+        "simpleqa-verified",
+        "terminal-bench-4-0",
+        "vibe-code-bench"
+      ],
+      "newBenchmarkIds": [
+        "aa-briefcase",
+        "aa-lcr",
+        "aa-omniscience",
+        "arc-agi-2",
+        "automationbench",
+        "chess-puzzles",
+        "code-migration",
+        "complex-constraints",
+        "deepswe-1-1",
+        "emb",
+        "finance-agent-v2",
+        "frontier-code-1-1",
+        "gdp-pdf",
+        "gdpval-aa",
+        "gpqa-diamond",
+        "hle-diamond",
+        "legal-research",
+        "livebench-instruction-following",
+        "livebench-language",
+        "medcode",
+        "medscribe",
+        "riemann-bench",
+        "scicode",
+        "simpleqa-verified",
+        "terminal-bench-4-0",
+        "vibe-code-bench"
+      ],
+      "addedBenchmarks": ["aa-omniscience", "hle-diamond"],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 67.99546802549304,
+          "newOverall": 67.90773191438193,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 67.99546802549303,
+            "dimensions": {
+              "reasoning": {
+                "score": 84.1895202020202,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "agentic": {
+                "score": 51.931437950937955,
+                "componentCount": 7,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 66.81766666666667,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 65.53793333333334,
+                "componentCount": 5,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 61.3695,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "language": {
+                "score": 78.12675,
+                "componentCount": 3,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-16",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-16",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-instruction-following:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-language:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 67.99546802549303,
+            "dimensions": {
+              "reasoning": {
+                "score": 84.1895202020202,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "agentic": {
+                "score": 51.931437950937955,
+                "componentCount": 7,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 66.81766666666667,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 65.53793333333334,
+                "componentCount": 5,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 61.3695,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "language": {
+                "score": 78.12675,
+                "componentCount": 3,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-155",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-15",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-15",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-instruction-following:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-language:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 67.99546802549303,
+            "dimensions": {
+              "reasoning": {
+                "score": 84.1895202020202,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "agentic": {
+                "score": 51.931437950937955,
+                "componentCount": 7,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 66.81766666666667,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 65.53793333333334,
+                "componentCount": 5,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 61.3695,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "language": {
+                "score": 78.12675,
+                "componentCount": 3,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-16",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-16",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-instruction-following:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-language:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          "finalDelta": -0.08773611111111279
+        },
+        {
+          "profileId": "zai-glm-5-2-max",
+          "oldOverall": 44.15309854898188,
+          "newOverall": 42.644584660092995,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 44.15309854898188,
+            "dimensions": {
+              "reasoning": {
+                "score": 36.75776515151515,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "agentic": {
+                "score": 33.055172438672436,
+                "componentCount": 7,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 57.42244444444444,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 44.25323703703703,
+                "componentCount": 5,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 37.4855,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "language": {
+                "score": 55.944472222222224,
+                "componentCount": 3,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:glm-5-2",
+              "artificial-analysis:aa-lcr:glm-5-2",
+              "artificial-analysis:gdp-pdf:glm-5-2",
+              "artificial-analysis:gdpval-aa:glm-5-2",
+              "artificial-analysis:scicode:glm-5-2",
+              "artificial-analysis:terminal-bench-4-0:glm-5-2",
+              "deepswe-1-1:mini-swe-agent-glm-5-2-max",
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-21",
+              "epoch-ai:gpqa-diamond:zai-glm-5-2-default-epoch-inspect-row-171",
+              "epoch-ai:simpleqa-verified:zai-glm-5-2-default-epoch-inspect-row-43",
+              "frontier-code:frontier-code-1-1:glm-5-2-none",
+              "livebench-2026-06-25:livebench-instruction-following:glm-5-2",
+              "livebench-2026-06-25:livebench-language:glm-5-2",
+              "surge-complex-constraints:complex-constraints:glm-5-2-max-reasoning",
+              "surge-riemann:riemann-bench:glm-5-2-max-reasoning",
+              "vals-ai:code-migration:zai-glm-5-2",
+              "vals-ai:emb:zai-glm-5-2",
+              "vals-ai:finance-agent-v2:zai-glm-5-2",
+              "vals-ai:legal-research:zai-glm-5-2",
+              "vals-ai:medcode:zai-glm-5-2",
+              "vals-ai:medscribe:zai-glm-5-2",
+              "vals-ai:vibe-code-bench:zai-glm-5-2",
+              "zapier-automationbench:automationbench:glm-5-2-max-rank-90:1-0-6"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 44.15309854898188,
+            "dimensions": {
+              "reasoning": {
+                "score": 36.75776515151515,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "agentic": {
+                "score": 33.055172438672436,
+                "componentCount": 7,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 57.42244444444444,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 44.25323703703703,
+                "componentCount": 5,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 37.4855,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "language": {
+                "score": 55.944472222222224,
+                "componentCount": 3,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:glm-5-2",
+              "artificial-analysis:aa-lcr:glm-5-2",
+              "artificial-analysis:gdp-pdf:glm-5-2",
+              "artificial-analysis:gdpval-aa:glm-5-2",
+              "artificial-analysis:scicode:glm-5-2",
+              "artificial-analysis:terminal-bench-4-0:glm-5-2",
+              "deepswe-1-1:mini-swe-agent-glm-5-2-max",
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-20",
+              "epoch-ai:gpqa-diamond:zai-glm-5-2-default-epoch-inspect-row-170",
+              "epoch-ai:simpleqa-verified:zai-glm-5-2-default-epoch-inspect-row-42",
+              "frontier-code:frontier-code-1-1:glm-5-2-none",
+              "livebench-2026-06-25:livebench-instruction-following:glm-5-2",
+              "livebench-2026-06-25:livebench-language:glm-5-2",
+              "surge-complex-constraints:complex-constraints:glm-5-2-max-reasoning",
+              "surge-riemann:riemann-bench:glm-5-2-max-reasoning",
+              "vals-ai:code-migration:zai-glm-5-2",
+              "vals-ai:emb:zai-glm-5-2",
+              "vals-ai:finance-agent-v2:zai-glm-5-2",
+              "vals-ai:legal-research:zai-glm-5-2",
+              "vals-ai:medcode:zai-glm-5-2",
+              "vals-ai:medscribe:zai-glm-5-2",
+              "vals-ai:vibe-code-bench:zai-glm-5-2",
+              "zapier-automationbench:automationbench:glm-5-2-max-rank-90:1-0-6"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 44.15309854898188,
+            "dimensions": {
+              "reasoning": {
+                "score": 36.75776515151515,
+                "componentCount": 4,
+                "weight": 1
+              },
+              "agentic": {
+                "score": 33.055172438672436,
+                "componentCount": 7,
+                "weight": 1
+              },
+              "comprehension": {
+                "score": 57.42244444444444,
+                "componentCount": 3,
+                "weight": 1
+              },
+              "coding": {
+                "score": 44.25323703703703,
+                "componentCount": 5,
+                "weight": 1
+              },
+              "knowledge": {
+                "score": 37.4855,
+                "componentCount": 2,
+                "weight": 1
+              },
+              "language": {
+                "score": 55.944472222222224,
+                "componentCount": 3,
+                "weight": 1
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:glm-5-2",
+              "artificial-analysis:aa-lcr:glm-5-2",
+              "artificial-analysis:gdp-pdf:glm-5-2",
+              "artificial-analysis:gdpval-aa:glm-5-2",
+              "artificial-analysis:scicode:glm-5-2",
+              "artificial-analysis:terminal-bench-4-0:glm-5-2",
+              "deepswe-1-1:mini-swe-agent-glm-5-2-max",
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-21",
+              "epoch-ai:gpqa-diamond:zai-glm-5-2-default-epoch-inspect-row-171",
+              "epoch-ai:simpleqa-verified:zai-glm-5-2-default-epoch-inspect-row-43",
+              "frontier-code:frontier-code-1-1:glm-5-2-none",
+              "livebench-2026-06-25:livebench-instruction-following:glm-5-2",
+              "livebench-2026-06-25:livebench-language:glm-5-2",
+              "surge-complex-constraints:complex-constraints:glm-5-2-max-reasoning",
+              "surge-riemann:riemann-bench:glm-5-2-max-reasoning",
+              "vals-ai:code-migration:zai-glm-5-2",
+              "vals-ai:emb:zai-glm-5-2",
+              "vals-ai:finance-agent-v2:zai-glm-5-2",
+              "vals-ai:legal-research:zai-glm-5-2",
+              "vals-ai:medcode:zai-glm-5-2",
+              "vals-ai:medscribe:zai-glm-5-2",
+              "vals-ai:vibe-code-bench:zai-glm-5-2",
+              "zapier-automationbench:automationbench:glm-5-2-max-rank-90:1-0-6"
+            ]
+          },
+          "finalDelta": -1.508513888888885
+        }
+      ]
+    },
+    {
+      "profileId": "zai-glm-5-2-non-reasoning",
+      "oldBenchmarkIds": ["chess-puzzles", "gdpval-aa"],
+      "newBenchmarkIds": ["chess-puzzles", "gdpval-aa"],
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "rows": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "oldOverall": 61.72225,
+          "newOverall": 61.72225,
+          "oldRank": 1,
+          "newRank": 1,
+          "newOnOldBenchmarks": {
+            "overall": 61.72225,
+            "dimensions": {
+              "agentic": {
+                "score": 55.444500000000005,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 61.72225,
+            "dimensions": {
+              "agentic": {
+                "score": 55.444500000000005,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-155"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 61.72225,
+            "dimensions": {
+              "agentic": {
+                "score": 55.444500000000005,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 68,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-156"
+            ]
+          },
+          "finalDelta": 0.0
+        },
+        {
+          "profileId": "zai-glm-5-2-non-reasoning",
+          "oldOverall": 28.29525,
+          "newOverall": 28.29525,
+          "oldRank": 2,
+          "newRank": 2,
+          "newOnOldBenchmarks": {
+            "overall": 28.29525,
+            "dimensions": {
+              "agentic": {
+                "score": 37.5905,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 19,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:gdpval-aa:glm-5-2-non-reasoning",
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-23"
+            ]
+          },
+          "oldOnSharedBenchmarks": {
+            "overall": 28.29525,
+            "dimensions": {
+              "agentic": {
+                "score": 37.5905,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 19,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:gdpval-aa:glm-5-2-non-reasoning",
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-22"
+            ]
+          },
+          "newOnSharedBenchmarks": {
+            "overall": 28.29525,
+            "dimensions": {
+              "agentic": {
+                "score": 37.5905,
+                "componentCount": 1,
+                "weight": 0.5
+              },
+              "reasoning": {
+                "score": 19,
+                "componentCount": 1,
+                "weight": 0.5
+              }
+            },
+            "missingBenchmarkIds": [],
+            "evidenceIds": [
+              "artificial-analysis:gdpval-aa:glm-5-2-non-reasoning",
+              "epoch-ai:chess-puzzles:zai-glm-5-2-default-epoch-inspect-row-23"
+            ]
+          },
+          "finalDelta": 0.0
+        }
+      ]
+    }
+  ]
+}

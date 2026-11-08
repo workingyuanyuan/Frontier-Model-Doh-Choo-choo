@@ -108,7 +108,7 @@ Surge ComplexConstraints 與 Riemann-bench 的版本取自官方頁首的版本�
 Product Profile 只按 reasoning effort 分離；推理強度階梯為
 `non-reasoning < low < medium < high < xhigh < max`，`default` 位於階梯之外：
 
-- 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。
+- 來源明示 effort 優先；名稱明示的 `(Non-reasoning)` 對應 `non-reasoning`，`(minimal)` 對應 `low`。 OpenAI 發布圖表明示的 `none` 對應產品 `non-reasoning`，來源原始值與 provenance 保留；分數及成本使用同一來源語義歸檔。
 - 來源未標 effort 時，才可從其他來源對同一 canonical model 的明示／名稱可判定 effort 推測，且不得覆寫來源或名稱明示值。推測規則見 [重構規格 §4.5](SPEC.md)：**每個其他來源對它實際發布過的每一個具名檔位各投一票；得票來源數最多的檔位勝出，平手時取較高檔**。單一來源掃過完整階梯時，對每檔也至多一票，不會壓過其他來源。只有 `INCLUDED` 列可投票；`EXCLUDED` 列不得間接影響計分。`non-reasoning` 永遠不會是推測結果。
 - 其他來源也沒有可用依據時使用 `default`；不再把缺值歸入 `max`。
 - 每次跨來源推測都列入各來源 validation report，保持 `PENDING USER REVIEW`，並記錄 target row 與 basis source/row。

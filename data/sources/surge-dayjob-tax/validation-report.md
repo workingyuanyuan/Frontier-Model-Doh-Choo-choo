@@ -1,7 +1,7 @@
 # Surge DAYJOB Tax acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-tax>
-- Evidence: `sha256:4b16a71e10a41fdccebae0855a83df4cace54068aab134c0edf9b7d00e1057d7`
+- Evidence: `sha256:88db8528247ea9ea42ee3baffb439a939090a9d580d506aa6fdf48650dad01b9`
 - Main leaderboard: 16 rows; rendered browser count: 16.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
@@ -16,7 +16,7 @@ The public DAYJOB repository holds the harness, not the Tax tasks; the announcem
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|

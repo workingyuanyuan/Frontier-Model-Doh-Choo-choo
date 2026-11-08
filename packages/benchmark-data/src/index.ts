@@ -624,9 +624,14 @@ const normalizedEffortKey = (value: string): string =>
 
 export const normalizeProductEffort = (
   value: string | null | undefined,
+  sourceId?: string,
 ): EffortTier | null => {
   if (typeof value !== 'string' || value.trim().length === 0) return null;
   const key = normalizedEffortKey(value);
+  // OpenAI release charts label disabled reasoning as none.
+  if (sourceId === 'openai-releases' && key === 'none') {
+    return 'non-reasoning';
+  }
   if (key === 'nonreasoning' || key === 'non-reasoning') {
     return 'non-reasoning';
   }
@@ -654,7 +659,10 @@ const directEffort = (
   candidate: EffortResolutionInput,
 ): { effort: EffortTier; basis: 'SOURCE_FIELD' | 'NAME_DERIVED' } | null => {
   if (candidate.profile.effort !== null) {
-    const sourceEffort = normalizeProductEffort(candidate.profile.effort);
+    const sourceEffort = normalizeProductEffort(
+      candidate.profile.effort,
+      candidate.sourceId,
+    );
     // A present but invalid source field is not permission to fall back to a
     // qualifier in the display name. The source explicitly supplied a value;
     // it remains unlabelled (and can only use the §4.5/default paths).
@@ -893,10 +901,14 @@ export const applyProductProfilePolicyToCosts = (
     if (modelId === null) return cost;
 
     const matching = candidatesByMatch.get(matchKey(cost)) ?? [];
-    const costEffort = normalizeProductEffort(cost.profile.effort);
+    const costEffort = normalizeProductEffort(
+      cost.profile.effort,
+      cost.sourceId,
+    );
     const matchingEffort = matching.find(
       (candidate) =>
-        normalizeProductEffort(candidate.profile.effort) === costEffort,
+        normalizeProductEffort(candidate.profile.effort, candidate.sourceId) ===
+        costEffort,
     );
     const matchingCandidate = matchingEffort ?? matching[0];
     const decision = matchingCandidate

@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:e27fc2cdd7a63f0bff6c833d2cb8f8d97bed478ebe958913af42770bba0b21fd`
-- Observed at: 2026-11-06T00:20:20.219Z
+- Index evidence: `sha256:46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef`
+- Observed at: 2026-11-08T14:11:18.151Z
 
 ## Exact counts
 
@@ -475,7 +475,7 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 | Benchmark slugs discovered from index | 62 | 62 | +0 |
 | CandidateResults | 3498 | 3498 | +0 |
 | CostRecords retained | 3347 | 3347 | +0 |
-| Canonically unresolved rows | 2114 | 2065 | -49 |
+| Canonically unresolved rows | 2065 | 2065 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -591,23 +591,23 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | reflection/Beam-1.0 | `vals-ai:terminal-bench-science:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:vals-index:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
 | reflection/Beam-1.0 | `vals-ai:vibe-code-bench:reflection-beam-1-0` | — | `max` | frontier-code | frontier-code:frontier-code-2-0:beam-1-0-max |
-| thinkingmachines/inkling-2-small | `vals-ai:biomysterybench:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:cyber:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:emb-v1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:fabv2-1:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:finance-index:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:hlab:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:legal-index:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:legal-research:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:programbench:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:sage:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:srebench:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:swebench-multimodal:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:tax-agent-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-science:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:vals-index:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
-| thinkingmachines/inkling-2-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | surge-complex-constraints | surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning |
+| thinkingmachines/inkling-2-small | `vals-ai:biomysterybench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:cyber:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:emb-v1-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:fabv2-1:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:finance-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:hlab:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:legal-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:legal-research:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:programbench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:sage:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:srebench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:swebench-multimodal:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:tax-agent-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:terminal-bench-science:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:vals-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | zai/glm-5.1 | `vals-ai:aime:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-95:1-0-6 |
 | zai/glm-5.1 | `vals-ai:case-law-v2:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-95:1-0-6 |
 | zai/glm-5.1 | `vals-ai:code-migration:zai-glm-5-1` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:glm-5-1-max-rank-95:1-0-6 |

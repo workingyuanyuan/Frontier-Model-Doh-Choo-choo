@@ -1,7 +1,7 @@
 # Surge DAYJOB Finance acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-finance>
-- Evidence: `sha256:e808cf3bc9fe58a89422f9ab9b97b8120100c9a194e2465bfceca8c2b7933ee3`
+- Evidence: `sha256:d8c2c86a1965648a762e807654d999a66478ef17912b7f4bf1636ba7d85fae70`
 - Main leaderboard: 40 rows; rendered browser count: 40.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (8): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).
@@ -16,11 +16,11 @@ The official blog describes long-horizon finance work spanning corporate finance
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate results | 38 | 40 | +2 |
+| Candidate results | 40 | 40 | +0 |
 | Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->

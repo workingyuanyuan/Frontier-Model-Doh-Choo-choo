@@ -4,23 +4,23 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:e1536590e376580e2f3d41acd1b221e6ebeb8dab1bce06a4be24c4784179c6a4`
-- Models evidence: `sha256:1c1a30e94b7426c34a2a46192f144eb074fbdd4e4b6bd5f36f73f46633d05d89`
+- Evaluations evidence: `sha256:6376bb048c5c7df1e5a54e21dd50a49efffdf5a459c11794367551bc46972870`
+- Models evidence: `sha256:3920651190d6ac47cac8c22c9247366831f3168bca4cb59ca5cca219769367e4`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:3624df3868d74a51682812716262ac5158d6efceed989f25b1de07ea58d5a873`
-- Observed at: 2026-11-06T00:16:25.016Z
+- Page evidence: `sha256:cd0f1e38c2b6b4bcfbf8f51422f2a8f0a41fdd7544823ee4ec3da5cd095464af`
+- Observed at: 2026-11-08T14:11:10.957Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1268 |
-| Total models in models.json | 370 |
+| Total evaluation rows (all splits) | 1272 |
+| Total models in models.json | 371 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 298 |
-| Promoted v2_Semi_Private rows (display=true) | 291 |
-| Promoted cost records (USD/task) | 291 |
-| Canonically resolved rows | 154 |
+| Total v2_Semi_Private evaluations | 299 |
+| Promoted v2_Semi_Private rows (display=true) | 292 |
+| Promoted cost records (USD/task) | 292 |
+| Canonically resolved rows | 155 |
 | Canonically unresolved rows | 137 |
 | Canonically unresolved models | 137 |
 | Excluded candidate rows | 8 |
@@ -29,18 +29,18 @@
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 291 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 292 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 291/291 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 292/292 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 291/291 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 292/292 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 154/291 promoted rows (137 unresolved rows across 137 distinct model names).
+Exact catalog resolution succeeded for 155/292 promoted rows (137 unresolved rows across 137 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -48,7 +48,7 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 | Reason | Excluded Rows |
 |---|---:|
 | ARC published both Minimal and Low labels for this model; minimal cannot represent low. | 7 |
-| Unrecognised configuration segment "Refine." has not been reviewed as an effort tier. | 1 |
+| Unrecognised configuration segment "Refinement" has not been reviewed as an effort tier. | 1 |
 
 ### ARC published both Minimal and Low labels for this model; minimal cannot represent low. (7 rows)
 
@@ -60,9 +60,9 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - GPT-5 Nano (Minimal) (unresolved)
 - Inkling Small (Minimal) (unresolved)
 
-### Unrecognised configuration segment "Refine." has not been reviewed as an effort tier. (1 row)
+### Unrecognised configuration segment "Refinement" has not been reviewed as an effort tier. (1 row)
 
-- GPT-5.2 (Refine.) (`openai-gpt-5-2`)
+- GPT-5.2 (Refinement) (`openai-gpt-5-2`)
 
 ## Unresolved model names
 
@@ -124,7 +124,7 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Gemini 3 Flash Preview (Medium)
 - Gemini 3 Flash Preview (Minimal)
 - Gemini 3 Pro
-- Gemini 3 Pro (Refine.)
+- Gemini 3 Pro (Refinement)
 - Gemini 3.1 Pro (Preview)
 - GLM-5
 - GLM-5.3-Flash (High)
@@ -162,7 +162,7 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Grok 3
 - Grok 3 Mini (Low)
 - Grok 4 (Fast Reasoning)
-- Grok 4 (Refine.)
+- Grok 4 (Refinement)
 - Grok 4 (Thinking)
 - Grok 4.20 (Reasoning)
 - Human Panel
@@ -206,12 +206,13 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
-
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate results | 291 | 291 | +0 |
-| Materialized costs | 291 | 291 | +0 |
+| Candidate rows | 291 | 292 | +1 |
+| Cost records | 291 | 292 | +1 |
+| Canonically unresolved models | 137 | 137 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
@@ -223,8 +224,8 @@ This tagged section is generated deterministically for `arc-prize`. Raw `profile
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
 | GLM-5.2 | `arc-prize:arc-agi-2:glm-5-2:arc-agi-2-v2-semi-private` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
-| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-201 |
-| GPT-5.2 (Refine.) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-201 |
+| GPT-5.2 | `arc-prize:arc-agi-2:gpt-5-2-2025-12-11-thinking-none:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-202 |
+| GPT-5.2 (Refinement) | `arc-prize:arc-agi-2:johan-land-gpt-5-2-refine:arc-agi-2-v2-semi-private` | — | `xhigh` | epoch-ai | epoch-ai:aime:openai-gpt-5-2-xhigh-epoch-inspect-row-202 |
 | Inkling | `arc-prize:arc-agi-2:thinky-inkling:arc-agi-2-v2-semi-private` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 
 ### Unlabelled rows assigned the outside-the-ladder default

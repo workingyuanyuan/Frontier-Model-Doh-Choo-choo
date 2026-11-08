@@ -57,12 +57,16 @@ Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `fr
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
-
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate results | 248 | 251 | +3 |
-| Materialized costs | 248 | 251 | +3 |
+| Distinct models | 47 | 47 | +0 |
+| Main configurations | 141 | 141 | +0 |
+| Materialized costs | 251 | 251 | +0 |
+| 2.0 costs | 110 | 110 | +0 |
+| 2.0 models | 29 | 29 | +0 |
+| 2.0 configurations | 110 | 110 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

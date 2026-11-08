@@ -31,13 +31,13 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-11-06T00:19:42.517Z",
+  "lastVerifiedAt": "2026-11-08T14:11:37.135Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
     "`$undefined` and null are both treated as missing values.",
-    "Capture observed 230 unique profiles, 230 active profiles, 102 task-cost rows, and 221 token-price rows.",
-    "Materialized 106 Intelligence Index candidates (all EXCLUDED) and 188 GDPval-AA normalized candidates."
+    "Capture observed 231 unique profiles, 231 active profiles, 102 task-cost rows, and 221 token-price rows.",
+    "Materialized 107 Intelligence Index candidates (all EXCLUDED) and 189 GDPval-AA normalized candidates."
   ],
   "role": "ORGANIZER",
   "schemaVersion": "source-manifest-v1",
