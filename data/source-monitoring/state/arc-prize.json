@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-06T00:25:56.000Z",
+  "checkedAt": "2026-11-08T14:21:01.367Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "arc-agi-2",
-        "includedRows": 283,
+        "includedRows": 284,
         "metrics": ["score:fraction:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -47,6 +47,7 @@
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
           "thinking-machines-inkling",
+          "thinking-machines-inkling-2-small",
           "xai-grok-4-5",
           "xai-grok-4-6",
           "xai-grok-4-7",
@@ -170,7 +171,7 @@
           "[\"GPT-5.2 (High)\",\"high\",null,null,null,null,null,null]",
           "[\"GPT-5.2 (Low)\",\"low\",null,null,null,null,null,null]",
           "[\"GPT-5.2 (Medium)\",\"medium\",null,null,null,null,null,null]",
-          "[\"GPT-5.2 (Refine.)\",null,null,null,null,null,null,null]",
+          "[\"GPT-5.2 (Refinement)\",null,null,null,null,null,null,null]",
           "[\"GPT-5.2 (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
           "[\"GPT-5.2 Pro (High)\",\"high\",null,null,null,null,null,null]",
           "[\"GPT-5.2 Pro (Medium)\",\"medium\",null,null,null,null,null,null]",
@@ -255,7 +256,7 @@
           "[\"Gemini 3 Flash Preview (Low)\",\"low\",null,null,null,null,null,null]",
           "[\"Gemini 3 Flash Preview (Medium)\",\"medium\",null,null,null,null,null,null]",
           "[\"Gemini 3 Flash Preview (Minimal)\",\"low\",null,null,null,null,null,null]",
-          "[\"Gemini 3 Pro (Refine.)\",null,null,null,null,null,null,null]",
+          "[\"Gemini 3 Pro (Refinement)\",null,null,null,null,null,null,null]",
           "[\"Gemini 3 Pro\",null,null,null,null,null,null,null]",
           "[\"Gemini 3.1 Pro (Preview)\",null,null,null,null,null,null,null]",
           "[\"Gemini 3.5 Flash (High)\",\"high\",null,null,null,null,null,null]",
@@ -280,7 +281,7 @@
           "[\"Grok 3 Mini (Low)\",\"low\",null,null,null,null,null,null]",
           "[\"Grok 3\",null,null,null,null,null,null,null]",
           "[\"Grok 4 (Fast Reasoning)\",null,null,null,null,null,null,null]",
-          "[\"Grok 4 (Refine.)\",null,null,null,null,null,null,null]",
+          "[\"Grok 4 (Refinement)\",null,null,null,null,null,null,null]",
           "[\"Grok 4 (Thinking)\",null,null,null,null,null,null,null]",
           "[\"Grok 4.20 (Reasoning)\",null,null,null,null,null,null,null]",
           "[\"Grok 4.5 (High)\",\"high\",null,null,null,null,null,null]",
@@ -296,6 +297,7 @@
           "[\"Grok 4.7 (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
           "[\"Human Panel\",null,null,null,null,null,null,null]",
           "[\"Icecuber\",null,null,null,null,null,null,null]",
+          "[\"Inkling 2 Small (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
           "[\"Inkling Small (High)\",\"high\",null,null,null,null,null,null]",
           "[\"Inkling Small (Low)\",\"low\",null,null,null,null,null,null]",
           "[\"Inkling Small (Medium)\",\"medium\",null,null,null,null,null,null]",
@@ -464,7 +466,7 @@
           "GPT-5.2 (High)",
           "GPT-5.2 (Low)",
           "GPT-5.2 (Medium)",
-          "GPT-5.2 (Refine.)",
+          "GPT-5.2 (Refinement)",
           "GPT-5.2 (XHigh)",
           "GPT-5.2 Pro (High)",
           "GPT-5.2 Pro (Medium)",
@@ -549,7 +551,7 @@
           "Gemini 3 Flash Preview (Medium)",
           "Gemini 3 Flash Preview (Minimal)",
           "Gemini 3 Pro",
-          "Gemini 3 Pro (Refine.)",
+          "Gemini 3 Pro (Refinement)",
           "Gemini 3.1 Pro (Preview)",
           "Gemini 3.5 Flash (High)",
           "Gemini 3.5 Flash (Minimal)",
@@ -573,7 +575,7 @@
           "Grok 3",
           "Grok 3 Mini (Low)",
           "Grok 4 (Fast Reasoning)",
-          "Grok 4 (Refine.)",
+          "Grok 4 (Refinement)",
           "Grok 4 (Thinking)",
           "Grok 4.20 (Reasoning)",
           "Grok 4.5 (High)",
@@ -590,6 +592,7 @@
           "Human Panel",
           "Icecuber",
           "Inkling",
+          "Inkling 2 Small (XHigh)",
           "Inkling Small (High)",
           "Inkling Small (Low)",
           "Inkling Small (Medium)",
@@ -638,12 +641,12 @@
           "o4-mini (Low)",
           "o4-mini (Medium)"
         ],
-        "rows": 291,
+        "rows": 292,
         "sourceUrls": ["https://arcprize.org/leaderboard"],
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-11-06T00:16:25.016Z",
+    "observedAt": "2026-11-08T14:11:10.957Z",
     "sourceId": "arc-prize"
   }
 }

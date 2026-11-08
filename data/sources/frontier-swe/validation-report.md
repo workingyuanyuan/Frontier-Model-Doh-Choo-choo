@@ -11,7 +11,7 @@ The embedded entries.abs.mean array supplies all configurations, including model
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|

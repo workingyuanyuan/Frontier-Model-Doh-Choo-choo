@@ -1,7 +1,7 @@
 # Surge Chartography acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/chartography>
-- Evidence: `sha256:d68055444132ee7a391f297f96415aa5e46ed811e52dae0c4b2f18c0036a99a3`
+- Evidence: `sha256:bfed8139ab80a4ae092ad3e5b1b30fe45a050d638e93e7f3c4d2c64de12244a9`
 - Main leaderboard: 42 rows; rendered browser count: 42.
 - Every data-score attribute agrees with its displayed percentage; no pagination.
 - Unresolved catalog identities (10): DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (Max reasoning); Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); Inkling Small (xHigh reasoning); Kimi K2.5 (Thinking on); Mistral Large 3; Muse Glimmer 30B (xHigh reasoning); Qwen 3.5 Plus (Thinking on); Qwen 3.8 Flash (xHigh reasoning).
@@ -12,7 +12,7 @@ The cost/token charts have a separate, older configuration list and are outside 
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|

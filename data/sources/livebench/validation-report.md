@@ -68,12 +68,13 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
-
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
+| Raw model profiles | 98 | 98 | +0 |
 | Candidate results | 508 | 508 | +0 |
-| Materialized costs | 146 | 148 | +2 |
+| Materialized costs | 148 | 148 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

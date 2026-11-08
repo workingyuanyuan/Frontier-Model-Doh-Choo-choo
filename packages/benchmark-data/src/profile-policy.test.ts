@@ -146,6 +146,87 @@ describe('product profile evidence indexing', () => {
     expect(actual[13]).toBe(rows[13]);
   });
 
+  it('projects OpenAI none as source-labelled non-reasoning for scores and costs', () => {
+    const unlabelled = candidate('a-unlabelled', 'openai-releases', 'alpha');
+    const none = candidate('b-none', 'openai-releases', 'alpha', 'none');
+    none.provenance['profile.effort'] = {
+      evidenceId,
+      method: 'MANUAL',
+      locator: '$.effortLabel; captured="none"',
+    };
+    none.provenance.effortOrder = {
+      evidenceId,
+      method: 'MANUAL',
+      locator: '$.order; captured=0',
+    };
+    const otherNone = candidate('other-none', 'other-source', 'alpha', 'none');
+    const max = candidate('max', 'max-source', 'alpha', 'max');
+    const rows = [unlabelled, none, otherNone, max];
+    const originalRows = structuredClone(rows);
+    const matchedCost = cost(none);
+    const unmatchedCost = cost(
+      candidate('cost-only', 'openai-releases', 'alpha', 'none', {
+        model: {
+          rawName: 'Alpha cost-only',
+          canonicalModelId: 'alpha',
+          profileId: null,
+        },
+      }),
+    );
+    const costs = [matchedCost, unmatchedCost];
+    const originalCosts = structuredClone(costs);
+
+    expect(decideProductEffort(none, rows)).toEqual({
+      effort: 'non-reasoning',
+      basis: 'SOURCE_FIELD',
+      basisSourceId: 'openai-releases',
+      basisCandidateId: none.id,
+    });
+    expect(decideProductEffort(otherNone, rows)).toMatchObject({
+      effort: 'max',
+      basis: 'CROSS_SOURCE',
+      basisSourceId: 'max-source',
+    });
+    expect(decideProductEffort(otherNone, [otherNone])).toMatchObject({
+      effort: 'default',
+      basis: 'DEFAULT',
+    });
+
+    const projected = applyProductProfilePolicy(rows, catalog, policy);
+    expect(projected[0]?.productProfile?.effort).toBe('max');
+    expect(projected[1]).toMatchObject({
+      model: { profileId: 'alpha-non-reasoning' },
+      productProfile: { effort: 'non-reasoning', harness: null },
+      profile: { effort: 'none' },
+      rawScore: none.rawScore,
+      normalizedScore: none.normalizedScore,
+      provenance: none.provenance,
+    });
+    expect(projected[2]?.productProfile?.effort).toBe('max');
+
+    const projectedCosts = applyProductProfilePolicyToCosts(
+      costs,
+      rows,
+      catalog,
+      policy,
+    );
+    expect(projectedCosts.map((row) => row.model.profileId)).toEqual([
+      'alpha-non-reasoning',
+      'alpha-non-reasoning',
+    ]);
+    expect(projectedCosts.map((row) => row.profile)).toEqual(
+      costs.map((row) => row.profile),
+    );
+    expect(projectedCosts.map((row) => row.provenance)).toEqual(
+      costs.map((row) => row.provenance),
+    );
+    expect(projectedCosts.map((row) => row.cost)).toEqual(
+      costs.map((row) => row.cost),
+    );
+    expect(rows).toEqual(originalRows);
+    expect(costs).toEqual(originalCosts);
+  });
+
   it('resolves each invocation from its current candidates and comparison filter', () => {
     const target = candidate('target', 'target-source', 'alpha');
     const evidence = candidate('evidence', 'other-source', 'alpha', 'low');

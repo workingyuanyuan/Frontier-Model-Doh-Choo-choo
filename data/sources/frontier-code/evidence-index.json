@@ -16,7 +16,7 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://cognition.com/data/frontier-code-2.0/data.json",
-    "retrievedAt": "2026-11-06T00:20:00.215Z",
+    "retrievedAt": "2026-11-08T14:17:18.701Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:96615ddfc3ff0257a5e0324d1ab7b5f8f0731b411cb002ab0a592957fd35eabe",
     "sourceId": "frontier-code"
@@ -82,7 +82,7 @@
     },
     "method": "EXPORT",
     "requestUrl": "https://cognition.com/data/frontiercode-leaderboard/data.json",
-    "retrievedAt": "2026-11-06T00:20:00.215Z",
+    "retrievedAt": "2026-11-08T14:17:18.701Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070",
     "sourceId": "frontier-code"
@@ -123,7 +123,7 @@
     },
     "method": "EMBEDDED_JSON",
     "requestUrl": "https://cognition.com/frontiercode",
-    "retrievedAt": "2026-11-06T00:20:00.215Z",
+    "retrievedAt": "2026-11-08T14:17:18.701Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:35063199ae8dfefb59947face88370e7b53fc17609cc1bcd0eb82dc29f59f4b3",
     "sourceId": "frontier-code"

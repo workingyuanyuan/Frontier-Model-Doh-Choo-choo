@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-11-08T15:07:54.567376+00:00",
+  "beforeVersionId": "sha256:a855916c0c7a2777850caf80864ca63bb95768547120c0a16eeebab6503b86e7",
+  "newVersionId": "sha256:e52b966e9ff807047b8ce29f0cdb40b43e182162c77c00bd76314c83cacd0cea",
+  "changedEvidence": [
+    {
+      "id": "openai-releases:gpt56:deepswe:10",
+      "fields": ["model", "productProfile"],
+      "beforeProfileId": "openai-gpt-5-6-sol-max",
+      "afterProfileId": "openai-gpt-5-6-sol-non-reasoning",
+      "rawEffort": "none",
+      "score": 44.469
+    },
+    {
+      "id": "openai-releases:gpt56:deepswe:16",
+      "fields": ["model", "productProfile"],
+      "beforeProfileId": "openai-gpt-5-6-luna-max",
+      "afterProfileId": "openai-gpt-5-6-luna-non-reasoning",
+      "rawEffort": "none",
+      "score": 2.2124
+    },
+    {
+      "id": "openai-releases:gpt56:deepswe:22",
+      "fields": ["model", "productProfile"],
+      "beforeProfileId": "openai-gpt-5-6-terra-max",
+      "afterProfileId": "openai-gpt-5-6-terra-non-reasoning",
+      "rawEffort": "none",
+      "score": 14
+    }
+  ],
+  "costRecords": 3,
+  "costRawValuesAndAllOtherFieldsMatchIgnoringProfileId": true,
+  "comparisonEvidenceIds": {
+    "added": [
+      "openai-releases:gpt56:deepswe:10",
+      "openai-releases:gpt56:deepswe:16",
+      "openai-releases:gpt56:deepswe:22"
+    ],
+    "removed": []
+  },
+  "otherProductFieldChanges": [],
+  "method": "Isolate code correction from source refresh by comparing first mechanical release against corrected release, while source raw inputs stay frozen."
+}

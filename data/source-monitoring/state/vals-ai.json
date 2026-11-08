@@ -373,21 +373,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-06T00:25:56.000Z",
+  "checkedAt": "2026-11-08T14:21:01.367Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/e2/e27fc2cdd7a63f0bff6c833d2cb8f8d97bed478ebe958913af42770bba0b21fd.html",
-    "byteLength": 301934,
+    "artifactPath": "artifacts/sha256/46/46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef.html",
+    "byteLength": 303261,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:e27fc2cdd7a63f0bff6c833d2cb8f8d97bed478ebe958913af42770bba0b21fd",
+    "id": "sha256:46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-06T00:25:56.000Z",
+    "retrievedAt": "2026-11-08T14:21:01.367Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e27fc2cdd7a63f0bff6c833d2cb8f8d97bed478ebe958913af42770bba0b21fd",
+    "sha256": "sha256:46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -9601,7 +9601,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-11-06T00:20:20.219Z",
+    "observedAt": "2026-11-08T14:11:18.151Z",
     "sourceId": "vals-ai"
   }
 }

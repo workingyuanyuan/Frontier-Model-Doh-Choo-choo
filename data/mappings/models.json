@@ -2,6 +2,32 @@
   "schemaVersion": "model-catalog-v1",
   "models": [
     {
+      "modelId": "lg-k-exaone-2-0",
+      "providerId": "lg",
+      "displayName": "K-EXAONE 2.0",
+      "aliases": [
+        "K-EXAONE 2.0",
+        "K-EXAONE-2.0-750B-A37B",
+        "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B"
+      ],
+      "releaseDate": "2026-07-31",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "cohere-north-mini-code-1-0",
+      "providerId": "cohere",
+      "displayName": "North Mini Code",
+      "aliases": [
+        "North Mini Code",
+        "North-Mini-Code-1.0",
+        "CohereLabs/North-Mini-Code-1.0"
+      ],
+      "releaseDate": "2026-06-09",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "reflection-beam-1-0",
       "providerId": "reflection",
       "displayName": "Beam 1.0",

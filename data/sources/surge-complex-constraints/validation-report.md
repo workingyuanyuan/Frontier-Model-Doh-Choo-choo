@@ -2,7 +2,7 @@
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
 - Benchmark version: v1.1.
-- Evidence: `sha256:df24dba0517562a5ece4cf5a21591141a8e5685bec654164d39ae10b8f933790`
+- Evidence: `sha256:9ed97dbc3c9e5ea7ddf0854c38c6e3b72cad8861e6e8ffa7a77910a5ab55863f`
 - Main leaderboard: 16 rows; rendered browser count: 16.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
@@ -52,11 +52,11 @@ Current rendered rows: 16; preserved: 34; total stored: 50. Preserved rows retai
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate results | 49 | 50 | +1 |
+| Candidate results | 50 | 50 | +0 |
 | Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->

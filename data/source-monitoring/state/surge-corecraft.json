@@ -79,21 +79,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-06T00:25:56.000Z",
+  "checkedAt": "2026-11-08T14:21:01.367Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/c5/c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69.html",
-    "byteLength": 937128,
+    "artifactPath": "artifacts/sha256/33/3386b8f66edc3eacce68b2da022b591788c6b4ab6d303cbc08ffd49267259d05.html",
+    "byteLength": 935124,
     "finalUrl": "https://surgehq.ai/benchmarks",
-    "id": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
+    "id": "sha256:3386b8f66edc3eacce68b2da022b591788c6b4ab6d303cbc08ffd49267259d05",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-06T00:25:56.000Z",
+    "retrievedAt": "2026-11-08T14:21:01.367Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:c58f7a81e776d9421f09c9f5154c4b2497e01a92dfc59c004ae3c68ef45cdf69",
+    "sha256": "sha256:3386b8f66edc3eacce68b2da022b591788c6b4ab6d303cbc08ffd49267259d05",
     "sourceId": "surge-corecraft"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -260,7 +260,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-06T00:20:05.651Z",
+    "observedAt": "2026-11-08T14:17:23.903Z",
     "sourceId": "surge-corecraft"
   }
 }

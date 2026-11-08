@@ -1,7 +1,7 @@
 # Surge CoreCraft acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/enterprisebench-corecraft>
-- Evidence: `sha256:fd4f3700de2299d7671537790d02f142a23d48335c1e4c3aecadcc16ab6793be`
+- Evidence: `sha256:cd1460a11a95437e8e22b9e82d6670be741af4097b4ca08df4031efcde658619`
 - Main leaderboard: 55 rows; rendered browser count: 55.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (21): DeepSeek V3.2 (High reasoning); DeepSeek V4.1 Flash (Max reasoning); DeepSeek V4 Flash Vision (experimental) (Max reasoning); Gemini 3.1 Pro (High reasoning); Gemini 3 Flash (High reasoning); Gemini 3 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); GLM 5 (Auto reasoning); Grok 4.1 (Fast); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); Kimi K2.5 (Thinking on); Mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning); Nemotron Lightning 3.5 30B A3B (Thinking on); Nova 2 Pro (High reasoning); Qwen 3.5 Plus (Thinking on); Qwen 3.8 Flash (xHigh reasoning); Qwen 3 Max (Thinking on).
@@ -14,11 +14,11 @@ The official paper defines task pass rate as satisfying every expert-authored ru
 
 ## Snapshot delta
 
-Comparison uses this task’s immutable pre-import snapshot; the source identity replay uses current captured bytes.
+Comparison uses the immutable pre-import snapshot.
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate results | 50 | 55 | +5 |
+| Candidate results | 55 | 55 | +0 |
 | Materialized costs | 0 | 0 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->

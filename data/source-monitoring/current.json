@@ -1,27 +1,33 @@
 {
-  "checkedAt": "2026-11-06T00:25:56.000Z",
+  "checkedAt": "2026-11-08T14:21:01.367Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:21:39.469Z",
+      "snapshotObservedAt": "2026-11-08T14:17:36.140Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
-      "findings": [],
+      "findings": [
+        {
+          "benchmarkId": "arc-agi-2",
+          "detail": "291 -> 292; missing 3: [\"GPT-5.2 (Refine.)\",null,null,null,null,null,null,null], [\"Gemini 3 Pro (Refine.)\",null,null,null,null,null,null,null], [\"Grok 4 (Refine.)\",null,null,null,null,null,null,null]",
+          "kind": "profiles-lost"
+        }
+      ],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:16:25.016Z",
+      "snapshotObservedAt": "2026-11-08T14:11:10.957Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -107,6 +113,11 @@
         {
           "benchmarkId": "terminalbench-hard",
           "detail": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "vials-aa",
+          "detail": "https://artificialanalysis.ai/evaluations/vials-aa",
           "kind": "unintegrated"
         }
       ],
@@ -490,50 +501,60 @@
           "title": "Terminal-Bench Hard",
           "url": "https://artificialanalysis.ai/evaluations/terminalbench-hard",
           "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
+          "id": "vials-aa",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "VIALS-AA",
+          "url": "https://artificialanalysis.ai/evaluations/vials-aa",
+          "version": null
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:19:42.517Z",
+      "snapshotObservedAt": "2026-11-08T14:11:37.135Z",
       "sourceId": "artificial-analysis"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:19:58.547Z",
+      "snapshotObservedAt": "2026-11-08T14:17:16.980Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:16:21.502Z",
+      "snapshotObservedAt": "2026-11-08T14:11:07.139Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:20:00.215Z",
+      "snapshotObservedAt": "2026-11-08T14:17:18.701Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:17:15.027Z",
+      "snapshotObservedAt": "2026-11-08T14:11:32.893Z",
       "sourceId": "frontier-swe"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -542,16 +563,16 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:18:25.178Z",
+      "snapshotObservedAt": "2026-11-08T14:17:13.974Z",
       "sourceId": "livebench"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -560,7 +581,7 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -707,11 +728,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:01.849Z",
+      "snapshotObservedAt": "2026-11-08T14:17:20.248Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -858,23 +879,13 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:03.691Z",
+      "snapshotObservedAt": "2026-11-08T14:17:22.061Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "30 -> 34; missing 3: anthropic-claude-sonnet-4-6, deepseek-deepseek-v4-flash, zai-glm-5-2",
-          "kind": "models-lost"
-        },
-        {
-          "benchmarkId": "enterprisebench-corecraft",
-          "detail": "50 -> 55; missing 3: [\"Claude Sonnet 4.6 (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"DeepSeek V4 Flash (High reasoning)\",\"high\",\"High reasoning\",null,null,null,null,null], [\"GLM 5.2 (xHigh reasoning)\",\"xhigh\",\"xHigh reasoning\",null,null,null,null,null]",
-          "kind": "profiles-lost"
-        },
         {
           "benchmarkId": "gdp-pdf",
           "detail": "https://surgehq.ai/benchmarks/gdp-pdf",
@@ -1019,11 +1030,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:05.651Z",
+      "snapshotObservedAt": "2026-11-08T14:17:23.903Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -1170,11 +1181,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:09.613Z",
+      "snapshotObservedAt": "2026-11-08T14:17:27.158Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -1321,11 +1332,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:20.557Z",
+      "snapshotObservedAt": "2026-11-08T14:17:29.141Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -1472,11 +1483,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:21:35.296Z",
+      "snapshotObservedAt": "2026-11-08T14:17:30.770Z",
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -1623,11 +1634,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:21:37.271Z",
+      "snapshotObservedAt": "2026-11-08T14:17:32.362Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -1774,11 +1785,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:07.588Z",
+      "snapshotObservedAt": "2026-11-08T14:17:25.526Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [
         {
@@ -2570,11 +2581,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-06T00:20:20.219Z",
+      "snapshotObservedAt": "2026-11-08T14:11:18.151Z",
       "sourceId": "vals-ai"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -2583,12 +2594,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-11-06T00:25:56.000Z",
+      "checkedAt": "2026-11-08T14:21:01.367Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-06T00:16:29.618Z",
+      "snapshotObservedAt": "2026-11-08T14:11:15.375Z",
       "sourceId": "zapier-automationbench"
     }
   ]
