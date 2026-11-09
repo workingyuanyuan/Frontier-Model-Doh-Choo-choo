@@ -628,8 +628,11 @@ export const normalizeProductEffort = (
 ): EffortTier | null => {
   if (typeof value !== 'string' || value.trim().length === 0) return null;
   const key = normalizedEffortKey(value);
-  // OpenAI release charts label disabled reasoning as none.
-  if (sourceId === 'openai-releases' && key === 'none') {
+  // OpenAI charts label disabled reasoning as none.
+  if (
+    (sourceId === 'openai-releases' || sourceId === 'biobasicsbench') &&
+    key === 'none'
+  ) {
     return 'non-reasoning';
   }
   if (key === 'nonreasoning' || key === 'non-reasoning') {
@@ -896,11 +899,44 @@ export const applyProductProfilePolicyToCosts = (
     rows.sort((left, right) => left.id.localeCompare(right.id));
   }
 
+  // A reviewed identity can resolve a candidate whose paired source cost still
+  // carries a null canonical ID. Match only the identical published setting.
+  const exactIdentityKey = (row: CandidateResult | CostRecord) =>
+    JSON.stringify([
+      row.sourceId,
+      row.model.rawName,
+      row.benchmarkId,
+      row.profile.effort,
+    ]);
+  const identitiesBySetting = new Map<string, Set<string>>();
+  for (const candidate of candidates) {
+    const canonical = candidate.model.canonicalModelId;
+    if (canonical === null) continue;
+    const key = exactIdentityKey(candidate);
+    const identities = identitiesBySetting.get(key) ?? new Set<string>();
+    identities.add(canonical);
+    identitiesBySetting.set(key, identities);
+  }
+
   return costs.map((cost) => {
-    const modelId = cost.model.canonicalModelId;
+    const matches =
+      cost.model.canonicalModelId === null
+        ? identitiesBySetting.get(exactIdentityKey(cost))
+        : undefined;
+    if (matches && matches.size > 1) {
+      throw new Error(`Conflicting candidate identities for cost ${cost.id}`);
+    }
+    const modelId =
+      cost.model.canonicalModelId ?? matches?.values().next().value ?? null;
     if (modelId === null) return cost;
 
-    const matching = candidatesByMatch.get(matchKey(cost)) ?? [];
+    const matching =
+      candidatesByMatch.get(
+        matchKey({
+          ...cost,
+          model: { ...cost.model, canonicalModelId: modelId },
+        }),
+      ) ?? [];
     const costEffort = normalizeProductEffort(
       cost.profile.effort,
       cost.sourceId,
@@ -919,6 +955,7 @@ export const applyProductProfilePolicyToCosts = (
       ...cost,
       model: {
         ...cost.model,
+        canonicalModelId: modelId,
         profileId: productProfileId(modelId, decision.effort),
       },
     });

@@ -14,15 +14,6 @@ The public DAYJOB repository holds the harness, not the Tax tasks; the announcem
 
 - Methodology: <https://surgehq.ai/blog/dayjob-tax> (published 2026-10-27) and <https://github.com/surge-ai/dayjob>. The blog publication date is not the leaderboard publication date.
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 16 | 16 | +0 |
-| Materialized costs | 0 | 0 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

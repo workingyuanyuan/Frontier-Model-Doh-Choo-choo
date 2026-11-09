@@ -50,15 +50,6 @@ Current rendered rows: 16; preserved: 34; total stored: 50. Preserved rows retai
 - surge-complex-constraints:complex-constraints:qwen-3-7-max-thinking-on: 33.5; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 - surge-complex-constraints:complex-constraints:qwen-3-8-flash-xhigh-reasoning: 43.3; version unpublished; observed 2026-11-02T03:15:46.661Z; Evidence sha256:e17daabadabc6c433d99d39cea28df0bfdf781f4869df509e8619a6c1a63bfc5.
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 50 | 50 | +0 |
-| Materialized costs | 0 | 0 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

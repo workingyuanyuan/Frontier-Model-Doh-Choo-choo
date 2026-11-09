@@ -44,15 +44,6 @@
 - Excluded: 41
 - Per-row references and rounding decisions: [cross-checks.json](cross-checks.json).
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 125 | 125 | +0 |
-| Materialized costs | 125 | 125 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

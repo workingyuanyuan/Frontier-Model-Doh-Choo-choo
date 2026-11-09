@@ -1,0 +1,24 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/1a/1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41.json",
+    "byteLength": 6209,
+    "finalUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+    "id": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+    "mediaType": "application/json",
+    "metadata": {
+      "attemptsPerTask": 5,
+      "captureKind": "bounded-normalized-browser-transcription",
+      "chartId": "biobasicsbench-model-performance",
+      "originalHttpBytes": false,
+      "printedXhighRows": 7,
+      "settings": 37,
+      "tasks": 100
+    },
+    "method": "DOM",
+    "requestUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+    "retrievedAt": "2026-11-09T01:51:32.016Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+    "sourceId": "biobasicsbench"
+  }
+]

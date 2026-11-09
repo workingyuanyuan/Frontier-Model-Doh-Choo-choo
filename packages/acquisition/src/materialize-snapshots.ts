@@ -59,6 +59,14 @@ import {
   liveBenchInputFromEvidence,
 } from './livebench-snapshot.js';
 import { materializeDeepSwe } from './deepswe-materializer.js';
+import {
+  BIOBASICS_PAGE_URL,
+  materializeBioBasicsBench,
+} from './biobasicsbench-materializer.js';
+import {
+  MAXXBENCH_PAGE_URL,
+  materializeMaxxBench,
+} from './maxxbench-materializer.js';
 import { materializeDeepSweCosts } from './pricing-materializers.js';
 import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
 import {
@@ -218,6 +226,8 @@ export function materializeSnapshots(
       { id: 'artificial-analysis', reportFn: getAAReport },
       { id: 'livebench', reportFn: null },
       { id: 'deepswe', reportFn: null },
+      { id: 'maxxbench', reportFn: null },
+      { id: 'biobasicsbench', reportFn: null },
       { id: 'frontier-code', reportFn: null },
       { id: 'frontier-swe', reportFn: null },
       { id: 'surge-chartography', reportFn: null },
@@ -515,6 +525,25 @@ export function materializeSnapshots(
               visualRowCount: Number(page.metadata?.renderedRows),
             });
             candidates = result.candidates;
+            customReportText = result.validationReport;
+          } else if (src.id === 'biobasicsbench') {
+            const page = evidenceFor(BIOBASICS_PAGE_URL);
+            const result = materializeBioBasicsBench(evidenceText(page), {
+              evidenceId: page.id,
+              observedAt: page.retrievedAt,
+            });
+            candidates = result.candidates;
+            materializedCosts = [];
+            customReportText = result.validationReport;
+          } else if (src.id === 'maxxbench') {
+            const page = evidenceFor(MAXXBENCH_PAGE_URL);
+            const result = materializeMaxxBench(evidenceText(page), {
+              evidenceId: page.id,
+              observedAt: page.retrievedAt,
+              visualRowCount: Number(page.metadata?.renderedRows),
+            });
+            candidates = result.candidates;
+            materializedCosts = result.costs;
             customReportText = result.validationReport;
           } else if (src.id === 'frontier-swe') {
             const page = evidenceFor(FRONTIER_SWE_PAGE_URL);

@@ -2,6 +2,20 @@
   "schemaVersion": "frontier-identities-v1",
   "mappings": [
     {
+      "sourceId": "maxxbench",
+      "canonicalModelId": "zai-glm-5-3",
+      "aliases": ["GLM-5.3"],
+      "justification": "The official MaxxBench label exactly names the existing GLM-5.3 model; its separately labelled GLM-5.3 Flash is not included in this alias.",
+      "evidence": [
+        {
+          "candidateId": "maxxbench:maxxbench:glmmax-max",
+          "rawName": "GLM-5.3",
+          "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+          "sourceUrl": "https://maxxbench.unlap.ai/"
+        }
+      ]
+    },
+    {
       "sourceId": "artificial-analysis",
       "canonicalModelId": "zai-glm-5-3",
       "aliases": ["GLM-5.3 (Low)", "GLM-5.3 (Max)"],

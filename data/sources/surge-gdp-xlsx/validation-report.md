@@ -14,15 +14,6 @@ GDP.xlsx covers 70 professional spreadsheet tasks across 12 domains. The officia
 
 - Methodology: <https://surgehq.ai/blog/gdp-xlsx> and <https://github.com/surge-ai/gdp-xlsx#grading>. The blog publication date is not the leaderboard publication date.
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 20 | 20 | +0 |
-| Materialized costs | 0 | 0 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

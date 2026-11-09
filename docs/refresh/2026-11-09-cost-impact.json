@@ -1,0 +1,98 @@
+{
+  "before": "sha256:bf1b29d9884c85e917c9dd34d9d2aabf630629d6ada2cf23118b38622e139ba4",
+  "after": "sha256:65896e20485508dd0731093e4186505e21bec094fa15679865e25683391c2e3c",
+  "added": [
+    {
+      "assumptionId": null,
+      "benchmarkId": "artificial-analysis-intelligence-index",
+      "benchmarkVersion": "v5.0.1",
+      "cost": 1.5749301149593384,
+      "costType": "MEASURED_TASK",
+      "evidenceIds": [
+        "sha256:c9826b3f920cbacdae44dfe0610df54267424de562d0eb34fd920613c65238ef"
+      ],
+      "metricId": "cost-per-intelligence-index-task",
+      "metricName": "Cost per Intelligence Index task",
+      "modelId": "zai-glm-5-3",
+      "performance": null,
+      "profileId": "zai-glm-5-3-low",
+      "sourceId": "artificial-analysis",
+      "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-low",
+      "unit": "USD_PER_TASK"
+    },
+    {
+      "assumptionId": null,
+      "benchmarkId": "artificial-analysis-intelligence-index",
+      "benchmarkVersion": "v5.0.1",
+      "cost": 0.25718036275876155,
+      "costType": "MEASURED_TASK",
+      "evidenceIds": [
+        "sha256:ade790cc9c332e52225853965a5cbd2f42359e964f3decfe8dfe12642f2e2b18"
+      ],
+      "metricId": "cost-per-intelligence-index-task",
+      "metricName": "Cost per Intelligence Index task",
+      "modelId": "xiaomi-mimo-v2-6-pro",
+      "performance": null,
+      "profileId": "xiaomi-mimo-v2-6-pro-default",
+      "sourceId": "artificial-analysis",
+      "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
+      "unit": "USD_PER_TASK"
+    },
+    {
+      "assumptionId": null,
+      "benchmarkId": "artificial-analysis-intelligence-index",
+      "benchmarkVersion": "v5.0.1",
+      "cost": 2.3452525606205166,
+      "costType": "MEASURED_TASK",
+      "evidenceIds": [
+        "sha256:613a93153785b9b0cdcde1b5bedcef5c15c4b6523c5842b10ff7a5901574f65f"
+      ],
+      "metricId": "cost-per-intelligence-index-task",
+      "metricName": "Cost per Intelligence Index task",
+      "modelId": "stepfun-step-5-preview",
+      "performance": null,
+      "profileId": "stepfun-step-5-preview-default",
+      "sourceId": "artificial-analysis",
+      "sourceUrl": "https://artificialanalysis.ai/models/step-5",
+      "unit": "USD_PER_TASK"
+    },
+    {
+      "assumptionId": null,
+      "benchmarkId": "maxxbench",
+      "benchmarkVersion": null,
+      "cost": 5.555757919325843,
+      "costType": "AGENT_TASK",
+      "evidenceIds": [
+        "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+      ],
+      "metricId": "mean-attempt-cost-usd",
+      "metricName": "Mean MaxxBench evaluation attempt cost",
+      "modelId": "zai-glm-5-3",
+      "performance": null,
+      "profileId": "zai-glm-5-3-max",
+      "sourceId": "maxxbench",
+      "sourceUrl": "https://maxxbench.unlap.ai/",
+      "unit": "USD_PER_TASK"
+    },
+    {
+      "assumptionId": null,
+      "benchmarkId": "artificial-analysis-intelligence-index",
+      "benchmarkVersion": "v5.0.1",
+      "cost": 5.009264601719954,
+      "costType": "MEASURED_TASK",
+      "evidenceIds": [
+        "sha256:ab423d7bd46add49e60c6af8e11a1414f8deb61427b1f01798f69deb6f0b1471"
+      ],
+      "metricId": "cost-per-intelligence-index-task",
+      "metricName": "Cost per Intelligence Index task",
+      "modelId": "zai-glm-5-3",
+      "performance": null,
+      "profileId": "zai-glm-5-3-max",
+      "sourceId": "artificial-analysis",
+      "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3",
+      "unit": "USD_PER_TASK"
+    }
+  ],
+  "removed": [],
+  "changed": []
+}

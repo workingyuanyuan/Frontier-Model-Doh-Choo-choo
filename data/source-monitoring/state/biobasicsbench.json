@@ -1,0 +1,79 @@
+{
+  "catalog": null,
+  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "evidence": null,
+  "schemaVersion": "source-monitor-state-v1",
+  "snapshot": {
+    "benchmarks": [
+      {
+        "id": "biobasicsbench",
+        "includedRows": 37,
+        "metrics": ["mean-reward:percent:true"],
+        "models": [
+          "openai-gpt-5-2",
+          "openai-gpt-5-4",
+          "openai-gpt-5-5",
+          "openai-gpt-5-6-sol",
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-luna"
+        ],
+        "profiles": [
+          "[\"GPT-5.2\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-5.2\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-5.2\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-5.2\",\"none\",null,null,null,null,5,null]",
+          "[\"GPT-5.2\",\"xhigh\",null,null,null,null,5,null]",
+          "[\"GPT-5.4\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-5.4\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-5.4\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-5.4\",\"none\",null,null,null,null,5,null]",
+          "[\"GPT-5.4\",\"xhigh\",null,null,null,null,5,null]",
+          "[\"GPT-5.5\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-5.5\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-5.5\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-5.5\",\"none\",null,null,null,null,5,null]",
+          "[\"GPT-5.5\",\"xhigh\",null,null,null,null,5,null]",
+          "[\"GPT-5.6 Sol\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-5.6 Sol\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-5.6 Sol\",\"max\",null,null,null,null,5,null]",
+          "[\"GPT-5.6 Sol\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-5.6 Sol\",\"none\",null,null,null,null,5,null]",
+          "[\"GPT-5.6 Sol\",\"xhigh\",null,null,null,null,5,null]",
+          "[\"GPT-6 Astra\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-6 Astra\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-6 Astra\",\"max\",null,null,null,null,5,null]",
+          "[\"GPT-6 Astra\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-6 Astra\",\"xhigh\",null,null,null,null,5,null]",
+          "[\"GPT-6 Luna\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-6 Luna\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-6 Luna\",\"max\",null,null,null,null,5,null]",
+          "[\"GPT-6 Luna\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-6 Luna\",\"none\",null,null,null,null,5,null]",
+          "[\"GPT-6 Luna\",\"xhigh\",null,null,null,null,5,null]",
+          "[\"GPT-6.1 Sol\",\"high\",null,null,null,null,5,null]",
+          "[\"GPT-6.1 Sol\",\"low\",null,null,null,null,5,null]",
+          "[\"GPT-6.1 Sol\",\"max\",null,null,null,null,5,null]",
+          "[\"GPT-6.1 Sol\",\"medium\",null,null,null,null,5,null]",
+          "[\"GPT-6.1 Sol\",\"xhigh\",null,null,null,null,5,null]"
+        ],
+        "rawLabels": [
+          "GPT-5.2",
+          "GPT-5.4",
+          "GPT-5.5",
+          "GPT-5.6 Sol",
+          "GPT-6 Astra",
+          "GPT-6 Luna",
+          "GPT-6.1 Sol"
+        ],
+        "rows": 37,
+        "sourceUrls": [
+          "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+        ],
+        "versions": ["(unknown)"]
+      }
+    ],
+    "observedAt": "2026-11-09T01:51:32.016Z",
+    "sourceId": "biobasicsbench"
+  }
+}

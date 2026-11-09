@@ -75,16 +75,6 @@
 - Qwen 3.6+ (High)
 - Qwen 3.7+
 
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate rows | 129 | 129 | +0 |
-| Cost records | 128 | 128 | +0 |
-| Canonically unresolved rows | 14 | 14 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

@@ -1,0 +1,31 @@
+{
+  "accessMethods": ["DOM", "NEXT_RSC"],
+  "baseUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+  "benchmarkIds": ["biobasicsbench"],
+  "completeness": {
+    "expectedCountMethod": "Official Results states 37 settings, seven models, 100 tasks and five attempts. All seven printed xhigh rows match chart scores, confidence bounds and average output tokens at the printed precision.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "BioBasicsBench (OpenAI and Ligo)",
+  "fallbackMethods": ["VISUAL"],
+  "fieldMapping": {
+    "Results: five attempts on each task": "profile.attempts",
+    "vegaLiteSpec.data.values[].effort_label": "profile.effort",
+    "vegaLiteSpec.data.values[].mean_credit_pct": "rawScore and normalizedScore",
+    "vegaLiteSpec.data.values[].model_label": "model.rawName"
+  },
+  "lastVerifiedAt": "2026-11-09T01:51:32.016Z",
+  "notes": [
+    "Complete published 37-setting chart retained in bounded normalized browser capture. PARTIAL_SOURCE describes the acquisition boundary.",
+    "Benchmark version and dated checkpoints are unpublished.",
+    "Mean reward measures partial rubric credit. Average output tokens are retained as provenance. No monetary task cost is published.",
+    "Source effort none is explicit disabled reasoning, retained for product effort normalization."
+  ],
+  "role": "VENDOR",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "biobasicsbench",
+  "targetUrls": [
+    "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  ]
+}

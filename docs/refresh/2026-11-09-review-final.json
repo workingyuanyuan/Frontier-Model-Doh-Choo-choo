@@ -1,0 +1,673 @@
+{
+  "schemaVersion": "independent-final-product-review-v1",
+  "reviewedAt": "2026-11-09T02:08:27.423694+00:00",
+  "reviewer": "biobasics_adoption independent reviewer",
+  "result": "passed",
+  "baseline": {
+    "path": "artifacts/research/2026-11-09-benchmark-adoption/import-baseline/product/current.json",
+    "versionId": "sha256:e52b966e9ff807047b8ce29f0cdb40b43e182162c77c00bd76314c83cacd0cea",
+    "generatedAt": "2026-11-08T15:06:41.146Z"
+  },
+  "finalProduct": {
+    "path": "data/product/current.json",
+    "versionId": "sha256:65896e20485508dd0731093e4186505e21bec094fa15679865e25683391c2e3c",
+    "generatedAt": "2026-11-09T02:05:37.301Z",
+    "fileSha256": "1755129e216795d8f22a1b0825562de06c9020104aeb159b426173506e084771"
+  },
+  "releaseObserved": {
+    "runId": "2026-11-09T02-03-52-241Z",
+    "status": "complete",
+    "versionMatchesReviewedProduct": true,
+    "stepExitCodes": {
+      "sources": 0,
+      "evidence": 0,
+      "frontier": 0,
+      "product": 0,
+      "fresh": 0,
+      "tests": 0,
+      "site": 0,
+      "e2e": 0
+    }
+  },
+  "presetComparison": {
+    "count": 9,
+    "defaultPresetId": "aa-frontier",
+    "allPresetObjectsExactlyEqual": true,
+    "presets": [
+      {
+        "id": "aa-top-2",
+        "targetModelCount": 2,
+        "benchmarkCount": 14,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 62.080864770150484
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 61.41483872741016
+          }
+        ]
+      },
+      {
+        "id": "aa-top-3",
+        "targetModelCount": 3,
+        "benchmarkCount": 14,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 62.080864770150484
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 61.41483872741016
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 60.450710117043435
+          }
+        ]
+      },
+      {
+        "id": "aa-top-4",
+        "targetModelCount": 4,
+        "benchmarkCount": 14,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 62.080864770150484
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 61.41483872741016
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 60.450710117043435
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 58.71617366407842
+          }
+        ]
+      },
+      {
+        "id": "aa-top-5",
+        "targetModelCount": 5,
+        "benchmarkCount": 14,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 62.080864770150484
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 61.41483872741016
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 60.450710117043435
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 58.71617366407842
+          },
+          {
+            "rank": 5,
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "overallScore": 57.469085137085145
+          }
+        ]
+      },
+      {
+        "id": "aa-top-6",
+        "targetModelCount": 6,
+        "benchmarkCount": 12,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 60.18950405844156
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 59.099634559884564
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 57.96919194925445
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 56.4673578944204
+          },
+          {
+            "rank": 5,
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "overallScore": 55.2879044011544
+          },
+          {
+            "rank": 6,
+            "profileId": "openai-gpt-6-1-terra-max",
+            "overallScore": 50.824402326839824
+          }
+        ]
+      },
+      {
+        "id": "aa-top-7",
+        "targetModelCount": 7,
+        "benchmarkCount": 12,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 60.18950405844156
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 59.099634559884564
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 57.96919194925445
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 56.4673578944204
+          },
+          {
+            "rank": 5,
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "overallScore": 55.2879044011544
+          },
+          {
+            "rank": 6,
+            "profileId": "google-gemini-4-argon-high",
+            "overallScore": 52.795029907084796
+          },
+          {
+            "rank": 7,
+            "profileId": "openai-gpt-6-1-terra-max",
+            "overallScore": 50.824402326839824
+          }
+        ]
+      },
+      {
+        "id": "aa-frontier",
+        "targetModelCount": 8,
+        "benchmarkCount": 12,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 60.18950405844156
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 59.099634559884564
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 57.96919194925445
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 56.4673578944204
+          },
+          {
+            "rank": 5,
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "overallScore": 55.2879044011544
+          },
+          {
+            "rank": 6,
+            "profileId": "google-gemini-4-argon-high",
+            "overallScore": 52.795029907084796
+          },
+          {
+            "rank": 7,
+            "profileId": "meta-muse-wonder-full-max",
+            "overallScore": 52.66578911135161
+          },
+          {
+            "rank": 8,
+            "profileId": "openai-gpt-6-1-terra-max",
+            "overallScore": 50.824402326839824
+          }
+        ]
+      },
+      {
+        "id": "aa-top-9",
+        "targetModelCount": 9,
+        "benchmarkCount": 11,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 62.342597727272725
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 60.92975194805195
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 59.91204224386725
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 58.39618542568543
+          },
+          {
+            "rank": 5,
+            "profileId": "anthropic-claude-fable-5-1-max",
+            "overallScore": 57.755367099567096
+          },
+          {
+            "rank": 6,
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "overallScore": 57.333811471861466
+          },
+          {
+            "rank": 7,
+            "profileId": "google-gemini-4-argon-high",
+            "overallScore": 54.05330731707318
+          },
+          {
+            "rank": 8,
+            "profileId": "meta-muse-wonder-full-max",
+            "overallScore": 54.00821818181818
+          },
+          {
+            "rank": 9,
+            "profileId": "openai-gpt-6-1-terra-max",
+            "overallScore": 52.6239589105339
+          }
+        ]
+      },
+      {
+        "id": "aa-top-10",
+        "targetModelCount": 10,
+        "benchmarkCount": 11,
+        "entirePresetExactlyEqual": true,
+        "rankProfileOverallDimensionAndEvidenceSelectionEqual": true,
+        "leaderboard": [
+          {
+            "rank": 1,
+            "profileId": "anthropic-claude-opus-5-5-max",
+            "overallScore": 62.342597727272725
+          },
+          {
+            "rank": 2,
+            "profileId": "google-gemini-4-carbon-high",
+            "overallScore": 60.92975194805195
+          },
+          {
+            "rank": 3,
+            "profileId": "openai-gpt-6-astra-max",
+            "overallScore": 59.91204224386725
+          },
+          {
+            "rank": 4,
+            "profileId": "openai-gpt-6-1-sol-max",
+            "overallScore": 58.39618542568543
+          },
+          {
+            "rank": 5,
+            "profileId": "anthropic-claude-fable-5-1-max",
+            "overallScore": 57.755367099567096
+          },
+          {
+            "rank": 6,
+            "profileId": "anthropic-claude-sonnet-5-5-max",
+            "overallScore": 57.333811471861466
+          },
+          {
+            "rank": 7,
+            "profileId": "google-gemini-4-argon-high",
+            "overallScore": 54.05330731707318
+          },
+          {
+            "rank": 8,
+            "profileId": "meta-muse-wonder-full-max",
+            "overallScore": 54.00821818181818
+          },
+          {
+            "rank": 9,
+            "profileId": "openai-gpt-6-1-terra-max",
+            "overallScore": 52.6239589105339
+          },
+          {
+            "rank": 10,
+            "profileId": "moonshot-kimi-k3-1-pro-max",
+            "overallScore": 49.27875797258298
+          }
+        ]
+      }
+    ]
+  },
+  "evidenceComparison": {
+    "before": 9784,
+    "after": 9836,
+    "added": 52,
+    "addedBySource": {
+      "biobasicsbench": 37,
+      "maxxbench": 15
+    },
+    "removed": [],
+    "changedExisting": [],
+    "newEvidenceIds": [
+      "biobasicsbench:openai-gpt-5-2-high",
+      "biobasicsbench:openai-gpt-5-2-low",
+      "biobasicsbench:openai-gpt-5-2-medium",
+      "biobasicsbench:openai-gpt-5-2-none",
+      "biobasicsbench:openai-gpt-5-2-xhigh",
+      "biobasicsbench:openai-gpt-5-4-high",
+      "biobasicsbench:openai-gpt-5-4-low",
+      "biobasicsbench:openai-gpt-5-4-medium",
+      "biobasicsbench:openai-gpt-5-4-none",
+      "biobasicsbench:openai-gpt-5-4-xhigh",
+      "biobasicsbench:openai-gpt-5-5-high",
+      "biobasicsbench:openai-gpt-5-5-low",
+      "biobasicsbench:openai-gpt-5-5-medium",
+      "biobasicsbench:openai-gpt-5-5-none",
+      "biobasicsbench:openai-gpt-5-5-xhigh",
+      "biobasicsbench:openai-gpt-5-6-sol-high",
+      "biobasicsbench:openai-gpt-5-6-sol-low",
+      "biobasicsbench:openai-gpt-5-6-sol-max",
+      "biobasicsbench:openai-gpt-5-6-sol-medium",
+      "biobasicsbench:openai-gpt-5-6-sol-none",
+      "biobasicsbench:openai-gpt-5-6-sol-xhigh",
+      "biobasicsbench:openai-gpt-6-1-sol-high",
+      "biobasicsbench:openai-gpt-6-1-sol-low",
+      "biobasicsbench:openai-gpt-6-1-sol-max",
+      "biobasicsbench:openai-gpt-6-1-sol-medium",
+      "biobasicsbench:openai-gpt-6-1-sol-xhigh",
+      "biobasicsbench:openai-gpt-6-astra-high",
+      "biobasicsbench:openai-gpt-6-astra-low",
+      "biobasicsbench:openai-gpt-6-astra-max",
+      "biobasicsbench:openai-gpt-6-astra-medium",
+      "biobasicsbench:openai-gpt-6-astra-xhigh",
+      "biobasicsbench:openai-gpt-6-luna-high",
+      "biobasicsbench:openai-gpt-6-luna-low",
+      "biobasicsbench:openai-gpt-6-luna-max",
+      "biobasicsbench:openai-gpt-6-luna-medium",
+      "biobasicsbench:openai-gpt-6-luna-none",
+      "biobasicsbench:openai-gpt-6-luna-xhigh",
+      "maxxbench:maxxbench:astra-xhigh",
+      "maxxbench:maxxbench:deepseekfour-max",
+      "maxxbench:maxxbench:deepseekfourone-max",
+      "maxxbench:maxxbench:fable-xhigh",
+      "maxxbench:maxxbench:gemini-high",
+      "maxxbench:maxxbench:glmflash-max",
+      "maxxbench:maxxbench:glmmax-max",
+      "maxxbench:maxxbench:lunamax-max",
+      "maxxbench:maxxbench:lunasix-max",
+      "maxxbench:maxxbench:museonetwo-xhigh",
+      "maxxbench:maxxbench:opusfive-max",
+      "maxxbench:maxxbench:opusfivefive-max",
+      "maxxbench:maxxbench:qwen-xhigh",
+      "maxxbench:maxxbench:sol-max",
+      "maxxbench:maxxbench:sonnetfivefive-max"
+    ],
+    "comparisonEvidenceIdsAdded": 49,
+    "comparisonEvidenceIdsRemoved": 0,
+    "threeNewRowsRetainedOutsideCanonicalComparisons": [
+      {
+        "id": "maxxbench:maxxbench:deepseekfourone-max",
+        "rawName": "DeepSeek V4.1 Flash"
+      },
+      {
+        "id": "maxxbench:maxxbench:glmflash-max",
+        "rawName": "GLM-5.3 Flash"
+      },
+      {
+        "id": "maxxbench:maxxbench:qwen-xhigh",
+        "rawName": "Qwen3.8 Flash Next"
+      }
+    ]
+  },
+  "costComparison": {
+    "baseline": 917,
+    "interimBeforeIdentityFix": 928,
+    "final": 933,
+    "baselineToFinalAdded": 16,
+    "baselineToFinalAddedBySource": {
+      "artificial-analysis": 4,
+      "maxxbench": 12
+    },
+    "removedOrChangedExisting": [],
+    "identityRepairProductPointsAdded": 5,
+    "identityRepairProductPoints": [
+      {
+        "assumptionId": null,
+        "benchmarkId": "artificial-analysis-intelligence-index",
+        "benchmarkVersion": "v5.0.1",
+        "cost": 5.009264601719954,
+        "costType": "MEASURED_TASK",
+        "evidenceIds": [
+          "sha256:ab423d7bd46add49e60c6af8e11a1414f8deb61427b1f01798f69deb6f0b1471"
+        ],
+        "metricId": "cost-per-intelligence-index-task",
+        "metricName": "Cost per Intelligence Index task",
+        "modelId": "zai-glm-5-3",
+        "performance": null,
+        "profileId": "zai-glm-5-3-max",
+        "sourceId": "artificial-analysis",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3",
+        "unit": "USD_PER_TASK"
+      },
+      {
+        "assumptionId": null,
+        "benchmarkId": "artificial-analysis-intelligence-index",
+        "benchmarkVersion": "v5.0.1",
+        "cost": 1.5749301149593384,
+        "costType": "MEASURED_TASK",
+        "evidenceIds": [
+          "sha256:c9826b3f920cbacdae44dfe0610df54267424de562d0eb34fd920613c65238ef"
+        ],
+        "metricId": "cost-per-intelligence-index-task",
+        "metricName": "Cost per Intelligence Index task",
+        "modelId": "zai-glm-5-3",
+        "performance": null,
+        "profileId": "zai-glm-5-3-low",
+        "sourceId": "artificial-analysis",
+        "sourceUrl": "https://artificialanalysis.ai/models/glm-5-3-low",
+        "unit": "USD_PER_TASK"
+      },
+      {
+        "assumptionId": null,
+        "benchmarkId": "artificial-analysis-intelligence-index",
+        "benchmarkVersion": "v5.0.1",
+        "cost": 0.25718036275876155,
+        "costType": "MEASURED_TASK",
+        "evidenceIds": [
+          "sha256:ade790cc9c332e52225853965a5cbd2f42359e964f3decfe8dfe12642f2e2b18"
+        ],
+        "metricId": "cost-per-intelligence-index-task",
+        "metricName": "Cost per Intelligence Index task",
+        "modelId": "xiaomi-mimo-v2-6-pro",
+        "performance": null,
+        "profileId": "xiaomi-mimo-v2-6-pro-default",
+        "sourceId": "artificial-analysis",
+        "sourceUrl": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
+        "unit": "USD_PER_TASK"
+      },
+      {
+        "assumptionId": null,
+        "benchmarkId": "artificial-analysis-intelligence-index",
+        "benchmarkVersion": "v5.0.1",
+        "cost": 2.3452525606205166,
+        "costType": "MEASURED_TASK",
+        "evidenceIds": [
+          "sha256:613a93153785b9b0cdcde1b5bedcef5c15c4b6523c5842b10ff7a5901574f65f"
+        ],
+        "metricId": "cost-per-intelligence-index-task",
+        "metricName": "Cost per Intelligence Index task",
+        "modelId": "stepfun-step-5-preview",
+        "performance": null,
+        "profileId": "stepfun-step-5-preview-default",
+        "sourceId": "artificial-analysis",
+        "sourceUrl": "https://artificialanalysis.ai/models/step-5",
+        "unit": "USD_PER_TASK"
+      },
+      {
+        "assumptionId": null,
+        "benchmarkId": "maxxbench",
+        "benchmarkVersion": null,
+        "cost": 5.555757919325843,
+        "costType": "AGENT_TASK",
+        "evidenceIds": [
+          "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+        ],
+        "metricId": "mean-attempt-cost-usd",
+        "metricName": "Mean MaxxBench evaluation attempt cost",
+        "modelId": "zai-glm-5-3",
+        "performance": null,
+        "profileId": "zai-glm-5-3-max",
+        "sourceId": "maxxbench",
+        "sourceUrl": "https://maxxbench.unlap.ai/",
+        "unit": "USD_PER_TASK"
+      }
+    ],
+    "fourSourceTokenPricingRecordsWithoutProductPoints": [
+      {
+        "sourceCostId": "artificial-analysis:api-token-price:glm-5-3",
+        "canonicalModelId": "zai-glm-5-3",
+        "inputPerMillionTokens": 1.4,
+        "outputPerMillionTokens": 4.4,
+        "productProjection": "No explicit cost or standardized pricing assumption. Source token-pricing record retained without a product cost point."
+      },
+      {
+        "sourceCostId": "artificial-analysis:api-token-price:glm-5-3-low",
+        "canonicalModelId": "zai-glm-5-3",
+        "inputPerMillionTokens": 1.4,
+        "outputPerMillionTokens": 4.4,
+        "productProjection": "No explicit cost or standardized pricing assumption. Source token-pricing record retained without a product cost point."
+      },
+      {
+        "sourceCostId": "artificial-analysis:api-token-price:mimo-v2-6-pro",
+        "canonicalModelId": "xiaomi-mimo-v2-6-pro",
+        "inputPerMillionTokens": 0.435,
+        "outputPerMillionTokens": 0.87,
+        "productProjection": "No explicit cost or standardized pricing assumption. Source token-pricing record retained without a product cost point."
+      },
+      {
+        "sourceCostId": "artificial-analysis:api-token-price:step-5",
+        "canonicalModelId": "stepfun-step-5-preview",
+        "inputPerMillionTokens": 1,
+        "outputPerMillionTokens": 2.7,
+        "productProjection": "No explicit cost or standardized pricing assumption. Source token-pricing record retained without a product cost point."
+      }
+    ],
+    "countReconciliation": "917 baseline + 11 originally resolved MaxxBench points + 1 repaired MaxxBench GLM point + 4 repaired AA task points = 933. The source identity repair resolves nine records, of which four token-price records have no explicit cost or standardized pricing assumption."
+  },
+  "frontierComparison": {
+    "membershipOrderAndExternalScoresExactlyEqual": true,
+    "organizationReasonChanges": [
+      {
+        "modelId": "anthropic-claude-opus-5-5",
+        "before": [
+          "Scored by 7 independent organizations: arc-prize, epoch-ai, frontier-code, livebench, surge, vals-ai, zapier-automationbench"
+        ],
+        "after": [
+          "Scored by 8 independent organizations: arc-prize, epoch-ai, frontier-code, livebench, maxxbench, surge, vals-ai, zapier-automationbench"
+        ]
+      },
+      {
+        "modelId": "openai-gpt-6-astra",
+        "before": [
+          "Scored by 8 independent organizations: arc-prize, deepswe, epoch-ai, frontier-code, livebench, surge, vals-ai, zapier-automationbench"
+        ],
+        "after": [
+          "Scored by 9 independent organizations: arc-prize, biobasicsbench, deepswe, epoch-ai, frontier-code, livebench, surge, vals-ai, zapier-automationbench"
+        ]
+      },
+      {
+        "modelId": "openai-gpt-6-1-sol",
+        "before": [
+          "Scored by 6 independent organizations: arc-prize, epoch-ai, frontier-code, livebench, surge, vals-ai"
+        ],
+        "after": [
+          "Scored by 7 independent organizations: arc-prize, biobasicsbench, epoch-ai, frontier-code, livebench, surge, vals-ai"
+        ]
+      },
+      {
+        "modelId": "anthropic-claude-sonnet-5-5",
+        "before": [
+          "Scored by 6 independent organizations: epoch-ai, frontier-code, livebench, surge, vals-ai, zapier-automationbench"
+        ],
+        "after": [
+          "Scored by 7 independent organizations: epoch-ai, frontier-code, livebench, maxxbench, surge, vals-ai, zapier-automationbench"
+        ]
+      }
+    ]
+  },
+  "sourceSnapshots": {
+    "added": [
+      "biobasicsbench:2026-11-09T01:51:32.016Z",
+      "maxxbench:2026-11-09T01:56:44.593Z"
+    ],
+    "removed": []
+  },
+  "otherFields": {
+    "profilesExactlyEqual": true,
+    "profileCount": 263,
+    "qualityPolicyExactlyEqual": true,
+    "schemaExactlyEqual": true,
+    "changedTopLevelFields": [
+      "comparisonEvidenceIds",
+      "costs",
+      "evidence",
+      "frontier",
+      "generatedAt",
+      "sourceSnapshotIds",
+      "versionId"
+    ],
+    "unexplainedDifferences": []
+  },
+  "limitations": [
+    "Interim 928 count comes from its preserved release diff. Full final-versus-baseline comparison uses the complete saved JSON products."
+  ]
+}

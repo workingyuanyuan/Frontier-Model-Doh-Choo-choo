@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "independent-source-review-v1",
+  "reviewer": "maxx_adoption subagent, independent BioBasicsBench review",
+  "reviewedAt": "2026-11-09T02:00:50.670Z",
+  "sourceId": "biobasicsbench",
+  "status": "pass-with-disclosed-acquisition-boundary",
+  "officialSourceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+  "officialPageIndependentlyRead": true,
+  "officialResults": {
+    "publicationDate": "2026-11-06",
+    "tasks": 100,
+    "attemptsPerTask": 5,
+    "settings": 37,
+    "results": 18500,
+    "metric": "Average task rubric credit expressed as a percentage of available credit",
+    "confidenceIntervals": "95% whole-task bootstrap with each task’s five attempts kept together",
+    "printedXhigh": [
+      ["GPT-6 Astra", 66.7, 60.3, 73.1, 4704],
+      ["GPT-6.1 Sol", 62, 55.6, 68.4, 5238],
+      ["GPT-5.6 Sol", 43.8, 37.6, 50, 9099],
+      ["GPT-6 Luna", 38.3, 32.3, 44.5, 13120],
+      ["GPT-5.5", 35.4, 29.7, 41, 11135],
+      ["GPT-5.4", 33.2, 28.3, 38.4, 13717],
+      ["GPT-5.2", 31.2, 26.2, 36.3, 27620]
+    ],
+    "printedXhighCheckedAgainstOfficialPage": true
+  },
+  "chartEvidence": {
+    "path": "artifacts/research/2026-11-09-benchmark-adoption/biobasics-original-browser-capture.json",
+    "sha256": "sha256:c296355e2c58fe53cd99bf8677da0b74990969a95be1155e867832d621da78eb",
+    "capturedAt": "2026-11-09T01:56:48.885Z",
+    "method": "JSON.parse the saved loaded-DOM self.__next_f.push arguments, then parse RSC lines and recursively locate the unique chart linkId. No source JavaScript was executed.",
+    "chartId": "biobasicsbench-model-performance",
+    "chartObjects": 1,
+    "originalRows": 37,
+    "labelsEffortsOrdersAndTokensMatch": true,
+    "numericalTolerance": 1e-12,
+    "floatingPointRepresentationDifferences": [
+      {
+        "row": 4,
+        "column": "mean_credit_pct",
+        "originalValue": 31.153480000000002,
+        "savedValue": 31.15348,
+        "absoluteDifference": 3.552713678800501e-15
+      },
+      {
+        "row": 4,
+        "column": "ci95_lower_pct",
+        "originalValue": 26.205436000000006,
+        "savedValue": 26.20543600000001,
+        "absoluteDifference": 3.552713678800501e-15
+      },
+      {
+        "row": 8,
+        "column": "mean_credit_pct",
+        "originalValue": 31.496560000000002,
+        "savedValue": 31.49656,
+        "absoluteDifference": 3.552713678800501e-15
+      },
+      {
+        "row": 15,
+        "column": "mean_credit_pct",
+        "originalValue": 29.805680000000002,
+        "savedValue": 29.80568,
+        "absoluteDifference": 3.552713678800501e-15
+      },
+      {
+        "row": 20,
+        "column": "mean_credit_pct",
+        "originalValue": 45.563520000000004,
+        "savedValue": 45.56352,
+        "absoluteDifference": 7.105427357601002e-15
+      },
+      {
+        "row": 20,
+        "column": "ci95_lower_pct",
+        "originalValue": 39.343486999999996,
+        "savedValue": 39.343487,
+        "absoluteDifference": 7.105427357601002e-15
+      },
+      {
+        "row": 20,
+        "column": "ci95_upper_pct",
+        "originalValue": 51.672456499999996,
+        "savedValue": 51.6724565,
+        "absoluteDifference": 7.105427357601002e-15
+      },
+      {
+        "row": 24,
+        "column": "ci95_lower_pct",
+        "originalValue": 55.555744499999996,
+        "savedValue": 55.5557445,
+        "absoluteDifference": 7.105427357601002e-15
+      },
+      {
+        "row": 27,
+        "column": "ci95_lower_pct",
+        "originalValue": 24.901612500000002,
+        "savedValue": 24.9016125,
+        "absoluteDifference": 3.552713678800501e-15
+      },
+      {
+        "row": 28,
+        "column": "ci95_lower_pct",
+        "originalValue": 29.146427499999994,
+        "savedValue": 29.14642749999999,
+        "absoluteDifference": 3.552713678800501e-15
+      },
+      {
+        "row": 29,
+        "column": "mean_credit_pct",
+        "originalValue": 36.984120000000004,
+        "savedValue": 36.98412,
+        "absoluteDifference": 7.105427357601002e-15
+      },
+      {
+        "row": 31,
+        "column": "mean_credit_pct",
+        "originalValue": 37.562400000000004,
+        "savedValue": 37.5624,
+        "absoluteDifference": 7.105427357601002e-15
+      },
+      {
+        "row": 36,
+        "column": "ci95_lower_pct",
+        "originalValue": 60.650690000000004,
+        "savedValue": 60.65069,
+        "absoluteDifference": 7.105427357601002e-15
+      }
+    ],
+    "maximumAbsoluteDifference": 7.105427357601002e-15,
+    "normalizedScoresAndPrintedPrecisionUnaffected": true
+  },
+  "evidenceIntegrity": {
+    "evidenceId": "sha256:1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41",
+    "artifactPath": "artifacts/sha256/1a/1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41.json",
+    "byteLength": 6209,
+    "sha256Matched": true,
+    "byteLengthMatched": true,
+    "reviewedCaptureBytesMatch": true
+  },
+  "offlineReplay": {
+    "parser": "packages/acquisition/src/biobasicsbench-materializer.ts",
+    "candidateCount": 37,
+    "deterministicCandidatesMatchedAfterIdSort": true,
+    "costsCount": 0
+  },
+  "modelIdentities": [
+    {
+      "sourceLabel": "GPT-5.2",
+      "canonicalModelId": "openai-gpt-5-2",
+      "catalogDisplayName": "GPT-5.2",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "medium", "none", "xhigh"]
+    },
+    {
+      "sourceLabel": "GPT-5.4",
+      "canonicalModelId": "openai-gpt-5-4",
+      "catalogDisplayName": "GPT-5.4",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "medium", "none", "xhigh"]
+    },
+    {
+      "sourceLabel": "GPT-5.5",
+      "canonicalModelId": "openai-gpt-5-5",
+      "catalogDisplayName": "GPT-5.5",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "medium", "none", "xhigh"]
+    },
+    {
+      "sourceLabel": "GPT-5.6 Sol",
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "catalogDisplayName": "GPT-5.6 Sol",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "max", "medium", "none", "xhigh"]
+    },
+    {
+      "sourceLabel": "GPT-6.1 Sol",
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "catalogDisplayName": "GPT-6.1 Sol",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "max", "medium", "xhigh"]
+    },
+    {
+      "sourceLabel": "GPT-6 Astra",
+      "canonicalModelId": "openai-gpt-6-astra",
+      "catalogDisplayName": "GPT-6 Astra",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "max", "medium", "xhigh"]
+    },
+    {
+      "sourceLabel": "GPT-6 Luna",
+      "canonicalModelId": "openai-gpt-6-luna",
+      "catalogDisplayName": "GPT-6 Luna",
+      "exactPublishedNameMatch": true,
+      "efforts": ["high", "low", "max", "medium", "none", "xhigh"]
+    }
+  ],
+  "noneSemantics": {
+    "rawValue": "none",
+    "rawValueRetained": true,
+    "meaning": "Explicit OpenAI reasoning effort none supports product non-reasoning normalization",
+    "productValue": "non-reasoning",
+    "evidence": [
+      "https://help.openai.com/en/articles/5072518-controlling-the-length-of-openai-model-responses",
+      "https://developers.openai.com/api/docs/guides/reasoning"
+    ],
+    "compatibilityCheck": "Official reasoning guide says GPT-6 Astra and GPT-6.1 Sol do not support none. Neither has a none point in the chart."
+  },
+  "sourceRole": {
+    "actual": "ORGANIZER",
+    "assessment": "Supported by OpenAI describing BioBasicsBench as developed with Ligo.",
+    "disclosure": "OpenAI reports evaluations of its own models. Co-organizer status does not establish independent model evaluation.",
+    "evidenceUrl": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+  },
+  "cost": {
+    "records": 0,
+    "assessment": "Correct. The chart supplies average output tokens per task without paired USD task cost, input-token totals or pricing/cache assumptions."
+  },
+  "metadata": {
+    "acquisitionStatus": "PARTIAL_SOURCE",
+    "evidenceMethod": "DOM",
+    "captureKind": "bounded-normalized-browser-transcription",
+    "originalHttpBytes": false,
+    "benchmarkVersion": null,
+    "datedCheckpoints": null,
+    "sourcePublishedAt": null,
+    "sourceObservedAt": "2026-11-09T01:51:32.016Z",
+    "assessment": "Metadata identifies the normalized browser transcription boundary. Unknown execution settings are preserved as null. Publication day is retained without inventing an exact timestamp."
+  },
+  "dimensions": {
+    "v2": {
+      "primary": "comprehension",
+      "secondary": ["reasoning", "knowledge"]
+    },
+    "legacy": {
+      "primary": "reasoning",
+      "secondary": ["knowledge"]
+    },
+    "assessment": "Comprehension follows the supplied-evidence interpretation endpoint defined in FRONTIER_POLICY.md and BENCHMARK_DIMENSION_MAPPING.md. Legacy reasoning follows existing Chartography and GDP.xlsx compatibility mappings.",
+    "decisionBoundary": "Dimension placement is the project’s classification decision supported by task descriptions, rather than an official benchmark capability label.",
+    "evidence": [
+      "docs/FRONTIER_POLICY.md",
+      "docs/BENCHMARK_DIMENSION_MAPPING.md",
+      "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/"
+    ]
+  },
+  "refreshBoundary": "materialize:biobasicsbench replays reviewed-capture.json. A fresh browser capture is required to observe future upstream changes. The current implementation preserves the capture observation timestamp.",
+  "tests": {
+    "command": "pnpm --filter @llm-bench/acquisition exec vitest run src/biobasicsbench-materializer.test.ts",
+    "passed": 4
+  },
+  "blockingFindings": [],
+  "subsequentCorrection": "This historical review described ORGANIZER. Final 37 self-reported OpenAI rows and manifest use VENDOR; see review-role-final.json."
+}

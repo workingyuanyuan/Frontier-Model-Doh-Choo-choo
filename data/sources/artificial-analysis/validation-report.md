@@ -31,7 +31,7 @@
 
 - API source unavailable; page pipeline remains authoritative.
 - No real API differences recorded beyond rounding.
-- Warning: API cross-validation failed; page pipeline continued: Error: https://artificialanalysis.ai/api/v2/data/llms/models returned HTTP 410
+- Warning: API cross-validation was not attempted.
 
 ## Scope and semantics
 
@@ -54,33 +54,6 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
 - Not integrated: AutomationBench-AA (`automationBenchPartialScore`); CritPt v2 Hard Subset (`critptAgenticHard`); AA FrontierCode 1.1 (`frontierCode`).
-
-## Visible comparison
-
-- Fresh rendered models catalog total: 726
-- Materialized source profiles after successful bounded retry: 231
-- Catalog and evaluation populations have different scopes; no missing score synthesized.
-
-## Network capture recovery
-
-- Recovered https://artificialanalysis.ai/models/claude-opus-5-low at 2026-11-08T14:17:47.478Z; sha256:b2cc655de1e3a844dc82d0413f14ca419ef18309c9dcc61d77010d974b3ce47e; 3626832 bytes.
-- Recovered https://artificialanalysis.ai/models/claude-opus-5-xhigh at 2026-11-08T14:17:50.477Z; sha256:3f126144b49ab944b493e8662607a6b30de5d008258feefb6012af12db248dfb; 3627224 bytes.
-- Recovered https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort at 2026-11-08T14:17:54.802Z; sha256:6b8a3ea210b28b86a7c6b1116839d3e3d3e0ae1caca41aeab5bc1c6e3aa87b63; 3589013 bytes.
-- Recovered https://artificialanalysis.ai/models/gpt-5-4-mini-non-reasoning at 2026-11-08T14:17:58.037Z; sha256:3a9b44426a88a103c5931c51eb921b325e2248ba92a6aded8b98c875b1b7fd39; 3641603 bytes.
-- Original failure records and successful raw captures preserved in evidence store.
-
-## Additional model discovery
-
-- Captured https://artificialanalysis.ai/models/k-exaone-2-0-0803 at 2026-11-08T14:19:32.202Z; sha256:76a2ff074a41908396151c7f2dd748864c9a8e23a4564b40e310cd9e00182aa2; 3708217 bytes.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Unique source profiles | 230 | 231 | +1 |
-| Active source profiles | 230 | 231 | +1 |
-| Candidate results | 2820 | 2840 | +20 |
-| Materialized costs | 323 | 323 | +0 |
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

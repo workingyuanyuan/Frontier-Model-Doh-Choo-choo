@@ -52,15 +52,6 @@ Current rendered rows: 21; preserved: 34; total stored: 55. Preserved rows retai
 - surge-riemann:riemann-bench:muse-spark-1-2-xhigh-reasoning: 23.2; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
 - surge-riemann:riemann-bench:qwen-3-7-max-thinking-on: 15.2; version unpublished; observed 2026-11-02T03:15:50.838Z; Evidence sha256:3fcc838de91500db5c7b7ffdf3772a985e4d1bb014798fd9516158555e03d1f8.
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 55 | 55 | +0 |
-| Materialized costs | 0 | 0 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
