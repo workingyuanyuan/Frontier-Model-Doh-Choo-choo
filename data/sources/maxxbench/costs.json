@@ -1,0 +1,737 @@
+[
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 4.376444067415731,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:astra-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-xhigh",
+      "rawName": "GPT-6 Astra"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[3].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[3]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 0.5781818124044944,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:deepseekfour-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "deepseek-deepseek-v4-flash",
+      "profileId": "deepseek-deepseek-v4-flash-max",
+      "rawName": "DeepSeek V4 Flash"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[12].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[12]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 0.6158677053033708,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:deepseekfourone-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "DeepSeek V4.1 Flash"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[9].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[9]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 14.786696213483147,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:fable-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5",
+      "profileId": "anthropic-claude-fable-5-xhigh",
+      "rawName": "Claude Fable 5"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[2].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[2]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 2.5296742921348314,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:gemini-high",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-high",
+      "rawName": "Gemini 3.8 Flash"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "high",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[7].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[7]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 0.7253113570786517,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:glmflash-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM-5.3 Flash"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[6].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[6]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 5.555757919325843,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:glmmax-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM-5.3"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[5].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[5]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 0.5344267193258427,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:lunamax-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-luna",
+      "profileId": "openai-gpt-5-6-luna-max",
+      "rawName": "GPT-5.6 Luna"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[8].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[8]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 0.26354183219101124,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:lunasix-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-max",
+      "rawName": "GPT-6 Luna"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[14].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[14]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 3.0312414384831463,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:museonetwo-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "meta-muse-spark-1-2",
+      "profileId": "meta-muse-spark-1-2-xhigh",
+      "rawName": "Muse Spark 1.2"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[11].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[11]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 13.795049741573033,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:opusfive-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5",
+      "profileId": "anthropic-claude-opus-5-max",
+      "rawName": "Claude Opus 5"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[1].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[1]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 16.179685519101124,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:opusfivefive-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-max",
+      "rawName": "Claude Opus 5.5"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[0].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[0]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 0.3574443822247191,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:qwen-xhigh",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Qwen3.8 Flash Next"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "xhigh",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[15].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[15]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 5.945539049438201,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:sol-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "openai-gpt-5-6-sol",
+      "profileId": "openai-gpt-5-6-sol-max",
+      "rawName": "GPT-5.6 Sol"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[4].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[4]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  },
+  {
+    "assumptionId": null,
+    "benchmarkId": "maxxbench",
+    "benchmarkVersion": null,
+    "cost": 10.524906332584269,
+    "costType": "AGENT_TASK",
+    "evidenceIds": [
+      "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb"
+    ],
+    "exclusionReason": null,
+    "id": "maxxbench:mean-attempt-cost:sonnetfivefive-max",
+    "inclusion": "INCLUDED",
+    "inputPerMillionTokens": null,
+    "metricId": "mean-attempt-cost-usd",
+    "metricName": "Mean MaxxBench evaluation attempt cost",
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-max",
+      "rawName": "Claude Sonnet 5.5"
+    },
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "outputPerMillionTokens": null,
+    "profile": {
+      "attempts": 2,
+      "contextWindowTokens": null,
+      "effort": "max",
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "cost": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[13].averageCost; arithmetic mean of all 178 trials[].cost",
+        "method": "EMBEDDED_JSON"
+      },
+      "profile": {
+        "evidenceId": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+        "locator": "Astro BenchmarkLeaderboard.props.models[13]",
+        "method": "EMBEDDED_JSON"
+      }
+    },
+    "schemaVersion": "cost-record-v1",
+    "sourceId": "maxxbench",
+    "sourcePublishedAt": null,
+    "sourceUrl": "https://maxxbench.unlap.ai/",
+    "unit": "USD_PER_TASK"
+  }
+]

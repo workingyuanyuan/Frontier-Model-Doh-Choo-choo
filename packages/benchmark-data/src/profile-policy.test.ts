@@ -161,6 +161,12 @@ describe('product profile evidence indexing', () => {
     };
     const otherNone = candidate('other-none', 'other-source', 'alpha', 'none');
     const max = candidate('max', 'max-source', 'alpha', 'max');
+    const bioNone = candidate('bio-none', 'biobasicsbench', 'alpha', 'none');
+    expect(decideProductEffort(bioNone, [bioNone, max])).toMatchObject({
+      effort: 'non-reasoning',
+      basis: 'SOURCE_FIELD',
+      basisSourceId: 'biobasicsbench',
+    });
     const rows = [unlabelled, none, otherNone, max];
     const originalRows = structuredClone(rows);
     const matchedCost = cost(none);
@@ -328,5 +334,50 @@ describe('product profile evidence indexing', () => {
       costs.map((row) => row.profile),
     );
     expect(actual[5]).toBe(nullCost);
+  });
+
+  it('resolves a cost identity only from a unique exact candidate setting', () => {
+    const resolved = candidate('resolved', 'maxxbench', 'alpha', 'max', {
+      model: { rawName: 'Alpha', canonicalModelId: 'alpha', profileId: null },
+    });
+    const unresolved = cost(
+      candidate('price', 'maxxbench', null, 'max', {
+        model: { rawName: 'Alpha', canonicalModelId: null, profileId: null },
+      }),
+    );
+    const result = applyProductProfilePolicyToCosts(
+      [unresolved],
+      [resolved],
+      catalog,
+      policy,
+    )[0]!;
+    expect(result).toEqual({
+      ...unresolved,
+      model: {
+        ...unresolved.model,
+        canonicalModelId: 'alpha',
+        profileId: 'alpha-max',
+      },
+    });
+    const mismatches = [
+      { ...unresolved, sourceId: 'other' },
+      { ...unresolved, model: { ...unresolved.model, rawName: 'Other' } },
+      { ...unresolved, benchmarkId: 'other' },
+      { ...unresolved, profile: { ...unresolved.profile, effort: 'high' } },
+    ];
+    expect(
+      applyProductProfilePolicyToCosts(mismatches, [resolved], catalog, policy),
+    ).toEqual(mismatches);
+    const conflict = candidate('conflict', 'maxxbench', 'beta', 'max', {
+      model: { rawName: 'Alpha', canonicalModelId: 'beta', profileId: null },
+    });
+    expect(() =>
+      applyProductProfilePolicyToCosts(
+        [unresolved],
+        [resolved, conflict],
+        catalog,
+        policy,
+      ),
+    ).toThrow('Conflicting candidate identities');
   });
 });

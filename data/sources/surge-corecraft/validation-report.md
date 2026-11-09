@@ -12,15 +12,6 @@ The official paper defines task pass rate as satisfying every expert-authored ru
 
 - Methodology: <https://surgehq.ai/blog/enterprisebench-corecraft> and <https://arxiv.org/html/2602.16179v5>. The paper version is not a leaderboard benchmark version.
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 55 | 55 | +0 |
-| Materialized costs | 0 | 0 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

@@ -21,6 +21,8 @@
     "openai-releases",
     "anthropic-releases",
     "google-releases",
-    "xai-releases"
+    "xai-releases",
+    "biobasicsbench",
+    "maxxbench"
   ]
 }

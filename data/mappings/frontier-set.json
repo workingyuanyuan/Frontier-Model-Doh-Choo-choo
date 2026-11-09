@@ -208,6 +208,7 @@
           "epoch-ai",
           "frontier-code",
           "livebench",
+          "maxxbench",
           "surge",
           "vals-ai",
           "zapier-automationbench"
@@ -273,6 +274,7 @@
           "epoch-ai",
           "frontier-code",
           "livebench",
+          "maxxbench",
           "surge",
           "vals-ai",
           "zapier-automationbench"

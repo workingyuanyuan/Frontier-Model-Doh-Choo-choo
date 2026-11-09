@@ -316,6 +316,16 @@
       "secondaryDimensions": ["agentic", "reasoning"]
     },
     {
+      "id": "maxxbench",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "biobasicsbench",
+      "primaryDimension": "comprehension",
+      "secondaryDimensions": ["reasoning", "knowledge"]
+    },
+    {
       "id": "algotune",
       "primaryDimension": "coding",
       "secondaryDimensions": ["reasoning"]

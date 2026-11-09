@@ -1,0 +1,22 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/10/10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb.html",
+    "byteLength": 1202123,
+    "finalUrl": "https://maxxbench.unlap.ai/",
+    "id": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete HTML with Astro leaderboard and evaluation trials",
+      "materializedConfigurations": 15,
+      "materializedCosts": 15,
+      "renderedRows": 15,
+      "visibleComparisonMatched": true
+    },
+    "method": "EMBEDDED_JSON",
+    "requestUrl": "https://maxxbench.unlap.ai/",
+    "retrievedAt": "2026-11-09T01:56:44.593Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb",
+    "sourceId": "maxxbench"
+  }
+]

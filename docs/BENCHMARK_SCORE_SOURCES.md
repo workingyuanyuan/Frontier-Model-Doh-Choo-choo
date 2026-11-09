@@ -2,6 +2,9 @@
 
 > 最後清單時效核驗：2026-08-13（Asia/Taipei）
 > 最後主辦方逐列深度核驗：2026-08-13
+
+2026-11-09 使用者確認採用：BioBasicsBench 使用共同主辦者 OpenAI 的 37 個公開模型／effort 設定；這些自家模型測試的結果角色為 VENDOR，不計入獨立評測組織。指標是平均 rubric 得分，版本和任務美元成本未公布。MaxxBench 使用主辦方可見榜單的 15 個設定與每次 attempt 平均成本，角色為 ORGANIZER；89 個任務由 DeepSWE 修改而來，作為獨立 benchmark，不與 DeepSWE 1.1 的分數混用。精確 checkpoint 等未知設定保留 null。
+
 > 下次例行核驗：2026-09-13
 > 本次局部核驗：2026-10-04，OpenAI／Anthropic 多頁、Google／xAI 新增來源及其他供應商方法，見 [採用查核](research/2026-10-04-release-adoption.md)。
 > 適用範圍：模型排行榜、五維能力分數、Quality vs. Cost、Category Profile

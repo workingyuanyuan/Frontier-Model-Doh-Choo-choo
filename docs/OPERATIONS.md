@@ -97,6 +97,8 @@ HTML。ESLint 會攔截 adapter 直接使用 fetch 或底層網路／ZIP 套件�
 pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual-profile-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<2.0 rows> --visual-v1-profile-count=<1.0 rows>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:maxxbench -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:biobasicsbench
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --v2-visual-row-count=<Best rows> --v2-visual-all-row-count=<All rows> --v2-visual-top-ten-matched [--v2-hidden-model=<name> ...] [--v1-1-accept-value-changes]
 pnpm --filter @llm-bench/acquisition materialize:frontier-swe
 pnpm --filter @llm-bench/acquisition materialize:chartography -- --visual-row-count=<count>
@@ -116,9 +118,11 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 
 ComplexConstraints／Riemann-bench 刷新會保留當期榜單移除的既有列及其原始 Evidence，並將新列的明示版本寫入 `benchmarkVersion`。預設以工作區前一份快照為基準；若本次中途物化已覆蓋前一份快照，可加 `--baseline-directory=artifacts/research/<日期>-benchmark-check/import-baseline/sources/<source-id>` 指向本任務匯入前保存的來源目錄。保留列與當期可見列數分開記錄，保留列不算新版重測；方法見 [資料方法](DATA_METHODOLOGY.md#擷取與刷新)。
 
+MaxxBench 先以瀏覽器核對預設榜單可見列數，再傳入 `--visual-row-count`；擷取器會核對可見列、嵌入資料及每次試跑。BioBasicsBench 使用已審閱的官方頁面瀏覽器 DOM／RSC 圖表摘錄，命令只離線物化該摘錄；更新前需重新擷取並審核完整圖表及官方文字表格，保留實際擷取時間，不能把摘錄當成原始 HTTP bytes。
+
 ### 來源變更監測
 
-上述命令中，除了離線產生檔位推測報告的 `materialize:effort-reports`，其餘 18 個線上刷新命令都透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
+上述線上刷新命令透過 `refresh-with-audit.ts` 接上共用監測：執行前讀取來源快照，來源刷新成功後比較 benchmark、版本、指標、模型及設定覆蓋。`materialize:effort-reports` 與 `materialize:biobasicsbench` 是離線操作。既有排程沿用這些 package 命令即可執行監測；直接呼叫個別 `refresh-*.ts` 不會經過包裝器。
 
 AA、Vals、Surge 另擷取即時官方 benchmark 目錄，比較新增、移除連結及名稱／版本異動。Vals 既有的動態頁面擷取照常運作。其他現役來源目前比較刷新前後的已物化快照；報告的 `scope` 明確標示此範圍，不能據此宣稱已掃描其上游所有新 benchmark。
 

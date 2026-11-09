@@ -1,0 +1,29 @@
+{
+  "accessMethods": ["EMBEDDED_JSON", "DOM"],
+  "baseUrl": "https://maxxbench.unlap.ai/",
+  "benchmarkIds": ["maxxbench"],
+  "completeness": {
+    "expectedCountMethod": "Match each default visible leaderboard row to Astro models and verify aggregate values against all evaluation trials.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "MaxxBench",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "models[].averageCost": "CostRecord.cost",
+    "models[].effort": "profile.effort",
+    "models[].evaluations": "profile.attempts",
+    "models[].maxxBenchScore": "normalizedScore",
+    "models[].name": "model.rawName"
+  },
+  "lastVerifiedAt": "2026-11-09T01:56:44.593Z",
+  "notes": [
+    "Only default visible leaderboard configurations are materialized.",
+    "Benchmark version and unpublished configuration fields remain null.",
+    "USD cost is the arithmetic mean over all evaluation attempts."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "maxxbench",
+  "targetUrls": ["https://maxxbench.unlap.ai/"]
+}

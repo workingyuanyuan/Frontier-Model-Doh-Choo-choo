@@ -13,6 +13,10 @@
 | `VENDOR`      | 受測模型廠商自報             | 保留來源角色與出處，仍須通過顯示清單門檻 |
 | `AGGREGATOR`  | 混合來源索引                 | 只用於發現與選模，不直接投入五維計分     |
 
+BioBasicsBench 由 OpenAI 和 Ligo 共同主辦，目前發布的 OpenAI 自家模型測試以 VENDOR 角色保存，不計為獨立評測組織；保留平均 rubric 得分、實際模型與 effort，不以 output tokens 推估美元成本。MaxxBench 保留其官方可見榜單的每次 attempt 平均成本與分數；它的題目源自修改過的 DeepSWE，兩者各有 benchmark 身分。兩項採用與維度配置的審核依據見 [2026-11-09 刷新報告](refresh/2026-11-09.md)。
+
+成本紀錄的 canonical identity 缺失時，只有同一來源、完全相同的原始名稱、benchmark 與原始 effort 所對應的候選列具有唯一 canonical identity，才沿用該身分；若候選身分衝突即停止。既有 canonical identity 與所有原始設定、證據及成本數值均保持原樣。
+
 同一 Benchmark ID、模型、effort 與 metric 的跨來源可比較結果，先依來源角色；角色相同時取較高可比較分數，`FULL`／發布時間只在同分時破平手。`benchmarkVersion` 保留在 Evidence，但不進重複量測鍵，避免同一 benchmark 因各站版本字串格式不同而重複計分。同一來源內的重複列仍依完整度、發布時間與 harness 選現行量測。每筆 Evidence 最多只貢獻一次。
 
 來源網站、角色、Benchmark 與最近更新狀態由 [可採用成績來源](BENCHMARK_SCORE_SOURCES.md) 維護。

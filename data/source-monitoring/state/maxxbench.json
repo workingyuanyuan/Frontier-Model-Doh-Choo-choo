@@ -1,0 +1,67 @@
+{
+  "catalog": null,
+  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "evidence": null,
+  "schemaVersion": "source-monitor-state-v1",
+  "snapshot": {
+    "benchmarks": [
+      {
+        "id": "maxxbench",
+        "includedRows": 15,
+        "metrics": ["task-success-rate:percent:true"],
+        "models": [
+          "anthropic-claude-fable-5",
+          "anthropic-claude-opus-5",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-flash",
+          "google-gemini-3-8-flash",
+          "meta-muse-spark-1-2",
+          "openai-gpt-5-6-luna",
+          "openai-gpt-5-6-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-luna"
+        ],
+        "profiles": [
+          "[\"Claude Fable 5\",\"xhigh\",null,null,null,null,2,null]",
+          "[\"Claude Opus 5\",\"max\",null,null,null,null,2,null]",
+          "[\"Claude Opus 5.5\",\"max\",null,null,null,null,2,null]",
+          "[\"Claude Sonnet 5.5\",\"max\",null,null,null,null,2,null]",
+          "[\"DeepSeek V4 Flash\",\"max\",null,null,null,null,2,null]",
+          "[\"DeepSeek V4.1 Flash\",\"max\",null,null,null,null,2,null]",
+          "[\"GLM-5.3 Flash\",\"max\",null,null,null,null,2,null]",
+          "[\"GLM-5.3\",\"max\",null,null,null,null,2,null]",
+          "[\"GPT-5.6 Luna\",\"max\",null,null,null,null,2,null]",
+          "[\"GPT-5.6 Sol\",\"max\",null,null,null,null,2,null]",
+          "[\"GPT-6 Astra\",\"xhigh\",null,null,null,null,2,null]",
+          "[\"GPT-6 Luna\",\"max\",null,null,null,null,2,null]",
+          "[\"Gemini 3.8 Flash\",\"high\",null,null,null,null,2,null]",
+          "[\"Muse Spark 1.2\",\"xhigh\",null,null,null,null,2,null]",
+          "[\"Qwen3.8 Flash Next\",\"xhigh\",null,null,null,null,2,null]"
+        ],
+        "rawLabels": [
+          "Claude Fable 5",
+          "Claude Opus 5",
+          "Claude Opus 5.5",
+          "Claude Sonnet 5.5",
+          "DeepSeek V4 Flash",
+          "DeepSeek V4.1 Flash",
+          "GLM-5.3",
+          "GLM-5.3 Flash",
+          "GPT-5.6 Luna",
+          "GPT-5.6 Sol",
+          "GPT-6 Astra",
+          "GPT-6 Luna",
+          "Gemini 3.8 Flash",
+          "Muse Spark 1.2",
+          "Qwen3.8 Flash Next"
+        ],
+        "rows": 15,
+        "sourceUrls": ["https://maxxbench.unlap.ai/"],
+        "versions": ["(unknown)"]
+      }
+    ],
+    "observedAt": "2026-11-09T01:56:44.593Z",
+    "sourceId": "maxxbench"
+  }
+}

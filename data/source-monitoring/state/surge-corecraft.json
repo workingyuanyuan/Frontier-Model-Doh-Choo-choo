@@ -79,7 +79,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-08T14:21:01.367Z",
+  "checkedAt": "2026-11-09T02:22:23.309Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/33/3386b8f66edc3eacce68b2da022b591788c6b4ab6d303cbc08ffd49267259d05.html",
     "byteLength": 935124,
@@ -91,7 +91,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks",
-    "retrievedAt": "2026-11-08T14:21:01.367Z",
+    "retrievedAt": "2026-11-09T02:22:23.309Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3386b8f66edc3eacce68b2da022b591788c6b4ab6d303cbc08ffd49267259d05",
     "sourceId": "surge-corecraft"

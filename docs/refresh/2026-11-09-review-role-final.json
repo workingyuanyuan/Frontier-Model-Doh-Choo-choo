@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "independent-source-role-final-review-v1",
+  "reviewer": "role_final_review subagent; independent read-only source and final product review",
+  "reviewedAt": "2026-11-09T02:26:46.969185+00:00",
+  "status": "data-pass-documentation-sync-pending",
+  "reviewedRelease": {
+    "runId": "2026-11-09T02-22-27-516Z",
+    "receiptPath": "artifacts/releases/2026-11-09T02-22-27-516Z/receipt.json",
+    "status": "complete",
+    "allEightStepsExitZero": true,
+    "review": "pending-user-review",
+    "versionId": "sha256:720ec5d5ead2dc2953b9c768073ffef59777db085be53f1bea0e2f95fdf4c258",
+    "productSha256": "sha256:cb67cf1908a2d91d2df6ae005f11ba41dd133009809b23c294d7db8af28448e7",
+    "freshLogConfirmsExactVersion": true,
+    "e2ePassed": 116,
+    "workspaceTestTasksPassed": 4
+  },
+  "officialSource": {
+    "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+    "independentlyReadLive": true,
+    "publicationDate": "2026-11-06",
+    "author": "OpenAI",
+    "basisForVendor": "OpenAI describes its own evaluation of seven GPT models on a benchmark developed with Ligo. Self-reported model results remain VENDOR even though OpenAI co-organized the benchmark.",
+    "methodology": {
+      "tasks": 100,
+      "attemptsPerTask": 5,
+      "modelEffortSettings": 37,
+      "totalResults": 18500,
+      "metric": "Mean task rubric reward expressed as percent available credit",
+      "confidenceIntervals": "95% whole-task bootstrap retaining the five attempts together"
+    }
+  },
+  "fullChartReview": {
+    "capturePath": "artifacts/research/2026-11-09-benchmark-adoption/biobasics-original-browser-capture.json",
+    "captureSha256": "sha256:c296355e2c58fe53cd99bf8677da0b74990969a95be1155e867832d621da78eb",
+    "method": "Independently JSON-parsed saved self.__next_f.push argument and RSC records, recursively located unique dotcomConfig.linkId, compared every Vega data.values field to reviewed capture and candidates. No source JavaScript executed.",
+    "chartObjects": 1,
+    "chartRows": 37,
+    "candidateRows": 37,
+    "allModelLabelsAndEffortsMatch": true,
+    "allRawScoresMatchCaptureExactly": true,
+    "maxChartToCaptureAbsoluteDifference": 7.105427357601002e-15,
+    "maxRawToNormalizedAbsoluteDifference": 1.4210854715202004e-14,
+    "numericalTolerance": 1e-12,
+    "printedXhighRowsIndependentlyMatchedToLiveOfficialPage": 7,
+    "modelSettingCounts": {
+      "GPT-5.2": 5,
+      "GPT-5.4": 5,
+      "GPT-5.5": 5,
+      "GPT-5.6 Sol": 6,
+      "GPT-6.1 Sol": 5,
+      "GPT-6 Luna": 6,
+      "GPT-6 Astra": 5
+    },
+    "evidenceArtifactPath": "artifacts/sha256/1a/1a950c47ba09763706df8633fcb66e3efb6bc20997dfa5498e7682b95a991e41.json",
+    "evidenceSha256Matched": true,
+    "evidenceBytes": 6209,
+    "evidenceEqualsReviewedCapture": true,
+    "acquisitionBoundary": "Bounded normalized browser DOM/RSC transcription, not original HTTP response bytes; future refresh requires new browser capture.",
+    "sourceCosts": 0
+  },
+  "roles": {
+    "manifest": "VENDOR",
+    "materializer": "VENDOR",
+    "candidates": {
+      "VENDOR": 37
+    },
+    "productEvidence": {
+      "VENDOR": 37
+    },
+    "frontierEligibilityExcludesVendor": ["VENDOR"],
+    "bioBasicsAbsentFromAllLeaderIndependentOrganizations": true,
+    "astraIndependentOrganizations": [
+      "arc-prize",
+      "deepswe",
+      "epoch-ai",
+      "frontier-code",
+      "livebench",
+      "surge",
+      "vals-ai",
+      "zapier-automationbench"
+    ],
+    "solIndependentOrganizations": [
+      "arc-prize",
+      "epoch-ai",
+      "frontier-code",
+      "livebench",
+      "surge",
+      "vals-ai"
+    ],
+    "allSelectedLeadersStillMeetTwoIndependentOrganizations": true
+  },
+  "versusPreRoleProduct": {
+    "versionId": "sha256:65896e20485508dd0731093e4186505e21bec094fa15679865e25683391c2e3c",
+    "changedProductKeys": ["evidence", "frontier", "generatedAt", "versionId"],
+    "evidenceChanges": {
+      "count": 37,
+      "onlyChangedField": "sourceRole",
+      "from": "ORGANIZER",
+      "to": "VENDOR",
+      "candidateIds": [
+        "biobasicsbench:openai-gpt-5-2-high",
+        "biobasicsbench:openai-gpt-5-2-low",
+        "biobasicsbench:openai-gpt-5-2-medium",
+        "biobasicsbench:openai-gpt-5-2-none",
+        "biobasicsbench:openai-gpt-5-2-xhigh",
+        "biobasicsbench:openai-gpt-5-4-high",
+        "biobasicsbench:openai-gpt-5-4-low",
+        "biobasicsbench:openai-gpt-5-4-medium",
+        "biobasicsbench:openai-gpt-5-4-none",
+        "biobasicsbench:openai-gpt-5-4-xhigh",
+        "biobasicsbench:openai-gpt-5-5-high",
+        "biobasicsbench:openai-gpt-5-5-low",
+        "biobasicsbench:openai-gpt-5-5-medium",
+        "biobasicsbench:openai-gpt-5-5-none",
+        "biobasicsbench:openai-gpt-5-5-xhigh",
+        "biobasicsbench:openai-gpt-5-6-sol-high",
+        "biobasicsbench:openai-gpt-5-6-sol-low",
+        "biobasicsbench:openai-gpt-5-6-sol-max",
+        "biobasicsbench:openai-gpt-5-6-sol-medium",
+        "biobasicsbench:openai-gpt-5-6-sol-none",
+        "biobasicsbench:openai-gpt-5-6-sol-xhigh",
+        "biobasicsbench:openai-gpt-6-1-sol-high",
+        "biobasicsbench:openai-gpt-6-1-sol-low",
+        "biobasicsbench:openai-gpt-6-1-sol-max",
+        "biobasicsbench:openai-gpt-6-1-sol-medium",
+        "biobasicsbench:openai-gpt-6-1-sol-xhigh",
+        "biobasicsbench:openai-gpt-6-astra-high",
+        "biobasicsbench:openai-gpt-6-astra-low",
+        "biobasicsbench:openai-gpt-6-astra-max",
+        "biobasicsbench:openai-gpt-6-astra-medium",
+        "biobasicsbench:openai-gpt-6-astra-xhigh",
+        "biobasicsbench:openai-gpt-6-luna-high",
+        "biobasicsbench:openai-gpt-6-luna-low",
+        "biobasicsbench:openai-gpt-6-luna-max",
+        "biobasicsbench:openai-gpt-6-luna-medium",
+        "biobasicsbench:openai-gpt-6-luna-none",
+        "biobasicsbench:openai-gpt-6-luna-xhigh"
+      ]
+    },
+    "frontierReasonChanges": [
+      {
+        "modelId": "openai-gpt-6-astra",
+        "beforeReasons": [
+          "Artificial Analysis Intelligence Index rank 3",
+          "Scored by 9 independent organizations: arc-prize, biobasicsbench, deepswe, epoch-ai, frontier-code, livebench, surge, vals-ai, zapier-automationbench"
+        ],
+        "afterReasons": [
+          "Artificial Analysis Intelligence Index rank 3",
+          "Scored by 8 independent organizations: arc-prize, deepswe, epoch-ai, frontier-code, livebench, surge, vals-ai, zapier-automationbench"
+        ]
+      },
+      {
+        "modelId": "openai-gpt-6-1-sol",
+        "beforeReasons": [
+          "Artificial Analysis Intelligence Index rank 4",
+          "Scored by 7 independent organizations: arc-prize, biobasicsbench, epoch-ai, frontier-code, livebench, surge, vals-ai"
+        ],
+        "afterReasons": [
+          "Artificial Analysis Intelligence Index rank 4",
+          "Scored by 6 independent organizations: arc-prize, epoch-ai, frontier-code, livebench, surge, vals-ai"
+        ]
+      }
+    ],
+    "allOtherProductFieldsIdenticalExcludingGeneratedAtAndVersionId": true
+  },
+  "versusPriorRoleRelease": {
+    "versionId": "sha256:55198e067fefdc573812a7ed8b63e5759f985d40c648eeec8667850670bf3727",
+    "runId": "2026-11-09T02-17-42-604Z",
+    "changedProductKeys": ["generatedAt", "versionId"],
+    "allDataPayloadFieldsIdentical": true,
+    "manifestRoleWasCorrectedToVendor": true
+  },
+  "versusHeadBaseline": {
+    "head": "62f2c01f1df970517ca07d587f157733a158fa09",
+    "versionId": "sha256:e52b966e9ff807047b8ce29f0cdb40b43e182162c77c00bd76314c83cacd0cea",
+    "counts": {
+      "profiles": {
+        "before": 263,
+        "after": 263
+      },
+      "evidence": {
+        "before": 9784,
+        "after": 9836
+      },
+      "costs": {
+        "before": 917,
+        "after": 933
+      },
+      "presets": {
+        "before": 9,
+        "after": 9
+      }
+    },
+    "allNinePresetsExactlyEqualIncludingBenchmarksRanksAndScores": true,
+    "all263ProfilesExactlyEqual": true,
+    "frontierModelSequenceExactlyEqual": true,
+    "existing9784EvidenceRowsExactlyEqual": true,
+    "addedEvidenceBySource": {
+      "biobasicsbench": 37,
+      "maxxbench": 15
+    },
+    "existing917CostsExactlyEqual": true,
+    "addedCostsBySource": {
+      "artificial-analysis": 4,
+      "maxxbench": 12
+    },
+    "defaultCommonTests": 12,
+    "receiptBaselineMeaning": "receipt.previousVersionId and report Before compare against git HEAD e52b966; baseline/data__product__current.json is the pre-run working-tree 55198e product. Both comparisons were independently verified."
+  },
+  "documentationUpdatesRequiredAtReviewTime": [
+    {
+      "path": "docs/refresh/2026-11-09.md",
+      "required": "Use final 720ec5 product and 02-22-27 receipt; explicitly state VENDOR and independent organizations Astra 8/Sol 6; distinguish earlier screenshot version if retained."
+    },
+    {
+      "path": "docs/refresh/2026-11-09-receipt.json",
+      "required": "Copy final complete receipt."
+    },
+    {
+      "path": "docs/refresh/2026-11-09-review-biobasics.json",
+      "required": "Replace or supplement ORGANIZER assessment with this final VENDOR review."
+    },
+    {
+      "path": "docs/refresh/2026-11-09-review-final.json",
+      "required": "Replace or supplement older 65896e assessment and its BioBasics independent-organization claims with final role review."
+    },
+    {
+      "path": "docs/refresh/2026-11-09-effort-inferences.json",
+      "required": "Update version metadata to final product after verifying inference payload is identical."
+    },
+    {
+      "path": "docs/refresh/2026-11-09-manual-impact.json and .md",
+      "required": "Update final product version, hash and receipt; numerical impact may be retained because comparison evidence IDs and numerical data are identical to pre-role product."
+    }
+  ],
+  "blockingDataFindings": [],
+  "decisionBoundary": "New benchmark dimensions, equal-weight treatment and separate MaxxBench/DeepSWE adoption remain subject to user policy review before commit/push/deploy."
+}

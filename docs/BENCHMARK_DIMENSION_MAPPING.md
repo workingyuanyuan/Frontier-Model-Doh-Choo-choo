@@ -15,7 +15,9 @@ The six capability dimensions are Reasoning（推理）, Knowledge（知識）, 
 | Agentic（代理）       | Complete a task through tool selection, interaction and environment actions.                 |
 | Language（語言）      | Produce language satisfying linguistic quality or instruction constraints.                   |
 
-The approved assignments for the 60 active benchmarks are recorded below. The measured endpoint determines the primary category; the use of tools, code or professional material can be a secondary relationship.
+The measured endpoint determines the primary category; the use of tools, code or professional material can be a secondary relationship.
+
+2026-11-09 user-approved adoption: **BioBasicsBench** maps to Comprehension (secondary Reasoning and Knowledge) because it asks models to interpret supplied experimental observations and controls. **MaxxBench** maps to Coding (secondary Agentic and Reasoning) because its endpoint is a software repair evaluated by tests. Its modified DeepSWE tasks use a separate benchmark identity; the overlap with DeepSWE must be considered when reviewing scoring impact.
 
 The authoritative Phase 1 taxonomy is [benchmarks-v2.json](../data/mappings/benchmarks-v2.json); its approved quality rules are [benchmark-quality-v2.json](../data/mappings/benchmark-quality-v2.json). The frontier generator consumes these versioned inputs. Legacy mapping and display policy inputs provide compatibility until the Phase 2 scoring consumer migration.
 

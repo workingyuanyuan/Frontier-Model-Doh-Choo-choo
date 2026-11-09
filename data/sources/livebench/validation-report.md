@@ -60,22 +60,6 @@ LiveBench now publishes two generations. Release 2026-10-25 (LiveBench 2.0) supp
 - `smaug-nemotron-3.5-nvfp4`
 - `step-5-preview`
 
-## Visible comparison
-
-- LiveBench 2.0 rendered leaderboard rows: 32; table rows: 32.
-- LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
-- Result: both rendered counts matched.
-
-## Snapshot delta
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Raw model profiles | 98 | 98 | +0 |
-| Candidate results | 508 | 508 | +0 |
-| Materialized costs | 148 | 148 | +0 |
-
-Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 

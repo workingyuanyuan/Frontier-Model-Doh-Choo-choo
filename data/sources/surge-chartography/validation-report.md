@@ -10,15 +10,6 @@ Scores are the main leaderboard pass@1 percentages (0–100). Explicit reasoning
 
 The cost/token charts have a separate, older configuration list and are outside this leaderboard snapshot. The chart caption states 20 trials, while the official GitHub README describes 10 epochs; attempts remains null because per-row trial counts are unpublished. Benchmark version and per-row publication dates are also unpublished and remain null.
 
-## Snapshot delta
-
-Comparison uses the immutable pre-import snapshot.
-
-| Check | Previous | Refreshed | Delta |
-|---|---:|---:|---:|
-| Candidate results | 42 | 42 | +0 |
-| Materialized costs | 0 | 0 | +0 |
-
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
