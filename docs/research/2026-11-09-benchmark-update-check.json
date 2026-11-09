@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-09",
+  "baselineCommit": "bc9407fe48fd8f3304f61597c2af90d6816305ec",
+  "baselineVersion": "sha256:e52b966e9ff807047b8ce29f0cdb40b43e182162c77c00bd76314c83cacd0cea",
+  "sourceReview": {
+    "observedFrom": "2026-11-09T00:34:02.287Z",
+    "observedThrough": "2026-11-09T00:40:17.860Z",
+    "baselineVersion": "sha256:e52b966e9ff807047b8ce29f0cdb40b43e182162c77c00bd76314c83cacd0cea",
+    "baselineRoot": "/home/yyuan/Projects/Frontier-Model-Doh-Choo-choo-20261108",
+    "responses": 402,
+    "uniqueURLs": 402,
+    "statusCounts": {
+      "200": 402
+    },
+    "allSavedRawIntegrityValid": true,
+    "sourceCount": 15,
+    "frontierCode": "2.0 and legacy1.1 complete exports byte identical",
+    "deepSwe": "Complete v1.1 export byte identical",
+    "liveBench": "Current application selects v2 2026-10-25, v1 2026-06-25; all 6 exports byte identical",
+    "surge": {
+      "boards": 8,
+      "rows": 248,
+      "changes": 0,
+      "counts": [42, 16, 55, 21, 40, 38, 16, 20]
+    },
+    "vals": {
+      "indexSlugs": 62,
+      "dataBoards": 57,
+      "overallRows": 3498,
+      "changes": 0,
+      "unsupported": [
+        "cyber_offense",
+        "inference_provider",
+        "mental-health",
+        "rsi_index",
+        "vals_router_index"
+      ]
+    },
+    "artificialAnalysis": {
+      "fullCatalogBefore": 282,
+      "fullCatalogAfter": 282,
+      "added": 0,
+      "removed": 0,
+      "changedModels": 169,
+      "changedFields": {
+        "/outputSpeed": 169,
+        "/timeToFirstAnswerToken": 169,
+        "/timeToFirstToken": 168,
+        "/intelligenceIndexTimePerTask": 90
+      },
+      "capabilityScoreChanges": 0,
+      "tokenPriceChanges": 0,
+      "taskCostChanges": 0,
+      "evaluationPages": 24,
+      "modelsCatalogExtractedObjects": 28,
+      "evaluationAndModelsFieldChanges": 1047,
+      "evaluationAndModelsNonPerformanceChanges": 0,
+      "individualDetailPages": 225,
+      "individualDetailErrors": 0,
+      "individualDetailFieldChanges": 302113,
+      "individualDetailChangedFieldNames": {
+        "endToEndTime": 17033,
+        "outputSpeed": 17034,
+        "timeToFirstAnswerToken": 17034,
+        "timeToFirstToken": 81772,
+        "timePerTask": 152316,
+        "intelligenceIndexTimePerTask": 16924
+      },
+      "individualDetailNonPerformanceChanges": 0
+    },
+    "limits": [
+      "HTTP payload and published structured data comparison; live Chromium rendered browser screens were not counted in this review.",
+      "AA list, evaluation, complete catalog and all 225 baseline model-detail URLs are covered; discovery of newly added individual model-detail slugs outside the existing URLs was not performed.",
+      "Vals five pages still expose no parseable overall data; null is retained.",
+      "Current Surge main boards were compared to prior current-main-board artifacts; retained historical rows were outside this live-board comparison."
+    ],
+    "frontierSwe": {
+      "configurationRows": 23,
+      "serverRenderedRows": 10,
+      "changes": 0
+    },
+    "zapier": {
+      "version": "1.0.6",
+      "rows": 129,
+      "discoveredModules": 9,
+      "changes": 0
+    }
+  },
+  "discovery": [
+    {
+      "benchmark": "BioBasicsBench",
+      "publicationDate": "2026-11-06",
+      "sourceURL": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+      "status": "New discovery relative to November8 inventory",
+      "evidence": "biobasics-readable-evidence.json",
+      "next": "Capture full 37-setting chart, methods and checkpoints, then user policy decision"
+    },
+    {
+      "benchmark": "MaxxBench",
+      "sourceURL": "https://maxxbench.unlap.ai/",
+      "researchArticleDate": "2026-10-20",
+      "changelogInitialReleaseDate": "2026-10-29",
+      "latestChangelogDate": "2026-11-07",
+      "latestChangelogChange": "Qwen3.8 Flash Next xhigh added",
+      "status": "New discovery relative to November8 inventory",
+      "method": "89 modified DeepSWE tasks, two attempts each, mini-swe-agent/Pier0.3.1 documented by official repo. All feature/regression tests must pass.",
+      "evidence": [
+        "maxxbench-rows.json",
+        "maxxbench-row-checks.json",
+        "raw/maxxbench-changelog.html",
+        "raw/maxxbench-readme.md"
+      ],
+      "next": "Resolve 15 SSR rows versus 16 embedded models, exact checkpoint, source cost definition, then identity/dimension/source policy decision"
+    },
+    {
+      "benchmark": "Into the Unknown",
+      "publicationDate": "2026-10-13",
+      "leaderboardReleaseDate": "2026-10-15",
+      "sourceURL": "https://arxiv.org/abs/2610.19159",
+      "status": "New discovery relative to November8 inventory, recent media reports refer to October release",
+      "method": "15 open scientific follow-up problems, nine model+harness agents, three gates integrity/completeness/scientist sufficiency, main metric all gates under strict grading. GPT6Astra judge four verdicts per submission documented by repo.",
+      "evidence": [
+        "raw/unknown-paper.pdf",
+        "raw/unknown-paper.html",
+        "raw/unknown-readme.md",
+        "raw/unknown-tree.json"
+      ],
+      "headline": {
+        "submissions": 135,
+        "allThreeStrictPass": 0,
+        "failedIntegrity": 114
+      },
+      "remaining": [
+        "Full PDF methods and result-table read",
+        "Exact model checkpoints/efforts per agent",
+        "Viewer result payload extraction",
+        "Cost and elapsed-time definitions",
+        "Identity/dimension/source adoption policy"
+      ]
+    }
+  ],
+  "rawComparisons": [
+    {
+      "url": "https://arcprize.org/media/data/evaluations.json",
+      "status": 200,
+      "sha256": "6376bb048c5c7df1e5a54e21dd50a49efffdf5a459c11794367551bc46972870",
+      "old": "sha256:6376bb048c5c7df1e5a54e21dd50a49efffdf5a459c11794367551bc46972870",
+      "identical": true,
+      "bytes": 260074
+    },
+    {
+      "url": "https://arcprize.org/media/data/models.json",
+      "status": 200,
+      "sha256": "3920651190d6ac47cac8c22c9247366831f3168bca4cb59ca5cca219769367e4",
+      "old": "sha256:3920651190d6ac47cac8c22c9247366831f3168bca4cb59ca5cca219769367e4",
+      "identical": true,
+      "bytes": 176895
+    },
+    {
+      "url": "https://arcprize.org/media/data/datasets.json",
+      "status": 200,
+      "sha256": "ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6",
+      "old": "sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6",
+      "identical": true,
+      "bytes": 841
+    },
+    {
+      "url": "https://epoch.ai/data/benchmark_data.zip",
+      "status": 200,
+      "sha256": "ca743cdc78137000e88063c584c962a5a09eaa725604a1e7de25a66fa2fd6cad",
+      "old": "sha256:da98ade9b0814e4cb19ab991a507648c90c89e13afab87762d1f24f901472872",
+      "identical": false,
+      "bytes": 2283869
+    },
+    {
+      "url": "https://epoch.ai/data/benchmarks.csv",
+      "status": 200,
+      "sha256": "b6c09f0f3e6104a72fcbe6b97fac0b8d8da6967ef69001f0bc0bbde30208b8c8",
+      "old": "sha256:b6c09f0f3e6104a72fcbe6b97fac0b8d8da6967ef69001f0bc0bbde30208b8c8",
+      "identical": true,
+      "bytes": 3993045
+    }
+  ],
+  "epochZipDiff": {
+    "old_count": 92,
+    "new_count": 92,
+    "added": [],
+    "removed": [],
+    "changed": [
+      "arc_ai2_external.csv",
+      "bool_q_external.csv",
+      "gsm8k_external.csv",
+      "hella_swag_external.csv",
+      "mmlu_external.csv",
+      "model_metadata.csv",
+      "open_book_qa_external.csv",
+      "piqa_external.csv",
+      "video_mme_external.csv",
+      "wino_grande_external.csv"
+    ]
+  },
+  "sii": {
+    "url": "https://fireworks.ai/specialized-intelligence-index/api/index.json",
+    "sha256": "9c6c22294a8bce90c4be5c0e290bb885e9a009ec42965150061545691ddcb58e",
+    "byteIdenticalTo20261108": true
+  },
+  "evidenceDirectory": "artifacts/research/2026-11-09-benchmark-check",
+  "discoveryEvidenceBaseDirectory": "artifacts/research/2026-11-09-benchmark-check/discovery",
+  "independentReview": {
+    "rawResponsesVerified": 229,
+    "findings": "Counts and arithmetic verified; supplemental FrontierSWE and Zapier added; discovery evidence base specified.",
+    "limitations": "AA additional evidence independently reviewed by source reviewer."
+  }
+}
