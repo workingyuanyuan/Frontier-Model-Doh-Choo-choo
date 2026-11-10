@@ -4,31 +4,31 @@
 
 ## 版本與數量
 
-本分支於 2026-11-10 rebase 到 `origin/main` `2e656d5`（含 PR #39–#41：11/08 刷新、11/09 查核、BioBasicsBench／MaxxBench 採用）後重跑 release；下列數字以 rebase 後為準。rebase 前在舊基準 `a41691b` 的驗證（run `2026-11-09T23-50-37-368Z`，產品 `sha256:ef186ccd…`）見下節「rebase 前驗證」。
+本分支於 2026-11-10 兩度 rebase：先到 `2e656d5`（含 PR #39–#41），再到 PR #43 合併後的 `20ac0367626f22f8a4d6cb3e6ecd99e67430f4b3`（11/10 刷新與 Claude Fable 5.2）。每次都重跑 release，下列數字以最後一次為準；第一次 rebase 的 run `2026-11-10T00-13-06-588Z` 產品為 `sha256:a40f713c…`，同樣只有 generatedAt／versionId 與當時 main 不同。rebase 前在舊基準 `a41691b` 的驗證（run `2026-11-09T23-50-37-368Z`，產品 `sha256:ef186ccd…`）見下節「rebase 前驗證」。
 
-- Release run ID：`2026-11-10T00-13-06-588Z`，HEAD `76134f72a6b30d4101e9462d5005c02f823e58ec`。
-- Receipt：`artifacts/releases/2026-11-10T00-13-06-588Z/receipt.json`；命令退出碼 0，`status=complete`，八步驟退出碼皆為 0。
-- 完整差異報告：`artifacts/releases/2026-11-10T00-13-06-588Z/report.md`。
-- 舊 versionId（main）：`sha256:720ec5d5ead2dc2953b9c768073ffef59777db085be53f1bea0e2f95fdf4c258`。
-- 新 versionId：`sha256:a40f713c899f4bc1d1c6c24d8bf0055afb26e820af13ae13aa671bab70dd3430`。
+- Release run ID：`2026-11-10T01-39-21-918Z`，執行時 HEAD 為重構 commit 疊在 `20ac036` 之上。
+- Receipt：`artifacts/releases/2026-11-10T01-39-21-918Z/receipt.json`；命令退出碼 0，`status=complete`，八步驟退出碼皆為 0。
+- 完整差異報告：`artifacts/releases/2026-11-10T01-39-21-918Z/report.md`。
+- 舊 versionId（main）：`sha256:3d7046b4c0829adf6f9c2c3a3a65519da1a2b828d1fc6f18c86c924068e62398`。
+- 新 versionId：`sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da`。
 - 新產品與 main 的 `current.json` 遞迴比較，只有 `generatedAt`、`versionId` 兩欄不同；frontier set 與 selection audit 與 main 逐位元組相同。
 
 | 項目                             |   舊 |   新 | 增減 |
 | -------------------------------- | ---: | ---: | ---: |
-| models                           |   83 |   83 |    0 |
-| profiles                         |  263 |  263 |    0 |
+| models                           |   86 |   86 |    0 |
+| profiles                         |  271 |  271 |    0 |
 | leaderboard rows（九個集合合計） |   54 |   54 |    0 |
-| evidence                         | 9836 | 9836 |    0 |
-| costs                            |  933 |  933 |    0 |
+| evidence                         | 9997 | 9997 |    0 |
+| costs                            |  960 |  960 |    0 |
 | presets                          |    9 |    9 |    0 |
 
 main 在本分支建立後新增的 BioBasicsBench／MaxxBench 程式已使用共用的 `refresh-utils`，沒有本次合併範圍內的重複實作，rebase 時無程式衝突；唯一衝突為 `current.json`，以 release 重建結果解決。
 
 ## 集合、資料與 effort
 
-預設 `aa-frontier` 維持八個模型、十二項共同測試（與 main 相同）。九個集合均沒有模型進出、benchmark 增減、有效維度變化或名次／分數差異。二至十模型的共同測試數依序為 14、14、14、14、12、12、12、11、11。來源 snapshot IDs、benchmark／指數版本、品質與計分政策均經完整產品比較核對相等；frontier set 與 selection audit 與 HEAD 及本次 baseline 逐位元組相等。
+預設 `aa-top-10` 為十個模型、九項共同測試（與 main 相同）。九個集合均沒有模型進出、benchmark 增減、有效維度變化或名次／分數差異。二至十模型的共同測試數依序為 10、10、10、10、10、9、9、9、9。來源 snapshot IDs、benchmark／指數版本、品質與計分政策均經完整產品比較核對相等；frontier set 與 selection audit 與 HEAD 及本次 baseline 逐位元組相等。
 
-沿用 [11 月 9 日刷新報告](../refresh/2026-11-09.md) 與先前各日報告的來源版本、資料日期、原始證據、來源抽查及未解析名稱揭露。本次 release 是既有資料的重構驗證。
+沿用 [11 月 10 日刷新報告](../refresh/2026-11-10.md) 與先前各日報告的來源版本、資料日期、原始證據、來源抽查及未解析名稱揭露。本次 release 是既有資料的重構驗證。
 
 | 檔位推測揭露範圍            | 結果       | 依據                                                                         |
 | --------------------------- | ---------- | ---------------------------------------------------------------------------- |
@@ -38,7 +38,7 @@ main 在本分支建立後新增的 BioBasicsBench／MaxxBench 程式已使用�
 
 ## 驗證與獨立抽查
 
-rebase 後：`pnpm lint`、`pnpm typecheck` 退出碼均為 0；release 測試 950 項（workspace 單元測試 915：acquisition 558、bench 184、benchmark-data 173；scripts 35）與 116 項 e2e 通過。
+最後一次 rebase 後：`pnpm evidence init` 匯入新快照後 `evidence verify` 無問題；`pnpm lint`、`pnpm typecheck` 退出碼均為 0；release 測試 950 項（workspace 單元測試 915：acquisition 558、bench 184、benchmark-data 173；scripts 35）與 116 項 e2e 通過。
 
 ### rebase 前驗證
 
