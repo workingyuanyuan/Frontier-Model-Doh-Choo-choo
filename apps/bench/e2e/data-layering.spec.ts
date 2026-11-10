@@ -1,3 +1,4 @@
+import { waitForPaint } from './wait-for-paint';
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import type { ProductVersion } from '@llm-bench/benchmark-data';
@@ -212,12 +213,7 @@ test('keeps the selected profile when an older evidence request finishes late', 
     const selectedProvenance = await details.innerText();
     release();
     await expect.poll(() => oldResponseReleased).toBe(true);
-    await page.evaluate(
-      () =>
-        new Promise<void>((resolve) => {
-          requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-        }),
-    );
+    await page.evaluate(waitForPaint);
     await expect(panel(page).getByRole('heading')).toHaveText(
       getProfileDisplayName(profile),
     );

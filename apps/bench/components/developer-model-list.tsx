@@ -1,3 +1,4 @@
+import { useExpandedModels } from '../lib/use-expanded-models';
 import type { DashboardProduct as ProductVersion } from '../lib/dashboard-data';
 import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useMemo, useState } from 'react';
@@ -29,8 +30,8 @@ export function DeveloperModelList({
   preset,
   initialExpandedModelIds,
 }: DeveloperModelListProps) {
-  const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
-    initialExpandedModelIds ?? [],
+  const { expandedModelIds, toggleExpand } = useExpandedModels(
+    initialExpandedModelIds,
   );
 
   const [showAll, setShowAll] = useState(false);
@@ -40,14 +41,6 @@ export function DeveloperModelList({
     () => buildBenchmarkNameLookup(product?.evidence ?? []),
     [product?.evidence],
   );
-
-  const toggleExpand = (modelId: string) => {
-    setExpandedModelIds((prev) =>
-      prev.includes(modelId)
-        ? prev.filter((id) => id !== modelId)
-        : [...prev, modelId],
-    );
-  };
 
   return (
     <section

@@ -212,6 +212,109 @@ function CostHoverCard({
  * title is where that is disclosed (docs/SPEC.md); data attributes expose the
  * same bounds to tests.
  */
+type CostDomain = ReturnType<typeof getChartDomain>;
+
+const costCoordinates = (
+  xDomain: CostDomain,
+  yDomain: CostDomain,
+  left: number,
+  right: number,
+  top: number,
+  bottom: number,
+) => ({
+  x: (cost: number) =>
+    left +
+    ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left),
+  y: (score: number) =>
+    bottom -
+    ((score - yDomain.min) / (yDomain.max - yDomain.min)) * (bottom - top),
+});
+
+function CostPlotAxes({
+  xDomain,
+  yDomain,
+  left,
+  right,
+  top,
+  bottom,
+  x,
+  y,
+  scoreLabel,
+  keyPrefix,
+}: {
+  xDomain: CostDomain;
+  yDomain: CostDomain;
+  left: number;
+  right: number;
+  top: number;
+  bottom: number;
+  x: (value: number) => number;
+  y: (value: number) => number;
+  scoreLabel: string;
+  keyPrefix: string;
+}) {
+  return (
+    <>
+      {yDomain.ticks.map((tick) => (
+        <g key={`${keyPrefix}y-${tick}`}>
+          <line
+            className="cost-grid-line"
+            x1={left}
+            y1={y(tick)}
+            x2={right}
+            y2={y(tick)}
+          />
+          <text
+            className="cost-tick-label"
+            x={left - 10}
+            y={y(tick) + 4}
+            textAnchor="end"
+          >
+            {tick}
+          </text>
+        </g>
+      ))}
+      {xDomain.ticks.map((tick) => (
+        <g key={`${keyPrefix}x-${tick}`}>
+          <line
+            className="cost-grid-line"
+            x1={x(tick)}
+            y1={top}
+            x2={x(tick)}
+            y2={bottom}
+          />
+          <text
+            className="cost-tick-label"
+            x={x(tick)}
+            y={bottom + 22}
+            textAnchor="middle"
+          >
+            {tick}
+          </text>
+        </g>
+      ))}
+      <line
+        className="chart-axis"
+        x1={left}
+        y1={bottom}
+        x2={right}
+        y2={bottom}
+      />
+      <line className="chart-axis" x1={left} y1={top} x2={left} y2={bottom} />
+      <CostAxisTitles
+        scoreLabel={scoreLabel}
+        xDomain={xDomain}
+        yDomain={yDomain}
+        right={right}
+        bottom={bottom}
+      />
+      <text className="cost-direction-label" x={left + 8} y={top + 15}>
+        Better value ↖
+      </text>
+    </>
+  );
+}
+
 function CostAxisTitles({
   scoreLabel,
   xDomain,
@@ -576,13 +679,7 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
     () => getChartDomain(points.map((point) => point.performance)),
     [points],
   );
-  const x = (cost: number) =>
-    left +
-    ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left);
-  const y = (performance: number) =>
-    bottom -
-    ((performance - yDomain.min) / (yDomain.max - yDomain.min)) *
-      (bottom - top);
+  const { x, y } = costCoordinates(xDomain, yDomain, left, right, top, bottom);
   const frontierPath = frontier
     .map(
       (point, index) =>
@@ -610,72 +707,18 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                 role="img"
                 aria-label={`Overall Score (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost (${xDomain.min}–${xDomain.max}). The value frontier connects non-dominated models toward the upper left.`}
               >
-                {yDomain.ticks.map((tick) => (
-                  <g key={`y-${tick}`}>
-                    <line
-                      className="cost-grid-line"
-                      x1={left}
-                      y1={y(tick)}
-                      x2={right}
-                      y2={y(tick)}
-                    />
-                    <text
-                      className="cost-tick-label"
-                      x={left - 10}
-                      y={y(tick) + 4}
-                      textAnchor="end"
-                    >
-                      {tick}
-                    </text>
-                  </g>
-                ))}
-                {xDomain.ticks.map((tick) => (
-                  <g key={`x-${tick}`}>
-                    <line
-                      className="cost-grid-line"
-                      x1={x(tick)}
-                      y1={top}
-                      x2={x(tick)}
-                      y2={bottom}
-                    />
-                    <text
-                      className="cost-tick-label"
-                      x={x(tick)}
-                      y={bottom + 22}
-                      textAnchor="middle"
-                    >
-                      {tick}
-                    </text>
-                  </g>
-                ))}
-                <line
-                  className="chart-axis"
-                  x1={left}
-                  y1={bottom}
-                  x2={right}
-                  y2={bottom}
-                />
-                <line
-                  className="chart-axis"
-                  x1={left}
-                  y1={top}
-                  x2={left}
-                  y2={bottom}
-                />
-                <CostAxisTitles
-                  scoreLabel="Overall Score"
+                <CostPlotAxes
                   xDomain={xDomain}
                   yDomain={yDomain}
+                  left={left}
                   right={right}
+                  top={top}
                   bottom={bottom}
+                  x={x}
+                  y={y}
+                  scoreLabel="Overall Score"
+                  keyPrefix=""
                 />
-                <text
-                  className="cost-direction-label"
-                  x={left + 8}
-                  y={top + 15}
-                >
-                  Better value ↖
-                </text>
                 {frontierPath ? (
                   <path
                     className="cost-frontier-line"
@@ -691,6 +734,11 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                   const onFrontier = frontier.some(
                     ({ profileId }) => profileId === point.profileId,
                   );
+                  const activatePoint = () => setActivePoint(point);
+                  const deactivatePoint = () =>
+                    setActivePoint((current) =>
+                      current?.modelId === point.modelId ? null : current,
+                    );
                   return (
                     <circle
                       key={point.modelId}
@@ -709,18 +757,10 @@ export const DefaultCostPlot = memo(function DefaultCostPlot({
                           handleToggle(point);
                         }
                       }}
-                      onPointerEnter={() => setActivePoint(point)}
-                      onPointerLeave={() =>
-                        setActivePoint((current) =>
-                          current?.modelId === point.modelId ? null : current,
-                        )
-                      }
-                      onFocus={() => setActivePoint(point)}
-                      onBlur={() =>
-                        setActivePoint((current) =>
-                          current?.modelId === point.modelId ? null : current,
-                        )
-                      }
+                      onPointerEnter={activatePoint}
+                      onPointerLeave={deactivatePoint}
+                      onFocus={activatePoint}
+                      onBlur={deactivatePoint}
                     />
                   );
                 })}
@@ -961,12 +1001,7 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
     () => getChartDomain(visiblePoints.map((point) => point.score)),
     [visiblePoints],
   );
-  const x = (cost: number) =>
-    left +
-    ((cost - xDomain.min) / (xDomain.max - xDomain.min)) * (right - left);
-  const y = (score: number) =>
-    bottom -
-    ((score - yDomain.min) / (yDomain.max - yDomain.min)) * (bottom - top);
+  const { x, y } = costCoordinates(xDomain, yDomain, left, right, top, bottom);
 
   const handleToggle = (pointProfileId: string) => {
     if (selectedProfileId === pointProfileId) {
@@ -986,68 +1021,18 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
             role="img"
             aria-label={`${scoreAxisLabel} (${yDomain.min}–${yDomain.max}) versus weighted normalized task cost index (${xDomain.min}–${xDomain.max}). Each line connects effort profiles for one model.`}
           >
-            {yDomain.ticks.map((tick) => (
-              <g key={`advanced-y-${tick}`}>
-                <line
-                  className="cost-grid-line"
-                  x1={left}
-                  y1={y(tick)}
-                  x2={right}
-                  y2={y(tick)}
-                />
-                <text
-                  className="cost-tick-label"
-                  x={left - 10}
-                  y={y(tick) + 4}
-                  textAnchor="end"
-                >
-                  {tick}
-                </text>
-              </g>
-            ))}
-            {xDomain.ticks.map((tick) => (
-              <g key={`advanced-x-${tick}`}>
-                <line
-                  className="cost-grid-line"
-                  x1={x(tick)}
-                  y1={top}
-                  x2={x(tick)}
-                  y2={bottom}
-                />
-                <text
-                  className="cost-tick-label"
-                  x={x(tick)}
-                  y={bottom + 22}
-                  textAnchor="middle"
-                >
-                  {tick}
-                </text>
-              </g>
-            ))}
-            <line
-              className="chart-axis"
-              x1={left}
-              y1={bottom}
-              x2={right}
-              y2={bottom}
-            />
-            <line
-              className="chart-axis"
-              x1={left}
-              y1={top}
-              x2={left}
-              y2={bottom}
-            />
-            <CostAxisTitles
-              scoreLabel={scoreAxisLabel}
+            <CostPlotAxes
               xDomain={xDomain}
               yDomain={yDomain}
+              left={left}
               right={right}
+              top={top}
               bottom={bottom}
+              x={x}
+              y={y}
+              scoreLabel={scoreAxisLabel}
+              keyPrefix="advanced-"
             />
-            <text className="cost-direction-label" x={left + 8} y={top + 15}>
-              Better value ↖
-            </text>
             {visibleSeries.map((line) => {
               const effortLadderPoints = line.points.filter(
                 (point) => !point.isDefaultEffort,
@@ -1070,6 +1055,14 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                   ) : null}
                   {line.points.map((point) => {
                     const selected = point.profileId === selectedProfileId;
+                    const activatePoint = () =>
+                      setActivePoint({ series: line, point });
+                    const deactivatePoint = () =>
+                      setActivePoint((current) =>
+                        current?.point.profileId === point.profileId
+                          ? null
+                          : current,
+                      );
                     return (
                       <circle
                         key={point.profileId}
@@ -1091,24 +1084,10 @@ export const AdvancedCostPlot = memo(function AdvancedCostPlot({
                             handleToggle(point.profileId);
                           }
                         }}
-                        onPointerEnter={() =>
-                          setActivePoint({ series: line, point })
-                        }
-                        onPointerLeave={() =>
-                          setActivePoint((current) =>
-                            current?.point.profileId === point.profileId
-                              ? null
-                              : current,
-                          )
-                        }
-                        onFocus={() => setActivePoint({ series: line, point })}
-                        onBlur={() =>
-                          setActivePoint((current) =>
-                            current?.point.profileId === point.profileId
-                              ? null
-                              : current,
-                          )
-                        }
+                        onPointerEnter={activatePoint}
+                        onPointerLeave={deactivatePoint}
+                        onFocus={activatePoint}
+                        onBlur={deactivatePoint}
                       />
                     );
                   })}

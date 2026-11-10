@@ -2,7 +2,7 @@ import type {
   ProductEvidence,
   ProductVersion,
 } from '@llm-bench/benchmark-data';
-import { COST_SOURCE_SCORE_BASES } from './view-model';
+import { COST_SOURCE_SCORE_BASES, getEvidenceForProfile } from './view-model';
 
 /** Evidence fields needed to calculate and display the dashboard. */
 export type DashboardEvidence = Pick<
@@ -178,23 +178,7 @@ export const buildProfileEvidencePayload = (
   const profile = product.profiles.find(({ id }) => id === profileId);
   if (!profile) return null;
 
-  const evidence = product.evidence
-    .filter(
-      (row) =>
-        (row.inclusion === 'INCLUDED' && row.model.profileId === profileId) ||
-        (row.inclusion === 'EXCLUDED' &&
-          row.model.canonicalModelId === profile.modelId),
-    )
-    .sort((left, right) => {
-      if (left.inclusion !== right.inclusion) {
-        return left.inclusion === 'INCLUDED' ? -1 : 1;
-      }
-      return (
-        left.benchmarkId.localeCompare(right.benchmarkId) ||
-        left.sourceId.localeCompare(right.sourceId) ||
-        left.id.localeCompare(right.id)
-      );
-    });
+  const evidence = getEvidenceForProfile(product, profileId);
 
   return {
     schemaVersion: 'profile-evidence-v1',

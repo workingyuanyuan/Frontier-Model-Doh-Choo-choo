@@ -1,3 +1,4 @@
+import { median } from '../apps/bench/lib/statistics.ts';
 import { readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
@@ -41,14 +42,6 @@ interface ComparisonRow {
 }
 
 const round = (value: number): number => Number(value.toFixed(4));
-
-const median = (values: readonly number[]): number => {
-  const sorted = values.toSorted((left, right) => left - right);
-  const middle = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0
-    ? (sorted[middle - 1]! + sorted[middle]!) / 2
-    : sorted[middle]!;
-};
 
 const markdownCell = (value: string): string => value.replaceAll('|', '\\|');
 

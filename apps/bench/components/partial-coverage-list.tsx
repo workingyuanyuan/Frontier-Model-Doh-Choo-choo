@@ -1,3 +1,4 @@
+import { formatScore } from '../lib/score-format';
 import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
@@ -9,9 +10,6 @@ import type { PartialCoverageRow } from '../lib/view-model';
 export interface PartialCoverageListProps {
   rows: PartialCoverageRow[];
 }
-
-const formatScore = (score: number | null) =>
-  score === null ? 'N/A' : score.toFixed(1);
 
 /**
  * Ruling R19: a profile missing one scored dimension is disclosed here

@@ -1,3 +1,5 @@
+const line = (cells: string[]): string => `| ${cells.join(' | ')} |`;
+
 import { getActiveDimensionIds } from './ui-contract';
 import {
   getProfileIdentity,
@@ -30,7 +32,6 @@ export function leaderboardMarkdown(
       (dimension) => dimension[0]!.toUpperCase() + dimension.slice(1),
     ),
   ];
-  const line = (cells: string[]) => `| ${cells.join(' | ')} |`;
   return [
     line(headers),
     line(headers.map(() => '---')),
@@ -61,7 +62,6 @@ export function commonBenchmarksMarkdown(
     ...profileNames,
     ...(withDifference ? ['Difference (first − second)'] : []),
   ];
-  const line = (cells: string[]) => `| ${cells.join(' | ')} |`;
   return [
     line(headers.map(escapeCell)),
     line(headers.map(() => '---')),
