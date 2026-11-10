@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-10T00:01:31.421Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "automationbench",
-        "includedRows": 126,
+        "includedRows": 131,
         "metrics": ["task-completed-correctly:percent:true"],
         "models": [
           "anthropic-claude-fable-5",
@@ -52,6 +52,11 @@
           "[\"Claude Fable 5.1 (Max)\",\"max\",null,\"Zapier API mode\",null,null,null,null]",
           "[\"Claude Fable 5.1 (XHigh)\",\"xhigh\",null,\"Zapier API mode\",null,null,null,null]",
           "[\"Claude Fable 5.1 (with Opus 5 Fallback)\",null,null,\"Zapier API mode\",null,null,null,null]",
+          "[\"Claude Fable 5.2 (default fallbacks, High)\",\"high\",null,\"Zapier API mode\",null,null,null,null]",
+          "[\"Claude Fable 5.2 (default fallbacks, Low)\",\"low\",null,\"Zapier API mode\",null,null,null,null]",
+          "[\"Claude Fable 5.2 (default fallbacks, Max)\",\"max\",null,\"Zapier API mode\",null,null,null,null]",
+          "[\"Claude Fable 5.2 (default fallbacks, Medium)\",\"medium\",null,\"Zapier API mode\",null,null,null,null]",
+          "[\"Claude Fable 5.2 (default fallbacks, XHigh)\",\"xhigh\",null,\"Zapier API mode\",null,null,null,null]",
           "[\"Claude Haiku 4.5\",null,null,\"Zapier API mode\",null,null,null,null]",
           "[\"Claude Haiku 5.5 (default fallbacks, High)§\",\"high\",null,\"Zapier API mode\",null,null,null,null]",
           "[\"Claude Haiku 5.5 (default fallbacks, Low)§\",\"low\",null,\"Zapier API mode\",null,null,null,null]",
@@ -183,6 +188,11 @@
           "Claude Fable 5.1 (Max)",
           "Claude Fable 5.1 (XHigh)",
           "Claude Fable 5.1 (with Opus 5 Fallback)",
+          "Claude Fable 5.2 (default fallbacks, High)",
+          "Claude Fable 5.2 (default fallbacks, Low)",
+          "Claude Fable 5.2 (default fallbacks, Max)",
+          "Claude Fable 5.2 (default fallbacks, Medium)",
+          "Claude Fable 5.2 (default fallbacks, XHigh)",
           "Claude Haiku 4.5",
           "Claude Haiku 5.5 (default fallbacks, High)§",
           "Claude Haiku 5.5 (default fallbacks, Low)§",
@@ -305,12 +315,12 @@
           "Qwen 3.6+ (High)",
           "Qwen 3.7+"
         ],
-        "rows": 129,
+        "rows": 134,
         "sourceUrls": ["https://zapier.com/benchmarks"],
         "versions": ["1.0.6"]
       }
     ],
-    "observedAt": "2026-11-08T14:11:15.375Z",
+    "observedAt": "2026-11-10T00:01:27.980Z",
     "sourceId": "zapier-automationbench"
   }
 }
