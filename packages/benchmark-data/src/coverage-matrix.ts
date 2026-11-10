@@ -1,4 +1,5 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { readJson } from './node-utils.js';
+import { readdir } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
 import {
@@ -191,9 +192,6 @@ export interface CurveComparisonRow {
   baselineCompleteModelCount: number | null;
   deltaVsSourceCompleteBaseline: number | null; // unconstrained - baseline, null if either null
 }
-
-const readJson = async (path: string): Promise<unknown> =>
-  JSON.parse(await readFile(path, 'utf8'));
 
 /**
  * Load workspace input data reading strictly only whitelisted source directories.
@@ -453,35 +451,7 @@ export const analyzeCoverageMatrix = (
 
   const qualifiedModelIdSet = new Set(qualifiedModels.map((m) => m.modelId));
 
-  // 2. Filter candidates strictly to whitelisted sources
-  const whitelistSet = new Set(input.whitelist);
-  const comparisonOnlyBenchmarkIds = getComparisonOnlyBenchmarkIds(
-    input.benchmarkMapping,
-  );
-  const whitelistedCandidates = input.sourceCandidates.filter(
-    (c) =>
-      whitelistSet.has(c.sourceId) &&
-      !comparisonOnlyBenchmarkIds.has(c.benchmarkId),
-  );
-
-  // 3. Apply product profile policy
-  const policyCandidates = applyProductProfilePolicy(
-    whitelistedCandidates,
-    input.catalog,
-    input.profilePolicy,
-  );
-
-  // 4. Filter only included candidates with non-null normalized score and canonical/profile IDs
-  const eligibleCandidates = policyCandidates.filter(
-    (c) =>
-      c.inclusion === 'INCLUDED' &&
-      c.normalizedScore !== null &&
-      c.model.canonicalModelId !== null &&
-      c.model.profileId !== null,
-  );
-
-  // 5. Apply current-result selection policy
-  const selectedResults = selectCurrentResults(eligibleCandidates);
+  const { selectedResults, whitelistSet } = selectCoverageResults(input);
 
   // 6. Benchmark dimension lookup
   const benchmarkDimensions: Record<string, BenchmarkDimensionInfo> = {};
@@ -1405,4 +1375,53 @@ export const formatCoverageMatrixMarkdown = (
   lines.push('');
 
   return `${lines.join('\n')}\n`;
+};
+
+export const selectCoverageResults = (
+  input: Pick<
+    CoverageAnalysisInput,
+    | 'sourceCandidates'
+    | 'whitelist'
+    | 'benchmarkMapping'
+    | 'catalog'
+    | 'profilePolicy'
+  >,
+) => {
+  // 2. Filter candidates strictly to whitelisted sources
+  const whitelistSet = new Set(input.whitelist);
+  const comparisonOnlyBenchmarkIds = getComparisonOnlyBenchmarkIds(
+    input.benchmarkMapping,
+  );
+  const whitelistedCandidates = input.sourceCandidates.filter(
+    (c) =>
+      whitelistSet.has(c.sourceId) &&
+      !comparisonOnlyBenchmarkIds.has(c.benchmarkId),
+  );
+
+  // 3. Apply product profile policy
+  const policyCandidates = applyProductProfilePolicy(
+    whitelistedCandidates,
+    input.catalog,
+    input.profilePolicy,
+  );
+
+  // 4. Filter only included candidates with non-null normalized score and canonical/profile IDs
+  const eligibleCandidates = policyCandidates.filter(
+    (c) =>
+      c.inclusion === 'INCLUDED' &&
+      c.normalizedScore !== null &&
+      c.model.canonicalModelId !== null &&
+      c.model.profileId !== null,
+  );
+
+  // 5. Apply current-result selection policy
+  const selectedResults = selectCurrentResults(eligibleCandidates);
+
+  return {
+    whitelistSet,
+    comparisonOnlyBenchmarkIds,
+    whitelistedCandidates,
+    eligibleCandidates,
+    selectedResults,
+  };
 };

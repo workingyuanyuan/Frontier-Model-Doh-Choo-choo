@@ -228,23 +228,31 @@ const CandidateResultBaseSchema = z.object({
   provenance: z.record(z.string(), FieldProvenanceSchema),
 });
 
+const validateResultInclusion = (
+  value: Pick<
+    z.infer<typeof CandidateResultBaseSchema>,
+    'inclusion' | 'exclusionReason'
+  >,
+  context: z.RefinementCtx,
+): void => {
+  if (value.inclusion === 'EXCLUDED' && value.exclusionReason === null) {
+    context.addIssue({
+      code: 'custom',
+      message: 'exclusionReason is required for excluded results',
+      path: ['exclusionReason'],
+    });
+  }
+  if (value.inclusion === 'INCLUDED' && value.exclusionReason !== null) {
+    context.addIssue({
+      code: 'custom',
+      message: 'included results cannot have an exclusionReason',
+      path: ['exclusionReason'],
+    });
+  }
+};
+
 export const CandidateResultSchema = CandidateResultBaseSchema.superRefine(
-  (value, context) => {
-    if (value.inclusion === 'EXCLUDED' && value.exclusionReason === null) {
-      context.addIssue({
-        code: 'custom',
-        message: 'exclusionReason is required for excluded results',
-        path: ['exclusionReason'],
-      });
-    }
-    if (value.inclusion === 'INCLUDED' && value.exclusionReason !== null) {
-      context.addIssue({
-        code: 'custom',
-        message: 'included results cannot have an exclusionReason',
-        path: ['exclusionReason'],
-      });
-    }
-  },
+  validateResultInclusion,
 );
 export type CandidateResult = z.infer<typeof CandidateResultSchema>;
 
@@ -258,22 +266,7 @@ export const ProductEvidenceSchema = CandidateResultBaseSchema.omit({
 })
   .extend({ provenance: ScoreProvenanceSchema })
   .strict()
-  .superRefine((value, context) => {
-    if (value.inclusion === 'EXCLUDED' && value.exclusionReason === null) {
-      context.addIssue({
-        code: 'custom',
-        message: 'exclusionReason is required for excluded results',
-        path: ['exclusionReason'],
-      });
-    }
-    if (value.inclusion === 'INCLUDED' && value.exclusionReason !== null) {
-      context.addIssue({
-        code: 'custom',
-        message: 'included results cannot have an exclusionReason',
-        path: ['exclusionReason'],
-      });
-    }
-  });
+  .superRefine(validateResultInclusion);
 export type ProductEvidence = z.infer<typeof ProductEvidenceSchema>;
 
 export const PricingSchema = z.object({

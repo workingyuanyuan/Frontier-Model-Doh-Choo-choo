@@ -1,3 +1,4 @@
+import { reportCliError } from './node-utils.js';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
@@ -57,8 +58,5 @@ if (invokedPath === fileURLToPath(import.meta.url)) {
     .then((message) => {
       console.log(message);
     })
-    .catch((error: unknown) => {
-      console.error(error instanceof Error ? error.message : String(error));
-      process.exitCode = 1;
-    });
+    .catch(reportCliError);
 }

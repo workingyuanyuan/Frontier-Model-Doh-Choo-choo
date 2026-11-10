@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs';
+import { findRepositoryRoot, reportCliError } from './node-utils.js';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -131,21 +131,6 @@ export const parseReportArgs = (
   return options;
 };
 
-function findRepositoryRoot(startDir: string = '.'): string {
-  let current = resolve(startDir);
-  while (true) {
-    if (existsSync(join(current, 'data', 'mappings', 'sources.json'))) {
-      return current;
-    }
-    const parent = dirname(current);
-    if (parent === current) {
-      break;
-    }
-    current = parent;
-  }
-  return resolve(startDir);
-}
-
 export const generateCoverageMatrixReport = async (
   options: ReportCoverageMatrixCliOptions = {},
 ): Promise<{
@@ -257,8 +242,5 @@ if (invokedPath === fileURLToPath(import.meta.url)) {
     .then((message) => {
       console.log(message);
     })
-    .catch((error: unknown) => {
-      console.error(error instanceof Error ? error.message : String(error));
-      process.exitCode = 1;
-    });
+    .catch(reportCliError);
 }

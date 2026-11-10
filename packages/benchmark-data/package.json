@@ -7,6 +7,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./node-utils": {
+      "types": "./dist/node-utils.d.ts",
+      "default": "./dist/node-utils.js"
     }
   },
   "scripts": {

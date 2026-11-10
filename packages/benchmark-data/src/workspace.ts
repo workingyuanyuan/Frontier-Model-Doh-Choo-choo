@@ -1,4 +1,5 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { readJson } from './node-utils.js';
+import { readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
@@ -32,9 +33,6 @@ import {
   computeFrontierSet,
   generateFrontierSet,
 } from './generate-frontier-set.js';
-
-const readJson = async (path: string): Promise<unknown> =>
-  JSON.parse(await readFile(path, 'utf8'));
 
 export interface WorkspaceBuildOptions {
   /** Rewrite frontier-set.json and its audit; freshness checks pass false. */
