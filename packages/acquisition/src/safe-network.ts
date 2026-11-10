@@ -1,3 +1,4 @@
+import type { IncomingHttpHeaders } from 'node:http';
 import { lookup } from 'node:dns/promises';
 import { request } from 'node:https';
 import { BlockList, isIP, type LookupFunction } from 'node:net';
@@ -277,14 +278,7 @@ export class AcquisitionClient {
               this.budget,
               signal,
             );
-            const responseHeaders = new Headers();
-            for (const [name, value] of Object.entries(response.headers)) {
-              if (value !== undefined)
-                responseHeaders.set(
-                  name,
-                  Array.isArray(value) ? value.join(', ') : value,
-                );
-            }
+            const responseHeaders = responseHeadersFrom(response.headers);
             return {
               url: url.href,
               status,
@@ -320,14 +314,7 @@ export class AcquisitionClient {
             throw new Error('Credential-bearing redirect changed origin');
           continue;
         }
-        const responseHeaders = new Headers();
-        for (const [name, value] of Object.entries(response.headers)) {
-          if (value !== undefined)
-            responseHeaders.set(
-              name,
-              Array.isArray(value) ? value.join(', ') : value,
-            );
-        }
+        const responseHeaders = responseHeadersFrom(response.headers);
         if (status < 200 || status >= 300) {
           response.destroy();
           return {
@@ -347,3 +334,15 @@ export class AcquisitionClient {
 
 // A refresh command is a single Node process; every helper shares its budget.
 export const acquisitionClient = new AcquisitionClient();
+
+const responseHeadersFrom = (headers: IncomingHttpHeaders): Headers => {
+  const responseHeaders = new Headers();
+  for (const [name, value] of Object.entries(headers)) {
+    if (value !== undefined)
+      responseHeaders.set(
+        name,
+        Array.isArray(value) ? value.join(', ') : value,
+      );
+  }
+  return responseHeaders;
+};

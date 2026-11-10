@@ -1,8 +1,11 @@
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { check, resolveConfig } from 'prettier';
 import { describe, expect, it } from 'vitest';
 
 import {
+  writeSourceSnapshot,
   formatMetadataJson,
   getWorkspaceRoot,
   previousSnapshotValue,
@@ -78,4 +81,31 @@ describe('generated metadata JSON', () => {
       expect(await formatMetadataJson(JSON.parse(output), path)).toBe(output);
     },
   );
+});
+
+it('preserves snapshot writes before a late validation-report failure', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'snapshot-writer-'));
+  try {
+    await expect(
+      writeSourceSnapshot(directory, { sourceId: 'test' }, [], [], () => {
+        throw new Error('report failed');
+      }),
+    ).rejects.toThrow('report failed');
+    expect(
+      JSON.parse(await readFile(join(directory, 'manifest.json'), 'utf8')),
+    ).toEqual({ sourceId: 'test' });
+    expect(
+      JSON.parse(
+        await readFile(join(directory, 'evidence-index.json'), 'utf8'),
+      ),
+    ).toEqual([]);
+    expect(await readFile(join(directory, 'candidates.json'), 'utf8')).toBe(
+      '[]\n',
+    );
+    await expect(
+      readFile(join(directory, 'validation-report.md'), 'utf8'),
+    ).rejects.toMatchObject({ code: 'ENOENT' });
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });

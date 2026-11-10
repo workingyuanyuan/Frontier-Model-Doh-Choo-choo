@@ -278,14 +278,15 @@ export function materializeEpoch(
     const releaseDate = row[2] ? `${row[2]}T00:00:00.000Z` : null;
     const displayName = row[10] || row[8] || version;
 
-    const { canonicalModelId, profileId, rawName } = resolveModel(
-      displayName,
-      'epoch-ai',
-    );
-
-    const { effort, thinking, proConfiguration } = decodeVersionSuffix(version);
-
-    const modelPart = profileId || slugify(rawName);
+    const {
+      canonicalModelId,
+      profileId,
+      rawName,
+      effort,
+      thinking,
+      proConfiguration,
+      modelPart,
+    } = resolveEpochProfile(displayName, version);
 
     candidates.push({
       schemaVersion: 'candidate-result-v1',
@@ -357,15 +358,15 @@ export function materializeEpoch(
       const startedAt = row[11] || null;
 
       const displayName = versionToDisplayName.get(version) || version;
-      const { canonicalModelId, profileId, rawName } = resolveModel(
-        displayName,
-        'epoch-ai',
-      );
-
-      const { effort, thinking, proConfiguration } =
-        decodeVersionSuffix(version);
-
-      const modelPart = profileId || slugify(rawName);
+      const {
+        canonicalModelId,
+        profileId,
+        rawName,
+        effort,
+        thinking,
+        proConfiguration,
+        modelPart,
+      } = resolveEpochProfile(displayName, version);
       const versionPart = f.version ? `:${slugify(f.version)}` : '';
       const candidateId = `${sourceId}:${f.benchmarkId}:${modelPart}-row-${i}${versionPart}`;
 
@@ -425,3 +426,23 @@ export function materializeEpoch(
 
   return candidates;
 }
+
+const resolveEpochProfile = (displayName: string, version: string) => {
+  const { canonicalModelId, profileId, rawName } = resolveModel(
+    displayName,
+    'epoch-ai',
+  );
+
+  const { effort, thinking, proConfiguration } = decodeVersionSuffix(version);
+
+  const modelPart = profileId || slugify(rawName);
+  return {
+    canonicalModelId,
+    profileId,
+    rawName,
+    effort,
+    thinking,
+    proConfiguration,
+    modelPart,
+  };
+};

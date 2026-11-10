@@ -1,22 +1,18 @@
 import {
+  resolveSurgeModel,
+  surgeLeaderboardRows,
+  surgePercentRow,
+  surgeText as text,
+} from './surge-materializer-utils.js';
+import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { resolveCatalogModel, slugify } from './materializer-utils.js';
+import { slugify } from './materializer-utils.js';
 import { surgeBenchmarkVersion } from './surge-version.js';
 
 export const COMPLEX_CONSTRAINTS_PAGE_URL =
   'https://surgehq.ai/benchmarks/complex-constraints';
-
-const text = (html: string): string =>
-  html
-    .replace(/<[^>]*>/gu, ' ')
-    .replace(/&nbsp;|&#160;/gu, ' ')
-    .replace(/&amp;/gu, '&')
-    .replace(/&quot;/gu, '"')
-    .replace(/&#39;|&apos;/gu, "'")
-    .replace(/\s+/gu, ' ')
-    .trim();
 
 function configuration(name: string) {
   const label = name.match(/\(([^()]*)\)$/u)?.[1] ?? null;
@@ -78,91 +74,25 @@ export function materializeComplexConstraints(
     throw new Error('ComplexConstraints page marker missing');
   }
   const benchmarkVersion = surgeBenchmarkVersion(html);
-  const sections = [
-    ...html.matchAll(
-      /<section\b[^>]*class="[^"]*\blead-main\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gu,
-    ),
-  ];
-  if (sections.length !== 1)
-    throw new Error('Expected one ComplexConstraints main leaderboard');
-  const section = sections[0]![1]!;
-  if ((section.match(/data-leaderboard-table=""/gu) ?? []).length !== 1) {
-    throw new Error('Expected one ComplexConstraints leaderboard table');
-  }
-  if (/w-pagination-next|fs-list-element="pagination"/u.test(section)) {
-    throw new Error('ComplexConstraints pagination requires review');
-  }
-  const rows = section
-    .split(/<div\b[^>]*data-leaderboard-row=""[^>]*>/u)
-    .slice(1);
-  if (
-    !Number.isInteger(context.visualRowCount) ||
-    context.visualRowCount < 1 ||
-    rows.length !== context.visualRowCount
-  ) {
-    throw new Error(
-      `ComplexConstraints row count mismatch: extracted ${rows.length}, rendered ${context.visualRowCount}`,
-    );
-  }
+  const rows = surgeLeaderboardRows(
+    html,
+    context.visualRowCount,
+    'ComplexConstraints',
+  );
   const candidates = rows
     .map((row, index) => {
-      const brand = text(
-        row.match(
-          /class="head-rank-table-brand"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/u,
-        )?.[1] ?? '',
+      const { brand, name, score } = surgePercentRow(
+        row,
+        index,
+        'ComplexConstraints',
       );
-      const name = text(
-        row.match(
-          /class="head-rank-table-name"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/u,
-        )?.[1] ?? '',
-      );
-      const scoreNodes = [
-        ...row.matchAll(
-          /<div\b[^>]*data-score="([^"]*)"[^>]*>([\s\S]*?)<\/div>/gu,
-        ),
-      ];
-      // This leaderboard publishes an empty data-score attribute on both
-      // the numeric cell and the adjacent percent marker.
-      const scores = scoreNodes.filter((node) => text(node[2]!) !== '%');
-      const units = scoreNodes.filter((node) => text(node[2]!) === '%');
-      if (
-        !brand ||
-        !name ||
-        scores.length !== 1 ||
-        units.length > 1 ||
-        units.some((node) => node[1] !== '') ||
-        (scores[0]![1] === '' && units.length !== 1)
-      )
-        throw new Error(`Invalid ComplexConstraints row ${index + 1}`);
-      const attributeScore = scores[0]![1]!;
-      const visibleScore = text(scores[0]![2]!);
-      const scoreText = attributeScore || visibleScore;
-      const score = Number(scoreText);
-      if (
-        !/^\d+(?:\.\d+)?$/u.test(scoreText) ||
-        !/^\d+(?:\.\d+)?$/u.test(visibleScore) ||
-        !Number.isFinite(score) ||
-        score < 0 ||
-        score > 100 ||
-        (attributeScore !== '' && attributeScore !== visibleScore)
-      ) {
-        throw new Error(
-          `Invalid or conflicting ComplexConstraints score in row ${index + 1}`,
-        );
-      }
       // Inkling's CMS row repeats its brand as the entire model name.
       const rawName =
         name === brand || name.startsWith(`${brand} `)
           ? name
           : `${brand} ${name}`;
       const config = configuration(rawName);
-      // The source inserts a space in Qwen's model family; keep all version,
-      // size and variant tokens when resolving that typographic difference.
-      const lookupName = config.modelName.replace(/^Qwen (?=\d)/u, 'Qwen');
-      const model = resolveCatalogModel(config.modelName);
-      const canonicalModelId =
-        model.canonicalModelId ??
-        resolveCatalogModel(lookupName).canonicalModelId;
+      const canonicalModelId = resolveSurgeModel(config.modelName);
       const locator = `.lead-main [data-leaderboard-row] (zero-based index ${index})`;
       return CandidateResultSchema.parse({
         schemaVersion: 'candidate-result-v1',

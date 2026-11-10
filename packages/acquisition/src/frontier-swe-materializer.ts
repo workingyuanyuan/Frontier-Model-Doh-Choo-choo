@@ -2,16 +2,15 @@ import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { resolveCatalogModel, slugify } from './materializer-utils.js';
+import {
+  asRecord as record,
+  resolveCatalogModel,
+  slugify,
+} from './materializer-utils.js';
 
 export const FRONTIER_SWE_PAGE_URL = 'https://www.frontierswe.com/';
 
 type Row = { model: string; harness: string; overall: number };
-const record = (value: unknown): Record<string, unknown> | null =>
-  value !== null && typeof value === 'object' && !Array.isArray(value)
-    ? (value as Record<string, unknown>)
-    : null;
-
 /** Read JSON data only; never execute scripts supplied by the source. */
 function pageObjects(html: string): Record<string, unknown>[] {
   const chunks = [

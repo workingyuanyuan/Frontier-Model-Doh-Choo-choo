@@ -1,12 +1,13 @@
+import { readJson, prettyDeterministicJson } from './refresh-utils.js';
+import { getWorkspaceRoot } from './workspace-root.js';
 import { readFile, writeFile } from 'node:fs/promises';
-import { existsSync, readFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 
 import {
   EvidenceRecordSchema,
   CandidateResultSchema,
   CostRecordSchema,
-  deterministicJson,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
@@ -27,22 +28,6 @@ import {
   ANTHROPIC_RELEASE_URLS,
 } from './vendor-anthropic.js';
 import { auditVendorReleases } from './vendor-release-audit.js';
-
-const readJson = async <T>(path: string): Promise<T> =>
-  JSON.parse(await readFile(path, 'utf8')) as T;
-
-const prettyDeterministicJson = (value: unknown): string =>
-  `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
-
-const getWorkspaceRoot = (): string => {
-  let directory = process.cwd();
-  while (true) {
-    if (existsSync(join(directory, 'data'))) return directory;
-    const parent = dirname(directory);
-    if (parent === directory) throw new Error('Workspace root not found');
-    directory = parent;
-  }
-};
 
 const findEvidence = (
   records: EvidenceRecord[],

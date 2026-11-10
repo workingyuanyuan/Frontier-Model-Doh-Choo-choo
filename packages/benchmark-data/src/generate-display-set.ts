@@ -1,6 +1,6 @@
-import { existsSync } from 'node:fs';
+import { findRepositoryRoot, reportCliError } from './node-utils.js';
 import { readFile, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format as formatWithPrettier } from 'prettier';
 
@@ -189,19 +189,6 @@ export const buildDisplaySetFromCurves = (
   };
 };
 
-const findRepositoryRoot = (startDir: string): string => {
-  let current = resolve(startDir);
-  for (;;) {
-    if (existsSync(join(current, 'data', 'mappings', 'sources.json'))) {
-      return current;
-    }
-    const parent = dirname(current);
-    if (parent === current) break;
-    current = parent;
-  }
-  return resolve(startDir);
-};
-
 export const generateDisplaySet = async (
   options: GenerateDisplaySetOptions = {},
 ): Promise<GeneratedDisplaySet & { outputPath: string }> => {
@@ -313,8 +300,5 @@ if (invokedPath === fileURLToPath(import.meta.url)) {
         ].join('\n'),
       );
     })
-    .catch((error: unknown) => {
-      console.error(error instanceof Error ? error.message : String(error));
-      process.exitCode = 1;
-    });
+    .catch(reportCliError);
 }

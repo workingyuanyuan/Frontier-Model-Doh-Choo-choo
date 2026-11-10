@@ -1,3 +1,4 @@
+import { median } from '../apps/bench/lib/statistics.ts';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
@@ -51,14 +52,6 @@ const isTaskCost = (cost: ProductVersion['costs'][number]): boolean =>
   ['MEASURED_TASK', 'AGENT_TASK'].includes(cost.costType) &&
   cost.unit === 'USD_PER_TASK' &&
   cost.cost > 0;
-
-const median = (values: number[]): number => {
-  const sorted = values.toSorted((left, right) => left - right);
-  const middle = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0
-    ? (sorted[middle - 1]! + sorted[middle]!) / 2
-    : sorted[middle]!;
-};
 
 const sourceScore = (
   evidence: ProductEvidence[],

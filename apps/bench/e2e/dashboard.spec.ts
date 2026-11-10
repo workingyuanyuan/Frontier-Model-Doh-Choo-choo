@@ -1,3 +1,4 @@
+import { waitForPaint } from './wait-for-paint';
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -489,12 +490,7 @@ test('keeps cost hover cards readable and inside the chart on a phone', async ({
     expect(count).toBeGreaterThan(0);
     for (let i = 0; i < count; i++) {
       await points.nth(i).focus();
-      await page.evaluate(
-        () =>
-          new Promise<void>((resolve) => {
-            requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-          }),
-      );
+      await page.evaluate(waitForPaint);
       const layout = await page.locator('.cost-hover-card').evaluate((card) => {
         const chart = card.parentElement!.getBoundingClientRect();
         const box = card.getBoundingClientRect();

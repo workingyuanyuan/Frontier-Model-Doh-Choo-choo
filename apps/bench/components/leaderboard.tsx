@@ -1,3 +1,4 @@
+import { useExpandedModels } from '../lib/use-expanded-models';
 import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useEffect, useMemo, useState } from 'react';
 import { leaderboardMarkdown } from '../lib/leaderboard-markdown';
@@ -67,17 +68,10 @@ export function Leaderboard({
   onRemovePinnedProfile,
   effortDeltas,
 }: LeaderboardProps) {
-  const [expandedModelIds, setExpandedModelIds] = useState<string[]>(
-    initialExpandedModelIds ?? [],
+  const { expandedModelIds, toggleExpand } = useExpandedModels(
+    initialExpandedModelIds,
   );
 
-  const toggleExpand = (modelId: string) => {
-    setExpandedModelIds((prev) =>
-      prev.includes(modelId)
-        ? prev.filter((id) => id !== modelId)
-        : [...prev, modelId],
-    );
-  };
   const [sort, setSort] = useState<{
     key: LeaderboardSortKey;
     direction: SortDirection;

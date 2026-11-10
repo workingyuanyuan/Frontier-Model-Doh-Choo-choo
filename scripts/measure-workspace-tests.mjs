@@ -1,3 +1,4 @@
+import { median } from '../apps/bench/lib/statistics.ts';
 import { createHash } from 'node:crypto';
 import { createWriteStream } from 'node:fs';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
@@ -114,14 +115,6 @@ async function dataDigest(directory, relative = '') {
     bytes,
   };
 }
-
-const median = (values) => {
-  const sorted = values.toSorted((a, b) => a - b);
-  const middle = Math.floor(sorted.length / 2);
-  return sorted.length % 2
-    ? sorted[middle]
-    : (sorted[middle - 1] + sorted[middle]) / 2;
-};
 
 async function hostCpuSnapshot() {
   if (process.platform !== 'linux') return null;

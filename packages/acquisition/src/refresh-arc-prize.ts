@@ -1,11 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
-import {
-  SourceManifestSchema,
-  type CandidateResult,
-  type CostRecord,
-} from '@llm-bench/benchmark-data';
+import { SourceManifestSchema } from '@llm-bench/benchmark-data';
 
 import {
   ARC_PRIZE_DATASETS_URL,
@@ -21,8 +17,7 @@ import {
   prettyDeterministicJson,
   writeMetadataJson,
   previousSnapshotValue,
-  readJson,
-  readText,
+  readOptionalSnapshotComparison,
   snapshotDeltaMarkdown,
 } from './refresh-utils.js';
 
@@ -36,17 +31,8 @@ async function main() {
   const retrievedAt = new Date().toISOString();
   const sourceDirectory = join(root, 'data', 'sources', SOURCE_ID);
 
-  const previousCandidates = await readJson<CandidateResult[]>(
-    join(sourceDirectory, 'candidates.json'),
-  ).catch(() => [] as CandidateResult[]);
-
-  const previousCosts = await readJson<CostRecord[]>(
-    join(sourceDirectory, 'costs.json'),
-  ).catch(() => [] as CostRecord[]);
-
-  const previousReport = await readText(
-    join(sourceDirectory, 'validation-report.md'),
-  ).catch(() => '');
+  const { previousCandidates, previousCosts, previousReport } =
+    await readOptionalSnapshotComparison(sourceDirectory);
 
   const [evaluations, models, datasets, page] = await Promise.all([
     captureArtifact({

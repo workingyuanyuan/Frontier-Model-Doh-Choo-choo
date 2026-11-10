@@ -1,3 +1,4 @@
+import { median } from './statistics';
 import type {
   DashboardProduct as ProductVersion,
   DashboardEvidence as ProductEvidence,
@@ -524,14 +525,6 @@ export const splitCostSeries = (
   ),
 });
 
-const median = (values: number[]): number => {
-  const sorted = values.toSorted((left, right) => left - right);
-  const middle = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0
-    ? (sorted[middle - 1]! + sorted[middle]!) / 2
-    : sorted[middle]!;
-};
-
 /**
  * The one score each cost source contributes, declared per source.
  *
@@ -969,6 +962,25 @@ const chooseBestSourceCandidate = (
   )[0];
 };
 
+const costSourceLogRanges = <T extends string>(
+  taskCosts: readonly CostPoint[],
+  sourceIds: readonly T[],
+): Map<T, { min: number; max: number }> => {
+  const sourceRanges = new Map<T, { min: number; max: number }>();
+  sourceIds.forEach((sourceId) => {
+    const logs = taskCosts
+      .filter((point) => point.sourceId === sourceId)
+      .map(({ cost }) => Math.log(cost));
+    if (logs.length > 0) {
+      sourceRanges.set(sourceId, {
+        min: Math.min(...logs),
+        max: Math.max(...logs),
+      });
+    }
+  });
+  return sourceRanges;
+};
+
 export const buildWeightedCostCurve = (
   product: PresetProductVersion,
   weights: Readonly<Record<string, number>> = COST_SOURCE_WEIGHTS,
@@ -988,18 +1000,7 @@ export const buildWeightedCostCurve = (
       (weights[point.sourceId] ?? 0) > 0 &&
       point.performance !== null,
   );
-  const sourceRanges = new Map<string, { min: number; max: number }>();
-  Object.keys(weights).forEach((sourceId) => {
-    const logs = taskCosts
-      .filter((point) => point.sourceId === sourceId)
-      .map(({ cost }) => Math.log(cost));
-    if (logs.length > 0) {
-      sourceRanges.set(sourceId, {
-        min: Math.min(...logs),
-        max: Math.max(...logs),
-      });
-    }
-  });
+  const sourceRanges = costSourceLogRanges(taskCosts, Object.keys(weights));
 
   const byModelSource = new Map<string, CostPoint[]>();
   taskCosts.forEach((point) => {
@@ -1106,9 +1107,16 @@ export const getCostParetoFrontier = (
     });
 };
 
-const compareAdvancedPoints = (
-  left: AdvancedCostPoint,
-  right: AdvancedCostPoint,
+const compareNamedModels = (
+  left: { displayName: string; modelId: string },
+  right: { displayName: string; modelId: string },
+): number =>
+  left.displayName.localeCompare(right.displayName) ||
+  left.modelId.localeCompare(right.modelId);
+
+const compareEffortProfiles = (
+  left: Pick<AdvancedCostPoint, 'effort' | 'profileId'>,
+  right: Pick<AdvancedCostPoint, 'effort' | 'profileId'>,
 ): number => {
   const leftRank = COST_EFFORT_RANK.get(left.effort);
   const rightRank = COST_EFFORT_RANK.get(right.effort);
@@ -1157,21 +1165,7 @@ const advancedCostSeries = (
       point.cost > 0 &&
       (activeSourceIds as readonly string[]).includes(point.sourceId),
   );
-  const sourceRanges = new Map<
-    AdvancedCostSourceId,
-    { min: number; max: number }
-  >();
-  activeSourceIds.forEach((sourceId) => {
-    const logs = taskCosts
-      .filter((point) => point.sourceId === sourceId)
-      .map(({ cost }) => Math.log(cost));
-    if (logs.length > 0) {
-      sourceRanges.set(sourceId, {
-        min: Math.min(...logs),
-        max: Math.max(...logs),
-      });
-    }
-  });
+  const sourceRanges = costSourceLogRanges(taskCosts, activeSourceIds);
 
   const grouped = new Map<string, CostPoint[]>();
   taskCosts.forEach((point) => {
@@ -1277,7 +1271,7 @@ const advancedCostSeries = (
 
   const series: AdvancedCostSeries[] = [];
   byModel.forEach((points, modelId) => {
-    const sortedPoints = points.toSorted(compareAdvancedPoints);
+    const sortedPoints = points.toSorted(compareEffortProfiles);
     const firstPoint = sortedPoints[0];
     if (!firstPoint) return;
     const modelProfile = profileById(product, firstPoint.profileId);
@@ -1292,11 +1286,7 @@ const advancedCostSeries = (
     });
   });
 
-  return series.toSorted(
-    (left, right) =>
-      left.displayName.localeCompare(right.displayName) ||
-      left.modelId.localeCompare(right.modelId),
-  );
+  return series.toSorted(compareNamedModels);
 };
 
 /**
@@ -1362,29 +1352,9 @@ export const buildAdvancedCostModelOptions = (
   return [...byModel.values()]
     .map((model) => ({
       ...model,
-      efforts: model.efforts.toSorted((left, right) => {
-        const leftRank = COST_EFFORT_RANK.get(left.effort);
-        const rightRank = COST_EFFORT_RANK.get(right.effort);
-        if (
-          leftRank !== undefined &&
-          rightRank !== undefined &&
-          leftRank !== rightRank
-        ) {
-          return leftRank - rightRank;
-        }
-        if (leftRank !== undefined && rightRank === undefined) return -1;
-        if (leftRank === undefined && rightRank !== undefined) return 1;
-        return (
-          left.effort.localeCompare(right.effort) ||
-          left.profileId.localeCompare(right.profileId)
-        );
-      }),
+      efforts: model.efforts.toSorted(compareEffortProfiles),
     }))
-    .toSorted(
-      (left, right) =>
-        left.displayName.localeCompare(right.displayName) ||
-        left.modelId.localeCompare(right.modelId),
-    );
+    .toSorted(compareNamedModels);
 };
 
 /**

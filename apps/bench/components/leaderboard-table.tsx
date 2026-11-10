@@ -1,3 +1,4 @@
+import { formatScore } from '../lib/score-format';
 import type { DimensionId } from '@llm-bench/benchmark-data';
 import { Fragment } from 'react';
 
@@ -19,9 +20,6 @@ import type { LeaderboardSortKey, SortDirection } from '../lib/table-sort';
 import { ModelDetailPanel } from './model-detail-panel';
 
 type HeatMap = Record<string, Record<number, number>>;
-
-const score = (value: number | null) =>
-  value === null ? 'N/A' : value.toFixed(1);
 
 export function LeaderboardTable({
   product,
@@ -285,7 +283,7 @@ export function LeaderboardTable({
                   </th>
                   <td data-label="Overall">
                     <strong className="overall-score">
-                      {score(row.overallScore)}
+                      {formatScore(row.overallScore)}
                     </strong>
                   </td>
                   {dimensionIds.map((dimension, index) => {
@@ -301,7 +299,7 @@ export function LeaderboardTable({
                         data-label={UI_DIMENSION_ABBREVIATIONS[dimension]}
                         data-heat-rank={heatRank}
                       >
-                        {score(scoreValue)}
+                        {formatScore(scoreValue)}
                       </td>
                     );
                   })}

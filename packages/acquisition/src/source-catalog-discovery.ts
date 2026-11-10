@@ -5,7 +5,7 @@ export interface CatalogEntry {
   version: string | null;
 }
 
-const directories: Record<string, string> = {
+export const SOURCE_CATALOG_URLS: Readonly<Record<string, string>> = {
   'artificial-analysis': 'https://artificialanalysis.ai/evaluations',
   'vals-ai': 'https://www.vals.ai/benchmarks',
   'surge-chartography': 'https://surgehq.ai/benchmarks',
@@ -111,7 +111,7 @@ export function discoverSourceCatalog(
   sourceId: string,
   html: string,
 ): CatalogEntry[] {
-  const directoryUrl = directories[sourceId];
+  const directoryUrl = SOURCE_CATALOG_URLS[sourceId];
   if (!directoryUrl) throw new Error(`Unsupported source catalog: ${sourceId}`);
   const directory = new URL(directoryUrl);
   const markup = html

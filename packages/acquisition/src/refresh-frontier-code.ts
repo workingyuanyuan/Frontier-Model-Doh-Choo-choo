@@ -1,17 +1,17 @@
+import { getWorkspaceRoot } from './workspace-root.js';
 import {
   acquireEvidenceResponse,
   recordCapturedEvidence,
 } from './source-processing.js';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join, resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 
 import {
   CandidateResultSchema,
   CostRecordSchema,
   EvidenceRecordSchema,
   SourceManifestSchema,
-  deterministicJson,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
@@ -28,23 +28,11 @@ import {
 } from './frontier-code-materializer.js';
 import { writeContentAddressedArtifact } from './index.js';
 import {
+  prettyDeterministicJson,
   previousSnapshotValue,
   snapshotDeltaMarkdown,
   writeMetadataJson,
 } from './refresh-utils.js';
-
-const prettyDeterministicJson = (value: unknown): string =>
-  `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
-
-const getWorkspaceRoot = (): string => {
-  let directory = process.cwd();
-  while (true) {
-    if (existsSync(join(directory, 'data'))) return directory;
-    const parent = dirname(directory);
-    if (parent === directory) throw new Error('Workspace root not found');
-    directory = parent;
-  }
-};
 
 const readExistingEvidence = async (
   path: string,

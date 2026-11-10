@@ -1,4 +1,4 @@
-import { spawn } from 'node:child_process';
+import { runSourceScript } from './source-script.js';
 import { readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -60,28 +60,8 @@ if (
           .filter((entry) => entry.isDirectory())
           .map((entry) => entry.name)
       : sources.split(',');
-  const result = await runSourceCommand(
-    root,
-    sourceIds,
-    () =>
-      new Promise<{ code: number; signal: NodeJS.Signals | null }>(
-        (resolveResult, reject) => {
-          const child = spawn(
-            process.execPath,
-            ['--import', 'tsx', script, ...args],
-            {
-              cwd: process.cwd(),
-              env: process.env,
-              stdio: 'inherit',
-              shell: false,
-            },
-          );
-          child.once('error', reject);
-          child.once('exit', (code, signal) =>
-            resolveResult({ code: code ?? 1, signal }),
-          );
-        },
-      ),
+  const result = await runSourceCommand(root, sourceIds, () =>
+    runSourceScript(script, args),
   );
   if (result.signal) process.kill(process.pid, result.signal);
   else process.exitCode = result.code;

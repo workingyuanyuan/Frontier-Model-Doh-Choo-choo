@@ -1,5 +1,5 @@
 import { runSourceCommand } from './process-source-command.js';
-import { spawn } from 'node:child_process';
+import { runSourceScript } from './source-script.js';
 import { basename, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
@@ -49,25 +49,7 @@ export const refreshWithAudit = async (
   const root = refreshRoot(script, args);
   const previousSnapshots = await readSourceSnapshots(root, sourceIds, true);
   return runSourceCommand(root, sourceIds, async () => {
-    const result = await new Promise<{
-      code: number;
-      signal: NodeJS.Signals | null;
-    }>((resolveResult, reject) => {
-      const child = spawn(
-        process.execPath,
-        ['--import', 'tsx', script, ...args],
-        {
-          cwd: process.cwd(),
-          env: process.env,
-          stdio: 'inherit',
-          shell: false,
-        },
-      );
-      child.once('error', reject);
-      child.once('exit', (code, signal) =>
-        resolveResult({ code: code ?? 1, signal }),
-      );
-    });
+    const result = await runSourceScript(script, args);
     if (result.code !== 0 || result.signal) return result;
     const audit = await monitorSources({ root, sourceIds, previousSnapshots });
     console.log(`Source change report: ${audit.reportPath}`);

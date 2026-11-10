@@ -1,9 +1,6 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { surgeVisualRowCount } from './surge-refresh-utils.js';
 import { join } from 'node:path';
-import {
-  SourceManifestSchema,
-  deterministicJson,
-} from '@llm-bench/benchmark-data';
+import { SourceManifestSchema } from '@llm-bench/benchmark-data';
 import {
   DAYJOB_FINANCE_PAGE_URL,
   materializeDayjobFinance,
@@ -11,19 +8,11 @@ import {
 import {
   captureArtifact,
   getWorkspaceRoot,
-  writeMetadataJson,
+  writeSourceSnapshot,
 } from './refresh-utils.js';
 
 async function main() {
-  const visualRowCount = Number(
-    process.argv
-      .find((arg) => arg.startsWith('--visual-row-count='))
-      ?.split('=')[1],
-  );
-  if (!Number.isInteger(visualRowCount) || visualRowCount < 1)
-    throw new Error(
-      'First verify the rendered DAYJOB Finance leaderboard, then pass --visual-row-count=<count>',
-    );
+  const visualRowCount = surgeVisualRowCount('DAYJOB Finance');
   const root = getWorkspaceRoot();
   const observedAt = new Date().toISOString();
   const page = await captureArtifact({
@@ -69,18 +58,12 @@ async function main() {
     ],
   });
   const directory = join(root, 'data', 'sources', 'surge-dayjob-finance');
-  await mkdir(directory, { recursive: true });
-  await writeMetadataJson(join(directory, 'manifest.json'), manifest);
-  await writeMetadataJson(join(directory, 'evidence-index.json'), [
-    page.record,
-  ]);
-  await writeFile(
-    join(directory, 'candidates.json'),
-    deterministicJson(result.candidates),
-  );
-  await writeFile(
-    join(directory, 'validation-report.md'),
-    result.validationReport,
+  await writeSourceSnapshot(
+    directory,
+    manifest,
+    [page.record],
+    result.candidates,
+    () => result.validationReport,
   );
   console.log(
     JSON.stringify({

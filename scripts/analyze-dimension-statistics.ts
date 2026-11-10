@@ -1,13 +1,11 @@
 /** Export canonical current evidence without invoking the coverage optimizer. */
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { loadWorkspaceCoverageData } from '../packages/benchmark-data/src/coverage-matrix.js';
 import {
-  applyProductProfilePolicy,
-  buildFrontierSet,
-  getComparisonOnlyBenchmarkIds,
-  selectCurrentResults,
-} from '../packages/benchmark-data/src/index.js';
+  loadWorkspaceCoverageData,
+  selectCoverageResults,
+} from '../packages/benchmark-data/src/coverage-matrix.js';
+import { buildFrontierSet } from '../packages/benchmark-data/src/index.js';
 
 async function main() {
   const root = resolve(process.argv[2] ?? '.');
@@ -21,25 +19,12 @@ async function main() {
       input.frontierConfig.qualificationWindowMonths ?? 12,
   });
   const qualifiedIds = new Set(qualified.map((m) => m.modelId));
-  const comparisonOnly = getComparisonOnlyBenchmarkIds(input.benchmarkMapping);
-  const whitelisted = input.sourceCandidates.filter(
-    (c) =>
-      input.whitelist.includes(c.sourceId) &&
-      !comparisonOnly.has(c.benchmarkId),
-  );
-  const policyCandidates = applyProductProfilePolicy(
-    whitelisted,
-    input.catalog,
-    input.profilePolicy,
-  );
-  const eligible = policyCandidates.filter(
-    (c) =>
-      c.inclusion === 'INCLUDED' &&
-      c.normalizedScore !== null &&
-      c.model.canonicalModelId !== null &&
-      c.model.profileId !== null,
-  );
-  const selected = selectCurrentResults(eligible);
+  const {
+    comparisonOnlyBenchmarkIds: comparisonOnly,
+    whitelistedCandidates: whitelisted,
+    eligibleCandidates: eligible,
+    selectedResults: selected,
+  } = selectCoverageResults(input);
   const mapping = new Map(
     input.benchmarkMapping.benchmarks
       .filter((b) => !b.comparisonOnly)

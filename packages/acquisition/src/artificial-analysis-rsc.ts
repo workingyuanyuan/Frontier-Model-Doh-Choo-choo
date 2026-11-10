@@ -6,6 +6,7 @@ import {
 } from '@llm-bench/benchmark-data';
 
 import {
+  asRecord,
   currentBuildCanonicalId,
   normalizeSourceEffort,
   parseEffort,
@@ -42,9 +43,6 @@ export const ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS = [
   // Terminal-Bench 4.0, also weighted in v5, integrated on 2026-10-29.
   'terminalbench-4-0',
 ] as const;
-
-export type ArtificialAnalysisEvaluationSlug =
-  (typeof ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS)[number];
 
 export type ArtificialAnalysisRow = Record<string, unknown>;
 
@@ -471,11 +469,6 @@ const V5_UNINTEGRATED = [
   'CritPt v2 Hard Subset (`critptAgenticHard`)',
   'AA FrontierCode 1.1 (`frontierCode`)',
 ] as const;
-
-const asRecord = (value: unknown): ArtificialAnalysisRow | null =>
-  typeof value === 'object' && value !== null && !Array.isArray(value)
-    ? (value as ArtificialAnalysisRow)
-    : null;
 
 export const isArtificialAnalysisValuePresent = (
   value: unknown,

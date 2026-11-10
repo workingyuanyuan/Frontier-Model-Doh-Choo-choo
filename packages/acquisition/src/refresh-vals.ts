@@ -4,8 +4,6 @@ import { join, resolve } from 'node:path';
 
 import {
   BenchmarkDimensionMappingSchema,
-  type CandidateResult,
-  type CostRecord,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
@@ -24,7 +22,7 @@ import {
   captureArtifact,
   getWorkspaceRoot,
   readJson,
-  readText,
+  readOptionalSnapshotComparison,
 } from './refresh-utils.js';
 
 const PAGE_URL = (slug: string): string =>
@@ -99,15 +97,8 @@ async function main() {
   const root = resolve(rootArgument ?? getWorkspaceRoot());
   const retrievedAt = new Date().toISOString();
   const sourceDirectory = join(root, 'data', 'sources', VALS_SOURCE_ID);
-  const previousCandidates = await readJson<CandidateResult[]>(
-    join(sourceDirectory, 'candidates.json'),
-  ).catch(() => [] as CandidateResult[]);
-  const previousCosts = await readJson<CostRecord[]>(
-    join(sourceDirectory, 'costs.json'),
-  ).catch(() => [] as CostRecord[]);
-  const previousReport = await readText(
-    join(sourceDirectory, 'validation-report.md'),
-  ).catch(() => '');
+  const { previousCandidates, previousCosts, previousReport } =
+    await readOptionalSnapshotComparison(sourceDirectory);
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
     await readJson(join(root, 'data', 'mappings', 'benchmarks.json')),
   );
