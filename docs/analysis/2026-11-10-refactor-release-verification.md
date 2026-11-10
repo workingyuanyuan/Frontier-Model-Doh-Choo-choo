@@ -38,7 +38,7 @@ main 在本分支建立後新增的 BioBasicsBench／MaxxBench 程式已使用�
 
 ## 驗證與獨立抽查
 
-rebase 後：`pnpm lint`、`pnpm typecheck` 退出碼均為 0；release 單元測試 915 項（acquisition 558、bench 184、benchmark-data 173）與 116 項 e2e 通過。
+rebase 後：`pnpm lint`、`pnpm typecheck` 退出碼均為 0；release 測試 950 項（workspace 單元測試 915：acquisition 558、bench 184、benchmark-data 173；scripts 35）與 116 項 e2e 通過。
 
 ### rebase 前驗證
 
