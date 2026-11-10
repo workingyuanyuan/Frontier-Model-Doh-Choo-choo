@@ -1,12 +1,9 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
-import { existsSync } from 'node:fs';
 import {
-  CandidateResultSchema,
-  EvidenceRecordSchema,
-  SourceManifestSchema,
-  deterministicJson,
-} from '@llm-bench/benchmark-data';
+  readSurgeBaseline,
+  surgeVisualRowCount,
+} from './surge-refresh-utils.js';
+import { join } from 'node:path';
+import { SourceManifestSchema } from '@llm-bench/benchmark-data';
 import {
   COMPLEX_CONSTRAINTS_PAGE_URL,
   materializeComplexConstraints,
@@ -14,47 +11,18 @@ import {
 import {
   captureArtifact,
   getWorkspaceRoot,
-  writeMetadataJson,
+  writeSourceSnapshot,
 } from './refresh-utils.js';
 import { retainSurgeRows, surgeRetentionReport } from './surge-version.js';
 
 async function main() {
-  const visualRowCount = Number(
-    process.argv
-      .find((arg) => arg.startsWith('--visual-row-count='))
-      ?.split('=')[1],
-  );
-  if (!Number.isInteger(visualRowCount) || visualRowCount < 1)
-    throw new Error(
-      'First verify the rendered ComplexConstraints leaderboard, then pass --visual-row-count=<count>',
-    );
+  const visualRowCount = surgeVisualRowCount('ComplexConstraints');
   const root = getWorkspaceRoot();
   const directory = join(root, 'data', 'sources', 'surge-complex-constraints');
-  const baselineOption = process.argv
-    .find((arg) => arg.startsWith('--baseline-directory='))
-    ?.slice('--baseline-directory='.length);
-  const baseline = baselineOption ? resolve(root, baselineOption) : directory;
-  if (
-    baselineOption &&
-    (!existsSync(join(baseline, 'candidates.json')) ||
-      !existsSync(join(baseline, 'evidence-index.json')))
-  ) {
-    throw new Error(
-      'Baseline directory must contain candidates.json and evidence-index.json',
-    );
-  }
-  const previousCandidates = existsSync(join(baseline, 'candidates.json'))
-    ? CandidateResultSchema.array().parse(
-        JSON.parse(await readFile(join(baseline, 'candidates.json'), 'utf8')),
-      )
-    : [];
-  const previousEvidence = existsSync(join(baseline, 'evidence-index.json'))
-    ? EvidenceRecordSchema.array().parse(
-        JSON.parse(
-          await readFile(join(baseline, 'evidence-index.json'), 'utf8'),
-        ),
-      )
-    : [];
+  const { previousCandidates, previousEvidence } = await readSurgeBaseline(
+    root,
+    directory,
+  );
   const observedAt = new Date().toISOString();
   const page = await captureArtifact({
     root,
@@ -104,19 +72,13 @@ async function main() {
       `Current rendered rows: ${result.visibleRows}; preserved rows omitted from the current leaderboard: ${merged.retained.length}. Preserved rows keep their original version, observedAt, scores and Evidence; they are not current-version reruns.`,
     ],
   });
-  await mkdir(directory, { recursive: true });
-  await writeMetadataJson(join(directory, 'manifest.json'), manifest);
-  await writeMetadataJson(
-    join(directory, 'evidence-index.json'),
+  await writeSourceSnapshot(
+    directory,
+    manifest,
     merged.evidence,
-  );
-  await writeFile(
-    join(directory, 'candidates.json'),
-    deterministicJson(merged.candidates),
-  );
-  await writeFile(
-    join(directory, 'validation-report.md'),
-    surgeRetentionReport(result.validationReport, result.visibleRows, merged),
+    merged.candidates,
+    () =>
+      surgeRetentionReport(result.validationReport, result.visibleRows, merged),
   );
   console.log(
     JSON.stringify({

@@ -1,21 +1,17 @@
 import {
+  resolveSurgeModel,
+  surgeLeaderboardRows,
+  surgeRowIdentity,
+  surgeText as text,
+} from './surge-materializer-utils.js';
+import {
   CandidateResultSchema,
   type CandidateResult,
 } from '@llm-bench/benchmark-data';
-import { resolveCatalogModel, slugify } from './materializer-utils.js';
+import { slugify } from './materializer-utils.js';
 
 export const CHARTOGRAPHY_PAGE_URL =
   'https://surgehq.ai/benchmarks/chartography';
-
-const text = (html: string): string =>
-  html
-    .replace(/<[^>]*>/gu, ' ')
-    .replace(/&nbsp;|&#160;/gu, ' ')
-    .replace(/&amp;/gu, '&')
-    .replace(/&quot;/gu, '"')
-    .replace(/&#39;|&apos;/gu, "'")
-    .replace(/\s+/gu, ' ')
-    .trim();
 
 function configuration(name: string) {
   const label = name.match(/\(([^()]*)\)$/u)?.[1] ?? null;
@@ -65,44 +61,14 @@ export function materializeChartography(
   ) {
     throw new Error('Chartography page marker missing');
   }
-  const sections = [
-    ...html.matchAll(
-      /<section\b[^>]*class="[^"]*\blead-main\b[^"]*"[^>]*>([\s\S]*?)<\/section>/gu,
-    ),
-  ];
-  if (sections.length !== 1)
-    throw new Error('Expected one Chartography main leaderboard');
-  const section = sections[0]![1]!;
-  if ((section.match(/data-leaderboard-table=""/gu) ?? []).length !== 1) {
-    throw new Error('Expected one Chartography leaderboard table');
-  }
-  if (/w-pagination-next|fs-list-element="pagination"/u.test(section)) {
-    throw new Error('Chartography pagination requires review');
-  }
-  const rows = section
-    .split(/<div\b[^>]*data-leaderboard-row=""[^>]*>/u)
-    .slice(1);
-  if (
-    !Number.isInteger(context.visualRowCount) ||
-    context.visualRowCount < 1 ||
-    rows.length !== context.visualRowCount
-  ) {
-    throw new Error(
-      `Chartography row count mismatch: extracted ${rows.length}, rendered ${context.visualRowCount}`,
-    );
-  }
+  const rows = surgeLeaderboardRows(
+    html,
+    context.visualRowCount,
+    'Chartography',
+  );
   const candidates = rows
     .map((row, index) => {
-      const brand = text(
-        row.match(
-          /class="head-rank-table-brand"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/u,
-        )?.[1] ?? '',
-      );
-      const name = text(
-        row.match(
-          /class="head-rank-table-name"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/u,
-        )?.[1] ?? '',
-      );
+      const { brand, name } = surgeRowIdentity(row);
       const scores = [
         ...row.matchAll(
           /<div\b[^>]*data-score="([^"]*)"[^>]*>([\s\S]*?)<\/div>/gu,
@@ -131,13 +97,7 @@ export function materializeChartography(
           ? name
           : `${brand} ${name}`;
       const config = configuration(rawName);
-      // The source inserts a space in Qwen's model family; keep all version,
-      // size and variant tokens when resolving that typographic difference.
-      const lookupName = config.modelName.replace(/^Qwen (?=\d)/u, 'Qwen');
-      const model = resolveCatalogModel(config.modelName);
-      const canonicalModelId =
-        model.canonicalModelId ??
-        resolveCatalogModel(lookupName).canonicalModelId;
+      const canonicalModelId = resolveSurgeModel(config.modelName);
       const locator = `.lead-main [data-leaderboard-row] (zero-based index ${index})`;
       return CandidateResultSchema.parse({
         schemaVersion: 'candidate-result-v1',

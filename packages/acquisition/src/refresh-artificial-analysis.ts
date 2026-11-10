@@ -1,3 +1,4 @@
+import { getWorkspaceRoot } from './workspace-root.js';
 import {
   acquireEvidenceResponse,
   EvidencePersistenceError,
@@ -6,12 +7,10 @@ import {
 import { AcquisitionLimitError } from './acquisition-policy.js';
 import { acquisitionClient } from './safe-network.js';
 import { readFile, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 import {
   EvidenceRecordSchema,
-  deterministicJson,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
@@ -27,6 +26,8 @@ import {
 } from './artificial-analysis-rsc.js';
 import { writeContentAddressedArtifact } from './index.js';
 import {
+  readJson,
+  prettyDeterministicJson,
   previousSnapshotValue,
   snapshotDeltaMarkdown,
   writeMetadataJson,
@@ -37,22 +38,6 @@ const API_URL = 'https://artificialanalysis.ai/api/v2/data/llms/models';
 const ARTICLE_URL = 'https://artificialanalysis.ai/articles/gpt-5-6-has-landed';
 const SOURCE_ID = 'artificial-analysis';
 const DETAIL_CONCURRENCY = 8;
-
-const getWorkspaceRoot = (): string => {
-  let directory = process.cwd();
-  while (true) {
-    if (existsSync(join(directory, 'data'))) return directory;
-    const parent = resolve(directory, '..');
-    if (parent === directory) throw new Error('Workspace root not found');
-    directory = parent;
-  }
-};
-
-const readJson = async <T>(path: string): Promise<T> =>
-  JSON.parse(await readFile(path, 'utf8')) as T;
-
-const prettyDeterministicJson = (value: unknown): string =>
-  `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
 
 const responseMediaType = (contentType: string | null, fallback: string) => {
   if (contentType?.includes('json')) return 'application/json';

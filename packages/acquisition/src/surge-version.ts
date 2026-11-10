@@ -1,4 +1,5 @@
 import {
+  CandidateResultSchema,
   type CandidateResult,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
@@ -87,5 +88,31 @@ export function retainSurgeRows(
     candidates,
     retained,
     evidence: [...ids].toSorted().map((id) => records.get(id)!),
+  };
+}
+
+export function retainSurgeSnapshot(
+  result: {
+    candidates: CandidateResult[];
+    validationReport: string;
+    visibleRows: number;
+  },
+  previousCandidatesJson: string | undefined,
+  evidence: EvidenceRecord[],
+) {
+  const merged = retainSurgeRows(
+    result.candidates,
+    CandidateResultSchema.array().parse(
+      JSON.parse(previousCandidatesJson ?? '[]'),
+    ),
+    evidence,
+  );
+  return {
+    candidates: merged.candidates,
+    validationReport: surgeRetentionReport(
+      result.validationReport,
+      result.visibleRows,
+      merged,
+    ),
   };
 }

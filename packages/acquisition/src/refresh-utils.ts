@@ -1,12 +1,14 @@
-import { existsSync } from 'node:fs';
-import { readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { readJson } from '@llm-bench/benchmark-data/node-utils';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { format, resolveConfig } from 'prettier';
 
 import {
   EvidenceRecordSchema,
   deterministicJson,
   type EvidenceRecord,
+  type CandidateResult,
+  type CostRecord,
 } from '@llm-bench/benchmark-data';
 
 import { writeContentAddressedArtifact } from './index.js';
@@ -15,18 +17,9 @@ import {
   recordCapturedEvidence,
 } from './source-processing.js';
 
-export const getWorkspaceRoot = (): string => {
-  let directory = process.cwd();
-  while (true) {
-    if (existsSync(join(directory, 'data'))) return directory;
-    const parent = dirname(directory);
-    if (parent === directory) throw new Error('Workspace root not found');
-    directory = parent;
-  }
-};
+export { getWorkspaceRoot } from './workspace-root.js';
 
-export const readJson = async <T>(path: string): Promise<T> =>
-  JSON.parse(await readFile(path, 'utf8')) as T;
+export { readJson } from '@llm-bench/benchmark-data/node-utils';
 
 export const readText = async (path: string): Promise<string> =>
   readFile(path, 'utf8');
@@ -134,3 +127,48 @@ export const snapshotDeltaMarkdown = (
     'Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.',
     '',
   ].join('\n');
+
+export const writeSourceSnapshot = async (
+  directory: string,
+  manifest: unknown,
+  evidence: EvidenceRecord[],
+  candidates: CandidateResult[],
+  validationReport: () => string,
+): Promise<void> => {
+  await mkdir(directory, { recursive: true });
+  await writeMetadataJson(join(directory, 'manifest.json'), manifest);
+  await writeMetadataJson(join(directory, 'evidence-index.json'), evidence);
+  await writeFile(
+    join(directory, 'candidates.json'),
+    deterministicJson(candidates),
+  );
+  await writeFile(join(directory, 'validation-report.md'), validationReport());
+};
+
+export async function readRequiredSnapshotComparison(directory: string) {
+  const previousCandidates = await readJson<CandidateResult[]>(
+    join(directory, 'candidates.json'),
+  );
+  const previousCosts = await readJson<CostRecord[]>(
+    join(directory, 'costs.json'),
+  );
+  const previousReport = await readText(
+    join(directory, 'validation-report.md'),
+  );
+  return { previousCandidates, previousCosts, previousReport };
+}
+
+export async function readOptionalSnapshotComparison(directory: string) {
+  const previousCandidates = await readJson<CandidateResult[]>(
+    join(directory, 'candidates.json'),
+  ).catch(() => [] as CandidateResult[]);
+
+  const previousCosts = await readJson<CostRecord[]>(
+    join(directory, 'costs.json'),
+  ).catch(() => [] as CostRecord[]);
+
+  const previousReport = await readText(
+    join(directory, 'validation-report.md'),
+  ).catch(() => '');
+  return { previousCandidates, previousCosts, previousReport };
+}

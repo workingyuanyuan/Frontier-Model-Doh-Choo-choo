@@ -1,8 +1,6 @@
-import {
-  latestSurgeEvidence,
-  retainSurgeRows,
-  surgeRetentionReport,
-} from './surge-version.js';
+import { prettyDeterministicJson } from './refresh-utils.js';
+import { getWorkspaceRoot } from './workspace-root.js';
+import { latestSurgeEvidence, retainSurgeSnapshot } from './surge-version.js';
 import { createHash } from 'node:crypto';
 import {
   GDP_XLSX_PAGE_URL,
@@ -32,7 +30,7 @@ import {
   COMPLEX_CONSTRAINTS_PAGE_URL,
   materializeComplexConstraints,
 } from './surge-complex-constraints-materializer.js';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { performance } from 'node:perf_hooks';
 import { pathToFileURL } from 'node:url';
 import { EvidenceStore } from './evidence-store.js';
@@ -44,7 +42,7 @@ import {
   type SourceFiles,
   type ProcessingStats,
 } from './source-processing.js';
-import { resolve, join, dirname } from 'node:path';
+import { resolve, join } from 'node:path';
 import {
   CHARTOGRAPHY_PAGE_URL,
   materializeChartography,
@@ -102,23 +100,6 @@ import {
   renderEffortInferenceSection,
   upsertEffortInferenceSection,
 } from './effort-inference-report.js';
-
-const prettyDeterministicJson = (value: unknown): string =>
-  `${JSON.stringify(JSON.parse(deterministicJson(value)), null, 2)}\n`;
-
-function getWorkspaceRoot(): string {
-  let dir = process.cwd();
-  while (true) {
-    if (existsSync(join(dir, 'data'))) {
-      return dir;
-    }
-    const parent = dirname(dir);
-    if (parent === dir) {
-      throw new Error('Workspace root not found');
-    }
-    dir = parent;
-  }
-}
 
 function getAAReport(
   extractedCount: number,
@@ -448,19 +429,12 @@ export function materializeSnapshots(
               observedAt: page.retrievedAt,
               visualRowCount: Number(page.metadata?.renderedRows),
             });
-            const merged = retainSurgeRows(
-              result.candidates,
-              CandidateResultSchema.array().parse(
-                JSON.parse(baseline['candidates.json'] ?? '[]'),
-              ),
-              evidenceList,
-            );
-            candidates = merged.candidates;
-            customReportText = surgeRetentionReport(
-              result.validationReport,
-              result.visibleRows,
-              merged,
-            );
+            ({ candidates, validationReport: customReportText } =
+              retainSurgeSnapshot(
+                result,
+                baseline['candidates.json'],
+                evidenceList,
+              ));
           } else if (src.id === 'surge-corecraft') {
             const page = evidenceFor(CORECRAFT_PAGE_URL);
             const result = materializeCorecraft(evidenceText(page), {
@@ -477,19 +451,12 @@ export function materializeSnapshots(
               observedAt: page.retrievedAt,
               visualRowCount: Number(page.metadata?.renderedRows),
             });
-            const merged = retainSurgeRows(
-              result.candidates,
-              CandidateResultSchema.array().parse(
-                JSON.parse(baseline['candidates.json'] ?? '[]'),
-              ),
-              evidenceList,
-            );
-            candidates = merged.candidates;
-            customReportText = surgeRetentionReport(
-              result.validationReport,
-              result.visibleRows,
-              merged,
-            );
+            ({ candidates, validationReport: customReportText } =
+              retainSurgeSnapshot(
+                result,
+                baseline['candidates.json'],
+                evidenceList,
+              ));
           } else if (src.id === 'surge-dayjob-finance') {
             const page = evidenceFor(DAYJOB_FINANCE_PAGE_URL);
             const result = materializeDayjobFinance(evidenceText(page), {

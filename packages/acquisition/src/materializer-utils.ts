@@ -1,5 +1,6 @@
-import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { getWorkspaceRoot } from './workspace-root.js';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
 const exactModelMappings = {
   'epoch-ai': {
@@ -185,20 +186,6 @@ const exactModelMappings = {
     },
   },
 } as const;
-
-function getWorkspaceRoot(): string {
-  let dir = process.cwd();
-  while (true) {
-    if (existsSync(join(dir, 'data'))) {
-      return dir;
-    }
-    const parent = dirname(dir);
-    if (parent === dir) {
-      throw new Error('Workspace root not found');
-    }
-    dir = parent;
-  }
-}
 
 interface ModelCatalogItem {
   modelId: string;
@@ -561,3 +548,8 @@ export function parseCsv(text: string): string[][] {
   }
   return rows;
 }
+
+export const asRecord = (value: unknown): Record<string, unknown> | null =>
+  typeof value === 'object' && value !== null && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : null;

@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { format } from 'prettier';
 import {
@@ -15,8 +15,13 @@ import {
   COMPOSITE_VALS_SLUGS,
 } from './vals-materializer.js';
 import { acquisitionClient } from './safe-network.js';
-import { captureArtifact, writeMetadataJson } from './refresh-utils.js';
 import {
+  readJson as json,
+  captureArtifact,
+  writeMetadataJson,
+} from './refresh-utils.js';
+import {
+  SOURCE_CATALOG_URLS,
   discoverSourceCatalog,
   type CatalogEntry,
 } from './source-catalog-discovery.js';
@@ -65,18 +70,7 @@ interface SourceReport {
     }
   >;
 }
-const CATALOG_URLS: Readonly<Record<string, string>> = {
-  'artificial-analysis': 'https://artificialanalysis.ai/evaluations',
-  'vals-ai': 'https://www.vals.ai/benchmarks',
-  'surge-chartography': 'https://surgehq.ai/benchmarks',
-  'surge-complex-constraints': 'https://surgehq.ai/benchmarks',
-  'surge-corecraft': 'https://surgehq.ai/benchmarks',
-  'surge-riemann': 'https://surgehq.ai/benchmarks',
-  'surge-dayjob-finance': 'https://surgehq.ai/benchmarks',
-  'surge-dayjob-healthcare': 'https://surgehq.ai/benchmarks',
-  'surge-dayjob-tax': 'https://surgehq.ai/benchmarks',
-  'surge-gdp-xlsx': 'https://surgehq.ai/benchmarks',
-};
+
 const SURGE_ADAPTERS = {
   chartography: {
     sourceId: 'surge-chartography',
@@ -117,8 +111,6 @@ const isSurgeSource = (sourceId: string): boolean =>
   );
 const sorted = (values: Iterable<string>): string[] =>
   [...new Set(values)].sort();
-const json = async <T>(path: string): Promise<T> =>
-  JSON.parse(await readFile(path, 'utf8')) as T;
 async function optionalJson<T>(path: string): Promise<T | null> {
   try {
     return await json<T>(path);
@@ -435,7 +427,7 @@ export async function monitorSources(input: {
       snapshotObservedAt: null,
       scope: input.offline
         ? 'offline-snapshot'
-        : CATALOG_URLS[sourceId]
+        : SOURCE_CATALOG_URLS[sourceId]
           ? 'live-catalog-and-snapshot'
           : 'snapshot-only',
       findings: [],
@@ -455,7 +447,7 @@ export async function monitorSources(input: {
       );
       let catalog = previous?.catalog ?? null;
       let evidence = previous?.evidence ?? null;
-      const url = CATALOG_URLS[sourceId];
+      const url = SOURCE_CATALOG_URLS[sourceId];
       if (url && !input.offline) {
         const capture = await captureArtifact({
           root,

@@ -39,10 +39,6 @@ export const ZAPIER_UNRESOLVED_EFFORT_REASON_PREFIX =
 
 export const ZAPIER_PROMO_NOTE =
   '*Promotional pricing is available for both Gemini models; Ranking and Cost / task reflect standard list pricing. Gemini 3.7 Flash: $0.30 / task through Dec 31, 2026. Gemini 3.8 Flash: $0.27 (Medium) / $0.31 (High) per task.';
-export const ZAPIER_FALLBACK_NOTE =
-  "§ Rank 5 is Fable 5.1 with an Opus 5 fallback: when Fable 5.1's safety classifier refuses a step, Opus 5 completes it and Fable finishes the task. Opus 5 handled ~40% of tasks (260 of 657); the 31.4% score includes those fallback completions. Cost/task shown is Fable 5.1 alone and excludes fallback tokens, so the true combo cost is higher.";
-export const ZAPIER_DEEPSEEK_NOTE =
-  '‡DeepSeek V4 Flash priced at Fireworks rates ($0.14 / task uncached, $0.04 cached).';
 export const ZAPIER_DEDICATED_NOTE =
   '†Dedicated-deployment pricing; not directly comparable to per-token API cost.';
 

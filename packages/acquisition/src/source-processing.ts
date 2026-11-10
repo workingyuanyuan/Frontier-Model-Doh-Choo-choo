@@ -146,14 +146,6 @@ export const publishSourceFiles = (
   }
 };
 
-export const publishSourceDirectories = (
-  root: string,
-  sourceIds: readonly string[],
-): void => {
-  for (const sourceId of sourceIds)
-    publishSourceFiles(root, sourceId, readSourceFiles(root, sourceId));
-};
-
 export interface ProcessingStats {
   hits: number;
   misses: number;

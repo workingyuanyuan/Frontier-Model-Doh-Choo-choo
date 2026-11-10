@@ -4,8 +4,6 @@ import { join, resolve } from 'node:path';
 import {
   SourceManifestSchema,
   deterministicJson,
-  type CandidateResult,
-  type CostRecord,
 } from '@llm-bench/benchmark-data';
 
 import { materializeDeepSwe } from './deepswe-materializer.js';
@@ -15,8 +13,7 @@ import {
   getWorkspaceRoot,
   prettyDeterministicJson,
   writeMetadataJson,
-  readJson,
-  readText,
+  readRequiredSnapshotComparison,
   previousSnapshotValue,
   snapshotDeltaMarkdown,
 } from './refresh-utils.js';
@@ -44,15 +41,8 @@ async function main() {
   }
   const retrievedAt = new Date().toISOString();
   const sourceDirectory = join(root, 'data', 'sources', SOURCE_ID);
-  const previousCandidates = await readJson<CandidateResult[]>(
-    join(sourceDirectory, 'candidates.json'),
-  );
-  const previousCosts = await readJson<CostRecord[]>(
-    join(sourceDirectory, 'costs.json'),
-  );
-  const previousReport = await readText(
-    join(sourceDirectory, 'validation-report.md'),
-  );
+  const { previousCandidates, previousCosts, previousReport } =
+    await readRequiredSnapshotComparison(sourceDirectory);
   const previousModels = new Set(
     previousCandidates.map(({ model }) => model.rawName),
   ).size;
