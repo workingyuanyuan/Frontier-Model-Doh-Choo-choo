@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-10T00:01:15.235Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "aime",
-        "includedRows": 314,
+        "includedRows": 315,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -78,6 +78,7 @@
           "[\"Claude Fable 5 (low)\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5.1 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5.2 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -392,6 +393,7 @@
           "Claude Fable 5 (low)",
           "Claude Fable 5 (max)",
           "Claude Fable 5.1 (max)",
+          "Claude Fable 5.2 (max)",
           "Claude Haiku 5.5 (high)",
           "Claude Haiku 5.5 (xhigh)",
           "Claude Opus 4",
@@ -675,13 +677,13 @@
           "qwen3.5-4b_none",
           "seed-oss-36b-instruct"
         ],
-        "rows": 314,
+        "rows": 315,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
       {
         "id": "chess-puzzles",
-        "includedRows": 160,
+        "includedRows": 161,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -742,6 +744,7 @@
           "[\"Claude Fable 5 (low)\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5.1 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5.2 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 4.5 (59k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (low)\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -906,6 +909,7 @@
           "Claude Fable 5 (low)",
           "Claude Fable 5 (max)",
           "Claude Fable 5.1 (max)",
+          "Claude Fable 5.2 (max)",
           "Claude Haiku 4.5 (59k thinking)",
           "Claude Haiku 5.5 (low)",
           "Claude Haiku 5.5 (max)",
@@ -1055,7 +1059,7 @@
           "o4-mini (low)",
           "o4-mini (medium)"
         ],
-        "rows": 162,
+        "rows": 163,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -1098,6 +1102,7 @@
           "moonshot-kimi-k2-6",
           "moonshot-kimi-k2-7-code",
           "moonshot-kimi-k3",
+          "moonshot-kimi-k3-1-pro",
           "nvidia-nemotron-3-ultra",
           "openai-gpt-5-2",
           "openai-gpt-5-2-pro",
@@ -1138,6 +1143,7 @@
           "[\"Claude 3.7 Sonnet\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5.1\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5.2\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 4.5\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Instant\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1270,6 +1276,7 @@
           "[\"Kimi K2.6\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Kimi K2.7 Code\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Kimi K3\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Kimi K3.1 Pro\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"LLaMA-13B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"LLaMA-33B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"LLaMA-65B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1393,6 +1400,7 @@
           "Claude 3.7 Sonnet",
           "Claude Fable 5",
           "Claude Fable 5.1",
+          "Claude Fable 5.2",
           "Claude Haiku 4.5",
           "Claude Haiku 5.5",
           "Claude Instant",
@@ -1525,6 +1533,7 @@
           "Kimi K2.6",
           "Kimi K2.7 Code",
           "Kimi K3",
+          "Kimi K3.1 Pro",
           "LLaMA-13B",
           "LLaMA-33B",
           "LLaMA-65B",
@@ -1633,7 +1642,7 @@
           "phi-3-small 7.4B",
           "vicuna-13b-v1.1"
         ],
-        "rows": 253,
+        "rows": 255,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2046,7 +2055,7 @@
       },
       {
         "id": "gpqa-diamond",
-        "includedRows": 334,
+        "includedRows": 335,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -2114,6 +2123,7 @@
           "[\"Claude Fable 5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5 (low)\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5.2 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4.5 (16k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2448,6 +2458,7 @@
           "Claude Fable 5 (high)",
           "Claude Fable 5 (low)",
           "Claude Fable 5 (max)",
+          "Claude Fable 5.2 (max)",
           "Claude Haiku 5.5 (max)",
           "Claude Opus 4",
           "Claude Opus 4.5 (16k thinking)",
@@ -2752,7 +2763,7 @@
           "qwq-plus",
           "seed-oss-36b-instruct"
         ],
-        "rows": 334,
+        "rows": 335,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2987,7 +2998,7 @@
       },
       {
         "id": "simpleqa-verified",
-        "includedRows": 101,
+        "includedRows": 102,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -3043,6 +3054,7 @@
         "profiles": [
           "[\"Claude Fable 5 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5.1 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5.2 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4.5 (32k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4.6 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -3146,6 +3158,7 @@
         "rawLabels": [
           "Claude Fable 5 (xhigh)",
           "Claude Fable 5.1 (max)",
+          "Claude Fable 5.2 (max)",
           "Claude Haiku 5.5 (max)",
           "Claude Opus 4.5 (32k thinking)",
           "Claude Opus 4.6 (max)",
@@ -3246,7 +3259,7 @@
           "o4-mini (high)",
           "o4-mini (low)"
         ],
-        "rows": 101,
+        "rows": 102,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3347,7 +3360,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-08T14:11:07.139Z",
+    "observedAt": "2026-11-10T00:01:13.974Z",
     "sourceId": "epoch-ai"
   }
 }

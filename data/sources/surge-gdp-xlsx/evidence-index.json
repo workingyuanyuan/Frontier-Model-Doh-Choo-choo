@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/5f/5f8c1efc5eed4727d18a9c8dca266b6df8c21c4c2c3ab1e71096a55915d5d59d.html",
+    "artifactPath": "artifacts/sha256/ce/ce148ef8169bb447fe9f2d1b13b0d45c25c498a0f8b3f75b048fba51849485c2.html",
     "byteLength": 393134,
     "finalUrl": "https://surgehq.ai/benchmarks/gdp-xlsx",
-    "id": "sha256:5f8c1efc5eed4727d18a9c8dca266b6df8c21c4c2c3ab1e71096a55915d5d59d",
+    "id": "sha256:ce148ef8169bb447fe9f2d1b13b0d45c25c498a0f8b3f75b048fba51849485c2",
     "mediaType": "text/html",
     "metadata": {
       "renderedRows": 20,
@@ -11,9 +11,9 @@
     },
     "method": "DOM",
     "requestUrl": "https://surgehq.ai/benchmarks/gdp-xlsx",
-    "retrievedAt": "2026-11-08T14:17:32.362Z",
+    "retrievedAt": "2026-11-10T00:08:58.602Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5f8c1efc5eed4727d18a9c8dca266b6df8c21c4c2c3ab1e71096a55915d5d59d",
+    "sha256": "sha256:ce148ef8169bb447fe9f2d1b13b0d45c25c498a0f8b3f75b048fba51849485c2",
     "sourceId": "surge-gdp-xlsx"
   }
 ]

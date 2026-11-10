@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-10T00:01:24.285Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "arc-agi-2",
-        "includedRows": 284,
+        "includedRows": 289,
         "metrics": ["score:fraction:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -77,6 +77,11 @@
           "[\"Claude Fable 5.1 (Max)\",\"max\",null,null,null,null,null,null]",
           "[\"Claude Fable 5.1 (Medium)\",\"medium\",null,null,null,null,null,null]",
           "[\"Claude Fable 5.1 (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"Claude Fable 5.2 (High)\",\"high\",null,null,null,null,null,null]",
+          "[\"Claude Fable 5.2 (Low)\",\"low\",null,null,null,null,null,null]",
+          "[\"Claude Fable 5.2 (Max)\",\"max\",null,null,null,null,null,null]",
+          "[\"Claude Fable 5.2 (Medium)\",\"medium\",null,null,null,null,null,null]",
+          "[\"Claude Fable 5.2 (XHigh)\",\"xhigh\",null,null,null,null,null,null]",
           "[\"Claude Haiku 4.5 (Thinking 16K)\",null,null,null,null,null,null,null]",
           "[\"Claude Haiku 4.5 (Thinking 1K)\",null,null,null,null,null,null,null]",
           "[\"Claude Haiku 4.5 (Thinking 32K)\",null,null,null,null,null,null,null]",
@@ -371,6 +376,11 @@
           "Claude Fable 5.1 (Max)",
           "Claude Fable 5.1 (Medium)",
           "Claude Fable 5.1 (XHigh)",
+          "Claude Fable 5.2 (High)",
+          "Claude Fable 5.2 (Low)",
+          "Claude Fable 5.2 (Max)",
+          "Claude Fable 5.2 (Medium)",
+          "Claude Fable 5.2 (XHigh)",
           "Claude Haiku 4.5",
           "Claude Haiku 4.5 (Thinking 16K)",
           "Claude Haiku 4.5 (Thinking 1K)",
@@ -641,12 +651,12 @@
           "o4-mini (Low)",
           "o4-mini (Medium)"
         ],
-        "rows": 292,
+        "rows": 297,
         "sourceUrls": ["https://arcprize.org/leaderboard"],
         "versions": ["ARC-AGI-2-v2_Semi_Private"]
       }
     ],
-    "observedAt": "2026-11-08T14:11:10.957Z",
+    "observedAt": "2026-11-10T00:01:20.679Z",
     "sourceId": "arc-prize"
   }
 }

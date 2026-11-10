@@ -3,25 +3,25 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:35063199ae8dfefb59947face88370e7b53fc17609cc1bcd0eb82dc29f59f4b3`
+- Page/JSON-LD evidence: `sha256:4b18605e868b1bdf262ef4b29a87a44c7eda0f34dfa40b75f2b2b024ba8e6f05`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:96615ddfc3ff0257a5e0324d1ab7b5f8f0731b411cb002ab0a592957fd35eabe`
+- 2.0 export evidence: `sha256:7c6e17eac33f887d9f334877014c7fdcf3e444b51abb2cb2e957415d213e9b6c`
 
 | Check | Count |
 |---|---:|
-| 2.0 visible models | 29 |
-| 2.0 Main configurations | 110 |
-| 2.0 configurations with costs (materialized, INCLUDED) | 110 |
-| 2.0 models with multiple efforts | 27 |
+| 2.0 visible models | 30 |
+| 2.0 Main configurations | 115 |
+| 2.0 configurations with costs (materialized, INCLUDED) | 115 |
+| 2.0 models with multiple efforts | 28 |
 | 2.0 hidden export models | 0 |
 | 2.0 canonically unresolved models | 8 |
 
-- Rendered Best reasoning mode rows: 29; All reasoning levels rows: 110; both equal the export after removing the page's hidden models (none).
+- Rendered Best reasoning mode rows: 30; All reasoning levels rows: 115; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
 - The rendered Top 10 matched the JSON-LD and export: yes.
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
@@ -68,7 +68,7 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
-| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-102:1-0-6 |
+| MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 

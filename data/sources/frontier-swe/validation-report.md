@@ -1,8 +1,8 @@
 # FrontierSWE V2 acquisition validation
 
 - Source: <https://www.frontierswe.com/>
-- Evidence: `sha256:1e0472b5ef82a221b0805a2538ff9b74a48c66a4004e9358d11c68b42e11b62f`
-- Complete mean@5 configurations: 23; coverage matrix identities matched.
+- Evidence: `sha256:fe2f95b99d525b2792ebbab5437114928abae141cacc3fd4553b14db3730a6b4`
+- Complete mean@5 configurations: 24; coverage matrix identities matched.
 - Server-rendered leaderboard rows cross-checked at displayed precision: 10.
 - Methodology: Scores across all 34 tasks. Each model runs 5 trials per task with a 20-hour budget.
 - Unresolved catalog names: Claude Haiku 5.5, DeepSeek V4 Flash Vision Exp, GLM-5.3 Flash, GLM-5.3, Qwen3.8-Max-0902.
@@ -20,6 +20,7 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 |---|---|---|---|---|---|
 | Claude Fable 5 | `frontier-swe:frontier-swe-v2:claude-fable-5-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-max:arc-agi-2-v2-semi-private |
 | Claude Fable 5.1 | `frontier-swe:frontier-swe-v2:claude-fable-5-1-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
+| Claude Fable 5.2 | `frontier-swe:frontier-swe-v2:claude-fable-5-2-proximus` | — | `max` | arc-prize | arc-prize:arc-agi-2:anthropic-claude-fable-5-2-max:arc-agi-2-v2-semi-private |
 | Claude Opus 5 | `frontier-swe:frontier-swe-v2:claude-opus-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus5-max |
 | Claude Opus 5.5 | `frontier-swe:frontier-swe-v2:claude-opus-5-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:opus55-max |
 | Claude Sonnet 5.5 | `frontier-swe:frontier-swe-v2:claude-sonnet-5-5-proximus` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |

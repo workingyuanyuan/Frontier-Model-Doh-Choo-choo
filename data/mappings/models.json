@@ -235,6 +235,15 @@
       "profilePricing": {}
     },
     {
+      "modelId": "anthropic-claude-fable-5-2",
+      "providerId": "anthropic",
+      "displayName": "Claude Fable 5.2",
+      "aliases": ["claude-fable-5-2", "anthropic/claude-fable-5-2"],
+      "releaseDate": "2026-11-09",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "openai-gpt-6-astra",
       "providerId": "openai",
       "displayName": "GPT-6 Astra",
@@ -821,6 +830,24 @@
       "providerId": "abacus",
       "displayName": "Smaug Flash",
       "aliases": ["smaug-flash", "abacusai/Smaug-Flash"],
+      "releaseDate": null,
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "meta-muse-ember",
+      "providerId": "meta",
+      "displayName": "Muse Ember",
+      "aliases": ["muse-ember-1.0", "meta/muse-ember"],
+      "releaseDate": "2026-11-09",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
+      "modelId": "agnes-agnes-2-5-pro-theta",
+      "providerId": "agnes",
+      "displayName": "Agnes 2.5 Pro Theta",
+      "aliases": ["agnes-2.5-pro-theta"],
       "releaseDate": null,
       "pricing": [],
       "profilePricing": {}

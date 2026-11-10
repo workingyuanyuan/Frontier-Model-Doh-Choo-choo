@@ -373,21 +373,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-10T00:09:17.255Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/46/46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef.html",
-    "byteLength": 303261,
+    "artifactPath": "artifacts/sha256/13/13b6a738f382ccc0c970a9fd060a3893c496af70e346d3aab95fedf92b6b79fb.html",
+    "byteLength": 303732,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef",
+    "id": "sha256:13b6a738f382ccc0c970a9fd060a3893c496af70e346d3aab95fedf92b6b79fb",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-09T02:22:23.309Z",
+    "retrievedAt": "2026-11-10T00:09:17.255Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:46b38fa3b5dd00dfbbc650943e735a8795e9c9e67e210ab9f81796d90965bfef",
+    "sha256": "sha256:13b6a738f382ccc0c970a9fd060a3893c496af70e346d3aab95fedf92b6b79fb",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -635,6 +635,7 @@
           "xai-grok-4-7"
         ],
         "profiles": [
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,\"Terminus 2\",null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,\"Terminus 2\",null,null,null,null]",
           "[\"anthropic/claude-opus-5\",\"max\",null,\"Terminus 2\",null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,\"Terminus 2\",null,null,null,null]",
@@ -667,6 +668,7 @@
           "[\"xiaomi/mimo-v2.6-flash\",null,null,\"Terminus 2\",null,null,null,null]"
         ],
         "rawLabels": [
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5",
           "anthropic/claude-opus-5-5",
@@ -698,7 +700,7 @@
           "thinkingmachines/inkling-2-small",
           "xiaomi/mimo-v2.6-flash"
         ],
-        "rows": 30,
+        "rows": 31,
         "sourceUrls": ["https://www.vals.ai/benchmarks/biomysterybench"],
         "versions": ["1"]
       },
@@ -1145,6 +1147,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -1176,6 +1179,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -1205,7 +1209,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 29,
+        "rows": 30,
         "sourceUrls": ["https://www.vals.ai/benchmarks/code-migration-v1-1"],
         "versions": ["1.1"]
       },
@@ -1947,6 +1951,7 @@
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -1961,6 +1966,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -1988,6 +1994,7 @@
           "alibaba/qwen3.8-max",
           "alibaba/qwen3.8-max-internal",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -2002,6 +2009,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2025,7 +2033,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 39,
+        "rows": 41,
         "sourceUrls": ["https://www.vals.ai/benchmarks/emb-v1-1"],
         "versions": ["1.1"]
       },
@@ -2056,6 +2064,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -2070,6 +2079,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -2095,6 +2105,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -2109,6 +2120,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2132,7 +2144,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 37,
+        "rows": 39,
         "sourceUrls": ["https://www.vals.ai/benchmarks/fabv2-1"],
         "versions": ["2.1"]
       },
@@ -2386,6 +2398,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -2400,6 +2413,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -2425,6 +2439,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -2439,6 +2454,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2462,7 +2478,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 37,
+        "rows": 39,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
         "versions": ["1"]
       },
@@ -2792,7 +2808,7 @@
       },
       {
         "id": "hlab",
-        "includedRows": 35,
+        "includedRows": 37,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "anthropic-claude-opus-5-5",
@@ -2816,6 +2832,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -2829,6 +2846,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -2853,6 +2871,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -2866,6 +2885,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -2888,7 +2908,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 35,
+        "rows": 37,
         "sourceUrls": ["https://www.vals.ai/benchmarks/hlab"],
         "versions": ["1.1"]
       },
@@ -3141,6 +3161,7 @@
         "profiles": [
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -3168,6 +3189,7 @@
         "rawLabels": [
           "alibaba/qwen3.8-max",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -3192,7 +3214,7 @@
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3"
         ],
-        "rows": 25,
+        "rows": 26,
         "sourceUrls": ["https://www.vals.ai/benchmarks/immigration"],
         "versions": ["1"]
       },
@@ -3710,6 +3732,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -3723,6 +3746,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -3747,6 +3771,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -3760,6 +3785,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -3782,13 +3808,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 35,
+        "rows": 37,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_index"],
         "versions": ["1"]
       },
       {
         "id": "legal-research",
-        "includedRows": 91,
+        "includedRows": 93,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -3856,6 +3882,7 @@
           "[\"ant/ling-3.0-flash-af-rc3\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-4-7\",\"max\",null,null,null,null,null,null]",
@@ -3894,6 +3921,7 @@
           "[\"kimi/kimi-k2.6\",null,null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -3949,6 +3977,7 @@
           "ant/ling-3.0-flash-af-rc3",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-4-5-20251001-thinking",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-4-7",
@@ -3987,6 +4016,7 @@
           "kimi/kimi-k2.6",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -4031,7 +4061,7 @@
           "zai/glm-5.3-flash",
           "zai/glm-legal"
         ],
-        "rows": 91,
+        "rows": 93,
         "sourceUrls": ["https://www.vals.ai/benchmarks/legal_research"],
         "versions": ["1"]
       },
@@ -6239,6 +6269,7 @@
         "profiles": [
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -6270,6 +6301,7 @@
         "rawLabels": [
           "alibaba/qwen3.8-max",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5",
           "anthropic/claude-opus-5-5",
@@ -6298,7 +6330,7 @@
           "xiaomi/mimo-v2.6-pro",
           "zai/glm-5.3"
         ],
-        "rows": 29,
+        "rows": 30,
         "sourceUrls": ["https://www.vals.ai/benchmarks/mysterymechanism"],
         "versions": ["1"]
       },
@@ -6351,7 +6383,7 @@
       },
       {
         "id": "programbench",
-        "includedRows": 65,
+        "includedRows": 66,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-plus",
@@ -6402,6 +6434,7 @@
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-4-7\",\"max\",null,null,null,null,null,null]",
@@ -6469,6 +6502,7 @@
           "alibaba/qwen3.8-max",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-4-5-20251001-thinking",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-4-7",
@@ -6530,13 +6564,13 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 65,
+        "rows": 66,
         "sourceUrls": ["https://www.vals.ai/benchmarks/programbench"],
         "versions": ["1"]
       },
       {
         "id": "proofbench",
-        "includedRows": 54,
+        "includedRows": 55,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -6577,6 +6611,7 @@
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -6633,6 +6668,7 @@
           "alibaba/qwen3.8-max",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5",
           "anthropic/claude-opus-5-5",
@@ -6684,7 +6720,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 54,
+        "rows": 55,
         "sourceUrls": ["https://www.vals.ai/benchmarks/proof_bench"],
         "versions": ["1.1"]
       },
@@ -7033,6 +7069,7 @@
           "xai-grok-4-7"
         ],
         "profiles": [
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
@@ -7058,6 +7095,7 @@
           "[\"xiaomi/mimo-v2.6-flash\",null,null,null,null,null,null,null]"
         ],
         "rawLabels": [
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5",
           "anthropic/claude-opus-5-5",
@@ -7082,7 +7120,7 @@
           "stepfun/step-5-preview",
           "xiaomi/mimo-v2.6-flash"
         ],
-        "rows": 23,
+        "rows": 24,
         "sourceUrls": ["https://www.vals.ai/benchmarks/science_index"],
         "versions": ["1.0"]
       },
@@ -7556,6 +7594,7 @@
         "profiles": [
           "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -7579,6 +7618,7 @@
         "rawLabels": [
           "alibaba/qwen3.8-max",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -7599,7 +7639,7 @@
           "thinkingmachines/inkling-2-small",
           "xiaomi/mimo-v2.6-pro"
         ],
-        "rows": 21,
+        "rows": 22,
         "sourceUrls": ["https://www.vals.ai/benchmarks/swebench-multimodal"],
         "versions": ["1"]
       },
@@ -7668,6 +7708,7 @@
           "[\"ant/ling-3.0-flash-af-rc3\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-4-7\",\"max\",null,null,null,null,null,null]",
@@ -7705,6 +7746,7 @@
           "[\"kimi/kimi-k2.6\",null,null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -7752,6 +7794,7 @@
           "ant/ling-3.0-flash-af-rc3",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-4-5-20251001-thinking",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-4-7",
@@ -7789,6 +7832,7 @@
           "kimi/kimi-k2.6",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -7826,7 +7870,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 82,
+        "rows": 84,
         "sourceUrls": ["https://www.vals.ai/benchmarks/tax_agent_bench"],
         "versions": ["1"]
       },
@@ -8545,7 +8589,7 @@
       },
       {
         "id": "terminal-bench-4-0",
-        "includedRows": 61,
+        "includedRows": 63,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -8593,6 +8637,7 @@
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-4-8\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5\",\"max\",null,null,null,null,null,null]",
@@ -8619,6 +8664,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -8656,6 +8702,7 @@
           "alibaba/qwen3.8-max-internal",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-4-8",
           "anthropic/claude-opus-5",
@@ -8682,6 +8729,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -8714,7 +8762,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 61,
+        "rows": 63,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-4"],
         "versions": ["4.0"]
       },
@@ -8759,6 +8807,7 @@
           "[\"alibaba/qwen3.8-max\",null,null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,\"Mini-SWE-agent\",null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"anthropic/claude-opus-4-8\",\"max\",null,\"Mini-SWE-agent\",null,null,null,null]",
           "[\"anthropic/claude-opus-5\",\"max\",null,\"Mini-SWE-agent\",null,null,null,null]",
@@ -8805,6 +8854,7 @@
           "alibaba/qwen3.8-max",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-4-8",
           "anthropic/claude-opus-5",
@@ -8846,7 +8896,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 44,
+        "rows": 45,
         "sourceUrls": ["https://www.vals.ai/benchmarks/terminal-bench-science"],
         "versions": ["0.1"]
       },
@@ -8928,6 +8978,7 @@
         ],
         "profiles": [
           "[\"alibaba/qwen3.8-max-internal\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,null,null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
           "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
@@ -8941,6 +8992,7 @@
           "[\"inception/mercury-3\",\"high\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
@@ -8964,6 +9016,7 @@
         ],
         "rawLabels": [
           "alibaba/qwen3.8-max-internal",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-5-5",
           "anthropic/claude-sonnet-5-5",
@@ -8977,6 +9030,7 @@
           "inception/mercury-3",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -8998,7 +9052,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 34,
+        "rows": 36,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vals_index"],
         "versions": ["2.2"]
       },
@@ -9189,7 +9243,7 @@
       },
       {
         "id": "vibe-code-bench",
-        "includedRows": 125,
+        "includedRows": 127,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -9267,6 +9321,7 @@
           "[\"ant/ling-3.0-flash-af-rc3\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-fable-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-fable-5-1\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"anthropic/claude-fable-5-2\",\"high\",null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-haiku-4-5-20251001-thinking\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-haiku-5-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"anthropic/claude-opus-4-5-20251101-thinking\",\"high\",null,\"OpenHands\",null,null,null,null]",
@@ -9320,6 +9375,7 @@
           "[\"kimi/kimi-k2.7-code\",null,null,\"OpenHands\",null,null,null,null]",
           "[\"kimi/kimi-k3\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"kimi/kimi-k3.1-pro\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"meta/muse-ember\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"meta/muse-spark-open\",\"xhigh\",null,\"OpenHands\",null,null,null,null]",
           "[\"meta/muse-wonder\",\"max\",null,\"OpenHands\",null,null,null,null]",
           "[\"meta/muse-wonder-full\",\"max\",null,\"OpenHands\",null,null,null,null]",
@@ -9394,6 +9450,7 @@
           "ant/ling-3.0-flash-af-rc3",
           "anthropic/claude-fable-5",
           "anthropic/claude-fable-5-1",
+          "anthropic/claude-fable-5-2",
           "anthropic/claude-haiku-4-5-20251001-thinking",
           "anthropic/claude-haiku-5-5",
           "anthropic/claude-opus-4-5-20251101-thinking",
@@ -9447,6 +9504,7 @@
           "kimi/kimi-k2.7-code",
           "kimi/kimi-k3",
           "kimi/kimi-k3.1-pro",
+          "meta/muse-ember",
           "meta/muse-spark-open",
           "meta/muse-wonder",
           "meta/muse-wonder-full",
@@ -9507,7 +9565,7 @@
           "zai/glm-5.3",
           "zai/glm-5.3-flash"
         ],
-        "rows": 125,
+        "rows": 127,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vibe-code"],
         "versions": ["1.1"]
       },
@@ -9601,7 +9659,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-11-08T14:11:18.151Z",
+    "observedAt": "2026-11-10T00:09:00.442Z",
     "sourceId": "vals-ai"
   }
 }

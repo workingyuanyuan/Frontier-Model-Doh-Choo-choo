@@ -1,0 +1,534 @@
+{
+  "date": "2026-11-10",
+  "baselineCommit": "2e656d55e0f5cad1f1a7b4c4b4a92eef123eb6ce",
+  "baselineVersion": "sha256:720ec5d5ead2dc2953b9c768073ffef59777db085be53f1bea0e2f95fdf4c258",
+  "newVersion": "sha256:3d7046b4c0829adf6f9c2c3a3a65519da1a2b828d1fc6f18c86c924068e62398",
+  "agentSplit": {
+    "sourceRefresh": "Codex (gpt-6.1-sol)",
+    "discovery": "agy Gemini 3.8 Flash (3 runs: run1 timed out at 21 pages; split into extraction A and discovery B)",
+    "identityResearch": "Codex"
+  },
+  "newIdentities": [
+    {
+      "canonicalId": "anthropic-claude-fable-5-2",
+      "name": "Claude Fable 5.2",
+      "provider": "anthropic",
+      "officialModelId": "claude-fable-5-2",
+      "releaseDate": "2026-11-09",
+      "officialDateText": "November 9, 2026"
+    },
+    {
+      "canonicalId": "meta-muse-ember",
+      "name": "Muse Ember",
+      "provider": "meta",
+      "officialModelId": "muse-ember-1.0",
+      "releaseDate": "2026-11-09",
+      "officialDateText": "November 9, 2026"
+    },
+    {
+      "canonicalId": "agnes-agnes-2-5-pro-theta",
+      "name": "Agnes 2.5 Pro Theta",
+      "provider": "agnes",
+      "officialModelId": "agnes-2.5-pro-theta",
+      "releaseDate": null,
+      "officialDateModified": "2026-11-09T08:02:15.682Z",
+      "sourceReportedReleaseDate": "2026-11-07"
+    }
+  ],
+  "sourceReview": {
+    "observedFrom": "2026-11-09T23:47:03.111Z",
+    "observedThrough": "2026-11-10T00:34:02.000Z",
+    "baselineVersion": "sha256:720ec5d5ead2dc2953b9c768073ffef59777db085be53f1bea0e2f95fdf4c258",
+    "baselineRoot": "/home/yyuan/Projects/Frontier-Model-Doh-Choo-choo-20261110/artifacts/research/2026-11-10-benchmark-check/import-baseline",
+    "evidenceDirectory": "artifacts/research/2026-11-10-benchmark-check",
+    "allCommandsExitCode0": true,
+    "sources": {
+      "artificialAnalysis": {
+        "visualCatalog": 734,
+        "selectedDisplay": 27,
+        "candidatesAdded": 104,
+        "candidatesRemoved": 1,
+        "candidatesChanged": 36,
+        "costsAdded": 16,
+        "costsRemoved": 0,
+        "costsChanged": 2,
+        "newModelNames": [
+          "Agnes 2.5 Pro Theta",
+          "Claude Fable 5.2 (High, Default Fallback)",
+          "Claude Fable 5.2 (Low, Default Fallback)",
+          "Claude Fable 5.2 (Max, Default Fallback)",
+          "Claude Fable 5.2 (Medium, Default Fallback)",
+          "Claude Fable 5.2 (Xhigh, Default Fallback)",
+          "Muse Ember (Max)",
+          "Muse Ember (Xhigh)"
+        ],
+        "attentionItems": [
+          {
+            "benchmark": "critpt-v2",
+            "kind": "profiles-lost",
+            "detail": "49 -> 50; missing 1: [\"MiniMax-M3.1-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]"
+          }
+        ]
+      },
+      "livebench": {
+        "versionChange": "2026-10-25 -> 2026-11-06",
+        "visualProfileCountV2": 33,
+        "visualProfileCountV1": 65,
+        "candidatesAdded": 7,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 224,
+        "costsAdded": 0,
+        "costsRemoved": 0,
+        "costsChanged": 42,
+        "newModelNames": ["claude-fable-5.2"],
+        "attentionItems": [
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-browser",
+            "detail": "2026-10-25 -> 2026-11-06"
+          },
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-coding",
+            "detail": "2026-10-25 -> 2026-11-06"
+          },
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-data-analysis",
+            "detail": "2026-10-25 -> 2026-11-06"
+          },
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-design",
+            "detail": "2026-10-25 -> 2026-11-06"
+          },
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-long-agentic",
+            "detail": "2026-10-25 -> 2026-11-06"
+          },
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-reasoning",
+            "detail": "2026-06-25, 2026-10-25 -> 2026-06-25, 2026-11-06"
+          },
+          {
+            "kind": "versions-changed",
+            "benchmark": "livebench-research",
+            "detail": "2026-10-25 -> 2026-11-06"
+          }
+        ]
+      },
+      "frontierCode": {
+        "version": "2.0",
+        "candidatesAdded": 5,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 0,
+        "costsAdded": 5,
+        "costsRemoved": 0,
+        "costsChanged": 0,
+        "newModelNames": ["Claude Fable 5.2"]
+      },
+      "frontierSwe": {
+        "version": "v2",
+        "candidatesAdded": 1,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 0,
+        "costsAdded": 0,
+        "costsRemoved": 0,
+        "costsChanged": 0,
+        "newModelNames": ["Claude Fable 5.2"]
+      },
+      "arcPrize": {
+        "candidatesAdded": 5,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 0,
+        "costsAdded": 5,
+        "costsRemoved": 0,
+        "costsChanged": 0,
+        "newModelNames": [
+          "Claude Fable 5.2 (High)",
+          "Claude Fable 5.2 (Low)",
+          "Claude Fable 5.2 (Max)",
+          "Claude Fable 5.2 (Medium)",
+          "Claude Fable 5.2 (XHigh)"
+        ]
+      },
+      "epoch": {
+        "candidatesAdded": 6,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 235,
+        "costsAdded": 0,
+        "costsRemoved": 0,
+        "costsChanged": 0,
+        "newModelNames": [
+          "Claude Fable 5.2",
+          "Claude Fable 5.2 (max)",
+          "Kimi K3.1 Pro"
+        ],
+        "note": "235 changed ECI composite rows excluded per policy"
+      },
+      "vals": {
+        "candidatesAdded": 29,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 21,
+        "costsAdded": 29,
+        "costsRemoved": 0,
+        "costsChanged": 0,
+        "newModelNames": ["anthropic/claude-fable-5-2", "meta/muse-ember"]
+      },
+      "zapier": {
+        "candidatesAdded": 5,
+        "candidatesRemoved": 0,
+        "candidatesChanged": 0,
+        "costsAdded": 5,
+        "costsRemoved": 0,
+        "costsChanged": 0,
+        "newModelNames": [
+          "Claude Fable 5.2 (default fallbacks, High)",
+          "Claude Fable 5.2 (default fallbacks, Low)",
+          "Claude Fable 5.2 (default fallbacks, Max)",
+          "Claude Fable 5.2 (default fallbacks, Medium)",
+          "Claude Fable 5.2 (default fallbacks, XHigh)"
+        ]
+      },
+      "deepswe": {
+        "changes": 0,
+        "candidatesAdded": 0,
+        "fable52Present": false
+      },
+      "maxxbench": {
+        "changes": 0,
+        "candidatesAdded": 0,
+        "visualRows": 15,
+        "fable52Present": false
+      },
+      "biobasicsbench": {
+        "changes": 0,
+        "candidatesAdded": 0,
+        "reconstructedOfflineCandidates": 37,
+        "fable52Present": false
+      },
+      "surge": {
+        "boards": 8,
+        "changes": 0,
+        "candidatesAdded": 0,
+        "fable52Present": false
+      },
+      "fireworksSii": {
+        "changes": 0,
+        "fable52Present": false
+      }
+    }
+  },
+  "fable52Presence": {
+    "presentSources": [
+      {
+        "source": "Artificial Analysis",
+        "keyScores": "AA Intelligence Index 64.563595756626 (Max, Default Fallback) / 65 (#1 of 103 models); Briefcase v1.1 rubric 66.08%; AA-LCR 83.33%; CritPT-v2 86.29%; CritPT 35.43%; FrontierCode 2.0 48.76%; GDP-pdf 24.2%; Cost $26.54/task"
+      },
+      {
+        "source": "LiveBench",
+        "keyScores": "Release 2026-11-06 (xhigh): Browser 86.9, Coding 79.2, Data Analysis 81.5, Design 85.1, Long Agentic 82.9, Reasoning 88.8, Research 94.5"
+      },
+      {
+        "source": "Vals",
+        "keyScores": "Vals Index 71.309% (#1 of 36); Finance Agent v2.1 69.47% (#1); Vibe Code Bench 93.77% (#1); EMB v1.1 77.38% (#1); Terminal-Bench 4.0 65.15% (#1 tied with Opus 5.5); ProgramBench 19.00% (#1); SWE-bench Multimodal 62.29% (#2); Cost $17.94/test"
+      },
+      {
+        "source": "FrontierCode",
+        "keyScores": "FrontierCode 2.0 weighted-rubric 49.11% (xhigh, #1; correct 53.48%, cost $17.734/task); low 34.20%, medium 37.59%, high 45.29%, max 45.65%"
+      },
+      {
+        "source": "FrontierSWE",
+        "keyScores": "FrontierSWE V2 Mean@5 69.94018470588233% (#1; worst@5 62.04646764705883%, best@5 79.1863088235294%, proximus, cost $168.78)"
+      },
+      {
+        "source": "Epoch",
+        "keyScores": "AIME 2024-2025 99.72222222222223%, Chess Puzzles 79.0%, GPQA Diamond 93.87626262626263%, SimpleQA Verified 94.0% (all max); ECI 174.24 (composite, excluded)"
+      },
+      {
+        "source": "ARC Prize",
+        "keyScores": "ARC-AGI-2 Semi-Private: xhigh 93.75% ($0.98321893/task), max 92.5% ($2.813521/task), high 90.41666666666667% ($0.90763627/task), medium 89.58333333333334% ($0.62680793/task), low 86.66666666666667% ($0.51584993/task); ARC-AGI-1 Public Eval: max 99.25%"
+      },
+      {
+        "source": "Zapier AutomationBench",
+        "keyScores": "AutomationBench 1.0.6: Max 51.45% ($4.64, #3), XHigh 47.95% ($2.29, #6), High 44.29% ($1.69, #8), Medium 40.18% ($1.35), Low 39.73% ($1.30) (all default fallbacks)"
+      }
+    ],
+    "absentSources": [
+      {
+        "source": "DeepSWE",
+        "reason": "No entries for Claude Fable 5.2 or Mythos 5.2; only previous claude-fable-5 rows present"
+      },
+      {
+        "source": "MaxxBench",
+        "reason": "No entries for Claude Fable 5.2; latest changelog remains 2026-11-07 (Qwen3.8 Flash Next xhigh)"
+      },
+      {
+        "source": "Surge (8 boards)",
+        "reason": "0 matches across all 8 benchmark boards (Chartography, Complex Constraints, Corecraft, Riemann, Dayjob Finance, Dayjob Healthcare, Dayjob Tax, GDP-xlsx); only Fable 5.1 rows exist"
+      },
+      {
+        "source": "Fireworks SII",
+        "reason": "No entries for Claude Fable 5.2; only Fable 5.1 present (last_updated 2026-11-09T00:34:02Z)"
+      }
+    ]
+  },
+  "discovery": [
+    {
+      "benchmark": "FrontierSWE v2",
+      "organizer": "Proximal Labs",
+      "sourceURL": "https://www.frontierswe.com/",
+      "repoURL": "https://github.com/Proximal-Labs/frontier-swe-v2",
+      "version": "V2",
+      "publicationDate": "2026-11-09",
+      "hasPublicLeaderboard": true,
+      "status": "Already the tracked version (frontier-swe-v2); Fable 5.2 ranked #1 with Mean@5 69.94%"
+    },
+    {
+      "benchmark": "Terminal-Bench-Science 0.1",
+      "organizer": "Harbor Framework",
+      "sourceURL": "https://www.terminal-bench-science.ai/",
+      "repoURL": "https://github.com/harbor-framework/terminal-bench-science",
+      "version": "0.1",
+      "publicationDate": "2026-11-09",
+      "zenodoDOI": "10.5281/zenodo.22110253",
+      "hasPublicLeaderboard": true,
+      "status": "Standalone leaderboard exists; third-party evaluations also on Vals and AA. Score adoption is a user decision."
+    },
+    {
+      "benchmark": "WANDR (Wide ANd Deep Research)",
+      "organizer": "Perplexity AI",
+      "repoURL": "https://github.com/perplexityai/wandr",
+      "paperURL": "https://arxiv.org/abs/2608.14747",
+      "version": "unversioned",
+      "publicationDate": "August 2026",
+      "hasPublicLeaderboard": false,
+      "status": "Open source suite with tasks and adapters; no public interactive leaderboard. Anthropic self-reported relaxed score 82.1%."
+    },
+    {
+      "benchmark": "Remote Labor Index (RLI)",
+      "organizer": "Scale AI / CAIS",
+      "sourceURL": "https://scale.com/leaderboard",
+      "publicationDate": "2026-11-09T20:13:33.000Z",
+      "hasPublicLeaderboard": true,
+      "status": "Fable 5.2 newly added at Rank #1 with score 41.3 (maxScore 42.539, high effort). Research candidate."
+    },
+    {
+      "benchmark": "VIALS-AA",
+      "sourceURL": "https://artificialanalysis.ai/articles/vials-aa",
+      "publicationDate": "2026-11-06",
+      "status": "Unchanged from 11/08. Article only, no standalone dataset or leaderboard yet."
+    },
+    {
+      "benchmark": "Scale SWE Atlas v1.1",
+      "sourceURL": "https://scale.com/leaderboard/swe-atlas?tab=overall",
+      "publicationDate": "2026-11-06",
+      "status": "Sub-leaderboards unchanged from 11/09."
+    },
+    {
+      "benchmark": "Into the Unknown",
+      "sourceURL": "https://arxiv.org/abs/2610.19159",
+      "repoURL": "https://github.com/prometheus-eval/into-the-unknown",
+      "viewerURL": "https://prometheus-eval.github.io/into-the-unknown/viewer/",
+      "publicationDate": "2026-10-13",
+      "status": "Abstract, README and viewer byte-identical to 11/09 baseline."
+    },
+    {
+      "benchmark": "BioBasicsBench",
+      "sourceURL": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+      "publicationDate": "2026-11-06",
+      "status": "Direct HTTP fetch remains 403; offline snapshot with 37 candidate rows preserved."
+    },
+    {
+      "benchmark": "MaxxBench",
+      "sourceURL": "https://maxxbench.unlap.ai/",
+      "latestChangelogDate": "2026-11-07",
+      "status": "README byte-identical to 11/09; 15 visible SSR rows vs 16 embedded models unchanged; no Fable 5.2 added."
+    }
+  ],
+  "vendorReview": [
+    {
+      "vendor": "Anthropic",
+      "newModels": ["Claude Fable 5.2", "Claude Mythos 5.2"],
+      "releaseDate": "2026-11-09",
+      "officialURLs": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "https://platform.claude.com/docs/en/models/fable-5-2/overview",
+        "https://platform.claude.com/docs/en/models/fable-5-2/whats-new"
+      ]
+    },
+    {
+      "vendor": "Meta",
+      "newModels": ["Muse Ember"],
+      "releaseDate": "2026-11-09",
+      "officialURLs": [
+        "https://research.meta.ai/blog/muse-ember",
+        "https://dev.meta.ai/models/muse-ember",
+        "https://dev.meta.ai/docs/muse-ember",
+        "https://dev.meta.ai/docs/models"
+      ],
+      "hfEndpointsIdentical": true
+    },
+    {
+      "vendor": "Agnes",
+      "newModels": ["Agnes 2.5 Pro Theta"],
+      "releaseDate": null,
+      "officialURLs": [
+        "https://www.agnes-ai.com/zh-Hans/docs/agnes-25-pro-theta",
+        "https://www.agnes-ai.com/zh-Hans/docs/pricing",
+        "https://www.agnes-ai.com/zh-Hans/docs/overview"
+      ]
+    },
+    {
+      "vendor": "OpenAI",
+      "newModels": [],
+      "status": "news HTML HTTP 403; HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "Google",
+      "newModels": [],
+      "status": "AI blog text identical (developer tools post on 11/09); HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "xAI",
+      "newModels": [],
+      "status": "Latest news remains Grok 4.7 (Nov 2, 2026); HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "DeepSeek",
+      "newModels": [],
+      "status": "HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "Moonshot",
+      "newModels": [],
+      "status": "HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "Qwen",
+      "newModels": [],
+      "status": "qwen-blog.html exact byte match to 11/09; HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "Mistral",
+      "newModels": [],
+      "status": "Latest news remains Mistral Large 4 (Nov 5, 2026); HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "MiniMax",
+      "newModels": [],
+      "status": "News lists M3.1 Flash as newest; HF latest 8 identical to 11/09"
+    },
+    {
+      "vendor": "Zhipu",
+      "newModels": [],
+      "status": "HF latest 8 identical to 11/09 (GLM-5.3 Flash)"
+    },
+    {
+      "vendor": "Thinking Machines",
+      "newModels": [],
+      "status": "HF latest 8 identical to 11/09 (Inkling Small)"
+    },
+    {
+      "vendor": "LG",
+      "newModels": [],
+      "status": "HF latest model remains July 2026; no new checkpoints"
+    }
+  ],
+  "rawComparisons": [
+    {
+      "url": "https://qwenlm.github.io/blog/",
+      "file": "artifacts/research/2026-11-10-benchmark-check/benchmark-web/B/raw/qwen-blog.html",
+      "status": 200,
+      "sha256": "ea6345e313611b786c3a13b418128385d677cdd7b50609353654ff48025a7ab9",
+      "bytes": 13828,
+      "exactMatchTo20261109": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.19159",
+      "file": "artifacts/research/2026-11-10-benchmark-check/benchmark-web/B/raw/unknown-abstract.html",
+      "status": 200,
+      "sha256": "582c0d70b4b72195d9368c5916d8c794e32540da756abe9000ee3df54215fd63",
+      "bytes": 45184,
+      "exactMatchTo20261109": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/prometheus-eval/into-the-unknown/main/README.md",
+      "file": "artifacts/research/2026-11-10-benchmark-check/benchmark-web/B/raw/unknown-readme.md",
+      "status": 200,
+      "sha256": "ce1ccd683ecbd8b796189cb03b024291c16b28912631392e0fc9bb1910c14649",
+      "bytes": 7008,
+      "exactMatchTo20261109": true
+    },
+    {
+      "url": "https://prometheus-eval.github.io/into-the-unknown/viewer/",
+      "file": "artifacts/research/2026-11-10-benchmark-check/benchmark-web/B/raw/unknown-viewer.html",
+      "status": 200,
+      "sha256": "55a98de7ba19798f51e4f32c954547cd4481bced71a60f0429410a2203a91a17",
+      "bytes": 3181,
+      "exactMatchTo20261109": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/unlap-labs/maxxbench/main/README.md",
+      "file": "artifacts/research/2026-11-10-benchmark-check/benchmark-web/B/raw/maxxbench-readme.md",
+      "status": 200,
+      "sha256": "5ee075ca5a7d59e517e026df670a734390444ff90f2d5f46663b4817b08acb93",
+      "bytes": 1960,
+      "exactMatchTo20261109": true
+    }
+  ],
+  "blockedOrDegradedPages": [
+    {
+      "url": "https://openai.com/news/",
+      "httpStatus": 403,
+      "sha256": "ef571c144b665f671711a8424e89df928a4aa0ccfcd8096e6817ed5a6c86f5cc",
+      "bytes": 9897,
+      "reason": "Cloudflare WAF challenge"
+    },
+    {
+      "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science/",
+      "httpStatus": 403,
+      "sha256": "6e2ed25d74210f7c89b85017999ae916058a76ec2ada7ad2c3fc754569a6e708",
+      "bytes": 10105,
+      "reason": "Cloudflare WAF challenge"
+    },
+    {
+      "url": "https://ai.meta.com/blog/",
+      "httpStatus": 400,
+      "sha256": "6654d28093989af1123f50c50d09e7ea0481891439e97540f2ac23b77ed7344b",
+      "bytes": 1542,
+      "reason": "Bad request from automated fetch"
+    },
+    {
+      "url": "https://www.perplexity.ai/hub/blog/wandr-benchmark-evaluating-research-agents-that-must-search-wide-and-deep",
+      "httpStatus": 403,
+      "sha256": "14de675842e0275965fdfdf3542f7853f0fb7f298a4a5a10cc1ed07279edef9c",
+      "bytes": 5942,
+      "reason": "Cloudflare WAF challenge"
+    },
+    {
+      "url": "https://livebench.ai/",
+      "httpStatus": 200,
+      "sha256": "c7ff3807e28c8bd930622e638237999fe38eeb79e3fb8d97e2fb403650b0783d",
+      "bytes": 889,
+      "reason": "Client-rendered React SPA; raw HTML returns empty root"
+    },
+    {
+      "url": "https://artificialanalysis.ai/api/v2/data/llms/models",
+      "httpStatus": 410,
+      "sha256": "542ef08213f8f2b25864a9bd1e6da0ee72190776aa9b9836358000cbf024f925",
+      "bytes": 200,
+      "reason": "API endpoint gone/deprecated; page pipeline used instead"
+    }
+  ],
+  "limits": [
+    "Hugging Face latest-8 comparisons are semantic (comparing top 8 model names/IDs rather than exact byte hash of API responses).",
+    "Only five unchanged URLs match the 2026-11-09 hashes byte-for-byte.",
+    "Blocked pages (OpenAI 403, Meta blog 400, Perplexity blog 403, LiveBench SPA) were verified and supplemented via official alternative endpoints, repo files or exports.",
+    "Epoch and ARC rendered denominators remain unknown; visual screens did not expose matching valid populations.",
+    "Vals five pages still expose no parseable overall data; null is retained.",
+    "All new benchmark and version adoptions require explicit user decision per project policy."
+  ]
+}

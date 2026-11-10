@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T02:22:23.309Z",
+  "checkedAt": "2026-11-10T00:00:59.246Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "livebench-browser",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -34,6 +34,7 @@
         ],
         "profiles": [
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-opus-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -68,6 +69,7 @@
         ],
         "rawLabels": [
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5.5",
           "claude-opus-5.5",
           "claude-sonnet-5.5",
@@ -100,15 +102,15 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017"
         ],
-        "versions": ["2026-10-25"]
+        "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-coding",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -135,6 +137,7 @@
         ],
         "profiles": [
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-opus-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -169,6 +172,7 @@
         ],
         "rawLabels": [
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5.5",
           "claude-opus-5.5",
           "claude-sonnet-5.5",
@@ -201,15 +205,15 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017"
         ],
-        "versions": ["2026-10-25"]
+        "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-data-analysis",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -236,6 +240,7 @@
         ],
         "profiles": [
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"claude-opus-5.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -270,6 +275,7 @@
         ],
         "rawLabels": [
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5.5",
           "claude-opus-5.5",
           "claude-sonnet-5.5",
@@ -302,15 +308,15 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017"
         ],
-        "versions": ["2026-10-25"]
+        "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-design",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -337,6 +343,7 @@
         ],
         "profiles": [
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-opus-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -371,6 +378,7 @@
         ],
         "rawLabels": [
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5.5",
           "claude-opus-5.5",
           "claude-sonnet-5.5",
@@ -403,11 +411,11 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017"
         ],
-        "versions": ["2026-10-25"]
+        "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-instruction-following",
@@ -618,7 +626,7 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793398874"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794259017"
         ],
         "versions": ["2026-06-25"]
       },
@@ -831,13 +839,13 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793398874"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794259017"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-long-agentic",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -864,6 +872,7 @@
         ],
         "profiles": [
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-opus-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -898,6 +907,7 @@
         ],
         "rawLabels": [
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5.5",
           "claude-opus-5.5",
           "claude-sonnet-5.5",
@@ -930,11 +940,11 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017"
         ],
-        "versions": ["2026-10-25"]
+        "versions": ["2026-11-06"]
       },
       {
         "id": "livebench-mathematics",
@@ -1145,13 +1155,13 @@
         ],
         "rows": 71,
         "sourceUrls": [
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793398874"
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794259017"
         ],
         "versions": ["2026-06-25"]
       },
       {
         "id": "livebench-reasoning",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": [
           "category-average:percent:true",
           "suite-score:percent:true"
@@ -1222,6 +1232,7 @@
           "[\"claude-fable-5-1-max-effort\",\"max\",null,null,false,null,1,null]",
           "[\"claude-fable-5-max-effort\",\"max\",null,null,false,null,1,null]",
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",false,null,1,null]",
           "[\"claude-haiku-5-5-max-effort\",null,null,null,false,null,1,null]",
           "[\"claude-haiku-5-5-xhigh-effort\",null,null,null,false,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",false,null,1,null]",
@@ -1327,6 +1338,7 @@
           "claude-fable-5-1-max-effort",
           "claude-fable-5-max-effort",
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5-5-max-effort",
           "claude-haiku-5-5-xhigh-effort",
           "claude-haiku-5.5",
@@ -1423,16 +1435,16 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 103,
+        "rows": 104,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874",
-          "https://livebench.ai/v1/table_2026_06_25.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017",
+          "https://livebench.ai/v1/table_2026_06_25.csv?v=1794259017"
         ],
-        "versions": ["2026-06-25", "2026-10-25"]
+        "versions": ["2026-06-25", "2026-11-06"]
       },
       {
         "id": "livebench-research",
-        "includedRows": 32,
+        "includedRows": 33,
         "metrics": ["suite-score:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -1459,6 +1471,7 @@
         ],
         "profiles": [
           "[\"claude-fable-5.1\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
+          "[\"claude-fable-5.2\",\"xhigh\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-haiku-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-opus-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
           "[\"claude-sonnet-5.5\",\"max\",null,\"LiveBench 2.0\",true,null,1,null]",
@@ -1493,6 +1506,7 @@
         ],
         "rawLabels": [
           "claude-fable-5.1",
+          "claude-fable-5.2",
           "claude-haiku-5.5",
           "claude-opus-5.5",
           "claude-sonnet-5.5",
@@ -1525,14 +1539,14 @@
           "smaug-nemotron-3.5-nvfp4",
           "step-5-preview"
         ],
-        "rows": 32,
+        "rows": 33,
         "sourceUrls": [
-          "https://livebench.ai/data/20261025/table.csv?v=1793398874"
+          "https://livebench.ai/data/20261106/table.csv?v=1794259017"
         ],
-        "versions": ["2026-10-25"]
+        "versions": ["2026-11-06"]
       }
     ],
-    "observedAt": "2026-11-08T14:17:13.974Z",
+    "observedAt": "2026-11-10T00:00:57.087Z",
     "sourceId": "livebench"
   }
 }
