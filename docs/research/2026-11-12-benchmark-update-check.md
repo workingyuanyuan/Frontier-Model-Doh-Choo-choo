@@ -2,7 +2,7 @@
 
 ## 範圍與基準
 
-本次以 main `451118af12f9fffd42225176e77fb5131a4d0607`、匯入前產品 `sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da` 為比較對象；更新後產品為 `sha256:e813b439b73a8dd7f56e2c4875322446c994e90cfc7e1f626ffb53a5599e8ac4`。比較區間為 11/10 查核之後到 2026-11-12。原始資料與抓取紀錄保存在 `artifacts/research/2026-11-12-benchmark-check/`，結構化摘要見[同名 JSON](2026-11-12-benchmark-update-check.json)。資料更新的影響與審核事項見 [11 月 12 日刷新報告](../refresh/2026-11-12.md)。
+本次以 main `451118af12f9fffd42225176e77fb5131a4d0607`、匯入前產品 `sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da` 為比較對象；更新後產品為 `sha256:cf1ab41c29efe7040e3ce4c521204aadf82d26c05f7b89e449a7fe6c4c3caa19`。比較區間為 11/10 查核之後到 2026-11-12。原始資料與抓取紀錄保存在 `artifacts/research/2026-11-12-benchmark-check/`，結構化摘要見[同名 JSON](2026-11-12-benchmark-update-check.json)。資料更新的影響與審核事項見 [11 月 12 日刷新報告](../refresh/2026-11-12.md)。
 
 分工：
 

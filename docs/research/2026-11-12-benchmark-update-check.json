@@ -2,7 +2,7 @@
   "date": "2026-11-12",
   "baselineCommit": "451118af12f9fffd42225176e77fb5131a4d0607",
   "baselineVersion": "sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da",
-  "newVersion": "sha256:e813b439b73a8dd7f56e2c4875322446c994e90cfc7e1f626ffb53a5599e8ac4",
+  "newVersion": "sha256:cf1ab41c29efe7040e3ce4c521204aadf82d26c05f7b89e449a7fe6c4c3caa19",
   "agentSplit": {
     "sourceRefresh": "Codex (gpt-6.1-sol)",
     "vendorDiscovery": "agy Gemini 3.8 Flash (web/V, 55 manifest entries)",

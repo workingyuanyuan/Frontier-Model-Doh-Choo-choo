@@ -1,77 +1,77 @@
 {
   "schemaVersion": "data-release-receipt-v1",
-  "runId": "2026-11-12T04-02-03-261Z",
+  "runId": "2026-11-12T04-22-54-797Z",
   "status": "complete",
   "review": "pending-user-review",
   "failedStep": null,
   "error": null,
-  "head": "451118af12f9fffd42225176e77fb5131a4d0607",
-  "startedAt": "2026-11-12T04:02:03.261Z",
-  "finishedAt": "2026-11-12T04:03:19.760Z",
-  "baselineDir": "artifacts/releases/2026-11-12T04-02-03-261Z/baseline",
-  "previousVersionId": "sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da",
-  "versionId": "sha256:e813b439b73a8dd7f56e2c4875322446c994e90cfc7e1f626ffb53a5599e8ac4",
+  "head": "0e9bf80ff1d3de64b8df35e4be2d3b02ee598d9c",
+  "startedAt": "2026-11-12T04:22:54.797Z",
+  "finishedAt": "2026-11-12T04:24:05.713Z",
+  "baselineDir": "artifacts/releases/2026-11-12T04-22-54-797Z/baseline",
+  "previousVersionId": "sha256:e813b439b73a8dd7f56e2c4875322446c994e90cfc7e1f626ffb53a5599e8ac4",
+  "versionId": "sha256:cf1ab41c29efe7040e3ce4c521204aadf82d26c05f7b89e449a7fe6c4c3caa19",
   "basePath": "",
   "steps": [
     {
       "id": "sources",
       "command": null,
       "exitCode": 0,
-      "ms": 464,
+      "ms": 957,
       "log": null
     },
     {
       "id": "evidence",
       "command": "pnpm -s evidence verify",
       "exitCode": 0,
-      "ms": 4328,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/evidence.log"
+      "ms": 4499,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/evidence.log"
     },
     {
       "id": "frontier",
       "command": "pnpm data:generate-frontier-set",
       "exitCode": 0,
-      "ms": 1188,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/frontier.log"
+      "ms": 1134,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/frontier.log"
     },
     {
       "id": "product",
       "command": "pnpm data:build-current",
       "exitCode": 0,
-      "ms": 1814,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/product.log"
+      "ms": 1758,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/product.log"
     },
     {
       "id": "fresh",
       "command": "pnpm data:verify-fresh",
       "exitCode": 0,
-      "ms": 1822,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/fresh.log"
+      "ms": 1829,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/fresh.log"
     },
     {
       "id": "tests",
       "command": "pnpm test",
       "exitCode": 0,
-      "ms": 24187,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/tests.log"
+      "ms": 22011,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/tests.log"
     },
     {
       "id": "site",
       "command": "pnpm --filter @llm-bench/bench build",
       "exitCode": 0,
-      "ms": 19722,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/site.log"
+      "ms": 18453,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/site.log"
     },
     {
       "id": "e2e",
       "command": "pnpm e2e",
       "exitCode": 0,
-      "ms": 22727,
-      "log": "artifacts/releases/2026-11-12T04-02-03-261Z/logs/e2e.log"
+      "ms": 20042,
+      "log": "artifacts/releases/2026-11-12T04-22-54-797Z/logs/e2e.log"
     }
   ],
-  "inputsDigest": "sha256:9189d807f8985f974250658034e96eb3d42b4ba0b49c52a648929c14a2427cf1",
-  "outputsDigest": "sha256:89574de7d63e140c62e188cd97c8cd1d279cbe00424b003e5895572462e82f3d",
+  "inputsDigest": "sha256:f4adddaed3c645f24056dc15c8cf29f71365c68285274f4ab4b15941eb0f54a7",
+  "outputsDigest": "sha256:00ee7c5c2de9fefb0a7a9a4a42c93b6a8096ecfcbbdd218425bd3d3a5efa67cc",
   "implementationDigest": "sha256:e68b12ca1287165c35f7c17bc10309bae411c160edccb72ec566621f87080529",
-  "exportDigest": "sha256:b5b286269ceacbc87e3611ff769f9befd31c8cf19e4a56c6b46b31a371a2440d"
+  "exportDigest": "sha256:90d01dec177f54e6f92b31376718316a8a734ca43fc3a1ffdd0e230482f701a7"
 }

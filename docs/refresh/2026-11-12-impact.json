@@ -1,15 +1,15 @@
 {
   "oldVersionId": "sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da",
-  "newVersionId": "sha256:e813b439b73a8dd7f56e2c4875322446c994e90cfc7e1f626ffb53a5599e8ac4",
+  "newVersionId": "sha256:cf1ab41c29efe7040e3ce4c521204aadf82d26c05f7b89e449a7fe6c4c3caa19",
   "baseline": {
     "path": "artifacts/research/2026-11-12-benchmark-check/import-baseline/product/current.json",
     "fileSha256": "sha256:22b146327edc60f64472566725d2a96a4e71d75849b797013428661db6032f88"
   },
   "finalProduct": {
     "path": "data/product/current.json",
-    "fileSha256": "sha256:78f05f64d56b9ecbda21d78e9ae15181076deaa7f24b53222dba98afd076a509"
+    "fileSha256": "sha256:d7e283a35b93e8064e4029cf637d261a9630925f89dcf5a9ee557c56925fa0e6"
   },
-  "reviewedAt": "2026-11-12T04:04:22.894Z",
+  "reviewedAt": "2026-11-12T04:24:22.222Z",
   "method": {
     "implementation": "apps/bench/lib/common-benchmarks.ts#buildCommonComparison",
     "cohort": "Every published cohort reproduced from exact representative profiles and its current comparison evidence, excluding comparisonOnly benchmarks.",
