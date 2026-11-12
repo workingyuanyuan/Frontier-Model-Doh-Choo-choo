@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-10T00:01:19.441Z",
+  "checkedAt": "2026-11-12T03:55:19.713Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -244,10 +244,11 @@
       },
       {
         "id": "frontier-code-2-0",
-        "includedRows": 115,
+        "includedRows": 121,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
@@ -267,6 +268,7 @@
           "openai-gpt-6-luna",
           "openai-gpt-6-sol",
           "reflection-beam-1-0",
+          "thinking-machines-inkling-2-small",
           "xai-grok-4-7"
         ],
         "profiles": [
@@ -359,6 +361,12 @@
           "[\"Grok 4.7\",\"low\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.7\",\"medium\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.7\",\"xhigh\",null,\"grok-build\",null,null,null,null]",
+          "[\"Inkling 2 Small\",\"high\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Inkling 2 Small\",\"low\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Inkling 2 Small\",\"max\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Inkling 2 Small\",\"medium\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Inkling 2 Small\",\"xhigh\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Inkling 2 Small\",null,null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling Small\",\"high\",null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling Small\",\"max\",null,\"devin-cli\",null,null,null,null]",
           "[\"Kimi K3\",\"high\",null,\"devin-cli\",null,null,null,null]",
@@ -407,6 +415,7 @@
           "Gemini 4 Argon",
           "Gemini 4 Carbon",
           "Grok 4.7",
+          "Inkling 2 Small",
           "Inkling Small",
           "Kimi K3",
           "Kimi K3.1 Pro",
@@ -418,12 +427,12 @@
           "SWE-2",
           "SWE-2 Flash"
         ],
-        "rows": 115,
+        "rows": 121,
         "sourceUrls": ["https://cognition.com/frontiercode"],
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-10T00:01:18.762Z",
+    "observedAt": "2026-11-12T03:55:19.383Z",
     "sourceId": "frontier-code"
   }
 }

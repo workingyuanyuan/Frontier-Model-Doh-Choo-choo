@@ -3,25 +3,25 @@
 - Page (renders FrontierCode 2.0 only since 2026-10-27): <https://cognition.com/frontiercode>
 - FrontierCode 2.0 export: <https://cognition.com/data/frontier-code-2.0/data.json>
 - FrontierCode 1.1 export (no longer rendered): <https://cognition.com/data/frontiercode-leaderboard/data.json>
-- Page/JSON-LD evidence: `sha256:4b18605e868b1bdf262ef4b29a87a44c7eda0f34dfa40b75f2b2b024ba8e6f05`
+- Page/JSON-LD evidence: `sha256:a181c491642642b5d44e9651ad44c9a24733a79aa37823b53a080c616d67d4df`
 - 1.1 export evidence: `sha256:9306c93c1029981c8e5bd3e1cf6d18d4d669690622e92b88f23d939e9abb8070`
 
 FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`) are different benchmarks. Neither replaces the other; their scores are never merged.
 
 ## FrontierCode 2.0
 
-- 2.0 export evidence: `sha256:7c6e17eac33f887d9f334877014c7fdcf3e444b51abb2cb2e957415d213e9b6c`
+- 2.0 export evidence: `sha256:493059c9956d0e8bf87da1e09c98f177c64426b8d1db0cf506d1449dfbf8c52a`
 
 | Check | Count |
 |---|---:|
-| 2.0 visible models | 30 |
-| 2.0 Main configurations | 115 |
-| 2.0 configurations with costs (materialized, INCLUDED) | 115 |
-| 2.0 models with multiple efforts | 28 |
+| 2.0 visible models | 31 |
+| 2.0 Main configurations | 121 |
+| 2.0 configurations with costs (materialized, INCLUDED) | 121 |
+| 2.0 models with multiple efforts | 29 |
 | 2.0 hidden export models | 0 |
 | 2.0 canonically unresolved models | 8 |
 
-- Rendered Best reasoning mode rows: 30; All reasoning levels rows: 115; both equal the export after removing the page's hidden models (none).
+- Rendered Best reasoning mode rows: 31; All reasoning levels rows: 121; both equal the export after removing the page's hidden models (none).
 - JSON-LD `FrontierCode 2.0 Leaderboard` Top 10 exact rank/name/one-decimal-score matches: 10/10; mismatches: none.
 - The rendered Top 10 matched the JSON-LD and export: yes.
 - Hidden models stay in the raw artifact and are not materialized; neither are their costs.
@@ -55,6 +55,19 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 
 Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `frontier-code-2-0` IDs. `frontierswe` belongs to Proximal FrontierSWE, a different organiser scoring model+harness rank and dominance; they are never merged. See `SPEC.md` §4.2.
 
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Distinct models | 47 | 47 | +0 |
+| Main configurations | 141 | 141 | +0 |
+| Materialized costs | 256 | 262 | +6 |
+| 2.0 costs | 115 | 121 | +6 |
+| 2.0 models | 30 | 31 | +1 |
+| 2.0 configurations | 115 | 121 | +6 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
+
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW
 
@@ -67,6 +80,7 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 | DeepSeek V4 Pro | `frontier-code:frontier-code-1-1:deepseek-v4-pro-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
+| Inkling 2 Small | `frontier-code:frontier-code-2-0:inkling-2-small-none` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
 

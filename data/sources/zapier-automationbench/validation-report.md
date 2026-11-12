@@ -1,16 +1,16 @@
 # Zapier AutomationBench acquisition validation
 
 - Page: <https://zapier.com/benchmarks>
-- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.BYLzibSf.mjs>
-- Module evidence: `sha256:0f8bf50caa4522ff87f6e9f0ce8b14e8a32fcdf806407badd40737ad528486d7`
-- Page evidence: `sha256:65b6879f64918509ac70f71b6632648da5b167c2ba09cc27b08a6b5a30ec4bca`
-- Observed at: 2026-11-10T00:01:27.980Z
+- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.DQR3kMpS.mjs>
+- Module evidence: `sha256:0a10bc0ad7b8fc830a9333761489f3f83aabdfcb35dac8ad42f0a467e4f7baae`
+- Page evidence: `sha256:486d4468bff0d262c29ab02a4dd6b63e3bd3d5be4d24f8e63da98271a697b0de`
+- Observed at: 2026-11-12T03:54:48.378Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Framer .mjs modules discovered from page HTML | 9 |
+| Framer .mjs modules discovered from page HTML | 10 |
 | Leaderboard rows parsed | 134 |
 | Maximum visible rank | 134 |
 | Cost records emitted | 133 |
@@ -74,6 +74,16 @@
 - Minimax M2.7 (High)
 - Qwen 3.6+ (High)
 - Qwen 3.7+
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate rows | 134 | 134 | +0 |
+| Cost records | 133 | 133 | +0 |
+| Canonically unresolved rows | 14 | 14 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

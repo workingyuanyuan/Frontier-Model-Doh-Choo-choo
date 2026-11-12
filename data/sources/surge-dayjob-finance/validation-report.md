@@ -1,7 +1,7 @@
 # Surge DAYJOB Finance acquisition validation
 
 - Source: <https://surgehq.ai/benchmarks/dayjob-finance>
-- Evidence: `sha256:542a76bac60052361e9b17033b2c9ca2b0c871d4a79e4b638bcc9a8b4f30dbc8`
+- Evidence: `sha256:724a031b7110c002f02fa96d8299b4ff046fe41d225bf064e5c28b23dbd4668e`
 - Main leaderboard: 40 rows; rendered browser count: 40.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (8): Gemini 3.1 Pro (High reasoning); GLM 5.3 Flash (Max reasoning); GLM 5.3 (Max reasoning); Hy Hy3 (High reasoning); Hy Hy4 Preview (High reasoning); mistral Large 3; Mistral Large 4 (High reasoning); Muse Glimmer 30B (xHigh reasoning).

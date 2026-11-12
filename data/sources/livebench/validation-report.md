@@ -6,13 +6,13 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 
 | Check | Count |
 |---|---:|
-| 2.0 model rows (`https://livebench.ai/data/20261106/table.csv?v=1794259017`) | 33 |
-| 2.0 suite candidates | 231 |
+| 2.0 model rows (`https://livebench.ai/data/20261106/table.csv?v=1794424802`) | 34 |
+| 2.0 suite candidates | 238 |
 | 2.0 blank (still running) cells | 0 |
-| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1794259017`) | 71 |
+| 1.0 model rows (`https://livebench.ai/v1/table_2026_06_25.csv?v=1794424802`) | 71 |
 | 1.0 retained candidates (Language, IF, Mathematics) | 213 |
 | 1.0 Reasoning candidates excluded as superseded | 71 |
-| Cost records | 150 |
+| Cost records | 152 |
 | Distinct unresolved raw model names | 23 |
 
 ## LiveBench 2.0 suites
@@ -59,6 +59,22 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 - `smaug-agentic`
 - `smaug-nemotron-3.5-nvfp4`
 - `step-5-preview`
+
+## Visible comparison
+
+- LiveBench 2.0 rendered leaderboard rows: 34; table rows: 34.
+- LiveBench 1.0 release 2026-06-25 rendered rows with Include finetunes enabled: 65; export rows 71 minus superseded export-only names (deepseek-v4-flash, deepseek-v4-pro) and 4 collapsed variant rows.
+- Result: both rendered counts matched.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Raw model profiles | 99 | 100 | +1 |
+| Candidate results | 515 | 522 | +7 |
+| Materialized costs | 150 | 152 | +2 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

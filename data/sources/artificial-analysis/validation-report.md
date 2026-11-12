@@ -8,30 +8,30 @@
 
 | Check | Count |
 |---|---:|
-| Unique profile rows across all captured page payloads | 240 |
+| Unique profile rows across all captured page payloads | 241 |
 | Unique profile rows in evaluation-page payloads | 107 |
-| Unique profile rows in model-detail payloads | 240 |
+| Unique profile rows in model-detail payloads | 241 |
 | Profile rows in the /models payload | 27 |
-| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 239 |
-| Generated CandidateResults | 2943 |
-| Intelligence Index candidates (EXCLUDED) | 115 |
-| GDPval-AA normalized candidates | 195 |
-| Canonically unresolved candidates | 750 |
-| MEASURED_TASK cost rows | 110 |
-| API_STANDARDIZED token-price rows | 229 |
+| Eligible profile rows (2025-08-17 cutoff, including deprecated) | 240 |
+| Generated CandidateResults | 2969 |
+| Intelligence Index candidates (EXCLUDED) | 118 |
+| GDPval-AA normalized candidates | 196 |
+| Canonically unresolved candidates | 776 |
+| MEASURED_TASK cost rows | 113 |
+| API_STANDARDIZED token-price rows | 230 |
 
 ## Page composition finding
 
 - The rendered `/models` catalog total is checked separately by the refresh command; its RSC payload exposes 27 selected profile rows in this capture.
 - The evaluation-page payload union exposes 107 profiles. `/evaluations/gdpval-aa` carries 0 `gdpvalNormalized` values, so normalized GDPval-AA is read from the model-detail payload that actually carries the field.
-- The model-detail payload union exposes 240 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
+- The model-detail payload union exposes 241 profiles and is the source for Intelligence Index, normalized GDPval-AA, task cost, and token-price fields when present.
 - Missing Index, score, or cost remains absent; it is not estimated or filled with zero.
 
 ## API cross-validation
 
 - API source unavailable; page pipeline remains authoritative.
 - No real API differences recorded beyond rounding.
-- Warning: API cross-validation was not attempted.
+- Warning: ARTIFICIAL_ANALYSIS_API_KEY is not set; API cross-validation skipped.
 
 ## Scope and semantics
 
@@ -45,15 +45,32 @@ Integrated for scoring on 2026-10-28 (user decision: AA v5 additions are scored)
 
 | Evaluation page | Field | Benchmark ID | Candidates | Canonically resolved |
 |---|---|---|---:|---:|
-| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 186 | 146 |
-| `hle-diamond` | `hleDiamond` | `hle-diamond` | 135 | 99 |
-| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 127 | 97 |
-| `critpt-v2` | `critptAgentic` | `critpt-v2` | 50 | 37 |
-| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 116 | 89 |
+| `terminalbench-4-0` | `terminalBench40` | `terminal-bench-4-0` | 187 | 146 |
+| `hle-diamond` | `hleDiamond` | `hle-diamond` | 136 | 99 |
+| `terminal-bench-science` | `terminalBenchScience` | `terminal-bench-science` | 129 | 97 |
+| `critpt-v2` | `critptAgentic` | `critpt-v2` | 52 | 37 |
+| `frontiercode-2-0` | `frontierCode20` | `frontier-code-2-0` | 119 | 89 |
 
 - `frontier-code-2-0` is shared with the organizer source `frontier-code` (Cognition). AA rows are INDEPENDENT/PARTIAL_SOURCE, so the ORGANIZER row wins every overlapping profile; AA rows only fill profiles Cognition did not run.
 - `critpt-v2` uses the Full Set (`critptAgentic`, the default leaderboard tab). The Index weights the 40-question Hard Subset (`critptAgenticHard`), which is not materialized.
 - Not integrated: AutomationBench-AA (`automationBenchPartialScore`); CritPt v2 Hard Subset (`critptAgenticHard`); AA FrontierCode 1.1 (`frontierCode`).
+
+## Visible comparison
+
+- Fresh rendered models page catalog total: 735
+- Unique profiles across the captured models, evaluation, and model-detail payloads: 241
+- Result: scopes differ. The catalog total includes models outside the selected evaluation pages; it is recorded for visual validation but is not used to synthesize missing score rows.
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Unique source profiles | 240 | 241 | +1 |
+| Active source profiles | 239 | 240 | +1 |
+| Candidate results | 2943 | 2969 | +26 |
+| Materialized costs | 339 | 343 | +4 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

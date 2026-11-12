@@ -2,7 +2,7 @@
 
 - Source: <https://surgehq.ai/benchmarks/riemann-bench>
 - Benchmark version: v1.1.
-- Evidence: `sha256:ba2caecfb930c82285bdc3b17526f026305f6c5f00e872e4e83d60760a50cad8`
+- Evidence: `sha256:8bed6add01d9e4148add2a890ea889f9c6ed99a9d137234146354c8906caf61d`
 - Main leaderboard: 21 rows; rendered browser count: 21.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).
