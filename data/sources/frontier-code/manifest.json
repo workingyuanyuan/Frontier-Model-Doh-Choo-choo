@@ -21,7 +21,7 @@
     "v1_1.harness[model]": "frontier-code-1-1 profile.harness",
     "v1_1.models[]": "frontier-code-1-1 model.rawName"
   },
-  "lastVerifiedAt": "2026-11-12T03:55:19.383Z",
+  "lastVerifiedAt": "2026-11-12T04:48:27.166Z",
   "notes": [
     "FrontierCode 1.1 and 2.0 are different benchmarks; neither replaces the other.",
     "2.0: 31 visible models and 121 Main configurations; rendered Best 31 and All 121 rows; JSON-LD Top 10 matches the export 10/10 and the rendered Top 10. Hidden export models not materialized: none.",

@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-12T03:55:19.713Z",
+  "checkedAt": "2026-11-12T04:48:27.449Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -365,8 +365,8 @@
           "[\"Inkling 2 Small\",\"low\",null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling 2 Small\",\"max\",null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling 2 Small\",\"medium\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Inkling 2 Small\",\"non-reasoning\",null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling 2 Small\",\"xhigh\",null,\"devin-cli\",null,null,null,null]",
-          "[\"Inkling 2 Small\",null,null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling Small\",\"high\",null,\"devin-cli\",null,null,null,null]",
           "[\"Inkling Small\",\"max\",null,\"devin-cli\",null,null,null,null]",
           "[\"Kimi K3\",\"high\",null,\"devin-cli\",null,null,null,null]",
@@ -432,7 +432,7 @@
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-12T03:55:19.383Z",
+    "observedAt": "2026-11-12T04:48:27.166Z",
     "sourceId": "frontier-code"
   }
 }

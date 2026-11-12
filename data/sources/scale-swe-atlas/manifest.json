@@ -1,0 +1,30 @@
+{
+  "accessMethods": ["NEXT_RSC", "DOM"],
+  "baseUrl": "https://scale.com/leaderboard/swe-atlas",
+  "benchmarkIds": ["swe-atlas"],
+  "completeness": {
+    "expectedCountMethod": "Compare rendered Overall population with complete Next RSC overall variant entries.",
+    "pagination": null,
+    "visibleComparisonRequired": true
+  },
+  "displayName": "Scale SWE Atlas",
+  "fallbackMethods": ["DOM", "VISUAL"],
+  "fieldMapping": {
+    "variants[overall].entries[].confidenceInterval_lower": "Evidence.metadata.confidenceIntervals; provenance.confidenceIntervalLower",
+    "variants[overall].entries[].confidenceInterval_upper": "Evidence.metadata.confidenceIntervals; provenance.confidenceIntervalUpper",
+    "variants[overall].entries[].model": "model.rawName",
+    "variants[overall].entries[].score": "normalizedScore"
+  },
+  "lastVerifiedAt": "2026-11-12T04:55:30.201Z",
+  "notes": [
+    "Overall only, benchmark version v1.1. QnA, Test Writing and Refactoring are preserved in raw evidence.",
+    "Exact catalog display names and aliases resolve existing model identities; unresolved identities remain null.",
+    "Effort is retained only when explicitly named. Configuration fields not disclosed for each model remain null.",
+    "Confidence interval fields remain verbatim; unpublished confidence level and missing lower bound remain unknown.",
+    "No cost records are materialized."
+  ],
+  "role": "ORGANIZER",
+  "schemaVersion": "source-manifest-v1",
+  "sourceId": "scale-swe-atlas",
+  "targetUrls": ["https://scale.com/leaderboard/swe-atlas"]
+}

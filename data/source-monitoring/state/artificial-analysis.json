@@ -241,21 +241,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-12T03:54:34.389Z",
+  "checkedAt": "2026-11-12T04:51:45.240Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/3a/3a7c4c1fb2a9e90f19d0092fb587eb005ea6bafc66cbd6a433be216b8c896777.html",
+    "artifactPath": "artifacts/sha256/08/08599e6f31a0dc9df9768bfcc8cfd18e5f521e997b1de6400134f1ade3aae696.html",
     "byteLength": 470123,
     "finalUrl": "https://artificialanalysis.ai/evaluations",
-    "id": "sha256:3a7c4c1fb2a9e90f19d0092fb587eb005ea6bafc66cbd6a433be216b8c896777",
+    "id": "sha256:08599e6f31a0dc9df9768bfcc8cfd18e5f521e997b1de6400134f1ade3aae696",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/evaluations",
-    "retrievedAt": "2026-11-12T03:54:34.389Z",
+    "retrievedAt": "2026-11-12T04:51:45.240Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:3a7c4c1fb2a9e90f19d0092fb587eb005ea6bafc66cbd6a433be216b8c896777",
+    "sha256": "sha256:08599e6f31a0dc9df9768bfcc8cfd18e5f521e997b1de6400134f1ade3aae696",
     "sourceId": "artificial-analysis"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -3535,7 +3535,7 @@
       },
       {
         "id": "critpt-v2",
-        "includedRows": 52,
+        "includedRows": 53,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
@@ -3612,6 +3612,7 @@
           "[\"Ling 3.1 Flash 1019\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"MiMo-V2.6-Pro\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"MiniMax-M3\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"MiniMax-M3.1-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Mistral Large 4 (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Mistral Large 4 Preview\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Muse Ember (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
@@ -3666,6 +3667,7 @@
           "Ling 3.1 Flash 1019",
           "MiMo-V2.6-Pro",
           "MiniMax-M3",
+          "MiniMax-M3.1-Flash",
           "Mistral Large 4 (High)",
           "Mistral Large 4 Preview",
           "Muse Ember (Max)",
@@ -3682,7 +3684,7 @@
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 52,
+        "rows": 53,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
@@ -3720,6 +3722,7 @@
           "https://artificialanalysis.ai/models/ling-3-1-flash-1019",
           "https://artificialanalysis.ai/models/mimo-v2-6-pro",
           "https://artificialanalysis.ai/models/minimax-m3",
+          "https://artificialanalysis.ai/models/minimax-m3-1-flash",
           "https://artificialanalysis.ai/models/mistral-large-4",
           "https://artificialanalysis.ai/models/mistral-large-4-preview",
           "https://artificialanalysis.ai/models/muse-ember",
@@ -7560,6 +7563,99 @@
         "versions": ["(unknown)"]
       },
       {
+        "id": "mka",
+        "includedRows": 21,
+        "metrics": ["climb-wsr:percent:true"],
+        "models": [
+          "alibaba-qwen3-8-max",
+          "anthropic-claude-fable-5-2",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
+          "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
+          "google-gemini-4-carbon",
+          "meta-muse-wonder",
+          "moonshot-kimi-k3-1-pro",
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-1-terra",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-luna",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"Claude Fable 5.2 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Claude Haiku 5.5 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Claude Opus 5.5 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Claude Sonnet 5.5 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"DeepSeek V4.1 Flash 1017 (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"GLM-5.3-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"GPT-6 Astra (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"GPT-6 Luna (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"GPT-6.1 Sol (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"GPT-6.1 Terra (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Gemini 3.8 Flash (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Gemini 4 Argon (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Gemini 4 Carbon (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Grok 4.7 (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Kimi K3.1 Pro\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"MiMo-V2.6-Pro\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"MiniMax-M3.1-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Mistral Large 4 (High)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Muse Wonder (Max)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Step 5 Preview\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]"
+        ],
+        "rawLabels": [
+          "Claude Fable 5.2 (Max, Default Fallback)",
+          "Claude Haiku 5.5 (Max)",
+          "Claude Opus 5.5 (Max, Default Fallback)",
+          "Claude Sonnet 5.5 (Max, Default Fallback)",
+          "DeepSeek V4.1 Flash 1017 (Max)",
+          "GLM-5.3-Flash",
+          "GPT-6 Astra (Max)",
+          "GPT-6 Luna (Max)",
+          "GPT-6.1 Sol (Max)",
+          "GPT-6.1 Terra (Max)",
+          "Gemini 3.8 Flash (High)",
+          "Gemini 4 Argon (High)",
+          "Gemini 4 Carbon (High)",
+          "Grok 4.7 (Xhigh)",
+          "Kimi K3.1 Pro",
+          "MiMo-V2.6-Pro",
+          "MiniMax-M3.1-Flash",
+          "Mistral Large 4 (High)",
+          "Muse Wonder (Max)",
+          "Qwen3.8 Max (0902)",
+          "Step 5 Preview"
+        ],
+        "rows": 21,
+        "sourceUrls": [
+          "https://artificialanalysis.ai/models/claude-fable-5-2",
+          "https://artificialanalysis.ai/models/claude-haiku-5-5",
+          "https://artificialanalysis.ai/models/claude-opus-5-5",
+          "https://artificialanalysis.ai/models/claude-sonnet-5-5",
+          "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+          "https://artificialanalysis.ai/models/gemini-3-8-flash",
+          "https://artificialanalysis.ai/models/gemini-4-argon",
+          "https://artificialanalysis.ai/models/gemini-4-carbon",
+          "https://artificialanalysis.ai/models/glm-5-3-flash",
+          "https://artificialanalysis.ai/models/gpt-6-1-sol",
+          "https://artificialanalysis.ai/models/gpt-6-1-terra",
+          "https://artificialanalysis.ai/models/gpt-6-astra",
+          "https://artificialanalysis.ai/models/gpt-6-luna",
+          "https://artificialanalysis.ai/models/grok-4-7",
+          "https://artificialanalysis.ai/models/kimi-k3-1-pro",
+          "https://artificialanalysis.ai/models/mimo-v2-6-pro",
+          "https://artificialanalysis.ai/models/minimax-m3-1-flash",
+          "https://artificialanalysis.ai/models/mistral-large-4",
+          "https://artificialanalysis.ai/models/muse-wonder",
+          "https://artificialanalysis.ai/models/qwen3-8-max",
+          "https://artificialanalysis.ai/models/step-5"
+        ],
+        "versions": ["(unknown)"]
+      },
+      {
         "id": "mmlu-pro",
         "includedRows": 3,
         "metrics": ["accuracy:percent:true"],
@@ -10135,7 +10231,7 @@
         "versions": ["v0.1"]
       }
     ],
-    "observedAt": "2026-11-12T03:51:05.196Z",
+    "observedAt": "2026-11-12T04:49:15.526Z",
     "sourceId": "artificial-analysis"
   }
 }

@@ -1,0 +1,1850 @@
+[
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:deepseek-v4-1-flash",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "DeepSeek V4.1 Flash"
+    },
+    "normalizedScore": 62.1,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[10].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 62.1,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:fable-5-1",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-1",
+      "profileId": "anthropic-claude-fable-5-1-default",
+      "rawName": "Fable 5.1"
+    },
+    "normalizedScore": 76.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[2].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 76.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:fable-5-2",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-fable-5-2",
+      "profileId": "anthropic-claude-fable-5-2-default",
+      "rawName": "Fable 5.2"
+    },
+    "normalizedScore": 80.5,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[0].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 80.5,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gemini-3-8-flash",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-3-8-flash",
+      "profileId": "google-gemini-3-8-flash-default",
+      "rawName": "Gemini 3.8 Flash"
+    },
+    "normalizedScore": 57.3,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[18].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 57.3,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gemini-4-argon",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-argon",
+      "profileId": "google-gemini-4-argon-default",
+      "rawName": "Gemini 4 Argon"
+    },
+    "normalizedScore": 70.1,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[4].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 70.1,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gemini-4-carbon",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "google-gemini-4-carbon",
+      "profileId": "google-gemini-4-carbon-default",
+      "rawName": "Gemini 4 Carbon"
+    },
+    "normalizedScore": 71.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[3].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 71.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:glm-5-3",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM 5.3"
+    },
+    "normalizedScore": 58.1,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[16].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 58.1,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:glm-5-3-flash",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "GLM 5.3 Flash"
+    },
+    "normalizedScore": 55.3,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[20].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 55.3,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-1-sol",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-sol",
+      "profileId": "openai-gpt-6-1-sol-default",
+      "rawName": "GPT-6.1 Sol"
+    },
+    "normalizedScore": 65.9,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[7].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 65.9,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-1-terra",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-1-terra",
+      "profileId": "openai-gpt-6-1-terra-default",
+      "rawName": "GPT-6.1 Terra"
+    },
+    "normalizedScore": 57.7,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[17].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 57.7,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-astra",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-astra",
+      "profileId": "openai-gpt-6-astra-default",
+      "rawName": "GPT-6 Astra"
+    },
+    "normalizedScore": 69.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[5].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 69.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-6-luna",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "openai-gpt-6-luna",
+      "profileId": "openai-gpt-6-luna-default",
+      "rawName": "GPT-6 Luna"
+    },
+    "normalizedScore": 50.8,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[21].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 50.8,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:gpt-oss-120b",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "gpt-oss-120b"
+    },
+    "normalizedScore": 8.8,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[27].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 8.8,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:grok-4-7",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "xai-grok-4-7",
+      "profileId": "xai-grok-4-7-default",
+      "rawName": "Grok 4.7"
+    },
+    "normalizedScore": 62.1,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[11].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 62.1,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:haiku-5-5",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Haiku 5.5"
+    },
+    "normalizedScore": 59.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[15].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 59.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:inkling-2-small",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "thinking-machines-inkling-2-small",
+      "profileId": "thinking-machines-inkling-2-small-default",
+      "rawName": "Inkling 2 Small"
+    },
+    "normalizedScore": 61.9,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[12].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 61.9,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:kimi-k3",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3",
+      "profileId": "moonshot-kimi-k3-default",
+      "rawName": "Kimi K3"
+    },
+    "normalizedScore": 61,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[14].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 61,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:kimi-k3-1-pro",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "moonshot-kimi-k3-1-pro",
+      "profileId": "moonshot-kimi-k3-1-pro-default",
+      "rawName": "Kimi K3.1 Pro"
+    },
+    "normalizedScore": 61.1,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[13].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 61.1,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:minimax-m3",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "minimax-minimax-m3",
+      "profileId": "minimax-minimax-m3-default",
+      "rawName": "MiniMax M3"
+    },
+    "normalizedScore": 39.3,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[24].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 39.3,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:mistral-large-4",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Mistral Large 4"
+    },
+    "normalizedScore": 45.2,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[22].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 45.2,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:muse-ember-1-0",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-ember",
+      "profileId": "meta-muse-ember-default",
+      "rawName": "Muse Ember 1.0"
+    },
+    "normalizedScore": 56,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[19].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 56,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:muse-spark-open",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-spark-open",
+      "profileId": "meta-muse-spark-open-default",
+      "rawName": "Muse Spark Open"
+    },
+    "normalizedScore": 42.3,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[23].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 42.3,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:muse-wonder-1-0",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "meta-muse-wonder",
+      "profileId": "meta-muse-wonder-default",
+      "rawName": "Muse Wonder 1.0"
+    },
+    "normalizedScore": 64.8,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[8].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 64.8,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:nemotron-3-5-super-vl",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": null,
+      "profileId": null,
+      "rawName": "Nemotron 3.5 Super VL"
+    },
+    "normalizedScore": 24.8,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[25].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 24.8,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:nemotron-3-ultra",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "nvidia-nemotron-3-ultra",
+      "profileId": "nvidia-nemotron-3-ultra-default",
+      "rawName": "Nemotron 3 Ultra"
+    },
+    "normalizedScore": 21.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[26].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 21.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:opus-5-5",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-opus-5-5",
+      "profileId": "anthropic-claude-opus-5-5-default",
+      "rawName": "Opus 5.5"
+    },
+    "normalizedScore": 77.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[1].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 77.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:qwen-3-8-max",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "alibaba-qwen3-8-max",
+      "profileId": "alibaba-qwen3-8-max-default",
+      "rawName": "Qwen 3.8 Max"
+    },
+    "normalizedScore": 64.4,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[9].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 64.4,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  },
+  {
+    "acquisitionStatus": "FULL",
+    "benchmarkId": "swe-atlas",
+    "benchmarkVersion": "v1.1",
+    "evidenceIds": [
+      "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565"
+    ],
+    "exclusionReason": null,
+    "id": "scale-swe-atlas:swe-atlas:sonnet-5-5",
+    "inclusion": "INCLUDED",
+    "metric": {
+      "higherIsBetter": true,
+      "id": "overall-score",
+      "name": "SWE Atlas Overall score",
+      "unit": "percent"
+    },
+    "model": {
+      "canonicalModelId": "anthropic-claude-sonnet-5-5",
+      "profileId": "anthropic-claude-sonnet-5-5-default",
+      "rawName": "Sonnet 5.5"
+    },
+    "normalizedScore": 68.3,
+    "observedAt": "2026-11-12T04:55:30.201Z",
+    "profile": {
+      "attempts": null,
+      "contextWindowTokens": null,
+      "effort": null,
+      "harness": null,
+      "quantization": null,
+      "thinking": null,
+      "tools": null
+    },
+    "provenance": {
+      "confidenceIntervalUpper": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].confidenceInterval_upper",
+        "method": "NEXT_RSC"
+      },
+      "model.rawName": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].model",
+        "method": "NEXT_RSC"
+      },
+      "profile.effort": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].model; effort is retained only when explicitly named",
+        "method": "NEXT_RSC"
+      },
+      "rawScore": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].score",
+        "method": "NEXT_RSC"
+      },
+      "sourceCreatedAt": {
+        "evidenceId": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+        "locator": "Next RSC 1c[3].children[3].variants[0].entries[6].createdAt",
+        "method": "NEXT_RSC"
+      }
+    },
+    "rawScore": 68.3,
+    "schemaVersion": "candidate-result-v1",
+    "sourceId": "scale-swe-atlas",
+    "sourcePublishedAt": null,
+    "sourceRole": "ORGANIZER",
+    "sourceUrl": "https://scale.com/leaderboard/swe-atlas"
+  }
+]
