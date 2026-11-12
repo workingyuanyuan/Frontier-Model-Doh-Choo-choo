@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-09T23:48:12.125Z",
+  "checkedAt": "2026-11-12T03:50:47.499Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -61,7 +61,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-09T23:48:11.113Z",
+    "observedAt": "2026-11-12T03:50:46.002Z",
     "sourceId": "maxxbench"
   }
 }

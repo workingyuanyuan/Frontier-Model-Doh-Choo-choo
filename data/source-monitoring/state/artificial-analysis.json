@@ -86,7 +86,7 @@
     },
     {
       "id": "frontiercode-2-0",
-      "title": "FrontierCode 2.0",
+      "title": "FrontierCode-AA 2.0",
       "url": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
       "version": "v2.0"
     },
@@ -163,6 +163,12 @@
       "version": null
     },
     {
+      "id": "mka",
+      "title": "MKA",
+      "url": "https://artificialanalysis.ai/evaluations/mka",
+      "version": null
+    },
+    {
       "id": "mlcr-aa",
       "title": "MLCR-AA",
       "url": "https://artificialanalysis.ai/evaluations/mlcr-aa",
@@ -235,21 +241,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-10T00:08:56.112Z",
+  "checkedAt": "2026-11-12T03:54:34.389Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/17/1766df40f538280884c389ee6fcb511220b2aaf3e078e2cbd888315c7087f801.html",
-    "byteLength": 464393,
+    "artifactPath": "artifacts/sha256/3a/3a7c4c1fb2a9e90f19d0092fb587eb005ea6bafc66cbd6a433be216b8c896777.html",
+    "byteLength": 470123,
     "finalUrl": "https://artificialanalysis.ai/evaluations",
-    "id": "sha256:1766df40f538280884c389ee6fcb511220b2aaf3e078e2cbd888315c7087f801",
+    "id": "sha256:3a7c4c1fb2a9e90f19d0092fb587eb005ea6bafc66cbd6a433be216b8c896777",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/evaluations",
-    "retrievedAt": "2026-11-10T00:08:56.112Z",
+    "retrievedAt": "2026-11-12T03:54:34.389Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:1766df40f538280884c389ee6fcb511220b2aaf3e078e2cbd888315c7087f801",
+    "sha256": "sha256:3a7c4c1fb2a9e90f19d0092fb587eb005ea6bafc66cbd6a433be216b8c896777",
     "sourceId": "artificial-analysis"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -257,15 +263,17 @@
     "benchmarks": [
       {
         "id": "aa-briefcase",
-        "includedRows": 191,
+        "includedRows": 192,
         "metrics": ["rubric-score:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-7",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
@@ -287,6 +295,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
@@ -512,6 +521,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Tencent Hy4\",null,\"reasoning\",null,null,null,null,null]"
         ],
@@ -705,10 +715,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 191,
+        "rows": 192,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -899,6 +910,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
@@ -906,15 +918,17 @@
       },
       {
         "id": "aa-lcr",
-        "includedRows": 228,
+        "includedRows": 229,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
           "anthropic-claude-opus-4-8",
@@ -1199,6 +1213,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,null]"
         ],
@@ -1429,10 +1444,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 228,
+        "rows": 229,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -1660,6 +1676,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash",
           "https://artificialanalysis.ai/models/step-5"
         ],
@@ -1667,15 +1684,17 @@
       },
       {
         "id": "aa-omniscience",
-        "includedRows": 124,
+        "includedRows": 126,
         "metrics": [
           "accuracy:percent:true",
           "omniscience-index:index-points:true"
         ],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -1688,6 +1707,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -1715,6 +1735,8 @@
         "profiles": [
           "[\"Agnes 2.5 Pro Theta\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Agnes 2.5 Pro Theta\",null,null,null,null,null,null,null]",
+          "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Apodex 1.1\",null,null,null,null,null,null,null]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,1048576]",
           "[\"Beam 1.0\",null,null,null,null,null,null,null]",
           "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,200000]",
@@ -1957,6 +1979,8 @@
           "[\"Qwen3.8 Max (0902)\",null,null,null,null,null,null,null]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
           "[\"Qwen3.8-Flash-Next\",null,null,null,null,null,null,null]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
+          "[\"Solar Pro 4\",null,null,null,null,null,null,null]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Step 5 Preview\",null,null,null,null,null,null,null]",
           "[\"Tencent Hy4\",null,\"reasoning\",null,null,null,null,1048576]",
@@ -1964,6 +1988,7 @@
         ],
         "rawLabels": [
           "Agnes 2.5 Pro Theta",
+          "Apodex 1.1",
           "Beam 1.0",
           "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
@@ -2085,12 +2110,14 @@
           "Qwen3.8 27B (Xhigh)",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 248,
+        "rows": 252,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
+          "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -2212,6 +2239,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
@@ -2341,9 +2369,11 @@
         "includedRows": 0,
         "metrics": ["index-score:index points:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -2356,6 +2386,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -2381,6 +2412,7 @@
         ],
         "profiles": [
           "[\"Agnes 2.5 Pro Theta\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Apodex 1.1\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Beam 1.0\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",null,null,null,null,null]",
@@ -2493,11 +2525,14 @@
           "[\"Qwen3.8 27B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 27B (Xhigh)\",\"xhigh\",\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Tencent Hy4\",null,\"reasoning\",null,null,null,null,null]"
         ],
         "rawLabels": [
           "Agnes 2.5 Pro Theta",
+          "Apodex 1.1",
           "Beam 1.0",
           "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
@@ -2610,10 +2645,12 @@
           "Qwen3.8 27B (Non-reasoning)",
           "Qwen3.8 27B (Xhigh)",
           "Qwen3.8 Max (0902)",
+          "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 115,
+        "rows": 118,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
@@ -2720,6 +2757,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-27b-low",
           "https://artificialanalysis.ai/models/qwen3-8-27b-medium",
           "https://artificialanalysis.ai/models/qwen3-8-27b-non-reasoning",
+          "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/reflection-beam",
           "https://artificialanalysis.ai/models/step-5",
@@ -2729,15 +2767,17 @@
       },
       {
         "id": "critpt",
-        "includedRows": 229,
+        "includedRows": 230,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
           "anthropic-claude-opus-4-8",
@@ -3022,6 +3062,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,1000000]"
         ],
@@ -3253,10 +3294,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 229,
+        "rows": 230,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -3485,6 +3527,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash",
           "https://artificialanalysis.ai/models/step-5"
         ],
@@ -3492,12 +3535,13 @@
       },
       {
         "id": "critpt-v2",
-        "includedRows": 50,
+        "includedRows": 52,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -3507,6 +3551,7 @@
           "google-gemini-3-8-flash",
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
+          "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -3530,6 +3575,7 @@
           "xai-grok-4-7"
         ],
         "profiles": [
+          "[\"Apodex 1.1\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Beam 1.0\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Claude Fable 5.1 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Claude Fable 5.2 (Max, Default Fallback)\",\"max\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
@@ -3578,10 +3624,12 @@
           "[\"Nemotron 3.5 Super VL\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Qwen3.8 27B (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
+          "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Step 5 Preview\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
           "[\"Tencent Hy4\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]"
         ],
         "rawLabels": [
+          "Apodex 1.1",
           "Beam 1.0",
           "Claude Fable 5.1 (Max, Default Fallback)",
           "Claude Fable 5.2 (Max, Default Fallback)",
@@ -3630,11 +3678,13 @@
           "Nemotron 3.5 Super VL",
           "Qwen3.8 27B (Xhigh)",
           "Qwen3.8 Max (0902)",
+          "Qwen3.8-Flash-Next",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 50,
+        "rows": 52,
         "sourceUrls": [
+          "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-2",
           "https://artificialanalysis.ai/models/claude-haiku-5-5",
@@ -3681,6 +3731,7 @@
           "https://artificialanalysis.ai/models/nemotron-3-5-super-vl",
           "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
           "https://artificialanalysis.ai/models/qwen3-8-27b",
+          "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/reflection-beam",
           "https://artificialanalysis.ai/models/step-5",
@@ -3690,12 +3741,14 @@
       },
       {
         "id": "frontier-code-2-0",
-        "includedRows": 116,
+        "includedRows": 119,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5",
@@ -3709,6 +3762,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -3734,6 +3788,7 @@
         ],
         "profiles": [
           "[\"Agnes 2.5 Pro Theta\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
+          "[\"Apodex 1.1\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,256000]",
           "[\"Beam 1.0\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
           "[\"Claude 4.5 Haiku (Reasoning)\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,200000]",
           "[\"Claude Fable 5.1 (High, Default Fallback)\",\"high\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
@@ -3847,11 +3902,14 @@
           "[\"Qwen3.8 27B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,256000]",
           "[\"Qwen3.8 27B (Xhigh)\",\"xhigh\",\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]",
+          "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,512000]",
           "[\"Step 5 Preview\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,1000000]",
           "[\"Tencent Hy4\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,3,null]"
         ],
         "rawLabels": [
           "Agnes 2.5 Pro Theta",
+          "Apodex 1.1",
           "Beam 1.0",
           "Claude 4.5 Haiku (Reasoning)",
           "Claude Fable 5.1 (High, Default Fallback)",
@@ -3965,12 +4023,15 @@
           "Qwen3.8 27B (Non-reasoning)",
           "Qwen3.8 27B (Xhigh)",
           "Qwen3.8 Max (0902)",
+          "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 116,
+        "rows": 119,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
+          "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
           "https://artificialanalysis.ai/models/claude-fable-5-1",
           "https://artificialanalysis.ai/models/claude-fable-5-1-high",
@@ -4082,8 +4143,10 @@
           "https://artificialanalysis.ai/models/qwen3-8-27b-low",
           "https://artificialanalysis.ai/models/qwen3-8-27b-medium",
           "https://artificialanalysis.ai/models/qwen3-8-27b-non-reasoning",
+          "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
@@ -4091,15 +4154,17 @@
       },
       {
         "id": "gdp-pdf",
-        "includedRows": 187,
+        "includedRows": 188,
         "metrics": ["all-pass:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
@@ -4120,6 +4185,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
@@ -4340,6 +4406,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,512000]",
           "[\"Step 5 Preview\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,1000000]",
           "[\"Tencent Hy4\",null,\"reasoning\",\"Artificial Analysis GDP.pdf\",null,null,5,null]"
         ],
@@ -4529,10 +4596,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 187,
+        "rows": 188,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -4719,6 +4787,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
@@ -4726,15 +4795,17 @@
       },
       {
         "id": "gdpval-aa",
-        "includedRows": 195,
+        "includedRows": 196,
         "metrics": ["normalized-score:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-7",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
@@ -4984,6 +5055,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,983616]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,1000000]"
         ],
@@ -5181,10 +5253,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 195,
+        "rows": 196,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-fable-5",
@@ -5379,7 +5452,7 @@
       },
       {
         "id": "gpqa-diamond",
-        "includedRows": 156,
+        "includedRows": 157,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -5586,6 +5659,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]"
         ],
         "rawLabels": [
@@ -5744,9 +5818,10 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash"
         ],
-        "rows": 156,
+        "rows": 157,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
@@ -5903,19 +5978,22 @@
           "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash"
         ],
         "versions": ["(unknown)"]
       },
       {
         "id": "hle-diamond",
-        "includedRows": 135,
+        "includedRows": 136,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -5929,6 +6007,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -6087,6 +6166,7 @@
           "[\"Qwen3.8 27B (Xhigh)\",\"xhigh\",\"reasoning\",null,false,null,1,null]",
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,false,null,1,null]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,false,null,1,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,false,null,1,512000]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,false,null,1,1000000]",
           "[\"Tencent Hy4\",null,\"reasoning\",null,false,null,1,null]"
         ],
@@ -6224,10 +6304,11 @@
           "Qwen3.8 27B (Xhigh)",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 135,
+        "rows": 136,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -6362,6 +6443,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
@@ -6369,15 +6451,17 @@
       },
       {
         "id": "humanitys-last-exam",
-        "includedRows": 227,
+        "includedRows": 228,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
           "anthropic-claude-opus-4-8",
@@ -6660,6 +6744,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,1000000]"
         ],
@@ -6889,10 +6974,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 227,
+        "rows": 228,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -7119,6 +7205,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash",
           "https://artificialanalysis.ai/models/step-5"
         ],
@@ -7497,15 +7584,17 @@
       },
       {
         "id": "scicode",
-        "includedRows": 179,
+        "includedRows": 180,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
@@ -7735,6 +7824,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]",
           "[\"Step 5 Preview\",null,\"reasoning\",null,null,null,null,1000000]"
         ],
@@ -7916,10 +8006,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash",
           "Step 5 Preview"
         ],
-        "rows": 179,
+        "rows": 180,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -8098,6 +8189,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash",
           "https://artificialanalysis.ai/models/step-5"
         ],
@@ -8105,7 +8197,7 @@
       },
       {
         "id": "tau3-banking",
-        "includedRows": 119,
+        "includedRows": 120,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -8272,6 +8364,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]"
         ],
         "rawLabels": [
@@ -8393,9 +8486,10 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash"
         ],
-        "rows": 119,
+        "rows": 120,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
@@ -8515,13 +8609,14 @@
           "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash"
         ],
         "versions": ["(unknown)"]
       },
       {
         "id": "terminal-bench-2-1",
-        "includedRows": 125,
+        "includedRows": 126,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
@@ -8696,6 +8791,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",null,null,null,null,null]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",null,null,null,null,null]",
+          "[\"Solar Pro 4\",null,\"reasoning\",null,null,null,null,512000]",
           "[\"Step 3.7 Flash\",null,\"reasoning\",null,null,null,null,262144]"
         ],
         "rawLabels": [
@@ -8823,9 +8919,10 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 3.7 Flash"
         ],
-        "rows": 125,
+        "rows": 126,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/apodex-1-1",
           "https://artificialanalysis.ai/models/claude-4-5-haiku-reasoning",
@@ -8951,21 +9048,24 @@
           "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-3-7-flash"
         ],
         "versions": ["v2.1"]
       },
       {
         "id": "terminal-bench-4-0",
-        "includedRows": 186,
+        "includedRows": 187,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
@@ -8986,6 +9086,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
@@ -9205,6 +9306,7 @@
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
           "[\"Qwen3.8 Max\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,512000]",
           "[\"Step 5 Preview\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Tencent Hy4\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,null]"
         ],
@@ -9393,10 +9495,11 @@
           "Qwen3.8 Max",
           "Qwen3.8 Max (0902)",
           "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 186,
+        "rows": 187,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -9582,6 +9685,7 @@
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/qwen3-8-max-0803",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
@@ -9589,12 +9693,14 @@
       },
       {
         "id": "terminal-bench-science",
-        "includedRows": 127,
+        "includedRows": 129,
         "metrics": ["accuracy:percent:true"],
         "models": [
+          "agnes-agnes-2-5-pro-theta",
           "alibaba-qwen3-8-27b",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -9607,6 +9713,7 @@
           "google-gemini-4-carbon",
           "ibm-granite-4-2-8b",
           "lg-k-exaone-2-0",
+          "meta-muse-ember",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
           "meta-muse-wonder",
@@ -9757,6 +9864,8 @@
           "[\"Qwen3.8 27B (Non-reasoning)\",\"non-reasoning\",\"reasoning\",\"mini-swe-agent\",true,null,3,256000]",
           "[\"Qwen3.8 27B (Xhigh)\",\"xhigh\",\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
           "[\"Qwen3.8 Max (0902)\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,null]",
+          "[\"Qwen3.8-Flash-Next\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,256000]",
+          "[\"Solar Pro 4\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,512000]",
           "[\"Step 5 Preview\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,1000000]",
           "[\"Tencent Hy4\",null,\"reasoning\",\"mini-swe-agent\",true,null,3,null]"
         ],
@@ -9886,10 +9995,12 @@
           "Qwen3.8 27B (Non-reasoning)",
           "Qwen3.8 27B (Xhigh)",
           "Qwen3.8 Max (0902)",
+          "Qwen3.8-Flash-Next",
+          "Solar Pro 4",
           "Step 5 Preview",
           "Tencent Hy4"
         ],
-        "rows": 127,
+        "rows": 129,
         "sourceUrls": [
           "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
           "https://artificialanalysis.ai/models/apodex-1-1",
@@ -10014,15 +10125,17 @@
           "https://artificialanalysis.ai/models/qwen3-8-27b-low",
           "https://artificialanalysis.ai/models/qwen3-8-27b-medium",
           "https://artificialanalysis.ai/models/qwen3-8-27b-non-reasoning",
+          "https://artificialanalysis.ai/models/qwen3-8-flash-next",
           "https://artificialanalysis.ai/models/qwen3-8-max",
           "https://artificialanalysis.ai/models/reflection-beam",
+          "https://artificialanalysis.ai/models/solar-pro4",
           "https://artificialanalysis.ai/models/step-5",
           "https://artificialanalysis.ai/models/tencent-hy4"
         ],
         "versions": ["v0.1"]
       }
     ],
-    "observedAt": "2026-11-10T00:06:36.033Z",
+    "observedAt": "2026-11-12T03:51:05.196Z",
     "sourceId": "artificial-analysis"
   }
 }

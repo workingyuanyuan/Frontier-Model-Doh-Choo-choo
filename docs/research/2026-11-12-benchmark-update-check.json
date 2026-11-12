@@ -1,0 +1,193 @@
+{
+  "date": "2026-11-12",
+  "baselineCommit": "451118af12f9fffd42225176e77fb5131a4d0607",
+  "baselineVersion": "sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da",
+  "newVersion": "sha256:cf1ab41c29efe7040e3ce4c521204aadf82d26c05f7b89e449a7fe6c4c3caa19",
+  "agentSplit": {
+    "sourceRefresh": "Codex (gpt-6.1-sol)",
+    "vendorDiscovery": "agy Gemini 3.8 Flash (web/V, 55 manifest entries)",
+    "organizerDiscovery": "agy Gemini 3.8 Flash (web/L, 62 manifest entries)",
+    "spotCheck": "agy Gemini 3.8 Flash (spot-check/)"
+  },
+  "manifestVerification": {
+    "V": {
+      "entries": 55,
+      "hashMatch": 54,
+      "missingFiles": ["raw/minimax-news.html (connection timeout, no bytes)"]
+    },
+    "L": {
+      "entries": 62,
+      "hashMatch": 62
+    }
+  },
+  "newIdentities": [],
+  "vendorReview": {
+    "newTextModels": [],
+    "nonTextReleases": [
+      {
+        "vendor": "MiniMax",
+        "models": ["MiniMax-H3-Image", "MiniMax-H3-Image-Highspeed"],
+        "hfRepos": [
+          "MiniMaxAI/MiniMax-H3-Image",
+          "MiniMaxAI/MiniMax-H3-Image-PE"
+        ],
+        "inScope": false
+      }
+    ],
+    "anthropicDocChanges": [
+      {
+        "field": "Amazon Bedrock ID",
+        "before": "anthropic.claude-fable-5-2",
+        "after": "global.anthropic.claude-fable-5-2"
+      }
+    ],
+    "blocked": [
+      "https://openai.com/news/",
+      "https://x.ai/news",
+      "https://www.minimax.io/news (timeout)"
+    ]
+  },
+  "sourceChanges": {
+    "artificial-analysis": {
+      "visibleProfiles": 735,
+      "newUnresolvedModels": [
+        "Apodex 1.1",
+        "Qwen3.8-Flash-Next",
+        "Solar Pro 4"
+      ],
+      "gdpvalRevisions": 7,
+      "newCatalogBenchmark": "mka"
+    },
+    "livebench": {
+      "version": "2026-11-06",
+      "addedModel": "gemini-4-carbon",
+      "note": "Fable 5.2 is shown at xhigh because its max-effort run scored lower overall (84.2 at max against 84.9)"
+    },
+    "epoch-ai": {
+      "addedModel": "Gemini 4 Carbon (high)",
+      "eciRevisions": 247
+    },
+    "arc-prize": {
+      "addedModel": "Gemini 4 Carbon (High/Medium/Low)"
+    },
+    "frontier-code": {
+      "addedModel": "Inkling 2 Small",
+      "efforts": ["none", "low", "medium", "high", "xhigh", "max"]
+    },
+    "vals-ai": {
+      "newBenchmark": "a2j",
+      "rows": 23,
+      "inclusion": "EXCLUDED",
+      "pageText": "Compare 23 AI models on Access to Justice Benchmark. Updated 11/10/2026"
+    },
+    "unchanged": [
+      "deepswe",
+      "maxxbench",
+      "frontier-swe",
+      "zapier-automationbench",
+      "surge (8 boards)",
+      "biobasicsbench",
+      "openai-releases",
+      "anthropic-releases"
+    ]
+  },
+  "researchCandidates": [
+    {
+      "name": "Scale SWE Atlas v1.1",
+      "date": "2026-11-11",
+      "rows": {
+        "overall": {
+          "Fable 5.2": 80.5,
+          "Gemini 4 Carbon": 71.4
+        },
+        "qna": {
+          "Fable 5.2": 83.9,
+          "Qwen 3.8 Max": 81.5,
+          "Gemini 4 Carbon": 73.4
+        },
+        "refactoring": {
+          "Fable 5.2": 80,
+          "Gemini 4 Carbon": 64.3
+        },
+        "testWriting": {
+          "Fable 5.1": 78.9,
+          "Fable 5.2": 77.8,
+          "Gemini 4 Carbon": 76.7
+        }
+      },
+      "evidence": "web/L/raw/scale-swe-atlas-*.html"
+    },
+    {
+      "name": "Scale HLE-Diamond / Humanity's Sixth Sense / HiL-Bench",
+      "date": "2026-11-11",
+      "rows": {
+        "hle-diamond": {
+          "claude-fable-5-2": 72.4
+        },
+        "hss": {
+          "Claude Fable 5.2 (max)": 59.5
+        },
+        "hil": {
+          "Claude Fable 5.2 (*public set only)": 80
+        }
+      },
+      "evidence": "web/L/raw/scale-leaderboard.html"
+    },
+    {
+      "name": "Remote Labor Index",
+      "change": "none since 11/10",
+      "rows": {
+        "Fable 5.2": 41.3
+      }
+    },
+    {
+      "name": "AA MKA",
+      "date": "2026-11-10",
+      "metric": "MKA Climb WSR",
+      "quote": "Claude Fable 5.2 (Max, Default Fallback) scores the highest on MKA Climb WSR with a score of 57%"
+    },
+    {
+      "name": "VIALS-AA",
+      "note": "evaluation page in AA monitoring catalog since 2026-11-08 (unintegrated); discovery agent wrongly reported it as new",
+      "quote": "scores the highest on VIALS-AA Score with a score of 67%"
+    },
+    {
+      "name": "Terminal-Bench-Science",
+      "version": "0.1",
+      "publicLeaderboardRows": false,
+      "readmeTaskCount": {
+        "before": 90,
+        "after": 91
+      }
+    },
+    {
+      "name": "WANDR",
+      "change": "none (README byte-identical)"
+    },
+    {
+      "name": "Into the Unknown",
+      "change": "none (byte-identical)"
+    },
+    {
+      "name": "MaxxBench",
+      "change": "none (byte-identical); latest changelog 2026-11-07"
+    },
+    {
+      "name": "BioBasicsBench",
+      "change": "still 403; no mirror"
+    }
+  ],
+  "limits": [
+    "Epoch and ARC-AGI-2 rendered denominators unknown",
+    "Vals ClaimBench 20 rendered vs 25 parsed",
+    "AA API cross-validation skipped (no API key)",
+    "OpenAI, xAI, Perplexity pages 403"
+  ],
+  "agentErrorsCorrected": [
+    {
+      "agent": "flash L",
+      "claim": "VIALS-AA leaderboard new since 2026-11-10",
+      "correction": "present in AA monitoring catalog since 2026-11-08"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-10T00:01:31.421Z",
+  "checkedAt": "2026-11-12T03:54:51.448Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -12,6 +12,7 @@
         "models": [
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-7",
           "anthropic-claude-opus-4-8",
           "anthropic-claude-opus-5",
@@ -320,7 +321,7 @@
         "versions": ["1.0.6"]
       }
     ],
-    "observedAt": "2026-11-10T00:01:27.980Z",
+    "observedAt": "2026-11-12T03:54:48.378Z",
     "sourceId": "zapier-automationbench"
   }
 }

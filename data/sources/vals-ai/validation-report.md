@@ -1,27 +1,28 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:13b6a738f382ccc0c970a9fd060a3893c496af70e346d3aab95fedf92b6b79fb`
-- Observed at: 2026-11-10T00:09:00.442Z
+- Index evidence: `sha256:fb429a5be622f360130e4fb675f359cebfc8c1eead432bffed92b6698b5ea07f`
+- Observed at: 2026-11-12T03:54:56.613Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Benchmark slugs discovered from index | 62 |
-| Benchmark pages with BenchmarkView data | 57 |
-| CandidateResults | 3527 |
+| Benchmark slugs discovered from index | 63 |
+| Benchmark pages with BenchmarkView data | 58 |
+| CandidateResults | 3555 |
 | Included CandidateResults | 2086 |
-| Excluded CandidateResults | 1441 |
+| Excluded CandidateResults | 1469 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3376 |
+| CostRecords retained | 3404 |
 | Included vals_index CostRecords | 35 |
-| Canonically unresolved rows | 2065 |
-| Distinct canonically unresolved models | 233 |
+| Canonically unresolved rows | 2074 |
+| Distinct canonically unresolved models | 235 |
 
 ## Per-page completeness
 
 | Slug | Parsed overall rows | Scoring status |
 |---|---:|---|
+| `a2j` | 23 | EXCLUDED |
 | `aime` | 96 | EXCLUDED |
 | `biomysterybench` | 31 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
@@ -56,7 +57,7 @@
 | `mmlu_pro` | 138 | APPROVED |
 | `mmmu` | 93 | EXCLUDED |
 | `mortgage_tax` | 98 | EXCLUDED |
-| `mysterymechanism` | 30 | EXCLUDED |
+| `mysterymechanism` | 31 | EXCLUDED |
 | `poker_agent` | 17 | EXCLUDED |
 | `programbench` | 66 | APPROVED |
 | `proof_bench` | 55 | APPROVED |
@@ -65,7 +66,7 @@
 | `robo_bench` | 7 | EXCLUDED |
 | `rsi_index` | 0 | EXCLUDED |
 | `sage` | 29 | EXCLUDED |
-| `science_index` | 24 | EXCLUDED |
+| `science_index` | 25 | EXCLUDED |
 | `skillsbench` | 35 | APPROVED |
 | `srebench` | 37 | EXCLUDED |
 | `swebench` | 88 | APPROVED |
@@ -83,7 +84,7 @@
 | `vcb-1-100` | 26 | EXCLUDED |
 | `vibe-code` | 127 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
-| `web_search` | 9 | EXCLUDED |
+| `web_search` | 12 | EXCLUDED |
 
 Every parsed page passed the strict `metadata.total_models === Object.keys(tasks.overall).length` check.
 
@@ -120,6 +121,7 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 
 ## Unapproved benchmark pages
 
+- `a2j`
 - `aime`
 - `biomysterybench`
 - `case_law_v2`
@@ -165,6 +167,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 
 ## Newly discovered since the reviewed table
 
+- `a2j` (not auto-promoted)
 - `biomysterybench` (not auto-promoted)
 - `claimbench` (not auto-promoted)
 - `code-migration-v1-1` (not auto-promoted)
@@ -235,6 +238,8 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 - anthropic/claude-opus-4-5-20251101-thinking
 - anthropic/claude-opus-4-6-thinking
 - anthropic/claude-opus-4-8-claude-code
+- anthropic/claude-opus-5-5-parallel-advanced
+- anthropic/claude-opus-5-5-parallel-fast
 - anthropic/claude-opus-5-5-range
 - anthropic/claude-sonnet-4-20250514
 - anthropic/claude-sonnet-4-20250514-thinking
@@ -472,10 +477,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 62 | 62 | +0 |
-| CandidateResults | 3527 | 3527 | +0 |
-| CostRecords retained | 3376 | 3376 | +0 |
-| Canonically unresolved rows | 2094 | 2065 | -29 |
+| Benchmark slugs discovered from index | 62 | 63 | +1 |
+| CandidateResults | 3527 | 3555 | +28 |
+| CostRecords retained | 3376 | 3404 | +28 |
+| Canonically unresolved rows | 2065 | 2074 | +9 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -488,6 +493,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
+| alibaba/qwen3.8-max | `vals-ai:a2j:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:code-migration:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:corpfin:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:cyber:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -537,6 +543,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2-1:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | deepseek/deepseek-v4-pro | `vals-ai:terminal-bench-2:deepseek-deepseek-v4-pro` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | meta/muse_spark_1_2 | `vals-ai:vals-multimodal-index:meta-muse-spark-1-2` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:muse-spark-1-2 |
+| minimax/MiniMax-M3 | `vals-ai:a2j:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:code-migration-v1-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:code-migration:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:corpfin:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
@@ -599,8 +606,10 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | thinkingmachines/inkling-2-small | `vals-ai:hlab:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:legal-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:legal-research:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:mysterymechanism:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:programbench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:sage:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
+| thinkingmachines/inkling-2-small | `vals-ai:science-index:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:srebench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:swebench-multimodal:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | thinkingmachines/inkling-2-small | `vals-ai:tax-agent-bench:thinkingmachines-inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |

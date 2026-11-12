@@ -1,0 +1,4536 @@
+{
+  "oldVersionId": "sha256:f94f567f7df8384346ebb41ef473f36636edbf155bc9538ad46ed418864352da",
+  "newVersionId": "sha256:cf1ab41c29efe7040e3ce4c521204aadf82d26c05f7b89e449a7fe6c4c3caa19",
+  "baseline": {
+    "path": "artifacts/research/2026-11-12-benchmark-check/import-baseline/product/current.json",
+    "fileSha256": "sha256:22b146327edc60f64472566725d2a96a4e71d75849b797013428661db6032f88"
+  },
+  "finalProduct": {
+    "path": "data/product/current.json",
+    "fileSha256": "sha256:d7e283a35b93e8064e4029cf637d261a9630925f89dcf5a9ee557c56925fa0e6"
+  },
+  "reviewedAt": "2026-11-12T04:24:22.222Z",
+  "status": "complete",
+  "method": "All alternative model profiles paired with openai-gpt-6-1-sol-max using production comparison. Exact effort is pinned; only semantic score/common-test changes included. New evidence identifiers alone do not constitute a score change.",
+  "anchorProfileId": "openai-gpt-6-1-sol-max",
+  "examinedProfileCount": 274,
+  "changedComparisonCount": 13,
+  "changes": [
+    {
+      "profileId": "google-gemini-3-8-flash-high",
+      "before": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "google-gemini-3-8-flash-high"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "deepswe-1-1",
+          "emb",
+          "enterprisebench-corecraft",
+          "finance-agent-v2",
+          "frontier-code-1-1",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-instruction-following",
+          "livebench-language",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "medcode",
+          "medscribe",
+          "public-benefits-bench",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 66.26719101990965,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 50.7671649265767,
+                "componentCount": 17
+              },
+              {
+                "dimension": "coding",
+                "score": 61.51396296296298,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.84308333333333,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 61.03060000000001,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 78.12675,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-157",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-instruction-following:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-language:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:public-benefits-bench:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "google-gemini-3-8-flash",
+            "profileId": "google-gemini-3-8-flash-high",
+            "rank": 2,
+            "overallScore": 56.93811735717517,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 38.74804188948307,
+                "componentCount": 17
+              },
+              {
+                "dimension": "coding",
+                "score": 47.58583370618941,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 75.63348965848967,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 50.367083333333326,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 51.82586666666666,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 77.4683888888889,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-3-8-flash",
+              "artificial-analysis:aa-lcr:gemini-3-8-flash",
+              "artificial-analysis:aa-omniscience:gemini-3-8-flash",
+              "artificial-analysis:critpt-v2:gemini-3-8-flash",
+              "artificial-analysis:frontier-code-2-0:gemini-3-8-flash",
+              "artificial-analysis:gdp-pdf:gemini-3-8-flash",
+              "artificial-analysis:gdpval-aa:gemini-3-8-flash",
+              "artificial-analysis:hle-diamond:gemini-3-8-flash",
+              "artificial-analysis:scicode:gemini-3-8-flash",
+              "artificial-analysis:terminal-bench-science:gemini-3-8-flash",
+              "deepswe-1-1:mini-swe-agent-gemini-3-8-flash-high",
+              "epoch-ai:chess-puzzles:google-gemini-3-8-flash-high-epoch-inspect-row-162",
+              "epoch-ai:gpqa-diamond:google-gemini-3-8-flash-high-epoch-inspect-row-24",
+              "epoch-ai:simpleqa-verified:google-gemini-3-8-flash-high-epoch-inspect-row-24",
+              "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+              "livebench-2026-06-25:livebench-instruction-following:gemini-3-8-flash-high",
+              "livebench-2026-06-25:livebench-language:gemini-3-8-flash-high",
+              "livebench-2026-11-06:livebench-browser:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-coding:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-design:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-reasoning:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-research:gemini-3-8-flash",
+              "surge-complex-constraints:complex-constraints:gemini-3-8-flash-high-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gemini-3-8-flash-high-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gemini-3-8-flash-high-reasoning",
+              "surge-riemann:riemann-bench:gemini-3-8-flash-high-reasoning",
+              "vals-ai:code-migration:google-gemini-3-8-flash",
+              "vals-ai:cyber:google-gemini-3-8-flash",
+              "vals-ai:emb:google-gemini-3-8-flash",
+              "vals-ai:finance-agent-v2:google-gemini-3-8-flash",
+              "vals-ai:hlab:google-gemini-3-8-flash",
+              "vals-ai:legal-research:google-gemini-3-8-flash",
+              "vals-ai:medcode:google-gemini-3-8-flash",
+              "vals-ai:medscribe:google-gemini-3-8-flash",
+              "vals-ai:public-benefits-bench:google-gemini-3-8-flash",
+              "vals-ai:terminal-bench-4-0:google-gemini-3-8-flash",
+              "vals-ai:vibe-code-bench:google-gemini-3-8-flash",
+              "zapier-automationbench:automationbench:gemini-3-8-flash-high-rank-27:1-0-6"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "google-gemini-3-8-flash-high"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "deepswe-1-1",
+          "emb",
+          "enterprisebench-corecraft",
+          "finance-agent-v2",
+          "frontier-code-1-1",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-instruction-following",
+          "livebench-language",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "medcode",
+          "medscribe",
+          "public-benefits-bench",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 66.26719101990965,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 50.7671649265767,
+                "componentCount": 17
+              },
+              {
+                "dimension": "coding",
+                "score": 61.51396296296298,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.84308333333333,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 61.03060000000001,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 78.12675,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-instruction-following:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-language:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:public-benefits-bench:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "google-gemini-3-8-flash",
+            "profileId": "google-gemini-3-8-flash-high",
+            "rank": 2,
+            "overallScore": 57.07885809791591,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 38.74804188948307,
+                "componentCount": 17
+              },
+              {
+                "dimension": "coding",
+                "score": 48.43027815063385,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 75.63348965848967,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 50.367083333333326,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 51.82586666666666,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 77.4683888888889,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-3-8-flash",
+              "artificial-analysis:aa-lcr:gemini-3-8-flash",
+              "artificial-analysis:aa-omniscience:gemini-3-8-flash",
+              "artificial-analysis:critpt-v2:gemini-3-8-flash",
+              "artificial-analysis:frontier-code-2-0:gemini-3-8-flash",
+              "artificial-analysis:gdp-pdf:gemini-3-8-flash",
+              "artificial-analysis:gdpval-aa:gemini-3-8-flash",
+              "artificial-analysis:hle-diamond:gemini-3-8-flash",
+              "artificial-analysis:scicode:gemini-3-8-flash",
+              "artificial-analysis:terminal-bench-science:gemini-3-8-flash",
+              "deepswe-1-1:mini-swe-agent-gemini-3-8-flash-high",
+              "epoch-ai:chess-puzzles:google-gemini-3-8-flash-high-epoch-inspect-row-163",
+              "epoch-ai:gpqa-diamond:google-gemini-3-8-flash-high-epoch-inspect-row-25",
+              "epoch-ai:simpleqa-verified:google-gemini-3-8-flash-high-epoch-inspect-row-25",
+              "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+              "livebench-2026-06-25:livebench-instruction-following:gemini-3-8-flash-high",
+              "livebench-2026-06-25:livebench-language:gemini-3-8-flash-high",
+              "livebench-2026-11-06:livebench-browser:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-coding:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-design:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-reasoning:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-research:gemini-3-8-flash",
+              "surge-complex-constraints:complex-constraints:gemini-3-8-flash-high-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gemini-3-8-flash-high-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gemini-3-8-flash-high-reasoning",
+              "surge-riemann:riemann-bench:gemini-3-8-flash-high-reasoning",
+              "vals-ai:code-migration:google-gemini-3-8-flash",
+              "vals-ai:cyber:google-gemini-3-8-flash",
+              "vals-ai:emb:google-gemini-3-8-flash",
+              "vals-ai:finance-agent-v2:google-gemini-3-8-flash",
+              "vals-ai:hlab:google-gemini-3-8-flash",
+              "vals-ai:legal-research:google-gemini-3-8-flash",
+              "vals-ai:medcode:google-gemini-3-8-flash",
+              "vals-ai:medscribe:google-gemini-3-8-flash",
+              "vals-ai:public-benefits-bench:google-gemini-3-8-flash",
+              "vals-ai:terminal-bench-4-0:google-gemini-3-8-flash",
+              "vals-ai:vibe-code-bench:google-gemini-3-8-flash",
+              "zapier-automationbench:automationbench:gemini-3-8-flash-high-rank-27:1-0-6"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "google-gemini-3-8-flash-high"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "deepswe-1-1",
+          "emb",
+          "enterprisebench-corecraft",
+          "finance-agent-v2",
+          "frontier-code-1-1",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-instruction-following",
+          "livebench-language",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "medcode",
+          "medscribe",
+          "public-benefits-bench",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 66.26719101990965,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 50.7671649265767,
+                "componentCount": 17
+              },
+              {
+                "dimension": "coding",
+                "score": 61.51396296296298,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.84308333333333,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 61.03060000000001,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 78.12675,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-instruction-following:gpt-6-1-sol-max",
+              "livebench-2026-06-25:livebench-language:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:public-benefits-bench:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "google-gemini-3-8-flash",
+            "profileId": "google-gemini-3-8-flash-high",
+            "rank": 2,
+            "overallScore": 57.07885809791591,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 38.74804188948307,
+                "componentCount": 17
+              },
+              {
+                "dimension": "coding",
+                "score": 48.43027815063385,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 75.63348965848967,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 50.367083333333326,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 51.82586666666666,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 77.4683888888889,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-3-8-flash",
+              "artificial-analysis:aa-lcr:gemini-3-8-flash",
+              "artificial-analysis:aa-omniscience:gemini-3-8-flash",
+              "artificial-analysis:critpt-v2:gemini-3-8-flash",
+              "artificial-analysis:frontier-code-2-0:gemini-3-8-flash",
+              "artificial-analysis:gdp-pdf:gemini-3-8-flash",
+              "artificial-analysis:gdpval-aa:gemini-3-8-flash",
+              "artificial-analysis:hle-diamond:gemini-3-8-flash",
+              "artificial-analysis:scicode:gemini-3-8-flash",
+              "artificial-analysis:terminal-bench-science:gemini-3-8-flash",
+              "deepswe-1-1:mini-swe-agent-gemini-3-8-flash-high",
+              "epoch-ai:chess-puzzles:google-gemini-3-8-flash-high-epoch-inspect-row-163",
+              "epoch-ai:gpqa-diamond:google-gemini-3-8-flash-high-epoch-inspect-row-25",
+              "epoch-ai:simpleqa-verified:google-gemini-3-8-flash-high-epoch-inspect-row-25",
+              "frontier-code:frontier-code-1-1:gemini-3-8-flash-high",
+              "livebench-2026-06-25:livebench-instruction-following:gemini-3-8-flash-high",
+              "livebench-2026-06-25:livebench-language:gemini-3-8-flash-high",
+              "livebench-2026-11-06:livebench-browser:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-coding:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-design:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-reasoning:gemini-3-8-flash",
+              "livebench-2026-11-06:livebench-research:gemini-3-8-flash",
+              "surge-complex-constraints:complex-constraints:gemini-3-8-flash-high-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gemini-3-8-flash-high-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gemini-3-8-flash-high-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gemini-3-8-flash-high-reasoning",
+              "surge-riemann:riemann-bench:gemini-3-8-flash-high-reasoning",
+              "vals-ai:code-migration:google-gemini-3-8-flash",
+              "vals-ai:cyber:google-gemini-3-8-flash",
+              "vals-ai:emb:google-gemini-3-8-flash",
+              "vals-ai:finance-agent-v2:google-gemini-3-8-flash",
+              "vals-ai:hlab:google-gemini-3-8-flash",
+              "vals-ai:legal-research:google-gemini-3-8-flash",
+              "vals-ai:medcode:google-gemini-3-8-flash",
+              "vals-ai:medscribe:google-gemini-3-8-flash",
+              "vals-ai:public-benefits-bench:google-gemini-3-8-flash",
+              "vals-ai:terminal-bench-4-0:google-gemini-3-8-flash",
+              "vals-ai:vibe-code-bench:google-gemini-3-8-flash",
+              "zapier-automationbench:automationbench:gemini-3-8-flash-high-rank-27:1-0-6"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 0,
+          "data": 0,
+          "composition": 0
+        },
+        {
+          "profileId": "google-gemini-3-8-flash-high",
+          "total": 0.14074074074073906,
+          "data": 0.14074074074073906,
+          "composition": 0
+        }
+      ]
+    },
+    {
+      "profileId": "google-gemini-4-argon-high",
+      "before": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-argon-high"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "deepswe-1-1",
+          "emb",
+          "finance-agent-v2",
+          "frontier-code-1-1",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "medcode",
+          "medscribe",
+          "public-benefits-bench",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-argon",
+            "profileId": "google-gemini-4-argon-high",
+            "rank": 1,
+            "overallScore": 65.37033697460119,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.45514307491289,
+                "componentCount": 16
+              },
+              {
+                "dimension": "coding",
+                "score": 66.00128395061728,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 81.50144300144301,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 59.95025,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 62.478733333333345,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 70.3,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-4-argon",
+              "artificial-analysis:aa-lcr:gemini-4-argon",
+              "artificial-analysis:aa-omniscience:gemini-4-argon",
+              "artificial-analysis:critpt-v2:gemini-4-argon",
+              "artificial-analysis:gdp-pdf:gemini-4-argon",
+              "artificial-analysis:gdpval-aa:gemini-4-argon",
+              "artificial-analysis:hle-diamond:gemini-4-argon",
+              "artificial-analysis:scicode:gemini-4-argon",
+              "artificial-analysis:terminal-bench-science:gemini-4-argon",
+              "epoch-ai:chess-puzzles:google-gemini-4-argon-high-epoch-inspect-row-27",
+              "epoch-ai:gpqa-diamond:google-gemini-4-argon-high-epoch-inspect-row-13",
+              "epoch-ai:simpleqa-verified:google-gemini-4-argon-high-epoch-inspect-row-13",
+              "frontier-code:frontier-code-1-1:gemini-4-argon-high",
+              "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+              "google-releases:argon:deepswe",
+              "livebench-2026-11-06:livebench-browser:gemini-4-argon",
+              "livebench-2026-11-06:livebench-coding:gemini-4-argon",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-4-argon",
+              "livebench-2026-11-06:livebench-design:gemini-4-argon",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-4-argon",
+              "livebench-2026-11-06:livebench-reasoning:gemini-4-argon",
+              "livebench-2026-11-06:livebench-research:gemini-4-argon",
+              "surge-complex-constraints:complex-constraints:gemini-4-argon-high-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gemini-4-argon-high-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gemini-4-argon-high-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gemini-4-argon-high-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gemini-4-argon-high-reasoning",
+              "surge-riemann:riemann-bench:gemini-4-argon-high-reasoning",
+              "vals-ai:code-migration:google-gemini-4-argon",
+              "vals-ai:cyber:google-gemini-4-argon",
+              "vals-ai:emb:google-gemini-4-argon",
+              "vals-ai:finance-agent-v2:google-gemini-4-argon",
+              "vals-ai:hlab:google-gemini-4-argon",
+              "vals-ai:legal-research:google-gemini-4-argon",
+              "vals-ai:medcode:google-gemini-4-argon",
+              "vals-ai:medscribe:google-gemini-4-argon",
+              "vals-ai:public-benefits-bench:google-gemini-4-argon",
+              "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+              "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "zapier-automationbench:automationbench:gemini-4-argon-high-rank-4:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 64.4646534413398,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 50.796362734487744,
+                "componentCount": 16
+              },
+              {
+                "dimension": "coding",
+                "score": 61.51396296296298,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.84308333333333,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 61.03060000000001,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-157",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:public-benefits-bench:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-argon-high"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "deepswe-1-1",
+          "emb",
+          "finance-agent-v2",
+          "frontier-code-1-1",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "medcode",
+          "medscribe",
+          "public-benefits-bench",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-argon",
+            "profileId": "google-gemini-4-argon-high",
+            "rank": 1,
+            "overallScore": 65.37178583823754,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.463111824912886,
+                "componentCount": 16
+              },
+              {
+                "dimension": "coding",
+                "score": 66.00128395061728,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 81.50144300144301,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 59.95025,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 62.478733333333345,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 70.3,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-4-argon",
+              "artificial-analysis:aa-lcr:gemini-4-argon",
+              "artificial-analysis:aa-omniscience:gemini-4-argon",
+              "artificial-analysis:critpt-v2:gemini-4-argon",
+              "artificial-analysis:gdp-pdf:gemini-4-argon",
+              "artificial-analysis:gdpval-aa:gemini-4-argon",
+              "artificial-analysis:hle-diamond:gemini-4-argon",
+              "artificial-analysis:scicode:gemini-4-argon",
+              "artificial-analysis:terminal-bench-science:gemini-4-argon",
+              "epoch-ai:chess-puzzles:google-gemini-4-argon-high-epoch-inspect-row-28",
+              "epoch-ai:gpqa-diamond:google-gemini-4-argon-high-epoch-inspect-row-14",
+              "epoch-ai:simpleqa-verified:google-gemini-4-argon-high-epoch-inspect-row-14",
+              "frontier-code:frontier-code-1-1:gemini-4-argon-high",
+              "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+              "google-releases:argon:deepswe",
+              "livebench-2026-11-06:livebench-browser:gemini-4-argon",
+              "livebench-2026-11-06:livebench-coding:gemini-4-argon",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-4-argon",
+              "livebench-2026-11-06:livebench-design:gemini-4-argon",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-4-argon",
+              "livebench-2026-11-06:livebench-reasoning:gemini-4-argon",
+              "livebench-2026-11-06:livebench-research:gemini-4-argon",
+              "surge-complex-constraints:complex-constraints:gemini-4-argon-high-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gemini-4-argon-high-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gemini-4-argon-high-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gemini-4-argon-high-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gemini-4-argon-high-reasoning",
+              "surge-riemann:riemann-bench:gemini-4-argon-high-reasoning",
+              "vals-ai:code-migration:google-gemini-4-argon",
+              "vals-ai:cyber:google-gemini-4-argon",
+              "vals-ai:emb:google-gemini-4-argon",
+              "vals-ai:finance-agent-v2:google-gemini-4-argon",
+              "vals-ai:hlab:google-gemini-4-argon",
+              "vals-ai:legal-research:google-gemini-4-argon",
+              "vals-ai:medcode:google-gemini-4-argon",
+              "vals-ai:medscribe:google-gemini-4-argon",
+              "vals-ai:public-benefits-bench:google-gemini-4-argon",
+              "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+              "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "zapier-automationbench:automationbench:gemini-4-argon-high-rank-4:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 64.4646534413398,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 50.796362734487744,
+                "componentCount": 16
+              },
+              {
+                "dimension": "coding",
+                "score": 61.51396296296298,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.84308333333333,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 61.03060000000001,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:public-benefits-bench:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-argon-high"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "deepswe-1-1",
+          "emb",
+          "finance-agent-v2",
+          "frontier-code-1-1",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "medcode",
+          "medscribe",
+          "public-benefits-bench",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-argon",
+            "profileId": "google-gemini-4-argon-high",
+            "rank": 1,
+            "overallScore": 65.37178583823754,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.463111824912886,
+                "componentCount": 16
+              },
+              {
+                "dimension": "coding",
+                "score": 66.00128395061728,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 81.50144300144301,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 59.95025,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 62.478733333333345,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 70.3,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-4-argon",
+              "artificial-analysis:aa-lcr:gemini-4-argon",
+              "artificial-analysis:aa-omniscience:gemini-4-argon",
+              "artificial-analysis:critpt-v2:gemini-4-argon",
+              "artificial-analysis:gdp-pdf:gemini-4-argon",
+              "artificial-analysis:gdpval-aa:gemini-4-argon",
+              "artificial-analysis:hle-diamond:gemini-4-argon",
+              "artificial-analysis:scicode:gemini-4-argon",
+              "artificial-analysis:terminal-bench-science:gemini-4-argon",
+              "epoch-ai:chess-puzzles:google-gemini-4-argon-high-epoch-inspect-row-28",
+              "epoch-ai:gpqa-diamond:google-gemini-4-argon-high-epoch-inspect-row-14",
+              "epoch-ai:simpleqa-verified:google-gemini-4-argon-high-epoch-inspect-row-14",
+              "frontier-code:frontier-code-1-1:gemini-4-argon-high",
+              "frontier-code:frontier-code-2-0:gemini-4-argon-high",
+              "google-releases:argon:deepswe",
+              "livebench-2026-11-06:livebench-browser:gemini-4-argon",
+              "livebench-2026-11-06:livebench-coding:gemini-4-argon",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-4-argon",
+              "livebench-2026-11-06:livebench-design:gemini-4-argon",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-4-argon",
+              "livebench-2026-11-06:livebench-reasoning:gemini-4-argon",
+              "livebench-2026-11-06:livebench-research:gemini-4-argon",
+              "surge-complex-constraints:complex-constraints:gemini-4-argon-high-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gemini-4-argon-high-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gemini-4-argon-high-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gemini-4-argon-high-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gemini-4-argon-high-reasoning",
+              "surge-riemann:riemann-bench:gemini-4-argon-high-reasoning",
+              "vals-ai:code-migration:google-gemini-4-argon",
+              "vals-ai:cyber:google-gemini-4-argon",
+              "vals-ai:emb:google-gemini-4-argon",
+              "vals-ai:finance-agent-v2:google-gemini-4-argon",
+              "vals-ai:hlab:google-gemini-4-argon",
+              "vals-ai:legal-research:google-gemini-4-argon",
+              "vals-ai:medcode:google-gemini-4-argon",
+              "vals-ai:medscribe:google-gemini-4-argon",
+              "vals-ai:public-benefits-bench:google-gemini-4-argon",
+              "vals-ai:terminal-bench-4-0:google-gemini-4-argon",
+              "vals-ai:vibe-code-bench:google-gemini-4-argon",
+              "zapier-automationbench:automationbench:gemini-4-argon-high-rank-4:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 64.4646534413398,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 50.796362734487744,
+                "componentCount": 16
+              },
+              {
+                "dimension": "coding",
+                "score": 61.51396296296298,
+                "componentCount": 9
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.84308333333333,
+                "componentCount": 4
+              },
+              {
+                "dimension": "comprehension",
+                "score": 61.03060000000001,
+                "componentCount": 5
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-1-1:gpt-6-1-sol-max",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "openai-releases:deepswe:9",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:medcode:openai-gpt-6-1-sol",
+              "vals-ai:medscribe:openai-gpt-6-1-sol",
+              "vals-ai:public-benefits-bench:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "google-gemini-4-argon-high",
+          "total": 0.0014488636363552132,
+          "data": 0.0014488636363552132,
+          "composition": 0
+        },
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 0,
+          "data": 0,
+          "composition": 0
+        }
+      ]
+    },
+    {
+      "profileId": "google-gemini-4-carbon-high",
+      "before": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-carbon-high"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "automationbench",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "riemann-bench",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-high",
+            "rank": 1,
+            "overallScore": 61.41483872741016,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.07058379715522,
+                "componentCount": 7
+              },
+              {
+                "dimension": "coding",
+                "score": 63.27,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 81.14285714285714,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 63.68333333333333,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 28.4,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gemini-4-carbon",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon",
+              "artificial-analysis:critpt-v2:gemini-4-carbon",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon",
+              "artificial-analysis:gdpval-aa:gemini-4-carbon",
+              "artificial-analysis:hle-diamond:gemini-4-carbon",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+              "surge-riemann:riemann-bench:gemini-4-carbon-high-reasoning",
+              "vals-ai:hlab:google-gemini-4-carbon",
+              "vals-ai:legal-research:google-gemini-4-carbon",
+              "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 58.71425302915779,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 43.571257678829106,
+                "componentCount": 7
+              },
+              {
+                "dimension": "coding",
+                "score": 63.9405,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 80.8857142857143,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-carbon-high"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "chess-puzzles",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "riemann-bench",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-high",
+            "rank": 1,
+            "overallScore": 71.07244257816257,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 63.11940865800865,
+                "componentCount": 10
+              },
+              {
+                "dimension": "coding",
+                "score": 72.56,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 86.58280423280424,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 68.35555555555555,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 64.74444444444443,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-4-carbon-high:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-4-carbon",
+              "artificial-analysis:aa-lcr:gemini-4-carbon",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon",
+              "artificial-analysis:critpt-v2:gemini-4-carbon",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon",
+              "artificial-analysis:gdpval-aa:gemini-4-carbon",
+              "artificial-analysis:hle-diamond:gemini-4-carbon",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+              "epoch-ai:chess-puzzles:google-gemini-4-carbon-high-epoch-inspect-row-3",
+              "epoch-ai:gpqa-diamond:google-gemini-4-carbon-high-epoch-inspect-row-3",
+              "epoch-ai:simpleqa-verified:google-gemini-4-carbon-high-epoch-inspect-row-3",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+              "livebench-2026-11-06:livebench-browser:gemini-4-carbon",
+              "livebench-2026-11-06:livebench-coding:gemini-4-carbon",
+              "livebench-2026-11-06:livebench-data-analysis:gemini-4-carbon",
+              "livebench-2026-11-06:livebench-design:gemini-4-carbon",
+              "livebench-2026-11-06:livebench-long-agentic:gemini-4-carbon",
+              "livebench-2026-11-06:livebench-reasoning:gemini-4-carbon",
+              "livebench-2026-11-06:livebench-research:gemini-4-carbon",
+              "surge-riemann:riemann-bench:gemini-4-carbon-high-reasoning",
+              "vals-ai:hlab:google-gemini-4-carbon",
+              "vals-ai:legal-research:google-gemini-4-carbon",
+              "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 68.28356527657527,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 56.78988037518038,
+                "componentCount": 10
+              },
+              {
+                "dimension": "coding",
+                "score": 68.89524999999999,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 85.3215848965849,
+                "componentCount": 6
+              },
+              {
+                "dimension": "knowledge",
+                "score": 64.84444444444445,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.56666666666666,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-carbon-high"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "automationbench",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "riemann-bench",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-high",
+            "rank": 1,
+            "overallScore": 61.41483872741016,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.07058379715522,
+                "componentCount": 7
+              },
+              {
+                "dimension": "coding",
+                "score": 63.27,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 81.14285714285714,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 63.68333333333333,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 28.4,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gemini-4-carbon",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon",
+              "artificial-analysis:critpt-v2:gemini-4-carbon",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon",
+              "artificial-analysis:gdpval-aa:gemini-4-carbon",
+              "artificial-analysis:hle-diamond:gemini-4-carbon",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-high",
+              "surge-riemann:riemann-bench:gemini-4-carbon-high-reasoning",
+              "vals-ai:hlab:google-gemini-4-carbon",
+              "vals-ai:legal-research:google-gemini-4-carbon",
+              "vals-ai:terminal-bench-4-0:google-gemini-4-carbon",
+              "vals-ai:vibe-code-bench:google-gemini-4-carbon",
+              "zapier-automationbench:automationbench:gemini-4-carbon-high-rank-1:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 58.71425302915779,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 43.571257678829106,
+                "componentCount": 7
+              },
+              {
+                "dimension": "coding",
+                "score": 63.9405,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 80.8857142857143,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [
+        "aa-lcr",
+        "arc-agi-2",
+        "chess-puzzles",
+        "gpqa-diamond",
+        "livebench-browser",
+        "livebench-coding",
+        "livebench-data-analysis",
+        "livebench-design",
+        "livebench-long-agentic",
+        "livebench-reasoning",
+        "livebench-research",
+        "simpleqa-verified"
+      ],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "google-gemini-4-carbon-high",
+          "total": 9.657603850752409,
+          "data": 0,
+          "composition": 9.657603850752409
+        },
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 9.569312247417486,
+          "data": 0,
+          "composition": 9.569312247417486
+        }
+      ]
+    },
+    {
+      "profileId": "google-gemini-4-carbon-low",
+      "before": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-carbon-low"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "automationbench",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "hle-diamond",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 48.83912253487254,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 51.22570093795095,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-low",
+            "rank": 2,
+            "overallScore": 46.614058441558434,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.035508658008645,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 31.879999999999995,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 55.56666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 28.599999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gemini-4-carbon-low",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon-low",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon-low",
+              "artificial-analysis:hle-diamond:gemini-4-carbon-low",
+              "artificial-analysis:terminal-bench-4-0:gemini-4-carbon-low",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon-low",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-low",
+              "zapier-automationbench:automationbench:gemini-4-carbon-low-rank-21:1-0-6"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-carbon-low"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "hle-diamond",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 55.314485982271705,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 51.22570093795095,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 94.16666666666667,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-low",
+            "rank": 2,
+            "overallScore": 47.03824056895485,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.035508658008645,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 31.879999999999995,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 49.583333333333336,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 55.56666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 28.599999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-4-carbon-low:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-4-carbon-low",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon-low",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon-low",
+              "artificial-analysis:hle-diamond:gemini-4-carbon-low",
+              "artificial-analysis:terminal-bench-4-0:gemini-4-carbon-low",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon-low",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-low",
+              "zapier-automationbench:automationbench:gemini-4-carbon-low-rank-21:1-0-6"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "google-gemini-4-carbon-low"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "automationbench",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "hle-diamond",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 48.83912253487254,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 51.22570093795095,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-low",
+            "rank": 2,
+            "overallScore": 46.614058441558434,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 54.035508658008645,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 31.879999999999995,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 55.56666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 28.599999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gemini-4-carbon-low",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon-low",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon-low",
+              "artificial-analysis:hle-diamond:gemini-4-carbon-low",
+              "artificial-analysis:terminal-bench-4-0:gemini-4-carbon-low",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon-low",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-low",
+              "zapier-automationbench:automationbench:gemini-4-carbon-low-rank-21:1-0-6"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": ["arc-agi-2"],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 6.475363447399168,
+          "data": 0,
+          "composition": 6.475363447399168
+        },
+        {
+          "profileId": "google-gemini-4-carbon-low",
+          "total": 0.4241821273964135,
+          "data": 0,
+          "composition": 0.4241821273964135
+        }
+      ]
+    },
+    {
+      "profileId": "google-gemini-4-carbon-medium",
+      "before": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "google-gemini-4-carbon-medium"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "automationbench",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "hle-diamond",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-medium",
+            "rank": 1,
+            "overallScore": 55.337024324881476,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 59.57006132756133,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 40,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.28571428571429,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 58.16666666666667,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 29.599999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gemini-4-carbon-medium",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon-medium",
+              "artificial-analysis:critpt-v2:gemini-4-carbon-medium",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon-medium",
+              "artificial-analysis:hle-diamond:gemini-4-carbon-medium",
+              "artificial-analysis:terminal-bench-4-0:gemini-4-carbon-medium",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon-medium",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-medium",
+              "zapier-automationbench:automationbench:gemini-4-carbon-medium-rank-2:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 53.65802339723769,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 51.22570093795095,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.5714285714286,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "google-gemini-4-carbon-medium"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "arc-agi-2",
+          "automationbench",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "hle-diamond",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-medium",
+            "rank": 1,
+            "overallScore": 60.19072961760463,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 59.57006132756133,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 40,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 88.22619047619048,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 58.16666666666667,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 29.599999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:google-gemini-4-carbon-medium:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gemini-4-carbon-medium",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon-medium",
+              "artificial-analysis:critpt-v2:gemini-4-carbon-medium",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon-medium",
+              "artificial-analysis:hle-diamond:gemini-4-carbon-medium",
+              "artificial-analysis:terminal-bench-4-0:gemini-4-carbon-medium",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon-medium",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-medium",
+              "zapier-automationbench:automationbench:gemini-4-carbon-medium-rank-2:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 58.72160380591632,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 51.22570093795095,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 88.36904761904763,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "google-gemini-4-carbon-medium"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "automationbench",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "hle-diamond",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "google-gemini-4-carbon",
+            "profileId": "google-gemini-4-carbon-medium",
+            "rank": 1,
+            "overallScore": 55.337024324881476,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 59.57006132756133,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 40,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.28571428571429,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 58.16666666666667,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 29.599999999999998,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gemini-4-carbon-medium",
+              "artificial-analysis:aa-omniscience:gemini-4-carbon-medium",
+              "artificial-analysis:critpt-v2:gemini-4-carbon-medium",
+              "artificial-analysis:gdp-pdf:gemini-4-carbon-medium",
+              "artificial-analysis:hle-diamond:gemini-4-carbon-medium",
+              "artificial-analysis:terminal-bench-4-0:gemini-4-carbon-medium",
+              "artificial-analysis:terminal-bench-science:gemini-4-carbon-medium",
+              "frontier-code:frontier-code-2-0:gemini-4-carbon-medium",
+              "zapier-automationbench:automationbench:gemini-4-carbon-medium-rank-2:1-0-6"
+            ]
+          },
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 2,
+            "overallScore": 53.65802339723769,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 51.22570093795095,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.5714285714286,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "openai-releases:automationbench:10",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": ["arc-agi-2"],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "google-gemini-4-carbon-medium",
+          "total": 4.853705292723156,
+          "data": 0,
+          "composition": 4.853705292723156
+        },
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 5.063580408678625,
+          "data": 0,
+          "composition": 5.063580408678625
+        }
+      ]
+    },
+    {
+      "profileId": "meta-muse-spark-1-3-max",
+      "before": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "meta-muse-spark-1-3-max"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "emb",
+          "finance-agent-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 63.64960285601845,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 53.36820026798599,
+                "componentCount": 14
+              },
+              {
+                "dimension": "coding",
+                "score": 62.022238095238095,
+                "componentCount": 7
+              },
+              {
+                "dimension": "reasoning",
+                "score": 84.6407106782107,
+                "componentCount": 4
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 54.675,
+                "componentCount": 4
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-157",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "meta-muse-spark-1-3",
+            "profileId": "meta-muse-spark-1-3-max",
+            "rank": 2,
+            "overallScore": 53.78001939931161,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 42.686267831374984,
+                "componentCount": 14
+              },
+              {
+                "dimension": "coding",
+                "score": 59.84500048100049,
+                "componentCount": 7
+              },
+              {
+                "dimension": "reasoning",
+                "score": 72.05883838383838,
+                "componentCount": 4
+              },
+              {
+                "dimension": "knowledge",
+                "score": 35.85,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 52.949999999999996,
+                "componentCount": 4
+              },
+              {
+                "dimension": "language",
+                "score": 64.8,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:muse-spark-1-3",
+              "artificial-analysis:aa-lcr:muse-spark-1-3",
+              "artificial-analysis:aa-omniscience:muse-spark-1-3",
+              "artificial-analysis:critpt-v2:muse-spark-1-3",
+              "artificial-analysis:frontier-code-2-0:muse-spark-1-3",
+              "artificial-analysis:gdp-pdf:muse-spark-1-3",
+              "artificial-analysis:gdpval-aa:muse-spark-1-3",
+              "artificial-analysis:gpqa-diamond:muse-spark-1-3",
+              "artificial-analysis:hle-diamond:muse-spark-1-3",
+              "artificial-analysis:scicode:muse-spark-1-3",
+              "artificial-analysis:terminal-bench-science:muse-spark-1-3",
+              "epoch-ai:chess-puzzles:meta-muse-spark-1-3-max-epoch-inspect-row-152",
+              "livebench-2026-11-06:livebench-browser:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-coding:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-data-analysis:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-design:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-long-agentic:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-reasoning:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-research:muse-spark-1-3",
+              "surge-complex-constraints:complex-constraints:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:muse-spark-1-3-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:muse-spark-1-3-max-reasoning",
+              "vals-ai:code-migration:meta-muse-spark-1-3-max",
+              "vals-ai:cyber:meta-muse-spark-1-3-max",
+              "vals-ai:emb:meta-muse-spark-1-3-max",
+              "vals-ai:finance-agent-v2:meta-muse-spark-1-3-max",
+              "vals-ai:legal-research:meta-muse-spark-1-3-max",
+              "vals-ai:terminal-bench-4-0:meta-muse-spark-1-3-max",
+              "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "zapier-automationbench:automationbench:muse-spark-1-3-max-rank-46:1-0-6"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "meta-muse-spark-1-3-max"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "emb",
+          "finance-agent-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 63.64960285601845,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 53.36820026798599,
+                "componentCount": 14
+              },
+              {
+                "dimension": "coding",
+                "score": 62.022238095238095,
+                "componentCount": 7
+              },
+              {
+                "dimension": "reasoning",
+                "score": 84.6407106782107,
+                "componentCount": 4
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 54.675,
+                "componentCount": 4
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "meta-muse-spark-1-3",
+            "profileId": "meta-muse-spark-1-3-max",
+            "rank": 2,
+            "overallScore": 53.813785633077835,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 42.686267831374984,
+                "componentCount": 14
+              },
+              {
+                "dimension": "coding",
+                "score": 60.03071476671477,
+                "componentCount": 7
+              },
+              {
+                "dimension": "reasoning",
+                "score": 72.05883838383838,
+                "componentCount": 4
+              },
+              {
+                "dimension": "knowledge",
+                "score": 35.85,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 52.949999999999996,
+                "componentCount": 4
+              },
+              {
+                "dimension": "language",
+                "score": 64.8,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:muse-spark-1-3",
+              "artificial-analysis:aa-lcr:muse-spark-1-3",
+              "artificial-analysis:aa-omniscience:muse-spark-1-3",
+              "artificial-analysis:critpt-v2:muse-spark-1-3",
+              "artificial-analysis:frontier-code-2-0:muse-spark-1-3",
+              "artificial-analysis:gdp-pdf:muse-spark-1-3",
+              "artificial-analysis:gdpval-aa:muse-spark-1-3",
+              "artificial-analysis:gpqa-diamond:muse-spark-1-3",
+              "artificial-analysis:hle-diamond:muse-spark-1-3",
+              "artificial-analysis:scicode:muse-spark-1-3",
+              "artificial-analysis:terminal-bench-science:muse-spark-1-3",
+              "epoch-ai:chess-puzzles:meta-muse-spark-1-3-max-epoch-inspect-row-153",
+              "livebench-2026-11-06:livebench-browser:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-coding:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-data-analysis:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-design:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-long-agentic:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-reasoning:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-research:muse-spark-1-3",
+              "surge-complex-constraints:complex-constraints:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:muse-spark-1-3-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:muse-spark-1-3-max-reasoning",
+              "vals-ai:code-migration:meta-muse-spark-1-3-max",
+              "vals-ai:cyber:meta-muse-spark-1-3-max",
+              "vals-ai:emb:meta-muse-spark-1-3-max",
+              "vals-ai:finance-agent-v2:meta-muse-spark-1-3-max",
+              "vals-ai:legal-research:meta-muse-spark-1-3-max",
+              "vals-ai:terminal-bench-4-0:meta-muse-spark-1-3-max",
+              "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "zapier-automationbench:automationbench:muse-spark-1-3-max-rank-46:1-0-6"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "meta-muse-spark-1-3-max"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "automationbench",
+          "chess-puzzles",
+          "code-migration",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "dayjob-healthcare",
+          "dayjob-tax",
+          "emb",
+          "finance-agent-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdp-xlsx",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 63.64960285601845,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 53.36820026798599,
+                "componentCount": 14
+              },
+              {
+                "dimension": "coding",
+                "score": 62.022238095238095,
+                "componentCount": 7
+              },
+              {
+                "dimension": "reasoning",
+                "score": 84.6407106782107,
+                "componentCount": 4
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 54.675,
+                "componentCount": 4
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "openai-releases:automationbench:10",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:gpt-6-1-sol-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:gpt-6-1-sol-max-reasoning",
+              "vals-ai:code-migration:openai-gpt-6-1-sol",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:emb:openai-gpt-6-1-sol",
+              "vals-ai:finance-agent-v2:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "meta-muse-spark-1-3",
+            "profileId": "meta-muse-spark-1-3-max",
+            "rank": 2,
+            "overallScore": 53.813785633077835,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 42.686267831374984,
+                "componentCount": 14
+              },
+              {
+                "dimension": "coding",
+                "score": 60.03071476671477,
+                "componentCount": 7
+              },
+              {
+                "dimension": "reasoning",
+                "score": 72.05883838383838,
+                "componentCount": 4
+              },
+              {
+                "dimension": "knowledge",
+                "score": 35.85,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 52.949999999999996,
+                "componentCount": 4
+              },
+              {
+                "dimension": "language",
+                "score": 64.8,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:muse-spark-1-3",
+              "artificial-analysis:aa-lcr:muse-spark-1-3",
+              "artificial-analysis:aa-omniscience:muse-spark-1-3",
+              "artificial-analysis:critpt-v2:muse-spark-1-3",
+              "artificial-analysis:frontier-code-2-0:muse-spark-1-3",
+              "artificial-analysis:gdp-pdf:muse-spark-1-3",
+              "artificial-analysis:gdpval-aa:muse-spark-1-3",
+              "artificial-analysis:gpqa-diamond:muse-spark-1-3",
+              "artificial-analysis:hle-diamond:muse-spark-1-3",
+              "artificial-analysis:scicode:muse-spark-1-3",
+              "artificial-analysis:terminal-bench-science:muse-spark-1-3",
+              "epoch-ai:chess-puzzles:meta-muse-spark-1-3-max-epoch-inspect-row-153",
+              "livebench-2026-11-06:livebench-browser:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-coding:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-data-analysis:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-design:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-long-agentic:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-reasoning:muse-spark-1-3",
+              "livebench-2026-11-06:livebench-research:muse-spark-1-3",
+              "surge-complex-constraints:complex-constraints:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-healthcare:dayjob-healthcare:muse-spark-1-3-max-reasoning",
+              "surge-dayjob-tax:dayjob-tax:muse-spark-1-3-max-reasoning",
+              "surge-gdp-xlsx:gdp-xlsx:muse-spark-1-3-max-reasoning",
+              "vals-ai:code-migration:meta-muse-spark-1-3-max",
+              "vals-ai:cyber:meta-muse-spark-1-3-max",
+              "vals-ai:emb:meta-muse-spark-1-3-max",
+              "vals-ai:finance-agent-v2:meta-muse-spark-1-3-max",
+              "vals-ai:legal-research:meta-muse-spark-1-3-max",
+              "vals-ai:terminal-bench-4-0:meta-muse-spark-1-3-max",
+              "vals-ai:vibe-code-bench:meta-muse-spark-1-3-max",
+              "zapier-automationbench:automationbench:muse-spark-1-3-max-rank-46:1-0-6"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 0,
+          "data": 0,
+          "composition": 0
+        },
+        {
+          "profileId": "meta-muse-spark-1-3-max",
+          "total": 0.03376623376622234,
+          "data": 0.03376623376622234,
+          "composition": 0
+        }
+      ]
+    },
+    {
+      "profileId": "moonshot-kimi-k3-1-pro-max",
+      "before": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "moonshot-kimi-k3-1-pro-max"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "chess-puzzles",
+          "critpt-v2",
+          "dayjob-finance",
+          "enterprisebench-corecraft",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 67.17534812016267,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 55.963527613800345,
+                "componentCount": 11
+              },
+              {
+                "dimension": "coding",
+                "score": 65.94953333333333,
+                "componentCount": 5
+              },
+              {
+                "dimension": "reasoning",
+                "score": 83.55256854256855,
+                "componentCount": 5
+              },
+              {
+                "dimension": "knowledge",
+                "score": 64.84444444444445,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.56666666666666,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-157",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-17",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "moonshot-kimi-k3-1-pro",
+            "profileId": "moonshot-kimi-k3-1-pro-max",
+            "rank": 2,
+            "overallScore": 58.90523187459006,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 52.745023153614056,
+                "componentCount": 11
+              },
+              {
+                "dimension": "coding",
+                "score": 54.35957777777778,
+                "componentCount": 5
+              },
+              {
+                "dimension": "reasoning",
+                "score": 72.33266955266956,
+                "componentCount": 5
+              },
+              {
+                "dimension": "knowledge",
+                "score": 49.47777777777778,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.6111111111111,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+              "artificial-analysis:aa-lcr:kimi-k3-1-pro",
+              "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+              "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+              "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+              "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+              "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+              "artificial-analysis:scicode:kimi-k3-1-pro",
+              "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+              "epoch-ai:chess-puzzles:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "epoch-ai:gpqa-diamond:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "epoch-ai:simpleqa-verified:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-max",
+              "livebench-2026-11-06:livebench-browser:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-coding:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-data-analysis:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-design:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-long-agentic:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-reasoning:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-research:kimi-k3-1-pro",
+              "surge-corecraft:enterprisebench-corecraft:kimi-k3-1-pro-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:kimi-k3-1-pro-max-reasoning",
+              "surge-riemann:riemann-bench:kimi-k3-1-pro-max-reasoning",
+              "vals-ai:hlab:kimi-kimi-k3-1-pro",
+              "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+              "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+              "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "moonshot-kimi-k3-1-pro-max"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "chess-puzzles",
+          "critpt-v2",
+          "dayjob-finance",
+          "enterprisebench-corecraft",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 67.17534812016267,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 55.963527613800345,
+                "componentCount": 11
+              },
+              {
+                "dimension": "coding",
+                "score": 65.94953333333333,
+                "componentCount": 5
+              },
+              {
+                "dimension": "reasoning",
+                "score": 83.55256854256855,
+                "componentCount": 5
+              },
+              {
+                "dimension": "knowledge",
+                "score": 64.84444444444445,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.56666666666666,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "moonshot-kimi-k3-1-pro",
+            "profileId": "moonshot-kimi-k3-1-pro-max",
+            "rank": 2,
+            "overallScore": 58.90777732913551,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 52.75775042634134,
+                "componentCount": 11
+              },
+              {
+                "dimension": "coding",
+                "score": 54.35957777777778,
+                "componentCount": 5
+              },
+              {
+                "dimension": "reasoning",
+                "score": 72.33266955266956,
+                "componentCount": 5
+              },
+              {
+                "dimension": "knowledge",
+                "score": 49.47777777777778,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.6111111111111,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+              "artificial-analysis:aa-lcr:kimi-k3-1-pro",
+              "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+              "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+              "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+              "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+              "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+              "artificial-analysis:scicode:kimi-k3-1-pro",
+              "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+              "epoch-ai:chess-puzzles:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "epoch-ai:gpqa-diamond:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "epoch-ai:simpleqa-verified:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-max",
+              "livebench-2026-11-06:livebench-browser:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-coding:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-data-analysis:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-design:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-long-agentic:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-reasoning:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-research:kimi-k3-1-pro",
+              "surge-corecraft:enterprisebench-corecraft:kimi-k3-1-pro-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:kimi-k3-1-pro-max-reasoning",
+              "surge-riemann:riemann-bench:kimi-k3-1-pro-max-reasoning",
+              "vals-ai:hlab:kimi-kimi-k3-1-pro",
+              "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+              "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+              "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": ["openai-gpt-6-1-sol-max", "moonshot-kimi-k3-1-pro-max"],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-lcr",
+          "aa-omniscience",
+          "chess-puzzles",
+          "critpt-v2",
+          "dayjob-finance",
+          "enterprisebench-corecraft",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "gpqa-diamond",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "livebench-browser",
+          "livebench-coding",
+          "livebench-data-analysis",
+          "livebench-design",
+          "livebench-long-agentic",
+          "livebench-reasoning",
+          "livebench-research",
+          "riemann-bench",
+          "scicode",
+          "simpleqa-verified",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 67.17534812016267,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 55.963527613800345,
+                "componentCount": 11
+              },
+              {
+                "dimension": "coding",
+                "score": 65.94953333333333,
+                "componentCount": 5
+              },
+              {
+                "dimension": "reasoning",
+                "score": 83.55256854256855,
+                "componentCount": 5
+              },
+              {
+                "dimension": "knowledge",
+                "score": 64.84444444444445,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.56666666666666,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-lcr:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "epoch-ai:chess-puzzles:openai-gpt-6-1-sol-max-epoch-inspect-row-158",
+              "epoch-ai:gpqa-diamond:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "epoch-ai:simpleqa-verified:openai-gpt-6-1-sol-max-epoch-inspect-row-18",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "livebench-2026-11-06:livebench-browser:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-coding:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-data-analysis:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-design:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-long-agentic:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-reasoning:gpt-6-1-sol",
+              "livebench-2026-11-06:livebench-research:gpt-6-1-sol",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "surge-riemann:riemann-bench:gpt-6-1-sol-max-reasoning",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "moonshot-kimi-k3-1-pro",
+            "profileId": "moonshot-kimi-k3-1-pro-max",
+            "rank": 2,
+            "overallScore": 58.90777732913551,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 52.75775042634134,
+                "componentCount": 11
+              },
+              {
+                "dimension": "coding",
+                "score": 54.35957777777778,
+                "componentCount": 5
+              },
+              {
+                "dimension": "reasoning",
+                "score": 72.33266955266956,
+                "componentCount": 5
+              },
+              {
+                "dimension": "knowledge",
+                "score": 49.47777777777778,
+                "componentCount": 3
+              },
+              {
+                "dimension": "comprehension",
+                "score": 65.6111111111111,
+                "componentCount": 3
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:kimi-k3-1-pro",
+              "artificial-analysis:aa-lcr:kimi-k3-1-pro",
+              "artificial-analysis:aa-omniscience:kimi-k3-1-pro",
+              "artificial-analysis:critpt-v2:kimi-k3-1-pro",
+              "artificial-analysis:gdp-pdf:kimi-k3-1-pro",
+              "artificial-analysis:gdpval-aa:kimi-k3-1-pro",
+              "artificial-analysis:hle-diamond:kimi-k3-1-pro",
+              "artificial-analysis:scicode:kimi-k3-1-pro",
+              "artificial-analysis:terminal-bench-science:kimi-k3-1-pro",
+              "epoch-ai:chess-puzzles:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "epoch-ai:gpqa-diamond:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "epoch-ai:simpleqa-verified:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2",
+              "frontier-code:frontier-code-2-0:kimi-k3-1-pro-max",
+              "livebench-2026-11-06:livebench-browser:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-coding:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-data-analysis:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-design:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-long-agentic:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-reasoning:kimi-k3-1-pro",
+              "livebench-2026-11-06:livebench-research:kimi-k3-1-pro",
+              "surge-corecraft:enterprisebench-corecraft:kimi-k3-1-pro-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:kimi-k3-1-pro-max-reasoning",
+              "surge-riemann:riemann-bench:kimi-k3-1-pro-max-reasoning",
+              "vals-ai:hlab:kimi-kimi-k3-1-pro",
+              "vals-ai:legal-research:kimi-kimi-k3-1-pro",
+              "vals-ai:terminal-bench-4-0:kimi-kimi-k3-1-pro",
+              "vals-ai:vibe-code-bench:kimi-kimi-k3-1-pro"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 0,
+          "data": 0,
+          "composition": 0
+        },
+        {
+          "profileId": "moonshot-kimi-k3-1-pro-max",
+          "total": 0.0025454545454550725,
+          "data": 0.0025454545454550725,
+          "composition": 0
+        }
+      ]
+    },
+    {
+      "profileId": "stepfun-step-5-preview-default",
+      "before": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "stepfun-step-5-preview-default"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hle-diamond",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 54.926853805916316,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 56.046700937950945,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 46.55833333333335,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.5714285714286,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "stepfun-step-5-preview",
+            "profileId": "stepfun-step-5-preview-default",
+            "rank": 2,
+            "overallScore": 33.755865515271765,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 34.54789087301587,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 35.45652356902355,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 54.571428571428605,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 30.333333333333336,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 14.799999999999999,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:step-5",
+              "artificial-analysis:aa-omniscience:step-5",
+              "artificial-analysis:critpt-v2:step-5",
+              "artificial-analysis:frontier-code-2-0:step-5",
+              "artificial-analysis:gdp-pdf:step-5",
+              "artificial-analysis:gdpval-aa:step-5",
+              "artificial-analysis:hle-diamond:step-5",
+              "artificial-analysis:scicode:step-5",
+              "artificial-analysis:terminal-bench-4-0:step-5",
+              "artificial-analysis:terminal-bench-science:step-5"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "stepfun-step-5-preview-default"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hle-diamond",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 54.926853805916316,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 56.046700937950945,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 46.55833333333335,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.5714285714286,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "stepfun-step-5-preview",
+            "profileId": "stepfun-step-5-preview-default",
+            "rank": 2,
+            "overallScore": 33.74905301527177,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 34.520640873015864,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 35.45652356902355,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 54.571428571428605,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 30.333333333333336,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 14.799999999999999,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:step-5",
+              "artificial-analysis:aa-omniscience:step-5",
+              "artificial-analysis:critpt-v2:step-5",
+              "artificial-analysis:frontier-code-2-0:step-5",
+              "artificial-analysis:gdp-pdf:step-5",
+              "artificial-analysis:gdpval-aa:step-5",
+              "artificial-analysis:hle-diamond:step-5",
+              "artificial-analysis:scicode:step-5",
+              "artificial-analysis:terminal-bench-4-0:step-5",
+              "artificial-analysis:terminal-bench-science:step-5"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "stepfun-step-5-preview-default"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "critpt-v2",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hle-diamond",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 54.926853805916316,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 56.046700937950945,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 46.55833333333335,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 82.5714285714286,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "stepfun-step-5-preview",
+            "profileId": "stepfun-step-5-preview-default",
+            "rank": 2,
+            "overallScore": 33.74905301527177,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 34.520640873015864,
+                "componentCount": 4
+              },
+              {
+                "dimension": "coding",
+                "score": 35.45652356902355,
+                "componentCount": 2
+              },
+              {
+                "dimension": "reasoning",
+                "score": 54.571428571428605,
+                "componentCount": 1
+              },
+              {
+                "dimension": "knowledge",
+                "score": 30.333333333333336,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 14.799999999999999,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "artificial-analysis:aa-briefcase:step-5",
+              "artificial-analysis:aa-omniscience:step-5",
+              "artificial-analysis:critpt-v2:step-5",
+              "artificial-analysis:frontier-code-2-0:step-5",
+              "artificial-analysis:gdp-pdf:step-5",
+              "artificial-analysis:gdpval-aa:step-5",
+              "artificial-analysis:hle-diamond:step-5",
+              "artificial-analysis:scicode:step-5",
+              "artificial-analysis:terminal-bench-4-0:step-5",
+              "artificial-analysis:terminal-bench-science:step-5"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 0,
+          "data": 0,
+          "composition": 0
+        },
+        {
+          "profileId": "stepfun-step-5-preview-default",
+          "total": -0.006812499999995225,
+          "data": -0.006812499999995225,
+          "composition": 0
+        }
+      ]
+    },
+    {
+      "profileId": "thinking-machines-inkling-2-small-xhigh",
+      "before": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-xhigh"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "arc-agi-2",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "enterprisebench-corecraft",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 59.73129628427129,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 44.087350468975465,
+                "componentCount": 8
+              },
+              {
+                "dimension": "coding",
+                "score": 55.33341666666668,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 88.36904761904763,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-xhigh",
+            "rank": 2,
+            "overallScore": 45.84872784391535,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 34.93197573953824,
+                "componentCount": 8
+              },
+              {
+                "dimension": "coding",
+                "score": 57.987853956228946,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 68.69047619047619,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 31.233333333333334,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 25.2,
+                "componentCount": 1
+              },
+              {
+                "dimension": "language",
+                "score": 47.6,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:inkling-2-small",
+              "artificial-analysis:aa-omniscience:inkling-2-small",
+              "artificial-analysis:critpt-v2:inkling-2-small",
+              "artificial-analysis:frontier-code-2-0:inkling-2-small",
+              "artificial-analysis:gdp-pdf:inkling-2-small",
+              "artificial-analysis:gdpval-aa:inkling-2-small",
+              "artificial-analysis:hle-diamond:inkling-2-small",
+              "artificial-analysis:scicode:inkling-2-small",
+              "artificial-analysis:terminal-bench-science:inkling-2-small",
+              "surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:inkling-2-small-xhigh-reasoning",
+              "surge-dayjob-finance:dayjob-finance:inkling-2-small-xhigh-reasoning",
+              "vals-ai:cyber:thinkingmachines-inkling-2-small",
+              "vals-ai:hlab:thinkingmachines-inkling-2-small",
+              "vals-ai:legal-research:thinkingmachines-inkling-2-small",
+              "vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small",
+              "vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small"
+            ]
+          }
+        ]
+      },
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-xhigh"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "arc-agi-2",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "enterprisebench-corecraft",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 59.73129628427129,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 44.087350468975465,
+                "componentCount": 8
+              },
+              {
+                "dimension": "coding",
+                "score": 55.33341666666668,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 88.36904761904763,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-xhigh",
+            "rank": 2,
+            "overallScore": 45.4525977934103,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 34.93197573953824,
+                "componentCount": 8
+              },
+              {
+                "dimension": "coding",
+                "score": 56.007203703703695,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 68.69047619047619,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 31.233333333333334,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 25.2,
+                "componentCount": 1
+              },
+              {
+                "dimension": "language",
+                "score": 47.6,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:inkling-2-small",
+              "artificial-analysis:aa-omniscience:inkling-2-small",
+              "artificial-analysis:critpt-v2:inkling-2-small",
+              "artificial-analysis:gdp-pdf:inkling-2-small",
+              "artificial-analysis:gdpval-aa:inkling-2-small",
+              "artificial-analysis:hle-diamond:inkling-2-small",
+              "artificial-analysis:scicode:inkling-2-small",
+              "artificial-analysis:terminal-bench-science:inkling-2-small",
+              "frontier-code:frontier-code-2-0:inkling-2-small-none",
+              "surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:inkling-2-small-xhigh-reasoning",
+              "surge-dayjob-finance:dayjob-finance:inkling-2-small-xhigh-reasoning",
+              "vals-ai:cyber:thinkingmachines-inkling-2-small",
+              "vals-ai:hlab:thinkingmachines-inkling-2-small",
+              "vals-ai:legal-research:thinkingmachines-inkling-2-small",
+              "vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small",
+              "vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-xhigh"
+        ],
+        "benchmarkIds": [
+          "aa-briefcase",
+          "aa-omniscience",
+          "arc-agi-2",
+          "complex-constraints",
+          "critpt-v2",
+          "cyber",
+          "dayjob-finance",
+          "enterprisebench-corecraft",
+          "frontier-code-2-0",
+          "gdp-pdf",
+          "gdpval-aa",
+          "hlab",
+          "hle-diamond",
+          "legal-research",
+          "scicode",
+          "terminal-bench-4-0",
+          "terminal-bench-science",
+          "vibe-code-bench"
+        ],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 59.73129628427129,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 44.087350468975465,
+                "componentCount": 8
+              },
+              {
+                "dimension": "coding",
+                "score": 55.33341666666668,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 88.36904761904763,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 60.31666666666666,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 31,
+                "componentCount": 1
+              },
+              {
+                "dimension": "language",
+                "score": 70.1,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:openai-gpt-6-1-sol-max:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:gpt-6-1-sol",
+              "artificial-analysis:aa-omniscience:gpt-6-1-sol",
+              "artificial-analysis:critpt-v2:gpt-6-1-sol",
+              "artificial-analysis:gdp-pdf:gpt-6-1-sol",
+              "artificial-analysis:gdpval-aa:gpt-6-1-sol",
+              "artificial-analysis:hle-diamond:gpt-6-1-sol",
+              "artificial-analysis:scicode:gpt-6-1-sol",
+              "artificial-analysis:terminal-bench-science:gpt-6-1-sol",
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max",
+              "surge-complex-constraints:complex-constraints:gpt-6-1-sol-max-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:gpt-6-1-sol-max-reasoning",
+              "surge-dayjob-finance:dayjob-finance:gpt-6-1-sol-max-reasoning",
+              "vals-ai:cyber:openai-gpt-6-1-sol",
+              "vals-ai:hlab:openai-gpt-6-1-sol",
+              "vals-ai:legal-research:openai-gpt-6-1-sol",
+              "vals-ai:terminal-bench-4-0:openai-gpt-6-1-sol",
+              "vals-ai:vibe-code-bench:openai-gpt-6-1-sol"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-xhigh",
+            "rank": 2,
+            "overallScore": 45.4525977934103,
+            "dimensions": [
+              {
+                "dimension": "agentic",
+                "score": 34.93197573953824,
+                "componentCount": 8
+              },
+              {
+                "dimension": "coding",
+                "score": 56.007203703703695,
+                "componentCount": 4
+              },
+              {
+                "dimension": "reasoning",
+                "score": 68.69047619047619,
+                "componentCount": 2
+              },
+              {
+                "dimension": "knowledge",
+                "score": 31.233333333333334,
+                "componentCount": 2
+              },
+              {
+                "dimension": "comprehension",
+                "score": 25.2,
+                "componentCount": 1
+              },
+              {
+                "dimension": "language",
+                "score": 47.6,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private",
+              "artificial-analysis:aa-briefcase:inkling-2-small",
+              "artificial-analysis:aa-omniscience:inkling-2-small",
+              "artificial-analysis:critpt-v2:inkling-2-small",
+              "artificial-analysis:gdp-pdf:inkling-2-small",
+              "artificial-analysis:gdpval-aa:inkling-2-small",
+              "artificial-analysis:hle-diamond:inkling-2-small",
+              "artificial-analysis:scicode:inkling-2-small",
+              "artificial-analysis:terminal-bench-science:inkling-2-small",
+              "frontier-code:frontier-code-2-0:inkling-2-small-none",
+              "surge-complex-constraints:complex-constraints:inkling-2-small-xhigh-reasoning",
+              "surge-corecraft:enterprisebench-corecraft:inkling-2-small-xhigh-reasoning",
+              "surge-dayjob-finance:dayjob-finance:inkling-2-small-xhigh-reasoning",
+              "vals-ai:cyber:thinkingmachines-inkling-2-small",
+              "vals-ai:hlab:thinkingmachines-inkling-2-small",
+              "vals-ai:legal-research:thinkingmachines-inkling-2-small",
+              "vals-ai:terminal-bench-4-0:thinkingmachines-inkling-2-small",
+              "vals-ai:vibe-code-bench:thinkingmachines-inkling-2-small"
+            ]
+          }
+        ]
+      },
+      "addedBenchmarks": [],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": 0,
+          "data": 0,
+          "composition": 0
+        },
+        {
+          "profileId": "thinking-machines-inkling-2-small-xhigh",
+          "total": -0.39613005050505024,
+          "data": -0.39613005050505024,
+          "composition": 0
+        }
+      ]
+    },
+    {
+      "profileId": "thinking-machines-inkling-2-small-high",
+      "before": null,
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-high"
+        ],
+        "benchmarkIds": ["frontier-code-2-0"],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 38.95,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-high",
+            "rank": 2,
+            "overallScore": 22.27,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 22.27,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:inkling-2-small-high"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": null,
+      "addedBenchmarks": ["frontier-code-2-0"],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": null,
+          "data": null,
+          "composition": null
+        },
+        {
+          "profileId": "thinking-machines-inkling-2-small-high",
+          "total": null,
+          "data": null,
+          "composition": null
+        }
+      ]
+    },
+    {
+      "profileId": "thinking-machines-inkling-2-small-low",
+      "before": null,
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-low"
+        ],
+        "benchmarkIds": ["frontier-code-2-0"],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 38.95,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-low",
+            "rank": 2,
+            "overallScore": 15.57,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 15.57,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:inkling-2-small-low"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": null,
+      "addedBenchmarks": ["frontier-code-2-0"],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": null,
+          "data": null,
+          "composition": null
+        },
+        {
+          "profileId": "thinking-machines-inkling-2-small-low",
+          "total": null,
+          "data": null,
+          "composition": null
+        }
+      ]
+    },
+    {
+      "profileId": "thinking-machines-inkling-2-small-max",
+      "before": null,
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-max"
+        ],
+        "benchmarkIds": ["frontier-code-2-0"],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 38.95,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-max",
+            "rank": 2,
+            "overallScore": 22.57,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 22.57,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:inkling-2-small-max"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": null,
+      "addedBenchmarks": ["frontier-code-2-0"],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": null,
+          "data": null,
+          "composition": null
+        },
+        {
+          "profileId": "thinking-machines-inkling-2-small-max",
+          "total": null,
+          "data": null,
+          "composition": null
+        }
+      ]
+    },
+    {
+      "profileId": "thinking-machines-inkling-2-small-medium",
+      "before": null,
+      "after": {
+        "profileIds": [
+          "openai-gpt-6-1-sol-max",
+          "thinking-machines-inkling-2-small-medium"
+        ],
+        "benchmarkIds": ["frontier-code-2-0"],
+        "rows": [
+          {
+            "modelId": "openai-gpt-6-1-sol",
+            "profileId": "openai-gpt-6-1-sol-max",
+            "rank": 1,
+            "overallScore": 38.95,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 38.95,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:gpt-6-1-sol-max"
+            ]
+          },
+          {
+            "modelId": "thinking-machines-inkling-2-small",
+            "profileId": "thinking-machines-inkling-2-small-medium",
+            "rank": 2,
+            "overallScore": 19.33,
+            "dimensions": [
+              {
+                "dimension": "coding",
+                "score": 19.33,
+                "componentCount": 1
+              }
+            ],
+            "evidenceResultIds": [
+              "frontier-code:frontier-code-2-0:inkling-2-small-medium"
+            ]
+          }
+        ]
+      },
+      "fixedOldProfilesAndTests": null,
+      "addedBenchmarks": ["frontier-code-2-0"],
+      "removedBenchmarks": [],
+      "effects": [
+        {
+          "profileId": "openai-gpt-6-1-sol-max",
+          "total": null,
+          "data": null,
+          "composition": null
+        },
+        {
+          "profileId": "thinking-machines-inkling-2-small-medium",
+          "total": null,
+          "data": null,
+          "composition": null
+        }
+      ]
+    }
+  ]
+}

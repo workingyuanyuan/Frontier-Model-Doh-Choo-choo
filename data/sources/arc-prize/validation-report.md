@@ -4,23 +4,23 @@
 - Evaluations Export: <https://arcprize.org/media/data/evaluations.json>
 - Models Export: <https://arcprize.org/media/data/models.json>
 - Datasets Export: <https://arcprize.org/media/data/datasets.json>
-- Evaluations evidence: `sha256:19be7e51904de3a82f4ae9aff497f55e83b18f00d5e9e2cb722ce90c73031720`
-- Models evidence: `sha256:fa45afa1f48dfc73eb3ed0c260fb32aea21db43551c17a3337454223fae06063`
+- Evaluations evidence: `sha256:37c39593a3aac7a2b7fd15d52f263477ad32b7a979b09b5d08e0bada05c4383a`
+- Models evidence: `sha256:adf4b2bfcdbd91fc10d7dc145b2da8a59f171632ddb8864f9ab3c93fde2cb724`
 - Datasets evidence: `sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6`
-- Page evidence: `sha256:b7c20de19647fc576189001e632fa943a71915c03195796d4564e4ee316d7f11`
-- Observed at: 2026-11-10T00:01:20.679Z
+- Page evidence: `sha256:118edbeadc808d9722bf438a6c6b95f8245e3ed5c6bdceccc68fdfc4f27175d7`
+- Observed at: 2026-11-12T03:54:43.288Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Total evaluation rows (all splits) | 1302 |
-| Total models in models.json | 381 |
+| Total evaluation rows (all splits) | 1319 |
+| Total models in models.json | 387 |
 | Total datasets in datasets.json | 8 |
-| Total v2_Semi_Private evaluations | 304 |
-| Promoted v2_Semi_Private rows (display=true) | 297 |
-| Promoted cost records (USD/task) | 297 |
-| Canonically resolved rows | 160 |
+| Total v2_Semi_Private evaluations | 307 |
+| Promoted v2_Semi_Private rows (display=true) | 300 |
+| Promoted cost records (USD/task) | 300 |
+| Canonically resolved rows | 163 |
 | Canonically unresolved rows | 137 |
 | Canonically unresolved models | 137 |
 | Excluded candidate rows | 8 |
@@ -29,18 +29,18 @@
 
 | Benchmark | Split Version | Promoted Rows |
 |---|---|---:|
-| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 297 |
+| `arc-agi-2` | `ARC-AGI-2-v2_Semi_Private` | 300 |
 
 ## Completeness and machine cross-checks
 
-- Model completeness: All 297/297 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
+- Model completeness: All 300/300 promoted evaluation rows matched a declared modelId in `models.json`. Missing model IDs: 0.
 - Scope restriction: Only `v2_Semi_Private` (ARC-AGI-2) with `display=true` is promoted per user ruling 2026-08-22 (plan D1). Other splits (v1_*, v2_Public_Eval, v2_Private_Eval, v3_*) are preserved in raw content-addressed artifacts and not mixed into `arc-agi-2`.
-- Cost coverage: 297/297 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
+- Cost coverage: 300/300 promoted rows carry numeric `costPerTask` (preserved as `AGENT_TASK` / `USD_PER_TASK`).
 - Page evidence captured: `https://arcprize.org/leaderboard` captured with method `DOM` for human spot-check audit.
 
 ## Identity and effort policy
 
-Exact catalog resolution succeeded for 160/297 promoted rows (137 unresolved rows across 137 distinct model names).
+Exact catalog resolution succeeded for 163/300 promoted rows (137 unresolved rows across 137 distinct model names).
 Effort tiers are derived from the model display name trailing parentheticals using the canonical effort policy (`max/xhigh/high/medium/low/non-reasoning`). Reasoning-off indicators (`(None)`, `(Thinking, None)`) are filed as `non-reasoning` per §4.4 rule 2. Non-effort parentheticals such as token budgets (`Thinking 16K`, `120K`) remain null effort without illegal profile IDs.
 
 ## Excluded rows
@@ -203,6 +203,16 @@ Effort tiers are derived from the model display name trailing parentheticals usi
 - Opus 4.5 (Thinking, None)
 - Qwen3-235b-a22b Instruct (25/07)
 - Tiny Recursion Model (TRM)
+
+## Snapshot delta
+
+| Check | Previous | Refreshed | Delta |
+|---|---:|---:|---:|
+| Candidate rows | 297 | 300 | +3 |
+| Cost records | 297 | 300 | +3 |
+| Canonically unresolved models | 137 | 137 | +0 |
+
+Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

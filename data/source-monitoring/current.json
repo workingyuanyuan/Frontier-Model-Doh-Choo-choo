@@ -1,33 +1,38 @@
 {
-  "checkedAt": "2026-11-10T00:09:17.255Z",
+  "checkedAt": "2026-11-12T03:55:43.485Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
-      "checkedAt": "2026-11-09T02:22:23.309Z",
+      "checkedAt": "2026-11-12T03:55:43.485Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-08T14:17:36.140Z",
+      "snapshotObservedAt": "2026-11-12T03:55:41.207Z",
       "sourceId": "anthropic-releases"
     },
     {
-      "checkedAt": "2026-11-10T00:01:24.285Z",
+      "checkedAt": "2026-11-12T03:54:46.888Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:01:20.679Z",
+      "snapshotObservedAt": "2026-11-12T03:54:43.288Z",
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-11-10T00:08:56.112Z",
+      "checkedAt": "2026-11-12T03:54:34.389Z",
       "error": null,
       "findings": [
         {
-          "benchmarkId": "critpt-v2",
-          "detail": "49 -> 50; missing 1: [\"MiniMax-M3.1-Flash\",null,\"reasoning\",\"Artificial Analysis Stirrup\",true,null,null,null]",
-          "kind": "profiles-lost"
+          "benchmarkId": "frontiercode-2-0",
+          "detail": "FrontierCode 2.0 [v2.0] -> FrontierCode-AA 2.0 [v2.0]",
+          "kind": "catalog-metadata-changed"
+        },
+        {
+          "benchmarkId": "mka",
+          "detail": "https://artificialanalysis.ai/evaluations/mka",
+          "kind": "catalog-added"
         },
         {
           "benchmarkId": "aa-3d",
@@ -87,6 +92,11 @@
         {
           "benchmarkId": "math-500",
           "detail": "https://artificialanalysis.ai/evaluations/math-500",
+          "kind": "unintegrated"
+        },
+        {
+          "benchmarkId": "mka",
+          "detail": "https://artificialanalysis.ai/evaluations/mka",
           "kind": "unintegrated"
         },
         {
@@ -267,7 +277,7 @@
           "id": "frontiercode-2-0",
           "reason": "2026-10-28 user decision: AA Intelligence Index v5 additions are scored. Field frontierCode20 -> frontier-code-2-0, shared with the Cognition organizer source; the organizer row wins every overlapping profile.",
           "status": "scored",
-          "title": "FrontierCode 2.0",
+          "title": "FrontierCode-AA 2.0",
           "url": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
           "version": "v2.0"
         },
@@ -394,6 +404,16 @@
         {
           "benchmarkId": null,
           "captureRegistered": false,
+          "id": "mka",
+          "reason": null,
+          "status": "unintegrated",
+          "title": "MKA",
+          "url": "https://artificialanalysis.ai/evaluations/mka",
+          "version": null
+        },
+        {
+          "benchmarkId": null,
+          "captureRegistered": false,
           "id": "mlcr-aa",
           "reason": null,
           "status": "unintegrated",
@@ -513,7 +533,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:06:36.033Z",
+      "snapshotObservedAt": "2026-11-12T03:51:05.196Z",
       "sourceId": "artificial-analysis"
     },
     {
@@ -526,39 +546,39 @@
       "sourceId": "biobasicsbench"
     },
     {
-      "checkedAt": "2026-11-10T00:01:12.502Z",
+      "checkedAt": "2026-11-12T03:55:15.577Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:01:10.928Z",
+      "snapshotObservedAt": "2026-11-12T03:55:14.975Z",
       "sourceId": "deepswe"
     },
     {
-      "checkedAt": "2026-11-10T00:01:15.235Z",
+      "checkedAt": "2026-11-12T03:54:39.481Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:01:13.974Z",
+      "snapshotObservedAt": "2026-11-12T03:54:37.333Z",
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-11-10T00:01:19.441Z",
+      "checkedAt": "2026-11-12T03:55:19.713Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:01:18.762Z",
+      "snapshotObservedAt": "2026-11-12T03:55:19.383Z",
       "sourceId": "frontier-code"
     },
     {
-      "checkedAt": "2026-11-10T00:01:04.423Z",
+      "checkedAt": "2026-11-12T03:51:02.420Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:01:01.247Z",
+      "snapshotObservedAt": "2026-11-12T03:50:58.066Z",
       "sourceId": "frontier-swe"
     },
     {
@@ -571,61 +591,25 @@
       "sourceId": "google-releases"
     },
     {
-      "checkedAt": "2026-11-10T00:00:59.246Z",
-      "error": null,
-      "findings": [
-        {
-          "benchmarkId": "livebench-browser",
-          "detail": "2026-10-25 -> 2026-11-06",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-coding",
-          "detail": "2026-10-25 -> 2026-11-06",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-data-analysis",
-          "detail": "2026-10-25 -> 2026-11-06",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-design",
-          "detail": "2026-10-25 -> 2026-11-06",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-long-agentic",
-          "detail": "2026-10-25 -> 2026-11-06",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-reasoning",
-          "detail": "2026-06-25, 2026-10-25 -> 2026-06-25, 2026-11-06",
-          "kind": "versions-changed"
-        },
-        {
-          "benchmarkId": "livebench-research",
-          "detail": "2026-10-25 -> 2026-11-06",
-          "kind": "versions-changed"
-        }
-      ],
-      "inventory": [],
-      "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:00:57.087Z",
-      "sourceId": "livebench"
-    },
-    {
-      "checkedAt": "2026-11-09T23:48:12.125Z",
+      "checkedAt": "2026-11-12T03:54:54.948Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-09T23:48:11.113Z",
+      "snapshotObservedAt": "2026-11-12T03:54:53.019Z",
+      "sourceId": "livebench"
+    },
+    {
+      "checkedAt": "2026-11-12T03:50:47.499Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-11-12T03:50:46.002Z",
       "sourceId": "maxxbench"
     },
     {
-      "checkedAt": "2026-11-09T02:22:23.309Z",
+      "checkedAt": "2026-11-12T03:55:43.485Z",
       "error": null,
       "findings": [],
       "inventory": [],
@@ -634,7 +618,7 @@
       "sourceId": "openai-releases"
     },
     {
-      "checkedAt": "2026-11-10T00:00:53.657Z",
+      "checkedAt": "2026-11-12T03:54:41.558Z",
       "error": null,
       "findings": [
         {
@@ -781,11 +765,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:00:52.639Z",
+      "snapshotObservedAt": "2026-11-12T03:54:41.272Z",
       "sourceId": "surge-chartography"
     },
     {
-      "checkedAt": "2026-11-10T00:01:07.069Z",
+      "checkedAt": "2026-11-12T03:55:13.281Z",
       "error": null,
       "findings": [
         {
@@ -932,11 +916,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:01:06.439Z",
+      "snapshotObservedAt": "2026-11-12T03:55:13.018Z",
       "sourceId": "surge-complex-constraints"
     },
     {
-      "checkedAt": "2026-11-10T00:01:17.114Z",
+      "checkedAt": "2026-11-12T03:55:17.472Z",
       "error": null,
       "findings": [
         {
@@ -1083,11 +1067,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:01:16.683Z",
+      "snapshotObservedAt": "2026-11-12T03:55:17.077Z",
       "sourceId": "surge-corecraft"
     },
     {
-      "checkedAt": "2026-11-10T00:01:33.176Z",
+      "checkedAt": "2026-11-12T03:55:23.594Z",
       "error": null,
       "findings": [
         {
@@ -1234,11 +1218,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:01:32.678Z",
+      "snapshotObservedAt": "2026-11-12T03:55:23.279Z",
       "sourceId": "surge-dayjob-finance"
     },
     {
-      "checkedAt": "2026-11-10T00:06:32.711Z",
+      "checkedAt": "2026-11-12T03:55:25.698Z",
       "error": null,
       "findings": [
         {
@@ -1385,11 +1369,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:06:32.189Z",
+      "snapshotObservedAt": "2026-11-12T03:55:25.417Z",
       "sourceId": "surge-dayjob-healthcare"
     },
     {
-      "checkedAt": "2026-11-10T00:06:34.618Z",
+      "checkedAt": "2026-11-12T03:55:27.858Z",
       "error": null,
       "findings": [
         {
@@ -1536,11 +1520,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:06:34.235Z",
+      "snapshotObservedAt": "2026-11-12T03:55:27.582Z",
       "sourceId": "surge-dayjob-tax"
     },
     {
-      "checkedAt": "2026-11-10T00:08:58.841Z",
+      "checkedAt": "2026-11-12T03:55:30.043Z",
       "error": null,
       "findings": [
         {
@@ -1687,11 +1671,11 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:08:58.602Z",
+      "snapshotObservedAt": "2026-11-12T03:55:29.643Z",
       "sourceId": "surge-gdp-xlsx"
     },
     {
-      "checkedAt": "2026-11-10T00:01:25.968Z",
+      "checkedAt": "2026-11-12T03:55:21.526Z",
       "error": null,
       "findings": [
         {
@@ -1838,13 +1822,28 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:01:25.555Z",
+      "snapshotObservedAt": "2026-11-12T03:55:21.280Z",
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-11-10T00:09:17.255Z",
+      "checkedAt": "2026-11-12T03:55:09.835Z",
       "error": null,
       "findings": [
+        {
+          "benchmarkId": "a2j",
+          "detail": "23 rows; 0 included",
+          "kind": "benchmark-materialized"
+        },
+        {
+          "benchmarkId": "a2j",
+          "detail": "https://www.vals.ai/benchmarks/a2j",
+          "kind": "catalog-added"
+        },
+        {
+          "benchmarkId": "a2j",
+          "detail": "https://www.vals.ai/benchmarks/a2j",
+          "kind": "captured-not-scored"
+        },
         {
           "benchmarkId": "aime",
           "detail": "https://www.vals.ai/benchmarks/aime",
@@ -2012,6 +2011,16 @@
         }
       ],
       "inventory": [
+        {
+          "benchmarkId": "a2j",
+          "captureRegistered": true,
+          "id": "a2j",
+          "reason": null,
+          "status": "captured-not-scored",
+          "title": "Access to Justice Benchmark",
+          "url": "https://www.vals.ai/benchmarks/a2j",
+          "version": null
+        },
         {
           "benchmarkId": "aime",
           "captureRegistered": true,
@@ -2634,7 +2643,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-10T00:09:00.442Z",
+      "snapshotObservedAt": "2026-11-12T03:54:56.613Z",
       "sourceId": "vals-ai"
     },
     {
@@ -2647,12 +2656,12 @@
       "sourceId": "xai-releases"
     },
     {
-      "checkedAt": "2026-11-10T00:01:31.421Z",
+      "checkedAt": "2026-11-12T03:54:51.448Z",
       "error": null,
       "findings": [],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-10T00:01:27.980Z",
+      "snapshotObservedAt": "2026-11-12T03:54:48.378Z",
       "sourceId": "zapier-automationbench"
     }
   ]

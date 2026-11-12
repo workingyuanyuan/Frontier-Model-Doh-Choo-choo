@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-10T00:01:15.235Z",
+  "checkedAt": "2026-11-12T03:54:39.481Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "aime",
-        "includedRows": 315,
+        "includedRows": 316,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -16,6 +16,7 @@
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-5",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
@@ -36,6 +37,7 @@
           "google-gemini-3-8-flash",
           "google-gemini-3-pro-preview",
           "google-gemini-4-argon",
+          "google-gemini-4-carbon",
           "meta-muse-spark",
           "meta-muse-spark-1-3",
           "meta-muse-spark-open",
@@ -221,6 +223,7 @@
           "[\"Gemini 3.7 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.8 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 4 Argon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Gemini 4 Carbon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 4 26B A4B\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 4 31B IT\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -522,6 +525,7 @@
           "Gemini 3.7 Flash (high)",
           "Gemini 3.8 Flash (high)",
           "Gemini 4 Argon (high)",
+          "Gemini 4 Carbon (high)",
           "Gemma 4 26B A4B",
           "Gemma 4 31B IT",
           "Grok 4.5 (high)",
@@ -677,19 +681,20 @@
           "qwen3.5-4b_none",
           "seed-oss-36b-instruct"
         ],
-        "rows": 315,
+        "rows": 316,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
       {
         "id": "chess-puzzles",
-        "includedRows": 161,
+        "includedRows": 162,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-5",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
@@ -709,6 +714,7 @@
           "google-gemini-3-7-flash",
           "google-gemini-3-8-flash",
           "google-gemini-4-argon",
+          "google-gemini-4-carbon",
           "meta-muse-spark-1-1",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
@@ -860,6 +866,7 @@
           "[\"Gemini 3.7 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.8 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 4 Argon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Gemini 4 Carbon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.6 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.6 (xhigh)\",\"xhigh\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1015,6 +1022,7 @@
           "Gemini 3.7 Flash (high)",
           "Gemini 3.8 Flash (high)",
           "Gemini 4 Argon (high)",
+          "Gemini 4 Carbon (high)",
           "Grok 4.5 (high)",
           "Grok 4.6 (high)",
           "Grok 4.6 (xhigh)",
@@ -1059,7 +1067,7 @@
           "o4-mini (low)",
           "o4-mini (medium)"
         ],
-        "rows": 163,
+        "rows": 164,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -1074,6 +1082,7 @@
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-5",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
@@ -1092,6 +1101,7 @@
           "google-gemini-3-7-flash",
           "google-gemini-3-8-flash",
           "google-gemini-4-argon",
+          "google-gemini-4-carbon",
           "meta-muse-spark",
           "meta-muse-spark-1-1",
           "meta-muse-spark-1-2",
@@ -1250,6 +1260,7 @@
           "[\"Gemini 3.7 Flash\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.8 Flash\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 4 Argon\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Gemini 4 Carbon\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 2 27B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 2 9B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 2B\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -1507,6 +1518,7 @@
           "Gemini 3.7 Flash",
           "Gemini 3.8 Flash",
           "Gemini 4 Argon",
+          "Gemini 4 Carbon",
           "Gemma 2 27B",
           "Gemma 2 9B",
           "Gemma 2B",
@@ -1642,7 +1654,7 @@
           "phi-3-small 7.4B",
           "vicuna-13b-v1.1"
         ],
-        "rows": 255,
+        "rows": 256,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2055,7 +2067,7 @@
       },
       {
         "id": "gpqa-diamond",
-        "includedRows": 335,
+        "includedRows": 336,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -2063,6 +2075,7 @@
           "alibaba-qwen3-7-plus",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-5",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
@@ -2083,6 +2096,7 @@
           "google-gemini-3-8-flash",
           "google-gemini-3-pro-preview",
           "google-gemini-4-argon",
+          "google-gemini-4-carbon",
           "meta-muse-spark",
           "meta-muse-spark-open",
           "minimax-minimax-m3",
@@ -2271,6 +2285,7 @@
           "[\"Gemini 3.7 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.8 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 4 Argon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Gemini 4 Carbon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 4 26B A4B\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 4 31B IT\",\"minimal\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2592,6 +2607,7 @@
           "Gemini 3.7 Flash (high)",
           "Gemini 3.8 Flash (high)",
           "Gemini 4 Argon (high)",
+          "Gemini 4 Carbon (high)",
           "Gemma 4 26B A4B",
           "Gemma 4 31B IT",
           "Grok 4.5 (high)",
@@ -2763,7 +2779,7 @@
           "qwq-plus",
           "seed-oss-36b-instruct"
         ],
-        "rows": 335,
+        "rows": 336,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -2998,13 +3014,14 @@
       },
       {
         "id": "simpleqa-verified",
-        "includedRows": 102,
+        "includedRows": 103,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-7-max",
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-4-5",
           "anthropic-claude-opus-4-6",
           "anthropic-claude-opus-4-7",
@@ -3023,6 +3040,7 @@
           "google-gemini-3-7-flash",
           "google-gemini-3-8-flash",
           "google-gemini-4-argon",
+          "google-gemini-4-carbon",
           "meta-muse-spark-1-1",
           "meta-muse-spark-1-2",
           "meta-muse-spark-open",
@@ -3116,6 +3134,7 @@
           "[\"Gemini 3.7 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 3.8 Flash (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemini 4 Argon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Gemini 4 Carbon (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Gemma 4 31B IT\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Grok 4.6 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -3220,6 +3239,7 @@
           "Gemini 3.7 Flash (high)",
           "Gemini 3.8 Flash (high)",
           "Gemini 4 Argon (high)",
+          "Gemini 4 Carbon (high)",
           "Gemma 4 31B IT",
           "Grok 4.5 (high)",
           "Grok 4.6 (high)",
@@ -3259,7 +3279,7 @@
           "o4-mini (high)",
           "o4-mini (low)"
         ],
-        "rows": 102,
+        "rows": 103,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3360,7 +3380,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-10T00:01:13.974Z",
+    "observedAt": "2026-11-12T03:54:37.333Z",
     "sourceId": "epoch-ai"
   }
 }

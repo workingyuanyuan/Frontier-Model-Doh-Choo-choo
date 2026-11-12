@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-10T00:01:04.423Z",
+  "checkedAt": "2026-11-12T03:51:02.420Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -13,6 +13,7 @@
           "alibaba-qwen3-8-max",
           "anthropic-claude-fable-5",
           "anthropic-claude-fable-5-1",
+          "anthropic-claude-fable-5-2",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
@@ -86,7 +87,7 @@
         "versions": ["2"]
       }
     ],
-    "observedAt": "2026-11-10T00:01:01.247Z",
+    "observedAt": "2026-11-12T03:50:58.066Z",
     "sourceId": "frontier-swe"
   }
 }
