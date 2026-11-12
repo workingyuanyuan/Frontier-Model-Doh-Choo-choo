@@ -7,7 +7,7 @@ import {
 } from '../lib/dashboard-data';
 
 import type { DimensionId } from '@llm-bench/benchmark-data';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 
 import { CostChart, type ChartShortlist } from './cost-chart';
 import { DeveloperModelList } from './developer-model-list';
@@ -24,6 +24,11 @@ import {
 } from '../lib/common-benchmarks';
 import { CommonBenchmarkTable } from './common-benchmark-table';
 import {
+  initialSelection,
+  selectionReducer,
+  type SelectionContext,
+} from '../lib/dashboard-selection';
+import {
   getDeveloperModelRows,
   getPartialCoverageRows,
   getRepresentativeRows,
@@ -37,6 +42,9 @@ const MODELS_QUERY_KEY = 'models';
 const EFFORTS_QUERY_KEY = 'efforts';
 const PINS_QUERY_KEY = 'pins';
 const DEVELOPER_QUERY_KEY = 'dev';
+
+const NO_EFFORTS: Record<string, string> = {};
+const NO_PINS: string[] = [];
 
 const listParam = (params: URLSearchParams, key: string): string[] =>
   (params.get(key) ?? '').split(',').filter(Boolean);
@@ -71,68 +79,38 @@ export function Dashboard({
   const [developerMode, setDeveloperMode] = useState(
     initialDeveloperMode ?? false,
   );
-  const [presetId, setPresetId] = useState(
+  const [{ presetId, comparison: selected, hydration }, dispatch] = useReducer(
+    selectionReducer,
     initialPresetId ?? rawProduct.defaultPresetId,
+    initialSelection,
   );
-  const [commonMode, setCommonMode] = useState(false);
-  const [pinnedProfileIds, setPinnedProfileIds] = useState<string[]>([]);
-  const [selectedProfiles, setSelectedProfiles] = useState<
-    Record<string, string>
-  >({});
-
-  // A shared comparison waits for its preset, whose defaults it replaces.
-  const pendingComparison = useRef<{
-    presetId: string;
-    models: string[];
-    efforts: string[];
-    pins: string[];
-  } | null>(null);
+  const commonMode = selected.mode === 'custom';
+  const selectedProfiles = commonMode ? selected.efforts : NO_EFFORTS;
+  const pinnedProfileIds = commonMode ? selected.pins : NO_PINS;
 
   // Ruling D-N10-5: the preset lives in a query parameter, not a route. Read
   // once on mount so a shared link opens on the right scores, and write with
   // replaceState so switching presets does not fill the back button. The
   // comparison (models, efforts, pins) and developer mode follow the same rule.
-  const urlRead = useRef(false);
-  const pendingPreset = useRef<string | null>(null);
   useEffect(() => {
-    // Parse once: a replayed effect would read the URL the writers already
-    // rewrote for the defaults.
-    if (urlRead.current) return;
-    urlRead.current = true;
     const params = new URLSearchParams(window.location.search);
     const requested = params.get(PRESET_QUERY_KEY);
-    const validPreset =
-      requested && rawProduct.presets.some(({ id }) => id === requested)
-        ? requested
-        : null;
-    if (validPreset) {
-      pendingPreset.current = validPreset;
-      setPresetId(validPreset);
-    }
     if (params.get(DEVELOPER_QUERY_KEY) === '1') setDeveloperMode(true);
-    if (params.has(MODELS_QUERY_KEY)) {
-      pendingComparison.current = {
-        presetId: validPreset ?? rawProduct.defaultPresetId,
-        models: listParam(params, MODELS_QUERY_KEY),
-        efforts: listParam(params, EFFORTS_QUERY_KEY),
-        pins: listParam(params, PINS_QUERY_KEY),
-      };
-    }
-  }, [rawProduct.defaultPresetId, rawProduct.presets]);
-
-  useEffect(() => {
-    if (pendingPreset.current) {
-      if (pendingPreset.current !== presetId) return;
-      pendingPreset.current = null;
-    }
-    const url = new URL(window.location.href);
-    if (presetId === rawProduct.defaultPresetId) {
-      url.searchParams.delete(PRESET_QUERY_KEY);
-    } else {
-      url.searchParams.set(PRESET_QUERY_KEY, presetId);
-    }
-    window.history.replaceState(null, '', url);
-  }, [presetId, rawProduct.defaultPresetId]);
+    dispatch({
+      type: 'hydrate',
+      presetId:
+        requested && rawProduct.presets.some(({ id }) => id === requested)
+          ? requested
+          : null,
+      comparison: params.has(MODELS_QUERY_KEY)
+        ? {
+            models: listParam(params, MODELS_QUERY_KEY),
+            efforts: listParam(params, EFFORTS_QUERY_KEY),
+            pins: listParam(params, PINS_QUERY_KEY),
+          }
+        : null,
+    });
+  }, [rawProduct.presets]);
 
   // The preset is the scoring basis (R1): resolved once here, so every gate,
   // chart and table below reads the same set of scores.
@@ -206,31 +184,7 @@ export function Dashboard({
     () => representatives.map((r) => r.modelId),
     [representatives],
   );
-  // Derive a new preset's default selection in the same render. An effect
-  // would first render stale selections and then repeat the entire update.
-  const [selection, setSelection] = useState(() => ({
-    defaults: defaultCheckedIds,
-    ids: defaultCheckedIds,
-  }));
-  const checkedModelIds =
-    selection.defaults === defaultCheckedIds
-      ? selection.ids
-      : defaultCheckedIds;
-  const setCheckedModelIds: React.Dispatch<React.SetStateAction<string[]>> = (
-    value,
-  ) => {
-    setSelection((current) => ({
-      defaults: defaultCheckedIds,
-      ids:
-        typeof value === 'function'
-          ? value(
-              current.defaults === defaultCheckedIds
-                ? current.ids
-                : defaultCheckedIds,
-            )
-          : value,
-    }));
-  };
+  const checkedModelIds = commonMode ? selected.modelIds : defaultCheckedIds;
   const options = useMemo(
     () => comparisonOptions(rawProduct, benchmarkDimensions),
     [rawProduct, benchmarkDimensions],
@@ -325,145 +279,69 @@ export function Dashboard({
       index,
     ],
   );
+  const profileModelIds = useMemo(
+    () => new Map(product.profiles.map((p) => [p.id, p.modelId])),
+    [product.profiles],
+  );
+  const selectionContext = useMemo<SelectionContext>(
+    () => ({
+      defaultModelIds: defaultCheckedIds,
+      representativeProfiles,
+      profileModelIds,
+    }),
+    [defaultCheckedIds, representativeProfiles, profileModelIds],
+  );
+  const optionIds = useMemo(
+    () => new Set(options.map(({ modelId }) => modelId)),
+    [options],
+  );
   const updateCheckedModels: React.Dispatch<React.SetStateAction<string[]>> = (
-    value,
-  ) => {
-    if (!commonMode) {
-      setSelectedProfiles(
-        Object.fromEntries(
-          representatives.map((row) => [
-            row.modelId,
-            selectedProfiles[row.modelId] ?? row.profileId,
-          ]),
-        ),
-      );
-    }
-    setCommonMode(true);
-    const nextIds =
-      typeof value === 'function' ? value(checkedModelIds) : value;
-    setCheckedModelIds(nextIds);
-    setPinnedProfileIds((ids) =>
-      ids.filter((id) =>
-        product.profiles.some(
-          (p) => p.id === id && nextIds.includes(p.modelId),
-        ),
-      ),
-    );
-  };
-  const pinProfile = (modelId: string, profileId: string) => {
-    const next = product.profiles.find(
-      (p) =>
-        p.modelId === modelId &&
-        p.id !== profileId &&
-        !pinnedProfileIds.includes(p.id),
-    );
-    if (!next || pinnedProfileIds.includes(profileId)) return;
-    const defaults = commonMode
-      ? selectedProfiles
-      : Object.fromEntries(
-          representatives.map((row) => [
-            row.modelId,
-            selectedProfiles[row.modelId] ?? row.profileId,
-          ]),
-        );
-    setSelectedProfiles({ ...defaults, [modelId]: next.id });
-    setPinnedProfileIds((ids) => [...ids, profileId]);
-    setCommonMode(true);
-  };
-  const selectPreset = (id: string) => {
-    setCommonMode(false);
-    setPinnedProfileIds([]);
-    setSelectedProfiles({});
-    setPresetId(id);
-    setCheckedModelIds(defaultCheckedIds);
-  };
+    update,
+  ) => dispatch({ type: 'setModels', update, context: selectionContext });
+  const selectPreset = (id: string) =>
+    dispatch({ type: 'selectPreset', presetId: id });
 
   const coverage = useMemo(() => profileBenchmarkCoverage(index), [index]);
-  // The shortlist handler reads the latest efforts without changing identity,
-  // so the memoized cost chart does not re-render on every effort change.
-  const selectedProfilesRef = useRef(selectedProfiles);
-  useEffect(() => {
-    selectedProfilesRef.current = selectedProfiles;
-  }, [selectedProfiles]);
-  // Each chart model keeps its leaderboard effort while that effort is still
-  // visible on the chart; otherwise its best-covered visible effort is used.
-  // Pins survive only while visible and distinct from the model's effort.
   const applyChartShortlist = useCallback(
     (models: ChartShortlist) => {
-      const optionIds = new Set(options.map(({ modelId }) => modelId));
-      const picked = models.filter(({ modelId }) => optionIds.has(modelId));
-      const ids = picked.map(({ modelId }) => modelId);
-      const next = {
-        ...representativeProfiles,
-        ...selectedProfilesRef.current,
-      };
-      picked.forEach(({ modelId, profileIds }) => {
-        if (profileIds.includes(next[modelId] ?? '')) return;
-        const best = profileIds.reduce<string | null>(
-          (top, id) =>
-            (coverage.get(id) ?? 0) > (coverage.get(top ?? '') ?? 0) ? id : top,
-          null,
-        );
-        if (best) next[modelId] = best;
+      dispatch({
+        type: 'applyShortlist',
+        models,
+        optionIds,
+        coverage,
+        context: selectionContext,
       });
-      const visible = new Set(picked.flatMap(({ profileIds }) => profileIds));
-      setSelectedProfiles(next);
-      setSelection({ defaults: defaultCheckedIds, ids });
-      setPinnedProfileIds((pins) =>
-        pins.filter(
-          (id) => visible.has(id) && !Object.values(next).includes(id),
-        ),
-      );
-      setCommonMode(true);
       document
         .getElementById('leaderboard-title')
         ?.scrollIntoView({ block: 'start' });
     },
-    [coverage, defaultCheckedIds, options, representativeProfiles],
+    [coverage, optionIds, selectionContext],
   );
 
+  // The shared comparison is resolved against the preset it was read with,
+  // one render after that preset became active.
   useEffect(() => {
-    const pending = pendingComparison.current;
-    if (!pending || pending.presetId !== presetId) return;
-    pendingComparison.current = null;
-    const optionIds = new Set(options.map(({ modelId }) => modelId));
-    const ids = [...new Set(pending.models)].filter((id) => optionIds.has(id));
-    const profiles = new Map(product.profiles.map((p) => [p.id, p]));
-    const efforts: Record<string, string> = {};
-    pending.efforts.forEach((id) => {
-      const profile = profiles.get(id);
-      if (profile && ids.includes(profile.modelId))
-        efforts[profile.modelId] = id;
-    });
-    setSelection({ defaults: defaultCheckedIds, ids });
-    setSelectedProfiles({ ...representativeProfiles, ...efforts });
-    setPinnedProfileIds(
-      [...new Set(pending.pins)].filter((id) => {
-        const profile = profiles.get(id);
-        return (
-          profile !== undefined &&
-          ids.includes(profile.modelId) &&
-          efforts[profile.modelId] !== id
-        );
-      }),
-    );
-    setCommonMode(true);
-  }, [
-    defaultCheckedIds,
-    options,
-    presetId,
-    product.profiles,
-    representativeProfiles,
-  ]);
+    if (hydration.phase === 'restoring')
+      dispatch({
+        type: 'restoreComparison',
+        optionIds,
+        context: selectionContext,
+      });
+  }, [hydration.phase, optionIds, selectionContext]);
 
   useEffect(() => {
-    if (pendingComparison.current) return;
+    if (hydration.phase !== 'ready') return;
     const url = new URL(window.location.href);
     const { searchParams } = url;
     const setList = (key: string, values: string[]) => {
       if (values.length) searchParams.set(key, values.join(','));
       else searchParams.delete(key);
     };
+    if (presetId === rawProduct.defaultPresetId) {
+      searchParams.delete(PRESET_QUERY_KEY);
+    } else {
+      searchParams.set(PRESET_QUERY_KEY, presetId);
+    }
     if (commonMode) {
       searchParams.set(MODELS_QUERY_KEY, checkedModelIds.join(','));
       setList(
@@ -483,7 +361,10 @@ export function Dashboard({
     checkedModelIds,
     commonMode,
     developerMode,
+    hydration.phase,
     pinnedProfileIds,
+    presetId,
+    rawProduct.defaultPresetId,
     selectedProfiles,
   ]);
 
@@ -526,21 +407,26 @@ export function Dashboard({
           setCheckedModelIds={updateCheckedModels}
           onResetModels={() => selectPreset(rawProduct.defaultPresetId)}
           selectedProfiles={selectedProfiles}
-          onSelectedProfileChange={(modelId, profileId) => {
-            setSelectedProfiles((current) => ({
-              ...Object.fromEntries(
-                representatives.map((row) => [row.modelId, row.profileId]),
-              ),
-              ...current,
-              [modelId]: profileId,
-            }));
-            setCommonMode(true);
-          }}
+          onSelectedProfileChange={(modelId, profileId) =>
+            dispatch({
+              type: 'setEffort',
+              modelId,
+              profileId,
+              context: selectionContext,
+            })
+          }
           commonMode={commonMode}
           pinnedProfileIds={pinnedProfileIds}
-          onPinProfile={pinProfile}
-          onRemovePinnedProfile={(id) =>
-            setPinnedProfileIds((ids) => ids.filter((p) => p !== id))
+          onPinProfile={(modelId, profileId) =>
+            dispatch({
+              type: 'pinProfile',
+              modelId,
+              profileId,
+              context: selectionContext,
+            })
+          }
+          onRemovePinnedProfile={(profileId) =>
+            dispatch({ type: 'unpinProfile', profileId })
           }
           effortDeltas={effortDeltas}
           benchmarkDimensions={benchmarkDimensions}
