@@ -59,6 +59,7 @@ export const APPROVED_VALS_BENCHMARKS: Readonly<
   },
   cyber: { benchmarkId: 'cyber', role: 'INDEPENDENT' },
   reverse_eng: { benchmarkId: 'reverse-eng', role: 'ORGANIZER' },
+  a2j: { benchmarkId: 'a2j', role: 'ORGANIZER' },
 };
 
 // Finance Index averages Finance Agent, EMB and Tax Agent Bench; Legal Index

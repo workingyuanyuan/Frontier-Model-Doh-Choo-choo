@@ -15,6 +15,56 @@ const evidenceId =
   'sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 describe('Artificial Analysis RSC parser', () => {
+  it('materializes MKA Climb WSR from its evaluation page with the documented single run and an unknown version', () => {
+    const row = {
+      slug: 'gpt-6-sol',
+      name: 'GPT-6 Sol (Max)',
+      releaseDate: '2026-09-22',
+      mkaClimbWsr: 0.42,
+      mkaBreakdown: { regressionWsr: 0.95 },
+    };
+    const result = materializeArtificialAnalysisRsc([
+      {
+        kind: 'models',
+        slug: 'models',
+        sourceUrl: 'https://artificialanalysis.ai/models',
+        evidenceId,
+        retrievedAt: '2026-11-12T00:00:00.000Z',
+        rows: [{ ...row, mkaClimbWsr: 0.4 }],
+      },
+      {
+        kind: 'evaluation',
+        slug: 'mka',
+        sourceUrl: 'https://artificialanalysis.ai/evaluations/mka',
+        evidenceId,
+        retrievedAt: '2026-11-12T00:00:00.000Z',
+        rows: [row, { ...row, slug: 'missing-score', mkaClimbWsr: null }],
+      },
+    ]);
+    const scores = result.candidates.filter(
+      ({ benchmarkId }) => benchmarkId === 'mka',
+    );
+    expect(scores).toHaveLength(1);
+    expect(scores[0]).toMatchObject({
+      benchmarkVersion: null,
+      rawScore: 0.42,
+      normalizedScore: 42,
+      sourceRole: 'INDEPENDENT',
+      metric: {
+        id: 'climb-wsr',
+        name: 'Climb WSR',
+        unit: 'percent',
+        higherIsBetter: true,
+      },
+      profile: {
+        tools: true,
+        harness: 'Artificial Analysis Stirrup',
+        attempts: 1,
+        effort: 'max',
+      },
+    });
+  });
+
   it('materializes deprecated generation baselines with versioned scores and costs', () => {
     const result = materializeArtificialAnalysisRsc([
       {
