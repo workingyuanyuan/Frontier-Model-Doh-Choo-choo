@@ -91,7 +91,7 @@ Frontier Code 有兩個互不取代的 benchmark。FrontierCode 2.0（`frontier-
 快照核對，上游移除的列保留。兩者都保存全部模型 × effort 的 `new_score` 與平均
 rollout `cost`。2026-10-28 使用者裁決由 2.0 取代 1.1 成本圖：2.0 成本為 `INCLUDED`，
 1.1 成本保留原 ID 但標為 `EXCLUDED`（已由 2.0 取代），兩版成本不混合。Extended 只保留在原始 artifact，不混入 Main；來源 effort
-`none`／`na`、缺值與未解析 identity 都保持 null。
+`none` 只有在同一模型、同一 benchmark 版本提供多個不同 effort 選項時對應 `non-reasoning`；只有單一 `none` 選項、`na`、缺值與未解析 identity 都保持 null。原始 effort key 保留在列 ID 與 Evidence locator，分數及成本共用相同判定，不跨版本合併選項。
 
 正常排程採統一頻率。新模型推出時，人工可額外觸發一次相同資料收集流程；不建立永久的「自動發現模型」旁路。
 
@@ -137,7 +137,7 @@ Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中�
 - Artificial Analysis：來源定義的 Intelligence Index task cost。
 - LiveBench：token pricing 與 `cost_per_successful_task` 分開保存。
 - DeepSWE：`mean_cost_usd` 保存為 `AGENT_TASK`，來源 Harness 留在 provenance。
-- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本（以公開牌價含公開折扣計），保存為 `AGENT_TASK`；2026-10-28 起只有 2.0 成本 `INCLUDED`，1.1 成本 `EXCLUDED`；raw `none` 保持 null，產品層只依上述跨來源規則建立可稽核的 effort 決策。
+- Frontier Code：Main 的 `cost` 是平均 rollout 美元成本（以公開牌價含公開折扣計），保存為 `AGENT_TASK`；2026-10-28 起只有 2.0 成本 `INCLUDED`，1.1 成本 `EXCLUDED`；raw `none` 依同模型、同版本的 effort 選項判定：多選項中的 `none` 對應 `non-reasoning`；單一 `none` 與 `na` 保持 null，才可依上述跨來源規則處理。成本與分數共用判定，原始 key 保留在 ID 與 provenance locator。
 - ARC Prize：`costPerTask` 保存為 `AGENT_TASK`，只使用有成本的 v2 Semi-Private 列。
 - Vals AI：每頁成本照常保存，但預設成本圖只使用 `vals_index` 的 `cost_per_test`。
 

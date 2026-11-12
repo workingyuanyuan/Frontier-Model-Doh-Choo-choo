@@ -229,7 +229,11 @@
       "modelId": "anthropic-claude-fable-5-1",
       "providerId": "anthropic",
       "displayName": "Claude Fable 5.1",
-      "aliases": ["claude-fable-5-1", "anthropic/claude-fable-5-1"],
+      "aliases": [
+        "claude-fable-5-1",
+        "anthropic/claude-fable-5-1",
+        "Fable 5.1"
+      ],
       "releaseDate": "2026-09-01",
       "pricing": [],
       "profilePricing": {}
@@ -238,7 +242,11 @@
       "modelId": "anthropic-claude-fable-5-2",
       "providerId": "anthropic",
       "displayName": "Claude Fable 5.2",
-      "aliases": ["claude-fable-5-2", "anthropic/claude-fable-5-2"],
+      "aliases": [
+        "claude-fable-5-2",
+        "anthropic/claude-fable-5-2",
+        "Fable 5.2"
+      ],
       "releaseDate": "2026-11-09",
       "pricing": [],
       "profilePricing": {}
@@ -779,7 +787,7 @@
       "modelId": "alibaba-qwen3-8-max",
       "providerId": "alibaba",
       "displayName": "Qwen3.8 Max",
-      "aliases": ["qwen3.8-max"],
+      "aliases": ["qwen3.8-max", "Qwen 3.8 Max"],
       "releaseDate": "2026-08-03",
       "pricing": [],
       "profilePricing": {}
@@ -838,7 +846,7 @@
       "modelId": "meta-muse-ember",
       "providerId": "meta",
       "displayName": "Muse Ember",
-      "aliases": ["muse-ember-1.0", "meta/muse-ember"],
+      "aliases": ["muse-ember-1.0", "meta/muse-ember", "Muse Ember 1.0"],
       "releaseDate": "2026-11-09",
       "pricing": [],
       "profilePricing": {}

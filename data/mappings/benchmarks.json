@@ -467,6 +467,21 @@
       "id": "vibe-code-bench",
       "primaryDimension": "coding",
       "secondaryDimensions": ["agentic", "reasoning"]
+    },
+    {
+      "id": "mka",
+      "primaryDimension": "reasoning",
+      "secondaryDimensions": ["agentic", "knowledge"]
+    },
+    {
+      "id": "a2j",
+      "primaryDimension": "knowledge",
+      "secondaryDimensions": ["reasoning", "language"]
+    },
+    {
+      "id": "swe-atlas",
+      "primaryDimension": "coding",
+      "secondaryDimensions": ["agentic", "reasoning"]
     }
   ]
 }

@@ -91,6 +91,10 @@ DAYJOB: Tax 使用獨立 benchmark ID `dayjob-tax`，與 Finance、Healthcare �
 benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個檔案（含 `costs.json`）；舊快照
 留在 git 歷史與內容定址 artifact store 供對照。
 
+**`scale-swe-atlas` 於 2026-11-12 納入白名單**（使用者決定）。`refresh-scale-swe-atlas.ts` 取得 Scale 官方 SWE Atlas 頁面的 Next.js 資料，核對渲染後 Overall 列數，只將 Overall 物化為 `swe-atlas` v1.1。QnA、Test Writing、Refactoring 是 Overall 的組成，保留為原始證據，不重複計分。來源沒有成本，模型只使用 `models.json` 中的既有身分與經證據確認的精確 alias；無法解析者保持 null。來源明示的 effort 優先，未明示時保持 null，再由既有跨來源政策處理。
+
+2026-11-12 同時核准 AA `mka`（Climb WSR，百分比，版本 unknown）與 Vals `a2j`（accuracy）。現行 v2 主維度分別為 comprehension 與 knowledge，次要關聯見 [維度映射](BENCHMARK_DIMENSION_MAPPING.md#2026-11-12-approved-benchmark-additions)。
+
 **建置流程必須實作來源白名單**：只讀取白名單內的來源目錄。白名單以設定檔表示，不是硬編碼的 if 判斷。
 
 ## 4. 五維與計分
@@ -947,14 +951,14 @@ R21 後模型 checkbox 仍保留上述整體序列控制，並在其下增加每
 
 ### 9.4 Frontier Code（新建，已驗證）
 
-| 項目                  | 2026-08-17 實測結論                                                                            |
-| --------------------- | ---------------------------------------------------------------------------------------------- |
-| 完整結構化入口        | `https://cognition.com/data/frontiercode-leaderboard/data.json`（頁面前端使用的官方靜態 JSON） |
-| FrontierCode 1.1 Main | 28 個模型、77 組模型 × effort 設定；77 組都有 `new_score` 與 `cost`                            |
-| 思考強度              | 15 個模型有多個 effort，8 個有五級 effort；來源值 `none` 保持 null，不推測為 max/default       |
-| JSON-LD 對照          | `FrontierCode 1.1 Leaderboard (Main)` Top 10 的排名、模型名與一位小數分數和完整資料 10/10 一致 |
-| DOM 對照              | 渲染後 Main 榜顯示 28 列；可見 Top 10 與 JSON-LD／靜態 JSON 一致                               |
-| 成本語意              | UI 定義為每次 rollout 的平均美元成本；保存為 `AGENT_TASK`／`USD_PER_TASK`                      |
+| 項目                  | 2026-08-17 實測結論                                                                                                                                                            |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 完整結構化入口        | `https://cognition.com/data/frontiercode-leaderboard/data.json`（頁面前端使用的官方靜態 JSON）                                                                                 |
+| FrontierCode 1.1 Main | 28 個模型、77 組模型 × effort 設定；77 組都有 `new_score` 與 `cost`                                                                                                            |
+| 思考強度              | 15 個模型有多個 effort，8 個有五級 effort；同模型、同版本多選項中的 `none` 對應 `non-reasoning`；單一 `none` 與 `na` 保持 null；分數與成本共用判定，保留原始 key 與 provenance |
+| JSON-LD 對照          | `FrontierCode 1.1 Leaderboard (Main)` Top 10 的排名、模型名與一位小數分數和完整資料 10/10 一致                                                                                 |
+| DOM 對照              | 渲染後 Main 榜顯示 28 列；可見 Top 10 與 JSON-LD／靜態 JSON 一致                                                                                                               |
+| 成本語意              | UI 定義為每次 rollout 的平均美元成本；保存為 `AGENT_TASK`／`USD_PER_TASK`                                                                                                      |
 
 - JSON-LD 仍只有 Top 10 的分數百分比，不含成本與 effort；它只作獨立對照基準。
 - 靜態 JSON 同時包含 `main` 與 `extended`。本來源只物化目前預設的 `v1_1` Main；Extended 保留在內容定址 artifact，不混入 `frontier-code-1-1`。

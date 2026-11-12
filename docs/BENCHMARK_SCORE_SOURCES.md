@@ -15,6 +15,8 @@
 
 ## 採用與覆蓋規則
 
+2026-11-12 使用者確認採用三項 benchmark：[Artificial Analysis MKA](https://artificialanalysis.ai/evaluations/mka)（`mka`，INDEPENDENT，Climb WSR 百分比，版本 unknown）、[Vals Access to Justice](https://www.vals.ai/benchmarks/a2j)（`a2j`，ORGANIZER，保留來源 accuracy），以及 [Scale SWE Atlas](https://scale.com/leaderboard/swe-atlas)（來源 `scale-swe-atlas`，ORGANIZER，`swe-atlas` v1.1）。SWE Atlas 只採 Overall 分數，QnA、Test Writing、Refactoring 是其組成，保留為證據；來源未提供成本。維度與納入規則見 [維度映射](BENCHMARK_DIMENSION_MAPPING.md#2026-11-12-approved-benchmark-additions)。
+
 模型發布頁候選、評測附件與後續查核條件見 [2026-10-04 發布頁研究](research/2026-10-04-model-release-candidates.md)；資料收集代理依 [主動探索流程](OPERATIONS.md#主動尋找補充來源) 尋找新模型與現役模型缺項的官方證據。
 
 2026-10-03 納入 **GDP.pdf（Artificial Analysis）**（`gdp-pdf`）：採用 [AA 評測頁](https://artificialanalysis.ai/evaluations/gdp-pdf) 的 All-pass 百分比，角色為 INDEPENDENT，主要維度為 Reasoning。選擇 AA 的依據為最新前沿模型覆蓋。AA 每題進行 5 次獨立嘗試；保留其 harness 與原始欄位證據。AA 與 Surge 的文件輸入、harness 及 judge 不同，GDP.pdf 的分數採 AA 實作。
