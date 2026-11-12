@@ -379,7 +379,7 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-12T03:55:09.835Z",
+  "checkedAt": "2026-11-12T04:54:28.933Z",
   "evidence": {
     "artifactPath": "artifacts/sha256/fb/fb429a5be622f360130e4fb675f359cebfc8c1eead432bffed92b6698b5ea07f.html",
     "byteLength": 313231,
@@ -391,7 +391,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-12T03:55:09.835Z",
+    "retrievedAt": "2026-11-12T04:54:28.933Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:fb429a5be622f360130e4fb675f359cebfc8c1eead432bffed92b6698b5ea07f",
     "sourceId": "vals-ai"
@@ -401,7 +401,7 @@
     "benchmarks": [
       {
         "id": "a2j",
-        "includedRows": 0,
+        "includedRows": 23,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -9782,7 +9782,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-11-12T03:54:56.613Z",
+    "observedAt": "2026-11-12T04:54:16.739Z",
     "sourceId": "vals-ai"
   }
 }

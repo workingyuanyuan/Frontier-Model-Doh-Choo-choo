@@ -24,14 +24,13 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-12T03:54:34.389Z
-- Stored score snapshot: 2026-11-12T03:51:05.196Z
+- Checked: 2026-11-12T04:51:45.240Z
+- Stored score snapshot: 2026-11-12T04:49:15.526Z
 - Scope: live-catalog-and-snapshot
 
 | Finding                           | Benchmark             | Detail                                                          |
 | --------------------------------- | --------------------- | --------------------------------------------------------------- |
-| catalog-metadata-changed          | frontiercode-2-0      | FrontierCode 2.0 \[v2.0\] -\> FrontierCode-AA 2.0 \[v2.0\]      |
-| catalog-added                     | mka                   | https://artificialanalysis.ai/evaluations/mka                   |
+| benchmark-materialized            | mka                   | 21 rows; 21 included                                            |
 | unintegrated                      | aa-3d                 | https://artificialanalysis.ai/evaluations/aa-3d                 |
 | unintegrated                      | aa-analyst-agent      | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
 | unintegrated                      | aa-personalitybench   | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
@@ -44,7 +43,6 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | unintegrated                      | healthbench           | https://artificialanalysis.ai/evaluations/healthbench           |
 | unintegrated                      | itbench-aa            | https://artificialanalysis.ai/evaluations/itbench-aa            |
 | unintegrated                      | math-500              | https://artificialanalysis.ai/evaluations/math-500              |
-| unintegrated                      | mka                   | https://artificialanalysis.ai/evaluations/mka                   |
 | unintegrated                      | mlcr-aa               | https://artificialanalysis.ai/evaluations/mlcr-aa               |
 | unintegrated                      | mmmu-pro              | https://artificialanalysis.ai/evaluations/mmmu-pro              |
 | catalog-snapshot-version-mismatch | omniscience           | Directory v1.1; stored scores (unknown)                         |
@@ -81,7 +79,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [ITBench-AA](https://artificialanalysis.ai/evaluations/itbench-aa)                                                                | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [LiveCodeBench](https://artificialanalysis.ai/evaluations/livecodebench)                                                          | yes                | scored            | livecodebench                          |                                                                                                                                                                                                                                                                                                      |
 | [MATH-500](https://artificialanalysis.ai/evaluations/math-500)                                                                    | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
-| [MKA](https://artificialanalysis.ai/evaluations/mka)                                                                              | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
+| [MKA](https://artificialanalysis.ai/evaluations/mka)                                                                              | yes                | scored            | mka                                    | 2026-11-12 user decision: score MKA Climb WSR as mka; primary comprehension, secondary agentic, knowledge and reasoning. Unknown version remains null.                                                                                                                                               |
 | [MLCR-AA](https://artificialanalysis.ai/evaluations/mlcr-aa)                                                                      | no                 | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
 | [MMLU-Pro](https://artificialanalysis.ai/evaluations/mmlu-pro)                                                                    | yes                | scored            | mmlu-pro                               |                                                                                                                                                                                                                                                                                                      |
 | [MMMU-Pro](https://artificialanalysis.ai/evaluations/mmmu-pro)                                                                    | yes                | unintegrated      | —                                      |                                                                                                                                                                                                                                                                                                      |
@@ -127,13 +125,13 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-code
 
-- Checked: 2026-11-12T03:55:19.713Z
-- Stored score snapshot: 2026-11-12T03:55:19.383Z
+- Checked: 2026-11-12T04:48:27.449Z
+- Stored score snapshot: 2026-11-12T04:48:27.166Z
 - Scope: snapshot-only
 
-| Finding | Benchmark | Detail                                           |
-| ------- | --------- | ------------------------------------------------ |
-| None    | —         | No differences detected within the stated scope. |
+| Finding       | Benchmark         | Detail                                                                                  |
+| ------------- | ----------------- | --------------------------------------------------------------------------------------- |
+| profiles-lost | frontier-code-2-0 | 121 -\> 121; missing 1: \["Inkling 2 Small",null,null,"devin-cli",null,null,null,null\] |
 
 ## frontier-swe
 
@@ -179,6 +177,16 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 - Checked: 2026-11-12T03:55:43.485Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
+- Scope: snapshot-only
+
+| Finding | Benchmark | Detail                                           |
+| ------- | --------- | ------------------------------------------------ |
+| None    | —         | No differences detected within the stated scope. |
+
+## scale-swe-atlas
+
+- Checked: 2026-11-12T04:55:30.841Z
+- Stored score snapshot: 2026-11-12T04:55:30.201Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -403,114 +411,111 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-12T03:55:09.835Z
-- Stored score snapshot: 2026-11-12T03:54:56.613Z
+- Checked: 2026-11-12T04:54:28.933Z
+- Stored score snapshot: 2026-11-12T04:54:16.739Z
 - Scope: live-catalog-and-snapshot
 
-| Finding                | Benchmark                | Detail                                                  |
-| ---------------------- | ------------------------ | ------------------------------------------------------- |
-| benchmark-materialized | a2j                      | 23 rows; 0 included                                     |
-| catalog-added          | a2j                      | https://www.vals.ai/benchmarks/a2j                      |
-| captured-not-scored    | a2j                      | https://www.vals.ai/benchmarks/a2j                      |
-| captured-not-scored    | aime                     | https://www.vals.ai/benchmarks/aime                     |
-| captured-not-scored    | biomysterybench          | https://www.vals.ai/benchmarks/biomysterybench          |
-| captured-not-scored    | case_law_v2              | https://www.vals.ai/benchmarks/case_law_v2              |
-| captured-not-scored    | claimbench               | https://www.vals.ai/benchmarks/claimbench               |
-| captured-not-scored    | code-migration-v1-1      | https://www.vals.ai/benchmarks/code-migration-v1-1      |
-| captured-not-scored    | cua_bench                | https://www.vals.ai/benchmarks/cua_bench                |
-| unintegrated           | cyber_offense            | https://www.vals.ai/benchmarks/cyber_offense            |
-| captured-not-scored    | emb-v1-1                 | https://www.vals.ai/benchmarks/emb-v1-1                 |
-| captured-not-scored    | fabv2-1                  | https://www.vals.ai/benchmarks/fabv2-1                  |
-| captured-not-scored    | hlab-v1                  | https://www.vals.ai/benchmarks/hlab-v1                  |
-| captured-not-scored    | immigration              | https://www.vals.ai/benchmarks/immigration              |
-| unintegrated           | inference_provider       | https://www.vals.ai/benchmarks/inference_provider       |
-| captured-not-scored    | math500                  | https://www.vals.ai/benchmarks/math500                  |
-| captured-not-scored    | medqa                    | https://www.vals.ai/benchmarks/medqa                    |
-| unintegrated           | mental-health            | https://www.vals.ai/benchmarks/mental-health            |
-| captured-not-scored    | mgsm                     | https://www.vals.ai/benchmarks/mgsm                     |
-| captured-not-scored    | mmmu                     | https://www.vals.ai/benchmarks/mmmu                     |
-| captured-not-scored    | mortgage_tax             | https://www.vals.ai/benchmarks/mortgage_tax             |
-| captured-not-scored    | mysterymechanism         | https://www.vals.ai/benchmarks/mysterymechanism         |
-| captured-not-scored    | poker_agent              | https://www.vals.ai/benchmarks/poker_agent              |
-| captured-not-scored    | public-benefits-bench-v1 | https://www.vals.ai/benchmarks/public-benefits-bench-v1 |
-| captured-not-scored    | robo_bench               | https://www.vals.ai/benchmarks/robo_bench               |
-| unintegrated           | rsi_index                | https://www.vals.ai/benchmarks/rsi_index                |
-| captured-not-scored    | sage                     | https://www.vals.ai/benchmarks/sage                     |
-| captured-not-scored    | science_index            | https://www.vals.ai/benchmarks/science_index            |
-| captured-not-scored    | srebench                 | https://www.vals.ai/benchmarks/srebench                 |
-| captured-not-scored    | swebench-multimodal      | https://www.vals.ai/benchmarks/swebench-multimodal      |
-| captured-not-scored    | tax_agent_bench          | https://www.vals.ai/benchmarks/tax_agent_bench          |
-| captured-not-scored    | terminal-bench-2         | https://www.vals.ai/benchmarks/terminal-bench-2         |
-| captured-not-scored    | terminal-bench-science   | https://www.vals.ai/benchmarks/terminal-bench-science   |
-| unintegrated           | vals_router_index        | https://www.vals.ai/benchmarks/vals_router_index        |
-| captured-not-scored    | vcb-1-100                | https://www.vals.ai/benchmarks/vcb-1-100                |
-| captured-not-scored    | voice-code-bench         | https://www.vals.ai/benchmarks/voice-code-bench         |
+| Finding             | Benchmark                | Detail                                                  |
+| ------------------- | ------------------------ | ------------------------------------------------------- |
+| captured-not-scored | aime                     | https://www.vals.ai/benchmarks/aime                     |
+| captured-not-scored | biomysterybench          | https://www.vals.ai/benchmarks/biomysterybench          |
+| captured-not-scored | case_law_v2              | https://www.vals.ai/benchmarks/case_law_v2              |
+| captured-not-scored | claimbench               | https://www.vals.ai/benchmarks/claimbench               |
+| captured-not-scored | code-migration-v1-1      | https://www.vals.ai/benchmarks/code-migration-v1-1      |
+| captured-not-scored | cua_bench                | https://www.vals.ai/benchmarks/cua_bench                |
+| unintegrated        | cyber_offense            | https://www.vals.ai/benchmarks/cyber_offense            |
+| captured-not-scored | emb-v1-1                 | https://www.vals.ai/benchmarks/emb-v1-1                 |
+| captured-not-scored | fabv2-1                  | https://www.vals.ai/benchmarks/fabv2-1                  |
+| captured-not-scored | hlab-v1                  | https://www.vals.ai/benchmarks/hlab-v1                  |
+| captured-not-scored | immigration              | https://www.vals.ai/benchmarks/immigration              |
+| unintegrated        | inference_provider       | https://www.vals.ai/benchmarks/inference_provider       |
+| captured-not-scored | math500                  | https://www.vals.ai/benchmarks/math500                  |
+| captured-not-scored | medqa                    | https://www.vals.ai/benchmarks/medqa                    |
+| unintegrated        | mental-health            | https://www.vals.ai/benchmarks/mental-health            |
+| captured-not-scored | mgsm                     | https://www.vals.ai/benchmarks/mgsm                     |
+| captured-not-scored | mmmu                     | https://www.vals.ai/benchmarks/mmmu                     |
+| captured-not-scored | mortgage_tax             | https://www.vals.ai/benchmarks/mortgage_tax             |
+| captured-not-scored | mysterymechanism         | https://www.vals.ai/benchmarks/mysterymechanism         |
+| captured-not-scored | poker_agent              | https://www.vals.ai/benchmarks/poker_agent              |
+| captured-not-scored | public-benefits-bench-v1 | https://www.vals.ai/benchmarks/public-benefits-bench-v1 |
+| captured-not-scored | robo_bench               | https://www.vals.ai/benchmarks/robo_bench               |
+| unintegrated        | rsi_index                | https://www.vals.ai/benchmarks/rsi_index                |
+| captured-not-scored | sage                     | https://www.vals.ai/benchmarks/sage                     |
+| captured-not-scored | science_index            | https://www.vals.ai/benchmarks/science_index            |
+| captured-not-scored | srebench                 | https://www.vals.ai/benchmarks/srebench                 |
+| captured-not-scored | swebench-multimodal      | https://www.vals.ai/benchmarks/swebench-multimodal      |
+| captured-not-scored | tax_agent_bench          | https://www.vals.ai/benchmarks/tax_agent_bench          |
+| captured-not-scored | terminal-bench-2         | https://www.vals.ai/benchmarks/terminal-bench-2         |
+| captured-not-scored | terminal-bench-science   | https://www.vals.ai/benchmarks/terminal-bench-science   |
+| unintegrated        | vals_router_index        | https://www.vals.ai/benchmarks/vals_router_index        |
+| captured-not-scored | vcb-1-100                | https://www.vals.ai/benchmarks/vcb-1-100                |
+| captured-not-scored | voice-code-bench         | https://www.vals.ai/benchmarks/voice-code-bench         |
 
-| Source catalog entry                                                                | Capture registered | Integration         | Benchmark ID             | Review note                                                                         |
-| ----------------------------------------------------------------------------------- | ------------------ | ------------------- | ------------------------ | ----------------------------------------------------------------------------------- |
-| [Access to Justice Benchmark](https://www.vals.ai/benchmarks/a2j)                   | yes                | captured-not-scored | a2j                      |                                                                                     |
-| [AIME](https://www.vals.ai/benchmarks/aime)                                         | yes                | captured-not-scored | aime                     |                                                                                     |
-| [BioMysteryBench](https://www.vals.ai/benchmarks/biomysterybench)                   | yes                | captured-not-scored | biomysterybench          |                                                                                     |
-| [CaseLaw v2](https://www.vals.ai/benchmarks/case_law_v2)                            | yes                | captured-not-scored | case-law-v2              |                                                                                     |
-| [ClaimBench](https://www.vals.ai/benchmarks/claimbench)                             | yes                | captured-not-scored | claimbench               |                                                                                     |
-| [Code Migration](https://www.vals.ai/benchmarks/code-migration)                     | yes                | scored              | code-migration           |                                                                                     |
-| [Code Migration v1.1](https://www.vals.ai/benchmarks/code-migration-v1-1)           | yes                | captured-not-scored | code-migration-v1-1      |                                                                                     |
-| [CorpFin v2](https://www.vals.ai/benchmarks/corp_fin_v2)                            | yes                | scored              | corpfin                  |                                                                                     |
-| [CUA-bench](https://www.vals.ai/benchmarks/cua_bench)                               | yes                | captured-not-scored | cua-bench                |                                                                                     |
-| [CyberBench v1.1](https://www.vals.ai/benchmarks/cyber)                             | yes                | scored              | cyber                    |                                                                                     |
-| [CyberOffense](https://www.vals.ai/benchmarks/cyber_offense)                        | yes                | unintegrated        | —                        |                                                                                     |
-| [Excel Modeling Benchmark](https://www.vals.ai/benchmarks/emb)                      | yes                | scored              | emb                      |                                                                                     |
-| [Excel Modeling Benchmark v1.1](https://www.vals.ai/benchmarks/emb-v1-1)            | yes                | captured-not-scored | emb-v1-1                 |                                                                                     |
-| [Finance Agent v2](https://www.vals.ai/benchmarks/fabv2)                            | yes                | scored              | finance-agent-v2         |                                                                                     |
-| [Finance Agent v2.1](https://www.vals.ai/benchmarks/fabv2-1)                        | yes                | captured-not-scored | fabv2-1                  |                                                                                     |
-| [Vals Finance Index](https://www.vals.ai/benchmarks/finance_index)                  | yes                | reviewed-deferred   | finance-index            | Composite retained separately; excluded from capability scoring by existing policy. |
-| [GPQA Diamond](https://www.vals.ai/benchmarks/gpqa)                                 | yes                | scored              | gpqa-diamond             |                                                                                     |
-| [HLAB-Vals-1.1](https://www.vals.ai/benchmarks/hlab)                                | yes                | scored              | hlab                     |                                                                                     |
-| [Harvey's Legal Agent Benchmark v1](https://www.vals.ai/benchmarks/hlab-v1)         | yes                | captured-not-scored | hlab-v1                  |                                                                                     |
-| [Immigration Bench](https://www.vals.ai/benchmarks/immigration)                     | yes                | captured-not-scored | immigration              |                                                                                     |
-| [Vals Inference Provider Index](https://www.vals.ai/benchmarks/inference_provider)  | yes                | unintegrated        | —                        |                                                                                     |
-| [IOI v2](https://www.vals.ai/benchmarks/ioi)                                        | yes                | scored              | ioi                      |                                                                                     |
-| [LiveCodeBench](https://www.vals.ai/benchmarks/lcb)                                 | yes                | scored              | livecodebench            |                                                                                     |
-| [LegalBench](https://www.vals.ai/benchmarks/legal_bench)                            | yes                | scored              | legal-bench              |                                                                                     |
-| [Vals Legal Index](https://www.vals.ai/benchmarks/legal_index)                      | yes                | reviewed-deferred   | legal-index              | Composite retained separately; excluded from capability scoring by existing policy. |
-| [Legal Research Bench](https://www.vals.ai/benchmarks/legal_research)               | yes                | scored              | legal-research           |                                                                                     |
-| [MATH 500](https://www.vals.ai/benchmarks/math500)                                  | yes                | captured-not-scored | math500                  |                                                                                     |
-| [MedCode](https://www.vals.ai/benchmarks/medcode)                                   | yes                | scored              | medcode                  |                                                                                     |
-| [MedQA](https://www.vals.ai/benchmarks/medqa)                                       | yes                | captured-not-scored | medqa                    |                                                                                     |
-| [MedScribe](https://www.vals.ai/benchmarks/medscribe)                               | yes                | scored              | medscribe                |                                                                                     |
-| [SAFE-Teen](https://www.vals.ai/benchmarks/mental-health)                           | yes                | unintegrated        | —                        |                                                                                     |
-| [MGSM](https://www.vals.ai/benchmarks/mgsm)                                         | yes                | captured-not-scored | mgsm                     |                                                                                     |
-| [MMLU Pro](https://www.vals.ai/benchmarks/mmlu_pro)                                 | yes                | scored              | mmlu-pro                 |                                                                                     |
-| [MMMU Pro](https://www.vals.ai/benchmarks/mmmu)                                     | yes                | captured-not-scored | mmmu                     |                                                                                     |
-| [MortgageTax](https://www.vals.ai/benchmarks/mortgage_tax)                          | yes                | captured-not-scored | mortgage-tax             |                                                                                     |
-| [MysteryMechanism](https://www.vals.ai/benchmarks/mysterymechanism)                 | yes                | captured-not-scored | mysterymechanism         |                                                                                     |
-| [Poker Agent](https://www.vals.ai/benchmarks/poker_agent)                           | yes                | captured-not-scored | poker-agent              |                                                                                     |
-| [ProgramBench](https://www.vals.ai/benchmarks/programbench)                         | yes                | scored              | programbench             |                                                                                     |
-| [ProofBench v1.1](https://www.vals.ai/benchmarks/proof_bench)                       | yes                | scored              | proofbench               |                                                                                     |
-| [Public Benefits Bench v1.1](https://www.vals.ai/benchmarks/public-benefits-bench)  | yes                | scored              | public-benefits-bench    |                                                                                     |
-| [Public Benefits Bench v1](https://www.vals.ai/benchmarks/public-benefits-bench-v1) | yes                | captured-not-scored | public-benefits-bench-v1 |                                                                                     |
-| [Robo-bench](https://www.vals.ai/benchmarks/robo_bench)                             | yes                | captured-not-scored | robo-bench               |                                                                                     |
-| [Vals RSI Index](https://www.vals.ai/benchmarks/rsi_index)                          | yes                | unintegrated        | —                        |                                                                                     |
-| [SAGE](https://www.vals.ai/benchmarks/sage)                                         | yes                | captured-not-scored | sage                     |                                                                                     |
-| [Vals Science Index](https://www.vals.ai/benchmarks/science_index)                  | yes                | captured-not-scored | science-index            |                                                                                     |
-| [SkillsBench](https://www.vals.ai/benchmarks/skillsbench)                           | yes                | scored              | skillsbench              |                                                                                     |
-| [SRE Bench](https://www.vals.ai/benchmarks/srebench)                                | yes                | captured-not-scored | srebench                 |                                                                                     |
-| [SWE-bench Verified](https://www.vals.ai/benchmarks/swebench)                       | yes                | scored              | swe-bench                |                                                                                     |
-| [SWE-bench Multimodal](https://www.vals.ai/benchmarks/swebench-multimodal)          | yes                | captured-not-scored | swebench-multimodal      |                                                                                     |
-| [Tax Agent Bench](https://www.vals.ai/benchmarks/tax_agent_bench)                   | yes                | captured-not-scored | tax-agent-bench          |                                                                                     |
-| [TaxEval v2](https://www.vals.ai/benchmarks/tax_eval_v2)                            | yes                | scored              | tax-eval-v2              |                                                                                     |
-| [Terminal-Bench 2.0](https://www.vals.ai/benchmarks/terminal-bench-2)               | yes                | captured-not-scored | terminal-bench-2         |                                                                                     |
-| [Terminal-Bench 2.1](https://www.vals.ai/benchmarks/terminal-bench-2-1)             | yes                | scored              | terminal-bench-2-1       |                                                                                     |
-| [Terminal-Bench 4.0](https://www.vals.ai/benchmarks/terminal-bench-4)               | yes                | scored              | terminal-bench-4-0       |                                                                                     |
-| [Terminal-Bench-Science](https://www.vals.ai/benchmarks/terminal-bench-science)     | yes                | captured-not-scored | terminal-bench-science   |                                                                                     |
-| [Time Horizon Index: KSP](https://www.vals.ai/benchmarks/time_horizon_index)        | yes                | reviewed-deferred   | time-horizon-index       | Composite retained separately; excluded from capability scoring by existing policy. |
-| [Vals Index](https://www.vals.ai/benchmarks/vals_index)                             | yes                | reviewed-deferred   | vals-index               | Composite retained separately; excluded from capability scoring by existing policy. |
-| [Vals Multimodal Index](https://www.vals.ai/benchmarks/vals_multimodal_index)       | yes                | reviewed-deferred   | vals-multimodal-index    | Composite retained separately; excluded from capability scoring by existing policy. |
-| [Vals Router Index](https://www.vals.ai/benchmarks/vals_router_index)               | yes                | unintegrated        | —                        |                                                                                     |
-| [Vibe Code Bench 1-100](https://www.vals.ai/benchmarks/vcb-1-100)                   | yes                | captured-not-scored | vcb-1-100                |                                                                                     |
-| [Vibe Code Bench v1.1](https://www.vals.ai/benchmarks/vibe-code)                    | yes                | scored              | vibe-code-bench          |                                                                                     |
-| [VoiceCodeBench](https://www.vals.ai/benchmarks/voice-code-bench)                   | yes                | captured-not-scored | voice-code-bench         |                                                                                     |
-| [Vals Web Search Index](https://www.vals.ai/benchmarks/web_search)                  | yes                | reviewed-deferred   | web-search               | Composite retained separately; excluded from capability scoring by existing policy. |
+| Source catalog entry                                                                | Capture registered | Integration         | Benchmark ID             | Review note                                                                                                                    |
+| ----------------------------------------------------------------------------------- | ------------------ | ------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| [Access to Justice Benchmark](https://www.vals.ai/benchmarks/a2j)                   | yes                | scored              | a2j                      | 2026-11-12 user decision: score Access to Justice source accuracy as a2j; primary knowledge, secondary reasoning and language. |
+| [AIME](https://www.vals.ai/benchmarks/aime)                                         | yes                | captured-not-scored | aime                     |                                                                                                                                |
+| [BioMysteryBench](https://www.vals.ai/benchmarks/biomysterybench)                   | yes                | captured-not-scored | biomysterybench          |                                                                                                                                |
+| [CaseLaw v2](https://www.vals.ai/benchmarks/case_law_v2)                            | yes                | captured-not-scored | case-law-v2              |                                                                                                                                |
+| [ClaimBench](https://www.vals.ai/benchmarks/claimbench)                             | yes                | captured-not-scored | claimbench               |                                                                                                                                |
+| [Code Migration](https://www.vals.ai/benchmarks/code-migration)                     | yes                | scored              | code-migration           |                                                                                                                                |
+| [Code Migration v1.1](https://www.vals.ai/benchmarks/code-migration-v1-1)           | yes                | captured-not-scored | code-migration-v1-1      |                                                                                                                                |
+| [CorpFin v2](https://www.vals.ai/benchmarks/corp_fin_v2)                            | yes                | scored              | corpfin                  |                                                                                                                                |
+| [CUA-bench](https://www.vals.ai/benchmarks/cua_bench)                               | yes                | captured-not-scored | cua-bench                |                                                                                                                                |
+| [CyberBench v1.1](https://www.vals.ai/benchmarks/cyber)                             | yes                | scored              | cyber                    |                                                                                                                                |
+| [CyberOffense](https://www.vals.ai/benchmarks/cyber_offense)                        | yes                | unintegrated        | —                        |                                                                                                                                |
+| [Excel Modeling Benchmark](https://www.vals.ai/benchmarks/emb)                      | yes                | scored              | emb                      |                                                                                                                                |
+| [Excel Modeling Benchmark v1.1](https://www.vals.ai/benchmarks/emb-v1-1)            | yes                | captured-not-scored | emb-v1-1                 |                                                                                                                                |
+| [Finance Agent v2](https://www.vals.ai/benchmarks/fabv2)                            | yes                | scored              | finance-agent-v2         |                                                                                                                                |
+| [Finance Agent v2.1](https://www.vals.ai/benchmarks/fabv2-1)                        | yes                | captured-not-scored | fabv2-1                  |                                                                                                                                |
+| [Vals Finance Index](https://www.vals.ai/benchmarks/finance_index)                  | yes                | reviewed-deferred   | finance-index            | Composite retained separately; excluded from capability scoring by existing policy.                                            |
+| [GPQA Diamond](https://www.vals.ai/benchmarks/gpqa)                                 | yes                | scored              | gpqa-diamond             |                                                                                                                                |
+| [HLAB-Vals-1.1](https://www.vals.ai/benchmarks/hlab)                                | yes                | scored              | hlab                     |                                                                                                                                |
+| [Harvey's Legal Agent Benchmark v1](https://www.vals.ai/benchmarks/hlab-v1)         | yes                | captured-not-scored | hlab-v1                  |                                                                                                                                |
+| [Immigration Bench](https://www.vals.ai/benchmarks/immigration)                     | yes                | captured-not-scored | immigration              |                                                                                                                                |
+| [Vals Inference Provider Index](https://www.vals.ai/benchmarks/inference_provider)  | yes                | unintegrated        | —                        |                                                                                                                                |
+| [IOI v2](https://www.vals.ai/benchmarks/ioi)                                        | yes                | scored              | ioi                      |                                                                                                                                |
+| [LiveCodeBench](https://www.vals.ai/benchmarks/lcb)                                 | yes                | scored              | livecodebench            |                                                                                                                                |
+| [LegalBench](https://www.vals.ai/benchmarks/legal_bench)                            | yes                | scored              | legal-bench              |                                                                                                                                |
+| [Vals Legal Index](https://www.vals.ai/benchmarks/legal_index)                      | yes                | reviewed-deferred   | legal-index              | Composite retained separately; excluded from capability scoring by existing policy.                                            |
+| [Legal Research Bench](https://www.vals.ai/benchmarks/legal_research)               | yes                | scored              | legal-research           |                                                                                                                                |
+| [MATH 500](https://www.vals.ai/benchmarks/math500)                                  | yes                | captured-not-scored | math500                  |                                                                                                                                |
+| [MedCode](https://www.vals.ai/benchmarks/medcode)                                   | yes                | scored              | medcode                  |                                                                                                                                |
+| [MedQA](https://www.vals.ai/benchmarks/medqa)                                       | yes                | captured-not-scored | medqa                    |                                                                                                                                |
+| [MedScribe](https://www.vals.ai/benchmarks/medscribe)                               | yes                | scored              | medscribe                |                                                                                                                                |
+| [SAFE-Teen](https://www.vals.ai/benchmarks/mental-health)                           | yes                | unintegrated        | —                        |                                                                                                                                |
+| [MGSM](https://www.vals.ai/benchmarks/mgsm)                                         | yes                | captured-not-scored | mgsm                     |                                                                                                                                |
+| [MMLU Pro](https://www.vals.ai/benchmarks/mmlu_pro)                                 | yes                | scored              | mmlu-pro                 |                                                                                                                                |
+| [MMMU Pro](https://www.vals.ai/benchmarks/mmmu)                                     | yes                | captured-not-scored | mmmu                     |                                                                                                                                |
+| [MortgageTax](https://www.vals.ai/benchmarks/mortgage_tax)                          | yes                | captured-not-scored | mortgage-tax             |                                                                                                                                |
+| [MysteryMechanism](https://www.vals.ai/benchmarks/mysterymechanism)                 | yes                | captured-not-scored | mysterymechanism         |                                                                                                                                |
+| [Poker Agent](https://www.vals.ai/benchmarks/poker_agent)                           | yes                | captured-not-scored | poker-agent              |                                                                                                                                |
+| [ProgramBench](https://www.vals.ai/benchmarks/programbench)                         | yes                | scored              | programbench             |                                                                                                                                |
+| [ProofBench v1.1](https://www.vals.ai/benchmarks/proof_bench)                       | yes                | scored              | proofbench               |                                                                                                                                |
+| [Public Benefits Bench v1.1](https://www.vals.ai/benchmarks/public-benefits-bench)  | yes                | scored              | public-benefits-bench    |                                                                                                                                |
+| [Public Benefits Bench v1](https://www.vals.ai/benchmarks/public-benefits-bench-v1) | yes                | captured-not-scored | public-benefits-bench-v1 |                                                                                                                                |
+| [Robo-bench](https://www.vals.ai/benchmarks/robo_bench)                             | yes                | captured-not-scored | robo-bench               |                                                                                                                                |
+| [Vals RSI Index](https://www.vals.ai/benchmarks/rsi_index)                          | yes                | unintegrated        | —                        |                                                                                                                                |
+| [SAGE](https://www.vals.ai/benchmarks/sage)                                         | yes                | captured-not-scored | sage                     |                                                                                                                                |
+| [Vals Science Index](https://www.vals.ai/benchmarks/science_index)                  | yes                | captured-not-scored | science-index            |                                                                                                                                |
+| [SkillsBench](https://www.vals.ai/benchmarks/skillsbench)                           | yes                | scored              | skillsbench              |                                                                                                                                |
+| [SRE Bench](https://www.vals.ai/benchmarks/srebench)                                | yes                | captured-not-scored | srebench                 |                                                                                                                                |
+| [SWE-bench Verified](https://www.vals.ai/benchmarks/swebench)                       | yes                | scored              | swe-bench                |                                                                                                                                |
+| [SWE-bench Multimodal](https://www.vals.ai/benchmarks/swebench-multimodal)          | yes                | captured-not-scored | swebench-multimodal      |                                                                                                                                |
+| [Tax Agent Bench](https://www.vals.ai/benchmarks/tax_agent_bench)                   | yes                | captured-not-scored | tax-agent-bench          |                                                                                                                                |
+| [TaxEval v2](https://www.vals.ai/benchmarks/tax_eval_v2)                            | yes                | scored              | tax-eval-v2              |                                                                                                                                |
+| [Terminal-Bench 2.0](https://www.vals.ai/benchmarks/terminal-bench-2)               | yes                | captured-not-scored | terminal-bench-2         |                                                                                                                                |
+| [Terminal-Bench 2.1](https://www.vals.ai/benchmarks/terminal-bench-2-1)             | yes                | scored              | terminal-bench-2-1       |                                                                                                                                |
+| [Terminal-Bench 4.0](https://www.vals.ai/benchmarks/terminal-bench-4)               | yes                | scored              | terminal-bench-4-0       |                                                                                                                                |
+| [Terminal-Bench-Science](https://www.vals.ai/benchmarks/terminal-bench-science)     | yes                | captured-not-scored | terminal-bench-science   |                                                                                                                                |
+| [Time Horizon Index: KSP](https://www.vals.ai/benchmarks/time_horizon_index)        | yes                | reviewed-deferred   | time-horizon-index       | Composite retained separately; excluded from capability scoring by existing policy.                                            |
+| [Vals Index](https://www.vals.ai/benchmarks/vals_index)                             | yes                | reviewed-deferred   | vals-index               | Composite retained separately; excluded from capability scoring by existing policy.                                            |
+| [Vals Multimodal Index](https://www.vals.ai/benchmarks/vals_multimodal_index)       | yes                | reviewed-deferred   | vals-multimodal-index    | Composite retained separately; excluded from capability scoring by existing policy.                                            |
+| [Vals Router Index](https://www.vals.ai/benchmarks/vals_router_index)               | yes                | unintegrated        | —                        |                                                                                                                                |
+| [Vibe Code Bench 1-100](https://www.vals.ai/benchmarks/vcb-1-100)                   | yes                | captured-not-scored | vcb-1-100                |                                                                                                                                |
+| [Vibe Code Bench v1.1](https://www.vals.ai/benchmarks/vibe-code)                    | yes                | scored              | vibe-code-bench          |                                                                                                                                |
+| [VoiceCodeBench](https://www.vals.ai/benchmarks/voice-code-bench)                   | yes                | captured-not-scored | voice-code-bench         |                                                                                                                                |
+| [Vals Web Search Index](https://www.vals.ai/benchmarks/web_search)                  | yes                | reviewed-deferred   | web-search               | Composite retained separately; excluded from capability scoring by existing policy.                                            |
 
 ## xai-releases
 

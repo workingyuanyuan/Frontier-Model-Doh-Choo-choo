@@ -23,6 +23,7 @@
     "google-releases",
     "xai-releases",
     "biobasicsbench",
-    "maxxbench"
+    "maxxbench",
+    "scale-swe-atlas"
   ]
 }

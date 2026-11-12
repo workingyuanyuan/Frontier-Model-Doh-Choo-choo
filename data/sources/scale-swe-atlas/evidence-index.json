@@ -1,0 +1,169 @@
+[
+  {
+    "artifactPath": "artifacts/sha256/f7/f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565.html",
+    "byteLength": 129861,
+    "finalUrl": "https://labs.scale.com/leaderboard/swe-atlas",
+    "id": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete HTML with Next RSC leaderboard variants",
+      "confidenceIntervals": [
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 4.8,
+          "model": "Fable 5.2"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5,
+          "model": "Opus 5.5"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.2,
+          "model": "Fable 5.1"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.5,
+          "model": "Gemini 4 Carbon"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.5,
+          "model": "Gemini 4 Argon"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.6,
+          "model": "GPT-6 Astra"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.6,
+          "model": "Sonnet 5.5"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.7,
+          "model": "GPT-6.1 Sol"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "Muse Wonder 1.0"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.7,
+          "model": "Qwen 3.8 Max"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "DeepSeek V4.1 Flash"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "Grok 4.7"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "Inkling 2 Small"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "Kimi K3.1 Pro"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "Kimi K3"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "Haiku 5.5"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "GLM 5.3"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "GPT-6.1 Terra"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "Gemini 3.8 Flash"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 6,
+          "model": "Muse Ember 1.0"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "GLM 5.3 Flash"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 6,
+          "model": "GPT-6 Luna"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "Mistral Large 4"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.9,
+          "model": "Muse Spark Open"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.8,
+          "model": "MiniMax M3"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 5.2,
+          "model": "Nemotron 3.5 Super VL"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 4.9,
+          "model": "Nemotron 3 Ultra"
+        },
+        {
+          "confidenceInterval_lower": null,
+          "confidenceInterval_upper": 3.2,
+          "model": "gpt-oss-120b"
+        }
+      ],
+      "excludedFromScoring": ["qna", "testwriting", "refactoring"],
+      "materializedOverallRows": 28,
+      "rawVariantCounts": {
+        "overall": 28,
+        "qna": 28,
+        "refactoring": 28,
+        "testwriting": 28
+      },
+      "renderedOverallRows": 28
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://scale.com/leaderboard/swe-atlas",
+    "retrievedAt": "2026-11-12T04:55:30.201Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+    "sourceId": "scale-swe-atlas"
+  }
+]

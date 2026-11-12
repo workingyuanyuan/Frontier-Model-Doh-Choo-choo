@@ -36,6 +36,8 @@ import {
 const MODELS_URL = 'https://artificialanalysis.ai/models';
 const API_URL = 'https://artificialanalysis.ai/api/v2/data/llms/models';
 const ARTICLE_URL = 'https://artificialanalysis.ai/articles/gpt-5-6-has-landed';
+const METHODOLOGY_URL =
+  'https://artificialanalysis.ai/methodology/intelligence-benchmarking';
 const SOURCE_ID = 'artificial-analysis';
 const DETAIL_CONCURRENCY = 8;
 
@@ -304,6 +306,11 @@ const main = async () => {
   const pages: ArtificialAnalysisPage[] = [];
   const records: EvidenceRecord[] = [];
 
+  const methodology = await capture(root, METHODOLOGY_URL, retrievedAt, 'DOM', {
+    captureScope: 'official methodology including MKA single-run configuration',
+  });
+  records.push(methodology.record);
+
   const modelsCapture = await capture(
     root,
     MODELS_URL,
@@ -447,6 +454,7 @@ const main = async () => {
     ({ requestUrl }) =>
       requestUrl === ARTICLE_URL ||
       (!requestUrl.includes('/evaluations/') &&
+        requestUrl !== METHODOLOGY_URL &&
         requestUrl !== MODELS_URL &&
         !requestUrl.startsWith(`${MODELS_URL}/`) &&
         requestUrl !== API_URL),
@@ -485,6 +493,7 @@ const main = async () => {
     targetUrls: [
       MODELS_URL,
       API_URL,
+      METHODOLOGY_URL,
       ...ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.map(
         (slug) => `https://artificialanalysis.ai/evaluations/${slug}`,
       ),
@@ -492,7 +501,12 @@ const main = async () => {
     ].toSorted(),
     accessMethods: ['NEXT_RSC', 'API_RESPONSE', 'DOM'],
     lastVerifiedAt: retrievedAt,
-    benchmarkIds,
+    benchmarkIds: [
+      ...new Set([
+        ...benchmarkIds,
+        ...result.candidates.map(({ benchmarkId }) => benchmarkId),
+      ]),
+    ].toSorted(),
     notes: [
       'Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.',
       'The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.',

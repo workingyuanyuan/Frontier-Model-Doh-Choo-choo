@@ -357,6 +357,69 @@ describe('Frontier Code materializer', () => {
     });
   });
 
+  it('resolves none within each model/version and keeps costs and raw provenance aligned', () => {
+    const v11 = version(names);
+    const v20 = version(names);
+    const multi = names[0]!;
+    const singletonNone = names[1]!;
+    const singletonNa = names[2]!;
+    for (const payload of [v11, v20]) {
+      for (const [model, efforts] of [
+        [multi, payload === v11 ? ['none'] : ['none', 'high']],
+        [singletonNone, ['none']],
+        [singletonNa, ['na']],
+      ] as const) {
+        const metrics = Object.values(payload.data[model]!)[0]!;
+        payload.efforts[model] = [...efforts];
+        payload.data[model] = Object.fromEntries(
+          efforts.map((effort) => [effort, metrics]),
+        );
+      }
+    }
+    const results = [
+      materializeFrontierCode11(
+        JSON.stringify({ v1_1: v11 }),
+        { dataEvidenceId: evidenceId, observedAt },
+        noPrevious,
+      ),
+      materializeFrontierCode20(
+        JSON.stringify(v20),
+        topTenHtml,
+        v20Context({ visualAllRowCount: 11 }),
+      ),
+    ];
+    for (const [index, result] of results.entries()) {
+      for (const model of [multi, singletonNone, singletonNa]) {
+        const rawEffort = model === singletonNa ? 'na' : 'none';
+        const candidate = result.candidates.find(
+          (row) =>
+            row.model.rawName === model && row.id.endsWith(`-${rawEffort}`),
+        )!;
+        const cost = result.costs.find(
+          (row) =>
+            row.model.rawName === model && row.id.endsWith(`-${rawEffort}`),
+        )!;
+        const expectedEffort =
+          index === 1 && model === multi ? 'non-reasoning' : null;
+        expect(candidate.profile.effort).toBe(expectedEffort);
+        expect(cost.profile).toEqual(candidate.profile);
+        expect(cost.model).toEqual(candidate.model);
+        expect(candidate.model.profileId).toBe(
+          expectedEffort
+            ? `${candidate.model.canonicalModelId}-non-reasoning`
+            : null,
+        );
+        expect(candidate.provenance.profile?.locator).toContain(
+          `"${rawEffort}"`,
+        );
+        expect(candidate.provenance.rawScore?.locator).toContain(
+          `"${rawEffort}"`,
+        );
+        expect(cost.provenance.cost?.locator).toContain(`"${rawEffort}"`);
+      }
+    }
+  });
+
   it('treats an effort outside the policy tiers as unlabelled', () => {
     // FrontierCode keys some configurations by a sampling parameter ("0.99")
     // or "na", which must not become a product profile.

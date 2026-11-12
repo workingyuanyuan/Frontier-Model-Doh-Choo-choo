@@ -2,6 +2,7 @@
   "accessMethods": ["DOM", "EMBEDDED_JSON"],
   "baseUrl": "https://www.vals.ai",
   "benchmarkIds": [
+    "a2j",
     "code-migration",
     "corpfin",
     "cyber",
@@ -40,7 +41,7 @@
     "BenchmarkView.tasks.overall.*.reasoning_effort / compute_effort": "profile.effort when legal",
     "index /benchmarks/<slug> links": "complete page enumeration"
   },
-  "lastVerifiedAt": "2026-11-12T03:54:56.613Z",
+  "lastVerifiedAt": "2026-11-12T04:54:16.739Z",
   "notes": [
     "63 benchmark slugs were discovered dynamically; 58 exposed BenchmarkView data.",
     "Only the explicit approved benchmark table may produce INCLUDED capability scores; new pages are visible in validation but remain EXCLUDED.",

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-12T03:55:43.485Z",
+  "checkedAt": "2026-11-12T04:55:30.841Z",
   "schemaVersion": "source-change-report-v1",
   "sources": [
     {
@@ -21,18 +21,13 @@
       "sourceId": "arc-prize"
     },
     {
-      "checkedAt": "2026-11-12T03:54:34.389Z",
+      "checkedAt": "2026-11-12T04:51:45.240Z",
       "error": null,
       "findings": [
         {
-          "benchmarkId": "frontiercode-2-0",
-          "detail": "FrontierCode 2.0 [v2.0] -> FrontierCode-AA 2.0 [v2.0]",
-          "kind": "catalog-metadata-changed"
-        },
-        {
           "benchmarkId": "mka",
-          "detail": "https://artificialanalysis.ai/evaluations/mka",
-          "kind": "catalog-added"
+          "detail": "21 rows; 21 included",
+          "kind": "benchmark-materialized"
         },
         {
           "benchmarkId": "aa-3d",
@@ -92,11 +87,6 @@
         {
           "benchmarkId": "math-500",
           "detail": "https://artificialanalysis.ai/evaluations/math-500",
-          "kind": "unintegrated"
-        },
-        {
-          "benchmarkId": "mka",
-          "detail": "https://artificialanalysis.ai/evaluations/mka",
           "kind": "unintegrated"
         },
         {
@@ -402,11 +392,11 @@
           "version": null
         },
         {
-          "benchmarkId": null,
-          "captureRegistered": false,
+          "benchmarkId": "mka",
+          "captureRegistered": true,
           "id": "mka",
-          "reason": null,
-          "status": "unintegrated",
+          "reason": "2026-11-12 user decision: score MKA Climb WSR as mka; primary comprehension, secondary agentic, knowledge and reasoning. Unknown version remains null.",
+          "status": "scored",
           "title": "MKA",
           "url": "https://artificialanalysis.ai/evaluations/mka",
           "version": null
@@ -533,7 +523,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-12T03:51:05.196Z",
+      "snapshotObservedAt": "2026-11-12T04:49:15.526Z",
       "sourceId": "artificial-analysis"
     },
     {
@@ -564,12 +554,18 @@
       "sourceId": "epoch-ai"
     },
     {
-      "checkedAt": "2026-11-12T03:55:19.713Z",
+      "checkedAt": "2026-11-12T04:48:27.449Z",
       "error": null,
-      "findings": [],
+      "findings": [
+        {
+          "benchmarkId": "frontier-code-2-0",
+          "detail": "121 -> 121; missing 1: [\"Inkling 2 Small\",null,null,\"devin-cli\",null,null,null,null]",
+          "kind": "profiles-lost"
+        }
+      ],
       "inventory": [],
       "scope": "snapshot-only",
-      "snapshotObservedAt": "2026-11-12T03:55:19.383Z",
+      "snapshotObservedAt": "2026-11-12T04:48:27.166Z",
       "sourceId": "frontier-code"
     },
     {
@@ -616,6 +612,15 @@
       "scope": "snapshot-only",
       "snapshotObservedAt": "2026-10-04T04:31:17.114Z",
       "sourceId": "openai-releases"
+    },
+    {
+      "checkedAt": "2026-11-12T04:55:30.841Z",
+      "error": null,
+      "findings": [],
+      "inventory": [],
+      "scope": "snapshot-only",
+      "snapshotObservedAt": "2026-11-12T04:55:30.201Z",
+      "sourceId": "scale-swe-atlas"
     },
     {
       "checkedAt": "2026-11-12T03:54:41.558Z",
@@ -1826,24 +1831,9 @@
       "sourceId": "surge-riemann"
     },
     {
-      "checkedAt": "2026-11-12T03:55:09.835Z",
+      "checkedAt": "2026-11-12T04:54:28.933Z",
       "error": null,
       "findings": [
-        {
-          "benchmarkId": "a2j",
-          "detail": "23 rows; 0 included",
-          "kind": "benchmark-materialized"
-        },
-        {
-          "benchmarkId": "a2j",
-          "detail": "https://www.vals.ai/benchmarks/a2j",
-          "kind": "catalog-added"
-        },
-        {
-          "benchmarkId": "a2j",
-          "detail": "https://www.vals.ai/benchmarks/a2j",
-          "kind": "captured-not-scored"
-        },
         {
           "benchmarkId": "aime",
           "detail": "https://www.vals.ai/benchmarks/aime",
@@ -2015,8 +2005,8 @@
           "benchmarkId": "a2j",
           "captureRegistered": true,
           "id": "a2j",
-          "reason": null,
-          "status": "captured-not-scored",
+          "reason": "2026-11-12 user decision: score Access to Justice source accuracy as a2j; primary knowledge, secondary reasoning and language.",
+          "status": "scored",
           "title": "Access to Justice Benchmark",
           "url": "https://www.vals.ai/benchmarks/a2j",
           "version": null
@@ -2643,7 +2633,7 @@
         }
       ],
       "scope": "live-catalog-and-snapshot",
-      "snapshotObservedAt": "2026-11-12T03:54:56.613Z",
+      "snapshotObservedAt": "2026-11-12T04:54:16.739Z",
       "sourceId": "vals-ai"
     },
     {

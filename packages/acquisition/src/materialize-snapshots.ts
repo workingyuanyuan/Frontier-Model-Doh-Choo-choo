@@ -65,6 +65,10 @@ import {
   MAXXBENCH_PAGE_URL,
   materializeMaxxBench,
 } from './maxxbench-materializer.js';
+import {
+  SCALE_SWE_ATLAS_PAGE_URL,
+  materializeScaleSweAtlas,
+} from './scale-swe-atlas-materializer.js';
 import { materializeDeepSweCosts } from './pricing-materializers.js';
 import { materializeOpenAIReleaseCaptures } from './vendor-openai.js';
 import {
@@ -208,6 +212,7 @@ export function materializeSnapshots(
       { id: 'livebench', reportFn: null },
       { id: 'deepswe', reportFn: null },
       { id: 'maxxbench', reportFn: null },
+      { id: 'scale-swe-atlas', reportFn: null },
       { id: 'biobasicsbench', reportFn: null },
       { id: 'frontier-code', reportFn: null },
       { id: 'frontier-swe', reportFn: null },
@@ -498,6 +503,26 @@ export function materializeSnapshots(
             const result = materializeBioBasicsBench(evidenceText(page), {
               evidenceId: page.id,
               observedAt: page.retrievedAt,
+            });
+            candidates = result.candidates;
+            materializedCosts = [];
+            customReportText = result.validationReport;
+          } else if (src.id === 'scale-swe-atlas') {
+            const page = evidenceFor(SCALE_SWE_ATLAS_PAGE_URL);
+            const catalog = JSON.parse(
+              readFileSync(join(repoRoot, 'data/mappings/models.json'), 'utf8'),
+            ) as {
+              models: {
+                modelId: string;
+                displayName: string;
+                aliases?: string[];
+              }[];
+            };
+            const result = materializeScaleSweAtlas(evidenceText(page), {
+              evidenceId: page.id,
+              observedAt: page.retrievedAt,
+              visualRowCount: Number(page.metadata?.renderedOverallRows),
+              models: catalog.models,
             });
             candidates = result.candidates;
             materializedCosts = [];

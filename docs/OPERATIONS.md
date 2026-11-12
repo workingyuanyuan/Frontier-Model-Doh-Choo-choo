@@ -98,6 +98,7 @@ pnpm --filter @llm-bench/acquisition materialize:artificial-analysis -- --visual
 pnpm --filter @llm-bench/acquisition materialize:livebench -- --visual-profile-count=<2.0 rows> --visual-v1-profile-count=<1.0 rows>
 pnpm --filter @llm-bench/acquisition materialize:deepswe -- --visual-model-count=<count>
 pnpm --filter @llm-bench/acquisition materialize:maxxbench -- --visual-row-count=<count>
+pnpm --filter @llm-bench/acquisition materialize:scale-swe-atlas -- --visual-row-count=<Overall count>
 pnpm --filter @llm-bench/acquisition materialize:biobasicsbench
 pnpm --filter @llm-bench/acquisition materialize:frontier-code -- --v2-visual-row-count=<Best rows> --v2-visual-all-row-count=<All rows> --v2-visual-top-ten-matched [--v2-hidden-model=<name> ...] [--v1-1-accept-value-changes]
 pnpm --filter @llm-bench/acquisition materialize:frontier-swe
@@ -119,6 +120,8 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 ComplexConstraints／Riemann-bench 刷新會保留當期榜單移除的既有列及其原始 Evidence，並將新列的明示版本寫入 `benchmarkVersion`。預設以工作區前一份快照為基準；若本次中途物化已覆蓋前一份快照，可加 `--baseline-directory=artifacts/research/<日期>-benchmark-check/import-baseline/sources/<source-id>` 指向本任務匯入前保存的來源目錄。保留列與當期可見列數分開記錄，保留列不算新版重測；方法見 [資料方法](DATA_METHODOLOGY.md#擷取與刷新)。
 
 MaxxBench 先以瀏覽器核對預設榜單可見列數，再傳入 `--visual-row-count`；擷取器會核對可見列、嵌入資料及每次試跑。BioBasicsBench 使用已審閱的官方頁面瀏覽器 DOM／RSC 圖表摘錄，命令只離線物化該摘錄；更新前需重新擷取並審核完整圖表及官方文字表格，保留實際擷取時間，不能把摘錄當成原始 HTTP bytes。
+
+SWE Atlas 刷新先以瀏覽器核對預設 Overall 榜的可見列數，再傳入 `--visual-row-count`。擷取器以完整 HTML 的 Next RSC `overall` 分頁物化 `swe-atlas` v1.1，保留原始百分比分數；QnA、Test Writing、Refactoring 保存於原始 artifact。信賴區間欄位保存在 Evidence metadata 與 provenance，未公布的 confidence level、缺少的下界及未明示的 effort 保持缺值。模型只以 catalog 的精確名稱／alias 對應既有身分。
 
 ### 來源變更監測
 

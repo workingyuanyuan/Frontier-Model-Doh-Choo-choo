@@ -19,6 +19,7 @@
     "materialize:vendor-releases": "tsx src/refresh-with-audit.ts openai-releases,anthropic-releases src/refresh-vendor-releases.ts",
     "materialize:effort-reports": "tsx src/process-source-command.ts @all src/write-effort-inference-reports.ts",
     "materialize:deepswe": "tsx src/refresh-with-audit.ts deepswe src/refresh-deepswe.ts",
+    "materialize:scale-swe-atlas": "tsx src/refresh-with-audit.ts scale-swe-atlas src/refresh-scale-swe-atlas.ts",
     "materialize:maxxbench": "tsx src/refresh-with-audit.ts maxxbench src/refresh-maxxbench.ts",
     "materialize:biobasicsbench": "tsx src/process-source-command.ts biobasicsbench src/refresh-biobasicsbench.ts",
     "materialize:epoch": "tsx src/refresh-with-audit.ts epoch-ai src/refresh-epoch.ts",

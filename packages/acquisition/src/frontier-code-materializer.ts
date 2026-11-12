@@ -212,8 +212,10 @@ export function extractFrontierCodeTopTen(
 // FrontierCode keys some configurations by a sampling parameter rather than a
 // reasoning effort (Inkling is keyed "0.99"), and 2.0 keys unlabelled SWE
 // models "na". Only the efforts declared in data/mappings/profile-policy.json
-// may become a product profile; anything else is treated as unlabelled. The
-// raw key stays in the provenance locator.
+// may become a product profile. A raw "none" is explicit non-reasoning only
+// when this model has multiple distinct options in this benchmark version.
+// Singleton "none", "na", and other non-policy keys stay unlabelled. The raw
+// key stays in IDs and provenance locators for scores and costs.
 const profileIdFor = (
   canonicalModelId: string | null,
   effort: string | null,
@@ -333,7 +335,10 @@ const buildRows = (
           `${spec.label} Main score is missing for ${model} / ${rawEffort}`,
         );
       }
-      const effort = normalizeSourceEffort(rawEffort);
+      const effort =
+        rawEffort === 'none' && new Set(efforts).size > 1
+          ? 'non-reasoning'
+          : normalizeSourceEffort(rawEffort);
       const profileId = profileIdFor(canonicalModelId, effort);
       const score = metrics.new_score as number;
       const suffix = `${slugify(model)}-${slugify(rawEffort)}`;
@@ -764,7 +769,7 @@ export function frontierCodeValidationReport({
     `- Models removed upstream and preserved unchanged: ${list(v11.preservedModels)}.`,
     `- New export rows: ${list(v11.addedCandidateIds)}.`,
     `- Value changes: ${list(v11.valueChanges)}.`,
-    '- The export contains both `main` and `extended`; only Main is materialized. Source effort `none` stays null. Missing costs are omitted, never zero.',
+    '- The export contains both `main` and `extended`; only Main is materialized. Source effort `none` becomes `non-reasoning` only among multiple distinct options for the same model and benchmark version; singleton `none` and `na` stay null. Scores and costs share the same effort decision and retain the raw key in provenance. Missing costs are omitted, never zero.',
     `- All ${v11.costs.length} 1.1 cost records keep their IDs but are EXCLUDED: ${FRONTIER_CODE_1_1_COST_SUPERSEDED_REASON}`,
     `- Unresolved names keep null canonical/profile identity: ${list(v11.unresolvedModels)}.`,
     '',

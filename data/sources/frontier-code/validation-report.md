@@ -47,7 +47,7 @@ FrontierCode 1.1 (`frontier-code-1-1`) and FrontierCode 2.0 (`frontier-code-2-0`
 - Models removed upstream and preserved unchanged: GPT-6.1 Terra, Mistral Large 4 (Preview).
 - New export rows: none.
 - Value changes: none.
-- The export contains both `main` and `extended`; only Main is materialized. Source effort `none` stays null. Missing costs are omitted, never zero.
+- The export contains both `main` and `extended`; only Main is materialized. Source effort `none` becomes `non-reasoning` only among multiple distinct options for the same model and benchmark version; singleton `none` and `na` stay null. Scores and costs share the same effort decision and retain the raw key in provenance. Missing costs are omitted, never zero.
 - All 141 1.1 cost records keep their IDs but are EXCLUDED: Superseded by the FrontierCode 2.0 mean rollout cost (user decision 2026-10-28); the 1.1 cost remains as evidence only.
 - Unresolved names keep null canonical/profile identity: Claude Haiku 5.5, Composer 2.5, DeepSeek V4.1 Flash, GLM 5.3, GLM 5.3 Flash, Kimi K2.7, Mistral 3.5 Medium, Mistral Large 4 (Preview), SWE-1.6, SWE-1.7, SWE-2.
 
@@ -61,10 +61,10 @@ Cognition FrontierCode percentages use the dedicated `frontier-code-1-1` and `fr
 |---|---:|---:|---:|
 | Distinct models | 47 | 47 | +0 |
 | Main configurations | 141 | 141 | +0 |
-| Materialized costs | 256 | 262 | +6 |
-| 2.0 costs | 115 | 121 | +6 |
-| 2.0 models | 30 | 31 | +1 |
-| 2.0 configurations | 115 | 121 | +6 |
+| Materialized costs | 262 | 262 | +0 |
+| 2.0 costs | 121 | 121 | +0 |
+| 2.0 models | 31 | 31 | +0 |
+| 2.0 configurations | 121 | 121 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -80,7 +80,6 @@ This tagged section is generated deterministically for `frontier-code`. Raw `pro
 | DeepSeek V4 Pro | `frontier-code:frontier-code-1-1:deepseek-v4-pro-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:deepseek-v4-pro-0813-max:arc-agi-2-v2-semi-private |
 | GLM 5.2 | `frontier-code:frontier-code-1-1:glm-5-2-none` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:glm-5-2 |
 | Inkling | `frontier-code:frontier-code-1-1:inkling-0-99` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:inkling |
-| Inkling 2 Small | `frontier-code:frontier-code-2-0:inkling-2-small-none` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Kimi K3 | `frontier-code:frontier-code-1-1:kimi-k3-none` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | MiniMax M3 | `frontier-code:frontier-code-1-1:minimax-m3-none` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
 

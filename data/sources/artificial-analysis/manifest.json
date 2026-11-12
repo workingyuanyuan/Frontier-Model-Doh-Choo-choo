@@ -2,21 +2,28 @@
   "accessMethods": ["NEXT_RSC", "API_RESPONSE", "DOM"],
   "baseUrl": "https://artificialanalysis.ai/",
   "benchmarkIds": [
-    "gdp-pdf",
-    "artificial-analysis-intelligence-index",
     "aa-briefcase",
-    "aa-omniscience",
     "aa-lcr",
-    "humanitys-last-exam",
-    "gpqa-diamond",
-    "scicode",
-    "critpt",
+    "aa-omniscience",
     "apex-agents",
-    "terminal-bench-2-1",
-    "tau3-banking",
-    "livecodebench",
+    "artificial-analysis-intelligence-index",
+    "critpt",
+    "critpt-v2",
+    "frontier-code-2-0",
+    "gdp-pdf",
     "gdpval-aa",
-    "ifbench"
+    "gpqa-diamond",
+    "hle-diamond",
+    "humanitys-last-exam",
+    "ifbench",
+    "livecodebench",
+    "mka",
+    "mmlu-pro",
+    "scicode",
+    "tau3-banking",
+    "terminal-bench-2-1",
+    "terminal-bench-4-0",
+    "terminal-bench-science"
   ],
   "completeness": {
     "expectedCountMethod": "Union every listed evaluation page by profile slug, filter eligible non-deleted profiles including deprecated models, then compare score coverage and detail-page task costs; $undefined and null are missing.",
@@ -31,7 +38,7 @@
     "named model/profile": "model.rawName and profile.effort",
     "stated score": "rawScore"
   },
-  "lastVerifiedAt": "2026-11-12T03:51:05.196Z",
+  "lastVerifiedAt": "2026-11-12T04:49:15.526Z",
   "notes": [
     "Evaluation pages are unioned by profile slug; current active and previously discovered detail pages are re-fetched to obtain intelligenceIndexCostPerTask and token prices. Deleted and release-date filters still apply; deprecated models are included.",
     "The API response is used only for overlap validation. Credentials are never written to artifacts or ProductVersion.",
@@ -62,6 +69,7 @@
     "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
     "https://artificialanalysis.ai/evaluations/ifbench",
     "https://artificialanalysis.ai/evaluations/itbench-aa",
+    "https://artificialanalysis.ai/evaluations/mka",
     "https://artificialanalysis.ai/evaluations/mmmu-pro",
     "https://artificialanalysis.ai/evaluations/omniscience",
     "https://artificialanalysis.ai/evaluations/scicode",
@@ -69,6 +77,7 @@
     "https://artificialanalysis.ai/evaluations/terminal-bench-science",
     "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
     "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
+    "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
     "https://artificialanalysis.ai/models"
   ]
 }

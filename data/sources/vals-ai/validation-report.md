@@ -1,7 +1,7 @@
 # Vals AI acquisition validation
 
 - Index evidence: `sha256:fb429a5be622f360130e4fb675f359cebfc8c1eead432bffed92b6698b5ea07f`
-- Observed at: 2026-11-12T03:54:56.613Z
+- Observed at: 2026-11-12T04:54:16.739Z
 
 ## Exact counts
 
@@ -10,8 +10,8 @@
 | Benchmark slugs discovered from index | 63 |
 | Benchmark pages with BenchmarkView data | 58 |
 | CandidateResults | 3555 |
-| Included CandidateResults | 2086 |
-| Excluded CandidateResults | 1469 |
+| Included CandidateResults | 2109 |
+| Excluded CandidateResults | 1446 |
 | Non-percent raw scores retained without normalization | 17 |
 | CostRecords retained | 3404 |
 | Included vals_index CostRecords | 35 |
@@ -22,7 +22,7 @@
 
 | Slug | Parsed overall rows | Scoring status |
 |---|---:|---|
-| `a2j` | 23 | EXCLUDED |
+| `a2j` | 23 | APPROVED |
 | `aime` | 96 | EXCLUDED |
 | `biomysterybench` | 31 | EXCLUDED |
 | `case_law_v2` | 54 | EXCLUDED |
@@ -92,6 +92,7 @@ Every parsed page passed the strict `metadata.total_models === Object.keys(tasks
 
 | Vals slug | Source-neutral benchmark ID | Source role |
 |---|---|---|
+| `a2j` | `a2j` | ORGANIZER |
 | `code-migration` | `code-migration` | ORGANIZER |
 | `corp_fin_v2` | `corpfin` | ORGANIZER |
 | `cyber` | `cyber` | INDEPENDENT |
@@ -121,7 +122,6 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 
 ## Unapproved benchmark pages
 
-- `a2j`
 - `aime`
 - `biomysterybench`
 - `case_law_v2`
@@ -167,7 +167,6 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 
 ## Newly discovered since the reviewed table
 
-- `a2j` (not auto-promoted)
 - `biomysterybench` (not auto-promoted)
 - `claimbench` (not auto-promoted)
 - `code-migration-v1-1` (not auto-promoted)
@@ -447,6 +446,7 @@ Effort uses the first source-declared value (`reasoning_effort`, otherwise `comp
 
 | Vals slug | Benchmark ID | Primary dimension | Secondary dimensions |
 |---|---|---|---|
+| `a2j` | `a2j` | knowledge | reasoning, language |
 | `code-migration` | `code-migration` | coding | agentic, reasoning |
 | `corp_fin_v2` | `corpfin` | reasoning | knowledge |
 | `cyber` | `cyber` | agentic | coding, reasoning |
@@ -477,10 +477,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 62 | 63 | +1 |
-| CandidateResults | 3527 | 3555 | +28 |
-| CostRecords retained | 3376 | 3404 | +28 |
-| Canonically unresolved rows | 2065 | 2074 | +9 |
+| Benchmark slugs discovered from index | 63 | 63 | +0 |
+| CandidateResults | 3555 | 3555 | +0 |
+| CostRecords retained | 3404 | 3404 | +0 |
+| Canonically unresolved rows | 2074 | 2074 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
