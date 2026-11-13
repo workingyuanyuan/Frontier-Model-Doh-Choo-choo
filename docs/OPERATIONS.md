@@ -31,7 +31,7 @@
 
 查核發現現役來源有變，才進入匯入與 `pnpm data:release`；只有非現役來源的消息時，寫查核文件即可。
 
-機械驗證通過與使用者核准是兩件事：`complete` 只代表機械檢查通過，receipt 的 `review` 欄固定為 `pending-user-review`。`complete` 加上代理抽查全部相符、且依 §5 判定沒有重大變更時，代理直接提交資料（含 `data/product/current.json`）並推上 GitHub（§6）；有重大變更時，停在審核階段，等使用者明確指示。來源、模型與計分政策的變更需有使用者裁決。
+機械驗證通過與使用者核准是兩件事：`complete` 只代表機械檢查通過；抽查結果與是否有重大變更的判定寫在刷新報告，receipt 不記錄。`complete` 加上代理抽查全部相符、且依 §5 判定沒有重大變更時，代理直接提交資料（含 `data/product/current.json`）並推上 GitHub（§6）；有重大變更時，停在審核階段，等使用者明確指示。來源、模型與計分政策的變更需有使用者裁決。
 
 ## 1. 安裝
 
@@ -272,7 +272,7 @@ pnpm data:release
 
 每次執行都會寫入 `artifacts/releases/<run-id>/`（且 `artifacts/releases/latest.json` 指向最近一次）：
 
-- `receipt.json`：記錄狀態（`complete`／`failed`）、`review`（固定為 `pending-user-review`，表示尚待代理抽查與 §5 判斷，不代表一定要使用者審核）、各步驟退出碼與耗時、新舊 `versionId`、`inputs`／`outputs`／`implementation` 三組摘要與靜態匯出摘要（`exportDigest`）。
+- `receipt.json`：記錄狀態（`complete`／`failed`）、各步驟退出碼與耗時、新舊 `versionId`、`inputs`／`outputs`／`implementation` 三組摘要與靜態匯出摘要（`exportDigest`）。
 - `report.md`：自動產出與 **HEAD 已提交的 `current.json`** 相比的差異（HEAD 沒有該檔時才改用執行前的工作區檔案），所以前一次失敗的 release 即使已改寫工作區產品，也不會讓差異消失。內容包含計數、來源快照、合格前沿模型與被資格規則略過的模型、各集合的 benchmark 增減與模型進出／名次／Overall 變化，以及進入預設集合的 effort 推測。
 - `baseline/`：執行前的 `current.json`、frontier、audit 與 mapping 副本。
 - `logs/`：各步驟的完整輸出 log。
@@ -424,7 +424,7 @@ pnpm audit --audit-level high  # CI 的相依套件公告門檻
 
 資料更新的可重現性與完整性由三層機制共同把關，各自分工如下：
 
-- **Release Receipt（`artifacts/releases/<run-id>/receipt.json` 與 `latest.json`）**：`pnpm data:release` 的本機執行憑證，記錄 `status`（`complete`／`failed`）、`review`（固定為 `pending-user-review`）、各步驟退出碼與耗時、新舊 `versionId`，以及 `inputs`、`outputs`、`implementation` 與靜態匯出的雜湊摘要。若執行期間輸入或程式被改動，release 會直接判定失敗。
+- **Release Receipt（`artifacts/releases/<run-id>/receipt.json` 與 `latest.json`）**：`pnpm data:release` 的本機執行憑證，記錄 `status`（`complete`／`failed`）、各步驟退出碼與耗時、新舊 `versionId`，以及 `inputs`、`outputs`、`implementation` 與靜態匯出的雜湊摘要。若執行期間輸入或程式被改動，release 會直接判定失敗。
 - **Claude Code Stop Hook（`.claude/settings.json` → `scripts/agent-stop-gate.mjs`）**：本機代理提醒機制。當工作區改動了產品會讀取的來源快照、mapping、產品輸出或 `packages/benchmark-data/src/`，卻沒有與目前檔案雜湊相符的 receipt 時，會阻止代理結束回合。若 receipt 為 `failed` 則放行，讓代理能如實向使用者交付失敗原因；連續第二次阻擋時也會改為放行並提示使用者，避免無限迴圈。
 - **CI 檢查（`pnpm data:verify-fresh`）**：排在 CI 的 `pnpm test` 之後執行，不寫入任何檔案，直接以已提交的 `generatedAt` 重算 frontier 集合、selection audit 與 `current.json`；三者任何一項與工作區（已提交）檔案不同即失敗。Stop hook 只是本機開發階段的防漏提醒，CI 的 `pnpm data:verify-fresh` 才是最終的權威檢查。
 

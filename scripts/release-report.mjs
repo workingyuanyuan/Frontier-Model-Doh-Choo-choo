@@ -164,7 +164,6 @@ export const renderReleaseMarkdown = ({
     `# Data release ${receipt.runId}`,
     '',
     `- Status: **${receipt.status}**${receipt.failedStep ? ` (failed at \`${receipt.failedStep}\`)` : ''}`,
-    `- Review: ${receipt.review}`,
     `- versionId: \`${diff?.versionId.before ?? receipt.previousVersionId}\` → \`${diff?.versionId.after ?? receipt.versionId}\``,
     `- HEAD: \`${receipt.head}\`; started ${receipt.startedAt}; finished ${receipt.finishedAt}`,
     `- Baseline copy: \`${receipt.baselineDir}\``,
