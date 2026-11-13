@@ -47,6 +47,31 @@ export interface Finding {
   benchmarkId: string;
   detail: string;
 }
+/**
+ * How far a directory entry has come towards being scored. An entry moves
+ * from unintegrated to supported (an adapter exists), captured (rows are
+ * stored) and scored (rows are included); a recorded deferral overrides all
+ * of them.
+ */
+export type InventoryStatus =
+  | 'reviewed-deferred'
+  | 'scored'
+  | 'captured-not-scored'
+  | 'supported-no-scores'
+  | 'unintegrated';
+
+export const inventoryStatus = (entry: {
+  deferred: boolean;
+  /** Included rows of the stored benchmark; null when none is stored. */
+  includedRows: number | null;
+  supported: boolean;
+}): InventoryStatus => {
+  if (entry.deferred) return 'reviewed-deferred';
+  if (entry.includedRows) return 'scored';
+  if (entry.includedRows !== null) return 'captured-not-scored';
+  return entry.supported ? 'supported-no-scores' : 'unintegrated';
+};
+
 interface SourceState {
   schemaVersion: 'source-monitor-state-v1';
   checkedAt: string;
@@ -63,7 +88,7 @@ interface SourceReport {
   error: string | null;
   inventory: Array<
     CatalogEntry & {
-      status: string;
+      status: InventoryStatus;
       captureRegistered: boolean;
       benchmarkId: string | null;
       reason: string | null;
@@ -506,15 +531,11 @@ export async function monitorSources(input: {
             (composite
               ? 'Composite retained separately; excluded from capability scoring by existing policy.'
               : null);
-          const status = reason
-            ? 'reviewed-deferred'
-            : benchmark?.includedRows
-              ? 'scored'
-              : benchmark
-                ? 'captured-not-scored'
-                : supported[entry.id]
-                  ? 'supported-no-scores'
-                  : 'unintegrated';
+          const status = inventoryStatus({
+            deferred: Boolean(reason),
+            includedRows: benchmark?.includedRows ?? null,
+            supported: Boolean(supported[entry.id]),
+          });
           const captureRegistered =
             sourceId === 'vals-ai' ||
             (isSurgeSource(sourceId) && Boolean(supported[entry.id])) ||
@@ -538,7 +559,7 @@ export async function monitorSources(input: {
                 : null) ??
               null,
           });
-          if (!reason && status !== 'scored')
+          if (status !== 'reviewed-deferred' && status !== 'scored')
             report.findings.push({
               kind: status,
               benchmarkId: entry.id,
