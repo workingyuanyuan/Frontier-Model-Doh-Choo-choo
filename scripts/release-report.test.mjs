@@ -72,7 +72,6 @@ test('release markdown lists versions, frontier and inferences', () => {
     receipt: {
       runId: 'run',
       status: 'complete',
-      review: 'pending-user-review',
       failedStep: null,
       previousVersionId: 'sha256:old',
       versionId: 'sha256:new',

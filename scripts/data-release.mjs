@@ -240,7 +240,6 @@ export const runRelease = async () => {
     schemaVersion: 'data-release-receipt-v1',
     runId,
     status: 'running',
-    review: 'pending-user-review',
     failedStep: null,
     error: null,
     head: git('rev-parse', 'HEAD'),
