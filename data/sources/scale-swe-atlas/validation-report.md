@@ -1,8 +1,8 @@
 # Scale SWE Atlas acquisition validation
 
 - Source https://scale.com/leaderboard/swe-atlas
-- Observed 2026-11-12T04:55:30.201Z
-- Evidence `sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565`
+- Observed 2026-11-13T04:49:32.945Z
+- Evidence `sha256:af33134d41c2fc798f9c66a7b2cbf45b90d783c8d597fb68d91a885a5008e738`
 - Rendered Overall rows 28; embedded Overall rows 28; candidates 28.
 - Embedded variant populations: {"overall":28,"qna":28,"testwriting":28,"refactoring":28}.
 - Only Overall contributes one SWE Atlas v1.1 score per model. QnA, Test Writing and Refactoring remain in the raw HTML artifact.
@@ -66,7 +66,7 @@ This tagged section is generated deterministically for `scale-swe-atlas`. Raw `p
 | Inkling 2 Small | `scale-swe-atlas:swe-atlas:inkling-2-small` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:thinky-inkling-2-small-xhigh:arc-agi-2-v2-semi-private |
 | Kimi K3 | `scale-swe-atlas:swe-atlas:kimi-k3` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 | Kimi K3.1 Pro | `scale-swe-atlas:swe-atlas:kimi-k3-1-pro` | — | `max` | epoch-ai | epoch-ai:aime:moonshot-kimi-k3-1-pro-max-epoch-inspect-row-2 |
-| MiniMax M3 | `scale-swe-atlas:swe-atlas:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-107:1-0-6 |
+| MiniMax M3 | `scale-swe-atlas:swe-atlas:minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
 | Muse Ember 1.0 | `scale-swe-atlas:swe-atlas:muse-ember-1-0` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-ember |
 | Muse Spark Open | `scale-swe-atlas:swe-atlas:muse-spark-open` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:meta-muse-spark-open-xhigh:arc-agi-2-v2-semi-private |
 | Muse Wonder 1.0 | `scale-swe-atlas:swe-atlas:muse-wonder-1-0` | — | `max` | artificial-analysis | artificial-analysis:aa-briefcase:muse-wonder |

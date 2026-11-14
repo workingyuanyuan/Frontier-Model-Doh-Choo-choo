@@ -11,7 +11,7 @@
     },
     "method": "DOM",
     "requestUrl": "https://arcprize.org/leaderboard",
-    "retrievedAt": "2026-11-12T03:54:43.288Z",
+    "retrievedAt": "2026-11-13T04:50:17.812Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:118edbeadc808d9722bf438a6c6b95f8245e3ed5c6bdceccc68fdfc4f27175d7",
     "sourceId": "arc-prize"
@@ -28,7 +28,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/datasets.json",
-    "retrievedAt": "2026-11-12T03:54:43.288Z",
+    "retrievedAt": "2026-11-13T04:50:17.812Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ad1595f5e707a715afe36f49d918c5de085a11246ae53029dfead5ecc17731b6",
     "sourceId": "arc-prize"
@@ -48,7 +48,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/evaluations.json",
-    "retrievedAt": "2026-11-12T03:54:43.288Z",
+    "retrievedAt": "2026-11-13T04:50:17.812Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:37c39593a3aac7a2b7fd15d52f263477ad32b7a979b09b5d08e0bada05c4383a",
     "sourceId": "arc-prize"
@@ -66,7 +66,7 @@
     },
     "method": "API_RESPONSE",
     "requestUrl": "https://arcprize.org/media/data/models.json",
-    "retrievedAt": "2026-11-12T03:54:43.288Z",
+    "retrievedAt": "2026-11-13T04:50:17.812Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:adf4b2bfcdbd91fc10d7dc145b2da8a59f171632ddb8864f9ab3c93fde2cb724",
     "sourceId": "arc-prize"

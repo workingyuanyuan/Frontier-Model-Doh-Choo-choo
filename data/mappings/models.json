@@ -126,6 +126,15 @@
       "profilePricing": {}
     },
     {
+      "modelId": "google-gemini-4-hydrogen",
+      "providerId": "google",
+      "displayName": "Gemini 4 Hydrogen",
+      "aliases": ["gemini-4-hydrogen", "google/gemini-4-hydrogen"],
+      "releaseDate": "2026-11-12",
+      "pricing": [],
+      "profilePricing": {}
+    },
+    {
       "modelId": "google-gemini-4-carbon",
       "providerId": "google",
       "displayName": "Gemini 4 Carbon",

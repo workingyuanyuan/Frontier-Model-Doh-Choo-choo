@@ -1,13 +1,13 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-12T03:51:02.420Z",
+  "checkedAt": "2026-11-13T05:09:55.086Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "frontier-swe-v2",
-        "includedRows": 24,
+        "includedRows": 25,
         "metrics": ["mean-at-5:percent:true"],
         "models": [
           "alibaba-qwen3-8-max",
@@ -21,6 +21,7 @@
           "google-gemini-3-8-flash",
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
+          "google-gemini-4-hydrogen",
           "meta-muse-spark-1-2",
           "meta-muse-spark-1-3",
           "moonshot-kimi-k3",
@@ -47,6 +48,7 @@
           "[\"Gemini 3.8 Flash\",null,null,\"proximus\",null,null,5,null]",
           "[\"Gemini 4 Argon\",null,null,\"proximus\",null,null,5,null]",
           "[\"Gemini 4 Carbon\",null,null,\"proximus\",null,null,5,null]",
+          "[\"Gemini 4 Hydrogen\",null,null,\"proximus\",null,null,5,null]",
           "[\"Grok 4.6\",null,null,\"proximus\",null,null,5,null]",
           "[\"Grok 4.7\",null,null,\"proximus\",null,null,5,null]",
           "[\"Inkling\",null,null,\"proximus\",null,null,5,null]",
@@ -73,6 +75,7 @@
           "Gemini 3.8 Flash",
           "Gemini 4 Argon",
           "Gemini 4 Carbon",
+          "Gemini 4 Hydrogen",
           "Grok 4.6",
           "Grok 4.7",
           "Inkling",
@@ -82,12 +85,12 @@
           "Qwen3.8-Max",
           "Qwen3.8-Max-0902"
         ],
-        "rows": 24,
+        "rows": 25,
         "sourceUrls": ["https://www.frontierswe.com/"],
         "versions": ["2"]
       }
     ],
-    "observedAt": "2026-11-12T03:50:58.066Z",
+    "observedAt": "2026-11-13T05:09:49.706Z",
     "sourceId": "frontier-swe"
   }
 }

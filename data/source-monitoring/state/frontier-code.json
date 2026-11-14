@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-12T04:48:27.449Z",
+  "checkedAt": "2026-11-13T05:09:47.970Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -244,7 +244,7 @@
       },
       {
         "id": "frontier-code-2-0",
-        "includedRows": 121,
+        "includedRows": 125,
         "metrics": ["weighted-rubric-score:percent:true"],
         "models": [
           "anthropic-claude-fable-5-1",
@@ -257,6 +257,7 @@
           "deepseek-deepseek-v4-1-flash-1017",
           "google-gemini-4-argon",
           "google-gemini-4-carbon",
+          "google-gemini-4-hydrogen",
           "meta-muse-spark-open",
           "meta-muse-wonder",
           "moonshot-kimi-k3",
@@ -354,9 +355,13 @@
           "[\"Gemini 4 Argon\",\"high\",null,\"devin-cli\",null,null,null,null]",
           "[\"Gemini 4 Argon\",\"low\",null,\"devin-cli\",null,null,null,null]",
           "[\"Gemini 4 Argon\",\"medium\",null,\"devin-cli\",null,null,null,null]",
-          "[\"Gemini 4 Carbon\",\"high\",null,\"devin-cli\",null,null,null,null]",
-          "[\"Gemini 4 Carbon\",\"low\",null,\"devin-cli\",null,null,null,null]",
-          "[\"Gemini 4 Carbon\",\"medium\",null,\"devin-cli\",null,null,null,null]",
+          "[\"Gemini 4 Carbon\",\"high\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Carbon\",\"low\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Carbon\",\"medium\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Hydrogen\",\"high\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Hydrogen\",\"low\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Hydrogen\",\"medium\",null,\"antigravity-cli\",null,null,null,null]",
+          "[\"Gemini 4 Hydrogen\",\"xhigh\",null,\"antigravity-cli\",null,null,null,null]",
           "[\"Grok 4.7\",\"high\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.7\",\"low\",null,\"grok-build\",null,null,null,null]",
           "[\"Grok 4.7\",\"medium\",null,\"grok-build\",null,null,null,null]",
@@ -414,6 +419,7 @@
           "GPT-6.1 Sol",
           "Gemini 4 Argon",
           "Gemini 4 Carbon",
+          "Gemini 4 Hydrogen",
           "Grok 4.7",
           "Inkling 2 Small",
           "Inkling Small",
@@ -427,12 +433,12 @@
           "SWE-2",
           "SWE-2 Flash"
         ],
-        "rows": 121,
+        "rows": 125,
         "sourceUrls": ["https://cognition.com/frontiercode"],
         "versions": ["2.0"]
       }
     ],
-    "observedAt": "2026-11-12T04:48:27.166Z",
+    "observedAt": "2026-11-13T05:09:47.244Z",
     "sourceId": "frontier-code"
   }
 }
