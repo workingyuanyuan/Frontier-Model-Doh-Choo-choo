@@ -1,8 +1,8 @@
 # FrontierSWE V2 acquisition validation
 
 - Source: <https://www.frontierswe.com/>
-- Evidence: `sha256:2c696ce5ba6faf0d2babcfd7d0606f887e0cbcb7eb6e1c04240a272767d5f6b0`
-- Complete mean@5 configurations: 24; coverage matrix identities matched.
+- Evidence: `sha256:dbc186dcedfeb7dd60f3db053d06bac380ef838f283f1b8cbdcfbcbfcc22c34b`
+- Complete mean@5 configurations: 25; coverage matrix identities matched.
 - Server-rendered leaderboard rows cross-checked at displayed precision: 10.
 - Methodology: Scores across all 34 tasks. Each model runs 5 trials per task with a 20-hour budget.
 - Unresolved catalog names: Claude Haiku 5.5, DeepSeek V4 Flash Vision Exp, GLM-5.3 Flash, GLM-5.3, Qwen3.8-Max-0902.
@@ -28,6 +28,7 @@ This tagged section is generated deterministically for `frontier-swe`. Raw `prof
 | Gemini 3.8 Flash | `frontier-swe:frontier-swe-v2:gemini-3-8-flash-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-3-8-flash-high:arc-agi-2-v2-semi-private |
 | Gemini 4 Argon | `frontier-swe:frontier-swe-v2:gemini-4-argon-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-argon-high:arc-agi-2-v2-semi-private |
 | Gemini 4 Carbon | `frontier-swe:frontier-swe-v2:gemini-4-carbon-proximus` | — | `high` | arc-prize | arc-prize:arc-agi-2:google-gemini-4-carbon-high:arc-agi-2-v2-semi-private |
+| Gemini 4 Hydrogen | `frontier-swe:frontier-swe-v2:gemini-4-hydrogen-proximus` | — | `xhigh` | artificial-analysis | artificial-analysis:aa-briefcase:gemini-4-hydrogen |
 | GPT-5.6 Sol | `frontier-swe:frontier-swe-v2:gpt-5-6-sol-proximus` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
 | GPT-6 Astra | `frontier-swe:frontier-swe-v2:gpt-6-astra-proximus` | — | `max` | anthropic-releases | anthropic-releases:frontier-code-1-1:gpt6astra-max |
 | Grok 4.6 | `frontier-swe:frontier-swe-v2:grok-4-6-proximus` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:xai-grok-4-6-xhigh:arc-agi-2-v2-semi-private |

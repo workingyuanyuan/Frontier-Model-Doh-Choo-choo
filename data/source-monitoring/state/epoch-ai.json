@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-12T03:54:39.481Z",
+  "checkedAt": "2026-11-13T04:50:16.355Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -2067,7 +2067,7 @@
       },
       {
         "id": "gpqa-diamond",
-        "includedRows": 336,
+        "includedRows": 339,
         "metrics": ["accuracy:percent:true"],
         "models": [
           "alibaba-qwen3-6-27b",
@@ -2137,7 +2137,9 @@
           "[\"Claude Fable 5 (high)\",\"high\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5 (low)\",\"low\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5 (with fallback, max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Fable 5.2 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Fable 5.2 (with fallback, max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Haiku 5.5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 4.5 (16k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2155,6 +2157,7 @@
           "[\"Claude Opus 5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 5\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Opus 5.5 (max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
+          "[\"Claude Opus 5.5 (with fallback, max)\",\"max\",null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Sonnet 4.5 (16k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Sonnet 4.5 (32k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
           "[\"Claude Sonnet 4.5 (59k thinking)\",null,null,\"Epoch AI Inspect\",null,null,1,null]",
@@ -2473,7 +2476,9 @@
           "Claude Fable 5 (high)",
           "Claude Fable 5 (low)",
           "Claude Fable 5 (max)",
+          "Claude Fable 5 (with fallback, max)",
           "Claude Fable 5.2 (max)",
+          "Claude Fable 5.2 (with fallback, max)",
           "Claude Haiku 5.5 (max)",
           "Claude Opus 4",
           "Claude Opus 4.5 (16k thinking)",
@@ -2489,6 +2494,7 @@
           "Claude Opus 5 (low)",
           "Claude Opus 5 (max)",
           "Claude Opus 5.5 (max)",
+          "Claude Opus 5.5 (with fallback, max)",
           "Claude Sonnet 4.5 (16k thinking)",
           "Claude Sonnet 4.5 (32k thinking)",
           "Claude Sonnet 4.5 (59k thinking)",
@@ -2779,7 +2785,7 @@
           "qwq-plus",
           "seed-oss-36b-instruct"
         ],
-        "rows": 336,
+        "rows": 339,
         "sourceUrls": ["https://epoch.ai/data/benchmark_data.zip"],
         "versions": ["(unknown)"]
       },
@@ -3380,7 +3386,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-12T03:54:37.333Z",
+    "observedAt": "2026-11-13T04:50:14.249Z",
     "sourceId": "epoch-ai"
   }
 }

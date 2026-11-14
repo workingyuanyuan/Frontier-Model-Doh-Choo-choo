@@ -1,26 +1,26 @@
 # Zapier AutomationBench acquisition validation
 
 - Page: <https://zapier.com/benchmarks>
-- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.DQR3kMpS.mjs>
-- Module evidence: `sha256:0a10bc0ad7b8fc830a9333761489f3f83aabdfcb35dac8ad42f0a467e4f7baae`
-- Page evidence: `sha256:486d4468bff0d262c29ab02a4dd6b63e3bd3d5be4d24f8e63da98271a697b0de`
-- Observed at: 2026-11-12T03:54:48.378Z
+- Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CfZV4D8a.mjs>
+- Module evidence: `sha256:c8a16d57cd48dd27dc05d24917af4692bfb190e4276b9f97e2656cc237712811`
+- Page evidence: `sha256:c2b6ec3936ae68bc3cc22c2f085a8797c7d21734a7d918cb6a3ba29cb4dacd73`
+- Observed at: 2026-11-13T05:09:56.611Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
 | Framer .mjs modules discovered from page HTML | 10 |
-| Leaderboard rows parsed | 134 |
-| Maximum visible rank | 134 |
-| Cost records emitted | 133 |
+| Leaderboard rows parsed | 137 |
+| Maximum visible rank | 137 |
+| Cost records emitted | 136 |
 | Missing-cost rows (—) | 0 |
 | Starred standard-price rows | 5 |
 | Fallback-composite rows with excluded fallback cost (§) | 0 |
 | Provisional launch-version rows adopted (model name §) | 5 |
 | Fireworks-marked standard-price rows (‡) | 1 |
 | Dedicated-deployment cost rows excluded from costs | 1 |
-| Canonically resolved rows | 120 |
+| Canonically resolved rows | 123 |
 | Canonically unresolved rows | 14 |
 | Distinct canonically unresolved names | 14 |
 | Excluded candidate rows | 3 |
@@ -30,7 +30,7 @@
 
 - AutomationBench version: `1.0.6`.
 - Required content feature: `task_completed_correctly`. The route module is selected by content, never by its deployment hash.
-- Visible comparison: maximum rank 134 equals 134 parsed rows.
+- Visible comparison: maximum rank 137 equals 137 parsed rows.
 - Headline metric: API-mode `task_completed_correctly` (strict pass/fail). `partial_credit` is diagnostic-only and is not materialized.
 
 ## Adoption status
@@ -79,9 +79,9 @@
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Candidate rows | 134 | 134 | +0 |
-| Cost records | 133 | 133 | +0 |
-| Canonically unresolved rows | 14 | 14 | +0 |
+| Candidate rows | 137 | 137 | +0 |
+| Cost records | 136 | 136 | +0 |
+| Canonically unresolved rows | 17 | 14 | -3 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -94,20 +94,20 @@ This tagged section is generated deterministically for `zapier-automationbench`.
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| Claude Fable 5.1 (with Opus 5 Fallback) | `zapier-automationbench:automationbench:claude-fable-5-1-with-opus-5-fallback-rank-22:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
-| Claude Sonnet 5.5 (default fallbacks, Between tools) | `zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-between-tools-rank-50:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
-| GPT-5.4 | `zapier-automationbench:automationbench:gpt-5-4-rank-133:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
-| GPT-5.5 | `zapier-automationbench:automationbench:gpt-5-5-rank-126:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-5-2026-04-22-thinking-xhigh:arc-agi-2-v2-semi-private |
-| GPT-5.6 Luna | `zapier-automationbench:automationbench:gpt-5-6-luna-rank-132:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
-| GPT-5.6 Sol | `zapier-automationbench:automationbench:gpt-5-6-sol-rank-112:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
-| GPT-5.6 Terra | `zapier-automationbench:automationbench:gpt-5-6-terra-rank-127:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-terra-max:arc-agi-2-v2-semi-private |
-| Kimi K2.7 Code | `zapier-automationbench:automationbench:kimi-k2-7-code-rank-117:1-0-6` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
-| Kimi K3 | `zapier-automationbench:automationbench:kimi-k3-rank-41:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
+| Claude Fable 5.1 (with Opus 5 Fallback) | `zapier-automationbench:automationbench:claude-fable-5-1-with-opus-5-fallback-rank-24:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:fable51-max |
+| Claude Sonnet 5.5 (default fallbacks, Between tools) | `zapier-automationbench:automationbench:claude-sonnet-5-5-default-fallbacks-between-tools-rank-53:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:sonnet-5-5:cursorbench-4:sonnet55-max |
+| GPT-5.4 | `zapier-automationbench:automationbench:gpt-5-4-rank-136:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-4-xhigh:arc-agi-2-v2-semi-private |
+| GPT-5.5 | `zapier-automationbench:automationbench:gpt-5-5-rank-129:1-0-6` | — | `xhigh` | arc-prize | arc-prize:arc-agi-2:gpt-5-5-2026-04-22-thinking-xhigh:arc-agi-2-v2-semi-private |
+| GPT-5.6 Luna | `zapier-automationbench:automationbench:gpt-5-6-luna-rank-135:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-luna-max:arc-agi-2-v2-semi-private |
+| GPT-5.6 Sol | `zapier-automationbench:automationbench:gpt-5-6-sol-rank-115:1-0-6` | — | `max` | anthropic-releases | anthropic-releases:cursorbench-4:gpt56sol-max |
+| GPT-5.6 Terra | `zapier-automationbench:automationbench:gpt-5-6-terra-rank-130:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:openai-gpt-5-6-terra-max:arc-agi-2-v2-semi-private |
+| Kimi K2.7 Code | `zapier-automationbench:automationbench:kimi-k2-7-code-rank-120:1-0-6` | — | `max` | surge-dayjob-finance | surge-dayjob-finance:dayjob-finance:kimi-k2-7-code-max-reasoning |
+| Kimi K3 | `zapier-automationbench:automationbench:kimi-k3-rank-44:1-0-6` | — | `max` | arc-prize | arc-prize:arc-agi-2:moonshot-kimi-k3-max:arc-agi-2-v2-semi-private |
 
 ### Unlabelled rows assigned the outside-the-ladder default
 
 | Model | Target candidate | Raw effort | Product effort | Basis source | Basis candidate |
 |---|---|---|---|---|---|
-| Kimi K2.6 | `zapier-automationbench:automationbench:kimi-k2-6-rank-119:1-0-6` | — | `default` | — | — |
+| Kimi K2.6 | `zapier-automationbench:automationbench:kimi-k2-6-rank-122:1-0-6` | — | `default` | — | — |
 
 <!-- C6-EFFORT-INFERENCE:END -->

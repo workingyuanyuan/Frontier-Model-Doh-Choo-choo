@@ -1,9 +1,9 @@
 [
   {
-    "artifactPath": "artifacts/sha256/f7/f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565.html",
+    "artifactPath": "artifacts/sha256/af/af33134d41c2fc798f9c66a7b2cbf45b90d783c8d597fb68d91a885a5008e738.html",
     "byteLength": 129861,
     "finalUrl": "https://labs.scale.com/leaderboard/swe-atlas",
-    "id": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+    "id": "sha256:af33134d41c2fc798f9c66a7b2cbf45b90d783c8d597fb68d91a885a5008e738",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete HTML with Next RSC leaderboard variants",
@@ -161,9 +161,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://scale.com/leaderboard/swe-atlas",
-    "retrievedAt": "2026-11-12T04:55:30.201Z",
+    "retrievedAt": "2026-11-13T04:49:32.945Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f794620b0c02230d990e62b23e2894e962873c9347416143cee707c72bcb6565",
+    "sha256": "sha256:af33134d41c2fc798f9c66a7b2cbf45b90d783c8d597fb68d91a885a5008e738",
     "sourceId": "scale-swe-atlas"
   }
 ]

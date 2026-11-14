@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-12T03:55:43.485Z",
+  "checkedAt": "2026-11-13T04:50:59.148Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -212,7 +212,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-12T03:55:41.207Z",
+    "observedAt": "2026-11-13T04:50:56.699Z",
     "sourceId": "anthropic-releases"
   }
 }
