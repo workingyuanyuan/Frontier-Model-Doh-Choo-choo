@@ -3,8 +3,8 @@
 - Page: <https://zapier.com/benchmarks>
 - Discovered route module: <https://framerusercontent.com/sites/4WTSl4BNjd1q9QFEFibC6h/MBpMAlj5k_Qpj1iTRcXO7kAjUP_VB-QuD3gMvxxThCQ.CfZV4D8a.mjs>
 - Module evidence: `sha256:c8a16d57cd48dd27dc05d24917af4692bfb190e4276b9f97e2656cc237712811`
-- Page evidence: `sha256:c2b6ec3936ae68bc3cc22c2f085a8797c7d21734a7d918cb6a3ba29cb4dacd73`
-- Observed at: 2026-11-13T05:09:56.611Z
+- Page evidence: `sha256:dbe5ba8864f8e7cb288589e188db5bda6b75ceb8ed49c69c36f0d8a7a8b877be`
+- Observed at: 2026-11-14T12:17:17.403Z
 
 ## Exact counts
 
@@ -81,7 +81,7 @@
 |---|---:|---:|---:|
 | Candidate rows | 137 | 137 | +0 |
 | Cost records | 136 | 136 | +0 |
-| Canonically unresolved rows | 17 | 14 | -3 |
+| Canonically unresolved rows | 14 | 14 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

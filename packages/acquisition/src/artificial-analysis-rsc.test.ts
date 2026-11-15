@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
+import { CandidateResultSchema } from '@llm-bench/benchmark-data';
+
 import {
   compareArtificialAnalysisApi,
   extractArtificialAnalysisRscRows,
@@ -9,6 +11,7 @@ import {
   extractArtificialAnalysisVersionMetadata,
   isArtificialAnalysisValuePresent,
   materializeArtificialAnalysisRsc,
+  retainArtificialAnalysisBriefcaseRows,
 } from './artificial-analysis-rsc.js';
 
 const evidenceId =
@@ -1073,5 +1076,131 @@ describe('Artificial Analysis Intelligence Index v5 evaluations', () => {
         'CritPt v1 results. Terminal-Bench-Science 0.1.0 dataset.',
       ).benchmarkVersions,
     ).toEqual({});
+  });
+});
+
+describe('AA-Briefcase retention', () => {
+  const today = '2026-11-14T00:00:00.000Z';
+  const page = (
+    kind: 'evaluation' | 'model-detail',
+    slug: string,
+    rows: Record<string, unknown>[],
+  ) => ({
+    kind,
+    slug,
+    sourceUrl: `https://artificialanalysis.ai/${kind === 'evaluation' ? 'evaluations' : 'models'}/${slug}`,
+    evidenceId,
+    retrievedAt: today,
+    rows,
+  });
+  const elo = { overall: { elo: 1500, lower95ci: 1490, upper95ci: 1510 } };
+  const capture = materializeArtificialAnalysisRsc([
+    page('evaluation', 'aa-briefcase', [
+      {
+        slug: 'gpt-6-sol',
+        name: 'GPT-6 Sol (Max)',
+        releaseDate: '2026-09-22',
+        briefcaseBreakdown: { elo: 1500, rubricPassRate: 0.5 },
+      },
+    ]),
+    page('model-detail', 'gpt-6-sol-low', [
+      {
+        slug: 'gpt-6-sol-low',
+        name: 'GPT-6 Sol (Low)',
+        releaseDate: '2026-09-22',
+        intelligenceIndex: 40,
+        briefcaseBreakdown: elo,
+      },
+      {
+        slug: 'gpt-6-sol-medium',
+        name: 'GPT-6 Sol (Medium)',
+        releaseDate: '2026-09-22',
+        deleted: true,
+        intelligenceIndex: 41,
+        briefcaseBreakdown: elo,
+      },
+    ]),
+  ]);
+  const current = capture.candidates.find(
+    ({ id }) => id === 'artificial-analysis:aa-briefcase:gpt-6-sol',
+  )!;
+  const previous = (slug: string, rawScore: number) =>
+    CandidateResultSchema.parse({
+      ...current,
+      id: `artificial-analysis:aa-briefcase:${slug}`,
+      model: { ...current.model, rawName: slug, canonicalModelId: null },
+      rawScore,
+      normalizedScore: rawScore * 100,
+      observedAt: '2026-11-13T00:00:00.000Z',
+      evidenceIds: [`sha256:${'b'.repeat(64)}`],
+    });
+
+  it('emits no rubric row from an Elo-only detail payload and lists only eligible profiles', () => {
+    expect(
+      capture.candidates
+        .filter(({ benchmarkId }) => benchmarkId === 'aa-briefcase')
+        .map(({ id }) => id),
+    ).toEqual(['artificial-analysis:aa-briefcase:gpt-6-sol']);
+    expect(capture.activeProfileKeys).toEqual(['gpt-6-sol', 'gpt-6-sol-low']);
+  });
+
+  it('keeps an unexposed rubric row of a still-listed profile unchanged and lets current values win', () => {
+    const stale = previous('gpt-6-sol', 0.4);
+    const low = previous('gpt-6-sol-low', 0.3);
+    const deleted = previous('gpt-6-sol-medium', 0.35);
+    const unlisted = previous('gone-model', 0.2);
+    const result = retainArtificialAnalysisBriefcaseRows(
+      capture.candidates,
+      [stale, low, deleted, unlisted],
+      capture.activeProfileKeys,
+    );
+    expect(result.retained).toEqual([low]);
+    expect(result.candidates.find(({ id }) => id === stale.id)?.rawScore).toBe(
+      0.5,
+    );
+    expect(result.candidates).toHaveLength(capture.candidates.length + 1);
+  });
+
+  it('does not retain a row whose canonical model and effort a current rubric row already covers', () => {
+    const covered = CandidateResultSchema.parse({
+      ...current,
+      model: { ...current.model, canonicalModelId: 'model-a' },
+    });
+    const renamed = CandidateResultSchema.parse({
+      ...previous('gpt-6-sol-low', 0.3),
+      model: { ...covered.model },
+      profile: { ...covered.profile },
+    });
+    expect(
+      retainArtificialAnalysisBriefcaseRows(
+        [covered],
+        [renamed],
+        capture.activeProfileKeys,
+      ).retained,
+    ).toEqual([]);
+  });
+
+  it('does not retain a null-effort renamed slug whose resolved profile a current row covers', () => {
+    const covered = CandidateResultSchema.parse({
+      ...current,
+      model: {
+        ...current.model,
+        canonicalModelId: 'model-b',
+        profileId: 'model-b-default',
+      },
+      profile: { ...current.profile, effort: null },
+    });
+    const renamed = CandidateResultSchema.parse({
+      ...previous('gpt-6-sol-low', 0.3),
+      model: { ...covered.model, rawName: 'old slug' },
+      profile: { ...covered.profile },
+    });
+    expect(
+      retainArtificialAnalysisBriefcaseRows(
+        [covered],
+        [renamed],
+        capture.activeProfileKeys,
+      ).retained,
+    ).toEqual([]);
   });
 });

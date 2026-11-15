@@ -49,6 +49,7 @@ function page(
   options: {
     model?: object;
     trials?: object[];
+    completionData?: object;
     displayedScore?: number;
     displayedCost?: number;
     hidden?: boolean;
@@ -59,7 +60,9 @@ function page(
     models.push({ ...model, id: 'hidden', name: 'Hidden model' });
   const props = JSON.stringify({
     models: encode(models),
-    trials: encode(options.trials ?? trials),
+    ...(options.completionData
+      ? { completionData: encode(JSON.stringify(options.completionData)) }
+      : { trials: encode(options.trials ?? trials) }),
   }).replace(/"/gu, '&quot;');
   return `<astro-island component-url="/_astro/BenchmarkLeaderboard.test.js" props="${props}"></astro-island>
     <table><tbody><tr id="score-astra"><th><button aria-label="Pin GPT-6 Astra, xhigh effort"></button></th>
@@ -107,6 +110,76 @@ describe('MaxxBench acquisition', () => {
     expect(() =>
       materializeMaxxBench(page({ model: { maxxBenchScore: 51 } }), context),
     ).toThrow('Invalid MaxxBench');
+  });
+  it('checks completionData curves when the page no longer embeds trials', () => {
+    // One passed attempt costing 1 of two attempts averaging 2.
+    const curves = (cost: number[], steps: number[] = [40, 0.5]) => ({
+      averageCost: [['astra', 1, cost]],
+      outputTokens: [['astra', 1, [1000, 0.5]]],
+      agentSteps: [['astra', 1, steps]],
+    });
+    const result = materializeMaxxBench(
+      page({ completionData: curves([1, 0.5]) }),
+      context,
+    );
+    expect(result.costs[0]).toMatchObject({ cost: 2 });
+    expect(result.validationReport).toContain('completionData');
+    expect(() =>
+      materializeMaxxBench(page({ completionData: curves([1, 1]) }), context),
+    ).toThrow('completion curve disagrees');
+    expect(() =>
+      materializeMaxxBench(
+        page({ completionData: curves([1, 0.5], [40, 0.5, 41, 1]) }),
+        context,
+      ),
+    ).toThrow('completion curve disagrees');
+    // Passed attempts alone cost more than all attempts at the stated mean.
+    expect(() =>
+      materializeMaxxBench(page({ completionData: curves([5, 0.5]) }), context),
+    ).toThrow('mean attempt cost');
+  });
+  it('requires every supplied curve to cover the model and an exact mean when all attempts passed', () => {
+    expect(() =>
+      materializeMaxxBench(
+        page({
+          completionData: {
+            averageCost: [['astra', 1, [1, 0.5]]],
+            outputTokens: [],
+          },
+        }),
+        context,
+      ),
+    ).toThrow('completion curve missing');
+    const allPassed = {
+      passed: 2,
+      attempts: 2,
+      taskCount: 1,
+      maxxBenchScore: 100,
+    };
+    const run = (costs: number[]) =>
+      materializeMaxxBench(
+        page({
+          model: allPassed,
+          displayedScore: 100,
+          completionData: { averageCost: [['astra', 1, costs]] },
+        }),
+        context,
+      );
+    expect(run([1, 0.5, 3, 1]).costs[0]).toMatchObject({ cost: 2 });
+    expect(() => run([1, 0.5, 1, 1])).toThrow('mean attempt cost');
+  });
+  it('lets attempts with equal values share one curve point', () => {
+    const model = { passed: 2, attempts: 4, taskCount: 2, maxxBenchScore: 50 };
+    const curve = [['astra', 2, [1, 1]]];
+    expect(
+      materializeMaxxBench(
+        page({
+          model,
+          completionData: { averageCost: curve, agentSteps: curve },
+        }),
+        context,
+      ).candidates,
+    ).toHaveLength(1);
   });
   it('rejects missing, duplicate and unsupported configurations', () => {
     expect(() =>

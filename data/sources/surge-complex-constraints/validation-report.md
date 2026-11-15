@@ -2,7 +2,7 @@
 
 - Source: <https://surgehq.ai/benchmarks/complex-constraints>
 - Benchmark version: v1.1.
-- Evidence: `sha256:1f9b41ac6bee4fe51e87ef80aa2ea2eb4609be65c082038b80869bc7cb94f067`
+- Evidence: `sha256:bef66ce9fdf5c6c2d5fa41fdc6fec71eda9472d0761b673011b96bdff9171baa`
 - Main leaderboard: 16 rows; rendered browser count: 16.
 - Every row contains one numeric score; empty score attributes require the published percent marker. Numeric attributes agree with displayed text; no pagination.
 - Unresolved catalog identities (3): GLM 5.3 (Max reasoning); Hy Hy4 Preview (High reasoning); Mistral Large 4 (High reasoning).

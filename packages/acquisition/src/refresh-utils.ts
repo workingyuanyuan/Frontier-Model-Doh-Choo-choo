@@ -1,9 +1,11 @@
 import { readJson } from '@llm-bench/benchmark-data/node-utils';
+import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { format, resolveConfig } from 'prettier';
 
 import {
+  CandidateResultSchema,
   EvidenceRecordSchema,
   deterministicJson,
   type EvidenceRecord,
@@ -171,4 +173,38 @@ export async function readOptionalSnapshotComparison(directory: string) {
     join(directory, 'validation-report.md'),
   ).catch(() => '');
   return { previousCandidates, previousCosts, previousReport };
+}
+
+/**
+ * Read the snapshot a retaining refresh compares against: the source directory
+ * itself, or `--baseline-directory=<path>` when an earlier run of the same task
+ * has already overwritten it.
+ */
+export async function readBaselineSnapshot(root: string, directory: string) {
+  const baselineOption = process.argv
+    .find((arg) => arg.startsWith('--baseline-directory='))
+    ?.slice('--baseline-directory='.length);
+  const baseline = baselineOption ? resolve(root, baselineOption) : directory;
+  if (
+    baselineOption &&
+    (!existsSync(join(baseline, 'candidates.json')) ||
+      !existsSync(join(baseline, 'evidence-index.json')))
+  ) {
+    throw new Error(
+      'Baseline directory must contain candidates.json and evidence-index.json',
+    );
+  }
+  const previousCandidates = existsSync(join(baseline, 'candidates.json'))
+    ? CandidateResultSchema.array().parse(
+        JSON.parse(await readFile(join(baseline, 'candidates.json'), 'utf8')),
+      )
+    : [];
+  const previousEvidence = existsSync(join(baseline, 'evidence-index.json'))
+    ? EvidenceRecordSchema.array().parse(
+        JSON.parse(
+          await readFile(join(baseline, 'evidence-index.json'), 'utf8'),
+        ),
+      )
+    : [];
+  return { previousCandidates, previousEvidence };
 }

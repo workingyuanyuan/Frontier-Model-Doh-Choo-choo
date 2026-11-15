@@ -3,7 +3,7 @@
   "baseUrl": "https://maxxbench.unlap.ai/",
   "benchmarkIds": ["maxxbench"],
   "completeness": {
-    "expectedCountMethod": "Match each default visible leaderboard row to Astro models and verify aggregate values against all evaluation trials.",
+    "expectedCountMethod": "Match each default visible leaderboard row to Astro models and verify aggregate values against the embedded attempt data: completionData passed-attempt curves (since 2026-11-14; mean cost is bounded below only) or, on older captures, all evaluation trials.",
     "pagination": null,
     "visibleComparisonRequired": true
   },
@@ -16,7 +16,7 @@
     "models[].maxxBenchScore": "normalizedScore",
     "models[].name": "model.rawName"
   },
-  "lastVerifiedAt": "2026-11-13T04:46:09.645Z",
+  "lastVerifiedAt": "2026-11-15T04:11:47.443Z",
   "notes": [
     "Only default visible leaderboard configurations are materialized.",
     "Benchmark version and unpublished configuration fields remain null.",

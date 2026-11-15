@@ -20,12 +20,14 @@ import {
   extractArtificialAnalysisVariantSlugs,
   isArtificialAnalysisActiveRow,
   materializeArtificialAnalysisRsc,
+  retainArtificialAnalysisBriefcaseRows,
   type ArtificialAnalysisApiPage,
   type ArtificialAnalysisPage,
   type ArtificialAnalysisRow,
 } from './artificial-analysis-rsc.js';
 import { writeContentAddressedArtifact } from './index.js';
 import {
+  readBaselineSnapshot,
   readJson,
   prettyDeterministicJson,
   previousSnapshotValue,
@@ -303,6 +305,9 @@ const main = async () => {
   const existingEvidence = await readJson<EvidenceRecord[]>(
     join(sourceDirectory, 'evidence-index.json'),
   );
+  // AA-Briefcase retention compares against this snapshot, or against
+  // --baseline-directory when an earlier run today already overwrote it.
+  const baseline = await readBaselineSnapshot(root, sourceDirectory);
   const pages: ArtificialAnalysisPage[] = [];
   const records: EvidenceRecord[] = [];
 
@@ -376,7 +381,28 @@ const main = async () => {
 
   const api = await fetchApi(root, retrievedAt);
   if (api.record) records.push(api.record);
-  const result = materializeArtificialAnalysisRsc(pages, api.page);
+  const materialized = materializeArtificialAnalysisRsc(pages, api.page);
+  const briefcase = retainArtificialAnalysisBriefcaseRows(
+    materialized.candidates,
+    baseline.previousCandidates,
+    materialized.activeProfileKeys,
+  );
+  const result = { ...materialized, candidates: briefcase.candidates };
+  const baselineEvidence = new Map(
+    baseline.previousEvidence.map((record) => [record.id, record]),
+  );
+  const retainedEvidence = [
+    ...new Set(briefcase.retained.flatMap(({ evidenceIds }) => evidenceIds)),
+  ].map((id) => {
+    const record = baselineEvidence.get(id);
+    if (!record)
+      throw new Error(`Missing retained AA-Briefcase evidence: ${id}`);
+    return record;
+  });
+  const currentBriefcaseRows = materialized.candidates.filter(
+    ({ benchmarkId }) => benchmarkId === 'aa-briefcase',
+  ).length;
+  const briefcaseNote = `AA-Briefcase rubric rows: ${currentBriefcaseRows} observed in this capture; ${briefcase.retained.length} retained unchanged from the previous snapshot because the profile is still listed but no longer exposes rubricPassRate (original score, observedAt and Evidence kept; not re-observed).`;
   if (visualProfileCount < result.pageRows) {
     throw new Error(
       `Visible Artificial Analysis catalog count ${visualProfileCount} is smaller than the evaluation-page profile union ${result.pageRows}`,
@@ -403,6 +429,15 @@ const main = async () => {
     ...warnings
       .filter((warning) => warning !== api.warning)
       .map((warning) => `- Warning: ${warning}`),
+    '',
+    '## AA-Briefcase rows retained from the previous snapshot',
+    '',
+    `- ${briefcaseNote}`,
+    '- Retention rule: a previous `aa-briefcase` rubric row is kept only when this capture has no row with the same ID, the same profile slug is still an eligible (non-deleted, in-window, newest-build) profile, and no current rubric row covers the same canonical model and effort. Values present in this capture always win.',
+    ...briefcase.retained.map(
+      (row) =>
+        `- ${row.id}: ${row.rawScore}; observed ${row.observedAt}; Evidence ${row.evidenceIds.join(', ')}.`,
+    ),
     '',
     '## Visible comparison',
     '',
@@ -459,7 +494,13 @@ const main = async () => {
         !requestUrl.startsWith(`${MODELS_URL}/`) &&
         requestUrl !== API_URL),
   );
-  const mergedEvidence = [...legacyEvidence, ...records].toSorted(
+  const evidenceById = new Map(
+    [...legacyEvidence, ...retainedEvidence, ...records].map((record) => [
+      record.id,
+      record,
+    ]),
+  );
+  const mergedEvidence = [...evidenceById.values()].toSorted(
     (left, right) =>
       left.requestUrl.localeCompare(right.requestUrl) ||
       left.id.localeCompare(right.id),
@@ -513,6 +554,7 @@ const main = async () => {
       '`$undefined` and null are both treated as missing values.',
       `Capture observed ${result.pageRows} unique profiles, ${result.activeRows} active profiles, ${result.taskCostRows} task-cost rows, and ${result.tokenPriceRows} token-price rows.`,
       `Materialized ${result.intelligenceIndexRows} Intelligence Index candidates (all EXCLUDED) and ${result.gdpvalRows} GDPval-AA normalized candidates.`,
+      briefcaseNote,
     ],
   };
   await writeMetadataJson(
@@ -525,6 +567,8 @@ const main = async () => {
       pageRows: result.pageRows,
       activeRows: result.activeRows,
       candidates: result.candidates.length,
+      briefcaseCurrentRows: currentBriefcaseRows,
+      briefcaseRetainedRows: briefcase.retained.length,
       intelligenceIndexRows: result.intelligenceIndexRows,
       gdpvalRows: result.gdpvalRows,
       taskCostRows: result.taskCostRows,

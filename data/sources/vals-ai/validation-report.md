@@ -1,21 +1,21 @@
 # Vals AI acquisition validation
 
-- Index evidence: `sha256:a23f59e09da3ad3d5e8f88d5f6841765a52266144497c42f64d907ec35d8afe3`
-- Observed at: 2026-11-13T05:09:59.781Z
+- Index evidence: `sha256:a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3`
+- Observed at: 2026-11-14T12:18:08.653Z
 
 ## Exact counts
 
 | Check | Count |
 |---|---:|
-| Benchmark slugs discovered from index | 63 |
-| Benchmark pages with BenchmarkView data | 58 |
-| CandidateResults | 3565 |
+| Benchmark slugs discovered from index | 65 |
+| Benchmark pages with BenchmarkView data | 60 |
+| CandidateResults | 3601 |
 | Included CandidateResults | 2113 |
-| Excluded CandidateResults | 1452 |
+| Excluded CandidateResults | 1488 |
 | Non-percent raw scores retained without normalization | 17 |
-| CostRecords retained | 3414 |
+| CostRecords retained | 3450 |
 | Included vals_index CostRecords | 36 |
-| Canonically unresolved rows | 2074 |
+| Canonically unresolved rows | 2082 |
 | Distinct canonically unresolved models | 235 |
 
 ## Per-page completeness
@@ -38,6 +38,7 @@
 | `fabv2` | 81 | APPROVED |
 | `fabv2-1` | 40 | EXCLUDED |
 | `finance_index` | 40 | EXCLUDED |
+| `financial-coaching-bench` | 28 | EXCLUDED |
 | `gpqa` | 138 | APPROVED |
 | `hlab` | 38 | APPROVED |
 | `hlab-v1` | 81 | EXCLUDED |
@@ -82,6 +83,7 @@
 | `vals_multimodal_index` | 33 | EXCLUDED |
 | `vals_router_index` | 0 | EXCLUDED |
 | `vcb-1-100` | 26 | EXCLUDED |
+| `vcb-1-100-v1-1` | 8 | EXCLUDED |
 | `vibe-code` | 128 | APPROVED |
 | `voice-code-bench` | 20 | EXCLUDED |
 | `web_search` | 12 | EXCLUDED |
@@ -132,6 +134,7 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `emb-v1-1`
 - `fabv2-1`
 - `finance_index`
+- `financial-coaching-bench`
 - `hlab-v1`
 - `immigration`
 - `inference_provider`
@@ -159,6 +162,7 @@ Roles are decided benchmark by benchmark: Vals-owned benchmark programs are ORGA
 - `vals_multimodal_index`
 - `vals_router_index`
 - `vcb-1-100`
+- `vcb-1-100-v1-1`
 - `voice-code-bench`
 - `web_search`
 
@@ -174,6 +178,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `cyber_offense` (not auto-promoted)
 - `emb-v1-1` (not auto-promoted)
 - `fabv2-1` (not auto-promoted)
+- `financial-coaching-bench` (not auto-promoted)
 - `hlab-v1` (not auto-promoted)
 - `immigration` (not auto-promoted)
 - `inference_provider` (not auto-promoted)
@@ -189,6 +194,7 @@ Unapproved pages whose `accuracy` field is not a 0–100 percentage (currently A
 - `terminal-bench-science` (not auto-promoted)
 - `vals_router_index` (not auto-promoted)
 - `vcb-1-100` (not auto-promoted)
+- `vcb-1-100-v1-1` (not auto-promoted)
 - `voice-code-bench` (not auto-promoted)
 
 ## Pages without BenchmarkView data
@@ -477,10 +483,10 @@ The N3a user ruling remains authoritative. The deferred multimodal watchlist inc
 
 | Check | Previous | Refreshed | Delta |
 |---|---:|---:|---:|
-| Benchmark slugs discovered from index | 63 | 63 | +0 |
-| CandidateResults | 3565 | 3565 | +0 |
-| CostRecords retained | 3414 | 3414 | +0 |
-| Canonically unresolved rows | 2084 | 2074 | -10 |
+| Benchmark slugs discovered from index | 63 | 65 | +2 |
+| CandidateResults | 3565 | 3601 | +36 |
+| CostRecords retained | 3414 | 3450 | +36 |
+| Canonically unresolved rows | 2074 | 2082 | +8 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 
@@ -500,6 +506,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | alibaba/qwen3.8-max | `vals-ai:emb-v1-1:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:emb:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:finance-agent-v2:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
+| alibaba/qwen3.8-max | `vals-ai:financial-coaching-bench:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:gpqa-diamond:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:hlab-v1:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
 | alibaba/qwen3.8-max | `vals-ai:immigration:alibaba-qwen3-8-max` | — | `xhigh` | deepswe | deepswe-1-1:mini-swe-agent-qwen3-8-max-xhigh |
@@ -553,6 +560,7 @@ This tagged section is generated deterministically for `vals-ai`. Raw `profile.e
 | minimax/MiniMax-M3 | `vals-ai:fabv2-1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:finance-agent-v2:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:finance-index:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
+| minimax/MiniMax-M3 | `vals-ai:financial-coaching-bench:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:gpqa-diamond:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:hlab-v1:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |
 | minimax/MiniMax-M3 | `vals-ai:immigration:minimax-minimax-m3` | — | `max` | zapier-automationbench | zapier-automationbench:automationbench:minimax-m3-max-rank-110:1-0-6 |

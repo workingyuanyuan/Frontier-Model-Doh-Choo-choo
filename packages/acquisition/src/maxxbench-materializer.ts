@@ -57,6 +57,105 @@ interface Trial {
   cost: number | null;
 }
 
+/**
+ * Since 2026-11-14 the page embeds `completionData` (a JSON string) instead of
+ * `trials`. Each curve lists, per model, `[modelId, taskCount, [x0, y0, x1,
+ * y1, ...]]`: one point per passed attempt, x ascending (the attempt's cost,
+ * output tokens or agent steps) and y the cumulative tasks solved, rising by
+ * 1 / evaluations per attempt; attempts with equal x may share a point.
+ * Failed attempts and task IDs are not published.
+ */
+type CompletionCurve = [string, number, number[]];
+const COMPLETION_CURVES = [
+  'averageCost',
+  'outputTokens',
+  'agentSteps',
+] as const;
+type CompletionData = Partial<
+  Record<(typeof COMPLETION_CURVES)[number], CompletionCurve[]>
+>;
+
+function readCompletionData(value: unknown): CompletionData | null {
+  if (value === undefined) return null;
+  const data = (
+    typeof value === 'string' ? JSON.parse(value) : value
+  ) as CompletionData | null;
+  if (
+    data === null ||
+    typeof data !== 'object' ||
+    !Array.isArray(data.averageCost)
+  )
+    throw new Error('MaxxBench completionData averageCost curve missing');
+  for (const name of COMPLETION_CURVES) {
+    const curve = data[name];
+    if (curve === undefined) continue;
+    if (
+      !Array.isArray(curve) ||
+      curve.some(
+        (entry) =>
+          !Array.isArray(entry) ||
+          entry.length !== 3 ||
+          typeof entry[0] !== 'string' ||
+          !Array.isArray(entry[2]),
+      )
+    )
+      throw new Error(`Invalid MaxxBench completionData ${name} curve`);
+    if (new Set(curve.map((entry) => entry[0])).size !== curve.length)
+      throw new Error(`Duplicate MaxxBench completionData ${name} model IDs`);
+  }
+  return data;
+}
+
+/**
+ * Check a model's passed-attempt curve and return the sum of x over all passed
+ * attempts. Attempts with equal x may share one point (agent steps are
+ * integers), so each point covers (y step × evaluations) attempts.
+ */
+function checkCompletionCurve(
+  data: CompletionData,
+  name: (typeof COMPLETION_CURVES)[number],
+  model: Model,
+): number | null {
+  const entry = data[name]?.find((item) => item[0] === model.id);
+  if (!entry) {
+    // A supplied curve must cover every model with passing attempts; only a
+    // wholly absent secondary curve is tolerated.
+    if (
+      name === 'averageCost' ||
+      (data[name] !== undefined && model.passed > 0)
+    )
+      throw new Error(`MaxxBench completion curve missing ${model.id}`);
+    return null;
+  }
+  const [, taskCount, flat] = entry;
+  let attempts = 0;
+  let total = 0;
+  let previousX = -Infinity;
+  let valid = taskCount === model.taskCount && flat.length % 2 === 0;
+  for (let index = 0; valid && index < flat.length; index += 2) {
+    const x: unknown = flat[index];
+    const y: unknown = flat[index + 1];
+    if (typeof x !== 'number' || typeof y !== 'number') {
+      valid = false;
+      break;
+    }
+    const count = Math.round(y * model.evaluations) - attempts;
+    valid =
+      Number.isFinite(x) &&
+      x >= 0 &&
+      x >= previousX &&
+      count >= 1 &&
+      Math.abs(y - (attempts + count) / model.evaluations) <= 1e-9;
+    if (!valid) break;
+    attempts += count;
+    total += x * count;
+    previousX = x;
+  }
+  if (!valid || attempts !== model.passed)
+    throw new Error(`MaxxBench completion curve disagrees ${model.id} ${name}`);
+  return total;
+}
+
 export function materializeMaxxBench(
   html: string,
   context: { evidenceId: string; observedAt: string; visualRowCount: number },
@@ -77,18 +176,22 @@ export function materializeMaxxBench(
   if (!encoded) throw new Error('MaxxBench leaderboard props missing');
   const data = decodeAstro(JSON.parse(decodeHtml(encoded))) as {
     models: Model[];
-    trials: Trial[];
+    trials?: Trial[];
+    completionData?: unknown;
   };
+  const trialData = Array.isArray(data.trials) ? data.trials : null;
+  const completion = trialData ? null : readCompletionData(data.completionData);
   if (
     !Array.isArray(data.models) ||
     !data.models.length ||
-    !Array.isArray(data.trials)
+    (!trialData && !completion)
   ) {
-    throw new Error('MaxxBench models or trials missing');
+    throw new Error('MaxxBench models and trials or completionData missing');
   }
   if (
     new Set(data.models.map((model) => model.id)).size !== data.models.length ||
-    new Set(data.trials.map((trial) => trial.id)).size !== data.trials.length
+    (trialData &&
+      new Set(trialData.map((trial) => trial.id)).size !== trialData.length)
   ) {
     throw new Error('Duplicate MaxxBench model or trial IDs');
   }
@@ -150,43 +253,77 @@ export function materializeMaxxBench(
         `MaxxBench visible identity or score mismatch ${model.id}`,
       );
     }
-    const trials = data.trials.filter((trial) => trial.modelId === model.id);
-    const tasks = new Map<string, number>();
-    for (const trial of trials) {
-      if (
-        typeof trial.taskId !== 'string' ||
-        !['passed', 'failed'].includes(trial.outcome)
-      ) {
-        throw new Error(`Incomplete MaxxBench trial ${trial.id}`);
+    let costLocator: string;
+    if (trialData) {
+      const trials = trialData.filter((trial) => trial.modelId === model.id);
+      const tasks = new Map<string, number>();
+      for (const trial of trials) {
+        if (
+          typeof trial.taskId !== 'string' ||
+          !['passed', 'failed'].includes(trial.outcome)
+        ) {
+          throw new Error(`Incomplete MaxxBench trial ${trial.id}`);
+        }
+        tasks.set(trial.taskId, (tasks.get(trial.taskId) ?? 0) + 1);
       }
-      tasks.set(trial.taskId, (tasks.get(trial.taskId) ?? 0) + 1);
-    }
-    if (
-      trials.length !== model.attempts ||
-      tasks.size !== model.taskCount ||
-      [...tasks.values()].some((count) => count !== model.evaluations) ||
-      trials.filter((trial) => trial.outcome === 'passed').length !==
-        model.passed
-    ) {
-      throw new Error(`MaxxBench trial totals disagree ${model.id}`);
+      if (
+        trials.length !== model.attempts ||
+        tasks.size !== model.taskCount ||
+        [...tasks.values()].some((count) => count !== model.evaluations) ||
+        trials.filter((trial) => trial.outcome === 'passed').length !==
+          model.passed
+      ) {
+        throw new Error(`MaxxBench trial totals disagree ${model.id}`);
+      }
+      if (
+        model.averageCost !== null &&
+        (trials.some(
+          (trial) =>
+            trial.cost === null ||
+            !Number.isFinite(trial.cost) ||
+            trial.cost < 0,
+        ) ||
+          Math.abs(
+            trials.reduce((total, trial) => total + trial.cost!, 0) /
+              trials.length -
+              model.averageCost,
+          ) > 1e-9)
+      ) {
+        throw new Error(`MaxxBench mean attempt cost mismatch ${model.id}`);
+      }
+      costLocator = `arithmetic mean of all ${trials.length} trials[].cost`;
+    } else {
+      const passedCost = checkCompletionCurve(
+        completion!,
+        'averageCost',
+        model,
+      );
+      checkCompletionCurve(completion!, 'outputTokens', model);
+      checkCompletionCurve(completion!, 'agentSteps', model);
+      // Failed attempts' costs are unpublished, so the mean cannot be
+      // recomputed; it can only be bounded below by the passed attempts.
+      // When every attempt passed, the curve holds every cost and the mean
+      // is exact.
+      if (
+        model.averageCost !== null &&
+        (passedCost! > model.averageCost * model.attempts + 1e-9 ||
+          (model.passed === model.attempts &&
+            Math.abs(passedCost! / model.attempts - model.averageCost) >
+              1e-9 * Math.max(1, model.averageCost)))
+      ) {
+        throw new Error(`MaxxBench mean attempt cost mismatch ${model.id}`);
+      }
+      costLocator =
+        model.passed === model.attempts
+          ? `arithmetic mean of all ${model.attempts} passed-attempt costs in completionData.averageCost`
+          : `mean over all ${model.attempts} attempts; at least the sum of the ${model.passed} passed-attempt costs in completionData.averageCost`;
     }
     if (model.averageCost !== null) {
       if (
         !Number.isFinite(model.averageCost) ||
         model.averageCost < 0 ||
         displayedCost === undefined ||
-        Number(displayedCost) !== Number(model.averageCost.toFixed(2)) ||
-        trials.some(
-          (trial) =>
-            trial.cost === null ||
-            !Number.isFinite(trial.cost) ||
-            trial.cost < 0,
-        ) ||
-        Math.abs(
-          trials.reduce((total, trial) => total + trial.cost!, 0) /
-            trials.length -
-            model.averageCost,
-        ) > 1e-9
+        Number(displayedCost) !== Number(model.averageCost.toFixed(2))
       ) {
         throw new Error(`MaxxBench mean attempt cost mismatch ${model.id}`);
       }
@@ -272,7 +409,7 @@ export function materializeMaxxBench(
           provenance: {
             cost: {
               ...provenance,
-              locator: `${locator}.averageCost; arithmetic mean of all ${trials.length} trials[].cost`,
+              locator: `${locator}.averageCost; ${costLocator}`,
             },
             profile: provenance,
           },
@@ -299,7 +436,9 @@ export function materializeMaxxBench(
       `- Embedded configurations ${data.models.length}`,
       `- Materialized costs ${costs.length}`,
       '- Every visible name, effort, one-decimal score and two-decimal cost matches the embedded data.',
-      '- Every selected score equals passed / attempts × 100. Task counts, repetitions and mean costs match completed trial records.',
+      trialData
+        ? '- Every selected score equals passed / attempts × 100. Task counts, repetitions and mean costs match completed trial records.'
+        : '- Every selected score equals passed / attempts × 100. The embedded completionData curves (cost, output tokens, agent steps) each account for exactly `passed` attempts for the stated task count, with the solved-task count rising in steps of 1 / repetitions. Mean cost is at least the sum of the passed-attempt costs divided by all attempts; failed-attempt costs and task IDs are not published, so the mean itself and per-task repetition counts cannot be recomputed.',
       '',
       '## Scope and settings',
       '',

@@ -109,6 +109,8 @@ export interface ArtificialAnalysisMaterializeResult {
   validationReport: string;
   pageRows: number;
   activeRows: number;
+  /** Slugified row keys of the eligible profiles, as used in candidate IDs. */
+  activeProfileKeys: string[];
   intelligenceIndexRows: number;
   gdpvalRows: number;
   taskCostRows: number;
@@ -1803,6 +1805,7 @@ export const materializeArtificialAnalysisRsc = (
     validationReport,
     pageRows,
     activeRows,
+    activeProfileKeys: activeEntries.map(([key]) => slugify(key)).toSorted(),
     intelligenceIndexRows,
     gdpvalRows,
     taskCostRows,
@@ -1810,5 +1813,64 @@ export const materializeArtificialAnalysisRsc = (
     unresolvedCandidates,
     apiComparison,
     warnings,
+  };
+};
+
+const BRIEFCASE_ID_PREFIX = `${SOURCE_ID}:aa-briefcase:`;
+
+/**
+ * Carry forward AA-Briefcase rubric rows the source stopped exposing.
+ *
+ * Since 2026-11-14 the model-detail payloads give only the Briefcase Elo, and
+ * the evaluation page lists the rubric pass rate for a subset of profiles. A
+ * previous rubric row is kept unchanged (score, observedAt, Evidence) only when
+ * today's capture has no row with the same ID, the same profile slug is still
+ * an eligible (non-deleted, in-window, newest-build) profile today, and no
+ * current rubric row already covers the same canonical model and effort.
+ * Profiles AA no longer lists, or now filters out, are not retained.
+ */
+export const retainArtificialAnalysisBriefcaseRows = (
+  current: readonly CandidateResult[],
+  previous: readonly CandidateResult[],
+  activeProfileKeys: readonly string[],
+): { candidates: CandidateResult[]; retained: CandidateResult[] } => {
+  const isRubric = (row: CandidateResult) =>
+    row.sourceId === SOURCE_ID &&
+    row.benchmarkId === 'aa-briefcase' &&
+    row.metric.id === 'rubric-score' &&
+    row.id.startsWith(BRIEFCASE_ID_PREFIX);
+  // Effort when known; otherwise the exact resolved profile, so a renamed
+  // slug with null effort cannot sit beside its replacement.
+  const identity = (row: CandidateResult): string | null => {
+    if (row.model.canonicalModelId === null) return null;
+    if (row.profile.effort !== null)
+      return JSON.stringify([row.model.canonicalModelId, row.profile.effort]);
+    return row.model.profileId
+      ? JSON.stringify([
+          row.model.canonicalModelId,
+          'profile',
+          row.model.profileId,
+        ])
+      : null;
+  };
+  const currentIds = new Set(current.map(({ id }) => id));
+  const currentIdentities = new Set(
+    current
+      .filter(isRubric)
+      .map(identity)
+      .filter((value): value is string => value !== null),
+  );
+  const active = new Set(activeProfileKeys);
+  const retained = previous.filter((row) => {
+    if (!isRubric(row) || currentIds.has(row.id)) return false;
+    if (!active.has(row.id.slice(BRIEFCASE_ID_PREFIX.length))) return false;
+    const key = identity(row);
+    return key === null || !currentIdentities.has(key);
+  });
+  return {
+    candidates: [...current, ...retained].toSorted((left, right) =>
+      left.id.localeCompare(right.id),
+    ),
+    retained,
   };
 };

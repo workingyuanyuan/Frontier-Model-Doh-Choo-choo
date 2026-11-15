@@ -119,7 +119,7 @@ pnpm --filter @llm-bench/acquisition materialize:effort-reports
 
 ComplexConstraints／Riemann-bench 刷新會保留當期榜單移除的既有列及其原始 Evidence，並將新列的明示版本寫入 `benchmarkVersion`。預設以工作區前一份快照為基準；若本次中途物化已覆蓋前一份快照，可加 `--baseline-directory=artifacts/research/<日期>-benchmark-check/import-baseline/sources/<source-id>` 指向本任務匯入前保存的來源目錄。保留列與當期可見列數分開記錄，保留列不算新版重測；方法見 [資料方法](DATA_METHODOLOGY.md#擷取與刷新)。
 
-MaxxBench 先以瀏覽器核對預設榜單可見列數，再傳入 `--visual-row-count`；擷取器會核對可見列、嵌入資料及每次試跑。BioBasicsBench 使用已審閱的官方頁面瀏覽器 DOM／RSC 圖表摘錄，命令只離線物化該摘錄；更新前需重新擷取並審核完整圖表及官方文字表格，保留實際擷取時間，不能把摘錄當成原始 HTTP bytes。
+MaxxBench 先以瀏覽器核對預設榜單可見列數，再傳入 `--visual-row-count`；擷取器會核對可見列、嵌入資料及每次試跑。2026-11-14 起頁面以 `completionData`（cost、output tokens、agent steps 三條通過試跑累積曲線）取代 `trials`：每條曲線須涵蓋恰好 `passed` 次通過試跑、題數等於 `taskCount`、解題數以 1／重複次數遞增；失敗試跑的成本與題目 ID 不再公開，平均成本只能以「通過試跑成本總和 ≤ 平均成本 × attempts」作下界核對，並須與畫面上的兩位小數成本一致。舊 artifact 含 `trials` 時仍使用完整的逐次核對。BioBasicsBench 使用已審閱的官方頁面瀏覽器 DOM／RSC 圖表摘錄，命令只離線物化該摘錄；更新前需重新擷取並審核完整圖表及官方文字表格，保留實際擷取時間，不能把摘錄當成原始 HTTP bytes。
 
 SWE Atlas 刷新先以瀏覽器核對預設 Overall 榜的可見列數，再傳入 `--visual-row-count`。擷取器以完整 HTML 的 Next RSC `overall` 分頁物化 `swe-atlas` v1.1，保留原始百分比分數；QnA、Test Writing、Refactoring 保存於原始 artifact。信賴區間欄位保存在 Evidence metadata 與 provenance，未公布的 confidence level、缺少的下界及未明示的 effort 保持缺值。模型只以 catalog 的精確名稱／alias 對應既有身分。
 
@@ -140,7 +140,7 @@ pnpm report:source-changes -- --check
 
 輸出為 `data/source-monitoring/REPORT.md`、`current.json` 及 `state/<source-id>.json`；原始目錄回應保存到內容定址 artifact，每次完整報告另留存於 `artifacts/source-monitoring/`。初次執行建立基準，既有未整合項目列入清單，但不冒稱是本次才新增。子集檢查保留其他來源報告及各自檢查時間。
 
-目錄清單區分是否登記擷取，以及 `scored`、`captured-not-scored`、`supported-no-scores`、`unintegrated`、`reviewed-deferred`。`scored` 指來源已有 INCLUDED 候選列，不保證其模型已通過產品的 identity、前沿資格與共同集合條件。版本只採官方目錄明示值；缺失保持 unknown。模型覆蓋使用 canonical ID；設定覆蓋保留來源名稱、effort、thinking、harness、tools、quantization、attempts 與 context window，總數不變的成員流失也會回報。
+目錄清單區分是否登記擷取，以及 `scored`、`captured-not-scored`、`supported-no-scores`、`unintegrated`、`reviewed-deferred`。`scored` 指來源已有 INCLUDED 候選列，不保證其模型已通過產品的 identity、前沿資格與共同集合條件。版本只採官方目錄明示值；缺失保持 unknown。模型覆蓋使用 canonical ID；設定覆蓋保留來源名稱、effort、thinking、harness、tools、quantization、attempts 與 context window，總數不變的成員流失也會回報。快照摘要另記 `includedRetainedRows`（`observedAt` 早於來源 `lastVerifiedAt` 的 INCLUDED 列，即刷新沿用而非本次重新觀測的列，例如 Surge、FrontierCode 1.1 與 AA-Briefcase 的保留列；離線來源保留原擷取時間的列也計入）；此數增加時回報 `retained-rows-increased`，因此保留讓 `includedRows` 不變時，來源停止公布數值仍會被看見。舊狀態檔沒有此欄位時不比較。
 
 `data/mappings/source-monitoring.json` 的 `deferred` 保存明確的暫緩決定與原因；`integrated` 記錄依使用者決定整合的目錄項目（例如 2026-10-28 的 AA Intelligence Index v5 評測），只作為報告的審閱註記，不改變狀態判定，刷新產生成績前仍列為待處理。新 benchmark 的發現不會自動改變維度、來源優先序或計分政策；依使用者決定完成整合及驗證後再採用。暫緩項目若發生目錄版本變動仍會出現在差異報告中。
 
@@ -171,6 +171,8 @@ pnpm --filter @llm-bench/acquisition materialize:vendor-releases -- --openai-cap
 上述 AA、LiveBench、DeepSWE、Frontier Code 四個命令必須先核對渲染後頁面的可見母體數，並把實測值傳入。Artificial Analysis 的命令會組合 evaluation RSC、`/models` 與現役 profile 的
 `/models/<slug>` detail payload；`ARTIFICIAL_ANALYSIS_API_KEY` 僅從 gitignored
 `.env.local` 讀取，官方 API 失效時記錄 warning，不阻斷頁面管道。
+
+AA-Briefcase 保留：2026-11-14 起 AA 的 model detail payload 只提供 Briefcase Elo（`briefcaseBreakdown.overall`），不再有 `rubricPassRate`；`/evaluations/aa-briefcase` 仍有 rubric，但只列部分 profile。依「來源移除欄位時保留既有資料」，刷新會把前一份快照中的 `aa-briefcase` rubric 列原樣帶入（分數、`observedAt`、Evidence 不變，Evidence 記錄一併留在 evidence index），條件是：本次擷取沒有同 ID 的列、同一 profile slug 本次仍是現役 profile（未刪除、在 release-date 範圍內、通過 newest-build 篩選），且本次沒有其他 rubric 列已涵蓋同一 canonical model 與 effort。本次有值一律採本次；AA 已不列出或已篩除的 profile 不保留。只適用 `aa-briefcase`，其他 AA benchmark 缺值仍保持缺值。預設以工作區前一份快照為基準；若本任務已先跑過一次 AA 而覆蓋快照，加 `--baseline-directory=<匯入前保存的 data/sources/artificial-analysis 目錄>`。本次觀測與保留列數寫入 manifest notes 與 validation report 的「AA-Briefcase rows retained」一節。
 
 Frontier Code 來源有兩個不同的 benchmark：FrontierCode 2.0（`frontier-code-2-0`）
 與 FrontierCode 1.1（`frontier-code-1-1`），兩者互不取代。2026-10-27 起主頁

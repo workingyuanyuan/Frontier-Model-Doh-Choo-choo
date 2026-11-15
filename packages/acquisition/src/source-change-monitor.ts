@@ -35,6 +35,13 @@ export interface BenchmarkSnapshot {
   profiles: string[];
   rawLabels: string[];
   includedRows: number;
+  /**
+   * INCLUDED rows observed before the snapshot's verification time: rows a
+   * refresh carried forward instead of re-observing (Surge, FrontierCode 1.1,
+   * AA-Briefcase). Offline sources whose rows keep their capture time count
+   * here too. Absent in states written before this field existed.
+   */
+  includedRetainedRows?: number;
   rows: number;
 }
 export interface SourceSnapshot {
@@ -189,6 +196,12 @@ export function summarizeSource(
           ),
         ),
         includedRows: rows.filter((row) => row.inclusion === 'INCLUDED').length,
+        includedRetainedRows: rows.filter(
+          (row) =>
+            row.inclusion === 'INCLUDED' &&
+            observedAt !== null &&
+            Date.parse(row.observedAt) < Date.parse(observedAt),
+        ).length,
         rows: rows.length,
       };
     }),
@@ -292,6 +305,18 @@ export function compareSnapshots(
         kind: 'included-coverage-decreased',
         benchmarkId: old.id,
         detail: `${old.includedRows} -> ${current.includedRows} included rows`,
+      });
+    // Retention keeps includedRows steady while the source stops publishing
+    // values, so report rows that were carried forward rather than re-observed.
+    if (
+      old.includedRetainedRows !== undefined &&
+      current.includedRetainedRows !== undefined &&
+      current.includedRetainedRows > old.includedRetainedRows
+    )
+      findings.push({
+        kind: 'retained-rows-increased',
+        benchmarkId: old.id,
+        detail: `${old.includedRetainedRows} -> ${current.includedRetainedRows} included rows carried forward from earlier observations (${current.includedRows - current.includedRetainedRows} of ${current.includedRows} observed in this snapshot)`,
       });
   }
   for (const current of after.benchmarks) {

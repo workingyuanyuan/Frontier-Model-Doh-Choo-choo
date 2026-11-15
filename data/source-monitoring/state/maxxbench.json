@@ -1,19 +1,21 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-13T04:46:11.044Z",
+  "checkedAt": "2026-11-15T04:11:48.660Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
     "benchmarks": [
       {
         "id": "maxxbench",
-        "includedRows": 15,
+        "includedRetainedRows": 0,
+        "includedRows": 17,
         "metrics": ["task-success-rate:percent:true"],
         "models": [
           "anthropic-claude-fable-5",
           "anthropic-claude-opus-5",
           "anthropic-claude-opus-5-5",
           "anthropic-claude-sonnet-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
           "deepseek-deepseek-v4-flash",
           "google-gemini-3-8-flash",
           "meta-muse-spark-1-2",
@@ -24,10 +26,12 @@
         ],
         "profiles": [
           "[\"Claude Fable 5\",\"xhigh\",null,null,null,null,2,null]",
+          "[\"Claude Haiku 5.5\",\"max\",null,null,null,null,4,null]",
           "[\"Claude Opus 5\",\"max\",null,null,null,null,2,null]",
           "[\"Claude Opus 5.5\",\"max\",null,null,null,null,2,null]",
           "[\"Claude Sonnet 5.5\",\"max\",null,null,null,null,2,null]",
           "[\"DeepSeek V4 Flash\",\"max\",null,null,null,null,2,null]",
+          "[\"DeepSeek V4.1 Flash 1017\",\"max\",null,null,null,null,4,null]",
           "[\"DeepSeek V4.1 Flash\",\"max\",null,null,null,null,2,null]",
           "[\"GLM-5.3 Flash\",\"max\",null,null,null,null,2,null]",
           "[\"GLM-5.3\",\"max\",null,null,null,null,2,null]",
@@ -41,11 +45,13 @@
         ],
         "rawLabels": [
           "Claude Fable 5",
+          "Claude Haiku 5.5",
           "Claude Opus 5",
           "Claude Opus 5.5",
           "Claude Sonnet 5.5",
           "DeepSeek V4 Flash",
           "DeepSeek V4.1 Flash",
+          "DeepSeek V4.1 Flash 1017",
           "GLM-5.3",
           "GLM-5.3 Flash",
           "GPT-5.6 Luna",
@@ -56,12 +62,12 @@
           "Muse Spark 1.2",
           "Qwen3.8 Flash Next"
         ],
-        "rows": 15,
+        "rows": 17,
         "sourceUrls": ["https://maxxbench.unlap.ai/"],
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-13T04:46:09.645Z",
+    "observedAt": "2026-11-15T04:11:47.443Z",
     "sourceId": "maxxbench"
   }
 }

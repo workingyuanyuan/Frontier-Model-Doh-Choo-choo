@@ -164,6 +164,27 @@ describe('source change comparisons', () => {
     ]);
   });
 
+  it('reports included rows carried forward instead of re-observed', () => {
+    const earlier = '2026-10-01T00:00:00.000Z';
+    const retained = candidate({ id: 'retained', observedAt: earlier });
+    const fresh = candidate({ id: 'fresh' });
+    const after = snapshot([fresh, retained]);
+    expect(after.benchmarks[0]?.includedRetainedRows).toBe(1);
+    expect(compareSnapshots(snapshot([fresh, fresh]), after)).toEqual([
+      {
+        kind: 'retained-rows-increased',
+        benchmarkId: 'chartography',
+        detail:
+          '0 -> 1 included rows carried forward from earlier observations (1 of 2 observed in this snapshot)',
+      },
+    ]);
+    const { includedRetainedRows: _, ...legacy } = snapshot([fresh, fresh])
+      .benchmarks[0]!;
+    expect(compareSnapshots({ ...after, benchmarks: [legacy] }, after)).toEqual(
+      [],
+    );
+  });
+
   it('detects added and removed catalog entries', () => {
     expect(
       compareCatalogs([catalog()], [catalog('new-benchmark')]).map(

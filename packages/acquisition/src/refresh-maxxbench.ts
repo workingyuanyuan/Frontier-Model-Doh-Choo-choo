@@ -37,7 +37,7 @@ async function main() {
     method: 'EMBEDDED_JSON',
     metadata: {
       captureScope:
-        'complete HTML with Astro leaderboard and evaluation trials',
+        'complete HTML with Astro leaderboard and embedded attempt data (completionData curves; trials before 2026-11-14)',
       renderedRows: visualRowCount,
     },
   });
@@ -63,7 +63,7 @@ async function main() {
     accessMethods: ['EMBEDDED_JSON', 'DOM'],
     completeness: {
       expectedCountMethod:
-        'Match each default visible leaderboard row to Astro models and verify aggregate values against all evaluation trials.',
+        'Match each default visible leaderboard row to Astro models and verify aggregate values against the embedded attempt data: completionData passed-attempt curves (since 2026-11-14; mean cost is bounded below only) or, on older captures, all evaluation trials.',
       pagination: null,
       visibleComparisonRequired: true,
     },
@@ -91,7 +91,7 @@ async function main() {
       join(directory, 'candidates.json'),
       deterministicJson(result.candidates),
     ),
-    writeFile(join(directory, 'costs.json'), deterministicJson(result.costs)),
+    writeMetadataJson(join(directory, 'costs.json'), result.costs),
     writeFile(join(directory, 'validation-report.md'), result.validationReport),
   ]);
   console.log(

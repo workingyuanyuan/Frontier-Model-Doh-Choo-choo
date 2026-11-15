@@ -4,8 +4,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## anthropic-releases
 
-- Checked: 2026-11-13T04:50:59.148Z
-- Stored score snapshot: 2026-11-13T04:50:56.699Z
+- Checked: 2026-11-14T12:18:34.169Z
+- Stored score snapshot: 2026-11-14T12:18:31.244Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -14,8 +14,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## arc-prize
 
-- Checked: 2026-11-13T04:50:20.306Z
-- Stored score snapshot: 2026-11-13T04:50:17.812Z
+- Checked: 2026-11-14T12:16:59.929Z
+- Stored score snapshot: 2026-11-14T12:16:58.266Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -24,30 +24,32 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## artificial-analysis
 
-- Checked: 2026-11-13T05:13:30.131Z
-- Stored score snapshot: 2026-11-13T05:10:48.813Z
+- Checked: 2026-11-15T04:11:44.892Z
+- Stored score snapshot: 2026-11-15T04:10:25.101Z
 - Scope: live-catalog-and-snapshot
 
-| Finding                           | Benchmark             | Detail                                                          |
-| --------------------------------- | --------------------- | --------------------------------------------------------------- |
-| unintegrated                      | aa-3d                 | https://artificialanalysis.ai/evaluations/aa-3d                 |
-| unintegrated                      | aa-analyst-agent      | https://artificialanalysis.ai/evaluations/aa-analyst-agent      |
-| unintegrated                      | aa-personalitybench   | https://artificialanalysis.ai/evaluations/aa-personalitybench   |
-| unintegrated                      | aime-2025             | https://artificialanalysis.ai/evaluations/aime-2025             |
-| unintegrated                      | code2video-aa         | https://artificialanalysis.ai/evaluations/code2video-aa         |
-| unintegrated                      | enterprise-ops-gym-aa | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa |
-| unintegrated                      | frontiercode          | https://artificialanalysis.ai/evaluations/frontiercode          |
-| unintegrated                      | global-mmlu-lite      | https://artificialanalysis.ai/evaluations/global-mmlu-lite      |
-| unintegrated                      | harvey-lab-aa         | https://artificialanalysis.ai/evaluations/harvey-lab-aa         |
-| unintegrated                      | healthbench           | https://artificialanalysis.ai/evaluations/healthbench           |
-| unintegrated                      | itbench-aa            | https://artificialanalysis.ai/evaluations/itbench-aa            |
-| unintegrated                      | math-500              | https://artificialanalysis.ai/evaluations/math-500              |
-| unintegrated                      | mlcr-aa               | https://artificialanalysis.ai/evaluations/mlcr-aa               |
-| unintegrated                      | mmmu-pro              | https://artificialanalysis.ai/evaluations/mmmu-pro              |
-| catalog-snapshot-version-mismatch | omniscience           | Directory v1.1; stored scores (unknown)                         |
-| unintegrated                      | tau2-bench            | https://artificialanalysis.ai/evaluations/tau2-bench            |
-| unintegrated                      | terminalbench-hard    | https://artificialanalysis.ai/evaluations/terminalbench-hard    |
-| unintegrated                      | vials-aa              | https://artificialanalysis.ai/evaluations/vials-aa              |
+| Finding                           | Benchmark             | Detail                                                                                 |
+| --------------------------------- | --------------------- | -------------------------------------------------------------------------------------- |
+| profiles-lost                     | aa-briefcase          | 194 -\> 193; missing 1: \["Qwen3.8 Max",null,"reasoning",null,null,null,null,1000000\] |
+| included-coverage-decreased       | aa-briefcase          | 194 -\> 193 included rows                                                              |
+| unintegrated                      | aa-3d                 | https://artificialanalysis.ai/evaluations/aa-3d                                        |
+| unintegrated                      | aa-analyst-agent      | https://artificialanalysis.ai/evaluations/aa-analyst-agent                             |
+| unintegrated                      | aa-personalitybench   | https://artificialanalysis.ai/evaluations/aa-personalitybench                          |
+| unintegrated                      | aime-2025             | https://artificialanalysis.ai/evaluations/aime-2025                                    |
+| unintegrated                      | code2video-aa         | https://artificialanalysis.ai/evaluations/code2video-aa                                |
+| unintegrated                      | enterprise-ops-gym-aa | https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa                        |
+| unintegrated                      | frontiercode          | https://artificialanalysis.ai/evaluations/frontiercode                                 |
+| unintegrated                      | global-mmlu-lite      | https://artificialanalysis.ai/evaluations/global-mmlu-lite                             |
+| unintegrated                      | harvey-lab-aa         | https://artificialanalysis.ai/evaluations/harvey-lab-aa                                |
+| unintegrated                      | healthbench           | https://artificialanalysis.ai/evaluations/healthbench                                  |
+| unintegrated                      | itbench-aa            | https://artificialanalysis.ai/evaluations/itbench-aa                                   |
+| unintegrated                      | math-500              | https://artificialanalysis.ai/evaluations/math-500                                     |
+| unintegrated                      | mlcr-aa               | https://artificialanalysis.ai/evaluations/mlcr-aa                                      |
+| unintegrated                      | mmmu-pro              | https://artificialanalysis.ai/evaluations/mmmu-pro                                     |
+| catalog-snapshot-version-mismatch | omniscience           | Directory v1.1; stored scores (unknown)                                                |
+| unintegrated                      | tau2-bench            | https://artificialanalysis.ai/evaluations/tau2-bench                                   |
+| unintegrated                      | terminalbench-hard    | https://artificialanalysis.ai/evaluations/terminalbench-hard                           |
+| unintegrated                      | vials-aa              | https://artificialanalysis.ai/evaluations/vials-aa                                     |
 
 | Source catalog entry                                                                                                              | Capture registered | Integration       | Benchmark ID                           | Review note                                                                                                                                                                                                                                                                                          |
 | --------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -104,8 +106,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## deepswe
 
-- Checked: 2026-11-13T04:49:31.696Z
-- Stored score snapshot: 2026-11-13T04:49:30.942Z
+- Checked: 2026-11-14T12:18:40.522Z
+- Stored score snapshot: 2026-11-14T12:18:40.149Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -114,8 +116,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## epoch-ai
 
-- Checked: 2026-11-13T04:50:16.355Z
-- Stored score snapshot: 2026-11-13T04:50:14.249Z
+- Checked: 2026-11-14T12:15:54.477Z
+- Stored score snapshot: 2026-11-14T12:15:52.706Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -124,8 +126,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-code
 
-- Checked: 2026-11-13T05:09:47.970Z
-- Stored score snapshot: 2026-11-13T05:09:47.244Z
+- Checked: 2026-11-14T12:18:45.796Z
+- Stored score snapshot: 2026-11-14T12:18:45.248Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -134,8 +136,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## frontier-swe
 
-- Checked: 2026-11-13T05:09:55.086Z
-- Stored score snapshot: 2026-11-13T05:09:49.706Z
+- Checked: 2026-11-14T12:15:51.184Z
+- Stored score snapshot: 2026-11-14T12:15:47.518Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -154,8 +156,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## livebench
 
-- Checked: 2026-11-13T05:09:45.295Z
-- Stored score snapshot: 2026-11-13T05:09:42.916Z
+- Checked: 2026-11-14T12:18:28.650Z
+- Stored score snapshot: 2026-11-14T12:18:27.016Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -164,8 +166,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## maxxbench
 
-- Checked: 2026-11-13T04:46:11.044Z
-- Stored score snapshot: 2026-11-13T04:46:09.645Z
+- Checked: 2026-11-15T04:11:48.660Z
+- Stored score snapshot: 2026-11-15T04:11:47.443Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -174,7 +176,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## openai-releases
 
-- Checked: 2026-11-13T04:50:59.148Z
+- Checked: 2026-11-14T12:18:34.169Z
 - Stored score snapshot: 2026-10-04T04:31:17.114Z
 - Scope: snapshot-only
 
@@ -184,8 +186,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## scale-swe-atlas
 
-- Checked: 2026-11-13T04:49:33.828Z
-- Stored score snapshot: 2026-11-13T04:49:32.945Z
+- Checked: 2026-11-14T12:17:25.601Z
+- Stored score snapshot: 2026-11-14T12:17:24.614Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
@@ -194,8 +196,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-chartography
 
-- Checked: 2026-11-13T04:49:59.746Z
-- Stored score snapshot: 2026-11-13T04:49:59.378Z
+- Checked: 2026-11-14T12:17:02.330Z
+- Stored score snapshot: 2026-11-14T12:17:02.030Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -221,8 +223,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-complex-constraints
 
-- Checked: 2026-11-13T04:50:01.699Z
-- Stored score snapshot: 2026-11-13T04:50:01.320Z
+- Checked: 2026-11-14T12:17:22.346Z
+- Stored score snapshot: 2026-11-14T12:17:22.034Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -248,8 +250,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-corecraft
 
-- Checked: 2026-11-13T04:50:03.469Z
-- Stored score snapshot: 2026-11-13T04:50:03.179Z
+- Checked: 2026-11-14T12:18:24.622Z
+- Stored score snapshot: 2026-11-14T12:18:24.158Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -275,8 +277,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-finance
 
-- Checked: 2026-11-13T04:50:07.092Z
-- Stored score snapshot: 2026-11-13T04:50:06.811Z
+- Checked: 2026-11-14T12:18:42.944Z
+- Stored score snapshot: 2026-11-14T12:18:42.613Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -302,8 +304,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-healthcare
 
-- Checked: 2026-11-13T04:50:09.022Z
-- Stored score snapshot: 2026-11-13T04:50:08.752Z
+- Checked: 2026-11-14T12:18:48.330Z
+- Stored score snapshot: 2026-11-14T12:18:48.000Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -329,8 +331,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-dayjob-tax
 
-- Checked: 2026-11-13T04:50:10.805Z
-- Stored score snapshot: 2026-11-13T04:50:10.511Z
+- Checked: 2026-11-14T12:18:51.043Z
+- Stored score snapshot: 2026-11-14T12:18:50.725Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -356,8 +358,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-gdp-xlsx
 
-- Checked: 2026-11-13T04:50:12.544Z
-- Stored score snapshot: 2026-11-13T04:50:12.319Z
+- Checked: 2026-11-14T12:18:53.661Z
+- Stored score snapshot: 2026-11-14T12:18:53.328Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -383,8 +385,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## surge-riemann
 
-- Checked: 2026-11-13T04:50:05.188Z
-- Stored score snapshot: 2026-11-13T04:50:04.955Z
+- Checked: 2026-11-14T12:18:37.882Z
+- Stored score snapshot: 2026-11-14T12:18:37.526Z
 - Scope: live-catalog-and-snapshot
 
 | Finding      | Benchmark | Detail                                |
@@ -410,45 +412,52 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## vals-ai
 
-- Checked: 2026-11-13T05:10:21.883Z
-- Stored score snapshot: 2026-11-13T05:09:59.781Z
+- Checked: 2026-11-14T12:18:19.395Z
+- Stored score snapshot: 2026-11-14T12:18:08.653Z
 - Scope: live-catalog-and-snapshot
 
-| Finding             | Benchmark                | Detail                                                  |
-| ------------------- | ------------------------ | ------------------------------------------------------- |
-| captured-not-scored | aime                     | https://www.vals.ai/benchmarks/aime                     |
-| captured-not-scored | biomysterybench          | https://www.vals.ai/benchmarks/biomysterybench          |
-| captured-not-scored | case_law_v2              | https://www.vals.ai/benchmarks/case_law_v2              |
-| captured-not-scored | claimbench               | https://www.vals.ai/benchmarks/claimbench               |
-| captured-not-scored | code-migration-v1-1      | https://www.vals.ai/benchmarks/code-migration-v1-1      |
-| captured-not-scored | cua_bench                | https://www.vals.ai/benchmarks/cua_bench                |
-| unintegrated        | cyber_offense            | https://www.vals.ai/benchmarks/cyber_offense            |
-| captured-not-scored | emb-v1-1                 | https://www.vals.ai/benchmarks/emb-v1-1                 |
-| captured-not-scored | fabv2-1                  | https://www.vals.ai/benchmarks/fabv2-1                  |
-| captured-not-scored | hlab-v1                  | https://www.vals.ai/benchmarks/hlab-v1                  |
-| captured-not-scored | immigration              | https://www.vals.ai/benchmarks/immigration              |
-| unintegrated        | inference_provider       | https://www.vals.ai/benchmarks/inference_provider       |
-| captured-not-scored | math500                  | https://www.vals.ai/benchmarks/math500                  |
-| captured-not-scored | medqa                    | https://www.vals.ai/benchmarks/medqa                    |
-| unintegrated        | mental-health            | https://www.vals.ai/benchmarks/mental-health            |
-| captured-not-scored | mgsm                     | https://www.vals.ai/benchmarks/mgsm                     |
-| captured-not-scored | mmmu                     | https://www.vals.ai/benchmarks/mmmu                     |
-| captured-not-scored | mortgage_tax             | https://www.vals.ai/benchmarks/mortgage_tax             |
-| captured-not-scored | mysterymechanism         | https://www.vals.ai/benchmarks/mysterymechanism         |
-| captured-not-scored | poker_agent              | https://www.vals.ai/benchmarks/poker_agent              |
-| captured-not-scored | public-benefits-bench-v1 | https://www.vals.ai/benchmarks/public-benefits-bench-v1 |
-| captured-not-scored | robo_bench               | https://www.vals.ai/benchmarks/robo_bench               |
-| unintegrated        | rsi_index                | https://www.vals.ai/benchmarks/rsi_index                |
-| captured-not-scored | sage                     | https://www.vals.ai/benchmarks/sage                     |
-| captured-not-scored | science_index            | https://www.vals.ai/benchmarks/science_index            |
-| captured-not-scored | srebench                 | https://www.vals.ai/benchmarks/srebench                 |
-| captured-not-scored | swebench-multimodal      | https://www.vals.ai/benchmarks/swebench-multimodal      |
-| captured-not-scored | tax_agent_bench          | https://www.vals.ai/benchmarks/tax_agent_bench          |
-| captured-not-scored | terminal-bench-2         | https://www.vals.ai/benchmarks/terminal-bench-2         |
-| captured-not-scored | terminal-bench-science   | https://www.vals.ai/benchmarks/terminal-bench-science   |
-| unintegrated        | vals_router_index        | https://www.vals.ai/benchmarks/vals_router_index        |
-| captured-not-scored | vcb-1-100                | https://www.vals.ai/benchmarks/vcb-1-100                |
-| captured-not-scored | voice-code-bench         | https://www.vals.ai/benchmarks/voice-code-bench         |
+| Finding                | Benchmark                | Detail                                                  |
+| ---------------------- | ------------------------ | ------------------------------------------------------- |
+| versions-changed       | vcb-1-100                | 1.0 -\> 1                                               |
+| benchmark-materialized | financial-coaching-bench | 28 rows; 0 included                                     |
+| benchmark-materialized | vcb-1-100-v1-1           | 8 rows; 0 included                                      |
+| catalog-added          | financial-coaching-bench | https://www.vals.ai/benchmarks/financial-coaching-bench |
+| catalog-added          | vcb-1-100-v1-1           | https://www.vals.ai/benchmarks/vcb-1-100-v1-1           |
+| captured-not-scored    | aime                     | https://www.vals.ai/benchmarks/aime                     |
+| captured-not-scored    | biomysterybench          | https://www.vals.ai/benchmarks/biomysterybench          |
+| captured-not-scored    | case_law_v2              | https://www.vals.ai/benchmarks/case_law_v2              |
+| captured-not-scored    | claimbench               | https://www.vals.ai/benchmarks/claimbench               |
+| captured-not-scored    | code-migration-v1-1      | https://www.vals.ai/benchmarks/code-migration-v1-1      |
+| captured-not-scored    | cua_bench                | https://www.vals.ai/benchmarks/cua_bench                |
+| unintegrated           | cyber_offense            | https://www.vals.ai/benchmarks/cyber_offense            |
+| captured-not-scored    | emb-v1-1                 | https://www.vals.ai/benchmarks/emb-v1-1                 |
+| captured-not-scored    | fabv2-1                  | https://www.vals.ai/benchmarks/fabv2-1                  |
+| captured-not-scored    | financial-coaching-bench | https://www.vals.ai/benchmarks/financial-coaching-bench |
+| captured-not-scored    | hlab-v1                  | https://www.vals.ai/benchmarks/hlab-v1                  |
+| captured-not-scored    | immigration              | https://www.vals.ai/benchmarks/immigration              |
+| unintegrated           | inference_provider       | https://www.vals.ai/benchmarks/inference_provider       |
+| captured-not-scored    | math500                  | https://www.vals.ai/benchmarks/math500                  |
+| captured-not-scored    | medqa                    | https://www.vals.ai/benchmarks/medqa                    |
+| unintegrated           | mental-health            | https://www.vals.ai/benchmarks/mental-health            |
+| captured-not-scored    | mgsm                     | https://www.vals.ai/benchmarks/mgsm                     |
+| captured-not-scored    | mmmu                     | https://www.vals.ai/benchmarks/mmmu                     |
+| captured-not-scored    | mortgage_tax             | https://www.vals.ai/benchmarks/mortgage_tax             |
+| captured-not-scored    | mysterymechanism         | https://www.vals.ai/benchmarks/mysterymechanism         |
+| captured-not-scored    | poker_agent              | https://www.vals.ai/benchmarks/poker_agent              |
+| captured-not-scored    | public-benefits-bench-v1 | https://www.vals.ai/benchmarks/public-benefits-bench-v1 |
+| captured-not-scored    | robo_bench               | https://www.vals.ai/benchmarks/robo_bench               |
+| unintegrated           | rsi_index                | https://www.vals.ai/benchmarks/rsi_index                |
+| captured-not-scored    | sage                     | https://www.vals.ai/benchmarks/sage                     |
+| captured-not-scored    | science_index            | https://www.vals.ai/benchmarks/science_index            |
+| captured-not-scored    | srebench                 | https://www.vals.ai/benchmarks/srebench                 |
+| captured-not-scored    | swebench-multimodal      | https://www.vals.ai/benchmarks/swebench-multimodal      |
+| captured-not-scored    | tax_agent_bench          | https://www.vals.ai/benchmarks/tax_agent_bench          |
+| captured-not-scored    | terminal-bench-2         | https://www.vals.ai/benchmarks/terminal-bench-2         |
+| captured-not-scored    | terminal-bench-science   | https://www.vals.ai/benchmarks/terminal-bench-science   |
+| unintegrated           | vals_router_index        | https://www.vals.ai/benchmarks/vals_router_index        |
+| captured-not-scored    | vcb-1-100                | https://www.vals.ai/benchmarks/vcb-1-100                |
+| captured-not-scored    | vcb-1-100-v1-1           | https://www.vals.ai/benchmarks/vcb-1-100-v1-1           |
+| captured-not-scored    | voice-code-bench         | https://www.vals.ai/benchmarks/voice-code-bench         |
 
 | Source catalog entry                                                                | Capture registered | Integration         | Benchmark ID             | Review note                                                                                                                    |
 | ----------------------------------------------------------------------------------- | ------------------ | ------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -468,6 +477,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [Finance Agent v2](https://www.vals.ai/benchmarks/fabv2)                            | yes                | scored              | finance-agent-v2         |                                                                                                                                |
 | [Finance Agent v2.1](https://www.vals.ai/benchmarks/fabv2-1)                        | yes                | captured-not-scored | fabv2-1                  |                                                                                                                                |
 | [Vals Finance Index](https://www.vals.ai/benchmarks/finance_index)                  | yes                | reviewed-deferred   | finance-index            | Composite retained separately; excluded from capability scoring by existing policy.                                            |
+| [Financial Coaching Bench](https://www.vals.ai/benchmarks/financial-coaching-bench) | yes                | captured-not-scored | financial-coaching-bench |                                                                                                                                |
 | [GPQA Diamond](https://www.vals.ai/benchmarks/gpqa)                                 | yes                | scored              | gpqa-diamond             |                                                                                                                                |
 | [HLAB-Vals-1.1](https://www.vals.ai/benchmarks/hlab)                                | yes                | scored              | hlab                     |                                                                                                                                |
 | [Harvey's Legal Agent Benchmark v1](https://www.vals.ai/benchmarks/hlab-v1)         | yes                | captured-not-scored | hlab-v1                  |                                                                                                                                |
@@ -512,6 +522,7 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 | [Vals Multimodal Index](https://www.vals.ai/benchmarks/vals_multimodal_index)       | yes                | reviewed-deferred   | vals-multimodal-index    | Composite retained separately; excluded from capability scoring by existing policy.                                            |
 | [Vals Router Index](https://www.vals.ai/benchmarks/vals_router_index)               | yes                | unintegrated        | —                        |                                                                                                                                |
 | [Vibe Code Bench 1-100](https://www.vals.ai/benchmarks/vcb-1-100)                   | yes                | captured-not-scored | vcb-1-100                |                                                                                                                                |
+| [Vibe Code Bench 1-100 v1.1](https://www.vals.ai/benchmarks/vcb-1-100-v1-1)         | yes                | captured-not-scored | vcb-1-100-v1-1           |                                                                                                                                |
 | [Vibe Code Bench v1.1](https://www.vals.ai/benchmarks/vibe-code)                    | yes                | scored              | vibe-code-bench          |                                                                                                                                |
 | [VoiceCodeBench](https://www.vals.ai/benchmarks/voice-code-bench)                   | yes                | captured-not-scored | voice-code-bench         |                                                                                                                                |
 | [Vals Web Search Index](https://www.vals.ai/benchmarks/web_search)                  | yes                | reviewed-deferred   | web-search               | Composite retained separately; excluded from capability scoring by existing policy.                                            |
@@ -528,8 +539,8 @@ Catalog observations and stored score snapshots have separate dates. Snapshot-on
 
 ## zapier-automationbench
 
-- Checked: 2026-11-13T05:09:57.779Z
-- Stored score snapshot: 2026-11-13T05:09:56.611Z
+- Checked: 2026-11-14T12:17:19.846Z
+- Stored score snapshot: 2026-11-14T12:17:17.403Z
 - Scope: snapshot-only
 
 | Finding | Benchmark | Detail                                           |
