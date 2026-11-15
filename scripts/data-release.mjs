@@ -54,7 +54,7 @@ const git = (...args) =>
 
 /** Outer audit status decides; nested gapAudit is informational (§3). */
 const assertAuditSelected = () => {
-  const audit = readJson('data/mappings/frontier-selection-audit.json');
+  const audit = readJson('data/derived/frontier-selection-audit.json');
   if (audit.status !== 'selected') {
     throw new Error(
       `frontier-selection-audit.json status is ${audit.status}, not selected`,
@@ -102,8 +102,7 @@ const STEPS = [
     command: ['pnpm', 'data:verify-fresh'],
   },
   {
-    // Some unit tests assert the saved snapshot (top ten, preset sizes); CI
-    // runs them too, so a release that skipped them could not be committed.
+    // Tests hold no current data values, so a pure refresh must pass unchanged.
     id: 'tests',
     title: 'Run unit tests against the rebuilt data',
     command: ['pnpm', 'test'],
@@ -343,7 +342,7 @@ export const runRelease = async () => {
       diff = diffProducts(previous, next);
       inferences = defaultPresetInferences(root, next);
       skipped =
-        readJson('data/mappings/frontier-set.json').eligibility?.skipped ?? [];
+        readJson('data/derived/frontier-set.json').eligibility?.skipped ?? [];
       writeJsonAtomic(`${runDir}/diff.json`, { diff, inferences, skipped });
     }
     writeFileSync(

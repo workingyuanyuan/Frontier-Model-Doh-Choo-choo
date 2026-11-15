@@ -61,7 +61,8 @@ packages/benchmark-data
 
 ### `data`
 
-- `mappings/`：可修改的 Benchmark、模型 alias、Frontier 與 Profile policy。
+- `mappings/`：人工審核的政策，包含 Benchmark 分類與品質、模型 alias、前沿身分、Profile policy 與來源白名單。
+- `derived/`：由政策與來源快照生成的前沿集合與其 audit；不手動編輯。
 - `sources/`：每站 manifest、evidence-index、candidates、costs 與 validation report。
 - `product/current.json`：唯一的目前 ProductVersion，內容 hash 形成 `versionId`。
 

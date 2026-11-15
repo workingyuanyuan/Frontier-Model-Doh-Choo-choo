@@ -15,9 +15,7 @@ export const LATEST_RECEIPT = `${RELEASES_DIR}/latest.json`;
 export const CONSUMED_MAPPINGS = [
   'benchmark-quality-v2.json',
   'benchmarks-v2.json',
-  'benchmarks.json',
   'frontier-identities.json',
-  'frontier.json',
   'models.json',
   'profile-policy.json',
   'sources.json',
@@ -32,8 +30,8 @@ export const SOURCE_SNAPSHOT_FILES = [
 
 export const RELEASE_OUTPUTS = [
   'data/product/current.json',
-  'data/mappings/frontier-set.json',
-  'data/mappings/frontier-selection-audit.json',
+  'data/derived/frontier-set.json',
+  'data/derived/frontier-selection-audit.json',
 ];
 
 // The builder, the dashboard, and the release verification itself: changing

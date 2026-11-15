@@ -79,6 +79,7 @@ http://localhost:4000
 │   └── acquisition/            # 資料擷取工具：來源資料抓取、成本計算與快照驗證
 ├── data/
 │   ├── mappings/               # 模型設定、維度映射與顯示門檻設定
+│   ├── derived/                # 生成的前沿集合與 audit
 │   ├── sources/                # 來源快照清單、驗證紀錄與原始數據
 │   └── product/current.json    # 發布用最新整合資料檔
 ├── artifacts/                  # 原始快照內容儲存目錄（SHA-256 尋址）

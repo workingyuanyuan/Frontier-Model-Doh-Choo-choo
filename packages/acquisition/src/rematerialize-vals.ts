@@ -137,7 +137,7 @@ export async function rematerializeVals(root: string): Promise<{
     })),
     result,
     benchmarkMapping: BenchmarkDimensionMappingSchema.parse(
-      await readJson(join(root, 'data', 'mappings', 'benchmarks.json')),
+      await readJson(join(root, 'data', 'mappings', 'benchmarks-v2.json')),
     ),
     previousReport: await readText(
       join(sourceDirectory, 'validation-report.md'),

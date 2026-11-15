@@ -58,7 +58,7 @@ async function main() {
     BenchmarkDimensionMappingSchema.parse(
       JSON.parse(
         await readFile(
-          join(root, 'data', 'mappings', 'benchmarks.json'),
+          join(root, 'data', 'mappings', 'benchmarks-v2.json'),
           'utf8',
         ),
       ),
