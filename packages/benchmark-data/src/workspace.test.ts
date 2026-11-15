@@ -14,11 +14,13 @@ import { join, resolve } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import { CandidateResultSchema, SourcesConfigSchema } from './index.js';
-import { chooseDefaultCohort } from './generate-frontier-set.js';
+import {
+  chooseDefaultCohort,
+  computeFrontierSet,
+} from './generate-frontier-set.js';
 import { buildWorkspaceProduct, writeWorkspaceCurrent } from './workspace.js';
 
-// Copy the saved build inputs; generated frontier artifacts must be private to
-// this test file because every build rewrites them.
+// Copy the saved build inputs so input edits stay private to this test file.
 const copyWorkspaceInputs = async (
   from: string,
   to: string,
@@ -204,12 +206,10 @@ describe('buildWorkspaceProduct', () => {
       }
       return models;
     };
-    const artifact = JSON.parse(
-      await readFile(
-        join(root, 'data', 'mappings', 'frontier-set.json'),
-        'utf8',
-      ),
-    ) as {
+    // The build writes nothing, so compare with a direct frontier computation.
+    const frontierResult = await computeFrontierSet(root);
+    if (frontierResult.status !== 'selected') throw frontierResult.error;
+    const artifact = frontierResult.artifact as unknown as {
       defaultPresetId: string;
       eligibility: {
         leaders: {
@@ -465,7 +465,7 @@ describe('buildWorkspaceProduct', () => {
       ).rejects.toThrow('AA frontier needs review');
       const audit = JSON.parse(
         await readFile(
-          join(temporaryRoot, 'data/mappings/frontier-selection-audit.json'),
+          join(temporaryRoot, 'data/derived/frontier-selection-audit.json'),
           'utf8',
         ),
       ) as { status: string };

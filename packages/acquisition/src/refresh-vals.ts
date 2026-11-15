@@ -100,7 +100,7 @@ async function main() {
   const { previousCandidates, previousCosts, previousReport } =
     await readOptionalSnapshotComparison(sourceDirectory);
   const benchmarkMapping = BenchmarkDimensionMappingSchema.parse(
-    await readJson(join(root, 'data', 'mappings', 'benchmarks.json')),
+    await readJson(join(root, 'data', 'mappings', 'benchmarks-v2.json')),
   );
 
   const index = await captureArtifact({

@@ -223,7 +223,7 @@ test('keeps the tenth frontier model when the ninth is manually excluded', async
 }) => {
   // Presets follow the eligible frontier, not the raw AA top ten.
   const ranking = JSON.parse(
-    readFileSync('data/mappings/frontier-set.json', 'utf8'),
+    readFileSync('data/derived/frontier-set.json', 'utf8'),
   ).eligibility.leaders as { profileId: string }[];
   const ninth = raw.profiles.find((p) => p.id === ranking[8]!.profileId)!;
   await page.goto('/?preset=aa-top-10');

@@ -66,9 +66,7 @@ export const checkWorkspaceFreshness = async (
 
   let recomputedVersionId: string | null = null;
   try {
-    const product = await buildWorkspaceProduct(root, committed.generatedAt, {
-      writeFrontier: false,
-    });
+    const product = await buildWorkspaceProduct(root, committed.generatedAt);
     recomputedVersionId = product.versionId;
     if (product.versionId !== committed.versionId) {
       mismatches.push(

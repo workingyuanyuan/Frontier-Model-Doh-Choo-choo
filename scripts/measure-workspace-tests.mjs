@@ -135,7 +135,7 @@ await mkdir(outputRoot, { recursive: true });
 const generatedPaths = [
   'frontier-set.json',
   'frontier-selection-audit.json',
-].map((name) => join(root, 'data/mappings', name));
+].map((name) => join(root, 'data/derived', name));
 const originals = await Promise.all(
   generatedPaths.map((path) => readFile(path)),
 );

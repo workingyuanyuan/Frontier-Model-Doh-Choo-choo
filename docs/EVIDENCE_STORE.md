@@ -87,16 +87,16 @@ Linux／WSL 在 Linux 檔案系統執行上述命令。Windows 使用同版本 N
 
 ## 維護責任
 
-| 資料                                                                     | 類型與權威來源                                     | 寫入入口                                         |
-| ------------------------------------------------------------------------ | -------------------------------------------------- | ------------------------------------------------ |
-| `data/mappings/` 中模型、alias、benchmark、profile、品質及來源政策       | 人工設定，Git                                      | 依操作手冊審核後編輯                             |
-| `frontier-set.json`、`frontier-selection-audit.json`、`display-set.json` | 產生結果，Git 投影                                 | 既有集合生成器／產品建置                         |
-| `data/sources/*/evidence-index.json`、`candidates.json`、`costs.json`    | 產生結果，SQLite snapshot                          | 共用來源作業、物化、明確 snapshot 匯出           |
-| `data/sources/*/manifest.json`、驗證與交叉檢查報告                       | 來源作業輸出，SQLite snapshot；初始描述由 Git 匯入 | 來源 adapter、物化與匯出；描述修訂需明確重新匯入 |
-| 其他保留在來源目錄的研究／驗證輸入                                       | 初始化時匯入，後續隨完整 snapshot 保存             | 明確 `init` 與來源作業                           |
-| `data/product/current.json`                                              | 產品建置結果，Git                                  | `pnpm data:build-current`                        |
-| `data/source-monitoring/`                                                | 來源監測結果，Git                                  | `report:source-changes`／刷新監測                |
-| `artifacts/sha256/`                                                      | 不可變原始 bytes                                   | 共用取得介面                                     |
-| `artifacts/evidence/store.sqlite`                                        | 取得、快照、依賴與快取權威紀錄                     | EvidenceStore 與統一 CLI                         |
+| 資料                                                                    | 類型與權威來源                                     | 寫入入口                                         |
+| ----------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------ |
+| `data/mappings/` 中模型、alias、benchmark、profile、品質及來源政策      | 人工設定，Git                                      | 依操作手冊審核後編輯                             |
+| `data/derived/` 的 `frontier-set.json`、`frontier-selection-audit.json` | 產生結果，Git 投影                                 | 既有集合生成器／產品建置                         |
+| `data/sources/*/evidence-index.json`、`candidates.json`、`costs.json`   | 產生結果，SQLite snapshot                          | 共用來源作業、物化、明確 snapshot 匯出           |
+| `data/sources/*/manifest.json`、驗證與交叉檢查報告                      | 來源作業輸出，SQLite snapshot；初始描述由 Git 匯入 | 來源 adapter、物化與匯出；描述修訂需明確重新匯入 |
+| 其他保留在來源目錄的研究／驗證輸入                                      | 初始化時匯入，後續隨完整 snapshot 保存             | 明確 `init` 與來源作業                           |
+| `data/product/current.json`                                             | 產品建置結果，Git                                  | `pnpm data:build-current`                        |
+| `data/source-monitoring/`                                               | 來源監測結果，Git                                  | `report:source-changes`／刷新監測                |
+| `artifacts/sha256/`                                                     | 不可變原始 bytes                                   | 共用取得介面                                     |
+| `artifacts/evidence/store.sqlite`                                       | 取得、快照、依賴與快取權威紀錄                     | EvidenceStore 與統一 CLI                         |
 
 人工設定修訂仍由 Git 管理。來源 JSON 的直接修訂需明確 `init` 匯入才成為資料庫快照，匯出不會反向猜測工作區的意圖。

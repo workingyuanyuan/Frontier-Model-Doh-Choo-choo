@@ -66,7 +66,7 @@ ProofBench 在核准時六個前沿模型的分數為 99–100，
    表格及雷達圖共用有效維度。Clear all 清空選取，重新勾選後重新計算。
 3. **Phase 3：互動驗證。** 驗證預設、清空、單選、多選及五軸／六軸切換。
 
-Phase 1 產物為 `data/mappings/frontier-set.json`，由以下指令重建：
+Phase 1 產物為 `data/derived/frontier-set.json`，由以下指令重建：
 
 ```sh
 pnpm data:generate-frontier-set

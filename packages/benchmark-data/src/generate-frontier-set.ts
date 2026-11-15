@@ -1,8 +1,7 @@
-import { readFile, writeFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format } from 'prettier';
-import { loadWorkspaceCoverageData } from './coverage-matrix.js';
 import {
   AA_FRONTIER_POLICY,
   rankAaModels,
@@ -17,6 +16,10 @@ import {
   CATALOG_DIMENSION_IDS,
   BenchmarkDimensionMappingSchema,
   BenchmarkQualityPolicySchema,
+  CandidateResultSchema,
+  ModelCatalogSchema,
+  ProfilePolicySchema,
+  SourcesConfigSchema,
   applyProductProfilePolicy,
   getComparisonOnlyBenchmarkIds,
   selectCurrentResults,
@@ -281,10 +284,11 @@ export function selectEligibleFrontier(
 export const serializeFrontierJson = async (value: unknown): Promise<string> =>
   format(JSON.stringify(value), { parser: 'json', endOfLine: 'lf' });
 
+/** Generated outputs live apart from the reviewed policy in data/mappings. */
 export const frontierSetPath = (root: string) =>
-  join(root, 'data/mappings/frontier-set.json');
+  join(root, 'data/derived/frontier-set.json');
 export const frontierAuditPath = (root: string) =>
-  join(root, 'data/mappings/frontier-selection-audit.json');
+  join(root, 'data/derived/frontier-selection-audit.json');
 
 /** Validated, identity-resolved and profiled inputs from a single workspace build. */
 export interface FrontierSetInput {
@@ -294,36 +298,50 @@ export interface FrontierSetInput {
   quality: BenchmarkQualityPolicy;
 }
 
+const readMapping = async (root: string, name: string): Promise<unknown> =>
+  JSON.parse(await readFile(join(root, 'data/mappings', name), 'utf8'));
+
 async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
-  const input = await loadWorkspaceCoverageData(root);
-  const quality = BenchmarkQualityPolicySchema.parse(
-    JSON.parse(
-      await readFile(
-        join(root, 'data/mappings/benchmark-quality-v2.json'),
-        'utf8',
+  const whitelist = new Set(
+    SourcesConfigSchema.parse(await readMapping(root, 'sources.json'))
+      .whitelist,
+  );
+  const sourceRoot = join(root, 'data/sources');
+  const sourceIds = (await readdir(sourceRoot, { withFileTypes: true }))
+    .filter((entry) => entry.isDirectory() && whitelist.has(entry.name))
+    .map(({ name }) => name)
+    .sort();
+  const sourceCandidates: CandidateResult[] = [];
+  for (const sourceId of sourceIds) {
+    sourceCandidates.push(
+      ...CandidateResultSchema.array().parse(
+        JSON.parse(
+          await readFile(join(sourceRoot, sourceId, 'candidates.json'), 'utf8'),
+        ),
       ),
-    ),
+    );
+  }
+  const catalog = ModelCatalogSchema.parse(
+    await readMapping(root, 'models.json'),
+  );
+  const quality = BenchmarkQualityPolicySchema.parse(
+    await readMapping(root, 'benchmark-quality-v2.json'),
   );
   const mapping = BenchmarkDimensionMappingSchema.parse(
-    JSON.parse(
-      await readFile(join(root, 'data/mappings/benchmarks-v2.json'), 'utf8'),
-    ),
-  );
-  const identities = FrontierIdentitiesSchema.parse(
-    JSON.parse(
-      await readFile(
-        join(root, 'data/mappings/frontier-identities.json'),
-        'utf8',
-      ),
-    ),
+    await readMapping(root, 'benchmarks-v2.json'),
   );
   const candidates = applyProductProfilePolicy(
-    resolveFrontierIdentities(input.sourceCandidates, identities),
-    input.catalog,
-    input.profilePolicy,
+    resolveFrontierIdentities(
+      sourceCandidates,
+      FrontierIdentitiesSchema.parse(
+        await readMapping(root, 'frontier-identities.json'),
+      ),
+    ),
+    catalog,
+    ProfilePolicySchema.parse(await readMapping(root, 'profile-policy.json')),
     getComparisonOnlyBenchmarkIds(mapping),
   );
-  return { candidates, catalog: input.catalog, mapping, quality };
+  return { candidates, catalog, mapping, quality };
 }
 
 /** Computes the frontier artifact and audit without writing or reloading prepared inputs. */
@@ -397,23 +415,36 @@ export async function computeFrontierSet(
   return { status: 'selected' as const, audit, artifact };
 }
 
+type FrontierSetResult = Awaited<ReturnType<typeof computeFrontierSet>>;
+
+/**
+ * Writes a computed result. A needs-review result writes only its audit and
+ * leaves the last selected frontier-set.json in place.
+ */
+export async function writeFrontierSet(
+  repositoryRoot: string,
+  result: FrontierSetResult,
+): Promise<void> {
+  const root = resolve(repositoryRoot);
+  const write = async (path: string, value: unknown) => {
+    await mkdir(dirname(path), { recursive: true });
+    await writeFile(path, await serializeFrontierJson(value), 'utf8');
+  };
+  if (result.status === 'selected') {
+    await write(frontierSetPath(root), result.artifact);
+  }
+  await write(frontierAuditPath(root), result.audit);
+}
+
 export async function generateFrontierSet(
   repositoryRoot: string,
   input?: FrontierSetInput,
 ) {
   const root = resolve(repositoryRoot);
   const result = await computeFrontierSet(root, input);
-  const auditPath = frontierAuditPath(root);
-  const write = async (path: string, value: unknown) =>
-    writeFile(path, await serializeFrontierJson(value), 'utf8');
-  if (result.status !== 'selected') {
-    await write(auditPath, result.audit);
-    throw result.error;
-  }
-  const outputPath = frontierSetPath(root);
-  await write(outputPath, result.artifact);
-  await write(auditPath, result.audit);
-  return { outputPath, artifact: result.artifact };
+  await writeFrontierSet(root, result);
+  if (result.status !== 'selected') throw result.error;
+  return { outputPath: frontierSetPath(root), artifact: result.artifact };
 }
 
 export const BASE_DEFAULT_MODEL_COUNT = 8;

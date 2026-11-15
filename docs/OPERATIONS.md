@@ -4,7 +4,7 @@
 
 正式產品使用 `pnpm data:build-current` 建置。此指令會重新判定 AA 前沿集合並套用 v2 分類及品質政策，產生合格前沿模型前 2～10 名的拉桿集合；預設集合從前 8 名（`aa-frontier`）開始，共同測試數相同時延伸，規則見[前沿政策](FRONTIER_POLICY.md#模型資格)。排名資料驗證失敗時停止。
 
-依 [前沿政策](FRONTIER_POLICY.md)，`pnpm data:generate-frontier-set` 會產生 `data/mappings/frontier-set.json` 及同目錄的 `frontier-selection-audit.json`，產品建置則會再次呼叫同一生成器並寫入這兩份檔案，再由本次 cohorts 建立記憶體中的 display set，驗證後建立產品。日常資料發布統一透過 `pnpm data:release` 依序執行來源與證據核對、前沿集合產生與 audit 狀態檢查、產品重建、可重現性驗證、靜態網站建置與 e2e 測試；集合與產品差異的人工審閱移至事後的刷新報告。完整輸入、寫入範圍與停止條件見 §3。
+依 [前沿政策](FRONTIER_POLICY.md)，`pnpm data:generate-frontier-set` 會產生 `data/derived/frontier-set.json` 及同目錄的 `frontier-selection-audit.json`。`data/mappings/` 只放人工審核的政策，`data/derived/` 只放生成結果。產品建置在記憶體中重算同一份集合，由本次 cohorts 建立 display set 並算出產品，全部成功後才一起寫入這兩份檔案與 `current.json`。日常資料發布統一透過 `pnpm data:release` 依序執行來源與證據核對、前沿集合產生與 audit 狀態檢查、產品重建、可重現性驗證、靜態網站建置與 e2e 測試；集合與產品差異的人工審閱移至事後的刷新報告。完整輸入、寫入範圍與停止條件見 §3。
 
 本文件負責日常工作流程、完成證據、異動判斷與審核交接。共用文件入口見 [文件索引](README.md)，代理執行守則見 [AGENTS.md](../AGENTS.md)。
 
@@ -243,14 +243,14 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ### 輸入與命令的寫入範圍
 
-從 repository 根目錄執行下列命令。共同 loader 讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`benchmarks.json`、`frontier.json`，以及白名單來源目錄中的 `candidates.json`。後兩份 mapping 仍須通過 loader 的 schema 檢查；AA frontier 的選模、分類與品質判定另外使用 `frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`。
+從 repository 根目錄執行下列命令。正式流程讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`，以及白名單來源目錄中的 `candidates.json`。擷取端的檔位推測報告、Vals 驗證報告與離線物化也使用 `benchmarks-v2.json`。`benchmarks.json`（五維舊版）、`frontier.json`、`display-set-policy.json` 與 `display-set.json` 只供下方的輔助覆蓋分析使用，不是產品輸入，修改它們不需要 release。
 
-| 命令                              | 用途與輸出                                                                                                                                                                                                                                                                                             |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `pnpm data:generate-frontier-set` | 讀取上述快照與 mapping，成功時寫入 `data/mappings/frontier-set.json` 及 `frontier-selection-audit.json`。                                                                                                                                                                                              |
-| `pnpm data:build-current`         | 另讀各來源 `manifest.json`，有 `costs.json` 時讀取成本及 `evidence-index.json` 並檢查成本 evidence 參照。重新呼叫 frontier 生成器，具有相同集合／audit 寫入效果；由回傳的 `artifact.cohorts` 建立並驗證記憶體中的 `displaySet`，計算產品、驗證 schema 與內容 hash 後寫入 `data/product/current.json`。 |
-| `pnpm data:verify-fresh`          | 不寫入任何檔案，以已提交（工作區）`current.json` 的 `generatedAt` 在記憶體中重算 frontier 集合、audit 與產品，三者任何一項與工作區檔案不同即失敗。                                                                                                                                                     |
-| `pnpm data:release`               | 串聯完整發布驗證管線（`sources` → `evidence` → `frontier` → `product` → `fresh` → `tests` → `site` → `e2e`），將執行紀錄、基線副本與差異報告寫入 `artifacts/releases/<run-id>/`，並更新 `artifacts/releases/latest.json`。                                                                             |
+| 命令                              | 用途與輸出                                                                                                                                                                                                                                                                          |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pnpm data:generate-frontier-set` | 讀取上述快照與 mapping，成功時寫入 `data/derived/frontier-set.json` 及 `frontier-selection-audit.json`。                                                                                                                                                                            |
+| `pnpm data:build-current`         | 另讀各來源 `manifest.json`，有 `costs.json` 時讀取成本及 `evidence-index.json` 並檢查成本 evidence 參照。在記憶體中重算 frontier 集合，由 `artifact.cohorts` 建立並驗證 `displaySet`，計算產品並驗證 schema 與內容 hash；全部成功後寫入集合、audit 與 `data/product/current.json`。 |
+| `pnpm data:verify-fresh`          | 不寫入任何檔案，以已提交（工作區）`current.json` 的 `generatedAt` 在記憶體中重算 frontier 集合、audit 與產品，三者任何一項與工作區檔案不同即失敗。                                                                                                                                  |
+| `pnpm data:release`               | 串聯完整發布驗證管線（`sources` → `evidence` → `frontier` → `product` → `fresh` → `tests` → `site` → `e2e`），將執行紀錄、基線副本與差異報告寫入 `artifacts/releases/<run-id>/`，並更新 `artifacts/releases/latest.json`。                                                          |
 
 `data:build-current` 不讀取既有 `display-set.json`，也不將記憶體中的 `displaySet` 寫成該檔案。它會重新產生 frontier，不能只憑上一次 `selected` audit 宣告本次成功。實作依據為 [frontier 生成器](../packages/benchmark-data/src/generate-frontier-set.ts)、[workspace builder](../packages/benchmark-data/src/workspace.ts)、[產品 CLI](../packages/benchmark-data/src/cli.ts) 與 [資料發布腳本](../scripts/data-release.mjs)。
 
@@ -289,7 +289,7 @@ pnpm data:release
 
 AA 版本不可比較、前十名或合格前沿窗口內有未解析身分、合格模型不足十個、樣本不足或無法產生共同合格測試時，生成器寫入 `needs-review` audit 並回傳非零狀態（`pnpm data:release` 會在 `frontier` 或 `product` 步驟失敗並寫入 `status: "failed"` 的 receipt），保留原成功的 `frontier-set.json`。較早的讀檔／schema 錯誤可能尚未寫入新 audit，因此既有 `selected` 不能抵銷本次命令失敗。停止產品建立，保存 receipt、命令、退出碼、錯誤及本次 audit，先排除資料／實作問題；仍需政策裁決時交付具體證據。
 
-產品驗證失敗發生在 `current.json` 寫入之前，保留現有產品；但成功生成的 frontier／audit 可能已更新。這些檔案與產品不是一次原子寫入，遇到 I/O 失敗須比對 `baseline/` 與保存基準確認各檔案狀態。生成命令會覆寫工作區集合／audit；匯入前的獨立基準副本、`artifacts/releases/<run-id>/baseline/` 及 Git 中已保存的歷史版本必須保留，不以新結果覆蓋歷史審核證據。
+`data:build-current` 先完成全部計算再寫檔：產品計算或驗證失敗時，集合、audit 與 `current.json` 都不會被改寫；frontier 需要審核時只寫入 `needs-review` audit。三個檔案仍是依序寫入，寫檔途中遇到 I/O 失敗須比對 `baseline/` 與保存基準確認各檔案狀態。生成命令會覆寫工作區集合／audit；匯入前的獨立基準副本、`artifacts/releases/<run-id>/baseline/` 及 Git 中已保存的歷史版本必須保留，不以新結果覆蓋歷史審核證據。
 
 依政策重算 presets 時，模型數範圍、預設模型數、identity、來源約束、分類、品質及計分規則都須沿用核准設定。不得以放寬門檻讓失敗流程通過。
 

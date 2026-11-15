@@ -54,7 +54,7 @@ describe('checkWorkspaceFreshness', () => {
 
   it('accepts a product built from the current inputs without writing', async () => {
     const audit = await readFile(
-      join(root, 'data/mappings/frontier-selection-audit.json'),
+      join(root, 'data/derived/frontier-selection-audit.json'),
       'utf8',
     );
     const report = await checkWorkspaceFreshness(root);
@@ -62,14 +62,14 @@ describe('checkWorkspaceFreshness', () => {
     expect(report.recomputedVersionId).toBe(report.versionId);
     expect(
       await readFile(
-        join(root, 'data/mappings/frontier-selection-audit.json'),
+        join(root, 'data/derived/frontier-selection-audit.json'),
         'utf8',
       ),
     ).toBe(audit);
   }, 120_000);
 
   it('reports stale frontier files and products after an input edit', async () => {
-    const auditPath = join(root, 'data/mappings/frontier-selection-audit.json');
+    const auditPath = join(root, 'data/derived/frontier-selection-audit.json');
     const audit = await readFile(auditPath, 'utf8');
     await writeFile(auditPath, `${audit}\n`);
     const candidatesPath = join(

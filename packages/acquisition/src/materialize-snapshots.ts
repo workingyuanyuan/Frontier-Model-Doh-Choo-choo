@@ -161,7 +161,7 @@ const appendEffortInferenceReports = (
     BenchmarkDimensionMappingSchema.parse(
       JSON.parse(
         readFileSync(
-          join(repoRoot, 'data', 'mappings', 'benchmarks.json'),
+          join(repoRoot, 'data', 'mappings', 'benchmarks-v2.json'),
           'utf8',
         ),
       ),

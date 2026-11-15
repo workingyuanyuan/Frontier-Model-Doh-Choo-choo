@@ -112,7 +112,7 @@ test('only consumed data and non-test scoring code are release relevant', () => 
   for (const path of [
     'data/product/current.json',
     'data/mappings/models.json',
-    'data/mappings/frontier-set.json',
+    'data/derived/frontier-set.json',
     'data/sources/vals-ai/candidates.json',
     'packages/benchmark-data/src/index.ts',
   ]) {

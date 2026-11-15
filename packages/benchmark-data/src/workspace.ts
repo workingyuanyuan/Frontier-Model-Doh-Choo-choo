@@ -9,7 +9,6 @@ import {
   CandidateResultSchema,
   CostRecordSchema,
   EvidenceRecordSchema,
-  FrontierConfigSchema,
   ModelCatalogSchema,
   ProfilePolicySchema,
   SourceManifestSchema,
@@ -31,19 +30,19 @@ import {
 } from './frontier-identities.js';
 import {
   computeFrontierSet,
-  generateFrontierSet,
+  writeFrontierSet,
 } from './generate-frontier-set.js';
 
-export interface WorkspaceBuildOptions {
-  /** Rewrite frontier-set.json and its audit; freshness checks pass false. */
-  writeFrontier?: boolean;
-}
+type FrontierSetResult = Awaited<ReturnType<typeof computeFrontierSet>>;
 
-export const buildWorkspaceProduct = async (
+/**
+ * Computes the frontier set and the product from the saved sources and
+ * mappings. Nothing is written; a frontier that needs review yields no product.
+ */
+const computeWorkspace = async (
   repositoryRoot: string,
   generatedAt: string,
-  { writeFrontier = true }: WorkspaceBuildOptions = {},
-): Promise<ProductVersion> => {
+): Promise<{ frontier: FrontierSetResult; product: ProductVersion | null }> => {
   const dataRoot = join(resolve(repositoryRoot), 'data');
   const sourcesConfig = SourcesConfigSchema.parse(
     await readJson(join(dataRoot, 'mappings', 'sources.json')),
@@ -150,27 +149,16 @@ export const buildWorkspaceProduct = async (
     );
   }
 
-  // Regenerate from saved captures on every build. A needs-review audit fails
+  // Recompute from saved captures on every build. A needs-review audit fails
   // the build instead of publishing an older successful frontier artifact.
-  // Retain the coverage loader's legacy configuration checks when reusing inputs.
-  BenchmarkDimensionMappingSchema.parse(
-    await readJson(join(dataRoot, 'mappings', 'benchmarks.json')),
-  );
-  FrontierConfigSchema.parse(
-    await readJson(join(dataRoot, 'mappings', 'frontier.json')),
-  );
-  const frontierInput = {
+  const frontier = await computeFrontierSet(repositoryRoot, {
     candidates,
     catalog,
     mapping: benchmarkMapping,
     quality,
-  };
-  const artifact = writeFrontier
-    ? (await generateFrontierSet(repositoryRoot, frontierInput)).artifact
-    : await computeFrontierSet(repositoryRoot, frontierInput).then((result) => {
-        if (result.status !== 'selected') throw result.error;
-        return result.artifact;
-      });
+  });
+  if (frontier.status !== 'selected') return { frontier, product: null };
+  const { artifact } = frontier;
   const displaySet = {
     schemaVersion: 'display-set-v2' as const,
     defaultPresetId: artifact.defaultPresetId,
@@ -183,7 +171,7 @@ export const buildWorkspaceProduct = async (
   };
   validateDisplaySet(displaySet, benchmarkMapping, quality);
 
-  return buildProduct({
+  const product = buildProduct({
     generatedAt,
     sourceSnapshotIds,
     candidates,
@@ -211,15 +199,34 @@ export const buildWorkspaceProduct = async (
     benchmarkQuality: quality,
     costRecords,
   });
+  return { frontier, product };
 };
 
+export const buildWorkspaceProduct = async (
+  repositoryRoot: string,
+  generatedAt: string,
+): Promise<ProductVersion> => {
+  const { frontier, product } = await computeWorkspace(
+    repositoryRoot,
+    generatedAt,
+  );
+  if (frontier.status !== 'selected' || product === null) throw frontier.error;
+  return product;
+};
+
+/**
+ * Builds first and writes afterwards: a failed product build leaves the
+ * frontier files and current.json untouched. A frontier that needs review
+ * records its audit, keeps the last selected set and product, and fails.
+ */
 export const writeWorkspaceCurrent = async (
   repositoryRoot: string,
   generatedAt: string,
 ): Promise<ProductVersion> => {
   const root = resolve(repositoryRoot);
-  const product = await buildWorkspaceProduct(root, generatedAt);
-  const productRoot = join(root, 'data', 'product');
-  await writeCurrentProductVersion(productRoot, product);
+  const { frontier, product } = await computeWorkspace(root, generatedAt);
+  await writeFrontierSet(root, frontier);
+  if (frontier.status !== 'selected' || product === null) throw frontier.error;
+  await writeCurrentProductVersion(join(root, 'data', 'product'), product);
   return product;
 };
