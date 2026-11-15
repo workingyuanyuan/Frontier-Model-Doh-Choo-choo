@@ -1,6 +1,20 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { materializeDayjobTax } from './surge-dayjob-tax-materializer.js';
+import {
+  materializeSurgePercentLeaderboard,
+  type SurgePercentLeaderboardContext,
+} from './surge-percent-leaderboard.js';
+import { SURGE_PERCENT_LEADERBOARDS } from './surge-percent-leaderboard-specs.js';
+
+const materializeDayjobTax = (
+  html: string,
+  context: SurgePercentLeaderboardContext,
+) =>
+  materializeSurgePercentLeaderboard(
+    SURGE_PERCENT_LEADERBOARDS['surge-dayjob-tax'],
+    html,
+    context,
+  );
 
 const fixture = readFileSync(
   new URL('../test-fixtures/dayjob-tax-page.html', import.meta.url),

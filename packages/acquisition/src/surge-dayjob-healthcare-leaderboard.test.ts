@@ -1,26 +1,40 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { materializeCorecraft } from './surge-corecraft-materializer.js';
+import {
+  materializeSurgePercentLeaderboard,
+  type SurgePercentLeaderboardContext,
+} from './surge-percent-leaderboard.js';
+import { SURGE_PERCENT_LEADERBOARDS } from './surge-percent-leaderboard-specs.js';
+
+const materializeDayjobHealthcare = (
+  html: string,
+  context: SurgePercentLeaderboardContext,
+) =>
+  materializeSurgePercentLeaderboard(
+    SURGE_PERCENT_LEADERBOARDS['surge-dayjob-healthcare'],
+    html,
+    context,
+  );
 
 const fixture = readFileSync(
-  new URL('../test-fixtures/corecraft-page.html', import.meta.url),
+  new URL('../test-fixtures/dayjob-healthcare-page.html', import.meta.url),
   'utf8',
 );
 const context = {
   evidenceId: `sha256:${'a'.repeat(64)}`,
   observedAt: '2026-10-03T00:00:00.000Z',
-  visualRowCount: 50,
+  visualRowCount: 32,
 };
 const row = (brand: string, name: string, score: string, visible = score) =>
   `<div data-leaderboard-row=""><div><div class="head-rank-table-brand">${brand}</div></div><div><div class="head-rank-table-name">${name}</div></div><div><div data-score="${score}">${visible}</div></div></div>`;
 const page = (...rows: string[]) =>
-  `<h1>EnterpriseBench: CoreCraft Agents</h1><section class="lead-main"><div data-leaderboard-table="">${rows.join('')}</div></section>`;
+  `<h1>DAYJOB: Healthcare</h1><section class="lead-main"><div data-leaderboard-table="">${rows.join('')}</div></section>`;
 
-describe('Surge CoreCraft acquisition', () => {
-  it('captures the official 50-row main leaderboard with exact scores and provenance', () => {
-    const result = materializeCorecraft(fixture, context);
-    expect(result.visibleRows).toBe(50);
-    expect(result.candidates).toHaveLength(50);
+describe('Surge DAYJOB Healthcare acquisition', () => {
+  it('captures the official 32-row main leaderboard with exact scores and provenance', () => {
+    const result = materializeDayjobHealthcare(fixture, context);
+    expect(result.visibleRows).toBe(32);
+    expect(result.candidates).toHaveLength(32);
     expect(result.candidates).toEqual(
       [...result.candidates].toSorted((a, b) => a.id.localeCompare(b.id)),
     );
@@ -34,73 +48,64 @@ describe('Surge CoreCraft acquisition', () => {
         ({ model }) => model.rawName === 'GPT 6 Astra (Max reasoning)',
       ),
     ).toMatchObject({
-      sourceId: 'surge-corecraft',
-      benchmarkId: 'enterprisebench-corecraft',
+      sourceId: 'surge-dayjob-healthcare',
+      benchmarkId: 'dayjob-healthcare',
       sourceRole: 'ORGANIZER',
       metric: {
-        id: 'task-pass-rate',
-        name: 'Task pass rate',
+        id: 'mean-reward',
+        name: 'Mean reward',
         unit: 'percent',
         higherIsBetter: true,
       },
-      rawScore: 42.6,
-      normalizedScore: 42.6,
-      profile: { effort: 'max', thinking: 'Max reasoning', attempts: null },
+      rawScore: 11.6,
+      normalizedScore: 11.6,
+      profile: { effort: 'max', thinking: 'Max reasoning', attempts: 5 },
     });
     expect(
       result.candidates.find(
-        ({ model }) => model.rawName === 'Claude Opus 4.7 (Adaptive/Max)',
+        ({ model }) => model.rawName === 'Claude Opus 5.5 (Adaptive/Max)',
       ),
-    ).toMatchObject({ rawScore: 35.9, profile: { effort: 'max' } });
+    ).toMatchObject({ rawScore: 24.7, profile: { effort: 'max' } });
     expect(
       result.candidates.find(
-        ({ model }) => model.rawName === 'Nova 2 Pro (High reasoning)',
+        ({ model }) => model.rawName === 'Gemini 3.8 Flash (High reasoning)',
       ),
-    ).toMatchObject({ rawScore: 8.9, profile: { effort: 'high' } });
+    ).toMatchObject({ rawScore: 0.8, profile: { effort: 'high' } });
+    expect(
+      result.candidates.filter(({ rawScore }) => rawScore === 0),
+    ).toHaveLength(10);
     expect(
       result.candidates.find(
-        ({ model }) =>
-          model.rawName ===
-          'DeepSeek V4 Flash Vision (experimental) (Max reasoning)',
-      ),
-    ).toMatchObject({ model: { canonicalModelId: null }, rawScore: 45.6 });
-  });
-
-  it('keeps Fast in model identity and Auto reasoning outside the effort ladder', () => {
-    const candidates = materializeCorecraft(fixture, context).candidates;
-    const fast = candidates.find(
-      ({ model }) => model.rawName === 'Grok 4.1 (Fast)',
-    );
-    expect(fast).toMatchObject({
-      rawScore: 20.5,
-      profile: { effort: null, thinking: null },
-      model: { profileId: null },
-    });
-    expect(fast?.model.canonicalModelId).not.toBe('xai-grok-4-1');
-    expect(
-      candidates.find(
-        ({ model }) => model.rawName === 'GLM 5 (Auto reasoning)',
+        ({ model }) => model.rawName === 'Kimi K2.7 Code (Max reasoning)',
       ),
     ).toMatchObject({
-      rawScore: 17.4,
-      profile: { effort: null, thinking: 'Auto reasoning' },
+      model: { canonicalModelId: 'moonshot-kimi-k2-7-code' },
+      rawScore: 0,
     });
+  });
+
+  it('uses the official domain mean reward convention and declared five attempts', () => {
+    const result = materializeDayjobHealthcare(fixture, context);
     expect(
-      candidates.every(
+      result.candidates.every(
         ({ profile, benchmarkVersion, sourcePublishedAt }) =>
-          profile.harness === null &&
+          profile.attempts === 5 &&
           profile.tools === null &&
-          profile.attempts === null &&
+          profile.harness === null &&
           benchmarkVersion === null &&
           sourcePublishedAt === null,
       ),
     ).toBe(true);
+    expect(result.validationReport).toContain('unweighted mean of task scores');
+    expect(result.validationReport).toContain('excluding errored trials');
+    expect(result.validationReport).toContain('OpenHands SDK');
   });
 
   it('ignores scores and rows outside the main section', () => {
     const html = `${page(row('GPT', '6 Astra (Max reasoning)', '57.7'))}<section class="related">${row('GPT', '6 Astra (Max reasoning)', '1099')}</section><script>var DATA={"score":0.999};</script>`;
     expect(
-      materializeCorecraft(html, { ...context, visualRowCount: 1 }).candidates,
+      materializeDayjobHealthcare(html, { ...context, visualRowCount: 1 })
+        .candidates,
     ).toHaveLength(1);
   });
 
@@ -114,7 +119,7 @@ describe('Surge CoreCraft acquisition', () => {
     ['Thinking on', null],
     ['Auto reasoning', null],
   ])('preserves configuration %s with effort %s', (label, effort) => {
-    const candidate = materializeCorecraft(
+    const candidate = materializeDayjobHealthcare(
       page(row('Example', `Unknown v9 (experimental) (${label})`, '12.3')),
       { ...context, visualRowCount: 1 },
     ).candidates[0];
@@ -129,7 +134,7 @@ describe('Surge CoreCraft acquisition', () => {
   });
 
   it('retains unlabelled effort and resolves only exact model identities', () => {
-    const result = materializeCorecraft(
+    const result = materializeDayjobHealthcare(
       page(
         row('Nemotron', '3 Ultra', '17.8'),
         row('Qwen', '3.7 Max (Thinking on)', '33.5'),
@@ -175,11 +180,14 @@ describe('Surge CoreCraft acquisition', () => {
     ['12.3', ''],
   ])('rejects malformed or conflicting scores %s / %s', (score, visible) => {
     expect(() =>
-      materializeCorecraft(page(row('Example', 'Unknown', score, visible)), {
-        ...context,
-        visualRowCount: 1,
-      }),
-    ).toThrow(/Invalid.*CoreCraft/u);
+      materializeDayjobHealthcare(
+        page(row('Example', 'Unknown', score, visible)),
+        {
+          ...context,
+          visualRowCount: 1,
+        },
+      ),
+    ).toThrow(/Invalid.*DAYJOB Healthcare/u);
   });
 
   it('validates the published empty attributes and percent marker', () => {
@@ -188,86 +196,111 @@ describe('Surge CoreCraft acquisition', () => {
       '</div><div data-score="">%</div></div></div>',
     );
     expect(
-      materializeCorecraft(page(published), {
+      materializeDayjobHealthcare(page(published), {
         ...context,
         visualRowCount: 1,
       }).candidates[0],
     ).toMatchObject({ rawScore: 57.7 });
     expect(() =>
-      materializeCorecraft(page(published.replace('>%<', '>points<')), {
+      materializeDayjobHealthcare(page(published.replace('>%<', '>points<')), {
         ...context,
         visualRowCount: 1,
       }),
-    ).toThrow('Invalid CoreCraft row');
+    ).toThrow('Invalid DAYJOB Healthcare row');
     expect(() =>
-      materializeCorecraft(
+      materializeDayjobHealthcare(
         page(row('GPT', '6 Astra (Max reasoning)', '57.70', '57.7')),
         { ...context, visualRowCount: 1 },
       ),
-    ).toThrow('conflicting CoreCraft score');
+    ).toThrow('conflicting DAYJOB Healthcare score');
+  });
+
+  it('preserves zero and full-score boundaries without changing variants', () => {
+    const result = materializeDayjobHealthcare(
+      page(
+        row('Example', 'Unknown (Fast)', '0'),
+        row('Example', 'Other (Max reasoning)', '100'),
+      ),
+      { ...context, visualRowCount: 2 },
+    );
+    expect(
+      result.candidates.find(({ rawScore }) => rawScore === 0),
+    ).toMatchObject({
+      model: { rawName: 'Example Unknown (Fast)', canonicalModelId: null },
+      profile: { thinking: null, effort: null },
+    });
+    expect(
+      result.candidates.find(({ rawScore }) => rawScore === 100),
+    ).toMatchObject({ normalizedScore: 100 });
   });
 
   it('fails on missing identity, duplicate configurations, or unrecognized labels', () => {
     expect(() =>
-      materializeCorecraft(page(row('', 'Unknown', '10')), {
+      materializeDayjobHealthcare(page(row('', 'Unknown', '10')), {
         ...context,
         visualRowCount: 1,
       }),
-    ).toThrow('Invalid CoreCraft row');
+    ).toThrow('Invalid DAYJOB Healthcare row');
     expect(() =>
-      materializeCorecraft(
+      materializeDayjobHealthcare(
         page(
           row('GPT', '6 Astra (Max reasoning)', '10'),
           row('GPT', '6 Astra (Max reasoning)', '11'),
         ),
         { ...context, visualRowCount: 2 },
       ),
-    ).toThrow('Duplicate CoreCraft');
+    ).toThrow('Duplicate DAYJOB Healthcare');
     expect(() =>
-      materializeCorecraft(
+      materializeDayjobHealthcare(
         page(row('GPT', '6 Astra (Super reasoning)', '10')),
-        { ...context, visualRowCount: 1 },
+        {
+          ...context,
+          visualRowCount: 1,
+        },
       ),
-    ).toThrow('Unrecognized CoreCraft configuration');
+    ).toThrow('Unrecognized DAYJOB Healthcare configuration');
   });
 
   it('fails on incomplete or ambiguous leaderboard extraction', () => {
     const html = page(row('GPT', '6 Astra (Max reasoning)', '57.7'));
-    expect(() => materializeCorecraft(html, context)).toThrow(
+    expect(() => materializeDayjobHealthcare(html, context)).toThrow(
       'row count mismatch',
     );
     expect(() =>
-      materializeCorecraft(html.replace('CoreCraft', 'Other'), {
+      materializeDayjobHealthcare(html.replace('DAYJOB: Healthcare', 'Other'), {
         ...context,
         visualRowCount: 1,
       }),
     ).toThrow('page marker missing');
     expect(() =>
-      materializeCorecraft(html + html, {
+      materializeDayjobHealthcare(html + html, {
         ...context,
         visualRowCount: 1,
       }),
-    ).toThrow('one CoreCraft main leaderboard');
+    ).toThrow('one DAYJOB Healthcare main leaderboard');
     expect(() =>
-      materializeCorecraft(
+      materializeDayjobHealthcare(
         html.replace('</section>', '<div w-pagination-next></div></section>'),
         { ...context, visualRowCount: 1 },
       ),
     ).toThrow('pagination requires review');
     expect(() =>
-      materializeCorecraft(html.replace('data-leaderboard-table=""', ''), {
-        ...context,
-        visualRowCount: 1,
-      }),
-    ).toThrow('one CoreCraft leaderboard table');
+      materializeDayjobHealthcare(
+        html.replace('data-leaderboard-table=""', ''),
+        {
+          ...context,
+          visualRowCount: 1,
+        },
+      ),
+    ).toThrow('one DAYJOB Healthcare leaderboard table');
     expect(() =>
-      materializeCorecraft(
+      materializeDayjobHealthcare(
         html.replace(
           '</section>',
           '<div data-score="57.7">57.7</div></section>',
         ),
         { ...context, visualRowCount: 1 },
       ),
-    ).toThrow('Invalid CoreCraft row');
+    ).toThrow('Invalid DAYJOB Healthcare row');
   });
 });

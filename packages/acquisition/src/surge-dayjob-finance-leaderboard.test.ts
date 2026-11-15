@@ -1,9 +1,23 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { materializeDayjobHealthcare } from './surge-dayjob-healthcare-materializer.js';
+import {
+  materializeSurgePercentLeaderboard,
+  type SurgePercentLeaderboardContext,
+} from './surge-percent-leaderboard.js';
+import { SURGE_PERCENT_LEADERBOARDS } from './surge-percent-leaderboard-specs.js';
+
+const materializeDayjobFinance = (
+  html: string,
+  context: SurgePercentLeaderboardContext,
+) =>
+  materializeSurgePercentLeaderboard(
+    SURGE_PERCENT_LEADERBOARDS['surge-dayjob-finance'],
+    html,
+    context,
+  );
 
 const fixture = readFileSync(
-  new URL('../test-fixtures/dayjob-healthcare-page.html', import.meta.url),
+  new URL('../test-fixtures/dayjob-finance-page.html', import.meta.url),
   'utf8',
 );
 const context = {
@@ -14,11 +28,11 @@ const context = {
 const row = (brand: string, name: string, score: string, visible = score) =>
   `<div data-leaderboard-row=""><div><div class="head-rank-table-brand">${brand}</div></div><div><div class="head-rank-table-name">${name}</div></div><div><div data-score="${score}">${visible}</div></div></div>`;
 const page = (...rows: string[]) =>
-  `<h1>DAYJOB: Healthcare</h1><section class="lead-main"><div data-leaderboard-table="">${rows.join('')}</div></section>`;
+  `<h1>DAYJOB: Finance</h1><section class="lead-main"><div data-leaderboard-table="">${rows.join('')}</div></section>`;
 
-describe('Surge DAYJOB Healthcare acquisition', () => {
+describe('Surge DAYJOB Finance acquisition', () => {
   it('captures the official 32-row main leaderboard with exact scores and provenance', () => {
-    const result = materializeDayjobHealthcare(fixture, context);
+    const result = materializeDayjobFinance(fixture, context);
     expect(result.visibleRows).toBe(32);
     expect(result.candidates).toHaveLength(32);
     expect(result.candidates).toEqual(
@@ -34,8 +48,8 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
         ({ model }) => model.rawName === 'GPT 6 Astra (Max reasoning)',
       ),
     ).toMatchObject({
-      sourceId: 'surge-dayjob-healthcare',
-      benchmarkId: 'dayjob-healthcare',
+      sourceId: 'surge-dayjob-finance',
+      benchmarkId: 'dayjob-finance',
       sourceRole: 'ORGANIZER',
       metric: {
         id: 'mean-reward',
@@ -43,23 +57,23 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
         unit: 'percent',
         higherIsBetter: true,
       },
-      rawScore: 11.6,
-      normalizedScore: 11.6,
+      rawScore: 21.5,
+      normalizedScore: 21.5,
       profile: { effort: 'max', thinking: 'Max reasoning', attempts: 5 },
     });
     expect(
       result.candidates.find(
         ({ model }) => model.rawName === 'Claude Opus 5.5 (Adaptive/Max)',
       ),
-    ).toMatchObject({ rawScore: 24.7, profile: { effort: 'max' } });
+    ).toMatchObject({ rawScore: 23.9, profile: { effort: 'max' } });
     expect(
       result.candidates.find(
-        ({ model }) => model.rawName === 'Gemini 3.8 Flash (High reasoning)',
+        ({ model }) => model.rawName === 'Gemini 4 Argon (High reasoning)',
       ),
-    ).toMatchObject({ rawScore: 0.8, profile: { effort: 'high' } });
+    ).toMatchObject({ rawScore: 20.3, profile: { effort: 'high' } });
     expect(
       result.candidates.filter(({ rawScore }) => rawScore === 0),
-    ).toHaveLength(10);
+    ).toHaveLength(7);
     expect(
       result.candidates.find(
         ({ model }) => model.rawName === 'Kimi K2.7 Code (Max reasoning)',
@@ -71,7 +85,7 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
   });
 
   it('uses the official domain mean reward convention and declared five attempts', () => {
-    const result = materializeDayjobHealthcare(fixture, context);
+    const result = materializeDayjobFinance(fixture, context);
     expect(
       result.candidates.every(
         ({ profile, benchmarkVersion, sourcePublishedAt }) =>
@@ -90,7 +104,7 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
   it('ignores scores and rows outside the main section', () => {
     const html = `${page(row('GPT', '6 Astra (Max reasoning)', '57.7'))}<section class="related">${row('GPT', '6 Astra (Max reasoning)', '1099')}</section><script>var DATA={"score":0.999};</script>`;
     expect(
-      materializeDayjobHealthcare(html, { ...context, visualRowCount: 1 })
+      materializeDayjobFinance(html, { ...context, visualRowCount: 1 })
         .candidates,
     ).toHaveLength(1);
   });
@@ -105,7 +119,7 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
     ['Thinking on', null],
     ['Auto reasoning', null],
   ])('preserves configuration %s with effort %s', (label, effort) => {
-    const candidate = materializeDayjobHealthcare(
+    const candidate = materializeDayjobFinance(
       page(row('Example', `Unknown v9 (experimental) (${label})`, '12.3')),
       { ...context, visualRowCount: 1 },
     ).candidates[0];
@@ -120,7 +134,7 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
   });
 
   it('retains unlabelled effort and resolves only exact model identities', () => {
-    const result = materializeDayjobHealthcare(
+    const result = materializeDayjobFinance(
       page(
         row('Nemotron', '3 Ultra', '17.8'),
         row('Qwen', '3.7 Max (Thinking on)', '33.5'),
@@ -166,14 +180,14 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
     ['12.3', ''],
   ])('rejects malformed or conflicting scores %s / %s', (score, visible) => {
     expect(() =>
-      materializeDayjobHealthcare(
+      materializeDayjobFinance(
         page(row('Example', 'Unknown', score, visible)),
         {
           ...context,
           visualRowCount: 1,
         },
       ),
-    ).toThrow(/Invalid.*DAYJOB Healthcare/u);
+    ).toThrow(/Invalid.*DAYJOB Finance/u);
   });
 
   it('validates the published empty attributes and percent marker', () => {
@@ -182,27 +196,27 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
       '</div><div data-score="">%</div></div></div>',
     );
     expect(
-      materializeDayjobHealthcare(page(published), {
+      materializeDayjobFinance(page(published), {
         ...context,
         visualRowCount: 1,
       }).candidates[0],
     ).toMatchObject({ rawScore: 57.7 });
     expect(() =>
-      materializeDayjobHealthcare(page(published.replace('>%<', '>points<')), {
+      materializeDayjobFinance(page(published.replace('>%<', '>points<')), {
         ...context,
         visualRowCount: 1,
       }),
-    ).toThrow('Invalid DAYJOB Healthcare row');
+    ).toThrow('Invalid DAYJOB Finance row');
     expect(() =>
-      materializeDayjobHealthcare(
+      materializeDayjobFinance(
         page(row('GPT', '6 Astra (Max reasoning)', '57.70', '57.7')),
         { ...context, visualRowCount: 1 },
       ),
-    ).toThrow('conflicting DAYJOB Healthcare score');
+    ).toThrow('conflicting DAYJOB Finance score');
   });
 
   it('preserves zero and full-score boundaries without changing variants', () => {
-    const result = materializeDayjobHealthcare(
+    const result = materializeDayjobFinance(
       page(
         row('Example', 'Unknown (Fast)', '0'),
         row('Example', 'Other (Max reasoning)', '100'),
@@ -222,71 +236,68 @@ describe('Surge DAYJOB Healthcare acquisition', () => {
 
   it('fails on missing identity, duplicate configurations, or unrecognized labels', () => {
     expect(() =>
-      materializeDayjobHealthcare(page(row('', 'Unknown', '10')), {
+      materializeDayjobFinance(page(row('', 'Unknown', '10')), {
         ...context,
         visualRowCount: 1,
       }),
-    ).toThrow('Invalid DAYJOB Healthcare row');
+    ).toThrow('Invalid DAYJOB Finance row');
     expect(() =>
-      materializeDayjobHealthcare(
+      materializeDayjobFinance(
         page(
           row('GPT', '6 Astra (Max reasoning)', '10'),
           row('GPT', '6 Astra (Max reasoning)', '11'),
         ),
         { ...context, visualRowCount: 2 },
       ),
-    ).toThrow('Duplicate DAYJOB Healthcare');
+    ).toThrow('Duplicate DAYJOB Finance');
     expect(() =>
-      materializeDayjobHealthcare(
+      materializeDayjobFinance(
         page(row('GPT', '6 Astra (Super reasoning)', '10')),
         {
           ...context,
           visualRowCount: 1,
         },
       ),
-    ).toThrow('Unrecognized DAYJOB Healthcare configuration');
+    ).toThrow('Unrecognized DAYJOB Finance configuration');
   });
 
   it('fails on incomplete or ambiguous leaderboard extraction', () => {
     const html = page(row('GPT', '6 Astra (Max reasoning)', '57.7'));
-    expect(() => materializeDayjobHealthcare(html, context)).toThrow(
+    expect(() => materializeDayjobFinance(html, context)).toThrow(
       'row count mismatch',
     );
     expect(() =>
-      materializeDayjobHealthcare(html.replace('DAYJOB: Healthcare', 'Other'), {
+      materializeDayjobFinance(html.replace('DAYJOB: Finance', 'Other'), {
         ...context,
         visualRowCount: 1,
       }),
     ).toThrow('page marker missing');
     expect(() =>
-      materializeDayjobHealthcare(html + html, {
+      materializeDayjobFinance(html + html, {
         ...context,
         visualRowCount: 1,
       }),
-    ).toThrow('one DAYJOB Healthcare main leaderboard');
+    ).toThrow('one DAYJOB Finance main leaderboard');
     expect(() =>
-      materializeDayjobHealthcare(
+      materializeDayjobFinance(
         html.replace('</section>', '<div w-pagination-next></div></section>'),
         { ...context, visualRowCount: 1 },
       ),
     ).toThrow('pagination requires review');
     expect(() =>
-      materializeDayjobHealthcare(
-        html.replace('data-leaderboard-table=""', ''),
-        {
-          ...context,
-          visualRowCount: 1,
-        },
-      ),
-    ).toThrow('one DAYJOB Healthcare leaderboard table');
+      materializeDayjobFinance(html.replace('data-leaderboard-table=""', ''), {
+        ...context,
+        visualRowCount: 1,
+      }),
+    ).toThrow('one DAYJOB Finance leaderboard table');
     expect(() =>
-      materializeDayjobHealthcare(
+      materializeDayjobFinance(
         html.replace(
           '</section>',
           '<div data-score="57.7">57.7</div></section>',
         ),
         { ...context, visualRowCount: 1 },
       ),
-    ).toThrow('Invalid DAYJOB Healthcare row');
+    ).toThrow('Invalid DAYJOB Finance row');
   });
 });

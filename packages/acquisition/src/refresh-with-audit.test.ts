@@ -91,7 +91,7 @@ describe('refresh with source audit', () => {
     const args = ['--observed-at', '2026-10-03'];
     const result = await refreshWithAudit(
       'surge-dayjob-healthcare',
-      'src/refresh-surge-dayjob-healthcare.ts',
+      'src/refresh-surge-leaderboard.ts',
       args,
     );
     expect(mocks.readSourceSnapshots).toHaveBeenCalledWith(
@@ -101,7 +101,7 @@ describe('refresh with source audit', () => {
     );
     expect(mocks.spawn).toHaveBeenCalledWith(
       process.execPath,
-      ['--import', 'tsx', 'src/refresh-surge-dayjob-healthcare.ts', ...args],
+      ['--import', 'tsx', 'src/refresh-surge-leaderboard.ts', ...args],
       {
         cwd: process.cwd(),
         env: process.env,
@@ -194,13 +194,16 @@ describe('refresh with source audit', () => {
       ]),
     ).toBe(resolve('workspace'));
     expect(
-      refreshRoot('src/refresh-surge-dayjob-healthcare.ts', [
-        '--observed-at',
-        '2026-10-03',
+      refreshRoot('src/refresh-surge-leaderboard.ts', [
+        'surge-dayjob-healthcare',
+        '--visual-row-count=38',
       ]),
     ).toBe(resolve('workspace'));
     expect(
-      refreshRoot('src/refresh-surge-dayjob-tax.ts', ['--visual-row-count=16']),
+      refreshRoot('src/refresh-surge-leaderboard.ts', [
+        'surge-dayjob-tax',
+        '--visual-row-count=16',
+      ]),
     ).toBe(resolve('workspace'));
     expect(
       refreshRoot('src/refresh-surge-gdp-xlsx.ts', [
