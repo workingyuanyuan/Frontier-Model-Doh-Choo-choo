@@ -1,6 +1,6 @@
 {
   "catalog": null,
-  "checkedAt": "2026-11-13T04:50:16.355Z",
+  "checkedAt": "2026-11-14T12:15:54.477Z",
   "evidence": null,
   "schemaVersion": "source-monitor-state-v1",
   "snapshot": {
@@ -3386,7 +3386,7 @@
         "versions": ["(unknown)"]
       }
     ],
-    "observedAt": "2026-11-13T04:50:14.249Z",
+    "observedAt": "2026-11-14T12:15:52.706Z",
     "sourceId": "epoch-ai"
   }
 }

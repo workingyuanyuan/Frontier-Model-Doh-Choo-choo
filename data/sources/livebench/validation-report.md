@@ -72,7 +72,7 @@ LiveBench now publishes two generations. Release 2026-11-06 (LiveBench 2.0) supp
 |---|---:|---:|---:|
 | Raw model profiles | 101 | 101 | +0 |
 | Candidate results | 529 | 529 | +0 |
-| Materialized costs | 152 | 154 | +2 |
+| Materialized costs | 154 | 154 | +0 |
 
 Previous content-addressed artifacts remain preserved; this report compares the prior tracked snapshot with the refreshed snapshot.
 

@@ -17,10 +17,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/e6/e623cf837e7d2828adf558ea6849dbd091f7b359317ef6a039d192989e500faa.html",
-    "byteLength": 1170611,
+    "artifactPath": "artifacts/sha256/6c/6cf0174ad19fadfd6789c30a50381454fa6133c501320cabd2ba986e064ba17a.html",
+    "byteLength": 1109199,
     "finalUrl": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
-    "id": "sha256:e623cf837e7d2828adf558ea6849dbd091f7b359317ef6a039d192989e500faa",
+    "id": "sha256:6cf0174ad19fadfd6789c30a50381454fa6133c501320cabd2ba986e064ba17a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -29,16 +29,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/aa-analyst-agent",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e623cf837e7d2828adf558ea6849dbd091f7b359317ef6a039d192989e500faa",
+    "sha256": "sha256:6cf0174ad19fadfd6789c30a50381454fa6133c501320cabd2ba986e064ba17a",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/65/65d3c0001395452653f6b26cc726c1f596f5359fc2d65a5b8e5f986b553ecbc7.html",
-    "byteLength": 1864824,
+    "artifactPath": "artifacts/sha256/d0/d036a965f8da253ec6da33accdc73d33c872f14e675a27ffed7b4cab4b121abd.html",
+    "byteLength": 1804405,
     "finalUrl": "https://artificialanalysis.ai/evaluations/aa-briefcase",
-    "id": "sha256:65d3c0001395452653f6b26cc726c1f596f5359fc2d65a5b8e5f986b553ecbc7",
+    "id": "sha256:d036a965f8da253ec6da33accdc73d33c872f14e675a27ffed7b4cab4b121abd",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -47,16 +47,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/aa-briefcase",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:65d3c0001395452653f6b26cc726c1f596f5359fc2d65a5b8e5f986b553ecbc7",
+    "sha256": "sha256:d036a965f8da253ec6da33accdc73d33c872f14e675a27ffed7b4cab4b121abd",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/14/14c4e6793a2b45aba5dd7099c1b03b1281f93ef04599310e1f86af1d429d1ca2.html",
-    "byteLength": 967317,
+    "artifactPath": "artifacts/sha256/37/3763c1eae3f681781e7afceab1b03c95d3e310ffdc047b19d716b4d89138468f.html",
+    "byteLength": 904834,
     "finalUrl": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
-    "id": "sha256:14c4e6793a2b45aba5dd7099c1b03b1281f93ef04599310e1f86af1d429d1ca2",
+    "id": "sha256:3763c1eae3f681781e7afceab1b03c95d3e310ffdc047b19d716b4d89138468f",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -65,16 +65,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/apex-agents-aa",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:14c4e6793a2b45aba5dd7099c1b03b1281f93ef04599310e1f86af1d429d1ca2",
+    "sha256": "sha256:3763c1eae3f681781e7afceab1b03c95d3e310ffdc047b19d716b4d89138468f",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/bf/bf9d9da05d49d6bfe0a51d1b58ae9532f33f758d71957e28bb49f3df5cfe5146.html",
-    "byteLength": 1184833,
+    "artifactPath": "artifacts/sha256/98/988bd548726fe4b20e026b25e27eb74dab4aa5fd850b8d88009da5bf98673640.html",
+    "byteLength": 1123419,
     "finalUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
-    "id": "sha256:bf9d9da05d49d6bfe0a51d1b58ae9532f33f758d71957e28bb49f3df5cfe5146",
+    "id": "sha256:988bd548726fe4b20e026b25e27eb74dab4aa5fd850b8d88009da5bf98673640",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -83,16 +83,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/artificial-analysis-long-context-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:bf9d9da05d49d6bfe0a51d1b58ae9532f33f758d71957e28bb49f3df5cfe5146",
+    "sha256": "sha256:988bd548726fe4b20e026b25e27eb74dab4aa5fd850b8d88009da5bf98673640",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/24/24b360dde9ab99f45e4e085f1c883570f7d10deadbba14d2bfc19edd6ee2a0ff.html",
-    "byteLength": 1365085,
+    "artifactPath": "artifacts/sha256/25/25c0bf55f493590df02b600e5831608dab19ad12a5be7ae53f4eb380b2e59722.html",
+    "byteLength": 1303922,
     "finalUrl": "https://artificialanalysis.ai/evaluations/automationbench-aa",
-    "id": "sha256:24b360dde9ab99f45e4e085f1c883570f7d10deadbba14d2bfc19edd6ee2a0ff",
+    "id": "sha256:25c0bf55f493590df02b600e5831608dab19ad12a5be7ae53f4eb380b2e59722",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -101,16 +101,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/automationbench-aa",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:24b360dde9ab99f45e4e085f1c883570f7d10deadbba14d2bfc19edd6ee2a0ff",
+    "sha256": "sha256:25c0bf55f493590df02b600e5831608dab19ad12a5be7ae53f4eb380b2e59722",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/e7/e72e503317065800ca1b22b543be38e52dafa1aea276de3ca7b92b9ee8f9840b.html",
-    "byteLength": 1196589,
+    "artifactPath": "artifacts/sha256/5b/5b3ec26a6761cb8d66de001657de66e1f4bc11b7c67a2fd7400762e5b6bc2717.html",
+    "byteLength": 1135291,
     "finalUrl": "https://artificialanalysis.ai/evaluations/critpt",
-    "id": "sha256:e72e503317065800ca1b22b543be38e52dafa1aea276de3ca7b92b9ee8f9840b",
+    "id": "sha256:5b3ec26a6761cb8d66de001657de66e1f4bc11b7c67a2fd7400762e5b6bc2717",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -119,16 +119,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/critpt",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e72e503317065800ca1b22b543be38e52dafa1aea276de3ca7b92b9ee8f9840b",
+    "sha256": "sha256:5b3ec26a6761cb8d66de001657de66e1f4bc11b7c67a2fd7400762e5b6bc2717",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/73/735ba6a66586cb58c38955d0aec35910b9c04b82c4a0cafa04a7bb33ddb2db9e.html",
-    "byteLength": 1155040,
+    "artifactPath": "artifacts/sha256/06/063260ed70f216fa7e7c1b3e51c9e48c8b453a5ca26fd2633c6d31566707aff0.html",
+    "byteLength": 1093772,
     "finalUrl": "https://artificialanalysis.ai/evaluations/critpt-v2",
-    "id": "sha256:735ba6a66586cb58c38955d0aec35910b9c04b82c4a0cafa04a7bb33ddb2db9e",
+    "id": "sha256:063260ed70f216fa7e7c1b3e51c9e48c8b453a5ca26fd2633c6d31566707aff0",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -137,16 +137,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/critpt-v2",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:735ba6a66586cb58c38955d0aec35910b9c04b82c4a0cafa04a7bb33ddb2db9e",
+    "sha256": "sha256:063260ed70f216fa7e7c1b3e51c9e48c8b453a5ca26fd2633c6d31566707aff0",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/40/40090c6d4703e0cd7d161720db92c631b08865e189c27bee52ce694e332f3a8d.html",
-    "byteLength": 1081319,
+    "artifactPath": "artifacts/sha256/5f/5f07c8d5f6ed248bc7b758ff4236db56f13ef5286e3e710995a73d60a4c5e4a6.html",
+    "byteLength": 1019238,
     "finalUrl": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
-    "id": "sha256:40090c6d4703e0cd7d161720db92c631b08865e189c27bee52ce694e332f3a8d",
+    "id": "sha256:5f07c8d5f6ed248bc7b758ff4236db56f13ef5286e3e710995a73d60a4c5e4a6",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -155,16 +155,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/enterprise-ops-gym-aa",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:40090c6d4703e0cd7d161720db92c631b08865e189c27bee52ce694e332f3a8d",
+    "sha256": "sha256:5f07c8d5f6ed248bc7b758ff4236db56f13ef5286e3e710995a73d60a4c5e4a6",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/4e/4e8af18d0f510378a4d5ed3342ab0248b0a25d4d24a51e558045789479f3c1de.html",
-    "byteLength": 1167434,
+    "artifactPath": "artifacts/sha256/c6/c62062ce1c6d9f53d1d42d6340910e9512b2155ca989fefbee14e0f104676cbb.html",
+    "byteLength": 1106191,
     "finalUrl": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
-    "id": "sha256:4e8af18d0f510378a4d5ed3342ab0248b0a25d4d24a51e558045789479f3c1de",
+    "id": "sha256:c62062ce1c6d9f53d1d42d6340910e9512b2155ca989fefbee14e0f104676cbb",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -173,16 +173,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/frontiercode-2-0",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:4e8af18d0f510378a4d5ed3342ab0248b0a25d4d24a51e558045789479f3c1de",
+    "sha256": "sha256:c62062ce1c6d9f53d1d42d6340910e9512b2155ca989fefbee14e0f104676cbb",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/76/76341d836119a07b6f066efe567f6236648906e94bbb46215726488c28fec7f7.html",
-    "byteLength": 1232409,
+    "artifactPath": "artifacts/sha256/68/68bea052f5e5588405743321e99f0d81e0397e6df8940b1a6dff7e706cf2400e.html",
+    "byteLength": 1171144,
     "finalUrl": "https://artificialanalysis.ai/evaluations/gdp-pdf",
-    "id": "sha256:76341d836119a07b6f066efe567f6236648906e94bbb46215726488c28fec7f7",
+    "id": "sha256:68bea052f5e5588405743321e99f0d81e0397e6df8940b1a6dff7e706cf2400e",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -191,16 +191,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/gdp-pdf",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:76341d836119a07b6f066efe567f6236648906e94bbb46215726488c28fec7f7",
+    "sha256": "sha256:68bea052f5e5588405743321e99f0d81e0397e6df8940b1a6dff7e706cf2400e",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/74/7454fa2181ade8b0d82ab226b3e9135ea722c53eb2593b8d514b857b5e189e86.html",
-    "byteLength": 1709592,
+    "artifactPath": "artifacts/sha256/22/225eb7b1b4f440d0f502ad6311ba2c065ac7b27b6f29ae7f7a7eaa6d9815d5c8.html",
+    "byteLength": 1651351,
     "finalUrl": "https://artificialanalysis.ai/evaluations/gdpval-aa",
-    "id": "sha256:7454fa2181ade8b0d82ab226b3e9135ea722c53eb2593b8d514b857b5e189e86",
+    "id": "sha256:225eb7b1b4f440d0f502ad6311ba2c065ac7b27b6f29ae7f7a7eaa6d9815d5c8",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -209,16 +209,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/gdpval-aa",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7454fa2181ade8b0d82ab226b3e9135ea722c53eb2593b8d514b857b5e189e86",
+    "sha256": "sha256:225eb7b1b4f440d0f502ad6311ba2c065ac7b27b6f29ae7f7a7eaa6d9815d5c8",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ff/ff9dd7c7d92d0803f72dfb448cb00a7a68799d461679779a73c04c79dd325640.html",
-    "byteLength": 1069768,
+    "artifactPath": "artifacts/sha256/19/19f78e082eb815aa73931c1d86feaf83539a1c6ae2cece49360ce867f87a6417.html",
+    "byteLength": 1008019,
     "finalUrl": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
-    "id": "sha256:ff9dd7c7d92d0803f72dfb448cb00a7a68799d461679779a73c04c79dd325640",
+    "id": "sha256:19f78e082eb815aa73931c1d86feaf83539a1c6ae2cece49360ce867f87a6417",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -227,16 +227,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/gpqa-diamond",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:ff9dd7c7d92d0803f72dfb448cb00a7a68799d461679779a73c04c79dd325640",
+    "sha256": "sha256:19f78e082eb815aa73931c1d86feaf83539a1c6ae2cece49360ce867f87a6417",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/f0/f01587a30ae1f0c95045b331f9728374e74e268b8142610ad4044473df127a08.html",
-    "byteLength": 1533433,
+    "artifactPath": "artifacts/sha256/50/5004daeb498adbbe8d3e0b20596e2e0427635184231225496be3fdb73ead77f0.html",
+    "byteLength": 1468862,
     "finalUrl": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
-    "id": "sha256:f01587a30ae1f0c95045b331f9728374e74e268b8142610ad4044473df127a08",
+    "id": "sha256:5004daeb498adbbe8d3e0b20596e2e0427635184231225496be3fdb73ead77f0",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -245,16 +245,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f01587a30ae1f0c95045b331f9728374e74e268b8142610ad4044473df127a08",
+    "sha256": "sha256:5004daeb498adbbe8d3e0b20596e2e0427635184231225496be3fdb73ead77f0",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/83/83af4a6285365fa9a5ee9a783c9b2d525baadf9b12f4467bd35f2e1f0ac25b1a.html",
-    "byteLength": 1176600,
+    "artifactPath": "artifacts/sha256/ee/ee4a8fd70fdbda8d16c79e46bfb0bcedd5acc206693b281e507e85cf426096bf.html",
+    "byteLength": 1115366,
     "finalUrl": "https://artificialanalysis.ai/evaluations/hle-diamond",
-    "id": "sha256:83af4a6285365fa9a5ee9a783c9b2d525baadf9b12f4467bd35f2e1f0ac25b1a",
+    "id": "sha256:ee4a8fd70fdbda8d16c79e46bfb0bcedd5acc206693b281e507e85cf426096bf",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -263,16 +263,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/hle-diamond",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:83af4a6285365fa9a5ee9a783c9b2d525baadf9b12f4467bd35f2e1f0ac25b1a",
+    "sha256": "sha256:ee4a8fd70fdbda8d16c79e46bfb0bcedd5acc206693b281e507e85cf426096bf",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/89/890ebd68db842a1f10767e1c3fe6372707bc7c47ea4e70df1f12f1f973959fe1.html",
-    "byteLength": 1200569,
+    "artifactPath": "artifacts/sha256/44/448f51998b3a7d95283d7224a2d1d2e76735107a3b187ea6ea08e69dc36f42c3.html",
+    "byteLength": 1139189,
     "finalUrl": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
-    "id": "sha256:890ebd68db842a1f10767e1c3fe6372707bc7c47ea4e70df1f12f1f973959fe1",
+    "id": "sha256:448f51998b3a7d95283d7224a2d1d2e76735107a3b187ea6ea08e69dc36f42c3",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -281,16 +281,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:890ebd68db842a1f10767e1c3fe6372707bc7c47ea4e70df1f12f1f973959fe1",
+    "sha256": "sha256:448f51998b3a7d95283d7224a2d1d2e76735107a3b187ea6ea08e69dc36f42c3",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/84/84ec693041098a55a6729d9626f1d82c7024deaa65cc0c19c9a04b4838785096.html",
-    "byteLength": 921116,
+    "artifactPath": "artifacts/sha256/ed/edad0d9c6c522483286bf30f3a971f635f135efeb782152bdee789ed5be1cdd1.html",
+    "byteLength": 858109,
     "finalUrl": "https://artificialanalysis.ai/evaluations/ifbench",
-    "id": "sha256:84ec693041098a55a6729d9626f1d82c7024deaa65cc0c19c9a04b4838785096",
+    "id": "sha256:edad0d9c6c522483286bf30f3a971f635f135efeb782152bdee789ed5be1cdd1",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -299,16 +299,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/ifbench",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:84ec693041098a55a6729d9626f1d82c7024deaa65cc0c19c9a04b4838785096",
+    "sha256": "sha256:edad0d9c6c522483286bf30f3a971f635f135efeb782152bdee789ed5be1cdd1",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/49/49e898202e6920f8d23924f76c1d75ccbaa2d9e32690a813e1091327a1c99f22.html",
-    "byteLength": 1112367,
+    "artifactPath": "artifacts/sha256/ba/ba17c601b9ec9126411ebfe33f9120182e94092f7d0e991703c5a954f64b1188.html",
+    "byteLength": 1050516,
     "finalUrl": "https://artificialanalysis.ai/evaluations/itbench-aa",
-    "id": "sha256:49e898202e6920f8d23924f76c1d75ccbaa2d9e32690a813e1091327a1c99f22",
+    "id": "sha256:ba17c601b9ec9126411ebfe33f9120182e94092f7d0e991703c5a954f64b1188",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -317,16 +317,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/itbench-aa",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:49e898202e6920f8d23924f76c1d75ccbaa2d9e32690a813e1091327a1c99f22",
+    "sha256": "sha256:ba17c601b9ec9126411ebfe33f9120182e94092f7d0e991703c5a954f64b1188",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ba/ba3a02cf8760dbc3df3933e89434e06037ce890854d51f3f009ae15935d4210d.html",
-    "byteLength": 1168668,
+    "artifactPath": "artifacts/sha256/8f/8fc274cbb7e41b5f2e8d27efc4daaebd43a026f9bc8a66d341b7e0cab855b28b.html",
+    "byteLength": 1107334,
     "finalUrl": "https://artificialanalysis.ai/evaluations/mka",
-    "id": "sha256:ba3a02cf8760dbc3df3933e89434e06037ce890854d51f3f009ae15935d4210d",
+    "id": "sha256:8fc274cbb7e41b5f2e8d27efc4daaebd43a026f9bc8a66d341b7e0cab855b28b",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -335,16 +335,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/mka",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:ba3a02cf8760dbc3df3933e89434e06037ce890854d51f3f009ae15935d4210d",
+    "sha256": "sha256:8fc274cbb7e41b5f2e8d27efc4daaebd43a026f9bc8a66d341b7e0cab855b28b",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/bf/bf8b2d360a34953000cf9a2ba2c0f022a605dbe686c67a5172443eababf12635.html",
-    "byteLength": 1089807,
+    "artifactPath": "artifacts/sha256/49/497ea3075c963e3b8104b93438fa79fa5188839145014e74c1f795fde2d17184.html",
+    "byteLength": 1017613,
     "finalUrl": "https://artificialanalysis.ai/evaluations/mmmu-pro",
-    "id": "sha256:bf8b2d360a34953000cf9a2ba2c0f022a605dbe686c67a5172443eababf12635",
+    "id": "sha256:497ea3075c963e3b8104b93438fa79fa5188839145014e74c1f795fde2d17184",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -353,16 +353,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/mmmu-pro",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:bf8b2d360a34953000cf9a2ba2c0f022a605dbe686c67a5172443eababf12635",
+    "sha256": "sha256:497ea3075c963e3b8104b93438fa79fa5188839145014e74c1f795fde2d17184",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/60/60c8f80dcd3cb31a884a795a7dfb23041028b790468cceeb85637f336c0ab873.html",
-    "byteLength": 1523949,
+    "artifactPath": "artifacts/sha256/cd/cd3c59fcd5e52e920a0b6fea7a13219542263d56f4553e9446bd5172d9cc90ad.html",
+    "byteLength": 1459672,
     "finalUrl": "https://artificialanalysis.ai/evaluations/omniscience",
-    "id": "sha256:60c8f80dcd3cb31a884a795a7dfb23041028b790468cceeb85637f336c0ab873",
+    "id": "sha256:cd3c59fcd5e52e920a0b6fea7a13219542263d56f4553e9446bd5172d9cc90ad",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -371,16 +371,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/omniscience",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:60c8f80dcd3cb31a884a795a7dfb23041028b790468cceeb85637f336c0ab873",
+    "sha256": "sha256:cd3c59fcd5e52e920a0b6fea7a13219542263d56f4553e9446bd5172d9cc90ad",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/f9/f95bd1bfb7f1130b2bd81e20f1c7ee4935e5da7073109b6aa3e44f9d573f18c6.html",
-    "byteLength": 1763816,
+    "artifactPath": "artifacts/sha256/7a/7a25960d3624dcc167a9629dd6c7785ac5b4687cf66c6be8f2e4f22c3dbda161.html",
+    "byteLength": 1702380,
     "finalUrl": "https://artificialanalysis.ai/evaluations/scicode",
-    "id": "sha256:f95bd1bfb7f1130b2bd81e20f1c7ee4935e5da7073109b6aa3e44f9d573f18c6",
+    "id": "sha256:7a25960d3624dcc167a9629dd6c7785ac5b4687cf66c6be8f2e4f22c3dbda161",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -389,16 +389,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/scicode",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f95bd1bfb7f1130b2bd81e20f1c7ee4935e5da7073109b6aa3e44f9d573f18c6",
+    "sha256": "sha256:7a25960d3624dcc167a9629dd6c7785ac5b4687cf66c6be8f2e4f22c3dbda161",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ee/ee35e8d28d15fe150c1c2f34ccb8bf62e80ad29b588ee6ea2d86f98dd03960b2.html",
-    "byteLength": 1051533,
+    "artifactPath": "artifacts/sha256/88/883b5fe5676bf60c91e5a1730758ab99fdae7e3cc3763235e2775ec34b3af59a.html",
+    "byteLength": 989678,
     "finalUrl": "https://artificialanalysis.ai/evaluations/tau3-banking",
-    "id": "sha256:ee35e8d28d15fe150c1c2f34ccb8bf62e80ad29b588ee6ea2d86f98dd03960b2",
+    "id": "sha256:883b5fe5676bf60c91e5a1730758ab99fdae7e3cc3763235e2775ec34b3af59a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -407,16 +407,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/tau3-banking",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:ee35e8d28d15fe150c1c2f34ccb8bf62e80ad29b588ee6ea2d86f98dd03960b2",
+    "sha256": "sha256:883b5fe5676bf60c91e5a1730758ab99fdae7e3cc3763235e2775ec34b3af59a",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/b0/b05030cc0a748f5f606cb88c167ab5d8e89caad44ff19c16b220904273af3412.html",
-    "byteLength": 1223794,
+    "artifactPath": "artifacts/sha256/6a/6a22689dd347871442e19a9ebc07da5fb2156240bc911270eae414ead8db77ba.html",
+    "byteLength": 1162535,
     "finalUrl": "https://artificialanalysis.ai/evaluations/terminal-bench-science",
-    "id": "sha256:b05030cc0a748f5f606cb88c167ab5d8e89caad44ff19c16b220904273af3412",
+    "id": "sha256:6a22689dd347871442e19a9ebc07da5fb2156240bc911270eae414ead8db77ba",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -425,16 +425,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/terminal-bench-science",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:b05030cc0a748f5f606cb88c167ab5d8e89caad44ff19c16b220904273af3412",
+    "sha256": "sha256:6a22689dd347871442e19a9ebc07da5fb2156240bc911270eae414ead8db77ba",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/19/19678d82a805de3c036237bc3bd5d1d6e3e1b076ee61b77c8580f9509f73be17.html",
-    "byteLength": 1200692,
+    "artifactPath": "artifacts/sha256/16/16bf8292792db131eb6cef9cb1cb46270337126a7360173265b58fedefa16266.html",
+    "byteLength": 1139446,
     "finalUrl": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
-    "id": "sha256:19678d82a805de3c036237bc3bd5d1d6e3e1b076ee61b77c8580f9509f73be17",
+    "id": "sha256:16bf8292792db131eb6cef9cb1cb46270337126a7360173265b58fedefa16266",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -443,16 +443,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/terminalbench-4-0",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:19678d82a805de3c036237bc3bd5d1d6e3e1b076ee61b77c8580f9509f73be17",
+    "sha256": "sha256:16bf8292792db131eb6cef9cb1cb46270337126a7360173265b58fedefa16266",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/d5/d555665c5d609a47c03c252db450bd60c004e1ccd615d370254c50a43035425d.html",
-    "byteLength": 1053228,
+    "artifactPath": "artifacts/sha256/66/660d00774d134289b8d681d5ac8aaf7fdaf26bd02bab31e86fbf44d933f1d8ae.html",
+    "byteLength": 991437,
     "finalUrl": "https://artificialanalysis.ai/evaluations/terminalbench-2-1",
-    "id": "sha256:d555665c5d609a47c03c252db450bd60c004e1ccd615d370254c50a43035425d",
+    "id": "sha256:660d00774d134289b8d681d5ac8aaf7fdaf26bd02bab31e86fbf44d933f1d8ae",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete evaluation response",
@@ -461,46 +461,64 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/evaluations/terminalbench-v2-1",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:d555665c5d609a47c03c252db450bd60c004e1ccd615d370254c50a43035425d",
+    "sha256": "sha256:660d00774d134289b8d681d5ac8aaf7fdaf26bd02bab31e86fbf44d933f1d8ae",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/8f/8fd3f844232ed5dcbff47df5c376103ad1e55e521698d56ff15affd0b6e3454c.html",
-    "byteLength": 1091075,
+    "artifactPath": "artifacts/sha256/a1/a11265404459891b708d71ac02a5b5f8a30c470e4a974519549341b401e9a054.html",
+    "byteLength": 1027295,
     "finalUrl": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
-    "id": "sha256:8fd3f844232ed5dcbff47df5c376103ad1e55e521698d56ff15affd0b6e3454c",
+    "id": "sha256:a11265404459891b708d71ac02a5b5f8a30c470e4a974519549341b401e9a054",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "official methodology including MKA single-run configuration"
     },
     "method": "DOM",
     "requestUrl": "https://artificialanalysis.ai/methodology/intelligence-benchmarking",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:8fd3f844232ed5dcbff47df5c376103ad1e55e521698d56ff15affd0b6e3454c",
+    "sha256": "sha256:a11265404459891b708d71ac02a5b5f8a30c470e4a974519549341b401e9a054",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ea/ea5642fc86bdd3b6945b1c4d5f0fc5441372a75aa9cda8678fbeac864facbc9e.html",
-    "byteLength": 1450572,
+    "artifactPath": "artifacts/sha256/9a/9a42e8b84160d069638c003cabe7de44eed547223464039bc09cc1bf1ab5ba23.html",
+    "byteLength": 1276811,
     "finalUrl": "https://artificialanalysis.ai/models",
-    "id": "sha256:ea5642fc86bdd3b6945b1c4d5f0fc5441372a75aa9cda8678fbeac864facbc9e",
+    "id": "sha256:9a42e8b84160d069638c003cabe7de44eed547223464039bc09cc1bf1ab5ba23",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete models response",
       "kind": "models",
-      "materializedEvaluationProfiles": 244,
-      "visibleCatalogModels": 739,
+      "materializedEvaluationProfiles": 286,
+      "visibleCatalogModels": 741,
       "visibleComparisonCompleted": true,
       "visibleComparisonScopeComparable": false
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:ea5642fc86bdd3b6945b1c4d5f0fc5441372a75aa9cda8678fbeac864facbc9e",
+    "sha256": "sha256:9a42e8b84160d069638c003cabe7de44eed547223464039bc09cc1bf1ab5ba23",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/7d/7da7523042c9794437a53867db7966aacb78ef3748f939d1a20ed1aab187fb52.html",
+    "byteLength": 1230084,
+    "finalUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
+    "id": "sha256:7da7523042c9794437a53867db7966aacb78ef3748f939d1a20ed1aab187fb52",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "agnes-2-5-pro-theta"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/agnes-2-5-pro-theta",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:7da7523042c9794437a53867db7966aacb78ef3748f939d1a20ed1aab187fb52",
     "sourceId": "artificial-analysis"
   },
   {
@@ -522,6 +540,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/82/826f5fbab1302466b0b7f7b74ad3a45e7cb8cf6789409765a3590ce6a4c59fce.html",
+    "byteLength": 1224884,
+    "finalUrl": "https://artificialanalysis.ai/models/apodex-1-1",
+    "id": "sha256:826f5fbab1302466b0b7f7b74ad3a45e7cb8cf6789409765a3590ce6a4c59fce",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "apodex-1-1"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/apodex-1-1",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:826f5fbab1302466b0b7f7b74ad3a45e7cb8cf6789409765a3590ce6a4c59fce",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/8c/8c2d22de94b2df4f07d30a427cf7a4bc1e429223e76efd5acbe159f566d440cc.html",
     "byteLength": 3872236,
     "finalUrl": "https://artificialanalysis.ai/models/apodex-1-1",
@@ -540,6 +576,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/4c/4c3a503a9d5986e73d1e0e4476e3e1a6e6c13e2968eb20683472d8fcce1bf3cd.html",
+    "byteLength": 1045117,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5",
+    "id": "sha256:4c3a503a9d5986e73d1e0e4476e3e1a6e6c13e2968eb20683472d8fcce1bf3cd",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-fable-5"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:4c3a503a9d5986e73d1e0e4476e3e1a6e6c13e2968eb20683472d8fcce1bf3cd",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/c5/c5c3feef2a9d51fc1172795a75513532843e32969f5ddf68443d8b9e0df2c9cb.html",
     "byteLength": 3746472,
     "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5",
@@ -555,24 +609,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c5c3feef2a9d51fc1172795a75513532843e32969f5ddf68443d8b9e0df2c9cb",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/5a/5a8463c048bf00b95c97b34125e2aacd75e862501cfaeaa6bd36b9ede2842be7.html",
-    "byteLength": 3940191,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
-    "id": "sha256:5a8463c048bf00b95c97b34125e2aacd75e862501cfaeaa6bd36b9ede2842be7",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-fable-5-1"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5a8463c048bf00b95c97b34125e2aacd75e862501cfaeaa6bd36b9ede2842be7",
     "sourceId": "artificial-analysis"
   },
   {
@@ -630,6 +666,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/67/67d29df6245c5e3dc69d0f9f0b3006e8fbc3eb8b85c0b004b09bddff5e819956.html",
+    "byteLength": 1293441,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5-1",
+    "id": "sha256:67d29df6245c5e3dc69d0f9f0b3006e8fbc3eb8b85c0b004b09bddff5e819956",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-fable-5-1-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:67d29df6245c5e3dc69d0f9f0b3006e8fbc3eb8b85c0b004b09bddff5e819956",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/c4/c4a77eb1b55e313343747cff5e79719ed315d0aa8f42f6b5dd4b07990308640b.html",
     "byteLength": 3886875,
     "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5-1-xhigh",
@@ -645,24 +699,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c4a77eb1b55e313343747cff5e79719ed315d0aa8f42f6b5dd4b07990308640b",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/43/437b323eebd2b8c0c9872312ee7d52c830db3c83436febcb21303406c000daff.html",
-    "byteLength": 1528252,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5-2",
-    "id": "sha256:437b323eebd2b8c0c9872312ee7d52c830db3c83436febcb21303406c000daff",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-fable-5-2"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-2",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:437b323eebd2b8c0c9872312ee7d52c830db3c83436febcb21303406c000daff",
     "sourceId": "artificial-analysis"
   },
   {
@@ -720,6 +756,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/1b/1b687b87e82f71b21c1124abf86c005322a1ee3feab51998bfec87779842b430.html",
+    "byteLength": 1322899,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5-2",
+    "id": "sha256:1b687b87e82f71b21c1124abf86c005322a1ee3feab51998bfec87779842b430",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-fable-5-2-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-fable-5-2-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:1b687b87e82f71b21c1124abf86c005322a1ee3feab51998bfec87779842b430",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/ec/ec63807bc40888e6ce6fd5c9f13b3f17f51ff3555c77faa5dd9044f4c75bc9ce.html",
     "byteLength": 1485529,
     "finalUrl": "https://artificialanalysis.ai/models/claude-fable-5-2-xhigh",
@@ -735,24 +789,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ec63807bc40888e6ce6fd5c9f13b3f17f51ff3555c77faa5dd9044f4c75bc9ce",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/d2/d2d81d42e144a7d21abe34cd6b33263a10a7c71bf70be07cbfddbc186c9ad506.html",
-    "byteLength": 1523951,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5",
-    "id": "sha256:d2d81d42e144a7d21abe34cd6b33263a10a7c71bf70be07cbfddbc186c9ad506",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-haiku-5-5"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:d2d81d42e144a7d21abe34cd6b33263a10a7c71bf70be07cbfddbc186c9ad506",
     "sourceId": "artificial-analysis"
   },
   {
@@ -810,6 +846,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/92/9251d67491062a7a50093289b76a42d7f05b4763a07589af2d8b237c9c1ba402.html",
+    "byteLength": 1349061,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5",
+    "id": "sha256:9251d67491062a7a50093289b76a42d7f05b4763a07589af2d8b237c9c1ba402",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-haiku-5-5-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:9251d67491062a7a50093289b76a42d7f05b4763a07589af2d8b237c9c1ba402",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/99/99ff0ca2dcf20cd90d9c9cba2c7a5c9a8dbc868e2838e2b6d591409cd504f11d.html",
     "byteLength": 1481098,
     "finalUrl": "https://artificialanalysis.ai/models/claude-haiku-5-5-xhigh",
@@ -828,28 +882,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/5e/5e8a68b258de53ec7e4dec6947ff6cd6594e837ef71c0b18591a1a09538a4af6.html",
-    "byteLength": 3709074,
+    "artifactPath": "artifacts/sha256/11/113b318fa4bdecb8cf4c948ab45b1b17ddb99583a14374fec18948a6b61ad581.html",
+    "byteLength": 1005065,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-4-6",
-    "id": "sha256:5e8a68b258de53ec7e4dec6947ff6cd6594e837ef71c0b18591a1a09538a4af6",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-opus-4-6"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-6",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5e8a68b258de53ec7e4dec6947ff6cd6594e837ef71c0b18591a1a09538a4af6",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/90/90b23388dd46541f5c1ef2005c8f8dd0a35835c7f6a80d518c0b86e86c867310.html",
-    "byteLength": 3706806,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
-    "id": "sha256:90b23388dd46541f5c1ef2005c8f8dd0a35835c7f6a80d518c0b86e86c867310",
+    "id": "sha256:113b318fa4bdecb8cf4c948ab45b1b17ddb99583a14374fec18948a6b61ad581",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -858,9 +894,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:90b23388dd46541f5c1ef2005c8f8dd0a35835c7f6a80d518c0b86e86c867310",
+    "sha256": "sha256:113b318fa4bdecb8cf4c948ab45b1b17ddb99583a14374fec18948a6b61ad581",
     "sourceId": "artificial-analysis"
   },
   {
@@ -900,6 +936,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/7f/7f0658660f388cbbfeef49d4ca5a9ce9c33e9bc52f60135b21052bf25ae8334c.html",
+    "byteLength": 1031844,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-opus-4-7",
+    "id": "sha256:7f0658660f388cbbfeef49d4ca5a9ce9c33e9bc52f60135b21052bf25ae8334c",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-opus-4-7-non-reasoning"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-7-non-reasoning",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:7f0658660f388cbbfeef49d4ca5a9ce9c33e9bc52f60135b21052bf25ae8334c",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/6d/6dda246715bd48956e1ce904cf9a81b11eebf0ced3a7c1afeb4a7cb1a7b4126c.html",
     "byteLength": 3740702,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-4-8",
@@ -918,6 +972,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/a9/a9a32f7676149817e370edb2f4cc67fadfc70e38d7ef56ac2306b949e66e7192.html",
+    "byteLength": 1042087,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-opus-4-8",
+    "id": "sha256:a9a32f7676149817e370edb2f4cc67fadfc70e38d7ef56ac2306b949e66e7192",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-opus-4-8"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-opus-4-8",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:a9a32f7676149817e370edb2f4cc67fadfc70e38d7ef56ac2306b949e66e7192",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/b7/b71f4249e1318c5132e5d7552c326e03ee70f9c76db8e40cfafad6c2239f5767.html",
     "byteLength": 3886493,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5",
@@ -933,24 +1005,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:b71f4249e1318c5132e5d7552c326e03ee70f9c76db8e40cfafad6c2239f5767",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/45/456b05fad6656c082c67d7c61bdfbcbb3485a9e3cc203c343dcebf98e11b73f4.html",
-    "byteLength": 1528176,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-5",
-    "id": "sha256:456b05fad6656c082c67d7c61bdfbcbb3485a9e3cc203c343dcebf98e11b73f4",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-opus-5-5"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:456b05fad6656c082c67d7c61bdfbcbb3485a9e3cc203c343dcebf98e11b73f4",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1026,6 +1080,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/f0/f04ffc300f2b96a9c1f6bd481da8bea11d23fbb41d5ae1159a7c6b411e6be6dc.html",
+    "byteLength": 1351523,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-5",
+    "id": "sha256:f04ffc300f2b96a9c1f6bd481da8bea11d23fbb41d5ae1159a7c6b411e6be6dc",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-opus-5-5-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-5-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:f04ffc300f2b96a9c1f6bd481da8bea11d23fbb41d5ae1159a7c6b411e6be6dc",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/3f/3f29219ee7aea907b7ecbdf492bb271dd605bf76afd64713e2df786cc2c932e3.html",
     "byteLength": 3748294,
     "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5-high",
@@ -1098,21 +1170,21 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/cb/cb49c7c6f3b43e6c6b4d2e3f414c672abed5d0826e0e302200e18325937c68dc.html",
-    "byteLength": 3709767,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
-    "id": "sha256:cb49c7c6f3b43e6c6b4d2e3f414c672abed5d0826e0e302200e18325937c68dc",
+    "artifactPath": "artifacts/sha256/c9/c986bd98141ac0299e28da4f736fc8176dc4620a8b7fbe3be1da503be09c396b.html",
+    "byteLength": 1208350,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-opus-5",
+    "id": "sha256:c986bd98141ac0299e28da4f736fc8176dc4620a8b7fbe3be1da503be09c396b",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "claude-sonnet-4-6"
+      "slug": "claude-opus-5-xhigh"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-opus-5-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:cb49c7c6f3b43e6c6b4d2e3f414c672abed5d0826e0e302200e18325937c68dc",
+    "sha256": "sha256:c986bd98141ac0299e28da4f736fc8176dc4620a8b7fbe3be1da503be09c396b",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1134,10 +1206,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/81/81744daecf8e30b9d2bab690b3319ac8d077285e2f3baec35ba765b97f23bf46.html",
-    "byteLength": 3710154,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort",
-    "id": "sha256:81744daecf8e30b9d2bab690b3319ac8d077285e2f3baec35ba765b97f23bf46",
+    "artifactPath": "artifacts/sha256/55/5526e23cfcf90997731767ab703196e97d7b03f385af350cad1f1365e3c18c25.html",
+    "byteLength": 1053734,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
+    "id": "sha256:5526e23cfcf90997731767ab703196e97d7b03f385af350cad1f1365e3c18c25",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -1146,9 +1218,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:81744daecf8e30b9d2bab690b3319ac8d077285e2f3baec35ba765b97f23bf46",
+    "sha256": "sha256:5526e23cfcf90997731767ab703196e97d7b03f385af350cad1f1365e3c18c25",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1167,24 +1239,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:4d0468e98105bd86dacab9d47c2bf5b6ef20ba0cfbb7d9161d4cb49c42bbd71e",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/e7/e755fcb59f18b94683e0d883508bedb407c42e3607cdc014368778adbc38bb4b.html",
-    "byteLength": 1529466,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5",
-    "id": "sha256:e755fcb59f18b94683e0d883508bedb407c42e3607cdc014368778adbc38bb4b",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-sonnet-5-5"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e755fcb59f18b94683e0d883508bedb407c42e3607cdc014368778adbc38bb4b",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1239,6 +1293,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:bc0c48de18b54df0dbfe2e9135ef4bf2f02c6315663cf87f06eebce8904432d4",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/72/724bbd6007a3cd09474b782fe0a5efe447dae0c347189bf297116af56ddee057.html",
+    "byteLength": 1337285,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5",
+    "id": "sha256:724bbd6007a3cd09474b782fe0a5efe447dae0c347189bf297116af56ddee057",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "claude-sonnet-5-5-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-5-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:724bbd6007a3cd09474b782fe0a5efe447dae0c347189bf297116af56ddee057",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1314,24 +1386,6 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/cc/cc7625ca4985500b88081ca0623939f30222b3a96136faade57517a57d0e8cee.html",
-    "byteLength": 3706450,
-    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-non-reasoning",
-    "id": "sha256:cc7625ca4985500b88081ca0623939f30222b3a96136faade57517a57d0e8cee",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "claude-sonnet-5-non-reasoning"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:cc7625ca4985500b88081ca0623939f30222b3a96136faade57517a57d0e8cee",
-    "sourceId": "artificial-analysis"
-  },
-  {
     "artifactPath": "artifacts/sha256/1b/1be8f62f2856a16965a7443c02c2040fe2e8d9b033a1cda96fcb4ce3fe083039.html",
     "byteLength": 3749002,
     "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-xhigh",
@@ -1350,28 +1404,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/61/618c0cdbbca7097f9b1e7e5ba076af00cff27d84f3b39e8244553a32b4a1fe91.html",
-    "byteLength": 3790510,
-    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v3-2",
-    "id": "sha256:618c0cdbbca7097f9b1e7e5ba076af00cff27d84f3b39e8244553a32b4a1fe91",
+    "artifactPath": "artifacts/sha256/7e/7e66306b71dd5240114d22ef2f264e27b0b844a884179cce46fd9fd31231791a.html",
+    "byteLength": 1065887,
+    "finalUrl": "https://artificialanalysis.ai/models/claude-sonnet-5",
+    "id": "sha256:7e66306b71dd5240114d22ef2f264e27b0b844a884179cce46fd9fd31231791a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "deepseek-v3-2"
+      "slug": "claude-sonnet-5-xhigh"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v3-2",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/claude-sonnet-5-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:618c0cdbbca7097f9b1e7e5ba076af00cff27d84f3b39e8244553a32b4a1fe91",
+    "sha256": "sha256:7e66306b71dd5240114d22ef2f264e27b0b844a884179cce46fd9fd31231791a",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/92/92fff942d5960f7159e4fce678c5f9f5ff2b393b7a3fc88a0711c128e4340f14.html",
-    "byteLength": 3790279,
-    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v3-2-reasoning",
-    "id": "sha256:92fff942d5960f7159e4fce678c5f9f5ff2b393b7a3fc88a0711c128e4340f14",
+    "artifactPath": "artifacts/sha256/ef/ef4fde56c702998bdf7a4e0dae86a192f0581a6c2f23dfacde14d2c1aa09e450.html",
+    "byteLength": 1131873,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v3-2",
+    "id": "sha256:ef4fde56c702998bdf7a4e0dae86a192f0581a6c2f23dfacde14d2c1aa09e450",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -1380,9 +1434,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v3-2-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:92fff942d5960f7159e4fce678c5f9f5ff2b393b7a3fc88a0711c128e4340f14",
+    "sha256": "sha256:ef4fde56c702998bdf7a4e0dae86a192f0581a6c2f23dfacde14d2c1aa09e450",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1401,24 +1455,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:f6ea7b58036299699950ca0346a4354a6b2a0d5416468745d75c26251fbbf37b",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/1a/1a672756dbebbce34f7b369928857e9e744453ad5ccd3644a19fb75bbe2f4a16.html",
-    "byteLength": 1610288,
-    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
-    "id": "sha256:1a672756dbebbce34f7b369928857e9e744453ad5ccd3644a19fb75bbe2f4a16",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "deepseek-v4-1-flash-1017"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:1a672756dbebbce34f7b369928857e9e744453ad5ccd3644a19fb75bbe2f4a16",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1458,6 +1494,42 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/4c/4c3b5dbb7725e53d75e31926ce410bcc857deba6b2a5f8712be7d98421e73ce1.html",
+    "byteLength": 1457598,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017",
+    "id": "sha256:4c3b5dbb7725e53d75e31926ce410bcc857deba6b2a5f8712be7d98421e73ce1",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "deepseek-v4-1-flash-1017-non-reasoning"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-1017-non-reasoning",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:4c3b5dbb7725e53d75e31926ce410bcc857deba6b2a5f8712be7d98421e73ce1",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/72/72a541660baff525af0dd490a75689d5d2080a1cdc5840f04c9e4fc4b2730ab6.html",
+    "byteLength": 1293213,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash",
+    "id": "sha256:72a541660baff525af0dd490a75689d5d2080a1cdc5840f04c9e4fc4b2730ab6",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "deepseek-v4-1-flash-non-reasoning"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-non-reasoning",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:72a541660baff525af0dd490a75689d5d2080a1cdc5840f04c9e4fc4b2730ab6",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/cb/cb18df99c1804d6a5b475167373c4a708dbc61bb1160282c61d62bb26ba8b600.html",
     "byteLength": 3837591,
     "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-1-flash-non-reasoning",
@@ -1473,6 +1545,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:cb18df99c1804d6a5b475167373c4a708dbc61bb1160282c61d62bb26ba8b600",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/7f/7f2343376798e6403d6a4bab8729084b5a52c20d76fb93178e310fc16d15ac60.html",
+    "byteLength": 1154493,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+    "id": "sha256:7f2343376798e6403d6a4bab8729084b5a52c20d76fb93178e310fc16d15ac60",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "deepseek-v4-flash"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:7f2343376798e6403d6a4bab8729084b5a52c20d76fb93178e310fc16d15ac60",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1530,10 +1620,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/b6/b673e069518a4fb8c48723637abb3900d07618e0f20f4468bb56e0aaa4a5d180.html",
-    "byteLength": 3684807,
-    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-0420-non-reasoning",
-    "id": "sha256:b673e069518a4fb8c48723637abb3900d07618e0f20f4468bb56e0aaa4a5d180",
+    "artifactPath": "artifacts/sha256/c7/c79228a217a044aff0e42eee69ac2e28ca625d22e83884520aee342d9415528d.html",
+    "byteLength": 1168077,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-0420",
+    "id": "sha256:c79228a217a044aff0e42eee69ac2e28ca625d22e83884520aee342d9415528d",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -1542,9 +1632,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-0420-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:b673e069518a4fb8c48723637abb3900d07618e0f20f4468bb56e0aaa4a5d180",
+    "sha256": "sha256:c79228a217a044aff0e42eee69ac2e28ca625d22e83884520aee342d9415528d",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/54/54764b70a80dd6f737bbc98eef72467254b2aa3b5af45de96beb3b131a62d007.html",
+    "byteLength": 1107733,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision",
+    "id": "sha256:54764b70a80dd6f737bbc98eef72467254b2aa3b5af45de96beb3b131a62d007",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "deepseek-v4-flash-vision"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-flash-vision",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:54764b70a80dd6f737bbc98eef72467254b2aa3b5af45de96beb3b131a62d007",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1602,28 +1710,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/66/66a62a55bea0767c4fef545c591902c7127afd56009827d14cb16b5a10279148.html",
-    "byteLength": 3682826,
-    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
-    "id": "sha256:66a62a55bea0767c4fef545c591902c7127afd56009827d14cb16b5a10279148",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "deepseek-v4-pro-0424-high"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-high",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:66a62a55bea0767c4fef545c591902c7127afd56009827d14cb16b5a10279148",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/2c/2cadd79d1189d88887e324a9dd1a71f8179bf70b4516b750c021049d38f36f0e.html",
-    "byteLength": 3792651,
-    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-non-reasoning",
-    "id": "sha256:2cadd79d1189d88887e324a9dd1a71f8179bf70b4516b750c021049d38f36f0e",
+    "artifactPath": "artifacts/sha256/1d/1da46ad413500d7558070463cabe8c0e2b1421e7345c4fde6f87c5c329f3e45e.html",
+    "byteLength": 1178867,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424",
+    "id": "sha256:1da46ad413500d7558070463cabe8c0e2b1421e7345c4fde6f87c5c329f3e45e",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -1632,9 +1722,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-0424-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:2cadd79d1189d88887e324a9dd1a71f8179bf70b4516b750c021049d38f36f0e",
+    "sha256": "sha256:1da46ad413500d7558070463cabe8c0e2b1421e7345c4fde6f87c5c329f3e45e",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1656,6 +1746,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/45/45a21d48d7286aba459db186169e371a698321a06909aa56196d63722cd841b5.html",
+    "byteLength": 1352959,
+    "finalUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro",
+    "id": "sha256:45a21d48d7286aba459db186169e371a698321a06909aa56196d63722cd841b5",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "deepseek-v4-pro-non-reasoning"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:45a21d48d7286aba459db186169e371a698321a06909aa56196d63722cd841b5",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/50/50118559c001aaa1bd9a2cc41b4682ae2a14c2955abf01ba50c61f4384e5ec5b.html",
     "byteLength": 3880141,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
@@ -1671,6 +1779,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:50118559c001aaa1bd9a2cc41b4682ae2a14c2955abf01ba50c61f4384e5ec5b",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/af/afde88e9aa389f067bbaa880cc24377ff0ae034bba99ba71dfce197b91687c93.html",
+    "byteLength": 1215555,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite",
+    "id": "sha256:afde88e9aa389f067bbaa880cc24377ff0ae034bba99ba71dfce197b91687c93",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-3-1-flash-lite-preview"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-1-flash-lite-preview",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:afde88e9aa389f067bbaa880cc24377ff0ae034bba99ba71dfce197b91687c93",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1692,6 +1818,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/67/6752a1122a4ffbe3eddefd6eba32b21ead5c7154c026e08b8123b758e5470353.html",
+    "byteLength": 1183346,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-1-pro-preview",
+    "id": "sha256:6752a1122a4ffbe3eddefd6eba32b21ead5c7154c026e08b8123b758e5470353",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-3-1-pro-preview"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-1-pro-preview",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:6752a1122a4ffbe3eddefd6eba32b21ead5c7154c026e08b8123b758e5470353",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/65/65829f3407350d6e02773d3a1ad5a5661fd7c647bd59d18f1c727107f861f5cd.html",
     "byteLength": 3745549,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash",
@@ -1710,6 +1854,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/26/26f367706199b95521d44075c4211b6dcd87630e4623685b573f1f022579c3eb.html",
+    "byteLength": 1255782,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
+    "id": "sha256:26f367706199b95521d44075c4211b6dcd87630e4623685b573f1f022579c3eb",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-3-5-flash-lite"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:26f367706199b95521d44075c4211b6dcd87630e4623685b573f1f022579c3eb",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/80/80866f62e0fbc94688fbdc3d92b901104340ba3558d320273898418bc364a123.html",
     "byteLength": 3872459,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-lite",
@@ -1725,6 +1887,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:80866f62e0fbc94688fbdc3d92b901104340ba3558d320273898418bc364a123",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/38/3836509275ba019707d10ded9e878a1bed83bc54e9ef74a44aaf0aa4e79c4b40.html",
+    "byteLength": 1052841,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash",
+    "id": "sha256:3836509275ba019707d10ded9e878a1bed83bc54e9ef74a44aaf0aa4e79c4b40",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-3-5-flash-medium"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-5-flash-medium",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:3836509275ba019707d10ded9e878a1bed83bc54e9ef74a44aaf0aa4e79c4b40",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1764,6 +1944,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/46/46c373c98c4d1106c94ea24a188381abdd86ada905fb147fcf0a17a415ae2d5c.html",
+    "byteLength": 1036019,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash",
+    "id": "sha256:46c373c98c4d1106c94ea24a188381abdd86ada905fb147fcf0a17a415ae2d5c",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-3-6-flash"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-6-flash",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:46c373c98c4d1106c94ea24a188381abdd86ada905fb147fcf0a17a415ae2d5c",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/79/79b9140889574f6cdbd4659a82d5aaf806e78eceb1235619242e234d4f7b9784.html",
     "byteLength": 3637813,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash",
@@ -1782,28 +1980,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/40/401007923d9e879a9b73fe9b57456e9ce42cb24b1479ac12572240ae454a402c.html",
-    "byteLength": 3588394,
-    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-low",
-    "id": "sha256:401007923d9e879a9b73fe9b57456e9ce42cb24b1479ac12572240ae454a402c",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gemini-3-7-flash-low"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-low",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:401007923d9e879a9b73fe9b57456e9ce42cb24b1479ac12572240ae454a402c",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/f4/f43d581560b1e5ff6dc91c1d9e6bcd1fe206ce3f8ef145f684228e09848bd16a.html",
-    "byteLength": 3588844,
-    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-medium",
-    "id": "sha256:f43d581560b1e5ff6dc91c1d9e6bcd1fe206ce3f8ef145f684228e09848bd16a",
+    "artifactPath": "artifacts/sha256/87/87479d063951f05fb1e3256dea8787b20fc28a9169b41624c9e2e06fb0968b7a.html",
+    "byteLength": 928591,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash",
+    "id": "sha256:87479d063951f05fb1e3256dea8787b20fc28a9169b41624c9e2e06fb0968b7a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -1812,9 +1992,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-7-flash-medium",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:f43d581560b1e5ff6dc91c1d9e6bcd1fe206ce3f8ef145f684228e09848bd16a",
+    "sha256": "sha256:87479d063951f05fb1e3256dea8787b20fc28a9169b41624c9e2e06fb0968b7a",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1872,28 +2052,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/27/276bd5c1d4eb095559244ec61ac3e71aece7c311ae70d7676f437106a28c62ce.html",
-    "byteLength": 3713818,
-    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-flash",
-    "id": "sha256:276bd5c1d4eb095559244ec61ac3e71aece7c311ae70d7676f437106a28c62ce",
+    "artifactPath": "artifacts/sha256/c6/c66e38f7d42fde0f168846d57084c010d4fd75b2889db9e9d8be6cef845ecee8.html",
+    "byteLength": 1333763,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash",
+    "id": "sha256:c66e38f7d42fde0f168846d57084c010d4fd75b2889db9e9d8be6cef845ecee8",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "gemini-3-flash"
+      "slug": "gemini-3-8-flash-medium"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-flash",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-3-8-flash-medium",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:276bd5c1d4eb095559244ec61ac3e71aece7c311ae70d7676f437106a28c62ce",
+    "sha256": "sha256:c66e38f7d42fde0f168846d57084c010d4fd75b2889db9e9d8be6cef845ecee8",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/5b/5bcffb562ccdd77a784a69fb2213af7c3542374564774cec633b8411aab734c7.html",
-    "byteLength": 3713388,
-    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning",
-    "id": "sha256:5bcffb562ccdd77a784a69fb2213af7c3542374564774cec633b8411aab734c7",
+    "artifactPath": "artifacts/sha256/17/17312fa0b2f006436ac4b66adf82279fb309c9826837a12f2ca2b0a4f54b9336.html",
+    "byteLength": 1007708,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-3-flash-preview",
+    "id": "sha256:17312fa0b2f006436ac4b66adf82279fb309c9826837a12f2ca2b0a4f54b9336",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -1902,9 +2082,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:5bcffb562ccdd77a784a69fb2213af7c3542374564774cec633b8411aab734c7",
+    "sha256": "sha256:17312fa0b2f006436ac4b66adf82279fb309c9826837a12f2ca2b0a4f54b9336",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1926,21 +2106,21 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/df/df24ad2d70f687ea67fd2bc9e0c251c1e32a6c978682fdb3cfa3e8f533518ef5.html",
-    "byteLength": 1475509,
-    "finalUrl": "https://artificialanalysis.ai/models/gemini-4-carbon",
-    "id": "sha256:df24ad2d70f687ea67fd2bc9e0c251c1e32a6c978682fdb3cfa3e8f533518ef5",
+    "artifactPath": "artifacts/sha256/54/54979fb5229acdd25f3c087a92863c873403483d4f5e39d111363c1dbd8c7e37.html",
+    "byteLength": 1327189,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-4-argon",
+    "id": "sha256:54979fb5229acdd25f3c087a92863c873403483d4f5e39d111363c1dbd8c7e37",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "gemini-4-carbon"
+      "slug": "gemini-4-argon-medium"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gemini-4-carbon",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-4-argon-medium",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:df24ad2d70f687ea67fd2bc9e0c251c1e32a6c978682fdb3cfa3e8f533518ef5",
+    "sha256": "sha256:54979fb5229acdd25f3c087a92863c873403483d4f5e39d111363c1dbd8c7e37",
     "sourceId": "artificial-analysis"
   },
   {
@@ -1962,6 +2142,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/32/3248568532c38d30ffe41d92003d8252413d3d9987eb1a3533be1edd34e7ef18.html",
+    "byteLength": 1243286,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-4-carbon",
+    "id": "sha256:3248568532c38d30ffe41d92003d8252413d3d9987eb1a3533be1edd34e7ef18",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-4-carbon-medium"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-4-carbon-medium",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:3248568532c38d30ffe41d92003d8252413d3d9987eb1a3533be1edd34e7ef18",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/c5/c5f6210fce924efee807252bee0089729a44d4fe347f84c7e57c2da885d0235d.html",
     "byteLength": 1481136,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-4-carbon-medium",
@@ -1977,24 +2175,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c5f6210fce924efee807252bee0089729a44d4fe347f84c7e57c2da885d0235d",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/7e/7eb403f85a1d2fe645f71919abca68d0e2a5b57232e5a5e0b7634a5520b1c500.html",
-    "byteLength": 1474158,
-    "finalUrl": "https://artificialanalysis.ai/models/gemini-4-hydrogen",
-    "id": "sha256:7eb403f85a1d2fe645f71919abca68d0e2a5b57232e5a5e0b7634a5520b1c500",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gemini-4-hydrogen"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gemini-4-hydrogen",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7eb403f85a1d2fe645f71919abca68d0e2a5b57232e5a5e0b7634a5520b1c500",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2034,6 +2214,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/5a/5ac0957abd58f4c7c48712f454cc4aa4a1acf78e43aec7464e2104fac20f1a47.html",
+    "byteLength": 1231156,
+    "finalUrl": "https://artificialanalysis.ai/models/gemini-4-hydrogen",
+    "id": "sha256:5ac0957abd58f4c7c48712f454cc4aa4a1acf78e43aec7464e2104fac20f1a47",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gemini-4-hydrogen-medium"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gemini-4-hydrogen-medium",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5ac0957abd58f4c7c48712f454cc4aa4a1acf78e43aec7464e2104fac20f1a47",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/dd/dd9d47dbd5f6a5b2a391e09b3ce24f06e767f9a1578eae1801ec08dff5766171.html",
     "byteLength": 1476595,
     "finalUrl": "https://artificialanalysis.ai/models/gemini-4-hydrogen-medium",
@@ -2070,10 +2268,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/26/2606db6d60a6e3f5a3c4581b562eec00f6f5110677def9c79f7d81380de3f5f1.html",
-    "byteLength": 1384413,
-    "finalUrl": "https://artificialanalysis.ai/models/gemma-4-31b-non-reasoning",
-    "id": "sha256:2606db6d60a6e3f5a3c4581b562eec00f6f5110677def9c79f7d81380de3f5f1",
+    "artifactPath": "artifacts/sha256/ba/bac9f39334a69c9c2acec59a4074bdd00aa6261b66d6ac48d00e57070dadfccc.html",
+    "byteLength": 1230043,
+    "finalUrl": "https://artificialanalysis.ai/models/gemma-4-31b",
+    "id": "sha256:bac9f39334a69c9c2acec59a4074bdd00aa6261b66d6ac48d00e57070dadfccc",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2082,27 +2280,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gemma-4-31b-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:2606db6d60a6e3f5a3c4581b562eec00f6f5110677def9c79f7d81380de3f5f1",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/d1/d1f30f4e60778badb38637469ba4150d668aa18607b8bd0d8611411470ecca73.html",
-    "byteLength": 3788602,
-    "finalUrl": "https://artificialanalysis.ai/models/glm-5",
-    "id": "sha256:d1f30f4e60778badb38637469ba4150d668aa18607b8bd0d8611411470ecca73",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "glm-5"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/glm-5",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:d1f30f4e60778badb38637469ba4150d668aa18607b8bd0d8611411470ecca73",
+    "sha256": "sha256:bac9f39334a69c9c2acec59a4074bdd00aa6261b66d6ac48d00e57070dadfccc",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2124,10 +2304,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/1d/1db3f85fbe7d94285891bb30a1e61507dca4ea00b0899b86a8000fa495bc7508.html",
-    "byteLength": 3789837,
-    "finalUrl": "https://artificialanalysis.ai/models/glm-5-1-non-reasoning",
-    "id": "sha256:1db3f85fbe7d94285891bb30a1e61507dca4ea00b0899b86a8000fa495bc7508",
+    "artifactPath": "artifacts/sha256/9d/9d958b6f3739f5a90cc840629f4b3ff5f398cb19fa77122ee51a54e365fb07d4.html",
+    "byteLength": 1153474,
+    "finalUrl": "https://artificialanalysis.ai/models/glm-5-1",
+    "id": "sha256:9d958b6f3739f5a90cc840629f4b3ff5f398cb19fa77122ee51a54e365fb07d4",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2136,9 +2316,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-1-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:1db3f85fbe7d94285891bb30a1e61507dca4ea00b0899b86a8000fa495bc7508",
+    "sha256": "sha256:9d958b6f3739f5a90cc840629f4b3ff5f398cb19fa77122ee51a54e365fb07d4",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2160,10 +2340,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/34/34008be9dfb94d523ab729f8da41b5903ad9d2802977a0787636df34ab0ecb07.html",
-    "byteLength": 3789755,
-    "finalUrl": "https://artificialanalysis.ai/models/glm-5-2-non-reasoning",
-    "id": "sha256:34008be9dfb94d523ab729f8da41b5903ad9d2802977a0787636df34ab0ecb07",
+    "artifactPath": "artifacts/sha256/b7/b74add8242cf90ffbe519bff511ecd293d0ecbd26a71dc593618f16505a226fd.html",
+    "byteLength": 1240726,
+    "finalUrl": "https://artificialanalysis.ai/models/glm-5-2",
+    "id": "sha256:b74add8242cf90ffbe519bff511ecd293d0ecbd26a71dc593618f16505a226fd",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2172,27 +2352,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-2-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:34008be9dfb94d523ab729f8da41b5903ad9d2802977a0787636df34ab0ecb07",
+    "sha256": "sha256:b74add8242cf90ffbe519bff511ecd293d0ecbd26a71dc593618f16505a226fd",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/4d/4da1e805ba36c418266ced291bba55ee1d71958e9fb969d1d14c6fe96b899549.html",
-    "byteLength": 1607422,
-    "finalUrl": "https://artificialanalysis.ai/models/glm-5-3",
-    "id": "sha256:4da1e805ba36c418266ced291bba55ee1d71958e9fb969d1d14c6fe96b899549",
+    "artifactPath": "artifacts/sha256/04/0430f9967c009942aef61fb544a06ee21c08c43592936b7a3166f9c3a74b69a2.html",
+    "byteLength": 1471929,
+    "finalUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
+    "id": "sha256:0430f9967c009942aef61fb544a06ee21c08c43592936b7a3166f9c3a74b69a2",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "glm-5-3"
+      "slug": "glm-5-3-flash"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/glm-5-3",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/glm-5-3-flash",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:4da1e805ba36c418266ced291bba55ee1d71958e9fb969d1d14c6fe96b899549",
+    "sha256": "sha256:0430f9967c009942aef61fb544a06ee21c08c43592936b7a3166f9c3a74b69a2",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2232,10 +2412,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/57/572401959af3461a845d950a9ac0111ccf74f403b0e414a3eafe17c10b7344f2.html",
-    "byteLength": 3789489,
-    "finalUrl": "https://artificialanalysis.ai/models/glm-5-non-reasoning",
-    "id": "sha256:572401959af3461a845d950a9ac0111ccf74f403b0e414a3eafe17c10b7344f2",
+    "artifactPath": "artifacts/sha256/b9/b9c3aa34f5ac8c03813c54257d15a1945d56bc46dcd992e7fdd6a4a68465966f.html",
+    "byteLength": 1482700,
+    "finalUrl": "https://artificialanalysis.ai/models/glm-5-3",
+    "id": "sha256:b9c3aa34f5ac8c03813c54257d15a1945d56bc46dcd992e7fdd6a4a68465966f",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "glm-5-3-low"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/glm-5-3-low",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:b9c3aa34f5ac8c03813c54257d15a1945d56bc46dcd992e7fdd6a4a68465966f",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/96/96d36b21d68ce7b1f60bde283d0aa06d7677003ddabf646772caaf0838f3eb59.html",
+    "byteLength": 1089558,
+    "finalUrl": "https://artificialanalysis.ai/models/glm-5",
+    "id": "sha256:96d36b21d68ce7b1f60bde283d0aa06d7677003ddabf646772caaf0838f3eb59",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2244,16 +2442,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/glm-5-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:572401959af3461a845d950a9ac0111ccf74f403b0e414a3eafe17c10b7344f2",
+    "sha256": "sha256:96d36b21d68ce7b1f60bde283d0aa06d7677003ddabf646772caaf0838f3eb59",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/98/98faad67a502de42c05d523e57b9d1e7596000fb4fd5eb99557920e57aa08149.html",
-    "byteLength": 3703730,
+    "artifactPath": "artifacts/sha256/41/416413bbffb82e813ac866597888393a55875df26696ebd7a996a29ed4f86e64.html",
+    "byteLength": 1005257,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-2-codex",
-    "id": "sha256:98faad67a502de42c05d523e57b9d1e7596000fb4fd5eb99557920e57aa08149",
+    "id": "sha256:416413bbffb82e813ac866597888393a55875df26696ebd7a996a29ed4f86e64",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2262,45 +2460,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-2-codex",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:98faad67a502de42c05d523e57b9d1e7596000fb4fd5eb99557920e57aa08149",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/d8/d8d2ada0e5f6401d02308b94ec0cb133f7cb130b7a936ebd0cad8926cbd45227.html",
-    "byteLength": 3709832,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4",
-    "id": "sha256:d8d2ada0e5f6401d02308b94ec0cb133f7cb130b7a936ebd0cad8926cbd45227",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-5-4"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:d8d2ada0e5f6401d02308b94ec0cb133f7cb130b7a936ebd0cad8926cbd45227",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/6b/6be00eae62bf26042e314860646d36f4799c716d00cbf5b5451aa55107df7ac9.html",
-    "byteLength": 3709589,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-low",
-    "id": "sha256:6be00eae62bf26042e314860646d36f4799c716d00cbf5b5451aa55107df7ac9",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-5-4-low"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-low",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:6be00eae62bf26042e314860646d36f4799c716d00cbf5b5451aa55107df7ac9",
+    "sha256": "sha256:416413bbffb82e813ac866597888393a55875df26696ebd7a996a29ed4f86e64",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2322,28 +2484,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ba/bab88a9dfce1dd33cad906fe22182b362d4103ede87fa8574996832339c43495.html",
-    "byteLength": 3711117,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini-medium",
-    "id": "sha256:bab88a9dfce1dd33cad906fe22182b362d4103ede87fa8574996832339c43495",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-5-4-mini-medium"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini-medium",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:bab88a9dfce1dd33cad906fe22182b362d4103ede87fa8574996832339c43495",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/17/17d59615799f1a5e02407812467e8743be9bc7aecf4aefeb9d4174646776d57c.html",
-    "byteLength": 3761818,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini-non-reasoning",
-    "id": "sha256:17d59615799f1a5e02407812467e8743be9bc7aecf4aefeb9d4174646776d57c",
+    "artifactPath": "artifacts/sha256/54/5490f36631d7d27879e8cdcc4268f4be2f15e1fee0176ecfa416c3a5aded9af5.html",
+    "byteLength": 1131355,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini",
+    "id": "sha256:5490f36631d7d27879e8cdcc4268f4be2f15e1fee0176ecfa416c3a5aded9af5",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2352,9 +2496,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-mini-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:17d59615799f1a5e02407812467e8743be9bc7aecf4aefeb9d4174646776d57c",
+    "sha256": "sha256:5490f36631d7d27879e8cdcc4268f4be2f15e1fee0176ecfa416c3a5aded9af5",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2376,28 +2520,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/54/54973ce572801c92e5d9d100667bbd5c410e45964ffd73ceec796ee05a729d6f.html",
-    "byteLength": 3711176,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano-medium",
-    "id": "sha256:54973ce572801c92e5d9d100667bbd5c410e45964ffd73ceec796ee05a729d6f",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-5-4-nano-medium"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano-medium",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:54973ce572801c92e5d9d100667bbd5c410e45964ffd73ceec796ee05a729d6f",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/99/9904e6e915c10ee9f0fedda69ca14110322d929119e433dca44d964ac4a6dfec.html",
-    "byteLength": 3712329,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano-non-reasoning",
-    "id": "sha256:9904e6e915c10ee9f0fedda69ca14110322d929119e433dca44d964ac4a6dfec",
+    "artifactPath": "artifacts/sha256/12/1267d2034c93254c09e260cac5b04f5b79e04c263723b8a355863216f7c33d42.html",
+    "byteLength": 1070261,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano",
+    "id": "sha256:1267d2034c93254c09e260cac5b04f5b79e04c263723b8a355863216f7c33d42",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2406,16 +2532,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-nano-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:9904e6e915c10ee9f0fedda69ca14110322d929119e433dca44d964ac4a6dfec",
+    "sha256": "sha256:1267d2034c93254c09e260cac5b04f5b79e04c263723b8a355863216f7c33d42",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/59/599d5da598330dedd67b74593b1c9bd8766646637b01ee1573f5c718b607e8cb.html",
-    "byteLength": 3711408,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4-non-reasoning",
-    "id": "sha256:599d5da598330dedd67b74593b1c9bd8766646637b01ee1573f5c718b607e8cb",
+    "artifactPath": "artifacts/sha256/09/0966d556eea8dbe1ead37ea056cba622fcd354a6966d605f2576ef29337f5002.html",
+    "byteLength": 1016064,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-4",
+    "id": "sha256:0966d556eea8dbe1ead37ea056cba622fcd354a6966d605f2576ef29337f5002",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2424,9 +2550,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-4-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:599d5da598330dedd67b74593b1c9bd8766646637b01ee1573f5c718b607e8cb",
+    "sha256": "sha256:0966d556eea8dbe1ead37ea056cba622fcd354a6966d605f2576ef29337f5002",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2466,24 +2592,6 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/a2/a2b0bc67402a5e4dd6513b3287e14509be3363f3752f19dc18803ff92bcadbbb.html",
-    "byteLength": 3705281,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-5-low",
-    "id": "sha256:a2b0bc67402a5e4dd6513b3287e14509be3363f3752f19dc18803ff92bcadbbb",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-5-5-low"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-low",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:a2b0bc67402a5e4dd6513b3287e14509be3363f3752f19dc18803ff92bcadbbb",
-    "sourceId": "artificial-analysis"
-  },
-  {
     "artifactPath": "artifacts/sha256/be/bed3d7d07716c4a06e2e626a048ec47aea3f1bedfcf92fc5e1ab94403b220545.html",
     "byteLength": 3747440,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-5-medium",
@@ -2502,10 +2610,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/4a/4a8d6449f443dacd9df9d8f4c29a682b9058885c9696ad1ccda71fc2634fd9df.html",
-    "byteLength": 3706982,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-5-non-reasoning",
-    "id": "sha256:4a8d6449f443dacd9df9d8f4c29a682b9058885c9696ad1ccda71fc2634fd9df",
+    "artifactPath": "artifacts/sha256/3a/3ac4ca49ad6ad9cee1a1b3d1140e14b26fee63fc5c6b62cf175988d2a4ad5afa.html",
+    "byteLength": 1068795,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-5",
+    "id": "sha256:3ac4ca49ad6ad9cee1a1b3d1140e14b26fee63fc5c6b62cf175988d2a4ad5afa",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2514,16 +2622,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:4a8d6449f443dacd9df9d8f4c29a682b9058885c9696ad1ccda71fc2634fd9df",
+    "sha256": "sha256:3ac4ca49ad6ad9cee1a1b3d1140e14b26fee63fc5c6b62cf175988d2a4ad5afa",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/91/9183170d51b66df73ea3a0b7b68367f19184c9cd6c6b48af28a7e87ecd33edb9.html",
-    "byteLength": 3582258,
+    "artifactPath": "artifacts/sha256/2a/2aa0b73a627c3fb699e184d5e1fde2dfb2952d32e00979ca253d5329037051d6.html",
+    "byteLength": 891093,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-5-pro",
-    "id": "sha256:9183170d51b66df73ea3a0b7b68367f19184c9cd6c6b48af28a7e87ecd33edb9",
+    "id": "sha256:2aa0b73a627c3fb699e184d5e1fde2dfb2952d32e00979ca253d5329037051d6",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -2532,9 +2640,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/gpt-5-5-pro",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:9183170d51b66df73ea3a0b7b68367f19184c9cd6c6b48af28a7e87ecd33edb9",
+    "sha256": "sha256:2aa0b73a627c3fb699e184d5e1fde2dfb2952d32e00979ca253d5329037051d6",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2646,6 +2754,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/d8/d899bf129e5c4006fbf504a0d60cfde716b799bd568ee8e22327c2eea0fb92d8.html",
+    "byteLength": 1219297,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna",
+    "id": "sha256:d899bf129e5c4006fbf504a0d60cfde716b799bd568ee8e22327c2eea0fb92d8",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gpt-5-6-luna-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-luna-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:d899bf129e5c4006fbf504a0d60cfde716b799bd568ee8e22327c2eea0fb92d8",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/8a/8a71441e00caa5f5bd0e9e3dd7023c912d8f657153eb50dbfce900c0d8204a09.html",
     "byteLength": 3744459,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol",
@@ -2733,6 +2859,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:077ecb26c50de89570cffb5660e3c0764c8c5738de5d835e354d3934e248ed5c",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/42/4280b9f630b786912214e88434f479985512f7e765eb7346e4eab1720f592621.html",
+    "byteLength": 1074753,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol",
+    "id": "sha256:4280b9f630b786912214e88434f479985512f7e765eb7346e4eab1720f592621",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gpt-5-6-sol-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-sol-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:4280b9f630b786912214e88434f479985512f7e765eb7346e4eab1720f592621",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2862,21 +3006,21 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/4b/4ba66b05d8968b616a73bb3c58bc147c9405ddc25e1feb546808e62a27974705.html",
-    "byteLength": 1520615,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol",
-    "id": "sha256:4ba66b05d8968b616a73bb3c58bc147c9405ddc25e1feb546808e62a27974705",
+    "artifactPath": "artifacts/sha256/85/856e3338e3129c2650095214d60a34d838dcbf55e9c6db8fec136828847b895a.html",
+    "byteLength": 1206412,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra",
+    "id": "sha256:856e3338e3129c2650095214d60a34d838dcbf55e9c6db8fec136828847b895a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "gpt-6-1-sol"
+      "slug": "gpt-5-6-terra-xhigh"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-5-6-terra-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:4ba66b05d8968b616a73bb3c58bc147c9405ddc25e1feb546808e62a27974705",
+    "sha256": "sha256:856e3338e3129c2650095214d60a34d838dcbf55e9c6db8fec136828847b895a",
     "sourceId": "artificial-analysis"
   },
   {
@@ -2952,21 +3096,21 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/09/09acfa8a89f632dec90aaab2242bd5ac10b193f5d45079efe06f0253ca86f397.html",
-    "byteLength": 1472877,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra",
-    "id": "sha256:09acfa8a89f632dec90aaab2242bd5ac10b193f5d45079efe06f0253ca86f397",
+    "artifactPath": "artifacts/sha256/cd/cdbbccb407ab218d09290bcccff58997d48394b7023220b4a97bdf80d5583616.html",
+    "byteLength": 1335950,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol",
+    "id": "sha256:cdbbccb407ab218d09290bcccff58997d48394b7023220b4a97bdf80d5583616",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "gpt-6-1-terra"
+      "slug": "gpt-6-1-sol-xhigh"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-sol-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:09acfa8a89f632dec90aaab2242bd5ac10b193f5d45079efe06f0253ca86f397",
+    "sha256": "sha256:cdbbccb407ab218d09290bcccff58997d48394b7023220b4a97bdf80d5583616",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3042,6 +3186,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/16/166fe29c47987a294b6ea079450fba4db17beed10ff3b04123dd972b2de48092.html",
+    "byteLength": 1246330,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra",
+    "id": "sha256:166fe29c47987a294b6ea079450fba4db17beed10ff3b04123dd972b2de48092",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gpt-6-1-terra-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:166fe29c47987a294b6ea079450fba4db17beed10ff3b04123dd972b2de48092",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/37/3773638effecee0244618cee75b3eb5eb6d8dbee13be57f1fc807d03c42bb057.html",
     "byteLength": 1474825,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-6-1-terra-xhigh",
@@ -3057,24 +3219,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:3773638effecee0244618cee75b3eb5eb6d8dbee13be57f1fc807d03c42bb057",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/36/36320b1679d52f3c4b24568393a1cf56633dfe53f195bc63593ec57dd6240a06.html",
-    "byteLength": 1526682,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-astra",
-    "id": "sha256:36320b1679d52f3c4b24568393a1cf56633dfe53f195bc63593ec57dd6240a06",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-6-astra"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:36320b1679d52f3c4b24568393a1cf56633dfe53f195bc63593ec57dd6240a06",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3132,6 +3276,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/10/10820920feedc22802ef5f64aa4bb5ad3b220bbeb41a3711a2993b33ef992e56.html",
+    "byteLength": 1353386,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-astra",
+    "id": "sha256:10820920feedc22802ef5f64aa4bb5ad3b220bbeb41a3711a2993b33ef992e56",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gpt-6-astra-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-astra-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:10820920feedc22802ef5f64aa4bb5ad3b220bbeb41a3711a2993b33ef992e56",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/eb/ebff17cac8938079dad58e9984105ceea68f32ddfc4f869365511da9d8a69dec.html",
     "byteLength": 1483262,
     "finalUrl": "https://artificialanalysis.ai/models/gpt-6-astra-xhigh",
@@ -3147,24 +3309,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ebff17cac8938079dad58e9984105ceea68f32ddfc4f869365511da9d8a69dec",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/26/26245c523ff7303dca0cc8af03e117f25a14b06be03018cd4d6a5a0464135d88.html",
-    "byteLength": 1520383,
-    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-luna",
-    "id": "sha256:26245c523ff7303dca0cc8af03e117f25a14b06be03018cd4d6a5a0464135d88",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "gpt-6-luna"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:26245c523ff7303dca0cc8af03e117f25a14b06be03018cd4d6a5a0464135d88",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3255,6 +3399,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:9073dca5f6182f4863aeb86625628595eba2e3e282932924311bf035f04e9c60",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/94/94559ca59c6408e8ecca6ed6c26533dbef5ef0359aefa8b66cc5627eb98fc957.html",
+    "byteLength": 1355960,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-luna",
+    "id": "sha256:94559ca59c6408e8ecca6ed6c26533dbef5ef0359aefa8b66cc5627eb98fc957",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gpt-6-luna-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-luna-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:94559ca59c6408e8ecca6ed6c26533dbef5ef0359aefa8b66cc5627eb98fc957",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3366,6 +3528,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/dc/dc46c9615bbad5304a58961ea81337278734ca035427fb54fabb1c0dba82c478.html",
+    "byteLength": 1275823,
+    "finalUrl": "https://artificialanalysis.ai/models/gpt-6-sol",
+    "id": "sha256:dc46c9615bbad5304a58961ea81337278734ca035427fb54fabb1c0dba82c478",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "gpt-6-sol-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/gpt-6-sol-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:dc46c9615bbad5304a58961ea81337278734ca035427fb54fabb1c0dba82c478",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/02/02cd6556c4d6fc10f3ff2d2a29bce69b2a9496203ad0835e0327a0c10ddca6c1.html",
     "byteLength": 3948435,
     "finalUrl": "https://artificialanalysis.ai/models/granite-4-2-8b",
@@ -3384,46 +3564,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/10/1083410a61129b5dd6a73b693a4078be86c1d6acdfb1ae2df184a7484ea58ed5.html",
-    "byteLength": 3704458,
-    "finalUrl": "https://artificialanalysis.ai/models/grok-4-20",
-    "id": "sha256:1083410a61129b5dd6a73b693a4078be86c1d6acdfb1ae2df184a7484ea58ed5",
+    "artifactPath": "artifacts/sha256/a9/a943eab392e1c58e18458fbc2965e8ab8c28f2bd832de7bd3a741ea5e3ccd116.html",
+    "byteLength": 1237948,
+    "finalUrl": "https://artificialanalysis.ai/models/granite-4-2-8b",
+    "id": "sha256:a943eab392e1c58e18458fbc2965e8ab8c28f2bd832de7bd3a741ea5e3ccd116",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "grok-4-20"
+      "slug": "granite-4-2-8b"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/grok-4-20",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/granite-4-2-8b",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:1083410a61129b5dd6a73b693a4078be86c1d6acdfb1ae2df184a7484ea58ed5",
+    "sha256": "sha256:a943eab392e1c58e18458fbc2965e8ab8c28f2bd832de7bd3a741ea5e3ccd116",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ee/eed4cea0500872e0b94b4704023968f6b961c743c1eb6a8431fcffbe2f9e0533.html",
-    "byteLength": 3599488,
+    "artifactPath": "artifacts/sha256/2f/2f6af5a3193432373a5b674cac5f1d77d9de1bf00dcd014e16a4cc29e887cad0.html",
+    "byteLength": 885615,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-20-0309",
-    "id": "sha256:eed4cea0500872e0b94b4704023968f6b961c743c1eb6a8431fcffbe2f9e0533",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "grok-4-20-0309"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/grok-4-20-0309",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:eed4cea0500872e0b94b4704023968f6b961c743c1eb6a8431fcffbe2f9e0533",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/77/7764fca700a32b89549d77c939c7856692e5ad5a306ba6c1a67a2a363549a9a2.html",
-    "byteLength": 3600313,
-    "finalUrl": "https://artificialanalysis.ai/models/grok-4-20-0309-non-reasoning",
-    "id": "sha256:7764fca700a32b89549d77c939c7856692e5ad5a306ba6c1a67a2a363549a9a2",
+    "id": "sha256:2f6af5a3193432373a5b674cac5f1d77d9de1bf00dcd014e16a4cc29e887cad0",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3432,16 +3594,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-20-0309-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7764fca700a32b89549d77c939c7856692e5ad5a306ba6c1a67a2a363549a9a2",
+    "sha256": "sha256:2f6af5a3193432373a5b674cac5f1d77d9de1bf00dcd014e16a4cc29e887cad0",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/7f/7f08c4a39158a68618dc0bcae0dbab57beb0e9c648f4c239ec4ff66f40ed8bb8.html",
-    "byteLength": 3705341,
-    "finalUrl": "https://artificialanalysis.ai/models/grok-4-20-non-reasoning",
-    "id": "sha256:7f08c4a39158a68618dc0bcae0dbab57beb0e9c648f4c239ec4ff66f40ed8bb8",
+    "artifactPath": "artifacts/sha256/8a/8a6b1a2556d3b31b35e056cd2bd351d612a19112e058ad23d4959e437e4a7b9c.html",
+    "byteLength": 992530,
+    "finalUrl": "https://artificialanalysis.ai/models/grok-4-20",
+    "id": "sha256:8a6b1a2556d3b31b35e056cd2bd351d612a19112e058ad23d4959e437e4a7b9c",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3450,9 +3612,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/grok-4-20-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7f08c4a39158a68618dc0bcae0dbab57beb0e9c648f4c239ec4ff66f40ed8bb8",
+    "sha256": "sha256:8a6b1a2556d3b31b35e056cd2bd351d612a19112e058ad23d4959e437e4a7b9c",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3474,42 +3636,6 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/02/02a9168a25a143325700d01cfc94a91e90bb8889a57bfe613d7250fe8afe2887.html",
-    "byteLength": 3702322,
-    "finalUrl": "https://artificialanalysis.ai/models/grok-4-3-low",
-    "id": "sha256:02a9168a25a143325700d01cfc94a91e90bb8889a57bfe613d7250fe8afe2887",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "grok-4-3-low"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/grok-4-3-low",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:02a9168a25a143325700d01cfc94a91e90bb8889a57bfe613d7250fe8afe2887",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/97/97eefaad966dd29c6b4d55641cdb4a747a13f3b94586bed586a48f4b0a40997a.html",
-    "byteLength": 3702808,
-    "finalUrl": "https://artificialanalysis.ai/models/grok-4-3-medium",
-    "id": "sha256:97eefaad966dd29c6b4d55641cdb4a747a13f3b94586bed586a48f4b0a40997a",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "grok-4-3-medium"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/grok-4-3-medium",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:97eefaad966dd29c6b4d55641cdb4a747a13f3b94586bed586a48f4b0a40997a",
-    "sourceId": "artificial-analysis"
-  },
-  {
     "artifactPath": "artifacts/sha256/da/da0966543f4dff3f22d42e8e65c1c2fa4f6febf5c2a5a307fa8757d95f5eec99.html",
     "byteLength": 3745541,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-3-non-reasoning",
@@ -3528,6 +3654,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/ea/eaeec900e9423a0291618ad49c6e3cb0a2fab80f3afe2630b722c7aaeafbfc5f.html",
+    "byteLength": 1053586,
+    "finalUrl": "https://artificialanalysis.ai/models/grok-4-3",
+    "id": "sha256:eaeec900e9423a0291618ad49c6e3cb0a2fab80f3afe2630b722c7aaeafbfc5f",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "grok-4-3-non-reasoning"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/grok-4-3-non-reasoning",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:eaeec900e9423a0291618ad49c6e3cb0a2fab80f3afe2630b722c7aaeafbfc5f",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/ba/ba738c8071cbcbf91b99b4924c844f236246255e21d550dae82b64963309ac82.html",
     "byteLength": 3788898,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-5",
@@ -3543,6 +3687,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:ba738c8071cbcbf91b99b4924c844f236246255e21d550dae82b64963309ac82",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/e9/e9cea4f0c1763ccc7daff8f5b4b32734d9a62c0e1f034b9f1c2f3ee06f915e66.html",
+    "byteLength": 1108313,
+    "finalUrl": "https://artificialanalysis.ai/models/grok-4-5",
+    "id": "sha256:e9cea4f0c1763ccc7daff8f5b4b32734d9a62c0e1f034b9f1c2f3ee06f915e66",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "grok-4-5"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/grok-4-5",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:e9cea4f0c1763ccc7daff8f5b4b32734d9a62c0e1f034b9f1c2f3ee06f915e66",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3618,21 +3780,21 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/e9/e9c74806a9badaa0e30490410902e3b6ace61e1b3db6aac19010540e40c55524.html",
-    "byteLength": 1521734,
-    "finalUrl": "https://artificialanalysis.ai/models/grok-4-7",
-    "id": "sha256:e9c74806a9badaa0e30490410902e3b6ace61e1b3db6aac19010540e40c55524",
+    "artifactPath": "artifacts/sha256/b4/b4b1036fa6d0bd7e459c370b1105ca0bb373864450756caccbb3d39b7771e87b.html",
+    "byteLength": 1252914,
+    "finalUrl": "https://artificialanalysis.ai/models/grok-4-6",
+    "id": "sha256:b4b1036fa6d0bd7e459c370b1105ca0bb373864450756caccbb3d39b7771e87b",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "grok-4-7"
+      "slug": "grok-4-6-xhigh"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/grok-4-7",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/grok-4-6-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e9c74806a9badaa0e30490410902e3b6ace61e1b3db6aac19010540e40c55524",
+    "sha256": "sha256:b4b1036fa6d0bd7e459c370b1105ca0bb373864450756caccbb3d39b7771e87b",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3654,6 +3816,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/8c/8ce8c1870fb7c9fd6fff11e1658e2195b0b6884335ec1638119f340b488df9d9.html",
+    "byteLength": 1324574,
+    "finalUrl": "https://artificialanalysis.ai/models/grok-4-7",
+    "id": "sha256:8ce8c1870fb7c9fd6fff11e1658e2195b0b6884335ec1638119f340b488df9d9",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "grok-4-7-low"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/grok-4-7-low",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:8ce8c1870fb7c9fd6fff11e1658e2195b0b6884335ec1638119f340b488df9d9",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/c2/c2bb78f383f93f7de559f33fa0ae9b0548ff095532f144f443cbb88d30906de0.html",
     "byteLength": 1475998,
     "finalUrl": "https://artificialanalysis.ai/models/grok-4-7-low",
@@ -3669,6 +3849,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:c2bb78f383f93f7de559f33fa0ae9b0548ff095532f144f443cbb88d30906de0",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/5d/5d357a3a3294023b941e22d011ae60aa94cfb315f6b345eed00aca31d0f1bd67.html",
+    "byteLength": 1440894,
+    "finalUrl": "https://artificialanalysis.ai/models/inkling",
+    "id": "sha256:5d357a3a3294023b941e22d011ae60aa94cfb315f6b345eed00aca31d0f1bd67",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "inkling"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/inkling",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5d357a3a3294023b941e22d011ae60aa94cfb315f6b345eed00aca31d0f1bd67",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3690,10 +3888,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/d9/d92a5d13e2835ab4b72fc1738b6e56bd33c7baf3f02289293aba7b9900e7ac06.html",
-    "byteLength": 3962322,
+    "artifactPath": "artifacts/sha256/c8/c877bafe2bcb89d7e4c7337510b094381f4aeca6d038b06f13db0e9dea2bed85.html",
+    "byteLength": 1366101,
     "finalUrl": "https://artificialanalysis.ai/models/inkling-2-small",
-    "id": "sha256:d92a5d13e2835ab4b72fc1738b6e56bd33c7baf3f02289293aba7b9900e7ac06",
+    "id": "sha256:c877bafe2bcb89d7e4c7337510b094381f4aeca6d038b06f13db0e9dea2bed85",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3702,9 +3900,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/inkling-2-small",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:d92a5d13e2835ab4b72fc1738b6e56bd33c7baf3f02289293aba7b9900e7ac06",
+    "sha256": "sha256:c877bafe2bcb89d7e4c7337510b094381f4aeca6d038b06f13db0e9dea2bed85",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3726,10 +3924,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/e6/e616c239b9469ecbbfbe838f4dfda35a91cded2aef52f889ed73548ccdd8780b.html",
-    "byteLength": 4007368,
+    "artifactPath": "artifacts/sha256/70/70f9fc8f60853b8f1072192fb52a3e3ea9718c36e3c4d6d9b5451a604c62ca88.html",
+    "byteLength": 1355755,
+    "finalUrl": "https://artificialanalysis.ai/models/inkling-small",
+    "id": "sha256:70f9fc8f60853b8f1072192fb52a3e3ea9718c36e3c4d6d9b5451a604c62ca88",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "inkling-small"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/inkling-small",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:70f9fc8f60853b8f1072192fb52a3e3ea9718c36e3c4d6d9b5451a604c62ca88",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/88/88af56c12ca052cb996223434c895df7994d1e9dd069096e3ad7d998c5a52cbc.html",
+    "byteLength": 1407434,
     "finalUrl": "https://artificialanalysis.ai/models/k2-horizon-375b-a23b",
-    "id": "sha256:e616c239b9469ecbbfbe838f4dfda35a91cded2aef52f889ed73548ccdd8780b",
+    "id": "sha256:88af56c12ca052cb996223434c895df7994d1e9dd069096e3ad7d998c5a52cbc",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3738,9 +3954,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/k2-horizon-375b-a23b",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e616c239b9469ecbbfbe838f4dfda35a91cded2aef52f889ed73548ccdd8780b",
+    "sha256": "sha256:88af56c12ca052cb996223434c895df7994d1e9dd069096e3ad7d998c5a52cbc",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3762,10 +3978,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/dd/dde34715eae16b93a359f49db2a4a82def594e42161226a562b434caa0c39123.html",
-    "byteLength": 3794804,
-    "finalUrl": "https://artificialanalysis.ai/models/kimi-k2-6-non-reasoning",
-    "id": "sha256:dde34715eae16b93a359f49db2a4a82def594e42161226a562b434caa0c39123",
+    "artifactPath": "artifacts/sha256/04/043198ed5ac49e82d0615daa5ae5ee8bde5d71333083df7f2fcb876b80f9efff.html",
+    "byteLength": 1186609,
+    "finalUrl": "https://artificialanalysis.ai/models/kimi-k2-6",
+    "id": "sha256:043198ed5ac49e82d0615daa5ae5ee8bde5d71333083df7f2fcb876b80f9efff",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3774,9 +3990,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k2-6-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:dde34715eae16b93a359f49db2a4a82def594e42161226a562b434caa0c39123",
+    "sha256": "sha256:043198ed5ac49e82d0615daa5ae5ee8bde5d71333083df7f2fcb876b80f9efff",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3798,10 +4014,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/0d/0d6b773c2f1313d9ad3145c321e3b56b17fb691b9540ffd7a53e1731746a7983.html",
-    "byteLength": 4011689,
+    "artifactPath": "artifacts/sha256/9b/9b5d7b15f2fad8f4bb35f01e57420b27c6ebc576378b32fb91f16b81763fb82a.html",
+    "byteLength": 1451768,
     "finalUrl": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
-    "id": "sha256:0d6b773c2f1313d9ad3145c321e3b56b17fb691b9540ffd7a53e1731746a7983",
+    "id": "sha256:9b5d7b15f2fad8f4bb35f01e57420b27c6ebc576378b32fb91f16b81763fb82a",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3810,9 +4026,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/kimi-k3-1-pro",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:0d6b773c2f1313d9ad3145c321e3b56b17fb691b9540ffd7a53e1731746a7983",
+    "sha256": "sha256:9b5d7b15f2fad8f4bb35f01e57420b27c6ebc576378b32fb91f16b81763fb82a",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/5d/5d6be2c77fd2a1e012e837a3b22b9bf649e509718cbd36d6b3819f9adaf1911a.html",
+    "byteLength": 1411024,
+    "finalUrl": "https://artificialanalysis.ai/models/kimi-k3",
+    "id": "sha256:5d6be2c77fd2a1e012e837a3b22b9bf649e509718cbd36d6b3819f9adaf1911a",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "kimi-k3-low"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/kimi-k3-low",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5d6be2c77fd2a1e012e837a3b22b9bf649e509718cbd36d6b3819f9adaf1911a",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3852,21 +4086,39 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/09/092680d561c8f42bbaeff66fbd4ed0b2aeba109cca7ce9a3dab81c5863925d3e.html",
-    "byteLength": 3849021,
-    "finalUrl": "https://artificialanalysis.ai/models/ling-3-1-flash-1019",
-    "id": "sha256:092680d561c8f42bbaeff66fbd4ed0b2aeba109cca7ce9a3dab81c5863925d3e",
+    "artifactPath": "artifacts/sha256/bb/bb57f7642af7ac19fe0e035b99495ff649946103d6288a16d54fc2c336d4ae11.html",
+    "byteLength": 1000965,
+    "finalUrl": "https://artificialanalysis.ai/models/ling-3-0-flash-fin",
+    "id": "sha256:bb57f7642af7ac19fe0e035b99495ff649946103d6288a16d54fc2c336d4ae11",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "ling-3-1-flash-1019"
+      "slug": "ling-3-0-flash-fin"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/ling-3-1-flash-1019",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/ling-3-0-flash-fin",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:092680d561c8f42bbaeff66fbd4ed0b2aeba109cca7ce9a3dab81c5863925d3e",
+    "sha256": "sha256:bb57f7642af7ac19fe0e035b99495ff649946103d6288a16d54fc2c336d4ae11",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/bf/bf2a05861e9efb3031b388f2a0b497eebcbb86447a897c1f02f91967e91d82f8.html",
+    "byteLength": 1232843,
+    "finalUrl": "https://artificialanalysis.ai/models/ling-3-1-flash",
+    "id": "sha256:bf2a05861e9efb3031b388f2a0b497eebcbb86447a897c1f02f91967e91d82f8",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "ling-3-1-flash"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/ling-3-1-flash",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:bf2a05861e9efb3031b388f2a0b497eebcbb86447a897c1f02f91967e91d82f8",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3888,10 +4140,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/fc/fc3eaa9a7ec516b34e1420bea40739340eee4431b75f7fbfb1764cc6f9d5a428.html",
-    "byteLength": 3682892,
-    "finalUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro-non-reasoning",
-    "id": "sha256:fc3eaa9a7ec516b34e1420bea40739340eee4431b75f7fbfb1764cc6f9d5a428",
+    "artifactPath": "artifacts/sha256/53/5382481412c9aecb2b5183c417bf861f48e279eb5e933e504d1a7db163fe7e16.html",
+    "byteLength": 1048343,
+    "finalUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro",
+    "id": "sha256:5382481412c9aecb2b5183c417bf861f48e279eb5e933e504d1a7db163fe7e16",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3900,16 +4152,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mimo-v2-5-pro-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:fc3eaa9a7ec516b34e1420bea40739340eee4431b75f7fbfb1764cc6f9d5a428",
+    "sha256": "sha256:5382481412c9aecb2b5183c417bf861f48e279eb5e933e504d1a7db163fe7e16",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/01/01c0ba5294467c814679508a6850f1bf7f07094409aca1136bca2ccbcce4f76d.html",
-    "byteLength": 4009035,
+    "artifactPath": "artifacts/sha256/81/81e7b6d8c288eee5c2efc828f642ed3127c3e2ed426ff399210444ef891bb619.html",
+    "byteLength": 1426010,
     "finalUrl": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
-    "id": "sha256:01c0ba5294467c814679508a6850f1bf7f07094409aca1136bca2ccbcce4f76d",
+    "id": "sha256:81e7b6d8c288eee5c2efc828f642ed3127c3e2ed426ff399210444ef891bb619",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -3918,9 +4170,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/mimo-v2-6-pro",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:01c0ba5294467c814679508a6850f1bf7f07094409aca1136bca2ccbcce4f76d",
+    "sha256": "sha256:81e7b6d8c288eee5c2efc828f642ed3127c3e2ed426ff399210444ef891bb619",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/16/16dc0b0f2385fdc9ead2a4e6eb1f85b3c55e6d8917825bf54e410177f73aa1bb.html",
+    "byteLength": 1154185,
+    "finalUrl": "https://artificialanalysis.ai/models/minimax-m2-7",
+    "id": "sha256:16dc0b0f2385fdc9ead2a4e6eb1f85b3c55e6d8917825bf54e410177f73aa1bb",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "minimax-m2-7"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/minimax-m2-7",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:16dc0b0f2385fdc9ead2a4e6eb1f85b3c55e6d8917825bf54e410177f73aa1bb",
     "sourceId": "artificial-analysis"
   },
   {
@@ -3960,6 +4230,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/3a/3a3835a7ae11c315a7c10c0e0fd2d04214b3db78497f494d15f782e672a97475.html",
+    "byteLength": 1449503,
+    "finalUrl": "https://artificialanalysis.ai/models/minimax-m3",
+    "id": "sha256:3a3835a7ae11c315a7c10c0e0fd2d04214b3db78497f494d15f782e672a97475",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "minimax-m3"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/minimax-m3",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:3a3835a7ae11c315a7c10c0e0fd2d04214b3db78497f494d15f782e672a97475",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/49/4980396608ee698a48d9efcd4906cc62a94d66d3354a8bf22ad3cfb15c2498b9.html",
     "byteLength": 4012182,
     "finalUrl": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
@@ -3978,21 +4266,39 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/a3/a3a8854140b03c7210d4826939eb44da5660ac160a3046c40588edee7b68b07c.html",
-    "byteLength": 1559433,
-    "finalUrl": "https://artificialanalysis.ai/models/mistral-large-4",
-    "id": "sha256:a3a8854140b03c7210d4826939eb44da5660ac160a3046c40588edee7b68b07c",
+    "artifactPath": "artifacts/sha256/74/742d579e9a8af7914af7d3145f1d46d1c4cc23bdc740138c9e5a1c915a41a5bb.html",
+    "byteLength": 1428814,
+    "finalUrl": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
+    "id": "sha256:742d579e9a8af7914af7d3145f1d46d1c4cc23bdc740138c9e5a1c915a41a5bb",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "mistral-large-4"
+      "slug": "minimax-m3-1-flash"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/mistral-large-4",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/minimax-m3-1-flash",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:a3a8854140b03c7210d4826939eb44da5660ac160a3046c40588edee7b68b07c",
+    "sha256": "sha256:742d579e9a8af7914af7d3145f1d46d1c4cc23bdc740138c9e5a1c915a41a5bb",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/86/86a6573b6b906fa26a0604025b748de7bd2fe9631f7dcc15e8cc5b85e1c2b55c.html",
+    "byteLength": 1342058,
+    "finalUrl": "https://artificialanalysis.ai/models/mistral-large-4",
+    "id": "sha256:86a6573b6b906fa26a0604025b748de7bd2fe9631f7dcc15e8cc5b85e1c2b55c",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "mistral-large-4-medium"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/mistral-large-4-medium",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:86a6573b6b906fa26a0604025b748de7bd2fe9631f7dcc15e8cc5b85e1c2b55c",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4032,6 +4338,42 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/a8/a85f4e3eaef9e262f5c991c565ce2208268b573fff74fc3d24faed32a356faff.html",
+    "byteLength": 1271754,
+    "finalUrl": "https://artificialanalysis.ai/models/mistral-large-4-preview",
+    "id": "sha256:a85f4e3eaef9e262f5c991c565ce2208268b573fff74fc3d24faed32a356faff",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "mistral-large-4-preview"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/mistral-large-4-preview",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:a85f4e3eaef9e262f5c991c565ce2208268b573fff74fc3d24faed32a356faff",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/5b/5bbbb109ccec1b4f71d39e1227575f921da0aa992b60f514a01001d18dc48faf.html",
+    "byteLength": 1258622,
+    "finalUrl": "https://artificialanalysis.ai/models/mistral-medium-3-5",
+    "id": "sha256:5bbbb109ccec1b4f71d39e1227575f921da0aa992b60f514a01001d18dc48faf",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "mistral-medium-3-5"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/mistral-medium-3-5",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5bbbb109ccec1b4f71d39e1227575f921da0aa992b60f514a01001d18dc48faf",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/80/8020fa1a4a7f24c0d77145e7562397d52b4a769f37b62244e845b7a19b735248.html",
     "byteLength": 3956485,
     "finalUrl": "https://artificialanalysis.ai/models/mistral-medium-3-5",
@@ -4050,21 +4392,21 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/73/7395b53f216c720d4e911760a24de0192bcdffe1aa3f86939c8767b83ffbf416.html",
-    "byteLength": 1470343,
+    "artifactPath": "artifacts/sha256/28/2825cc744f4cce767084e771f96d60db9893e1de751f018853ef73fa1340aa9e.html",
+    "byteLength": 1237937,
     "finalUrl": "https://artificialanalysis.ai/models/muse-ember",
-    "id": "sha256:7395b53f216c720d4e911760a24de0192bcdffe1aa3f86939c8767b83ffbf416",
+    "id": "sha256:2825cc744f4cce767084e771f96d60db9893e1de751f018853ef73fa1340aa9e",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "muse-ember"
+      "slug": "muse-ember-xhigh"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/muse-ember",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-ember-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:7395b53f216c720d4e911760a24de0192bcdffe1aa3f86939c8767b83ffbf416",
+    "sha256": "sha256:2825cc744f4cce767084e771f96d60db9893e1de751f018853ef73fa1340aa9e",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4086,6 +4428,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/56/569ac3099afe8215981dc971bcd3ca1504153f79b5fc898985a967a88c6ab81c.html",
+    "byteLength": 1327978,
+    "finalUrl": "https://artificialanalysis.ai/models/muse-glimmer",
+    "id": "sha256:569ac3099afe8215981dc971bcd3ca1504153f79b5fc898985a967a88c6ab81c",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "muse-glimmer"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-glimmer",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:569ac3099afe8215981dc971bcd3ca1504153f79b5fc898985a967a88c6ab81c",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/f4/f44b1e744d5888905e1d327e51ceb0dd1a77ebf3de59dc8d6144323f6d48fc8a.html",
     "byteLength": 4004393,
     "finalUrl": "https://artificialanalysis.ai/models/muse-glimmer",
@@ -4104,6 +4464,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/cf/cfcd1729fc937ac43cf47c5b7e139577b2f4b1332ff41d8e81d9bb2c4d70dc38.html",
+    "byteLength": 889867,
+    "finalUrl": "https://artificialanalysis.ai/models/muse-spark",
+    "id": "sha256:cfcd1729fc937ac43cf47c5b7e139577b2f4b1332ff41d8e81d9bb2c4d70dc38",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "muse-spark"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-spark",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:cfcd1729fc937ac43cf47c5b7e139577b2f4b1332ff41d8e81d9bb2c4d70dc38",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/e1/e1ead47bf7e7f633999a552cdf452e5faec966100a3b9463c35e94a68f338625.html",
     "byteLength": 3623764,
     "finalUrl": "https://artificialanalysis.ai/models/muse-spark",
@@ -4119,6 +4497,24 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e1ead47bf7e7f633999a552cdf452e5faec966100a3b9463c35e94a68f338625",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/7f/7f62ff4aacf7b03012282e9c25c0d4ff8c9538b1028847d36009961dc4102b35.html",
+    "byteLength": 1035100,
+    "finalUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
+    "id": "sha256:7f62ff4aacf7b03012282e9c25c0d4ff8c9538b1028847d36009961dc4102b35",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "muse-spark-1-2"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-spark-1-2",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:7f62ff4aacf7b03012282e9c25c0d4ff8c9538b1028847d36009961dc4102b35",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4158,6 +4554,24 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/38/38c4e9d83159c4d46442253c8a488c653111509433592491139caab6acc929e0.html",
+    "byteLength": 1279345,
+    "finalUrl": "https://artificialanalysis.ai/models/muse-spark-1-3",
+    "id": "sha256:38c4e9d83159c4d46442253c8a488c653111509433592491139caab6acc929e0",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "muse-spark-1-3-xhigh"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:38c4e9d83159c4d46442253c8a488c653111509433592491139caab6acc929e0",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/4f/4f32fab2e138977118afd670bd9a30ae738b5233a9a19f7322b0c1b8564a82ab.html",
     "byteLength": 3814011,
     "finalUrl": "https://artificialanalysis.ai/models/muse-spark-1-3-xhigh",
@@ -4194,28 +4608,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/e2/e2f629dfed7639002977c58a0fae681961c185fe4bc91a106e421c88171f2293.html",
-    "byteLength": 1521414,
-    "finalUrl": "https://artificialanalysis.ai/models/muse-wonder",
-    "id": "sha256:e2f629dfed7639002977c58a0fae681961c185fe4bc91a106e421c88171f2293",
+    "artifactPath": "artifacts/sha256/c4/c43eee2bd94476d48f17e5cb5561288c94cd77b7f23af3dd23a94b5396afc608.html",
+    "byteLength": 1421940,
+    "finalUrl": "https://artificialanalysis.ai/models/muse-spark-open",
+    "id": "sha256:c43eee2bd94476d48f17e5cb5561288c94cd77b7f23af3dd23a94b5396afc608",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
       "kind": "model-detail",
-      "slug": "muse-wonder"
+      "slug": "muse-spark-open"
     },
     "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/muse-wonder",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-spark-open",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e2f629dfed7639002977c58a0fae681961c185fe4bc91a106e421c88171f2293",
+    "sha256": "sha256:c43eee2bd94476d48f17e5cb5561288c94cd77b7f23af3dd23a94b5396afc608",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/09/0986cf5faabd5ad1b80907fa0c584f55bb9e791d5d53ddde0a29a9b6c412a3a8.html",
-    "byteLength": 3749560,
+    "artifactPath": "artifacts/sha256/fd/fdf1527a8b6b221d1f97f527b156b427b4b29bc847bbe2bebe27331d6accceb7.html",
+    "byteLength": 1102709,
     "finalUrl": "https://artificialanalysis.ai/models/muse-wonder-full",
-    "id": "sha256:0986cf5faabd5ad1b80907fa0c584f55bb9e791d5d53ddde0a29a9b6c412a3a8",
+    "id": "sha256:fdf1527a8b6b221d1f97f527b156b427b4b29bc847bbe2bebe27331d6accceb7",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4224,9 +4638,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/muse-wonder-full",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:0986cf5faabd5ad1b80907fa0c584f55bb9e791d5d53ddde0a29a9b6c412a3a8",
+    "sha256": "sha256:fdf1527a8b6b221d1f97f527b156b427b4b29bc847bbe2bebe27331d6accceb7",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4248,6 +4662,42 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/4d/4db0164a4f9f67bbd31820d4a92bd45c0bc73ac870e772f270c52fe1489f853a.html",
+    "byteLength": 1312261,
+    "finalUrl": "https://artificialanalysis.ai/models/muse-wonder",
+    "id": "sha256:4db0164a4f9f67bbd31820d4a92bd45c0bc73ac870e772f270c52fe1489f853a",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "muse-wonder-high"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/muse-wonder-high",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:4db0164a4f9f67bbd31820d4a92bd45c0bc73ac870e772f270c52fe1489f853a",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/95/956c88df46f02942eba25542fed414b09921a1bd32d6796c4c7222f9cb56dee2.html",
+    "byteLength": 1103646,
+    "finalUrl": "https://artificialanalysis.ai/models/nanbeige4-3-33b",
+    "id": "sha256:956c88df46f02942eba25542fed414b09921a1bd32d6796c4c7222f9cb56dee2",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "nanbeige4-3-33b"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/nanbeige4-3-33b",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:956c88df46f02942eba25542fed414b09921a1bd32d6796c4c7222f9cb56dee2",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/d3/d3e61afd3352cfd55dfc214dcd8c41a29eceb617277725fc87ba501e566f9eb6.html",
     "byteLength": 3828879,
     "finalUrl": "https://artificialanalysis.ai/models/nanbeige4-3-33b",
@@ -4266,10 +4716,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/0f/0fcdb41557d88f601075510f3bcb95dde469bff4fd3105da944c92c1b2251477.html",
-    "byteLength": 4011247,
+    "artifactPath": "artifacts/sha256/24/24765b9bc335281db01fa463276cfcdb264ff766f69fcf74c04cb0ce130bf017.html",
+    "byteLength": 1327074,
     "finalUrl": "https://artificialanalysis.ai/models/nemotron-3-5-super-vl",
-    "id": "sha256:0fcdb41557d88f601075510f3bcb95dde469bff4fd3105da944c92c1b2251477",
+    "id": "sha256:24765b9bc335281db01fa463276cfcdb264ff766f69fcf74c04cb0ce130bf017",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4278,16 +4728,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nemotron-3-5-super-vl",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:0fcdb41557d88f601075510f3bcb95dde469bff4fd3105da944c92c1b2251477",
+    "sha256": "sha256:24765b9bc335281db01fa463276cfcdb264ff766f69fcf74c04cb0ce130bf017",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/a0/a08223cef68b7ad2c402f028e6e814c388bab238857c375db28c5a51c90686b2.html",
-    "byteLength": 3669884,
+    "artifactPath": "artifacts/sha256/2c/2c4bfe10ad583d6758955f0627cae4834b28562519abbb2904370f9e2e2e5aec.html",
+    "byteLength": 971514,
     "finalUrl": "https://artificialanalysis.ai/models/nemotron-cascade-2-30b-a3b",
-    "id": "sha256:a08223cef68b7ad2c402f028e6e814c388bab238857c375db28c5a51c90686b2",
+    "id": "sha256:2c4bfe10ad583d6758955f0627cae4834b28562519abbb2904370f9e2e2e5aec",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4296,52 +4746,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nemotron-cascade-2-30b-a3b",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:a08223cef68b7ad2c402f028e6e814c388bab238857c375db28c5a51c90686b2",
+    "sha256": "sha256:2c4bfe10ad583d6758955f0627cae4834b28562519abbb2904370f9e2e2e5aec",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/2a/2ab36b24a7228a4c9b2274695eaf7827f756c8bc1f2211c5cfb70de3f08fd04f.html",
-    "byteLength": 1304649,
-    "finalUrl": "https://artificialanalysis.ai/models/nova-2-0-pro",
-    "id": "sha256:2ab36b24a7228a4c9b2274695eaf7827f756c8bc1f2211c5cfb70de3f08fd04f",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "nova-2-0-pro"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/nova-2-0-pro",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:2ab36b24a7228a4c9b2274695eaf7827f756c8bc1f2211c5cfb70de3f08fd04f",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/b3/b31b12a1c14b8efcf5aa50521311e68888b71b489e062274d4d5737f9aee13bf.html",
-    "byteLength": 1303555,
-    "finalUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-low",
-    "id": "sha256:b31b12a1c14b8efcf5aa50521311e68888b71b489e062274d4d5737f9aee13bf",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "nova-2-0-pro-reasoning-low"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-low",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:b31b12a1c14b8efcf5aa50521311e68888b71b489e062274d4d5737f9aee13bf",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/14/14d65bf44163f0eb993a54eb7c4163597d9852c29799321f5e0372359ce680ec.html",
-    "byteLength": 1304361,
-    "finalUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-medium",
-    "id": "sha256:14d65bf44163f0eb993a54eb7c4163597d9852c29799321f5e0372359ce680ec",
+    "artifactPath": "artifacts/sha256/4d/4d24979125a62e712d10c6a976fd42e2a911c26945247a3157d6744c490eb29c.html",
+    "byteLength": 1053363,
+    "finalUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-preview",
+    "id": "sha256:4d24979125a62e712d10c6a976fd42e2a911c26945247a3157d6744c490eb29c",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4350,9 +4764,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/nova-2-0-pro-reasoning-medium",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:14d65bf44163f0eb993a54eb7c4163597d9852c29799321f5e0372359ce680ec",
+    "sha256": "sha256:4d24979125a62e712d10c6a976fd42e2a911c26945247a3157d6744c490eb29c",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/67/67052da2d0516e07b6e21294fd1b44d4a4623991ca34f9a5433ac59d21f79160.html",
+    "byteLength": 1438784,
+    "finalUrl": "https://artificialanalysis.ai/models/nemotron-3-ultra-550b-a55b",
+    "id": "sha256:67052da2d0516e07b6e21294fd1b44d4a4623991ca34f9a5433ac59d21f79160",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "nvidia-nemotron-3-ultra-550b-a55b"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:67052da2d0516e07b6e21294fd1b44d4a4623991ca34f9a5433ac59d21f79160",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4392,10 +4824,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/89/896d0d179d120d14dcc79a98f9c0026111fb0302bb6e8596a177e345a79dab47.html",
-    "byteLength": 1390959,
-    "finalUrl": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b-non-reasoning",
-    "id": "sha256:896d0d179d120d14dcc79a98f9c0026111fb0302bb6e8596a177e345a79dab47",
+    "artifactPath": "artifacts/sha256/66/669654a3ff4dc5233ae58c5e88892e643da1da967a5ee2e5b8002b845968a7c0.html",
+    "byteLength": 1126554,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b",
+    "id": "sha256:669654a3ff4dc5233ae58c5e88892e643da1da967a5ee2e5b8002b845968a7c0",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4404,34 +4836,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:896d0d179d120d14dcc79a98f9c0026111fb0302bb6e8596a177e345a79dab47",
+    "sha256": "sha256:669654a3ff4dc5233ae58c5e88892e643da1da967a5ee2e5b8002b845968a7c0",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/99/99dc78f901c6392a5f7c63a7947363a9a3775fd35c71e28cc8d0a46e2ca378a7.html",
-    "byteLength": 3787063,
+    "artifactPath": "artifacts/sha256/58/58a2dfdd53a12f88c5611c3c35736f33a2306c2fcd9cae8eb0378f76747f60c8.html",
+    "byteLength": 1053928,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-5-27b",
-    "id": "sha256:99dc78f901c6392a5f7c63a7947363a9a3775fd35c71e28cc8d0a46e2ca378a7",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "qwen3-5-27b"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-27b",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:99dc78f901c6392a5f7c63a7947363a9a3775fd35c71e28cc8d0a46e2ca378a7",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/63/63472843c2e84990844213dc6400a7e5a46a09a36870976e07018c37dd1c6c5e.html",
-    "byteLength": 3787986,
-    "finalUrl": "https://artificialanalysis.ai/models/qwen3-5-27b-non-reasoning",
-    "id": "sha256:63472843c2e84990844213dc6400a7e5a46a09a36870976e07018c37dd1c6c5e",
+    "id": "sha256:58a2dfdd53a12f88c5611c3c35736f33a2306c2fcd9cae8eb0378f76747f60c8",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4440,9 +4854,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-27b-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:63472843c2e84990844213dc6400a7e5a46a09a36870976e07018c37dd1c6c5e",
+    "sha256": "sha256:58a2dfdd53a12f88c5611c3c35736f33a2306c2fcd9cae8eb0378f76747f60c8",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4464,10 +4878,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/ed/edc82aeb7fceaa982ed702f5a0dbfb350964452b86b092a5415764398be6f417.html",
-    "byteLength": 1390899,
-    "finalUrl": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning",
-    "id": "sha256:edc82aeb7fceaa982ed702f5a0dbfb350964452b86b092a5415764398be6f417",
+    "artifactPath": "artifacts/sha256/4b/4b655e30461b6d63ec43ccfcf186c0065760266634821f4997af9e155f131d88.html",
+    "byteLength": 1230684,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b",
+    "id": "sha256:4b655e30461b6d63ec43ccfcf186c0065760266634821f4997af9e155f131d88",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4476,16 +4890,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:edc82aeb7fceaa982ed702f5a0dbfb350964452b86b092a5415764398be6f417",
+    "sha256": "sha256:4b655e30461b6d63ec43ccfcf186c0065760266634821f4997af9e155f131d88",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/9c/9ceec76833bce9b150711e7a7a1b55f164272aaa368162a6f159f1e52afd8e04.html",
-    "byteLength": 3582905,
+    "artifactPath": "artifacts/sha256/c0/c03f2cc19fa11a418aae8e0ce90753147976ac2c8793aaf973a15f283a54fcfe.html",
+    "byteLength": 844021,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-6-max",
-    "id": "sha256:9ceec76833bce9b150711e7a7a1b55f164272aaa368162a6f159f1e52afd8e04",
+    "id": "sha256:c03f2cc19fa11a418aae8e0ce90753147976ac2c8793aaf973a15f283a54fcfe",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4494,9 +4908,27 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-6-max",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:9ceec76833bce9b150711e7a7a1b55f164272aaa368162a6f159f1e52afd8e04",
+    "sha256": "sha256:c03f2cc19fa11a418aae8e0ce90753147976ac2c8793aaf973a15f283a54fcfe",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/5c/5c47fae05ccd19ee5483125f62b1e7716fb745165f255ac7c54a29a675057fa5.html",
+    "byteLength": 1044962,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-7-max",
+    "id": "sha256:5c47fae05ccd19ee5483125f62b1e7716fb745165f255ac7c54a29a675057fa5",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "qwen3-7-max"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/qwen3-7-max",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:5c47fae05ccd19ee5483125f62b1e7716fb745165f255ac7c54a29a675057fa5",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4536,6 +4968,42 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/ff/ff866b831b620d0be548d25abc6e549c1f564c47461466a31e58710f89aab25a.html",
+    "byteLength": 1111873,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-7-plus",
+    "id": "sha256:ff866b831b620d0be548d25abc6e549c1f564c47461466a31e58710f89aab25a",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "qwen3-7-plus"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/qwen3-7-plus",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:ff866b831b620d0be548d25abc6e549c1f564c47461466a31e58710f89aab25a",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/26/2688fb5a5047ab6acb9fa0b24a9448376c3cfb9f24240813a0bad555b2af5121.html",
+    "byteLength": 1265012,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b",
+    "id": "sha256:2688fb5a5047ab6acb9fa0b24a9448376c3cfb9f24240813a0bad555b2af5121",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "qwen3-8-2-4t-a95b"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:2688fb5a5047ab6acb9fa0b24a9448376c3cfb9f24240813a0bad555b2af5121",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/e8/e8dc08f811ba3d3e69207567daa0e5213b6c146031f71b01b4d5d45cc9d44e20.html",
     "byteLength": 3893895,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-2-4t-a95b",
@@ -4551,24 +5019,6 @@
     "retrievedAt": "2026-11-13T05:10:48.813Z",
     "schemaVersion": "evidence-record-v1",
     "sha256": "sha256:e8dc08f811ba3d3e69207567daa0e5213b6c146031f71b01b4d5d45cc9d44e20",
-    "sourceId": "artificial-analysis"
-  },
-  {
-    "artifactPath": "artifacts/sha256/b4/b4a52de07e9bc93cd19dc1fab55715fbfb8ff8c74d995437bc8074bc8b64022f.html",
-    "byteLength": 1603658,
-    "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
-    "id": "sha256:b4a52de07e9bc93cd19dc1fab55715fbfb8ff8c74d995437bc8074bc8b64022f",
-    "mediaType": "text/html",
-    "metadata": {
-      "captureScope": "complete model detail response",
-      "kind": "model-detail",
-      "slug": "qwen3-8-27b"
-    },
-    "method": "NEXT_RSC",
-    "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
-    "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:b4a52de07e9bc93cd19dc1fab55715fbfb8ff8c74d995437bc8074bc8b64022f",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4626,6 +5076,42 @@
     "sourceId": "artificial-analysis"
   },
   {
+    "artifactPath": "artifacts/sha256/b5/b548f9f21dcbaef24b80026fa04e253c1515ce3293c6f267ff40c3a70badea2e.html",
+    "byteLength": 1368914,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-27b",
+    "id": "sha256:b548f9f21dcbaef24b80026fa04e253c1515ce3293c6f267ff40c3a70badea2e",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "qwen3-8-27b-non-reasoning"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-27b-non-reasoning",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:b548f9f21dcbaef24b80026fa04e253c1515ce3293c6f267ff40c3a70badea2e",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/0c/0cf1cb836d5ca970aa576bcf447f0d312d7e3d99795a9fb212f809d982306433.html",
+    "byteLength": 1347345,
+    "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+    "id": "sha256:0cf1cb836d5ca970aa576bcf447f0d312d7e3d99795a9fb212f809d982306433",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "qwen3-8-flash-next"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:0cf1cb836d5ca970aa576bcf447f0d312d7e3d99795a9fb212f809d982306433",
+    "sourceId": "artificial-analysis"
+  },
+  {
     "artifactPath": "artifacts/sha256/cb/cbc77c23d1e74471ea79f81687c2174d31de77e9dd0cc73bfa6d29671ffde338.html",
     "byteLength": 3962326,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
@@ -4644,10 +5130,10 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/b6/b6bf22ff7fd4111a82a30468f95a070ff7e40e823b88222df016e6225231d35a.html",
-    "byteLength": 3925516,
+    "artifactPath": "artifacts/sha256/7f/7f4190f167ee9c78de708c37ebd42d6388b11d3dc06ff81b77bff00ec7ce073c.html",
+    "byteLength": 1330115,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
-    "id": "sha256:b6bf22ff7fd4111a82a30468f95a070ff7e40e823b88222df016e6225231d35a",
+    "id": "sha256:7f4190f167ee9c78de708c37ebd42d6388b11d3dc06ff81b77bff00ec7ce073c",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4656,16 +5142,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-max",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:b6bf22ff7fd4111a82a30468f95a070ff7e40e823b88222df016e6225231d35a",
+    "sha256": "sha256:7f4190f167ee9c78de708c37ebd42d6388b11d3dc06ff81b77bff00ec7ce073c",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/9f/9ffec19ae746a1a42794c73ca4e8f3281c553903e17f59483f439f549c154b8f.html",
-    "byteLength": 3739150,
+    "artifactPath": "artifacts/sha256/38/38deadf956a6d44d9f338e656214aa8bce18e7552f5a16bcb53781767d93b35c.html",
+    "byteLength": 1033880,
     "finalUrl": "https://artificialanalysis.ai/models/qwen3-8-max-0803",
-    "id": "sha256:9ffec19ae746a1a42794c73ca4e8f3281c553903e17f59483f439f549c154b8f",
+    "id": "sha256:38deadf956a6d44d9f338e656214aa8bce18e7552f5a16bcb53781767d93b35c",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4674,16 +5160,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/qwen3-8-max-0803",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:9ffec19ae746a1a42794c73ca4e8f3281c553903e17f59483f439f549c154b8f",
+    "sha256": "sha256:38deadf956a6d44d9f338e656214aa8bce18e7552f5a16bcb53781767d93b35c",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/e7/e725f6d9bde1296873364ff36c6c5ae6f3a852b16a12279bf0a9f9ee588a43b1.html",
-    "byteLength": 4004262,
+    "artifactPath": "artifacts/sha256/96/9633f2afc7b0651fd19a182197297a31fc0d28db253b6dff0698c9f434ae9cd1.html",
+    "byteLength": 1407353,
     "finalUrl": "https://artificialanalysis.ai/models/reflection-beam",
-    "id": "sha256:e725f6d9bde1296873364ff36c6c5ae6f3a852b16a12279bf0a9f9ee588a43b1",
+    "id": "sha256:9633f2afc7b0651fd19a182197297a31fc0d28db253b6dff0698c9f434ae9cd1",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4692,16 +5178,16 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/reflection-beam",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:e725f6d9bde1296873364ff36c6c5ae6f3a852b16a12279bf0a9f9ee588a43b1",
+    "sha256": "sha256:9633f2afc7b0651fd19a182197297a31fc0d28db253b6dff0698c9f434ae9cd1",
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/60/60882f54202f8638f798f8fc9b64d4bbff2d857d7c572f891c6126c6d01cbcae.html",
-    "byteLength": 3784036,
+    "artifactPath": "artifacts/sha256/46/46acbae041663ab10182bf773ded57506635163b9872968f71149be4484fc926.html",
+    "byteLength": 1131625,
     "finalUrl": "https://artificialanalysis.ai/models/step-3-7-flash",
-    "id": "sha256:60882f54202f8638f798f8fc9b64d4bbff2d857d7c572f891c6126c6d01cbcae",
+    "id": "sha256:46acbae041663ab10182bf773ded57506635163b9872968f71149be4484fc926",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4710,9 +5196,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/step-3-7-flash",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:60882f54202f8638f798f8fc9b64d4bbff2d857d7c572f891c6126c6d01cbcae",
+    "sha256": "sha256:46acbae041663ab10182bf773ded57506635163b9872968f71149be4484fc926",
     "sourceId": "artificial-analysis"
   },
   {
@@ -4734,10 +5220,28 @@
     "sourceId": "artificial-analysis"
   },
   {
-    "artifactPath": "artifacts/sha256/31/31e6685a41f14dd5498b0566d1393927539cf86dfb0202cf2f708e9a9b9c9169.html",
-    "byteLength": 3872816,
+    "artifactPath": "artifacts/sha256/ec/ecf0b2a134c8dc414241ae5d19918d7560b90a57503da8a7462c7584a601e448.html",
+    "byteLength": 1437964,
+    "finalUrl": "https://artificialanalysis.ai/models/step-5-preview",
+    "id": "sha256:ecf0b2a134c8dc414241ae5d19918d7560b90a57503da8a7462c7584a601e448",
+    "mediaType": "text/html",
+    "metadata": {
+      "captureScope": "complete model detail response",
+      "kind": "model-detail",
+      "slug": "step-5"
+    },
+    "method": "NEXT_RSC",
+    "requestUrl": "https://artificialanalysis.ai/models/step-5",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
+    "schemaVersion": "evidence-record-v1",
+    "sha256": "sha256:ecf0b2a134c8dc414241ae5d19918d7560b90a57503da8a7462c7584a601e448",
+    "sourceId": "artificial-analysis"
+  },
+  {
+    "artifactPath": "artifacts/sha256/35/359d880c6583372949e3c1fcc1d207d407313199dab0252cbdc9856b65c3720d.html",
+    "byteLength": 1208653,
     "finalUrl": "https://artificialanalysis.ai/models/tencent-hy4",
-    "id": "sha256:31e6685a41f14dd5498b0566d1393927539cf86dfb0202cf2f708e9a9b9c9169",
+    "id": "sha256:359d880c6583372949e3c1fcc1d207d407313199dab0252cbdc9856b65c3720d",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "complete model detail response",
@@ -4746,9 +5250,9 @@
     },
     "method": "NEXT_RSC",
     "requestUrl": "https://artificialanalysis.ai/models/tencent-hy4",
-    "retrievedAt": "2026-11-13T05:10:48.813Z",
+    "retrievedAt": "2026-11-15T04:10:25.101Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:31e6685a41f14dd5498b0566d1393927539cf86dfb0202cf2f708e9a9b9c9169",
+    "sha256": "sha256:359d880c6583372949e3c1fcc1d207d407313199dab0252cbdc9856b65c3720d",
     "sourceId": "artificial-analysis"
   }
 ]

@@ -1,13 +1,13 @@
 # MaxxBench acquisition validation
 
 - Source https://maxxbench.unlap.ai/
-- Evidence `sha256:10bd1f36dff979cda82d604eadd378756035385c6a28f0bd6c810d92434e97cb`
-- Observed 2026-11-13T04:46:09.645Z
-- Visible leaderboard configurations 15
-- Embedded configurations 16
-- Materialized costs 15
+- Evidence `sha256:90500fc0d021fc0a7c6c7f47da05ab662228957799119f79e2a2392703bde151`
+- Observed 2026-11-15T04:11:47.443Z
+- Visible leaderboard configurations 17
+- Embedded configurations 18
+- Materialized costs 17
 - Every visible name, effort, one-decimal score and two-decimal cost matches the embedded data.
-- Every selected score equals passed / attempts × 100. Task counts, repetitions and mean costs match completed trial records.
+- Every selected score equals passed / attempts × 100. The embedded completionData curves (cost, output tokens, agent steps) each account for exactly `passed` attempts for the stated task count, with the solved-task count rising in steps of 1 / repetitions. Mean cost is at least the sum of the passed-attempt costs divided by all attempts; failed-attempt costs and task IDs are not published, so the mean itself and per-task repetition counts cannot be recomputed.
 
 ## Scope and settings
 
@@ -16,7 +16,7 @@
 - Costs are mean USD per evaluation attempt including failed attempts. Pricing schedules and cache assumptions are unpublished.
 - The benchmark release has no explicit version label. The task manifest schema version describes its file format.
 - Harness, tools, thinking, quantization and context window remain null where the leaderboard does not specify them.
-- Unresolved canonical identities DeepSeek V4.1 Flash, GLM-5.3 Flash, GLM-5.3, Qwen3.8 Flash Next.
+- Unresolved canonical identities DeepSeek V4.1 Flash, GLM-5.3 Flash, GLM-5.3, Claude Haiku 5.5, Qwen3.8 Flash Next.
 
 <!-- C6-EFFORT-INFERENCE:START -->
 ## C6 effort inference — PENDING USER REVIEW

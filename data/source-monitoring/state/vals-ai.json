@@ -97,6 +97,12 @@
       "version": null
     },
     {
+      "id": "financial-coaching-bench",
+      "title": "Financial Coaching Bench",
+      "url": "https://www.vals.ai/benchmarks/financial-coaching-bench",
+      "version": null
+    },
+    {
       "id": "gpqa",
       "title": "GPQA Diamond",
       "url": "https://www.vals.ai/benchmarks/gpqa",
@@ -361,6 +367,12 @@
       "version": null
     },
     {
+      "id": "vcb-1-100-v1-1",
+      "title": "Vibe Code Bench 1-100 v1.1",
+      "url": "https://www.vals.ai/benchmarks/vcb-1-100-v1-1",
+      "version": "v1.1"
+    },
+    {
       "id": "vibe-code",
       "title": "Vibe Code Bench v1.1",
       "url": "https://www.vals.ai/benchmarks/vibe-code",
@@ -379,21 +391,21 @@
       "version": null
     }
   ],
-  "checkedAt": "2026-11-13T05:10:21.883Z",
+  "checkedAt": "2026-11-14T12:18:19.395Z",
   "evidence": {
-    "artifactPath": "artifacts/sha256/a2/a23f59e09da3ad3d5e8f88d5f6841765a52266144497c42f64d907ec35d8afe3.html",
-    "byteLength": 313228,
+    "artifactPath": "artifacts/sha256/a7/a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3.html",
+    "byteLength": 318606,
     "finalUrl": "https://www.vals.ai/benchmarks",
-    "id": "sha256:a23f59e09da3ad3d5e8f88d5f6841765a52266144497c42f64d907ec35d8afe3",
+    "id": "sha256:a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3",
     "mediaType": "text/html",
     "metadata": {
       "captureScope": "benchmark directory change detection"
     },
     "method": "DOM",
     "requestUrl": "https://www.vals.ai/benchmarks",
-    "retrievedAt": "2026-11-13T05:10:21.883Z",
+    "retrievedAt": "2026-11-14T12:18:19.395Z",
     "schemaVersion": "evidence-record-v1",
-    "sha256": "sha256:a23f59e09da3ad3d5e8f88d5f6841765a52266144497c42f64d907ec35d8afe3",
+    "sha256": "sha256:a71ce90ac8f7a6e42f449c64779e645f2f0ce52f5022dec60af1b1694659a0b3",
     "sourceId": "vals-ai"
   },
   "schemaVersion": "source-monitor-state-v1",
@@ -2578,6 +2590,101 @@
         ],
         "rows": 40,
         "sourceUrls": ["https://www.vals.ai/benchmarks/finance_index"],
+        "versions": ["1"]
+      },
+      {
+        "id": "financial-coaching-bench",
+        "includedRows": 0,
+        "metrics": ["accuracy:percent:true"],
+        "models": [
+          "alibaba-qwen3-8-max",
+          "anthropic-claude-fable-5-1",
+          "anthropic-claude-opus-5-5",
+          "anthropic-claude-sonnet-5-5",
+          "google-gemini-3-1-pro-preview",
+          "google-gemini-3-5-flash",
+          "google-gemini-3-5-flash-lite",
+          "google-gemini-3-6-flash",
+          "google-gemini-3-8-flash",
+          "google-gemini-4-argon",
+          "meta-muse-spark-1-2",
+          "meta-muse-spark-1-3",
+          "meta-muse-wonder",
+          "meta-muse-wonder-full",
+          "minimax-minimax-m3",
+          "openai-gpt-5-6-luna",
+          "openai-gpt-5-6-sol",
+          "openai-gpt-5-6-terra",
+          "openai-gpt-6-1-sol",
+          "openai-gpt-6-astra",
+          "openai-gpt-6-luna",
+          "openai-gpt-6-sol",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"alibaba/qwen3.8-max\",null,null,null,null,null,null,null]",
+          "[\"anthropic/claude-fable-5-1\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-opus-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"anthropic/claude-sonnet-5-5\",\"max\",null,null,null,null,null,null]",
+          "[\"deepseek/deepseek-v4.1-flash\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.1-pro-preview\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.5-flash\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.5-flash-lite\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.6-flash\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-3.8-flash\",\"high\",null,null,null,null,null,null]",
+          "[\"google/gemini-4-argon\",\"high\",null,null,null,null,null,null]",
+          "[\"grok/grok-4.7\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"kimi/kimi-k3\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-wonder\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse-wonder-full\",\"max\",null,null,null,null,null,null]",
+          "[\"meta/muse_spark_1_2\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"meta/muse_spark_1_3\",\"xhigh\",null,null,null,null,null,null]",
+          "[\"meta/muse_spark_1_3_max\",\"max\",null,null,null,null,null,null]",
+          "[\"minimax/MiniMax-M3\",null,null,null,null,null,null,null]",
+          "[\"openai/gpt-5.6-luna\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-5.6-sol\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-5.6-terra\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-astra\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-luna\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6-sol\",\"max\",null,null,null,null,null,null]",
+          "[\"openai/gpt-6.1-sol\",\"max\",null,null,null,null,null,null]",
+          "[\"xiaomi/mimo-v2.6-pro\",null,null,null,null,null,null,null]",
+          "[\"zai/glm-5.3\",\"max\",null,null,null,null,null,null]"
+        ],
+        "rawLabels": [
+          "alibaba/qwen3.8-max",
+          "anthropic/claude-fable-5-1",
+          "anthropic/claude-opus-5-5",
+          "anthropic/claude-sonnet-5-5",
+          "deepseek/deepseek-v4.1-flash",
+          "google/gemini-3.1-pro-preview",
+          "google/gemini-3.5-flash",
+          "google/gemini-3.5-flash-lite",
+          "google/gemini-3.6-flash",
+          "google/gemini-3.8-flash",
+          "google/gemini-4-argon",
+          "grok/grok-4.7",
+          "kimi/kimi-k3",
+          "meta/muse-wonder",
+          "meta/muse-wonder-full",
+          "meta/muse_spark_1_2",
+          "meta/muse_spark_1_3",
+          "meta/muse_spark_1_3_max",
+          "minimax/MiniMax-M3",
+          "openai/gpt-5.6-luna",
+          "openai/gpt-5.6-sol",
+          "openai/gpt-5.6-terra",
+          "openai/gpt-6-astra",
+          "openai/gpt-6-luna",
+          "openai/gpt-6-sol",
+          "openai/gpt-6.1-sol",
+          "xiaomi/mimo-v2.6-pro",
+          "zai/glm-5.3"
+        ],
+        "rows": 28,
+        "sourceUrls": [
+          "https://www.vals.ai/benchmarks/financial-coaching-bench"
+        ],
         "versions": ["1"]
       },
       {
@@ -9380,7 +9487,41 @@
         ],
         "rows": 26,
         "sourceUrls": ["https://www.vals.ai/benchmarks/vcb-1-100"],
-        "versions": ["1.0"]
+        "versions": ["1"]
+      },
+      {
+        "id": "vcb-1-100-v1-1",
+        "includedRows": 0,
+        "metrics": ["accuracy:percent:true"],
+        "models": [
+          "anthropic-claude-opus-5-5",
+          "deepseek-deepseek-v4-1-flash-1017",
+          "google-gemini-4-carbon",
+          "xai-grok-4-7"
+        ],
+        "profiles": [
+          "[\"anthropic/claude-opus-5-5\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"deepseek/deepseek-v4.1-flash-1017\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"google/gemini-4-carbon\",\"high\",null,\"OpenHands\",null,null,null,null]",
+          "[\"grok/grok-4.7\",\"xhigh\",null,\"OpenHands\",null,null,null,null]",
+          "[\"minimax/MiniMax-M3.1-flash\",\"max\",null,\"OpenHands\",null,null,null,null]",
+          "[\"xiaomi/mimo-v2.6-flash\",null,null,\"OpenHands\",null,null,null,null]",
+          "[\"xiaomi/mimo-v2.6-pro\",null,null,\"OpenHands\",null,null,null,null]",
+          "[\"zai/glm-5.3\",\"max\",null,\"OpenHands\",null,null,null,null]"
+        ],
+        "rawLabels": [
+          "anthropic/claude-opus-5-5",
+          "deepseek/deepseek-v4.1-flash-1017",
+          "google/gemini-4-carbon",
+          "grok/grok-4.7",
+          "minimax/MiniMax-M3.1-flash",
+          "xiaomi/mimo-v2.6-flash",
+          "xiaomi/mimo-v2.6-pro",
+          "zai/glm-5.3"
+        ],
+        "rows": 8,
+        "sourceUrls": ["https://www.vals.ai/benchmarks/vcb-1-100-v1-1"],
+        "versions": ["1.1"]
       },
       {
         "id": "vibe-code-bench",
@@ -9812,7 +9953,7 @@
         "versions": ["1"]
       }
     ],
-    "observedAt": "2026-11-13T05:09:59.781Z",
+    "observedAt": "2026-11-14T12:18:08.653Z",
     "sourceId": "vals-ai"
   }
 }
