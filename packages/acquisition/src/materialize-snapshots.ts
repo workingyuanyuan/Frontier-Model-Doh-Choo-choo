@@ -37,9 +37,9 @@ import {
   materializeChartography,
 } from './surge-chartography-materializer.js';
 import {
-  extractArtificialAnalysisRscRows,
+  currentArtificialAnalysisCapture,
   materializeArtificialAnalysisRsc,
-  type ArtificialAnalysisPage,
+  retainArtificialAnalysisBriefcaseRows,
 } from './artificial-analysis-rsc.js';
 import {
   buildLiveBenchSnapshot,
@@ -317,7 +317,11 @@ function rebuildSnapshots(
                   .digest('hex'),
               }
             : {}),
-          ...(['surge-complex-constraints', 'surge-riemann'].includes(src.id)
+          ...([
+            'artificial-analysis',
+            'surge-complex-constraints',
+            'surge-riemann',
+          ].includes(src.id)
             ? {
                 retainedSnapshotBaseline: createHash('sha256')
                   .update(baseline['candidates.json'] ?? '')
@@ -589,70 +593,30 @@ function rebuildSnapshots(
             materializedCosts = result.costs;
             customReportText = result.validationReport;
           } else if (src.id === 'artificial-analysis') {
-            const aaPageRecords = evidenceList.filter(
-              ({ requestUrl }) =>
-                requestUrl === 'https://artificialanalysis.ai/models' ||
-                requestUrl.startsWith(
-                  'https://artificialanalysis.ai/models/',
-                ) ||
-                requestUrl.startsWith(
-                  'https://artificialanalysis.ai/evaluations/',
-                ),
-            );
-            if (aaPageRecords.length === 0) {
-              throw new Error(
-                'Artificial Analysis RSC page evidence not found',
-              );
-            }
-            const pages: ArtificialAnalysisPage[] = aaPageRecords.map(
-              (record) => {
-                const isModels =
-                  record.requestUrl === 'https://artificialanalysis.ai/models';
-                const isDetail = record.requestUrl.startsWith(
-                  'https://artificialanalysis.ai/models/',
-                );
-                const slug = isModels
-                  ? 'models'
-                  : (record.requestUrl.split('/').at(-1) ?? record.requestUrl);
-                const html = readFileSync(
-                  join(repoRoot, record.artifactPath),
-                  'utf8',
-                );
-                return {
-                  kind: isModels
-                    ? 'models'
-                    : isDetail
-                      ? 'model-detail'
-                      : 'evaluation',
-                  slug,
-                  sourceUrl: record.requestUrl,
-                  evidenceId: record.id,
-                  retrievedAt: record.retrievedAt,
-                  rows: extractArtificialAnalysisRscRows(html),
-                };
-              },
-            );
-            const apiRecord = evidenceList.find(
-              ({ requestUrl, method }) =>
-                requestUrl ===
-                  'https://artificialanalysis.ai/api/v2/data/llms/models' &&
-                method === 'API_RESPONSE',
+            const { pages, apiRecord } = currentArtificialAnalysisCapture(
+              evidenceList,
+              evidenceText,
             );
             const api = apiRecord
               ? {
                   sourceUrl: apiRecord.requestUrl,
                   evidenceId: apiRecord.id,
                   retrievedAt: apiRecord.retrievedAt,
-                  payload: JSON.parse(
-                    readFileSync(
-                      join(repoRoot, apiRecord.artifactPath),
-                      'utf8',
-                    ),
-                  ) as unknown,
+                  payload: JSON.parse(evidenceText(apiRecord)) as unknown,
                 }
               : null;
             const result = materializeArtificialAnalysisRsc(pages, api);
-            candidates = result.candidates;
+            // Same carry-forward as the online refresh, against the saved
+            // snapshot: rows this capture observed always win.
+            candidates = retainArtificialAnalysisBriefcaseRows(
+              result.candidates,
+              baseline['candidates.json']
+                ? CandidateResultSchema.array().parse(
+                    JSON.parse(baseline['candidates.json']),
+                  )
+                : [],
+              result.activeProfileKeys,
+            ).candidates;
             materializedCosts = result.costs;
             customReportText = result.validationReport;
           } else if (src.id === 'livebench') {

@@ -3,6 +3,7 @@ import {
   CostRecordSchema,
   type CandidateResult,
   type CostRecord,
+  type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
 import {
@@ -1813,6 +1814,140 @@ export const materializeArtificialAnalysisRsc = (
     unresolvedCandidates,
     apiComparison,
     warnings,
+  };
+};
+
+export interface CapturedPageReference {
+  kind: ArtificialAnalysisPage['kind'];
+  slug: string;
+  sourceUrl: string;
+  evidenceId: string;
+}
+
+/**
+ * The pages one refresh read, in reading order. Evidence is keyed by content,
+ * so URLs answering with identical bytes share one record and the index alone
+ * cannot say which pages were read or in what order; row selection depends on
+ * both. The refresh stores this list on the models-page Evidence.
+ */
+export const capturedPageReferences = (
+  pages: readonly ArtificialAnalysisPage[],
+): CapturedPageReference[] =>
+  pages.map(({ kind, slug, sourceUrl, evidenceId }) => ({
+    kind,
+    slug,
+    sourceUrl,
+    evidenceId,
+  }));
+
+/** The stored list, or null for snapshots written before it was recorded. */
+export const readCapturedPageReferences = (
+  metadata: Record<string, unknown>,
+): CapturedPageReference[] | null => {
+  const value = metadata.capturedPages;
+  if (!Array.isArray(value)) return null;
+  return value.map((entry, index) => {
+    const page = asRecord(entry);
+    const { kind, slug, sourceUrl, evidenceId } = page ?? {};
+    if (
+      (kind !== 'models' && kind !== 'evaluation' && kind !== 'model-detail') ||
+      typeof slug !== 'string' ||
+      typeof sourceUrl !== 'string' ||
+      typeof evidenceId !== 'string'
+    )
+      throw new Error(`Invalid capturedPages entry ${index}`);
+    return { kind, slug, sourceUrl, evidenceId };
+  });
+};
+
+const MODELS_PAGE_URL = 'https://artificialanalysis.ai/models';
+const API_MODELS_URL = 'https://artificialanalysis.ai/api/v2/data/llms/models';
+
+const isPageEvidence = ({ requestUrl }: EvidenceRecord): boolean =>
+  requestUrl === MODELS_PAGE_URL ||
+  requestUrl.startsWith(`${MODELS_PAGE_URL}/`) ||
+  requestUrl.startsWith('https://artificialanalysis.ai/evaluations/');
+
+/**
+ * The pages and API response of the current snapshot, rebuilt from the saved
+ * Evidence index for every offline path.
+ *
+ * The index also keeps earlier captures as Evidence for retained rows. One
+ * refresh stamps every capture with the same time, so the latest time
+ * identifies the current snapshot. Pages follow the recorded reading list when
+ * the snapshot has one. Older snapshots get one page per surviving record,
+ * models first, then evaluations in their configured order, then detail pages
+ * by slug: scores and rows reproduce, the Evidence page a row cites may not.
+ */
+export const currentArtificialAnalysisCapture = (
+  evidence: readonly EvidenceRecord[],
+  readArtifact: (record: EvidenceRecord) => string,
+): { pages: ArtificialAnalysisPage[]; apiRecord: EvidenceRecord | null } => {
+  const pageRecords = evidence.filter(isPageEvidence);
+  const capturedAt = pageRecords
+    .map(({ retrievedAt }) => retrievedAt)
+    .toSorted()
+    .at(-1);
+  if (capturedAt === undefined)
+    throw new Error('Artificial Analysis RSC page evidence not found');
+  const currentRecords = pageRecords.filter(
+    ({ retrievedAt }) => retrievedAt === capturedAt,
+  );
+  const rowsByEvidence = new Map(
+    currentRecords.map((record) => [
+      record.id,
+      extractArtificialAnalysisRscRows(readArtifact(record)),
+    ]),
+  );
+  const modelsRecord = currentRecords.find(
+    ({ requestUrl }) => requestUrl === MODELS_PAGE_URL,
+  );
+  const evaluationOrder = (slug: string): number =>
+    (ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS as readonly string[]).indexOf(slug);
+  const rank = (page: CapturedPageReference): number =>
+    page.kind === 'models'
+      ? -1
+      : page.kind === 'evaluation'
+        ? evaluationOrder(page.slug)
+        : ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.length;
+  const references =
+    (modelsRecord ? readCapturedPageReferences(modelsRecord.metadata) : null) ??
+    currentRecords
+      .map(({ id, requestUrl }): CapturedPageReference => {
+        const segment = requestUrl.split('/').at(-1) ?? requestUrl;
+        const isModels = requestUrl === MODELS_PAGE_URL;
+        const isDetail = requestUrl.startsWith(`${MODELS_PAGE_URL}/`);
+        return {
+          kind: isModels ? 'models' : isDetail ? 'model-detail' : 'evaluation',
+          slug: isModels
+            ? 'models'
+            : isDetail
+              ? decodeURIComponent(segment)
+              : segment,
+          sourceUrl: requestUrl,
+          evidenceId: id,
+        };
+      })
+      .toSorted(
+        (left, right) =>
+          rank(left) - rank(right) || left.slug.localeCompare(right.slug),
+      );
+  return {
+    pages: references.map((page): ArtificialAnalysisPage => {
+      const rows = rowsByEvidence.get(page.evidenceId);
+      if (!rows)
+        throw new Error(
+          `Artificial Analysis page ${page.sourceUrl} cites Evidence outside the current capture: ${page.evidenceId}`,
+        );
+      return { ...page, retrievedAt: capturedAt, rows };
+    }),
+    apiRecord:
+      evidence.find(
+        ({ requestUrl, method, retrievedAt }) =>
+          requestUrl === API_MODELS_URL &&
+          method === 'API_RESPONSE' &&
+          retrievedAt === capturedAt,
+      ) ?? null,
   };
 };
 
