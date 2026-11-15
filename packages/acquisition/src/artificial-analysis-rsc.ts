@@ -3,6 +3,7 @@ import {
   CostRecordSchema,
   type CandidateResult,
   type CostRecord,
+  type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
 import {
@@ -1814,6 +1815,47 @@ export const materializeArtificialAnalysisRsc = (
     apiComparison,
     warnings,
   };
+};
+
+/**
+ * Evidence is keyed by content, so several URLs that answer with the same
+ * bytes (effort variants redirecting to one model page) collapse into one
+ * record. Keep the other URLs on the surviving record: a replay needs to know
+ * every page this capture read, not only the last URL per content hash.
+ */
+export const mergeCapturedEvidence = (
+  records: readonly EvidenceRecord[],
+): EvidenceRecord[] => {
+  const byId = new Map<string, EvidenceRecord>();
+  const urlsById = new Map<string, Set<string>>();
+  for (const record of records) {
+    byId.set(record.id, record);
+    const urls = urlsById.get(record.id) ?? new Set<string>();
+    urls.add(record.requestUrl);
+    urlsById.set(record.id, urls);
+  }
+  return [...byId.values()].map((record) => {
+    const others = [...urlsById.get(record.id)!]
+      .filter((url) => url !== record.requestUrl)
+      .toSorted();
+    return others.length === 0
+      ? record
+      : {
+          ...record,
+          metadata: { ...record.metadata, alsoRequestedAs: others },
+        };
+  });
+};
+
+/** Every URL this capture requested that returned the record's bytes. */
+export const capturedRequestUrls = (record: EvidenceRecord): string[] => {
+  const others = record.metadata.alsoRequestedAs;
+  return [
+    record.requestUrl,
+    ...(Array.isArray(others)
+      ? others.filter((url): url is string => typeof url === 'string')
+      : []),
+  ];
 };
 
 const BRIEFCASE_ID_PREFIX = `${SOURCE_ID}:aa-briefcase:`;

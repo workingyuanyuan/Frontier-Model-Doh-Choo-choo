@@ -38,7 +38,10 @@ import {
 } from './surge-chartography-materializer.js';
 import {
   extractArtificialAnalysisRscRows,
+  ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
+  capturedRequestUrls,
   materializeArtificialAnalysisRsc,
+  retainArtificialAnalysisBriefcaseRows,
   type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
 import {
@@ -317,7 +320,11 @@ function rebuildSnapshots(
                   .digest('hex'),
               }
             : {}),
-          ...(['surge-complex-constraints', 'surge-riemann'].includes(src.id)
+          ...([
+            'artificial-analysis',
+            'surge-complex-constraints',
+            'surge-riemann',
+          ].includes(src.id)
             ? {
                 retainedSnapshotBaseline: createHash('sha256')
                   .update(baseline['candidates.json'] ?? '')
@@ -604,39 +611,69 @@ function rebuildSnapshots(
                 'Artificial Analysis RSC page evidence not found',
               );
             }
-            const pages: ArtificialAnalysisPage[] = aaPageRecords.map(
-              (record) => {
-                const isModels =
-                  record.requestUrl === 'https://artificialanalysis.ai/models';
-                const isDetail = record.requestUrl.startsWith(
-                  'https://artificialanalysis.ai/models/',
+            // The index also keeps earlier captures as Evidence for retained
+            // rows. One refresh stamps every capture with the same time, so
+            // the latest time identifies the pages of the current snapshot.
+            const capturedAt = aaPageRecords
+              .map(({ retrievedAt }) => retrievedAt)
+              .toSorted()
+              .at(-1)!;
+            const capturedPages: ArtificialAnalysisPage[] = aaPageRecords
+              .filter(({ retrievedAt }) => retrievedAt === capturedAt)
+              .flatMap((record) => {
+                const rows = extractArtificialAnalysisRscRows(
+                  readFileSync(join(repoRoot, record.artifactPath), 'utf8'),
                 );
-                const slug = isModels
-                  ? 'models'
-                  : (record.requestUrl.split('/').at(-1) ?? record.requestUrl);
-                const html = readFileSync(
-                  join(repoRoot, record.artifactPath),
-                  'utf8',
+                // One page per URL that returned these bytes in this capture.
+                return capturedRequestUrls(record).map(
+                  (sourceUrl): ArtificialAnalysisPage => {
+                    const isModels =
+                      sourceUrl === 'https://artificialanalysis.ai/models';
+                    const isDetail = sourceUrl.startsWith(
+                      'https://artificialanalysis.ai/models/',
+                    );
+                    const segment = sourceUrl.split('/').at(-1) ?? sourceUrl;
+                    return {
+                      kind: isModels
+                        ? 'models'
+                        : isDetail
+                          ? 'model-detail'
+                          : 'evaluation',
+                      slug: isModels
+                        ? 'models'
+                        : isDetail
+                          ? decodeURIComponent(segment)
+                          : segment,
+                      sourceUrl,
+                      evidenceId: record.id,
+                      retrievedAt: record.retrievedAt,
+                      rows,
+                    };
+                  },
                 );
-                return {
-                  kind: isModels
-                    ? 'models'
-                    : isDetail
-                      ? 'model-detail'
-                      : 'evaluation',
-                  slug,
-                  sourceUrl: record.requestUrl,
-                  evidenceId: record.id,
-                  retrievedAt: record.retrievedAt,
-                  rows: extractArtificialAnalysisRscRows(html),
-                };
-              },
+              });
+            // Evidence is stored by URL; the refresh reads the models page,
+            // then each evaluation in its configured order, then detail pages
+            // by slug. Row selection breaks ties by that order.
+            const pageOrder = (page: ArtificialAnalysisPage): number =>
+              page.kind === 'models'
+                ? -1
+                : page.kind === 'evaluation'
+                  ? ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.indexOf(
+                      page.slug as (typeof ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS)[number],
+                    )
+                  : ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.length;
+            const pages = capturedPages.toSorted(
+              (left, right) =>
+                pageOrder(left) - pageOrder(right) ||
+                left.slug.localeCompare(right.slug),
             );
             const apiRecord = evidenceList.find(
-              ({ requestUrl, method }) =>
+              ({ requestUrl, method, retrievedAt }) =>
                 requestUrl ===
                   'https://artificialanalysis.ai/api/v2/data/llms/models' &&
-                method === 'API_RESPONSE',
+                method === 'API_RESPONSE' &&
+                retrievedAt === capturedAt,
             );
             const api = apiRecord
               ? {
@@ -652,7 +689,17 @@ function rebuildSnapshots(
                 }
               : null;
             const result = materializeArtificialAnalysisRsc(pages, api);
-            candidates = result.candidates;
+            // Same carry-forward as the online refresh, against the saved
+            // snapshot: rows this capture observed always win.
+            candidates = retainArtificialAnalysisBriefcaseRows(
+              result.candidates,
+              baseline['candidates.json']
+                ? CandidateResultSchema.array().parse(
+                    JSON.parse(baseline['candidates.json']),
+                  )
+                : [],
+              result.activeProfileKeys,
+            ).candidates;
             materializedCosts = result.costs;
             customReportText = result.validationReport;
           } else if (src.id === 'livebench') {

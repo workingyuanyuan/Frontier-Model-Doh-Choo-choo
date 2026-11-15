@@ -65,6 +65,8 @@ pnpm data:check-replay
 
 這個命令不開啟證據庫，也不寫入任何檔案。它在記憶體中由已保存的 Evidence 重建每個可重播來源，再與工作區的來源快照比對，輸出 JSON：`replayedSourceIds`、`notReplayableSourceIds`（白名單內但離線路徑不涵蓋的來源），以及逐檔差異。JSON 檔以內容比較，不受排版影響；`candidates.json` 與 `costs.json` 另列出新增、消失與內容改變的列數及範例 ID。只有這兩個檔案有差異時退出碼為 1；驗證報告與 `cross-checks.json` 的差異只列出，不影響退出碼。執行 `pnpm data:materialize-snapshots` 之前先跑它，可以預先知道哪些來源會被改寫。
 
+Artificial Analysis 的 Evidence 索引同時保存本次擷取與保留列引用的舊擷取。重播以最新的擷取時間辨識本次的頁面，並套用與線上刷新相同的 AA-Briefcase 保留規則。Evidence 以內容雜湊為鍵，多個網址回傳相同內容時只留一筆紀錄；刷新會把其餘網址記在該筆的 `metadata.alsoRequestedAs`，重播依此還原每一個讀過的頁面。沒有這個欄位的舊快照，重播出的分數與列數相同，但部分列引用的 Evidence 頁面會不同。
+
 `--force` 完整重新解析，可用於比較增量結果。快取內部產出與可發布來源快照分別保存，匯出使用通過來源驗證的完整快照。
 
 ## 匯出與 Git 工作流程

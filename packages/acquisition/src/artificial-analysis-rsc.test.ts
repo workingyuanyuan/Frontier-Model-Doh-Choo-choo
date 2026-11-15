@@ -12,6 +12,8 @@ import {
   isArtificialAnalysisValuePresent,
   materializeArtificialAnalysisRsc,
   retainArtificialAnalysisBriefcaseRows,
+  capturedRequestUrls,
+  mergeCapturedEvidence,
 } from './artificial-analysis-rsc.js';
 
 const evidenceId =
@@ -1202,5 +1204,40 @@ describe('AA-Briefcase retention', () => {
         capture.activeProfileKeys,
       ).retained,
     ).toEqual([]);
+  });
+});
+
+describe('Artificial Analysis capture evidence', () => {
+  const record = (id: string, requestUrl: string) => ({
+    schemaVersion: 'evidence-record-v1' as const,
+    id,
+    sourceId: 'artificial-analysis',
+    requestUrl,
+    finalUrl: requestUrl,
+    retrievedAt: '2026-01-01T00:00:00.000Z',
+    sha256: id,
+    byteLength: 1,
+    mediaType: 'text/html',
+    method: 'NEXT_RSC' as const,
+    artifactPath: `artifacts/sha256/${id}.html`,
+    metadata: { kind: 'model-detail' },
+  });
+
+  it('keeps every URL that returned the same bytes', () => {
+    const merged = mergeCapturedEvidence([
+      record('sha256:a', 'https://example.test/models/x-low'),
+      record('sha256:b', 'https://example.test/models/y'),
+      record('sha256:a', 'https://example.test/models/x-high'),
+    ]);
+
+    expect(merged.map(({ id }) => id)).toEqual(['sha256:a', 'sha256:b']);
+    expect(capturedRequestUrls(merged[0]!)).toEqual([
+      'https://example.test/models/x-high',
+      'https://example.test/models/x-low',
+    ]);
+    expect(merged[1]!.metadata).toEqual({ kind: 'model-detail' });
+    expect(capturedRequestUrls(merged[1]!)).toEqual([
+      'https://example.test/models/y',
+    ]);
   });
 });

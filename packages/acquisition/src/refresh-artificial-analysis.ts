@@ -20,6 +20,7 @@ import {
   extractArtificialAnalysisVariantSlugs,
   isArtificialAnalysisActiveRow,
   materializeArtificialAnalysisRsc,
+  mergeCapturedEvidence,
   retainArtificialAnalysisBriefcaseRows,
   type ArtificialAnalysisApiPage,
   type ArtificialAnalysisPage,
@@ -495,10 +496,11 @@ const main = async () => {
         requestUrl !== API_URL),
   );
   const evidenceById = new Map(
-    [...legacyEvidence, ...retainedEvidence, ...records].map((record) => [
-      record.id,
-      record,
-    ]),
+    [
+      ...legacyEvidence,
+      ...retainedEvidence,
+      ...mergeCapturedEvidence(records),
+    ].map((record) => [record.id, record]),
   );
   const mergedEvidence = [...evidenceById.values()].toSorted(
     (left, right) =>
