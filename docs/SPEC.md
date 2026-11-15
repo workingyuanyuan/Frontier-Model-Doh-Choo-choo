@@ -113,7 +113,7 @@ benchmark index 動態枚舉每個榜單頁，再重新產生該目錄的五個�
 
 `data/mappings/benchmarks.json` 的 `dimensions` 陣列與每筆 benchmark 的
 `primaryDimension` 使用這五個值。`secondaryDimensions` 使用同一組值，維持去重，
-目前只由 `coverage-matrix.ts` 讀取，不參與計分。
+不參與計分。五維版 `benchmarks.json` 已於 2026-11-15 移除，現行分類見 `benchmarks-v2.json`。
 
 總分 = 五個維度分數的算術平均；維度分數 = 該維度內所有參與計分 benchmark 的算術平均。
 
@@ -383,6 +383,8 @@ D2 將 `overallScore` 改為「八維不齊即為 null」後，`buildProduct` �
 設計細節見 `docs/history/N10_DESIGN_PROPOSAL.md`（該文件於本節寫定後降為考證用）。
 
 ### 5.3 coverage-matrix 報告指令
+
+> **2026-11-15 已移除**：本節的報告指令、`display-set-policy.json` 與 `display-set.json` 已不存在，集合改由 [前沿政策](FRONTIER_POLICY.md) 生成。以下內容保留作為裁決依據。
 
 **現行模型必選政策（2026-10-03）**：依使用者裁決，`requiredModelIds` 為空，所有集合均不釘住特定模型。集合依完整 profile 覆蓋、五維覆蓋、benchmark 品質限制及既有最佳化規則生成。下文 R10 的 Gemini 3.7 Flash 必選規則為歷史裁決，已由本政策取代。
 

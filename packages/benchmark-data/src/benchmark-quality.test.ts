@@ -2,47 +2,92 @@ import { describe, expect, it } from 'vitest';
 import {
   BenchmarkDimensionMappingSchema,
   BenchmarkQualityPolicySchema,
+  CATALOG_DIMENSION_IDS,
   DisplaySetSchema,
   validateDisplaySet,
 } from './index.js';
-import mappingJson from '../../../data/mappings/benchmarks.json';
-import displayJson from '../../../data/mappings/display-set.json';
-import policyJson from '../../../data/mappings/display-set-policy.json';
+
+// Three knowledge benchmarks (one limited, one excluded) and one per other
+// dimension, so each case fails for the single reason it is about.
+const mapping = BenchmarkDimensionMappingSchema.parse({
+  schemaVersion: 'benchmark-dimensions-v2',
+  dimensions: [...CATALOG_DIMENSION_IDS],
+  benchmarks: [
+    ...[
+      'knowledge-a',
+      'knowledge-b',
+      'knowledge-limited',
+      'knowledge-excluded',
+    ].map((id) => ({
+      id,
+      primaryDimension: 'knowledge',
+      secondaryDimensions: [],
+    })),
+    ...CATALOG_DIMENSION_IDS.filter(
+      (dimension) => dimension !== 'knowledge',
+    ).map((dimension) => ({
+      id: `${dimension}-a`,
+      primaryDimension: dimension,
+      secondaryDimensions: [],
+    })),
+  ],
+});
+const quality = BenchmarkQualityPolicySchema.parse({
+  reviewedAt: '2026-01-01',
+  evidencePath: 'fixture',
+  excludedBenchmarkIds: ['knowledge-excluded'],
+  limitedBenchmarkIds: ['knowledge-limited'],
+  minOtherBenchmarksPerLimited: 2,
+});
+const display = (benchmarkIds: string[]) =>
+  DisplaySetSchema.parse({
+    schemaVersion: 'display-set-v2',
+    defaultPresetId: 'fixture',
+    presets: [
+      {
+        id: 'fixture',
+        targetModelCount: 2,
+        requireAllSources: false,
+        benchmarkIds,
+      },
+    ],
+  });
+const balanced = [
+  'knowledge-a',
+  'knowledge-b',
+  'knowledge-limited',
+  'coding-a',
+];
 
 describe('benchmark quality policy validation', () => {
-  const mapping = BenchmarkDimensionMappingSchema.parse(mappingJson);
-  const quality = BenchmarkQualityPolicySchema.parse(
-    policyJson.benchmarkQuality,
-  );
-  it('accepts every generated preset under the reviewed cap', () => {
+  it('accepts a preset within the limited-benchmark share', () => {
     expect(() =>
-      validateDisplaySet(DisplaySetSchema.parse(displayJson), mapping, quality),
+      validateDisplaySet(display(balanced), mapping, quality),
     ).not.toThrow();
   });
-  it('rejects stale sets with an excluded benchmark', () => {
-    const display = DisplaySetSchema.parse(displayJson);
-    display.presets[0]!.benchmarkIds.push('aime');
-    expect(() => validateDisplaySet(display, mapping, quality)).toThrow(
-      /quality-excluded/,
-    );
+  it('rejects a preset with an excluded benchmark', () => {
+    expect(() =>
+      validateDisplaySet(
+        display([...balanced, 'knowledge-excluded']),
+        mapping,
+        quality,
+      ),
+    ).toThrow(/quality-excluded/);
   });
-  it('rejects a set whose dimension consists only of limited benchmarks', () => {
-    const display = DisplaySetSchema.parse(displayJson);
-    display.presets[0]!.benchmarkIds = display.presets[0]!.benchmarkIds.filter(
-      (id) =>
-        mapping.benchmarks.find((b) => b.id === id)!.primaryDimension !==
-        'knowledge',
-    );
-    display.presets[0]!.benchmarkIds.push('mmlu-pro');
-    expect(() => validateDisplaySet(display, mapping, quality)).toThrow(
-      /quality share in knowledge/,
-    );
+  it('rejects a dimension with too few other benchmarks per limited one', () => {
+    expect(() =>
+      validateDisplaySet(
+        display(['knowledge-a', 'knowledge-limited', 'coding-a']),
+        mapping,
+        quality,
+      ),
+    ).toThrow(/quality share in knowledge/);
   });
   it('rejects overlapping policy IDs and invalid ratio settings', () => {
     expect(() =>
       BenchmarkQualityPolicySchema.parse({
         ...quality,
-        limitedBenchmarkIds: ['aime'],
+        limitedBenchmarkIds: ['knowledge-excluded'],
       }),
     ).toThrow(/unique and disjoint/);
     expect(() =>
@@ -52,7 +97,7 @@ describe('benchmark quality policy validation', () => {
       }),
     ).toThrow();
     expect(() =>
-      validateDisplaySet(DisplaySetSchema.parse(displayJson), mapping, {
+      validateDisplaySet(display(balanced), mapping, {
         ...quality,
         limitedBenchmarkIds: ['typo'],
       }),

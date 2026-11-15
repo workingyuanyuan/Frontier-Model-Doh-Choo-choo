@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 
 import { describe, expect, it } from 'vitest';
 
-import { loadWorkspaceCoverageData } from './coverage-matrix.js';
+import { loadWorkspaceSources } from './generate-frontier-set.js';
 import {
   FrontierIdentitiesSchema,
   resolveFrontierIdentities,
@@ -84,7 +84,7 @@ const candidate = (value: ProductEvidence): CandidateResult => {
 describe('AA frontier selection', () => {
   it('ranks the complete saved source population after identity and effort mapping', async () => {
     const root = fileURLToPath(new URL('../../../', import.meta.url));
-    const input = await loadWorkspaceCoverageData(root);
+    const input = await loadWorkspaceSources(root);
     const identities = FrontierIdentitiesSchema.parse(
       JSON.parse(
         await readFile(
