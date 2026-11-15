@@ -12,8 +12,8 @@ import {
   isArtificialAnalysisValuePresent,
   materializeArtificialAnalysisRsc,
   retainArtificialAnalysisBriefcaseRows,
-  capturedRequestUrls,
-  mergeCapturedEvidence,
+  capturedPageReferences,
+  readCapturedPageReferences,
 } from './artificial-analysis-rsc.js';
 
 const evidenceId =
@@ -1207,37 +1207,45 @@ describe('AA-Briefcase retention', () => {
   });
 });
 
-describe('Artificial Analysis capture evidence', () => {
-  const record = (id: string, requestUrl: string) => ({
-    schemaVersion: 'evidence-record-v1' as const,
-    id,
-    sourceId: 'artificial-analysis',
-    requestUrl,
-    finalUrl: requestUrl,
+describe('Artificial Analysis captured page list', () => {
+  const page = (
+    kind: 'models' | 'evaluation' | 'model-detail',
+    slug: string,
+    evidenceId: string,
+  ) => ({
+    kind,
+    slug,
+    sourceUrl: `https://example.test/${slug}`,
+    evidenceId,
     retrievedAt: '2026-01-01T00:00:00.000Z',
-    sha256: id,
-    byteLength: 1,
-    mediaType: 'text/html',
-    method: 'NEXT_RSC' as const,
-    artifactPath: `artifacts/sha256/${id}.html`,
-    metadata: { kind: 'model-detail' },
+    rows: [],
   });
 
-  it('keeps every URL that returned the same bytes', () => {
-    const merged = mergeCapturedEvidence([
-      record('sha256:a', 'https://example.test/models/x-low'),
-      record('sha256:b', 'https://example.test/models/y'),
-      record('sha256:a', 'https://example.test/models/x-high'),
-    ]);
+  it('round-trips reading order, including pages that share Evidence', () => {
+    const pages = [
+      page('models', 'models', 'sha256:m'),
+      page('model-detail', 'z-high', 'sha256:z'),
+      page('model-detail', 'z-low', 'sha256:z'),
+      page('model-detail', 'a-variant', 'sha256:a'),
+    ];
+    const stored = JSON.parse(
+      JSON.stringify({ capturedPages: capturedPageReferences(pages) }),
+    ) as Record<string, unknown>;
 
-    expect(merged.map(({ id }) => id)).toEqual(['sha256:a', 'sha256:b']);
-    expect(capturedRequestUrls(merged[0]!)).toEqual([
-      'https://example.test/models/x-high',
-      'https://example.test/models/x-low',
-    ]);
-    expect(merged[1]!.metadata).toEqual({ kind: 'model-detail' });
-    expect(capturedRequestUrls(merged[1]!)).toEqual([
-      'https://example.test/models/y',
-    ]);
+    expect(readCapturedPageReferences(stored)).toEqual(
+      pages.map(({ kind, slug, sourceUrl, evidenceId }) => ({
+        kind,
+        slug,
+        sourceUrl,
+        evidenceId,
+      })),
+    );
+  });
+
+  it('returns null when a snapshot predates the list and rejects malformed entries', () => {
+    expect(readCapturedPageReferences({})).toBeNull();
+    expect(() =>
+      readCapturedPageReferences({ capturedPages: [{ kind: 'other' }] }),
+    ).toThrow('Invalid capturedPages entry 0');
   });
 });

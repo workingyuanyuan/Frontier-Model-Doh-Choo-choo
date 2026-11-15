@@ -20,7 +20,7 @@ import {
   extractArtificialAnalysisVariantSlugs,
   isArtificialAnalysisActiveRow,
   materializeArtificialAnalysisRsc,
-  mergeCapturedEvidence,
+  capturedPageReferences,
   retainArtificialAnalysisBriefcaseRows,
   type ArtificialAnalysisApiPage,
   type ArtificialAnalysisPage,
@@ -415,6 +415,8 @@ const main = async () => {
     materializedEvaluationProfiles: result.pageRows,
     visibleComparisonCompleted: true,
     visibleComparisonScopeComparable: false,
+    // Lets an offline rebuild read the same pages in the same order.
+    capturedPages: capturedPageReferences(pages),
   };
   const warnings = [...detail.warnings, ...variants.warnings];
   if (api.warning) warnings.push(api.warning);
@@ -496,11 +498,10 @@ const main = async () => {
         requestUrl !== API_URL),
   );
   const evidenceById = new Map(
-    [
-      ...legacyEvidence,
-      ...retainedEvidence,
-      ...mergeCapturedEvidence(records),
-    ].map((record) => [record.id, record]),
+    [...legacyEvidence, ...retainedEvidence, ...records].map((record) => [
+      record.id,
+      record,
+    ]),
   );
   const mergedEvidence = [...evidenceById.values()].toSorted(
     (left, right) =>

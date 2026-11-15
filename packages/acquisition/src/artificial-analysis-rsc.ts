@@ -3,7 +3,6 @@ import {
   CostRecordSchema,
   type CandidateResult,
   type CostRecord,
-  type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
 
 import {
@@ -1817,45 +1816,47 @@ export const materializeArtificialAnalysisRsc = (
   };
 };
 
-/**
- * Evidence is keyed by content, so several URLs that answer with the same
- * bytes (effort variants redirecting to one model page) collapse into one
- * record. Keep the other URLs on the surviving record: a replay needs to know
- * every page this capture read, not only the last URL per content hash.
- */
-export const mergeCapturedEvidence = (
-  records: readonly EvidenceRecord[],
-): EvidenceRecord[] => {
-  const byId = new Map<string, EvidenceRecord>();
-  const urlsById = new Map<string, Set<string>>();
-  for (const record of records) {
-    byId.set(record.id, record);
-    const urls = urlsById.get(record.id) ?? new Set<string>();
-    urls.add(record.requestUrl);
-    urlsById.set(record.id, urls);
-  }
-  return [...byId.values()].map((record) => {
-    const others = [...urlsById.get(record.id)!]
-      .filter((url) => url !== record.requestUrl)
-      .toSorted();
-    return others.length === 0
-      ? record
-      : {
-          ...record,
-          metadata: { ...record.metadata, alsoRequestedAs: others },
-        };
-  });
-};
+export interface CapturedPageReference {
+  kind: ArtificialAnalysisPage['kind'];
+  slug: string;
+  sourceUrl: string;
+  evidenceId: string;
+}
 
-/** Every URL this capture requested that returned the record's bytes. */
-export const capturedRequestUrls = (record: EvidenceRecord): string[] => {
-  const others = record.metadata.alsoRequestedAs;
-  return [
-    record.requestUrl,
-    ...(Array.isArray(others)
-      ? others.filter((url): url is string => typeof url === 'string')
-      : []),
-  ];
+/**
+ * The pages one refresh read, in reading order. Evidence is keyed by content,
+ * so URLs answering with identical bytes share one record and the index alone
+ * cannot say which pages were read or in what order; row selection depends on
+ * both. The refresh stores this list on the models-page Evidence.
+ */
+export const capturedPageReferences = (
+  pages: readonly ArtificialAnalysisPage[],
+): CapturedPageReference[] =>
+  pages.map(({ kind, slug, sourceUrl, evidenceId }) => ({
+    kind,
+    slug,
+    sourceUrl,
+    evidenceId,
+  }));
+
+/** The stored list, or null for snapshots written before it was recorded. */
+export const readCapturedPageReferences = (
+  metadata: Record<string, unknown>,
+): CapturedPageReference[] | null => {
+  const value = metadata.capturedPages;
+  if (!Array.isArray(value)) return null;
+  return value.map((entry, index) => {
+    const page = asRecord(entry);
+    const { kind, slug, sourceUrl, evidenceId } = page ?? {};
+    if (
+      (kind !== 'models' && kind !== 'evaluation' && kind !== 'model-detail') ||
+      typeof slug !== 'string' ||
+      typeof sourceUrl !== 'string' ||
+      typeof evidenceId !== 'string'
+    )
+      throw new Error(`Invalid capturedPages entry ${index}`);
+    return { kind, slug, sourceUrl, evidenceId };
+  });
 };
 
 const BRIEFCASE_ID_PREFIX = `${SOURCE_ID}:aa-briefcase:`;

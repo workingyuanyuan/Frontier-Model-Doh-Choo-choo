@@ -39,7 +39,8 @@ import {
 import {
   extractArtificialAnalysisRscRows,
   ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
-  capturedRequestUrls,
+  readCapturedPageReferences,
+  type CapturedPageReference,
   materializeArtificialAnalysisRsc,
   retainArtificialAnalysisBriefcaseRows,
   type ArtificialAnalysisPage,
@@ -613,61 +614,85 @@ function rebuildSnapshots(
             }
             // The index also keeps earlier captures as Evidence for retained
             // rows. One refresh stamps every capture with the same time, so
-            // the latest time identifies the pages of the current snapshot.
+            // the latest time identifies the current snapshot.
             const capturedAt = aaPageRecords
               .map(({ retrievedAt }) => retrievedAt)
               .toSorted()
               .at(-1)!;
-            const capturedPages: ArtificialAnalysisPage[] = aaPageRecords
-              .filter(({ retrievedAt }) => retrievedAt === capturedAt)
-              .flatMap((record) => {
-                const rows = extractArtificialAnalysisRscRows(
-                  readFileSync(join(repoRoot, record.artifactPath), 'utf8'),
-                );
-                // One page per URL that returned these bytes in this capture.
-                return capturedRequestUrls(record).map(
-                  (sourceUrl): ArtificialAnalysisPage => {
-                    const isModels =
-                      sourceUrl === 'https://artificialanalysis.ai/models';
-                    const isDetail = sourceUrl.startsWith(
-                      'https://artificialanalysis.ai/models/',
-                    );
-                    const segment = sourceUrl.split('/').at(-1) ?? sourceUrl;
-                    return {
-                      kind: isModels
-                        ? 'models'
-                        : isDetail
-                          ? 'model-detail'
-                          : 'evaluation',
-                      slug: isModels
-                        ? 'models'
-                        : isDetail
-                          ? decodeURIComponent(segment)
-                          : segment,
-                      sourceUrl,
-                      evidenceId: record.id,
-                      retrievedAt: record.retrievedAt,
-                      rows,
-                    };
-                  },
-                );
-              });
-            // Evidence is stored by URL; the refresh reads the models page,
-            // then each evaluation in its configured order, then detail pages
-            // by slug. Row selection breaks ties by that order.
-            const pageOrder = (page: ArtificialAnalysisPage): number =>
-              page.kind === 'models'
-                ? -1
-                : page.kind === 'evaluation'
-                  ? ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.indexOf(
-                      page.slug as (typeof ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS)[number],
-                    )
-                  : ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.length;
-            const pages = capturedPages.toSorted(
-              (left, right) =>
-                pageOrder(left) - pageOrder(right) ||
-                left.slug.localeCompare(right.slug),
+            const currentRecords = aaPageRecords.filter(
+              ({ retrievedAt }) => retrievedAt === capturedAt,
             );
+            const rowsByEvidence = new Map(
+              currentRecords.map((record) => [
+                record.id,
+                extractArtificialAnalysisRscRows(
+                  readFileSync(join(repoRoot, record.artifactPath), 'utf8'),
+                ),
+              ]),
+            );
+            const modelsRecord = currentRecords.find(
+              ({ requestUrl }) =>
+                requestUrl === 'https://artificialanalysis.ai/models',
+            );
+            const recorded = modelsRecord
+              ? readCapturedPageReferences(modelsRecord.metadata)
+              : null;
+            // Snapshots written before the page list was recorded: one page
+            // per surviving record, models first, then evaluations in their
+            // configured order, then detail pages by slug. Scores and rows
+            // reproduce; which Evidence page a row cites may not.
+            const evaluationOrder = (slug: string): number =>
+              ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.indexOf(
+                slug as (typeof ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS)[number],
+              );
+            const references =
+              recorded ??
+              currentRecords
+                .map(({ id, requestUrl }): CapturedPageReference => {
+                  const segment = requestUrl.split('/').at(-1) ?? requestUrl;
+                  return requestUrl === 'https://artificialanalysis.ai/models'
+                    ? {
+                        kind: 'models',
+                        slug: 'models',
+                        sourceUrl: requestUrl,
+                        evidenceId: id,
+                      }
+                    : requestUrl.startsWith(
+                          'https://artificialanalysis.ai/models/',
+                        )
+                      ? {
+                          kind: 'model-detail',
+                          slug: decodeURIComponent(segment),
+                          sourceUrl: requestUrl,
+                          evidenceId: id,
+                        }
+                      : {
+                          kind: 'evaluation',
+                          slug: segment,
+                          sourceUrl: requestUrl,
+                          evidenceId: id,
+                        };
+                })
+                .toSorted((left, right) => {
+                  const rank = (page: CapturedPageReference) =>
+                    page.kind === 'models'
+                      ? -1
+                      : page.kind === 'evaluation'
+                        ? evaluationOrder(page.slug)
+                        : ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.length;
+                  return (
+                    rank(left) - rank(right) ||
+                    left.slug.localeCompare(right.slug)
+                  );
+                });
+            const pages = references.map((page): ArtificialAnalysisPage => {
+              const rows = rowsByEvidence.get(page.evidenceId);
+              if (!rows)
+                throw new Error(
+                  `Artificial Analysis page ${page.sourceUrl} cites Evidence outside the current capture: ${page.evidenceId}`,
+                );
+              return { ...page, retrievedAt: capturedAt, rows };
+            });
             const apiRecord = evidenceList.find(
               ({ requestUrl, method, retrievedAt }) =>
                 requestUrl ===
