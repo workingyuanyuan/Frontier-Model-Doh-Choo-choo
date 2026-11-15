@@ -37,13 +37,9 @@ import {
   materializeChartography,
 } from './surge-chartography-materializer.js';
 import {
-  extractArtificialAnalysisRscRows,
-  ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
-  readCapturedPageReferences,
-  type CapturedPageReference,
+  currentArtificialAnalysisCapture,
   materializeArtificialAnalysisRsc,
   retainArtificialAnalysisBriefcaseRows,
-  type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
 import {
   buildLiveBenchSnapshot,
@@ -597,120 +593,16 @@ function rebuildSnapshots(
             materializedCosts = result.costs;
             customReportText = result.validationReport;
           } else if (src.id === 'artificial-analysis') {
-            const aaPageRecords = evidenceList.filter(
-              ({ requestUrl }) =>
-                requestUrl === 'https://artificialanalysis.ai/models' ||
-                requestUrl.startsWith(
-                  'https://artificialanalysis.ai/models/',
-                ) ||
-                requestUrl.startsWith(
-                  'https://artificialanalysis.ai/evaluations/',
-                ),
-            );
-            if (aaPageRecords.length === 0) {
-              throw new Error(
-                'Artificial Analysis RSC page evidence not found',
-              );
-            }
-            // The index also keeps earlier captures as Evidence for retained
-            // rows. One refresh stamps every capture with the same time, so
-            // the latest time identifies the current snapshot.
-            const capturedAt = aaPageRecords
-              .map(({ retrievedAt }) => retrievedAt)
-              .toSorted()
-              .at(-1)!;
-            const currentRecords = aaPageRecords.filter(
-              ({ retrievedAt }) => retrievedAt === capturedAt,
-            );
-            const rowsByEvidence = new Map(
-              currentRecords.map((record) => [
-                record.id,
-                extractArtificialAnalysisRscRows(
-                  readFileSync(join(repoRoot, record.artifactPath), 'utf8'),
-                ),
-              ]),
-            );
-            const modelsRecord = currentRecords.find(
-              ({ requestUrl }) =>
-                requestUrl === 'https://artificialanalysis.ai/models',
-            );
-            const recorded = modelsRecord
-              ? readCapturedPageReferences(modelsRecord.metadata)
-              : null;
-            // Snapshots written before the page list was recorded: one page
-            // per surviving record, models first, then evaluations in their
-            // configured order, then detail pages by slug. Scores and rows
-            // reproduce; which Evidence page a row cites may not.
-            const evaluationOrder = (slug: string): number =>
-              ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.indexOf(
-                slug as (typeof ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS)[number],
-              );
-            const references =
-              recorded ??
-              currentRecords
-                .map(({ id, requestUrl }): CapturedPageReference => {
-                  const segment = requestUrl.split('/').at(-1) ?? requestUrl;
-                  return requestUrl === 'https://artificialanalysis.ai/models'
-                    ? {
-                        kind: 'models',
-                        slug: 'models',
-                        sourceUrl: requestUrl,
-                        evidenceId: id,
-                      }
-                    : requestUrl.startsWith(
-                          'https://artificialanalysis.ai/models/',
-                        )
-                      ? {
-                          kind: 'model-detail',
-                          slug: decodeURIComponent(segment),
-                          sourceUrl: requestUrl,
-                          evidenceId: id,
-                        }
-                      : {
-                          kind: 'evaluation',
-                          slug: segment,
-                          sourceUrl: requestUrl,
-                          evidenceId: id,
-                        };
-                })
-                .toSorted((left, right) => {
-                  const rank = (page: CapturedPageReference) =>
-                    page.kind === 'models'
-                      ? -1
-                      : page.kind === 'evaluation'
-                        ? evaluationOrder(page.slug)
-                        : ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS.length;
-                  return (
-                    rank(left) - rank(right) ||
-                    left.slug.localeCompare(right.slug)
-                  );
-                });
-            const pages = references.map((page): ArtificialAnalysisPage => {
-              const rows = rowsByEvidence.get(page.evidenceId);
-              if (!rows)
-                throw new Error(
-                  `Artificial Analysis page ${page.sourceUrl} cites Evidence outside the current capture: ${page.evidenceId}`,
-                );
-              return { ...page, retrievedAt: capturedAt, rows };
-            });
-            const apiRecord = evidenceList.find(
-              ({ requestUrl, method, retrievedAt }) =>
-                requestUrl ===
-                  'https://artificialanalysis.ai/api/v2/data/llms/models' &&
-                method === 'API_RESPONSE' &&
-                retrievedAt === capturedAt,
+            const { pages, apiRecord } = currentArtificialAnalysisCapture(
+              evidenceList,
+              evidenceText,
             );
             const api = apiRecord
               ? {
                   sourceUrl: apiRecord.requestUrl,
                   evidenceId: apiRecord.id,
                   retrievedAt: apiRecord.retrievedAt,
-                  payload: JSON.parse(
-                    readFileSync(
-                      join(repoRoot, apiRecord.artifactPath),
-                      'utf8',
-                    ),
-                  ) as unknown,
+                  payload: JSON.parse(evidenceText(apiRecord)) as unknown,
                 }
               : null;
             const result = materializeArtificialAnalysisRsc(pages, api);

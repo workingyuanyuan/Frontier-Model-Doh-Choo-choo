@@ -13,9 +13,8 @@ import {
 
 import { materializeDeepSweCosts } from './pricing-materializers.js';
 import {
-  extractArtificialAnalysisRscRows,
+  currentArtificialAnalysisCapture,
   materializeArtificialAnalysisRsc,
-  type ArtificialAnalysisPage,
 } from './artificial-analysis-rsc.js';
 import { rebuildFrontierCodeFromEvidence } from './frontier-code-materializer.js';
 import {
@@ -109,38 +108,11 @@ async function main() {
   const aaEvidence = EvidenceRecordSchema.array().parse(
     await readJson<unknown>(aaIndexPath),
   );
-  const aaPageEvidence = aaEvidence.filter(
-    ({ requestUrl }) =>
-      requestUrl === 'https://artificialanalysis.ai/models' ||
-      requestUrl.startsWith('https://artificialanalysis.ai/models/') ||
-      requestUrl.startsWith('https://artificialanalysis.ai/evaluations/'),
-  );
-  const aaPages: ArtificialAnalysisPage[] = await Promise.all(
-    aaPageEvidence.map(async (record) => {
-      const isModels =
-        record.requestUrl === 'https://artificialanalysis.ai/models';
-      const isDetail = record.requestUrl.startsWith(
-        'https://artificialanalysis.ai/models/',
-      );
-      return {
-        kind: isModels ? 'models' : isDetail ? 'model-detail' : 'evaluation',
-        slug: isModels
-          ? 'models'
-          : (record.requestUrl.split('/').at(-1) ?? record.requestUrl),
-        sourceUrl: record.requestUrl,
-        evidenceId: record.id,
-        retrievedAt: record.retrievedAt,
-        rows: extractArtificialAnalysisRscRows(
-          await readFile(join(root, record.artifactPath), 'utf8'),
-        ),
-      };
-    }),
-  );
-  const aaApiRecord = aaEvidence.find(
-    ({ requestUrl, method }) =>
-      requestUrl === 'https://artificialanalysis.ai/api/v2/data/llms/models' &&
-      method === 'API_RESPONSE',
-  );
+  // The same current-capture selection as the snapshot rebuild.
+  const { pages: aaPages, apiRecord: aaApiRecord } =
+    currentArtificialAnalysisCapture(aaEvidence, (record) =>
+      readFileSync(join(root, record.artifactPath), 'utf8'),
+    );
   const aaApi = aaApiRecord
     ? {
         sourceUrl: aaApiRecord.requestUrl,

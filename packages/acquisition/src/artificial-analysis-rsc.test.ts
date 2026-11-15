@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { CandidateResultSchema } from '@llm-bench/benchmark-data';
 
 import {
+  ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS,
   compareArtificialAnalysisApi,
   extractArtificialAnalysisRscRows,
   extractArtificialAnalysisVariantSlugs,
@@ -13,6 +14,7 @@ import {
   materializeArtificialAnalysisRsc,
   retainArtificialAnalysisBriefcaseRows,
   capturedPageReferences,
+  currentArtificialAnalysisCapture,
   readCapturedPageReferences,
 } from './artificial-analysis-rsc.js';
 
@@ -1247,5 +1249,116 @@ describe('Artificial Analysis captured page list', () => {
     expect(() =>
       readCapturedPageReferences({ capturedPages: [{ kind: 'other' }] }),
     ).toThrow('Invalid capturedPages entry 0');
+  });
+});
+
+describe('Artificial Analysis current capture', () => {
+  const OLD = '2026-01-01T00:00:00.000Z';
+  const NEW = '2026-01-02T00:00:00.000Z';
+  const evidence = (
+    id: string,
+    path: string,
+    retrievedAt: string,
+    metadata: Record<string, unknown> = {},
+  ) => ({
+    schemaVersion: 'evidence-record-v1' as const,
+    id,
+    sourceId: 'artificial-analysis',
+    requestUrl: `https://artificialanalysis.ai/${path}`,
+    finalUrl: `https://artificialanalysis.ai/${path}`,
+    retrievedAt,
+    sha256: id,
+    byteLength: 1,
+    mediaType: 'text/html',
+    method: 'NEXT_RSC' as const,
+    artifactPath: `artifacts/sha256/${id}.html`,
+    metadata,
+  });
+  const [firstEvaluation, secondEvaluation] =
+    ARTIFICIAL_ANALYSIS_EVALUATION_SLUGS;
+  const summary = (records: ReturnType<typeof evidence>[]) =>
+    currentArtificialAnalysisCapture(records, () => '').pages.map(
+      ({ kind, slug, evidenceId }) => `${kind}:${slug}:${evidenceId}`,
+    );
+
+  it('ignores earlier captures and orders pages without a recorded list', () => {
+    expect(
+      summary([
+        evidence('sha256:old', 'models/retired', OLD),
+        evidence('sha256:b', 'models/b', NEW),
+        evidence('sha256:e2', `evaluations/${secondEvaluation}`, NEW),
+        evidence('sha256:a', 'models/a', NEW),
+        evidence('sha256:e1', `evaluations/${firstEvaluation}`, NEW),
+        evidence('sha256:m', 'models', NEW),
+      ]),
+    ).toEqual([
+      'models:models:sha256:m',
+      `evaluation:${firstEvaluation}:sha256:e1`,
+      `evaluation:${secondEvaluation}:sha256:e2`,
+      'model-detail:a:sha256:a',
+      'model-detail:b:sha256:b',
+    ]);
+  });
+
+  it('follows the recorded reading order and shared Evidence', () => {
+    const capturedPages = [
+      { kind: 'models', slug: 'models', evidenceId: 'sha256:m' },
+      { kind: 'model-detail', slug: 'z-high', evidenceId: 'sha256:z' },
+      { kind: 'model-detail', slug: 'z-low', evidenceId: 'sha256:z' },
+      { kind: 'model-detail', slug: 'a-variant', evidenceId: 'sha256:a' },
+    ].map((page) => ({
+      ...page,
+      sourceUrl: `https://artificialanalysis.ai/models/${page.slug}`,
+    }));
+
+    expect(
+      summary([
+        evidence('sha256:a', 'models/a-variant', NEW),
+        evidence('sha256:m', 'models', NEW, { capturedPages }),
+        evidence('sha256:z', 'models/z-low', NEW),
+      ]),
+    ).toEqual([
+      'models:models:sha256:m',
+      'model-detail:z-high:sha256:z',
+      'model-detail:z-low:sha256:z',
+      'model-detail:a-variant:sha256:a',
+    ]);
+  });
+
+  it('rejects a recorded page whose Evidence is not in the current capture', () => {
+    expect(() =>
+      summary([
+        evidence('sha256:m', 'models', NEW, {
+          capturedPages: [
+            {
+              kind: 'model-detail',
+              slug: 'gone',
+              sourceUrl: 'https://artificialanalysis.ai/models/gone',
+              evidenceId: 'sha256:missing',
+            },
+          ],
+        }),
+      ]),
+    ).toThrow('outside the current capture');
+  });
+
+  it('pairs only the API response of the current capture', () => {
+    const api = (id: string, retrievedAt: string) => ({
+      ...evidence(id, 'api/v2/data/llms/models', retrievedAt),
+      method: 'API_RESPONSE' as const,
+    });
+    const pages = [evidence('sha256:m', 'models', NEW)];
+    expect(
+      currentArtificialAnalysisCapture(
+        [...pages, api('sha256:x', OLD)],
+        () => '',
+      ).apiRecord,
+    ).toBeNull();
+    expect(
+      currentArtificialAnalysisCapture(
+        [...pages, api('sha256:y', NEW)],
+        () => '',
+      ).apiRecord?.id,
+    ).toBe('sha256:y');
   });
 });
