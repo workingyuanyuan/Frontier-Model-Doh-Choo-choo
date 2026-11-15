@@ -57,6 +57,14 @@ pnpm data:materialize-costs
 
 離線物化以完整 Evidence 輸入集合、解析程式內容版本與 mappings 設定決定快取。Evidence 的 URL、取得時間及 metadata 也是輸入，避免同 bytes 不同脈絡誤用。共用解析器或設定改變時採保守失效策略。快取命中仍核對輸入檔案雜湊；跨來源比對與衍生 effort 報告重新計算。命令回報命中、失效理由、解析來源數與耗時。
 
+離線重播可以先做唯讀檢查：
+
+```bash
+pnpm data:check-replay
+```
+
+這個命令不開啟證據庫，也不寫入任何檔案。它在記憶體中由已保存的 Evidence 重建每個可重播來源，再與工作區的來源快照比對，輸出 JSON：`replayedSourceIds`、`notReplayableSourceIds`（白名單內但離線路徑不涵蓋的來源），以及逐檔差異。JSON 檔以內容比較，不受排版影響；`candidates.json` 與 `costs.json` 另列出新增、消失與內容改變的列數及範例 ID。只有這兩個檔案有差異時退出碼為 1；驗證報告與 `cross-checks.json` 的差異只列出，不影響退出碼。執行 `pnpm data:materialize-snapshots` 之前先跑它，可以預先知道哪些來源會被改寫。
+
 `--force` 完整重新解析，可用於比較增量結果。快取內部產出與可發布來源快照分別保存，匯出使用通過來源驗證的完整快照。
 
 ## 匯出與 Git 工作流程

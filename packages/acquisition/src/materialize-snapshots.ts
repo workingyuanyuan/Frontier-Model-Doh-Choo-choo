@@ -96,10 +96,12 @@ import {
   deterministicJson,
   ProfilePolicySchema,
   BenchmarkDimensionMappingSchema,
+  SourcesConfigSchema,
   getComparisonOnlyBenchmarkIds,
   type CandidateResult,
   type EvidenceRecord,
 } from '@llm-bench/benchmark-data';
+import { asRecord } from './materializer-utils.js';
 import {
   renderEffortInferenceSection,
   upsertEffortInferenceSection,
@@ -187,10 +189,15 @@ const appendEffortInferenceReports = (
   }
 };
 
-export function materializeSnapshots(
+/**
+ * Rebuilds every replayable source from its saved evidence. With `check`, the
+ * evidence store is never opened and nothing is written: the caller compares
+ * the returned files with the working tree.
+ */
+function rebuildSnapshots(
   repoRoot: string,
-  options: { force?: boolean } = {},
-): ProcessingStats {
+  options: { force?: boolean; check?: boolean } = {},
+): { stats: ProcessingStats; outputFiles: Map<string, SourceFiles> } {
   const started = performance.now();
   const stats: ProcessingStats = {
     hits: 0,
@@ -198,7 +205,7 @@ export function materializeSnapshots(
     parsedSources: 0,
     elapsedMs: 0,
   };
-  const store = new EvidenceStore(repoRoot);
+  const store = options.check ? null : new EvidenceStore(repoRoot);
   let updateToken: string | undefined;
   try {
     const revision = parserRevision();
@@ -231,7 +238,7 @@ export function materializeSnapshots(
       { id: 'anthropic-releases', reportFn: null },
     ];
 
-    updateToken = store.beginSourceUpdate(sources.map(({ id }) => id));
+    updateToken = store?.beginSourceUpdate(sources.map(({ id }) => id));
 
     // Audit both vendor snapshots against captured references before any files
     // are replaced, including when only one vendor contains a discrepancy.
@@ -887,26 +894,147 @@ export function materializeSnapshots(
       sources.map(({ id }) => id),
       outputFiles,
     );
-    // Commit all durable snapshots before exporting any source files.
-    const snapshots = [...outputFiles].map(([sourceId, files]) =>
-      store.importSnapshot(sourceId, files, {
-        kind: 'offline-materialization',
-        revision,
-      }),
-    );
-    for (const id of snapshots) store.exportSnapshot(id);
-    store.completeSourceUpdate(updateToken);
-    updateToken = undefined;
+    if (store) {
+      // Commit all durable snapshots before exporting any source files.
+      const snapshots = [...outputFiles].map(([sourceId, files]) =>
+        store.importSnapshot(sourceId, files, {
+          kind: 'offline-materialization',
+          revision,
+        }),
+      );
+      for (const id of snapshots) store.exportSnapshot(id);
+      store.completeSourceUpdate(updateToken!);
+      updateToken = undefined;
+    }
 
     stats.elapsedMs = Math.round(performance.now() - started);
     console.log(`Processing statistics: ${JSON.stringify(stats)}`);
-    return stats;
+    return { stats, outputFiles };
   } catch (error) {
-    if (updateToken) store.abortSourceUpdate(updateToken);
+    if (store && updateToken) store.abortSourceUpdate(updateToken);
     throw error;
   } finally {
-    store.close();
+    store?.close();
   }
+}
+
+export function materializeSnapshots(
+  repoRoot: string,
+  options: { force?: boolean } = {},
+): ProcessingStats {
+  return rebuildSnapshots(repoRoot, options).stats;
+}
+
+export interface ReplayDifference {
+  sourceId: string;
+  file: string;
+  /** Row ids for JSON arrays of records; empty for other files. */
+  added: string[];
+  removed: string[];
+  changed: string[];
+}
+
+export interface ReplayCheck {
+  /** Sources rebuilt from saved evidence and compared with the working tree. */
+  replayedSourceIds: string[];
+  /** Whitelisted sources the offline path cannot rebuild. */
+  notReplayableSourceIds: string[];
+  differences: ReplayDifference[];
+}
+
+const parseJson = (text: string): { value: unknown } | null => {
+  try {
+    return { value: JSON.parse(text) };
+  } catch {
+    return null;
+  }
+};
+
+/** Rows keyed by id, or null when the file is not an array of uniquely identified records. */
+const rowsById = (text: string | undefined): Map<string, string> | null => {
+  if (text === undefined) return new Map();
+  const value = parseJson(text)?.value;
+  if (!Array.isArray(value)) return null;
+  const rows = new Map<string, string>();
+  for (const row of value) {
+    const id = asRecord(row)?.id;
+    if (typeof id !== 'string' || rows.has(id)) return null;
+    rows.set(id, deterministicJson(row));
+  }
+  return rows;
+};
+
+/**
+ * Compares rebuilt files with saved ones by content, ignoring JSON layout. A
+ * file present on one side only always differs, even when it holds no rows.
+ */
+export const diffSourceFiles = (
+  sourceId: string,
+  saved: SourceFiles,
+  rebuilt: SourceFiles,
+): ReplayDifference[] =>
+  [...new Set([...Object.keys(saved), ...Object.keys(rebuilt)])]
+    .toSorted()
+    .flatMap((file): ReplayDifference[] => {
+      const before = saved[file];
+      const after = rebuilt[file];
+      if (before === after) return [];
+      const difference = {
+        sourceId,
+        file,
+        added: [] as string[],
+        removed: [] as string[],
+        changed: [] as string[],
+      };
+      if (!file.endsWith('.json')) return [difference];
+      const savedRows = rowsById(before);
+      const rebuiltRows = rowsById(after);
+      if (savedRows === null || rebuiltRows === null) {
+        // Not comparable row by row: equal only when both parse to the same value.
+        const left = before === undefined ? null : parseJson(before);
+        const right = after === undefined ? null : parseJson(after);
+        return left !== null &&
+          right !== null &&
+          deterministicJson(left.value) === deterministicJson(right.value)
+          ? []
+          : [difference];
+      }
+      for (const [id, row] of rebuiltRows) {
+        if (!savedRows.has(id)) difference.added.push(id);
+        else if (savedRows.get(id) !== row) difference.changed.push(id);
+      }
+      for (const id of savedRows.keys())
+        if (!rebuiltRows.has(id)) difference.removed.push(id);
+      return before === undefined ||
+        after === undefined ||
+        difference.added.length +
+          difference.removed.length +
+          difference.changed.length >
+          0
+        ? [difference]
+        : [];
+    });
+
+/**
+ * Rebuilds the replayable sources in memory and reports where the result
+ * differs from the saved snapshots. Reads only; the evidence store stays shut.
+ */
+export function checkSnapshotReplay(repoRoot: string): ReplayCheck {
+  const { outputFiles } = rebuildSnapshots(repoRoot, { check: true });
+  const whitelist = SourcesConfigSchema.parse(
+    JSON.parse(
+      readFileSync(join(repoRoot, 'data', 'mappings', 'sources.json'), 'utf8'),
+    ),
+  ).whitelist;
+  return {
+    replayedSourceIds: [...outputFiles.keys()].toSorted(),
+    notReplayableSourceIds: whitelist
+      .filter((sourceId) => !outputFiles.has(sourceId))
+      .toSorted(),
+    differences: [...outputFiles].flatMap(([sourceId, files]) =>
+      diffSourceFiles(sourceId, readSourceFiles(repoRoot, sourceId), files),
+    ),
+  };
 }
 
 if (
@@ -917,5 +1045,45 @@ if (
     process.argv.slice(2).find((arg) => !arg.startsWith('--')) ??
       getWorkspaceRoot(),
   );
-  materializeSnapshots(root, { force: process.argv.includes('--force') });
+  if (process.argv.includes('--check')) {
+    // Keep stdout for the JSON report; rebuild progress goes to stderr.
+    const log = console.log;
+    console.log = console.error;
+    let check: ReplayCheck;
+    try {
+      check = checkSnapshotReplay(root);
+    } finally {
+      console.log = log;
+    }
+    console.log(
+      JSON.stringify(
+        {
+          ...check,
+          differences: check.differences.map((difference) => ({
+            sourceId: difference.sourceId,
+            file: difference.file,
+            added: difference.added.length,
+            removed: difference.removed.length,
+            changed: difference.changed.length,
+            examples: [
+              ...difference.added.slice(0, 3).map((id) => `+ ${id}`),
+              ...difference.removed.slice(0, 3).map((id) => `- ${id}`),
+              ...difference.changed.slice(0, 3).map((id) => `~ ${id}`),
+            ],
+          })),
+        },
+        null,
+        2,
+      ),
+    );
+    // Reports are regenerated prose; only a changed score or cost row fails.
+    if (
+      check.differences.some(({ file }) =>
+        ['candidates.json', 'costs.json'].includes(file),
+      )
+    )
+      process.exitCode = 1;
+  } else {
+    materializeSnapshots(root, { force: process.argv.includes('--force') });
+  }
 }
