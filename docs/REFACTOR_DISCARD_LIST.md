@@ -35,10 +35,11 @@
 - Harness、tools、attempt 等被誤當 Product Profile 的舊語義。
 - 將 Composite index 直接投入能力維度的舊計分假設。
 - Edition-bound video DTO、metadata、ranking CSV 與 render artifact。
-- **Coverage 比例與 8/8 顯示欄位**：覆蓋率百分比或維度計數欄位已移除；主榜改由 `display-set.json` 完整矩陣與五維無 N/A 門檻嚴格把關。
+- **Coverage 比例與 8/8 顯示欄位**：覆蓋率百分比或維度計數欄位已移除；主榜改由所選集合的完整矩陣與各維度無 N/A 門檻嚴格把關。
 - **ProductVersion 的 ESTIMATED 狀態**：ProductVersion schema 升級為 v3，已徹底刪除並拒絕 `status: "ESTIMATED"` / `ProductVersionStatus` 欄位。
 - **「至少一維有分數就進主榜」**：已廢棄；主榜資格與 Developer mode 的 partial-coverage 清單見 [計分方法](SCORING_METHODOLOGY.md#完整性閘門與-partial-coverage-清單r19)。
-- **`frontier.json` 的 `compositeSources`**：舊有的 `compositeSources` 映射結構已整套移除，改為單一清單式配置。
+- **`frontier.json`**：`compositeSources` 映射結構先被移除；2026-11-15 連同 `manualModels` 逃生口整份移除，前沿清單只由 AA 排名與資格規則生成。
+- **覆蓋最佳化分析與 display-set 產物（2026-11-15）**：`pnpm report:coverage-matrix`、`pnpm data:generate-display-set`、`docs/COVERAGE_MATRIX_REPORT.md`、`data/mappings/display-set.json`、`display-set-policy.json`、五維舊版 `benchmarks.json`，以及只服務它們的一次性分析腳本。集合改由前沿政策從 AA 排名生成並寫入 `data/derived/`，這些檔案已不是產品輸入。不保留相容層。
 - **`evidence-detail.tsx` 獨立 Evidence 區塊**：已整套移除，改由統一的 Model Detail Panel 呈現維度分解與出處。
 
 產品使用單一 `data/product/current.json`；DRAFT／PUBLISHED pointer 與舊多版本檔路徑已移除。

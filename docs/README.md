@@ -15,7 +15,6 @@
 | 查來源採用與擷取依據           | [BENCHMARK_SCORE_SOURCES.md](BENCHMARK_SCORE_SOURCES.md)：來源目錄；採用清單以 [sources.json](../data/mappings/sources.json) 為機器設定 |
 | 更新資料、修正程式、驗證與交付 | [OPERATIONS.md](OPERATIONS.md)：觸發條件、完成標準、異動判斷、審核與文件維護                                                            |
 | 查已移除架構的邊界             | [REFACTOR_DISCARD_LIST.md](REFACTOR_DISCARD_LIST.md)：架構邊界的補充清單                                                                |
-| 檢視集合覆蓋率                 | [COVERAGE_MATRIX_REPORT.md](COVERAGE_MATRIX_REPORT.md)：有日期的產出報告，重產方式見操作手冊                                            |
 
 證據查詢、取得歷史、快取與備份還原見 [證據儲存與操作](EVIDENCE_STORE.md)。
 

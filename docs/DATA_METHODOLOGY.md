@@ -126,9 +126,9 @@ Product Profile 只按 reasoning effort 分離；推理強度階梯為
 
 ## Frontier 模型
 
-Frontier 模型清單由 **`data/mappings/models.json`（model catalog）** 中通過資格條件的模型，結合 `data/mappings/frontier.json` 的 `manualModels`（作為新品尚未被 catalog 收錄時的指定逃生口）共同構成。資格條件見 [重構規格 §5.1](SPEC.md)：未標記 deprecated，且不存在「已知且早於資格窗口」的 `releaseDate`（`qualificationWindowMonths`，預設 12 個月）；`releaseDate` 為 null 者通過，缺欄位不構成淘汰理由。
+Frontier 模型清單依 [前沿政策](FRONTIER_POLICY.md) 由已保存的來源快照生成：依同版 Artificial Analysis Intelligence Index 排名，取前十個具備至少 2 個獨立組織成績的合格模型。結果與逐列依據寫入 `data/derived/frontier-set.json` 及 `frontier-selection-audit.json`，不手動編輯。
 
-要調整 frontier 成員，改的是 `models.json` 或 `frontier.json`，**不是 `data/sources/` 底下任何來源目錄**。舊有的 `compositeSources` 動態 Top-20 選模機制已廢棄。
+模型能否入選由來源快照裡的證據決定：AA 排名，以及是否有至少 2 個獨立組織的成績。來源刷新帶來新成績時，資格會跟著改變。若模型有成績卻因名稱未對應而無法入選，修正的是 `data/mappings/models.json` 的模型身分或 `frontier-identities.json` 的來源名稱對應；不要為了調整成員而手動修改 `data/sources/` 底下的快照。以 `frontier.json` 的 `manualModels` 手動指定成員、以及更早的 `compositeSources` 動態 Top-20 選模，都已移除。
 
 外部指標（如 Artificial Analysis Intelligence Index、Epoch Capabilities Index、Vals Index 等）只用於選模參考與外部指標展示，不投入五維 Overall，避免底層 Benchmark 被重複計分。
 
@@ -189,7 +189,7 @@ X 軸為七來源加權正規化任務成本，Y 軸為五維 Overall Score。�
 
 ## Dashboard 資料邊界
 
-產品視圖由 `data/mappings/display-set.json` 的固定 benchmark ID 驅動。模型的可選 Profile 必須在清單每一項都有 INCLUDED、非 null normalized score；此外五個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。
+產品視圖由產品內各集合（`presets`）的 benchmark ID 驅動，集合由前沿政策生成。模型的可選 Profile 必須在所選集合每一項都有 INCLUDED、非 null normalized score；此外五個渲染維度都必須非 null，主畫面才顯示該模型。缺少任一格的模型進入 Developer mode 的缺格清單；該清單不計算 Overall 或維度聚合，也不修改 ProductVersion、原始分數或 Evidence。
 
 ## 模型發布頁的 Quality vs. Cost 資料
 

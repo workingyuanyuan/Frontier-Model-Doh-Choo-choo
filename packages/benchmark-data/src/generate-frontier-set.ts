@@ -27,6 +27,7 @@ import {
   type BenchmarkQualityPolicy,
   type CandidateResult,
   type ModelCatalog,
+  type ProfilePolicy,
 } from './index.js';
 
 /** A single profile must own each result; evidence is never unioned across efforts. */
@@ -301,7 +302,13 @@ export interface FrontierSetInput {
 const readMapping = async (root: string, name: string): Promise<unknown> =>
   JSON.parse(await readFile(join(root, 'data/mappings', name), 'utf8'));
 
-async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
+/** Whitelisted source candidates with the catalog and profile policy, before any mapping. */
+export async function loadWorkspaceSources(repositoryRoot: string): Promise<{
+  sourceCandidates: CandidateResult[];
+  catalog: ModelCatalog;
+  profilePolicy: ProfilePolicy;
+}> {
+  const root = resolve(repositoryRoot);
   const whitelist = new Set(
     SourcesConfigSchema.parse(await readMapping(root, 'sources.json'))
       .whitelist,
@@ -321,9 +328,18 @@ async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
       ),
     );
   }
-  const catalog = ModelCatalogSchema.parse(
-    await readMapping(root, 'models.json'),
-  );
+  return {
+    sourceCandidates,
+    catalog: ModelCatalogSchema.parse(await readMapping(root, 'models.json')),
+    profilePolicy: ProfilePolicySchema.parse(
+      await readMapping(root, 'profile-policy.json'),
+    ),
+  };
+}
+
+async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
+  const { sourceCandidates, catalog, profilePolicy } =
+    await loadWorkspaceSources(root);
   const quality = BenchmarkQualityPolicySchema.parse(
     await readMapping(root, 'benchmark-quality-v2.json'),
   );
@@ -338,7 +354,7 @@ async function loadFrontierSetInput(root: string): Promise<FrontierSetInput> {
       ),
     ),
     catalog,
-    ProfilePolicySchema.parse(await readMapping(root, 'profile-policy.json')),
+    profilePolicy,
     getComparisonOnlyBenchmarkIds(mapping),
   );
   return { candidates, catalog, mapping, quality };

@@ -446,26 +446,6 @@ export type BenchmarkQualityPolicy = z.infer<
   typeof BenchmarkQualityPolicySchema
 >;
 
-export const DisplaySetPolicySchema = z
-  .object({
-    schemaVersion: z.literal('display-set-policy-v1'),
-    notes: z.string().optional(),
-    /** Models every preset must leave complete. */
-    requiredModelIds: z.array(SlugSchema).default([]),
-    minModelCount: z.int().positive(),
-    maxModelCount: z.int().positive(),
-    defaultPresetId: SlugSchema,
-    benchmarkQuality: BenchmarkQualityPolicySchema.optional(),
-  })
-  .strict()
-  .refine(
-    ({ minModelCount, maxModelCount }) => minModelCount <= maxModelCount,
-    {
-      message: 'minModelCount must not exceed maxModelCount',
-    },
-  );
-export type DisplaySetPolicy = z.infer<typeof DisplaySetPolicySchema>;
-
 export const DisplaySetPresetSchema = z
   .object({
     id: SlugSchema,
@@ -1415,20 +1395,6 @@ export const scoreProfiles = (
     rank: entry.overallScore === null ? null : ++rank,
   }));
 };
-
-export const FrontierConfigSchema = z.object({
-  schemaVersion: z.literal('frontier-config-v2'),
-  qualificationWindowMonths: z.number().int().positive().default(12),
-  manualModels: z
-    .array(
-      z.object({
-        modelId: SlugSchema,
-        reason: z.string().min(1),
-      }),
-    )
-    .default([]),
-});
-export type FrontierConfig = z.infer<typeof FrontierConfigSchema>;
 
 const knownConsensus = <Value>(values: Array<Value | null>): Value | null => {
   const known = [...new Set(values.filter((value) => value !== null))];

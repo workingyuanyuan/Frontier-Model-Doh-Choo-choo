@@ -1,8 +1,5 @@
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import benchmarkMappings from '../../../data/mappings/benchmarks.json';
-import displaySetConfig from '../../../data/mappings/display-set.json';
-import frontierConfig from '../../../data/mappings/frontier.json';
 import sourcesConfig from '../../../data/mappings/sources.json';
 
 import {
@@ -10,7 +7,6 @@ import {
   CandidateResultSchema,
   DIMENSION_IDS,
   DisplaySetSchema,
-  FrontierConfigSchema,
   ModelCatalogSchema,
   OrderedDimensionScoresSchema,
   ProductCostSchema,
@@ -26,6 +22,33 @@ import {
   toProductEvidence,
   validateDisplaySet,
 } from './index.js';
+
+// One benchmark per five-dimension category plus a comparison-only entry.
+const benchmarkMappings = {
+  schemaVersion: 'benchmark-dimensions-v1',
+  dimensions: [...DIMENSION_IDS],
+  benchmarks: [
+    ...(
+      [
+        ['livebench-reasoning', 'reasoning'],
+        ['mmlu-pro', 'knowledge'],
+        ['swe-bench', 'coding'],
+        ['tau3-banking', 'agentic'],
+        ['livebench-language', 'language'],
+      ] as const
+    ).map(([id, primaryDimension]) => ({
+      id,
+      primaryDimension,
+      secondaryDimensions: [],
+    })),
+    {
+      id: 'frontier-swe-v2',
+      primaryDimension: 'coding',
+      secondaryDimensions: [],
+      comparisonOnly: true,
+    },
+  ],
+};
 
 describe('ModelCatalogSchema', () => {
   it('preserves reviewed exact source aliases as catalog data', () => {
@@ -160,7 +183,7 @@ describe('ProductEvidenceSchema', () => {
 });
 
 describe('BenchmarkDimensionMappingSchema', () => {
-  it('validates the committed mapping and keeps benchmark IDs unique', () => {
+  it('accepts a mapping that covers every dimension with unique IDs', () => {
     const parsed = BenchmarkDimensionMappingSchema.parse(benchmarkMappings);
     const ids = parsed.benchmarks.map(({ id }) => id);
 
@@ -402,14 +425,10 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
     ...overrides,
   });
 
-  it('validates the committed display-set.json mapping', () => {
-    const parsed = DisplaySetSchema.parse(displaySetConfig);
-    expect(parsed.schemaVersion).toBe('display-set-v2');
-    expect(parsed.presets.length).toBeGreaterThan(0);
-    expect(
-      parsed.presets.map(({ id }) => id).includes(parsed.defaultPresetId),
-    ).toBe(true);
-    expect(() => validateDisplaySet(parsed, mapping())).not.toThrow();
+  it('accepts a preset that covers every dimension of a five-dimension mapping', () => {
+    expect(() =>
+      validateDisplaySet(DisplaySetSchema.parse(displaySet()), mapping()),
+    ).not.toThrow();
   });
 
   it('rejects comparison-only benchmarks in every preset', () => {
@@ -525,16 +544,7 @@ describe('DisplaySetSchema and validateDisplaySet', () => {
   });
 });
 
-describe('FrontierConfigSchema and model qualification', () => {
-  it('validates the committed frontier-config-v2 configuration without compositeSources', () => {
-    const parsed = FrontierConfigSchema.parse(frontierConfig);
-    expect(parsed.schemaVersion).toBe('frontier-config-v2');
-    expect(parsed.qualificationWindowMonths).toBe(12);
-    expect(parsed.manualModels).toEqual([]);
-    expect(parsed).not.toHaveProperty('compositeSources');
-    expect(parsed).not.toHaveProperty('perSourceLimit');
-  });
-
+describe('model qualification', () => {
   describe('isReleaseDateQualified boundary tests', () => {
     const referenceDate = '2026-07-16T14:00:00.000Z';
 

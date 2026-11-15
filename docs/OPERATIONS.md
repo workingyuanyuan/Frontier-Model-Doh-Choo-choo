@@ -243,7 +243,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 
 ### 輸入與命令的寫入範圍
 
-從 repository 根目錄執行下列命令。正式流程讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`，以及白名單來源目錄中的 `candidates.json`。擷取端的檔位推測報告、Vals 驗證報告與離線物化也使用 `benchmarks-v2.json`。`benchmarks.json`（五維舊版）、`frontier.json`、`display-set-policy.json` 與 `display-set.json` 只供下方的輔助覆蓋分析使用，不是產品輸入，修改它們不需要 release。
+從 repository 根目錄執行下列命令。正式流程讀取 `data/mappings/` 的 `sources.json`、`models.json`、`profile-policy.json`、`frontier-identities.json`、`benchmarks-v2.json`、`benchmark-quality-v2.json`，以及白名單來源目錄中的 `candidates.json`。擷取端的檔位推測報告、Vals 驗證報告與離線物化也使用 `benchmarks-v2.json`。五維舊版的 `benchmarks.json`、`frontier.json`、`display-set-policy.json`、`display-set.json` 與使用它們的覆蓋最佳化分析工具已於 2026-11-15 移除（[已捨棄項目](REFACTOR_DISCARD_LIST.md)）。
 
 | 命令                              | 用途與輸出                                                                                                                                                                                                                                                                          |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -252,7 +252,7 @@ Epoch 同時支援歷史 `epoch_capabilities_index.csv` 與目前 `epoch_capabil
 | `pnpm data:verify-fresh`          | 不寫入任何檔案，以已提交（工作區）`current.json` 的 `generatedAt` 在記憶體中重算 frontier 集合、audit 與產品，三者任何一項與工作區檔案不同即失敗。                                                                                                                                  |
 | `pnpm data:release`               | 串聯完整發布驗證管線（`sources` → `evidence` → `frontier` → `product` → `fresh` → `tests` → `site` → `e2e`），將執行紀錄、基線副本與差異報告寫入 `artifacts/releases/<run-id>/`，並更新 `artifacts/releases/latest.json`。                                                          |
 
-`data:build-current` 不讀取既有 `display-set.json`，也不將記憶體中的 `displaySet` 寫成該檔案。它會重新產生 frontier，不能只憑上一次 `selected` audit 宣告本次成功。實作依據為 [frontier 生成器](../packages/benchmark-data/src/generate-frontier-set.ts)、[workspace builder](../packages/benchmark-data/src/workspace.ts)、[產品 CLI](../packages/benchmark-data/src/cli.ts) 與 [資料發布腳本](../scripts/data-release.mjs)。
+`data:build-current` 的 `displaySet` 只存在記憶體中，集合內容保存在產品的 `presets`。它會重新產生 frontier，不能只憑上一次 `selected` audit 宣告本次成功。實作依據為 [frontier 生成器](../packages/benchmark-data/src/generate-frontier-set.ts)、[workspace builder](../packages/benchmark-data/src/workspace.ts)、[產品 CLI](../packages/benchmark-data/src/cli.ts) 與 [資料發布腳本](../scripts/data-release.mjs)。
 
 ### 必要操作順序
 
@@ -294,19 +294,6 @@ AA 版本不可比較、前十名或合格前沿窗口內有未解析身分、�
 依政策重算 presets 時，模型數範圍、預設模型數、identity、來源約束、分類、品質及計分規則都須沿用核准設定。不得以放寬門檻讓失敗流程通過。
 
 `current.json` 是單一可變工作區輸出；`receipt.json` 為 `complete` 只代表機械驗證通過，還要完成代理抽查與 §5 判斷才可提交。CLI 使用執行當時的時間作為 `generatedAt`。固定資料、設定與 `generatedAt` 才會產生相同內容與 `versionId`；僅時間戳造成的 hash 改變不代表來源已刷新。
-
-### 輔助覆蓋分析與相容產物
-
-以下命令保留覆蓋最佳化分析與舊 display-set 產物的相容用途，按分析需要執行：
-
-| 命令                             | 輸入與預設輸出                                                                                                                            |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `pnpm report:coverage-matrix`    | 使用共同 loader 的快照／mapping 及 `display-set-policy.json`，分析無來源約束與全來源兩條取捨曲線，寫入 `docs/COVERAGE_MATRIX_REPORT.md`。 |
-| `pnpm data:generate-display-set` | 使用相同輸入與政策，在記憶體中重算兩條曲線、驗證後寫入 `data/mappings/display-set.json`；不讀取前一命令的 Markdown 報告。                 |
-
-正式 AA frontier 流程的必要命令見上方步驟 3。輔助分析的 `requiredModelIds`、來源約束與預設選擇使用 `display-set-policy.json`，不能據此替代 AA 前沿政策。比較 coverage 報告與 display-set generator 時使用相同資料及 `--reference-date=YYYY-MM-DD`，記錄政策、日期與輸出路徑；兩者預設以當日 UTC 日期分析，跨日應明確固定日期。分析失敗時保留錯誤證據，不以舊報告宣稱本次分析成功。
-
-覆蓋率的模型 presence mask 以 BigInt 精確計算；分析結果在安全整數範圍內使用 number，超出時使用十進位字串，避免評測數超過 53 項時遺失低位元。
 
 ## 4. 開發與建置
 
@@ -442,16 +429,6 @@ pnpm --filter @llm-bench/benchmark-data report:aa-index ../../data/product/curre
 AA 指數使用 `rawScore`（index points）；`normalizedScore` 為 null，不能用作報告分數。
 排名只涵蓋產品收錄的同版本配置，以完整精度降冪排序，同分並列並跳號；版本未明不排名。
 JSON 保留 result ID、Evidence ID、來源 URL 與 locator，缺少有效原始分數時直接拒絕產生報告。
-
-### Display-Set 取捨報告
-
-```bash
-pnpm report:coverage-matrix
-```
-
-此命令輸出模型 × benchmark 矩陣與集合取捨曲線，用途及輸入見 §3 的輔助覆蓋分析。正式 AA frontier 依 §3 的必要步驟生成，依 §5 比較影響；需要改變政策時才交由使用者裁決。
-
-日常報告依核准政策產生無約束與全來源曲線。`--require=a,b` 僅供探索指定 benchmark 必選時的影響，會約束兩條曲線，不作為日常集合生成政策。
 
 CI 的支援路徑只允許 schema、資料 builder、三個新 workspace、靜態 build、瀏覽器／無障礙與依賴安全檢查；不得啟動 DB service、Docker、舊 Web fixture、Worker 或影片 render。
 
