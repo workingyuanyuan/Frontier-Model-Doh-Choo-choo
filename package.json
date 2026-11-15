@@ -11,6 +11,7 @@
     "build": "turbo run build",
     "data:build-current": "pnpm --filter @llm-bench/benchmark-data data:build-current",
     "data:materialize-costs": "pnpm --filter @llm-bench/acquisition materialize:costs",
+    "data:check-replay": "pnpm --filter @llm-bench/acquisition check:replay",
     "data:materialize-snapshots": "pnpm --filter @llm-bench/acquisition materialize:snapshots",
     "dev": "turbo run dev --parallel",
     "e2e": "playwright test",

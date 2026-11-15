@@ -12,6 +12,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "materialize:snapshots": "tsx src/materialize-snapshots.ts",
+    "check:replay": "tsx src/materialize-snapshots.ts --check",
     "materialize:costs": "tsx src/process-source-command.ts artificial-analysis,deepswe,livebench,frontier-code,openai-releases,anthropic-releases src/materialize-costs.ts",
     "materialize:frontier-code": "tsx src/refresh-with-audit.ts frontier-code src/refresh-frontier-code.ts",
     "materialize:frontier-swe": "tsx src/refresh-with-audit.ts frontier-swe src/refresh-frontier-swe.ts",

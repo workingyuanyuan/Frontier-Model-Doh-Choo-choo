@@ -155,7 +155,8 @@ export interface ProcessingStats {
 
 /** Cache extraction only. Derived cross-source audits and effort reports run after staging. */
 export const processSource = <T>(input: {
-  store: EvidenceStore;
+  /** Null computes without reading or writing the processing cache. */
+  store: EvidenceStore | null;
   sourceId: string;
   evidence: EvidenceRecord[];
   parserVersion: string;
@@ -166,6 +167,11 @@ export const processSource = <T>(input: {
   decode: (files: SourceFiles) => T;
   stats: ProcessingStats;
 }): T => {
+  if (input.store === null) {
+    input.stats.misses++;
+    input.stats.parsedSources++;
+    return input.materialize();
+  }
   const key = {
     sourceId: input.sourceId,
     inputs: input.evidence,
