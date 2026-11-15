@@ -7,29 +7,18 @@ import {
   materializeGdpXlsx,
 } from './surge-gdp-xlsx-materializer.js';
 import {
-  DAYJOB_HEALTHCARE_PAGE_URL,
-  materializeDayjobHealthcare,
-} from './surge-dayjob-healthcare-materializer.js';
-import {
-  DAYJOB_TAX_PAGE_URL,
-  materializeDayjobTax,
-} from './surge-dayjob-tax-materializer.js';
-import {
-  DAYJOB_FINANCE_PAGE_URL,
-  materializeDayjobFinance,
-} from './surge-dayjob-finance-materializer.js';
-import {
   RIEMANN_PAGE_URL,
   materializeRiemann,
 } from './surge-riemann-materializer.js';
 import {
-  CORECRAFT_PAGE_URL,
-  materializeCorecraft,
-} from './surge-corecraft-materializer.js';
-import {
   COMPLEX_CONSTRAINTS_PAGE_URL,
   materializeComplexConstraints,
 } from './surge-complex-constraints-materializer.js';
+import { materializeSurgePercentLeaderboard } from './surge-percent-leaderboard.js';
+import {
+  SURGE_PERCENT_LEADERBOARDS,
+  isSurgePercentLeaderboardId,
+} from './surge-percent-leaderboard-specs.js';
 import { readFileSync } from 'node:fs';
 import { performance } from 'node:perf_hooks';
 import { pathToFileURL } from 'node:url';
@@ -447,13 +436,18 @@ function rebuildSnapshots(
                 baseline['candidates.json'],
                 evidenceList,
               ));
-          } else if (src.id === 'surge-corecraft') {
-            const page = evidenceFor(CORECRAFT_PAGE_URL);
-            const result = materializeCorecraft(evidenceText(page), {
-              evidenceId: page.id,
-              observedAt: page.retrievedAt,
-              visualRowCount: Number(page.metadata?.renderedRows),
-            });
+          } else if (isSurgePercentLeaderboardId(src.id)) {
+            const spec = SURGE_PERCENT_LEADERBOARDS[src.id];
+            const page = evidenceFor(spec.pageUrl);
+            const result = materializeSurgePercentLeaderboard(
+              spec,
+              evidenceText(page),
+              {
+                evidenceId: page.id,
+                observedAt: page.retrievedAt,
+                visualRowCount: Number(page.metadata?.renderedRows),
+              },
+            );
             candidates = result.candidates;
             customReportText = result.validationReport;
           } else if (src.id === 'surge-riemann') {
@@ -469,33 +463,6 @@ function rebuildSnapshots(
                 baseline['candidates.json'],
                 evidenceList,
               ));
-          } else if (src.id === 'surge-dayjob-finance') {
-            const page = evidenceFor(DAYJOB_FINANCE_PAGE_URL);
-            const result = materializeDayjobFinance(evidenceText(page), {
-              evidenceId: page.id,
-              observedAt: page.retrievedAt,
-              visualRowCount: Number(page.metadata?.renderedRows),
-            });
-            candidates = result.candidates;
-            customReportText = result.validationReport;
-          } else if (src.id === 'surge-dayjob-healthcare') {
-            const page = evidenceFor(DAYJOB_HEALTHCARE_PAGE_URL);
-            const result = materializeDayjobHealthcare(evidenceText(page), {
-              evidenceId: page.id,
-              observedAt: page.retrievedAt,
-              visualRowCount: Number(page.metadata?.renderedRows),
-            });
-            candidates = result.candidates;
-            customReportText = result.validationReport;
-          } else if (src.id === 'surge-dayjob-tax') {
-            const page = evidenceFor(DAYJOB_TAX_PAGE_URL);
-            const result = materializeDayjobTax(evidenceText(page), {
-              evidenceId: page.id,
-              observedAt: page.retrievedAt,
-              visualRowCount: Number(page.metadata?.renderedRows),
-            });
-            candidates = result.candidates;
-            customReportText = result.validationReport;
           } else if (src.id === 'surge-gdp-xlsx') {
             const page = evidenceFor(GDP_XLSX_PAGE_URL);
             const result = materializeGdpXlsx(evidenceText(page), {
