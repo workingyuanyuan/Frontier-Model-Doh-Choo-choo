@@ -64,6 +64,39 @@ describe('diffSourceFiles', () => {
     ]);
   });
 
+  it('reports an empty file that only one side has', () => {
+    expect(diffSourceFiles('demo', {}, { 'costs.json': '[]' })).toHaveLength(1);
+    expect(diffSourceFiles('demo', { 'costs.json': '[]' }, {})).toHaveLength(1);
+  });
+
+  it('falls back to whole-file comparison for duplicate ids', () => {
+    const duplicated = rows({ id: 'a', score: 1 }, { id: 'a', score: 2 });
+    expect(
+      diffSourceFiles(
+        'demo',
+        { 'candidates.json': duplicated },
+        { 'candidates.json': rows({ id: 'a', score: 2 }) },
+      ),
+    ).toHaveLength(1);
+    expect(
+      diffSourceFiles(
+        'demo',
+        { 'candidates.json': duplicated },
+        { 'candidates.json': `${duplicated}\n` },
+      ),
+    ).toEqual([]);
+  });
+
+  it('reports invalid JSON as a difference and keeps comparing other files', () => {
+    expect(
+      diffSourceFiles(
+        'demo',
+        { 'candidates.json': '[', 'costs.json': rows({ id: 'a', score: 1 }) },
+        { 'candidates.json': '[]', 'costs.json': rows({ id: 'a', score: 2 }) },
+      ).map(({ file }) => file),
+    ).toEqual(['candidates.json', 'costs.json']);
+  });
+
   it('reports changed text and non-row JSON without row ids', () => {
     expect(
       diffSourceFiles(

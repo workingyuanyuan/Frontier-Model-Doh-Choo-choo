@@ -942,20 +942,32 @@ export interface ReplayCheck {
   differences: ReplayDifference[];
 }
 
-const rowsById = (text: string | undefined): Map<string, string> | null => {
-  if (text === undefined) return new Map();
-  const value: unknown = JSON.parse(text);
-  if (
-    !Array.isArray(value) ||
-    value.some((row) => typeof asRecord(row)?.id !== 'string')
-  )
+const parseJson = (text: string): { value: unknown } | null => {
+  try {
+    return { value: JSON.parse(text) };
+  } catch {
     return null;
-  return new Map(
-    value.map((row) => [(row as { id: string }).id, deterministicJson(row)]),
-  );
+  }
 };
 
-/** Compares rebuilt files with saved ones by content, ignoring JSON layout. */
+/** Rows keyed by id, or null when the file is not an array of uniquely identified records. */
+const rowsById = (text: string | undefined): Map<string, string> | null => {
+  if (text === undefined) return new Map();
+  const value = parseJson(text)?.value;
+  if (!Array.isArray(value)) return null;
+  const rows = new Map<string, string>();
+  for (const row of value) {
+    const id = asRecord(row)?.id;
+    if (typeof id !== 'string' || rows.has(id)) return null;
+    rows.set(id, deterministicJson(row));
+  }
+  return rows;
+};
+
+/**
+ * Compares rebuilt files with saved ones by content, ignoring JSON layout. A
+ * file present on one side only always differs, even when it holds no rows.
+ */
 export const diffSourceFiles = (
   sourceId: string,
   saved: SourceFiles,
@@ -978,10 +990,12 @@ export const diffSourceFiles = (
       const savedRows = rowsById(before);
       const rebuiltRows = rowsById(after);
       if (savedRows === null || rebuiltRows === null) {
-        return before !== undefined &&
-          after !== undefined &&
-          deterministicJson(JSON.parse(before)) ===
-            deterministicJson(JSON.parse(after))
+        // Not comparable row by row: equal only when both parse to the same value.
+        const left = before === undefined ? null : parseJson(before);
+        const right = after === undefined ? null : parseJson(after);
+        return left !== null &&
+          right !== null &&
+          deterministicJson(left.value) === deterministicJson(right.value)
           ? []
           : [difference];
       }
@@ -991,10 +1005,12 @@ export const diffSourceFiles = (
       }
       for (const id of savedRows.keys())
         if (!rebuiltRows.has(id)) difference.removed.push(id);
-      return difference.added.length +
-        difference.removed.length +
-        difference.changed.length >
-        0
+      return before === undefined ||
+        after === undefined ||
+        difference.added.length +
+          difference.removed.length +
+          difference.changed.length >
+          0
         ? [difference]
         : [];
     });
@@ -1030,7 +1046,15 @@ if (
       getWorkspaceRoot(),
   );
   if (process.argv.includes('--check')) {
-    const check = checkSnapshotReplay(root);
+    // Keep stdout for the JSON report; rebuild progress goes to stderr.
+    const log = console.log;
+    console.log = console.error;
+    let check: ReplayCheck;
+    try {
+      check = checkSnapshotReplay(root);
+    } finally {
+      console.log = log;
+    }
     console.log(
       JSON.stringify(
         {
