@@ -25,7 +25,9 @@
     "report:source-changes": "pnpm --filter @llm-bench/acquisition report:source-changes",
     "evidence": "pnpm --filter @llm-bench/acquisition evidence",
     "data:verify-fresh": "pnpm --filter @llm-bench/benchmark-data data:verify-fresh",
-    "data:release": "node scripts/data-release.mjs"
+    "data:release": "node scripts/data-release.mjs",
+    "data:refresh-diff": "node scripts/source-refresh-diff.mjs",
+    "data:discard-refresh": "node scripts/source-refresh-diff.mjs --discard"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.12.1",

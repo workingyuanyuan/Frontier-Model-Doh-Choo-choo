@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-16",
+  "baselineCommit": "c90900b38c216b0bbc4f07be51a4808729a468d4",
+  "baselineVersion": "sha256:48fb9c7975b92fcd1d53729a124b053d6c3e859321cf3ef2dbea7df36d7afffd",
+  "baselineGeneratedAt": "2026-11-15T13:35:14.745Z",
+  "activeSourcesChanged": false,
+  "manifestVerification": {
+    "V": {
+      "entries": 62,
+      "verifiedBytesAndSha256": 62,
+      "identicalTo20261114": 11,
+      "changed200": 49,
+      "non200": [
+        {
+          "url": "https://openai.com/index/",
+          "httpStatus": 403
+        },
+        {
+          "url": "https://ai.meta.com/blog/",
+          "httpStatus": 400,
+          "fallback": "Playwright rendered check returned HTTP 200; latest post Jul 27, 2026"
+        }
+      ]
+    },
+    "L": {
+      "entries": 55,
+      "verifiedBytesAndSha256": 55,
+      "identicalTo20261114": 29,
+      "changed200": 25,
+      "non200": [
+        {
+          "url": "https://www.perplexity.ai/hub/blog/wandr-benchmark-evaluating-research-agents-that-must-search-wide-and-deep",
+          "httpStatus": 403
+        }
+      ]
+    }
+  },
+  "vendorReview": {
+    "newTextModelsSince20261114": [],
+    "earlierProprietaryPreviewObserved": {
+      "vendor": "Alibaba (Qwen)",
+      "model": "Qwen4-Max-Preview",
+      "releaseDate": "2026-11-11",
+      "previewWindow": "2026-11-11 to 2026-11-25",
+      "access": "Alibaba Cloud Model Studio / Token Plan (1M context, proprietary)",
+      "inActiveSources": false
+    },
+    "huggingFaceChanges": [
+      {
+        "author": "facebook",
+        "addedRepo": "facebook/stereo_crossinjection",
+        "textOrReasoningModel": false
+      }
+    ],
+    "openaiNewsObserved": [
+      {
+        "date": "2026-11-15",
+        "title": "A step toward defining the Standard Model on a lattice"
+      },
+      {
+        "date": "2026-11-15",
+        "title": "Our new blog for science"
+      }
+    ],
+    "qwenAiBlogTimeout": "https://qwen.ai/blog timed out at 45000ms domcontentloaded in Playwright"
+  },
+  "renderedVisualCounts": {
+    "observedWindowUtc": "2026-11-15T23:42:22Z to 2026-11-15T23:45:41Z",
+    "artificialAnalysis": {
+      "visible": 27,
+      "catalogTotal": 741
+    },
+    "livebenchV2": 35,
+    "livebenchV1IncludeFinetunes": 65,
+    "deepsweAll": 28,
+    "frontierCodeV2Best": 32,
+    "frontierCodeV2All": 125,
+    "frontierCodeV2HiddenModels": [],
+    "frontierCodeV2JsonLdTopTenMatched": 10,
+    "scaleSweAtlasOverall": 28,
+    "maxxbench": 17,
+    "surge": {
+      "chartography": 42,
+      "complex-constraints": 16,
+      "corecraft": 55,
+      "riemann": 21,
+      "dayjob-finance": 40,
+      "dayjob-healthcare": 38,
+      "dayjob-tax": 16,
+      "gdp-xlsx": 20
+    }
+  },
+  "activeSourceMaterializationCheck": {
+    "commandsAttempted": 22,
+    "commandsSucceeded": 22,
+    "sourcesChecked": 24,
+    "totalCandidateScores": 10437,
+    "totalCosts": 5128,
+    "semanticScoreDiffs": 0,
+    "semanticCostDiffs": 0,
+    "detailsFile": "artifacts/research/2026-11-16-benchmark-check/refresh/semantic-diff.json"
+  },
+  "nonActiveUpstreamChanges": [
+    {
+      "source": "Epoch benchmarks.csv",
+      "url": "https://epoch.ai/data/benchmarks.csv",
+      "sha256Before": "27c3639a6e3c85ae317efd2adbeaf92adfda61c7df7ef3f4773faded0953b6b7",
+      "sha256After": "3e047c07258be56ab2f0b1bb3330a304491993b0baf752240dcb0ea079a215d0",
+      "change": "External SpireClimb (Slay the Spire 2, Ascension 10) runs updated: claude-fable-5-2_max partial 0.17568 finalized to 0.17333 (steambench-sts2-a10-24ea6d93d1eae707); claude-opus-5-5_max run ID updated (score unchanged 0.06667)."
+    },
+    {
+      "source": "Fireworks Specialized Intelligence Index",
+      "url": "https://fireworks.ai/specialized-intelligence-index/api/index.json",
+      "sha256Before": "e3da71d067872cab1b4292b3a08716acfccc47ec90e00da84964baf3d1d69248",
+      "sha256After": "b25308f38b808eab18c4df8c390fe0968b5d2018b033d45c5a68e367ac763082",
+      "change": "Arena battle counts and statistics updated."
+    },
+    {
+      "source": "BenchLM",
+      "url": "https://benchlm.ai",
+      "sha256Before": "fe34ea8563a8c7aeebdc495c4739aaf9f697bb84c459c48853bbcc0054a7441f",
+      "sha256After": "3989c3035690dba2613afc6761267c921c9b5ac0bbbac9f8a5ab631723b38b8c",
+      "change": "Arena scores updated."
+    }
+  ],
+  "evidenceDirectory": "artifacts/research/2026-11-16-benchmark-check"
+}
