@@ -31,6 +31,13 @@
 
 查核發現現役來源有變，才進入匯入與 `pnpm data:release`；只有非現役來源的消息時，寫查核文件即可。
 
+匯入之後要判斷來源有沒有變，一律用 `pnpm data:refresh-diff`，不自行寫比對腳本。它只讀檔案，把工作區的 `data/sources` 與 HEAD 比對，並排除「內容沒變、只是重新擷取」必然造成的差異：Evidence 引用，以及等於該來源 `lastVerifiedAt` 的擷取時間（視為「本次擷取」；保留列的舊時間照原值比對）。`candidates.json`／`costs.json` 依列 ID 與列順序比對，`manifest.json` 與 Evidence 的網址、方法、metadata 比對內容，人工審核的擷取與研究輸入必須逐位元組相同；每次刷新都會重產的 `validation-report.md` 與 `cross-checks.json` 不列入。輸出各來源有差異的檔案與列數。寧可多報：拿不準的差異一律算有變。
+
+- `changed: true`：照常執行 `pnpm data:release`。
+- `changed: false`：執行 `pnpm data:discard-refresh` 放棄這次匯入。它把 `data/sources` 與 `data/source-monitoring` 還原到 HEAD，並執行 `pnpm evidence init` 讓證據庫登記的目前快照回到這個 checkout（見[證據儲存](EVIDENCE_STORE.md#匯出與-git-工作流程)）；上述比對有任何差異，或這兩個目錄下有已暫存（staged）或未追蹤的檔案時，會拒絕執行。不要只用 `git checkout` 還原：證據庫會停在已放棄的快照上。
+
+無變動時仍要提交當日的查核文件：開分支、提交 `docs/research/` 的兩個檔案、開 PR，CI 通過後合併。
+
 機械驗證通過與使用者核准是兩件事：`complete` 只代表機械檢查通過；抽查結果與是否有重大變更的判定寫在刷新報告，receipt 不記錄。`complete` 加上代理抽查全部相符、且依 §5 判定沒有重大變更時，代理直接提交資料（含 `data/product/current.json`）並推上 GitHub（§6）；有重大變更時，停在審核階段，等使用者明確指示。來源、模型與計分政策的變更需有使用者裁決。
 
 ## 1. 安裝
@@ -54,6 +61,8 @@ pnpm exec playwright install --with-deps chromium
 ```
 
 之後依 §7 先完成 production build，再執行 `pnpm e2e`。
+
+代理的命令環境不一定載入使用者的 shell 設定。`node`、`pnpm` 或 `gh` 找不到時，先在命令開頭加上 `export PATH="$HOME/.local/bin:$PATH"` 再試一次；確認路徑下真的沒有該程式，才可回報未安裝或略過需要它的步驟（例如開 PR）。
 
 ## 2. 刷新來源
 
@@ -356,6 +365,8 @@ Agent 必須先完成所有可由 repository、artifact 或公開來源裁決的
 只有以下問題交給人工：公開證據互相衝突且無法由版本或配置裁決；來源未公開必要資訊而無法不靠猜測判定；以及是否接受已揭露的殘餘產品風險。
 
 任何修正都要重新生成新的 ProductVersion，不能直接改寫內容 hash。
+
+任務中斷後接續（模型連線中斷、逾時或換代理接手）時，先確認現況再往下做：`git status --short` 看來源快照是否已匯入一半，`artifacts/releases/latest.json` 看上一次 release 的狀態，並以 `pnpm data:refresh-diff` 重新取得來源差異，不沿用中斷前記得的結論。
 
 ## 6. 提交與部署
 
