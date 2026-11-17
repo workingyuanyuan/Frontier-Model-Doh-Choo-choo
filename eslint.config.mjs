@@ -55,6 +55,24 @@ export default tseslint.config(
     },
   },
   {
+    files: ['apps/bench/e2e/**/*.spec.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@playwright/test',
+              importNames: ['test'],
+              message:
+                'Import test from ./test so page.goto waits until the dashboard responds.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     // Node scripts run outside the browser and outside the TS program.
     files: ['scripts/**/*.mjs'],
     languageOptions: {
