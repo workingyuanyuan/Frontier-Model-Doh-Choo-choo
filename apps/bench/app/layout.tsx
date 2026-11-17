@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
-import { LLMS_TXT_PATH, METHODOLOGY_PATH, sitePath } from '../lib/site-paths';
+import {
+  DATA_INDEX_PATH,
+  LLMS_TXT_PATH,
+  METHODOLOGY_PATH,
+  sitePath,
+} from '../lib/site-paths';
 import './globals.css';
 import './leaderboard.css';
 
@@ -20,6 +25,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           type="text/plain"
           href={sitePath(LLMS_TXT_PATH)}
           title="llms.txt: machine-readable index of this site's data"
+        />
+        <link
+          rel="alternate"
+          type="application/json"
+          href={sitePath(DATA_INDEX_PATH)}
+          title="Index of this site's JSON data files"
         />
         <link
           rel="alternate"

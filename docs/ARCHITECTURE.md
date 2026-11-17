@@ -92,16 +92,24 @@ data/product/current.json ──► apps/bench static build
 
 ## 代理可讀輸出
 
-Dashboard 首頁內嵌整份資料（約 2 MB），不適合只能抓取網址的代理。建置時由 `apps/bench/lib/agent-surfaces.ts` 另外輸出下列檔案，路徑定義在 `apps/bench/lib/site-paths.ts`：
+Dashboard 首頁內嵌整份資料（約 2 MB），不適合只能抓取網址的代理。建置時另外輸出下列檔案，路徑定義在 `apps/bench/lib/site-paths.ts`，內容由 `apps/bench/lib/agent-surfaces.ts` 產生：
 
-| 路徑                                    | 內容                                                                   |
-| --------------------------------------- | ---------------------------------------------------------------------- |
-| `llms.txt`                              | 入口：資料版本、各集合的 Markdown、evidence 路徑、方法論與原始碼庫連結 |
-| `data/presets/<presetId>.md`            | 該集合的排名、五維分數、成本指數與各來源美元任務成本、計分測試清單     |
-| `methodology.md`                        | 英文方法論摘要、來源清單與授權標示                                     |
-| `evidence/<versionId>/<profileId>.json` | 既有的逐 profile 證據檔                                                |
+| 路徑                                    | 內容                                                                             |
+| --------------------------------------- | -------------------------------------------------------------------------------- |
+| `llms.txt`                              | 入口：資料版本、各集合三種格式的連結、資料檔、方法論與原始碼庫                   |
+| `data/index.json`                       | 給腳本的入口：各集合三種格式的路徑、其他資料檔、來源清單與授權標示               |
+| `data/presets/<presetId>.json`          | 該集合的排名、五維分數、成本指數與各來源美元任務成本、計分測試清單（未四捨五入） |
+| `data/presets/<presetId>.md`            | 同上內容的 Markdown 表格（一位小數）                                             |
+| `presets/<presetId>.html`               | 同上內容的靜態 HTML 頁，不需執行 JavaScript，也不內嵌資料                        |
+| `data/profiles.json`                    | 全部 profile 與各自的 evidence 檔路徑                                            |
+| `data/costs.json`                       | 全部成本紀錄，每筆標明單位                                                       |
+| `methodology.md`                        | 英文方法論摘要、來源清單與授權標示                                               |
+| `evidence/<versionId>/<profileId>.json` | 既有的逐 profile 證據檔                                                          |
 
-- **一致性**：這些檔案與畫面讀取同一組投影函式（`mainScreenProduct`、`getRepresentativeRows`、`buildWeightedCostCurve`），不另寫一套計算。首頁頁尾與 `<head>` 的 `rel="alternate"` 連到入口。
+- **單一投影**：`apps/bench/lib/preset-projection.ts` 的 `projectPreset` 把一個集合在主畫面上的內容整理成一份純資料，JSON、Markdown 與靜態 HTML 頁都只是它的三種寫法。它呼叫的是 Dashboard 用的同一組函式（`mainScreenProduct`、`getRepresentativeRows`、`buildWeightedCostCurve`、`getCostParetoFrontier`），不另寫一套計算。
+- **一致性檢查**：`apps/bench/e2e/agent-surfaces.spec.ts` 讀建置後的輸出，逐集合比對三種格式的版本、列數、排名、分數與成本指數，並比對互動式 Dashboard（預設集合與一個 `?preset=` 集合）的表格和成本明細。它隨 e2e 在 CI 與 `pnpm data:release` 執行，任一格式不一致就失敗。
+- **JSON 契約**：每份 JSON 帶 `schemaVersion`、`versionId`、`generatedAt`；連結一律相對於檔案自身的網址；`units` 標明每個數值的單位與方向，`nulls` 說明各欄位為 null 的意義。欄位有破壞性變更時升 `schemaVersion`。
+- 首頁頁尾連到目前集合的三種格式，`<head>` 的 `rel="alternate"` 連到 `llms.txt`、`data/index.json` 與 `methodology.md`。
 - **只發布最新版**（2026-11-17 使用者裁決）：每次部署整站替換，舊版檔案不保留可抓取的網址；歷史版本以 Git 為準。每個檔案都寫明 `versionId`。
 - **英文方法論不是權威文件**（同日裁決）：公式參數、品質政策與來源清單由產品資料生成，敘述為英文摘要並註明以 `docs/` 的中文文件為準。修改計分或成本規則時須同步檢查 `methodologyMarkdown` 的敘述。
 - **上游授權標示**（同日裁決）：每個來源列出發布網站與快照時間；授權與再散布條款未經查證者一律寫 `unknown`，不自行宣告開放授權。

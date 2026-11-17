@@ -33,9 +33,7 @@ export interface ProfileEvidencePayload {
   evidence: ProductEvidence[];
 }
 
-/** Product hashes use a colon, which cannot name a Windows export directory. */
-export const evidenceVersionPath = (versionId: string): string =>
-  versionId.replace(':', '-');
+export { evidenceVersionPath } from './site-paths';
 
 type EvidenceTuple = [
   id: number,

@@ -1,41 +1,39 @@
 import type { DimensionId, ProductVersion } from '@llm-bench/benchmark-data';
 
-import {
-  WEIGHTED_SOURCE_COUNT,
-  costSourceName,
-  scoreBasisNote,
-  sourceName,
-} from './cost-labels';
-import { evidenceVersionPath, toDashboardProduct } from './dashboard-data';
+import { costSourceName, scoreBasisNote, sourceName } from './cost-labels';
 import { escapeCell, markdownLine } from './leaderboard-markdown';
+import {
+  projectPreset,
+  type PresetCostSource,
+  type PresetProjection,
+} from './preset-projection';
 import { formatScore } from './score-format';
 import {
+  COSTS_PATH,
+  DATA_INDEX_PATH,
   LLMS_TXT_PATH,
   METHODOLOGY_PATH,
+  PROFILES_PATH,
   REPOSITORY_URL,
+  evidenceVersionPath,
+  presetJsonPath,
   presetMarkdownPath,
+  presetPagePath,
+  profileEvidencePath,
+  relativeTo,
 } from './site-paths';
 import {
   UI_DIMENSION_ABBREVIATIONS,
   UI_DIMENSION_IDS,
   UI_DIMENSION_NAMES,
-  getActiveDimensionIds,
 } from './ui-contract';
-import {
-  COST_SOURCE_WEIGHTS,
-  buildWeightedCostCurve,
-  getCostParetoFrontier,
-  getProfileIdentity,
-  getRepresentativeRows,
-  mainScreenProduct,
-  profileById,
-  withActivePreset,
-} from './view-model';
+import { COST_SOURCE_WEIGHTS, getProfileIdentity } from './view-model';
 
 /**
- * Plain-text files published next to the dashboard for readers that cannot run
- * it: fetch-only agents, crawlers and scripts. They are built from the same
- * projections the page renders, so a number here is the number on screen.
+ * Files published next to the dashboard for readers that cannot run it:
+ * fetch-only agents, crawlers and scripts. The per-preset files render the
+ * same projection as the static preset page, which is built from the functions
+ * the dashboard calls, so a number here is the number on screen.
  */
 
 const table = (headers: string[], rows: string[][]): string =>
@@ -45,11 +43,10 @@ const table = (headers: string[], rows: string[][]): string =>
     ...rows.map(markdownLine),
   ].join('\n');
 
-/** Path from a file at `from` to the site-root-relative `to`. */
-const relativeTo = (from: string, to: string): string =>
-  `${'../'.repeat(from.split('/').length - 1)}${to}`;
-
-const versionLines = (product: ProductVersion): string[] => [
+const versionLines = (product: {
+  versionId: string;
+  generatedAt: string;
+}): string[] => [
   `- Data version: \`${product.versionId}\``,
   `- Generated: ${product.generatedAt} (UTC; when this data version was built)`,
 ];
@@ -57,20 +54,44 @@ const versionLines = (product: ProductVersion): string[] => [
 const SCORE_NOTE =
   'Scores are 0–100 and higher is better. A missing score is written N/A; it is never zero and never imputed.';
 
-export const presetMarkdown = (
+export const LEADERBOARD_NOTE =
+  'One row per base model, at its highest-scoring reasoning effort. Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half.';
+
+export const COST_NOTE =
+  'The cost index blends task costs across sources. Within each source, the natural log of the USD task cost is min-max scaled to 0–100 over the costs that source published for the profiles in this preset (every reasoning effort that qualifies for the table, not only the one shown), so the index of a model differs between presets. The sources a model has are then averaged with equal weight. It is a relative position, not a dollar estimate; the per-source USD figures are the published costs. A model is on the value frontier when its Overall is strictly higher than that of every model with the same or a lower cost index.';
+
+export const dimensionHeading = (dimension: DimensionId): string =>
+  `${UI_DIMENSION_NAMES[dimension]} (${UI_DIMENSION_ABBREVIATIONS[dimension]})`;
+
+/** "DeepSWE · OpenAI (vendor) $1.234 (DeepSWE 1.1 62.0)". */
+export const costSourceNote = (source: PresetCostSource): string =>
+  `${costSourceName({
+    sourceId: source.sourceId,
+    ...(source.reportedBySourceId
+      ? { reportedSourceId: source.reportedBySourceId }
+      : {}),
+  })} $${source.usdPerTask.toFixed(3)} (${scoreBasisNote(
+    source.pairedScore?.basis ?? 'NONE',
+    source.pairedScore?.score ?? null,
+    source.pairedScore?.benchmarkVersion,
+  )})`;
+
+/** Every preset's projection, in product order. */
+export const projectPresets = (
   product: ProductVersion,
-  presetId: string,
   benchmarkDimensions: Record<string, DimensionId>,
-): string | null => {
-  if (!product.presets.some(({ id }) => id === presetId)) return null;
-  const self = presetMarkdownPath(presetId);
-  const link = (to: string): string => relativeTo(self, to);
-  const main = mainScreenProduct(
-    withActivePreset(toDashboardProduct(product), presetId),
+): PresetProjection[] =>
+  product.presets.map(({ id }) =>
+    projectPreset(product, id, benchmarkDimensions)!,
   );
-  const rows = getRepresentativeRows(main);
-  const dimensionIds = getActiveDimensionIds(rows);
-  const evidenceRoot = `evidence/${evidenceVersionPath(product.versionId)}`;
+
+export const presetMarkdown = (
+  projection: PresetProjection,
+  presets: readonly PresetProjection[],
+): string => {
+  const { preset, dimensionIds } = projection;
+  const link = (to: string): string =>
+    relativeTo(presetMarkdownPath(preset.id), to);
 
   const leaderboard = table(
     [
@@ -79,36 +100,23 @@ export const presetMarkdown = (
       'Provider',
       'Reasoning effort',
       'Overall',
-      ...dimensionIds.map(
-        (dimension) =>
-          `${UI_DIMENSION_NAMES[dimension]} (${UI_DIMENSION_ABBREVIATIONS[dimension]})`,
-      ),
+      ...dimensionIds.map(dimensionHeading),
       'Evidence',
     ],
-    rows.map((row) => {
-      const profile = profileById(main, row.profileId);
-      return [
-        row.rank === null ? 'N/A' : String(row.rank),
-        escapeCell(profile?.baseModelName ?? row.modelId),
-        escapeCell(profile?.providerId ?? 'unknown'),
-        escapeCell(profile ? getProfileIdentity(profile) : 'unknown'),
-        formatScore(row.overallScore),
-        ...dimensionIds.map((dimension) =>
-          formatScore(
-            row.dimensions.find((entry) => entry.dimension === dimension)
-              ?.score ?? null,
-          ),
-        ),
-        `[${row.profileId}.json](${link(`${evidenceRoot}/${row.profileId}.json`)})`,
-      ];
-    }),
+    projection.leaderboard.map((row) => [
+      row.rank === null ? 'N/A' : String(row.rank),
+      escapeCell(row.modelName),
+      escapeCell(row.providerId),
+      escapeCell(row.reasoningEffort),
+      formatScore(row.overallScore),
+      ...dimensionIds.map((dimension) =>
+        formatScore(row.dimensionScores[dimension] ?? null),
+      ),
+      `[${row.profileId}.json](${link(row.evidencePath)})`,
+    ]),
   );
 
-  const points = buildWeightedCostCurve(main);
-  const frontier = new Set(
-    getCostParetoFrontier(points).map(({ profileId }) => profileId),
-  );
-  const costs = points.length
+  const costs = projection.costs.length
     ? table(
         [
           'Model',
@@ -119,23 +127,15 @@ export const presetMarkdown = (
           'On value frontier',
           'Task cost in USD by source (paired score)',
         ],
-        points.map((point) => [
-          escapeCell(point.displayName),
-          escapeCell(point.providerId),
-          point.normalizedCost.toFixed(1),
-          point.performance.toFixed(1),
-          `${point.sourceCount} of ${WEIGHTED_SOURCE_COUNT}`,
-          frontier.has(point.profileId) ? 'yes' : 'no',
-          point.sourceCosts
-            .map((source) =>
-              escapeCell(
-                `${costSourceName(source)} $${source.cost.toFixed(3)} (${scoreBasisNote(
-                  source.scoreBasis,
-                  source.sourceScore,
-                  source.scoreBenchmarkVersion,
-                )})`,
-              ),
-            )
+        projection.costs.map((row) => [
+          escapeCell(row.displayName),
+          escapeCell(row.providerId),
+          row.costIndex.toFixed(1),
+          row.overallScore.toFixed(1),
+          `${row.sourceCount} of ${projection.weightedCostSourceCount}`,
+          row.onValueFrontier ? 'yes' : 'no',
+          row.sources
+            .map((source) => escapeCell(costSourceNote(source)))
             .join('; '),
         ]),
       )
@@ -143,33 +143,33 @@ export const presetMarkdown = (
 
   const benchmarks = table(
     ['Benchmark ID', 'Dimension'],
-    main.activePreset.benchmarkIds
-      .toSorted()
-      .map((id) => [`\`${id}\``, UI_DIMENSION_NAMES[benchmarkDimensions[id]!]]),
+    projection.benchmarks.map(({ id, dimension }) => [
+      `\`${id}\``,
+      UI_DIMENSION_NAMES[dimension],
+    ]),
   );
 
   return [
-    `# FM-DCC leaderboard — preset \`${presetId}\``,
+    `# FM-DCC leaderboard — preset \`${preset.id}\``,
     '',
     `Frontier language models ranked on the benchmarks every model in this set has in common.${
-      presetId === product.defaultPresetId
-        ? ' This is the default view of the dashboard.'
-        : ''
+      preset.isDefault ? ' This is the default view of the dashboard.' : ''
     }`,
     '',
-    ...versionLines(product),
-    `- Models: ${rows.length}; benchmarks scored: ${main.activePreset.benchmarkIds.length}`,
+    ...versionLines(projection),
+    `- Models: ${preset.modelCount}; benchmarks scored: ${preset.benchmarkCount}`,
     `- Method: [methodology](${link(METHODOLOGY_PATH)})`,
+    `- Same data: [JSON](${link(presetJsonPath(preset.id))}) (unrounded), [HTML](${link(presetPagePath(preset.id))})`,
     '',
     '## Leaderboard',
     '',
-    `One row per base model, at its highest-scoring reasoning effort. ${SCORE_NOTE} Overall is the weighted mean of the dimension scores; a dimension backed by a single benchmark counts half. Each Evidence file lists every measurement behind the row with its source URL.`,
+    `${LEADERBOARD_NOTE} ${SCORE_NOTE} Each Evidence file lists every measurement behind the row with its source URL.`,
     '',
     leaderboard,
     '',
     '## Quality vs. cost',
     '',
-    'The cost index blends task costs across sources: within each source the natural log of the USD task cost is min-max scaled to 0–100, then the sources a model has are averaged with equal weight. It is a relative position, not a dollar estimate; the per-source USD figures are the published costs. A model is on the value frontier when its Overall is strictly higher than that of every model with the same or a lower cost index.',
+    COST_NOTE,
     '',
     costs,
     '',
@@ -179,17 +179,162 @@ export const presetMarkdown = (
     '',
     '## Other presets',
     '',
-    ...product.presets.map(
-      ({ id, leaderboard: presetRows }) =>
-        `- [${id}](${link(presetMarkdownPath(id))})${
-          id === presetId ? ' (this file)' : ''
-        }: ${new Set(presetRows.map(({ modelId }) => modelId)).size} models`,
+    ...presets.map(
+      (other) =>
+        `- [${other.preset.id}](${link(presetMarkdownPath(other.preset.id))})${
+          other.preset.id === preset.id ? ' (this file)' : ''
+        }: ${other.preset.modelCount} models`,
     ),
     '',
   ].join('\n');
 };
 
-export const llmsTxt = (product: ProductVersion): string =>
+const UNITS = {
+  overallScore: { unit: 'score_0_100', better: 'higher' },
+  dimensionScores: { unit: 'score_0_100', better: 'higher' },
+  costIndex: { unit: 'normalized_index_0_100', better: 'lower' },
+  normalizedCost: { unit: 'normalized_index_0_100', better: 'lower' },
+  usdPerTask: { unit: 'USD_PER_TASK', better: 'lower' },
+} as const;
+
+const json = (value: unknown): string => `${JSON.stringify(value, null, 1)}\n`;
+
+/**
+ * The preset projection as a public document: links become relative to the
+ * file's own URL, and the meaning of each number and of null is spelled out.
+ */
+export const presetJson = (projection: PresetProjection): string => {
+  const { preset } = projection;
+  const link = (to: string): string =>
+    relativeTo(presetJsonPath(preset.id), to);
+  return json({
+    schemaVersion: 'preset-leaderboard-v1',
+    versionId: projection.versionId,
+    generatedAt: projection.generatedAt,
+    preset,
+    links: {
+      note: "Relative to this file's URL.",
+      index: link(DATA_INDEX_PATH),
+      markdown: link(presetMarkdownPath(preset.id)),
+      html: link(presetPagePath(preset.id)),
+      methodology: link(METHODOLOGY_PATH),
+    },
+    units: UNITS,
+    nulls: {
+      score: 'Not measured. A missing score is never zero and never imputed.',
+      costIndex:
+        'No weighted cost source published a comparable USD task cost for this model.',
+      pairedScore:
+        'The source published a cost but no score that can be paired with it.',
+    },
+    notes: { leaderboard: LEADERBOARD_NOTE, costs: COST_NOTE },
+    dimensionIds: projection.dimensionIds,
+    leaderboard: projection.leaderboard.map(({ evidencePath, ...row }) => ({
+      ...row,
+      evidence: link(evidencePath),
+    })),
+    weightedCostSourceCount: projection.weightedCostSourceCount,
+    costs: projection.costs.map((row) => ({
+      ...row,
+      sources: row.sources.map((source) => ({
+        ...source,
+        sourceName: sourceName(source.sourceId),
+      })),
+    })),
+    benchmarks: projection.benchmarks,
+  });
+};
+
+/** Entry point for scripts: every published data file and the source list. */
+export const dataIndexJson = (
+  product: ProductVersion,
+  presets: readonly PresetProjection[],
+): string => {
+  const link = (to: string): string => relativeTo(DATA_INDEX_PATH, to);
+  return json({
+    schemaVersion: 'data-index-v1',
+    versionId: product.versionId,
+    generatedAt: product.generatedAt,
+    links: {
+      note: "Relative to this file's URL. Only the latest data version is published; every file states its versionId.",
+      profiles: link(PROFILES_PATH),
+      costs: link(COSTS_PATH),
+      methodology: link(METHODOLOGY_PATH),
+      llmsTxt: link(LLMS_TXT_PATH),
+      repository: REPOSITORY_URL,
+    },
+    defaultPresetId: product.defaultPresetId,
+    presets: presets.map(({ preset }) => ({
+      ...preset,
+      json: link(presetJsonPath(preset.id)),
+      markdown: link(presetMarkdownPath(preset.id)),
+      html: link(presetPagePath(preset.id)),
+    })),
+    evidence: {
+      schemaVersion: 'profile-evidence-v1',
+      pathTemplate: link(profileEvidencePath(product.versionId, '{profileId}')),
+      profileCount: product.profiles.length,
+      note: 'One file per profile listed in profiles. The directory name changes with the data version.',
+    },
+    sources: {
+      note: 'Results and costs belong to their publishers. Licence and redistribution terms have not been established for any source; no open-data licence is claimed.',
+      list: sourceRows(product).map((source) => ({
+        ...source,
+        licence: 'unknown',
+      })),
+    },
+  });
+};
+
+export const profilesJson = (product: ProductVersion): string =>
+  json({
+    schemaVersion: 'profiles-v1',
+    versionId: product.versionId,
+    generatedAt: product.generatedAt,
+    note: "A profile is one model at one reasoning effort. Evidence paths are relative to this file's URL.",
+    profiles: product.profiles.map((profile) => ({
+      id: profile.id,
+      modelId: profile.modelId,
+      modelName: profile.baseModelName,
+      providerId: profile.providerId,
+      reasoningEffort: getProfileIdentity(profile),
+      releaseDate: profile.releaseDate,
+      evidence: relativeTo(
+        PROFILES_PATH,
+        profileEvidencePath(product.versionId, profile.id),
+      ),
+    })),
+  });
+
+export const costsJson = (product: ProductVersion): string =>
+  json({
+    schemaVersion: 'costs-v1',
+    versionId: product.versionId,
+    generatedAt: product.generatedAt,
+    note: 'Every published cost record, as its source stated it; each record names its own unit. The cost index of the leaderboards uses only positive USD_PER_TASK records of the weighted sources (see methodology).',
+    units: {
+      USD_PER_TASK: 'US dollars to complete one benchmark task',
+      USD_PER_MILLION_TOKENS: 'US dollars per million tokens (API price)',
+    },
+    costs: product.costs.map((cost) => ({
+      modelId: cost.modelId,
+      profileId: cost.profileId,
+      sourceId: cost.sourceId,
+      benchmarkId: cost.benchmarkId,
+      benchmarkVersion: cost.benchmarkVersion,
+      metricId: cost.metricId,
+      metricName: cost.metricName,
+      costType: cost.costType,
+      unit: cost.unit,
+      cost: cost.cost,
+      sourceUrl: cost.sourceUrl,
+    })),
+  });
+
+export const llmsTxt = (
+  product: ProductVersion,
+  presets: readonly PresetProjection[],
+): string =>
   [
     '# FM-DCC — Frontier Model Doh Choo-choo',
     '',
@@ -197,20 +342,23 @@ export const llmsTxt = (product: ProductVersion): string =>
     '',
     ...versionLines(product),
     `- ${SCORE_NOTE}`,
-    '- The HTML dashboard embeds its whole dataset and is about 2 MB; read the files below instead.',
+    '- The interactive dashboard at the site root embeds its whole dataset and is about 2 MB; read the files below instead.',
     '',
     '## Leaderboards',
     '',
-    ...product.presets.map(
-      ({ id }) =>
-        `- [${id}](${presetMarkdownPath(id)}): ranking, dimension scores, task costs and benchmark list${
-          id === product.defaultPresetId ? ' (default view)' : ''
-        }`,
+    'One preset per model-set size. Each has the ranking, dimension scores, task costs and benchmark list in three formats with the same content: Markdown, JSON (unrounded numbers) and a static HTML page that needs no JavaScript.',
+    '',
+    ...presets.map(
+      ({ preset }) =>
+        `- ${preset.id}${preset.isDefault ? ' (default view)' : ''}, ${preset.modelCount} models: [Markdown](${presetMarkdownPath(preset.id)}), [JSON](${presetJsonPath(preset.id)}), [HTML](${presetPagePath(preset.id)})`,
     ),
     '',
-    '## Evidence',
+    '## Data',
     '',
-    `- \`evidence/${evidenceVersionPath(product.versionId)}/<profileId>.json\`: every measurement for one model profile (schema \`profile-evidence-v1\`), with raw and normalized score, inclusion status, source URL, locator and retrieval time. Each leaderboard row links to its file. The directory name changes with the data version.`,
+    `- [Index](${DATA_INDEX_PATH}): every data file with its schema version, plus the source list and attribution`,
+    `- [Profiles](${PROFILES_PATH}): every model profile (one model at one reasoning effort) with the path of its evidence file`,
+    `- [Costs](${COSTS_PATH}): every published cost record with its unit (about 0.5 MB)`,
+    `- \`evidence/${evidenceVersionPath(product.versionId)}/<profileId>.json\`: every measurement for one model profile (schema \`profile-evidence-v1\`), with raw and normalized score, inclusion status, source URL, locator and retrieval time. Each row of the leaderboard files above links to its evidence file. The directory name changes with the data version.`,
     '',
     '## Documentation',
     '',
@@ -227,7 +375,16 @@ const hostOf = (url: string): string => {
   }
 };
 
-const sourcesTable = (product: ProductVersion): string => {
+interface SourceRow {
+  sourceId: string;
+  publisherSite: string;
+  roles: string[];
+  includedMeasurements: number;
+  snapshotTakenAt: string | null;
+}
+
+/** Sources with at least one included measurement, by ID. */
+const sourceRows = (product: ProductVersion): SourceRow[] => {
   const snapshots = new Map(
     product.sourceSnapshotIds.map((id) => {
       const split = id.indexOf(':');
@@ -251,7 +408,21 @@ const sourcesTable = (product: ProductVersion): string => {
     entry.hosts.set(host, (entry.hosts.get(host) ?? 0) + 1);
     bySource.set(row.sourceId, entry);
   });
-  return table(
+  return [...bySource.entries()]
+    .toSorted(([left], [right]) => left.localeCompare(right))
+    .map(([sourceId, { included, roles, hosts }]) => ({
+      sourceId,
+      publisherSite: [...hosts.entries()].toSorted(
+        (left, right) => right[1] - left[1] || left[0].localeCompare(right[0]),
+      )[0]![0],
+      roles: [...roles].toSorted(),
+      includedMeasurements: included,
+      snapshotTakenAt: snapshots.get(sourceId) ?? null,
+    }));
+};
+
+const sourcesTable = (product: ProductVersion): string =>
+  table(
     [
       'Source ID',
       'Publisher site',
@@ -260,21 +431,15 @@ const sourcesTable = (product: ProductVersion): string => {
       'Snapshot taken (UTC)',
       'Licence / redistribution terms',
     ],
-    [...bySource.entries()]
-      .toSorted(([left], [right]) => left.localeCompare(right))
-      .map(([sourceId, { included, roles, hosts }]) => [
-        `\`${sourceId}\``,
-        [...hosts.entries()].toSorted(
-          (left, right) =>
-            right[1] - left[1] || left[0].localeCompare(right[0]),
-        )[0]![0],
-        [...roles].toSorted().join(', '),
-        String(included),
-        snapshots.get(sourceId) ?? 'unknown',
-        'unknown',
-      ]),
+    sourceRows(product).map((source) => [
+      `\`${source.sourceId}\``,
+      source.publisherSite,
+      source.roles.join(', '),
+      String(source.includedMeasurements),
+      source.snapshotTakenAt ?? 'unknown',
+      'unknown',
+    ]),
   );
-};
 
 export const methodologyMarkdown = (
   product: ProductVersion,
@@ -352,7 +517,7 @@ export const methodologyMarkdown = (
     '## Cost index',
     '',
     `- Only published USD-per-task costs are used; API token prices are not part of the default chart. Cost never affects capability scores.`,
-    '- Within each source, the natural log of the task cost is min-max scaled to 0–100 across that source (0 = cheapest, 100 = most expensive).',
+    '- Within each source, the natural log of the task cost is min-max scaled to 0–100 (0 = cheapest, 100 = most expensive). The scale spans the costs that source published for the profiles in the preset being viewed: every reasoning effort that qualifies for the table, not only the one shown. The same model therefore has a different index in different presets.',
     `- The index is the equally weighted mean over the cost groups a model has, out of ${weightEntries.length}: ${weightEntries.map(sourceName).join(', ')}. Missing groups are skipped and the weights renormalised.`,
     '- The value frontier is the Pareto set: scanning from cheapest to most expensive, a model is on it when its Overall is strictly higher than that of every model with the same or a lower cost index.',
     '- The index is a comparison aid, not a dollar estimate.',
@@ -363,7 +528,9 @@ export const methodologyMarkdown = (
     '',
     sourcesTable(product),
     '',
-    `Machine-readable files are listed in [llms.txt](${LLMS_TXT_PATH}).`,
+    'Sources are captured independently, so the snapshot times differ; each is when that source was last captured, and the scores it contributes are as of that time.',
+    '',
+    `Machine-readable files are listed in [llms.txt](${LLMS_TXT_PATH}) and [data/index.json](${DATA_INDEX_PATH}).`,
     '',
   ].join('\n');
 };

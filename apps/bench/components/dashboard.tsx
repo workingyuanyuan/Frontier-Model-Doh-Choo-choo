@@ -13,7 +13,9 @@ import {
   LLMS_TXT_PATH,
   METHODOLOGY_PATH,
   REPOSITORY_URL,
+  presetJsonPath,
   presetMarkdownPath,
+  presetPagePath,
   sitePath,
 } from '../lib/site-paths';
 import { CostChart, type ChartShortlist } from './cost-chart';
@@ -430,9 +432,9 @@ export function Dashboard({
       <footer className="site-footer">
         <span>FM-DCC</span>
         <nav className="footer-links" aria-label="Data and documentation">
-          <a href={sitePath(presetMarkdownPath(activePreset.id))}>
-            Leaderboard (Markdown)
-          </a>
+          <a href={sitePath(presetPagePath(activePreset.id))}>Plain HTML</a>
+          <a href={sitePath(presetMarkdownPath(activePreset.id))}>Markdown</a>
+          <a href={sitePath(presetJsonPath(activePreset.id))}>JSON</a>
           <a href={sitePath(METHODOLOGY_PATH)}>Methodology</a>
           <a href={sitePath(LLMS_TXT_PATH)}>llms.txt</a>
           <a href={REPOSITORY_URL}>Source repository</a>
