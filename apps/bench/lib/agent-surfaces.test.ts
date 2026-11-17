@@ -1,7 +1,22 @@
 import { describe, expect, it } from 'vitest';
 
-import { llmsTxt, presetMarkdown } from './agent-surfaces';
-import { presetMarkdownPath } from './site-paths';
+import {
+  dataIndexJson,
+  llmsTxt,
+  presetJson,
+  presetMarkdown,
+  profilesJson,
+  projectPresets,
+} from './agent-surfaces';
+import { projectPreset } from './preset-projection';
+import {
+  DATA_INDEX_PATH,
+  PROFILES_PATH,
+  presetJsonPath,
+  presetMarkdownPath,
+  presetPagePath,
+  profileEvidencePath,
+} from './site-paths';
 import { getRepresentativeRows, mainScreenProduct } from './view-model';
 import { productFixture } from '../test/fixture';
 
@@ -9,6 +24,10 @@ const benchmarkDimensions = {
   'terminal-bench-2-1': 'coding',
   frontiermath: 'reasoning',
 } as const;
+
+const presetId = productFixture.activePreset.id;
+const presets = projectPresets(productFixture, benchmarkDimensions);
+const projection = presets.find(({ preset }) => preset.id === presetId)!;
 
 /** Data rows of the first Markdown table after a heading. */
 const tableRows = (markdown: string, heading: string): string[][] =>
@@ -19,46 +38,113 @@ const tableRows = (markdown: string, heading: string): string[][] =>
     .slice(2)
     .map((row) => row.split(' | ').map((cell) => cell.replace(/^\| /, '')));
 
+/** The site-root path a link in a published file points at. */
+const resolveFrom = (file: string, href: string): string =>
+  new URL(href, `http://site/${file}`).pathname.slice(1);
+
 describe('published agent files', () => {
-  it('ranks the same profiles in the same order as the main screen', () => {
-    const presetId = productFixture.activePreset.id;
-    const markdown = presetMarkdown(
-      productFixture,
-      presetId,
-      benchmarkDimensions,
-    )!;
+  it('projects the profiles of the main screen in the same order', () => {
     const expected = getRepresentativeRows(mainScreenProduct(productFixture));
+
+    expect(expected.length).toBeGreaterThan(0);
+    expect(
+      projection.leaderboard.map((row) => [
+        row.rank,
+        row.profileId,
+        row.overallScore,
+      ]),
+    ).toEqual(
+      expected.map((row) => [row.rank, row.profileId, row.overallScore]),
+    );
+  });
+
+  it('writes the same rows to Markdown and JSON', () => {
+    const markdown = presetMarkdown(projection, presets);
+    const document = JSON.parse(presetJson(projection));
     const leaderboard = markdown.slice(
       0,
       markdown.indexOf('## Quality vs. cost'),
     );
 
-    expect(expected.length).toBeGreaterThan(0);
     expect(
       tableRows(leaderboard, '## Leaderboard').map((cells) => [
         cells[0],
         cells[4],
-        cells.at(-1),
+        resolveFrom(
+          presetMarkdownPath(presetId),
+          cells.at(-1)!.match(/\]\(([^)]+)\)/)![1]!,
+        ),
       ]),
     ).toEqual(
-      expected.map((row) => [
-        String(row.rank),
-        row.overallScore!.toFixed(1),
-        expect.stringContaining(`${row.profileId}.json`),
-      ]),
+      document.leaderboard.map(
+        (row: { rank: number; overallScore: number; evidence: string }) => [
+          String(row.rank),
+          row.overallScore.toFixed(1),
+          resolveFrom(presetJsonPath(presetId), row.evidence),
+        ],
+      ),
+    );
+    expect(document.versionId).toBe(productFixture.versionId);
+    expect(markdown).toContain(productFixture.versionId);
+  });
+
+  it('links each JSON row to the evidence file of its profile', () => {
+    const document = JSON.parse(presetJson(projection));
+
+    expect(
+      document.leaderboard.map((row: { evidence: string }) =>
+        resolveFrom(presetJsonPath(presetId), row.evidence),
+      ),
+    ).toEqual(
+      projection.leaderboard.map(({ profileId }) =>
+        profileEvidencePath(productFixture.versionId, profileId),
+      ),
     );
   });
 
-  it('has no file for a preset the product does not carry', () => {
-    expect(presetMarkdown(productFixture, 'missing', benchmarkDimensions)).toBe(
+  it('has no projection for a preset the product does not carry', () => {
+    expect(projectPreset(productFixture, 'missing', benchmarkDimensions)).toBe(
       null,
     );
   });
 
-  it('indexes every preset from llms.txt', () => {
-    const index = llmsTxt(productFixture);
+  it('indexes every preset in every format', () => {
+    const index = llmsTxt(productFixture, presets);
+    const data = JSON.parse(dataIndexJson(productFixture, presets));
 
+    expect(
+      data.presets.map((entry: Record<string, string>) =>
+        [entry.markdown, entry.json, entry.html].map((href) =>
+          resolveFrom(DATA_INDEX_PATH, href!),
+        ),
+      ),
+    ).toEqual(
+      productFixture.presets.map(({ id }) => [
+        presetMarkdownPath(id),
+        presetJsonPath(id),
+        presetPagePath(id),
+      ]),
+    );
     for (const { id } of productFixture.presets)
-      expect(index).toContain(`](${presetMarkdownPath(id)})`);
+      for (const path of [
+        presetMarkdownPath(id),
+        presetJsonPath(id),
+        presetPagePath(id),
+      ])
+        expect(index).toContain(`](${path})`);
+  });
+
+  it('lists every profile with its evidence file', () => {
+    const { profiles } = JSON.parse(profilesJson(productFixture));
+
+    expect(
+      profiles.map((profile: { evidence: string }) =>
+        resolveFrom(PROFILES_PATH, profile.evidence),
+      ),
+    ).toEqual(
+      productFixture.profiles.map(({ id }) =>
+        profileEvidencePath(productFixture.versionId, id),
+      ),
+    );
   });
 });

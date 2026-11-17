@@ -1,0 +1,89 @@
+/* The static preset page: plain tables, no interaction. */
+
+.static-page h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.static-page > p:not(.eyebrow) {
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 60rem;
+}
+
+.static-presets {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  gap: 0.35rem 1rem;
+  margin-top: 1rem;
+}
+
+.static-presets span {
+  color: var(--ink-faint);
+}
+
+.static-presets a[aria-current='page'] {
+  color: var(--ink);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.static-panel {
+  margin-top: 2rem;
+  padding: 1.25rem 0 0;
+}
+
+.static-panel h2,
+.static-panel > p {
+  margin: 0;
+  padding: 0 1.25rem;
+}
+
+.static-panel h2 {
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.static-panel > p {
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  margin: 0.5rem 0 1rem;
+  max-width: 62rem;
+}
+
+.static-panel > p:last-child {
+  padding-bottom: 1.25rem;
+}
+
+.static-table td,
+.static-table th {
+  font-variant-numeric: tabular-nums;
+  padding: 0.625rem 1rem;
+  vertical-align: top;
+}
+
+.static-table tbody th {
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+[data-static-table='leaderboard'] {
+  min-width: 62rem;
+}
+
+/* The page is read top to bottom, so tables grow instead of scrolling inside. */
+.static-page .table-scroll {
+  max-height: none;
+}
+
+.static-sources {
+  display: grid;
+  gap: 0.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}

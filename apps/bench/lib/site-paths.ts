@@ -5,11 +5,34 @@
  */
 export const LLMS_TXT_PATH = 'llms.txt';
 export const METHODOLOGY_PATH = 'methodology.md';
+export const DATA_INDEX_PATH = 'data/index.json';
+export const PROFILES_PATH = 'data/profiles.json';
+export const COSTS_PATH = 'data/costs.json';
 export const REPOSITORY_URL =
   'https://github.com/workingyuanyuan/Frontier-Model-Doh-Choo-choo';
 
 export const presetMarkdownPath = (presetId: string): string =>
   `data/presets/${presetId}.md`;
+
+export const presetJsonPath = (presetId: string): string =>
+  `data/presets/${presetId}.json`;
+
+/** The static HTML page of one preset, named with its extension so every static host serves it. */
+export const presetPagePath = (presetId: string): string =>
+  `presets/${presetId}.html`;
+
+/** Product hashes use a colon, which cannot name a Windows export directory. */
+export const evidenceVersionPath = (versionId: string): string =>
+  versionId.replace(':', '-');
+
+export const profileEvidencePath = (
+  versionId: string,
+  profileId: string,
+): string => `evidence/${evidenceVersionPath(versionId)}/${profileId}.json`;
+
+/** Path from a file at `from` to the site-root-relative `to`. */
+export const relativeTo = (from: string, to: string): string =>
+  `${'../'.repeat(from.split('/').length - 1)}${to}`;
 
 /** Plain anchors are not prefixed by Next, so the Pages subpath is added here. */
 export const sitePath = (path: string): string =>
