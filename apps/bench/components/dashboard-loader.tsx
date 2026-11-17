@@ -2,7 +2,7 @@
 
 import type { DimensionId } from '@llm-bench/benchmark-data';
 import { useEffect } from 'react';
-import { useDashboardLoadStatus, useDashboardPayload } from '#dashboard-source';
+import { useDashboardPayload } from '#dashboard-source';
 
 import { Dashboard } from './dashboard';
 
@@ -13,6 +13,10 @@ import { Dashboard } from './dashboard';
  * into the HTML. In the browser this component suspends until the same data
  * has been fetched; React leaves the prerendered HTML in place meanwhile and
  * makes it interactive once the data is there.
+ *
+ * It must not sit inside a Suspense boundary: React moves a large boundary
+ * out of the document flow and reveals it with a script, which would leave
+ * the page blank for a reader that does not run scripts.
  */
 export function DashboardLoader({
   benchmarkDimensions,
@@ -28,23 +32,5 @@ export function DashboardLoader({
   }, []);
   return (
     <Dashboard benchmarkDimensions={benchmarkDimensions} product={product} />
-  );
-}
-
-/** Says why the controls do not respond yet, or that they never will. */
-export function DashboardLoadNotice() {
-  const status = useDashboardLoadStatus();
-  if (status === 'ready') return null;
-  return status === 'loading' ? (
-    <p className="load-notice" role="status">
-      Loading interactive controls…
-    </p>
-  ) : (
-    <p className="load-notice" role="alert">
-      The interactive controls could not load, so this page is read-only.
-      <button type="button" onClick={() => window.location.reload()}>
-        Reload
-      </button>
-    </p>
   );
 }

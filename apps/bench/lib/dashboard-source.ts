@@ -5,8 +5,6 @@ import {
 } from './dashboard-data';
 import { loadProductVersion } from './load-product-version';
 
-export type DashboardLoadStatus = 'loading' | 'ready' | 'failed';
-
 /**
  * Where the dashboard gets its data while the page is prerendered: straight
  * from the product file. The browser build resolves `#dashboard-source` to
@@ -27,5 +25,3 @@ export const useDashboardPayload = (versionId: string): DashboardPayload => {
   }
   return current;
 };
-
-export const useDashboardLoadStatus = (): DashboardLoadStatus => 'ready';

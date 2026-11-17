@@ -1,10 +1,6 @@
-import { Suspense } from 'react';
 import { preload } from 'react-dom';
 
-import {
-  DashboardLoader,
-  DashboardLoadNotice,
-} from '../components/dashboard-loader';
+import { DashboardLoader } from '../components/dashboard-loader';
 import { loadProductVersion } from '../lib/load-product-version';
 import { dashboardDataUrl } from '../lib/site-paths';
 
@@ -21,14 +17,9 @@ export default function Page() {
     crossOrigin: 'anonymous',
   });
   return (
-    <>
-      <DashboardLoadNotice />
-      <Suspense fallback={null}>
-        <DashboardLoader
-          benchmarkDimensions={benchmarkDimensions}
-          versionId={product.versionId}
-        />
-      </Suspense>
-    </>
+    <DashboardLoader
+      benchmarkDimensions={benchmarkDimensions}
+      versionId={product.versionId}
+    />
   );
 }

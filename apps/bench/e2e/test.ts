@@ -8,12 +8,14 @@ import { test as base } from '@playwright/test';
  * does nothing yet. Passing `waitUntil` opts out, for the tests that look at
  * the page before that point.
  */
+const dashboard = `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/`;
+
 export const test = base.extend({
   page: async ({ page }, use) => {
     const goto = page.goto.bind(page);
     page.goto = async (url, options) => {
       const response = await goto(url, options);
-      if (!options?.waitUntil && new URL(page.url()).pathname.endsWith('/')) {
+      if (!options?.waitUntil && new URL(page.url()).pathname === dashboard) {
         await page.locator('html[data-dashboard="interactive"]').waitFor();
       }
       return response;

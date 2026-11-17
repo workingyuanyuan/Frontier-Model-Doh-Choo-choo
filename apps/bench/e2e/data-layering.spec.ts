@@ -31,6 +31,13 @@ const loadNotice = (page: Page) => page.locator('.load-notice');
 const developerMode = (page: Page) =>
   page.getByRole('switch', { name: 'Developer mode' });
 
+const rankedRows = (page: Page) => page.locator('[data-ranked-row]');
+const expectDefaultViewVisible = async (page: Page) => {
+  await expect(rankedRows(page)).toHaveCount(defaultModelCount);
+  await expect(rankedRows(page).first()).toBeVisible();
+  await expect(rankedRows(page).last()).toBeVisible();
+};
+
 test('serves the default view as HTML without embedding the data', async ({
   browser,
   request,
@@ -42,9 +49,7 @@ test('serves the default view as HTML without embedding the data', async ({
   try {
     const page = await context.newPage();
     await page.goto(home);
-    await expect(page.locator('[data-ranked-row]')).toHaveCount(
-      defaultModelCount,
-    );
+    await expectDefaultViewVisible(page);
     await expect(loadNotice(page)).toHaveCount(0);
   } finally {
     await context.close();
@@ -54,6 +59,11 @@ test('serves the default view as HTML without embedding the data', async ({
 test('shows the prerendered view until the data arrives, then responds', async ({
   page,
 }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => {
+    if (message.type() === 'error') errors.push(message.text());
+  });
   const requests: string[] = [];
   let release!: () => void;
   const held = new Promise<void>((resolve) => {
@@ -66,52 +76,61 @@ test('shows the prerendered view until the data arrives, then responds', async (
     await route.fulfill({ response });
   });
   try {
-    await page.goto(home, { waitUntil: 'commit' });
-    await expect(page.locator('[data-ranked-row]')).toHaveCount(
-      defaultModelCount,
-    );
+    await page.goto(home, { waitUntil: 'load' });
+    await expectDefaultViewVisible(page);
     await expect(loadNotice(page)).toHaveText('Loading interactive controls…');
-    const prerendered = await page.locator('main').innerHTML();
     await expect(page.locator('html')).not.toHaveAttribute('data-dashboard');
+    const prerendered = await rankedRows(page).first().elementHandle();
     release();
     await expect(page.locator('html')).toHaveAttribute(
       'data-dashboard',
       'interactive',
     );
     await expect(loadNotice(page)).toHaveCount(0);
-    // Hydration keeps the prerendered markup: the data matches the page.
-    expect(await page.locator('main').innerHTML()).toBe(prerendered);
+    // React took over the prerendered nodes instead of rendering new ones.
+    expect(await prerendered!.evaluate((row) => row.isConnected)).toBe(true);
+    await expectDefaultViewVisible(page);
     await developerMode(page).click();
     await expect(developerMode(page)).toHaveAttribute('aria-checked', 'true');
     // The preload and the dashboard share one request.
     expect(requests).toHaveLength(1);
+    expect(errors).toEqual([]);
   } finally {
     release();
   }
 });
 
-test('stays readable and says so when the data does not arrive', async ({
-  page,
-}) => {
-  await page.route(dashboardData, (route) =>
-    route.fulfill({ status: 503, body: 'Temporarily unavailable' }),
-  );
-  await page.goto(home, { waitUntil: 'load' });
-  await expect(loadNotice(page)).toContainText('this page is read-only');
-  await expect(loadNotice(page)).toHaveAttribute('role', 'alert');
-  await expect(page.locator('[data-ranked-row]')).toHaveCount(
-    defaultModelCount,
-  );
-  await page.unroute(dashboardData);
-  await loadNotice(page).getByRole('button', { name: 'Reload' }).click();
-  await expect(page.locator('html')).toHaveAttribute(
-    'data-dashboard',
-    'interactive',
-  );
-  await expect(loadNotice(page)).toHaveCount(0);
-  await developerMode(page).click();
-  await expect(developerMode(page)).toHaveAttribute('aria-checked', 'true');
-});
+for (const failure of ['http', 'format', 'version'] as const) {
+  test(`stays readable and says so after a ${failure} failure of the data`, async ({
+    page,
+  }) => {
+    await page.route(dashboardData, async (route) => {
+      if (failure === 'http') {
+        await route.fulfill({ status: 503, body: 'Temporarily unavailable' });
+        return;
+      }
+      if (failure === 'format') {
+        await route.fulfill({ status: 200, body: '<html>not the data</html>' });
+        return;
+      }
+      const response = await route.fetch();
+      const payload = await response.json();
+      payload.product.versionId = 'sha256:another-release';
+      await route.fulfill({ response, json: payload });
+    });
+    await page.goto(home, { waitUntil: 'load' });
+    await expect(loadNotice(page)).toContainText('this page is read-only');
+    await expect(loadNotice(page)).toHaveAttribute('role', 'alert');
+    await expectDefaultViewVisible(page);
+    await expect(page.locator('html')).not.toHaveAttribute('data-dashboard');
+
+    await page.unroute(dashboardData);
+    await page.reload();
+    await expect(loadNotice(page)).toHaveCount(0);
+    await developerMode(page).click();
+    await expect(developerMode(page)).toHaveAttribute('aria-checked', 'true');
+  });
+}
 
 async function firstRow(page: Page) {
   const row = page.locator('[data-ranked-row]').first();

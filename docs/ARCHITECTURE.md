@@ -115,7 +115,9 @@ Dashboard 首頁只帶預設集合的畫面，其他集合與互動功能需要�
 - **上游授權標示**（同日裁決）：每個來源列出發布網站與快照時間；授權與再散布條款未經查證者一律寫 `unknown`，不自行宣告開放授權。
 - **首頁不內嵌資料**：`index.html` 只有預先渲染好的預設集合畫面（表格、圖表與成本明細），互動所需的整份資料放在 `data/dashboard.json`，由瀏覽器另外抓取。
   - 建置時與瀏覽器裡讀的是同一份資料，來源不同：`apps/bench/package.json` 的 `imports` 讓 `#dashboard-source` 在建置時解析到 `lib/dashboard-source.ts`（直接讀產品檔），在瀏覽器解析到 `lib/dashboard-source.browser.ts`（抓取）。
-  - 資料抵達前，React 保留預先渲染的畫面，抵達後才接手互動；抓取失敗時畫面維持可讀，並顯示提示與重新載入按鈕。
+  - 資料抵達前，React 保留預先渲染的畫面，抵達後才原地接手互動。抓取失敗或資料版本與頁面不符時，畫面維持可讀並顯示提示，請讀者重新載入。
+  - `DashboardLoader` 不可放進 `<Suspense>`：React 會把較大的 Suspense 內容移到文件後段並以 script 顯示，不執行 JavaScript 的讀者會看到空白頁。
+  - 載入提示是一般 DOM 元素而非 React 元件，因為資料抵達前 React 尚未接手頁面，也會攔下頁面上的點擊（連結與 `<details>` 等原生行為不受影響）。
   - `data/dashboard.json` 是 Dashboard 的內部傳輸格式（字典編碼），不是對外契約，不列入 `llms.txt` 與 `data/index.json`；外部讀者使用上表的檔案。
   - 網址帶 `?v=<versionId>`，避免新版頁面配到瀏覽器快取的舊版資料。
   - 接手互動後 `<html>` 帶 `data-dashboard="interactive"`。e2e 的 `page.goto`（`apps/bench/e2e/test.ts`）等這個標記才返回，用瀏覽器操作頁面的代理也可以等它；`llms.txt` 寫明了這點。
